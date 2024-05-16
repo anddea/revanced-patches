@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.FormatStreamModelConstructorFingerprint
 import app.revanced.patches.youtube.utils.fix.formatstream.fingerprints.PlaybackStartFingerprint
@@ -15,6 +16,7 @@ import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHoo
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -56,31 +58,46 @@ object SpoofFormatStreamDataPatch : BaseBytecodePatch(
     private const val STREAMING_DATA_OUTER_CLASS =
         "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 
+    private lateinit var hookMethod: MutableMethod
+
+    private fun MutableMethod.replaceFieldName(
+        index: Int,
+        replaceFieldString: String
+    ) {
+        val reference = getInstruction<ReferenceInstruction>(index).reference
+        val fieldName = (reference as FieldReference).name
+
+        hookMethod.apply {
+            val stringIndex = getStringInstructionIndex(replaceFieldString)
+            val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+
+            replaceInstruction(
+                stringIndex,
+                "const-string v$stringRegister, \"$fieldName\""
+            )
+        }
+    }
+
     override fun execute(context: BytecodeContext) {
 
         // Hook player response video id, to start loading format stream data sooner in the background.
         VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
 
+        hookMethod = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!
+            .mutableClass.methods.find { method -> method.name == INTEGRATIONS_METHOD_DESCRIPTOR }
+            ?: throw PatchException("SpoofFormatStreamDataPatch not found")
+
         FormatStreamModelConstructorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
 
                 // Find the field name that will be used for reflection.
-                val streamDataIndex = it.scanResult.patternScanResult!!.startIndex
-                val streamDataReference = getInstruction<ReferenceInstruction>(streamDataIndex).reference
-                val streamDataFieldName = (streamDataReference as FieldReference).name
+                val urlIndex = it.scanResult.patternScanResult!!.startIndex
+                val itagIndex = getTargetIndex(urlIndex + 1, Opcode.IGET)
+                val audioCodecParameterIndex = getTargetIndex(urlIndex + 1, Opcode.IGET_OBJECT)
 
-                // Found field name is reflected in the integration.
-                context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!
-                    .mutableClass.methods.find { method -> method.name == INTEGRATIONS_METHOD_DESCRIPTOR }
-                    ?.apply {
-                        val index = getStringInstructionIndex("replaceMeWithFieldName")
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                        replaceInstruction(
-                            index,
-                            "const-string v$register, \"$streamDataFieldName\""
-                        )
-                    } ?: throw PatchException("SpoofFormatStreamDataPatch not found")
+                replaceFieldName(urlIndex, "replaceMeWithUrlFieldName")
+                replaceFieldName(itagIndex, "replaceMeWithITagFieldName")
+                replaceFieldName(audioCodecParameterIndex, "replaceMeWithAudioCodecParameterFieldName")
             }
         }
 
