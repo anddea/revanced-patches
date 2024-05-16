@@ -12,6 +12,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSearchRenderedFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSignInEventFingerprint
 import app.revanced.patches.music.player.components.fingerprints.InteractionLoggingEnumFingerprint
@@ -39,6 +40,7 @@ import app.revanced.patches.music.utils.fingerprints.PendingIntentReceiverFinger
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopEnd
@@ -88,6 +90,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        AudioVideoSwitchToggleFingerprint,
         HandleSearchRenderedFingerprint,
         InteractionLoggingEnumFingerprint,
         MinimizedPlayerFingerprint,
@@ -488,6 +491,27 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             "revanced_enable_zen_mode_podcast",
             "false",
             "revanced_enable_zen_mode"
+        )
+
+        // endregion
+
+        // region patch for hide audio video switch toggle
+
+        AudioVideoSwitchToggleFingerprint.resultOrThrow().mutableMethod.apply {
+            val constIndex = getWideLiteralInstructionIndex(AudioVideoSwitchToggle)
+            val viewIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
+            val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+            addInstruction(
+                viewIndex + 1,
+                "invoke-static {v$viewRegister}, $PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;)V"
+            )
+        }
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_audio_video_switch_toggle",
+            "false"
         )
 
         // endregion
