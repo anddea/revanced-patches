@@ -113,9 +113,6 @@ object VideoInformationPatch : BytecodePatch(
     private lateinit var videoTimeConstructorMethod: MutableMethod
     private var videoTimeConstructorInsertIndex = 2
 
-    private lateinit var videoTimeMethod: MutableMethod
-    private var videoTimeIndex = 1
-
     // Used by other patches.
     internal lateinit var speedSelectionInsertMethod: MutableMethod
     internal lateinit var videoEndMethod: MutableMethod
@@ -265,6 +262,7 @@ object VideoInformationPatch : BytecodePatch(
         /**
          * Set current video id
          */
+        VideoIdPatch.hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
         VideoIdPatch.hookPlayerResponseVideoId(
             "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
         // Call before any other video id hooks,
