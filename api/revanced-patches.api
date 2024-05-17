@@ -1231,6 +1231,12 @@ public final class app/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch 
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
