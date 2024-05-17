@@ -1,3 +1,11 @@
+# [2.225.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.14...v2.225.0-dev.15) (2024-05-17)
+
+
+### Features
+
+* **YouTube - Translations:** Add compile time option to select app languages ([6356ddc](https://github.com/anddea/revanced-patches/commit/6356ddc5d082c17f39b4f5cf92c2a31a5295aeed))
+* **YT Music - Translations:** Add compile time options to select custom language, RVX and app languages ([074d3e2](https://github.com/anddea/revanced-patches/commit/074d3e22c3a16e5c71ea6c7d514bfc11b4576406))
+
 # [2.225.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.13...v2.225.0-dev.14) (2024-05-16)
 
 
