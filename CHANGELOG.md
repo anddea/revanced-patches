@@ -1,3 +1,10 @@
+# [2.225.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.15...v2.225.0-dev.16) (2024-05-18)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Branding Icon:** Add missing strings to prevent patch failure ([84e2cb5](https://github.com/anddea/revanced-patches/commit/84e2cb52c250fb6c2fb69bc3a0462ca880a8c9a5))
+
 # [2.225.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.14...v2.225.0-dev.15) (2024-05-17)
 
 
