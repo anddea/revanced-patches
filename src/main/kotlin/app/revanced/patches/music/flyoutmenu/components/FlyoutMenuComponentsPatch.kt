@@ -213,7 +213,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.FLYOUT,
             "revanced_enable_compact_dialog",
-            "true"
+            "false"
         )
         if (trimSilenceIncluded) {
             SettingsPatch.addSwitchPreference(
