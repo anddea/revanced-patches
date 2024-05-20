@@ -993,14 +993,14 @@ public final class app/revanced/patches/youtube/general/toolbar/fingerprints/Sea
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/toolbar/fingerprints/SearchResultFingerprint;
 }
 
-public final class app/revanced/patches/youtube/layout/animated/AnimatedButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/AnimatedButtonBackgroundPatch;
+public final class app/revanced/patches/youtube/layout/animated/ForceAnimatedButtonBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/ForceAnimatedButtonBackgroundPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/animated/AnimatedLikePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/AnimatedLikePatch;
+public final class app/revanced/patches/youtube/layout/animated/ForceAnimatedLikePatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/ForceAnimatedLikePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1237,16 +1237,16 @@ public final class app/revanced/patches/youtube/shorts/components/ShortsToolBarP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/shorts/dimming/ForceDisableShortsDimPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/dimming/ForceDisableShortsDimPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsdim/ForceDisableShortsDimPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch : app/revanced/util/patch/BaseResourcePatch {

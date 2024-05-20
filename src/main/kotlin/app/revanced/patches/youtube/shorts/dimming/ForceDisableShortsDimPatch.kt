@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.shorts.shortsdim
+package app.revanced.patches.youtube.shorts.dimming
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 @Suppress("unused")
 object ForceDisableShortsDimPatch : ResourcePatch(
     name = "Force disable Shorts dim",
-    description = "Forcefully disables the dimming effect on the top and bottom of Shorts video.",
+    description = "Hide the dimming effect on the top and bottom of Shorts video at compile time.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false

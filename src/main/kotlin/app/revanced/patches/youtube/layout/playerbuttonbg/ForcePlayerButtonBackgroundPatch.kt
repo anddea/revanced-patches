@@ -7,18 +7,18 @@ import app.revanced.util.doRecursively
 import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 
-@Suppress("DEPRECATION", "unused")
+@Suppress("unused")
 object ForcePlayerButtonBackgroundPatch : BaseResourcePatch(
     name = "Force hide player buttons background",
-    description = "Hides the dark background surrounding the video player controls.",
+    description = "Hide the dark background surrounding the video player controls at compile time.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
 ) {
     override fun execute(context: ResourceContext) {
 
-        context.xmlEditor["res/drawable/player_button_circle_background.xml"].use { editor ->
-            editor.file.doRecursively { node ->
+        context.document["res/drawable/player_button_circle_background.xml"].use { editor ->
+            editor.doRecursively { node ->
                 arrayOf("color").forEach replacement@{ replacement ->
                     if (node !is Element) return@replacement
 
