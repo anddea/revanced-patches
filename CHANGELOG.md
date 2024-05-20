@@ -1,3 +1,15 @@
+# [2.225.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.17...v2.225.0-dev.18) (2024-05-20)
+
+
+### Features
+
+* **YouTube - Settings:** Add search bar for settings ([85cf0c0](https://github.com/anddea/revanced-patches/commit/85cf0c016a20b4fb67c0a7aa1176fdce87d3ad48))
+
+
+### Reverts
+
+* default landscape mode timeout ([0d91401](https://github.com/anddea/revanced-patches/commit/0d914015accf4ef8a8d98fc607aead33620460ff))
+
 # [2.225.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.16...v2.225.0-dev.17) (2024-05-19)
 
 
