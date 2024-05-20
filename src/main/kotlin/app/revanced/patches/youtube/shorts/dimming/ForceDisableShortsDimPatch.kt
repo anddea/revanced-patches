@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
-@Suppress("unused")
+@Suppress("Deprecation", "unused")
 object ForceDisableShortsDimPatch : ResourcePatch(
     name = "Force disable Shorts dim",
     description = "Hide the dimming effect on the top and bottom of Shorts video at compile time.",
@@ -19,8 +19,8 @@ object ForceDisableShortsDimPatch : ResourcePatch(
         val hide = "0.0dip"
 
         fun hideLayoutAttributes(layoutFile: String, targetId: String) {
-            context.document[layoutFile].use { editor ->
-                editor.doRecursively { node ->
+            context.xmlEditor[layoutFile].use { editor ->
+                editor.file.doRecursively { node ->
                     if (node !is Element) return@doRecursively
 
                     when (node.getAttributeNode("android:id")?.textContent) {
