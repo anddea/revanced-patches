@@ -1,3 +1,10 @@
+# [2.225.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.19...v2.225.0-dev.20) (2024-05-20)
+
+
+### Features
+
+* **YouTube:** Missing patches in the new RVX code ([#488](https://github.com/anddea/revanced-patches/issues/488)) ([3106111](https://github.com/anddea/revanced-patches/commit/310611110a198b7126b5f8037ccddbface263dc3))
+
 # [2.225.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.18...v2.225.0-dev.19) (2024-05-20)
 
 
