@@ -31,7 +31,9 @@
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
             android:searchIcon="@null"
-            android:queryHint="@string/revanced_extended_settings_search_title" />
+            android:queryHint="@string/revanced_extended_settings_search_title"
+            android:layout_margin="5dp"
+            android:padding="5dp" />
 
         <FrameLayout
             android:id="@+id/revanced_settings_fragments"
