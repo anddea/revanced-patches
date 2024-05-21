@@ -40,9 +40,9 @@ jobs:
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          fingerprint: ${{ env.GPG_FINGERPRINT }}
+          gpg_private_key: ${{ GPG_PRIVATE_KEY }}
+          passphrase: ${{ 40F45537DAD4941F }}
+          fingerprint: ${{ 96E220CBB004D145052CC16C40F45537DAD4941F }}
 
       - name: Release
         env:
