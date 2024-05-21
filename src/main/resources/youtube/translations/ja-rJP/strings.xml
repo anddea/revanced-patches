@@ -719,8 +719,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_like_button_summary_off">高評価ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_like_button_summary_on">高評価ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_like_button_title">高評価ボタンを非表示</string>
-	<string name="revanced_hide_shorts_live_header_summary_off">ライブチャットのヘッダーを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
-	<string name="revanced_hide_shorts_live_header_summary_on">ライブチャットのヘッダーを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
+	<string name="revanced_hide_shorts_live_header_summary_off">縦配信のライブのプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
+	<string name="revanced_hide_shorts_live_header_summary_on">縦配信のライブのプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
 	<string name="revanced_hide_shorts_live_header_title">ライブチャットのヘッダーを非表示</string>
 	<string name="revanced_hide_shorts_location_label_summary_off">プレイヤー下部の「位置情報ラベル」を非表示にします。</string>
 	<string name="revanced_hide_shorts_location_label_summary_on">プレイヤー下部の「位置情報ラベル」を非表示にします。</string>
@@ -983,8 +983,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_remember_playback_speed_last_selected_summary_on">現在の状態：再生速度の変更はすべての動画に適用されます。</string>
 	<string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存</string>
 	<string name="revanced_remember_playback_speed_toast">デフォルトの再生速度を %s に変更しました。</string>
-	<string name="revanced_remember_video_quality_last_selected_summary_off">現在の設定：画質の変更は現在の動画にのみ適用されます。</string>
-	<string name="revanced_remember_video_quality_last_selected_summary_on">現在の設定：画質の変更はすべての動画に適用されます。</string>
+	<string name="revanced_remember_video_quality_last_selected_summary_off">画質を保存することにより、全ての動画に同じ画質を適用させます。</string>
+	<string name="revanced_remember_video_quality_last_selected_summary_on">画質を保存することにより、全ての動画に同じ画質を適用させます。</string>
 	<string name="revanced_remember_video_quality_last_selected_title">画質の変更を保存</string>
 	<string name="revanced_remember_video_quality_mobile">モバイルネットワーク使用時のデフォルト画質を %s に変更しました。</string>
 	<string name="revanced_remember_video_quality_none">画質を設定できませんでした。</string>
@@ -1027,17 +1027,19 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_ryd_dislike_percentage_summary_off">現在の設定：低評価は数字で表示されます。</string>
 	<string name="revanced_ryd_dislike_percentage_summary_on">現在の設定：低評価はパーセンテージで表示されます。</string>
 	<string name="revanced_ryd_dislike_percentage_title">低評価をパーセンテージで表示</string>
-	<string name="revanced_ryd_enable_summary_off">低評価数を表示します。</string>
-	<string name="revanced_ryd_enable_summary_on">低評価数を非表示にします。</string>
+	<string name="revanced_ryd_enable_summary_off">低評価数を復活させます。(注意：正確な値ではありません)</string>
+	<string name="revanced_ryd_enable_summary_on">低評価数を復活させます。(注意：正確な値ではありません)</string>
 	<string name="revanced_ryd_enable_title">Return YouTube Dislike を有効化</string>
 	<string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は一時的に利用できません。 (クライアント API 制限)</string>
 	<string formatted="false" name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません。(ステータス：%d)</string>
 	<string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API タイムアウト)</string>
 	<string name="revanced_ryd_failure_generic">低評価数は一時的に利用できません。(%s)</string>
 	<string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">投票するためにReturnYouTubeDislikeを使用するため、動画を再読み込みします</string>
-	<string name="revanced_ryd_shorts_summary_off">ショートの低評価数を表示します。</string>
+	<string name="revanced_ryd_shorts_summary_off">ショートの低評価数を復活させます。
+
+注意：シークレットモードでは低評価数が表示されないことがあります。</string>
 	<string name="revanced_ryd_shorts_summary_on">ショートの低評価数を非表示にします。</string>
-	<string name="revanced_ryd_shorts_summary_on_disclaimer">"ショートの低評価数を非表示にします。
+	<string name="revanced_ryd_shorts_summary_on_disclaimer">"ショートの低評価数を復活させます。
 
 注意：シークレットモードでは低評価数が表示されないことがあります。"</string>
 	<string name="revanced_ryd_shorts_title">ショートで低評価数を表示</string>
@@ -1061,11 +1063,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_sb_create_segment_category">新しいセグメントの作成</string>
 	<string name="revanced_sb_diff_segments">セグメントの設定</string>
 	<string name="revanced_sb_enable_auto_hide_skip_segment_button">スキップボタンを自動的に非表示</string>
-	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンはセグメント全体で表示されます。</string>
+	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンを数秒後に非表示にします。</string>
 	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンを数秒後に非表示にします。</string>
 	<string name="revanced_sb_enable_compact_skip_button">コンパクトなスキップボタンを使用</string>
-	<string name="revanced_sb_enable_compact_skip_button_sum_off">現在の設定：スキップボタンは最適なサイズで表示されます</string>
-	<string name="revanced_sb_enable_compact_skip_button_sum_on">現在の設定：スキップボタンはコンパクトに表示されます。</string>
+	<string name="revanced_sb_enable_compact_skip_button_sum_off">スキップボタンをコンパクトに表示します。</string>
+	<string name="revanced_sb_enable_compact_skip_button_sum_on">スキップボタンをコンパクトに表示します。</string>
 	<string name="revanced_sb_enable_create_segment">新しいセグメントの作成ボタンを表示</string>
 	<string name="revanced_sb_enable_create_segment_sum_off">プレイヤーの右上に「新しいセグメントの作成ボタン」を表示します。</string>
 	<string name="revanced_sb_enable_create_segment_sum_on">プレイヤーの右上に「新しいセグメントの作成ボタン」を表示します。</string>
