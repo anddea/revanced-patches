@@ -1,3 +1,12 @@
+# [2.225.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.20...v2.225.0-dev.21) (2024-05-21)
+
+
+### Features
+
+* **YouTube - Translations:** Update `Chinese Simplified` ([#503](https://github.com/anddea/revanced-patches/issues/503)) ([ee4324b](https://github.com/anddea/revanced-patches/commit/ee4324bf39dfd2eca62044461cb3d7e845ab17d7))
+* **YouTube - Translations:** Update `Chinese Traditional` ([#501](https://github.com/anddea/revanced-patches/issues/501)) ([0167c5d](https://github.com/anddea/revanced-patches/commit/0167c5d01d5974af16fc4d2a3fe3a5d0f3a5018d))
+* **YouTube - Translations:** Update `Japanese` ([#504](https://github.com/anddea/revanced-patches/issues/504)) ([39a1863](https://github.com/anddea/revanced-patches/commit/39a1863cedbdc700fb70b38dd1e04475c539fdee))
+
 # [2.225.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.19...v2.225.0-dev.20) (2024-05-20)
 
 
