@@ -227,8 +227,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_enable_swipe_volume_title">音量ジェスチャーを有効化</string>
 	<string name="revanced_enable_tablet_layout_summary">タブレット用レイアウトの一部を使用できるように、dpi を偽装します。</string>
 	<string name="revanced_enable_tablet_layout_title">タブレット用のレイアウトを有効化</string>
-	<string name="revanced_enable_tablet_mini_player_summary_off">タブレットのミニプレーヤーを有効にします。</string>
-	<string name="revanced_enable_tablet_mini_player_summary_on">タブレットのミニプレーヤーを有効にします。</string>
+	<string name="revanced_enable_tablet_mini_player_summary_off">タブレットのミニプレーヤーを有効化します。</string>
+	<string name="revanced_enable_tablet_mini_player_summary_on">タブレットのミニプレーヤーを有効化します。</string>
 	<string name="revanced_enable_tablet_mini_player_title">タブレットのミニプレーヤーを有効化</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
@@ -313,7 +313,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_category_bar_in_related_videos_summary_off">関連動画から非表示にします。</string>
 	<string name="revanced_hide_category_bar_in_related_videos_summary_on">関連動画から非表示にします。</string>
 	<string name="revanced_hide_category_bar_in_related_videos_title">関連動画から非表示</string>
-	<string name="revanced_hide_category_bar_in_search_summary_off">検索結果で表示されます。</string>
+	<string name="revanced_hide_category_bar_in_search_summary_off">検索結果から非表示にします。</string>
 	<string name="revanced_hide_category_bar_in_search_summary_on">検索結果から非表示にします。</string>
 	<string name="revanced_hide_category_bar_in_search_title">検索結果から非表示</string>
 	<string name="revanced_hide_channel_guidelines_summary_off">チャンネルのガイドラインを非表示にします。</string>
@@ -375,8 +375,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
 	<string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
 	<string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
-	<string name="revanced_hide_download_button_summary_off">ダウンロードボタンを非表示にします。</string>
-	<string name="revanced_hide_download_button_summary_on">ダウンロードボタンを非表示にします。</string>
+	<string name="revanced_hide_download_button_summary_off">「ダウンロード」ボタンを非表示にします。</string>
+	<string name="revanced_hide_download_button_summary_on">「ダウンロード」ボタンを非表示にします。</string>
 	<string name="revanced_hide_download_button_title">ダウンロードボタンを非表示</string>
 	<string name="revanced_hide_end_screen_cards_summary_off">動画の最後に表示される作成者が追加したエンドカードを非表示にします。</string>
 	<string name="revanced_hide_end_screen_cards_summary_on">動画の最後に表示される作成者が追加したエンドカードを非表示にします。</string>
@@ -441,14 +441,13 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_join_button_summary_on">「メンバーになる」ボタンを非表示にします。</string>
 	<string name="revanced_hide_join_button_title">「メンバーになる」ボタンを非表示</string>
 	<string name="revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果 は、キーワードやフレーズに一致するコンテンツを非表示にするようにフィルタリングされます。
-
 制限事項:
 • 一部のショート動画は非表示にならない場合があります。
 • 一部の UI コンポーネントは非表示にならない場合があります。
 • キーワードで検索しても結果が表示されない場合があります。"</string>
 	<string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
-	<string name="revanced_hide_keyword_content_comments_summary_off">キーワードでコメントをフィルタリングします。</string>
-	<string name="revanced_hide_keyword_content_comments_summary_on">キーワードでコメントをフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_comments_summary_off">コメントをフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_comments_summary_on">コメントをフィルタリングします。</string>
 	<string name="revanced_hide_keyword_content_comments_title">コメントをフィルタリング</string>
 	<string name="revanced_hide_keyword_content_home_summary_off">ホームフィード内の動画をフィルタリングします。</string>
 	<string name="revanced_hide_keyword_content_home_summary_on">ホームフィード内の動画をフィルタリングします。</string>
@@ -456,11 +455,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_keyword_content_phrases_summary">"非表示にするキーワードやフレーズを入力します。（改行区切り）
 真ん中に大文字がある単語は、大文字と小文字を区別して入力する必要があります 。(例: iPhone、TikTok、LeBlanc)"</string>
 	<string name="revanced_hide_keyword_content_phrases_title">キーワードでフィルタリング</string>
-	<string name="revanced_hide_keyword_content_search_summary_off">検索結果をフィルタリングします。</string>
-	<string name="revanced_hide_keyword_content_search_summary_on">検索結果をフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_search_summary_off">検索結果の動画をフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_search_summary_on">検索結果の動画をフィルタリングします。</string>
 	<string name="revanced_hide_keyword_content_search_title">検索結果をフィルタリング</string>
-	<string name="revanced_hide_keyword_content_subscriptions_summary_off">キーワードで登録チャンネルの動画をフィルタリングします。</string>
-	<string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードで登録チャンネルの動画をフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネルの動画をフィルタリングします。</string>
+	<string name="revanced_hide_keyword_content_subscriptions_summary_on">登録チャンネルの動画をフィルタリングします。</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">登録チャンネルをフィルタリング</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">無効なキーワードです。\'%s\' はフィルターとして使用できません</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">無効なキーワードです。\'%1$s\' は %2$d 文字未満です</string>
@@ -470,8 +469,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_latest_videos_button_summary_off">"「最新の動画」ボタンを非表示にします。"</string>
 	<string name="revanced_hide_latest_videos_button_summary_on">"「最新の動画」ボタンを非表示にします。"</string>
 	<string name="revanced_hide_latest_videos_button_title">"「最新の動画」ボタンを非表示"</string>
-	<string name="revanced_hide_like_dislike_button_summary_off">高評価・低評価ボタンを非表示にします。</string>
-	<string name="revanced_hide_like_dislike_button_summary_on">高評価・低評価ボタンを非表示にします。</string>
+	<string name="revanced_hide_like_dislike_button_summary_off">「高評価・低評価」ボタンを非表示にします。</string>
+	<string name="revanced_hide_like_dislike_button_summary_on">「高評価・低評価」ボタンを非表示にします。</string>
 	<string name="revanced_hide_like_dislike_button_title">高評価・低評価ボタンを非表示</string>
 	<string name="revanced_hide_live_chat_messages_summary_off">全画面表示でチャットのリプレイボタンを非表示にします。</string>
 	<string name="revanced_hide_live_chat_messages_summary_on">全画面表示でチャットのリプレイボタンを非表示にします。</string>
@@ -491,35 +490,35 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_movie_shelf_summary_off">有料の映画、テレビ番組を非表示にします。</string>
 	<string name="revanced_hide_movie_shelf_summary_on">有料の映画、テレビ番組を非表示にします。</string>
 	<string name="revanced_hide_movie_shelf_title">映画欄を非表示</string>
-	<string name="revanced_hide_navigation_create_button_summary_off">作成 ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_create_button_summary_on">作成 ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_create_button_title">作成 ボタンを非表示</string>
-	<string name="revanced_hide_navigation_home_button_summary_off">ホーム ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_home_button_summary_on">ホーム ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_home_button_title">ホーム ボタンを非表示</string>
+	<string name="revanced_hide_navigation_create_button_summary_off">「作成」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_create_button_summary_on">「作成」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_create_button_title">作成ボタンを非表示</string>
+	<string name="revanced_hide_navigation_home_button_summary_off">「ホーム」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_home_button_summary_on">「ホーム」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_home_button_title">ホームボタンを非表示</string>
 	<string name="revanced_hide_navigation_label_summary_off">ナビゲーションバーのラベルを非表示にします。</string>
 	<string name="revanced_hide_navigation_label_summary_on">ナビゲーションバーのラベルを非表示にします。</string>
 	<string name="revanced_hide_navigation_label_title">ナビゲーションバーのラベルを非表示</string>
-	<string name="revanced_hide_navigation_library_button_summary_off">ライブラリ ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_library_button_summary_on">ライブラリ ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_library_button_title">ライブラリ ボタンを非表示</string>
-	<string name="revanced_hide_navigation_notifications_button_summary_off">通知 ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_notifications_button_summary_on">通知 ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_notifications_button_title">通知 ボタンを非表示</string>
-	<string name="revanced_hide_navigation_shorts_button_summary_off">ショート ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_shorts_button_summary_on">ショート ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_shorts_button_title">ショート ボタンを非表示</string>
-	<string name="revanced_hide_navigation_subscriptions_button_summary_off">登録チャンネル ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_subscriptions_button_summary_on">登録チャンネル ボタンを非表示にします。</string>
-	<string name="revanced_hide_navigation_subscriptions_button_title">登録チャンネル ボタンを非表示</string>
+	<string name="revanced_hide_navigation_library_button_summary_off">「ライブラリ」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_library_button_summary_on">「ライブラリ」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_library_button_title">ライブラリボタンを非表示</string>
+	<string name="revanced_hide_navigation_notifications_button_summary_off">「通知」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_notifications_button_summary_on">「通知」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_notifications_button_title">通知ボタンを非表示</string>
+	<string name="revanced_hide_navigation_shorts_button_summary_off">「ショート」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_shorts_button_summary_on">「ショート」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_shorts_button_title">ショートボタンを非表示</string>
+	<string name="revanced_hide_navigation_subscriptions_button_summary_off">「登録チャンネル」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_subscriptions_button_summary_on">「登録チャンネル」ボタンを非表示にします。</string>
+	<string name="revanced_hide_navigation_subscriptions_button_title">登録チャンネルボタンを非表示</string>
 	<string name="revanced_hide_notify_me_button_summary_off">"配信予定の動画の「通知する」ボタンを非表示にします。"</string>
 	<string name="revanced_hide_notify_me_button_summary_on">"配信予定の動画の「通知する」ボタンを非表示にします。"</string>
 	<string name="revanced_hide_notify_me_button_title">"「通知する」ボタンを非表示"</string>
 	<string name="revanced_hide_paid_promotion_label_summary_off">プレーヤー上に表示される「プロモーションを含みます」の文章を非表示にします。</string>
 	<string name="revanced_hide_paid_promotion_label_summary_on">プレーヤー上に表示される「プロモーションを含みます」の文章を非表示にします。</string>
 	<string name="revanced_hide_paid_promotion_label_title">有料プロモーションラベルを非表示</string>
-	<string name="revanced_hide_playables_summary_off">Playables を非表示にします。</string>
-	<string name="revanced_hide_playables_summary_on">Playables を非表示にします。</string>
+	<string name="revanced_hide_playables_summary_off">Playables (アプリやウェブ版ですぐにゲームが遊べる機能) を非表示にします。</string>
+	<string name="revanced_hide_playables_summary_on">Playables (アプリやウェブ版ですぐにゲームが遊べる機能) を非表示にします。</string>
 	<string name="revanced_hide_playables_title">Playables を非表示</string>
 	<string name="revanced_hide_player_autoplay_button_summary_off">自動再生ボタンを非表示にします。</string>
 	<string name="revanced_hide_player_autoplay_button_summary_on">自動再生ボタンを非表示にします。</string>
@@ -527,26 +526,26 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_player_captions_button_summary_off">字幕ボタンを非表示にします。</string>
 	<string name="revanced_hide_player_captions_button_summary_on">字幕ボタンを非表示にします。</string>
 	<string name="revanced_hide_player_captions_button_title">字幕ボタンを非表示</string>
-	<string name="revanced_hide_player_cast_button_summary_off">キャスト ボタンを非表示にします。</string>
-	<string name="revanced_hide_player_cast_button_summary_on">キャスト ボタンを非表示にします。</string>
-	<string name="revanced_hide_player_cast_button_title">キャスト ボタンを非表示</string>
+	<string name="revanced_hide_player_cast_button_summary_off">「キャスト」ボタンを非表示にします。</string>
+	<string name="revanced_hide_player_cast_button_summary_on">「キャスト」ボタンを非表示にします。</string>
+	<string name="revanced_hide_player_cast_button_title">キャストボタンを非表示</string>
 	<string name="revanced_hide_player_collapse_button_summary_off">プレーヤーの最小化ボタンを非表示にします。</string>
 	<string name="revanced_hide_player_collapse_button_summary_on">プレーヤーの最小化ボタンを非表示にします。</string>
 	<string name="revanced_hide_player_collapse_button_title">最小化ボタンを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">アンビエントモードメニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">アンビエントモードメニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">「アンビエントモード」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">「アンビエントモード」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_ambient_mode_title">アンビエントモードメニューを非表示</string>
 	<string name="revanced_hide_player_flyout_menu_audio_track_summary_off">「音声トラック」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_audio_track_summary_on">「音声トラック」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_audio_track_title">音声トラックメニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_captions_footer_summary_off">字幕メニューの下にあるスペースを削除します。</string>
-	<string name="revanced_hide_player_flyout_menu_captions_footer_summary_on">字幕メニューの下にあるスペースを削除します。</string>
+	<string name="revanced_hide_player_flyout_menu_captions_footer_summary_off">「字幕」メニューの下にあるスペースを削除します。</string>
+	<string name="revanced_hide_player_flyout_menu_captions_footer_summary_on">「字幕」メニューの下にあるスペースを削除します。</string>
 	<string name="revanced_hide_player_flyout_menu_captions_footer_title">字幕メニュー下のスペースを削除</string>
 	<string name="revanced_hide_player_flyout_menu_captions_summary_off">「字幕」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_captions_summary_on">「字幕」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_captions_title">字幕メニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_help_summary_off">ヘルプ &amp; フィードバックメニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_help_summary_on">ヘルプ &amp; フィードバックメニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_help_summary_off">「ヘルプ &amp; フィードバック」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_help_summary_on">「ヘルプ &amp; フィードバック」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_help_title">ヘルプ &amp; フィードバックメニューを非表示</string>
 	<string name="revanced_hide_player_flyout_menu_listen_with_youtube_music_summary_off">「YouTube Music で聴く」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_listen_with_youtube_music_summary_on">「YouTube Music で聴く」メニューを非表示にします。</string>
@@ -554,26 +553,26 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_player_flyout_menu_lock_screen_summary_off">「画面のロック」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_lock_screen_summary_on">「画面のロック」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_lock_screen_title">「画面のロック」メニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_loop_video_summary_off">ループ再生メニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_loop_video_summary_on">ループ再生メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_loop_video_summary_off">「ループ再生」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_loop_video_summary_on">「ループ再生」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_loop_video_title">ループ再生メニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_more_info_summary_off">詳細情報メニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_more_info_summary_on">詳細情報メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_more_info_summary_off">「詳細情報」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_more_info_summary_on">「詳細情報」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_more_info_title">詳細情報メニューを非表示</string>
 	<string name="revanced_hide_player_flyout_menu_pip_summary_off">「ピクチャーインピクチャー」メニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_pip_summary_on">ピクチャー・イン・ピクチャーのメニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_pip_summary_on">「ピクチャーインピクチャー」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_pip_title">PiPメニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_playback_speed_summary_off">再生速度メニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_playback_speed_summary_on">再生速度メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_playback_speed_summary_off">「再生速度」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_playback_speed_summary_on">「再生速度」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_playback_speed_title">再生速度メニューを非表示</string>
 	<string name="revanced_hide_player_flyout_menu_premium_controls_summary_off">「Premium のコントロール」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_premium_controls_summary_on">「Premium のコントロール」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_premium_controls_title">プレミアムコントロールメニューを非表示</string>
-	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">画質メニューの下にあるスペースを削除します。</string>
-	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">画質メニューの下にあるスペースを削除します。</string>
+	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">「画質」メニューの下にあるスペースを削除します。</string>
+	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">「画質」メニューの下にあるスペースを削除します。</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">画質メニュー下のスペースを削除</string>
-	<string name="revanced_hide_player_flyout_menu_report_summary_off">報告メニューを非表示にします。</string>
-	<string name="revanced_hide_player_flyout_menu_report_summary_on">報告メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_report_summary_off">「報告」メニューを非表示にします。</string>
+	<string name="revanced_hide_player_flyout_menu_report_summary_on">「報告」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">報告メニューを非表示</string>
 	<string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">「一定音量」メニューを非表示にします。</string>
 	<string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">「一定音量」メニューを非表示にします。</string>
@@ -602,22 +601,22 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_preview_comment_off">コメントのプレビューを非表示にします。</string>
 	<string name="revanced_hide_preview_comment_on">コメントのプレビューを非表示にします。</string>
 	<string name="revanced_hide_preview_comment_title">コメントのプレビューを非表示</string>
-	<string name="revanced_hide_preview_comment_type_off">現在の設定：コメント欄のサイズは変更されます。
+	<string name="revanced_hide_preview_comment_type_off">コメント欄のサイズを変更します。
 これによりコメント欄からライブチャットのリプレイを開けなくなります。</string>
-	<string name="revanced_hide_preview_comment_type_on">現在の設定：コメント欄のサイズは変更されません。
-コメント欄からライブチャットのリプレイを開けます。</string>
+	<string name="revanced_hide_preview_comment_type_on">コメント欄のサイズを変更します。
+これによりコメント欄からライブチャットのリプレイを開けなくなります。</string>
 	<string name="revanced_hide_preview_comment_type_title">コメントのプレビューを非表示にする方法を設定</string>
-	<string name="revanced_hide_quick_actions_comment_button_summary_off">コメントボタンを非表示にします。</string>
-	<string name="revanced_hide_quick_actions_comment_button_summary_on">コメントボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_comment_button_summary_off">「コメント」ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_comment_button_summary_on">「コメント」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_comment_button_title">コメントボタンを非表示</string>
-	<string name="revanced_hide_quick_actions_dislike_button_summary_off">低評価ボタンを非表示にします。</string>
-	<string name="revanced_hide_quick_actions_dislike_button_summary_on">低評価ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_dislike_button_summary_off">「低評価」ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_dislike_button_summary_on">「低評価」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_dislike_button_title">低評価ボタンを非表示</string>
-	<string name="revanced_hide_quick_actions_like_button_summary_off">高評価ボタンを非表示にします。</string>
-	<string name="revanced_hide_quick_actions_like_button_summary_on">高評価ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_like_button_summary_off">「高評価」ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_like_button_summary_on">「高評価」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_like_button_title">高評価ボタンを非表示</string>
-	<string name="revanced_hide_quick_actions_live_chat_button_summary_off">チャットボタンを非表示にします。</string>
-	<string name="revanced_hide_quick_actions_live_chat_button_summary_on">チャットボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_live_chat_button_summary_off">「チャット」ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_live_chat_button_summary_on">「チャット」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_live_chat_button_title">チャットボタンを非表示</string>
 	<string name="revanced_hide_quick_actions_more_button_summary_off">「さらに表示」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_more_button_summary_on">「さらに表示」ボタンを非表示にします。</string>
@@ -634,8 +633,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_off">プレイリストに追加するボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_on">プレイリストに追加するボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_save_to_playlist_button_title">プレイリストボタンを非表示</string>
-	<string name="revanced_hide_quick_actions_share_button_summary_off">共有ボタンを非表示にします。</string>
-	<string name="revanced_hide_quick_actions_share_button_summary_on">共有ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_share_button_summary_off">「共有」ボタンを非表示にします。</string>
+	<string name="revanced_hide_quick_actions_share_button_summary_on">「共有」ボタンを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_share_button_title">共有ボタンを非表示</string>
 	<string name="revanced_hide_quick_actions_summary_off">クイック操作コンテナを非表示にします。</string>
 	<string name="revanced_hide_quick_actions_summary_on">クイック操作コンテナを非表示にします。</string>
@@ -644,7 +643,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 
 • 「メンバーシップ限定」タグの付いた動画
 • 動画の下部に「他のユーザーも視聴しています」などのフレーズがある動画
-• 登録していないチャンネルからアップロードされた、視聴回数が  1,000 回未満の動画"</string>
+• 登録していないチャンネルからアップロードされた、再生回数が  1,000 回未満の動画"</string>
 	<string name="revanced_hide_recommended_video_title">おすすめ動画を非表示</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">関連動画のオーバーレイ表示を無効化します。</string>
 	<string name="revanced_hide_related_video_overlay_summary_on">関連動画のオーバーレイ表示を無効化します。</string>
@@ -698,14 +697,14 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_channel_bar_summary_off">プレーヤー下部の「チャンネルバー」を非表示にします。</string>
 	<string name="revanced_hide_shorts_channel_bar_summary_on">プレーヤー下部の「チャンネルバー」を非表示にします。</string>
 	<string name="revanced_hide_shorts_channel_bar_title">チャンネルバーを非表示</string>
-	<string name="revanced_hide_shorts_comments_button_summary_off">コメントボタンを表示にします。</string>
-	<string name="revanced_hide_shorts_comments_button_summary_on">コメントボタンを表示にします。</string>
+	<string name="revanced_hide_shorts_comments_button_summary_off">「コメント」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_comments_button_summary_on">「コメント」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_comments_button_title">コメントボタンを非表示</string>
 	<string name="revanced_hide_shorts_comments_disabled_button_summary_off">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">コメント数が「0」または「無効」になっているコメントボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_comments_disabled_button_title">無効なコメントボタンを非表示</string>
-	<string name="revanced_hide_shorts_dislike_button_summary_off">低評価ボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_dislike_button_summary_on">低評価ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">コメント数が「0」または「無効」になっている「コメント」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_title">無効な「コメント」ボタンを非表示</string>
+	<string name="revanced_hide_shorts_dislike_button_summary_off">「低評価」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_dislike_button_summary_on">「低評価」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_dislike_button_title">低評価ボタンを非表示</string>
 	<string name="revanced_hide_shorts_full_video_link_label_summary_off">フルの動画のリンクのラベルを非表示にします。</string>
 	<string name="revanced_hide_shorts_full_video_link_label_summary_on">フルの動画のリンクのラベルを非表示にします。</string>
@@ -716,8 +715,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_join_button_summary_off">「メンバーになる」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_join_button_summary_on">「メンバーになる」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_join_button_title">「メンバーになる」ボタンを非表示</string>
-	<string name="revanced_hide_shorts_like_button_summary_off">高評価ボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_like_button_summary_on">高評価ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_like_button_summary_off">「高評価」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_like_button_summary_on">「高評価」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_like_button_title">高評価ボタンを非表示</string>
 	<string name="revanced_hide_shorts_live_header_summary_off">縦配信のライブのプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
 	<string name="revanced_hide_shorts_live_header_summary_on">縦配信のライブのプレーヤー内で上部に表示されるチャンネル名などを非表示にします。\n\nヘッダーの戻るボタンは非表示になりません。</string>
@@ -734,8 +733,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイボタンを非表示</string>
-	<string name="revanced_hide_shorts_remix_button_summary_off">リミックスボタンを表示にします。</string>
-	<string name="revanced_hide_shorts_remix_button_summary_on">リミックスボタンを表示にします。</string>
+	<string name="revanced_hide_shorts_remix_button_summary_off">「リミックス」ボタンを表示にします。</string>
+	<string name="revanced_hide_shorts_remix_button_summary_on">「リミックス」ボタンを表示にします。</string>
 	<string name="revanced_hide_shorts_remix_button_title">リミックスボタンを非表示</string>
 	<string name="revanced_hide_shorts_save_sound_button_summary_off">音楽の「保存」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_save_sound_button_summary_on">音楽の「保存」ボタンを非表示にします。</string>
@@ -743,8 +742,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_search_suggestions_summary_off">検索候補を非表示にします</string>
 	<string name="revanced_hide_shorts_search_suggestions_summary_on">検索候補を非表示にします</string>
 	<string name="revanced_hide_shorts_search_suggestions_title">検索候補を非表示</string>
-	<string name="revanced_hide_shorts_share_button_summary_off">共有ボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_share_button_summary_on">共有ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_share_button_summary_off">「共有」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_share_button_summary_on">「共有」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_share_button_title">共有ボタンを非表示</string>
 	<string name="revanced_hide_shorts_shelf_history_summary_off">再生履歴から非表示にします。</string>
 	<string name="revanced_hide_shorts_shelf_history_summary_on">再生履歴から非表示にします。</string>
@@ -765,11 +764,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_shorts_shop_button_summary_off">「ショップ」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_shop_button_summary_on">「ショップ」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_shop_button_title">「ショップ」ボタンを非表示</string>
-	<string name="revanced_hide_shorts_sound_button_summary_off">プレーヤー左下に表示される楽曲ボタンを非表示にします。</string>
-	<string name="revanced_hide_shorts_sound_button_summary_on">プレーヤー左下に表示される楽曲ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_sound_button_summary_off">プレーヤー左下に表示される「楽曲」ボタンを非表示にします。</string>
+	<string name="revanced_hide_shorts_sound_button_summary_on">プレーヤー左下に表示される「楽曲」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_sound_button_title">楽曲ボタンを非表示</string>
-	<string name="revanced_hide_shorts_sound_metadata_label_summary_off">プレーヤー下部に表示される楽曲のラベルを非表示にします。</string>
-	<string name="revanced_hide_shorts_sound_metadata_label_summary_on">プレーヤー下部に表示される楽曲のラベルを非表示にします。</string>
+	<string name="revanced_hide_shorts_sound_metadata_label_summary_off">プレーヤー下部に表示される「楽曲」のラベルを非表示にします。</string>
+	<string name="revanced_hide_shorts_sound_metadata_label_summary_on">プレーヤー下部に表示される「楽曲」のラベルを非表示にします。</string>
 	<string name="revanced_hide_shorts_sound_metadata_label_title">楽曲のラベルを非表示</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">「チャンネル登録」ボタンを非表示にします。</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">「チャンネル登録」ボタンを非表示にします。</string>
@@ -789,9 +788,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_snack_bar_summary_off">共有からリンクをコピーした際などに表示される画面下部のポップアップを非表示にします。</string>
 	<string name="revanced_hide_snack_bar_summary_on">共有からリンクをコピーした際などに表示される画面下部のポップアップを非表示にします。</string>
 	<string name="revanced_hide_snack_bar_title">スナックバーを非表示</string>
-	<string name="revanced_hide_start_trial_button_summary_off">トライアル開始ボタンを非表示にします。</string>
-	<string name="revanced_hide_start_trial_button_summary_on">トライアル開始ボタンを非表示にします。</string>
-	<string name="revanced_hide_start_trial_button_title">トライアル開始ボタンを非表示</string>
+	<string name="revanced_hide_start_trial_button_summary_off">「トライアル開始」ボタンを非表示にします。</string>
+	<string name="revanced_hide_start_trial_button_summary_on">「トライアル開始」ボタンを非表示にします。</string>
+	<string name="revanced_hide_start_trial_button_title">「トライアル開始」ボタンを非表示</string>
 	<string name="revanced_hide_subscriptions_channel_section_summary_off">登録チャンネル欄は表示されます。</string>
 	<string name="revanced_hide_subscriptions_channel_section_summary_on">登録チャンネルセクションを非表示にします。</string>
 	<string name="revanced_hide_subscriptions_channel_section_title">登録チャンネルセクションを非表示</string>
@@ -817,14 +816,14 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_timed_reactions_summary_off">Timed Reactions を非表示にします。</string>
 	<string name="revanced_hide_timed_reactions_summary_on">Timed Reactions を非表示にします。</string>
 	<string name="revanced_hide_timed_reactions_title">リアクションを非表示</string>
-	<string name="revanced_hide_toolbar_cast_button_summary_off">キャスト ボタンを非表示にします。</string>
-	<string name="revanced_hide_toolbar_cast_button_summary_on">キャスト ボタンを非表示にします。</string>
-	<string name="revanced_hide_toolbar_cast_button_title">キャスト ボタンを非表示</string>
-	<string name="revanced_hide_toolbar_create_button_summary_off">作成ボタンを非表示にします。</string>
-	<string name="revanced_hide_toolbar_create_button_summary_on">作成ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_cast_button_summary_off">「キャスト」ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_cast_button_summary_on">「キャスト」ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_cast_button_title">キャストボタンを非表示</string>
+	<string name="revanced_hide_toolbar_create_button_summary_off">「作成」ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_create_button_summary_on">「作成」ボタンを非表示にします。</string>
 	<string name="revanced_hide_toolbar_create_button_title">作成ボタンを非表示</string>
-	<string name="revanced_hide_toolbar_notification_button_summary_off">通知ボタンを非表示にします。</string>
-	<string name="revanced_hide_toolbar_notification_button_summary_on">通知ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_notification_button_summary_off">「通知」ボタンを非表示にします。</string>
+	<string name="revanced_hide_toolbar_notification_button_summary_on">「通知」ボタンを非表示にします。</string>
 	<string name="revanced_hide_toolbar_notification_button_title">通知ボタンを非表示</string>
 	<string name="revanced_hide_transcript_section_summary_off">概要欄の文字起こしセクションを非表示にします。</string>
 	<string name="revanced_hide_transcript_section_summary_on">概要欄の文字起こしセクションを非表示にします。</string>
@@ -835,26 +834,26 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_hide_video_ads_summary_off">プレーヤー内の広告を非表示にします。</string>
 	<string name="revanced_hide_video_ads_summary_on">プレーヤー内の広告を非表示にします。</string>
 	<string name="revanced_hide_video_ads_title">動画広告を非表示</string>
-	<string name="revanced_hide_video_by_duration_longer_than_summary">この数値より長い動画を非表示にします。</string>
-	<string name="revanced_hide_video_by_duration_longer_than_title">再生時間より長い</string>
-	<string name="revanced_hide_video_by_duration_shorter_than_summary">この数値より短い動画を非表示にします。</string>
-	<string name="revanced_hide_video_by_duration_shorter_than_title">再生時間より短い</string>
+	<string name="revanced_hide_video_by_duration_longer_than_summary">この数値より長い再生時間の動画を非表示にします。</string>
+	<string name="revanced_hide_video_by_duration_longer_than_title">再生時間が長い動画を非表示</string>
+	<string name="revanced_hide_video_by_duration_shorter_than_summary">この数値より短い再生時間の動画を非表示にします。</string>
+	<string name="revanced_hide_video_by_duration_shorter_than_title">再生時間が短い動画を非表示</string>
 	<string name="revanced_hide_video_by_duration_summary">設定した再生時間で動画を非表示にします。\n\n既知の問題：動画はプレーヤー関連の動画に表示されず、タイムスタンプを非表示にします。</string>
 	<string name="revanced_hide_video_by_duration_title">動画を再生時間でフィルタリング</string>
 	<string name="revanced_hide_video_by_view_counts_summary">設定した再生回数未満のおすすめ動画を非表示にします。</string>
 	<string name="revanced_hide_video_by_view_counts_title">おすすめ動画を再生回数でフィルタリング</string>
-	<string name="revanced_hide_video_view_counts_greater_than_summary">この数値より多い視聴回数の動画を非表示にします。</string>
-	<string name="revanced_hide_video_view_counts_greater_than_title">視聴回数より多い</string>
-	<string name="revanced_hide_video_view_counts_less_than_summary">この数値より少ない視聴回数の動画を非表示にします。</string>
-	<string name="revanced_hide_video_view_counts_less_than_title">視聴回数より少ない</string>
+	<string name="revanced_hide_video_view_counts_greater_than_summary">この数値より多い再生回数の動画を非表示にします。</string>
+	<string name="revanced_hide_video_view_counts_greater_than_title">再生回数が多い動画を非表示</string>
+	<string name="revanced_hide_video_view_counts_less_than_summary">この数値より少ない再生回数の動画を非表示にします。</string>
+	<string name="revanced_hide_video_view_counts_less_than_title">再生回数が少ない動画を非表示</string>
 	<string name="revanced_hide_video_view_counts_multiplier_default_value">万 -&gt; 10 000\n億 -&gt; 100 000 000\n回視聴 -&gt; views</string>
-	<string name="revanced_hide_video_view_counts_multiplier_summary">UIの各動画の下に表示される視聴回数の言語テンプレートを設定します。各キー (言語の文字/単語) -&gt; 値 (キーの意味) は、改行して記述する必要があります。キーは「-&gt;」記号の前に記述します。言語設定を更新した場合は、この設定をリセットする必要があります。\n\n例:\n英語: 10K views = K -&gt; 1000、views -&gt; 回\nスペイン語: 10 K vistas = K -&gt; 1000、vistas -&gt; 回</string>
+	<string name="revanced_hide_video_view_counts_multiplier_summary">UIの各動画の下に表示される再生回数の言語テンプレートを設定します。各キー (言語の文字/単語) -&gt; 値 (キーの意味) は、改行して記述する必要があります。キーは「-&gt;」記号の前に記述します。言語設定を更新した場合は、この設定をリセットする必要があります。\n\n例:\n英語: 10K views = K -&gt; 1000、views -&gt; 回\nスペイン語: 10 K vistas = K -&gt; 1000、vistas -&gt; 回</string>
 	<string name="revanced_hide_video_view_counts_multiplier_title">キーを表示</string>
 	<string name="revanced_hide_view_products_summary_off">プレーヤー内に表示される商品バナーを非表示にします。</string>
 	<string name="revanced_hide_view_products_summary_on">プレーヤー内に表示される商品バナーを非表示にします。</string>
 	<string name="revanced_hide_view_products_title">商品バナーを非表示</string>
-	<string name="revanced_hide_voice_search_button_summary_off">音声検索ボタンを非表示にします。</string>
-	<string name="revanced_hide_voice_search_button_summary_on">音声検索ボタンを非表示にします。</string>
+	<string name="revanced_hide_voice_search_button_summary_off">「音声検索」ボタンを非表示にします。</string>
+	<string name="revanced_hide_voice_search_button_summary_on">「音声検索」ボタンを非表示にします。</string>
 	<string name="revanced_hide_voice_search_button_title">音声検索ボタンを非表示</string>
 	<string name="revanced_hide_web_search_results_summary_off">検索フィードから Web 検索結果を非表示にします。</string>
 	<string name="revanced_hide_web_search_results_summary_on">検索フィードから Web 検索結果を非表示にします。</string>
@@ -997,7 +996,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_replace_time_stamp_action_summary_off">現在の設定：タップすると残り時間が表示されます。</string>
 	<string name="revanced_replace_time_stamp_action_summary_on">現在の設定：プレーヤー左下のタイムスタンプをタップすると、再生速度または画質のフライアウトメニューが開きます。</string>
 	<string name="revanced_replace_time_stamp_action_title">タイムスタンプを置き換え</string>
-	<string name="revanced_replace_toolbar_create_button_summary">作成ボタンを設定ボタンに置き換えます。</string>
+	<string name="revanced_replace_toolbar_create_button_summary">「作成」ボタンを「設定」ボタンに置き換えます。</string>
 	<string name="revanced_replace_toolbar_create_button_title">作成ボタンを置き換え</string>
 	<string name="revanced_replace_toolbar_create_button_type_summary_off">"タップすると YouTube の設定が開きます。
 長押しすると RVX 設定が開きます。"</string>
@@ -1021,8 +1020,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_ryd_about">Return YouTube Dislikeについて</string>
 	<string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
 	<string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-	<string name="revanced_ryd_compact_layout_summary_off">現在の設定：高評価ボタンは最適なサイズで表示されます。</string>
-	<string name="revanced_ryd_compact_layout_summary_on">現在の設定：高評価ボタンはコンパクトに表示されます。</string>
+	<string name="revanced_ryd_compact_layout_summary_off">「高評価」ボタンをコンパクトに表示します。</string>
+	<string name="revanced_ryd_compact_layout_summary_on">「高評価」ボタンをコンパクトに表示します。</string>
 	<string name="revanced_ryd_compact_layout_title">コンパクトな高評価ボタン</string>
 	<string name="revanced_ryd_dislike_percentage_summary_off">現在の設定：低評価は数字で表示されます。</string>
 	<string name="revanced_ryd_dislike_percentage_summary_on">現在の設定：低評価はパーセンテージで表示されます。</string>
@@ -1063,11 +1062,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_sb_create_segment_category">新しいセグメントの作成</string>
 	<string name="revanced_sb_diff_segments">セグメントの設定</string>
 	<string name="revanced_sb_enable_auto_hide_skip_segment_button">スキップボタンを自動的に非表示</string>
-	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンを数秒後に非表示にします。</string>
-	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンを数秒後に非表示にします。</string>
+	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">「スキップ」ボタンを数秒後に非表示にします。</string>
+	<string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">「スキップ」ボタンを数秒後に非表示にします。</string>
 	<string name="revanced_sb_enable_compact_skip_button">コンパクトなスキップボタンを使用</string>
-	<string name="revanced_sb_enable_compact_skip_button_sum_off">スキップボタンをコンパクトに表示します。</string>
-	<string name="revanced_sb_enable_compact_skip_button_sum_on">スキップボタンをコンパクトに表示します。</string>
+	<string name="revanced_sb_enable_compact_skip_button_sum_off">「スキップ」ボタンをコンパクトに表示します。</string>
+	<string name="revanced_sb_enable_compact_skip_button_sum_on">「スキップ」ボタンをコンパクトに表示します。</string>
 	<string name="revanced_sb_enable_create_segment">新しいセグメントの作成ボタンを表示</string>
 	<string name="revanced_sb_enable_create_segment_sum_off">プレイヤーの右上に「新しいセグメントの作成ボタン」を表示します。</string>
 	<string name="revanced_sb_enable_create_segment_sum_on">プレイヤーの右上に「新しいセグメントの作成ボタン」を表示します。</string>
@@ -1267,7 +1266,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_spoof_device_dimensions_summary">デバイスの解像度を偽装して、このデバイスでは利用できない高画質な動画をアンロックします。</string>
 	<string name="revanced_spoof_device_dimensions_title">デバイスの解像度を偽装</string>
 	<string name="revanced_spoof_format_stream_data_summary">"バッファリングの問題を回避するために、ストリーム データを偽装します。
-
 注意事項: 
 • 動画の再生開始時に約 5 秒間のバッファリングが発生する場合があります。 
 • バッファリングに時間がかかりすぎる場合は、動画を閉じて再度開く必要がある場合があります。 
@@ -1308,8 +1306,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 	<string name="revanced_swipe_overlay_text_size_title">スワイプオーバーレイのテキストサイズ</string>
 	<string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (単位: ミリ秒)</string>
 	<string name="revanced_swipe_overlay_timeout_title">スワイプオーバーレイのタイムアウト</string>
-	<string name="revanced_switch_create_with_notifications_button_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
-
+	<string name="revanced_switch_create_with_notifications_button_summary">"デバイスの情報を偽装して、「作成」ボタンと「通知」ボタンの位置を入れ替えます。
 • この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
 • この設定を無効にすると、サーバーからさらに多くの広告が読み込まれます。
 • 動画広告を表示するには、この設定を無効にする必要があります。"</string>
