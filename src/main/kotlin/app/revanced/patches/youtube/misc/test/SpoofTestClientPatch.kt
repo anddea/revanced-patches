@@ -61,6 +61,7 @@ object SpoofTestClientPatch : BaseBytecodePatch(
         StoryboardRendererDecoderRecommendedLevelFingerprint,
         PlayerResponseModelGeneralStoryboardRendererFingerprint,
         StoryboardRendererDecoderSpecFingerprint,
+        StoryboardRendererSpecFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -242,7 +243,7 @@ object SpoofTestClientPatch : BaseBytecodePatch(
         /**
          * Hook StoryBoard renderer url.
          */
-        PlayerResponseModelStoryboardRecommendedLevelFingerprint.resultOrThrow().let {
+        StoryboardRendererDecoderRecommendedLevelFingerprint.resultOrThrow().let {
             val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
 
             it.mutableMethod.apply {
