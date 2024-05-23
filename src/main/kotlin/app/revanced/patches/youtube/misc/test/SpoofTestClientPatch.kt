@@ -148,7 +148,8 @@ object SpoofTestClientPatch : BaseBytecodePatch(
                 getClientModelIndex,
                 instructions.lastIndex,
             ).first { instruction ->
-                instruction.opcode == Opcode.IPUT_OBJECT
+                instruction.opcode == Opcode.IPUT_OBJECT ||
+                instruction.opcode == Opcode.SGET_OBJECT // in newer version is here
             }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
         }
 
