@@ -248,6 +248,14 @@ public final class app/revanced/patches/music/utils/fix/clientspoof/ClientSpoofP
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/clientspoof/ClientSpoofPatch;
 }
 
+public final class app/revanced/patches/music/utils/fix/clientspoof/UserAgentClientSpoofPatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/clientspoof/UserAgentClientSpoofPatch;
+	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
+	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
+	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+}
+
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -759,6 +767,7 @@ public final class app/revanced/patches/shared/mapping/ResourceMappingPatch : ap
 	public static final field INSTANCE Lapp/revanced/patches/shared/mapping/ResourceMappingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun get (Ljava/lang/String;Ljava/lang/String;)J
 	public final fun getId (Lapp/revanced/patches/shared/mapping/ResourceType;Ljava/lang/String;)J
 }
 
@@ -1284,8 +1293,12 @@ public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOv
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/utils/fix/clientspoof/ClientSpoofPatch : app/revanced/patches/shared/clientspoof/BaseClientSpoofPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/clientspoof/ClientSpoofPatch;
+public final class app/revanced/patches/youtube/utils/fix/clientspoof/UserAgentClientSpoofPatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/clientspoof/UserAgentClientSpoofPatch;
+	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
+	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
+	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
 public final class app/revanced/patches/youtube/utils/fix/doublebacktoclose/DoubleBackToClosePatch : app/revanced/patcher/patch/BytecodePatch {

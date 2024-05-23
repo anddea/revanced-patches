@@ -3,7 +3,7 @@ package app.revanced.patches.shared.mapping
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
-import java.util.Collections
+import java.util.*
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -56,6 +56,10 @@ object ResourceMappingPatch : ResourcePatch() {
 
         resourceMappings = mappings
     }
+
+    operator fun get(type: String, name: String) = resourceMappings.first {
+        it.type == type && it.name == name
+    }.id
 
     data class ResourceElement(val type: String, val name: String, val id: Long)
 
