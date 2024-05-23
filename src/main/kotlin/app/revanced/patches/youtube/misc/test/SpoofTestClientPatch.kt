@@ -10,15 +10,17 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.utils.fix.clientspoof.UserAgentClientSpoofPatch
-import app.revanced.patches.youtube.utils.fix.clientspoof.SpoofClientResourcePatch
+import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.*
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.CreatePlayerRequestBodyFingerprint
+import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.youtube.utils.fix.clientspoof.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.fix.parameter.fingerprints.*
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -33,7 +35,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 @Patch(
     dependencies = [
-        SpoofClientResourcePatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         UserAgentClientSpoofPatch::class,
@@ -43,7 +44,6 @@ object SpoofTestClientPatch : BaseBytecodePatch(
     name = "Spoof client",
     description = "Spoofs the client to allow video playback.",
     dependencies = setOf(
-        SpoofClientResourcePatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         UserAgentClientSpoofPatch::class,
@@ -54,6 +54,7 @@ object SpoofTestClientPatch : BaseBytecodePatch(
         BuildPlayerRequestURIFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
+        CreatePlayerRequestBodyWithModelFingerprint,
 
         // Storyboard spoof.
         StoryboardRendererSpecFingerprint,
@@ -135,6 +136,22 @@ object SpoofTestClientPatch : BaseBytecodePatch(
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
+        val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().mutableMethod.let {
+            val instructions = it.getInstructions()
+
+            val getClientModelIndex = it.indexOfFirstInstruction {
+                getReference<FieldReference>().toString() == "Landroid/os/Build;->MODEL:Ljava/lang/String;"
+            }
+
+            // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
+            instructions.subList(
+                getClientModelIndex,
+                instructions.lastIndex,
+            ).first { instruction ->
+                instruction.opcode == Opcode.IPUT_OBJECT
+            }.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
+        }
+
         // endregion
 
         // region Spoof client type for /player requests.
@@ -155,7 +172,7 @@ object SpoofTestClientPatch : BaseBytecodePatch(
                 )
             }
 
-            // Change requestMessage.clientInfo.clientType and requestMessage.clientInfo.clientVersion to the spoofed values.
+            // Change client info to use to the spoofed values.
             // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
             result.mutableClass.methods.add(
                 ImmutableMethod(
@@ -181,6 +198,12 @@ object SpoofTestClientPatch : BaseBytecodePatch(
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientTypeId(I)I
                             move-result v1
                             iput v1, v0, $clientInfoClientTypeField
+                            
+                             # Set client model to the spoofed value.
+                            iget-object v1, v0, $clientInfoClientModelField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoClientModelField
                             
                             # Set client version to the spoofed value.
                             iget-object v1, v0, $clientInfoClientVersionField

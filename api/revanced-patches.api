@@ -248,14 +248,6 @@ public final class app/revanced/patches/music/utils/fix/clientspoof/ClientSpoofP
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/clientspoof/ClientSpoofPatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/clientspoof/UserAgentClientSpoofPatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/clientspoof/UserAgentClientSpoofPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
-}
-
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
