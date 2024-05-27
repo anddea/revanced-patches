@@ -24,7 +24,6 @@ import app.revanced.patches.youtube.general.toolbar.fingerprints.SearchBarParent
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SearchResultFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SetActionBarRingoFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SetWordMarkHeaderFingerprint
-import app.revanced.patches.youtube.general.toolbar.fingerprints.TrendingSearchConfigFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.YouActionBarFingerprint
 import app.revanced.patches.youtube.utils.castbutton.CastButtonPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -79,8 +78,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         SearchBarParentFingerprint,
         SearchResultFingerprint,
         SetActionBarRingoFingerprint,
-        SetWordMarkHeaderFingerprint,
-        TrendingSearchConfigFingerprint
+        SetWordMarkHeaderFingerprint
     )
 ) {
     private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
@@ -302,15 +300,6 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 removeInstruction(replaceIndex)
             }
         }
-
-        // endregion
-
-        // region patch for hide trending searches
-
-        TrendingSearchConfigFingerprint.literalInstructionBooleanHook(
-            45399984,
-            "$GENERAL_CLASS_DESCRIPTOR->hideTrendingSearches(Z)Z"
-        )
 
         // endregion
 
