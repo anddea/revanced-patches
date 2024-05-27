@@ -1,17 +1,16 @@
 package app.revanced.patches.youtube.layout.animated
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-
+import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
-object ForceAnimatedLikePatch : ResourcePatch(
-    name = "Force hide double tap to like animations",
-    description = "Hide the like animations when double tap the screen in the Shorts player at compile time.",
+object AnimatedButtonBackgroundPatch : BaseResourcePatch(
+    name = "Hide animated button background",
+    description = "Hides the background of the pause and play animated buttons in the Shorts player at compile time.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
@@ -24,10 +23,11 @@ object ForceAnimatedLikePatch : ResourcePatch(
             "youtube/animated",
             ResourceGroup(
                 "raw",
-                "like_tap_feedback.json"
+                "pause_tap_feedback.json",
+                "play_tap_feedback.json"
             )
         )
 
-        SettingsPatch.updatePatchStatus("Hide double tap to like animations")
+        SettingsPatch.updatePatchStatus(this)
     }
 }
