@@ -43,8 +43,8 @@
     <string name="revanced_external_downloader_dialog_title">외부 다운로더</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
-웹싸이트에서 %2$s 를 다운로드하세요."</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치해 주세요.</string>
+웹사이트에서 %2$s 를 다운로드하세요."</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치하세요.</string>
     <!-- PreferenceScreen: Ads -->
     <string name="revanced_preference_screen_ads_title">광고</string>
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 제거</string>
@@ -67,10 +67,10 @@
 알려진 문제점:
 • 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
 • 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
-    <string name="revanced_enable_trim_silence_title">무음 자르기 활성화</string>
-    <string name="revanced_enable_trim_silence_summary">"재생 속도 메뉴 구성요소로 '무음 자르기' 스위치를 활성화합니다.
+    <string name="revanced_enable_trim_silence_title">무음 자르기 스위치 추가</string>
+    <string name="revanced_enable_trim_silence_summary">"재생 속도 메뉴 구성요소에 '무음 자르기' 스위치를 추가합니다.
 
-정보:
+알림:
 • 팟캐스트 기능입니다.
 • 이 기능은 아직 개발 중이므로 불안정할 수 있습니다."</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
@@ -107,14 +107,14 @@
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">잘못된 동영상 URL입니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube에서 시청\' 메뉴로 변경합니다.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">플레이어 메뉴 구성요소에만 적용</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">댓글 섹션에서 신고하기 메뉴는 변경되지 않습니다.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고하기 유지</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">댓글 섹션에서 신고하기 메뉴를 그대로 유지합니다.</string>
     <string name="revanced_replace_flyout_menu_report_title">신고하기 변경</string>
     <string name="revanced_replace_flyout_menu_report_summary">\'신고하기\' 메뉴를 \'재생 속도\' 메뉴로 변경합니다.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">일반</string>
-    <string name="revanced_change_start_page_title">메인 페이지 변경</string>
-    <string name="revanced_change_start_page_summary">앱 메인 페이지를 변경합니다.</string>
+    <string name="revanced_change_start_page_title">앱 시작 페이지 변경</string>
+    <string name="revanced_change_start_page_summary">앱 시작 페이지를 변경합니다.</string>
     <string name="revanced_change_start_page_entry_chart">차트</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_home">홈</string>
@@ -123,19 +123,19 @@
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
     <string name="revanced_disable_auto_captions_summary">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
-    <string name="revanced_disable_dislike_redirection_summary">싫어요 버튼을 누르면 다음 트랙으로 리디렉션을 비활성화합니다.</string>
+    <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리디렉션\'을 비활성화합니다.</string>
     <string name="revanced_enable_landscape_mode_title">가로 모드 활성화</string>
     <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터</string>
     <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-    <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈로 구분하여 설정합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈으로 구분하여 설정합니다.</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 필터 값입니다: %s</string>
-    <string name="revanced_hide_button_shelf_title">버튼 선반 제거</string>
-    <string name="revanced_hide_button_shelf_summary">피드에서 버튼 선반을 숨깁니다.</string>
-    <string name="revanced_hide_carousel_shelf_title">썸네일 슬라이드 선반 제거</string>
-    <string name="revanced_hide_carousel_shelf_summary">피드에서 썸네일 슬라이드 선반을 숨깁니다.</string>
+    <string name="revanced_hide_button_shelf_title">버튼형 선반 제거</string>
+    <string name="revanced_hide_button_shelf_summary">피드에서 버튼형 선반을 숨깁니다.</string>
+    <string name="revanced_hide_carousel_shelf_title">좌우 슬라이드형 선반 제거</string>
+    <string name="revanced_hide_carousel_shelf_summary">피드에서 좌우 슬라이드형 선반을 숨깁니다.</string>
     <string name="revanced_hide_playlist_card_shelf_title">재생목록 카드 선반 제거</string>
     <string name="revanced_hide_playlist_card_shelf_summary">피드에서 재생목록 카드 선반을 숨깁니다.</string>
     <string name="revanced_hide_samples_shelf_title">샘플 선반 제거</string>
@@ -152,16 +152,16 @@
     <string name="revanced_hide_history_button_summary">툴바에서 최근 감상 기록 버튼을 숨깁니다.</string>
     <string name="revanced_hide_notification_button_title">알림 버튼 제거</string>
     <string name="revanced_hide_notification_button_summary">툴바에서 알림 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_sound_search_button_title">\"소리로 찾기\" 버튼 제거</string>
+    <string name="revanced_hide_sound_search_button_title">\'소리로 찾기\' 버튼 제거</string>
     <string name="revanced_hide_sound_search_button_summary">툴바에서 \'소리로 찾기\' 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_voice_search_button_title">음성으로 찾기 버튼 제거</string>
+    <string name="revanced_hide_voice_search_button_title">\'음성으로 찾기\' 버튼 제거</string>
     <string name="revanced_hide_voice_search_button_summary">툴바에서 \'음성으로 찾기\' 버튼을 숨깁니다.</string>
     <string name="revanced_restore_old_style_library_shelf_title">이전 보관함 선반으로 복원</string>
     <string name="revanced_restore_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험적인 기능)</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"시청 경고 다이얼로그를 제거합니다.
 
-이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수는 없습니다."</string>
+이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
     <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
 
@@ -205,6 +205,8 @@
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_podcast_summary">팟캐스트에도 집중 모드를 적용합니다.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">\'노래↔동영상\' 전환 토글 제거</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">플레이어에서 \'노래↔동영상\' 전환 토글을 숨깁니다.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">댓글 섹션 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
@@ -222,7 +224,7 @@
     <string name="revanced_restore_old_player_layout_title">이전 플레이어 레이아웃으로 복원</string>
     <string name="revanced_restore_old_player_layout_summary">"이전 플레이어 레이아웃으로 복원합니다.
 이전 플레이어 레이아웃에서 일부 기능이 제대로 작동하지 않을 수 있습니다."</string>
-    <string name="revanced_replace_player_cast_button_title">\'정식 음원으로 재생\' 버튼 표시</string>
+    <string name="revanced_replace_player_cast_button_title">크롬캐스트 버튼 변경</string>
     <string name="revanced_replace_player_cast_button_summary">"플레이어에서 크롬캐스트 버튼을 '정식 음원으로 재생' 버튼으로 변경합니다. (실험적인 기능)
 
 알려진 문제: 재생 목록에서 재생할 수 없는 음악이 하나 이상 있는 경우 정상적으로 작동하지 않습니다."</string>
@@ -234,10 +236,10 @@
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 재생 속도 값을 추가하거나 변경할 수 있습니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">재생 속도 저장 활성화</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">재생 속도 값을 변경할 때마다 저장합니다.</string>
-    <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화</string>
+    <string name="revanced_remember_video_quality_last_selected_title">동영상 품질 저장 활성화</string>
     <string name="revanced_remember_video_quality_last_selected_summary">동영상 품질 값을 변경할 때마다 저장합니다.</string>
-    <string name="revanced_custom_playback_speeds_invalid">사용자 정의 재생 속도는 %s배속보다 작아야 하므로 기본값으로 재설정합니다.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">잘못된 재생 속도 값이므로 기본값으로 재설정합니다.</string>
+    <string name="revanced_custom_playback_speeds_invalid">사용자 정의 재생 속도는 %s배속보다 작아야 하므로 기본값으로 초기화합니다.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">잘못된 재생 속도 값이므로 기본값으로 초기화합니다.</string>
     <string name="revanced_remember_playback_speed_toast">기본 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 품질을 설정할 수 없습니다.</string>
@@ -311,7 +313,7 @@
     <string name="revanced_sb_color_dot_label">색상:</string>
     <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다.</string>
     <string name="revanced_sb_color_reset">색상을 초기화하였습니다.</string>
-    <string name="revanced_sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 재설정합니다.</string>
+    <string name="revanced_sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 초기화합니다.</string>
     <string name="revanced_sb_reset_color">색상 초기화</string>
     <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_sb_about">정보</string>
@@ -332,7 +334,7 @@
 
 휴대폰에 대한 \"Don't kill my app\" 가이드를 읽어보시고, MicroG 설치 지침을 적용하세요.
 
-앱이 실행하려면 이 과정이 필요합니다."</string>
+앱을 실행하려면 이 과정이 필요합니다."</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore를 배터리 최적화 목록에서 제외하여 앱 문제를 방지할 수 있습니다.
 

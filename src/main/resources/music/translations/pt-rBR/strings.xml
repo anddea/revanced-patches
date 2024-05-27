@@ -10,8 +10,8 @@
     <string name="revanced_hide_account_menu_title">Ocultar menu de contas</string>
     <string name="revanced_hide_account_menu_summary">Oculta os elementos de menu de conta no filtro personalizado.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro do menu de conta</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de conta a serem filtrados separados por uma nova linha.</string>
-    <string name="revanced_hide_account_menu_empty_component_title">Ocultar componente vazio</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de contas a serem filtrados, separados por novas linhas.</string>
+    <string name="revanced_hide_account_menu_empty_component_title">Ocultar componentes vazios</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Oculta componentes vazios no menu de contas</string>
     <string name="revanced_hide_handle_title">Ocultar identificador</string>
     <string name="revanced_hide_handle_summary">Oculta o identificador no menu da conta.</string>
@@ -55,7 +55,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_music_ads_summary">Oculta os anúncios antes de tocar música.</string>
     <string name="revanced_hide_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
     <string name="revanced_hide_paid_promotion_label_summary">Oculta o rótulo de promoção paga.</string>
-    <string name="revanced_hide_premium_promotion_title">Ocultar pop-up de promoção premium</string>
+    <string name="revanced_hide_premium_promotion_title">Ocultar pop-ups de promoção premium</string>
     <string name="revanced_hide_premium_promotion_summary">Oculta pop-ups de promoção premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ocultar banner de renovação premium</string>
     <string name="revanced_hide_premium_renewal_summary">Oculta o banner de renovação premium.</string>
@@ -67,12 +67,12 @@ Por favor, baixe %2$s do site."</string>
 Limitações:
 • A arte do álbum na guia da biblioteca fica menor quando organizada em uma grade.
 • O layout do temporizador pode parecer incomum."</string>
-    <string name="revanced_enable_trim_silence_title">Ativar recortar silêncio</string>
-    <string name="revanced_enable_trim_silence_summary">"Ativa o botão 'Recortar silêncio' para o menu de velocidade de reprodução flutuante.
+    <string name="revanced_enable_trim_silence_title">Adicionar botão para cortar silêncio</string>
+    <string name="revanced_enable_trim_silence_summary">"Adiciona a opção 'Cortar silêncio' ao menu flutuante de velocidade de reprodução.
 
-Info:
+Informações:
 • Este recurso é para podcasts.
-• Este recurso ainda está em desenvolvimento, por isso pode ser instável."</string>
+• Este recurso ainda está em desenvolvimento, portanto pode ser instável."</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ocultar botão de Like e Deslike</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Ocultar componente de 3 colunas</string>
     <string name="revanced_hide_flyout_menu_add_to_queue_title">Ocultar menu Adicionar à fila</string>
@@ -107,8 +107,8 @@ Info:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">URL de vídeo inválida.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Substituir Remover fila</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Substitui \'Remover fila\' por \'Assistir no YouTube\'.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Aplica-se apenas ao menu flutuante do reprodutor</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Menu denunciar em comentários não será substituído.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Manter relatório nos comentários</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Mantém intacto o menu de relatório na seção de comentários.</string>
     <string name="revanced_replace_flyout_menu_report_title">Substituir denunciar</string>
     <string name="revanced_replace_flyout_menu_report_summary">Substitui \'Denunciar\' por \'Velocidade de Reprodução\'.</string>
     <!-- PreferenceScreen: General -->
@@ -123,7 +123,7 @@ Info:
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
     <string name="revanced_disable_auto_captions_summary">Desativa as legendas de serem ativadas automaticamente.</string>
     <string name="revanced_disable_dislike_redirection_title">Desativar redirecionamento de dislike</string>
-    <string name="revanced_disable_dislike_redirection_summary">Desativa o redirecionamento para a próxima faixa quando clicar em no botão de dislike.</string>
+    <string name="revanced_disable_dislike_redirection_summary">Desativa o redirecionamento para a próxima faixa ao clicar no botão de dislike.</string>
     <string name="revanced_enable_landscape_mode_title">Ativar modo paisagem</string>
     <string name="revanced_enable_landscape_mode_summary">Ativa o modo paisagem ao girar a tela nos telefones.</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
@@ -162,10 +162,10 @@ Info:
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Remover o diálogo discricionário de visualização.
 Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_app_version_summary">"Falsifica a versão cliente para a versão antiga.
+    <string name="revanced_spoof_app_version_summary">"Falsifica a versão do cliente para uma versão mais antiga.
 
-• Isso alterará a aparência do aplicativo, mas efeitos colaterais desconhecidos podem ocorrer.
-• Se desligado mais tarde, a interface do usuário antiga pode permanecer até limpar os dados do aplicativo."</string>
+• Isto alterará a aparência do aplicativo, mas poderão ocorrer efeitos colaterais desconhecidos.
+• Se for desativada posteriormente, a interface do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de rádio em regiões Canadenses</string>
@@ -204,6 +204,8 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_enable_zen_mode_summary">Muda o fundo do reprodutor para cinza claro para reduzir o cansaço ocular.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Ativar o modo calmo em podcasts</string>
     <string name="revanced_enable_zen_mode_podcast_summary">O modo calmo também é aplicado aos podcasts.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Ocultar alternador de áudio e vídeo</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Oculta o alternador de áudio e vídeo no player.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ocultar diretrizes do canal</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Oculta as diretrizes do canal no topo da seção de comentários.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ocultar botões de marcação de tempo e emoji</string>
@@ -222,8 +224,9 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_restore_old_player_layout_summary">"Retorna o layout do reprodutor ao estilo antigo.
 Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor."</string>
     <string name="revanced_replace_player_cast_button_title">Substituir o botão de transmissão</string>
-    <string name="revanced_replace_player_cast_button_summary">"Substitua o botão de transmissão no reprodutor pelo botão \"Abrir música\". (experimental)
-Limitação: Se uma ou mais músicas não puderem ser reproduzidas na lista de reprodução, ele não funcionará normalmente."</string>
+    <string name="revanced_replace_player_cast_button_summary">"Substitui o botão transmitir no reprodutor por um botão ‘abrir música’, que abre o áudio oficial em vez do videoclipe. (experimental)
+
+Informação: Este recurso não funciona normalmente se alguma música da lista de reprodução não puder ser reproduzida."</string>
     <string name="revanced_replace_player_cast_button_playlist_dismiss">Já está reproduzindo da fonte oficial de música.</string>
     <string name="revanced_replace_player_cast_button_playlist_error">A fonte oficial de música não está disponível.</string>
     <!-- PreferenceScreen: Video -->
@@ -319,7 +322,7 @@ Limitação: Se uma ou mais músicas não puderem ser reproduzidas na lista de r
     <string name="revanced_enable_debug_logging_title">Ativar o relatório de depuração</string>
     <string name="revanced_enable_debug_logging_summary">Imprime o relatório de depuração</string>
     <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Imprime os logs de depuração incluindo o buffer.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Inclui o buffer no log de depuração.</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec opus</string>
     <string name="revanced_enable_opus_codec_summary">Aplicar codec de áudio opus em vez do codec de áudio mp4a.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>

@@ -10,7 +10,7 @@
     <string name="revanced_hide_account_menu_title">Ukryj menu konta</string>
     <string name="revanced_hide_account_menu_summary">Ukrywa elementy menu konta.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtr menu konta</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta, które mają być ukryte oddzielonych nowymi liniami.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw w menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ukryj puste komponenty</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Ukrywa puste komponenty w menu konta.</string>
     <string name="revanced_hide_handle_title">Ukryj nicki</string>
@@ -34,10 +34,10 @@
     <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
     <string name="revanced_hide_action_button_label_title">Ukryj nazwy przycisków akcji</string>
     <string name="revanced_external_downloader_action_title">Zastąp przycisk od pobierania</string>
-    <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera aplikację do pobierania.
+    <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania.
 
 • Jedynie zmienia działanie przycisku w odtwarzaczu.
-• Nie zmienia działania przycisków w dialogach i bibliotece."</string>
+• Nie zmienia działania przycisków w menu ustawień utworu i bibliotece."</string>
     <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
     <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_dialog_title">Aplikacja od pobierania</string>
@@ -67,14 +67,14 @@ Pobierz %2$s ze strony."</string>
 Znane problemy:
 • Okładka albumu w półkach biblioteki staje się mniejsza, gdy jest ustawiona siatka.
 • Układ wyłącznika czasowego może wyglądać nietypowo."</string>
-    <string name="revanced_enable_trim_silence_title">Włącz pomijanie ciszy</string>
-    <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk od pomijania ciszy do menu od prędkości odtwarzania.
+    <string name="revanced_enable_trim_silence_title">Włącz przełącznik do pomijania ciszy</string>
+    <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk pomijania ciszy do menu od prędkości odtwarzania.
 
 Informacje:
 • Ta funkcja jest dostępna tylko dla podcastów.
 • Ta funkcja jest nadal w fazie rozwoju, więc może być niestabilna."</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
-    <string name="revanced_hide_flyout_menu_3_column_component_title">Ukryj 3 kolumnowy komponent</string>
+    <string name="revanced_hide_flyout_menu_3_column_component_title">Ukryj 3-kolumnowy komponent</string>
     <string name="revanced_hide_flyout_menu_add_to_queue_title">Ukryj menu od dodawania do kolejki</string>
     <string name="revanced_hide_flyout_menu_captions_title">Ukryj menu od napisów</string>
     <string name="revanced_hide_flyout_menu_delete_playlist_title">Ukryj menu od usuwania playlist</string>
@@ -107,8 +107,8 @@ Informacje:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Niepoprawne url wideo.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Zmodyfikuj czyszczenie kolejek</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Zamienia menu od czyszczenia kolejek z menu od oglądania na YouTube.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Zmienia działanie tylko dla przycisków w menu ustawień utworu</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Menu od zgłaszania w komentarzach nie będzie zmienione.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Zachowaj zgłaszanie w komentarzach</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Zachowaniu menu zgłaszania w sekcji komentarzy.</string>
     <string name="revanced_replace_flyout_menu_report_title">Zamień przycisk od zgłaszania</string>
     <string name="revanced_replace_flyout_menu_report_summary">Zamienia przycisk od zgłaszania z przyciskiem od prędkości wideo.</string>
     <!-- PreferenceScreen: General -->
@@ -130,7 +130,7 @@ Informacje:
     <string name="revanced_custom_filter_summary">Włącza własny filtr do ukrywania komponentów układu aplikacji.</string>
     <string name="revanced_custom_filter_strings_title">Edytuj własny filtr</string>
     <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-    <string name="revanced_custom_filter_strings_summary">Skonfiguruj komponenty, które chcesz filtrować według nazw oddzielonych liniami.</string>
+    <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, które muszą być oddzielone nowymi liniami.</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s.</string>
     <string name="revanced_hide_button_shelf_title">Ukryj półki z przyciskami</string>
     <string name="revanced_hide_button_shelf_summary">Ukrywa półki z przyciskami na stronie głównej i w zakładce odkrywania.</string>
@@ -204,6 +204,8 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_enable_zen_mode_summary">Dodaje szary odcień do odtwarzacza wideo, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Tryb zen jest stosowany również do podcastów.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Ukryj przełącznik utwór-teledysk</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Ukrywa przełącznik utwór-teledysk w odtwarzaczu.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ukryj wytyczne</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Ukrywa wytyczne na górze sekcji komentarzy.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ukryj czas i przyciski od emotikon</string>
@@ -222,8 +224,9 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_restore_old_player_layout_summary">"Przywraca układ odtwarzacza do starego wyglądu.
 Niektóre ustawienia mogą nie działać poprawnie ze starym układem odtwarzacza."</string>
     <string name="revanced_replace_player_cast_button_title">Zastąp przycisk castowania</string>
-    <string name="revanced_replace_player_cast_button_summary">"Zastępuje przycisk castowania przyciskiem \"Otwórz muzykę\". (Eksperymentalne)
-Znany problem: Jeśli na playliście znajduje się jeden bądź więcej utworów, których nie można odtworzyć, to ustawienie te nie działa normalnie."</string>
+    <string name="revanced_replace_player_cast_button_summary">"Zastępuje przycisk castowania przyciskiem \"Otwórz muzykę\", który otwiera oficjalne audio zamiast teledysku. (Eksperymentalne)
+
+Informacja: funkcja nie działa normalnie, jeśli żaden z utworów nie może być odtworzony."</string>
     <string name="revanced_replace_player_cast_button_playlist_dismiss">Muzyka jest już odtwarzana z oficjalnego źródła.</string>
     <string name="revanced_replace_player_cast_button_playlist_error">Oficjalne źródło muzyki jest niedostępne.</string>
     <!-- PreferenceScreen: Video -->
@@ -262,7 +265,7 @@ Znany problem: Jeśli na playliście znajduje się jeden bądź więcej utworów
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_sb_enabled">Włącz SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock to system pomijania denerwujących fragmentów w wideo na YouTube.</string>
-    <string name="revanced_sb_toast_on_connection_error">Pokaż komunikat o niedostępności API</string>
+    <string name="revanced_sb_toast_on_connection_error">Pokaż komunikat, jeśli API jest niedostępne</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Wyświetla komunikat w momencie, gdy API SponsorBlock jest niedostępne.</string>
     <string name="revanced_sb_toast_on_skip">Pokazuj komunikaty podczas automatycznego pomijania</string>
     <string name="revanced_sb_toast_on_skip_sum">Komunikaty są pokazywane, gdy segmenty są automatycznie pomijane.</string>
@@ -277,7 +280,7 @@ Znany problem: Jeśli na playliście znajduje się jeden bądź więcej utworów
     <string name="revanced_sb_segments_selfpromo">Nieopłacona / Auto Reklama</string>
     <string name="revanced_sb_segments_selfpromo_sum">Podobne do \'Treści Sponsorowanych\' z wyjątkiem nieopłaconych lub autoreklam. Obejmuje to sekcje o własnych towarach, darowiznach czy informacjach o tym, z kim współpracowali.</string>
     <string name="revanced_sb_segments_interaction">Przypomnienie O Interakcji (Zasubskrybuj)</string>
-    <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
+    <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie o łapce w górę, subskrypcji lub obserwowaniu w środku kontentu. Jeśli trwa długo lub dotyczy czegoś konkretnego, powinno być oznaczone jako autopromocja.</string>
     <string name="revanced_sb_segments_intro">Przerywnik / Animowane Intro</string>
     <string name="revanced_sb_segments_intro_sum">Fragment bez faktycznej treści. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje.</string>
     <string name="revanced_sb_segments_outro">Karty / Napisy Końcowe</string>
@@ -319,7 +322,7 @@ Znany problem: Jeśli na playliście znajduje się jeden bądź więcej utworów
     <string name="revanced_enable_debug_logging_title">Włącz logowanie debugowania</string>
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Wyświetlane logi do debugowania zawierają bufory.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Zawiera buforowanie w logach debugowania.</string>
     <string name="revanced_enable_opus_codec_title">Włącz kodek opus</string>
     <string name="revanced_enable_opus_codec_summary">Aplikuje kodek opus zamiast kodeka mp4a.</string>
     <string name="gms_core_settings_title">Otwórz GmsCore</string>

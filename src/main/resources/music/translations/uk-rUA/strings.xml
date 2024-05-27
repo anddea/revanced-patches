@@ -10,8 +10,8 @@
     <string name="revanced_hide_account_menu_title">Приховати меню облікового запису</string>
     <string name="revanced_hide_account_menu_summary">Приховує елементи меню облікового запису в користувацькому фільтрі.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фільтр меню облікового запису</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новим рядком.</string>
-    <string name="revanced_hide_account_menu_empty_component_title">Приховати порожній простір</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новими рядками.</string>
+    <string name="revanced_hide_account_menu_empty_component_title">Приховати порожні компоненти</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Приховує порожній простір у меню облікового запису</string>
     <string name="revanced_hide_handle_title">Приховати електронну пошту / @нік</string>
     <string name="revanced_hide_handle_summary">Приховує електронну пошту / @нік у меню облікових записів.</string>
@@ -67,8 +67,9 @@
 Відомі проблеми:
 • Обкладинка альбому на вкладці \"Бібліотека\" стає меншою, якщо вона впорядкована сіткою.
 • Вікно \"Таймер сну\" може з'являтися незвично."</string>
-    <string name="revanced_enable_trim_silence_title">Увімкнути обрізання тиші</string>
-    <string name="revanced_enable_trim_silence_summary">"Вмикає перемикач \"Обрізати тишу\" у спливаючому меню швидкості відтворення.
+    <string name="revanced_enable_trim_silence_title">Додати перемикач обрізання тиші</string>
+    <string name="revanced_enable_trim_silence_summary">"Додає перемикач \"Обрізати тишу\" у спливаючому меню швидкості відтворення.
+
 Інформація:
 • Ця функція призначена для подкастів.
 • Ця функція все ще у розробці, тому може бути нестабільною."</string>
@@ -106,8 +107,8 @@
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Недійсна url-адреса відео.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Заміна пункту \"Відхилити чергу\"</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Замінює пункт \"Відхилити чергу\" на пункт \"Дивитись на YouTube\".</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Застосовується тільки до спливаючого меню плеєра</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Пункт меню \"Поскаржитися\" в коментарях не буде замінено.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Залишити пункт \"Поскаржитися\"</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Залишає пункт меню \"Поскаржитися\" в коментарях недоторканим.</string>
     <string name="revanced_replace_flyout_menu_report_title">Заміна пункту \"Поскаржитися\"</string>
     <string name="revanced_replace_flyout_menu_report_summary">Замінює пункт \"Поскаржитися\" на пункт \"Швидкість відео\".</string>
     <!-- PreferenceScreen: General -->
@@ -129,7 +130,7 @@
     <string name="revanced_custom_filter_summary">Вмикає користувацькі фільтри для приховування компонентів інтерфейсу.</string>
     <string name="revanced_custom_filter_strings_title">Редагувати користувацький фільтр</string>
     <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-    <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком.</string>
+    <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новими рядками.</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недопустимий користувацький фільтр: %s.</string>
     <string name="revanced_hide_button_shelf_title">Приховати категорії в Навігації</string>
     <string name="revanced_hide_button_shelf_summary">Приховує кнопки \"Новинки\", \"Хіт-паради\", \"Настрій і жанри\" на вкладці \"Навігація\".</string>
@@ -161,7 +162,7 @@
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучає діалог про небажаний контент.
 Це не обходить вікові обмеження. Просто приймає їх автоматично."</string>
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
-    <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на стару версію.
+    <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на старішу версію.
 
 • Це змінить зовнішній вигляд програми, але можуть виникнути невідомі побічні ефекти.
 • Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані програми."</string>
@@ -203,6 +204,8 @@
     <string name="revanced_enable_zen_mode_summary">Змінює фон плеєра на світло-сірий, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Увімкнути режим \"Дзен\" у подкастах</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Режим \"Дзен\" також застосовується до подкастів.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Приховати перемикач \"пісня/відео\"</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Приховує перемикач \"пісня/відео\" у плеєрі.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Приховати правила каналу</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Приховує правила каналу у верхній частині секції коментарів.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати мітку часу та емодзі</string>
@@ -222,7 +225,8 @@
 Деякі функції можуть працювати не належним чином у старому інтерфейсі плеєра."</string>
     <string name="revanced_replace_player_cast_button_title">Заміна кнопки \"Трансляція\"</string>
     <string name="revanced_replace_player_cast_button_summary">"Замінює кнопку \"Трансляція\" в плеєрі кнопкою \"Відкрити музику\". (Експериментальна опція)
-Відомі проблеми: якщо одна або кілька музичних композицій не можуть бути відтворені в списку відтворення, це не працюватиме належним чином."</string>
+
+Інформація: Ця функція не працюватиме належним чином, якщо одна або кілька музичних композицій не можуть бути відтворені в списку відтворення."</string>
     <string name="revanced_replace_player_cast_button_playlist_dismiss">Вже відтворюється з офіційного джерела музики.</string>
     <string name="revanced_replace_player_cast_button_playlist_error">Офіційне джерело музики недоступне.</string>
     <!-- PreferenceScreen: Video -->
@@ -318,7 +322,7 @@
     <string name="revanced_enable_debug_logging_title">Увімкнути протоколи налагодження</string>
     <string name="revanced_enable_debug_logging_summary">Виводить протокол налагодження.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Друкує журнали налагодження включаючи буфер.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Включає буфер у журнал налагодження.</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек opus</string>
     <string name="revanced_enable_opus_codec_summary">Вмикає аудіокодек opus замість аудіокодека mp4a.</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
