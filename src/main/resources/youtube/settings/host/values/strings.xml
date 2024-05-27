@@ -412,9 +412,6 @@ Store"</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden.</string>
 	<string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button in bottom right corner is shown.\n\nIt appears in fullscreen when closing live chat.</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button in bottom right corner is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
-	<string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
 	<string name="revanced_hide_general_ads_summary_off">General ads are shown.</string>
 	<string name="revanced_hide_general_ads_summary_on">General ads are hidden.</string>
 	<string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -475,9 +472,12 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_like_dislike_button_summary_off">Like and dislike buttons are shown.</string>
 	<string name="revanced_hide_like_dislike_button_summary_on">Like and dislike buttons are hidden.</string>
 	<string name="revanced_hide_like_dislike_button_title">Hide like and dislike buttons</string>
-	<string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown</string>
-	<string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden</string>
+	<string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown.\n\nThis setting applies to Shorts live videos too.</string>
+	<string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden.\n\nThis setting applies to Shorts live videos too.</string>
 	<string name="revanced_hide_live_chat_messages_title">Hide live chat messages</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
+	<string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
 	<string name="revanced_hide_medical_panel_summary_off">Medical panels are shown.</string>
 	<string name="revanced_hide_medical_panel_summary_on">Medical panels are hidden.</string>
 	<string name="revanced_hide_medical_panel_title">Hide medical panels</string>
@@ -522,7 +522,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
 	<string name="revanced_hide_playables_summary_off">Playables are shown.</string>
 	<string name="revanced_hide_playables_summary_on">Playables are hidden.</string>
-	<string name="revanced_hide_playables_title">Hide Playables</string>
+	<string name="revanced_hide_playables_title">Hide playables</string>
 	<string name="revanced_hide_player_autoplay_button_summary_off">Autoplay button is shown.</string>
 	<string name="revanced_hide_player_autoplay_button_summary_on">Autoplay button is hidden.</string>
 	<string name="revanced_hide_player_autoplay_button_title">Hide autoplay button</string>
@@ -643,8 +643,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 • Videos with phrases such as 'People also watched' underneath.
 • Videos uploaded from channels not subscribed to that have less than 1,000 views."</string>
 	<string name="revanced_hide_recommended_video_title">Hide recommended videos</string>
-	<string name="revanced_hide_related_video_overlay_summary_on">\'More videos\' section in the quick actions container and the related videos overlay are hidden.</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">\'More videos\' section in the quick actions container and the related videos overlay are shown.</string>
+	<string name="revanced_hide_related_video_overlay_summary_on">\'More videos\' section in the quick actions container and the related videos overlay are hidden.</string>
 	<string name="revanced_hide_related_video_overlay_title">Hide related video overlay</string>
 	<string name="revanced_hide_remix_button_summary_off">Remix button is shown.</string>
 	<string name="revanced_hide_remix_button_summary_on">Remix button is hidden.</string>
@@ -885,27 +885,14 @@ Tap and hold to copy video timestamp."</string>
 	<string name="revanced_overlay_button_not_allowed_warning">Tap and hold to change button state.</string>
 	<string name="revanced_overlay_button_speed_dialog_reset">Playback speed reset: %sx</string>
 	<string name="revanced_overlay_button_speed_dialog_summary">"Tap to open speed dialog.
-Tap and hold to set playback speed to 1.0x."</string>
+Tap and hold to reset playback speed to 1.0x. Tap and hold again to reset back to default speed."</string>
 	<string name="revanced_overlay_button_speed_dialog_title">Show speed dialog button</string>
 	<string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
-	<string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
-	<string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
+	<string name="revanced_overlay_button_time_ordered_playlist_title">Show time-ordered playlist button</string>
 	<string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
-	<string name="revanced_whitelist_settings_title">Channel whitelist</string>
-	<string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
-	<string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
-	<string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
-	<string name="revanced_whitelist_removed">Channel \'%1$s\' was removed from the %2$s whitelist.</string>
-	<string name="revanced_whitelist_remove_failed">Failed to remove channel \'%1$s\' from the %2$s whitelist.</string>
-	<string name="revanced_whitelist_remove_dialog_message">Remove channel \'%1$s\' from %2$s whitelist?</string>
-	<string name="revanced_whitelist_empty">There are no whitelisted channels.</string>
-	<string name="revanced_whitelist_excluded">Not added to whitelist.</string>
-	<string name="revanced_whitelist_included">Added to whitelist.</string>
-	<string name="revanced_whitelist_playback_speed">Playback speed</string>
-	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-	<string name="revanced_whitelist_failure_generic">Failed to load channel information.</string>
+	<string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
 	<string name="revanced_patches_excluded">Excluded</string>
 	<string name="revanced_patches_included">Included</string>
 	<string name="revanced_playback_speed_normal">Normal</string>
@@ -1274,6 +1261,27 @@ Info:
 	<string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
 	<string name="revanced_spoof_app_version_target_title">Edit spoof app version</string>
 	<string name="revanced_spoof_app_version_title">Spoof app version</string>
+	<string name="revanced_spoof_client_summary_off">"Client is not spoofed. Video playback may not work."</string>
+	<string name="revanced_spoof_client_summary_on">"Client is spoofed.
+
+Side effects include:
+• No HDR video.
+• Watch history may not work."</string>
+	<string name="revanced_spoof_client_title">Spoof client</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
+
+Side effects include:
+• Player swipe gestures do not work.
+• Kids videos do not playback.
+• Paused videos can randomly resume."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"Client is currently spoofed to iOS.
+
+Side effects include:
+• Playback speed menu is missing.
+• Live streams cannot play as audio only.
+• Live streams not available on Android 8.0.
+• Higher video qualities may be missing."</string>
+	<string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Spoofs the device dimensions in order to unlock higher video qualities that may not be available on your device.</string>
 	<string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Spoofs the format stream data to prevent playback issues.
@@ -1283,27 +1291,6 @@ Limitations:
 • If buffering takes too long, you may need to close and reopen the video.
 • Since this is still under development, there may be other unknown issues."</string>
 	<string name="revanced_spoof_format_stream_data_title">Spoof format stream data</string>
-	<string name="revanced_spoof_client_title">Spoof client</string>
-	<string name="revanced_spoof_client_summary_on">"Client is spoofed.
-
-Side effects include:
-• No HDR video.
-• Watch history may not work."</string>
-	<string name="revanced_spoof_client_summary_off">"Client is not spoofed. Video playback may not work."</string>
-	<string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
-	<string name="revanced_spoof_client_use_ios_summary_on">"Client is currently spoofed to iOS.
-
-Side effects include:
-• Playback speed menu is missing.
-• Live streams cannot play as audio only.
-• Live streams not available on Android 8.0.
-• Higher video qualities may be missing."</string>
-	<string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
-
-Side effects include:
-• Player swipe gestures do not work.
-• Kids videos do not playback.
-• Paused videos can randomly resume."</string>
 	<string name="revanced_spoof_player_parameter_in_feed_summary_off">"Player parameter not spoofed for feed videos.
 
 Limitation: Feed videos will play for less than 1 minute before encountering playback issues."</string>
@@ -1327,9 +1314,9 @@ Limitations:
 	<string name="revanced_swipe_magnitude_threshold_title">Swipe magnitude threshold</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background.</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Swipe background visibility</string>
-	<string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also decrease the size of the screen area for the double-tap-to-seek gesture.</string>
+	<string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture.</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
-	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Swipeable area size can\'t be more than %s%%. Reset to default value.</string>
+	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Swipeable area size cannot be more than %s%%. Reset to default value.</string>
 	<string name="revanced_swipe_overlay_text_size_summary">The text size for swipe overlay.</string>
 	<string name="revanced_swipe_overlay_text_size_title">Swipe overlay text size</string>
 	<string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible.</string>
@@ -1341,4 +1328,17 @@ Limitations:
 • You should disable this setting to make video ads visible."</string>
 	<string name="revanced_switch_create_with_notifications_button_title">Switch create with notifications</string>
 	<string name="revanced_theme_default">Stock</string>
+	<string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
+	<string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
+	<string name="revanced_whitelist_empty">There are no whitelisted channels.</string>
+	<string name="revanced_whitelist_excluded">Not added to whitelist.</string>
+	<string name="revanced_whitelist_failure_generic">Failed to load channel information.</string>
+	<string name="revanced_whitelist_included">Added to whitelist.</string>
+	<string name="revanced_whitelist_playback_speed">Playback speed</string>
+	<string name="revanced_whitelist_remove_dialog_message">Remove channel \'%1$s\' from %2$s whitelist?</string>
+	<string name="revanced_whitelist_remove_failed">Failed to remove channel \'%1$s\' from the %2$s whitelist.</string>
+	<string name="revanced_whitelist_removed">Channel \'%1$s\' was removed from the %2$s whitelist.</string>
+	<string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
+	<string name="revanced_whitelist_settings_title">Channel whitelist</string>
+	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
 </resources>

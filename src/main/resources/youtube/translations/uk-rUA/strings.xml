@@ -68,7 +68,7 @@
 	<string name="revanced_change_start_page_entry_movies">Фільми</string>
 	<string name="revanced_change_start_page_entry_music">Музика</string>
 	<string name="revanced_change_start_page_entry_search">Пошук</string>
-	<string name="revanced_change_start_page_entry_shorts">Короткі</string>
+	<string name="revanced_change_start_page_entry_shorts">YouTube Shorts</string>
 	<string name="revanced_change_start_page_entry_sports">Спорт</string>
 	<string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
 	<string name="revanced_change_start_page_entry_trending">Тенденції</string>
@@ -406,9 +406,6 @@
 	<string name="revanced_hide_fullscreen_ads_summary_off">Повноекранну рекламу показується</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано.</string>
 	<string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_off">Кнопку повтору онлайн чату в правому нижньому куті показується.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_on">Кнопку повтору онлайн чату в правому нижньому куті приховано.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
-	<string name="revanced_hide_live_chat_replay_button_title">Приховати кнопку повтору онлайн чату</string>
 	<string name="revanced_hide_general_ads_summary_off">Загальну рекламу показується</string>
 	<string name="revanced_hide_general_ads_summary_on">Загальну рекламу приховано</string>
 	<string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
@@ -469,9 +466,12 @@
 	<string name="revanced_hide_like_dislike_button_summary_off">Кнопки Подобається та Не подобається показується</string>
 	<string name="revanced_hide_like_dislike_button_summary_on">Кнопки Подобається та Не подобається приховано</string>
 	<string name="revanced_hide_like_dislike_button_title">Приховати кнопки Подобається і Не подобається</string>
-	<string name="revanced_hide_live_chat_messages_summary_off">Повідомлення онлайн чату показується</string>
-	<string name="revanced_hide_live_chat_messages_summary_on">Повідомлення онлайн чату приховано</string>
+	<string name="revanced_hide_live_chat_messages_summary_off">Повідомлення онлайн чату показується.\n\nЦе налаштування також застосовується до прямих трансляцій Коротких.</string>
+	<string name="revanced_hide_live_chat_messages_summary_on">Повідомлення онлайн чату приховано.\n\nЦе налаштування також застосовується до прямих трансляцій Коротких.</string>
 	<string name="revanced_hide_live_chat_messages_title">Приховати повідомлення онлайн чату</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_off">Кнопку повтору онлайн чату показується.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_on">Кнопку повтору онлайн чату приховано.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
+	<string name="revanced_hide_live_chat_replay_button_title">Приховати кнопку повтору онлайн чату</string>
 	<string name="revanced_hide_live_chat_replay_summary_off">Кнопку повтору онлайн чату в правому нижньому куті показується.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
 	<string name="revanced_hide_live_chat_replay_summary_on">Кнопку повтору онлайн чату в правому нижньому куті приховано.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
 	<string name="revanced_hide_live_chat_replay_title">Приховати кнопку повтору онлайн чату</string>
@@ -643,8 +643,8 @@
 • Відео з фразами на кшталт 'Людей також дивилися' внизу відео
 • Відео, завантажені з каналів, на які не підписані і які мають менше 1, 000 переглядів"</string>
 	<string name="revanced_hide_recommended_video_title">Приховати рекомендовані відео</string>
-	<string name="revanced_hide_related_video_overlay_summary_off">Пов\'язані відео показується.</string>
-	<string name="revanced_hide_related_video_overlay_summary_on">Пов\'язані відео приховано.</string>
+	<string name="revanced_hide_related_video_overlay_summary_off">Секцію \'Більше відео\' у контейнері швидких дій та пов\'язаних відео показується.</string>
+	<string name="revanced_hide_related_video_overlay_summary_on">Секцію \'Більше відео\' у контейнері швидких дій та пов\'язаних відео приховано.</string>
 	<string name="revanced_hide_related_video_overlay_title">Приховати пов’язані відео</string>
 	<string name="revanced_hide_remix_button_summary_off">Кнопку Ремікс показується</string>
 	<string name="revanced_hide_remix_button_summary_on">Кнопку Ремікс приховано</string>
@@ -838,18 +838,18 @@
 	<string name="revanced_hide_video_ads_summary_off">Відеорекламу показується</string>
 	<string name="revanced_hide_video_ads_summary_on">Відеорекламу приховано</string>
 	<string name="revanced_hide_video_ads_title">Приховати відеорекламу</string>
-	<string name="revanced_hide_video_by_duration_longer_than_summary">Videos with duration longer than this number will be hidden.</string>
-	<string name="revanced_hide_video_by_duration_longer_than_title">Longer than duration</string>
-	<string name="revanced_hide_video_by_duration_shorter_than_summary">Videos with duration shorter than this number will be hidden.</string>
-	<string name="revanced_hide_video_by_duration_shorter_than_title">Shorter than duration</string>
-	<string name="revanced_hide_video_by_duration_summary">Hide videos with shorter than or longer than duration.\n\nKnown issue: It will not hide videos in the player related videos, instead it will hide the timestamp.</string>
-	<string name="revanced_hide_video_by_duration_title">Hide videos based on duration</string>
+	<string name="revanced_hide_video_by_duration_longer_than_summary">Відео з тривалістю більше цього числа приховуватимуться.</string>
+	<string name="revanced_hide_video_by_duration_longer_than_title">Довші за тривалістю</string>
+	<string name="revanced_hide_video_by_duration_shorter_than_summary">Відео з тривалістю менше цього числа приховуватимуться.</string>
+	<string name="revanced_hide_video_by_duration_shorter_than_title">Коротші за тривалістю</string>
+	<string name="revanced_hide_video_by_duration_summary">Приховати відео з меншою або більшою тривалістю.\n\nВідома проблема: Не приховуватимуться пов\'язані відео у плеєрі, натомість приховуватиметься мітку часу.</string>
+	<string name="revanced_hide_video_by_duration_title">Приховати відео за тривалістю</string>
 	<string name="revanced_hide_video_by_view_counts_summary">Приховати рекомендовані відео з меншою за вказану кількість переглядів.</string>
 	<string name="revanced_hide_video_by_view_counts_title">Приховати рекомендовані відео за переглядами</string>
-	<string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden.</string>
-	<string name="revanced_hide_video_view_counts_greater_than_title">Greater than views</string>
-	<string name="revanced_hide_video_view_counts_less_than_summary">Videos with views less than this number will be hidden.</string>
-	<string name="revanced_hide_video_view_counts_less_than_title">Less than views</string>
+	<string name="revanced_hide_video_view_counts_greater_than_summary">Відео з більше ніж ця кількість переглядів приховуватимуться.</string>
+	<string name="revanced_hide_video_view_counts_greater_than_title">Більші за переглядами</string>
+	<string name="revanced_hide_video_view_counts_less_than_summary">Відео з менше ніж ця кількість переглядів приховуватимуться.</string>
+	<string name="revanced_hide_video_view_counts_less_than_title">Менші за переглядами</string>
 	<string name="revanced_hide_video_view_counts_multiplier_default_value">тис. -&gt; 1 000\nмлн -&gt; 1 000 000\nмлрд -&gt; 1 000 000 000\nпереглядів -&gt; views</string>
 	<string name="revanced_hide_video_view_counts_multiplier_summary">Вкажіть шаблон вашою мовою для кількості переглядів як показується під будь-яким відео в інтерфейсі користувача. Будь-який ключ (літера/слово на вашій мові) -&gt; значення (значення ключа) повинно бути з нового рядка. Ключі йдуть перед позначкою \"-&gt;\". Якщо змінили мову програми або системи, потрібно скинути це налаштування.\n\nЗразок:\nАнглійською: 10K views = K -&gt; 1000, views -&gt; views\nУкраїнською: 10 тис. переглядів = тис. -&gt; 1000, переглядів -&gt; views</string>
 	<string name="revanced_hide_video_view_counts_multiplier_title">Ключі переглядів</string>
@@ -889,13 +889,16 @@
 	<string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
 	<string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантаження</string>
 	<string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
-	<string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто (1.0х).</string>
+	<string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто: %sx.</string>
 	<string name="revanced_overlay_button_speed_dialog_summary">"Натисніть, щоб відкрити діалог швидкості.
-Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x."</string>
+Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x. Натисніть і утримуйте ще раз, щоб скинути швидкість назад до типової."</string>
 	<string name="revanced_overlay_button_speed_dialog_title">Показувати кнопку Діалог швидкості</string>
 	<string name="revanced_overlay_button_time_ordered_playlist_summary">"Натисніть, щоб згенерувати список відтворення з усіх відео з каналу від найстарішого до найновішого.
 Натисніть і утримуйте, щоб скасувати."</string>
-	<string name="revanced_overlay_button_time_ordered_playlist_title">Кнопка впорядкованого за часом списку відтворення</string>
+	<string name="revanced_overlay_button_time_ordered_playlist_title">Показувати кнопку впорядкованого за часом списку відтворення</string>
+	<string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
+Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
+	<string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
 	<string name="revanced_patches_excluded">Виключено</string>
 	<string name="revanced_patches_included">Включено</string>
 	<string name="revanced_playback_speed_normal">Стандартна</string>
@@ -995,7 +998,7 @@
 	<string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучається діалогове вікно.
 Це не обходить вікові обмеження, а просто приймається автоматично."</string>
 	<string name="revanced_remove_viewer_discretion_dialog_title">Вилучати діалогове вікно</string>
-	<string name="revanced_replace_av1_codec_summary">Замінити програмно кодек AV1 кодеком VP9.</string>
+	<string name="revanced_replace_av1_codec_summary">Замінити програмний кодек AV1 кодеком VP9.</string>
 	<string name="revanced_replace_av1_codec_title">Замінити програмний кодек AV1</string>
 	<string name="revanced_replace_time_stamp_action_summary_off">Натисніть, щоб показувався залишок часу.</string>
 	<string name="revanced_replace_time_stamp_action_summary_on">Натисніть, щоб відкрити висувне меню швидкості відтворення або якості відео.</string>
@@ -1013,10 +1016,10 @@
 	<string name="revanced_restore_old_video_quality_menu_summary_off">Старе меню якості відео не показується</string>
 	<string name="revanced_restore_old_video_quality_menu_summary_on">Старе меню якості відео показується</string>
 	<string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
-	<string name="revanced_return_shorts_channel_name_fetch_title">Отримувати зі стрічки rss</string>
+	<string name="revanced_return_shorts_channel_name_fetch_summary_off">"Використовується вбудовану назву каналу YouTube."</string>
 	<string name="revanced_return_shorts_channel_name_fetch_summary_on">"Використовується назву каналу взяту зі стрічки RSS.
 Отримання назви каналу може зайняти більше часу."</string>
-	<string name="revanced_return_shorts_channel_name_fetch_summary_off">"Використовується вбудовану назву каналу YouTube."</string>
+	<string name="revanced_return_shorts_channel_name_fetch_title">Отримувати зі стрічки rss</string>
 	<string name="revanced_return_shorts_channel_name_summary_off">Використовується ідентифікатор каналу.</string>
 	<string name="revanced_return_shorts_channel_name_summary_on">Використовується назву каналу.</string>
 	<string name="revanced_return_shorts_channel_name_title">Повернути назву каналу коротких</string>
@@ -1263,6 +1266,26 @@
 	<string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
 	<string name="revanced_spoof_app_version_target_title">Підробити цільову версію програми</string>
 	<string name="revanced_spoof_app_version_title">Підробити версію програми</string>
+	<string name="revanced_spoof_client_summary_off">"Клієнт не імітується. Відтворення відео може не працювати."</string>
+	<string name="revanced_spoof_client_summary_on">"Клієнт імітується.
+
+Побічні ефекти включають:
+• Немає HDR відео.
+• Історія перегляду може не працювати."</string>
+	<string name="revanced_spoof_client_title">Імітація клієнта</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"Наразі імітується клієнт для Android VR. (Клієнт iOS використовується для Кліпів чи Коротких)
+
+Побічні ефекти включають:
+• Жести проведення у плеєрі не працюють.
+• Відео для дітей не відтворюються.
+• Призупинені відео можуть навмання продовжуватися."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"Наразі імітується клієнт для iOS.
+
+Побічні ефекти включають:
+• Меню швидкості відтворення відсутнє.
+• Фонове відтворення не працює на прямих трансляціях.
+• Вищі якості відео можуть бути відсутні."</string>
+	<string name="revanced_spoof_client_use_ios_title">Імітувати клієнт для iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Підробка розмірів пристрою за порядком, щоб розблокувати вищі якості відео, які можуть бути недоступні на вашому пристрої.</string>
 	<string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Підробка даних формату трансляції для вирішення проблем відтворення.
@@ -1300,7 +1323,7 @@
 	<string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону панелі при жесті</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Видимість фону при жесті</string>
-	<string name="revanced_swipe_overlay_rect_size_summary">Відсоток площі екрана для проведення.</string>
+	<string name="revanced_swipe_overlay_rect_size_summary">Відсоток площі екрана для проведення.\n\nЗауваження: це також змінить розмір площі екрану для жесту перемотування подвійним натисканням.</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Розмір екрана накладки проведення</string>
 	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Розмір площі для проведення не може бути більшим, ніж %s%%. Скинуто.</string>
 	<string name="revanced_swipe_overlay_text_size_summary">Розмір шрифту в панелі при жесті</string>
@@ -1314,4 +1337,17 @@
 • Ви повинні вимкнути це налаштування, щоб зробити відеорекламу видимою."</string>
 	<string name="revanced_switch_create_with_notifications_button_title">Поміняти Створити зі Сповіщення</string>
 	<string name="revanced_theme_default">Стандартна</string>
+	<string name="revanced_whitelist_add_failed">Не вдалося додати канал \'%1$s\' до білого списку %2$s.</string>
+	<string name="revanced_whitelist_added">Канал \'%1$s\' додано до білого списку %2$s.</string>
+	<string name="revanced_whitelist_empty">Нема каналів у білому списку.</string>
+	<string name="revanced_whitelist_excluded">Не додано в білий список.</string>
+	<string name="revanced_whitelist_failure_generic">Не вдалося завантажити інформацію про канал.</string>
+	<string name="revanced_whitelist_included">Додано в білий список.</string>
+	<string name="revanced_whitelist_playback_speed">Швидкість відтворення</string>
+	<string name="revanced_whitelist_remove_dialog_message">Вилучити канал \'%1$s\' з білого списку %2$s?</string>
+	<string name="revanced_whitelist_remove_failed">Не вдалося вилучити канал \'%1$s\' з білого списку %2$s.</string>
+	<string name="revanced_whitelist_removed">Канал \'%1$s\' вилучено з білого списку %2$s.</string>
+	<string name="revanced_whitelist_settings_summary">Перевірити чи вилучити список каналів, доданих до білого списку.</string>
+	<string name="revanced_whitelist_settings_title">Білий список каналів</string>
+	<string name="revanced_whitelist_sponsor_block">Спонсорблок</string>
 </resources>
