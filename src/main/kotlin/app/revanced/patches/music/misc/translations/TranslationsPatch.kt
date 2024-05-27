@@ -67,7 +67,7 @@ object TranslationsPatch : BaseResourcePatch(
             // Process selected RVX languages if no custom language file is set.
             val selectedLanguagesArray = SelectedLanguages!!.split(",").map { it.trim() }.toTypedArray()
             val filteredLanguages = LANGUAGES.filter { it in selectedLanguagesArray }.toTypedArray()
-            context.copyXml("youtube", filteredLanguages)
+            context.copyXml("music", filteredLanguages)
         }
 
         // Process selected app languages.
