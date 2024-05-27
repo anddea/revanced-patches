@@ -1,3 +1,10 @@
+# [2.225.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.22...v2.225.0-dev.23) (2024-05-27)
+
+
+### Bug Fixes
+
+* **YT Music - Translations:** Use correct resource directory ([78667fa](https://github.com/anddea/revanced-patches/commit/78667fa54654fc68d26042c45cdbb9f5f0ccc187))
+
 # [2.225.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.21...v2.225.0-dev.22) (2024-05-27)
 
 
