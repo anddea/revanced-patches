@@ -10,7 +10,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.getTargetIndex
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import kotlin.properties.Delegates
 
 abstract class BaseMainActivityResolvePatch(
@@ -19,9 +18,11 @@ abstract class BaseMainActivityResolvePatch(
     setOf(mainActivityOnCreateFingerprint)
 ) {
     lateinit var mainActivityMutableClass: MutableClass
-    lateinit var onBackPressedMethod: MutableMethod
+
     private lateinit var constructorMethod: MutableMethod
+    private lateinit var onBackPressedMethod: MutableMethod
     private lateinit var onCreateMethod: MutableMethod
+
     private var constructorMethodIndex by Delegates.notNull<Int>()
     private var onBackPressedMethodIndex by Delegates.notNull<Int>()
 
@@ -30,20 +31,12 @@ abstract class BaseMainActivityResolvePatch(
         onCreateMethod = mainActivityResult.mutableMethod
         mainActivityMutableClass = mainActivityResult.mutableClass
 
-        /**
-         * Set Constructor Method
-         */
-        constructorMethod =
-            mainActivityMutableClass.methods.find { method -> MethodUtil.isConstructor(method) }
-                ?: throw PatchException("Could not find constructorMethod")
+        // set constructor method
+        constructorMethod = getMethod("<init>")
         constructorMethodIndex = constructorMethod.implementation!!.instructions.size - 1
 
-        /**
-         * Set OnBackPressed Method
-         */
-        onBackPressedMethod =
-            mainActivityMutableClass.methods.find { method -> method.name == "onBackPressed" }
-                ?: throw PatchException("Could not find onBackPressedMethod")
+        // set onBackPressed method
+        onBackPressedMethod = getMethod("onBackPressed")
         onBackPressedMethodIndex = onBackPressedMethod.getTargetIndex(Opcode.RETURN_VOID)
     }
 
@@ -54,16 +47,23 @@ abstract class BaseMainActivityResolvePatch(
         onBackPressedMethod.injectMethodCall(classDescriptor, methodDescriptor, onBackPressedMethodIndex)
 
     fun injectOnCreateMethodCall(classDescriptor: String, methodDescriptor: String) =
-        onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor, 0)
+        onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor)
+
+    private fun getMethod(methodDescriptor: String) =
+        mainActivityMutableClass.methods.find { method -> method.name == methodDescriptor }
+            ?: throw PatchException("Could not find $methodDescriptor")
+
+    private fun MutableMethod.injectMethodCall(
+        classDescriptor: String,
+        methodDescriptor: String
+    ) = injectMethodCall(classDescriptor, methodDescriptor, 0)
 
     private fun MutableMethod.injectMethodCall(
         classDescriptor: String,
         methodDescriptor: String,
         insertIndex: Int
-    ) {
-        addInstruction(
-            insertIndex,
-            "invoke-static/range {p0 .. p0}, $classDescriptor->$methodDescriptor(Landroid/app/Activity;)V"
-        )
-    }
+    ) = addInstruction(
+        insertIndex,
+        "invoke-static/range {p0 .. p0}, $classDescriptor->$methodDescriptor(Landroid/app/Activity;)V"
+    )
 }
