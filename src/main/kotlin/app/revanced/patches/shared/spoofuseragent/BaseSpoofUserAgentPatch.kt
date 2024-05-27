@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.clientspoof
+package app.revanced.patches.shared.spoofuseragent
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-abstract class BaseClientSpoofPatch(
+abstract class BaseSpoofUserAgentPatch(
     private val packageName: String
 ) : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     override fun filterMap(
