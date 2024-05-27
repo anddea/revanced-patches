@@ -893,6 +893,22 @@ Tap and hold to set playback speed to 1.0x."</string>
 	<string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
 	<string name="revanced_overlay_button_time_ordered_playlist_title">Time-ordered playlist button</string>
+	<string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
+	<string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
+Tap and hold to open whitelist setting dialog.</string>
+	<string name="revanced_whitelist_settings_title">Channel whitelist</string>
+	<string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
+	<string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
+	<string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
+	<string name="revanced_whitelist_removed">Channel \'%1$s\' was removed from the %2$s whitelist.</string>
+	<string name="revanced_whitelist_remove_failed">Failed to remove channel \'%1$s\' from the %2$s whitelist.</string>
+	<string name="revanced_whitelist_remove_dialog_message">Remove channel \'%1$s\' from %2$s whitelist?</string>
+	<string name="revanced_whitelist_empty">There are no whitelisted channels.</string>
+	<string name="revanced_whitelist_excluded">Not added to whitelist.</string>
+	<string name="revanced_whitelist_included">Added to whitelist.</string>
+	<string name="revanced_whitelist_playback_speed">Playback speed</string>
+	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+	<string name="revanced_whitelist_failure_generic">Failed to load channel information.</string>
 	<string name="revanced_patches_excluded">Excluded</string>
 	<string name="revanced_patches_included">Included</string>
 	<string name="revanced_playback_speed_normal">Normal</string>
