@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.fingerprints.RemoveOnLayoutChangeListenerFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexReversed
 import app.revanced.util.getWalkerMethod
@@ -43,6 +44,10 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSuggestedVideoEndScreen()Z
+                        move-result v0
+                        if-eqz v0, :show_suggested_video_end_screen
+
                         iget-object v0, p0, $iGetObjectReference
 
                         # This reference checks whether autoplay is turned on.
