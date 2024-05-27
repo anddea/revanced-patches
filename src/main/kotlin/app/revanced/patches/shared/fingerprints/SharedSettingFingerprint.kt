@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.settings.fingerprints
+package app.revanced.patches.shared.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_SETTING_CLASS_DESCRIPTOR

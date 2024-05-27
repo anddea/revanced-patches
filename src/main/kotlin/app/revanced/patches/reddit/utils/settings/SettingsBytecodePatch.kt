@@ -14,7 +14,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.LabelA
 import app.revanced.patches.reddit.utils.settings.fingerprints.AcknowledgementsLabelBuilderFingerprint
 import app.revanced.patches.reddit.utils.settings.fingerprints.OssLicensesMenuActivityOnCreateFingerprint
 import app.revanced.patches.reddit.utils.settings.fingerprints.SettingsStatusLoadFingerprint
-import app.revanced.patches.shared.settings.fingerprints.SharedSettingFingerprint
+import app.revanced.patches.shared.fingerprints.SharedSettingFingerprint
 import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.resultOrThrow

@@ -10,6 +10,7 @@ import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MinimizedP
 import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MusicBrowserServiceFingerprint
 import app.revanced.patches.music.misc.minimizedplayback.fingerprints.PodCastConfigFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.util.getStartsWithStringInstructionIndex
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.patch.BaseBytecodePatch
@@ -51,7 +52,7 @@ object MinimizedPlaybackPatch : BaseBytecodePatch(
         MusicBrowserServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getStringInstructionIndex("MBS: Return empty root for client: %s, isFullMediaBrowserEnabled: %b, is client browsable: %b, isRedAccount: %b")
+                    getStartsWithStringInstructionIndex("MBS: Return empty root for client: %s")
 
                 for (index in targetIndex downTo 0) {
                     if (getInstruction(index).opcode != Opcode.INVOKE_VIRTUAL) continue

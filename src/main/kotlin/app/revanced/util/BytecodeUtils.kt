@@ -18,7 +18,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMut
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -212,7 +211,14 @@ fun Method.getEmptyStringInstructionIndex()
 fun Method.getStringInstructionIndex(value: String) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         instruction.opcode == Opcode.CONST_STRING
-                && (instruction as? BuilderInstruction21c)?.reference.toString() == value
+                && (instruction as? ReferenceInstruction)?.reference.toString() == value
+    }
+} ?: -1
+
+fun Method.getStartsWithStringInstructionIndex(value: String) = implementation?.let {
+    it.instructions.indexOfFirst { instruction ->
+        instruction.opcode == Opcode.CONST_STRING
+                && (instruction as? ReferenceInstruction)?.reference.toString().startsWith(value)
     }
 } ?: -1
 
