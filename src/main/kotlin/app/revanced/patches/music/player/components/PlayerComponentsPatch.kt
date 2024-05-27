@@ -117,7 +117,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        // region patch for enable color match player
+        // region patch for enable color match player and enable black player background
 
         lateinit var colorMathPlayerInvokeVirtualReference: Reference
         lateinit var colorMathPlayerIGetReference: Reference
@@ -138,6 +138,23 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
                     colorMathPlayerInvokeVirtualReference = getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference
                     colorMathPlayerIGetReference = getInstruction<ReferenceInstruction>(iGetIndex).reference
+
+                    // black player background
+                    val invokeDirectIndex = getTargetIndex(Opcode.INVOKE_DIRECT)
+                    val targetMethod = getWalkerMethod(context, invokeDirectIndex)
+
+                    targetMethod.apply {
+                        val insertIndex = getTargetIndex(0, Opcode.IF_NE)
+
+                        addInstructions(
+                            insertIndex, """
+                            invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                            move-result p1
+                            invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                            move-result p2
+                            """
+                        )
+                    }
                 }
 
                 parentResult.mutableMethod.apply {
@@ -178,6 +195,11 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             }
         }
 
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_enable_black_player_background",
+            "false"
+        )
         SettingsPatch.addSwitchPreference(
             CategoryType.PLAYER,
             "revanced_enable_color_match_player",
