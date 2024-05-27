@@ -1,7 +1,7 @@
 package app.revanced.patches.music.utils.gms
 
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.fix.clientspoof.ClientSpoofPatch
+import app.revanced.patches.music.utils.fix.client.SpoofUserAgentPatch
 import app.revanced.patches.music.utils.fix.fileprovider.FileProviderPatch
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
 import app.revanced.patches.music.utils.mainactivity.fingerprints.MainActivityFingerprint
@@ -14,7 +14,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = ORIGINAL_PACKAGE_NAME_YOUTUBE,
     mainActivityOnCreateFingerprint = MainActivityFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
-    dependencies = setOf(ClientSpoofPatch::class, PackageNamePatch::class, FileProviderPatch::class),
+    dependencies = setOf(SpoofUserAgentPatch::class, PackageNamePatch::class, FileProviderPatch::class),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = COMPATIBLE_PACKAGE
 )
