@@ -7,12 +7,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsABConfigFingerprint
+import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsABConfigFingerprint.indexOfOptionalInstruction
 import app.revanced.patches.youtube.shorts.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndex
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.patch.BaseBytecodePatch
@@ -20,7 +20,6 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -36,23 +35,34 @@ object ResumingShortsOnStartupPatch : BaseBytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        UserWasInShortsABConfigFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
+        UserWasInShortsABConfigFingerprint.resultOrThrow().mutableMethod.apply {
+            val startIndex = indexOfOptionalInstruction(this)
+            val walkerIndex = implementation!!.instructions.let {
+                val subListIndex = it.subList(startIndex, startIndex + 20).indexOfFirst { instruction ->
+                    val reference = instruction.getReference<MethodReference>()
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL
+                            && reference?.returnType == "Z"
+                            && reference.definingClass != "Lj${'$'}/util/Optional;"
+                            && reference.parameterTypes.size == 0
+                }
+                if (subListIndex < 0)
+                    throw PatchException("subListIndex not found")
+
+                startIndex + subListIndex
+            }
+            val walkerMethod = getWalkerMethod(context, walkerIndex)
 
             // This method will only be called for the user being A/B tested.
             // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
             walkerMethod.apply {
-                val insertIndex = getTargetIndex(Opcode.IGET_OBJECT)
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
                 addInstructionsWithLabels(
-                    insertIndex, """
+                    0, """
                         invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
-                        move-result v$insertRegister
-                        if-eqz v$insertRegister, :show
-                        const/4 v$insertRegister, 0x0
-                        return v$insertRegister
-                        """, ExternalLabel("show", getInstruction(insertIndex))
+                        move-result v0
+                        if-eqz v0, :show
+                        const/4 v0, 0x0
+                        return v0
+                        """, ExternalLabel("show", getInstruction(0))
                 )
             }
         }

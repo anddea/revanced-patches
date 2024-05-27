@@ -39,7 +39,7 @@ object ShortsNavigationBarPatch : BytecodePatch(
         }
 
         RenderBottomNavigationBarFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerMethod.addInstruction(
                 0,

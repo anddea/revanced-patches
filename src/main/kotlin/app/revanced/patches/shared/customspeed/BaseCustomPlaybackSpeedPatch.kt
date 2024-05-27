@@ -8,10 +8,12 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFallBackFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFingerprint
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexWithFieldReferenceType
 import app.revanced.util.getTargetIndexWithMethodReferenceName
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -71,7 +73,7 @@ abstract class BaseCustomPlaybackSpeedPatch(
                 val limiterMinConstIndex =
                     indexOfFirstInstruction { (this as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
                 val limiterMaxConstIndex =
-                    indexOfFirstInstruction { (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+                    getTargetIndex(limiterMinConstIndex + 1, Opcode.CONST_HIGH16)
 
                 val limiterMinConstDestination =
                     getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA

@@ -28,6 +28,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelD
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynShare
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelForcedMuteButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPivotButton
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPlayerFooter
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightDislikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightLikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
@@ -44,6 +45,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
@@ -150,8 +152,14 @@ object ShortsComponentPatch : BaseBytecodePatch(
             }
         } ?: ShortsPivotFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(ReelPivotButton)
+                val constCalls = implementation!!.instructions.withIndex()
+                    .filter { instruction ->
+                        (instruction.value as? WideLiteralInstruction)?.wideLiteral == ReelPivotButton
+                    }
+                val targetIndex = constCalls.elementAt(constCalls.size - 1).index
                 val insertIndex = getTargetIndexReversed(targetIndex, Opcode.INVOKE_STATIC) + 1
+                if (insertIndex == 0)
+                    throw PatchException("insert index not found")
 
                 hideButtons(insertIndex, "hideShortsSoundButton(Ljava/lang/Object;)Ljava/lang/Object;")
             }
@@ -215,7 +223,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
                 lateinit var subscriptionFieldReference: FieldReference
 
                 parentResult.mutableMethod.apply {
-                    val targetIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.ReelPlayerFooter) - 1
+                    val targetIndex = getWideLiteralInstructionIndex(ReelPlayerFooter) - 1
                     subscriptionFieldReference =
                         (getInstruction<ReferenceInstruction>(targetIndex)).reference as FieldReference
                 }

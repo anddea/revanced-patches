@@ -20,14 +20,12 @@ import app.revanced.patches.youtube.player.components.fingerprints.InfoCardsInco
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutCircleFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutIconFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutVideoFingerprint
-import app.revanced.patches.youtube.player.components.fingerprints.RestoreSlideToSeekBehaviorFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.SeekEduContainerFingerprint
-import app.revanced.patches.youtube.player.components.fingerprints.SpeedOverlayFingerprint
-import app.revanced.patches.youtube.player.components.fingerprints.SpeedOverlayValueFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.SuggestedActionsFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.TouchAreaOnClickListenerFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.WatermarkFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.WatermarkParentFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.SpeedOverlayPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.ControlsOverlayConfigPatch
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
@@ -44,7 +42,6 @@ import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexReversed
 import app.revanced.util.getTargetIndexWithMethodReferenceName
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -64,6 +61,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
+        SpeedOverlayPatch::class,
         SuggestedVideoEndScreenPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -75,10 +73,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         LayoutCircleFingerprint,
         LayoutIconFingerprint,
         LayoutVideoFingerprint,
-        RestoreSlideToSeekBehaviorFingerprint,
         SeekEduContainerFingerprint,
-        SpeedOverlayFingerprint,
-        SpeedOverlayValueFingerprint,
         SuggestedActionsFingerprint,
         TouchAreaOnClickListenerFingerprint,
         WatermarkParentFingerprint,
@@ -125,34 +120,6 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         const/4 v0, 0x0
                         return-object v0
                         """, ExternalLabel("shown", getInstruction(0))
-                )
-            }
-        }
-
-        // endregion
-
-        // region patch for disable speed overlay and speed overlay value
-
-        mapOf(
-            RestoreSlideToSeekBehaviorFingerprint to 45411329,
-            SpeedOverlayFingerprint to 45411330
-        ).forEach { (fingerprint, literal) ->
-            fingerprint.literalInstructionBooleanHook(
-                literal,
-                "$PLAYER_CLASS_DESCRIPTOR->disableSpeedOverlay(Z)Z"
-            )
-        }
-
-        SpeedOverlayValueFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val index = it.scanResult.patternScanResult!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
-
-                addInstructions(
-                    index + 1, """
-                        invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
-                        move-result v$register
-                        """
                 )
             }
         }
