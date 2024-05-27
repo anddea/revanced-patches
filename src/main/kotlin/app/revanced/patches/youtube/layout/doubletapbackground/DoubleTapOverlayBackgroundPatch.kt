@@ -9,7 +9,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("unused")
 object DoubleTapOverlayBackgroundPatch : BaseResourcePatch(
     name = "Hide double tap overlay filter",
-    description = "Hides the dark overlay when double-tapping to seek.",
+    description = "Removes, at compile time, the dark overlay that appears when double-tapping to seek.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
 ) {
