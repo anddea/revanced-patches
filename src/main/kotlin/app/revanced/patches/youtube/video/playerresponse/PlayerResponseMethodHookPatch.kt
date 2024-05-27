@@ -17,7 +17,6 @@ object PlayerResponseMethodHookPatch :
     // Parameter numbers of the patched method.
     private var PARAMETER_VIDEO_ID = 1
     private var PARAMETER_PLAYER_PARAMETER = 3
-    private var PARAMETER_PLAYLIST_ID = 4
     private var PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
 
     private var freeRegister = 0
@@ -33,7 +32,6 @@ object PlayerResponseMethodHookPatch :
             shouldApplyNewMethod = freeRegister > 2
             if (shouldApplyNewMethod) {
                 PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = freeRegister
-                PARAMETER_PLAYLIST_ID = freeRegister - 1
                 PARAMETER_PLAYER_PARAMETER = freeRegister - 2
                 PARAMETER_VIDEO_ID = freeRegister - 3
             }
@@ -57,12 +55,12 @@ object PlayerResponseMethodHookPatch :
             val instruction =
                 if (shouldApplyNewMethod)
                     """
-                        invoke-static {v$PARAMETER_VIDEO_ID, v$PARAMETER_PLAYER_PARAMETER, v$PARAMETER_PLAYLIST_ID, v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
+                        invoke-static {v$PARAMETER_VIDEO_ID, v$PARAMETER_PLAYER_PARAMETER, v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
                         move-result-object p3
                         """
                 else
                     """
-                        invoke-static {p$PARAMETER_VIDEO_ID, p$PARAMETER_PLAYER_PARAMETER, p$PARAMETER_PLAYLIST_ID, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
+                        invoke-static {p$PARAMETER_VIDEO_ID, p$PARAMETER_PLAYER_PARAMETER, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
                         move-result-object p$PARAMETER_PLAYER_PARAMETER
                         """
 
@@ -87,7 +85,6 @@ object PlayerResponseMethodHookPatch :
                 0, """
                     move-object v$PARAMETER_VIDEO_ID, p1
                     move-object v$PARAMETER_PLAYER_PARAMETER, p3
-                    move-object v$PARAMETER_PLAYLIST_ID, p4
                     move/from16 v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING, p11
                     """
             )
