@@ -10,7 +10,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("unused")
 object AnimatedButtonBackgroundPatch : BaseResourcePatch(
     name = "Hide animated button background",
-    description = "Hides the background of the pause and play animated buttons in the Shorts player at compile time.",
+    description = "Removes, at compile time, the background of the animated pause and play buttons in the Shorts player.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
