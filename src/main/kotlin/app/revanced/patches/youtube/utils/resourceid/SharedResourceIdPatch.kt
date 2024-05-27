@@ -34,6 +34,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BottomUiContainerStub = -1L
     var CaptionToggleContainer = -1L
     var CastMediaRouteButton = -1L
+    var CfFullscreenButton = -1L
     var ChannelListSubMenu = -1L
     var CompactLink = -1L
     var CompactListItem = -1L
@@ -83,6 +84,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var RightComment = -1L
     var ScrimOverlay = -1L
     var Scrubbing = -1L
+    var SeekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     var SeekUndoEduOverlayStub = -1L
     var SingleLoopEduSnackBarText = -1L
     var SlidingDialogAnimation = -1L
@@ -121,6 +123,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         BottomUiContainerStub = getId(ID, "bottom_ui_container_stub")
         CaptionToggleContainer = getId(ID, "caption_toggle_container")
         CastMediaRouteButton = getId(LAYOUT, "castmediaroutebutton")
+        CfFullscreenButton = getId(ID, "cf_fullscreen_button")
         ChannelListSubMenu = getId(LAYOUT, "channel_list_sub_menu")
         CompactLink = getId(LAYOUT, "compact_link")
         CompactListItem = getId(LAYOUT, "compact_list_item")
@@ -172,6 +175,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         RightComment = getId(DRAWABLE, "ic_right_comment_32c")
         ScrimOverlay = getId(ID, "scrim_overlay")
         Scrubbing = getId(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
+        SeekEasyHorizontalTouchOffsetToStartScrubbing = getId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         SeekUndoEduOverlayStub = getId(ID, "seek_undo_edu_overlay_stub")
         SingleLoopEduSnackBarText = getId(STRING, "single_loop_edu_snackbar_text")
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")

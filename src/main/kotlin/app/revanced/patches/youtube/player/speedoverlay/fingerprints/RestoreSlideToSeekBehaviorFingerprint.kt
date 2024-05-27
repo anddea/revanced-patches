@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.player.components.fingerprints
+package app.revanced.patches.youtube.player.speedoverlay.fingerprints
 
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode

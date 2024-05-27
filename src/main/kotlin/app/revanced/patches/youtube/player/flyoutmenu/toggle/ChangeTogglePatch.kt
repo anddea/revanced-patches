@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.player.flyoutmenu.toggle.fingerprints.Stable
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexReversed
@@ -26,6 +27,8 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 object ChangeTogglePatch : BaseBytecodePatch(
@@ -123,6 +126,12 @@ object ChangeTogglePatch : BaseBytecodePatch(
 
         CinematicLightingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
+                val iGetIndex = indexOfFirstInstruction {
+                    opcode == Opcode.IGET
+                            && getReference<FieldReference>()?.definingClass == definingClass
+                }
+                val classRegister = getInstruction<TwoRegisterInstruction>(iGetIndex).registerB
+
                 val stringIndex = getStringInstructionIndex("menu_item_cinematic_lighting")
 
                 val checkCastIndex = getTargetIndexReversed(stringIndex, Opcode.CHECK_CAST)
@@ -158,7 +167,7 @@ object ChangeTogglePatch : BaseBytecodePatch(
                         invoke-static {v$freeRegisterE}, $PLAYER_CLASS_DESCRIPTOR->getToggleString(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$freeRegisterE
                         :set_string
-                        iget-object v$freeRegisterC, p0, $iGetObjectPrimaryReference
+                        iget-object v$freeRegisterC, v$classRegister, $iGetObjectPrimaryReference
                         check-cast v$freeRegisterC, $checkCastReference
                         iget-object v$freeRegisterC, v$freeRegisterC, $iGetObjectSecondaryReference
                         const-string v$freeRegisterD, "menu_item_cinematic_lighting"

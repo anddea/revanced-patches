@@ -16,20 +16,21 @@ import app.revanced.patches.youtube.player.buttons.fingerprints.YouTubeControlsO
 import app.revanced.patches.youtube.utils.castbutton.CastButtonPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
+import app.revanced.patches.youtube.utils.fix.fullscreen.FullscreenButtonViewStubPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AutoNavToggle
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.PlayerCollapseButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TitleAnchor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithReference
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Suppress("unused")
@@ -38,6 +39,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
     description = "Adds an option to hide buttons in the video player.",
     dependencies = setOf(
         CastButtonPatch::class,
+        FullscreenButtonViewStubPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ),
@@ -147,16 +149,22 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         FullScreenButtonFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val viewIndex = getTargetIndexWithReference("Landroid/widget/ImageView;->getResources()Landroid/content/res/Resources;")
-                val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerC
+                val buttonCalls = implementation!!.instructions.withIndex()
+                    .filter { instruction ->
+                        (instruction.value as? WideLiteralInstruction)?.wideLiteral == FullScreenButton
+                    }
+                val constIndex = buttonCalls.elementAt(buttonCalls.size - 1).index
+                val castIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val insertIndex = castIndex + 1
+                val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
 
                 addInstructionsWithLabels(
-                    viewIndex, """
-                        invoke-static {v$viewRegister}, $PLAYER_CLASS_DESCRIPTOR->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
-                        move-result-object v$viewRegister
-                        if-nez v$viewRegister, :show
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
+                        move-result-object v$insertRegister
+                        if-nez v$insertRegister, :show
                         return-void
-                        """, ExternalLabel("show", getInstruction(viewIndex))
+                        """, ExternalLabel("show", getInstruction(insertIndex))
                 )
             }
         }

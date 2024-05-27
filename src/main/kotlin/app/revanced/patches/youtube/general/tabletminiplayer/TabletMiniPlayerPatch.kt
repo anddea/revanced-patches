@@ -79,21 +79,24 @@ object TabletMiniPlayerPatch : BaseBytecodePatch(
                 }
             }
 
-            // In ModernMiniPlayer, the drawables of the close button and expand button are reversed.
-            // OnClickListener appears to be applied normally, so this appears to be a bug in YouTube.
-            // To solve this, swap the drawables of the close and expand buttons.
-            // This Drawable will be used in multiple Classes, so instead of using LiteralValueFingerprint to patch only specific methods,
-            // Apply the patch to all methods where literals are used.
-            mapOf(
-                YtOutlineXWhite to "replaceCloseButtonDrawableId",
-                YtOutlinePiPWhite to "replaceExpandButtonDrawableId"
-            ).forEach { (literal, methodName) ->
-                val smaliInstruction = """
+            // This issue has been fixed in YouTube 19.17.41+.
+            if (YtOutlineXWhite != -1L && YtOutlinePiPWhite != -1L) {
+                // In ModernMiniPlayer, the drawables of the close button and expand button are reversed.
+                // OnClickListener appears to be applied normally, so this appears to be a bug in YouTube.
+                // To solve this, swap the drawables of the close and expand buttons.
+                // This Drawable will be used in multiple Classes, so instead of using LiteralValueFingerprint to patch only specific methods,
+                // Apply the patch to all methods where literals are used.
+                mapOf(
+                    YtOutlineXWhite to "replaceCloseButtonDrawableId",
+                    YtOutlinePiPWhite to "replaceExpandButtonDrawableId"
+                ).forEach { (literal, methodName) ->
+                    val smaliInstruction = """
                     invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $GENERAL_CLASS_DESCRIPTOR->$methodName(I)I
                     move-result v$REGISTER_TEMPLATE_REPLACEMENT
                     """
 
-                context.literalInstructionHook(literal, smaliInstruction)
+                    context.literalInstructionHook(literal, smaliInstruction)
+                }
             }
 
             arrayOf(

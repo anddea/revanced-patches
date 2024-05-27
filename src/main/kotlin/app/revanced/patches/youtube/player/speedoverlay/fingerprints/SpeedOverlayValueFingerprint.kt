@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.player.components.fingerprints
+package app.revanced.patches.youtube.player.speedoverlay.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.util.fingerprint.LiteralValueFingerprint

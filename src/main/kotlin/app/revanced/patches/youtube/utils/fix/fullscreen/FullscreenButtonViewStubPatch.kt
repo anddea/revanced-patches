@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonViewStubFingerprint
 import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
@@ -15,7 +16,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     description = "Fixes an issue where overlay button patches were broken by the new layout."
 )
 object FullscreenButtonViewStubPatch : BytecodePatch(
-    setOf(FullscreenButtonViewStubFingerprint)
+    setOf(
+        FullscreenButtonPositionFingerprint,
+        FullscreenButtonViewStubFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -23,15 +27,20 @@ object FullscreenButtonViewStubPatch : BytecodePatch(
          * This issue only affects some versions of YouTube.
          * Therefore, this patch only applies to versions that can resolve this fingerprint.
          */
-        FullscreenButtonViewStubFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = getTargetIndex(getWideLiteralInstructionIndex(45617294), Opcode.MOVE_RESULT)
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        mapOf(
+            FullscreenButtonViewStubFingerprint to 45617294,
+            FullscreenButtonPositionFingerprint to 45627640
+        ).forEach { (fingerprint, literalValue) ->
+            fingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val targetIndex = getTargetIndex(getWideLiteralInstructionIndex(literalValue.toLong()), Opcode.MOVE_RESULT)
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstruction(
-                    targetIndex + 1,
-                    "const/4 v$targetRegister, 0x0"
-                )
+                    addInstruction(
+                        targetIndex + 1,
+                        "const/4 v$targetRegister, 0x0"
+                    )
+                }
             }
         }
 
