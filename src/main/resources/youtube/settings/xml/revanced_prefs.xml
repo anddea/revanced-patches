@@ -577,9 +577,6 @@
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="false" android:summary="@string/revanced_spoof_player_parameter_summary" />
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_in_feed_title" android:key="revanced_spoof_player_parameter_in_feed" android:defaultValue="false" android:summaryOn="@string/revanced_spoof_player_parameter_in_feed_summary_on" android:summaryOff="@string/revanced_spoof_player_parameter_in_feed_summary_off" android:dependency="revanced_spoof_player_parameter" />SETTINGS: SPOOF_PLAYER_PARAMETER -->
 
-        <!-- SETTINGS: SPOOF_TEST_CLIENT
-        <SwitchPreference android:title="@string/revanced_spoof_test_client_title" android:key="revanced_spoof_test_client" android:defaultValue="false" android:summary="@string/revanced_spoof_test_client_summary" />SETTINGS: SPOOF_TEST_CLIENT -->
-
         <PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>	
         <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
             <PreferenceCategory android:title="@string/revanced_preference_category_tool_used" android:layout="@layout/revanced_settings_preferences_category" >
