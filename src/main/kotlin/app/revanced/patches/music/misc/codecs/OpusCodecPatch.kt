@@ -6,13 +6,12 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.patch.BaseResourcePatch
 
-
 @Suppress("unused")
-object ForceOpusCodecPatch : BaseResourcePatch(
+object OpusCodecPatch : BaseResourcePatch(
     name = "Enable opus codec",
     description = "Adds an option to use the opus audio codec instead of the mp4a audio codec.",
     dependencies = setOf(
-        ForceOpusCodecBytecodePatch::class,
+        OpusCodecBytecodePatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
