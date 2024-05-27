@@ -1,3 +1,16 @@
+# [2.225.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.21...v2.225.0-dev.22) (2024-05-27)
+
+
+### Features
+
+* **YouTube - Fullscreen components:** `Hide related videos in quick actions` setting has been merged into the `Hide related video overlay` setting ([bdcee27](https://github.com/anddea/revanced-patches/commit/bdcee27c001b3e738c7c7c7dde3c7c5888be14d7))
+* **YouTube - Overlay buttons:** Add `Whitelist` overlay button ([358af9e](https://github.com/anddea/revanced-patches/commit/358af9ee3914bb6912c8f56934cc0d8418a52ce8))
+* **YouTube - Toolbar components:** Remove `Hide trending searches` setting ([5d2e732](https://github.com/anddea/revanced-patches/commit/5d2e732b20f19fb95b9f91fe9d3409395543586c))
+* **YouTube Music:** Add support versions `7.01.53` - `7.02.51` ([71019ab](https://github.com/anddea/revanced-patches/commit/71019abba8c66f323b4cc948364bfa2a8d4c7fc8))
+* **YouTube:** Add `Spoof client` patch ([5161192](https://github.com/anddea/revanced-patches/commit/5161192ba2fbd3b25e081e573bf4428ec0d1b6c1))
+* **YouTube:** Add support versions `19.19.39` - `19.20.34` ([ee43c3e](https://github.com/anddea/revanced-patches/commit/ee43c3e25e1926e9963b9866bdb0c9e8bfe00a42))
+* **YouTube:** Remove `Spoof test client` patch ([379e2ed](https://github.com/anddea/revanced-patches/commit/379e2ed903c537b674257251d71a132606ebf6b5))
+
 # [2.225.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.20...v2.225.0-dev.21) (2024-05-21)
 
 
