@@ -362,7 +362,11 @@ Info: This feature does not work normally if any songs in the playlist cannot be
     <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
     <string name="revanced_enable_opus_codec_title">Enable opus codec</string>
-    <string name="revanced_enable_opus_codec_summary">Enables the opus audio codec instead of the mp4a audio codec.</string>
+    <string name="revanced_enable_opus_codec_summary">"Enables the opus audio codec instead of the mp4a audio codec.
+
+Info:
+• Latest Android clients use the opus audio codec by default.
+• This is only valid for users spoofing with very old clients."</string>
 
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
