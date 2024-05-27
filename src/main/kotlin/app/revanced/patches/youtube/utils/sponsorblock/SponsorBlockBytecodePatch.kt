@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.InsetOverlayViewLayout
@@ -24,6 +25,7 @@ import app.revanced.util.getTargetIndexWithMethodReferenceName
 import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.resultOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -172,5 +174,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
         // Set current video id
         VideoInformationPatch.hook("$INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+
+        context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "SponsorBlock")
+
     }
 }
