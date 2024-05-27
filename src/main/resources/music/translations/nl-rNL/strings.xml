@@ -10,7 +10,7 @@
     <string name="revanced_hide_account_menu_title">Accountmenu verbergen</string>
     <string name="revanced_hide_account_menu_summary">Verberg account menu elementen.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter separated by a new line.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Leeg onderdeel verbergen</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Verbergt lege componenten in het accountmenu</string>
     <string name="revanced_hide_handle_title">Verberg handvat</string>
@@ -36,8 +36,8 @@
     <string name="revanced_external_downloader_action_title">Override download action button</string>
     <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
 
-• Only overrides download action button in player.
-• Does not override download button in flyout menu or library."</string>
+• Only overrides the download action button in the player.
+• Does not override the download button in the flyout menu or library."</string>
     <string name="revanced_external_downloader_package_name_title">Externe downloader pakketnaam</string>
     <string name="revanced_external_downloader_package_name_summary">Pakketnaam van uw geïnstalleerde externe downloader-app, zoals NewPipe of Seal</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
@@ -55,7 +55,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_music_ads_summary">Verbergt advertenties voordat je muziek afspeelt.</string>
     <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
     <string name="revanced_hide_paid_promotion_label_summary">Hides paid promotion label.</string>
-    <string name="revanced_hide_premium_promotion_title">Hide premium promotion popup</string>
+    <string name="revanced_hide_premium_promotion_title">Hide premium promotion popups</string>
     <string name="revanced_hide_premium_promotion_summary">Hides premium promotion popups.</string>
     <string name="revanced_hide_premium_renewal_title">Hide premium renewal banner</string>
     <string name="revanced_hide_premium_renewal_summary">Hides the premium renewal banner.</string>
@@ -67,8 +67,8 @@ Please download %2$s from the website."</string>
 Bekende problemen:
 • Albumhoezen op de bibliotheekschaal worden ook kleiner.
 • Slaap timer lay-out kan ongebruikelijk verschijnen."</string>
-    <string name="revanced_enable_trim_silence_title">Enable trim silence</string>
-    <string name="revanced_enable_trim_silence_summary">"Enables 'Trim silence' switch to the playback speed flyout menu.
+    <string name="revanced_enable_trim_silence_title">Add trim silence switch</string>
+    <string name="revanced_enable_trim_silence_summary">"Adds 'Trim silence' switch to the playback speed flyout menu.
 
 Info:
 • This feature is for podcasts.
@@ -107,8 +107,8 @@ Info:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Invalid video url.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Replace dismiss queue</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Replaces \'Dismiss queue\' with \'Watch on YouTube\'.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Applies only to player flyout menu</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Report menu in comments will not be replaced.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Keep report in comments</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Keeps the report menu in the comments section intact.</string>
     <string name="revanced_replace_flyout_menu_report_title">Replace report</string>
     <string name="revanced_replace_flyout_menu_report_summary">Replaces \'Report\' with \'Playback speed\'.</string>
     <!-- PreferenceScreen: General -->
@@ -123,7 +123,7 @@ Info:
     <string name="revanced_disable_auto_captions_title">Geforceerde automatische ondertitels uitschakelen</string>
     <string name="revanced_disable_auto_captions_summary">Geforceerde automatische ondertitels uitschakelen.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
-    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking dislike button.</string>
+    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the dislike button.</string>
     <string name="revanced_enable_landscape_mode_title">Landschap modus inschakelen</string>
     <string name="revanced_enable_landscape_mode_summary">Schakelt scherm rotatie in door je scherm te draaien.</string>
     <string name="revanced_custom_filter_title">Aangepast filter inschakelen</string>
@@ -204,6 +204,8 @@ This does not bypass the age restriction. It just accepts it automatically."</st
     <string name="revanced_enable_zen_mode_summary">Een grijze tint toevoegen aan de videospeler om vermoeidheid van de ogen te verminderen.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Zen mode is also applied to podcasts.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Hide audio video switch toggle</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the audio video switch toggle in player.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Hides channel guidelines at the top of the comments section.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
@@ -222,8 +224,9 @@ This does not bypass the age restriction. It just accepts it automatically."</st
     <string name="revanced_restore_old_player_layout_summary">"Returns the player layout to the old style.
 Some features may not work properly in the old player layout."</string>
     <string name="revanced_replace_player_cast_button_title">Vervang cast knop</string>
-    <string name="revanced_replace_player_cast_button_summary">"Replace the cast button in the player with the 'Open music' button. (Experimental)
-Limitation: If one or more music that cannot be played in the playlist, it does not work normally."</string>
+    <string name="revanced_replace_player_cast_button_summary">"Replaces the cast button in the player with an 'Open music' button, which opens the official audio instead of the music video. (Experimental)
+
+Info: This feature does not work normally if any songs in the playlist cannot be played."</string>
     <string name="revanced_replace_player_cast_button_playlist_dismiss">Already playing from the official music source.</string>
     <string name="revanced_replace_player_cast_button_playlist_error">Official music source is unavailable.</string>
     <!-- PreferenceScreen: Video -->
@@ -262,7 +265,7 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_sb_enabled">Enable SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
-    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is not available</string>
+    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is unavailable</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Shows a toast if the SponsorBlock API is unavailable.</string>
     <string name="revanced_sb_toast_on_skip">Show a toast when skipping automatically</string>
     <string name="revanced_sb_toast_on_skip_sum">Shows a toast when a segment is automatically skipped.</string>
@@ -273,11 +276,11 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_sb_api_url_changed">API URL changed.</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
-    <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
+    <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals, and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
     <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
     <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-    <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
+    <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
     <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
     <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.</string>
     <string name="revanced_sb_segments_outro">Endcards / Credits</string>
@@ -319,7 +322,7 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_enable_debug_logging_title">Debug logging aanzetten</string>
     <string name="revanced_enable_debug_logging_summary">Laat het debug logboek zien.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Prints the debug logs include buffer.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
     <string name="revanced_enable_opus_codec_title">Opus codec inschakelen</string>
     <string name="revanced_enable_opus_codec_summary">Zet 250/251 opus codec aan tijdens het afspelen van audio.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>

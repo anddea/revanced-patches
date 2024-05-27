@@ -3,14 +3,14 @@
     <!-- Shared PreferenceScreen -->
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <!-- Shared Category -->
-    <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
-    <string name="revanced_extended_restart_message">Refresh and restart</string>
+    <string name="revanced_extended_restart_first_run">Redémarrez pour charger la mise en page normalement</string>
+    <string name="revanced_extended_restart_message">Actualiser et redémarrer</string>
     <!-- PreferenceScreen: Account -->
-    <string name="revanced_preference_screen_account_title">Account</string>
+    <string name="revanced_preference_screen_account_title">Compte</string>
     <string name="revanced_hide_account_menu_title">Masquer les menus du compte</string>
     <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte.</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter separated by a new line.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par une nouvelle ligne.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Masque les catégories vides dans le menu du compte.</string>
     <string name="revanced_hide_handle_title">Masquer le menu de compte</string>
@@ -18,9 +18,9 @@
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
     <string name="revanced_hide_terms_container_summary">Masque le conteneur de termes.</string>
     <!-- PreferenceScreen: Action Bar -->
-    <string name="revanced_preference_screen_action_bar_title">Action Bar</string>
-    <string name="revanced_hide_action_button_like_dislike_title">Hide like and dislike buttons</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Hides the like and dislike buttons. It does not work in the old player layout.</string>
+    <string name="revanced_preference_screen_action_bar_title">Barre d\'action</string>
+    <string name="revanced_hide_action_button_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Masque les boutons \"J\'aime\" et \"Je n\'aime pas\". Il ne fonctionne pas dans l\'ancien lecteur.</string>
     <string name="revanced_hide_action_button_comment_title">Masquer le bouton Commentaire</string>
     <string name="revanced_hide_action_button_comment_summary">Masque le bouton commentaire.</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Masquer \"Enregistrer dans la playlist\"</string>
@@ -33,58 +33,58 @@
     <string name="revanced_hide_action_button_radio_summary">Masque le bouton \"démarrer la radio\".</string>
     <string name="revanced_hide_action_button_label_summary">Masquer les labels dans le menu d\'action.</string>
     <string name="revanced_hide_action_button_label_title">Masquer les labels des boutons d\'actions</string>
-    <string name="revanced_external_downloader_action_title">Override download action button</string>
-    <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
+    <string name="revanced_external_downloader_action_title">Remplacer l\'action du bouton téléchargement</string>
+    <string name="revanced_external_downloader_action_summary">"Le bouton de téléchargement ouvre votre téléchargement externe.
 
-• Only overrides download action button in player.
-• Does not override download button in flyout menu or library."</string>
+• Remplace uniquement le bouton de téléchargement dans le lecteur.
+• Ne remplace pas le bouton de téléchargement dans le menu flottant ou la bibliothèque."</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
     <string name="revanced_external_downloader_package_name_summary">Nom de package du téléchargeur externe installé, telle que NewPipe ou YTDLnis.</string>
-    <string name="revanced_external_downloader_dialog_title">External downloader</string>
-    <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
-    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
-Please download %2$s from the website."</string>
+    <string name="revanced_external_downloader_dialog_title">Téléchargeur externe</string>
+    <string name="revanced_external_downloader_not_installed_dialog_title">Avertissement</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s n'est pas installé.
+Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
     <!-- PreferenceScreen: Ads -->
-    <string name="revanced_preference_screen_ads_title">Ads</string>
-    <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
+    <string name="revanced_preference_screen_ads_title">Pubs</string>
+    <string name="revanced_hide_fullscreen_ads_title">Masquer les publicités en plein écran</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Masquer les publicités en plein écran.</string>
     <string name="revanced_hide_general_ads_title">Les publicités générales</string>
     <string name="revanced_hide_general_ads_summary">Masque les publicités général</string>
     <string name="revanced_hide_music_ads_title">Masquer les publicités musicales</string>
     <string name="revanced_hide_music_ads_summary">Masque les publicités avant la lecture d\'une musique.</string>
-    <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
-    <string name="revanced_hide_paid_promotion_label_summary">Hides paid promotion label.</string>
+    <string name="revanced_hide_paid_promotion_label_title">Masquer le libellé de la promotion payante</string>
+    <string name="revanced_hide_paid_promotion_label_summary">Masquer l’étiquette de promotion payante.</string>
     <string name="revanced_hide_premium_promotion_title">Publicité popup pour YouTube Premium</string>
     <string name="revanced_hide_premium_promotion_summary">Masque la publicité popup pour YouTube Premium</string>
     <string name="revanced_hide_premium_renewal_title">Bannière de renouvellement de Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Masque la bannière de renouvellement de l\'abonnement Premium</string>
     <!-- PreferenceScreen: Flyout -->
-    <string name="revanced_preference_screen_flyout_title">Flyout Menu</string>
+    <string name="revanced_preference_screen_flyout_title">Menu déroulant</string>
     <string name="revanced_enable_compact_dialog_title">Activer les boîtes de dialogues compacts</string>
     <string name="revanced_enable_compact_dialog_summary">"Activer les dialogues compacts sur téléphone.
 
 Problèmes connus :
 • Les pochettes d'albums de la bibliothèque deviennent aussi plus petites.
 • La disposition du minuteur de mise en veille peut être inhabituelle."</string>
-    <string name="revanced_enable_trim_silence_title">Enable trim silence</string>
-    <string name="revanced_enable_trim_silence_summary">"Enables 'Trim silence' switch to the playback speed flyout menu.
+    <string name="revanced_enable_trim_silence_title">Activer le réglage du silence</string>
+    <string name="revanced_enable_trim_silence_summary">"Active le commutateur « Couper le silence » vers le menu déroulant de vitesse de lecture
 
 Info:
-• This feature is for podcasts.
-• This feature is still in development, so it may be unstable."</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Hide like and dislike button</string>
-    <string name="revanced_hide_flyout_menu_3_column_component_title">Hide 3-column component</string>
-    <string name="revanced_hide_flyout_menu_add_to_queue_title">Hide add to queue menu</string>
-    <string name="revanced_hide_flyout_menu_captions_title">Hide captions menu</string>
-    <string name="revanced_hide_flyout_menu_delete_playlist_title">Hide delete playlist menu</string>
-    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Hide dismiss queue menu</string>
-    <string name="revanced_hide_flyout_menu_download_title">Hide download menu</string>
-    <string name="revanced_hide_flyout_menu_edit_playlist_title">Hide edit playlist menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_album_title">Hide go to album menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_artist_title">Hide go to artist menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_episode_title">Hide go to episode menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Hide go to podcast menu</string>
+• Cette fonctionnalité est destinée aux podcasts. 
+• Cette fonctionnalité est encore en développement, elle peut donc être instable."</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
+    <string name="revanced_hide_flyout_menu_3_column_component_title">Masquer le composant à 3 colonnes</string>
+    <string name="revanced_hide_flyout_menu_add_to_queue_title">Masquer le bouton \"Ajouter à la file d\'attente\"</string>
+    <string name="revanced_hide_flyout_menu_captions_title">Masquer le menu des sous-titres</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Masquer le menu \"Supprimer la playlist\"</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Masquer le menu de la file d\'attente</string>
+    <string name="revanced_hide_flyout_menu_download_title">Masquer le menu de téléchargement</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Masquer le menu d\'édition de la playlist</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Masquer le menu de l\'album</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Cacher le menu artiste</string>
+    <string name="revanced_hide_flyout_menu_go_to_episode_title">Masquer le menu aller aux épisodes</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Cacher le menu de podcast</string>
     <string name="revanced_hide_flyout_menu_help_title">Hide help &amp; feedback menu</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Hide play next menu</string>
     <string name="revanced_hide_flyout_menu_quality_title">Hide quality menu</string>
@@ -107,8 +107,8 @@ Info:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Invalid video url.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Replace dismiss queue</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Replaces \'Dismiss queue\' with \'Watch on YouTube\'.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Applies only to player flyout menu</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Report menu in comments will not be replaced.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Keep report in comments</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Keeps the report menu in the comments section intact.</string>
     <string name="revanced_replace_flyout_menu_report_title">Replace report</string>
     <string name="revanced_replace_flyout_menu_report_summary">Replaces \'Report\' with \'Playback speed\'.</string>
     <!-- PreferenceScreen: General -->
@@ -123,7 +123,7 @@ Info:
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres forcés.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
-    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking dislike button.</string>
+    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the dislike button.</string>
     <string name="revanced_enable_landscape_mode_title">Activer le mode paysage</string>
     <string name="revanced_enable_landscape_mode_summary">Permet de passer en mode paysage par rotation du téléphone.</string>
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
@@ -201,6 +201,8 @@ Cela ne permet pas de contourner la restriction d'âge, mais de l'accepter autom
     <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Zen mode is also applied to podcasts.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Hide audio video switch toggle</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the audio video switch toggle in player.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Hides channel guidelines at the top of the comments section.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
@@ -219,8 +221,9 @@ Cela ne permet pas de contourner la restriction d'âge, mais de l'accepter autom
     <string name="revanced_restore_old_player_layout_summary">"Returns the player layout to the old style.
 Some features may not work properly in the old player layout."</string>
     <string name="revanced_replace_player_cast_button_title">Remplacer le bouton \"Cast\"</string>
-    <string name="revanced_replace_player_cast_button_summary">"Replace the cast button in the player with the 'Open music' button. (Experimental)
-Limitation: If one or more music that cannot be played in the playlist, it does not work normally."</string>
+    <string name="revanced_replace_player_cast_button_summary">"Replaces the cast button in the player with an 'Open music' button, which opens the official audio instead of the music video. (Experimental)
+
+Info: This feature does not work normally if any songs in the playlist cannot be played."</string>
     <string name="revanced_replace_player_cast_button_playlist_dismiss">Already playing from the official music source.</string>
     <string name="revanced_replace_player_cast_button_playlist_error">Official music source is unavailable.</string>
     <!-- PreferenceScreen: Video -->
@@ -259,7 +262,7 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_sb_enabled">Enable SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
-    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is not available</string>
+    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is unavailable</string>
     <string name="revanced_sb_toast_on_connection_error_sum">Shows a toast if the SponsorBlock API is unavailable.</string>
     <string name="revanced_sb_toast_on_skip">Show a toast when skipping automatically</string>
     <string name="revanced_sb_toast_on_skip_sum">Shows a toast when a segment is automatically skipped.</string>
@@ -270,11 +273,11 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_sb_api_url_changed">API URL changed.</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
-    <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
+    <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals, and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
     <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
     <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-    <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
+    <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
     <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
     <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.</string>
     <string name="revanced_sb_segments_outro">Endcards / Credits</string>
@@ -316,7 +319,7 @@ Limitation: If one or more music that cannot be played in the playlist, it does 
     <string name="revanced_enable_debug_logging_title">Activer le journal de débogage</string>
     <string name="revanced_enable_debug_logging_summary">Enregistrer le journal de débogage.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Prints the debug logs include buffer.</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
     <string name="revanced_enable_opus_codec_title">Activer le codec Opus</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec audio Opus au lieu du codec audio MP4A.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
