@@ -37,7 +37,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 object SpoofClientPatch : BaseBytecodePatch(
     name = "Spoof client",
-    description = "Adds options to spoofs the client to allow video playback.",
+    description = "Adds options to spoof the client to allow video playback.",
     dependencies = setOf(
         PlayerTypeHookPatch::class,
         PlayerResponseMethodHookPatch::class,

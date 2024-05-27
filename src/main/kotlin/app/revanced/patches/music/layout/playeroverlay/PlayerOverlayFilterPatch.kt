@@ -8,7 +8,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("unused")
 object PlayerOverlayFilterPatch : BaseResourcePatch(
     name = "Hide player overlay filter",
-    description = "Hides the dark overlay when single-tapping the player.",
+    description = "Removes, at compile time, the dark overlay that appears when single-tapping in the player.",
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
 ) {
