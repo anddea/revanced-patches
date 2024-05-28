@@ -462,6 +462,7 @@ Playlists
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">Τα βίντεο στην καρτέλα «Εγγραφές» φιλτράρονται με τη χρήση λέξεων-κλειδιών.</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">Φιλτράρισμα καρτέλας «Εγγραφές»</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">Μη έγκυρη λέξη-κλειδί. Αδυναμία χρήσης: \'%s\' ως φίλτρο</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
 	<string name="revanced_hide_latest_posts_summary_off">Εμφανίζονται.</string>
 	<string name="revanced_hide_latest_posts_summary_on">Κρυμμένες.</string>
@@ -803,6 +804,11 @@ Playlists
 
 Σημείωση:
 • Αν έχετε οποιοδήποτε θέμα με την τελική οθόνη προτεινόμενου βίντεο, προσπαθήστε να επανεκκινήσετε την εφαρμογή."</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_off">Εμφανίζεται.</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_on">"Κρυμμένη όταν η αυτόματη αναπαραγωγή είναι απενεργοποιημένη.
+
+Η αυτόματη αναπαραγωγή μπορεί να αλλαχτεί στις ρυθμίσεις YouTube:
+'Ρυθμίσεις → Αυτόματη αναπαραγωγή → Αυτόματη αναπαραγωγή επόμενου βίντεο'"</string>
 	<string name="revanced_hide_suggested_video_end_screen_title">Τελική οθόνη προτεινόμενου βίντεο</string>
 	<string name="revanced_hide_suggestions_section_summary_off">Εμφανίζεται. (Ενότητες παιχνιδιών, μουσικής, τοποθεσίας)</string>
 	<string name="revanced_hide_suggestions_section_summary_on">Κρυμμένη. (Ενότητες παιχνιδιών, μουσικής, τοποθεσίας)</string>
@@ -1049,7 +1055,7 @@ Playlists
 	<string name="revanced_ryd_shorts_summary_on">Τα dislike εμφανίζονται στα Shorts. %s</string>
 	<string name="revanced_ryd_shorts_summary_on_disclaimer">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts.
 
-Περιορισμός: Τα «Δεν μου αρέσει» ενδέχεται να μην εμφανίζονται σε λειτουργία ανώνυμης περιήγησης."</string>
+Περιορισμός: Τα «Δεν μου αρέσει» ενδέχεται να μην εμφανίζονται σε λειτουργία ανώνυμης περιήγησης ή αν δεν έχετε συνδεθεί στον λογαριασμό σας."</string>
 	<string name="revanced_ryd_shorts_title">Εμφάνιση στα Shorts</string>
 	<string name="revanced_ryd_toast_on_connection_error_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο.</string>
 	<string name="revanced_ryd_toast_on_connection_error_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο.</string>
@@ -1111,7 +1117,8 @@ Playlists
 	<string name="revanced_sb_guidelines_preference_sum">Οι οδηγίες περιέχουν κανόνες και συμβουλές σχετικά με την υποβολή τμημάτων.</string>
 	<string name="revanced_sb_guidelines_preference_title">Προβολή οδηγιών</string>
 	<string name="revanced_sb_new_segment_choose_category">Επιλέξτε την κατηγορία τμήματος</string>
-	<string name="revanced_sb_new_segment_confirm_content">Το τμήμα έχει διάρκεια από %1$02d:%2$02d έως %3$02d:%4$02d (%5$d λεπτά και %6$02d δευτερόλεπτα)\nΕίναι έτοιμο για υποβολή;</string>
+	<string name="revanced_sb_new_segment_confirm_contents">Το τμήμα είναι από\n\n%1$s\nσε\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
+	<string name="revanced_sb_new_segment_confirm_contents">Το τμήμα είναι από\n\n%1$s\nσε\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
 	<string name="revanced_sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
 	<string name="revanced_sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Θέλετε να επεξεργαστείτε τον χρονισμό του τμήματος από την αρχή ή από το τέλος του τμήματος;</string>
@@ -1271,6 +1278,21 @@ Playlists
 	<string name="revanced_spoof_app_version_target_summary">Πληκτρολογήστε την έκδοση εφαρμογής που θα εφαρμοστεί.</string>
 	<string name="revanced_spoof_app_version_target_title">Επεξεργασία έκδοσης εφαρμογής που θα εφαρμοστεί</string>
 	<string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
+	<string name="revanced_spoof_client_summary_off">"Το πρόγραμμα πελάτη δεν παραποιείται. Η αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί."</string>
+	<string name="revanced_spoof_client_summary_on">"Το πρόγραμμα πελάτη παραποιείται.
+
+• Η ποιότητα HDR δεν είναι διαθέσιμη."</string>
+	<string name="revanced_spoof_client_title">Παραποίηση προγράμματος πελάτη</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"Το πρόγραμμα πελάτη παραποιείται σε έκδοση Android VR. (η έκδοση iOS χρησιμοποιείται για Κλιπ ή Shorts)
+• Οι χειρονομίες σάρωσης αναπαραγωγέα του YouTube δε λειτουργούν.
+• Τα βίντεο YouTube Kids δεν αναπαράγονται.
+• Tα βίντεο σε παύση μπορεί να συνεχίσουν να παίζουν από μόνα τους."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"Το πρόγραμμα πελάτη παραποιείται σε έκδοση iOS.
+• Το μενού ταχύτητας αναπαραγωγής λείπει.
+• Το ιστορικό αναπαραγωγής δεν λειτουργεί σε λογαριασμούς επωνυμίας (Brand).
+• Η αναπαραγωγή παρασκηνίου δεν λειτουργεί για ζωντανές μεταδόσεις σε λειτουργία ήχου μόνο.
+• Οι ζωντανές μεταδόσεις δεν παίζουν σε έκδοση Android 8.0."</string>
+	<string name="revanced_spoof_client_use_ios_title">Παραποίηση σε iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Η παραποίηση διαστάσεων συσκευής μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.</string>
 	<string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Παραποίηση ροής δεδομένων των βίντεο για την αποφυγή προβλημάτων αναπαραγωγής.
