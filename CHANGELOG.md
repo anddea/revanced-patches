@@ -1,3 +1,17 @@
+# [2.225.0-dev.24](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.23...v2.225.0-dev.24) (2024-05-28)
+
+
+### Bug Fixes
+
+* **YouTube - Disable splash animation:** Did not work on YouTube v19.17.41+ ([d2182be](https://github.com/anddea/revanced-patches/commit/d2182be8e8feeb2640fe9aea1e90b7a265aa0d3b))
+* **YouTube - SponsorBlock:** `Submit a new segment` button didn't work ([c7e39b3](https://github.com/anddea/revanced-patches/commit/c7e39b3312b4863085eddf6534736c40afd3691a))
+
+
+### Features
+
+* **YouTube - Player components:** Add setting toggle for `Hide suggested video end screen` ([f4a9c22](https://github.com/anddea/revanced-patches/commit/f4a9c221e128e399e9667b3474d542b84ba9252e))
+* **YouTube Music - Player components:** Add `Enable black player background` settings ([c91be5a](https://github.com/anddea/revanced-patches/commit/c91be5a30b99bd46638f8a179c835c89e5c67a1f))
+
 # [2.225.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.22...v2.225.0-dev.23) (2024-05-27)
 
 
