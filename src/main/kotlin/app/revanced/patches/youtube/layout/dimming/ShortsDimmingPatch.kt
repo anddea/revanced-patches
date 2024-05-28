@@ -9,7 +9,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("unused")
 object ShortsDimmingPatch : BaseResourcePatch(
     name = "Hide shorts dimming",
-    description = "Hide the dimming effect on the top and bottom of Shorts video at compile time.",
+    description = "Removes, at compile time, the dimming effect at the top and bottom of Shorts videos.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false

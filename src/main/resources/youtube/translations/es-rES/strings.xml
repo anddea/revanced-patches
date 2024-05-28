@@ -462,6 +462,7 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">Los vídeos en el feed de suscripciones están filtrados.</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">Ocultar vídeos de suscripciones por palabras clave</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">Palabra clave no válida. No se puede utilizar: \"%s\" como filtro</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">Palabra clave no válida. \"%1$s\" tiene menos de %2$d caracteres</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">Palabra clave no válida. \"%1$s\" tiene menos de %2$d caracteres</string>
 	<string name="revanced_hide_latest_posts_summary_off">Las últimas publicaciones están visibles.</string>
 	<string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas.</string>
@@ -1107,7 +1108,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
 	<string name="revanced_sb_guidelines_preference_sum">Las directrices contienen reglas y consejos para la creación de nuevos segmentos.</string>
 	<string name="revanced_sb_guidelines_preference_title">Ver directrices</string>
 	<string name="revanced_sb_new_segment_choose_category">Selecciona la categoría del segmento</string>
-	<string name="revanced_sb_new_segment_confirm_content">El segmento dura de %1$02d:%2$02d hasta %3$02d:%4$02d (%5$d minutos %6$02d segundos)\n¿Está listo para ser enviado?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">El segmento es desde\n\n%1$s\nhasta\n%2$s\n\n(%3$s)\n\n¿Está listo para ser enviado?</string>
 	<string name="revanced_sb_new_segment_confirm_title">¿Son correctos los tiempos?</string>
 	<string name="revanced_sb_new_segment_disabled_category">La categoría está desactivada en los ajustes. Activa la categoría para enviar.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">¿Quieres editar el tiempo para el inicio o el final del segmento?</string>
@@ -1267,6 +1268,27 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
 	<string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
 	<string name="revanced_spoof_app_version_target_title">Editar versión falsa de la app</string>
 	<string name="revanced_spoof_app_version_title">Falsificar versión de la app</string>
+	<string name="revanced_spoof_client_summary_off">"El cliente no está falsificado. Es posible que la reproducción de vídeo no funcione."</string>
+	<string name="revanced_spoof_client_summary_on">"El cliente está falsificado.
+
+Los efectos secundarios incluyen:
+• No hay vídeo HDR.
+• Es posible que el historial de reproducciones no funcione."</string>
+	<string name="revanced_spoof_client_title">Falsificar cliente</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"El cliente está actualmente falsificado a Android VR. (El cliente iOS se utiliza para Clips o Shorts)
+
+Los efectos secundarios incluyen:
+• Los gestos de deslizamiento del reproductor no funcionan.
+• Los vídeos infantiles no se reproducen.
+• Los vídeos en pausa pueden reanudarse aleatoriamente."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"El cliente está actualmente falsificado a iOS.
+
+Los efectos secundarios incluyen:
+• Falta el menú de velocidad de reproducción.
+• Las transmisiones en directo no se pueden reproducir como solo audio.
+• Las transmisiones en directo no están disponibles en Android 8.0.
+• Pueden faltar calidades de vídeo superiores."</string>
+	<string name="revanced_spoof_client_use_ios_title">Falsificar cliente a iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Falsifica las dimensiones del dispositivo para desbloquear calidades de vídeo superiores que pueden no estar disponibles en tu dispositivo.</string>
 	<string name="revanced_spoof_device_dimensions_title">Falsificar dimensiones del dispositivo</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Falsifica los datos de formato de transmisión para evitar problemas de reproducción.

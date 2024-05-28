@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 @Suppress("Deprecation", "unused")
 object ForcePlayerButtonBackgroundPatch : BaseResourcePatch(
     name = "Force hide player buttons background",
-    description = "Hide the dark background surrounding the video player controls at compile time.",
+    description = "Removes, at compile time, the dark background surrounding the video player controls.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false

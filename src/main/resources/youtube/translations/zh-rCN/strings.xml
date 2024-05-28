@@ -511,12 +511,12 @@
 	<string name="revanced_hide_like_dislike_button_summary_off">显示赞和踩按钮</string>
 	<string name="revanced_hide_like_dislike_button_summary_on">隐藏赞和踩按钮</string>
 	<string name="revanced_hide_like_dislike_button_title">隐藏赞和踩按钮</string>
-	<string name="revanced_hide_live_chat_messages_summary_off">直播聊天信息已显示</string>
-	<string name="revanced_hide_live_chat_messages_summary_on">直播聊天信息已隐藏</string>
-	<string name="revanced_hide_live_chat_messages_title">隐藏直播聊天信息</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_off">右下角的直播聊天重播按钮已显示\n\n在全屏关闭直播聊天时显示</string>
-	<string name="revanced_hide_live_chat_replay_button_summary_on">右下角的直播聊天重播按钮已隐藏\n\n在全屏关闭直播聊天时显示</string>
-	<string name="revanced_hide_live_chat_replay_button_title">隐藏直播聊天重播按钮</string>
+	<string name="revanced_hide_live_chat_messages_summary_off">实时聊天消息已隐藏\n\n此设置也适用于短视频</string>
+	<string name="revanced_hide_live_chat_messages_summary_on">实时聊天消息已隐藏\n\n此设置也适用于短视频</string>
+	<string name="revanced_hide_live_chat_messages_title">隐藏实时聊天消息</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_off">实时聊天重播按钮已显示\n\n关闭实时聊天时它会以全屏显示</string>
+	<string name="revanced_hide_live_chat_replay_button_summary_on">实时聊天重播按钮已隐藏\n\n在关闭实时聊天时它会以全屏显示</string>
+	<string name="revanced_hide_live_chat_replay_button_title">隐藏实时聊天重播按钮</string>
 	<string name="revanced_hide_medical_panel_summary_off">医疗面板已显示</string>
 	<string name="revanced_hide_medical_panel_summary_on">医疗面板已隐藏</string>
 	<string name="revanced_hide_medical_panel_title">隐藏医疗面板</string>
@@ -1154,7 +1154,7 @@
 	<string name="revanced_sb_guidelines_preference_sum">指南包含创建新片段的规则和技巧</string>
 	<string name="revanced_sb_guidelines_preference_title">查看指南</string>
 	<string name="revanced_sb_new_segment_choose_category">选择片段类别</string>
-	<string name="revanced_sb_new_segment_confirm_content">片段从%1$02d:%2$02d到%3$02d:%4$02d（%5$d分%6$02d秒）
+	<string name="revanced_sb_new_segment_confirm_contents">片段从%1$02d:%2$02d到%3$02d:%4$02d（%5$d分%6$02d秒）
 	是否准备好提交？</string>
 	<string name="revanced_sb_new_segment_confirm_title">时间是否正确？</string>
 	<string name="revanced_sb_new_segment_disabled_category">类别在设置中被禁用请启用类别以提交</string>
@@ -1318,6 +1318,27 @@
 	<string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
 	<string name="revanced_spoof_app_version_target_title">编辑伪装应用版本</string>
 	<string name="revanced_spoof_app_version_title">伪装应用版本</string>
+	<string name="revanced_spoof_client_summary_off">"客户端伪装未启用。视频可能无法正常播放。"</string>
+	<string name="revanced_spoof_client_summary_on">"客户端伪装已启用
+
+副作用：
+• 没有 HDR 视频
+• 观察历史可能无法正常记录"</string>
+	<string name="revanced_spoof_client_title">伪装客户端</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"客户端已伪装为 Android VR (iOS 客户端用于 Clips 或 Shorts)
+
+ 副作用：
+ • 播放滑动手势无法使用
+ • 无法播放儿童视频
+ • 暂停的视频可以随机恢复"</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"已伪装为 IOS 客户端
+
+副作用:
+• 失去播放速度菜单
+• 无法在后台播放直播
+• 无法在 Android 8.0 播放直播
+• 可能失去视频更高画质"</string>
+	<string name="revanced_spoof_client_use_ios_title">伪装为 IOS 客户端</string>
 	<string name="revanced_spoof_device_dimensions_summary">伪装设备尺寸，以解锁设备可能无法提供的更高视频质量</string>
 	<string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
 	<string name="revanced_spoof_format_stream_data_summary">"伪装格式流数据，以防止出现播放缓冲问题
@@ -1355,9 +1376,9 @@
 	<string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层背景透明度</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">滑动背景透明度</string>
-	<string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比</string>
-	<string name="revanced_swipe_overlay_rect_size_title">滑动覆盖屏幕尺寸</string>
-	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">可滑动区域大小不能超过 %s%%。重置为默认值</string>
+	<string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比\n\n注意：这也会改变双击搜索手势的屏幕区域大小</string>
+	<string name="revanced_swipe_overlay_rect_size_title">滑动叠加层大小</string>
+	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">可滑动区域大小不能超过 %s%% 重置为默认值</string>
 	<string name="revanced_swipe_overlay_text_size_summary">滑动叠加层上的文本大小</string>
 	<string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
 	<string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
@@ -1369,4 +1390,17 @@
 • 你应该禁用此设置以显示视频广告"</string>
 	<string name="revanced_switch_create_with_notifications_button_title">交换创建和通知按钮</string>
 	<string name="revanced_theme_default">Stock</string>
+	<string name="revanced_whitelist_add_failed">无法将频道 \'%1$s\' 添加到 %2$s 白名单</string>
+	<string name="revanced_whitelist_added">频道 \'%1$s\'已添加到 %2$s 白名单</string>
+	<string name="revanced_whitelist_empty">白名单中没有频道</string>
+	<string name="revanced_whitelist_excluded">未添加到白名单</string>
+	<string name="revanced_whitelist_failure_generic">加载频道信息失败</string>
+	<string name="revanced_whitelist_included">加入白名单</string>
+	<string name="revanced_whitelist_playback_speed">播放速度</string>
+	<string name="revanced_whitelist_remove_dialog_message">从 %2$s 白名单中移除频道 \'%1$s\'？</string>
+	<string name="revanced_whitelist_remove_failed">无法将频道 \'%1$s\' 从 %2$s 白名单中移除</string>
+	<string name="revanced_whitelist_removed">頻道 \'%1$s\' 已从 %2$s 白名单中移除</string>
+	<string name="revanced_whitelist_settings_summary">检查或删除添加到白名单的频道列表</string>
+	<string name="revanced_whitelist_settings_title">频道白名单</string>
+	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
 </resources>

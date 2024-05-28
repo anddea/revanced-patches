@@ -635,8 +635,8 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
 • Videonun altında 'Kullanıcılar da izledi' gibi ibarelerin yer aldığı videolar
 • Abone olunmayan kanallardan yüklenen ve izlenme sayısı 1.000'den az olan videolar"</string>
 	<string name="revanced_hide_recommended_video_title">Önerilen videoları gizle</string>
-	<string name="revanced_hide_related_video_overlay_summary_off">İlgili video yer paylaşımı gizlenmiyor.</string>
-	<string name="revanced_hide_related_video_overlay_summary_on">İlgili video yer paylaşımı gizlenir.</string>
+	<string name="revanced_hide_related_video_overlay_summary_off">Hızlı işlemler kapsayıcısındaki \'Diğer videolar\' bölümü ve ilgili video katmanı gizlenmiyor.</string>
+	<string name="revanced_hide_related_video_overlay_summary_on">Hızlı işlemler kapsayıcısındaki \'Diğer videolar\' bölümü ve ilgili video katmanı gizlenir.</string>
 	<string name="revanced_hide_related_video_overlay_title">\"Önerilen video\" arayüzünü gizle</string>
 	<string name="revanced_hide_remix_button_summary_off">\"Remix\" butonu gösteriliyor.</string>
 	<string name="revanced_hide_remix_button_summary_on">\"Remix\" butonu gizleniyor.</string>
@@ -1080,7 +1080,7 @@ Bir örnek görmek için buraya dokunun.</string>
 	<string name="revanced_sb_guidelines_preference_sum">Yönergeler yeni segmentler oluşturmak için kurallar ve ipuçları içerir.</string>
 	<string name="revanced_sb_guidelines_preference_title">Yönergeleri görüntüle</string>
 	<string name="revanced_sb_new_segment_choose_category">Kategori seçin</string>
-	<string name="revanced_sb_new_segment_confirm_content">Bu kısmın başlangıcı %1$02d.%2$02d, bitişi %3$02d.%4$02d, süresi %5$d dakika %6$02d saniye.\nGönderilmeye hazır mı?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">Bu kısmın başlangıcı %1$02d.%2$02d, bitişi %3$02d.%4$02d, süresi %5$d dakika %6$02d saniye.\nGönderilmeye hazır mı?</string>
 	<string name="revanced_sb_new_segment_confirm_title">Zaman aralığı doğru mu?</string>
 	<string name="revanced_sb_new_segment_disabled_category">Ayarlarda kategori devre dışı bırakıldı. Göndermek için kategoriyi etkinleştir.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Bu segmentin başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
@@ -1240,6 +1240,26 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
 	<string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
 	<string name="revanced_spoof_app_version_target_title">Uygulama hedef sürümünü kandırma hedefi</string>
 	<string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
+	<string name="revanced_spoof_client_summary_off">"İstemci taklit edilmiyor. Video oynatma çalışmayabilir."</string>
+	<string name="revanced_spoof_client_summary_on">"İstemci taklit ediliyor.
+
+Yan etkiler şunları içerir:
+• HDR video yok.
+• İzleme geçmişi çalışmayabilir."</string>
+	<string name="revanced_spoof_client_title">İstemciyi taklit et</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"İstemci şu anda Android VR'ye sahtedir. (iOS istemcisi Klipler veya Kısa Videolar için kullanılır)
+
+Yan etkiler şunları içerir:
+• Oyuncunun kaydırma hareketleri çalışmıyor.
+• Çocuk videoları oynatılmıyor.
+• Duraklatılan videolar rastgele devam ettirilebilir."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"İstemci şu anda iOS'a sahtedir.
+
+Yan etkiler şunları içerir:
+• Oynatma hızı menüsü eksik.
+• Arka planda oynatma canlı yayınlarda çalışmaz.
+• Daha yüksek video kaliteleri eksik olabilir."</string>
+	<string name="revanced_spoof_client_use_ios_title">İstemciyi iOS olarak taklit et</string>
 	<string name="revanced_spoof_device_dimensions_summary">Cihazınızda mevcut olmayabilecek daha yüksek video kalitelerinin kilidini açmak için cihaz boyutlarını taklit eder</string>
 	<string name="revanced_spoof_device_dimensions_title">Farklı cihaz boyutlarını taklit et</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Sahtekarlıklar, oynatma sorunlarını önlemek için akış verilerini biçimlendirir.

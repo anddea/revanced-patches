@@ -7,7 +7,7 @@ import app.revanced.util.patch.BaseResourcePatch
 @Suppress("DEPRECATION", "unused")
 object OverlayFilterPatch : BaseResourcePatch(
     name = "Hide overlay filter",
-    description = "Hides the dark overlay when player flyout menus are open.",
+    description = "Removes, at compile time, the dark overlay that appears when player flyout menus are open.",
     dependencies = setOf(OverlayFilterBytecodePatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
