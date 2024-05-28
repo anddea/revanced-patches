@@ -1,3 +1,10 @@
+# [2.225.0-dev.25](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.24...v2.225.0-dev.25) (2024-05-28)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Remove duplicates caused error ([5e904c0](https://github.com/anddea/revanced-patches/commit/5e904c005cb881e8113eb7d41a87c7e738620eb6))
+
 # [2.225.0-dev.24](https://github.com/anddea/revanced-patches/compare/v2.225.0-dev.23...v2.225.0-dev.24) (2024-05-28)
 
 
