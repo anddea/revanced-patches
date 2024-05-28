@@ -462,7 +462,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in subscriptions feed are filtered.</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
-	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
 	<string name="revanced_hide_latest_posts_summary_off">Latest posts are shown.</string>
 	<string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden.</string>
 	<string name="revanced_hide_latest_posts_title">Hide latest posts</string>
@@ -1099,7 +1099,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
 	<string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments.</string>
 	<string name="revanced_sb_guidelines_preference_title">View guidelines</string>
 	<string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
-	<string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
 	<string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
 	<string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
