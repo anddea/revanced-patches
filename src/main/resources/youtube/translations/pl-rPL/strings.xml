@@ -459,6 +459,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">Włączone</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">Filtrowanie wideo na stronie subskrypcji</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">Nieprawidłowe słowo. Nie można użyć: \'%s\' jako filtru</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">Nieprawidłowe słowo. \'%1$s\' ma mniej niż %2$d znaków</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">Nieprawidłowe słowo. \'%1$s\' ma mniej niż %2$d znaków</string>
 	<string name="revanced_hide_latest_posts_summary_off">Widoczne</string>
 	<string name="revanced_hide_latest_posts_summary_on">Ukryte</string>
@@ -1033,7 +1034,7 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
 	<string name="revanced_ryd_shorts_summary_on">Widoczna</string>
 	<string name="revanced_ryd_shorts_summary_on_disclaimer">"Widoczna
 
-Ograniczenie: Liczba łapek w dół może nie być widoczna w trybie incognito."</string>
+Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie jest zalogowany, bądź jest w trybie incognito."</string>
 	<string name="revanced_ryd_shorts_title">Liczba łapek w dół w odtwarzaczu Shortsów</string>
 	<string name="revanced_ryd_toast_on_connection_error_summary_off">Ukryty</string>
 	<string name="revanced_ryd_toast_on_connection_error_summary_on">Widoczny</string>
@@ -1095,7 +1096,8 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna w trybie incognito."
 	<string name="revanced_sb_guidelines_preference_sum">Wytyczne zawierają zasady i wskazówki dotyczące wysyłania segmentów</string>
 	<string name="revanced_sb_guidelines_preference_title">Wyświetl wytyczne</string>
 	<string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
-	<string name="revanced_sb_new_segment_confirm_content">Segment trwa od %1$02d:%2$02d do %3$02d:%4$02d (%5$d minut i %6$02d sekund)\nCzy jest gotowy do wysłania?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">Segment jest od \n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nGotowe do przesłania?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">Segment jest od \n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nGotowe do przesłania?</string>
 	<string name="revanced_sb_new_segment_confirm_title">Czy te czasy są poprawne?</string>
 	<string name="revanced_sb_new_segment_disabled_category">Ta kategoria jest wyłączona w ustawieniach. Włącz kategorię, aby móc wysłać ten segment.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Chcesz edytować czas rozpoczęcia czy zakończenia segmentu?</string>
@@ -1256,6 +1258,27 @@ Informacje:
 	<string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
 	<string name="revanced_spoof_app_version_target_title">Zmień oszukaną wersję aplikacji</string>
 	<string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
+	<string name="revanced_spoof_client_summary_off">"Klient nie jest oszukiwany. Odtwarzanie wideo może nie działać."</string>
+	<string name="revanced_spoof_client_summary_on">"Klient jest oszukiwany.
+
+Efekty uboczne:
+• Brak wideo w HDR
+• Historia oglądania może nie działać"</string>
+	<string name="revanced_spoof_client_title">Oszukaj klienta</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"Klient jest obecnie oszukiwany do wersji Android VR (klient iOS jest używany do klipów oraz shortsów).
+
+Efekty uboczne:
+• Gesty w odtwarzaczu nie działają
+• Wideo dla dzieci nie odtwarzają się
+• Spauzowane filmy mogą się losowo wznawiać"</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"Klient jest obecnie oszukiwany do wersji iOS.
+
+Efekty uboczne:
+• Brakuje menu prędkości odtwarzania
+• Transmisje na żywo nie działają w trybie odtwarzania jedynie dźwięku
+• Transmisje na żywo są niedostępne na Androidzie 8.0
+• Może brakować wyższych jakości wideo"</string>
+	<string name="revanced_spoof_client_use_ios_title">Oszukaj klienta do wersji iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Oszukuje rozdzielczość urządzenia w celu odblokowania wyższych jakości wideo, które mogłyby nie być dostępne na urządzeniu.</string>
 	<string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Oszukuje format strumienia danych, aby zapobiec problemom z odtwarzaniem.

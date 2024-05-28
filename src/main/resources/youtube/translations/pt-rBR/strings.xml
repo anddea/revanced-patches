@@ -270,7 +270,7 @@ Estes caracteres variam dependendo do seu idioma.
 	<string name="revanced_extended_settings_import_summary">Importar configurações de um arquivo salvo.</string>
 	<string name="revanced_extended_settings_import_title">Importar configurações</string>
 	<string name="revanced_extended_settings_reset">Redefinir</string>
-	<string name="revanced_extended_settings_title">Configurações RVX</string>
+	<string name="revanced_extended_settings_title">ReVanced Extended</string>
 	<string name="revanced_external_downloader_action_summary_off">O botão de download abre o download nativo do aplicativo</string>
 	<string name="revanced_external_downloader_action_summary_on">O botão de download abre seu aplicativo de download externo</string>
 	<string name="revanced_external_downloader_action_title">Substituir botão de ação de download</string>
@@ -1096,7 +1096,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
 	<string name="revanced_sb_guidelines_preference_sum">As diretrizes contêm regras e dicas para a criação de novos segmentos.</string>
 	<string name="revanced_sb_guidelines_preference_title">Ver diretrizes</string>
 	<string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
-	<string name="revanced_sb_new_segment_confirm_content">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
 	<string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
 	<string name="revanced_sb_new_segment_disabled_category">A categoria está desativada nas configurações. Ative a categoria para enviar.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Você quer editar o tempo para o início ou o fim do segmento?</string>
@@ -1256,6 +1256,27 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
 	<string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
 	<string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
 	<string name="revanced_spoof_app_version_title">Falsificar versão do aplicativo</string>
+	<string name="revanced_spoof_client_summary_off">"O cliente não é falsificado. A reprodução de vídeo pode não funcionar."</string>
+	<string name="revanced_spoof_client_summary_on">"O cliente é falsificado.
+
+Os efeitos colaterais incluem:
+• Sem vídeo HDR.
+• O histórico de exibição pode não funcionar."</string>
+	<string name="revanced_spoof_client_title">Falsificar cliente</string>
+	<string name="revanced_spoof_client_use_ios_summary_off">"O cliente está atualmente falsificado para Android VR. (O cliente iOS é usado para clipes ou Shorts)
+
+Os efeitos colaterais incluem:
+• Os gestos de deslizar do reprodutor não funcionam.
+• Os vídeos infantis não são reproduzidos.
+• Os vídeos pausados podem ser retomados aleatoriamente."</string>
+	<string name="revanced_spoof_client_use_ios_summary_on">"O cliente está atualmente falsificado para iOS.
+
+Os efeitos colaterais incluem:
+• O menu de velocidade de reprodução está ausente.
+• As transmissões ao vivo não podem ser reproduzidas apenas como áudio.
+• Transmissões ao vivo não disponíveis no Android 8.0.
+• Qualidades de vídeo superiores podem estar faltando."</string>
+	<string name="revanced_spoof_client_use_ios_title">Falsificar cliente para iOS</string>
 	<string name="revanced_spoof_device_dimensions_summary">Falsifica as dimensões do dispositivo para desbloquear qualidades de vídeo superiores que podem não estar disponíveis no seu dispositivo.</string>
 	<string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Falsifica os dados de formato de transmissão para prevenir problemas de reprodução.
