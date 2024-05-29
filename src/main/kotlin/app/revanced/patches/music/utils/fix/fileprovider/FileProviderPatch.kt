@@ -4,12 +4,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.utils.fix.fileprovider.fingerprints.FileProviderResolverFingerprint
-import app.revanced.patches.shared.patch.packagename.PackageNamePatch
-import app.revanced.util.exception
+import app.revanced.patches.shared.packagename.PackageNamePatch
+import app.revanced.util.resultOrThrow
 
 @Patch(dependencies = [PackageNamePatch::class])
 object FileProviderPatch : BytecodePatch(
@@ -17,11 +16,8 @@ object FileProviderPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val youtubePackageName = PackageNamePatch.PackageNameYouTube
-            ?: throw PatchException("Invalid package name.")
-
-        val musicPackageName = PackageNamePatch.PackageNameYouTubeMusic
-            ?: throw PatchException("Invalid package name.")
+        val youtubePackageName = PackageNamePatch.packageNameYouTube
+        val musicPackageName = PackageNamePatch.packageNameYouTubeMusic
 
         /**
          * For some reason, if the app gets "android.support.FILE_PROVIDER_PATHS",
@@ -32,7 +28,7 @@ object FileProviderPatch : BytecodePatch(
          *
          * To solve this issue, replace the package name of YouTube with YT Music's package name.
          */
-        FileProviderResolverFingerprint.result?.let {
+        FileProviderResolverFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
@@ -44,7 +40,7 @@ object FileProviderPatch : BytecodePatch(
                         """, ExternalLabel("ignore", getInstruction(0))
                 )
             }
-        } ?: throw FileProviderResolverFingerprint.exception
+        }
 
     }
 }

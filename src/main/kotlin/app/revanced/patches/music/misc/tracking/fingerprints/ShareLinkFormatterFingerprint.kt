@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 /**
  * Sharing panel of YouTube Music
  */
-object ShareLinkFormatterFingerprint : MethodFingerprint(
+internal object ShareLinkFormatterFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/util/Map;"),
     opcodes = listOf(

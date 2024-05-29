@@ -3,32 +3,28 @@ package app.revanced.patches.reddit.utils.resourceid
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.patch.mapping.ResourceType
-import app.revanced.patches.shared.patch.mapping.ResourceType.ID
-import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
-import app.revanced.patches.shared.patch.mapping.ResourceType.STYLE
+import app.revanced.patches.shared.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.mapping.ResourceMappingPatch.getId
+import app.revanced.patches.shared.mapping.ResourceType.ID
+import app.revanced.patches.shared.mapping.ResourceType.STRING
+import app.revanced.patches.shared.mapping.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
-    var CancelButton: Long = -1L
-    var LabelAcknowledgements: Long = -1L
-    var ScreenShotShareBanner: Long = -1L
-    var TextAppearanceRedditBaseOldButtonColored: Long = -1L
-    var ToolBarNavSearchCtaContainer: Long = -1L
+    var CancelButton = -1L
+    var LabelAcknowledgements = -1L
+    var ScreenShotShareBanner = -1L
+    var TextAppearanceRedditBaseOldButtonColored = -1L
+    var ToolBarNavSearchCtaContainer = -1L
 
     override fun execute(context: ResourceContext) {
 
-        fun find(resourceType: ResourceType, resourceName: String) = ResourceMappingPatch
-            .resourceMappings
-            .find { it.type == resourceType.value && it.name == resourceName }?.id
-            ?: -1
-
-        CancelButton = find(ID, "cancel_button")
-        LabelAcknowledgements = find(STRING, "label_acknowledgements")
-        ScreenShotShareBanner = find(STRING, "screenshot_share_banner_title")
-        TextAppearanceRedditBaseOldButtonColored = find(STYLE, "TextAppearance.RedditBase.OldButton.Colored")
-        ToolBarNavSearchCtaContainer = find(ID, "toolbar_nav_search_cta_container")
+        CancelButton = getId(ID, "cancel_button")
+        LabelAcknowledgements = getId(STRING, "label_acknowledgements")
+        ScreenShotShareBanner = getId(STRING, "screenshot_share_banner_title")
+        TextAppearanceRedditBaseOldButtonColored =
+            getId(STYLE, "TextAppearance.RedditBase.OldButton.Colored")
+        ToolBarNavSearchCtaContainer = getId(ID, "toolbar_nav_search_cta_container")
 
     }
 }

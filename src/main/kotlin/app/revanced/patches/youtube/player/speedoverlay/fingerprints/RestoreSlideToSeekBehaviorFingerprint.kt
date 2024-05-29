@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * This value restores the 'Slide to seek' behavior.
  */
-object RestoreSlideToSeekBehaviorFingerprint : LiteralValueFingerprint(
+internal object RestoreSlideToSeekBehaviorFingerprint : LiteralValueFingerprint(
     returnType = "Z",
     parameters = emptyList(),
     opcodes = listOf(Opcode.MOVE_RESULT),

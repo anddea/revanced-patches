@@ -2,26 +2,23 @@ package app.revanced.patches.reddit.utils.settings
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.integrations.IntegrationsPatch
+import app.revanced.util.patch.BaseResourcePatch
 import kotlin.io.path.exists
 
-@Patch(
+@Suppress("DEPRECATION")
+object SettingsPatch : BaseResourcePatch(
     name = "Settings",
     description = "Adds ReVanced Extended settings to Reddit.",
-    dependencies =
-    [
+    dependencies = setOf(
         IntegrationsPatch::class,
-        SettingsBytecodePatch::class
-    ],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")],
-    requiresIntegrations = true,
-)
-object SettingsPatch : ResourcePatch() {
+        SettingsBytecodePatch::class,
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    requiresIntegrations = true
+) {
     override fun execute(context: ResourceContext) {
-
         /**
          * Replace settings icon and label
          */
@@ -42,6 +39,5 @@ object SettingsPatch : ResourcePatch() {
                     )
             )
         }
-
     }
 }

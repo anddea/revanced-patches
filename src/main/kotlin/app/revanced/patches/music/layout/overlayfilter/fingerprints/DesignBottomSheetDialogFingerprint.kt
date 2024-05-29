@@ -4,7 +4,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DesignB
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object DesignBottomSheetDialogFingerprint : LiteralValueFingerprint(
+internal object DesignBottomSheetDialogFingerprint : LiteralValueFingerprint(
     returnType = "V",
     parameters = emptyList(),
     opcodes = listOf(
