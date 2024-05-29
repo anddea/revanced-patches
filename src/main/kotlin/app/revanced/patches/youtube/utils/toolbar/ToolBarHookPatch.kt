@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.toolbar.fingerprints.ToolBarButtonFingerprint
 import app.revanced.patches.youtube.utils.toolbar.fingerprints.ToolBarPatchFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -23,9 +23,14 @@ object ToolBarHookPatch : BytecodePatch(
         ToolBarPatchFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "$UTILS_PATH/ToolBarPatch;"
+
+    private lateinit var toolbarMethod: MutableMethod
+
     override fun execute(context: BytecodeContext) {
 
-        ToolBarButtonFingerprint.result?.let {
+        ToolBarButtonFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val replaceIndex = it.scanResult.patternScanResult!!.startIndex
                 val freeIndex = it.scanResult.patternScanResult!!.endIndex - 1
@@ -49,21 +54,15 @@ object ToolBarHookPatch : BytecodePatch(
                 )
                 removeInstruction(replaceIndex)
             }
-        } ?: throw ToolBarButtonFingerprint.exception
+        }
 
-        insertMethod = ToolBarPatchFingerprint.result?.mutableMethod
-            ?: throw ToolBarPatchFingerprint.exception
+        toolbarMethod = ToolBarPatchFingerprint.resultOrThrow().mutableMethod
     }
 
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "$UTILS_PATH/ToolBarPatch;"
-
-    private lateinit var insertMethod: MutableMethod
-
-    internal fun injectCall(
+    internal fun hook(
         descriptor: String
     ) {
-        insertMethod.addInstructions(
+        toolbarMethod.addInstructions(
             0,
             "invoke-static {p0, p1}, $descriptor(Ljava/lang/String;Landroid/view/View;)V"
         )

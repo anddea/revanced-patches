@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.utils.integrations.fingerprints
 
-import app.revanced.patches.shared.patch.integrations.AbstractIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
 
 /**
  * Old API activity to embed YouTube into 3rd party Android apps.
@@ -9,7 +9,7 @@ import app.revanced.patches.shared.patch.integrations.AbstractIntegrationsPatch.
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
  */
-object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
+internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;"
                 && methodDef.name == "onCreate"

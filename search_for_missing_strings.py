@@ -8,6 +8,7 @@ source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
 # Define destination directory path
 destination_directory = "src/main/resources/youtube/translations"
 
+
 # Function to extract strings from a file
 def extract_strings(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -15,18 +16,52 @@ def extract_strings(file_path):
         strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
         return set(strings)
 
+
 # Extract strings from source file
 source_strings = extract_strings(source_file)
 
+
 def add_string_to_files(string):
-    for root, dirs, files in os.walk(destination_directory):
-        if "strings.xml" in files:
-            # Get destination file path
+    # Split the multiline string into individual strings
+    strings = string.split('\n')
+    for string in strings:
+        # Extract the name attribute from the string
+        name_attribute_match = re.search(r'name="([^"]*)"', string)
+        if not name_attribute_match:
+            continue
+        name_attribute = name_attribute_match.group(1)
+        
+        for root, _, files in os.walk(destination_directory):
+            if "strings.xml" not in files:
+                continue
+            
             destination_file = os.path.join(root, "updated-strings.xml")
+            missing_strings_file = os.path.join(root, "missing-strings.xml")
+
+            with open(missing_strings_file, 'r') as f:
+                missing_content = f.read()
+
+            if re.search(rf'<string\s+name="{re.escape(name_attribute)}"', missing_content):
+                updated_content = ""
+                with open(destination_file, 'r') as f:
+                    updated_content = f.read()
+                updated_content = re.sub(rf'\n?\s*?<string\s+name="{re.escape(name_attribute)}"\s*>.*?</string>', '', updated_content, flags=re.DOTALL)
+                with open(destination_file, 'w') as f:
+                    f.write(updated_content)
+                break
+            
+            with open(destination_file, 'r') as f:
+                updated_content = f.read()
+            
+            if re.search(rf'<string\s+name="{re.escape(name_attribute)}"', updated_content):
+                updated_content = re.sub(rf'\n?\s*?<string\s+name="{re.escape(name_attribute)}"\s*>.*?</string>', '', updated_content, flags=re.DOTALL)
+                with open(destination_file, 'w') as f:
+                    f.write(updated_content)
+            
             with open(destination_file, 'a') as f:
-                # Split the multiline string into lines, strip leading whitespace from each line, and join them back
-                stripped_lines = '\n'.join(line.strip() for line in string.split('\n'))
-                f.write(stripped_lines + '\n')
+                stripped_line = string.strip()
+                f.write(stripped_line + '\n')
+
 
 def delete_string_from_files(string):
     for root, dirs, files in os.walk(destination_directory):
@@ -45,6 +80,7 @@ def delete_string_from_files(string):
                 # Rewrite the updated content to the file
                 with open(destination_file, 'w') as f:
                     f.write(updated_content)
+
 
 # Function to find missing strings
 def find_missing_strings():
@@ -120,26 +156,43 @@ def find_missing_strings():
             # Print the result
             print(f"{language_code} - {num_missing} missing strings, {num_updated} updated strings.")
 
-# Function to sort strings alphabetically by name attribute value
-def sort_strings():
-    for root, dirs, files in os.walk(destination_directory):
+
+# Function to sort strings in a file alphabetically by name attribute value
+def sort_strings_in_file(file_path):
+    """
+    Sorts the <string> elements in an XML file alphabetically by their 'name' attribute, 
+    while preserving any other attributes, regardless of their order.
+    
+    Parameters:
+    file_path (str): The path to the XML file.
+    """
+    # Read the content of the file
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    # Extract strings from the file with attributes in any order
+    strings = re.findall(r'<string([^>]*)>(.*?)</string>', content, re.DOTALL)
+
+    # Sort strings alphabetically by 'name' attribute value
+    strings.sort(key=lambda x: re.search(r'name="([^"]*)"', x[0]).group(1) if re.search(r'name="([^"]*)"', x[0]) else "")
+
+    # Reconstruct the XML content with sorted strings
+    sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
+    sorted_content += '\n'.join(f'\t<string{attributes}>{value}</string>' for attributes, value in strings)
+    sorted_content += '\n</resources>'
+
+    # Rewrite the sorted content to the file
+    with open(file_path, 'w') as f:
+        f.write(sorted_content + "\n")
+
+# Function to sort strings in all files within a directory
+def sort_strings_in_directory(directory):
+    for root, dirs, files in os.walk(directory):
         for file in files:
             if file == "strings.xml":
-                destination_file = os.path.join(root, file)
-                # Read the content of the destination file
-                with open(destination_file, 'r') as f:
-                    content = f.read()
-                # Extract strings from the file
-                strings = re.findall(r'<string(?:\s+name="([^"]*)")?(.*?)>(.*?)</string>', content, re.DOTALL)
-                # Sort strings alphabetically by name attribute value
-                strings.sort(key=lambda x: x[0] if x[0] else "")
-                # Reconstruct the XML content with sorted strings
-                sorted_content = '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n'
-                sorted_content += '\n'.join(f'\t<string name="{name}"{attr}>{value}</string>' for name, attr, value in strings)
-                sorted_content += '\n</resources>'
-                # Rewrite the sorted content to the file
-                with open(destination_file, 'w') as f:
-                    f.write(sorted_content + "\n")
+                file_path = os.path.join(root, file)
+                sort_strings_in_file(file_path)
+
 
 # If there are no arguments, call the original script
 if len(sys.argv) == 1:
@@ -157,7 +210,9 @@ elif len(sys.argv) == 3 and sys.argv[1] == '-d':
 
 # If the argument is -s, call the string sorting function
 elif len(sys.argv) == 2 and sys.argv[1] == '-s':
-    sort_strings()
+    # Call the sorting function for both source file and destination directory
+    sort_strings_in_file(source_file)
+    sort_strings_in_directory(destination_directory)
 
 # If neither condition is met, print a warning
 else:

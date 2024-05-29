@@ -3,39 +3,36 @@ package app.revanced.patches.reddit.layout.toolbar
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.reddit.layout.toolbar.fingerprints.HomePagerScreenFingerprint
+import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.reddit.utils.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBarNavSearchCtaContainer
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.exception
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.patch.BaseBytecodePatch
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch(
-    name = "Hide toolbar button",
+@Suppress("unused")
+@Deprecated("This patch is deprecated until Reddit adds a button like r/place or Reddit recap button to the toolbar.")
+object ToolBarButtonPatch : BaseBytecodePatch(
+    // name = "Hide toolbar button",
     description = "Adds an option to hide the r/place or Reddit recap button in the toolbar.",
-    dependencies =
-    [
+    dependencies = setOf(
         SettingsPatch::class,
         SharedResourceIdPatch::class
-    ],
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
-)
-@Suppress("unused")
-object ToolBarButtonPatch : BytecodePatch(
-    setOf(HomePagerScreenFingerprint)
+    ),
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    fingerprints = setOf(HomePagerScreenFingerprint)
 ) {
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/reddit/patches/ToolBarButtonPatch;" +
-                "->hideToolBarButton(Landroid/view/View;)V"
+        "$PATCHES_PATH/ToolBarButtonPatch;->hideToolBarButton(Landroid/view/View;)V"
 
     override fun execute(context: BytecodeContext) {
 
-        HomePagerScreenFingerprint.result?.let {
+        HomePagerScreenFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex =
                     getWideLiteralInstructionIndex(ToolBarNavSearchCtaContainer) + 3
@@ -47,9 +44,9 @@ object ToolBarButtonPatch : BytecodePatch(
                     "invoke-static {v$targetRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
                 )
             }
-        } ?: throw HomePagerScreenFingerprint.exception
+        }
 
-        updateSettingsStatus("ToolBarButton")
+        updateSettingsStatus("enableToolBarButton")
 
     }
 }

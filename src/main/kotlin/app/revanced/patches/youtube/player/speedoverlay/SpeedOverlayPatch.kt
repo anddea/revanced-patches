@@ -1,121 +1,224 @@
 package app.revanced.patches.youtube.player.speedoverlay
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.HorizontalTouchOffsetConstructorFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.NextGenWatchLayoutFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.RestoreSlideToSeekBehaviorFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SlideToSeekMotionEventFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayFingerprint
-import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER
-import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.doRecursively
-import app.revanced.util.exception
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayTextValueFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayValueFingerprint
+import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.util.getReference
+import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import org.w3c.dom.Element
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-@Patch(
-    name = "Disable speed overlay",
-    description = "Adds an option to disable 'Play at 2x speed' when pressing and holding in the video player.",
-    dependencies = [SettingsPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.36.39",
-                "18.37.36",
-                "18.38.44",
-                "18.39.41",
-                "18.40.34",
-                "18.41.39",
-                "18.42.41",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.46.45",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.38"
-            ]
-        )
-    ]
-)
-@Suppress("unused")
+@Patch(dependencies = [SharedResourceIdPatch::class])
 object SpeedOverlayPatch : BytecodePatch(
     setOf(
+        HorizontalTouchOffsetConstructorFingerprint,
+        NextGenWatchLayoutFingerprint,
         RestoreSlideToSeekBehaviorFingerprint,
-        SpeedOverlayFingerprint
+        SpeedOverlayFingerprint,
+        SpeedOverlayTextValueFingerprint,
+        SpeedOverlayValueFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
-        if (SettingsPatch.upward1836) {
-            arrayOf(
-                RestoreSlideToSeekBehaviorFingerprint,
-                SpeedOverlayFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.result?.let {
-                    it.mutableMethod.apply {
-                        val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        val restoreSlideToSeekBehaviorFingerprintResult = RestoreSlideToSeekBehaviorFingerprint.result
+        val speedOverlayFingerprintResult = SpeedOverlayFingerprint.result
+        val speedOverlayValueFingerprintResult = SpeedOverlayValueFingerprint.result
+
+        val resolvable =
+            restoreSlideToSeekBehaviorFingerprintResult != null
+                    && speedOverlayFingerprintResult != null
+                    && speedOverlayValueFingerprintResult != null
+
+        if (resolvable) {
+            // Legacy method.
+            // Used on YouTube 18.29.38 ~ YouTube 19.17.41
+
+            // region patch for disable speed overlay
+
+            mapOf(
+                RestoreSlideToSeekBehaviorFingerprint to 45411329,
+                SpeedOverlayFingerprint to 45411330
+            ).forEach { (fingerprint, literal) ->
+                fingerprint.result!!.let {
+                    fingerprint.literalInstructionBooleanHook(
+                        literal,
+                        "$PLAYER_CLASS_DESCRIPTOR->disableSpeedOverlay(Z)Z"
+                    )
+                }
+            }
+
+            // endregion
+
+            // region patch for custom speed overlay value
+
+            speedOverlayValueFingerprintResult!!.let {
+                it.mutableMethod.apply {
+                    val index = it.scanResult.patternScanResult!!.startIndex
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index + 1, """
+                        invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
+                        move-result v$register
+                        """
+                    )
+                }
+            }
+
+            // endregion
+
+        } else {
+            // New method.
+            // Used on YouTube 19.18.41~
+
+            NextGenWatchLayoutFingerprint.resultOrThrow().mutableMethod.apply {
+                val booleanValueIndex = getTargetIndexWithMethodReferenceName("booleanValue")
+
+                val insertIndex = findIGetIndex(booleanValueIndex - 10, booleanValueIndex)
+                val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+
+                addInstruction(
+                    insertIndex + 1,
+                    "iget-object v${insertInstruction.registerA}, v${insertInstruction.registerB}, $insertReference"
+                )
+
+                val jumpIndex = findIGetIndex(booleanValueIndex, booleanValueIndex + 10)
+
+                hook(insertIndex + 1, insertInstruction.registerA, jumpIndex)
+            }
+
+            SlideToSeekMotionEventFingerprint.resolve(
+                context,
+                HorizontalTouchOffsetConstructorFingerprint.resultOrThrow().classDef
+            )
+            SlideToSeekMotionEventFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val scanResult = it.scanResult.patternScanResult!!
+
+                    val slideToSeekBooleanIndex = scanResult.startIndex + 1
+                    slideToSeekBooleanMethod = getWalkerMethod(context, slideToSeekBooleanIndex)
+
+                    val jumpIndex = scanResult.endIndex + 1
+                    val insertIndex = scanResult.endIndex - 1
+                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                    hook(insertIndex, insertRegister, jumpIndex)
+                }
+            }
+
+            slideToSeekBooleanMethod.apply {
+                var insertIndex = getTargetIndex(Opcode.IGET_OBJECT)
+                var insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                var jumpIndex = getTargetIndexReversed(Opcode.INVOKE_VIRTUAL)
+
+                hook(insertIndex, insertRegister, jumpIndex)
+
+                val constructorMethod =
+                    context.findClass(definingClass)?.mutableClass
+                        ?.methods?.find { method -> method.name == "<init>" }
+                        ?: throw PatchException("Could not find constructor method")
+
+                constructorMethod.apply {
+                    val syntheticIndex = getTargetIndexReversed(Opcode.NEW_INSTANCE)
+                    val syntheticClass = getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
+
+                    val syntheticMethod =
+                        context.findClass(syntheticClass)?.mutableClass
+                            ?.methods?.find { method -> method.name == "run" }
+                            ?: throw PatchException("Could not find synthetic method")
+
+                    syntheticMethod.apply {
+                        val speedOverlayValueIndex =
+                            indexOfFirstInstruction { (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+                        val speedOverlayValueRegister =
+                            getInstruction<OneRegisterInstruction>(speedOverlayValueIndex).registerA
 
                         addInstructions(
-                            insertIndex, """
-                                invoke-static {v$insertRegister}, $PLAYER->disableSpeedOverlay(Z)Z
-                                move-result v$insertRegister
+                            speedOverlayValueIndex + 1, """
+                                invoke-static {v$speedOverlayValueRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
+                                move-result v$speedOverlayValueRegister
                                 """
                         )
-                    }
-                } ?: throw fingerprint.exception
-            }
-        } else {
-            throw PatchException("This version is not supported. Please use YouTube 18.36.39 or later.")
-        }
 
-        if (SettingsPatch.upward1839) {
-            SettingsPatch.contexts.xmlEditor["res/layout/speedmaster_icon_edu_overlay.xml"].use { editor ->
-                editor.file.doRecursively {
-                    arrayOf("height", "width").forEach replacement@{ replacement ->
-                        if (it !is Element) return@replacement
-
-                        if (it.attributes.getNamedItem("android:src")?.nodeValue?.endsWith("_24") == true) {
-                            it.getAttributeNode("android:layout_$replacement")
-                                ?.let { attribute -> attribute.textContent = "12.0dip" }
-                        }
+                        insertIndex = getTargetIndexWithMethodReferenceNameReversed(speedOverlayValueIndex, "removeCallbacks") + 1
+                        insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
+                        jumpIndex = getTargetIndex(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
+                        hook(insertIndex, insertRegister, jumpIndex)
                     }
                 }
             }
+
+            SpeedOverlayTextValueFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.startIndex
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue()D
+                            move-result-wide v$targetRegister
+                            """
+                    )
+                }
+            }
         }
+    }
 
-        /**
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE: PLAYER_SETTINGS",
-                "SETTINGS: DISABLE_SPEED_OVERLAY"
-            )
+    private lateinit var slideToSeekBooleanMethod: MutableMethod
+
+    // restore slide to seek
+    private fun MutableMethod.hook(
+        insertIndex: Int,
+        insertRegister: Int,
+        jumpIndex: Int
+    ) {
+        addInstructionsWithLabels(
+            insertIndex,
+            """
+                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableSpeedOverlay()Z
+                move-result v$insertRegister
+                if-eqz v$insertRegister, :disable
+                """, ExternalLabel("disable", getInstruction(jumpIndex))
         )
+    }
 
-        SettingsPatch.updatePatchStatus("Disable speed overlay")
-
+    private fun MutableMethod.findIGetIndex(
+        startIndex: Int,
+        endIndex: Int
+    ): Int = implementation!!.instructions.let { instruction ->
+        startIndex + instruction.subList(startIndex, endIndex).indexOfFirst {
+            it.opcode == Opcode.IGET_OBJECT
+                    && it.getReference<FieldReference>()?.definingClass == definingClass
+        }
     }
 }

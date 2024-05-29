@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.utils.returnyoutubedislike.general.fingerpr
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-object RemoveLikeFingerprint : MethodFingerprint(
+internal object RemoveLikeFingerprint : MethodFingerprint(
     returnType = "V",
     strings = listOf("like/removelike")
 )

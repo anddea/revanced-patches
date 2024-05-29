@@ -4,7 +4,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ButtonI
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-object TextComponentFingerprint : LiteralValueFingerprint(
+internal object TextComponentFingerprint : LiteralValueFingerprint(
     returnType = "V",
     opcodes = listOf(Opcode.CONST_HIGH16),
     literalSupplier = { ButtonIconPaddingMedium }

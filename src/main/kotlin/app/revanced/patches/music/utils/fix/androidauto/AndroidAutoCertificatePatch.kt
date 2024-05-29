@@ -2,24 +2,21 @@ package app.revanced.patches.music.utils.fix.androidauto
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.fix.androidauto.fingerprints.CertificateCheckFingerprint
-import app.revanced.util.exception
+import app.revanced.util.patch.BaseBytecodePatch
+import app.revanced.util.resultOrThrow
 
-@Patch(
+@Suppress("unused")
+object AndroidAutoCertificatePatch : BaseBytecodePatch(
     name = "Certificate spoof",
     description = "Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
-)
-@Suppress("unused")
-object AndroidAutoCertificatePatch : BytecodePatch(
-    setOf(CertificateCheckFingerprint)
+    compatiblePackages = COMPATIBLE_PACKAGE,
+    fingerprints = setOf(CertificateCheckFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        CertificateCheckFingerprint.result?.let {
+        CertificateCheckFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 addInstructions(
                     0, """
@@ -28,7 +25,7 @@ object AndroidAutoCertificatePatch : BytecodePatch(
                         """
                 )
             }
-        } ?: throw CertificateCheckFingerprint.exception
+        }
 
     }
 }

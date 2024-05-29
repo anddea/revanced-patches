@@ -3,80 +3,97 @@ package app.revanced.patches.music.utils.resourceid
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.patch.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.patch.mapping.ResourceType
-import app.revanced.patches.shared.patch.mapping.ResourceType.BOOL
-import app.revanced.patches.shared.patch.mapping.ResourceType.COLOR
-import app.revanced.patches.shared.patch.mapping.ResourceType.DIMEN
-import app.revanced.patches.shared.patch.mapping.ResourceType.ID
-import app.revanced.patches.shared.patch.mapping.ResourceType.LAYOUT
-import app.revanced.patches.shared.patch.mapping.ResourceType.STRING
-import app.revanced.patches.shared.patch.mapping.ResourceType.STYLE
+import app.revanced.patches.shared.mapping.ResourceMappingPatch
+import app.revanced.patches.shared.mapping.ResourceMappingPatch.getId
+import app.revanced.patches.shared.mapping.ResourceType.BOOL
+import app.revanced.patches.shared.mapping.ResourceType.COLOR
+import app.revanced.patches.shared.mapping.ResourceType.DIMEN
+import app.revanced.patches.shared.mapping.ResourceType.ID
+import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
+import app.revanced.patches.shared.mapping.ResourceType.STRING
+import app.revanced.patches.shared.mapping.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
-    var AccountSwitcherAccessibility: Long = -1
-    var ButtonContainer: Long = -1
-    var ButtonIconPaddingMedium: Long = -1
-    var ChipCloud: Long = -1
-    var ColorGrey: Long = -1
-    var DesignBottomSheetDialog: Long = -1
-    var DialogSolid: Long = -1
-    var FloatingLayout: Long = -1
-    var HistoryMenuItem: Long = -1
-    var InlineTimeBarAdBreakMarkerColor: Long = -1
-    var IsTablet: Long = -1
-    var LikeDislikeContainer: Long = -1
-    var MenuEntry: Long = -1
-    var MiniPlayerMdxPlaying: Long = -1
-    var MusicMenuLikeButtons: Long = -1
-    var MusicNotifierShelf: Long = -1
-    var MusicTastebuilderShelf: Long = -1
-    var NamesInactiveAccountThumbnailSize: Long = -1
-    var OfflineSettingsMenuItem: Long = -1
-    var PlayerCastMediaRouteButton: Long = -1
-    var PlayerOverlayChip: Long = -1
-    var PrivacyTosFooter: Long = -1
-    var QualityAuto: Long = -1
-    var RemixGenericButtonSize: Long = -1
-    var Text1: Long = -1
-    var ToolTipContentView: Long = -1
-    var TosFooter: Long = -1
+    var AccountSwitcherAccessibility = -1L
+    var AudioVideoSwitchToggle = -1L
+    var ButtonContainer = -1L
+    var ButtonIconPaddingMedium = -1L
+    var ChipCloud = -1L
+    var ColorGrey = -1L
+    var DesignBottomSheetDialog = -1L
+    var DialogSolid = -1L
+    var EndButtonsContainer = -1L
+    var FloatingLayout = -1L
+    var HistoryMenuItem = -1L
+    var InlineTimeBarAdBreakMarkerColor = -1L
+    var InterstitialsContainer = -1L
+    var IsTablet = -1L
+    var LikeDislikeContainer = -1L
+    var MenuEntry = -1L
+    var MiniPlayerDefaultText = -1L
+    var MiniPlayerMdxPlaying = -1L
+    var MiniPlayerPlayPauseReplayButton = -1L
+    var MusicNotifierShelf = -1L
+    var MusicTasteBuilderShelf = -1L
+    var NamesInactiveAccountThumbnailSize = -1L
+    var OfflineSettingsMenuItem = -1L
+    var PlayerCastMediaRouteButton = -1L
+    var PlayerOverlayChip = -1L
+    var PrivacyTosFooter = -1L
+    var QualityAuto = -1L
+    var RemixGenericButtonSize = -1L
+    var SlidingDialogAnimation = -1L
+    var Text1 = -1L
+    var ToolTipContentView = -1L
+    var TopEnd = -1L
+    var TopStart = -1L
+    var TopBarMenuItemImageView = -1L
+    var TosFooter = -1L
+    var TouchOutside = -1L
+    var TrimSilenceSwitch: Long = -1
+    var VarispeedUnavailableTitle = -1L
 
     override fun execute(context: ResourceContext) {
 
-        fun find(resourceType: ResourceType, resourceName: String) = ResourceMappingPatch
-            .resourceMappings
-            .find { it.type == resourceType.value && it.name == resourceName }?.id
-            ?: -1
-
-        AccountSwitcherAccessibility = find(STRING, "account_switcher_accessibility_label")
-        ButtonContainer = find(ID, "button_container")
-        ButtonIconPaddingMedium = find(DIMEN, "button_icon_padding_medium")
-        ChipCloud = find(LAYOUT, "chip_cloud")
-        ColorGrey = find(COLOR, "ytm_color_grey_12")
-        DesignBottomSheetDialog = find(LAYOUT, "design_bottom_sheet_dialog")
-        DialogSolid = find(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
-        FloatingLayout = find(ID, "floating_layout")
-        HistoryMenuItem = find(ID, "history_menu_item")
-        InlineTimeBarAdBreakMarkerColor = find(COLOR, "inline_time_bar_ad_break_marker_color")
-        IsTablet = find(BOOL, "is_tablet")
-        LikeDislikeContainer = find(ID, "like_dislike_container")
-        MenuEntry = find(LAYOUT, "menu_entry")
-        MiniPlayerMdxPlaying = find(STRING, "mini_player_mdx_playing")
-        MusicMenuLikeButtons = find(LAYOUT, "music_menu_like_buttons")
-        MusicNotifierShelf = find(LAYOUT, "music_notifier_shelf")
-        MusicTastebuilderShelf = find(LAYOUT, "music_tastebuilder_shelf")
-        NamesInactiveAccountThumbnailSize = find(DIMEN, "names_inactive_account_thumbnail_size")
-        OfflineSettingsMenuItem = find(ID, "offline_settings_menu_item")
-        PlayerCastMediaRouteButton = find(LAYOUT, "player_cast_media_route_button")
-        PlayerOverlayChip = find(ID, "player_overlay_chip")
-        PrivacyTosFooter = find(ID, "privacy_tos_footer")
-        QualityAuto = find(STRING, "quality_auto")
-        RemixGenericButtonSize = find(DIMEN, "remix_generic_button_size")
-        Text1 = find(ID, "text1")
-        ToolTipContentView = find(LAYOUT, "tooltip_content_view")
-        TosFooter = find(ID, "tos_footer")
+        AccountSwitcherAccessibility = getId(STRING, "account_switcher_accessibility_label")
+        AudioVideoSwitchToggle = getId(ID, "audio_video_switch_toggle")
+        ButtonContainer = getId(ID, "button_container")
+        ButtonIconPaddingMedium = getId(DIMEN, "button_icon_padding_medium")
+        ChipCloud = getId(LAYOUT, "chip_cloud")
+        ColorGrey = getId(COLOR, "ytm_color_grey_12")
+        DesignBottomSheetDialog = getId(LAYOUT, "design_bottom_sheet_dialog")
+        DialogSolid = getId(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
+        EndButtonsContainer = getId(ID, "end_buttons_container")
+        FloatingLayout = getId(ID, "floating_layout")
+        HistoryMenuItem = getId(ID, "history_menu_item")
+        InlineTimeBarAdBreakMarkerColor = getId(COLOR, "inline_time_bar_ad_break_marker_color")
+        InterstitialsContainer = getId(ID, "interstitials_container")
+        IsTablet = getId(BOOL, "is_tablet")
+        LikeDislikeContainer = getId(ID, "like_dislike_container")
+        MenuEntry = getId(LAYOUT, "menu_entry")
+        MiniPlayerDefaultText = getId(STRING, "mini_player_default_text")
+        MiniPlayerMdxPlaying = getId(STRING, "mini_player_mdx_playing")
+        MiniPlayerPlayPauseReplayButton = getId(ID, "mini_player_play_pause_replay_button")
+        MusicNotifierShelf = getId(LAYOUT, "music_notifier_shelf")
+        MusicTasteBuilderShelf = getId(LAYOUT, "music_tastebuilder_shelf")
+        NamesInactiveAccountThumbnailSize = getId(DIMEN, "names_inactive_account_thumbnail_size")
+        OfflineSettingsMenuItem = getId(ID, "offline_settings_menu_item")
+        PlayerCastMediaRouteButton = getId(LAYOUT, "player_cast_media_route_button")
+        PlayerOverlayChip = getId(ID, "player_overlay_chip")
+        PrivacyTosFooter = getId(ID, "privacy_tos_footer")
+        QualityAuto = getId(STRING, "quality_auto")
+        RemixGenericButtonSize = getId(DIMEN, "remix_generic_button_size")
+        SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
+        Text1 = getId(ID, "text1")
+        ToolTipContentView = getId(LAYOUT, "tooltip_content_view")
+        TopEnd = getId(ID, "TOP_END")
+        TopStart = getId(ID, "TOP_START")
+        TopBarMenuItemImageView = getId(ID, "top_bar_menu_item_image_view")
+        TosFooter = getId(ID, "tos_footer")
+        TouchOutside = getId(ID, "touch_outside")
+        TrimSilenceSwitch = getId(ID, "trim_silence_switch")
+        VarispeedUnavailableTitle = getId(STRING, "varispeed_unavailable_title")
 
     }
 }
