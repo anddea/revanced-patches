@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRequestBodyFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
@@ -58,6 +59,9 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
+
+        // Nerds stats video format.
+        NerdsStatsVideoFormatBuilderFingerprint,
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -246,6 +250,27 @@ object SpoofClientPatch : BaseBytecodePatch(
                         """
                     )
                 }
+            }
+        }
+
+        // endregion
+
+        // region append spoof info
+
+        NerdsStatsVideoFormatBuilderFingerprint.resultOrThrow().mutableMethod.apply {
+            for (index in implementation!!.instructions.size - 1 downTo 0) {
+                val instruction = getInstruction(index)
+                if (instruction.opcode != Opcode.RETURN_OBJECT)
+                    continue
+
+                val register = (instruction as OneRegisterInstruction).registerA
+
+                addInstructions(
+                    index, """
+                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->appendSpoofedClient(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v$register
+                            """
+                )
             }
         }
 
