@@ -6,6 +6,7 @@ import app.revanced.patches.shared.elements.StringsElementsUtils.removeStringsEl
 import app.revanced.patches.shared.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.misc.translations.LANGUAGES
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.fix.cairo.CairoSettingsPatch
 import app.revanced.patches.youtube.utils.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -34,7 +35,8 @@ object SettingsPatch : BaseResourcePatch(
         IntegrationsPatch::class,
         ResourceMappingPatch::class,
         SharedResourceIdPatch::class,
-        SettingsBytecodePatch::class
+        SettingsBytecodePatch::class,
+        CairoSettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
