@@ -543,6 +543,7 @@
         <!-- SETTINGS: SPOOF_CLIENT
         <PreferenceScreen android:title="@string/revanced_preference_screen_spoof_client_title" android:key="revanced_preference_screen_spoof_client" android:summary="@string/revanced_preference_screen_spoof_client_summary">
             <SwitchPreference android:title="@string/revanced_spoof_client_title" android:key="revanced_spoof_client" android:summaryOn="@string/revanced_spoof_client_summary_on" android:summaryOff="@string/revanced_spoof_client_summary_off" />
+            <SwitchPreference android:title="@string/revanced_spoof_client_stats_for_nerds_title" android:key="revanced_spoof_client_stats_for_nerds" android:summaryOn="@string/revanced_spoof_client_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_spoof_client_stats_for_nerds_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_spoof_client_options" android:layout="@layout/revanced_settings_preferences_category" />
             <ListPreference android:entries="@array/revanced_spoof_client_general_options_entries" android:title="@string/revanced_spoof_client_general_title" android:key="revanced_spoof_client_general" android:entryValues="@array/revanced_spoof_client_general_options_entry_values" android:dependency="revanced_spoof_client" />
