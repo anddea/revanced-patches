@@ -532,6 +532,31 @@
 
     <PreferenceScreen android:title="@string/revanced_preference_screen_misc_title" android:key="revanced_preference_screen_misc">
 
+        <PreferenceScreen android:title="@string/revanced_preference_screen_import_export_title" android:key="revanced_preference_screen_import_export" android:summary="@string/revanced_preference_screen_import_export_summary">
+            <PreferenceCategory android:title="@string/revanced_preference_category_import_export_as_file" android:layout="@layout/revanced_settings_preferences_category" />
+            <Preference android:title="@string/revanced_extended_settings_export_title" android:key="revanced_extended_settings_export" android:summary="@string/revanced_extended_settings_export_summary" />
+            <Preference android:title="@string/revanced_extended_settings_import_title" android:key="revanced_extended_settings_import" android:summary="@string/revanced_extended_settings_import_summary" />
+            <PreferenceCategory android:title="@string/revanced_preference_category_import_export_as_text" android:layout="@layout/revanced_settings_preferences_category" />
+            <app.revanced.integrations.youtube.settings.preference.ImportExportPreference android:title="@string/revanced_extended_settings_import_export_as_text_title" android:summary="@string/revanced_extended_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
+        </PreferenceScreen>
+
+        <!-- SETTINGS: SPOOF_CLIENT
+        <PreferenceScreen android:title="@string/revanced_preference_screen_spoof_client_title" android:key="revanced_preference_screen_spoof_client" android:summary="@string/revanced_preference_screen_spoof_client_summary">
+            <SwitchPreference android:title="@string/revanced_spoof_client_title" android:key="revanced_spoof_client" android:summaryOn="@string/revanced_spoof_client_summary_on" android:summaryOff="@string/revanced_spoof_client_summary_off" />
+
+            <PreferenceCategory android:title="@string/revanced_preference_category_spoof_client_options" android:layout="@layout/revanced_settings_preferences_category" />
+            <ListPreference android:entries="@array/revanced_spoof_client_general_options_entries" android:title="@string/revanced_spoof_client_general_title" android:key="revanced_spoof_client_general" android:entryValues="@array/revanced_spoof_client_general_options_entry_values" android:dependency="revanced_spoof_client" />
+            <ListPreference android:entries="@array/revanced_spoof_client_livestream_options_entries" android:title="@string/revanced_spoof_client_livestream_title" android:key="revanced_spoof_client_livestream" android:entryValues="@array/revanced_spoof_client_livestream_options_entry_values" android:dependency="revanced_spoof_client" />
+            <ListPreference android:entries="@array/revanced_spoof_client_shorts_options_entries" android:title="@string/revanced_spoof_client_shorts_title" android:key="revanced_spoof_client_shorts" android:entryValues="@array/revanced_spoof_client_shorts_options_entry_values" android:dependency="revanced_spoof_client" />
+            <ListPreference android:entries="@array/revanced_spoof_client_fallback_options_entries" android:title="@string/revanced_spoof_client_fallback_title" android:key="revanced_spoof_client_fallback" android:entryValues="@array/revanced_spoof_client_fallback_options_entry_values" android:dependency="revanced_spoof_client" />
+
+            <PreferenceCategory android:title="@string/revanced_preference_category_spoof_client_about" android:layout="@layout/revanced_settings_preferences_category" />
+            <Preference android:title="@string/revanced_spoof_client_use_ios_title" android:key="revanced_spoof_client_use_ios" android:selectable="false" android:summary="@string/revanced_spoof_client_use_ios_summary" />
+            <Preference android:title="@string/revanced_spoof_client_use_android_testsuite_title" android:key="revanced_spoof_client_use_android_testsuite" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_testsuite_summary" android:dependency="revanced_spoof_client" />
+            <Preference android:title="@string/revanced_spoof_client_use_android_tv_title" android:key="revanced_spoof_client_use_android_tv" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_tv_summary" android:dependency="revanced_spoof_client" />
+            <Preference android:title="@string/revanced_spoof_client_use_android_vr_title" android:key="revanced_spoof_client_use_android_vr" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_vr_summary" android:dependency="revanced_spoof_client" />
+        </PreferenceScreen>SETTINGS: SPOOF_CLIENT -->
+
         <!-- SETTINGS: DISABLE_QUIC_PROTOCOL
         <SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
 
@@ -545,15 +570,7 @@
         <!-- SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY
         <SwitchPreference android:title="@string/revanced_enable_open_links_directly_title" android:key="revanced_enable_open_links_directly" android:defaultValue="true" android:summaryOn="@string/revanced_enable_open_links_directly_summary_on" android:summaryOff="@string/revanced_enable_open_links_directly_summary_off" />SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY -->
 
-        <PreferenceScreen android:title="@string/revanced_preference_screen_import_export_title" android:key="revanced_preference_screen_import_export" android:summary="@string/revanced_preference_screen_import_export_summary">
-            <PreferenceCategory android:title="@string/revanced_preference_category_import_export_as_file" android:layout="@layout/revanced_settings_preferences_category" />
-            <Preference android:title="@string/revanced_extended_settings_export_title" android:key="revanced_extended_settings_export" android:summary="@string/revanced_extended_settings_export_summary" />
-            <Preference android:title="@string/revanced_extended_settings_import_title" android:key="revanced_extended_settings_import" android:summary="@string/revanced_extended_settings_import_summary" />
-            <PreferenceCategory android:title="@string/revanced_preference_category_import_export_as_text" android:layout="@layout/revanced_settings_preferences_category" />
-            <app.revanced.integrations.youtube.settings.preference.ImportExportPreference android:title="@string/revanced_extended_settings_import_export_as_text_title" android:summary="@string/revanced_extended_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
-        </PreferenceScreen>
-
-        <app.revanced.integrations.youtube.settings.preference.OpenDefaultAppSettingsPreference android:title="@string/revanced_default_app_settings_title" android:key="revanced_default_app_settings" android:summary="@string/revanced_default_app_settings_summary" />
+        <app.revanced.integrations.youtube.settings.preference.OpenDefaultAppSettingsPreference android:title="@string/revanced_default_app_settings_title" android:summary="@string/revanced_default_app_settings_summary" />
 
         <!-- PREFERENCE: GMS_CORE_SETTINGS
         <Preference android:title="@string/gms_core_settings_title" android:key="gms_core_settings" android:summary="@string/gms_core_settings_summary">
@@ -565,13 +582,6 @@
 
         <!-- PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS -->
-
-        <!-- SETTINGS: SPOOF_FORMAT_STREAM_DATA
-        <SwitchPreference android:title="@string/revanced_spoof_format_stream_data_title" android:key="revanced_spoof_format_stream_data" android:defaultValue="false" android:summary="@string/revanced_spoof_format_stream_data_summary" />SETTINGS: SPOOF_FORMAT_STREAM_DATA -->
-
-        <!-- SETTINGS: SPOOF_CLIENT
-        <SwitchPreference android:title="@string/revanced_spoof_client_title" android:key="revanced_spoof_client" android:defaultValue="false" android:summaryOn="@string/revanced_spoof_client_summary_on" android:summaryOff="@string/revanced_spoof_client_summary_off" />
-        <SwitchPreference android:title="@string/revanced_spoof_client_use_ios_title" android:key="revanced_spoof_client_use_ios" android:defaultValue="true" android:summaryOn="@string/revanced_spoof_client_use_ios_summary_on" android:summaryOff="@string/revanced_spoof_client_use_ios_summary_off" />SETTINGS: SPOOF_CLIENT -->
 
         <!-- SETTINGS: SPOOF_PLAYER_PARAMETER
         <SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="false" android:summary="@string/revanced_spoof_player_parameter_summary" />
