@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared PreferenceScreen -->
+    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <!-- Shared Category -->
+    <string name="revanced_extended_restart_first_run">Indítsd újra az elrendezés normál betöltéséhez</string>
+    <string name="revanced_extended_restart_message">Frissítés és újraindítás</string>
+    <!-- PreferenceScreen: Account -->
+    <string name="revanced_preference_screen_account_title">Fiók</string>
+    <string name="revanced_hide_account_menu_title">Fiókmenü elrejtése</string>
+    <string name="revanced_hide_account_menu_summary">Elrejti a fiókmenü elemeit az egyéni szűrőben.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Fiókmenü szűrő</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">A fiókmenüben szűrendő nevek listája, új sorokkal elválasztva.</string>
+    <string name="revanced_hide_account_menu_empty_component_title">Üres részek elrejtése</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">Elrejti az üres részeket a fiók menüben.</string>
+    <string name="revanced_hide_handle_title">Felhaszálónév elrejtése</string>
+    <string name="revanced_hide_handle_summary">Elrejti a felhasználónevedet a fiók menüben.</string>
+    <string name="revanced_hide_terms_container_title">Feltételek rész elrejtése</string>
+    <string name="revanced_hide_terms_container_summary">Elrejti a feltételeket a fiók menüben.</string>
+    <!-- PreferenceScreen: Action Bar -->
+    <string name="revanced_preference_screen_action_bar_title">Műveletsáv</string>
+    <string name="revanced_hide_action_button_like_dislike_title">A tetszik és nem tetszik gombok elrejtése</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Elrejti a tetszik és nem tetszik gombokat. Nem működik a régi kinézettel.</string>
+    <string name="revanced_hide_action_button_comment_title">Megjegyzés gomb elrejtése</string>
+    <string name="revanced_hide_action_button_comment_summary">Elrejti a megjegyzés gombot.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Hozzáadás a lejátszási listához elrejtése</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Elrejti a hozzáadás a lejátszási listához gombot.</string>
+    <string name="revanced_hide_action_button_download_title">Letöltés gomb elrejtése</string>
+    <string name="revanced_hide_action_button_download_summary">Elrejti a letöltés gombot.</string>
+    <string name="revanced_hide_action_button_share_title">Megosztás gomb elrejtése</string>
+    <string name="revanced_hide_action_button_share_summary">Megosztás gomb elrejtése.</string>
+    <string name="revanced_hide_action_button_radio_title">Rádió gomb elrejtése</string>
+    <string name="revanced_hide_action_button_radio_summary">Elrejti a rádió gombot.</string>
+    <string name="revanced_hide_action_button_label_summary">Elrejti a címkéket az műveleti gombokban.</string>
+    <string name="revanced_hide_action_button_label_title">Navigációs gombok címkéinek elrejtése</string>
+    <string name="revanced_external_downloader_action_title">Letöltés gomb felülírása</string>
+    <string name="revanced_external_downloader_action_summary">"A Letöltés gomb megnyitja a külső letöltőt.
+
+• Csak a lejátszóban lévő letöltési művelet gombot írja felül.
+• Nem írja felül a letöltés gombot a felugró menüben vagy a könyvtárban."</string>
+    <string name="revanced_external_downloader_package_name_title">Külső letöltő csomagneve</string>
+    <string name="revanced_external_downloader_package_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
+    <string name="revanced_external_downloader_dialog_title">Külső letöltéskezelő</string>
+    <string name="revanced_external_downloader_not_installed_dialog_title">Figyelmeztetés</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
+Töltsd le a(z) %2$s weboldalról."</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérlek, telepítsd.</string>
+    <!-- PreferenceScreen: Ads -->
+    <string name="revanced_preference_screen_ads_title">Hirdetések</string>
+    <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Teljes képernyős hirdetések elrejtése.</string>
+    <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
+    <string name="revanced_hide_general_ads_summary">Elrejti az általános hirdetéseket.</string>
+    <string name="revanced_hide_music_ads_title">Zenei hirdetések elrejtése</string>
+    <string name="revanced_hide_music_ads_summary">Elrejti a hírdetéseket a zene lejátszása előtt.</string>
+    <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
+    <string name="revanced_hide_paid_promotion_label_summary">Elrejti a promóció címkét.</string>
+    <string name="revanced_hide_premium_promotion_title">Felugró prémium hírdetések elrejtése</string>
+    <string name="revanced_hide_premium_promotion_summary">Elrejti a felugró prémium hírdetéseket.</string>
+    <string name="revanced_hide_premium_renewal_title">Prémium megújítás szalaghírdetés elrejtése</string>
+    <string name="revanced_hide_premium_renewal_summary">Elrejti a prémium megújítás szalaghírdetést.</string>
+    <!-- PreferenceScreen: Flyout -->
+    <string name="revanced_preference_screen_flyout_title">Felugró menü</string>
+    <string name="revanced_enable_compact_dialog_title">Kompakt menü engedélyezése</string>
+    <string name="revanced_enable_compact_dialog_summary">"Engedélyezi a telefonokon a kompakt felugró menüt.
+
+Korlátozások:
+• A könyvtár lapon lévő albumok képei kisebbek lesznek, ha rácsba vannak rendezve.
+• Az alvásidőzítő elrendezése szokatlannak tűnhet."</string>
+    <string name="revanced_enable_trim_silence_title">Trim csendkapcsoló hozzáadása</string>
+    <string name="revanced_enable_trim_silence_summary">"A 'Trim csend' kapcsoló hozzáadása a lejátszási sebesség flyout menühöz.
+
+Info:
+• Ez a funkció podcastok számára készült.
+• Ez a funkció még fejlesztés alatt áll, ezért instabil lehet."</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">A tetszik és nem tetszik gombok elrejtése</string>
+    <string name="revanced_hide_flyout_menu_3_column_component_title">3 oszlopos komponens elrejtése</string>
+    <string name="revanced_hide_flyout_menu_add_to_queue_title">Hozzáadás a várólistához menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_captions_title">Feliratok menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Lejátszási lista törlés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Várólista menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_download_title">Letöltés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Lejátszási lista szerkesztés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Album menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Előadó menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_go_to_episode_title">Rész menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Podcast menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_help_title">Súgó &amp; visszajelzés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_play_next_title">Következő lejátszása menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_quality_title">Minőség menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_remove_from_library_title">Eltávolítás a könyvtárból menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Eltávolítás a lejátszási listáról menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_report_title">Jelentés menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Rész elmentése későbbre menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_save_to_library_title">Mentés a könyvtárba menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Mentés a lejátszási listába menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_share_title">Megosztás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_shuffle_play_title">Kevert lejátszás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_sleep_timer_title">Elalvási időzítő elrejtése</string>
+    <string name="revanced_hide_flyout_menu_start_radio_title">Rádió indítás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Statisztikák menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Feliratkozás / Leiratkozás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Megtekintés folytatása</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Folytatja a videót attól az időponttól, amikor átváltasz a Youtube-ra.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Megnézés YouTube-on</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Érvénytelen videó url.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Várólista cserélése</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Kicseréli a \"Várólistát\" a \"Megtekintés a Youtube-on\"-nal.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Jelentés megtartása a kimmenteknél</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Megtartja a jelentés menüt a komment szekcióban.</string>
+    <string name="revanced_replace_flyout_menu_report_title">Jelentés cserélése</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Kicseréli a \"Jelentés\"-t a \"Lejátszási sebesség\"-gel.</string>
+    <!-- PreferenceScreen: General -->
+    <string name="revanced_preference_screen_general_title">Általános</string>
+    <string name="revanced_change_start_page_title">Kezdőlap megváltoztatása</string>
+    <string name="revanced_change_start_page_summary">Kiválaszthatod, hogy milyen oldalon nyíljon meg az alkalmazás.</string>
+    <string name="revanced_change_start_page_entry_chart">Diagramok</string>
+    <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
+    <string name="revanced_change_start_page_entry_home">Kezdőlap</string>
+    <string name="revanced_change_start_page_entry_library">Könyvtár</string>
+    <string name="revanced_change_start_page_entry_subscription">Feliratkozások</string>
+    <string name="revanced_disable_auto_captions_title">Kényszerített automatikus feliratok letiltása</string>
+    <string name="revanced_disable_auto_captions_summary">Letiltja a feliratokat, hogy ne jelenjenek meg automatikusan.</string>
+    <string name="revanced_disable_dislike_redirection_title">Dislike átirányítás letiltása</string>
+    <string name="revanced_disable_dislike_redirection_summary">Letiltja az átirányítást a következő számra, amikor rányomsz a dislike gombra.</string>
+    <string name="revanced_enable_landscape_mode_title">Fekvő mód engedélyezése</string>
+    <string name="revanced_enable_landscape_mode_summary">Engedélyezi a fekvő módot, amikor elforgatod a telefonodat.</string>
+    <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>
+    <string name="revanced_custom_filter_summary">Engedélyezi, hogy saját menüket is elrejts.</string>
+    <string name="revanced_custom_filter_strings_title">Egyéni szűrő</string>
+    <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+    <string name="revanced_custom_filter_strings_summary">A szűrendő elemek útvonal-építő stringjeinek listája, új sorokkal elválasztva.</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s.</string>
+    <string name="revanced_hide_button_shelf_title">Gomb polc elrejtése</string>
+    <string name="revanced_hide_button_shelf_summary">Elrejti a gomb polcot a főoldalon.</string>
+    <string name="revanced_hide_carousel_shelf_title">Forduló polc elrejtése</string>
+    <string name="revanced_hide_carousel_shelf_summary">Elrejti a forduló polcot.</string>
+    <string name="revanced_hide_playlist_card_shelf_title">Lejátszási lista kártya polc elrejtése</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Elrejti a lejátszási lista kártya polcot a főoldalon.</string>
+    <string name="revanced_hide_samples_shelf_title">Minták polc elrejtése</string>
+    <string name="revanced_hide_samples_shelf_summary">Elrejti a minták polcot a főoldalon.</string>
+    <string name="revanced_hide_cast_button_title">Átküldés gomb elrejtése</string>
+    <string name="revanced_hide_cast_button_summary">Elrejti az átküldés gombot.</string>
+    <string name="revanced_hide_category_bar_title">Kategória sáv elrejtése</string>
+    <string name="revanced_hide_category_bar_summary">Elrejti a kategória sávot.</string>
+    <string name="revanced_hide_floating_button_title">Lebegő gomb elrejtése</string>
+    <string name="revanced_hide_floating_button_summary">Elrejti a lebegő gombot a könyvtárban.</string>
+    <string name="revanced_hide_tap_to_update_button_title">\'Kattints a frissítéshez\" gomb elrejtése</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Elrejti a \"Kattints a frissítéshez\" gombot.</string>
+    <string name="revanced_hide_history_button_title">Előzmények gomb elrejtése</string>
+    <string name="revanced_hide_history_button_summary">Elrejti az előzmények gombot az eszköztáron.</string>
+    <string name="revanced_hide_notification_button_title">Értesítés gomb elrejtése</string>
+    <string name="revanced_hide_notification_button_summary">Elrejti az értesítés gombot az eszköztáron.</string>
+    <string name="revanced_hide_sound_search_button_title">Hangkeresés gomb elrejtése</string>
+    <string name="revanced_hide_sound_search_button_summary">Elrejti a hangkeresés gombot a kereső sávban.</string>
+    <string name="revanced_hide_voice_search_button_title">Hangkeresés gomb elrejtése</string>
+    <string name="revanced_hide_voice_search_button_summary">Elrejti a hangkeresés gombot a kereső sávban.</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Visszaállítja a régi stílusú könyvtár polcot</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Visszaállítja a régi kinézetű könyvtár oldalt. (Kísérleti)</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Nézői döntés menü eltávolítása</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Eltávolítja a nézői döntés menüt.
+Ez nem kerüli meg a korhatárkorlátozást. Csak automatikusan elfogadja azt."</string>
+    <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
+    <string name="revanced_spoof_app_version_summary">"Hamisítja a kliens verziót egy régi verzióra.
+
+• Ez megváltoztatja az alkalmazás megjelenését, de ismeretlen mellékhatások előfordulhatnak.
+• Ha később kikapcsolod, a régi felhasználói felület megmaradhat, amíg az alkalmazás adatait nem törlöd."</string>
+    <string name="revanced_spoof_app_version_target_title">Cél alkalmazásverzió</string>
+    <string name="revanced_spoof_app_version_target_summary">Válaszd ki, hogy melyik alkalmazásverziót akarod használni.</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Letiltja a rádió módot Kanada területén</string>
+    <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Letiltja a valós idejű dalszövegeket</string>
+    <!-- PreferenceScreen: Navigation Bar -->
+    <string name="revanced_preference_screen_navigation_title">Navigációs sor</string>
+    <string name="revanced_enable_black_navigation_bar_title">Fekete navigációs sor engedélyezése</string>
+    <string name="revanced_enable_black_navigation_bar_summary">A navigációs sor színét átállítja feketére.</string>
+    <string name="revanced_hide_navigation_home_button_title">Kezdőlap gomb elrejtése</string>
+    <string name="revanced_hide_navigation_home_button_summary">Elrejti a kezdőlap gombot.</string>
+    <string name="revanced_hide_navigation_samples_button_title">Minták gomb elrejtése</string>
+    <string name="revanced_hide_navigation_samples_button_summary">Elrejti a minták gombot.</string>
+    <string name="revanced_hide_navigation_explore_button_title">Felfedezés gomb elrejtése</string>
+    <string name="revanced_hide_navigation_explore_button_summary">Elrejti a felfedezés gombot.</string>
+    <string name="revanced_hide_navigation_library_button_title">Könyvtár gomb elrejtése</string>
+    <string name="revanced_hide_navigation_library_button_summary">Elrejti a könyvtár gombot.</string>
+    <string name="revanced_hide_navigation_upgrade_button_title">Előfizetés gomb elrejtése</string>
+    <string name="revanced_hide_navigation_upgrade_button_summary">Elrejti az előfizetés gombot.</string>
+    <string name="revanced_hide_navigation_bar_title">Navigációs sáv elrejtése</string>
+    <string name="revanced_hide_navigation_bar_summary">Elrejti a navigációs sávot.</string>
+    <string name="revanced_hide_navigation_label_title">Navigációs sáv elrejtése</string>
+    <string name="revanced_hide_navigation_label_summary">Elrejti a szöveget a navigációs gombok alatt.</string>
+    <!-- PreferenceScreen: Player -->
+    <string name="revanced_preference_screen_player_title">Lejátszó</string>
+    <string name="revanced_enable_black_player_background_title">Fekete hátterű lejátszó engedélyezése</string>
+    <string name="revanced_enable_black_player_background_summary">Megváltoztatja a lejátszó háttér színét feketére.</string>
+    <string name="revanced_enable_color_match_player_title">Megegyező színű lejátszó bekapcsolása</string>
+    <string name="revanced_enable_color_match_player_summary">Egyező színe lesz a kis lejátszónak, mint a teljes képernyősnek.</string>
+    <string name="revanced_enable_force_minimized_player_title">Mini lejátszó kényszerítése</string>
+    <string name="revanced_enable_force_minimized_player_summary">A lejátszó akkor is minimalizálva marad, amikor egy másik zeneszámot játszanak le.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Minilejátszó következő gomb engedélyezése</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Engedélyezi a következő szám gombot a minilejátszónál.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Minilejátszó előző gomb engedélyezése</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Engedélyezi a előző szám gombot a minilejátszónál.</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Minilejátszó elhagyása egy húzással</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Lehetővé teszi a minialejátszó elhagyását lefelé húzással.</string>
+    <string name="revanced_enable_zen_mode_title">Zen mód bekapcsolása</string>
+    <string name="revanced_enable_zen_mode_summary">Megváltoztatja a lejátszó hátterét világos szürkére a szem megóvására.</string>
+    <string name="revanced_enable_zen_mode_podcast_title">Zen mód engedélyezése podcastekben</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">A zen mód a podcast-ekben is működni fog.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Hang/Videó kapcsoló gomb elrejtése</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Elrejti a hang/videó kapcsolót a lejátszóban.</string>
+    <string name="revanced_hide_comment_channel_guidelines_title">Csatorna irányelveinek elrejtése</string>
+    <string name="revanced_hide_comment_channel_guidelines_summary">Elrejti a csatorna irányelveit a komment szekció tetején.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Elrejti az edőbélyeg és az emoji gombokat</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Elrejti az időbélyeget és az emoji gombokat komment gépelés közben.</string>
+    <string name="revanced_hide_fullscreen_share_button_title">Teljes képernyős megosztás gomb elrejtése</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">Elrejti a megosztás gombot a teljes képernyős lejátszóban.</string>
+    <string name="revanced_remember_repeat_state_title">Isméltés állapotának megjegyzése</string>
+    <string name="revanced_remember_repeat_state_summary">Emlékezik az ismétlés állapotára.</string>
+    <string name="revanced_remember_shuffle_state_title">Keverés állapotának megjegyzése</string>
+    <string name="revanced_remember_shuffle_state_summary">Emlékezik az keverés állapotára.</string>
+    <string name="revanced_restore_old_comments_popup_panels_title">Régi komment felugró menü visszaállítása</string>
+    <string name="revanced_restore_old_comments_popup_panels_summary">Visszaállítja a régi felugró menü a régi kinézetére.</string>
+    <string name="revanced_restore_old_player_background_title">Régi lejátszó kinézet visszaállítása</string>
+    <string name="revanced_restore_old_player_background_summary">Visszaállítja a lejátszó hátterét a régi kinézetére.</string>
+    <string name="revanced_restore_old_player_layout_title">Régi lejátszó kinézet visszaállítása</string>
+    <string name="revanced_restore_old_player_layout_summary">"Visszaállítja a lejátszó elrendezését a régi stílusra.
+Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátszó elrendezésben."</string>
+    <string name="revanced_replace_player_cast_button_title">Cast gomb cseréje</string>
+    <string name="revanced_replace_player_cast_button_summary">"A lejátszóban az átküldés gombot egy \"Zene megnyitása\" gombra cseréli, amely a zenei videó helyett a hivatalos hanganyagot nyitja meg. (Kísérleti)
+
+Infó: Ez a funkció nem működik normálisan, ha a lejátszási listában lévő bármelyik dal nem játszható le."</string>
+    <string name="revanced_replace_player_cast_button_playlist_dismiss">Már a hivatalos zenei forrásból játsza le.</string>
+    <string name="revanced_replace_player_cast_button_playlist_error">Eredeti zeneforrás nem elérhető.</string>
+    <!-- PreferenceScreen: Video -->
+    <string name="revanced_preference_screen_video_title">Videó</string>
+    <string name="revanced_custom_playback_speeds_title">Egyéni lejátszási sebességek szerkesztése</string>
+    <string name="revanced_custom_playback_speeds_summary">Az elérhető lejátszási sebességek módosítása vagy hozzáadása.</string>
+    <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary">Megjegyzi az utoljára kiválasztott lejátszási sebességet.</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Videó minőség megjegyzése</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">Megjegyezi a legutolsó videó minőséget, amit kiválasztottál.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességnek kisebbnek kell lennie, mint %sx. Alapértelmezett értékek használata.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyedi lejátszási sebesség. Használd az alap értékeket.</string>
+    <string name="revanced_remember_playback_speed_toast">Megváltoztatva az alap sebességet %s-re.</string>
+    <string name="revanced_remember_video_quality_mobile">Az alapértelmezett mobiladat minőség módosítása a következőre %s.</string>
+    <string name="revanced_remember_video_quality_none">Nem sikerült beállítani a minőséget.</string>
+    <string name="revanced_remember_video_quality_wifi">Az alapértelmezett Wi-Fi-minőség módosítása a következőre: %s.</string>
+    <!-- PreferenceScreen: Return YouTube Dislike -->
+    <string name="revanced_preference_screen_ryd_title">YouTube Dislike visszaállítása</string>
+    <string name="revanced_ryd_enabled_title">Return YouTube Dislike engedélyezése</string>
+    <string name="revanced_ryd_enabled_summary">Megjeleníti a videók dislike-számát.</string>
+    <string name="revanced_ryd_dislike_percentage_title">Dislike-ok megjelenítése százalékban</string>
+    <string name="revanced_ryd_dislike_percentage_summary">A nem tetszések százalékos arányát jeleníti meg a nem tetszések száma helyett.</string>
+    <string name="revanced_ryd_compact_layout_title">Kompakt kedvelés gomb</string>
+    <string name="revanced_ryd_compact_layout_summary">Elrejti a kedvelés gomb elválasztóját.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Köszöntő megjelenítése, ha az API nem elérhető</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Megjelenik egy üzenet, ha a Return YouTube Dislike API nem érhető el.</string>
+    <string name="revanced_ryd_about">Névjegy</string>
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
+    <string name="revanced_ryd_attribution_summary">Az adatokat a Return YouTube Dislike API biztosítja. További információért nyomj ide.</string>
+    <string name="revanced_ryd_failure_connection_timeout">Dislike-ok átmenetileg nem érhetőek el (API időkorlát lejárt).</string>
+    <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d).</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike-ok nem érhetőek el (kliens API limit elérve).</string>
+    <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s).</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Rejtett</string>
+    <!-- PreferenceScreen: SponsorBlock -->
+    <string name="revanced_preference_screen_sb_title">Szponzor Blokk</string>
+    <string name="revanced_sb_enabled">SzponsorBlokk engedélyezése</string>
+    <string name="revanced_sb_enabled_sum">A SzponsorBlokk egy közösségi rendszer a YouTube videók zavaró részeinek átugrására.</string>
+    <string name="revanced_sb_toast_on_connection_error">Üzenet megjelenítése, ha az API nem elérhető</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">Üzenetet ír ki, ha a SponsorBlock API nem érhető el.</string>
+    <string name="revanced_sb_toast_on_skip">Üzenet megjelenítése automatikus ugráskor</string>
+    <string name="revanced_sb_toast_on_skip_sum">Üzenetet jelenít meg, amikor egy szegmens automatikusan kihagyásra kerül.</string>
+    <string name="revanced_sb_api_url">API URL módosítása</string>
+    <string name="revanced_sb_api_url_sum">A cím, amelyet a SponsorBlock a szerverhez történő kommunikációhoz használ. Ne változtasso ezen, ha nem tudod, hogy mit csinálsz.</string>
+    <string name="revanced_sb_api_url_reset">Az API URL visszaállítása.</string>
+    <string name="revanced_sb_api_url_invalid">API URL érvénytelen.</string>
+    <string name="revanced_sb_api_url_changed">API URL megváltoztatva.</string>
+    <string name="revanced_sb_diff_segments">Szakasz viselkedésének megváltoztatása</string>
+    <string name="revanced_sb_segments_sponsor">Szponzor</string>
+    <string name="revanced_sb_segments_sponsor_sum">Fizetett promóciók, fizetett hivatkozások és közvetlen reklámok. Nem önreklámozásra vagy ingyenes kiemelésre vonatkozik okok / alkotók / weboldalak / termékek esetében, amelyeket szeretnek.</string>
+    <string name="revanced_sb_segments_selfpromo">Nem fizetett / Önpromóció</string>
+    <string name="revanced_sb_segments_selfpromo_sum">Hasonló a \"Szponzor\"-hoz, kivéve a nem fizetett vagy önreklámozást. Tartalmazza az árucikkekre, adományokra vonatkozó részeket, vagy információkat arról, hogy kivel működtek együtt.</string>
+    <string name="revanced_sb_segments_interaction">Emlékeztető (Feliratkozás)</string>
+    <string name="revanced_sb_segments_interaction_sum">Rövid emlékeztető a kedvelésre, feliratkozásra vagy követésre a tartalom közepette. Ha hosszú vagy valami specifikusról szól, akkor azt önpromóció alatt kell feltüntetni.</string>
+    <string name="revanced_sb_segments_intro">Szünet/Intro animáció</string>
+    <string name="revanced_sb_segments_intro_sum">Egy részlet tartalom nélkül. Lehet szünet, álló képkocka, vagy ismétlődő animáció. Nem használandó információt tartalmazó átmeneteknél.</string>
+    <string name="revanced_sb_segments_outro">Zárókártyák / Stáblista</string>
+    <string name="revanced_sb_segments_outro_sum">Stáblista, vagy amikor megjelennek a YouTube zárókártyák. Nem tartozik bele az információt tartalmazó összegzés.</string>
+    <string name="revanced_sb_segments_preview">Előzetes / Összefoglaló / Hook</string>
+    <string name="revanced_sb_segments_preview_sum">Olyan klipek gyűjteménye, amelyek megmutatják, hogy mi következik vagy mi történt a videóban vagy egy sorozat más videóiban, ahol minden információ máshol ismétlődik.</string>
+    <string name="revanced_sb_segments_filler">Kitöltések / Viccek</string>
+    <string name="revanced_sb_segments_filler_sum">Csak töltelék vagy humornak hozzáadott részek, amik nem szükségesek a videó fő tartalmának megértéséhez. Ne tartalmazzon olyan részeket, amik összefüggést, vagy háttérinformációt szolgáltatnak.</string>
+    <string name="revanced_sb_segments_nomusic">Zene: nem-zene szegmens</string>
+    <string name="revanced_sb_segments_nomusic_sum">Csak zenei videókhoz használható. Zenei videók zene nélküli részei, amelyek még nem tartoznak más kategóriába.</string>
+    <string name="revanced_sb_skipped_sponsor">Szponzor átugorva.</string>
+    <string name="revanced_sb_skipped_selfpromo">Önpromóció átugorva.</string>
+    <string name="revanced_sb_skipped_interaction">Idegesítő emlékeztető átugorva.</string>
+    <string name="revanced_sb_skipped_intro_beginning">Bevezető kihagyva.</string>
+    <string name="revanced_sb_skipped_intro_middle">Szünet átugorva.</string>
+    <string name="revanced_sb_skipped_intro_end">Szünet átugorva.</string>
+    <string name="revanced_sb_skipped_outro">Befejezés átugorva.</string>
+    <string name="revanced_sb_skipped_preview_beginning">Bevezető átugorva.</string>
+    <string name="revanced_sb_skipped_preview_middle">Bevezető átugorva.</string>
+    <string name="revanced_sb_skipped_preview_end">Összefoglaló átugorva.</string>
+    <string name="revanced_sb_skipped_filler">Töltelék átugorva.</string>
+    <string name="revanced_sb_skipped_nomusic">Nem zenei rész átugorva.</string>
+    <string name="revanced_sb_skipped_multiple_segments">Több szakasz átugorva.</string>
+    <string name="revanced_sb_skip_automatically">Átugrás automatikusan</string>
+    <string name="revanced_sb_skip_ignore">Letiltás</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">A SponsorBlock átmenetileg nem elérhető.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">A SponsorBlock jelenleg nem elérhető (állapot %d).</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">A SponsorBlock átmenetileg nem elérhető (API időtúllépés).</string>
+    <string name="revanced_sb_color_dot_label">Szín:</string>
+    <string name="revanced_sb_color_changed">Szín módosítva.</string>
+    <string name="revanced_sb_color_reset">Szín visszaállítva.</string>
+    <string name="revanced_sb_color_invalid">Érvénytelen színkód. Visszaállítva alapra.</string>
+    <string name="revanced_sb_reset_color">Szín visszaállítása</string>
+    <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Nyomj ide, ha többet szeretnél megtudni és megtekintenéd a letöltéseket más platformokra.</string>
+    <string name="revanced_sb_about">Névjegy</string>
+    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
+    <!-- PreferenceScreen: Miscellaneous -->
+    <string name="revanced_preference_screen_misc_title">Egyéb</string>
+    <string name="revanced_enable_debug_logging_title">Hibanaplók engedélyezése</string>
+    <string name="revanced_enable_debug_logging_summary">Kiírja a hibanaplót.</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Hibakeresési puffer naplózásának engedélyezése</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Beleírja a puffert a hibakeresési naplóba.</string>
+    <string name="revanced_enable_opus_codec_title">Opus codec engedélyezése</string>
+    <string name="revanced_enable_opus_codec_summary">"Az opus audio codec engedélyezése az mp4a audio codec helyett.
+
+Info:
+• A legújabb Android-kliensek alapértelmezés szerint az opus audio codec-et használják.
+• Ez csak a nagyon régi klienseket használó felhasználókra érvényes."</string>
+    <string name="gms_core_settings_title">GmsCore megnyitása</string>
+    <string name="gms_core_settings_summary">Értesítések fogadásához engedélyezd a felhő alapú üzenetküldést.</string>
+    <string name="gms_core_toast_not_installed_message">A GmsCore nincs telepítve. Telepítsd.</string>
+    <string name="gms_core_dialog_title">Művelet szükséges</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"A GmsCore-nak nincs engedélye a háttérben történő futtatásra.
+
+Kövesd a telefonjára vonatkozó \"Ne öld meg az alkalmazásomat\" útmutatót, és alkalmazza az utasításokat a MicroG telepítésére.
+
+Ez szükséges az alkalmazás működéséhez."</string>
+    <string name="gms_core_dialog_open_website_text">Weboldal megnyitása</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"A GmsCore akkumulátor-optimalizálásokat le kell tiltani a problémák megelőzése érdekében.
+
+Nyomd meg a folytatás gombot, és tiltsd le az akkumulátor-optimalizálásokat."</string>
+    <string name="gms_core_dialog_continue_text">Folytatás</string>
+    <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+    <string name="revanced_sanitize_sharing_links_summary">Linkek megosztásakor eltávolítja a nyomkövetési paramétereket az URL-ekből.</string>
+    <string name="revanced_extended_settings_import_export_title">Beállítások Importálása / Exportálása</string>
+    <string name="revanced_extended_settings_import_export_summary">Beállítások importálása vagy exportálása.</string>
+    <string name="revanced_extended_settings_export_as_file">Beállítások exportálása egy fájlba</string>
+    <string name="revanced_extended_settings_import_as_file">Beállítások importálása fájlból</string>
+    <string name="revanced_extended_settings_import_export_as_text">Beállítások import- / exportálása szövegként</string>
+    <string name="revanced_extended_settings_export_failed">A beállítások exportálása sikertelen.</string>
+    <string name="revanced_extended_settings_export_success">A beállítások sikeresen exportálva.</string>
+    <string name="revanced_extended_settings_import">Importálás</string>
+    <string name="revanced_extended_settings_import_copy">Másolás</string>
+    <string name="revanced_extended_settings_import_failed">Sikertelen importálás: %s.</string>
+    <string name="revanced_extended_settings_import_reset">Beállítások visszaállítása alapra.</string>
+    <string name="revanced_extended_settings_import_success">%d beállítás importálva.</string>
+    <string name="revanced_extended_settings_reset">Visszaállítás</string>
+    <string name="revanced_share_copy_settings_success">A beállítások vágólapra másolva.</string>
+</resources>
