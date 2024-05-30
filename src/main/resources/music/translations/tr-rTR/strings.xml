@@ -190,6 +190,8 @@ Bilgi:
     <string name="revanced_hide_navigation_label_summary">Gezinme çubuğunun altındaki etiketleri gizleyin.</string>
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">Oynatıcı</string>
+    <string name="revanced_enable_black_player_background_title">Siyah oynatıcı arka planını etkinleştir</string>
+    <string name="revanced_enable_black_player_background_summary">Oynatıcının arka plan rengini siyaha değiştirir.</string>
     <string name="revanced_enable_color_match_player_title">Oynatıcı renk eşlemesini etkinleştir</string>
     <string name="revanced_enable_color_match_player_summary">Küçültülmüş oynatıcının rengi ile tam ekran oynatıcının rengini eşler.</string>
     <string name="revanced_enable_force_minimized_player_title">Zorla küçültülmüş pencereyi aktifleştir</string>
@@ -323,7 +325,11 @@ Sınırlama: Çalma listesinde çalınamayan bir veya daha fazla müzik normal �
     <string name="revanced_enable_debug_buffer_logging_title">Hata ayıklama günlüklerine arabelleği kaydet</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Hata ayıklama günlüklerini arabellek dahiline yazdırır.</string>
     <string name="revanced_enable_opus_codec_title">Opus kodeğini etkinleştir</string>
-    <string name="revanced_enable_opus_codec_summary">"mp4a ses kodeği yerine opus ses kodeğini uygular."</string>
+    <string name="revanced_enable_opus_codec_summary">"Mp4a ses codec bileşeni yerine opus ses codec bileşenini etkinleştirir.
+
+Bilgi:
+• En yeni Android istemcileri varsayılan olarak opus ses codec bileşenini kullanır.
+• Bu yalnızca çok eski istemcilerle sahtecilik yapan kullanıcılar için geçerlidir."</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>

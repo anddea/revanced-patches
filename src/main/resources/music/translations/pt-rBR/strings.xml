@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Shared PreferenceScreen -->
-    <string name="revanced_extended_settings_title">Configurações RVX</string>
+    <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <!-- Shared Category -->
     <string name="revanced_extended_restart_first_run">Reinicie para carregar o layout normalmente</string>
     <string name="revanced_extended_restart_message">Atualizar e reiniciar</string>
@@ -190,6 +190,8 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_hide_navigation_label_summary">Oculta rótulos abaixo dos botões de navegação.</string>
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">Reprodutor</string>
+    <string name="revanced_enable_black_player_background_title">Ativar fundo do reprodutor preto</string>
+    <string name="revanced_enable_black_player_background_summary">Altera a cor de fundo do reprodutor para preto.</string>
     <string name="revanced_enable_color_match_player_title">Ativar combinação de cores do reprodutor</string>
     <string name="revanced_enable_color_match_player_summary">Corresponde à cor do mini reprodutor para o reprodutor em tela cheia.</string>
     <string name="revanced_enable_force_minimized_player_title">Ativar reprodutor minimizado forçado</string>
@@ -324,7 +326,11 @@ Informação: Este recurso não funciona normalmente se alguma música da lista 
     <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Inclui o buffer no log de depuração.</string>
     <string name="revanced_enable_opus_codec_title">Ativar codec opus</string>
-    <string name="revanced_enable_opus_codec_summary">"Aplicar codec de áudio opus em vez do codec de áudio mp4a."</string>
+    <string name="revanced_enable_opus_codec_summary">"Ativa o codec de áudio opus em vez do codec de áudio mp4a.
+
+Informações:
+• Os clientes Android mais recentes usam o codec de áudio opus por padrão.
+• Isto só é válido para usuários que fazem spoofing com clientes muito antigos."</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
