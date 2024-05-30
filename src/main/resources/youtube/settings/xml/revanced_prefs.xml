@@ -630,7 +630,7 @@
                 <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Fullscreen components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Hide comments component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Hide comments components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide player buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide player flyout menu" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Overlay buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -639,8 +639,8 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_shorts_title" >
-                <Preference android:title="Change shorts repeat state" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Disable resuming shorts on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Change Shorts repeat state" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Disable resuming Shorts on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Shorts components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Shorts outline button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
@@ -669,7 +669,7 @@
                 <Preference android:title="Hide animated button background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide double tap overlay filter" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide double tap to like animations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Hide shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Hide Shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Icon" android:summary="@string/revanced_icon_default" android:selectable="false"/>
                 <Preference android:title="Label" android:summary="@string/revanced_label_default" android:selectable="false"/>
                 <Preference android:title="Return YouTube Dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

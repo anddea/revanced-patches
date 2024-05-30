@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Suppress("unused")
 object ShortsRepeatPatch : BaseBytecodePatch(
-    name = "Change shorts repeat state",
+    name = "Change Shorts repeat state",
     description = "Adds an option to control whether Shorts should repeat, autoplay, or pause upon ending.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,

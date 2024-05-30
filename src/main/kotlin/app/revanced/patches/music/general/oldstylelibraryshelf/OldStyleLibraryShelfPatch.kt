@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Suppress("unused")
 object OldStyleLibraryShelfPatch : BaseBytecodePatch(
     name = "Restore old style library shelf",
-    description = "Adds an option to return the library tab to the old style.",
+    description = "Adds an option to return the Library tab to the old style.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(BrowseIdFingerprint)

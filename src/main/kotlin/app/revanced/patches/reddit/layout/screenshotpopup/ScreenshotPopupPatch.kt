@@ -16,7 +16,7 @@ import app.revanced.util.resultOrThrow
 @Suppress("unused")
 object ScreenshotPopupPatch : BaseBytecodePatch(
     name = "Disable screenshot popup",
-    description = "Adds an option to disable the popup that shows up when taking a screenshot.",
+    description = "Adds an option to disable the popup that appears when taking a screenshot.",
     dependencies = setOf(
         SettingsPatch::class,
         SharedResourceIdPatch::class

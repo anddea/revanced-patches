@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 object CommentsComponentPatch : BaseBytecodePatch(
-    name = "Hide comments component",
+    name = "Hide comments components",
     description = "Adds options to hide components related to comments.",
     dependencies = setOf(
         LithoFilterPatch::class,

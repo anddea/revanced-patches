@@ -8,8 +8,8 @@ import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
 object OpusCodecPatch : BaseResourcePatch(
-    name = "Enable opus codec",
-    description = "Adds an option to use the opus audio codec instead of the mp4a audio codec.",
+    name = "Enable OPUS codec",
+    description = "Adds an option to use the OPUS audio codec instead of the MP4A audio codec.",
     dependencies = setOf(
         OpusCodecBytecodePatch::class,
         SettingsPatch::class

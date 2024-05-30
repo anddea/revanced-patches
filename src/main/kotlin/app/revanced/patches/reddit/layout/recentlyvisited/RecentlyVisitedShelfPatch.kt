@@ -22,8 +22,8 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Suppress("unused")
 object RecentlyVisitedShelfPatch : BaseBytecodePatch(
-    name = "Hide recently visited shelf",
-    description = "Adds an option to hide the recently visited shelf in the sidebar.",
+    name = "Hide Recently Visited shelf",
+    description = "Adds an option to hide the Recently Visited shelf in the sidebar.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(CommunityDrawerPresenterFingerprint)

@@ -36,7 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 @Suppress("unused")
 object PlayerButtonsPatch : BaseBytecodePatch(
     name = "Hide player buttons",
-    description = "Adds an option to hide buttons in the video player.",
+    description = "Adds options to hide buttons in the video player.",
     dependencies = setOf(
         CastButtonPatch::class,
         FullscreenButtonViewStubPatch::class,
