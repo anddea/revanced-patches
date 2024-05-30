@@ -229,7 +229,6 @@ object SpoofClientPatch : BaseBytecodePatch(
          */
         SettingsPatch.addPreference(
             arrayOf(
-                "PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS",
                 "SETTINGS: SPOOF_CLIENT"
             )
         )
