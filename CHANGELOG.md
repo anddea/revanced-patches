@@ -1,3 +1,19 @@
+# [2.226.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.225.0...v2.226.0-dev.1) (2024-05-31)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** `CairoSettings` is applied due to A/B testing ([bad0f92](https://github.com/anddea/revanced-patches/commit/bad0f929853890eaac7a21a4faaad5cf43077f74))
+* **YouTube - Spoof client:** Player gestures not working when spoofing with `Android VR` client ([0cdc4f3](https://github.com/anddea/revanced-patches/commit/0cdc4f33c98cc16f5a302f2ca46a93434165bfd3))
+
+
+### Features
+
+* **YouTube - Spoof client:** Add `Show in Stats for nerds` setting ([b287a61](https://github.com/anddea/revanced-patches/commit/b287a61e480027689ea2ef792a84dcf1c9b002ab))
+* **YouTube - Spoof client:** Selectively spoof client for general video / livestreams / Shorts / fallback (unplayable video) ([d92de62](https://github.com/anddea/revanced-patches/commit/d92de62fc05ba4df1343ddf270e78bd3f4e53e58))
+* **YouTube Music:** Add support versions `7.02.52` ~ `7.03.51` ([40df716](https://github.com/anddea/revanced-patches/commit/40df7164f7e465d03744b3a7e24fd8f9f1ac3584))
+* **YouTube:** Remove `Spoof format stream data` patch ([35aeec3](https://github.com/anddea/revanced-patches/commit/35aeec3e12c8adb64dcfe1396980b9722cf4ccaa))
+
 # [2.225.0](https://github.com/anddea/revanced-patches/compare/v2.224.0...v2.225.0) (2024-05-29)
 
 
