@@ -571,7 +571,7 @@
         <!-- SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY
         <SwitchPreference android:title="@string/revanced_enable_open_links_directly_title" android:key="revanced_enable_open_links_directly" android:defaultValue="true" android:summaryOn="@string/revanced_enable_open_links_directly_summary_on" android:summaryOff="@string/revanced_enable_open_links_directly_summary_off" />SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY -->
 
-        <app.revanced.integrations.youtube.settings.preference.OpenDefaultAppSettingsPreference android:title="@string/revanced_default_app_settings_title" android:summary="@string/revanced_default_app_settings_summary" />
+        <app.revanced.integrations.youtube.settings.preference.OpenDefaultAppSettingsPreference android:title="@string/revanced_default_app_settings_title" android:key="revanced_default_app_settings" android:summary="@string/revanced_default_app_settings_summary" />
 
         <!-- PREFERENCE: GMS_CORE_SETTINGS
         <Preference android:title="@string/gms_core_settings_title" android:key="gms_core_settings" android:summary="@string/gms_core_settings_summary">

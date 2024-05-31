@@ -86,6 +86,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_default_video_quality_wifi",
             "revanced_disable_hdr_auto_brightness",
             "revanced_disable_hdr_video",
+            "revanced_disable_quic_protocol",
             "revanced_enable_debug_logging",
             "revanced_enable_default_playback_speed_shorts",
             "revanced_enable_external_browser",
@@ -158,7 +159,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_overlay_button_external_downloader",
             "revanced_overlay_button_speed_dialog",
             "revanced_overlay_button_time_ordered_playlist",
-            // "revanced_overlay_button_whitelist",
+            "revanced_overlay_button_whitelist",
             "revanced_preference_screen_account_menu",
             "revanced_preference_screen_action_buttons",
             "revanced_preference_screen_ambient_mode",
@@ -179,6 +180,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_preference_screen_seekbar",
             "revanced_preference_screen_settings_menu",
             "revanced_preference_screen_shorts_player",
+            "revanced_preference_screen_spoof_client",
             "revanced_preference_screen_toolbar",
             "revanced_preference_screen_video_description",
             "revanced_preference_screen_video_filter",
@@ -212,6 +214,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_remember_video_quality_last_selected",
             "revanced_restore_old_video_quality_menu",
             "revanced_enable_debug_buffer_logging",
+            "revanced_whitelist_settings",
         )
 
         // A lot of mappings here.
@@ -329,6 +332,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference",
             "app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPreference",
             "app.revanced.integrations.youtube.settings.preference.OpenDefaultAppSettingsPreference",
+            "app.revanced.integrations.youtube.settings.preference.WhitelistedChannelsPreference",
             "ListPreference",
             "Preference",
             "PreferenceScreen",
