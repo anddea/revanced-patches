@@ -12,7 +12,7 @@
 
 点击继续按钮并禁用电池优化"</string>
 	<string name="gms_core_dialog_open_website_text">打开网站</string>
-	<string name="gms_core_dialog_title">需要采取行动</string>
+	<string name="gms_core_dialog_title">需要采取措施</string>
 	<string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
 	<string name="gms_core_settings_title">打开 GmsCore</string>
 	<string name="gms_core_toast_not_installed_message">GmsCore 没有安装。请安装它</string>
@@ -374,9 +374,9 @@
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">时间戳和表情按钮已显示</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">时间戳和表情按钮已隐藏</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">隐藏时间戳和表情按钮</string>
-	<string name="revanced_hide_comments_by_members_summary_off">会员评论中横幅已显示</string>
-	<string name="revanced_hide_comments_by_members_summary_on">会员评论中横幅已隐藏</string>
-	<string name="revanced_hide_comments_by_members_title">隐藏会员评论横幅</string>
+	<string name="revanced_hide_comments_by_members_summary_off">"会员评论中横幅已显示"</string>
+	<string name="revanced_hide_comments_by_members_summary_on">"会员评论中横幅已隐藏"</string>
+	<string name="revanced_hide_comments_by_members_title">"隐藏会员评论横幅"</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_off">首页动态中评论部分已显示</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_on">首页动态中评论部分已隐藏</string>
 	<string name="revanced_hide_comments_section_in_home_feed_title">隐藏首页动态中的评论部分</string>
@@ -480,6 +480,7 @@
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">订阅视频的关键词过滤器已启用</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">启用订阅视频关键词过滤器</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">关键词无效无法使用：\'%s\' 作为过滤器</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">关键字无效。\'%1$s\' 少于 %2$d 个字符</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">关键词长度无效（必须至少有 %s 个字符）：%s</string>
 	<string name="revanced_hide_latest_posts_summary_off">最新投稿已显示</string>
 	<string name="revanced_hide_latest_posts_summary_on">最新投稿已隐藏</string>
@@ -822,6 +823,11 @@
 
 注意：
 • 如果遇到“推荐视频结束屏幕”的任何问题，请尝试重新启动应用"</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_off">推荐视频结束界面已显示</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_on">"关闭自动播放时，推荐视频结束界面会隐藏
+
+ 可以在 YouTube 设置中更改自动播放：
+ “设置→自动播放→自动播放下一个视频”"</string>
 	<string name="revanced_hide_suggested_video_end_screen_title">隐藏推荐视频结束界面</string>
 	<string name="revanced_hide_suggestions_section_summary_off">游戏部分、音乐部分和地区部分已显示</string>
 	<string name="revanced_hide_suggestions_section_summary_on">游戏部分、音乐部分和地区部分已隐藏</string>
@@ -1120,8 +1126,7 @@
 	<string name="revanced_sb_guidelines_preference_sum">指南包含创建新片段的规则和技巧</string>
 	<string name="revanced_sb_guidelines_preference_title">查看指南</string>
 	<string name="revanced_sb_new_segment_choose_category">选择片段类别</string>
-	<string name="revanced_sb_new_segment_confirm_contents">片段从%1$02d:%2$02d到%3$02d:%4$02d（%5$d分%6$02d秒）
-	是否准备好提交？</string>
+	<string name="revanced_sb_new_segment_confirm_contents">该片段从\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n准备好提交了吗？</string>
 	<string name="revanced_sb_new_segment_confirm_title">时间是否正确？</string>
 	<string name="revanced_sb_new_segment_disabled_category">类别在设置中被禁用请启用类别以提交</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">是否要手动编辑片段的开始或结束时间？</string>
