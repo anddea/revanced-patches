@@ -356,9 +356,9 @@ Loja"</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Os botões de marcação de tempo e emoji serão exibidos.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Os botões de marcação de tempo e emoji estão ocultos.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ocultar botões de marcação de tempo e emoji</string>
-	<string name="revanced_hide_comments_by_members_summary_off">O banner de comentários de membros serão exibidos.</string>
-	<string name="revanced_hide_comments_by_members_summary_on">O banner de comentários de membros estão ocultos.</string>
-	<string name="revanced_hide_comments_by_members_title">Ocultar banner de comentários de membros</string>
+	<string name="revanced_hide_comments_by_members_summary_off">"O banner de comentários de membros serão exibidos."</string>
+	<string name="revanced_hide_comments_by_members_summary_on">"O banner de comentários de membros estão ocultos."</string>
+	<string name="revanced_hide_comments_by_members_title">"Ocultar banner de comentários de membros"</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_off">A seção de comentários será exibida no feed inicial.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_on">A seção de comentários está oculta no feed inicial.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_title">Ocultar seção de comentários no feed inicial</string>
@@ -462,6 +462,7 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
 	<string name="revanced_hide_keyword_content_subscriptions_summary_on">Os vídeos no feed de inscrições são filtrados.</string>
 	<string name="revanced_hide_keyword_content_subscriptions_title">Ocultar vídeos no feed de inscrições por palavras-chave</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_common">Palavra-chave inválida. Não pode usar: \'%s\' como um filtro</string>
+	<string name="revanced_hide_keyword_toast_invalid_keyword">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
 	<string formatted="false" name="revanced_hide_keyword_toast_invalid_length">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
 	<string name="revanced_hide_latest_posts_summary_off">As últimas postagens serão exibidas.</string>
 	<string name="revanced_hide_latest_posts_summary_on">As últimas postagens estão ocultas.</string>
@@ -631,9 +632,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
 	<string name="revanced_hide_quick_actions_related_videos_summary_off">Os vídeos relacionados serão exibidos.</string>
 	<string name="revanced_hide_quick_actions_related_videos_summary_on">Os vídeos relacionados estão ocultos.</string>
 	<string name="revanced_hide_quick_actions_related_videos_title">Ocultar vídeos relacionados em ações rápidas</string>
-	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_off">O botão salvar para lista de reprodução será exibido.</string>
-	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_on">O botão salvar para lista de reprodução está oculto.</string>
-	<string name="revanced_hide_quick_actions_save_to_playlist_button_title">Ocultar botão salvar para lista de reprodução</string>
+	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_off">O botão salvar será exibido.</string>
+	<string name="revanced_hide_quick_actions_save_to_playlist_button_summary_on">O botão salvar está oculto.</string>
+	<string name="revanced_hide_quick_actions_save_to_playlist_button_title">Ocultar botão salvar</string>
 	<string name="revanced_hide_quick_actions_share_button_summary_off">O botão compartilhar será exibido.</string>
 	<string name="revanced_hide_quick_actions_share_button_summary_on">O botão compartilhar está oculto.</string>
 	<string name="revanced_hide_quick_actions_share_button_title">Ocultar botão compartilhar</string>
@@ -801,6 +802,11 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
 	<string name="revanced_hide_suggested_video_end_screen_summary">"Esta configuração foi depreciada.
 
 Ao invés disso, use a configuração 'Configurações → Reprodução automática → Reprodução automática do próximo vídeo'."</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_off">A tela de vídeo sugerido no fim é exibida.</string>
+	<string name="revanced_hide_suggested_video_end_screen_summary_on">"A tela de fim de vídeo sugerido fica oculta quando a reprodução automática é desativada.
+
+A reprodução automática pode ser alterada nas configurações do YouTube:
+'Configurações → Reprodução automática → Reprodução automática do próximo vídeo'"</string>
 	<string name="revanced_hide_suggested_video_end_screen_title">Ocultar a tela final de vídeo sugerido</string>
 	<string name="revanced_hide_suggestions_section_summary_off">As seções de jogos, seções de música e seções de lugar serão exibidas.</string>
 	<string name="revanced_hide_suggestions_section_summary_on">As seções de jogos, seções de música e seções de lugar estão ocultas.</string>
@@ -848,7 +854,7 @@ Ao invés disso, use a configuração 'Configurações → Reprodução automát
 	<string name="revanced_hide_video_view_counts_less_than_summary">Vídeos com visualizações menores do que este número serão ocultados.</string>
 	<string name="revanced_hide_video_view_counts_less_than_title">Menos que as visualizações</string>
 	<string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nvisualizações -&gt; visualizações</string>
-	<string name="revanced_hide_video_view_counts_multiplier_summary">Especifique seu modelo de idioma para o número de visualizações mostradas em cada vídeo na interface do usuário. Cada chave (uma letra/palavra no seu idioma) sinal -&gt; (significado da chave) deve estar em uma nova linha. Chaves vão antes do sinal \"-&gt;\". Se você alternar o idioma do aplicativo ou do sistema, você terá que redefinir esta configuração.\n\nExemplos:\nInglês: 10K views = K -&gt; 1000, views -&gt; visualizações\nSpanish: 10 K vistas = K -&gt; 1000, vistas -&gt; visualizações</string>
+	<string name="revanced_hide_video_view_counts_multiplier_summary">Especifique seu modelo de idioma para o número de visualizações mostradas em cada vídeo na interface do usuário. Cada chave (uma letra/palavra no seu idioma) sinal -&gt; (significado da chave) deve estar em uma nova linha. Chaves vão antes do sinal \"-&gt;\". Se você alternar o idioma do aplicativo ou do sistema, você terá que redefinir esta configuração.\n\nExemplos:\nInglês: 10K views = K -&gt; 1000, views -&gt; views\nEspanhol: 10K vistas = K -&gt; 1000, vistas -&gt; views</string>
 	<string name="revanced_hide_video_view_counts_multiplier_title">Chaves de visualização</string>
 	<string name="revanced_hide_view_products_summary_off">O banner de produtos será exibido.</string>
 	<string name="revanced_hide_view_products_summary_on">O banner de produtos está oculto.</string>
@@ -1096,7 +1102,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
 	<string name="revanced_sb_guidelines_preference_sum">As diretrizes contêm regras e dicas para a criação de novos segmentos.</string>
 	<string name="revanced_sb_guidelines_preference_title">Ver diretrizes</string>
 	<string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
-	<string name="revanced_sb_new_segment_confirm_contents">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
+	<string name="revanced_sb_new_segment_confirm_contents">O segmento é de\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto para enviar?</string>
 	<string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
 	<string name="revanced_sb_new_segment_disabled_category">A categoria está desativada nas configurações. Ative a categoria para enviar.</string>
 	<string name="revanced_sb_new_segment_edit_by_hand_content">Você quer editar o tempo para o início ou o fim do segmento?</string>
