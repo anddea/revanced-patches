@@ -1,3 +1,10 @@
+# [2.226.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.1...v2.226.0-dev.2) (2024-05-31)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Typo in QUIC ([409e283](https://github.com/anddea/revanced-patches/commit/409e2831b3c1ab9db1023e5f6257d4d4d327a592))
+
 # [2.226.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.225.0...v2.226.0-dev.1) (2024-05-31)
 
 
