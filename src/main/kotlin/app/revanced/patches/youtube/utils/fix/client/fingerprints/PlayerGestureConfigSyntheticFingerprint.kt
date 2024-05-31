@@ -42,9 +42,9 @@ internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID,
     ),
     customFingerprint = { methodDef, classDef ->
-        indexOfDownAndOutAllowedInstruction(methodDef) > 0 &&
         // This method is always called "a" because this kind of class always has a single method.
-        methodDef.name == "a" && classDef.methods.count() == 2
+        methodDef.name == "a" && classDef.methods.count() == 2 &&
+                indexOfDownAndOutAllowedInstruction(methodDef) >= 0
     }
 ) {
     fun indexOfDownAndOutAllowedInstruction(methodDef: Method) =
