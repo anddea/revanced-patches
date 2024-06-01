@@ -29,6 +29,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "MMT" to "mmt",
         DEFAULT_ICON_KEY to "revancify_blue",
         "Revancify Red" to "revancify_red",
+        "Revancify Yellow" to "revancify_yellow",
         "Vanced Black" to "vanced_black",
         "Vanced Light" to "vanced_light"
     )
