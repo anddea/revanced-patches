@@ -1,3 +1,10 @@
+# [2.226.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.3...v2.226.0-dev.4) (2024-06-01)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Add `Revancify Yellow` to patch options ([aea7060](https://github.com/anddea/revanced-patches/commit/aea70604ae326ec86ddec5b37d03a06673292545))
+
 # [2.226.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.2...v2.226.0-dev.3) (2024-06-01)
 
 
