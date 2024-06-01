@@ -122,6 +122,8 @@ public final class app/revanced/patches/music/layout/branding/icon/CustomBrandin
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/branding/icon/CustomBrandingIconPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getAppIcon ()Ljava/lang/String;
+	public final fun setAppIcon (Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/music/layout/branding/name/CustomBrandingNamePatch : app/revanced/util/patch/BaseResourcePatch {
@@ -461,6 +463,12 @@ public final class app/revanced/patches/music/utils/settings/SettingsPatch : app
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun getContexts ()Lapp/revanced/patcher/data/ResourceContext;
 	public final fun setContexts (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/music/utils/settings/VisualPreferencesIconsPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/utils/settings/VisualPreferencesIconsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/music/utils/sponsorblock/SponsorBlockBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1791,12 +1799,14 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun adoptChild (Lorg/w3c/dom/Node;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
+	public static final fun copyResourcesWithRename (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/util/Map;)V
 	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun getClassLoader ()Ljava/lang/ClassLoader;
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun startsWithAny (Ljava/lang/String;[Ljava/lang/String;)Z
+	public static final fun updatePathData (Lorg/w3c/dom/Document;Ljava/lang/String;)V
 }
 
 public abstract class app/revanced/util/fingerprint/LiteralValueFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {

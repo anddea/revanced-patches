@@ -52,7 +52,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "mdpi"
     ).map { "mipmap-$it" }
 
-    private var AppIcon by stringPatchOption(
+    public var AppIcon by stringPatchOption(
         key = "AppIcon",
         default = DEFAULT_ICON_KEY,
         values = availableIcon,
