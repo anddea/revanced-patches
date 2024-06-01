@@ -1,3 +1,12 @@
+# [2.226.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.2...v2.226.0-dev.3) (2024-06-01)
+
+
+### Features
+
+* **Custom branding icon:** Add `Revancify Yellow` icon ([#533](https://github.com/anddea/revanced-patches/issues/533)) ([d3bdd97](https://github.com/anddea/revanced-patches/commit/d3bdd97c8afc205fca85627740d3da498afb2121))
+* **YouTube - Overlay buttons:** Add content descriptions to overlay buttons for improved accessibility ([4d61417](https://github.com/anddea/revanced-patches/commit/4d6141776c6255bf4fc31173dbedd4fe9cec188f))
+* **YouTube Music:** Add `Visual preferences icons` ([8672b10](https://github.com/anddea/revanced-patches/commit/8672b1001a3ccd34102261738cdeb031f97cf572))
+
 # [2.226.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.1...v2.226.0-dev.2) (2024-05-31)
 
 
