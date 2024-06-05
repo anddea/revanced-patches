@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
     <string name="revanced_spoof_client_options_entry_android_embedded_player">Android Embedded Player</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
@@ -21,4 +23,6 @@ Side effects include:
 • Live streams cannot play as audio only.
 • Live streams not available on Android 8.0.
 • Higher video qualities may be missing."</string>
+    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
 </resources>
