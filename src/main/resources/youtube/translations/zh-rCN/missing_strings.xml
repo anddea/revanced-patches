@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_preference_category_spoof_client_about">About</string>
     <string name="revanced_preference_category_spoof_client_options">Spoof client options</string>
     <string name="revanced_preference_screen_spoof_client_summary">Spoof the client to prevent playback issues.</string>
@@ -51,4 +53,6 @@ Side effects include:
 • Watch history does not work with a brand account.
 • Live streams cannot play as audio only.
 • Live streams not available on Android 8.0."</string>
+    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
 </resources>

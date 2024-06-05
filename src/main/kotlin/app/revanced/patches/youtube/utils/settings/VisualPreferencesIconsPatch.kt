@@ -208,6 +208,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_disable_default_playback_speed_live",
             "external_downloader",
             "revanced_enable_custom_playback_speed",
+            "revanced_gms_show_dialog",
             "revanced_hide_shorts_comments_disabled_button",
             "revanced_hide_player_flyout_menu_captions_footer",
             "revanced_remember_playback_speed_last_selected",

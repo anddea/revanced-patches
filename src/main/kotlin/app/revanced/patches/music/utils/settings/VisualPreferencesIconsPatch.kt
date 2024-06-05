@@ -152,6 +152,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_replace_flyout_menu_dismiss_queue_continue_watch",
             "revanced_replace_flyout_menu_report_only_player",
             "revanced_enable_zen_mode_podcast",
+            "revanced_gms_show_dialog",
         )
 
         val validExtendedBrandIcon = validExtendedBrand.associateWith { "${it}_key_icon" }

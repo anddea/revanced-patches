@@ -576,7 +576,8 @@
         <!-- PREFERENCE: GMS_CORE_SETTINGS
         <Preference android:title="@string/gms_core_settings_title" android:key="gms_core_settings" android:summary="@string/gms_core_settings_summary">
             <intent android:targetPackage="app.revanced.android.gms" android:targetClass="org.microg.gms.ui.SettingsActivity" />
-        </Preference>PREFERENCE: GMS_CORE_SETTINGS -->
+        </Preference>
+        <SwitchPreference android:title="@string/revanced_gms_show_dialog_title" android:key="revanced_gms_show_dialog" android:defaultValue="true" android:summary="@string/revanced_gms_show_dialog_summary" />PREFERENCE: GMS_CORE_SETTINGS -->
 
         <!-- SETTINGS: SANITIZE_SHARING_LINKS
         <SwitchPreference android:title="@string/revanced_sanitize_sharing_links_title" android:key="revanced_sanitize_sharing_links" android:defaultValue="true" android:summary="@string/revanced_sanitize_sharing_links_summary" />SETTINGS: SANITIZE_SHARING_LINKS -->
