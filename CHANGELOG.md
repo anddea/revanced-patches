@@ -1,3 +1,10 @@
+# [2.226.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.4...v2.226.0-dev.5) (2024-06-05)
+
+
+### Features
+
+* **GmsCore support:** Add `Don't show again` option for battery optimization dialog ([3069354](https://github.com/anddea/revanced-patches/commit/3069354e5e736dbbebc1a85cdde2762a436f1338))
+
 # [2.226.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.3...v2.226.0-dev.4) (2024-06-01)
 
 
