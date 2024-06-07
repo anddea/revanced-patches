@@ -28,5 +28,11 @@ object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
             GMS_CORE_PACKAGE_NAME,
             GMS_CORE_SETTINGS_ACTIVITY
         )
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.MISC,
+            "revanced_gms_show_dialog",
+            "true"
+        )
     }
 }
