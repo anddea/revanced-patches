@@ -73,7 +73,8 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
         // region patch for enable compact dialog
 
         DialogSolidFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
             walkerMethod.addInstructions(
                 2, """
                     invoke-static {p0}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
@@ -94,17 +95,22 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
 
             TrimSilenceSwitchFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val constIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.TrimSilenceSwitch)
-                    val onCheckedChangedListenerIndex = getTargetIndex(constIndex, Opcode.INVOKE_DIRECT)
-                    val onCheckedChangedListenerReference = getInstruction<ReferenceInstruction>(onCheckedChangedListenerIndex).reference
-                    val onCheckedChangedListenerDefiningClass = (onCheckedChangedListenerReference as MethodReference).definingClass
+                    val constIndex =
+                        getWideLiteralInstructionIndex(SharedResourceIdPatch.TrimSilenceSwitch)
+                    val onCheckedChangedListenerIndex =
+                        getTargetIndex(constIndex, Opcode.INVOKE_DIRECT)
+                    val onCheckedChangedListenerReference =
+                        getInstruction<ReferenceInstruction>(onCheckedChangedListenerIndex).reference
+                    val onCheckedChangedListenerDefiningClass =
+                        (onCheckedChangedListenerReference as MethodReference).definingClass
                     val onCheckedChangedListenerClass =
                         context.findClass(onCheckedChangedListenerDefiningClass)!!.mutableClass
 
                     onCheckedChangedListenerClass.methods.find { method -> method.name == "onCheckedChanged" }
                         ?.apply {
                             val walkerIndex = indexOfFirstInstruction {
-                                val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                                val reference =
+                                    ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
                                 opcode == Opcode.INVOKE_VIRTUAL
                                         && reference?.returnType == "V"
@@ -113,7 +119,8 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                             }
                             getWalkerMethod(context, walkerIndex).apply {
                                 val insertIndex = getTargetIndex(Opcode.MOVE_RESULT)
-                                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                                val insertRegister =
+                                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                                 addInstructions(
                                     insertIndex + 1, """
@@ -148,25 +155,30 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
 
                 val enumIndex = indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_STATIC
-                            && (this as? ReferenceInstruction)?.reference.toString().contains("(I)L")
+                            && (this as? ReferenceInstruction)?.reference.toString()
+                        .contains("(I)L")
                 } + 1
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
 
                 addInstructionsWithLabels(
-                    enumIndex + 1, """
+                    enumIndex + 1,
+                    """
                         invoke-static {v$enumRegister, v$textViewRegister, v$imageViewRegister}, $FLYOUT_CLASS_DESCRIPTOR->replaceComponents(Ljava/lang/Enum;Landroid/widget/TextView;Landroid/widget/ImageView;)V
                         invoke-static {v$enumRegister}, $FLYOUT_CLASS_DESCRIPTOR->hideComponents(Ljava/lang/Enum;)Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :hide
-                        """, ExternalLabel("hide", getInstruction(implementation!!.instructions.size - 1))
+                        """,
+                    ExternalLabel("hide", getInstruction(implementation!!.instructions.size - 1))
                 )
             }
         }
 
         TouchOutsideFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val setOnClickListenerIndex = getTargetIndexWithMethodReferenceName("setOnClickListener")
-                val setOnClickListenerRegister = getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
+                val setOnClickListenerIndex =
+                    getTargetIndexWithMethodReferenceName("setOnClickListener")
+                val setOnClickListenerRegister =
+                    getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
                 addInstruction(
                     setOnClickListenerIndex + 1,

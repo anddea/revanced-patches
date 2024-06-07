@@ -113,7 +113,8 @@ object LithoFilterPatch : BytecodePatch(
                             if ((instruction as? ReferenceInstruction)?.reference.toString() != pathBuilderMethodCall)
                                 continue
 
-                            val insertRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                            val insertRegister =
+                                getInstruction<OneRegisterInstruction>(index + 1).registerA
                             val insertIndex = index + 2
 
                             addInstructionsWithLabels(
@@ -134,13 +135,16 @@ object LithoFilterPatch : BytecodePatch(
                     """
                 }
 
-                val stringBuilderIndex = getTargetIndexWithFieldReferenceType("Ljava/lang/StringBuilder;")
-                val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
+                val stringBuilderIndex =
+                    getTargetIndexWithFieldReferenceType("Ljava/lang/StringBuilder;")
+                val stringBuilderRegister =
+                    getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
                 val emptyStringIndex = getEmptyStringInstructionIndex()
 
                 val identifierIndex = getTargetIndexReversed(emptyStringIndex, Opcode.IPUT_OBJECT)
-                val identifierRegister = getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
+                val identifierRegister =
+                    getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
 
                 val objectIndex = getTargetIndex(emptyStringIndex, Opcode.INVOKE_VIRTUAL)
                 val objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC

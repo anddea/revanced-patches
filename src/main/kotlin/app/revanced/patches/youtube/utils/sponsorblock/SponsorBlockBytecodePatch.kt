@@ -133,7 +133,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(InsetOverlayViewLayout)
                 val checkCastIndex = getTargetIndex(targetIndex, Opcode.CHECK_CAST)
-                val targetRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                val targetRegister =
+                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
                     checkCastIndex + 1,
@@ -146,8 +147,12 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         RectangleFieldInvalidatorFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
                 val invalidateIndex = getTargetIndexWithMethodReferenceNameReversed("invalidate")
-                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(invalidateIndex + 1, "Landroid/graphics/Rect;")
-                val rectangleFieldName = (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
+                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(
+                    invalidateIndex + 1,
+                    "Landroid/graphics/Rect;"
+                )
+                val rectangleFieldName =
+                    (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
                 SegmentPlaybackControllerFingerprint.resultOrThrow().let {
                     it.mutableMethod.apply {

@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.utils.fix.client.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint.indexOfDownAndOutAllowedInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction

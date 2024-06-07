@@ -35,7 +35,8 @@ abstract class BaseAutoCaptionsPatch(
         }
 
         SubtitleTrackFingerprint.resultOrThrow().let {
-            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+            val targetMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
 
             targetMethod.apply {
                 val targetIndex = indexOfFirstInstruction {

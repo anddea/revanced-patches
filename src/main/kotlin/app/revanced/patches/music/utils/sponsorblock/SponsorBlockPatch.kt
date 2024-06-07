@@ -143,7 +143,9 @@ object SponsorBlockPatch : BaseResourcePatch(
         context.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_preference_screen_$category") }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
                 .forEach {
                     it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
                         setAttribute("android:title", "@string/revanced_$key")
@@ -166,7 +168,9 @@ object SponsorBlockPatch : BaseResourcePatch(
         context.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
             List(tags.length) { tags.item(it) as Element }
-                .filter { it.getAttribute("android:key").contains("revanced_preference_screen_$category") }
+                .filter {
+                    it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                }
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/revanced_$key")

@@ -27,7 +27,8 @@ object ShortsPlaybackPatch : BytecodePatch(
          */
         ShortsPlaybackFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndex(getWideLiteralInstructionIndex(45387052), Opcode.MOVE_RESULT)
+                val targetIndex =
+                    getTargetIndex(getWideLiteralInstructionIndex(45387052), Opcode.MOVE_RESULT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

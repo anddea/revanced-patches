@@ -133,7 +133,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val charSequenceIndex = getTargetIndexWithMethodReferenceName("getString") + 1
-                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
+                val charSequenceRegister =
+                    getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
                 val textViewIndex = getTargetIndexWithMethodReferenceName("getText")
                 val textViewRegister =
                     getInstruction<FiveRegisterInstruction>(textViewIndex).registerC
@@ -162,7 +163,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         }
 
         ControlsOverlayStyleFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
             walkerMethod.apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
@@ -221,18 +223,19 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for hide seekbar
 
         SeekbarFingerprint.resultOrThrow().mutableClass.let { mutableClass ->
-            SeekbarOnDrawFingerprint.also { it.resolve(context, mutableClass) }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0, """
+            SeekbarOnDrawFingerprint.also { it.resolve(context, mutableClass) }.resultOrThrow()
+                .let {
+                    it.mutableMethod.apply {
+                        addInstructionsWithLabels(
+                            0, """
                             invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekbar()Z
                             move-result v0
                             if-eqz v0, :show
                             return-void
                             """, ExternalLabel("show", getInstruction(0))
-                    )
+                        )
+                    }
                 }
-            }
         }
 
         // endregion
@@ -240,7 +243,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for hide time stamp
 
         PlayerSeekbarColorFingerprint.resultOrThrow().let { parentResult ->
-            TimeCounterFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow().let {
+            TimeCounterFingerprint.also { it.resolve(context, parentResult.classDef) }
+                .resultOrThrow().let {
                 it.mutableMethod.apply {
                     addInstructionsWithLabels(
                         0, """
@@ -274,7 +278,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
                     "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
                 )
             )
-        } ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
+        }
+            ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
 
         // endregion
 

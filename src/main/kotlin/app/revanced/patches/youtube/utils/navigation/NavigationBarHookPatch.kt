@@ -72,14 +72,16 @@ object NavigationBarHookPatch : BytecodePatch(
             resolve(context, PivotBarConstructorFingerprint.resultOrThrow().classDef)
         }.resultOrThrow().mutableMethod.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
-            val navigationEnumClassName = NavigationEnumFingerprint.resultOrThrow().mutableClass.type
+            val navigationEnumClassName =
+                NavigationEnumFingerprint.resultOrThrow().mutableClass.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
                         getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
-            val drawableTabMethod = PivotBarButtonsCreateDrawableViewFingerprint.resultOrThrow().mutableMethod
+            val drawableTabMethod =
+                PivotBarButtonsCreateDrawableViewFingerprint.resultOrThrow().mutableMethod
             addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -87,7 +89,8 @@ object NavigationBarHookPatch : BytecodePatch(
                 )
             }
 
-            val imageResourceTabMethod = PivotBarButtonsCreateResourceViewFingerprint.resultOrThrow().method
+            val imageResourceTabMethod =
+                PivotBarButtonsCreateResourceViewFingerprint.resultOrThrow().method
             addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -111,11 +114,15 @@ object NavigationBarHookPatch : BytecodePatch(
             }
         }
 
-        navigationTabCreatedCallback = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)?.mutableClass?.methods?.first { method ->
-            method.name == "navigationTabCreatedCallback"
-        } ?: throw PatchException("Could not find navigationTabCreatedCallback method")
+        navigationTabCreatedCallback =
+            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)?.mutableClass?.methods?.first { method ->
+                method.name == "navigationTabCreatedCallback"
+            } ?: throw PatchException("Could not find navigationTabCreatedCallback method")
 
-        MainActivityResolvePatch.injectOnBackPressedMethodCall(INTEGRATIONS_CLASS_DESCRIPTOR, "onBackPressed")
+        MainActivityResolvePatch.injectOnBackPressedMethodCall(
+            INTEGRATIONS_CLASS_DESCRIPTOR,
+            "onBackPressed"
+        )
     }
 
     val hookNavigationButtonCreated: (String) -> Unit by lazy {
@@ -133,7 +140,10 @@ object NavigationBarHookPatch : BytecodePatch(
     private enum class Hook(val methodName: String, val parameters: String) {
         SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
         NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
-        NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
+        NAVIGATION_IMAGE_RESOURCE_TAB_LOADED(
+            "navigationImageResourceTabLoaded",
+            "Landroid/view/View;"
+        ),
         SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;"),
     }
 }

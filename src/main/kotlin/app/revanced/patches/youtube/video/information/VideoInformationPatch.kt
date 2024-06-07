@@ -92,6 +92,7 @@ object VideoInformationPatch : BytecodePatch(
     private const val REGISTER_VIDEO_ID = 2
     private const val REGISTER_VIDEO_TITLE = 3
     private const val REGISTER_VIDEO_LENGTH = 4
+
     @Suppress("unused")
     private const val REGISTER_VIDEO_LENGTH_DUMMY = 5
     private const val REGISTER_VIDEO_IS_LIVE = 6
@@ -118,7 +119,8 @@ object VideoInformationPatch : BytecodePatch(
     internal lateinit var videoEndMethod: MutableMethod
 
     override fun execute(context: BytecodeContext) {
-        val videoInformationMutableClass = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
+        val videoInformationMutableClass =
+            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
 
@@ -173,7 +175,8 @@ object VideoInformationPatch : BytecodePatch(
                     true
                 )
 
-                videoEndMethod = getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+                videoEndMethod =
+                    getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
             }
         }
 
@@ -264,11 +267,13 @@ object VideoInformationPatch : BytecodePatch(
          */
         VideoIdPatch.hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
         VideoIdPatch.hookPlayerResponseVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V"
+        )
         // Call before any other video id hooks,
         // so they can use VideoInformation and check if the video id is for a Short.
         PlayerResponseMethodHookPatch += PlayerResponseMethodHookPatch.Hook.PlayerParameterBeforeVideoId(
-            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;")
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;"
+        )
 
         /**
          * Hook current playback speed
@@ -278,7 +283,8 @@ object VideoInformationPatch : BytecodePatch(
                 speedSelectionInsertMethod = this
                 val speedSelectionValueInstructionIndex = getTargetIndex(Opcode.IGET)
 
-                val setPlaybackSpeedContainerClassFieldIndex = getTargetIndexReversed(speedSelectionValueInstructionIndex, Opcode.IGET_OBJECT)
+                val setPlaybackSpeedContainerClassFieldIndex =
+                    getTargetIndexReversed(speedSelectionValueInstructionIndex, Opcode.IGET_OBJECT)
                 val setPlaybackSpeedContainerClassFieldReference =
                     getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference.toString()
 
@@ -447,7 +453,7 @@ object VideoInformationPatch : BytecodePatch(
             "invoke-static { p1, p2 }, $targetMethodClass->$targetMethodName(J)V"
         )
 
-    private fun MethodFingerprint.getMethodName(returnType : String) :String {
+    private fun MethodFingerprint.getMethodName(returnType: String): String {
         resultOrThrow().mutableMethod.apply {
             val targetIndex = indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_INTERFACE
@@ -465,7 +471,13 @@ object VideoInformationPatch : BytecodePatch(
         ImmutableMethod(
             definingClass,
             "setVideoInformation",
-            listOf(ImmutableMethodParameter(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR, annotations, null)),
+            listOf(
+                ImmutableMethodParameter(
+                    PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR,
+                    annotations,
+                    null
+                )
+            ),
             "V",
             AccessFlags.PRIVATE or AccessFlags.FINAL,
             annotations,

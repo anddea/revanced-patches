@@ -52,7 +52,7 @@ abstract class BaseGmsCoreSupportPatch(
 ) : BytecodePatch(
     name = "GmsCore support",
     description = "Allows patched Google apps to run without root and under a different package name " +
-        "by using GmsCore instead of Google Play Services.",
+            "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
         PackageNamePatch::class,
         gmsCoreSupportResourcePatch::class,
@@ -116,36 +116,43 @@ abstract class BaseGmsCoreSupportPatch(
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
     }
 
-    private fun BytecodeContext.transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
-        val mutableClass by lazy {
-            proxy(it).mutableClass
-        }
-
-        it.methods.forEach classLoop@{ methodDef ->
-            val implementation = methodDef.implementation ?: return@classLoop
-
-            val mutableMethod by lazy {
-                mutableClass.methods.first { method -> MethodUtil.methodSignaturesMatch(method, methodDef) }
+    private fun BytecodeContext.transformStringReferences(transform: (str: String) -> String?) =
+        classes.forEach {
+            val mutableClass by lazy {
+                proxy(it).mutableClass
             }
 
-            implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                    ?: return@insnLoop
+            it.methods.forEach classLoop@{ methodDef ->
+                val implementation = methodDef.implementation ?: return@classLoop
 
-                // Apply transformation.
-                val transformedString = transform(string) ?: return@insnLoop
+                val mutableMethod by lazy {
+                    mutableClass.methods.first { method ->
+                        MethodUtil.methodSignaturesMatch(
+                            method,
+                            methodDef
+                        )
+                    }
+                }
 
-                mutableMethod.replaceInstruction(
-                    index,
-                    BuilderInstruction21c(
-                        Opcode.CONST_STRING,
-                        instruction.registerA,
-                        ImmutableStringReference(transformedString),
-                    ),
-                )
+                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                    val string =
+                        ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                            ?: return@insnLoop
+
+                    // Apply transformation.
+                    val transformedString = transform(string) ?: return@insnLoop
+
+                    mutableMethod.replaceInstruction(
+                        index,
+                        BuilderInstruction21c(
+                            Opcode.CONST_STRING,
+                            instruction.registerA,
+                            ImmutableStringReference(transformedString),
+                        ),
+                    )
+                }
             }
         }
-    }
 
     // region Collection of transformations that are applied to all strings.
 
@@ -180,14 +187,20 @@ abstract class BaseGmsCoreSupportPatch(
             // gms also has a 'subscribedfeeds' authority, check for that one too
             val subFeedsUriPrefix = "content://subscribedfeeds"
             if (str.startsWith(subFeedsUriPrefix)) {
-                return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendorGroupId.subscribedfeeds")
+                return str.replace(
+                    subFeedsUriPrefix,
+                    "content://$gmsCoreVendorGroupId.subscribedfeeds"
+                )
             }
         }
 
         return null
     }
 
-    private fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
+    private fun packageNameTransform(
+        fromPackageName: String,
+        toPackageName: String
+    ): (String) -> String? = { string ->
         when (string) {
             "$fromPackageName.SuggestionsProvider",
             "$fromPackageName.fileprovider",

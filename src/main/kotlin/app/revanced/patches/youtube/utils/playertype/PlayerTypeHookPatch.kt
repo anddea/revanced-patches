@@ -59,7 +59,8 @@ object PlayerTypeHookPatch : BytecodePatch(
         // region patch for set video state
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let { parentResult ->
-            VideoStateFingerprint.also { it.resolve(context, parentResult.classDef)
+            VideoStateFingerprint.also {
+                it.resolve(context, parentResult.classDef)
             }.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val endIndex = it.scanResult.patternScanResult!!.endIndex
@@ -84,7 +85,8 @@ object PlayerTypeHookPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val targetIndex = getStringInstructionIndex("VL") - 1
                 val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val targetClass = context.findClass((targetReference as FieldReference).definingClass)!!.mutableClass
+                val targetClass =
+                    context.findClass((targetReference as FieldReference).definingClass)!!.mutableClass
 
                 targetClass.methods.find { method -> method.name == "<init>" }
                     ?.apply {

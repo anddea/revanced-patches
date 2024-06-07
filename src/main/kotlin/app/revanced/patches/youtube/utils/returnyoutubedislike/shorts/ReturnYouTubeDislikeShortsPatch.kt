@@ -71,7 +71,8 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
         if (SettingsPatch.upward1834) {
             TextComponentSpecFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = getTargetIndexWithReference("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
+                    val insertIndex =
+                        getTargetIndexWithReference("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
 
                     val charSequenceRegister =
                         getInstruction<FiveRegisterInstruction>(insertIndex).registerC

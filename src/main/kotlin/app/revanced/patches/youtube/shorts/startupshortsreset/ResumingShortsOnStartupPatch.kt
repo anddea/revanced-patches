@@ -38,13 +38,14 @@ object ResumingShortsOnStartupPatch : BaseBytecodePatch(
         UserWasInShortsABConfigFingerprint.resultOrThrow().mutableMethod.apply {
             val startIndex = indexOfOptionalInstruction(this)
             val walkerIndex = implementation!!.instructions.let {
-                val subListIndex = it.subList(startIndex, startIndex + 20).indexOfFirst { instruction ->
-                    val reference = instruction.getReference<MethodReference>()
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL
-                            && reference?.returnType == "Z"
-                            && reference.definingClass != "Lj${'$'}/util/Optional;"
-                            && reference.parameterTypes.size == 0
-                }
+                val subListIndex =
+                    it.subList(startIndex, startIndex + 20).indexOfFirst { instruction ->
+                        val reference = instruction.getReference<MethodReference>()
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL
+                                && reference?.returnType == "Z"
+                                && reference.definingClass != "Lj${'$'}/util/Optional;"
+                                && reference.parameterTypes.size == 0
+                    }
                 if (subListIndex < 0)
                     throw PatchException("subListIndex not found")
 
@@ -75,8 +76,10 @@ object ResumingShortsOnStartupPatch : BaseBytecodePatch(
                             getReference<MethodReference>()?.name == "isDone"
                 }
                 if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
-                val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
-                val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
+                val originalInstructionRegister =
+                    getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
+                val freeRegister =
+                    getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 
                 addInstructionsWithLabels(
                     listenableInstructionIndex + 1,

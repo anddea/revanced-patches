@@ -20,7 +20,8 @@ object Constants {
     const val VIDEO_PATH = "$PATCHES_PATH/video"
 
     const val ADS_CLASS_DESCRIPTOR = "$ADS_PATH/AdsPatch;"
-    const val ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR = "$ALTERNATIVE_THUMBNAILS_PATH/AlternativeThumbnailsPatch;"
+    const val ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR =
+        "$ALTERNATIVE_THUMBNAILS_PATH/AlternativeThumbnailsPatch;"
     const val FEED_CLASS_DESCRIPTOR = "$FEED_PATH/FeedPatch;"
     const val GENERAL_CLASS_DESCRIPTOR = "$GENERAL_PATH/GeneralPatch;"
     const val PLAYER_CLASS_DESCRIPTOR = "$PLAYER_PATH/PlayerPatch;"

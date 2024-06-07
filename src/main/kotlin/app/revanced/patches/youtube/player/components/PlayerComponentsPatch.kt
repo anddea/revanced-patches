@@ -170,7 +170,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             LayoutCircleFingerprint,
             LayoutIconFingerprint,
             LayoutVideoFingerprint
-        ).forEach{ fingerprint ->
+        ).forEach { fingerprint ->
             fingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
@@ -205,9 +205,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
                 val insertIndex = getTargetIndexReversed(constIndex, Opcode.INVOKE_VIRTUAL) + 1
                 val jumpIndex = implementation!!.instructions.let { instruction ->
-                    insertIndex + instruction.subList(insertIndex, instruction.size - 1).indexOfFirst { instructions ->
-                        instructions.opcode == Opcode.GOTO || instructions.opcode == Opcode.GOTO_16
-                    }
+                    insertIndex + instruction.subList(insertIndex, instruction.size - 1)
+                        .indexOfFirst { instructions ->
+                            instructions.opcode == Opcode.GOTO || instructions.opcode == Opcode.GOTO_16
+                        }
                 }
 
                 val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
@@ -270,7 +271,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 val insertIndex = getWideLiteralInstructionIndex(SeekUndoEduOverlayStub)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val onClickListenerIndex = getTargetIndexWithMethodReferenceName(insertIndex, "setOnClickListener")
+                val onClickListenerIndex =
+                    getTargetIndexWithMethodReferenceName(insertIndex, "setOnClickListener")
                 val constComponent = getConstComponent(insertIndex, onClickListenerIndex - 1)
 
                 if (constComponent.isNotEmpty()) {
@@ -315,8 +317,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableClass.methods.find { method ->
                 method.parameters == listOf("Landroid/view/View${'$'}OnClickListener;")
             }?.apply {
-                val setOnClickListenerIndex = getTargetIndexWithMethodReferenceName("setOnClickListener")
-                val setOnClickListenerRegister = getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
+                val setOnClickListenerIndex =
+                    getTargetIndexWithMethodReferenceName("setOnClickListener")
+                val setOnClickListenerRegister =
+                    getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
                 addInstruction(
                     setOnClickListenerIndex + 1,

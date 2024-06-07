@@ -33,8 +33,12 @@ object FullscreenButtonViewStubPatch : BytecodePatch(
         ).forEach { (fingerprint, literalValue) ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
-                    val targetIndex = getTargetIndex(getWideLiteralInstructionIndex(literalValue.toLong()), Opcode.MOVE_RESULT)
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetIndex = getTargetIndex(
+                        getWideLiteralInstructionIndex(literalValue.toLong()),
+                        Opcode.MOVE_RESULT
+                    )
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstruction(
                         targetIndex + 1,

@@ -15,8 +15,8 @@ import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.settings.fingerprints.GoogleApiActivityFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerprint
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
-import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.fingerprints.SharedSettingFingerprint
+import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
 import app.revanced.util.getTargetIndex
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -109,9 +109,18 @@ object SettingsBytecodePatch : BytecodePatch(
             }
         }
 
-        MainActivityResolvePatch.injectOnCreateMethodCall(INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR, "setDeviceInformation")
-        MainActivityResolvePatch.injectOnCreateMethodCall(INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR, "onCreate")
-        MainActivityResolvePatch.injectConstructorMethodCall(INTEGRATIONS_UTILS_CLASS_DESCRIPTOR, "setActivity")
+        MainActivityResolvePatch.injectOnCreateMethodCall(
+            INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR,
+            "setDeviceInformation"
+        )
+        MainActivityResolvePatch.injectOnCreateMethodCall(
+            INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR,
+            "onCreate"
+        )
+        MainActivityResolvePatch.injectConstructorMethodCall(
+            INTEGRATIONS_UTILS_CLASS_DESCRIPTOR,
+            "setActivity"
+        )
 
     }
 }

@@ -14,7 +14,7 @@ import kotlin.properties.Delegates
 
 abstract class BaseMainActivityResolvePatch(
     private val mainActivityOnCreateFingerprint: MethodFingerprint
-): BytecodePatch(
+) : BytecodePatch(
     setOf(mainActivityOnCreateFingerprint)
 ) {
     lateinit var mainActivityMutableClass: MutableClass
@@ -41,10 +41,18 @@ abstract class BaseMainActivityResolvePatch(
     }
 
     fun injectConstructorMethodCall(classDescriptor: String, methodDescriptor: String) =
-        constructorMethod.injectMethodCall(classDescriptor, methodDescriptor, constructorMethodIndex)
+        constructorMethod.injectMethodCall(
+            classDescriptor,
+            methodDescriptor,
+            constructorMethodIndex
+        )
 
     fun injectOnBackPressedMethodCall(classDescriptor: String, methodDescriptor: String) =
-        onBackPressedMethod.injectMethodCall(classDescriptor, methodDescriptor, onBackPressedMethodIndex)
+        onBackPressedMethod.injectMethodCall(
+            classDescriptor,
+            methodDescriptor,
+            onBackPressedMethodIndex
+        )
 
     fun injectOnCreateMethodCall(classDescriptor: String, methodDescriptor: String) =
         onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor)

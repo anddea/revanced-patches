@@ -118,7 +118,10 @@ object OverlayButtonsPatch : BaseResourcePatch(
             val resources = commonResources + specificResources
             resources.forEach { resource ->
                 val folderName = if (resource.endsWith(".xml")) "drawable" else "drawable-xxhdpi"
-                context.copyResources("youtube/overlaybuttons/$iconValue", ResourceGroup(folderName, resource))
+                context.copyResources(
+                    "youtube/overlaybuttons/$iconValue",
+                    ResourceGroup(folderName, resource)
+                )
             }
         }
 

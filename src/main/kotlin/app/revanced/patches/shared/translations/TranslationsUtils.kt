@@ -29,7 +29,10 @@ object TranslationsUtils {
             this["res/$directory"].mkdir()
 
             Files.copy(
-                inputStreamFromBundledResource("$sourceDirectory/translations", "$language/strings.xml")!!,
+                inputStreamFromBundledResource(
+                    "$sourceDirectory/translations",
+                    "$language/strings.xml"
+                )!!,
                 this["res"].resolve("$directory/strings.xml").toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )

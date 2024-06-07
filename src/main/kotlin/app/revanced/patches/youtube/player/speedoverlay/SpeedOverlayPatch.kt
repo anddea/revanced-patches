@@ -49,7 +49,8 @@ object SpeedOverlayPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val restoreSlideToSeekBehaviorFingerprintResult = RestoreSlideToSeekBehaviorFingerprint.result
+        val restoreSlideToSeekBehaviorFingerprintResult =
+            RestoreSlideToSeekBehaviorFingerprint.result
         val speedOverlayFingerprintResult = SpeedOverlayFingerprint.result
         val speedOverlayValueFingerprintResult = SpeedOverlayValueFingerprint.result
 
@@ -130,7 +131,8 @@ object SpeedOverlayPatch : BytecodePatch(
 
                     val jumpIndex = scanResult.endIndex + 1
                     val insertIndex = scanResult.endIndex - 1
-                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                     hook(insertIndex, insertRegister, jumpIndex)
                 }
@@ -150,7 +152,8 @@ object SpeedOverlayPatch : BytecodePatch(
 
                 constructorMethod.apply {
                     val syntheticIndex = getTargetIndexReversed(Opcode.NEW_INSTANCE)
-                    val syntheticClass = getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
+                    val syntheticClass =
+                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
 
                     val syntheticMethod =
                         context.findClass(syntheticClass)?.mutableClass
@@ -170,8 +173,12 @@ object SpeedOverlayPatch : BytecodePatch(
                                 """
                         )
 
-                        insertIndex = getTargetIndexWithMethodReferenceNameReversed(speedOverlayValueIndex, "removeCallbacks") + 1
-                        insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
+                        insertIndex = getTargetIndexWithMethodReferenceNameReversed(
+                            speedOverlayValueIndex,
+                            "removeCallbacks"
+                        ) + 1
+                        insertRegister =
+                            getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
                         jumpIndex = getTargetIndex(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
                         hook(insertIndex, insertRegister, jumpIndex)
                     }
@@ -181,7 +188,8 @@ object SpeedOverlayPatch : BytecodePatch(
             SpeedOverlayTextValueFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.startIndex
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """

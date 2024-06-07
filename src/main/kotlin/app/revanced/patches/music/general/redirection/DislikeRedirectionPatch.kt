@@ -51,13 +51,15 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
 
                     onClickMethod.apply {
                         val onClickIndex = indexOfFirstInstruction {
-                            val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                            val reference =
+                                ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
                             opcode == Opcode.INVOKE_INTERFACE
                                     && reference?.returnType == "V"
                                     && reference.parameterTypes.size == 1
                         }
-                        onClickReference = getInstruction<ReferenceInstruction>(onClickIndex).reference
+                        onClickReference =
+                            getInstruction<ReferenceInstruction>(onClickIndex).reference
 
                         injectCall(onClickIndex)
                     }

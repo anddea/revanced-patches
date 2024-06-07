@@ -182,7 +182,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                 val walkerMethod = getWalkerMethod(context, walkerIndex)
                 walkerMethod.apply {
                     val insertIndex = implementation!!.instructions.size - 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
@@ -288,7 +289,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             LandScapeModeConfigFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = implementation!!.instructions.size - 1
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
@@ -300,7 +302,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
                 BroadcastReceiverFingerprint.resultOrThrow().let { result ->
                     result.mutableMethod.apply {
-                        val stringIndex = getStringInstructionIndex("android.intent.action.SCREEN_ON")
+                        val stringIndex =
+                            getStringInstructionIndex("android.intent.action.SCREEN_ON")
                         val insertIndex = getTargetIndex(stringIndex, Opcode.IF_EQZ) + 1
 
                         addInstruction(
