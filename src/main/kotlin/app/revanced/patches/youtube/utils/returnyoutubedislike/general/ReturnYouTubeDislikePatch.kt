@@ -70,13 +70,17 @@ object ReturnYouTubeDislikePatch : BaseBytecodePatch(
 
             TextComponentContextFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val conversionContextFieldIndex = getTargetIndexWithFieldReferenceType("Ljava/util/Map;") - 1
+                    val conversionContextFieldIndex =
+                        getTargetIndexWithFieldReferenceType("Ljava/util/Map;") - 1
                     val conversionContextFieldReference =
                         getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
-                    val charSequenceIndex = getTargetIndexWithFieldReferenceType("Ljava/util/BitSet;") - 1
-                    val charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
-                    val freeRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
+                    val charSequenceIndex =
+                        getTargetIndexWithFieldReferenceType("Ljava/util/BitSet;") - 1
+                    val charSequenceRegister =
+                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
+                    val freeRegister =
+                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
 
                     addInstructions(
                         charSequenceIndex - 1, """

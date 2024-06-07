@@ -32,7 +32,8 @@ object PlayerControlsVisibilityHookPatch : BytecodePatch(
 
                 it.mutableClass.methods.find { method -> method.name == "<init>" }?.apply {
                     val targetIndex = getTargetIndex(Opcode.IPUT_OBJECT)
-                    val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """

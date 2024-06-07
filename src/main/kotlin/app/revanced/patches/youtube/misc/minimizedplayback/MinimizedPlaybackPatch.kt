@@ -80,7 +80,8 @@ object MinimizedPlaybackPatch : BaseBytecodePatch(
         }
 
         PiPControllerFingerprint.resultOrThrow().let {
-            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val targetMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             targetMethod.apply {
                 val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA

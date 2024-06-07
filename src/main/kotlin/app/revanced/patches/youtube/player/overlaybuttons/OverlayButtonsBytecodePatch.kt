@@ -89,22 +89,29 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
                         && getReference<FieldReference>()?.definingClass == definingClass
                         && (this as TwoRegisterInstruction).registerA == registerResolver
             }
-            val invokerObjectReference = getInstruction<ReferenceInstruction>(invokerObjectIndex).reference
+            val invokerObjectReference =
+                getInstruction<ReferenceInstruction>(invokerObjectIndex).reference
 
-            val onClickListenerReferenceIndex = getTargetIndexWithReference("<init>(Ljava/lang/Object;I[B)V")
-            val onClickListenerReference = getInstruction<ReferenceInstruction>(onClickListenerReferenceIndex).reference
-            val onClickListenerClass = context.findClass((onClickListenerReference as MethodReference).definingClass)!!.mutableClass
+            val onClickListenerReferenceIndex =
+                getTargetIndexWithReference("<init>(Ljava/lang/Object;I[B)V")
+            val onClickListenerReference =
+                getInstruction<ReferenceInstruction>(onClickListenerReferenceIndex).reference
+            val onClickListenerClass =
+                context.findClass((onClickListenerReference as MethodReference).definingClass)!!.mutableClass
 
             var invokeInterfaceReference = ""
             onClickListenerClass.methods.find { method -> method.name == "onClick" }
                 ?.apply {
-                    val invokeInterfaceIndex = getTargetIndexWithReference(invokerObjectReference.toString()) + 1
+                    val invokeInterfaceIndex =
+                        getTargetIndexWithReference(invokerObjectReference.toString()) + 1
                     if (getInstruction(invokeInterfaceIndex).opcode != Opcode.INVOKE_INTERFACE)
                         throw PatchException("Opcode does not match")
-                    invokeInterfaceReference = getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference.toString()
+                    invokeInterfaceReference =
+                        getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference.toString()
                 } ?: throw PatchException("Could not find onClick method")
 
-            val alwaysRepeatMutableClass = context.findClass(INTEGRATIONS_ALWAYS_REPEAT_CLASS_DESCRIPTOR)!!.mutableClass
+            val alwaysRepeatMutableClass =
+                context.findClass(INTEGRATIONS_ALWAYS_REPEAT_CLASS_DESCRIPTOR)!!.mutableClass
 
             val smaliInstructions =
                 """

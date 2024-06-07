@@ -25,7 +25,8 @@ object ShortsNavigationBarPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         InitializeButtonsFingerprint.resultOrThrow().let { parentResult ->
-            SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow().let {
+            SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }
+                .resultOrThrow().let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
@@ -39,7 +40,8 @@ object ShortsNavigationBarPatch : BytecodePatch(
         }
 
         RenderBottomNavigationBarFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerMethod.addInstruction(
                 0,

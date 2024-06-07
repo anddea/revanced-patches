@@ -13,8 +13,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 
-@Deprecated("This patch is generally not required for the latest versions of YouTube and YouTube Music." +
-        "For YouTube Music, if user spoofs the app version to v4.27.53, mp4a codec is still used, this is the patch for some of these users.")
+@Deprecated(
+    "This patch is generally not required for the latest versions of YouTube and YouTube Music." +
+            "For YouTube Music, if user spoofs the app version to v4.27.53, mp4a codec is still used, this is the patch for some of these users."
+)
 abstract class BaseOpusCodecsPatch(
     private val descriptor: String
 ) : BytecodePatch(

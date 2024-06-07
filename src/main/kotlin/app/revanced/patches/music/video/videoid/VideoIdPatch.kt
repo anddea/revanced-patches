@@ -22,7 +22,8 @@ object VideoIdPatch : BytecodePatch(
             it.mutableMethod.apply {
                 videoIdMethod = this
                 videoIdInsertIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                videoIdRegister = getInstruction<OneRegisterInstruction>(videoIdInsertIndex - 1).registerA
+                videoIdRegister =
+                    getInstruction<OneRegisterInstruction>(videoIdInsertIndex - 1).registerA
             }
         }
     }

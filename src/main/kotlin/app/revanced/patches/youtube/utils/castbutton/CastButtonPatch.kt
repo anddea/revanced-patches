@@ -43,7 +43,8 @@ object CastButtonPatch : BytecodePatch(
         MenuItemVisibilityFingerprint.resolve(context, toolbarMenuItemInitializeResult.classDef)
 
         toolbarMenuItemInitializeMethod = toolbarMenuItemInitializeResult.mutableMethod
-        toolbarMenuItemVisibilityMethod = MenuItemVisibilityFingerprint.resultOrThrow().mutableMethod
+        toolbarMenuItemVisibilityMethod =
+            MenuItemVisibilityFingerprint.resultOrThrow().mutableMethod
 
         playerButtonMethod = PlayerButtonFingerprint.resultOrThrow().mutableMethod
 

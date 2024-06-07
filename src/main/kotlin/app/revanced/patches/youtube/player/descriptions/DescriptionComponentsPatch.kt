@@ -110,8 +110,10 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
                 EngagementPanelTitleParentFingerprint.resultOrThrow().classDef
             )
             EngagementPanelTitleFingerprint.resultOrThrow().mutableMethod.apply {
-                val contentDescriptionIndex = getTargetIndexWithMethodReferenceName("setContentDescription")
-                val contentDescriptionRegister = getInstruction<FiveRegisterInstruction>(contentDescriptionIndex).registerD
+                val contentDescriptionIndex =
+                    getTargetIndexWithMethodReferenceName("setContentDescription")
+                val contentDescriptionRegister =
+                    getInstruction<FiveRegisterInstruction>(contentDescriptionIndex).registerD
 
                 addInstruction(
                     contentDescriptionIndex,

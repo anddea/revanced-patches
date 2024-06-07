@@ -60,7 +60,8 @@ abstract class BaseSpoofUserAgentPatch(
 
                 // IndexOutOfBoundsException is not possible here,
                 // but no such occurrences are present in the app.
-                val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
+                val referee =
+                    getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
 
                 // This can technically also match non-user agent string builder append methods,
                 // but no such occurrences are present in the app.

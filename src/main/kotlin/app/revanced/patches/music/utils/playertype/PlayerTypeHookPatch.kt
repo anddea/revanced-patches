@@ -13,6 +13,7 @@ object PlayerTypeHookPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$UTILS_PATH/PlayerTypeHookPatch;"
+
     override fun execute(context: BytecodeContext) {
 
         PlayerTypeFingerprint.resultOrThrow().let {

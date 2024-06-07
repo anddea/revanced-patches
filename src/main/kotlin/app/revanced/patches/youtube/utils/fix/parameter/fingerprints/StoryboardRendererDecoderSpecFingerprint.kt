@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
-* Resolves to the same method as [StoryboardRendererDecoderRecommendedLevelFingerprint].
-*/
+ * Resolves to the same method as [StoryboardRendererDecoderRecommendedLevelFingerprint].
+ */
 internal object StoryboardRendererDecoderSpecFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,

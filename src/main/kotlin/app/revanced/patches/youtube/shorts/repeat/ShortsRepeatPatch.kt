@@ -42,9 +42,12 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                     injectEnum(enumName, fieldName)
                 }
 
-                val endScreenStringIndex = getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
-                val endScreenReferenceIndex = getTargetIndex(endScreenStringIndex, Opcode.SPUT_OBJECT)
-                val endScreenReference = getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
+                val endScreenStringIndex =
+                    getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
+                val endScreenReferenceIndex =
+                    getTargetIndex(endScreenStringIndex, Opcode.SPUT_OBJECT)
+                val endScreenReference =
+                    getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
 
                 val enumMethodName = ReelEnumStaticFingerprint.resultOrThrow().mutableMethod.name
                 val enumMethodCall = "$definingClass->$enumMethodName(I)$definingClass"
@@ -101,7 +104,8 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                             if ((instruction as ReferenceInstruction).reference.toString() != enumMethodCall)
                                 continue
 
-                            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                            val register =
+                                getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                             addInstructions(
                                 index + 2, """
@@ -109,8 +113,8 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                                     move-result-object v$register
                                     """
                             )
+                        }
                     }
-                }
             }
         }
     }

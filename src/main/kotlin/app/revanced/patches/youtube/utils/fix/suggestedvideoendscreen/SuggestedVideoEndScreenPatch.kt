@@ -32,14 +32,18 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
          * Automatically closing the suggested video end screen is not appropriate as it will disable the autoplay behavior.
          */
         RemoveOnLayoutChangeListenerFingerprint.resultOrThrow().let {
-            val walkerIndex = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val walkerIndex =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerIndex.apply {
                 val invokeInterfaceIndex = getTargetIndex(Opcode.INVOKE_INTERFACE)
-                val iGetObjectIndex = getTargetIndexReversed(invokeInterfaceIndex, Opcode.IGET_OBJECT)
+                val iGetObjectIndex =
+                    getTargetIndexReversed(invokeInterfaceIndex, Opcode.IGET_OBJECT)
 
-                val invokeInterfaceReference = getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference
-                val iGetObjectReference = getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
+                val invokeInterfaceReference =
+                    getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference
+                val iGetObjectReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
 
                 addInstructionsWithLabels(
                     0,

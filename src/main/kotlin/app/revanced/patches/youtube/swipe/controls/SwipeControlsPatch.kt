@@ -62,7 +62,8 @@ object SwipeControlsPatch : BaseBytecodePatch(
 
         // region patch for swipe controls patch
 
-        val hostActivityClass = context.findClass(INTEGRATIONS_SWIPE_CONTROLS_HOST_ACTIVITY_CLASS_DESCRIPTOR)!!.mutableClass
+        val hostActivityClass =
+            context.findClass(INTEGRATIONS_SWIPE_CONTROLS_HOST_ACTIVITY_CLASS_DESCRIPTOR)!!.mutableClass
         val mainActivityClass = mainActivityMutableClass
 
         // inject the wrapper class from integrations into the class hierarchy of MainActivity (WatchWhileActivity)

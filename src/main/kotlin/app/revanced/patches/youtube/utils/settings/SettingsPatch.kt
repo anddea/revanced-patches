@@ -254,9 +254,11 @@ object SettingsPatch : BaseResourcePatch(
 
         // region set ReVanced Integrations Version
 
-        val buildConfigMutableClass = SettingsBytecodePatch.contexts.findClass { it.sourceFile == "BuildConfig.java" }!!.mutableClass
+        val buildConfigMutableClass =
+            SettingsBytecodePatch.contexts.findClass { it.sourceFile == "BuildConfig.java" }!!.mutableClass
         val versionNameField = buildConfigMutableClass.fields.single { it.name == "VERSION_NAME" }
-        val versionName = versionNameField.initialValue.toString().trim().replace("\"","").replace("&quot;", "")
+        val versionName =
+            versionNameField.initialValue.toString().trim().replace("\"", "").replace("&quot;", "")
 
         contexts.updatePatchStatusSettings(
             "ReVanced Integrations",

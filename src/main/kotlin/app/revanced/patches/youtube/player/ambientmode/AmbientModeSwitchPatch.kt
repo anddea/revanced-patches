@@ -45,13 +45,15 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
             PowerSaveModeSyntheticFingerprint to true
         ).forEach { (fingerprint, reversed) ->
             fingerprint.resultOrThrow().mutableMethod.apply {
-                val stringIndex = getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
+                val stringIndex =
+                    getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
                 val targetIndex =
                     if (reversed)
                         getTargetIndexReversed(stringIndex, Opcode.INVOKE_DIRECT)
                     else
                         getTargetIndex(stringIndex, Opcode.INVOKE_DIRECT)
-                val targetClass = (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
+                val targetClass =
+                    (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
 
                 syntheticClassList += targetClass
             }

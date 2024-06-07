@@ -28,14 +28,18 @@ object DoubleBackToClosePatch : BytecodePatch(
         /**
          * Hook onBackPressed method inside MainActivity (WatchWhileActivity)
          */
-        MainActivityResolvePatch.injectOnBackPressedMethodCall(INTEGRATIONS_CLASS_DESCRIPTOR, "closeActivityOnBackPressed")
+        MainActivityResolvePatch.injectOnBackPressedMethodCall(
+            INTEGRATIONS_CLASS_DESCRIPTOR,
+            "closeActivityOnBackPressed"
+        )
 
 
         /**
          * Inject the methods which start of ScrollView
          */
         ScrollPositionFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
             val insertIndex = walkerMethod.implementation!!.instructions.size - 1 - 1
 
             walkerMethod.injectScrollView(insertIndex, "onStartScrollView")
@@ -46,11 +50,12 @@ object DoubleBackToClosePatch : BytecodePatch(
          * Inject the methods which stop of ScrollView
          */
         ScrollTopParentFingerprint.resultOrThrow().let { parentResult ->
-            ScrollTopFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow().let {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+            ScrollTopFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow()
+                .let {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
-                it.mutableMethod.injectScrollView(insertIndex, "onStopScrollView")
-            }
+                    it.mutableMethod.injectScrollView(insertIndex, "onStopScrollView")
+                }
         }
 
     }

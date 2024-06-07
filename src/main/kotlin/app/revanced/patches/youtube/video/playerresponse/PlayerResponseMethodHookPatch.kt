@@ -95,7 +95,8 @@ object PlayerResponseMethodHookPatch :
         internal class VideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
         internal class PlayerParameter(methodDescriptor: String) : Hook(methodDescriptor)
-        internal class PlayerParameterBeforeVideoId(methodDescriptor: String) : Hook(methodDescriptor)
+        internal class PlayerParameterBeforeVideoId(methodDescriptor: String) :
+            Hook(methodDescriptor)
 
         override fun toString() = methodDescriptor
     }

@@ -53,12 +53,18 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
             // Spoof package name and signature.
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_NAME")
+                setAttribute(
+                    "android:name",
+                    "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_NAME"
+                )
                 setAttribute("android:value", fromPackageName)
             }
 
             applicationNode.adoptChild("meta-data") {
-                setAttribute("android:name", "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_SIGNATURE")
+                setAttribute(
+                    "android:name",
+                    "$gmsCoreVendorGroupId.android.gms.SPOOFED_PACKAGE_SIGNATURE"
+                )
                 setAttribute("android:value", spoofedPackageSignature)
             }
 

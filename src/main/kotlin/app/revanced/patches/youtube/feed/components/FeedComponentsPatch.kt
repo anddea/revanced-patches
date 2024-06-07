@@ -97,7 +97,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
             fingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstruction(
                         targetIndex + 1,
@@ -131,7 +132,7 @@ object FeedComponentsPatch : BaseBytecodePatch(
 
             addInstruction(
                 targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
+                "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
             )
         }
 
@@ -253,7 +254,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         ChannelTabRendererFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val iteratorIndex = getTargetIndexWithMethodReferenceName("hasNext")
-                val iteratorRegister = getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
+                val iteratorRegister =
+                    getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
 
                 val targetIndex = indexOfFirstInstruction {
                     val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)

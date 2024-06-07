@@ -45,7 +45,6 @@ import app.revanced.util.getTargetIndexWithReference
 import app.revanced.util.getTargetIndexWithReferenceReversed
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -109,7 +108,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         // YouTube's headers have the form of AttributeSet, which is decoded from YouTube's built-in classes.
         val attributeResolverMethod = AttributeResolverFingerprint.resultOrThrow().mutableMethod
-        val attributeResolverMethodCall = attributeResolverMethod.definingClass + "->" + attributeResolverMethod.name + "(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;"
+        val attributeResolverMethodCall =
+            attributeResolverMethod.definingClass + "->" + attributeResolverMethod.name + "(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;"
 
         context.findClass(GENERAL_CLASS_DESCRIPTOR)!!.mutableClass.methods.single { method ->
             method.name == "getHeaderDrawable"
@@ -139,9 +139,10 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         }
 
         // Override the header in the search bar.
-        val setActionBarRingoMutableClass = SetActionBarRingoFingerprint.resultOrThrow().mutableClass
-        setActionBarRingoMutableClass.methods.first {
-                method -> MethodUtil.isConstructor(method)
+        val setActionBarRingoMutableClass =
+            SetActionBarRingoFingerprint.resultOrThrow().mutableClass
+        setActionBarRingoMutableClass.methods.first { method ->
+            MethodUtil.isConstructor(method)
         }.apply {
             val insertIndex = getTargetIndex(Opcode.IPUT_BOOLEAN)
             val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -190,7 +191,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 .apply {
                     val staticCalls = implementation!!.instructions.withIndex()
                         .filter { instruction ->
-                            val methodReference = ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)
+                            val methodReference =
+                                ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)
                             methodReference?.parameterTypes?.size == 1 &&
                                     methodReference.returnType == "Z"
                         }
@@ -321,13 +323,18 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 )
             )
         } else {
-            SearchBarFingerprint.resolve(context, SearchBarParentFingerprint.resultOrThrow().classDef)
+            SearchBarFingerprint.resolve(
+                context,
+                SearchBarParentFingerprint.resultOrThrow().classDef
+            )
 
             SearchBarFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setVisibilityIndex = getTargetIndexWithMethodReferenceName(startIndex, "setVisibility")
-                    val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+                    val setVisibilityIndex =
+                        getTargetIndexWithMethodReferenceName(startIndex, "setVisibility")
+                    val setVisibilityInstruction =
+                        getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
                     replaceInstruction(
                         setVisibilityIndex,
@@ -340,8 +347,10 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
             SearchResultFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val startIndex = getWideLiteralInstructionIndex(VoiceSearch)
-                    val setOnClickListenerIndex = getTargetIndexWithMethodReferenceName(startIndex, "setOnClickListener")
-                    val viewRegister = getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
+                    val setOnClickListenerIndex =
+                        getTargetIndexWithMethodReferenceName(startIndex, "setOnClickListener")
+                    val viewRegister =
+                        getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
                     addInstruction(
                         setOnClickListenerIndex + 1,

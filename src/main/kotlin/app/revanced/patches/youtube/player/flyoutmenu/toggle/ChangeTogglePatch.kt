@@ -46,11 +46,14 @@ object ChangeTogglePatch : BaseBytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val additionalSettingsConfigMethod = AdditionalSettingsConfigFingerprint.resultOrThrow().mutableMethod
-        val methodToCall = additionalSettingsConfigMethod.definingClass + "->" + additionalSettingsConfigMethod.name + "()Z"
+        val additionalSettingsConfigMethod =
+            AdditionalSettingsConfigFingerprint.resultOrThrow().mutableMethod
+        val methodToCall =
+            additionalSettingsConfigMethod.definingClass + "->" + additionalSettingsConfigMethod.name + "()Z"
 
         // Resolves fingerprints
-        val playbackLoopOnClickListenerResult = PlaybackLoopOnClickListenerFingerprint.resultOrThrow()
+        val playbackLoopOnClickListenerResult =
+            PlaybackLoopOnClickListenerFingerprint.resultOrThrow()
         PlaybackLoopInitFingerprint.resolve(context, playbackLoopOnClickListenerResult.classDef)
 
         var fingerprintArray = arrayOf(
@@ -90,7 +93,8 @@ object ChangeTogglePatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val referenceIndex = indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_VIRTUAL
-                            && (this as ReferenceInstruction).reference.toString().endsWith(methodToCall)
+                            && (this as ReferenceInstruction).reference.toString()
+                        .endsWith(methodToCall)
                 }
                 if (referenceIndex > 0) {
                     val insertRegister =
@@ -117,12 +121,14 @@ object ChangeTogglePatch : BaseBytecodePatch(
 
         val stringReferenceIndex = stableVolumeMethod.indexOfFirstInstruction {
             opcode == Opcode.INVOKE_VIRTUAL
-                    && (this as ReferenceInstruction).reference.toString().endsWith("(Ljava/lang/String;Ljava/lang/String;)V")
+                    && (this as ReferenceInstruction).reference.toString()
+                .endsWith("(Ljava/lang/String;Ljava/lang/String;)V")
         }
         if (stringReferenceIndex < 0)
             throw PatchException("Target reference was not found in ${StableVolumeFingerprint.javaClass.simpleName}.")
 
-        val stringReference = stableVolumeMethod.getInstruction<ReferenceInstruction>(stringReferenceIndex).reference
+        val stringReference =
+            stableVolumeMethod.getInstruction<ReferenceInstruction>(stringReferenceIndex).reference
 
         CinematicLightingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -135,15 +141,20 @@ object ChangeTogglePatch : BaseBytecodePatch(
                 val stringIndex = getStringInstructionIndex("menu_item_cinematic_lighting")
 
                 val checkCastIndex = getTargetIndexReversed(stringIndex, Opcode.CHECK_CAST)
-                val iGetObjectPrimaryIndex = getTargetIndexReversed(checkCastIndex, Opcode.IGET_OBJECT)
+                val iGetObjectPrimaryIndex =
+                    getTargetIndexReversed(checkCastIndex, Opcode.IGET_OBJECT)
                 val iGetObjectSecondaryIndex = getTargetIndex(checkCastIndex, Opcode.IGET_OBJECT)
 
-                val checkCastReference = getInstruction<ReferenceInstruction>(checkCastIndex).reference
-                val iGetObjectPrimaryReference = getInstruction<ReferenceInstruction>(iGetObjectPrimaryIndex).reference
-                val iGetObjectSecondaryReference = getInstruction<ReferenceInstruction>(iGetObjectSecondaryIndex).reference
+                val checkCastReference =
+                    getInstruction<ReferenceInstruction>(checkCastIndex).reference
+                val iGetObjectPrimaryReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectPrimaryIndex).reference
+                val iGetObjectSecondaryReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectSecondaryIndex).reference
 
                 val invokeVirtualIndex = getTargetIndex(stringIndex, Opcode.INVOKE_VIRTUAL)
-                val invokeVirtualInstruction = getInstruction<FiveRegisterInstruction>(invokeVirtualIndex)
+                val invokeVirtualInstruction =
+                    getInstruction<FiveRegisterInstruction>(invokeVirtualIndex)
                 val freeRegisterC = invokeVirtualInstruction.registerC
                 val freeRegisterD = invokeVirtualInstruction.registerD
                 val freeRegisterE = invokeVirtualInstruction.registerE

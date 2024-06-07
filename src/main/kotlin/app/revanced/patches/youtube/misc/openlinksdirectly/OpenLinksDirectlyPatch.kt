@@ -33,7 +33,8 @@ object OpenLinksDirectlyPatch : BaseBytecodePatch(
             fingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = getTargetIndexWithMethodReferenceName("parse")
-                    val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+                    val insertRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                     replaceInstruction(
                         insertIndex,

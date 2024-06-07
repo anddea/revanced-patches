@@ -118,7 +118,8 @@ object TabletMiniPlayerPatch : BaseBytecodePatch(
         } else {
             MiniPlayerOverrideFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val walkerMethod = getWalkerMethod(context, getStringInstructionIndex("appName") + 2)
+                    val walkerMethod =
+                        getWalkerMethod(context, getStringInstructionIndex("appName") + 2)
 
                     walkerMethod.apply {
                         hook(getTargetIndex(Opcode.RETURN))

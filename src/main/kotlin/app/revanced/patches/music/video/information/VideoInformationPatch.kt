@@ -65,7 +65,8 @@ object VideoInformationPatch : BytecodePatch(
     internal lateinit var playbackSpeedResult: MethodFingerprintResult
 
     override fun execute(context: BytecodeContext) {
-        val videoInformationMutableClass = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
+        val videoInformationMutableClass =
+            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -119,7 +120,8 @@ object VideoInformationPatch : BytecodePatch(
          * Set the video time method
          */
         PlayerControllerSetTimeReferenceFingerprint.resultOrThrow().let {
-            videoTimeConstructorMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
+            videoTimeConstructorMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
         }
 
         /**
@@ -137,8 +139,12 @@ object VideoInformationPatch : BytecodePatch(
         VideoLengthFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val invalidateIndex = getTargetIndexWithMethodReferenceNameReversed("invalidate")
-                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(invalidateIndex + 1, "Landroid/graphics/Rect;")
-                rectangleFieldName = (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
+                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(
+                    invalidateIndex + 1,
+                    "Landroid/graphics/Rect;"
+                )
+                rectangleFieldName =
+                    (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
                 val videoLengthRegisterIndex = it.scanResult.patternScanResult!!.startIndex + 1
                 val videoLengthRegister =

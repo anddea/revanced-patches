@@ -181,7 +181,8 @@ fun BytecodeContext.literalInstructionHook(
                         .mutableClass
                         .findMutableMethodOf(method).apply {
                             val index = getWideLiteralInstructionIndex(literal)
-                            val register = (instruction as OneRegisterInstruction).registerA.toString()
+                            val register =
+                                (instruction as OneRegisterInstruction).registerA.toString()
 
                             addInstructions(
                                 index + 1,
@@ -205,8 +206,7 @@ fun Method.getWideLiteralInstructionIndex(literal: Long) = implementation?.let {
     }
 } ?: -1
 
-fun Method.getEmptyStringInstructionIndex()
-= getStringInstructionIndex("")
+fun Method.getEmptyStringInstructionIndex() = getStringInstructionIndex("")
 
 fun Method.getStringInstructionIndex(value: String) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
@@ -300,8 +300,8 @@ fun Method.getTargetIndexWithFieldReferenceName(filedName: String) = implementat
     }
 } ?: -1
 
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(returnType: String)
-        = getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.size - 1, returnType)
+fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(returnType: String) =
+    getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.size - 1, returnType)
 
 fun MutableMethod.getTargetIndexWithFieldReferenceName(startIndex: Int, filedName: String) =
     implementation!!.instructions.let {
@@ -310,7 +310,10 @@ fun MutableMethod.getTargetIndexWithFieldReferenceName(startIndex: Int, filedNam
         }
     }
 
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(startIndex: Int, filedName: String): Int {
+fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(
+    startIndex: Int,
+    filedName: String
+): Int {
     for (index in startIndex downTo 0) {
         val instruction = getInstruction(index)
         if (instruction.getReference<FieldReference>()?.name != filedName)
@@ -327,8 +330,8 @@ fun Method.getTargetIndexWithFieldReferenceType(returnType: String) = implementa
     }
 } ?: -1
 
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(returnType: String)
-= getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.size - 1, returnType)
+fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(returnType: String) =
+    getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.size - 1, returnType)
 
 fun MutableMethod.getTargetIndexWithFieldReferenceType(startIndex: Int, returnType: String) =
     implementation!!.instructions.let {
@@ -337,7 +340,10 @@ fun MutableMethod.getTargetIndexWithFieldReferenceType(startIndex: Int, returnTy
         }
     }
 
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(startIndex: Int, returnType: String): Int {
+fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(
+    startIndex: Int,
+    returnType: String
+): Int {
     for (index in startIndex downTo 0) {
         val instruction = getInstruction(index)
         if (instruction.getReference<FieldReference>()?.type != returnType)
@@ -354,8 +360,11 @@ fun Method.getTargetIndexWithMethodReferenceName(methodName: String) = implement
     }
 } ?: -1
 
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(methodName: String)
-= getTargetIndexWithMethodReferenceNameReversed(implementation!!.instructions.size - 1, methodName)
+fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(methodName: String) =
+    getTargetIndexWithMethodReferenceNameReversed(
+        implementation!!.instructions.size - 1,
+        methodName
+    )
 
 
 fun MutableMethod.getTargetIndexWithMethodReferenceName(startIndex: Int, methodName: String) =
@@ -365,7 +374,10 @@ fun MutableMethod.getTargetIndexWithMethodReferenceName(startIndex: Int, methodN
         }
     }
 
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(startIndex: Int, methodName: String): Int {
+fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(
+    startIndex: Int,
+    methodName: String
+): Int {
     for (index in startIndex downTo 0) {
         val instruction = getInstruction(index)
         if (instruction.getReference<MethodReference>()?.name != methodName)
@@ -494,11 +506,13 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
                         const/4 v0, $const
                         return-object v0
                         """
+
                 'V' -> "return-void"
                 'I', 'Z' -> """
                         const/4 v0, $const
                         return v0
                         """
+
                 else -> throw Exception("This case should never happen.")
             }
 

@@ -174,8 +174,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(AccountSwitcherAccessibility)
                 val insertIndex = getTargetIndex(constIndex, Opcode.IF_EQZ)
-                val setVisibilityIndex = getTargetIndexWithMethodReferenceName(insertIndex, "setVisibility")
-                val visibilityRegister = getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
+                val setVisibilityIndex =
+                    getTargetIndexWithMethodReferenceName(insertIndex, "setVisibility")
+                val visibilityRegister =
+                    getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
 
                 addInstructions(
                     insertIndex, """
@@ -192,7 +194,8 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         SettingsMenuFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithFieldReferenceType("Landroid/support/v7/widget/RecyclerView;")
+                val insertIndex =
+                    getTargetIndexWithFieldReferenceType("Landroid/support/v7/widget/RecyclerView;")
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(

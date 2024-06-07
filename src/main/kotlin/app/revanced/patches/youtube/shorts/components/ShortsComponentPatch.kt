@@ -161,7 +161,10 @@ object ShortsComponentPatch : BaseBytecodePatch(
                 if (insertIndex == 0)
                     throw PatchException("insert index not found")
 
-                hideButtons(insertIndex, "hideShortsSoundButton(Ljava/lang/Object;)Ljava/lang/Object;")
+                hideButtons(
+                    insertIndex,
+                    "hideShortsSoundButton(Ljava/lang/Object;)Ljava/lang/Object;"
+                )
             }
         }
 
@@ -186,7 +189,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
                 when (returnType) {
                     "Landroid/widget/TextView;" -> {
                         val insertIndex = implementation!!.instructions.size - 1
-                        val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                         addInstructions(
                             insertIndex + 1, """
@@ -196,6 +200,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
                         )
                         removeInstruction(insertIndex)
                     }
+
                     "V" -> {
                         addInstructionsWithLabels(
                             0, """
@@ -206,6 +211,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
                                 """, ExternalLabel("show", getInstruction(0))
                         )
                     }
+
                     else -> {
                         throw PatchException("Unknown returnType: $returnType")
                     }
@@ -260,7 +266,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
 
         TextComponentSpecFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithReference("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
+                val insertIndex =
+                    getTargetIndexWithReference("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
 
                 val charSequenceRegister =
                     getInstruction<FiveRegisterInstruction>(insertIndex).registerC

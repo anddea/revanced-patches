@@ -55,9 +55,11 @@ object ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
             it.mutableMethod.apply {
                 val insertIndex = indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_STATIC
-                            && (this as ReferenceInstruction).reference.toString().endsWith("Ljava/lang/CharSequence;")
+                            && (this as ReferenceInstruction).reference.toString()
+                        .endsWith("Ljava/lang/CharSequence;")
                 } + 2
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstructions(
                     insertIndex, """

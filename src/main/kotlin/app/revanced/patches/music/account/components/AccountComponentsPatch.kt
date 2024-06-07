@@ -65,8 +65,10 @@ object AccountComponentsPatch : BaseBytecodePatch(
             result.mutableMethod.apply {
 
                 val textColorIndex = getTargetIndexWithMethodReferenceName("setTextColor")
-                val setVisibilityIndex = getTargetIndexWithMethodReferenceName(textColorIndex, "setVisibility")
-                val textViewInstruction = getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+                val setVisibilityIndex =
+                    getTargetIndexWithMethodReferenceName(textColorIndex, "setVisibility")
+                val textViewInstruction =
+                    getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
                 replaceInstruction(
                     setVisibilityIndex,
@@ -96,7 +98,8 @@ object AccountComponentsPatch : BaseBytecodePatch(
 
         TermsOfServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithReference("/PrivacyTosFooter;->setVisibility(I)V")
+                val insertIndex =
+                    getTargetIndexWithReference("/PrivacyTosFooter;->setVisibility(I)V")
                 val visibilityRegister =
                     getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 

@@ -49,7 +49,8 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
 
                 // hook download button
                 val addViewIndex = getTargetIndexWithMethodReferenceName("addView")
-                val addViewRegister = getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
+                val addViewRegister =
+                    getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
 
                 addInstruction(
                     addViewIndex + 1,
@@ -86,7 +87,8 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
                 val freeRegister = min(implementation!!.registerCount - parameters.size - 2, 15)
 
                 val spannedIndex = getTargetIndexWithReference(")Landroid/text/Spanned;")
-                val spannedRegister = getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
+                val spannedRegister =
+                    getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
                 val spannedReference = getInstruction<ReferenceInstruction>(spannedIndex).reference
 
                 addInstructionsWithLabels(
@@ -101,10 +103,12 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
 
                 // set action button identifier
                 val buttonTypeDownloadIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                val buttonTypeDownloadRegister = getInstruction<OneRegisterInstruction>(buttonTypeDownloadIndex).registerA
+                val buttonTypeDownloadRegister =
+                    getInstruction<OneRegisterInstruction>(buttonTypeDownloadIndex).registerA
 
                 val buttonTypeIndex = it.scanResult.patternScanResult!!.endIndex - 1
-                val buttonTypeRegister = getInstruction<OneRegisterInstruction>(buttonTypeIndex).registerA
+                val buttonTypeRegister =
+                    getInstruction<OneRegisterInstruction>(buttonTypeIndex).registerA
 
                 addInstruction(
                     buttonTypeIndex + 2,

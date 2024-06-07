@@ -37,6 +37,7 @@ object CommentsComponentPatch : BaseBytecodePatch(
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/CommentsFilter;"
+
     override fun execute(context: BytecodeContext) {
 
         // region patch for emoji picker button in shorts
@@ -44,7 +45,7 @@ object CommentsComponentPatch : BaseBytecodePatch(
         ShortsLiveStreamEmojiPickerOpacityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1
-                val insertRegister= getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex,
@@ -56,12 +57,15 @@ object CommentsComponentPatch : BaseBytecodePatch(
         ShortsLiveStreamEmojiPickerOnClickListenerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val emojiPickerEndpointIndex = getWideLiteralInstructionIndex(126326492)
-                val emojiPickerOnClickListenerIndex = getTargetIndex(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
-                val emojiPickerOnClickListenerMethod = getWalkerMethod(context, emojiPickerOnClickListenerIndex)
+                val emojiPickerOnClickListenerIndex =
+                    getTargetIndex(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
+                val emojiPickerOnClickListenerMethod =
+                    getWalkerMethod(context, emojiPickerOnClickListenerIndex)
 
                 emojiPickerOnClickListenerMethod.apply {
                     val insertIndex = getTargetIndex(Opcode.IF_EQZ)
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """

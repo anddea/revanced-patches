@@ -125,7 +125,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             QualityChangedFromRecyclerViewFingerprint.resultOrThrow().classDef
         )
 
-        val newMethod = PlaybackSpeedChangedFromRecyclerViewFingerprint.resultOrThrow().mutableMethod
+        val newMethod =
+            PlaybackSpeedChangedFromRecyclerViewFingerprint.resultOrThrow().mutableMethod
 
         arrayOf(
             newMethod,
@@ -293,7 +294,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             ByteBufferArrayFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """

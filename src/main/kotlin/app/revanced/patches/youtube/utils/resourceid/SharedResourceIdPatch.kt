@@ -175,7 +175,8 @@ object SharedResourceIdPatch : ResourcePatch() {
         RightComment = getId(DRAWABLE, "ic_right_comment_32c")
         ScrimOverlay = getId(ID, "scrim_overlay")
         Scrubbing = getId(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
-        SeekEasyHorizontalTouchOffsetToStartScrubbing = getId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
+        SeekEasyHorizontalTouchOffsetToStartScrubbing =
+            getId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         SeekUndoEduOverlayStub = getId(ID, "seek_undo_edu_overlay_stub")
         SingleLoopEduSnackBarText = getId(STRING, "single_loop_edu_snackbar_text")
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
@@ -186,9 +187,11 @@ object SharedResourceIdPatch : ResourcePatch() {
         TotalTime = getId(STRING, "total_time")
         TouchArea = getId(ID, "touch_area")
         VideoQualityBottomSheet = getId(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
-        VideoQualityUnavailableAnnouncement = getId(STRING, "video_quality_unavailable_announcement")
+        VideoQualityUnavailableAnnouncement =
+            getId(STRING, "video_quality_unavailable_announcement")
         VoiceSearch = getId(ID, "voice_search")
-        YouTubeControlsOverlaySubtitleButton = getId(LAYOUT, "youtube_controls_overlay_subtitle_button")
+        YouTubeControlsOverlaySubtitleButton =
+            getId(LAYOUT, "youtube_controls_overlay_subtitle_button")
         YtOutlinePiPWhite = getId(DRAWABLE, "yt_outline_picture_in_picture_white_24")
         YtOutlineVideoCamera = getId(DRAWABLE, "yt_outline_video_camera_black_24")
         YtOutlineXWhite = getId(DRAWABLE, "yt_outline_x_white_24")

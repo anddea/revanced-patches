@@ -126,16 +126,20 @@ object PlayerButtonsPatch : BaseBytecodePatch(
         TitleAnchorFingerprint.resultOrThrow().mutableMethod.apply {
             val titleAnchorConstIndex = getWideLiteralInstructionIndex(TitleAnchor)
             val titleAnchorIndex = getTargetIndex(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
-            val titleAnchorRegister = getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
+            val titleAnchorRegister =
+                getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
 
             addInstruction(
                 titleAnchorIndex + 1,
                 "invoke-static {v$titleAnchorRegister}, $PLAYER_CLASS_DESCRIPTOR->setTitleAnchorStartMargin(Landroid/view/View;)V"
             )
 
-            val playerCollapseButtonConstIndex = getWideLiteralInstructionIndex(PlayerCollapseButton)
-            val playerCollapseButtonIndex = getTargetIndex(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
-            val playerCollapseButtonRegister = getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
+            val playerCollapseButtonConstIndex =
+                getWideLiteralInstructionIndex(PlayerCollapseButton)
+            val playerCollapseButtonIndex =
+                getTargetIndex(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
+            val playerCollapseButtonRegister =
+                getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
 
             addInstruction(
                 playerCollapseButtonIndex + 1,
