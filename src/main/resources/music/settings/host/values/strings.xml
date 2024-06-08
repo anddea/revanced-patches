@@ -11,7 +11,7 @@
     <string name="revanced_preference_screen_account_title">Account</string>
 
     <string name="revanced_hide_account_menu_title">Hide account menu</string>
-    <string name="revanced_hide_account_menu_summary">Hides account menu elements in the custom filter.</string>
+    <string name="revanced_hide_account_menu_summary">Hides account menu elements using the custom filter.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Hide empty components</string>
@@ -19,31 +19,31 @@
     <string name="revanced_hide_handle_title">Hide handle</string>
     <string name="revanced_hide_handle_summary">Hides the handle in the account menu.</string>
     <string name="revanced_hide_terms_container_title">Hide terms container</string>
-    <string name="revanced_hide_terms_container_summary">Hides terms of service container.</string>
+    <string name="revanced_hide_terms_container_summary">Hides the Terms of Service container.</string>
 
 
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">Action Bar</string>
 
-    <string name="revanced_hide_action_button_like_dislike_title">Hide like and dislike buttons</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Hides the like and dislike buttons. It does not work in the old player layout.</string>
-    <string name="revanced_hide_action_button_comment_title">Hide comment button</string>
-    <string name="revanced_hide_action_button_comment_summary">Hides comment button.</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Hide add to playlist button</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Hides add to playlist button.</string>
-    <string name="revanced_hide_action_button_download_title">Hide download button</string>
-    <string name="revanced_hide_action_button_download_summary">Hides download button.</string>
-    <string name="revanced_hide_action_button_share_title">Hide share button</string>
-    <string name="revanced_hide_action_button_share_summary">Hides share button.</string>
-    <string name="revanced_hide_action_button_radio_title">Hide radio button</string>
-    <string name="revanced_hide_action_button_radio_summary">Hides start radio button.</string>
-    <string name="revanced_hide_action_button_label_summary">Hides labels in action buttons.</string>
+    <string name="revanced_hide_action_button_like_dislike_title">Hide Like and Dislike buttons</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Hides the Like and Dislike buttons. It does not work in the old player layout.</string>
+    <string name="revanced_hide_action_button_comment_title">Hide Comments button</string>
+    <string name="revanced_hide_action_button_comment_summary">Hides the Comments button.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Hide Save button</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Hides the Save button.</string>
+    <string name="revanced_hide_action_button_download_title">Hide Download button</string>
+    <string name="revanced_hide_action_button_download_summary">Hides the Download button.</string>
+    <string name="revanced_hide_action_button_share_title">Hide Share button</string>
+    <string name="revanced_hide_action_button_share_summary">Hides the Share button.</string>
+    <string name="revanced_hide_action_button_radio_title">Hide Radio button</string>
+    <string name="revanced_hide_action_button_radio_summary">Hides the Radio button.</string>
     <string name="revanced_hide_action_button_label_title">Hide action button labels</string>
-    <string name="revanced_external_downloader_action_title">Override download action button</string>
+    <string name="revanced_hide_action_button_label_summary">Hides the labels of the action buttons.</string>
+    <string name="revanced_external_downloader_action_title">Override Download action button</string>
     <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
 
-• Only overrides the download action button in the player.
-• Does not override the download button in the flyout menu or library."</string>
+• Only overrides the Download action button in the player.
+• Does not override the Download button in the flyout menu or Library tab."</string>
     <string name="revanced_external_downloader_package_name_title">External downloader package name</string>
     <string name="revanced_external_downloader_package_name_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
@@ -60,10 +60,10 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
     <string name="revanced_hide_general_ads_title">Hide general ads</string>
     <string name="revanced_hide_general_ads_summary">Hides general ads.</string>
-    <string name="revanced_hide_music_ads_title">Hide music ads</string>
-    <string name="revanced_hide_music_ads_summary">Hides ads before playing a music.</string>
+    <string name="revanced_hide_music_ads_title">Hide media ads</string>
+    <string name="revanced_hide_music_ads_summary">Hides ads before playing media.</string>
     <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
-    <string name="revanced_hide_paid_promotion_label_summary">Hides paid promotion label.</string>
+    <string name="revanced_hide_paid_promotion_label_summary">Hides the paid promotion label.</string>
     <string name="revanced_hide_premium_promotion_title">Hide premium promotion popups</string>
     <string name="revanced_hide_premium_promotion_summary">Hides premium promotion popups.</string>
     <string name="revanced_hide_premium_renewal_title">Hide premium renewal banner</string>
@@ -77,52 +77,53 @@ Please download %2$s from the website."</string>
     <string name="revanced_enable_compact_dialog_summary">"Enables the compact flyout menu on phones.
 
 Limitations:
-• Album art in the library tab becomes smaller when organized in a grid.
+• Album art in the Library tab becomes smaller when organized in a grid.
 • Sleep timer layout may appear unusual."</string>
-    <string name="revanced_enable_trim_silence_title">Add trim silence switch</string>
-    <string name="revanced_enable_trim_silence_summary">"Adds 'Trim silence' switch to the playback speed flyout menu.
+    <string name="revanced_enable_trim_silence_title">Add Trim silence switch</string>
+    <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
 
 Info:
 • This feature is for podcasts.
 • This feature is still in development, so it may be unstable."</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Hide like and dislike button</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">Hide Like and Dislike buttons</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Hide 3-column component</string>
-    <string name="revanced_hide_flyout_menu_add_to_queue_title">Hide add to queue menu</string>
-    <string name="revanced_hide_flyout_menu_captions_title">Hide captions menu</string>
-    <string name="revanced_hide_flyout_menu_delete_playlist_title">Hide delete playlist menu</string>
-    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Hide dismiss queue menu</string>
-    <string name="revanced_hide_flyout_menu_download_title">Hide download menu</string>
-    <string name="revanced_hide_flyout_menu_edit_playlist_title">Hide edit playlist menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_album_title">Hide go to album menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_artist_title">Hide go to artist menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_episode_title">Hide go to episode menu</string>
-    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Hide go to podcast menu</string>
-    <string name="revanced_hide_flyout_menu_help_title">Hide help &amp; feedback menu</string>
-    <string name="revanced_hide_flyout_menu_play_next_title">Hide play next menu</string>
-    <string name="revanced_hide_flyout_menu_quality_title">Hide quality menu</string>
-    <string name="revanced_hide_flyout_menu_remove_from_library_title">Hide remove from library menu</string>
-    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Hide remove from playlist menu</string>
-    <string name="revanced_hide_flyout_menu_report_title">Hide report menu</string>
-    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Hide save episode for later menu</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Hide save to library menu</string>
-    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Hide save to playlist menu</string>
-    <string name="revanced_hide_flyout_menu_share_title">Hide share menu</string>
-    <string name="revanced_hide_flyout_menu_shuffle_play_title">Hide shuffle play menu</string>
-    <string name="revanced_hide_flyout_menu_sleep_timer_title">Hide sleep timer menu</string>
-    <string name="revanced_hide_flyout_menu_start_radio_title">Hide start radio menu</string>
-    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide stats for nerds menu</string>
-    <string name="revanced_hide_flyout_menu_subscribe_title">Hide subscribe / unsubscribe menu</string>
-    <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide view song credit menu</string>
+    <string name="revanced_hide_flyout_menu_add_to_queue_title">Hide Add to queue menu</string>
+    <string name="revanced_hide_flyout_menu_captions_title">Hide Captions menu</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Hide Delete playlist menu</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Hide Dismiss queue menu</string>
+    <string name="revanced_hide_flyout_menu_download_title">Hide Download menu</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Hide Edit playlist menu</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Hide Go to album menu</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Hide Go to artist menu</string>
+    <string name="revanced_hide_flyout_menu_go_to_episode_title">Hide Go to episode menu</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Hide Go to podcast menu</string>
+    <string name="revanced_hide_flyout_menu_help_title">Hide Help &amp; feedback menu</string>
+    <string name="revanced_hide_flyout_menu_play_next_title">Hide Play next menu</string>
+    <string name="revanced_hide_flyout_menu_quality_title">Hide Quality menu</string>
+    <string name="revanced_hide_flyout_menu_remove_from_library_title">Hide Remove from library menu</string>
+    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Hide Remove from playlist menu</string>
+    <string name="revanced_hide_flyout_menu_report_title">Hide Report menu</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Hide Save episode for later menu</string>
+    <string name="revanced_hide_flyout_menu_save_to_library_title">Hide Save to library menu</string>
+    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Hide Save to playlist menu</string>
+    <string name="revanced_hide_flyout_menu_share_title">Hide Share menu</string>
+    <string name="revanced_hide_flyout_menu_shuffle_play_title">Hide Shuffle play menu</string>
+    <string name="revanced_hide_flyout_menu_sleep_timer_title">Hide Sleep timer menu</string>
+    <string name="revanced_hide_flyout_menu_start_radio_title">Hide Start radio menu</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
+    <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continue watching</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continues the video from the current time when switching to YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Watch on YouTube</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Invalid video url.</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Replace dismiss queue</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Replaces \'Dismiss queue\' with \'Watch on YouTube\'.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Keep report in comments</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Keeps the report menu in the comments section intact.</string>
-    <string name="revanced_replace_flyout_menu_report_title">Replace report</string>
-    <string name="revanced_replace_flyout_menu_report_summary">Replaces \'Report\' with \'Playback speed\'.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Replace Dismiss queue menu</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Replaces the Dismiss queue menu with the Watch on YouTube menu.</string>
+    <string name="revanced_replace_flyout_menu_report_title">Replace Report menu</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Replaces the Report menu with the Playback speed menu.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Keep Report in comments</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Keeps the Report menu in the comments section intact.</string>
+
 
 
     <!-- PreferenceScreen: General -->
@@ -138,7 +139,7 @@ Info:
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
     <string name="revanced_disable_auto_captions_summary">Disables captions from being automatically enabled.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
-    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the dislike button.</string>
+    <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the Dislike button.</string>
     <string name="revanced_enable_landscape_mode_title">Enable landscape mode</string>
     <string name="revanced_enable_landscape_mode_summary">Enables landscape mode when rotating the screen on phones.</string>
     <string name="revanced_custom_filter_title">Enable custom filter</string>
@@ -148,31 +149,31 @@ Info:
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s.</string>
     <string name="revanced_hide_button_shelf_title">Hide button shelf</string>
-    <string name="revanced_hide_button_shelf_summary">Hides button shelf in feed.</string>
+    <string name="revanced_hide_button_shelf_summary">Hides the button shelf in the feed.</string>
     <string name="revanced_hide_carousel_shelf_title">Hide carousel shelf</string>
-    <string name="revanced_hide_carousel_shelf_summary">Hides carousel shelf in feed.</string>
+    <string name="revanced_hide_carousel_shelf_summary">Hides the carousel shelf in the feed.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Hide playlist card shelf</string>
-    <string name="revanced_hide_playlist_card_shelf_summary">Hides playlist card shelf in feed.</string>
-    <string name="revanced_hide_samples_shelf_title">Hide samples shelf</string>
-    <string name="revanced_hide_samples_shelf_summary">Hides samples shelf in feed.</string>
-    <string name="revanced_hide_cast_button_title">Hide cast button</string>
-    <string name="revanced_hide_cast_button_summary">Hides cast button.</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Hides the playlist card shelf in the feed.</string>
+    <string name="revanced_hide_samples_shelf_title">Hide Samples shelf</string>
+    <string name="revanced_hide_samples_shelf_summary">Hides the Samples shelf in the feed.</string>
+    <string name="revanced_hide_cast_button_title">Hide Cast button</string>
+    <string name="revanced_hide_cast_button_summary">Hides the Cast button.</string>
     <string name="revanced_hide_category_bar_title">Hide category bar</string>
-    <string name="revanced_hide_category_bar_summary">Hides category bar.</string>
+    <string name="revanced_hide_category_bar_summary">Hides the category bar.</string>
     <string name="revanced_hide_floating_button_title">Hide floating button</string>
-    <string name="revanced_hide_floating_button_summary">Hides floating button in library.</string>
+    <string name="revanced_hide_floating_button_summary">Hides the floating button in the Library tab.</string>
     <string name="revanced_hide_tap_to_update_button_title">Hide \'Tap to update\' button</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Hides \'Tap to update\' button.</string>
-    <string name="revanced_hide_history_button_title">Hide history button</string>
-    <string name="revanced_hide_history_button_summary">Hides history button in toolbar.</string>
-    <string name="revanced_hide_notification_button_title">Hide notification button</string>
-    <string name="revanced_hide_notification_button_summary">Hides notification button in toolbar.</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Hides the \'Tap to update\' button.</string>
+    <string name="revanced_hide_history_button_title">Hide History button</string>
+    <string name="revanced_hide_history_button_summary">Hides the History button in the toolbar.</string>
+    <string name="revanced_hide_notification_button_title">Hide Notifications button</string>
+    <string name="revanced_hide_notification_button_summary">Hides the Notifications button in the toolbar.</string>
     <string name="revanced_hide_sound_search_button_title">Hide sound search button</string>
-    <string name="revanced_hide_sound_search_button_summary">Hides sound search button in search bar.</string>
+    <string name="revanced_hide_sound_search_button_summary">Hides the sound search button in the search bar.</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
-    <string name="revanced_hide_voice_search_button_summary">Hides voice search button in search bar.</string>
+    <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar.</string>
     <string name="revanced_restore_old_style_library_shelf_title">Restore old style library shelf</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">Returns the library tab to the old style. (Experimental)</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Returns the Library tab to the old style. (Experimental)</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Removes the viewer discretion dialog.
 This does not bypass the age restriction. It just accepts it automatically."</string>
@@ -183,7 +184,7 @@ This does not bypass the age restriction. It just accepts it automatically."</st
 • If later disabled, the old UI may remain until the app data is cleared."</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target.</string>
-    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Disable radio mode in Canadian regions</string>
+    <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Disable Radio mode in Canadian regions</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Disable real-time lyrics</string>
 
 
@@ -192,19 +193,19 @@ This does not bypass the age restriction. It just accepts it automatically."</st
 
     <string name="revanced_enable_black_navigation_bar_title">Enable black navigation bar</string>
     <string name="revanced_enable_black_navigation_bar_summary">Sets the navigation bar color to black.</string>
-    <string name="revanced_hide_navigation_home_button_title">Hide home button</string>
-    <string name="revanced_hide_navigation_home_button_summary">Hides the home button.</string>
-    <string name="revanced_hide_navigation_samples_button_title">Hide samples button</string>
-    <string name="revanced_hide_navigation_samples_button_summary">Hides the samples button.</string>
-    <string name="revanced_hide_navigation_explore_button_title">Hide explore button</string>
-    <string name="revanced_hide_navigation_explore_button_summary">Hides the explore button.</string>
-    <string name="revanced_hide_navigation_library_button_title">Hide library button</string>
-    <string name="revanced_hide_navigation_library_button_summary">Hides the library button.</string>
-    <string name="revanced_hide_navigation_upgrade_button_title">Hide upgrade button</string>
-    <string name="revanced_hide_navigation_upgrade_button_summary">Hides the upgrade button.</string>
+    <string name="revanced_hide_navigation_home_button_title">Hide Home button</string>
+    <string name="revanced_hide_navigation_home_button_summary">Hides the Home button.</string>
+    <string name="revanced_hide_navigation_samples_button_title">Hide Samples button</string>
+    <string name="revanced_hide_navigation_samples_button_summary">Hides the Samples button.</string>
+    <string name="revanced_hide_navigation_explore_button_title">Hide Explore button</string>
+    <string name="revanced_hide_navigation_explore_button_summary">Hides the Explore button.</string>
+    <string name="revanced_hide_navigation_library_button_title">Hide Library button</string>
+    <string name="revanced_hide_navigation_library_button_summary">Hides the Library button.</string>
+    <string name="revanced_hide_navigation_upgrade_button_title">Hide Upgrade button</string>
+    <string name="revanced_hide_navigation_upgrade_button_summary">Hides the Upgrade button.</string>
     <string name="revanced_hide_navigation_bar_title">Hide navigation bar</string>
     <string name="revanced_hide_navigation_bar_summary">Hides the navigation bar.</string>
-    <string name="revanced_hide_navigation_label_title">Hide navigation label</string>
+    <string name="revanced_hide_navigation_label_title">Hide navigation labels</string>
     <string name="revanced_hide_navigation_label_summary">Hides labels below the navigation buttons.</string>
 
 
@@ -217,24 +218,24 @@ This does not bypass the age restriction. It just accepts it automatically."</st
     <string name="revanced_enable_color_match_player_summary">Matches the color of the miniplayer to the fullscreen player.</string>
     <string name="revanced_enable_force_minimized_player_title">Enable force minimized player</string>
     <string name="revanced_enable_force_minimized_player_summary">Keeps the player minimized even when another track is played.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Enable miniplayer next button</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Enables next button in the miniplayer.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Enable miniplayer previous button</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Enables previous button in the miniplayer.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Add miniplayer next button</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Adds a next track button to the miniplayer.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Add miniplayer previous button</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Adds a previous track button to the miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Enables swipe down to dismiss miniplayer.</string>
-    <string name="revanced_enable_zen_mode_title">Enable zen mode</string>
-    <string name="revanced_enable_zen_mode_summary">Changes the player background to light grey to reduce eye strain.</string>
-    <string name="revanced_enable_zen_mode_podcast_title">Enable zen mode in podcasts</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">Zen mode is also applied to podcasts.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Hide audio video switch toggle</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the audio video switch toggle in player.</string>
+    <string name="revanced_enable_zen_mode_title">Enable Zen mode</string>
+    <string name="revanced_enable_zen_mode_summary">Changes the player background color to light grey to reduce eye strain.</string>
+    <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Also enables Zen mode for podcasts.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Hide Audio / Video toggle</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the Audio / Video toggle in the player.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
-    <string name="revanced_hide_comment_channel_guidelines_summary">Hides channel guidelines at the top of the comments section.</string>
+    <string name="revanced_hide_comment_channel_guidelines_summary">Hides the channel guidelines at the top of the comments section.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Hides timestamp and emoji buttons when typing comments.</string>
-    <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen share button</string>
-    <string name="revanced_hide_fullscreen_share_button_summary">Hides the share button in the fullscreen player.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Hides the timestamp and emoji buttons when typing comments.</string>
+    <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
+    <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_remember_repeat_state_title">Remember repeat state</string>
     <string name="revanced_remember_repeat_state_summary">Remembers the state of the repeat toggle.</string>
     <string name="revanced_remember_shuffle_state_title">Remember shuffle state</string>
@@ -356,11 +357,11 @@ Some features may not work properly in the old player layout."</string>
     <string name="revanced_enable_debug_logging_summary">Prints the debug log.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
-    <string name="revanced_enable_opus_codec_title">Enable opus codec</string>
-    <string name="revanced_enable_opus_codec_summary">"Enables the opus audio codec instead of the mp4a audio codec.
+    <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
+    <string name="revanced_enable_opus_codec_summary">"Enables the OPUS audio codec instead of the MP4A audio codec.
 
 Info:
-• Latest Android clients use the opus audio codec by default.
+• Latest Android clients use the OPUS audio codec by default.
 • This is only valid for users spoofing with very old clients."</string>
 
     <string name="gms_core_settings_title">Open GmsCore</string>
@@ -372,7 +373,7 @@ Info:
     <string name="gms_core_dialog_title">Action needed</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore does not have permission to run in the background.
 
-Follow the 'Don't kill my app' guide for your phone, and apply the instructions to your MicroG installation.
+Follow the 'Don't kill my app!' guide for your device, and apply the instructions to your GmsCore installation.
 
 This is required for the app to work."</string>
     <string name="gms_core_dialog_open_website_text">Open website</string>

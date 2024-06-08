@@ -44,7 +44,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
         default = DEFAULT_ICON_KEY,
         values = iconTypes,
         title = "Icon type",
-        description = "Apply icon type"
+        description = "The icon type."
     )
 
     private val BottomMargin by stringPatchOption(
@@ -55,7 +55,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
             "Default" to DEFAULT_MARGIN
         ),
         title = "Bottom margin",
-        description = "Apply bottom margin to Overlay buttons and Timestamp"
+        description = "The bottom margin for the overlay buttons and timestamp."
     )
 
     override fun execute(context: ResourceContext) {

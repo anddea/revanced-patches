@@ -25,7 +25,7 @@ object SponsorBlockPatch : BaseResourcePatch(
         key = "OutlineIcon",
         default = true,
         title = "Outline icons",
-        description = "Apply the outline icon",
+        description = "Apply the outline icon.",
         required = true
     )
 
