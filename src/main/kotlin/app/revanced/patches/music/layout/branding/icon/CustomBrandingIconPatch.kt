@@ -58,11 +58,13 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         values = availableIcon,
         title = "App icon",
         description = """
-            The path to a folder containing the following folders:
+            The icon to apply to the app.
+            
+            If a path to a folder is provided, the folder must contain the following folders:
 
             ${mipmapDirectories.joinToString("\n") { "- $it" }}
 
-            Each of these folders has to have the following files:
+            Each of these folders must contain the following files:
 
             ${mipmapIconResourceFileNames.joinToString("\n") { "- $it" }}
             """

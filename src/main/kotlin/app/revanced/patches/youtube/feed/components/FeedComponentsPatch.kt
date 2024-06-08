@@ -50,7 +50,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object FeedComponentsPatch : BaseBytecodePatch(
     name = "Hide feed components",
-    description = "Adds options to hide components related to the feed.",
+    description = "Adds options to hide components related to feeds.",
     dependencies = setOf(
         LithoFilterPatch::class,
         NavigationBarHookPatch::class,
