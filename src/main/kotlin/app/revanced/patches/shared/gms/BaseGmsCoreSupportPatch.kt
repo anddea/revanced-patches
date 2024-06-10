@@ -18,7 +18,7 @@ import app.revanced.patches.shared.gms.fingerprints.GmsCoreSupportFingerprint.GE
 import app.revanced.patches.shared.gms.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.shared.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.shared.gms.fingerprints.ServiceCheckFingerprint
-import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.shared.packagename.PackageNamePatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
@@ -106,7 +106,7 @@ abstract class BaseGmsCoreSupportPatch(
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
             1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
-            "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_PATH/patches/GmsCoreSupport;->" +
+            "invoke-static/range { p0 .. p0 }, $PATCHES_PATH/GmsCoreSupport;->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
         )
 
