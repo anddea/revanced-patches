@@ -21,7 +21,7 @@ object OpusCodecPatch : BaseResourcePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.MISC,
             "revanced_enable_opus_codec",
-            "true"
+            "false"
         )
 
     }
