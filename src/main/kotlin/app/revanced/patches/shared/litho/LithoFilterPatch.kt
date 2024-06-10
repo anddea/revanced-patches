@@ -14,7 +14,7 @@ import app.revanced.patches.shared.litho.fingerprints.EmptyComponentsFingerprint
 import app.revanced.patches.shared.litho.fingerprints.LithoFilterPatchConstructorFingerprint
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
 import app.revanced.patches.shared.litho.fingerprints.SetByteBufferFingerprint
-import app.revanced.util.getEmptyStringInstructionIndex
+import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexReversed
 import app.revanced.util.getTargetIndexWithFieldReferenceType
@@ -140,7 +140,7 @@ object LithoFilterPatch : BytecodePatch(
                 val stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
-                val emptyStringIndex = getEmptyStringInstructionIndex()
+                val emptyStringIndex = getStringInstructionIndex("")
 
                 val identifierIndex = getTargetIndexReversed(emptyStringIndex, Opcode.IPUT_OBJECT)
                 val identifierRegister =

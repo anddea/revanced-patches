@@ -11,20 +11,23 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint.indexOfModelInstruction
 import app.revanced.patches.youtube.utils.compatibility.Constants
+import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlayerRequestURIFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlaybackSpeedMenuItemFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRequestBodyFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
-import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -42,11 +45,11 @@ object SpoofClientPatch : BaseBytecodePatch(
     name = "Spoof client",
     description = "Adds options to spoof the client to allow video playback.",
     dependencies = setOf(
-        PlayerTypeHookPatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         VideoInformationPatch::class,
         SpoofUserAgentPatch::class,
+        SharedResourceIdPatch::class,
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -59,6 +62,10 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
+
+        // Player speed menu item.
+        CreatePlaybackSpeedMenuItemFingerprint,
+        PlaybackRateBottomSheetBuilderFingerprint,
 
         // Nerds stats video format.
         NerdsStatsVideoFormatBuilderFingerprint,
@@ -257,26 +264,74 @@ object SpoofClientPatch : BaseBytecodePatch(
         // region fix player gesture.
 
         PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
-            arrayOf(3, 9).forEach { offSet ->
-                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex - offSet)
-                    .apply {
-                        val index = implementation!!.instructions.size - 1
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+            val downAndOutLandscapeAllowedIndex = endIndex - 3
+            val downAndOutPortraitAllowedIndex = endIndex - 9
 
-                        addInstructions(
-                            index,
-                            """
-                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
-                            move-result v$register
+            arrayOf(
+                downAndOutLandscapeAllowedIndex,
+                downAndOutPortraitAllowedIndex,
+            ).forEach { index ->
+                val gestureAllowedMethod = it.getWalkerMethod(context, index)
+
+                gestureAllowedMethod.apply {
+                    val isAllowedIndex = getInstructions().lastIndex
+                    val isAllowed = getInstruction<OneRegisterInstruction>(isAllowedIndex).registerA
+
+                    addInstructions(
+                        isAllowedIndex,
                         """
-                        )
-                    }
+                            invoke-static { v$isAllowed }, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                            move-result v$isAllowed
+                            """,
+                    )
+                }
             }
         }
 
         // endregion
 
-        // region append spoof info
+        // region fix playback speed menu item.
+
+        // fix for iOS, Android Testsuite
+        CreatePlaybackSpeedMenuItemFingerprint.resultOrThrow().let {
+            val scanResult = it.scanResult.patternScanResult!!
+            if (scanResult.startIndex != 0) throw PatchException("Unexpected start index: ${scanResult.startIndex}")
+
+            it.mutableMethod.apply {
+                // Find the conditional check if the playback speed menu item is not created.
+                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+                val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
+
+                addInstructions(
+                    shouldCreateMenuIndex,
+                    """
+                        invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
+                        move-result v$shouldCreateMenuRegister
+                        """,
+                )
+            }
+        }
+
+        // fix for Android TV
+        PlaybackRateBottomSheetBuilderFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex,
+                    """
+                        invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenuReversed(Z)Z
+                        move-result v$targetRegister
+                        """,
+                )
+            }
+        }
+
+        // endregion
+
+        // region append spoof info.
 
         NerdsStatsVideoFormatBuilderFingerprint.resultOrThrow().mutableMethod.apply {
             for (index in implementation!!.instructions.size - 1 downTo 0) {
