@@ -31,8 +31,8 @@
     <string name="revanced_hide_action_button_share_summary">Απόκρυψη του κουμπιού κοινοποίησης.</string>
     <string name="revanced_hide_action_button_radio_title">Απόκρυψη κουμπιού «Ραδιόφωνο»</string>
     <string name="revanced_hide_action_button_radio_summary">Απόκρυψη του κουμπιού έναρξης ραδιοφώνου.</string>
-    <string name="revanced_hide_action_button_label_summary">Απόκρυψη των ονομασιών των κουμπιών ενέργειας πάνω από την γραμμή προόδου.</string>
     <string name="revanced_hide_action_button_label_title">Απόκρυψη ονομασιών κουμπιών ενέργειας</string>
+    <string name="revanced_hide_action_button_label_summary">Απόκρυψη των ονομασιών των κουμπιών ενέργειας πάνω από την γραμμή προόδου.</string>
     <string name="revanced_external_downloader_action_title">Μετατροπή κουμπιού ενέργειας «Λήψη»</string>
     <string name="revanced_external_downloader_action_summary">"Το κουμπί «Λήψη» ανοίγει το εξωτερικό πρόγραμμα λήψης σας.
 
@@ -107,10 +107,10 @@
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Μη έγκυρη διεύθυνση URL βίντεο.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Αντικατάσταση μενού «Παράβλεψη ουράς»</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Αντικατάσταση του μενού «Παράβλεψη ουράς» με «Παρακολούθηση στο YouTube».</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Διατήρηση του «Αναφορά» στα σχόλια</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Το μενού αναφοράς στα σχόλια δε θα επηρεαστεί.</string>
     <string name="revanced_replace_flyout_menu_report_title">Αντικατάσταση μενού «Αναφορά»</string>
     <string name="revanced_replace_flyout_menu_report_summary">Αντικατάσταση του μενού «Αναφορά» με «Ταχύτητα αναπαραγωγής».</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Διατήρηση του «Αναφορά» στα σχόλια</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Το μενού αναφοράς στα σχόλια δε θα επηρεαστεί.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">Γενικά</string>
     <string name="revanced_change_start_page_title">Αλλαγή αρχικής σελίδας</string>
@@ -190,6 +190,8 @@
     <string name="revanced_hide_navigation_label_summary">Απόκρυψη ονομασιών των κουμπιών στη γραμμή πλοήγησης.</string>
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">Οθόνη αναπαραγωγής</string>
+    <string name="revanced_enable_black_player_background_title">Μαύρο φόντο οθόνης αναπαραγωγής</string>
+    <string name="revanced_enable_black_player_background_summary">Αλλαγή χρώματος της οθόνης αναπαραγωγής σε μαύρο.</string>
     <string name="revanced_enable_color_match_player_title">Ταίριασμα χρωμάτων αναπαραγωγών</string>
     <string name="revanced_enable_color_match_player_summary">Να ταιριάζει το χρώμα του ελαχιστοποιημένου αναπαραγωγέα με αυτό του αναπαραγωγέα πλήρους οθόνης.</string>
     <string name="revanced_enable_force_minimized_player_title">Εξαναγκαστική ελαχιστοποίηση αναπαραγωγέα</string>
@@ -223,11 +225,6 @@
     <string name="revanced_restore_old_player_layout_title">Οθόνη αναπαραγωγής παλιού στυλ</string>
     <string name="revanced_restore_old_player_layout_summary">"Επιστροφή της εμφάνισης της οθόνης αναπαραγωγής στο παλιό στυλ.
 Κάποιες λειτουργίες ενδέχεται να μη λειτουργούν σωστά στην παλιά εμφάνιση του αναπαραγωγέα."</string>
-    <string name="revanced_replace_player_cast_button_title">Αντικατάσταση κουμπιού μετάδοσης</string>
-    <string name="revanced_replace_player_cast_button_summary">"Αντικατάσταση του κουμπιού μετάδοσης στην οθόνη αναπαραγωγής με το κουμπί «Άνοιγμα μουσικής», το οποίο ανοίγει το επίσημο κομμάτι αντί για το μουσικό βίντεο. (Πειραματικό)
-Προειδοποίηση: Αν ένα η περισσότερα κομμάτια στη λίστα αναπαραγωγής δεν γίνεται να αναπαραχθούν για οποιονδήποτε λόγο, δε λειτουργεί σωστά."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">Γίνεται ήδη αναπαραγωγή από την επίσημη πηγή μουσικής.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">Η επίσημη πηγή μουσικής δεν είναι διαθέσιμη.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">Βίντεο</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων αναπαραγωγής</string>

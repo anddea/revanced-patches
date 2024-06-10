@@ -28,11 +28,11 @@
     <string name="revanced_hide_action_button_download_title">Letöltés gomb elrejtése</string>
     <string name="revanced_hide_action_button_download_summary">Elrejti a letöltés gombot.</string>
     <string name="revanced_hide_action_button_share_title">Megosztás gomb elrejtése</string>
-    <string name="revanced_hide_action_button_share_summary">Megosztás gomb elrejtése.</string>
+    <string name="revanced_hide_action_button_share_summary">Elrejti a Megosztás gombot.</string>
     <string name="revanced_hide_action_button_radio_title">Rádió gomb elrejtése</string>
     <string name="revanced_hide_action_button_radio_summary">Elrejti a rádió gombot.</string>
-    <string name="revanced_hide_action_button_label_summary">Elrejti a címkéket az műveleti gombokban.</string>
     <string name="revanced_hide_action_button_label_title">Navigációs gombok címkéinek elrejtése</string>
+    <string name="revanced_hide_action_button_label_summary">Elrejti a címkéket az műveleti gombokban.</string>
     <string name="revanced_external_downloader_action_title">Letöltés gomb felülírása</string>
     <string name="revanced_external_downloader_action_summary">"A Letöltés gomb megnyitja a külső letöltőt.
 
@@ -107,10 +107,10 @@ Info:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Érvénytelen videó url.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Várólista cserélése</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Kicseréli a \"Várólistát\" a \"Megtekintés a Youtube-on\"-nal.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Jelentés megtartása a kimmenteknél</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Megtartja a jelentés menüt a komment szekcióban.</string>
     <string name="revanced_replace_flyout_menu_report_title">Jelentés cserélése</string>
     <string name="revanced_replace_flyout_menu_report_summary">Kicseréli a \"Jelentés\"-t a \"Lejátszási sebesség\"-gel.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Jelentés megtartása a kommenteknél</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Megtartja a jelentés menüt a komment szekcióban.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">Általános</string>
     <string name="revanced_change_start_page_title">Kezdőlap megváltoztatása</string>
@@ -153,7 +153,7 @@ Info:
     <string name="revanced_hide_notification_button_title">Értesítés gomb elrejtése</string>
     <string name="revanced_hide_notification_button_summary">Elrejti az értesítés gombot az eszköztáron.</string>
     <string name="revanced_hide_sound_search_button_title">Hangkeresés gomb elrejtése</string>
-    <string name="revanced_hide_sound_search_button_summary">Elrejti a hangkeresés gombot a kereső sávban.</string>
+    <string name="revanced_hide_sound_search_button_summary">Elrejti a zene keresés gombot a kereső sávban.</string>
     <string name="revanced_hide_voice_search_button_title">Hangkeresés gomb elrejtése</string>
     <string name="revanced_hide_voice_search_button_summary">Elrejti a hangkeresés gombot a kereső sávban.</string>
     <string name="revanced_restore_old_style_library_shelf_title">Visszaállítja a régi stílusú könyvtár polcot</string>
@@ -225,12 +225,6 @@ Ez nem kerüli meg a korhatárkorlátozást. Csak automatikusan elfogadja azt."<
     <string name="revanced_restore_old_player_layout_title">Régi lejátszó kinézet visszaállítása</string>
     <string name="revanced_restore_old_player_layout_summary">"Visszaállítja a lejátszó elrendezését a régi stílusra.
 Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátszó elrendezésben."</string>
-    <string name="revanced_replace_player_cast_button_title">Cast gomb cseréje</string>
-    <string name="revanced_replace_player_cast_button_summary">"A lejátszóban az átküldés gombot egy \"Zene megnyitása\" gombra cseréli, amely a zenei videó helyett a hivatalos hanganyagot nyitja meg. (Kísérleti)
-
-Infó: Ez a funkció nem működik normálisan, ha a lejátszási listában lévő bármelyik dal nem játszható le."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">Már a hivatalos zenei forrásból játsza le.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">Eredeti zeneforrás nem elérhető.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">Videó</string>
     <string name="revanced_custom_playback_speeds_title">Egyéni lejátszási sebességek szerkesztése</string>

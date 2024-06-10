@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">계정</string>
     <string name="revanced_hide_account_menu_title">계정 메뉴 제거</string>
-    <string name="revanced_hide_account_menu_summary">사용자 정의 필터에서 계정 메뉴 구성요소를 숨깁니다.</string>
+    <string name="revanced_hide_account_menu_summary">사용자 정의 필터를 사용하여 계정 메뉴 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 메뉴 필터</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">필터링할 계정 메뉴 이름 목록을 줄바꿈으로 구분하여 설정합니다.</string>
     <string name="revanced_hide_account_menu_empty_component_title">비어있는 구성요소 제거</string>
@@ -20,7 +20,7 @@
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">액션바</string>
     <string name="revanced_hide_action_button_like_dislike_title">좋아요 &amp; 싫어요 버튼 제거</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">좋아요 &amp; 싫어요 버튼을 숨깁니다. 이전 플레이어 레이아웃에서는 작동하지 않습니다.</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">좋아요 &amp; 싫어요 버튼을 숨깁니다. \n이전 플레이어 레이아웃에서는 작동하지 않습니다.</string>
     <string name="revanced_hide_action_button_comment_title">댓글 버튼 제거</string>
     <string name="revanced_hide_action_button_comment_summary">댓글 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">(재생목록에) 저장 버튼 제거</string>
@@ -31,8 +31,8 @@
     <string name="revanced_hide_action_button_share_summary">공유 버튼을 숨깁니다.</string>
     <string name="revanced_hide_action_button_radio_title">뮤직 스테이션 버튼 제거</string>
     <string name="revanced_hide_action_button_radio_summary">뮤직 스테이션 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_action_button_label_summary">액션바에서 버튼 라벨을 숨깁니다.</string>
-    <string name="revanced_hide_action_button_label_title">액션바 버튼 라벨 제거</string>
+    <string name="revanced_hide_action_button_label_title">액션 버튼 라벨 제거</string>
+    <string name="revanced_hide_action_button_label_summary">액션 버튼에서 라벨을 숨깁니다.</string>
     <string name="revanced_external_downloader_action_title">오프라인 저장 버튼 재정의</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다.
 
@@ -49,6 +49,11 @@
     <string name="revanced_preference_screen_ads_title">광고</string>
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 제거</string>
     <string name="revanced_hide_fullscreen_ads_summary">전체 화면 광고를 숨깁니다.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">전체 화면 광고 닫기</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"활성화하면 닫기 버튼을 누르면 전체 화면 광고가 닫혀집니다.
+비활성화하면 전체 화면 광고가 차단됩니다. (문제점이 발생할 수 있습니다.)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">전체 화면 광고가 차단되었습니다. (다이얼로그 타입: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">전체 화면 광고가 닫혀졌습니다.</string>
     <string name="revanced_hide_general_ads_title">일반 레이아웃 광고 제거</string>
     <string name="revanced_hide_general_ads_summary">일반 레이아웃 광고를 숨깁니다.</string>
     <string name="revanced_hide_music_ads_title">음악 광고 제거</string>
@@ -67,8 +72,8 @@
 알려진 문제점:
 • 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
 • 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
-    <string name="revanced_enable_trim_silence_title">무음 자르기 스위치 추가</string>
-    <string name="revanced_enable_trim_silence_summary">"재생 속도 메뉴 구성요소에 '무음 자르기' 스위치를 추가합니다.
+    <string name="revanced_enable_trim_silence_title">무음 건너뛰기 스위치 추가</string>
+    <string name="revanced_enable_trim_silence_summary">"재생 속도 메뉴 구성요소에 '무음 건너뛰기' 스위치를 추가합니다.
 
 알림:
 • 팟캐스트 기능입니다.
@@ -107,10 +112,10 @@
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">잘못된 동영상 URL입니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube에서 시청\' 메뉴로 변경합니다.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고하기 유지</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">댓글 섹션에서 신고하기 메뉴를 그대로 유지합니다.</string>
-    <string name="revanced_replace_flyout_menu_report_title">신고하기 변경</string>
-    <string name="revanced_replace_flyout_menu_report_summary">\'신고하기\' 메뉴를 \'재생 속도\' 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_menu_report_title">신고 메뉴 변경</string>
+    <string name="revanced_replace_flyout_menu_report_summary">\'신고\' 메뉴를 \'재생 속도\' 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고 유지</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">댓글 섹션에서 \'신고\' 메뉴를 그대로 유지합니다.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">일반</string>
     <string name="revanced_change_start_page_title">앱 시작 페이지 변경</string>
@@ -123,7 +128,7 @@
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
     <string name="revanced_disable_auto_captions_summary">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
-    <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리디렉션\'을 비활성화합니다.</string>
+    <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리다이렉션\'을 비활성화합니다.</string>
     <string name="revanced_enable_landscape_mode_title">가로 모드 활성화</string>
     <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
@@ -152,10 +157,10 @@
     <string name="revanced_hide_history_button_summary">툴바에서 최근 감상 기록 버튼을 숨깁니다.</string>
     <string name="revanced_hide_notification_button_title">알림 버튼 제거</string>
     <string name="revanced_hide_notification_button_summary">툴바에서 알림 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_sound_search_button_title">\'소리로 찾기\' 버튼 제거</string>
-    <string name="revanced_hide_sound_search_button_summary">툴바에서 \'소리로 찾기\' 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_voice_search_button_title">\'음성으로 찾기\' 버튼 제거</string>
-    <string name="revanced_hide_voice_search_button_summary">툴바에서 \'음성으로 찾기\' 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_sound_search_button_title">노래 검색 버튼 제거</string>
+    <string name="revanced_hide_sound_search_button_summary">툴바에서 노래 검색 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_voice_search_button_title">음성 검색 버튼 제거</string>
+    <string name="revanced_hide_voice_search_button_summary">툴바에서 음성 검색 버튼을 숨깁니다.</string>
     <string name="revanced_restore_old_style_library_shelf_title">이전 보관함 선반으로 복원</string>
     <string name="revanced_restore_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험적인 기능)</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
@@ -191,8 +196,8 @@
     <string name="revanced_hide_navigation_label_summary">하단바에서 버튼 라벨을 숨깁니다.</string>
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">플레이어</string>
-    <string name="revanced_enable_black_player_background_title">검정색 플레이어 배경 활성화</string>
-    <string name="revanced_enable_black_player_background_summary">플레이어 배경을 검정색으로 변경합니다.</string>
+    <string name="revanced_enable_black_player_background_title">검정 플레이어 배경 활성화</string>
+    <string name="revanced_enable_black_player_background_summary">플레이어 배경 색상을 검정으로 설정합니다.</string>
     <string name="revanced_enable_color_match_player_title">색상 일치 플레이어 활성화</string>
     <string name="revanced_enable_color_match_player_summary">최소화 상태의 플레이어와 전체 화면 플레이어의 색상을 통일시킵니다.</string>
     <string name="revanced_enable_force_minimized_player_title">플레이어를 항상 최소화 상태로 유지</string>
@@ -205,8 +210,8 @@
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">아래로 스와이프하여 미니 플레이어 닫기를 활성화합니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
-    <string name="revanced_enable_zen_mode_podcast_title">팟캐스트 집중 모드 활성화</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">팟캐스트에도 집중 모드를 적용합니다.</string>
+    <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">팟캐스트에서 집중 모드를 활성화합니다.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">\'노래↔동영상\' 전환 토글 제거</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">플레이어에서 \'노래↔동영상\' 전환 토글을 숨깁니다.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
@@ -226,12 +231,6 @@
     <string name="revanced_restore_old_player_layout_title">이전 플레이어 레이아웃으로 복원</string>
     <string name="revanced_restore_old_player_layout_summary">"이전 플레이어 레이아웃으로 복원합니다.
 이전 플레이어 레이아웃에서 일부 기능이 제대로 작동하지 않을 수 있습니다."</string>
-    <string name="revanced_replace_player_cast_button_title">크롬캐스트 버튼 변경</string>
-    <string name="revanced_replace_player_cast_button_summary">"플레이어에서 크롬캐스트 버튼을 '정식 음원으로 재생' 버튼으로 변경합니다. (실험적인 기능)
-
-알려진 문제: 재생 목록에서 재생할 수 없는 음악이 하나 이상 있는 경우 정상적으로 작동하지 않습니다."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">이미 정식 음원으로 재생 중입니다.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">정식 음원으로 재생할 수 없습니다.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">동영상</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
@@ -255,10 +254,10 @@
     <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 제거</string>
     <string name="revanced_ryd_compact_layout_summary">좋아요 버튼에서 구분선을 숨깁니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 누르세요.</string>
+    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 개수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 개수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
@@ -268,9 +267,9 @@
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_sb_enabled">SponsorBlock 활성화</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock은 YouTube 동영상 내 성가신 구간을 건너뛰게 해주는 크라우드소싱 시스템입니다.</string>
-    <string name="revanced_sb_toast_on_connection_error">API를 사용할 수 없을 때 팝업 메시지 표시</string>
-    <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock를 사용할 수 없을 때 팝업 메시지를 표시합니다.</string>
-    <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때 팝업 메시지 표시</string>
+    <string name="revanced_sb_toast_on_connection_error">API를 사용할 수 없을 때, 팝업 메시지 표시</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때, 팝업 메시지 표시</string>
     <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다.</string>
     <string name="revanced_sb_api_url">API URL 변경</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 URL을 변경하세요.</string>
@@ -326,11 +325,11 @@
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_buffer_logging_title">디버그 버퍼 로깅 활성화</string>
     <string name="revanced_enable_debug_buffer_logging_summary">디버그 로그에 버퍼를 포함하여 출력합니다.</string>
-    <string name="revanced_enable_opus_codec_title">Opus 코덱 활성화</string>
-    <string name="revanced_enable_opus_codec_summary">"MP4A 오디오 코덱 대신 Opus 오디오 코덱을 활성화합니다.
+    <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화</string>
+    <string name="revanced_enable_opus_codec_summary">"플레이어 응답에 OPUS 코덱이 포함되어 있는 경우에는 OPUS 코덱을 활성화합니다.
 
 알림:
-• 최신 Android 클라이언트는 기본적으로 Opus 오디오 코덱을 사용합니다.
+• 최신 YT Music 클라이언트는 기본적으로 OPUS 오디오 코덱을 사용합니다.
 • 이 설정은 아주 오래된 클라이언트 사용자에게만 유효합니다."</string>
     <string name="gms_core_settings_title">GmsCore 열기</string>
     <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
@@ -364,5 +363,5 @@
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_extended_settings_reset">초기화</string>
-    <string name="revanced_share_copy_settings_success">설정이 클립보드에 복사되었습니다.</string>
+    <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
 </resources>

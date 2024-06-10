@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">Обліковий запис</string>
     <string name="revanced_hide_account_menu_title">Приховати меню облікового запису</string>
-    <string name="revanced_hide_account_menu_summary">Приховує елементи меню облікового запису в користувацькому фільтрі.</string>
+    <string name="revanced_hide_account_menu_summary">Приховує елементи меню облікового запису використовуючи користувацький фільтр.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фільтр меню облікового запису</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новими рядками.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Приховати порожні компоненти</string>
@@ -16,28 +16,28 @@
     <string name="revanced_hide_handle_title">Приховати електронну пошту / @нік</string>
     <string name="revanced_hide_handle_summary">Приховує електронну пошту / @нік у меню облікових записів.</string>
     <string name="revanced_hide_terms_container_title">Приховати \"Конфіденційність • Умови використання\"</string>
-    <string name="revanced_hide_terms_container_summary">Приховує пункт меню \"Конфіденційність • Умови використання\".</string>
+    <string name="revanced_hide_terms_container_summary">Приховує контейнер \"Конфіденційність • Умови використання\".</string>
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">Панель дій</string>
-    <string name="revanced_hide_action_button_like_dislike_title">Приховати кнопки \"Подобається\" і \"Не подобається\"</string>
+    <string name="revanced_hide_action_button_like_dislike_title">Приховати \"Подобається\" і \"Не подобається\"</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Приховує кнопки \"Подобається\" та \"Не подобається\". Це не працює в старому інтерфейсі плеєра.</string>
-    <string name="revanced_hide_action_button_comment_title">Приховати кнопку \"Коментарі\"</string>
+    <string name="revanced_hide_action_button_comment_title">Приховати \"Коментарі\"</string>
     <string name="revanced_hide_action_button_comment_summary">Приховує кнопку \"Коментарі\" на панелі дій плеєра.</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Приховати кнопку \"Зберегти\"</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Приховати \"Зберегти\"</string>
     <string name="revanced_hide_action_button_add_to_playlist_summary">Приховує кнопку \"Зберегти\" (в список відтворення) на панелі дій плеєра.</string>
-    <string name="revanced_hide_action_button_download_title">Приховати кнопку \"Завантажити\"</string>
+    <string name="revanced_hide_action_button_download_title">Приховати \"Завантажити\"</string>
     <string name="revanced_hide_action_button_download_summary">Приховує кнопку \"Завантажити\" на панелі дій плеєра.</string>
-    <string name="revanced_hide_action_button_share_title">Приховати кнопку \"Поділитися\"</string>
+    <string name="revanced_hide_action_button_share_title">Приховати \"Поділитися\"</string>
     <string name="revanced_hide_action_button_share_summary">Приховує кнопку \"Поділитися\" на панелі дій плеєра.</string>
-    <string name="revanced_hide_action_button_radio_title">Приховати кнопку \"Радіо\"</string>
+    <string name="revanced_hide_action_button_radio_title">Приховати \"Радіо\"</string>
     <string name="revanced_hide_action_button_radio_summary">Приховує кнопку \"Радіо\" на панелі дій плеєра.</string>
-    <string name="revanced_hide_action_button_label_summary">Приховує підписи кнопок на панелі дій плеєра.</string>
     <string name="revanced_hide_action_button_label_title">Приховати підписи панелі дій</string>
-    <string name="revanced_external_downloader_action_title">Підмінити кнопку \"Завантажити\"</string>
+    <string name="revanced_hide_action_button_label_summary">Приховує підписи кнопок на панелі дій плеєра.</string>
+    <string name="revanced_external_downloader_action_title">Підмінити \"Завантажити\"</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Завантажити\" відкриває ваш зовнішній завантажувач.
 
-• Підміняє лише кнопку завантаження в плеєрі.
-• Не підміняє кнопку завантаження у спливаючому меню чи бібліотеці."</string>
+• Підміняє лише кнопку \"Завантажити\" на панелі дій в плеєрі.
+• Не підміняє кнопку \"Завантажити\" у спливаючому меню чи бібліотеці."</string>
     <string name="revanced_external_downloader_package_name_title">Ім\'я пакета зовнішнього завантажувача</string>
     <string name="revanced_external_downloader_package_name_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_dialog_title">Зовнішній завантажувач</string>
@@ -51,8 +51,8 @@
     <string name="revanced_hide_fullscreen_ads_summary">Приховує повноекранну рекламу.</string>
     <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
     <string name="revanced_hide_general_ads_summary">Приховує загальну рекламу.</string>
-    <string name="revanced_hide_music_ads_title">Приховати рекламу в музиці</string>
-    <string name="revanced_hide_music_ads_summary">Приховує рекламу перед відтворенням музики.</string>
+    <string name="revanced_hide_music_ads_title">Приховати медіарекламу</string>
+    <string name="revanced_hide_music_ads_summary">Приховує рекламу перед відтворенням медіа.</string>
     <string name="revanced_hide_paid_promotion_label_title">Приховати \"Містить пряму рекламу\"</string>
     <string name="revanced_hide_paid_promotion_label_summary">Приховує мітку \"Містить пряму рекламу\".</string>
     <string name="revanced_hide_premium_promotion_title">Приховати спливаючу рекламу Premium</string>
@@ -67,50 +67,50 @@
 Відомі проблеми:
 • Обкладинка альбому на вкладці \"Бібліотека\" стає меншою, якщо вона впорядкована сіткою.
 • Вікно \"Таймер сну\" може з'являтися незвично."</string>
-    <string name="revanced_enable_trim_silence_title">Додати перемикач обрізання тиші</string>
-    <string name="revanced_enable_trim_silence_summary">"Додає перемикач \"Обрізати тишу\" у спливаючому меню швидкості відтворення.
+    <string name="revanced_enable_trim_silence_title">Додати перемикач \"Пропуск тиші\"</string>
+    <string name="revanced_enable_trim_silence_summary">"Додає перемикач \"Пропуск тиші\" у спливаючому меню швидкості відео.
 
 Інформація:
 • Ця функція призначена для подкастів.
 • Ця функція все ще у розробці, тому може бути нестабільною."</string>
-    <string name="revanced_hide_flyout_menu_like_dislike_title">Приховати кнопки \"Подобається\" і \"Не подобається\"</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">Приховати \"Подобається\" і \"Не подобається\"</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Приховати 3-стовпцевий компонент</string>
-    <string name="revanced_hide_flyout_menu_add_to_queue_title">Приховати пункт \"Додати в чергу\"</string>
-    <string name="revanced_hide_flyout_menu_captions_title">Приховати пункт \"Субтитри\"</string>
-    <string name="revanced_hide_flyout_menu_delete_playlist_title">Приховати пункт \"Видалити список відтворення\"</string>
-    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Приховати пункт \"Відхилити чергу\"</string>
-    <string name="revanced_hide_flyout_menu_download_title">Приховати пункт \"Завантажити\"</string>
-    <string name="revanced_hide_flyout_menu_edit_playlist_title">Приховати пункт \"Редагувати список відтворення\"</string>
-    <string name="revanced_hide_flyout_menu_go_to_album_title">Приховати пункт \"Перейти до альбому\"</string>
-    <string name="revanced_hide_flyout_menu_go_to_artist_title">Приховати пункт \"Перейти на сторінку виконавця\"</string>
-    <string name="revanced_hide_flyout_menu_go_to_episode_title">Приховати пункт \"Перейти до випуску\"</string>
-    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Приховати пункт \"Перейти до подкасту\"</string>
-    <string name="revanced_hide_flyout_menu_help_title">Приховати пункт \"Довідка й відгуки\"</string>
-    <string name="revanced_hide_flyout_menu_play_next_title">Приховати пункт \"Відтворити наступним\"</string>
-    <string name="revanced_hide_flyout_menu_quality_title">Приховати пункт \"Якість\"</string>
-    <string name="revanced_hide_flyout_menu_remove_from_library_title">Приховати пункт \"Вилучити з бібліотеки\"</string>
-    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Приховати пункт \"Вилучити зі списку\"</string>
-    <string name="revanced_hide_flyout_menu_report_title">Приховати пункт \"Поскаржитись\"</string>
-    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Приховати пункт \"Слухати згодом\"</string>
-    <string name="revanced_hide_flyout_menu_save_to_library_title">Приховати пункт \"Зберегти в бібліотеці\"</string>
-    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Приховати пункт \"Зберегти в списку відтворення\"</string>
-    <string name="revanced_hide_flyout_menu_share_title">Приховати пункт \"Поділитися\"</string>
-    <string name="revanced_hide_flyout_menu_shuffle_play_title">Приховати пункт \"Перемішати\"</string>
-    <string name="revanced_hide_flyout_menu_sleep_timer_title">Приховати пункт \"Таймер сну\"</string>
-    <string name="revanced_hide_flyout_menu_start_radio_title">Приховати пункт \"Увімкнути Радіо\"</string>
-    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Приховати пункт \"Статистика для досвідчених користувачів\"</string>
-    <string name="revanced_hide_flyout_menu_subscribe_title">Приховати пункт \"Підписатися / Скасувати підписку\"</string>
-    <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати пункт \"Переглянути авторів пісні\"</string>
+    <string name="revanced_hide_flyout_menu_add_to_queue_title">Приховати \"Додати в чергу\"</string>
+    <string name="revanced_hide_flyout_menu_captions_title">Приховати \"Субтитри\"</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Приховати \"Видалити список відтворення\"</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Приховати \"Відхилити чергу\"</string>
+    <string name="revanced_hide_flyout_menu_download_title">Приховати \"Завантажити\"</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Приховати \"Редагувати список відтворення\"</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Приховати \"Перейти до альбому\"</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Приховати \"Перейти на сторінку виконавця\"</string>
+    <string name="revanced_hide_flyout_menu_go_to_episode_title">Приховати \"Перейти до випуску\"</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Приховати \"Перейти до подкасту\"</string>
+    <string name="revanced_hide_flyout_menu_help_title">Приховати \"Довідка й відгуки\"</string>
+    <string name="revanced_hide_flyout_menu_play_next_title">Приховати \"Відтворити наступним\"</string>
+    <string name="revanced_hide_flyout_menu_quality_title">Приховати \"Якість\"</string>
+    <string name="revanced_hide_flyout_menu_remove_from_library_title">Приховати \"Вилучити з бібліотеки\"</string>
+    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Приховати \"Вилучити зі списку\"</string>
+    <string name="revanced_hide_flyout_menu_report_title">Приховати \"Поскаржитись\"</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Приховати \"Слухати згодом\"</string>
+    <string name="revanced_hide_flyout_menu_save_to_library_title">Приховати \"Зберегти в бібліотеці\"</string>
+    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Приховати \"Зберегти в списку відтворення\"</string>
+    <string name="revanced_hide_flyout_menu_share_title">Приховати \"Поділитися\"</string>
+    <string name="revanced_hide_flyout_menu_shuffle_play_title">Приховати \"Перемішати\"</string>
+    <string name="revanced_hide_flyout_menu_sleep_timer_title">Приховати \"Таймер сну\"</string>
+    <string name="revanced_hide_flyout_menu_start_radio_title">Приховати \"Увімкнути Радіо\"</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Приховати \"Статистика для досвідчених користувачів\"</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Приховати \"Підписатися / Скасувати підписку\"</string>
+    <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати \"Переглянути авторів пісні\"</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Продовжити перегляд</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Продовжує відео з поточного моменту під час переходу на YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Дивитись на YouTube</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Недійсна url-адреса відео.</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Заміна пункту \"Відхилити чергу\"</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Заміна \"Відхилити чергу\"</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Замінює пункт \"Відхилити чергу\" на пункт \"Дивитись на YouTube\".</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Залишити пункт \"Поскаржитися\"</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Залишає пункт меню \"Поскаржитися\" в коментарях недоторканим.</string>
-    <string name="revanced_replace_flyout_menu_report_title">Заміна пункту \"Поскаржитися\"</string>
+    <string name="revanced_replace_flyout_menu_report_title">Заміна \"Поскаржитися\"</string>
     <string name="revanced_replace_flyout_menu_report_summary">Замінює пункт \"Поскаржитися\" на пункт \"Швидкість відео\".</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Залишити \"Поскаржитися\"</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Залишає пункт меню \"Поскаржитися\" в коментарях недоторканим.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">Загальні</string>
     <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
@@ -140,12 +140,12 @@
     <string name="revanced_hide_playlist_card_shelf_summary">Приховує полицю карток списку відтворення в стрічці.</string>
     <string name="revanced_hide_samples_shelf_title">Приховати полицю \"Семпли\"</string>
     <string name="revanced_hide_samples_shelf_summary">Приховує полицю \"Семпли\" у стрічці.</string>
-    <string name="revanced_hide_cast_button_title">Приховати кнопку трансляції</string>
+    <string name="revanced_hide_cast_button_title">Приховати кнопку \"Трансляція\"</string>
     <string name="revanced_hide_cast_button_summary">Приховує кнопку \"Трансляція\" в плеєрі та мініплеєрі.</string>
     <string name="revanced_hide_category_bar_title">Приховати панель категорій</string>
     <string name="revanced_hide_category_bar_summary">Приховує панель категорій.</string>
     <string name="revanced_hide_floating_button_title">Приховати плаваючу кнопку</string>
-    <string name="revanced_hide_floating_button_summary">Приховує плаваючу кнопку в бібліотеці.</string>
+    <string name="revanced_hide_floating_button_summary">Приховує плаваючу кнопку у вкладці \"Бібліотека\".</string>
     <string name="revanced_hide_tap_to_update_button_title">Приховати кнопку \"Оновити\"</string>
     <string name="revanced_hide_tap_to_update_button_summary">Приховує кнопку \"Оновити\".</string>
     <string name="revanced_hide_history_button_title">Приховати кнопку історії</string>
@@ -174,15 +174,15 @@
     <string name="revanced_preference_screen_navigation_title">Панель навігації</string>
     <string name="revanced_enable_black_navigation_bar_title">Увімкнути чорну панель навігації</string>
     <string name="revanced_enable_black_navigation_bar_summary">Встановлює чорний колір для панелі навігації.</string>
-    <string name="revanced_hide_navigation_home_button_title">Приховати кнопку \"Головна\"</string>
+    <string name="revanced_hide_navigation_home_button_title">Приховати \"Головна\"</string>
     <string name="revanced_hide_navigation_home_button_summary">Приховує кнопку \"Головна\" на панелі навігації.</string>
-    <string name="revanced_hide_navigation_samples_button_title">Приховати кнопку \"Семпли\"</string>
+    <string name="revanced_hide_navigation_samples_button_title">Приховати \"Семпли\"</string>
     <string name="revanced_hide_navigation_samples_button_summary">Приховує кнопку \"Семпли\" на панелі навігації.</string>
-    <string name="revanced_hide_navigation_explore_button_title">Приховати кнопку \"Навігація\"</string>
+    <string name="revanced_hide_navigation_explore_button_title">Приховати \"Навігація\"</string>
     <string name="revanced_hide_navigation_explore_button_summary">Приховує кнопку \"Навігація\" на панелі навігації.</string>
-    <string name="revanced_hide_navigation_library_button_title">Приховати кнопку \"Бібліотека\"</string>
+    <string name="revanced_hide_navigation_library_button_title">Приховати \"Бібліотека\"</string>
     <string name="revanced_hide_navigation_library_button_summary">Приховує кнопку \"Бібліотека\" на панелі навігації.</string>
-    <string name="revanced_hide_navigation_upgrade_button_title">Приховати кнопку \"Підписка\"</string>
+    <string name="revanced_hide_navigation_upgrade_button_title">Приховати \"Підписка\"</string>
     <string name="revanced_hide_navigation_upgrade_button_summary">Приховує кнопку \"Підписка\" на панелі навігації.</string>
     <string name="revanced_hide_navigation_bar_title">Приховати панель навігації</string>
     <string name="revanced_hide_navigation_bar_summary">Приховує панель навігації.</string>
@@ -191,28 +191,28 @@
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">Плеєр</string>
     <string name="revanced_enable_black_player_background_title">Увімкнути чорний фон плеєра</string>
-    <string name="revanced_enable_black_player_background_summary">Змінює адаптивний колір фона плеєра до чорного.</string>
+    <string name="revanced_enable_black_player_background_summary">Змінює адаптивний колір фона плеєра на чорний.</string>
     <string name="revanced_enable_color_match_player_title">Увімкнути колірну відповідність плеєрів</string>
     <string name="revanced_enable_color_match_player_summary">Колір мініплеєра повторює колір повноекранного плеєра.</string>
     <string name="revanced_enable_force_minimized_player_title">Увімкнути мініплеєр на постійній основі</string>
     <string name="revanced_enable_force_minimized_player_summary">Тримає плеєр згорнутим, навіть коли відтворюється інший трек.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Увімкнути кнопку наступне у мініплеєрі</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Вмикає кнопку наступного треку у мініплеєрі.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Увімкнути кнопку попереднє у мініплеєрі</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Вмикає кнопку попереднього треку у мініплеєрі.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Додати кнопку наступне у мініплеєр</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Додає кнопку наступного треку у мініплеєр.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Додає кнопку попереднього треку у мініплеєр.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Увімкнути жест закриття мініплеєру</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Вмикає жест вниз для закриття мініплеєру.</string>
     <string name="revanced_enable_zen_mode_title">Увімкнути режим \"Дзен\"</string>
-    <string name="revanced_enable_zen_mode_summary">Змінює фон плеєра на світло-сірий, щоб зменшити навантаження на очі.</string>
+    <string name="revanced_enable_zen_mode_summary">Змінює колір фона плеєра на світло-сірий, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Увімкнути режим \"Дзен\" у подкастах</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Режим \"Дзен\" також застосовується до подкастів.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Приховати перемикач \"пісня/відео\"</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Приховує перемикач \"пісня/відео\" у плеєрі.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Приховати перемикач \"пісня | відео\"</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Приховує перемикач \"пісня | відео\" у плеєрі.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Приховати правила каналу</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Приховує правила каналу у верхній частині секції коментарів.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати мітку часу та емодзі</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Приховує кнопки мітки часу та емодзі під час введення коментарів.</string>
-    <string name="revanced_hide_fullscreen_share_button_title">Приховати кнопку \"Поділитися\" в повноекранному режимі</string>
+    <string name="revanced_hide_fullscreen_share_button_title">Приховати \"Поділитися\" повноекранного режиму</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Приховує кнопку \"Поділитися\" в повноекранному плеєрі.</string>
     <string name="revanced_remember_repeat_state_title">Запам\'ятовувати стан повтору</string>
     <string name="revanced_remember_repeat_state_summary">Запам\'ятовує стан кнопки \"Повтор відтворення\".</string>
@@ -225,12 +225,6 @@
     <string name="revanced_restore_old_player_layout_title">Відновити старий інтерфейс плеєра</string>
     <string name="revanced_restore_old_player_layout_summary">"Повертає інтерфейс плеєра до старого стилю.
 Деякі функції можуть працювати не належним чином у старому інтерфейсі плеєра."</string>
-    <string name="revanced_replace_player_cast_button_title">Заміна кнопки \"Трансляція\"</string>
-    <string name="revanced_replace_player_cast_button_summary">"Замінює кнопку \"Трансляція\" в плеєрі кнопкою \"Відкрити музику\". (Експериментальна опція)
-
-Інформація: Ця функція не працюватиме належним чином, якщо одна або кілька музичних композицій не можуть бути відтворені в списку відтворення."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">Вже відтворюється з офіційного джерела музики.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">Офіційне джерело музики недоступне.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">Відео</string>
     <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
@@ -325,11 +319,11 @@
     <string name="revanced_enable_debug_logging_summary">Виводить протокол налагодження.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Включає буфер у журнал налагодження.</string>
-    <string name="revanced_enable_opus_codec_title">Увімкнути кодек opus</string>
-    <string name="revanced_enable_opus_codec_summary">"Вмикає аудіокодек opus замість аудіокодека mp4a.
+    <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
+    <string name="revanced_enable_opus_codec_summary">"Вмикає аудіокодек OPUS замість аудіокодека MP4A.
 
 Інформація:
-• Останні клієнти Android за умовчанням використовують аудіокодек opus.
+• Останні Android клієнти за умовчанням використовують аудіокодек OPUS.
 • Це буде корисно лише для користувачів, які користуються дуже старими клієнтами."</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
     <string name="gms_core_settings_summary">Увімкніть \"Харні повідомлення\", щоб отримувати сповіщення.</string>
@@ -337,7 +331,7 @@
     <string name="gms_core_dialog_title">Потрібна дія</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не дозволено працювати у фоні.
 
-Дотримуйтесь посібника \"Don't kill my app\" для вашого телефону і застосуйте інструкції для встановлення GmsCore.
+Дотримуйтесь посібника \"Don't kill my app\" для вашого пристрою і застосуйте інструкції для встановлення GmsCore.
 
 Це необхідно для того, щоб програма працювала."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>

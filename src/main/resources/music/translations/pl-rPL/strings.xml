@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">Konto</string>
     <string name="revanced_hide_account_menu_title">Ukryj menu konta</string>
-    <string name="revanced_hide_account_menu_summary">Ukrywa elementy menu konta.</string>
+    <string name="revanced_hide_account_menu_summary">Ukrywa elementy menu konta za pomocą własnego filtra.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtr menu konta</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw w menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ukryj puste komponenty</string>
@@ -31,8 +31,8 @@
     <string name="revanced_hide_action_button_share_summary">Ukrywa przycisk udostępniania.</string>
     <string name="revanced_hide_action_button_radio_title">Ukryj przycisk radia</string>
     <string name="revanced_hide_action_button_radio_summary">Ukrywa przycisk radia.</string>
-    <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
     <string name="revanced_hide_action_button_label_title">Ukryj nazwy przycisków akcji</string>
+    <string name="revanced_hide_action_button_label_summary">Ukrywa nazwy przycisków akcji.</string>
     <string name="revanced_external_downloader_action_title">Zastąp przycisk od pobierania</string>
     <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania.
 
@@ -49,10 +49,15 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_preference_screen_ads_title">Reklamy</string>
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_ads_summary">Ukrywa reklamy pełnoekranowe</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Zamknij pełnoekranowe reklamy</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Jeśli opcja jest włączona, pełnoekranowe reklamy są zamykane poprzez przycisk zamknięcia.
+Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wystąpić efekty uboczne)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Zablokowano reklamy pełnoekranowe. (Typ okna: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Zamknięto reklamy pełnoekranowe.</string>
     <string name="revanced_hide_general_ads_title">Ukryj ogólne reklamy</string>
     <string name="revanced_hide_general_ads_summary">Ukrywa ogólne reklamy.</string>
-    <string name="revanced_hide_music_ads_title">Ukryj reklamy muzyczne</string>
-    <string name="revanced_hide_music_ads_summary">Ukrywa reklamy przed odtworzeniem utworu.</string>
+    <string name="revanced_hide_music_ads_title">Ukryj reklamy multimedialne</string>
+    <string name="revanced_hide_music_ads_summary">Ukrywa reklamy przed odtworzeniem multimediów.</string>
     <string name="revanced_hide_paid_promotion_label_title">Ukryj etykiety oznaczające płatne promocje</string>
     <string name="revanced_hide_paid_promotion_label_summary">Ukrywa etykiety oznaczające płatne promocje.</string>
     <string name="revanced_hide_premium_promotion_title">Ukryj wyskakujące okienka promocyjne Premium</string>
@@ -62,10 +67,10 @@ Pobierz %2$s ze strony."</string>
     <!-- PreferenceScreen: Flyout -->
     <string name="revanced_preference_screen_flyout_title">Menu ustawień utworu</string>
     <string name="revanced_enable_compact_dialog_title">Włącz kompaktowe dialogi</string>
-    <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe men ustawień utworu na telefonie.
+    <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe menu ustawień utworu na telefonie.
 
 Znane problemy:
-• Okładka albumu w półkach biblioteki staje się mniejsza, gdy jest ustawiona siatka.
+• Okładka albumu w zakładce biblioteki staje się mniejsza, gdy jest ustawiona siatka.
 • Układ wyłącznika czasowego może wyglądać nietypowo."</string>
     <string name="revanced_enable_trim_silence_title">Włącz przełącznik do pomijania ciszy</string>
     <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk pomijania ciszy do menu od prędkości odtwarzania.
@@ -77,12 +82,12 @@ Informacje:
     <string name="revanced_hide_flyout_menu_3_column_component_title">Ukryj 3-kolumnowy komponent</string>
     <string name="revanced_hide_flyout_menu_add_to_queue_title">Ukryj menu od dodawania do kolejki</string>
     <string name="revanced_hide_flyout_menu_captions_title">Ukryj menu od napisów</string>
-    <string name="revanced_hide_flyout_menu_delete_playlist_title">Ukryj menu od usuwania playlist</string>
-    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Ukryj menu od odrzucania kolejek</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Ukryj menu od usuwania playlisty</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Ukryj menu od odrzucania kolejki</string>
     <string name="revanced_hide_flyout_menu_download_title">Ukryj menu od pobierania</string>
-    <string name="revanced_hide_flyout_menu_edit_playlist_title">Ukryj menu od edytowania playlist</string>
-    <string name="revanced_hide_flyout_menu_go_to_album_title">Ukryj menu do albumów</string>
-    <string name="revanced_hide_flyout_menu_go_to_artist_title">Ukryj menu do artystów</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Ukryj menu od edytowania playlisty</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Ukryj menu od pokazywania albumu</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Ukryj menu od pokazywania wykonawcy</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Ukryj menu od przechodzenia do odcinka</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ukryj menu od przechodzenia do podcastu</string>
     <string name="revanced_hide_flyout_menu_help_title">Ukryj menu do pomocy i opinii</string>
@@ -93,7 +98,7 @@ Informacje:
     <string name="revanced_hide_flyout_menu_report_title">Ukryj menu od zgłaszania</string>
     <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Ukryj menu od zapisywania odcinka na później</string>
     <string name="revanced_hide_flyout_menu_save_to_library_title">Ukryj menu od dodawania do biblioteki</string>
-    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Ukryj menu od dodawania do playlist</string>
+    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Ukryj menu od dodawania do playlisty</string>
     <string name="revanced_hide_flyout_menu_share_title">Ukryj menu od udostępniania</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Ukryj menu od odtwarzania losowo</string>
     <string name="revanced_hide_flyout_menu_sleep_timer_title">Ukryj menu od wyłącznika czasowego</string>
@@ -107,10 +112,10 @@ Informacje:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Niepoprawne url wideo.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Zmodyfikuj czyszczenie kolejek</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Zamienia menu od czyszczenia kolejek z menu od oglądania na YouTube.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Zachowaj zgłaszanie w komentarzach</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Zachowaniu menu zgłaszania w sekcji komentarzy.</string>
     <string name="revanced_replace_flyout_menu_report_title">Zamień przycisk od zgłaszania</string>
     <string name="revanced_replace_flyout_menu_report_summary">Zamienia przycisk od zgłaszania z przyciskiem od prędkości wideo.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Zachowaj zgłaszanie w komentarzach</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Zachowaniu menu zgłaszania w sekcji komentarzy.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">Ogólne</string>
     <string name="revanced_change_start_page_title">Zmień stronę startową</string>
@@ -209,7 +214,7 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Ukryj przełącznik utwór-teledysk</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Ukrywa przełącznik utwór-teledysk w odtwarzaczu.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ukryj wytyczne</string>
-    <string name="revanced_hide_comment_channel_guidelines_summary">Ukrywa wytyczne na górze sekcji komentarzy.</string>
+    <string name="revanced_hide_comment_channel_guidelines_summary">Ukrywa wytyczne kanału na górze sekcji komentarzy.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ukryj czas i przyciski od emotikon</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ukrywa czas i przyciski od emotikon podczas pisania komentarzy.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>
@@ -225,12 +230,6 @@ Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_restore_old_player_layout_title">Przywróć stary układ odtwarzacza</string>
     <string name="revanced_restore_old_player_layout_summary">"Przywraca układ odtwarzacza do starego wyglądu.
 Niektóre ustawienia mogą nie działać poprawnie ze starym układem odtwarzacza."</string>
-    <string name="revanced_replace_player_cast_button_title">Zastąp przycisk castowania</string>
-    <string name="revanced_replace_player_cast_button_summary">"Zastępuje przycisk castowania przyciskiem \"Otwórz muzykę\", który otwiera oficjalne audio zamiast teledysku. (Eksperymentalne)
-
-Informacja: funkcja nie działa normalnie, jeśli żaden z utworów nie może być odtworzony."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">Muzyka jest już odtwarzana z oficjalnego źródła.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">Oficjalne źródło muzyki jest niedostępne.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">Wideo</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
@@ -325,7 +324,7 @@ Informacja: funkcja nie działa normalnie, jeśli żaden z utworów nie może by
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Zawiera buforowanie w logach debugowania.</string>
-    <string name="revanced_enable_opus_codec_title">Włącz kodek opus</string>
+    <string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
     <string name="revanced_enable_opus_codec_summary">"Aplikuje kodek opus zamiast kodeka mp4a.
 
 Informacje:
@@ -337,7 +336,7 @@ Informacje:
     <string name="gms_core_dialog_title">Wymagane działanie</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
 
-Postępuj zgodnie z przewodnikiem 'Nie zabijaj mojej aplikacji' dla swojego telefonu i zastosuj instrukcje do aplikacji MicroG.
+Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
 
 Jest to wymagane do działania aplikacji."</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
