@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">Conta</string>
     <string name="revanced_hide_account_menu_title">Ocultar menu de contas</string>
-    <string name="revanced_hide_account_menu_summary">Oculta os elementos de menu de conta no filtro personalizado.</string>
+    <string name="revanced_hide_account_menu_summary">Oculta os elementos do menu da conta usando o filtro personalizado.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro do menu de conta</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de contas a serem filtrados, separados por novas linhas.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ocultar componentes vazios</string>
@@ -16,7 +16,7 @@
     <string name="revanced_hide_handle_title">Ocultar identificador</string>
     <string name="revanced_hide_handle_summary">Oculta o identificador no menu da conta.</string>
     <string name="revanced_hide_terms_container_title">Ocultar contêiner de termos</string>
-    <string name="revanced_hide_terms_container_summary">Oculta o contêiner de termos de serviço.</string>
+    <string name="revanced_hide_terms_container_summary">Oculta o contêiner dos Termos de Serviço.</string>
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">Barra de ação</string>
     <string name="revanced_hide_action_button_like_dislike_title">Ocultar botões de like e deslike</string>
@@ -31,8 +31,8 @@
     <string name="revanced_hide_action_button_share_summary">Oculta botão de compartilhar.</string>
     <string name="revanced_hide_action_button_radio_title">Ocultar botão de rádio</string>
     <string name="revanced_hide_action_button_radio_summary">Oculta o botão iniciar rádio.</string>
-    <string name="revanced_hide_action_button_label_summary">Oculta rótulos em botões de ação.</string>
     <string name="revanced_hide_action_button_label_title">Ocultar rótulos do botão de ação</string>
+    <string name="revanced_hide_action_button_label_summary">Oculta rótulos em botões de ação.</string>
     <string name="revanced_external_downloader_action_title">Substituir botão de ação de download</string>
     <string name="revanced_external_downloader_action_summary">"O botão de download abre seu aplicativo de download externo.
 
@@ -49,6 +49,11 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_preference_screen_ads_title">Anúncios</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
     <string name="revanced_hide_fullscreen_ads_summary">Oculta anúncios em tela cheia.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Fechar anúncios em tela cheia</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Se estiver ativado, os anúncios em tela cheia são fechados através do botão Fechar.
+Se estiver desativado, os anúncios em tela cheia serão bloqueados. (pode haver efeitos colaterais)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Os anúncios em tela cheia foram bloqueados. (Tipo de diálogo: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Os anúncios de tela cheia foram fechados.</string>
     <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
     <string name="revanced_hide_general_ads_summary">Oculta anúncios gerais.</string>
     <string name="revanced_hide_music_ads_title">Ocultar anúncios de músicas</string>
@@ -107,10 +112,10 @@ Informações:
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">URL de vídeo inválida.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Substituir Remover fila</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Substitui \'Remover fila\' por \'Assistir no YouTube\'.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">Manter relatório nos comentários</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_summary">Mantém intacto o menu de relatório na seção de comentários.</string>
     <string name="revanced_replace_flyout_menu_report_title">Substituir denunciar</string>
     <string name="revanced_replace_flyout_menu_report_summary">Substitui \'Denunciar\' por \'Velocidade de Reprodução\'.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Manter relatório nos comentários</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Mantém intacto o menu de relatório na seção de comentários.</string>
     <!-- PreferenceScreen: General -->
     <string name="revanced_preference_screen_general_title">Geral</string>
     <string name="revanced_change_start_page_title">Alterar a página inicial</string>
@@ -225,12 +230,6 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_restore_old_player_layout_title">Restaurar antigo layout do reprodutor</string>
     <string name="revanced_restore_old_player_layout_summary">"Retorna o layout do reprodutor ao estilo antigo.
 Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor."</string>
-    <string name="revanced_replace_player_cast_button_title">Substituir o botão de transmissão</string>
-    <string name="revanced_replace_player_cast_button_summary">"Substitui o botão transmitir no reprodutor por um botão ‘abrir música’, que abre o áudio oficial em vez do videoclipe. (experimental)
-
-Informação: Este recurso não funciona normalmente se alguma música da lista de reprodução não puder ser reproduzida."</string>
-    <string name="revanced_replace_player_cast_button_playlist_dismiss">Já está reproduzindo da fonte oficial de música.</string>
-    <string name="revanced_replace_player_cast_button_playlist_error">A fonte oficial de música não está disponível.</string>
     <!-- PreferenceScreen: Video -->
     <string name="revanced_preference_screen_video_title">Vídeo</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reprodução personalizadas</string>
