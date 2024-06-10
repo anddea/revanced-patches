@@ -2,9 +2,8 @@ package app.revanced.patches.youtube.utils.flyoutmenu
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.flyoutmenu.fingerprints.PlaybackRateBottomSheetClassFingerprint
+import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
 import app.revanced.patches.youtube.utils.flyoutmenu.fingerprints.VideoQualityBottomSheetClassFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -17,7 +16,7 @@ import app.revanced.util.resultOrThrow
 )
 object FlyoutMenuHookPatch : BytecodePatch(
     setOf(
-        PlaybackRateBottomSheetClassFingerprint,
+        PlaybackRateBottomSheetBuilderFingerprint,
         VideoQualityBottomSheetClassFingerprint
     )
 ) {
@@ -30,17 +29,12 @@ object FlyoutMenuHookPatch : BytecodePatch(
             INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR
         )!!.mutableClass
 
-        PlaybackRateBottomSheetClassFingerprint.resultOrThrow().let {
+        PlaybackRateBottomSheetBuilderFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val playbackRateBottomSheetBuilderMethodName =
-                    it.mutableClass.methods.find { method -> method.parameters.isEmpty() && method.returnType == "V" }
-                        ?.name
-                        ?: throw PatchException("Could not find PlaybackRateBottomSheetBuilderMethod")
-
                 val smaliInstructions =
                     """
                         if-eqz v0, :ignore
-                        invoke-virtual {v0}, $definingClass->$playbackRateBottomSheetBuilderMethodName()V
+                        invoke-virtual {v0}, $definingClass->$name()V
                         :ignore
                         return-void
                     """

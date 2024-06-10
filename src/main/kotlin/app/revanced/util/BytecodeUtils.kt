@@ -196,6 +196,73 @@ fun BytecodeContext.literalInstructionHook(
 }
 
 /**
+ * Get the index of the first instruction with the literal value or throw a [PatchException].
+ *
+ * @throws [PatchException] if the literal index not found.
+ */
+fun Method.indexOfWideLiteralInstructionOrThrow(literal: Long): Int {
+    val index = getWideLiteralInstructionIndex(literal)
+    if (index < 0) {
+        val value =
+            if (literal >= 2130706432) // 0x7f000000, general resource id
+                String.format("%#X", literal).lowercase()
+            else
+                literal.toString()
+
+        throw PatchException("Found literal value for: '$value' but method does not contain the id: $this")
+    }
+
+    return index
+}
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @param startIndex Optional starting index to start searching from.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
+    val index = this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
+
+    return if (index >= 0) {
+        startIndex + index
+    } else {
+        -1
+    }
+}
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @return the index of the instruction
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
+    val index = indexOfFirstInstruction(startIndex, predicate)
+    if (index < 0) {
+        throw PatchException("Could not find instruction index")
+    }
+    return index
+}
+
+/**
+ * @return The list of indices of the opcode in reverse order.
+ */
+fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
+    val indexes = implementation!!.instructions
+        .withIndex()
+        .filter { (_, instruction) -> instruction.opcode == opcode }
+        .map { (index, _) -> index }
+        .reversed()
+
+    if (indexes.isEmpty()) throw PatchException("No ${opcode.name} instructions found in: $this")
+
+    return indexes
+}
+
+/**
  * Find the index of the first wide literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
@@ -205,8 +272,6 @@ fun Method.getWideLiteralInstructionIndex(literal: Long) = implementation?.let {
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
 } ?: -1
-
-fun Method.getEmptyStringInstructionIndex() = getStringInstructionIndex("")
 
 fun Method.getStringInstructionIndex(value: String) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
