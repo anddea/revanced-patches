@@ -3,6 +3,7 @@
 	<string name="accessibility_settings_edu_opt_in_text">开启视频播放器的访问控制？</string>
 	<string name="accessibility_settings_edu_opt_out_text">由于无障碍服务已启用，您的控制被修改</string>
 	<string name="gms_core_dialog_continue_text">继续</string>
+	<string name="gms_core_dialog_dismiss_text">不再提示</string>
 	<string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 没有后台运行的权限
 
 请遵循适用于您手机的 “Don't kill my app!” 指南，并将这些说明应用于您的 GmsCore 安装
@@ -1374,4 +1375,56 @@
 	<string name="revanced_whitelist_settings_summary">检查或删除添加到白名单的频道列表</string>
 	<string name="revanced_whitelist_settings_title">频道白名单</string>
 	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
+    <string name="revanced_preference_category_spoof_client_about">关于</string>
+    <string name="revanced_preference_category_spoof_client_options">伪装客户端选项</string>
+    <string name="revanced_preference_screen_spoof_client_summary">伪装客户端以防止播放问题</string>
+    <string name="revanced_preference_screen_spoof_client_title">伪装客户端</string>
+    <string name="revanced_spoof_client_fallback_title">无法播放的视频</string>
+    <string name="revanced_spoof_client_general_title">常规设置</string>
+    <string name="revanced_spoof_client_livestream_title">直播</string>
+    <string name="revanced_spoof_client_options_entry_android">Android</string>
+    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入式播放器</string>
+    <string name="revanced_spoof_client_options_entry_android_testsuite">Android 测试套件</string>
+    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
+    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_client_options_entry_web">网址</string>
+    <string name="revanced_spoof_client_shorts_title">短视频，剪辑</string>
+    <string name="revanced_spoof_client_stats_for_nerds_summary_off">伪装客户端已在统计信息中隐藏</string>
+    <string name="revanced_spoof_client_stats_for_nerds_summary_on">伪装客户端已在统计信息中显示</string>
+    <string name="revanced_spoof_client_stats_for_nerds_title">显示详细统计信息</string>
+    <string name="revanced_spoof_client_use_android_testsuite_summary">"伪装客户端到 Android 测试套件
+
+副作用:
+• 无 HDR 视频
+• 缺少音轨菜单和播放速度菜单
+• 字幕可能不可用"</string>
+    <string name="revanced_spoof_client_use_android_testsuite_title">Android 测试套件</string>
+    <string name="revanced_spoof_client_use_android_tv_summary">"伪装客户端到 Android TV (YouTube TV) 
+
+副作用：
+• 无 HDR 视频
+• 缺少音轨菜单和播放速度菜单
+• 字幕可能不可用
+• 某些直播流不支持播放"</string>
+    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
+    <string name="revanced_spoof_client_use_android_vr_summary">"伪装客户端到 Android VR 
+
+副作用：
+• 无 HDR 视频
+• 暂停的视频可以随时恢复
+• 低质量短视频滚动栏缩略图
+• 儿童视频无法播放"</string>
+    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_summary">"伪装客户端到iOS
+
+副作用:
+• 无 HDR 视频
+• 缺少播放速度菜单
+• 可能失去更高视频画质
+• 历史记录不适用于品牌帐号
+• 直播不能只作为音频播放
+• 直播在 Android 8.0 上不可用"</string>
 </resources>
