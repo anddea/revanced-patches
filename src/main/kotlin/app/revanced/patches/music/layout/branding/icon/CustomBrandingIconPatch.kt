@@ -113,20 +113,23 @@ object CustomBrandingIconPatch : BaseResourcePatch(
 
             ${launcherIconResourceFileNames.joinToString("\n") { "- $it" }}
             """.trimIndentMultiline(),
+        required = true
     )
 
     private val ChangeHeader by booleanPatchOption(
         key = "ChangeHeader",
-        default = false,
+        default = true,
         title = "Change header",
-        description = "Apply the custom branding icon to the header."
+        description = "Apply the custom branding icon to the header.",
+        required = true
     )
 
     private val ChangeSplashIcon by booleanPatchOption(
         key = "ChangeSplashIcon",
         default = true,
         title = "Change splash icons",
-        description = "Apply the custom branding icon to the splash screen."
+        description = "Apply the custom branding icon to the splash screen.",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

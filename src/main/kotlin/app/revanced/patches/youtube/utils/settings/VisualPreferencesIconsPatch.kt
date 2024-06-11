@@ -319,7 +319,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 val resourcePath = "youtube/branding/$appIconValue"
 
                 val iconPath = when {
-                    selectedIconType == "custom_branding_icon" -> "$resourcePath/launcher"
+                    selectedIconType == "custom_branding_icon" -> "$resourcePath/settings"
                     else -> "youtube/settings/icons/$selectedIconType"
                 }
 
