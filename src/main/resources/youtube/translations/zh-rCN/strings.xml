@@ -472,7 +472,7 @@
 	<string name="revanced_hide_keyword_content_home_summary_on">首页订阅内容的关键词过滤已启用</string>
 	<string name="revanced_hide_keyword_content_home_title">启用首页关键词过滤器</string>
 	<string name="revanced_hide_keyword_content_phrases_summary">"配置要隐藏的关键词和短语，以换行符分隔\n\n
-中间有大写字母的单词必须使用大小写（例如：iPhone、TikTok、LeBlanc）"</string>
+中间有大写字母的单词必须使用大小写(例如：iPhone、TikTok、LeBlanc)"</string>
 	<string name="revanced_hide_keyword_content_phrases_title">要隐藏的关键词</string>
 	<string name="revanced_hide_keyword_content_search_summary_off">搜索结果过滤器未启用</string>
 	<string name="revanced_hide_keyword_content_search_summary_on">搜索结果过滤器已启用</string>
@@ -894,6 +894,7 @@
 	<string name="revanced_icon_mmt">MMT</string>
 	<string name="revanced_icon_revancify_blue">Revancify Blue</string>
 	<string name="revanced_icon_revancify_red">Revancify Red</string>
+	<string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
 	<string name="revanced_icon_vanced_black">Vanced Black</string>
 	<string name="revanced_icon_vanced_light">Vanced Light</string>
 	<string name="revanced_keep_landscape_mode_summary">在全屏状态下关闭和打开屏幕时，保持横屏模式\n\n已知问题：它可能会破坏画中画 (PIP)</string>
@@ -940,6 +941,8 @@
 	<string name="revanced_preference_category_quick_actions">快速操作</string>
 	<string name="revanced_preference_category_recommended_video">推荐视频</string>
 	<string name="revanced_preference_category_shorts_shelf">Shorts 栏</string>
+	<string name="revanced_preference_category_spoof_client_about">关于</string>
+	<string name="revanced_preference_category_spoof_client_options">伪装客户端选项</string>
 	<string name="revanced_preference_category_tool_used">使用的工具</string>
 	<string name="revanced_preference_category_view_counts_filter">观看次数过滤器</string>
 	<string name="revanced_preference_screen_account_menu_summary">隐藏或显示账户菜单和“你的”选项卡中的元素</string>
@@ -995,6 +998,8 @@
 	<string name="revanced_preference_screen_shorts_player_summary">隐藏或显示短视频播放器中的组件</string>
 	<string name="revanced_preference_screen_shorts_player_title">短视频播放器</string>
 	<string name="revanced_preference_screen_shorts_title">短视频</string>
+	<string name="revanced_preference_screen_spoof_client_summary">伪装客户端以防止播放问题</string>
+	<string name="revanced_preference_screen_spoof_client_title">伪装客户端</string>
 	<string name="revanced_preference_screen_swipe_controls_title">滑动控制</string>
 	<string name="revanced_preference_screen_toolbar_summary">隐藏或更改工具栏上的组件，如工具栏按钮、搜索栏、标题</string>
 	<string name="revanced_preference_screen_toolbar_title">工具栏</string>
@@ -1063,7 +1068,7 @@
 	<string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频以使用 Return YouTube Dislike进行投票</string>
 	<string name="revanced_ryd_shorts_summary_off">点踩已隐藏</string>
 	<string name="revanced_ryd_shorts_summary_on">Shorts 中显示的不喜欢内容 %s</string>
-	<string name="revanced_ryd_shorts_summary_on_disclaimer">"在短视频中显示不喜欢
+	<string name="revanced_ryd_shorts_summary_on_disclaimer">"在短视频中显示点踩
 
 限制：在无痕模式下，点踩可能不会显示"</string>
 	<string name="revanced_ryd_shorts_title">点踩</string>
@@ -1215,7 +1220,7 @@
 	<string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暂时无法使用（状态 %d）</string>
 	<string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暂时无法使用（API 超时）</string>
 	<string name="revanced_sb_stats">统计信息</string>
-	<string name="revanced_sb_stats_connection_failure">统计信息暂时无法使用（API 出现问题）</string>
+	<string name="revanced_sb_stats_connection_failure">统计信息暂时无法使用(API 出现问题)</string>
 	<string name="revanced_sb_stats_loading">加载中...</string>
 	<string name="revanced_sb_stats_reputation">您的声誉为 &lt;b&gt;%.2f&lt;/b&gt;</string>
 	<string name="revanced_sb_stats_saved">您为人们节省了 &lt;b&gt;%s&lt;/b&gt; 个片段</string>
@@ -1290,13 +1295,56 @@
 	<string name="revanced_spoof_app_version_target_summary">选择伪装的应用版本</string>
 	<string name="revanced_spoof_app_version_target_title">编辑伪装应用版本</string>
 	<string name="revanced_spoof_app_version_title">伪装应用版本</string>
-	<string name="revanced_spoof_client_summary_off">"客户端伪装未启用。视频可能无法正常播放。"</string>
-	<string name="revanced_spoof_client_summary_on">"客户端伪装已启用
+	<string name="revanced_spoof_client_fallback_title">无法播放的视频</string>
+	<string name="revanced_spoof_client_general_title">常规设置</string>
+	<string name="revanced_spoof_client_livestream_title">直播</string>
+	<string name="revanced_spoof_client_options_entry_android">Android</string>
+	<string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入式播放器</string>
+	<string name="revanced_spoof_client_options_entry_android_testsuite">Android 测试套件</string>
+	<string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
+	<string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
+	<string name="revanced_spoof_client_options_entry_ios">iOS</string>
+	<string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+	<string name="revanced_spoof_client_options_entry_web">网址</string>
+	<string name="revanced_spoof_client_shorts_title">短视频，剪辑</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_off">伪装客户端已在统计信息中隐藏</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_on">伪装客户端已在统计信息中显示</string>
+	<string name="revanced_spoof_client_stats_for_nerds_title">显示详细统计信息</string>
+	<string name="revanced_spoof_client_summary_off">"客户端未伪装，视频可能无法正常播放"</string>
+	<string name="revanced_spoof_client_summary_on">客户端已伪装</string>
+	<string name="revanced_spoof_client_title">伪装客户端</string>
+	<string name="revanced_spoof_client_use_android_testsuite_summary">"伪装客户端到 Android 测试套件
+
+副作用:
+• 无 HDR 视频
+• 缺少音轨菜单和播放速度菜单
+• 字幕可能不可用"</string>
+	<string name="revanced_spoof_client_use_android_testsuite_title">Android 测试套件</string>
+	<string name="revanced_spoof_client_use_android_tv_summary">"伪装客户端到 Android TV (YouTube TV) 
 
 副作用：
-• 没有 HDR 视频
-• 观察历史可能无法正常记录"</string>
-	<string name="revanced_spoof_client_title">伪装客户端</string>
+• 无 HDR 视频
+• 缺少音轨菜单和播放速度菜单
+• 字幕可能不可用
+• 某些直播流不支持播放"</string>
+	<string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
+	<string name="revanced_spoof_client_use_android_vr_summary">"伪装客户端到 Android VR 
+
+副作用：
+• 无 HDR 视频
+• 暂停的视频可以随时恢复
+• 低质量短视频滚动栏缩略图
+• 儿童视频无法播放"</string>
+	<string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+	<string name="revanced_spoof_client_use_ios_summary">"伪装客户端到iOS
+
+副作用:
+• 无 HDR 视频
+• 缺少播放速度菜单
+• 可能失去更高视频画质
+• 历史记录不适用于品牌帐号
+• 直播不能只作为音频播放
+• 直播在 Android 8.0 上不可用"</string>
 	<string name="revanced_spoof_client_use_ios_summary_off">"客户端已伪装为 Android VR (iOS 客户端用于 Clips 或 Shorts)
 
  副作用：
@@ -1310,8 +1358,8 @@
 • 无法在后台播放直播
 • 无法在 Android 8.0 播放直播
 • 可能失去视频更高画质"</string>
-	<string name="revanced_spoof_client_use_ios_title">伪装为 IOS 客户端</string>
-	<string name="revanced_spoof_device_dimensions_summary">伪装设备尺寸，以解锁设备可能无法提供的更高视频质量</string>
+	<string name="revanced_spoof_client_use_ios_title">iOS</string>
+	<string name="revanced_spoof_device_dimensions_summary">"伪装设备尺寸，以解锁设备可能无法提供的更高视频质量"</string>
 	<string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
 	<string name="revanced_spoof_format_stream_data_summary">"伪装格式流数据，以防止出现播放缓冲问题
 
@@ -1375,56 +1423,4 @@
 	<string name="revanced_whitelist_settings_summary">检查或删除添加到白名单的频道列表</string>
 	<string name="revanced_whitelist_settings_title">频道白名单</string>
 	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
-    <string name="revanced_preference_category_spoof_client_about">关于</string>
-    <string name="revanced_preference_category_spoof_client_options">伪装客户端选项</string>
-    <string name="revanced_preference_screen_spoof_client_summary">伪装客户端以防止播放问题</string>
-    <string name="revanced_preference_screen_spoof_client_title">伪装客户端</string>
-    <string name="revanced_spoof_client_fallback_title">无法播放的视频</string>
-    <string name="revanced_spoof_client_general_title">常规设置</string>
-    <string name="revanced_spoof_client_livestream_title">直播</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入式播放器</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Android 测试套件</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">网址</string>
-    <string name="revanced_spoof_client_shorts_title">短视频，剪辑</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">伪装客户端已在统计信息中隐藏</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">伪装客户端已在统计信息中显示</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">显示详细统计信息</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"伪装客户端到 Android 测试套件
-
-副作用:
-• 无 HDR 视频
-• 缺少音轨菜单和播放速度菜单
-• 字幕可能不可用"</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Android 测试套件</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"伪装客户端到 Android TV (YouTube TV) 
-
-副作用：
-• 无 HDR 视频
-• 缺少音轨菜单和播放速度菜单
-• 字幕可能不可用
-• 某些直播流不支持播放"</string>
-    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"伪装客户端到 Android VR 
-
-副作用：
-• 无 HDR 视频
-• 暂停的视频可以随时恢复
-• 低质量短视频滚动栏缩略图
-• 儿童视频无法播放"</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_summary">"伪装客户端到iOS
-
-副作用:
-• 无 HDR 视频
-• 缺少播放速度菜单
-• 可能失去更高视频画质
-• 历史记录不适用于品牌帐号
-• 直播不能只作为音频播放
-• 直播在 Android 8.0 上不可用"</string>
 </resources>

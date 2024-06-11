@@ -235,10 +235,10 @@
 	<string name="revanced_enable_watch_panel_gestures_summary_off">تم تعطيل الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_on">تم تمكين الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
 	<string name="revanced_enable_watch_panel_gestures_title">تمكين إيماءات لوح المشاهدة</string>
-	<string name="revanced_enable_wide_search_bar_in_you_tab_summary">"سيؤدي تمكين هذا الإعداد إلى تعطيل زر الإعدادات في علامة التبويب \"أنت\".
+	<string name="revanced_enable_wide_search_bar_in_you_tab_summary">"سيؤدي تمكين هذا الإعداد إلى تعطيل زر الإعدادات في علامة التبويب أنت.
 
 في هذه الحالة، يرجى استخدام المسار التالي للوصول إلى الإعدادات:
-علامة التبويب أنت ← عرض القناة ← القائمة ← الإعدادات."</string>
+'علامة التبويب أنت ← عرض القناة ← القائمة ← الإعدادات'"</string>
 	<string name="revanced_enable_wide_search_bar_in_you_tab_title">تمكين شريط البحث العريض في علامة التبويب أنت</string>
 	<string name="revanced_enable_wide_search_bar_summary_off">تم تعطيل شريط البحث العريض.</string>
 	<string name="revanced_enable_wide_search_bar_summary_on">تم تمكين شريط البحث العريض.</string>
@@ -269,6 +269,7 @@
 	<string name="revanced_extended_settings_import_summary">استيراد الإعدادات من ملف محفوظ.</string>
 	<string name="revanced_extended_settings_import_title">استيراد الإعدادات</string>
 	<string name="revanced_extended_settings_reset">إعادة تعيين</string>
+	<string name="revanced_extended_settings_search_title">البحث عن إعدادات</string>
 	<string name="revanced_extended_settings_title">ReVanced Extended</string>
 	<string name="revanced_external_downloader_action_summary_off">يفتح زر التنزيل أداة التنزيل الأصلية داخل التطبيق.</string>
 	<string name="revanced_external_downloader_action_summary_on">يفتح زر التنزيل الأصلي أداة التنزيل الخارجية.</string>
@@ -408,9 +409,16 @@
 	<string name="revanced_hide_for_you_shelf_summary_off">"يتم عرض رف 'لـك'."</string>
 	<string name="revanced_hide_for_you_shelf_summary_on">"تم إخفاء رف 'لـك'."</string>
 	<string name="revanced_hide_for_you_shelf_title">"إخفاء رف 'من أجلك'"</string>
+	<string name="revanced_hide_fullscreen_ads_blocked_success">تم حظر الإعلانات بملء الشاشة. (نوع الحوار: %s)</string>
+	<string name="revanced_hide_fullscreen_ads_closed_success">تم إغلاق الإعلانات بملء الشاشة.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">تم إخفاء إعلانات ملء الشاشة.</string>
 	<string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_off">"يتم حظر الإعلانات بملء الشاشة.
+
+القيد: قد يتم حظر صورة منشور المجتمع في وضع ملء الشاشة."</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_on">يتم إغلاق الإعلانات بملء الشاشة من خلال زر الإغلاق.</string>
+	<string name="revanced_hide_fullscreen_ads_type_title">إغلاق الإعلانات بملء الشاشة</string>
 	<string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة.</string>
 	<string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات العامة.</string>
 	<string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
@@ -478,6 +486,8 @@
 	<string name="revanced_hide_live_chat_replay_button_summary_off">يتم عرض زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
 	<string name="revanced_hide_live_chat_replay_button_summary_on">تم إخفاء زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
 	<string name="revanced_hide_live_chat_replay_button_title">إخفاء زر إعادة عرض المحادثات المباشرة</string>
+	<string name="revanced_hide_low_views_video_summary">إخفاء مقاطع الفيديو التي حصلت على أقل من 1000 مشاهدة من موجز الصفحة الرئيسية التي تم تحميلها من القنوات غير المشترك بها.</string>
+	<string name="revanced_hide_low_views_video_title">إخفاء فيديو المشاهدات المنخفضة</string>
 	<string name="revanced_hide_medical_panel_summary_off">يتم عرض اللوحات الطبية.</string>
 	<string name="revanced_hide_medical_panel_summary_on">تم إخفاء اللوحات الطبية.</string>
 	<string name="revanced_hide_medical_panel_title">إخفاء اللوحات الطبية</string>
@@ -574,6 +584,9 @@
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">يتم عرض تذييل قائمة الجودة.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">تم إخفاء تذييل قائمة الجودة.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">إخفاء تذييل قائمة جودة الفيديو</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_off">يتم عرض Header قائمة الجودة.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_on">تم إخفاء Header قائمة الجودة.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_title">إخفاء ترويسة قائمة جودة الفيديو</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">يتم عرض قائمة الإبلاغ.</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_on">تم إخفاء قائمة الإبلاغ.</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">إخفاء قائمة الإبلاغ</string>
@@ -643,8 +656,7 @@
 	<string name="revanced_hide_recommended_video_summary">"يخفي مقاطع الفيديو الموصى بها التالية:
 
 • مقاطع الفيديو التي تحمل علامة 'للعضوية فقط'.
-• مقاطع فيديو تحتوي على عبارات مثل 'شاهد الأشخاص أيضًا' أسفل الفيديو
-• مقاطع الفيديو التي تم تحميلها من القنوات غير المشتركة فيها والتي حصلت على أقل من 1000 مشاهدة"</string>
+• مقاطع فيديو تحتوي على عبارات مثل 'شاهد الأشخاص أيضًا' أسفل الفيديو."</string>
 	<string name="revanced_hide_recommended_video_title">إخفاء الفيديوهات الموصى بها</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">يتم عرض قسم \'المزيد من مقاطع الفيديو\' في حاوية الإجراءات السريعة وتراكب الفيديو ذي الصلة.</string>
 	<string name="revanced_hide_related_video_overlay_summary_on">تم إخفاء قسم \'المزيد من مقاطع الفيديو\' في حاوية الإجراءات السريعة وتراكب الفيديو ذي الصلة.</string>
@@ -701,6 +713,9 @@
 	<string name="revanced_hide_shorts_comments_button_summary_off">يتم عرض قسم التعليقات.</string>
 	<string name="revanced_hide_shorts_comments_button_summary_on">تم إخفاء زر التعليقات.</string>
 	<string name="revanced_hide_shorts_comments_button_title">إخفاء زر التعليقات</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_off">يتم عرض زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">تم إخفاء زر التعليقات المعطلة أو الذي يحمل العلامة \"0\".</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_title">إخفاء زر التعليقات المعطلة</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_off">يتم عرض زر لم يعجبني.</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_on">تم إخفاء زر لم يعجبني.</string>
 	<string name="revanced_hide_shorts_dislike_button_title">إخفاء زر لم يعجبني</string>
@@ -716,6 +731,9 @@
 	<string name="revanced_hide_shorts_like_button_summary_off">يتم عرض زر أعجبني.</string>
 	<string name="revanced_hide_shorts_like_button_summary_on">تم إخفاء زر أعجبني.</string>
 	<string name="revanced_hide_shorts_like_button_title">إخفاء زر أعجبني</string>
+	<string name="revanced_hide_shorts_live_header_summary_off">يتم عرض Header المحادثات المباشرة.\n\nزر رجوع في Header لن يتم إخفاؤه.</string>
+	<string name="revanced_hide_shorts_live_header_summary_on">تم إخفاء Header المحادثات المباشرة.\n\nزر رجوع في Header لن يتم إخفاؤه.</string>
+	<string name="revanced_hide_shorts_live_header_title">إخفاء ترويسة المحادثات المباشرة</string>
 	<string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع.</string>
 	<string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع.</string>
 	<string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
@@ -768,6 +786,9 @@
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">يتم عرض زر اشتراك.</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">تم إخفاء زر اشتراك.</string>
 	<string name="revanced_hide_shorts_subscribe_button_title">إخفاء زر اشتراك</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_off">يتم عرض زر Super Thanks.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_on">تم إخفاء زر Super Thanks.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_title">إخفاء زر Super Thanks</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_off">يتم عرض المنتجات المعلمة.</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_on">تم إخفاء المنتجات المعلمة.</string>
 	<string name="revanced_hide_shorts_tagged_products_title">إخفاء المنتجات الموسومة</string>
@@ -860,11 +881,14 @@
 	<string name="revanced_hide_web_search_results_summary_off">يتم عرض نتائج البحث على الويب.</string>
 	<string name="revanced_hide_web_search_results_summary_on">تم إخفاء نتائج البحث على الويب.</string>
 	<string name="revanced_hide_web_search_results_title">إخفاء نتائج بحث الويب</string>
+	<string name="revanced_icon_afn_blue">AFN Blue</string>
+	<string name="revanced_icon_afn_red">AFN Red</string>
 	<string name="revanced_icon_custom">مخصص</string>
 	<string name="revanced_icon_default">الإفتراضي</string>
 	<string name="revanced_icon_mmt">MMT</string>
 	<string name="revanced_icon_revancify_blue">Revancify Blue</string>
 	<string name="revanced_icon_revancify_red">Revancify Red</string>
+	<string name="revanced_icon_youtube">YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">يحافظ على الوضع الأفقي عند إيقاف تشغيل الشاشة وتشغيلها في وضع ملء الشاشة.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">مقدار اجزاء الثانية التي يتم فرضها على الوضع الأفقي بعد تشغيل الشاشة.</string>
 	<string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
@@ -983,7 +1007,7 @@
  بعد حوالي 20 ثانية من التخزين المؤقت، يقوم بالتبديل إلى برنامج ترميز مختلف."</string>
 	<string name="revanced_reject_av1_codec_title">رفض استجابة برنامج الترميز AV1</string>
 	<string name="revanced_reject_av1_codec_toast">تؤدي العملية الاحتياطية إلى حوالي 20 ثانية من التخزين المؤقت.</string>
-	<string name="revanced_remember_playback_speed_last_selected_summary_off">تنطبق تغييرات سرعة التشغيل على الفيديو الحالي.</string>
+	<string name="revanced_remember_playback_speed_last_selected_summary_off">تنطبق تغييرات سرعة التشغيل على الفيديو الحالي فقط.</string>
 	<string name="revanced_remember_playback_speed_last_selected_summary_on">تنطبق تغييرات سرعة التشغيل على جميع الفيديوهات.</string>
 	<string name="revanced_remember_playback_speed_last_selected_title">تذكر التغيرات في سرعة التشغيل</string>
 	<string name="revanced_remember_playback_speed_toast">تغيير السرعة الافتراضية إلى %s.</string>
@@ -1259,45 +1283,52 @@
 	<string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
 	<string name="revanced_spoof_app_version_target_title">تعديل إصدار التطبيق الوهمي</string>
 	<string name="revanced_spoof_app_version_title">إصدار تطبيق وهمي</string>
-	<string name="revanced_spoof_client_fallback_title">التراجع</string>
+	<string name="revanced_spoof_client_fallback_title">الفيديو غير قابل للتشغيل</string>
 	<string name="revanced_spoof_client_general_title">عام</string>
 	<string name="revanced_spoof_client_livestream_title">بث مباشر</string>
+	<string name="revanced_spoof_client_options_entry_android">Android</string>
+	<string name="revanced_spoof_client_options_entry_android_embedded_player">مشغل أندرويد المضمن</string>
 	<string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
+	<string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
 	<string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
 	<string name="revanced_spoof_client_options_entry_ios">iOS</string>
+	<string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+	<string name="revanced_spoof_client_options_entry_web">Web</string>
 	<string name="revanced_spoof_client_shorts_title">مقاطع ,Shorts</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_off">تم إخفاء محاكاة العميل في إحصاءات تقنية.</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_on">يتم عرض محاكاة العميل في إحصاءات تقنية.</string>
+	<string name="revanced_spoof_client_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
 	<string name="revanced_spoof_client_summary_off">"لا تتم محاكاة العميل. قد لا يعمل تشغيل الفيديو."</string>
 	<string name="revanced_spoof_client_summary_on">تتم محاكاة العميل.</string>
 	<string name="revanced_spoof_client_title">Spoof Client</string>
-	<string name="revanced_spoof_client_use_android_testsuite_summary">"تتم محاكاة العميل لـ Android Testsuite.
+	<string name="revanced_spoof_client_use_android_testsuite_summary">"تتم محاكاة العميل إلـى Android Testsuite.
 
 تشمل الآثار الجانبية ما يلي:
 • لا يوجد فيديو بتقنية HDR.
-• قائمة المقطع الصوتي وقائمة سرعة التشغيل مفقودة.
+• قائمة المقطع الصوتي مفقودة.
 • قد لا تكون الترجمة متاحة."</string>
 	<string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
-	<string name="revanced_spoof_client_use_android_tv_summary">"تتم محاكاة العميل على Android TV (YouTube TV).
+	<string name="revanced_spoof_client_use_android_tv_summary">"تتم محاكاة العميل إلـى Android TV (YouTube TV).
 
 تشمل الآثار الجانبية ما يلي:
 • لا يوجد فيديو بتقنية HDR.
-• قائمة المقطع الصوتي وقائمة سرعة التشغيل مفقودة.
+• قائمة المقطع الصوتي مفقودة.
 • قد لا تكون الترجمة متاحة.
-• بعض مجموعات البث المباشر غير مدعومة للتشغيل."</string>
+• بعض البثوث المباشرة غير مدعومة للتشغيل."</string>
 	<string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-	<string name="revanced_spoof_client_use_android_vr_summary">"تتم محاكاة العميل لـ Android VR.
+	<string name="revanced_spoof_client_use_android_vr_summary">"تتم محاكاة العميل إلـى Android VR.
 
 تشمل الآثار الجانبية ما يلي:
 • لا يوجد فيديو بتقنية HDR.
 • استئناف مقاطع الفيديو المتوقفة مؤقتًا يتم بشكل عشوائي.
 • مصغرات شريط تقدم Shorts ذات جودة منخفضة.
-• لا يتم تشغيل مقاطع فيديو الأطفال."</string>
+• مقاطع فيديو الأطفال لا تعمل."</string>
 	<string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-	<string name="revanced_spoof_client_use_ios_summary">"تتم محاكاة العميل لـ iOS.
+	<string name="revanced_spoof_client_use_ios_summary">"تتم محاكاة العميل إلـى iOS.
 
 تشمل الآثار الجانبية ما يلي:
 • لا يوجد فيديو بتقنية HDR.
-• قائمة سرعة التشغيل مفقودة.
-• قد تكون جودة الفيديو الأعلى مفقودة.
+• قد تكون جودة الفيديو الأعلى غير متوفرة.
 • سجل المشاهدة لا يعمل مع حساب العلامة التجارية.
 • لا يمكن تشغيل البث المباشر كصوت فقط.
 • البث المباشر غير متوفر على Android 8.0."</string>
@@ -1315,7 +1346,7 @@
 • البث المباشر غير متوفر على Android 8.0.
 • قد تكون جودة الفيديو الأعلى مفقودة."</string>
 	<string name="revanced_spoof_client_use_ios_title">iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.</string>
+	<string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك."</string>
 	<string name="revanced_spoof_device_dimensions_title">إيهام أبعاد الجهاز</string>
 	<string name="revanced_spoof_format_stream_data_summary">"تقوم عمليات المحاكاة Spoofs بتنسيق بيانات الدفق لمنع مشكلات التشغيل.
 

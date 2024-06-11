@@ -5,7 +5,7 @@
 	<string name="gms_core_dialog_continue_text">Kontynuuj</string>
 	<string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
 
-Postępuj zgodnie z przewodnikiem \"Don't kill my app\" dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
+Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
 
 Jest to wymagane do działania aplikacji."</string>
 	<string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacja baterii GmsCore musi być wyłączona, aby zapobiec problemom.
@@ -205,6 +205,8 @@ Uwaga:
 	<string name="revanced_enable_open_links_directly_summary_off">Nie</string>
 	<string name="revanced_enable_open_links_directly_summary_on">Tak</string>
 	<string name="revanced_enable_open_links_directly_title">Bezpośrednie otwieranie linków</string>
+	<string name="revanced_enable_opus_codec_summary">Włącza kodek OPUS, jeśli odpowiedź odtwarzacza zawiera ten kodek.</string>
+	<string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
 	<string name="revanced_enable_phone_layout_summary">Oszukuje dpi, aby używać układu telefonu</string>
 	<string name="revanced_enable_phone_layout_title">Układ telefonu</string>
 	<string name="revanced_enable_seekbar_tapping_summary_off">Wyłączone</string>
@@ -233,10 +235,10 @@ Uwaga:
 	<string name="revanced_enable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza wideo jest wyłączone</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza wideo jest włączone</string>
 	<string name="revanced_enable_watch_panel_gestures_title">Pełny ekran przesuwaniem</string>
-	<string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Włączenie tej opcji ukryje przycisk ustawień na stronie Ty.
+	<string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Włączenie tej opcji ukryje przycisk ustawień w zakładce Ty.
 
-W tym przypadku używaj następującej ścieżki, aby dostać się do ustawień:
-Strona Ty → Zobacz kanał → Menu → Ustawienia"</string>
+W tym przypadku, proszę użyć następującej ścieżki dostania się do ustawień:
+Zakładka Ty → Zobacz kanał → Menu → Ustawienia"</string>
 	<string name="revanced_enable_wide_search_bar_in_you_tab_title">Szeroki pasek wyszukiwania na stronie Ty</string>
 	<string name="revanced_enable_wide_search_bar_summary_off">Wyłączony</string>
 	<string name="revanced_enable_wide_search_bar_summary_on">Włączony</string>
@@ -267,6 +269,7 @@ Strona Ty → Zobacz kanał → Menu → Ustawienia"</string>
 	<string name="revanced_extended_settings_import_summary">Zaimportuj ustawienia z zapisanego pliku</string>
 	<string name="revanced_extended_settings_import_title">Zaimportuj ustawienia</string>
 	<string name="revanced_extended_settings_reset">Zresetuj</string>
+	<string name="revanced_extended_settings_search_title">Wyszukaj ustawienia</string>
 	<string name="revanced_extended_settings_title">ReVanced Extended</string>
 	<string name="revanced_external_downloader_action_summary_off">Natywny przycisk od pobierania otwiera natywne pobieranie w aplikacji</string>
 	<string name="revanced_external_downloader_action_summary_on">Natywny przycisk od pobierania otwiera zewnetrzną aplikację od pobierania</string>
@@ -406,9 +409,16 @@ Sklep"</string>
 	<string name="revanced_hide_for_you_shelf_summary_off">"Widoczna"</string>
 	<string name="revanced_hide_for_you_shelf_summary_on">"Ukryta"</string>
 	<string name="revanced_hide_for_you_shelf_title">"Półka 'Dla Ciebie'"</string>
+	<string name="revanced_hide_fullscreen_ads_blocked_success">Zablokowano reklamy pełnoekranowe. (Typ okna: %s)</string>
+	<string name="revanced_hide_fullscreen_ads_closed_success">Zamknięto reklamy pełnoekranowe.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
 	<string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_off">"Blokowane
+
+Ograniczenie: obrazy postów społeczności w trybie pełnoekranowym mogą być zablokowane"</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_on">Zamykane poprzez przycisk zamknięcia</string>
+	<string name="revanced_hide_fullscreen_ads_type_title">Pełnoekranowe reklamy</string>
 	<string name="revanced_hide_general_ads_summary_off">Widoczne</string>
 	<string name="revanced_hide_general_ads_summary_on">Ukryte</string>
 	<string name="revanced_hide_general_ads_title">Ogólne reklamy</string>
@@ -476,6 +486,8 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 	<string name="revanced_hide_live_chat_replay_button_summary_off">Widoczny\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
 	<string name="revanced_hide_live_chat_replay_button_summary_on">Ukryty\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
 	<string name="revanced_hide_live_chat_replay_button_title">Przycisk od ponownego odtwarzania czatu na żywo</string>
+	<string name="revanced_hide_low_views_video_summary">Ukrywa wideo poniżej 1000 wyświetleń ze strony głównej, które zostały przesłane z niesubskrybowanych kanałów.</string>
+	<string name="revanced_hide_low_views_video_title">Ukryj wideo z małą ilością wyświetleń</string>
 	<string name="revanced_hide_medical_panel_summary_off">Widoczne</string>
 	<string name="revanced_hide_medical_panel_summary_on">Ukryte</string>
 	<string name="revanced_hide_medical_panel_title">Panele medyczne</string>
@@ -572,6 +584,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">Widoczny</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">Ukryty</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">Opis menu od jakości</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Widoczny</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Ukryty</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_title">Nagłówek menu jakości</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">Widoczne</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_on">Ukryte</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">Menu od zgłaszania</string>
@@ -641,8 +656,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
 	<string name="revanced_hide_recommended_video_summary">"Ukrywa następujące rekomendowane wideo:
 
 • Wideo z tagiem 'Dla wspierających'
-• Wideo z takimi frazami jak 'Inne osoby również obejrzały' u dołu wideo
-• Wideo przesłane z kanałów nie zasubskrybowanych, które mają mniej niż tysiąc wyświetleń"</string>
+• Wideo z takimi frazami jak 'Inne osoby również obejrzały' u dołu wideo"</string>
 	<string name="revanced_hide_recommended_video_title">Ukryj rekomendowane wideo</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">Widoczne</string>
 	<string name="revanced_hide_related_video_overlay_summary_on">Ukryte</string>
@@ -699,6 +713,9 @@ Napisy"</string>
 	<string name="revanced_hide_shorts_comments_button_summary_off">Widoczny</string>
 	<string name="revanced_hide_shorts_comments_button_summary_on">Ukryty</string>
 	<string name="revanced_hide_shorts_comments_button_title">Przycisk do komentarzy</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_off">Wyłączone komentarze lub te z etykietą \"0\" są widoczne.</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">Wyłączone komentarze lub te z etykietą \"0\" są ukryte.</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_title">Przycisk wyłączonych komentarzy</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_off">Widoczny</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_on">Ukryty</string>
 	<string name="revanced_hide_shorts_dislike_button_title">Przycisk od łapkowania w dół</string>
@@ -772,6 +789,9 @@ Ograniczenie: Nagłówki z tytułami będą ukryte w wynikach wyszukiwania."</st
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">Widoczny</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">Ukryty</string>
 	<string name="revanced_hide_shorts_subscribe_button_title">Przycisk od subskrybowania</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_off">Widoczny</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_on">Ukryty</string>
+	<string name="revanced_hide_shorts_super_thanks_button_title">Przycisk od superpodziękowania</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_off">Widoczne</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_on">Ukryte</string>
 	<string name="revanced_hide_shorts_tagged_products_title">Oznaczone produkty</string>
@@ -865,11 +885,14 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
 	<string name="revanced_hide_web_search_results_summary_off">Widoczne</string>
 	<string name="revanced_hide_web_search_results_summary_on">Ukryte</string>
 	<string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
+	<string name="revanced_icon_afn_blue">Niebieska od Afn</string>
+	<string name="revanced_icon_afn_red">Czerwona od Afn</string>
 	<string name="revanced_icon_custom">Własna</string>
 	<string name="revanced_icon_default">Domyślna</string>
 	<string name="revanced_icon_mmt">MMT</string>
 	<string name="revanced_icon_revancify_blue">Niebieska od Revancify</string>
 	<string name="revanced_icon_revancify_red">Czerwona od Revancify</string>
+	<string name="revanced_icon_youtube">YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
 	<string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
@@ -918,7 +941,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_category_spoof_client_options">Klient do oszukiwania</string>
 	<string name="revanced_preference_category_tool_used">Użyte narzędzie</string>
 	<string name="revanced_preference_category_view_counts_filter">Filtr ilości wyświetleń</string>
-	<string name="revanced_preference_screen_account_menu_summary">Ukrywa elementy menu konta i zakładki Ty</string>
+	<string name="revanced_preference_screen_account_menu_summary">Ukrywa bądź pokazuje elementy w menu konta i zakładki Ty</string>
 	<string name="revanced_preference_screen_account_menu_title">Menu konta</string>
 	<string name="revanced_preference_screen_account_munu_summary">Ukrywa elementy menu konta i zakładki Ty</string>
 	<string name="revanced_preference_screen_account_munu_title">Menu konta</string>
@@ -964,7 +987,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_screen_sb_title">SponsorBlock</string>
 	<string name="revanced_preference_screen_seekbar_summary">Zmień wygląd paska wideo</string>
 	<string name="revanced_preference_screen_seekbar_title">Pasek wideo</string>
-	<string name="revanced_preference_screen_settings_menu_summary">Ukryj ustawienia w ustawieniach YouTube</string>
+	<string name="revanced_preference_screen_settings_menu_summary">Ukrywa elementy menu ustawień YouTube</string>
 	<string name="revanced_preference_screen_settings_menu_title">Menu ustawień</string>
 	<string name="revanced_preference_screen_settings_munu_summary">Ukryj ustawienia w ustawieniach YouTube</string>
 	<string name="revanced_preference_screen_settings_munu_title">Menu ustawień</string>
@@ -1269,10 +1292,18 @@ Informacje:
 	<string name="revanced_spoof_client_fallback_title">Zastępczy</string>
 	<string name="revanced_spoof_client_general_title">Ogólne</string>
 	<string name="revanced_spoof_client_livestream_title">Transmisje na żywo</string>
+	<string name="revanced_spoof_client_options_entry_android">Android</string>
+	<string name="revanced_spoof_client_options_entry_android_embedded_player">Wbudowany odtwarzacz Androida</string>
 	<string name="revanced_spoof_client_options_entry_android_testsuite">Klient Testowy dla Androida</string>
+	<string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
 	<string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
 	<string name="revanced_spoof_client_options_entry_ios">iOS</string>
+	<string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+	<string name="revanced_spoof_client_options_entry_web">Przeglądarka</string>
 	<string name="revanced_spoof_client_shorts_title">Shortsy, Klipy</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_off">Ukryta</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_on">Widoczna</string>
+	<string name="revanced_spoof_client_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
 	<string name="revanced_spoof_client_summary_off">"Nie. Odtwarzanie wideo może nie działać."</string>
 	<string name="revanced_spoof_client_summary_on">Tak</string>
 	<string name="revanced_spoof_client_title">Oszukuj klienta</string>
@@ -1280,21 +1311,22 @@ Informacje:
 
 Efekty uboczne:
 • Brak wideo z HDR
-• Brak menu od prędkości odtwarzania oraz ścieżki dźwiękowej
+• Brak menu od ścieżki dźwiękowej
 • Napisy mogą być niedostępne"</string>
 	<string name="revanced_spoof_client_use_android_testsuite_title">Klient Testowy dla Androida</string>
 	<string name="revanced_spoof_client_use_android_tv_summary">"Oszukuj klienta do Android TV (YouTube TV).
 
 Efekty uboczne:
 • Brak wideo z HDR
-• Brak menu od prędkości wideo oraz ścieżki dźwiękowej
+• Brak menu od ścieżki dźwiękowej
 • Napisy mogą być niedostępne
-• Niektóre transmisje na żywą nie mogą być odtwarzane"</string>
+• Niektóre transmisje na żywo mogą nie być odtwarzane"</string>
 	<string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
 	<string name="revanced_spoof_client_use_android_vr_summary">"Oszukuj klienta do Android VR.
 
 Efekty uboczne:
 • Brak wideo z HDR
+• Brakuje przycisku od pobierania na pasku akcji
 • Zatrzymane wideo mogą zostać losowo wznowione
 • Niska jakość podglądu Shortsów
 • Wideo dla dzieci nie mogą zostać odtworzone"</string>
@@ -1303,7 +1335,6 @@ Efekty uboczne:
 
 Efekty uboczne:
 • Brak wideo z HDR
-• Brak menu od prędkości wideo
 • Wyższe jakości wideo mogą być niedostępne
 • Historia odtwarzania nie działa podczas używania firmowego konta
 • Nie można odtwarzać transmisji na żywo w trybie z samym dźwiękiem
@@ -1322,7 +1353,8 @@ Efekty uboczne:
 • Transmisje na żywo są niedostępne na Androidzie 8.0
 • Może brakować wyższych jakości wideo"</string>
 	<string name="revanced_spoof_client_use_ios_title">iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">Oszukuje rozdzielczość urządzenia w celu odblokowania wyższych jakości wideo, które mogłyby nie być dostępne na urządzeniu.</string>
+	<string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
+Wysoka jakość może być odblokowana na niektórych wideo, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
 	<string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Oszukuje format strumienia danych, aby zapobiec problemom z odtwarzaniem.
 

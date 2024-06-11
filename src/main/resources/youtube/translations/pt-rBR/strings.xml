@@ -270,6 +270,7 @@ Estes caracteres variam dependendo do seu idioma.
 	<string name="revanced_extended_settings_import_summary">Importar configurações de um arquivo salvo.</string>
 	<string name="revanced_extended_settings_import_title">Importar configurações</string>
 	<string name="revanced_extended_settings_reset">Redefinir</string>
+	<string name="revanced_extended_settings_search_title">Pesquisar configurações</string>
 	<string name="revanced_extended_settings_title">ReVanced Extended</string>
 	<string name="revanced_external_downloader_action_summary_off">O botão de download abre o download nativo do aplicativo</string>
 	<string name="revanced_external_downloader_action_summary_on">O botão de download abre seu aplicativo de download externo</string>
@@ -409,9 +410,16 @@ Loja"</string>
 	<string name="revanced_hide_for_you_shelf_summary_off">"O painel 'Para Você' será exibido."</string>
 	<string name="revanced_hide_for_you_shelf_summary_on">"O painel 'Para Você' está oculto."</string>
 	<string name="revanced_hide_for_you_shelf_title">"Ocultar painel 'Para Você'"</string>
+	<string name="revanced_hide_fullscreen_ads_blocked_success">Os anúncios em tela cheia foram bloqueados. (Tipo de diálogo: %s)</string>
+	<string name="revanced_hide_fullscreen_ads_closed_success">Os anúncios de tela cheia foram fechados.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Os anúncios em tela cheia serão exibidos.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Os anúncios em tela cheia estão ocultos.</string>
 	<string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_off">"Anúncios em tela cheia estão bloqueados.
+
+Limitação: A imagem do post da comunidade em tela cheia pode ser bloqueada."</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_on">Os anúncios de tela cheia são fechados através do botão Fechar.</string>
+	<string name="revanced_hide_fullscreen_ads_type_title">Fechar anúncios em tela cheia</string>
 	<string name="revanced_hide_general_ads_summary_off">Os anúncios gerais serão exibidos.</string>
 	<string name="revanced_hide_general_ads_summary_on">Os anúncios gerais estão ocultos.</string>
 	<string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
@@ -479,6 +487,8 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
 	<string name="revanced_hide_live_chat_replay_button_summary_off">O botão de repetição do chat ao vivo será exbido.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
 	<string name="revanced_hide_live_chat_replay_button_summary_on">O botão de repetição do chat ao vivo está oculto.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
 	<string name="revanced_hide_live_chat_replay_button_title">Ocultar botão de repetição do chat ao vivo</string>
+	<string name="revanced_hide_low_views_video_summary">Ocultar vídeos com menos de 1.000 visualizações do feed de início que foram enviadas de canais não inscritos.</string>
+	<string name="revanced_hide_low_views_video_title">Ocultar vídeos com baixas visualizações</string>
 	<string name="revanced_hide_medical_panel_summary_off">Os painéis médicos serão exibidos.</string>
 	<string name="revanced_hide_medical_panel_summary_on">Os painéis médicos estão ocultos.</string>
 	<string name="revanced_hide_medical_panel_title">Ocultar painéis médicos</string>
@@ -575,6 +585,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">O rodapé do menu de qualidade será exibido.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">O rodapé do menu de qualidade está oculto.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">Ocultar rodapé do menu de qualidade</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_off">O cabeçalho do menu de qualidade será exibido.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_on">O cabeçalho do menu de qualidade está oculto.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_title">Ocultar cabeçalho do menu de qualidade</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">O menu denunciar será exibido.</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_on">O menu denunciar está oculto.</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">Ocultar menu denunciar</string>
@@ -702,6 +715,9 @@ Legendas"</string>
 	<string name="revanced_hide_shorts_comments_button_summary_off">O botão comentários será exibido.</string>
 	<string name="revanced_hide_shorts_comments_button_summary_on">O botão comentários está oculto.</string>
 	<string name="revanced_hide_shorts_comments_button_title">Ocultar botão comentários</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_off">O botão de comentários desativado ou com rótulo \"0\" será exibido.</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">O botão de comentários desativado ou com rótulo \"0\" está oculto.</string>
+	<string name="revanced_hide_shorts_comments_disabled_button_title">Ocultar o botão de comentários desativados</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_off">O botão dislike será exibido.</string>
 	<string name="revanced_hide_shorts_dislike_button_summary_on">O botão dislike está oculto.</string>
 	<string name="revanced_hide_shorts_dislike_button_title">Ocultar botão dislike</string>
@@ -717,9 +733,9 @@ Legendas"</string>
 	<string name="revanced_hide_shorts_like_button_summary_off">O botão curtir será exibido.</string>
 	<string name="revanced_hide_shorts_like_button_summary_on">O botão curtir está oculto.</string>
 	<string name="revanced_hide_shorts_like_button_title">Ocultar botão curtir</string>
-	<string name="revanced_hide_shorts_live_header_summary_off">O cabeçalho do chat ao vivo será exibido.\n\nO botão voltar no cabeçalho não ficará oculto.</string>
-	<string name="revanced_hide_shorts_live_header_summary_on">O cabeçalho do chat ao vivo está oculto.\n\nO botão voltar no cabeçalho não ficará oculto.</string>
-	<string name="revanced_hide_shorts_live_header_title">Ocultar cabeçalho do chat ao vivo</string>
+	<string name="revanced_hide_shorts_live_header_summary_off">O cabeçalho do chat ao vivo será exibido.\n\nO botão Voltar no cabeçalho não será ocultado.</string>
+	<string name="revanced_hide_shorts_live_header_summary_on">O cabeçalho do chat ao vivo está oculto.\n\nO botão Voltar no cabeçalho não será ocultado.</string>
+	<string name="revanced_hide_shorts_live_header_title">Ocultar o cabeçalho do chat ao vivo</string>
 	<string name="revanced_hide_shorts_location_label_summary_off">O rótulo de localização será exibido.</string>
 	<string name="revanced_hide_shorts_location_label_summary_on">O rótulo de localização está oculto.</string>
 	<string name="revanced_hide_shorts_location_label_title">Ocultar rótulo de localização</string>
@@ -775,6 +791,9 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">O botão de inscrição será exibido.</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">O botão de inscrição está oculto.</string>
 	<string name="revanced_hide_shorts_subscribe_button_title">Ocultar botão de inscrição</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_off">O botão de Super Valeu será exibido.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_on">O botão de Super Valeu está oculto.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_title">Ocultar botão de Super Valeu</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_off">Os produtos marcados serão exibidos.</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_on">Os produtos marcados estão ocultos.</string>
 	<string name="revanced_hide_shorts_tagged_products_title">Ocultar produtos marcados</string>
@@ -865,11 +884,14 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
 	<string name="revanced_hide_web_search_results_summary_off">Os resultados de pesquisa web serão exibidos.</string>
 	<string name="revanced_hide_web_search_results_summary_on">Os resultados de pesquisa web estão ocultos.</string>
 	<string name="revanced_hide_web_search_results_title">Ocultar resultados da pesquisa web</string>
+	<string name="revanced_icon_afn_blue">Afn Blue</string>
+	<string name="revanced_icon_afn_red">Afn Red</string>
 	<string name="revanced_icon_custom">Personalizado</string>
 	<string name="revanced_icon_default">Padrão</string>
 	<string name="revanced_icon_mmt">MMT</string>
 	<string name="revanced_icon_revancify_blue">Revancify Blue</string>
 	<string name="revanced_icon_revancify_red">Revancify Red</string>
+	<string name="revanced_icon_youtube">YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">Mantenha o modo paisagem ao desligar e ligar em tela cheia.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">A quantidade de milissegundos que o modo paisagem é forçado.</string>
 	<string name="revanced_keep_landscape_mode_timeout_title">Tempo limite para manter o modo paisagem</string>
@@ -915,6 +937,8 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
 	<string name="revanced_preference_category_quick_actions">Ações rápidas</string>
 	<string name="revanced_preference_category_recommended_video">Vídeo recomendado</string>
 	<string name="revanced_preference_category_shorts_shelf">Painel de shorts</string>
+	<string name="revanced_preference_category_spoof_client_about">Sobre</string>
+	<string name="revanced_preference_category_spoof_client_options">Opções de cliente falso</string>
 	<string name="revanced_preference_category_tool_used">Ferramenta usada</string>
 	<string name="revanced_preference_category_view_counts_filter">Filtro por contagem de visualização</string>
 	<string name="revanced_preference_screen_account_menu_summary">Ocultar ou mostrar elementos no menu de contas e na aba Você.</string>
@@ -970,6 +994,8 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
 	<string name="revanced_preference_screen_shorts_player_summary">Ocultar ou mostrar componentes no reprodutor de shorts.</string>
 	<string name="revanced_preference_screen_shorts_player_title">Reprodutor de shorts</string>
 	<string name="revanced_preference_screen_shorts_title">Shorts</string>
+	<string name="revanced_preference_screen_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução.</string>
+	<string name="revanced_preference_screen_spoof_client_title">Falsificar cliente</string>
 	<string name="revanced_preference_screen_swipe_controls_title">Controles deslizantes</string>
 	<string name="revanced_preference_screen_toolbar_summary">Ocultar ou alterar componentes localizados na barra de ferramentas, como botões da barra de ferramentas, barra de pesquisa, cabeçalho.</string>
 	<string name="revanced_preference_screen_toolbar_title">Barra de ferramentas</string>
@@ -1262,13 +1288,56 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
 	<string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
 	<string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
 	<string name="revanced_spoof_app_version_title">Falsificar versão do aplicativo</string>
+	<string name="revanced_spoof_client_fallback_title">Vídeo não reproduzível</string>
+	<string name="revanced_spoof_client_general_title">Geral</string>
+	<string name="revanced_spoof_client_livestream_title">Transmissões ao vivo</string>
+	<string name="revanced_spoof_client_options_entry_android">Android</string>
+	<string name="revanced_spoof_client_options_entry_android_embedded_player">Reprodutor Incorporado Android</string>
+	<string name="revanced_spoof_client_options_entry_android_testsuite">Suite de teste Android</string>
+	<string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
+	<string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
+	<string name="revanced_spoof_client_options_entry_ios">iOS</string>
+	<string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+	<string name="revanced_spoof_client_options_entry_web">Web</string>
+	<string name="revanced_spoof_client_shorts_title">Shorts, Clipes</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_off">O cliente falsificado é oculto em Estatísticas para nerds.</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_on">O cliente falsificado é exibido em Estatísticas para nerds.</string>
+	<string name="revanced_spoof_client_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
 	<string name="revanced_spoof_client_summary_off">"O cliente não é falsificado. A reprodução de vídeo pode não funcionar."</string>
-	<string name="revanced_spoof_client_summary_on">"O cliente é falsificado.
+	<string name="revanced_spoof_client_summary_on">O cliente é falsificado.</string>
+	<string name="revanced_spoof_client_title">Falsificar cliente</string>
+	<string name="revanced_spoof_client_use_android_testsuite_summary">"Cliente falso para suite de teste Android.
 
 Os efeitos colaterais incluem:
 • Sem vídeo HDR.
-• O histórico de exibição pode não funcionar."</string>
-	<string name="revanced_spoof_client_title">Falsificar cliente</string>
+• O menu da faixa de áudio e o menu de velocidade de reprodução estão ausentes.
+• As legendas podem não estar disponíveis."</string>
+	<string name="revanced_spoof_client_use_android_testsuite_title">Suite de teste Android</string>
+	<string name="revanced_spoof_client_use_android_tv_summary">"Cliente falso para Android TV (YouTube TV).
+
+Os efeitos colaterais incluem:
+• Sem vídeo HDR.
+• O menu da faixa de áudio e o menu de velocidade de reprodução estão ausentes.
+• As legendas podem não estar disponíveis.
+• Algumas transmissões ao vivo não são suportadas para reprodução."</string>
+	<string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
+	<string name="revanced_spoof_client_use_android_vr_summary">"Cliente falso para Android VR.
+
+Os efeitos colaterais incluem:
+• Sem vídeo HDR.
+• Os vídeos pausados podem ser retomados aleatoriamente.
+• Miniaturas da barra de busca de Shorts de baixa qualidade.
+• Os vídeos infantis não são reproduzidos."</string>
+	<string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+	<string name="revanced_spoof_client_use_ios_summary">"Cliente falso para iOS.
+
+Os efeitos colaterais incluem:
+• Sem vídeo HDR.
+• O menu de velocidade de reprodução está ausente.
+• Qualidades de vídeo maiores podem estar faltando.
+• O histórico de exibição não funciona com uma conta de marca.
+• As transmissões ao vivo não podem ser reproduzidas apenas como áudio.
+• Transmissões ao vivo não disponíveis no Android 8.0."</string>
 	<string name="revanced_spoof_client_use_ios_summary_off">"O cliente está atualmente falsificado para Android VR. (O cliente iOS é usado para clipes ou Shorts)
 
 Os efeitos colaterais incluem:
@@ -1282,8 +1351,8 @@ Os efeitos colaterais incluem:
 • As transmissões ao vivo não podem ser reproduzidas apenas como áudio.
 • Transmissões ao vivo não disponíveis no Android 8.0.
 • Qualidades de vídeo superiores podem estar faltando."</string>
-	<string name="revanced_spoof_client_use_ios_title">Falsificar cliente para iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">Falsifica as dimensões do dispositivo para desbloquear qualidades de vídeo superiores que podem não estar disponíveis no seu dispositivo.</string>
+	<string name="revanced_spoof_client_use_ios_title">iOS</string>
+	<string name="revanced_spoof_device_dimensions_summary">"Falsifica as dimensões do dispositivo para desbloquear qualidades de vídeo superiores que podem não estar disponíveis no seu dispositivo."</string>
 	<string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Falsifica os dados de formato de transmissão para prevenir problemas de reprodução.
 

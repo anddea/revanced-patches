@@ -208,6 +208,8 @@ Note:
 	<string name="revanced_enable_open_links_directly_summary_off">Following default redirect policy.</string>
 	<string name="revanced_enable_open_links_directly_summary_on">Bypassing URL redirects.</string>
 	<string name="revanced_enable_open_links_directly_title">Enable open links directly</string>
+	<string name="revanced_enable_opus_codec_summary">Enable the OPUS codec if the player response includes the OPUS codec.</string>
+	<string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
 	<string name="revanced_enable_phone_layout_summary">Spoofs the dpi to use some phone layouts.</string>
 	<string name="revanced_enable_phone_layout_title">Enable phone layout</string>
 	<string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled.</string>
@@ -239,7 +241,7 @@ Note:
 	<string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Enabling this setting will disable the Settings button in the You tab.
 
 In this case, please use the following path to access the settings:
-You tab → View channel → Menu → Settings."</string>
+'You tab → View channel → Menu → Settings'"</string>
 	<string name="revanced_enable_wide_search_bar_in_you_tab_title">Enable wide search bar in You tab</string>
 	<string name="revanced_enable_wide_search_bar_summary_off">Wide search bar is disabled.</string>
 	<string name="revanced_enable_wide_search_bar_summary_on">Wide search bar is enabled.</string>
@@ -364,10 +366,10 @@ Store"</string>
 	<string name="revanced_hide_comments_by_members_title">"Hide 'Comments by members' banner"</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section is shown in home feed.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section is hidden in home feed.</string>
-	<string name="revanced_hide_comments_section_in_home_feed_title">Hide comments section in home feed</string>
+	<string name="revanced_hide_comments_section_in_home_feed_title">Hide Comments section in home feed</string>
 	<string name="revanced_hide_comments_section_summary_off">Comments section is shown.</string>
 	<string name="revanced_hide_comments_section_summary_on">Comments section is hidden.</string>
-	<string name="revanced_hide_comments_section_title">Hide comments section</string>
+	<string name="revanced_hide_comments_section_title">Hide Comments section</string>
 	<string name="revanced_hide_community_posts_channel_summary_off">Shown in channel.</string>
 	<string name="revanced_hide_community_posts_channel_summary_on">Hidden in channel.</string>
 	<string name="revanced_hide_community_posts_channel_title">Hide in channel</string>
@@ -412,9 +414,16 @@ Store"</string>
 	<string name="revanced_hide_for_you_shelf_summary_off">"'For You' shelf is shown."</string>
 	<string name="revanced_hide_for_you_shelf_summary_on">"'For You' shelf is hidden."</string>
 	<string name="revanced_hide_for_you_shelf_title">"Hide 'For You' shelf"</string>
+	<string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
+	<string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden.</string>
 	<string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_off">"Fullscreen ads are blocked.
+
+Limitation: Community post image on the fullscreen may be blocked."</string>
+	<string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
+	<string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
 	<string name="revanced_hide_general_ads_summary_off">General ads are shown.</string>
 	<string name="revanced_hide_general_ads_summary_on">General ads are hidden.</string>
 	<string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -481,6 +490,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
 	<string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
 	<string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
+	<string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
+	<string name="revanced_hide_low_views_video_title">Hide low views video</string>
 	<string name="revanced_hide_medical_panel_summary_off">Medical panels are shown.</string>
 	<string name="revanced_hide_medical_panel_summary_on">Medical panels are hidden.</string>
 	<string name="revanced_hide_medical_panel_title">Hide medical panels</string>
@@ -577,6 +588,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">Quality menu footer is shown.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">Quality menu footer is hidden.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">Hide quality menu footer</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Quality menu header is shown.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Quality menu header is hidden.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_title">Hide quality menu header</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">Report menu is shown.</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_on">Report menu is hidden.</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">Hide Report menu</string>
@@ -643,8 +657,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
 	<string name="revanced_hide_recommended_video_summary">"Hides the following recommended videos:
 
 • Videos with 'Only for Membership' tag.
-• Videos with phrases such as 'People also watched' underneath.
-• Videos uploaded from channels not subscribed to that have less than 1,000 views."</string>
+• Videos with phrases such as 'People also watched' underneath."</string>
 	<string name="revanced_hide_recommended_video_title">Hide recommended videos</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">\'More videos\' section in the quick actions container and the related video overlay are shown.</string>
 	<string name="revanced_hide_related_video_overlay_summary_on">\'More videos\' section in the quick actions container and the related video overlay are hidden.</string>
@@ -700,7 +713,7 @@ Captions"</string>
 	<string name="revanced_hide_shorts_channel_bar_title">Hide channel bar</string>
 	<string name="revanced_hide_shorts_comments_button_summary_off">Comments button is shown.</string>
 	<string name="revanced_hide_shorts_comments_button_summary_on">Comments button is hidden.</string>
-	<string name="revanced_hide_shorts_comments_button_title">Hide comments button</string>
+	<string name="revanced_hide_shorts_comments_button_title">Hide Comments button</string>
 	<string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
 	<string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
 	<string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
@@ -719,8 +732,8 @@ Captions"</string>
 	<string name="revanced_hide_shorts_like_button_summary_off">Like button is shown.</string>
 	<string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden.</string>
 	<string name="revanced_hide_shorts_like_button_title">Hide Like button</string>
-	<string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header won\'t be hidden.</string>
-	<string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header won\'t be hidden.</string>
+	<string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header will not be hidden.</string>
+	<string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header will not be hidden.</string>
 	<string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
 	<string name="revanced_hide_shorts_location_label_summary_off">Location label is shown.</string>
 	<string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden.</string>
@@ -774,6 +787,9 @@ Limitation: Official headers in search results will be hidden."</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown.</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden.</string>
 	<string name="revanced_hide_shorts_subscribe_button_title">Hide Subscribe button</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks button is shown.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks button is hidden.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_title">Hide Super Thanks button</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_off">Tagged products are shown.</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_on">Tagged products are hidden.</string>
 	<string name="revanced_hide_shorts_tagged_products_title">Hide tagged products</string>
@@ -858,8 +874,8 @@ Autoplay can be changed in YouTube settings:
 	<string name="revanced_hide_web_search_results_summary_off">Web search results are shown.</string>
 	<string name="revanced_hide_web_search_results_summary_on">Web search results are hidden.</string>
 	<string name="revanced_hide_web_search_results_title">Hide web search results</string>
-	<string name="revanced_icon_afn_blue">AFN Blue</string>
-	<string name="revanced_icon_afn_red">AFN Red</string>
+	<string name="revanced_icon_afn_blue">Afn Blue</string>
+	<string name="revanced_icon_afn_red">Afn Red</string>
 	<string name="revanced_icon_custom">Custom</string>
 	<string name="revanced_icon_default">Stock</string>
 	<string name="revanced_icon_mmt">MMT</string>
@@ -868,6 +884,7 @@ Autoplay can be changed in YouTube settings:
 	<string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
 	<string name="revanced_icon_vanced_black">Vanced Black</string>
 	<string name="revanced_icon_vanced_light">Vanced Light</string>
+	<string name="revanced_icon_youtube">YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced after the screen in turned on.</string>
 	<string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
@@ -962,7 +979,7 @@ Tap and hold to open whitelist setting dialog.</string>
 	<string name="revanced_preference_screen_sb_title">SponsorBlock</string>
 	<string name="revanced_preference_screen_seekbar_summary">Customize the seekbar components.</string>
 	<string name="revanced_preference_screen_seekbar_title">Seekbar</string>
-	<string name="revanced_preference_screen_settings_menu_summary">Hide elements in YouTube settings menu.</string>
+	<string name="revanced_preference_screen_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
 	<string name="revanced_preference_screen_settings_menu_title">Settings menu</string>
 	<string name="revanced_preference_screen_settings_munu_summary">Hide elements of the YouTube settings menu.</string>
 	<string name="revanced_preference_screen_settings_munu_title">Settings menu</string>
@@ -1290,33 +1307,33 @@ Info:
 
 Side effects include:
 • No HDR video.
-• Audio track menu and playback speed menu are missing.
-• Subtitles may not be available."</string>
+• Audio track menu is missing.
+• Captions may not be available."</string>
 	<string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
 	<string name="revanced_spoof_client_use_android_tv_summary">"Spoof client to Android TV (YouTube TV).
 
 Side effects include:
 • No HDR video.
-• Audio track menu and playback speed menu are missing.
-• Subtitles may not be available.
+• Audio track menu is missing.
+• Captions may not be available.
 • Some live streams are not supported for playback."</string>
 	<string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
 	<string name="revanced_spoof_client_use_android_vr_summary">"Spoof client to Android VR.
 
 Side effects include:
 • No HDR video.
+• Download button of video action bar is missing.
 • Paused videos can randomly resume.
 • Low quality Shorts seekbar thumbnails.
-• Kids videos do not playback."</string>
+• Kids videos do not play."</string>
 	<string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
 	<string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
 • No HDR video.
-• Playback speed menu is missing.
-• Higher video qualities may be missing.
+• Higher video qualities may not be available.
 • Watch history does not work with a brand account.
-• Live streams cannot play as audio only.
+• Live streams cannot play as audio-only.
 • Live streams not available on Android 8.0."</string>
 	<string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
 
@@ -1332,7 +1349,8 @@ Side effects include:
 • Live streams not available on Android 8.0.
 • Higher video qualities may be missing."</string>
 	<string name="revanced_spoof_client_use_ios_title">iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">Spoofs the device dimensions in order to unlock higher video qualities that may not be available on your device.</string>
+	<string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
+High quality may be unlocked on some videos that require high device dimensions, but not all videos."</string>
 	<string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Spoofs the format stream data to prevent playback issues.
 
