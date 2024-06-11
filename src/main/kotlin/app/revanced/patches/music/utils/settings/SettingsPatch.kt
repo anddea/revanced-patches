@@ -1,6 +1,7 @@
 package app.revanced.patches.music.utils.settings
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.fix.accessibility.AccessibilityNodeInfoPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceCategory
@@ -8,6 +9,7 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceWith
 import app.revanced.patches.music.utils.settings.ResourceUtils.addRVXSettingsPreference
 import app.revanced.patches.music.utils.settings.ResourceUtils.addSwitchPreference
 import app.revanced.patches.music.utils.settings.ResourceUtils.sortPreferenceCategory
+import app.revanced.patches.shared.elements.StringsElementsUtils.removeStringsElements
 import app.revanced.util.copyXmlNode
 import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
@@ -26,24 +28,90 @@ object SettingsPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
 ), Closeable {
-    private val THREAD_COUNT = Runtime.getRuntime().availableProcessors()
-    private val threadPoolExecutor = Executors.newFixedThreadPool(THREAD_COUNT)
+    private const val DEFAULT_NAME = "ReVanced Extended"
+
+    private val RVXSettingsMenuName by stringPatchOption(
+        key = "RVXSettingsMenuName",
+        default = DEFAULT_NAME,
+        title = "RVX settings menu name",
+        description = "The name of the RVX settings menu.",
+        required = true
+    )
 
     lateinit var contexts: ResourceContext
     internal var upward0636 = false
     internal var upward0642 = false
 
     override fun execute(context: ResourceContext) {
+
+        /**
+         * set resource context
+         */
         contexts = context
 
-        val resourceXmlFile = context["res/values/integers.xml"].readBytes()
+        /**
+         * set version info
+         */
+        setVersionInfo()
 
-        for (threadIndex in 0 until THREAD_COUNT) {
+        /**
+         * copy strings
+         */
+        context.copyXmlNode("music/settings/host", "values/strings.xml", "resources")
+
+        /**
+         * hide divider
+         */
+        val styleFile = context["res/values/styles.xml"]
+
+        styleFile.writeText(
+            styleFile.readText()
+                .replace(
+                    "allowDividerAbove\">true",
+                    "allowDividerAbove\">false"
+                ).replace(
+                    "allowDividerBelow\">true",
+                    "allowDividerBelow\">false"
+                )
+        )
+
+        /**
+         * Copy arrays
+         */
+        contexts.copyXmlNode("music/settings/host", "values/arrays.xml", "resources")
+
+        /**
+         * Copy colors
+         */
+        context.xmlEditor["res/values/colors.xml"].use { editor ->
+            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+
+            for (i in 0 until resourcesNode.childNodes.length) {
+                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+
+                node.textContent = when (node.getAttribute("name")) {
+                    "material_deep_teal_500" -> "@android:color/white"
+
+                    else -> continue
+                }
+            }
+        }
+
+        context.addRVXSettingsPreference()
+    }
+
+    private fun setVersionInfo() {
+        val threadCount = Runtime.getRuntime().availableProcessors()
+        val threadPoolExecutor = Executors.newFixedThreadPool(threadCount)
+
+        val resourceXmlFile = contexts["res/values/integers.xml"].readBytes()
+
+        for (threadIndex in 0 until threadCount) {
             threadPoolExecutor.execute thread@{
-                context.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
+                contexts.xmlEditor[resourceXmlFile.inputStream()].use { editor ->
                     val resources = editor.file.documentElement.childNodes
                     val resourcesLength = resources.length
-                    val jobSize = resourcesLength / THREAD_COUNT
+                    val jobSize = resourcesLength / threadCount
 
                     val batchStart = jobSize * threadIndex
                     val batchEnd = jobSize * (threadIndex + 1)
@@ -71,47 +139,6 @@ object SettingsPatch : BaseResourcePatch(
         threadPoolExecutor
             .also { it.shutdown() }
             .awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
-
-        /**
-         * copy strings
-         */
-        context.copyXmlNode("music/settings/host", "values/strings.xml", "resources")
-
-        /**
-         * hide divider
-         */
-        val styleFile = context["res/values/styles.xml"]
-
-        styleFile.writeText(
-            styleFile.readText()
-                .replace(
-                    "allowDividerAbove\">true",
-                    "allowDividerAbove\">false"
-                ).replace(
-                    "allowDividerBelow\">true",
-                    "allowDividerBelow\">false"
-                )
-        )
-
-
-        /**
-         * Copy colors
-         */
-        context.xmlEditor["res/values/colors.xml"].use { editor ->
-            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
-
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                node.textContent = when (node.getAttribute("name")) {
-                    "material_deep_teal_500" -> "@android:color/white"
-
-                    else -> continue
-                }
-            }
-        }
-
-        context.addRVXSettingsPreference()
     }
 
     internal fun addSwitchPreference(
@@ -163,9 +190,32 @@ object SettingsPatch : BaseResourcePatch(
 
     override fun close() {
         /**
-         * Copy arrays
+         * change RVX settings menu name
+         * since it must be invoked after the Translations patch, it must be the last in the order.
          */
-        contexts.copyXmlNode("music/settings/host", "values/arrays.xml", "resources")
+        RVXSettingsMenuName?.let { customName ->
+            if (customName != DEFAULT_NAME) {
+                contexts.removeStringsElements(
+                    arrayOf("revanced_extended_settings_title")
+                )
+                contexts.xmlEditor["res/values/strings.xml"].use { editor ->
+                    val document = editor.file
+
+                    mapOf(
+                        "revanced_extended_settings_title" to customName
+                    ).forEach { (k, v) ->
+                        val stringElement = document.createElement("string")
+
+                        stringElement.setAttribute("name", k)
+                        stringElement.textContent = v
+
+                        document.getElementsByTagName("resources").item(0)
+                            .appendChild(stringElement)
+                    }
+                }
+            }
+        } ?: println("WARNING: Invalid RVX settings menu name. RVX settings menu name does not change.")
+
 
         addPreferenceWithIntent(
             CategoryType.MISC,
