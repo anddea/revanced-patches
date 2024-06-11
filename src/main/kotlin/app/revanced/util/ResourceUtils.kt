@@ -63,11 +63,14 @@ fun ResourceContext.copyResources(
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
-            Files.copy(
-                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
-                targetResourceDirectory.resolve(resourceFile).toPath(),
-                StandardCopyOption.REPLACE_EXISTING,
-            )
+
+            inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)?.let { inputStream ->
+                Files.copy(
+                    inputStream,
+                    targetResourceDirectory.resolve(resourceFile).toPath(),
+                    StandardCopyOption.REPLACE_EXISTING,
+                )
+            }
         }
     }
 }
