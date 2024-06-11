@@ -25,7 +25,8 @@ object CustomBrandingNamePatch : BaseResourcePatch(
             "Original" to ORIGINAL_APP_NAME,
         ),
         title = "App name",
-        description = "The name of the app."
+        description = "The name of the app.",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

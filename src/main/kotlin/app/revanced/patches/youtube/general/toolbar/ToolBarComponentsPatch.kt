@@ -86,7 +86,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         key = "ForceHideVoiceSearchButton",
         default = false,
         title = "Force hide voice search button",
-        description = "Permanently hide the voice search button with the legacy method."
+        description = "Permanently hide the voice search button with the legacy method.",
+        required = true
     )
 
     override fun execute(context: BytecodeContext) {

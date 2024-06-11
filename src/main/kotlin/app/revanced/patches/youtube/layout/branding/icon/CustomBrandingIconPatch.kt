@@ -158,6 +158,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
             The image dimensions must be as follows:
             ${headerResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
         """.trimIndentMultiline(),
+        required = true
     )
 
     private val ChangeSplashIcon by booleanPatchOption(
