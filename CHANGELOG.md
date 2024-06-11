@@ -1,3 +1,10 @@
+# [2.226.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.6...v2.226.0-dev.7) (2024-06-11)
+
+
+### Bug Fixes
+
+* **Custom branding icon:** Failed because of missing resources ([5e0723e](https://github.com/anddea/revanced-patches/commit/5e0723e52856a93f06f798b1fc18e18bbfa56490))
+
 # [2.226.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.5...v2.226.0-dev.6) (2024-06-11)
 
 
