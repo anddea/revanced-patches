@@ -10,8 +10,8 @@ import kotlin.io.path.exists
 
 @Suppress("DEPRECATION")
 object SettingsPatch : BaseResourcePatch(
-    name = "Settings",
-    description = "Adds ReVanced Extended settings to Reddit.",
+    name = "Settings for Reddit",
+    description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     dependencies = setOf(
         IntegrationsPatch::class,
         SettingsBytecodePatch::class,
