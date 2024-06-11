@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
+package app.revanced.patches.youtube.misc.backgroundplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BackgroundCategory
@@ -6,7 +6,7 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MinimizedPlaybackSettingsFingerprint : LiteralValueFingerprint(
+internal object BackgroundPlaybackSettingsFingerprint : LiteralValueFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(

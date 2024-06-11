@@ -1,13 +1,13 @@
-package app.revanced.patches.youtube.misc.minimizedplayback
+package app.revanced.patches.youtube.misc.backgroundplayback
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.KidsMinimizedPlaybackPolicyControllerFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.MinimizedPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.minimizedplayback.fingerprints.PiPControllerFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackManagerFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackSettingsFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.PiPControllerFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
@@ -20,47 +20,33 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-object MinimizedPlaybackPatch : BaseBytecodePatch(
-    name = "Enable minimized playback",
-    description = "Enables minimized and background playback.",
+object BackgroundPlaybackPatch : BaseBytecodePatch(
+    name = "Remove background playback restrictions",
+    description = "Removes restrictions on background playback, including playing kids videos in the background.",
     dependencies = setOf(
         PlayerTypeHookPatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        KidsMinimizedPlaybackPolicyControllerFingerprint,
-        MinimizedPlaybackManagerFingerprint,
-        MinimizedPlaybackSettingsFingerprint,
+        BackgroundPlaybackManagerFingerprint,
+        BackgroundPlaybackSettingsFingerprint,
+        KidsBackgroundPlaybackPolicyControllerFingerprint,
         PiPControllerFingerprint
     )
 ) {
-    private const val INTEGRATIONS_METHOD_REFERENCE =
-        "$MISC_PATH/MinimizedPlaybackPatch;->isPlaybackNotShort()Z"
-
     override fun execute(context: BytecodeContext) {
-        KidsMinimizedPlaybackPolicyControllerFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "return-void"
-                )
-            }
-        }
 
-        MinimizedPlaybackManagerFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                addInstructions(
-                    0, """
-                        invoke-static {}, $INTEGRATIONS_METHOD_REFERENCE
-                        move-result v0
-                        return v0
-                        """
-                )
-            }
-        }
+        BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0, """
+                invoke-static {}, $MISC_PATH/BackgroundPlaybackPatch;->playbackIsNotShort()Z
+                move-result v0
+                return v0
+                """
+        )
 
-        MinimizedPlaybackSettingsFingerprint.resultOrThrow().let {
+        // Enable background playback option in YouTube settings
+        BackgroundPlaybackSettingsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val booleanCalls = implementation!!.instructions.withIndex()
                     .filter { instruction ->
@@ -78,6 +64,12 @@ object MinimizedPlaybackPatch : BaseBytecodePatch(
                 )
             }
         }
+
+        // Force allowing background play for videos labeled for kids.
+        KidsBackgroundPlaybackPolicyControllerFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "return-void"
+        )
 
         PiPControllerFingerprint.resultOrThrow().let {
             val targetMethod =

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
+package app.revanced.patches.youtube.misc.backgroundplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.util.fingerprint.LiteralValueFingerprint
