@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="accessibility_settings_edu_opt_in_text">是否要開啟適用於影片播放器的輔助功能控制？</string>
-	<string name="accessibility_settings_edu_opt_out_text">輔助功能已開啟，您的選單將會有所變動</string>
+	<string name="accessibility_settings_edu_opt_in_text">啟用影片播放器的無障礙控制？</string>
+	<string name="accessibility_settings_edu_opt_out_text">您的控制項已修改，因為已啟用無障礙服務。</string>
 	<string name="gms_core_dialog_continue_text">繼續</string>
 	<string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有後台運行的權限
 
@@ -16,17 +16,17 @@
 	<string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知</string>
 	<string name="gms_core_settings_title">打開 GmsCore</string>
 	<string name="gms_core_toast_not_installed_message">GMSCore未安裝 請安裝</string>
-	<string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 影片的外包縮圖。 這些縮圖通常比 YouTube 提供的縮圖更為相關。
+	<string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供群眾外包的 YouTube 影片縮圖。這些縮圖通常比 YouTube 提供的縮圖更具相關性。
 
-如果啟用，影片連結將發送到 API 伺服器，這不會發送其他資訊。
+如果啟用，影片 URL 將被發送到 API 伺服器，不會發送其他資料。如果影片沒有 DeArrow 縮圖，則顯示原始或靜態截圖。
 
-點擊此處了解更多關於 DeArrow 的資訊。"</string>
+點擊這裡了解更多關於 DeArrow 的資訊。"</string>
 	<string name="revanced_alt_thumbnail_dearrow_about_title">關於 DeArrow</string>
 	<string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow 縮圖緩存端點網址。除非您知道自己在做什麼，否則請勿更改</string>
-	<string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 端點</string>
+	<string name="revanced_alt_thumbnail_dearrow_api_url_title">縮圖快取端點的 URL</string>
 	<string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">如果 DeArrow 無法使用，不顯示提示訊息</string>
 	<string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">如果 DeArrow 無法使用，則顯示提示訊息</string>
-	<string name="revanced_alt_thumbnail_dearrow_connection_toast_title">當API無法使用時顯示提示訊息</string>
+	<string name="revanced_alt_thumbnail_dearrow_connection_toast_title">當 API 無法使用時顯示提示訊息</string>
 	<string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暫時不可用 (status code: %s)</string>
 	<string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暫時不可用</string>
 	<string name="revanced_alt_thumbnail_home_title">首頁標籤</string>
@@ -51,8 +51,8 @@
 	<string name="revanced_append_time_stamp_information_summary_off">添加時間戳訊息已關閉</string>
 	<string name="revanced_append_time_stamp_information_summary_on">添加時間戳訊息已顯示</string>
 	<string name="revanced_append_time_stamp_information_title">添加時間戳訊息</string>
-	<string name="revanced_append_time_stamp_information_type_summary_off">添加播放速度。播放影片時，長按時間戳可更改類型</string>
-	<string name="revanced_append_time_stamp_information_type_summary_on">添加影片分辨率。播放影片時，長按時間戳可更改類型</string>
+	<string name="revanced_append_time_stamp_information_type_summary_off">附加播放速度。</string>
+	<string name="revanced_append_time_stamp_information_type_summary_on">附加影片品質。</string>
 	<string name="revanced_append_time_stamp_information_type_title">添加訊息類型</string>
 	<string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光模式已停用</string>
 	<string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光模式已啟用</string>
@@ -82,7 +82,7 @@
 	<string name="revanced_change_start_page_entry_trending">熱門</string>
 	<string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
 	<string name="revanced_change_start_page_title">更改起始頁</string>
-	<string name="revanced_change_start_page_warning">無效的開始頁面，將回復至預設設定。</string>
+	<string name="revanced_change_start_page_warning">無效的起始頁面，重置為預設值。</string>
 	<string name="revanced_change_youtube_header_summary_off">預設標題已啟用</string>
 	<string name="revanced_change_youtube_header_summary_on">高級標題已啟用</string>
 	<string name="revanced_change_youtube_header_title">更改 YouTube 標題</string>
@@ -130,54 +130,54 @@
 	<string name="revanced_disable_engagement_panel_summary_off">啟用互動面板</string>
 	<string name="revanced_disable_engagement_panel_summary_on">停用互動面板</string>
 	<string name="revanced_disable_engagement_panel_title">停用互動面板</string>
-	<string name="revanced_disable_haptic_feedback_chapters_summary_off">啟用章節觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_chapters_summary_on">停用章節觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_chapters_title">停用章節觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_scrubbing_summary_off">啟用滑動觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_scrubbing_summary_on">停用滑動觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_scrubbing_title">停用滑動觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_seek_summary_off">啟用進度觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_seek_summary_on">停用進度觸感反饋</string>
+	<string name="revanced_disable_haptic_feedback_chapters_summary_off">章節觸覺反饋啟用</string>
+	<string name="revanced_disable_haptic_feedback_chapters_summary_on">章節觸覺反饋已停用</string>
+	<string name="revanced_disable_haptic_feedback_chapters_title">停用章節觸覺反饋</string>
+	<string name="revanced_disable_haptic_feedback_scrubbing_summary_off">觸覺反饋已啟用。</string>
+	<string name="revanced_disable_haptic_feedback_scrubbing_summary_on">觸覺反饋已停用。</string>
+	<string name="revanced_disable_haptic_feedback_scrubbing_title">停用滑動觸覺反饋</string>
+	<string name="revanced_disable_haptic_feedback_seek_summary_off">進度觸覺反饋已啟用</string>
+	<string name="revanced_disable_haptic_feedback_seek_summary_on">進度觸覺反饋已停用</string>
 	<string name="revanced_disable_haptic_feedback_seek_title">停用進度觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_seek_undo_summary_off">啟用進度條跳轉撤銷的震動反饋</string>
-	<string name="revanced_disable_haptic_feedback_seek_undo_summary_on">停用進度條跳轉撤銷的震動反饋</string>
+	<string name="revanced_disable_haptic_feedback_seek_undo_summary_off">進度條跳轉撤銷的震動反饋已啟用</string>
+	<string name="revanced_disable_haptic_feedback_seek_undo_summary_on">進度條跳轉撤銷的震動反饋已停用</string>
 	<string name="revanced_disable_haptic_feedback_seek_undo_title">停用進度條跳轉撤銷的震動反饋</string>
-	<string name="revanced_disable_haptic_feedback_zoom_summary_off">啟用縮放觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_zoom_summary_on">停用縮放觸感反饋</string>
-	<string name="revanced_disable_haptic_feedback_zoom_title">縮放觸感反饋</string>
+	<string name="revanced_disable_haptic_feedback_zoom_summary_off">縮放觸覺反饋已啟用</string>
+	<string name="revanced_disable_haptic_feedback_zoom_summary_on">縮放觸覺反饋已停用</string>
+	<string name="revanced_disable_haptic_feedback_zoom_title">停用縮放觸覺反饋</string>
 	<string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 影片自動亮度已啟用</string>
 	<string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 影片自動亮度已停用</string>
 	<string name="revanced_disable_hdr_auto_brightness_title">停用 HDR 影片自動亮度</string>
 	<string name="revanced_disable_hdr_video_summary_off">HDR 影片已停用</string>
 	<string name="revanced_disable_hdr_video_summary_on">HDR 影片已啟用</string>
 	<string name="revanced_disable_hdr_video_title">HDR 影片</string>
-	<string name="revanced_disable_landscape_mode_summary_off">全螢幕時的橫屏模式已啟用</string>
-	<string name="revanced_disable_landscape_mode_summary_on">全螢幕時的橫屏模式已停用</string>
-	<string name="revanced_disable_landscape_mode_title">橫屏模式</string>
+	<string name="revanced_disable_landscape_mode_summary_off">進入全螢幕時橫向模式已啟用</string>
+	<string name="revanced_disable_landscape_mode_summary_on">進入全螢幕時橫向模式已停用</string>
+	<string name="revanced_disable_landscape_mode_title">停用橫向模式</string>
 	<string name="revanced_disable_quic_protocol_summary">"停用 Cronet 引擎的 QUIC 協議"</string>
 	<string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
-	<string name="revanced_disable_resuming_shorts_player_summary_off">應用啟動時恢復短片播放器</string>
-	<string name="revanced_disable_resuming_shorts_player_summary_on">應用啟動時不會恢復短片播放器</string>
+	<string name="revanced_disable_resuming_shorts_player_summary_off">短片播放器在應用程式啟動時會恢復播放。</string>
+	<string name="revanced_disable_resuming_shorts_player_summary_on">短片播放器在應用程式啟動時不會恢復播放。</string>
 	<string name="revanced_disable_resuming_shorts_player_title">停用恢復短片播放器</string>
 	<string name="revanced_disable_rolling_number_animations_summary_off">滾動動畫已啟用</string>
 	<string name="revanced_disable_rolling_number_animations_summary_on">滾動動畫已停用</string>
 	<string name="revanced_disable_rolling_number_animations_title">停用滾動數字動畫</string>
-	<string name="revanced_disable_speed_overlay_summary">"長按時停用「以 2 倍速度播放」
+	<string name="revanced_disable_speed_overlay_summary">"停用「按住時以 2 倍速播放」。
 
-註意：
-. 停用速度疊加會恢復舊佈局的「滑動查詢」行為
-. 停用此設定不會強制啟用速度疊加顯示"</string>
+注意：
+・停用速度覆蓋層會恢復舊佈局的「滑動以尋找」行為。
+・停用此設定不會強制啟用速度覆蓋層。"</string>
 	<string name="revanced_disable_speed_overlay_title">停用速度疊加</string>
 	<string name="revanced_disable_splash_animation_summary_off">開機動畫已啟用</string>
 	<string name="revanced_disable_splash_animation_summary_on">開機動畫已停用</string>
 	<string name="revanced_disable_splash_animation_title">停用開機動畫</string>
-	<string name="revanced_disable_video_description_interaction_summary">"展開影片描述時停用以下交互：
+	<string name="revanced_disable_video_description_interaction_summary">"當影片描述展開時，停用以下互動：
 
-. 點擊滾動
-. 長按選擇檔案"</string>
+・點擊捲動。
+・點擊並按住以選擇文字。"</string>
 	<string name="revanced_disable_video_description_interaction_title">停用影片描述交互</string>
 	<string name="revanced_enable_compact_controls_overlay_summary_off">緊湊的播放器佈局已停用</string>
-	<string name="revanced_enable_compact_controls_overlay_summary_on">緊湊的播放器佈局已啟用</string>
+	<string name="revanced_enable_compact_controls_overlay_summary_on">精簡控制選單已啟用</string>
 	<string name="revanced_enable_compact_controls_overlay_title">啟用緊湊的播放器佈局疊加層</string>
 	<string name="revanced_enable_custom_playback_speed_summary_off">自定義播放速度已停用</string>
 	<string name="revanced_enable_custom_playback_speed_summary_on">自定義播放速度已啟用</string>
@@ -220,7 +220,7 @@
 	<string name="revanced_enable_swipe_haptic_feedback_summary_off">觸覺反饋已停用</string>
 	<string name="revanced_enable_swipe_haptic_feedback_summary_on">觸覺反饋已啟用</string>
 	<string name="revanced_enable_swipe_haptic_feedback_title">啟用觸覺反饋</string>
-	<string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">亮度手勢的最低值不會啟用自動亮度調節</string>
+	<string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">亮度手勢的最低值會啟動自動亮度。</string>
 	<string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_on">亮度手勢的最低值會啟用自動亮度調節</string>
 	<string name="revanced_enable_swipe_lowest_value_auto_brightness_title">啟用自動亮度手勢</string>
 	<string name="revanced_enable_swipe_press_to_engage_summary_off">輕觸啟動滑動手勢</string>
@@ -273,27 +273,27 @@
 	<string name="revanced_extended_settings_reset">重置</string>
 	<string name="revanced_extended_settings_search_title">搜尋設定</string>
 	<string name="revanced_extended_settings_title">ReVanced 擴充</string>
-	<string name="revanced_external_downloader_action_summary_off">下載按鈕打開原生應用內下載器</string>
-	<string name="revanced_external_downloader_action_summary_on">下載按鈕打開您的外部下載器</string>
+	<string name="revanced_external_downloader_action_summary_off">原生下載按鈕會打開應用內建的下載器。</string>
+	<string name="revanced_external_downloader_action_summary_on">原生下載按鈕會打開你的外部下載器。</string>
 	<string name="revanced_external_downloader_action_title">覆蓋下載操作按鈕</string>
 	<string name="revanced_external_downloader_dialog_title">外部下載器</string>
 	<string name="revanced_external_downloader_not_installed">未安裝</string>
 	<string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝
 請從網站下載 %2$s"</string>
 	<string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-	<string formatted="false" name="revanced_external_downloader_not_installed_warning">%s未安裝，請先安裝</string>
-	<string name="revanced_external_downloader_package_name_summary">已安裝的外部下載器應用的包名，例如 NewPipe 或 YTDLnis</string>
-	<string name="revanced_external_downloader_package_name_title">外部下載器應用包名</string>
-	<string name="revanced_force_fullscreen_summary">"在以下情況下，影片將切換為全螢幕：
+	<string formatted="false" name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
+	<string name="revanced_external_downloader_package_name_summary">已安裝的外部下載程式的套件名稱，例如 NewPipe 或 YTDLnis</string>
+	<string name="revanced_external_downloader_package_name_title">外部下載程式的套件名稱</string>
+	<string name="revanced_force_fullscreen_summary">"影片將在以下情況下切換到全螢幕模式：
 
-. 開始播放影片時
-. 點擊評論中的時間戳時"</string>
+・當影片開始播放時。
+・當點擊評論中的時間戳記時。"</string>
 	<string name="revanced_force_fullscreen_title">強制全螢幕</string>
 	<string name="revanced_hide_account_menu_filter_strings_summary">要過濾的帳戶選單名稱列表，每行一個名稱</string>
 	<string name="revanced_hide_account_menu_filter_strings_title">編輯賬號選單過濾</string>
 	<string name="revanced_hide_account_menu_summary">"隱藏帳戶選單和你的選項卡的元素
 某些組件可能不會隱藏"</string>
-	<string name="revanced_hide_account_menu_title">賬號選單</string>
+	<string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
 	<string name="revanced_hide_album_card_summary_off">專輯卡片已顯示</string>
 	<string name="revanced_hide_album_card_summary_on">專輯卡片已隱藏</string>
 	<string name="revanced_hide_album_card_title">隱藏專輯卡片</string>
@@ -303,13 +303,13 @@
 	<string name="revanced_hide_browse_store_button_summary_off">瀏覽商店按鈕已顯示</string>
 	<string name="revanced_hide_browse_store_button_summary_on">瀏覽商店按鈕已隱藏</string>
 	<string name="revanced_hide_browse_store_button_title">隱藏瀏覽商店按鈕</string>
-	<string name="revanced_hide_carousel_shelf_summary">"隱藏以下分類：
-. 突發新聞
-. 繼續觀看
-. 探索更多頻道
-. 再次收聽
-. 購物
-. 重新觀看"</string>
+	<string name="revanced_hide_carousel_shelf_summary">"隱藏以下分類區：
+・最新消息
+・繼續觀看
+・探索更多頻道
+・再次收聽
+・購物
+・再看一次"</string>
 	<string name="revanced_hide_carousel_shelf_title">隱藏輪播內容</string>
 	<string name="revanced_hide_category_bar_in_feed_summary_off">在探索欄顯示</string>
 	<string name="revanced_hide_category_bar_in_feed_summary_on">在探索欄隱藏</string>
@@ -454,8 +454,8 @@
 	<string name="revanced_hide_keyword_content_home_summary_off">首頁訂閱內容的關鍵詞過濾已停用</string>
 	<string name="revanced_hide_keyword_content_home_summary_on">首頁訂閱內容的關鍵詞過濾已啟用</string>
 	<string name="revanced_hide_keyword_content_home_title">啟用首頁關鍵詞過濾器</string>
-	<string name="revanced_hide_keyword_content_phrases_summary">"配置要隱藏的關鍵詞和短語，以換行符分隔\n\n
-中間有大寫字母的單詞必須使用大小寫（例如：iPhone、TikTok、LeBlanc）"</string>
+	<string name="revanced_hide_keyword_content_phrases_summary">"需要隱藏的關鍵字和片語，請用新行分隔。
+具有中間大寫字母的單詞必須按照大小寫輸入（例如：iPhone、TikTok、LeBlanc）。"</string>
 	<string name="revanced_hide_keyword_content_phrases_title">要隱藏的關鍵詞</string>
 	<string name="revanced_hide_keyword_content_search_summary_off">搜尋結果未篩選</string>
 	<string name="revanced_hide_keyword_content_search_summary_on">搜尋結果按關鍵字進行篩選</string>
@@ -574,7 +574,7 @@
 	<string name="revanced_hide_player_flyout_menu_premium_controls_summary_off">高級控件選單已顯示</string>
 	<string name="revanced_hide_player_flyout_menu_premium_controls_summary_on">高級控件選單已隱藏</string>
 	<string name="revanced_hide_player_flyout_menu_premium_controls_title">隱藏高級控件選單</string>
-	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">畫質選單頁腳已顯示</string>
+	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">顯示品質選單頁尾。</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">畫質選單頁腳已隱藏</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">隱藏畫質選單頁腳</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">舉報選單已顯示</string>
@@ -601,14 +601,14 @@
 	<string name="revanced_hide_playlist_button_summary_off">保存到播放列表按鈕已顯示</string>
 	<string name="revanced_hide_playlist_button_summary_on">保存到播放列表按鈕已隱藏</string>
 	<string name="revanced_hide_playlist_button_title">隱藏保存到播放列表按鈕</string>
-	<string name="revanced_hide_podcast_section_summary_off">播客部分已顯示</string>
-	<string name="revanced_hide_podcast_section_summary_on">播客部分已隱藏</string>
+	<string name="revanced_hide_podcast_section_summary_off">Podcast 已顯示</string>
+	<string name="revanced_hide_podcast_section_summary_on">Podcast 已隱藏</string>
 	<string name="revanced_hide_podcast_section_title">隱藏播客部分</string>
 	<string name="revanced_hide_preview_comment_off">預覽評論已顯示</string>
 	<string name="revanced_hide_preview_comment_on">預覽評論已隱藏</string>
 	<string name="revanced_hide_preview_comment_title">隱藏預覽評論</string>
-	<string name="revanced_hide_preview_comment_type_off">這會改變評論區的大小，因此無法在評論區打開即時聊天回放</string>
-	<string name="revanced_hide_preview_comment_type_on">這不會改變評論區的大小，因此可以在評論區打開即時聊天回放</string>
+	<string name="revanced_hide_preview_comment_type_off">這會改變評論區的大小，因此無法在評論區打開直播聊天重播。</string>
+	<string name="revanced_hide_preview_comment_type_on">這不會改變評論區的大小，因此可以在評論區打開直播聊天重播。</string>
 	<string name="revanced_hide_preview_comment_type_title">預覽評論類型</string>
 	<string name="revanced_hide_quick_actions_comment_button_summary_off">評論按鈕已顯示</string>
 	<string name="revanced_hide_quick_actions_comment_button_summary_on">評論按鈕已隱藏</string>
@@ -645,9 +645,9 @@
 	<string name="revanced_hide_quick_actions_title">隱藏快速操作面板</string>
 	<string name="revanced_hide_recommended_video_summary">"隱藏以下推薦影片：
 
-. 帶有「僅限會員」標簽的影片
-. 影片底部帶有「用戶還觀看了」等短語的影片
-. 來自未訂閱頻道且觀看次數少於1,000次的影片"</string>
+・帶有「僅限會員」標籤的影片。
+・影片底部帶有「用戶還觀看了」字樣的影片。
+・從未訂閱的頻道上傳且觀看次數少於 1,000 次的影片。"</string>
 	<string name="revanced_hide_recommended_video_title">隱藏推薦影片</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">相關影片疊加層已顯示</string>
 	<string name="revanced_hide_related_video_overlay_summary_on">相關影片疊加層已隱藏</string>
@@ -740,9 +740,9 @@
 	<string name="revanced_hide_shorts_remix_button_summary_off">混剪按鈕已顯示</string>
 	<string name="revanced_hide_shorts_remix_button_summary_on">混剪按鈕已隱藏</string>
 	<string name="revanced_hide_shorts_remix_button_title">隱藏混剪按鈕</string>
-	<string name="revanced_hide_shorts_save_sound_button_summary_off">保存聲音到播放列表按鈕已顯示</string>
-	<string name="revanced_hide_shorts_save_sound_button_summary_on">保存聲音到播放列表按鈕已隱藏</string>
-	<string name="revanced_hide_shorts_save_sound_button_title">隱藏保存聲音到播放列表按鈕</string>
+	<string name="revanced_hide_shorts_save_sound_button_summary_off">儲存音效到播放清單按鈕已顯示。</string>
+	<string name="revanced_hide_shorts_save_sound_button_summary_on">儲存音效到播放清單按鈕已隱藏。</string>
+	<string name="revanced_hide_shorts_save_sound_button_title">隱藏儲存音效到播放清單按鈕</string>
 	<string name="revanced_hide_shorts_search_suggestions_summary_off">搜尋建議已顯示</string>
 	<string name="revanced_hide_shorts_search_suggestions_summary_on">搜尋建議已隱藏</string>
 	<string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
@@ -813,8 +813,8 @@
  可以在 YouTube 設定中變更自動播放：
  '設定 → 自動播放 → 自動播放下一個影片'"</string>
 	<string name="revanced_hide_suggested_video_end_screen_title">隱藏推薦影片結束界面</string>
-	<string name="revanced_hide_suggestions_section_summary_off">游戲部分、音樂部分和地區部分已顯示</string>
-	<string name="revanced_hide_suggestions_section_summary_on">游戲部分、音樂部分和地區部分已隱藏</string>
+	<string name="revanced_hide_suggestions_section_summary_off">遊戲區、音樂區和地點區已顯示。</string>
+	<string name="revanced_hide_suggestions_section_summary_on">遊戲區、音樂區和地點區已隱藏。</string>
 	<string name="revanced_hide_suggestions_section_title">隱藏建議部份</string>
 	<string name="revanced_hide_thanks_button_summary_off">感謝按鈕已顯示</string>
 	<string name="revanced_hide_thanks_button_summary_on">感謝按鈕已隱藏</string>
@@ -850,7 +850,7 @@
 	<string name="revanced_hide_video_by_duration_longer_than_title">時長高於此數字</string>
 	<string name="revanced_hide_video_by_duration_shorter_than_summary">時長小於此數字的影片將被隱藏</string>
 	<string name="revanced_hide_video_by_duration_shorter_than_title">時長小於此數字</string>
-	<string name="revanced_hide_video_by_duration_summary">隱藏時長短於或長於指定時長的影片\n\n已知問題：它不會隱藏播放器中相關影片的時間戳，而是隱藏影片時間標記</string>
+	<string name="revanced_hide_video_by_duration_summary">隱藏時長過短或過長的影片。\n\n已知問題：這不會隱藏播放器中的相關影片，只會隱藏時間戳記。</string>
 	<string name="revanced_hide_video_by_duration_title">根據時長隱藏影片</string>
 	<string name="revanced_hide_video_by_view_counts_summary">隱藏播放量低於此數字的推薦影片</string>
 	<string name="revanced_hide_video_by_view_counts_title">播放量</string>
@@ -879,10 +879,10 @@
 	<string name="revanced_icon_revancify_red">復興紅</string>
 	<string name="revanced_icon_vanced_black">Vanced Black</string>
 	<string name="revanced_icon_vanced_light">Vanced Light</string>
-	<string name="revanced_keep_landscape_mode_summary">在全螢幕狀態下關閉和打開螢幕時，保持橫屏模式\n\n已知問題：它可能會破壞畫中畫 (PIP)</string>
-	<string name="revanced_keep_landscape_mode_timeout_summary">強制橫屏模式的毫秒數</string>
-	<string name="revanced_keep_landscape_mode_timeout_title">保持橫屏模式超時</string>
-	<string name="revanced_keep_landscape_mode_title">保持橫屏模式</string>
+	<string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
+	<string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
+	<string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
+	<string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
 	<string name="revanced_label_default">預設</string>
 	<string name="revanced_overlay_button">畫面疊加按鈕</string>
 	<string name="revanced_overlay_button_always_repeat_summary">"點擊可保持循環播放狀態
@@ -897,7 +897,7 @@
 	<string name="revanced_overlay_button_external_downloader_summary">點擊以打開外部下載器</string>
 	<string name="revanced_overlay_button_external_downloader_title">外部下載按鈕</string>
 	<string name="revanced_overlay_button_not_allowed_warning">長按以更改按鈕狀態</string>
-	<string name="revanced_overlay_button_speed_dialog_reset">重置播放速度（1.0x）</string>
+	<string name="revanced_overlay_button_speed_dialog_reset">播放速度重置：%sx。</string>
 	<string name="revanced_overlay_button_speed_dialog_summary">"點擊選擇影片播放速度
 長按設定預設播放速度（1.0x）"</string>
 	<string name="revanced_overlay_button_speed_dialog_title">播放速度按鈕</string>
@@ -990,12 +990,12 @@
 	<string name="revanced_preference_screen_video_filter_summary">按關鍵詞或觀看次數隱藏影片</string>
 	<string name="revanced_preference_screen_video_filter_title">影片篩選</string>
 	<string name="revanced_preference_screen_video_title">影片</string>
-	<string name="revanced_quick_actions_top_margin_summary">配置從進度條到快速操作容器的間距，範圍在0-32之間</string>
+	<string name="revanced_quick_actions_top_margin_summary">配置從進度條到快速操作容器的間距，範圍在 0 到 32 之間。</string>
 	<string name="revanced_quick_actions_top_margin_title">快速操作頂部邊距</string>
-	<string name="revanced_quick_actions_top_margin_warning">快速操作頂部間距必須介於 0~32 之間
-重設為預設值</string>
-	<string name="revanced_reject_av1_codec_summary">"強制拒絕軟件 AV1 編解碼器響應約 20 秒緩衝後，切換到其他編解碼器"</string>
-	<string name="revanced_reject_av1_codec_title">拒絕軟件 AV1 編解碼器切換</string>
+	<string name="revanced_quick_actions_top_margin_warning">快速操作頂部邊距必須在 0 到 32 之間。重置為預設值。</string>
+	<string name="revanced_reject_av1_codec_summary">"強制拒絕軟體 AV1 編解碼器回應。
+約 20 秒的緩衝後會應用不同的編解碼器。"</string>
+	<string name="revanced_reject_av1_codec_title">拒絕軟體 AV1 編解碼器回應</string>
 	<string name="revanced_reject_av1_codec_toast">切換過程會導致約 20 秒載入</string>
 	<string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改僅適用於當前影片</string>
 	<string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改適用於所有影片</string>
@@ -1010,8 +1010,8 @@
 	<string name="revanced_remove_viewer_discretion_dialog_summary">"移除查看器的自由裁量對話框
 這不會繞過年齡限制它只會自動同意"</string>
 	<string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量對話框</string>
-	<string name="revanced_replace_av1_codec_summary">使用 VP9 編解碼器替換軟件 AV1 編解碼器</string>
-	<string name="revanced_replace_av1_codec_title">替換軟件 AV1 編解碼器</string>
+	<string name="revanced_replace_av1_codec_summary">將軟體 AV1 編解碼器替換為 VP9 編解碼器。</string>
+	<string name="revanced_replace_av1_codec_title">替換軟體 AV1 編解碼器</string>
 	<string name="revanced_replace_time_stamp_action_summary_off">點擊顯示剩餘時間</string>
 	<string name="revanced_replace_time_stamp_action_summary_on">點擊打開播放速度或影片畫質彈出選單</string>
 	<string name="revanced_replace_time_stamp_action_title">替換時間戳操作</string>
@@ -1267,8 +1267,7 @@
 	<string name="revanced_skipped_preloaded_buffer">跳過預加載緩衝</string>
 	<string name="revanced_speed_overlay_value_summary">速度疊加值在 0 到 8.0 之間</string>
 	<string name="revanced_speed_overlay_value_title">速度疊加值</string>
-	<string name="revanced_speed_overlay_value_warning">速度疊加值必須介於 0~8.0 之間
-重設為預設值</string>
+	<string name="revanced_speed_overlay_value_warning">速度覆蓋層的值必須在 0 到 8.0 之間。重置為預設值。</string>
 	<string name="revanced_spoof_app_version_summary">"偽裝應用版本為舊版本
 
 . 這將會改變應用的界面，但也可能出現未知的問題
@@ -1287,19 +1286,27 @@
 	<string name="revanced_spoof_client_fallback_title">回復</string>
 	<string name="revanced_spoof_client_general_title">一般設定</string>
 	<string name="revanced_spoof_client_livestream_title">實況直播</string>
+	<string name="revanced_spoof_client_options_entry_android">Android</string>
+	<string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入播放器</string>
 	<string name="revanced_spoof_client_options_entry_android_testsuite">Android 測試套件</string>
+	<string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
 	<string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
 	<string name="revanced_spoof_client_options_entry_ios">iOS</string>
+	<string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+	<string name="revanced_spoof_client_options_entry_web">網頁</string>
 	<string name="revanced_spoof_client_shorts_title">短片, 片段</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_off">已偽裝的用戶端隱藏在「數據統計」中。</string>
+	<string name="revanced_spoof_client_stats_for_nerds_summary_on">已偽裝的用戶端顯示在「數據統計」中。</string>
+	<string name="revanced_spoof_client_stats_for_nerds_title">在「數據統計」中顯示</string>
 	<string name="revanced_spoof_client_summary_off">"客戶端未偽裝。 影片可能無法播放。"</string>
 	<string name="revanced_spoof_client_summary_on">已偽裝客戶端。</string>
 	<string name="revanced_spoof_client_title">偽裝客戶端</string>
-	<string name="revanced_spoof_client_use_android_testsuite_summary">"偽裝客戶端到 android 測試套件。
+	<string name="revanced_spoof_client_use_android_testsuite_summary">"偽裝客戶端為 Android 測試套件。
 
- 副作用包括：
- • 無 HDR 影片。
- • 音軌選單和播放速度選單遺失。
- • 可能無法提供字幕。"</string>
+副作用包括：
+・無 HDR 影片。
+・音軌選單和播放速度選單缺失。
+・字幕可能不可用。"</string>
 	<string name="revanced_spoof_client_use_android_testsuite_title">Android 測試套件</string>
 	<string name="revanced_spoof_client_use_android_tv_summary">"偽裝客戶端到 android 電視（youtube tv）。
 
@@ -1340,7 +1347,7 @@
  • 無法在 Android 8.0 觀看直播
  • 可能會失去更高的影片畫質"</string>
 	<string name="revanced_spoof_client_use_ios_title">iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">偽裝設備尺寸，以解鎖設備可能無法提供的更高影片品質</string>
+	<string name="revanced_spoof_device_dimensions_summary">"更改裝置尺寸設定，以便解鎖在您目前的裝置上原本不支援的較高影片品質。"</string>
 	<string name="revanced_spoof_device_dimensions_title">偽裝設備尺寸</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Spoofs the format stream data to prevent playback issues.
 
@@ -1386,12 +1393,12 @@ Limitations:
 	<string name="revanced_swipe_overlay_text_size_title">滑動疊加層上的檔案大小</string>
 	<string name="revanced_swipe_overlay_timeout_summary">滑動疊加層顯示的時長（毫秒）</string>
 	<string name="revanced_swipe_overlay_timeout_title">滑動疊加層時長</string>
-	<string name="revanced_switch_create_with_notifications_button_summary">"透過偽裝裝置資訊，交換創作按鈕和通知按鈕的位置
+	<string name="revanced_switch_create_with_notifications_button_summary">"通過偽裝設備資訊來交換「建立」按鈕和「通知」按鈕的位置。
 
- • 更改此設定後，可能需要重新啟動才會生效
- • 停用此設定會從伺服器端載入更多廣告
- • 你應該停用此設定以顯示影片廣告"</string>
-	<string name="revanced_switch_create_with_notifications_button_title">交換創建和通知按鈕</string>
+・可能需要重新啟動設備才能使此設定生效。
+・停用此設定會從伺服器端加載更多廣告。
+・你應該停用此設定以顯示影片廣告。"</string>
+	<string name="revanced_switch_create_with_notifications_button_title">交換「建立」和「通知」按鈕</string>
 	<string name="revanced_theme_default">預設</string>
 	<string name="revanced_whitelist_add_failed">無法將頻道 %1$s 新增至 %2$s 白名單。</string>
 	<string name="revanced_whitelist_added">頻道 %1$s 已加入 %2$s 白名單。</string>

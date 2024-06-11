@@ -9,7 +9,18 @@
     <string name="revanced_change_start_page_entry_music">Music</string>
     <string name="revanced_change_start_page_entry_sports">Sports</string>
     <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+    <string name="revanced_enable_opus_codec_summary">Enable the OPUS codec if the player response includes the OPUS codec.</string>
+    <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
     <string name="revanced_extended_settings_search_title">Search settings</string>
+    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
+    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Fullscreen ads are blocked.
+
+Limitation: Community post image on the fullscreen may be blocked."</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
     <string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown.\n\nThis setting applies to Shorts live videos too.</string>
     <string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden.\n\nThis setting applies to Shorts live videos too.</string>
@@ -17,22 +28,31 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
+    <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
+    <string name="revanced_hide_low_views_video_title">Hide low views video</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Quality menu header is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Quality menu header is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_title">Hide quality menu header</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
-    <string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header won\'t be hidden.</string>
-    <string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header won\'t be hidden.</string>
+    <string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header will not be hidden.</string>
+    <string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header will not be hidden.</string>
     <string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
+    <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks button is shown.</string>
+    <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks button is hidden.</string>
+    <string name="revanced_hide_shorts_super_thanks_button_title">Hide Super Thanks button</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_off">Suggested video end screen is shown.</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"Suggested video end screen is hidden when autoplay is turned off.
 
 Autoplay can be changed in YouTube settings:
 'Settings → Autoplay → Autoplay next video'"</string>
-    <string name="revanced_icon_afn_blue">AFN Blue</string>
-    <string name="revanced_icon_afn_red">AFN Red</string>
+    <string name="revanced_icon_afn_blue">Afn Blue</string>
+    <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tap to generate a playlist of all videos from channel from oldest to newest.
 Tap and hold to undo."</string>
     <string name="revanced_overlay_button_time_ordered_playlist_title">Show time-ordered playlist button</string>
@@ -69,33 +89,33 @@ It may take longer to fetch the channel name."</string>
 
 Side effects include:
 • No HDR video.
-• Audio track menu and playback speed menu are missing.
-• Subtitles may not be available."</string>
+• Audio track menu is missing.
+• Captions may not be available."</string>
     <string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
     <string name="revanced_spoof_client_use_android_tv_summary">"Spoof client to Android TV (YouTube TV).
 
 Side effects include:
 • No HDR video.
-• Audio track menu and playback speed menu are missing.
-• Subtitles may not be available.
+• Audio track menu is missing.
+• Captions may not be available.
 • Some live streams are not supported for playback."</string>
     <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
     <string name="revanced_spoof_client_use_android_vr_summary">"Spoof client to Android VR.
 
 Side effects include:
 • No HDR video.
+• Download button of video action bar is missing.
 • Paused videos can randomly resume.
 • Low quality Shorts seekbar thumbnails.
-• Kids videos do not playback."</string>
+• Kids videos do not play."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
 • No HDR video.
-• Playback speed menu is missing.
-• Higher video qualities may be missing.
+• Higher video qualities may not be available.
 • Watch history does not work with a brand account.
-• Live streams cannot play as audio only.
+• Live streams cannot play as audio-only.
 • Live streams not available on Android 8.0."</string>
     <string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
 
@@ -111,8 +131,6 @@ Side effects include:
 • Live streams not available on Android 8.0.
 • Higher video qualities may be missing."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
     <string name="revanced_swipe_overlay_rect_size_warning">Swipeable area size cannot be more than %s%%. Reset to default value.</string>

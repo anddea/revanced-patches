@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android Embedded Player</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">Spoofed client is hidden in Stats for nerds.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">Spoofed client is shown in Stats for nerds.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
+    <string name="revanced_enable_opus_codec_summary">Enable the OPUS codec if the player response includes the OPUS codec.</string>
+    <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Fullscreen ads are blocked.
 
-Side effects include:
-• Player swipe gestures do not work.
-• Kids videos do not playback.
-• Paused videos can randomly resume."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Client is currently spoofed to iOS.
-
-Side effects include:
-• Playback speed menu is missing.
-• Live streams cannot play as audio only.
-• Live streams not available on Android 8.0.
-• Higher video qualities may be missing."</string>
-    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
+Limitation: Community post image on the fullscreen may be blocked."</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
+    <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
+    <string name="revanced_hide_low_views_video_title">Hide low views video</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Quality menu header is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Quality menu header is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_quality_header_title">Hide quality menu header</string>
+    <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks button is shown.</string>
+    <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks button is hidden.</string>
+    <string name="revanced_hide_shorts_super_thanks_button_title">Hide Super Thanks button</string>
+    <string name="revanced_icon_youtube">YouTube</string>
 </resources>
