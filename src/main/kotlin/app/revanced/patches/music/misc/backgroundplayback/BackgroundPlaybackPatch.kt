@@ -1,14 +1,14 @@
-package app.revanced.patches.music.misc.minimizedplayback
+package app.revanced.patches.music.misc.backgroundplayback
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patches.music.misc.minimizedplayback.fingerprints.BackgroundPlaybackFingerprint
-import app.revanced.patches.music.misc.minimizedplayback.fingerprints.DataSavingSettingsFragmentFingerprint
-import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MinimizedPlaybackManagerFingerprint
-import app.revanced.patches.music.misc.minimizedplayback.fingerprints.MusicBrowserServiceFingerprint
-import app.revanced.patches.music.misc.minimizedplayback.fingerprints.PodCastConfigFingerprint
+import app.revanced.patches.music.misc.backgroundplayback.fingerprints.BackgroundPlaybackManagerFingerprint
+import app.revanced.patches.music.misc.backgroundplayback.fingerprints.DataSavingSettingsFragmentFingerprint
+import app.revanced.patches.music.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerFingerprint
+import app.revanced.patches.music.misc.backgroundplayback.fingerprints.MusicBrowserServiceFingerprint
+import app.revanced.patches.music.misc.backgroundplayback.fingerprints.PodCastConfigFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.util.getStartsWithStringInstructionIndex
 import app.revanced.util.getStringInstructionIndex
@@ -21,14 +21,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Suppress("unused")
-object MinimizedPlaybackPatch : BaseBytecodePatch(
-    name = "Enable minimized playback",
-    description = "Enables minimized and background playback.",
+object BackgroundPlaybackPatch : BaseBytecodePatch(
+    name = "Remove background playback restrictions",
+    description = "Removes restrictions on background playback, including playing kids videos in the background.",
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        BackgroundPlaybackFingerprint,
+        BackgroundPlaybackManagerFingerprint,
         DataSavingSettingsFragmentFingerprint,
-        MinimizedPlaybackManagerFingerprint,
+        KidsBackgroundPlaybackPolicyControllerFingerprint,
         MusicBrowserServiceFingerprint,
         PodCastConfigFingerprint,
     )
@@ -37,7 +37,7 @@ object MinimizedPlaybackPatch : BaseBytecodePatch(
 
         // region patch for background play
 
-        BackgroundPlaybackFingerprint.resultOrThrow().mutableMethod.addInstructions(
+        BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.addInstructions(
             0, """
                 const/4 v0, 0x1
                 return v0
@@ -104,7 +104,7 @@ object MinimizedPlaybackPatch : BaseBytecodePatch(
 
         // region patch for minimized playback
 
-        MinimizedPlaybackManagerFingerprint.resultOrThrow().mutableMethod.addInstruction(
+        KidsBackgroundPlaybackPolicyControllerFingerprint.resultOrThrow().mutableMethod.addInstruction(
             0, "return-void"
         )
 
