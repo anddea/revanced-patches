@@ -19,8 +19,8 @@ import java.util.concurrent.TimeUnit
 
 @Suppress("DEPRECATION", "unused")
 object SettingsPatch : BaseResourcePatch(
-    name = "Settings",
-    description = "Adds ReVanced Extended settings to YouTube Music.",
+    name = "Settings for YouTube Music",
+    description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     dependencies = setOf(
         AccessibilityNodeInfoPatch::class,
         SettingsBytecodePatch::class

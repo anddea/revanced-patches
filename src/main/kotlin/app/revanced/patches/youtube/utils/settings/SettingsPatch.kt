@@ -29,7 +29,7 @@ import java.util.jar.Manifest
 
 @Suppress("DEPRECATION", "unused")
 object SettingsPatch : BaseResourcePatch(
-    name = "Settings",
+    name = "Settings for YouTube",
     description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
     dependencies = setOf(
         IntegrationsPatch::class,
