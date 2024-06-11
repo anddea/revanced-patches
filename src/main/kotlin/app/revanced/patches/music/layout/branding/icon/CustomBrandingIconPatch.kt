@@ -97,7 +97,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         )
     }
 
-    private val AppIcon by stringPatchOption(
+    val AppIcon by stringPatchOption(
         key = "AppIcon",
         default = DEFAULT_ICON_KEY,
         values = availableIcon,
