@@ -1,3 +1,21 @@
+# [2.226.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.5...v2.226.0-dev.6) (2024-06-11)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Restore playback speed menu when spoofing to an iOS, Android TV, Android Testsuite client ([06ffb15](https://github.com/anddea/revanced-patches/commit/06ffb15d8bf5b91fa98910d975d3ad887e609789))
+
+
+### Features
+
+* **Hide ads:** Add `Close fullscreen ads` settings ([a9fc181](https://github.com/anddea/revanced-patches/commit/a9fc181507e8e56f9d29e1ab97061fec1455100a))
+* **YouTube - Hide player flyout menu:** Add `Hide quality menu header` ([99af80b](https://github.com/anddea/revanced-patches/commit/99af80be0c5d84433cae983fa694e6ad48906e4a))
+* **YouTube - Shorts components:** Add `Hide Super Thanks button` setting ([b0482c7](https://github.com/anddea/revanced-patches/commit/b0482c73271a8cae1c7da83153c935c061ab1431))
+* **YouTube Music:** Add support version `7.04.51` ([62b19b8](https://github.com/anddea/revanced-patches/commit/62b19b8ca17aab73852ef261458a31b27fbf6748))
+* **YouTube Music:** Remove `Replace Cast button` patch ([b65a118](https://github.com/anddea/revanced-patches/commit/b65a118ffab3af71822295b746b332602f2c5373))
+* **YouTube:** Add `Enable OPUS codec` patch ([f4684df](https://github.com/anddea/revanced-patches/commit/f4684dfd3d46eb19844761ff7818fa691cdbc543))
+* **YouTube:** Add support version `19.20.35` ([45b5c5d](https://github.com/anddea/revanced-patches/commit/45b5c5dcb5cf7c6880ee4872a994373640e5b637))
+
 # [2.226.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.4...v2.226.0-dev.5) (2024-06-05)
 
 
