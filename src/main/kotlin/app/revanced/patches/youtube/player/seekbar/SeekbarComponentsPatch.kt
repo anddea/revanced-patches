@@ -245,17 +245,17 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         PlayerSeekbarColorFingerprint.resultOrThrow().let { parentResult ->
             TimeCounterFingerprint.also { it.resolve(context, parentResult.classDef) }
                 .resultOrThrow().let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0, """
+                    it.mutableMethod.apply {
+                        addInstructionsWithLabels(
+                            0, """
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideTimeStamp()Z
                         move-result v0
                         if-eqz v0, :show
                         return-void
                         """, ExternalLabel("show", getInstruction(0))
-                    )
+                        )
+                    }
                 }
-            }
         }
 
         // endregion
