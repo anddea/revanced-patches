@@ -1,19 +1,20 @@
-package app.revanced.patches.youtube.general.tabletminiplayer.fingerprints
+package app.revanced.patches.youtube.general.miniplayer.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
-    returnType = "L",
+@Suppress("SpellCheckingInspection")
+internal object MiniplayerResponseModelSizeCheckFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L"),
+    returnType = "L",
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
     opcodes = listOf(
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ
+        Opcode.IF_NEZ,
     )
 )

@@ -99,7 +99,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->changePlayerOpacity(Landroid/widget/ImageView;)V"
+                    "invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V"
                 )
             }
         }
