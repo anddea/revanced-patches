@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.player.fullscreen.fingerprints.LandScapeMode
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationParentFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationPrimaryFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationSecondaryFingerprint
+import app.revanced.patches.youtube.player.fullscreen.fingerprints.PlayerTitleViewFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.QuickActionsElementFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.RelatedEndScreenResultsFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.VideoPortraitParentFingerprint
@@ -62,6 +63,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
         LandScapeModeConfigFingerprint,
         LayoutConstructorFingerprint,
         OrientationParentFingerprint,
+        PlayerTitleViewFingerprint,
         QuickActionsElementFingerprint,
         RelatedEndScreenResultsFingerprint,
         VideoPortraitParentFingerprint,
@@ -89,9 +91,13 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             }
         }
 
-        LayoutConstructorFingerprint.resultOrThrow().let {
+        PlayerTitleViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = getTargetIndexWithMethodReferenceName("addView")
+                val insertReference =
+                    getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
+                if (!insertReference.startsWith("Landroid/widget/FrameLayout;"))
+                    throw PatchException("Reference does not match: $insertReference")
                 val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                 replaceInstruction(
