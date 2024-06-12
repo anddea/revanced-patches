@@ -16,6 +16,15 @@
         <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_filter_strings_title" android:key="revanced_custom_filter_strings" android:summary="@string/revanced_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
     </PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
+    <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
+    <PreferenceScreen android:title="@string/revanced_preference_screen_miniplayer_title" android:key="revanced_preference_screen_miniplayer" android:summary="@string/revanced_preference_screen_miniplayer_summary">
+        <ListPreference android:entries="@array/revanced_miniplayer_type_19_15_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_15_entry_values" />
+        <SwitchPreference android:title="@string/revanced_miniplayer_hide_expand_close_title" android:key="revanced_miniplayer_hide_expand_close" android:summaryOn="@string/revanced_miniplayer_hide_expand_close_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_expand_close_summary_off" />
+        <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" />
+        <SwitchPreference android:title="@string/revanced_miniplayer_hide_rewind_forward_title" android:key="revanced_miniplayer_hide_rewind_forward" android:summaryOn="@string/revanced_miniplayer_hide_rewind_forward_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_rewind_forward_summary_off" />
+        <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_opacity_title" android:key="revanced_miniplayer_opacity" android:summary="@string/revanced_miniplayer_opacity_summary" android:inputType="number" />
+    </PreferenceScreen>SETTINGS: MINIPLAYER_TYPE_MODERN -->
+
     <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
     <PreferenceScreen android:title="@string/revanced_preference_screen_navigation_buttons_title" android:key="revanced_preference_screen_navigation_buttons" android:summary="@string/revanced_preference_screen_navigation_buttons_summary">
         <SwitchPreference android:title="@string/revanced_enable_narrow_navigation_buttons_title" android:key="revanced_enable_narrow_navigation_buttons" android:defaultValue="false" android:summaryOn="@string/revanced_enable_narrow_navigation_buttons_summary_on" android:summaryOff="@string/revanced_enable_narrow_navigation_buttons_summary_off" />
@@ -70,16 +79,13 @@
     <!-- SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN
     <SwitchPreference android:title="@string/revanced_enable_gradient_loading_screen_title" android:key="revanced_enable_gradient_loading_screen" android:defaultValue="false" android:summaryOn="@string/revanced_enable_gradient_loading_screen_summary_on" android:summaryOff="@string/revanced_enable_gradient_loading_screen_summary_off" />SETTINGS: ENABLE_GRADIENT_LOADING_SCREEN -->
 
-    <!-- SETTINGS: ENABLE_TABLET_MINI_PLAYER
-    <SwitchPreference android:title="@string/revanced_enable_tablet_mini_player_title" android:key="revanced_enable_tablet_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_tablet_mini_player_summary_on" android:summaryOff="@string/revanced_enable_tablet_mini_player_summary_off" />SETTINGS: ENABLE_TABLET_MINI_PLAYER -->
-    <!-- SETTINGS: ENABLE_MODERN_MINI_PLAYER
-    <SwitchPreference android:title="@string/revanced_enable_modern_mini_player_title" android:key="revanced_enable_modern_mini_player" android:defaultValue="false" android:summaryOn="@string/revanced_enable_modern_mini_player_summary_on" android:summaryOff="@string/revanced_enable_modern_mini_player_summary_off" />
-    <SwitchPreference android:title="@string/revanced_hide_mini_player_rewind_forward_button_title" android:key="revanced_hide_mini_player_rewind_forward_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_mini_player_rewind_forward_button_summary_on" android:summaryOff="@string/revanced_hide_mini_player_rewind_forward_button_summary_off" />SETTINGS: ENABLE_MODERN_MINI_PLAYER -->
-
     <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
     <SwitchPreference android:title="@string/revanced_hide_floating_microphone_title" android:key="revanced_hide_floating_microphone" android:defaultValue="true" android:summaryOn="@string/revanced_hide_floating_microphone_summary_on" android:summaryOff="@string/revanced_hide_floating_microphone_summary_off" />
     <SwitchPreference android:title="@string/revanced_hide_gray_separator_title" android:key="revanced_hide_gray_separator" android:defaultValue="true" android:summaryOn="@string/revanced_hide_gray_separator_summary_on" android:summaryOff="@string/revanced_hide_gray_separator_summary_off" />
     <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+
+    <!-- SETTINGS: MINIPLAYER_TYPE_LEGACY
+    <ListPreference android:entries="@array/revanced_miniplayer_type_legacy_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_legacy_entry_values" />SETTINGS: MINIPLAYER_TYPE_LEGACY -->
 
     <!-- SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG
     <SwitchPreference android:title="@string/revanced_remove_viewer_discretion_dialog_title" android:key="revanced_remove_viewer_discretion_dialog" android:defaultValue="false" android:summary="@string/revanced_remove_viewer_discretion_dialog_summary" />SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG -->
@@ -622,9 +628,9 @@
                 <Preference android:title="Disable auto captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable splash animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Enable tablet mini player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Layout switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Navigation bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Remove viewer discretion dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Spoof app version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

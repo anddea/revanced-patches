@@ -64,6 +64,8 @@ object SharedResourceIdPatch : ResourcePatch() {
     var InsetOverlayViewLayout = -1L
     var InterstitialsContainer = -1L
     var MenuItemView = -1L
+    var ModernMiniPlayerClose = -1L
+    var ModernMiniPlayerExpand = -1L
     var ModernMiniPlayerForwardButton = -1L
     var ModernMiniPlayerRewindButton = -1L
     var MusicAppDeeplinkButtonView = -1L
@@ -99,7 +101,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var VideoQualityUnavailableAnnouncement = -1L
     var VoiceSearch = -1L
     var YouTubeControlsOverlaySubtitleButton = -1L
-    var YtOutlinePiPWhite = -1L
+    var YtOutlinePictureInPictureWhite = -1L
     var YtOutlineVideoCamera = -1L
     var YtOutlineXWhite = -1L
     var YtPremiumWordMarkHeader = -1L
@@ -156,6 +158,8 @@ object SharedResourceIdPatch : ResourcePatch() {
         InsetOverlayViewLayout = getId(ID, "inset_overlay_view_layout")
         InterstitialsContainer = getId(ID, "interstitials_container")
         MenuItemView = getId(ID, "menu_item_view")
+        ModernMiniPlayerClose = getId(ID, "modern_miniplayer_close")
+        ModernMiniPlayerExpand = getId(ID, "modern_miniplayer_expand")
         ModernMiniPlayerForwardButton = getId(ID, "modern_miniplayer_forward_button")
         ModernMiniPlayerRewindButton = getId(ID, "modern_miniplayer_rewind_button")
         MusicAppDeeplinkButtonView = getId(ID, "music_app_deeplink_button_view")
@@ -194,7 +198,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         VoiceSearch = getId(ID, "voice_search")
         YouTubeControlsOverlaySubtitleButton =
             getId(LAYOUT, "youtube_controls_overlay_subtitle_button")
-        YtOutlinePiPWhite = getId(DRAWABLE, "yt_outline_picture_in_picture_white_24")
+        YtOutlinePictureInPictureWhite = getId(DRAWABLE, "yt_outline_picture_in_picture_white_24")
         YtOutlineVideoCamera = getId(DRAWABLE, "yt_outline_video_camera_black_24")
         YtOutlineXWhite = getId(DRAWABLE, "yt_outline_x_white_24")
         YtPremiumWordMarkHeader = getId(ATTR, "ytPremiumWordmarkHeader")
