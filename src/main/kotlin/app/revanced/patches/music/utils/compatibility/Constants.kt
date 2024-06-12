@@ -7,11 +7,12 @@ object Constants {
         Patch.CompatiblePackage(
             "com.google.android.apps.youtube.music",
             setOf(
-                "6.29.58", // Latest version that supports the 'Restore old player layout' setting.
-                "6.33.52", // Latest version with the legacy code of YouTube Music.
-                "6.42.55", // Latest version that supports Android 7.0
-                "6.51.53", // Latest version of YouTube Music 6.xx.xx
-                "7.04.51", // Latest version supported by the RVX patch.
+                "6.29.58", // This is the latest version that supports the 'Restore old player layout' setting.
+                "6.33.52", // This is the latest version with the legacy code of YouTube Music.
+                "6.42.55", // This is the latest version that supports Android 7.0
+                "6.51.53", // This is the latest version of YouTube Music 6.xx.xx
+                "7.04.51", // This was the latest version that was supported by the previous patch.
+                "7.05.52", // This is the latest version supported by the RVX patch.
             )
         )
     )
