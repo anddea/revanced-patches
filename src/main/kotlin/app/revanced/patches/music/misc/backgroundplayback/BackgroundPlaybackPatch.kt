@@ -75,8 +75,18 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
         }
 
         // don't play podcast videos
-        PodCastConfigFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
+        // enable by default from YouTube Music 7.05.52+
+
+        val podCastConfigFingerprintResult = PodCastConfigFingerprint.result
+        val dataSavingSettingsFragmentFingerprintResult =
+            DataSavingSettingsFragmentFingerprint.result
+
+        val isPatchingOldVersion =
+            podCastConfigFingerprintResult != null
+                    && dataSavingSettingsFragmentFingerprintResult != null
+
+        if (isPatchingOldVersion) {
+            podCastConfigFingerprintResult!!.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -85,11 +95,8 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
                     "const/4 v$targetRegister, 0x1"
                 )
             }
-        }
 
-        // don't play podcast videos
-        DataSavingSettingsFragmentFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
+            dataSavingSettingsFragmentFingerprintResult!!.mutableMethod.apply {
                 val insertIndex = getStringInstructionIndex("pref_key_dont_play_nma_video") + 4
                 val targetRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
