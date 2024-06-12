@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">Hesap</string>
     <string name="revanced_hide_account_menu_title">Hesap menüsünü gizle</string>
-    <string name="revanced_hide_account_menu_summary">Özel filtredeki hesap menüsü elementlerini gizle.</string>
+    <string name="revanced_hide_account_menu_summary">Özel filtreyi kullanarak hesap menüsü öğelerini gizler.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Hesap menüsü filtresini düzenle</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Filtrelenecek hesap menüsü adlarının yeni satırlarla ayrılmış listesi.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Boş bileşenleri gizle</string>
@@ -16,21 +16,21 @@
     <string name="revanced_hide_handle_title">Etiketi gizle</string>
     <string name="revanced_hide_handle_summary">Hesap menüsündeki etiketi gizler.</string>
     <string name="revanced_hide_terms_container_title">Terimler kapsayıcısını gizle</string>
-    <string name="revanced_hide_terms_container_summary">Hizmet kapsayıcısının şartlarını gizler.</string>
+    <string name="revanced_hide_terms_container_summary">Hizmet Şartları kapsayıcısını gizler.</string>
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">Görev Çubuğu</string>
     <string name="revanced_hide_action_button_like_dislike_title">\"Beğen\" ve \"Beğenme\" butonlarını gizle</string>
     <string name="revanced_hide_action_button_like_dislike_summary">Beğenme ve beğenmeme düğmelerini gizler. Eski oynatıcı arayüzünde çalışmayabilir.</string>
-    <string name="revanced_hide_action_button_comment_title">Yorum butonunu gizle</string>
-    <string name="revanced_hide_action_button_comment_summary">Yorum butonunu gizler.</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Oynatma listesine ekle butonunu gizle</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Oynatma listesine ekle butonunu gizler.</string>
+    <string name="revanced_hide_action_button_comment_title">\"Yorumlar\" butonunu gizle</string>
+    <string name="revanced_hide_action_button_comment_summary">\"Yorumlar\" butonunu gizler.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Kaydet butonunu gizle</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Kaydet butonunu gizler.</string>
     <string name="revanced_hide_action_button_download_title">İndir butonunu gizle</string>
     <string name="revanced_hide_action_button_download_summary">İndir butonunu gizler.</string>
     <string name="revanced_hide_action_button_share_title">Paylaş butonunu gizle</string>
     <string name="revanced_hide_action_button_share_summary">Paylaş butonunu gizler.</string>
     <string name="revanced_hide_action_button_radio_title">Radyo düğmesini gizle</string>
-    <string name="revanced_hide_action_button_radio_summary">Radyoyu başlat düğmesini gizler.</string>
+    <string name="revanced_hide_action_button_radio_summary">Radyo düğmesini gizler.</string>
     <string name="revanced_hide_action_button_label_title">Aksiyon butonu etiketlerini gizle</string>
     <string name="revanced_hide_action_button_label_summary">Aksiyon butonlarındaki etiketleri gizle.</string>
     <string name="revanced_external_downloader_action_title">İndirme eylem düğmesini kullan</string>
@@ -49,6 +49,10 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_preference_screen_ads_title">Reklamlar</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizle</string>
     <string name="revanced_hide_fullscreen_ads_summary">Tam ekran reklamlarını gizler.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Tam ekran reklamlarını kapat</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Etkinleştirilirse Kapat düğmesi aracılığıyla tam ekran reklamlar kapatılır. Devre dışı bırakılırsa tam ekran reklamlar engellenir. (yan etkiler olabilir)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Tam ekran reklamlar engellendi. (İletişim Türü: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Tam ekran reklamlar kapatıldı.</string>
     <string name="revanced_hide_general_ads_title">Genel reklamları gizle</string>
     <string name="revanced_hide_general_ads_summary">Genel reklamları gizler.</string>
     <string name="revanced_hide_music_ads_title">Müzik reklamlarını gizle</string>
@@ -145,7 +149,7 @@ Bilgi:
     <string name="revanced_hide_category_bar_title">Kategor barını Gizle</string>
     <string name="revanced_hide_category_bar_summary">Kategori çubuğunu gizler.</string>
     <string name="revanced_hide_floating_button_title">Yüzen Butonu Gizle</string>
-    <string name="revanced_hide_floating_button_summary">Kitaplıkta yüzen Butonu Gizle.</string>
+    <string name="revanced_hide_floating_button_summary">Kitaplıktaki Yüzen Butonu Gizle.</string>
     <string name="revanced_hide_tap_to_update_button_title">Güncellemek için tıkla butonunu gizle</string>
     <string name="revanced_hide_tap_to_update_button_summary">\'Güncellemek için tıkla\' butonunu gizler.</string>
     <string name="revanced_hide_history_button_title">Geçmiş düğmesini gizle</string>
