@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.youtube.general.layoutswitch.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerDimensionsCalculatorParentFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernAddViewListenerFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernCloseButtonFingerprint
@@ -67,7 +66,6 @@ object MiniplayerPatch : BaseBytecodePatch(
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        GetFormFactorFingerprint,
         MiniplayerDimensionsCalculatorParentFingerprint,
         MiniplayerResponseModelSizeCheckFingerprint,
         MiniplayerOverrideFingerprint,
