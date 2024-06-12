@@ -153,6 +153,9 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_hide_shorts_shelf_search",
             "revanced_hide_shorts_shelf_subscriptions",
             "revanced_hide_shorts_toolbar",
+            "revanced_hide_toolbar_cast_button",
+            "revanced_hide_toolbar_create_button",
+            "revanced_hide_toolbar_notification_button",
             "revanced_overlay_button_always_repeat",
             "revanced_overlay_button_copy_video_url",
             "revanced_overlay_button_copy_video_url_timestamp",
@@ -270,6 +273,9 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 "revanced_hide_shorts_shelf_home_related_videos" -> "revanced_hide_navigation_home_button_icon"
                 "revanced_hide_shorts_shelf_subscriptions" -> "revanced_hide_navigation_subscriptions_button_icon"
                 "revanced_hide_shorts_toolbar" -> "revanced_preference_screen_toolbar_icon"
+                "revanced_hide_toolbar_cast_button" -> "revanced_hide_player_cast_button_icon"
+                "revanced_hide_toolbar_create_button" -> "revanced_hide_navigation_create_button_icon"
+                "revanced_hide_toolbar_notification_button" -> "notification_key_icon"
                 "revanced_preference_screen_account_menu" -> "account_switcher_key_icon"
                 "revanced_preference_screen_channel_bar" -> "account_switcher_key_icon"
                 "revanced_preference_screen_channel_profile" -> "account_switcher_key_icon"
