@@ -300,8 +300,10 @@ object SpoofClientPatch : BaseBytecodePatch(
 
             it.mutableMethod.apply {
                 // Find the conditional check if the playback speed menu item is not created.
-                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
-                val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
+                val shouldCreateMenuIndex =
+                    indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+                val shouldCreateMenuRegister =
+                    getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
 
                 addInstructions(
                     shouldCreateMenuIndex,

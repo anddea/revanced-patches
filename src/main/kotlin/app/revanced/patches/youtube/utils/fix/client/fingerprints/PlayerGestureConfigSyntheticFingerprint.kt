@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.utils.fix.client.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -44,12 +44,12 @@ internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
             methodDef.indexOfFirstInstruction {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;" &&
-                    reference.parameterTypes.isEmpty() &&
-                    reference.returnType == "Z"
+                        reference.parameterTypes.isEmpty() &&
+                        reference.returnType == "Z"
             }
 
         // This method is always called "a" because this kind of class always has a single method.
         methodDef.name == "a" && classDef.methods.count() == 2 &&
-            indexOfDownAndOutAllowedInstruction(methodDef) >= 0
+                indexOfDownAndOutAllowedInstruction(methodDef) >= 0
     },
 )

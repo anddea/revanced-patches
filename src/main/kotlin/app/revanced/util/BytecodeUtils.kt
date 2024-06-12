@@ -239,7 +239,10 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionOrThrow(
+    startIndex: Int = 0,
+    predicate: Instruction.() -> Boolean
+): Int {
     val index = indexOfFirstInstruction(startIndex, predicate)
     if (index < 0) {
         throw PatchException("Could not find instruction index")

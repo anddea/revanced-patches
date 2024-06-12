@@ -96,7 +96,11 @@ object MiniplayerPatch : BaseBytecodePatch(
             MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
         )
         MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
-            findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
+            findReturnIndicesReversed().forEach { index ->
+                insertLegacyTabletMiniplayerOverride(
+                    index
+                )
+            }
         }
 
         // endregion
@@ -110,7 +114,11 @@ object MiniplayerPatch : BaseBytecodePatch(
                 val walkerMethod = getWalkerMethod(context, appNameStringIndex)
 
                 walkerMethod.apply {
-                    findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
+                    findReturnIndicesReversed().forEach { index ->
+                        insertLegacyTabletMiniplayerOverride(
+                            index
+                        )
+                    }
                 }
             }
         }
@@ -143,7 +151,11 @@ object MiniplayerPatch : BaseBytecodePatch(
 
                     insertModernMiniplayerTypeOverride(iPutIndex)
                 } else {
-                    findReturnIndicesReversed().forEach { index -> insertModernMiniplayerOverride(index) }
+                    findReturnIndicesReversed().forEach { index ->
+                        insertModernMiniplayerOverride(
+                            index
+                        )
+                    }
                 }
             }
         }
@@ -165,7 +177,8 @@ object MiniplayerPatch : BaseBytecodePatch(
                     YtOutlineXWhite to YtOutlinePictureInPictureWhite,
                 ).forEach { (originalResource, replacementResource) ->
                     val imageResourceIndex = indexOfWideLiteralInstructionOrThrow(originalResource)
-                    val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+                    val register =
+                        getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
                     replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
                 }
@@ -178,10 +191,26 @@ object MiniplayerPatch : BaseBytecodePatch(
         // region Add hooks to hide tablet modern miniplayer buttons.
 
         listOf(
-            Triple(MiniplayerModernExpandButtonFingerprint, ModernMiniPlayerExpand,"hideMiniplayerExpandClose"),
-            Triple(MiniplayerModernCloseButtonFingerprint, ModernMiniPlayerClose, "hideMiniplayerExpandClose"),
-            Triple(MiniplayerModernRewindButtonFingerprint, ModernMiniPlayerRewindButton, "hideMiniplayerRewindForward"),
-            Triple(MiniplayerModernForwardButtonFingerprint, ModernMiniPlayerForwardButton, "hideMiniplayerRewindForward"),
+            Triple(
+                MiniplayerModernExpandButtonFingerprint,
+                ModernMiniPlayerExpand,
+                "hideMiniplayerExpandClose"
+            ),
+            Triple(
+                MiniplayerModernCloseButtonFingerprint,
+                ModernMiniPlayerClose,
+                "hideMiniplayerExpandClose"
+            ),
+            Triple(
+                MiniplayerModernRewindButtonFingerprint,
+                ModernMiniPlayerRewindButton,
+                "hideMiniplayerRewindForward"
+            ),
+            Triple(
+                MiniplayerModernForwardButtonFingerprint,
+                ModernMiniPlayerForwardButton,
+                "hideMiniplayerRewindForward"
+            ),
             Triple(MiniplayerModernOverlayViewFingerprint, ScrimOverlay, "adjustMiniplayerOpacity")
         ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.resolve(
@@ -221,7 +250,11 @@ object MiniplayerPatch : BaseBytecodePatch(
                         listOf(
                             ImmutableMethodParameter("Landroid/view/View;", annotations, null),
                             ImmutableMethodParameter("I", annotations, null),
-                            ImmutableMethodParameter("Landroid/view/ViewGroup\$LayoutParams;", annotations, null),
+                            ImmutableMethodParameter(
+                                "Landroid/view/ViewGroup\$LayoutParams;",
+                                annotations,
+                                null
+                            ),
                         ),
                         "V",
                         AccessFlags.PUBLIC.value,

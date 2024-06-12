@@ -27,16 +27,16 @@ object ShortsNavigationBarPatch : BytecodePatch(
         InitializeButtonsFingerprint.resultOrThrow().let { parentResult ->
             SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }
                 .resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
+                    it.mutableMethod.apply {
+                        val startIndex = it.scanResult.patternScanResult!!.startIndex
+                        val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
-                    addInstruction(
-                        startIndex + 1,
-                        "invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Ljava/lang/Object;)V"
-                    )
+                        addInstruction(
+                            startIndex + 1,
+                            "invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Ljava/lang/Object;)V"
+                        )
+                    }
                 }
-            }
         }
 
         RenderBottomNavigationBarFingerprint.resultOrThrow().let {

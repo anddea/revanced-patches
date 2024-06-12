@@ -85,7 +85,8 @@ abstract class BaseAdsPatch(
     internal fun MethodFingerprintResult.hookLithoFullscreenAds(context: BytecodeContext) {
         mutableMethod.apply {
             val dialogCodeIndex = scanResult.patternScanResult!!.endIndex
-            val dialogCodeField = getInstruction<ReferenceInstruction>(dialogCodeIndex).reference as FieldReference
+            val dialogCodeField =
+                getInstruction<ReferenceInstruction>(dialogCodeIndex).reference as FieldReference
             if (dialogCodeField.type != "I")
                 throw PatchException("Invalid dialogCodeField: $dialogCodeField")
 
@@ -119,7 +120,8 @@ abstract class BaseAdsPatch(
                     method.parameters == listOf("I")
                             && method.returnType == "Landroid/widget/Button;"
                 }
-            val getButtonCall = dialogDefiningClass + "->" + getButtonMethod.name + "(I)Landroid/widget/Button;"
+            val getButtonCall =
+                dialogDefiningClass + "->" + getButtonMethod.name + "(I)Landroid/widget/Button;"
             val dialogRegister = getInstruction<FiveRegisterInstruction>(dialogIndex).registerC
             val freeIndex = getTargetIndex(dialogIndex, Opcode.IF_EQZ)
             val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
