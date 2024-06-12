@@ -71,6 +71,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var MusicAppDeeplinkButtonView = -1L
     var NotificationBigPictureIconWidth = -1L
     var PlayerCollapseButton = -1L
+    var PlayerVideoTitleView = -1L
     var PosterArtWidthDefault = -1L
     var QualityAuto = -1L
     var QuickActionsElementContainer = -1L
@@ -165,6 +166,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         MusicAppDeeplinkButtonView = getId(ID, "music_app_deeplink_button_view")
         NotificationBigPictureIconWidth = getId(DIMEN, "notification_big_picture_icon_width")
         PlayerCollapseButton = getId(ID, "player_collapse_button")
+        PlayerVideoTitleView = getId(ID, "player_video_title_view")
         PosterArtWidthDefault = getId(DIMEN, "poster_art_width_default")
         QualityAuto = getId(STRING, "quality_auto")
         QuickActionsElementContainer = getId(ID, "quick_actions_element_container")
