@@ -49,6 +49,11 @@
     <string name="revanced_preference_screen_ads_title">Реклама</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
     <string name="revanced_hide_fullscreen_ads_summary">Приховує повноекранну рекламу.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Закривати повноекранну рекламу</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Якщо ввімкнено, повноекранна реклама закривається за допомогою кнопки Закрити.
+Якщо вимкнено, повноекранна реклама блокується. (можуть бути побічні ефекти)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Повноекранну рекламу заблоковано. (Тип діалогу: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Повноекранну рекламу закрито.</string>
     <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
     <string name="revanced_hide_general_ads_summary">Приховує загальну рекламу.</string>
     <string name="revanced_hide_music_ads_title">Приховати медіарекламу</string>
@@ -146,8 +151,8 @@
     <string name="revanced_hide_category_bar_summary">Приховує панель категорій.</string>
     <string name="revanced_hide_floating_button_title">Приховати плаваючу кнопку</string>
     <string name="revanced_hide_floating_button_summary">Приховує плаваючу кнопку у вкладці \"Бібліотека\".</string>
-    <string name="revanced_hide_tap_to_update_button_title">Приховати кнопку \"Оновити\"</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Приховує кнопку \"Оновити\".</string>
+    <string name="revanced_hide_tap_to_update_button_title">Приховати кнопку оновлення</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Приховує кнопку оновлення.</string>
     <string name="revanced_hide_history_button_title">Приховати кнопку історії</string>
     <string name="revanced_hide_history_button_summary">Приховує кнопку історії на панелі інструментів вкладки \"Бібліотека\".</string>
     <string name="revanced_hide_notification_button_title">Приховати кнопку сповіщень</string>
@@ -247,8 +252,8 @@
     <string name="revanced_ryd_dislike_percentage_summary">Відобажає відсоток замість кількості дизлайків.</string>
     <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Подобається\"</string>
     <string name="revanced_ryd_compact_layout_summary">Приховує лінію між кнопкою \"Подобається\" та кількістю лайків.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Показувати спливаюче повідомлення, якщо API не доступний</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Показується спливаюче повідомлення, якщо API ReturnYouTubeDislike не доступний.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показується тост, якщо API ReturnYouTubeDislike не доступний.</string>
     <string name="revanced_ryd_about">Про інтеграцію</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_attribution_summary">Дані дизлайків надаються за допомогою Return YouTube Dislike API. Натисніть тут, щоб дізнатися більше.</string>
@@ -320,10 +325,10 @@
     <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Включає буфер у журнал налагодження.</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
-    <string name="revanced_enable_opus_codec_summary">"Вмикає аудіокодек OPUS замість аудіокодека MP4A.
+    <string name="revanced_enable_opus_codec_summary">"Вмикає кодек OPUS, якщо відповідь від сервера містить кодек OPUS.
 
 Інформація:
-• Останні Android клієнти за умовчанням використовують аудіокодек OPUS.
+• Останні YouTube Music клієнти за умовчанням використовують аудіокодек OPUS.
 • Це буде корисно лише для користувачів, які користуються дуже старими клієнтами."</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
     <string name="gms_core_settings_summary">Увімкніть \"Харні повідомлення\", щоб отримувати сповіщення.</string>

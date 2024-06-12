@@ -8,7 +8,7 @@
     <!-- PreferenceScreen: Account -->
     <string name="revanced_preference_screen_account_title">Compte</string>
     <string name="revanced_hide_account_menu_title">Masquer les menus du compte</string>
-    <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte.</string>
+    <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte à l\'aide du filtre personnalisé.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par une nouvelle ligne.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
@@ -16,11 +16,11 @@
     <string name="revanced_hide_handle_title">Masquer le menu de compte</string>
     <string name="revanced_hide_handle_summary">Masque le menu de compte.</string>
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
-    <string name="revanced_hide_terms_container_summary">Masque le conteneur de termes.</string>
+    <string name="revanced_hide_terms_container_summary">Masque les Conditions générales d\'utilisation.</string>
     <!-- PreferenceScreen: Action Bar -->
     <string name="revanced_preference_screen_action_bar_title">Barre d\'action</string>
     <string name="revanced_hide_action_button_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Masque les boutons \"J\'aime\" et \"Je n\'aime pas\". \'Ne fonctionne pas sur l\'ancienne disposition du lecteur.</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Masque les boutons \"J\'aime\" et \"Je n\'aime pas\". Ne fonctionne pas sur l\'ancienne disposition du lecteur.</string>
     <string name="revanced_hide_action_button_comment_title">Masquer le bouton Commentaire</string>
     <string name="revanced_hide_action_button_comment_summary">Masque le bouton commentaire.</string>
     <string name="revanced_hide_action_button_add_to_playlist_title">Masquer \"Enregistrer dans la playlist\"</string>
@@ -49,6 +49,11 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_preference_screen_ads_title">Pubs</string>
     <string name="revanced_hide_fullscreen_ads_title">Masquer les publicités en plein écran</string>
     <string name="revanced_hide_fullscreen_ads_summary">Masque les publicités en plein écran.</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Fermer les publicités en plein écran</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Si activé, les publicités en plein écran sont fermées à l'aide du bouton Fermer.
+Si désactivé, les publicités en plein écran sont bloquées (peut avoir des effets secondaires)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Les publicités en plein écran sont bloquées. (Type de dialogue : %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">La publicité en plein écran a été fermée.</string>
     <string name="revanced_hide_general_ads_title">Les publicités générales</string>
     <string name="revanced_hide_general_ads_summary">Masque les publicités général</string>
     <string name="revanced_hide_music_ads_title">Masquer les publicités musicales</string>
@@ -68,9 +73,9 @@ Limitations :
 • Les pochettes d'albums de la bibliothèque deviennent aussi plus petites.
 • La disposition du Délai de mise en veille peut être inhabituelle."</string>
     <string name="revanced_enable_trim_silence_title">Activer le réglage du silence</string>
-    <string name="revanced_enable_trim_silence_summary">"Active le commutateur « Couper le silence » vers le menu déroulant de vitesse de lecture
+    <string name="revanced_enable_trim_silence_summary">"Active le commutateur « Masquer les silences » vers le menu déroulant de vitesse de lecture
 
-Info:
+Info :
 • Cette fonctionnalité est destinée aux podcasts. 
 • Cette fonctionnalité est encore en développement, elle peut donc être instable."</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
@@ -105,10 +110,10 @@ Info:
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continuer la vidéo avec l\'horodatage en cours en passant vers YouTube.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Regarder sur YouTube</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Url de la vidéo invalide.</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Remplacer \"Supprimer de la file d\'attente\"</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Remplace \"Supprimer de la file d\'attente\" par \"Regarder sur YouTube\".</string>
-    <string name="revanced_replace_flyout_menu_report_title">Remplacer \"Signaler\"</string>
-    <string name="revanced_replace_flyout_menu_report_summary">Remplace \"Signaler\" par \"Vitesse de lecture\".</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Remplacer le menu \"Supprimer de la file d\'attente\"</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Remplace le menu \"Supprimer de la file d\'attente\" par le menu \"Regarder sur YouTube\".</string>
+    <string name="revanced_replace_flyout_menu_report_title">Remplacer le menu \"Signaler\"</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Remplace le menu \"Signaler\" par le menu \"Vitesse de lecture\".</string>
     <string name="revanced_replace_flyout_menu_report_only_player_title">Conserver le menu \"Signaler\" dans les commentaires</string>
     <string name="revanced_replace_flyout_menu_report_only_player_summary">Conserve le menu \"Signaler\" dans la section des commentaires.</string>
     <!-- PreferenceScreen: General -->
@@ -137,19 +142,19 @@ Info:
     <string name="revanced_hide_carousel_shelf_title">Masquer les menus déroulants</string>
     <string name="revanced_hide_carousel_shelf_summary">Masque les menus déroulants dans les flux.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Masquer l\'étagère \"Playlist\"</string>
-    <string name="revanced_hide_playlist_card_shelf_summary">Masque l\'étagère playlist dans les contenus.</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Masque la catégorie \"Playlist\" de la barre de navigation.</string>
     <string name="revanced_hide_samples_shelf_title">Masquer la catégorie \"Samples\"</string>
     <string name="revanced_hide_samples_shelf_summary">Masque la catégorie \'\"Samples\" de la barre de navigation.</string>
-    <string name="revanced_hide_cast_button_title">Masquer le bouton de cast</string>
-    <string name="revanced_hide_cast_button_summary">Masque le Bouton \"Cast\".</string>
+    <string name="revanced_hide_cast_button_title">Masquer le bouton \"Caster\"</string>
+    <string name="revanced_hide_cast_button_summary">Masque le Bouton \"Caster\".</string>
     <string name="revanced_hide_category_bar_title">Masquer la barre de catégories</string>
     <string name="revanced_hide_category_bar_summary">Masque la barre de catégorie.</string>
     <string name="revanced_hide_floating_button_title">Masquer les boutons flottants</string>
     <string name="revanced_hide_floating_button_summary">Masque les boutons flottants dans la bibliothèque.</string>
     <string name="revanced_hide_tap_to_update_button_title">Masquer le bouton \'Appuyer pour mettre à jour\'</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton « Appuyer pour mettre à jour».</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \'Appuyer pour mettre à jour\'.</string>
     <string name="revanced_hide_history_button_title">Masquer le bouton \"Historique\"</string>
-    <string name="revanced_hide_history_button_summary">Masque le bouton \"Historique\" de l\'onglet \"Bibliothèque\".</string>
+    <string name="revanced_hide_history_button_summary">Masque le bouton \"Historique\" de la barre d\'outils.</string>
     <string name="revanced_hide_notification_button_title">Masquer les boutons \"Notification\"</string>
     <string name="revanced_hide_notification_button_summary">Masquer le bouton \"Notification\" de la barre d\'outils.</string>
     <string name="revanced_hide_sound_search_button_title">Masquer le bouton \"Rechercher une musique\"</string>
@@ -186,7 +191,7 @@ Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</st
     <string name="revanced_hide_navigation_upgrade_button_summary">Masque la catégorie \"S\'abonner\" (à YouTube Music) de la barre de navigation.</string>
     <string name="revanced_hide_navigation_bar_title">Masquer la barre de navigation</string>
     <string name="revanced_hide_navigation_bar_summary">Masque la barre de navigation.</string>
-    <string name="revanced_hide_navigation_label_title">Masquer les libellés dans barre de navigation</string>
+    <string name="revanced_hide_navigation_label_title">Masquer les noms dans barre de navigation</string>
     <string name="revanced_hide_navigation_label_summary">Masque le nom des catégories dans la barre de navigation.</string>
     <!-- PreferenceScreen: Player -->
     <string name="revanced_preference_screen_player_title">Lecteur</string>
@@ -196,18 +201,18 @@ Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</st
     <string name="revanced_enable_color_match_player_summary">Fait correspondre la couleur du mini lecteur à celle du lecteur en plein écran.</string>
     <string name="revanced_enable_force_minimized_player_title">Forcer le lecteur réduit</string>
     <string name="revanced_enable_force_minimized_player_summary">Le lecteur reste toujours réduit même si une autre piste est lue.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Activer le bouton \"Suivant\" sur le mini lecteur</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Active le bouton \"Suivant\" sur le mini lecteur.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Activer le bouton \"Précédent\" sur le mini lecteur</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Active le bouton \"Précédent\" sur le mini lecteur.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Ajouter le bouton \"Suivant\" sur le mini lecteur</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Ajoute le bouton \"Suivant\" sur le mini lecteur.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Ajouter le bouton \"Précédent\" sur le mini lecteur</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Ajoute le bouton \"Précédent\" sur le mini lecteur.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Activer le glissement pour fermer le mini lecteur</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Active le glissement vers le bas pour fermer le mini lecteur.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
     <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Activer le mode \"Zen\" sur les Podcasts</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Le mode \"Zen\" est également appliqué pour les Podcasts.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Masquer l\'interrupteur Audio/Vidéo</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Masque l\'interrupteur Audio/Vidéo en haut du lecteur.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Masquer le sélecteur Audio/Vidéo</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Masque le sélecteur Audio/Vidéo en haut du lecteur.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Masquer les règles de la chaîne</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Masque les règles de la chaîne en haut de la section des commentaires.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Masquer le sélecteur d\'émoji et horodatage</string>
@@ -320,10 +325,10 @@ Certaines fonctions peuvent ne pas fonctionner sur l'ancienne interface."</strin
     <string name="revanced_enable_debug_buffer_logging_title">Activer la journalisation de tampon de débogage</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Ajoute la mise de mémoire tampon dans le journal de débogage.</string>
     <string name="revanced_enable_opus_codec_title">Activer le codec Opus</string>
-    <string name="revanced_enable_opus_codec_summary">"Active le codec audio Opus au lieu du codec audio MP4A.
+    <string name="revanced_enable_opus_codec_summary">"Active le codec audio Opus si la réponse du lecteur inclue le codec OPUS.
 
-Info:
-• Les dernières versions des clients utilisent par défaut le codec audio Opus.
+Info :
+• Les dernières versions du client utilisent par défaut le codec audio Opus.
 • N'est disponible uniquement pour les utilisateurs qui falsifient une très ancienne version du client."</string>
     <string name="gms_core_settings_title">Ouvrir GmsCore</string>
     <string name="gms_core_settings_summary">Activez la messagerie cloud pour recevoir les notifications.</string>
@@ -331,7 +336,7 @@ Info:
     <string name="gms_core_dialog_title">Action requise</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore n'a pas les permissions pour fonctionner en arrière-plan.
 
-Suivez le guide \"Don't kill my app\" pour votre téléphone, et appliquez les instructions sur Gmscore.
+Suivez le guide \"Don't kill my app!\" pour votre appareil, et appliquez les instructions sur Gmscore.
 
 Requis pour que l'application fonctionne."</string>
     <string name="gms_core_dialog_open_website_text">Ouvrir le site web</string>
