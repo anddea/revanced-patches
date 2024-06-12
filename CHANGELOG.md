@@ -1,3 +1,10 @@
+# [2.226.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.7...v2.226.0-dev.8) (2024-06-12)
+
+
+### Features
+
+* **YouTube - Translations:** Remove unselected languages from UI ([b8d3946](https://github.com/anddea/revanced-patches/commit/b8d3946094caca123a6661ac17b01c28792683f1))
+
 # [2.226.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.6...v2.226.0-dev.7) (2024-06-11)
 
 
