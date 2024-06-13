@@ -94,7 +94,7 @@ abstract class BaseAdsPatch(
             addInstructionsWithLabels(
                 0,
                 """
-                        move-object v0, p2
+                        move-object/from16 v0, p2
 
                         # In the latest version of YouTube and YouTube Music, it is used after being cast
 
