@@ -3,14 +3,26 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.options.PatchOption
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import java.io.File
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 val classLoader: ClassLoader = object {}.javaClass.classLoader
+
+fun PatchOption<String>.valueOrThrow() = value
+    ?: throw PatchException("Invalid patch option: $title.")
+
+fun PatchOption<String>.lowerCaseOrThrow() = valueOrThrow()
+    .lowercase()
+
+fun PatchOption<String>.underBarOrThrow() = lowerCaseOrThrow()
+    .replace(" ", "_")
 
 fun Node.adoptChild(tagName: String, block: Element.() -> Unit) {
     val child = ownerDocument.createElement(tagName)
@@ -45,6 +57,36 @@ fun String.startsWithAny(vararg prefixes: String): Boolean {
         if (this.startsWith(prefix))
             return true
 
+    return false
+}
+
+fun ResourceContext.copyFile(
+    resourceGroup: List<ResourceGroup>,
+    path: String,
+    warning: String
+): Boolean {
+    resourceGroup.let { resourceGroups ->
+        try {
+            val filePath = File(path)
+            val resourceDirectory = this["res"]
+
+            resourceGroups.forEach { group ->
+                val fromDirectory = filePath.resolve(group.resourceDirectoryName)
+                val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+
+                group.resources.forEach { iconFileName ->
+                    Files.write(
+                        toDirectory.resolve(iconFileName).toPath(),
+                        fromDirectory.resolve(iconFileName).readBytes()
+                    )
+                }
+            }
+
+            return true
+        } catch (_: Exception) {
+            println(warning)
+        }
+    }
     return false
 }
 
