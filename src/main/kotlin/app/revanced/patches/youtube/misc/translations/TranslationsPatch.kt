@@ -102,7 +102,14 @@ object TranslationsPatch : BaseResourcePatch(
 
         // Process selected app languages
         val selectedAppLanguagesArray = SelectedAppLanguages!!.split(",").map { it.trim() }.toTypedArray()
-        val filteredAppLanguages = APP_LANGUAGES.filter { it in selectedAppLanguagesArray }.toTypedArray()
+
+        // Filter the app languages to include both versions of locales (with and without 'r', en-rGB and en-GB)
+        // and also handle locales with "b+" prefix
+        val filteredAppLanguages = selectedAppLanguagesArray.flatMap { language ->
+            setOf(language, language.replace("-r", "-"),
+                language.replace("b+", "").replace("+", "-"))
+        }.toTypedArray()
+        
         val resourceDirectory = context["res"]
 
         // Remove unselected app languages
@@ -118,7 +125,7 @@ object TranslationsPatch : BaseResourcePatch(
                 if (it !is Element || it.tagName != "locale") return@loop
 
                 it.getAttributeNode("android:name")?.let { attribute ->
-                    if (attribute.textContent !in filteredAppLanguages) {
+                    if (attribute.textContent != "en" && attribute.textContent !in filteredAppLanguages) {
                         nodesToRemove.add(it)
                     }
                 }
