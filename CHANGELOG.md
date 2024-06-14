@@ -1,3 +1,10 @@
+# [2.226.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.9...v2.226.0-dev.10) (2024-06-14)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add splash animations for AFN Blue and AFN Red ([f5c0178](https://github.com/anddea/revanced-patches/commit/f5c0178befc0d38998bd7f9d660d1147786bf549))
+
 # [2.226.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.8...v2.226.0-dev.9) (2024-06-14)
 
 
