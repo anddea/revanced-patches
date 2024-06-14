@@ -1,3 +1,22 @@
+# [2.226.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.8...v2.226.0-dev.9) (2024-06-14)
+
+
+### Bug Fixes
+
+* **Hide ads:** app crashes in the old client ([2a61d08](https://github.com/anddea/revanced-patches/commit/2a61d08cb59d76115d0f0ddd7deecc8e02a245dc))
+* **YouTube/Overlay buttons:** in devices that do not use `xxhdpi`, some buttons are not replaced correctly ([030b2f6](https://github.com/anddea/revanced-patches/commit/030b2f6fa43ce280266ce45a2f2272aa4d1c1eda))
+
+
+### Features
+
+* **Reddit/Settings for Reddit:** add patch option `RVX settings menu name` ([5d51d81](https://github.com/anddea/revanced-patches/commit/5d51d815a7d4948f17ee4133d818492cb406f61d))
+* **YouTube Music/Settings for YouTube Music:** add patch option `RVX settings menu name` ([e62e2d3](https://github.com/anddea/revanced-patches/commit/e62e2d375175bf40aac8135b40b554aa69466c65))
+* **YouTube Music:** add support version `7.05.52` ([91f9dd8](https://github.com/anddea/revanced-patches/commit/91f9dd8db139c16ff573702d54cb7c40315b3c5f))
+* **YouTube Music:** add support version `7.05.53` ([9c1c0c9](https://github.com/anddea/revanced-patches/commit/9c1c0c9a65de4738fe505ece707386dbf83885ef))
+* **YouTube/Hide action buttons:** add `Disable Like and Dislike button glow` setting ([34d8bb1](https://github.com/anddea/revanced-patches/commit/34d8bb1abe32d3e56cd220ba0cf52555a85fabfe))
+* **YouTube:** add `Miniplayer` patch (Replaces `Enable tablet mini player` patch) ([0e873ba](https://github.com/anddea/revanced-patches/commit/0e873bac39b5aba5072001744c8e9920b45a4d23))
+* **YouTube:** add support version `19.21.40` ([5dfb419](https://github.com/anddea/revanced-patches/commit/5dfb4194030df04b163f017071489f6d22f31f46))
+
 # [2.226.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.7...v2.226.0-dev.8) (2024-06-12)
 
 
