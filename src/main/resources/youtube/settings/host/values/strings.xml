@@ -82,6 +82,7 @@ Tap here to learn more about DeArrow."</string>
 	<string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
 	<string name="revanced_change_start_page_entry_trending">Trending</string>
 	<string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+	<string name="revanced_change_start_page_invalid_toast">Invalid start page, resetting to default.</string>
 	<string name="revanced_change_start_page_title">Change start page</string>
 	<string name="revanced_change_start_page_warning">Invalid start page, resetting to default.</string>
 	<string name="revanced_change_youtube_header_summary_off">Generic header is enabled.</string>
@@ -100,6 +101,7 @@ Tap here to learn more about DeArrow."</string>
 	<string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
 	<string name="revanced_custom_playback_speeds_summary">Add or change available playback speeds.</string>
 	<string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
+	<string name="revanced_custom_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100. Reset to default values.</string>
 	<string name="revanced_custom_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent.</string>
 	<string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
 	<string name="revanced_custom_player_overlay_opacity_warning">Player overlay opacity must be between 0-100. Reset to default values.</string>
@@ -153,6 +155,9 @@ Tap here to learn more about DeArrow."</string>
 	<string name="revanced_disable_landscape_mode_summary_off">Video orientation follows device settings in fullscreen.</string>
 	<string name="revanced_disable_landscape_mode_summary_on">Video orientation is portrait mode in fullscreen.</string>
 	<string name="revanced_disable_landscape_mode_title">Disable landscape mode</string>
+	<string name="revanced_disable_like_dislike_glow_summary_off">Like and Dislike buttons will glow when mentioned.</string>
+	<string name="revanced_disable_like_dislike_glow_summary_on">Like and Dislike buttons will not glow when mentioned.</string>
+	<string name="revanced_disable_like_dislike_glow_title">Disable Like and Dislike button glow</string>
 	<string name="revanced_disable_quic_protocol_summary">"Disable CronetEngine's QUIC protocol."</string>
 	<string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
 	<string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup.</string>
@@ -227,6 +232,9 @@ Note:
 	<string name="revanced_enable_swipe_press_to_engage_summary_off">Touch to activate swipe gesture.</string>
 	<string name="revanced_enable_swipe_press_to_engage_summary_on">Touch and hold to activate swipe gesture.</string>
 	<string name="revanced_enable_swipe_press_to_engage_title">Enable press-to-swipe gesture</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_off">Swiping up / down will not play the next / previous video.</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_on">Swiping up / down will play the next / previous video.</string>
+	<string name="revanced_enable_swipe_to_switch_video_title">Enable swipe to change video</string>
 	<string name="revanced_enable_swipe_volume_summary_off">Volume swipe is disabled.</string>
 	<string name="revanced_enable_swipe_volume_summary_on">Volume swipe is enabled.</string>
 	<string name="revanced_enable_swipe_volume_title">Enable volume gesture</string>
@@ -890,6 +898,25 @@ Autoplay can be changed in YouTube settings:
 	<string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
 	<string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>
 	<string name="revanced_label_default">Stock</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown.</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden.\n(swipe miniplayer to expand or close)</string>
+	<string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown.</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden.</string>
+	<string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
+	<string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100. Reset to default values.</string>
+	<string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent.</string>
+	<string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+	<string name="revanced_miniplayer_type_entry_1">Original</string>
+	<string name="revanced_miniplayer_type_entry_2">Phone</string>
+	<string name="revanced_miniplayer_type_entry_3">Tablet</string>
+	<string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+	<string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+	<string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+	<string name="revanced_miniplayer_type_title">Miniplayer type</string>
 	<string name="revanced_overlay_button">Overlay buttons</string>
 	<string name="revanced_overlay_button_always_repeat_summary">"Tap to toggle always repeat states.
 Tap and hold to toggle pause after repeat states."</string>
@@ -935,8 +962,6 @@ Tap and hold to open whitelist setting dialog.</string>
 	<string name="revanced_preference_category_view_counts_filter">View count filter</string>
 	<string name="revanced_preference_screen_account_menu_summary">Hide or show elements in account menu and You tab.</string>
 	<string name="revanced_preference_screen_account_menu_title">Account menu</string>
-	<string name="revanced_preference_screen_account_munu_summary">Hide or show elements in account menu and You tab.</string>
-	<string name="revanced_preference_screen_account_munu_title">Account menu</string>
 	<string name="revanced_preference_screen_action_buttons_summary">Hide or show action buttons under videos.</string>
 	<string name="revanced_preference_screen_action_buttons_title">Action buttons</string>
 	<string name="revanced_preference_screen_ads_title">Ads</string>
@@ -965,6 +990,8 @@ Tap and hold to open whitelist setting dialog.</string>
 	<string name="revanced_preference_screen_haptic_feedback_title">Haptic feedback</string>
 	<string name="revanced_preference_screen_import_export_summary">Import or export settings.</string>
 	<string name="revanced_preference_screen_import_export_title">Import / Export settings</string>
+	<string name="revanced_preference_screen_miniplayer_summary">Change the style of the in app minimized player.</string>
+	<string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
 	<string name="revanced_preference_screen_misc_title">Miscellaneous</string>
 	<string name="revanced_preference_screen_navigation_buttons_summary">Hide or show navigation bar section components.</string>
 	<string name="revanced_preference_screen_navigation_buttons_title">Navigation buttons</string>
@@ -981,8 +1008,6 @@ Tap and hold to open whitelist setting dialog.</string>
 	<string name="revanced_preference_screen_seekbar_title">Seekbar</string>
 	<string name="revanced_preference_screen_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
 	<string name="revanced_preference_screen_settings_menu_title">Settings menu</string>
-	<string name="revanced_preference_screen_settings_munu_summary">Hide elements of the YouTube settings menu.</string>
-	<string name="revanced_preference_screen_settings_munu_title">Settings menu</string>
 	<string name="revanced_preference_screen_shorts_player_summary">Hide or show components in the Shorts player.</string>
 	<string name="revanced_preference_screen_shorts_player_title">Shorts player</string>
 	<string name="revanced_preference_screen_shorts_title">Shorts</string>
@@ -996,6 +1021,7 @@ Tap and hold to open whitelist setting dialog.</string>
 	<string name="revanced_preference_screen_video_filter_summary">Hide videos by keywords or views.</string>
 	<string name="revanced_preference_screen_video_filter_title">Video filter</string>
 	<string name="revanced_preference_screen_video_title">Video</string>
+	<string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32. Reset to default values.</string>
 	<string name="revanced_quick_actions_top_margin_summary">Configure the spacing from the seekbar to the quick action container, between 0-32.</string>
 	<string name="revanced_quick_actions_top_margin_title">Quick actions top margin</string>
 	<string name="revanced_quick_actions_top_margin_warning">Quick actions top margin must be between 0-32. Reset to default values.</string>
@@ -1267,6 +1293,7 @@ Info:
 	<string name="revanced_skip_preloaded_buffer_toast_summary_on">Toast is shown.</string>
 	<string name="revanced_skip_preloaded_buffer_toast_title">Show a toast when skipping</string>
 	<string name="revanced_skipped_preloaded_buffer">Skipped preloaded buffer.</string>
+	<string name="revanced_speed_overlay_value_invalid_toast">Speed overlay value must be between 0-8.0. Reset to default values.</string>
 	<string name="revanced_speed_overlay_value_summary">Speed overlay value between 0-8.0.</string>
 	<string name="revanced_speed_overlay_value_title">Speed overlay value</string>
 	<string name="revanced_speed_overlay_value_warning">Speed overlay value must be between 0-8.0. Reset to default values.</string>
@@ -1382,6 +1409,7 @@ Limitations:
 	<string name="revanced_swipe_magnitude_threshold_title">Swipe magnitude threshold</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background.</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Swipe background visibility</string>
+	<string name="revanced_swipe_overlay_rect_size_invalid_toast">Swipeable area size cannot be more than 50. Reset to default value.</string>
 	<string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture.</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
 	<string name="revanced_swipe_overlay_rect_size_warning">Swipeable area size cannot be more than %s%%. Reset to default value.</string>

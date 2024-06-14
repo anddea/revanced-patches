@@ -74,6 +74,7 @@
 	<string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
 	<string name="revanced_change_start_page_entry_trending">Тенденції</string>
 	<string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
+	<string name="revanced_change_start_page_invalid_toast">Недійсна початкова сторінка, скидається на стандартну.</string>
 	<string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
 	<string name="revanced_change_start_page_warning">Недійсна початкова сторінка, скидається на стандартну.</string>
 	<string name="revanced_change_youtube_header_summary_off">Звичний заголовок увімкнено.</string>
@@ -92,6 +93,7 @@
 	<string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення. Використовуються типові значення.</string>
 	<string name="revanced_custom_playback_speeds_summary">Додати або змінити доступні швидкості відтворення</string>
 	<string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
+	<string name="revanced_custom_player_overlay_opacity_invalid_toast">Непрозорість затемнення плеєра має бути в межах 0-100. Скинуто.</string>
 	<string name="revanced_custom_player_overlay_opacity_summary">Значення непрозорості в межах 0-100, де 0 це прозорий</string>
 	<string name="revanced_custom_player_overlay_opacity_title">Користувацька непрозорість затемнення плеєра</string>
 	<string name="revanced_custom_player_overlay_opacity_warning">Непрозорість затемнення плеєра має бути в межах 0-100. Скинуто.</string>
@@ -145,6 +147,9 @@
 	<string name="revanced_disable_landscape_mode_summary_off">Орієнтація відео згідно налаштувань пристрою в повноекранному режимі.</string>
 	<string name="revanced_disable_landscape_mode_summary_on">Орієнтація відео портретна в повноекранному режимі.</string>
 	<string name="revanced_disable_landscape_mode_title">Вимкнути ландшафтний режим</string>
+	<string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні.</string>
+	<string name="revanced_disable_like_dislike_glow_summary_on">Кнопки Подобається та Не подобається не відблискуватимуть при згадуванні.</string>
+	<string name="revanced_disable_like_dislike_glow_title">Вимкнути відблиск кнопки Подобається та Не подобається</string>
 	<string name="revanced_disable_quic_protocol_summary">"Вимкнути протокол CronetEngine's QUIC"</string>
 	<string name="revanced_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
 	<string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts відновлюватиметься при запуску додатка.</string>
@@ -200,6 +205,8 @@
 	<string name="revanced_enable_open_links_directly_summary_off">Політика перенаправлення.</string>
 	<string name="revanced_enable_open_links_directly_summary_on">Обхід URL переадресацій.</string>
 	<string name="revanced_enable_open_links_directly_title">Увімкнути безпосереднє відкриття посилань</string>
+	<string name="revanced_enable_opus_codec_summary">Вмикає кодек OPUS, якщо відповідь плеєра включає кодек OPUS.</string>
+	<string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
 	<string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
 	<string name="revanced_enable_phone_layout_title">Увімкнути телефонний інтерфейс</string>
 	<string name="revanced_enable_seekbar_tapping_summary_off">Натискання на рядок прогресу вимкнено.</string>
@@ -217,6 +224,9 @@
 	<string name="revanced_enable_swipe_press_to_engage_summary_off">Натисніть, щоб активувати жест переміщення.</string>
 	<string name="revanced_enable_swipe_press_to_engage_summary_on">Натисніть і утримуйте, щоб активувати жест переміщення.</string>
 	<string name="revanced_enable_swipe_press_to_engage_title">Увімкнути жест натискання для переміщення</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_off">Проведення вгору / вниз не відтворюватиме наступне / попереднє відео.</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_on">Проведення вгору / вниз відтворюватиме наступне / попереднє відео.</string>
+	<string name="revanced_enable_swipe_to_switch_video_title">Увімкнути зміну відео проведенням у повноекранному режимі</string>
 	<string name="revanced_enable_swipe_volume_summary_off">Зміну гучності жестом вимкнено.</string>
 	<string name="revanced_enable_swipe_volume_summary_on">Зміну гучності жестом увімкнено.</string>
 	<string name="revanced_enable_swipe_volume_title">Увімкнути зміну гучності жестом</string>
@@ -318,9 +328,9 @@
 	<string name="revanced_hide_channel_guidelines_summary_off">Рекомендації каналу показується.</string>
 	<string name="revanced_hide_channel_guidelines_summary_on">Рекомендації каналу приховано.</string>
 	<string name="revanced_hide_channel_guidelines_title">Приховати рекомендації каналу</string>
-	<string name="revanced_hide_channel_member_shelf_summary_off">Полиця учасників каналу показується.</string>
-	<string name="revanced_hide_channel_member_shelf_summary_on">Полицю учасників каналу приховано.</string>
-	<string name="revanced_hide_channel_member_shelf_title">Приховати полицю учасників каналу</string>
+	<string name="revanced_hide_channel_member_shelf_summary_off">Полицю спонсорів каналу показується.</string>
+	<string name="revanced_hide_channel_member_shelf_summary_on">Полицю спонсорів каналу приховано.</string>
+	<string name="revanced_hide_channel_member_shelf_title">Приховати полицю спонсорів каналу</string>
 	<string name="revanced_hide_channel_profile_links_summary_off">Посилання вверху опису каналу показується.</string>
 	<string name="revanced_hide_channel_profile_links_summary_on">Посилання вверху опису каналу приховано.</string>
 	<string name="revanced_hide_channel_profile_links_title">Приховати посилання в описі каналу</string>
@@ -353,9 +363,9 @@
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Кнопку з міткою часу та емодзі показується.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Кнопку з міткою часу та емодзі приховано.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати кнопку з міткою часу та емодзі</string>
-	<string name="revanced_hide_comments_by_members_summary_off">"Банер 'Коментарі учасників' показується."</string>
-	<string name="revanced_hide_comments_by_members_summary_on">"Банер 'Коментарі учасників' приховано."</string>
-	<string name="revanced_hide_comments_by_members_title">"Приховати банер 'Коментарі учасників'"</string>
+	<string name="revanced_hide_comments_by_members_summary_off">"Банер 'Коментарі спонсорів' показується."</string>
+	<string name="revanced_hide_comments_by_members_summary_on">"Банер 'Коментарі спонсорів' приховано."</string>
+	<string name="revanced_hide_comments_by_members_title">"Приховати банер 'Коментарі спонсорів'"</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_off">Секцію коментарів показується у головній стрічці.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_on">Секцію коментарів приховано у головній стрічці.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_title">Приховати секцію Коментарі у головній стрічці</string>
@@ -655,7 +665,7 @@
 	<string name="revanced_hide_quick_actions_title">Приховати контейнер швидких дій</string>
 	<string name="revanced_hide_recommended_video_summary">"Приховуються такі рекомендовані відео:
 
-• Відео з тегом 'Тільки для учасників'.
+• Відео з тегом 'Тільки для спонсорів'.
 • Відео з фразами на кшталт 'Людей також дивилися' внизу."</string>
 	<string name="revanced_hide_recommended_video_title">Приховати рекомендовані відео</string>
 	<string name="revanced_hide_related_video_overlay_summary_off">Секцію \'Більше відео\' у контейнері швидких дій та пов\'язаних відео показується.</string>
@@ -901,6 +911,25 @@
 	<string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
 	<string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
 	<string name="revanced_label_default">Стандартна</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопки розгортання і закриття показується.</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопки приховано.\n(проведіть по мініплеєру, щоб розгорнути чи закрити)</string>
+	<string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопки розгортання і закриття</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_off">Перемотування вперед та назад показується.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_on">Перемотування вперед та назад приховано.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_title">Приховати кнопки перемотування вперед та назад</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти показується.</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти приховано.</string>
+	<string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
+	<string name="revanced_miniplayer_opacity_invalid_toast">Непрозорість затемнення мініплеєра має бути в межах 0-100. Скинуто.</string>
+	<string name="revanced_miniplayer_opacity_summary">Значення непрозорості в межах 0-100, де 0 це прозоро.</string>
+	<string name="revanced_miniplayer_opacity_title">Непрозорість затемнення</string>
+	<string name="revanced_miniplayer_type_entry_1">Оригінал</string>
+	<string name="revanced_miniplayer_type_entry_2">Телефонний</string>
+	<string name="revanced_miniplayer_type_entry_3">Планшетний</string>
+	<string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
+	<string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
+	<string name="revanced_miniplayer_type_entry_6">Новітній 3</string>
+	<string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
 	<string name="revanced_overlay_button">Накладання кнопок</string>
 	<string name="revanced_overlay_button_always_repeat_summary">"Натискайте для перемикання станів постійного повторення.
 Натисніть й утримуйте для призупинення перемикання станів повторення."</string>
@@ -976,6 +1005,8 @@
 	<string name="revanced_preference_screen_haptic_feedback_title">Вібрація</string>
 	<string name="revanced_preference_screen_import_export_summary">Імпортувати або експортувати налаштування.</string>
 	<string name="revanced_preference_screen_import_export_title">Імпорт/Експорт налаштувань</string>
+	<string name="revanced_preference_screen_miniplayer_summary">Зміна стилю мінімізованого плеєра в додатку.</string>
+	<string name="revanced_preference_screen_miniplayer_title">Мініплеєр</string>
 	<string name="revanced_preference_screen_misc_title">Різне</string>
 	<string name="revanced_preference_screen_navigation_buttons_summary">Приховувати чи показувати секцію компонентів панелі навігації.</string>
 	<string name="revanced_preference_screen_navigation_buttons_title">Кнопки панелі навігації</string>
@@ -1007,6 +1038,7 @@
 	<string name="revanced_preference_screen_video_filter_summary">Приховати відео за ключовими словами або переглядами.</string>
 	<string name="revanced_preference_screen_video_filter_title">Фільтр відео</string>
 	<string name="revanced_preference_screen_video_title">Відео</string>
+	<string name="revanced_quick_actions_top_margin_invalid_toast">Верхній відступ швидких дій повинен бути в межах 0-32. Скинуто.</string>
 	<string name="revanced_quick_actions_top_margin_summary">Налаштуйте відстань від панелі прогресу до контейнера швидких дій, діапазон 0-32.</string>
 	<string name="revanced_quick_actions_top_margin_title">Верхній відступ швидких дій</string>
 	<string name="revanced_quick_actions_top_margin_warning">Верхній відступ швидких дій повинен бути в межах 0-32. Скинуто.</string>
@@ -1278,6 +1310,7 @@
 	<string name="revanced_skip_preloaded_buffer_toast_summary_on">Тост показується.</string>
 	<string name="revanced_skip_preloaded_buffer_toast_title">Показувати тост, коли пропущено</string>
 	<string name="revanced_skipped_preloaded_buffer">Пропущено перед вантажений буфер</string>
+	<string name="revanced_speed_overlay_value_invalid_toast">Значення накладання швидкості повинно бути в межах 0-8.0. Скинуто.</string>
 	<string name="revanced_speed_overlay_value_summary">Значення накладання швидкості в межах 0-8.0.</string>
 	<string name="revanced_speed_overlay_value_title">Значення накладання швидкості</string>
 	<string name="revanced_speed_overlay_value_warning">Значення накладання швидкості повинно бути в межах 0-8.0. Скинуто.</string>
@@ -1334,6 +1367,7 @@
 
 Побічні ефекти включають:
 • Немає HDR відео.
+• Відсутня кнопка завантаження відео на панелі дій.
 • Призупинені відео можуть навмання продовжуватися.
 • Низька якість мініатюр панелі прогресу Shorts.
 • Відео для дітей не відтворюються."</string>
@@ -1360,7 +1394,8 @@
 • Прямі трансляції недоступні на Android 8.0.
 • Вищі якості відео можуть бути відсутні."</string>
 	<string name="revanced_spoof_client_use_ios_title">iOS</string>
-	<string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою за порядком, щоб розблокувати вищі якості відео, які можуть бути недоступні на вашому пристрої."</string>
+	<string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
+Високу якість може бути розблоковано для деяких відео, які вимагають великих розмірів пристрою, але не для всіх відео."</string>
 	<string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
 	<string name="revanced_spoof_format_stream_data_summary">"Підробка даних формату трансляції для вирішення проблем відтворення.
 
@@ -1397,6 +1432,7 @@
 	<string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону панелі при жесті</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Видимість фону при жесті</string>
+	<string name="revanced_swipe_overlay_rect_size_invalid_toast">Розмір площі для проведення не може бути більшим ніж 50. Скинуто.</string>
 	<string name="revanced_swipe_overlay_rect_size_summary">Відсоток площі екрана для проведення.\n\nЗауваження: це також змінить розмір площі екрану для жесту перемотування подвійним натисканням.</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Розмір екрана накладки проведення</string>
 	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Розмір площі для проведення не може бути більшим, ніж %s%%. Скинуто.</string>

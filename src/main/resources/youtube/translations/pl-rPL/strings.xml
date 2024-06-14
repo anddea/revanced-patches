@@ -79,6 +79,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
 	<string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
 	<string name="revanced_change_start_page_entry_trending">Na czasie</string>
 	<string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
+	<string name="revanced_change_start_page_invalid_toast">Nieprawidłowa strona startowa, zresetowano do domyślnej.</string>
 	<string name="revanced_change_start_page_title">Strona startowa</string>
 	<string name="revanced_change_start_page_warning">Nieprawidłowa strona startowa, zresetowano do domyślnej.</string>
 	<string name="revanced_change_youtube_header_summary_off">Domyślny</string>
@@ -97,6 +98,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
 	<string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe niestandardowe prędkości odtwarzania. Przywrócono domyślne wartości.</string>
 	<string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień dostępne prędkości odtwarzania</string>
 	<string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
+	<string name="revanced_custom_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi wynosić między 0 a 100. Przywrócono domyślną wartość.</string>
 	<string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
 	<string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
 	<string name="revanced_custom_player_overlay_opacity_warning">Przezroczystość nakładki musi wynosić między 0 a 100. Przywróć domyślne wartości.</string>
@@ -150,6 +152,9 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
 	<string name="revanced_disable_landscape_mode_summary_off">Orientacja wideo jest zgodna z ustawieniami urządzenia w trybie pełnoekranowym.</string>
 	<string name="revanced_disable_landscape_mode_summary_on">Orientacja wideo jest w trybie pionowym w trybie pełnoekranowym.</string>
 	<string name="revanced_disable_landscape_mode_title">Tryb poziomy</string>
+	<string name="revanced_disable_like_dislike_glow_summary_off">Widoczna</string>
+	<string name="revanced_disable_like_dislike_glow_summary_on">Ukryta</string>
+	<string name="revanced_disable_like_dislike_glow_title">Poświata przycisków od łapkowania w górę i dół</string>
 	<string name="revanced_disable_quic_protocol_summary">"Wyłącz protokół QUIC w CronetEngine"</string>
 	<string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
 	<string name="revanced_disable_resuming_shorts_player_summary_off">Shortsy będą włączane podczas startu aplikacji</string>
@@ -224,6 +229,9 @@ Uwaga:
 	<string name="revanced_enable_swipe_press_to_engage_summary_off">Stuknij, aby aktywować przesuwanie</string>
 	<string name="revanced_enable_swipe_press_to_engage_summary_on">Stuknij i przytrzymaj, aby aktywować przesuwanie</string>
 	<string name="revanced_enable_swipe_press_to_engage_title">Naciśnij, by przesunąć</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_off">Przesuwanie góra/dół nie będzie odtwarzać następnego/poprzedniego wideo.</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_on">Przesuwanie góra/dół będzie odtwarzać następne/poprzednie wideo.</string>
+	<string name="revanced_enable_swipe_to_switch_video_title">Gest zmiany wideo w trybie pełnoekranowym</string>
 	<string name="revanced_enable_swipe_volume_summary_off">Wyłączone</string>
 	<string name="revanced_enable_swipe_volume_summary_on">Włączone</string>
 	<string name="revanced_enable_swipe_volume_title">Zmienianie głośności przesuwaniem</string>
@@ -898,6 +906,25 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
 	<string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
 	<string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
 	<string name="revanced_label_default">Domyślne</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_off">Widoczne</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_on">Ukryte\n(przesuń miniodtwarzacz, aby rozwinąć lub zamknąć)</string>
+	<string name="revanced_miniplayer_hide_expand_close_title">Przyciski rozwijania i zamykania</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_off">Widoczne</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ukryte</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_title">Przyciski przewijania do przodu i wstecz</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_off">Widoczne</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_on">Ukryte</string>
+	<string name="revanced_miniplayer_hide_subtext_title">Podteksty</string>
+	<string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki miniodtwarzacza musi wynosić między 0 a 100. Przywrócono domyślną wartość.</string>
+	<string name="revanced_miniplayer_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
+	<string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
+	<string name="revanced_miniplayer_type_entry_1">Oryginalny</string>
+	<string name="revanced_miniplayer_type_entry_2">Telefonowy</string>
+	<string name="revanced_miniplayer_type_entry_3">Tabletowy</string>
+	<string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
+	<string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
+	<string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
+	<string name="revanced_miniplayer_type_title">Typ miniodtwarzacza</string>
 	<string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
 	<string name="revanced_overlay_button_always_repeat_summary">"Stuknij, by zmienić stan pętli.
 Stuknij i przytrzymaj, by zmienić stan pętli z pauzą."</string>
@@ -941,7 +968,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_category_spoof_client_options">Klient do oszukiwania</string>
 	<string name="revanced_preference_category_tool_used">Użyte narzędzie</string>
 	<string name="revanced_preference_category_view_counts_filter">Filtr ilości wyświetleń</string>
-	<string name="revanced_preference_screen_account_menu_summary">Ukrywa bądź pokazuje elementy w menu konta i zakładki Ty</string>
+	<string name="revanced_preference_screen_account_menu_summary">Ukryj bądź pokaż elementy w menu konta i zakładki Ty</string>
 	<string name="revanced_preference_screen_account_menu_title">Menu konta</string>
 	<string name="revanced_preference_screen_account_munu_summary">Ukrywa elementy menu konta i zakładki Ty</string>
 	<string name="revanced_preference_screen_account_munu_title">Menu konta</string>
@@ -973,6 +1000,8 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_screen_haptic_feedback_title">Wibracje</string>
 	<string name="revanced_preference_screen_import_export_summary">Ustawienia importu oraz eksportu</string>
 	<string name="revanced_preference_screen_import_export_title">Zaimportuj / Wyeksportuj ustawienia</string>
+	<string name="revanced_preference_screen_miniplayer_summary">Zmień styl miniodtwarzacza w aplikacji</string>
+	<string name="revanced_preference_screen_miniplayer_title">Miniodtwarzacz</string>
 	<string name="revanced_preference_screen_misc_title">Pozostałe</string>
 	<string name="revanced_preference_screen_navigation_buttons_summary">Ukryj lub pokazuj przyciski nawigacji</string>
 	<string name="revanced_preference_screen_navigation_buttons_title">Przyciski nawigacji</string>
@@ -987,7 +1016,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_screen_sb_title">SponsorBlock</string>
 	<string name="revanced_preference_screen_seekbar_summary">Zmień wygląd paska wideo</string>
 	<string name="revanced_preference_screen_seekbar_title">Pasek wideo</string>
-	<string name="revanced_preference_screen_settings_menu_summary">Ukrywa elementy menu ustawień YouTube</string>
+	<string name="revanced_preference_screen_settings_menu_summary">Ukryj elementy menu ustawień YouTube</string>
 	<string name="revanced_preference_screen_settings_menu_title">Menu ustawień</string>
 	<string name="revanced_preference_screen_settings_munu_summary">Ukryj ustawienia w ustawieniach YouTube</string>
 	<string name="revanced_preference_screen_settings_munu_title">Menu ustawień</string>
@@ -1004,6 +1033,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
 	<string name="revanced_preference_screen_video_filter_summary">Ukryj wideo używając słów lub wyświetleń</string>
 	<string name="revanced_preference_screen_video_filter_title">Filtr wideo</string>
 	<string name="revanced_preference_screen_video_title">Wideo</string>
+	<string name="revanced_quick_actions_top_margin_invalid_toast">Górny margines przycisków na dole odtwarzacza musi wynosić między 0 a 32. Przywrócono domyślną wartość.</string>
 	<string name="revanced_quick_actions_top_margin_summary">Skonfiguruj odstęp od paska przewijania do kontenera szybkich akcji, w zakresie od 0 do 32.</string>
 	<string name="revanced_quick_actions_top_margin_title">Górny margines przycisków na dole odtwarzacza</string>
 	<string name="revanced_quick_actions_top_margin_warning">Margines górny przycisków na dole odtwarzacza musi wynosić między 0 a 32. Przywrócono domyślną wartość.</string>
@@ -1271,6 +1301,7 @@ Informacje:
 	<string name="revanced_skip_preloaded_buffer_toast_summary_on">Widoczne</string>
 	<string name="revanced_skip_preloaded_buffer_toast_title">Komunikaty o pominięciu</string>
 	<string name="revanced_skipped_preloaded_buffer">Pominięto wstępnie załadowany bufor.</string>
+	<string name="revanced_speed_overlay_value_invalid_toast">Przezroczystość nakładki prędkości odtwarzania musi wynosić między 0 a 8.0. Przywrócono domyślną wartość.</string>
 	<string name="revanced_speed_overlay_value_summary">Wartość nakładki prędkości odtwarzania między 0, a 8.</string>
 	<string name="revanced_speed_overlay_value_title">Wartość nakładki prędkości odtwarzania</string>
 	<string name="revanced_speed_overlay_value_warning">Wartość nakładki prędkości odtwarzania musi być mniejsza od 8 i większa od 0. Zresetowano do domyślnej wartości.</string>
@@ -1391,6 +1422,7 @@ Ograniczenia:
 	<string name="revanced_swipe_magnitude_threshold_title">Minimalna długość przesunięcia</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesuwania</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Widoczność tła przesuwania</string>
+	<string name="revanced_swipe_overlay_rect_size_invalid_toast">Rozmiar obszaru przesuwania nie może być większy niż 50. Przywrócono domyślną wartość.</string>
 	<string name="revanced_swipe_overlay_rect_size_summary">Procentowa wartość obszaru ekranu, gdzie można przesuwać.\n\nNotka: Zmieni to także rozmiar obszaru ekranu dla gestu podwójnego kliknięcia, aby przewinąć wideo.</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Rozmiar obszaru przesuwania</string>
 	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Rozmiar obszaru przesuwania nie może być większy niż %s%%. Zresetowano do domyślnej wartości.</string>
