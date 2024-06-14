@@ -1,3 +1,10 @@
+# [2.226.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.10...v2.226.0-dev.11) (2024-06-14)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Removed some languages from UI ([93279da](https://github.com/anddea/revanced-patches/commit/93279da02684887dbb1f25668f64f49f2ca55391))
+
 # [2.226.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.9...v2.226.0-dev.10) (2024-06-14)
 
 
