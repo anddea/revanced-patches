@@ -208,6 +208,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_custom_playback_speeds",
             "revanced_custom_playback_speed_menu_type",
             "revanced_default_video_quality_mobile",
+            "revanced_disable_like_dislike_glow",
             "revanced_disable_default_playback_speed_live",
             "external_downloader",
             "revanced_enable_custom_playback_speed",
