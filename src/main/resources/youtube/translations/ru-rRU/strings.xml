@@ -81,6 +81,7 @@
 	<string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
 	<string name="revanced_change_start_page_entry_trending">В тренде</string>
 	<string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
+	<string name="revanced_change_start_page_invalid_toast">Недопустимая начальная страница, сброс по умолчанию.</string>
 	<string name="revanced_change_start_page_title">Начальная страница</string>
 	<string name="revanced_change_start_page_warning">Неверная домашняя страница. Сброс к значению по умолчанию.</string>
 	<string name="revanced_change_youtube_header_summary_off">Включен обычный логотип.</string>
@@ -99,6 +100,7 @@
 	<string name="revanced_custom_playback_speeds_parse_exception">Недопустимые значения скорости. Сброс к значениям по умолчанию.</string>
 	<string name="revanced_custom_playback_speeds_summary">Добавить или изменить скорости воспроизведения.</string>
 	<string name="revanced_custom_playback_speeds_title">Пользовательская скорость воспроизведения</string>
+	<string name="revanced_custom_player_overlay_opacity_invalid_toast">Значение должно быть в диапазоне от 0 до 100. Сброс по умолчанию.</string>
 	<string name="revanced_custom_player_overlay_opacity_summary">Диапазон от 0 (прозрачный) до 100.</string>
 	<string name="revanced_custom_player_overlay_opacity_title">Видимость затемнения плеера</string>
 	<string name="revanced_custom_player_overlay_opacity_warning">Значение должно быть в диапазоне от 0 до 100. Сброс к значению по умолчанию.</string>
@@ -152,6 +154,9 @@
 	<string name="revanced_disable_landscape_mode_summary_off">Ориентация в полноэкранном режиме по настройкам устройства.</string>
 	<string name="revanced_disable_landscape_mode_summary_on">Портретная ориентация в полноэкранном режиме включена.</string>
 	<string name="revanced_disable_landscape_mode_title">Альбомный режим</string>
+	<string name="revanced_disable_like_dislike_glow_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании подсвечиваются.</string>
+	<string name="revanced_disable_like_dislike_glow_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" при упоминании не подсвечиваются.</string>
+	<string name="revanced_disable_like_dislike_glow_title">Отключить свечение кнопки \"Лайк\" и \"Дизлайк\"</string>
 	<string name="revanced_disable_quic_protocol_summary">"Отключает протокол, построенный поверх UDP, переходя на TCP."</string>
 	<string name="revanced_disable_quic_protocol_title">Отключить протокол QUIC</string>
 	<string name="revanced_disable_resuming_shorts_player_summary_off">Возобновление Shorts включено.</string>
@@ -207,6 +212,8 @@
 	<string name="revanced_enable_open_links_directly_summary_off">Обход youtube.com/redirect при открытии ссылок отключен.</string>
 	<string name="revanced_enable_open_links_directly_summary_on">Обход youtube.com/redirect при открытии ссылок включен.</string>
 	<string name="revanced_enable_open_links_directly_title">Перенаправление ссылок</string>
+	<string name="revanced_enable_opus_codec_summary">Включить кодек OPUS, если содержимое в плеере подходит для кодека.</string>
+	<string name="revanced_enable_opus_codec_title">Включить кодек OPUS</string>
 	<string name="revanced_enable_phone_layout_summary">Подмена DPI для телефонного интерфейса.</string>
 	<string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
 	<string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием отключена.</string>
@@ -224,6 +231,9 @@
 	<string name="revanced_enable_swipe_press_to_engage_summary_off">Прикосновение для активации жеста.</string>
 	<string name="revanced_enable_swipe_press_to_engage_summary_on">Прикосновение и удержание для активации жеста.</string>
 	<string name="revanced_enable_swipe_press_to_engage_title">Нажатие для жестов</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_off">Жест вверх - следующее видео и жест вниз - предыдущее видео отключены.</string>
+	<string name="revanced_enable_swipe_to_switch_video_summary_on">Жест вверх - следующее видео и жест вниз - предыдущее видео включены.</string>
+	<string name="revanced_enable_swipe_to_switch_video_title">Жест для изменения видео в полном экране</string>
 	<string name="revanced_enable_swipe_volume_summary_off">Громкость жестом отключено.</string>
 	<string name="revanced_enable_swipe_volume_summary_on">Громкость жестом включено.</string>
 	<string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
@@ -411,6 +421,8 @@ Shorts
 	<string name="revanced_hide_for_you_shelf_summary_off">"Секции \"Для вас\" отображены."</string>
 	<string name="revanced_hide_for_you_shelf_summary_on">"Секции \"Для вас\" скрыты."</string>
 	<string name="revanced_hide_for_you_shelf_title">"Секция \"Для вас\""</string>
+	<string name="revanced_hide_fullscreen_ads_blocked_success">Реклама в полном экране была заблокирована. (Взаимодействие :%s)</string>
+	<string name="revanced_hide_fullscreen_ads_closed_success">Реклама в полном экране была закрыта.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама отображена.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама скрыта.</string>
 	<string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
@@ -419,7 +431,7 @@ Shorts
 Ограничение:
 Посты сообщества, в полном экране, могут быть заблокированы."</string>
 	<string name="revanced_hide_fullscreen_ads_type_summary_on">Реклама в полном экране закрыта кнопкой.</string>
-	<string name="revanced_hide_fullscreen_ads_type_title">Закрыть рекламу в полном экране</string>
+	<string name="revanced_hide_fullscreen_ads_type_title">Способ закрытия рекламы в полном экране</string>
 	<string name="revanced_hide_general_ads_summary_off">Реклама общего формата отображена.</string>
 	<string name="revanced_hide_general_ads_summary_on">Реклама общего формата скрыта.</string>
 	<string name="revanced_hide_general_ads_title">Реклама общего формата</string>
@@ -488,6 +500,8 @@ Shorts
 	<string name="revanced_hide_live_chat_replay_button_summary_off">Кнопка \"Повтор\" в онлайн чате отображена.\n\nПоявляется в полноэкранном режиме при закрытии онлайн чата.</string>
 	<string name="revanced_hide_live_chat_replay_button_summary_on">Кнопка \"Повтор\" в онлайн чате скрыта.\n\nПоявляется в полноэкранном режиме при закрытии онлайн чата.</string>
 	<string name="revanced_hide_live_chat_replay_button_title">Скрыть кнопку \"Повтор\" в онлайн чате</string>
+	<string name="revanced_hide_low_views_video_summary">Скрыть видео с менее 1000 просмотров из ленты, из каналов от которых Вы отписались.</string>
+	<string name="revanced_hide_low_views_video_title">Скрыть видео с низкими просмотрами</string>
 	<string name="revanced_hide_medical_panel_summary_off">Медицинские панели отображены.</string>
 	<string name="revanced_hide_medical_panel_summary_on">Медицинские панели скрыты.</string>
 	<string name="revanced_hide_medical_panel_title">Медицинские панели</string>
@@ -584,6 +598,9 @@ Shorts
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_off">Колонтитул меню качества отображен.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_summary_on">Колонтитул меню качества скрыт.</string>
 	<string name="revanced_hide_player_flyout_menu_quality_footer_title">Колонтитул меню качества</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Заголовок меню выбора качества отображен.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Заголовок меню выбора качества скрыт.</string>
+	<string name="revanced_hide_player_flyout_menu_quality_header_title">Заголовок меню выбора качества</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_off">Меню \"Пожаловаться\" отображено.</string>
 	<string name="revanced_hide_player_flyout_menu_report_summary_on">Меню \"Пожаловаться\" скрыто.</string>
 	<string name="revanced_hide_player_flyout_menu_report_title">Меню \"Пожаловаться\"</string>
@@ -727,9 +744,13 @@ Shorts
 	<string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" отображена.</string>
 	<string name="revanced_hide_shorts_like_button_summary_on">Кнопка \"Лайк\" скрыта.</string>
 	<string name="revanced_hide_shorts_like_button_title">Кнопка \"Лайк\"</string>
-	<string name="revanced_hide_shorts_live_header_summary_off">Текст заголовока чата отображен</string>
-	<string name="revanced_hide_shorts_live_header_summary_on">Текст заголовока чата скрыт</string>
-	<string name="revanced_hide_shorts_live_header_title">Скрыть текст заголовока чата</string>
+	<string name="revanced_hide_shorts_live_header_summary_off">Заголовок онлайн чата отображен.
+
+Кнопка возврата в заголовке не будет скрыта.</string>
+	<string name="revanced_hide_shorts_live_header_summary_on">Заголовок онлайн чата скрыт.
+
+Кнопка возврата в заголовке не будет скрыта.</string>
+	<string name="revanced_hide_shorts_live_header_title">Заголовок онлайн чата</string>
 	<string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения отображена.</string>
 	<string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения скрыта.</string>
 	<string name="revanced_hide_shorts_location_label_title">Метка местоположения</string>
@@ -786,6 +807,9 @@ Shorts
 	<string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Подписаться\" отображена.</string>
 	<string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопка \"Подписаться\" скрыта.</string>
 	<string name="revanced_hide_shorts_subscribe_button_title">Кнопка \"Подписаться\"</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Особая благодарность\" отображена.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Особая благодарность\" скрыта.</string>
+	<string name="revanced_hide_shorts_super_thanks_button_title">Кнопка \"Особая благодарность\"</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_off">Товары с тегом отображены.</string>
 	<string name="revanced_hide_shorts_tagged_products_summary_on">Товары с тегом скрыты.</string>
 	<string name="revanced_hide_shorts_tagged_products_title">Товары с тегом</string>
@@ -885,16 +909,39 @@ Shorts
 	<string name="revanced_hide_web_search_results_summary_off">Результаты веб поиска отображены.</string>
 	<string name="revanced_hide_web_search_results_summary_on">Результаты веб поиска скрыты.</string>
 	<string name="revanced_hide_web_search_results_title">Результаты веб поиска</string>
+	<string name="revanced_icon_afn_blue">Иконка Afn синяя</string>
+	<string name="revanced_icon_afn_red">Иконка Afn красная</string>
 	<string name="revanced_icon_custom">Пользовательский</string>
 	<string name="revanced_icon_default">По умолчанию</string>
 	<string name="revanced_icon_mmt">MMT</string>
 	<string name="revanced_icon_revancify_blue">Revancify синяя</string>
 	<string name="revanced_icon_revancify_red">Revancify красная</string>
+	<string name="revanced_icon_youtube">Иконка YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">Удерживает альбомный режим в полноэкранном режиме.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">Количество миллисекунд, в течение которых принудительно работает альбомный режим.</string>
 	<string name="revanced_keep_landscape_mode_timeout_title">Сохранять таймаут альбомного режима</string>
 	<string name="revanced_keep_landscape_mode_title">Удерживать альбомный режим</string>
 	<string name="revanced_label_default">По умолчанию</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" отображены.</string>
+	<string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопки скрыты.
+(развернуть или закрыть мини-плеер жестом)</string>
+	<string name="revanced_miniplayer_hide_expand_close_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки отображены.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки скрыты.</string>
+	<string name="revanced_miniplayer_hide_rewind_forward_title">Кнопки перемотки</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_off">Подстрочный текст отображен.</string>
+	<string name="revanced_miniplayer_hide_subtext_summary_on">Подстрочный текст скрыт.</string>
+	<string name="revanced_miniplayer_hide_subtext_title">Подстрочный текст</string>
+	<string name="revanced_miniplayer_opacity_invalid_toast">Непрозрачность должна быть в диапазоне 0-100. Сброс по умолчанию.</string>
+	<string name="revanced_miniplayer_opacity_summary">Значение непрозрачности в промежутке 0-100, где 0 это прозрачный.</string>
+	<string name="revanced_miniplayer_opacity_title">Непрозрачность мини-плеера</string>
+	<string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+	<string name="revanced_miniplayer_type_entry_2">Телефон</string>
+	<string name="revanced_miniplayer_type_entry_3">Планшет</string>
+	<string name="revanced_miniplayer_type_entry_4">Современный 1</string>
+	<string name="revanced_miniplayer_type_entry_5">Современный 2</string>
+	<string name="revanced_miniplayer_type_entry_6">Современный 3</string>
+	<string name="revanced_miniplayer_type_title">Тип мини-плеера</string>
 	<string name="revanced_overlay_button">Компоненты в плеере</string>
 	<string name="revanced_overlay_button_always_repeat_summary">"Нажать - все время повтор.
 Нажать и удерживать - пауза после повтора."</string>
@@ -938,7 +985,7 @@ Shorts
 	<string name="revanced_preference_category_spoof_client_options">Параметры подмены клиента</string>
 	<string name="revanced_preference_category_tool_used">Используемые инструменты</string>
 	<string name="revanced_preference_category_view_counts_filter">Фильтр по количеству просмотров</string>
-	<string name="revanced_preference_screen_account_menu_summary">Элементы в меню учетной записи и вкладке Ваше.</string>
+	<string name="revanced_preference_screen_account_menu_summary">Настройка меню аккаунта и вкладки Вы.</string>
 	<string name="revanced_preference_screen_account_menu_title">Меню аккаунта</string>
 	<string name="revanced_preference_screen_account_munu_summary">Элементы в меню аккаунта и вкладке Вы.</string>
 	<string name="revanced_preference_screen_account_munu_title">Меню аккаунта</string>
@@ -970,6 +1017,8 @@ Shorts
 	<string name="revanced_preference_screen_haptic_feedback_title">Виброотклик</string>
 	<string name="revanced_preference_screen_import_export_summary">Настройки импорта/экспорта.</string>
 	<string name="revanced_preference_screen_import_export_title">Импорт/экспорт настроек</string>
+	<string name="revanced_preference_screen_miniplayer_summary">Стиль мини-плеера.</string>
+	<string name="revanced_preference_screen_miniplayer_title">Мини-плеер</string>
 	<string name="revanced_preference_screen_misc_title">Разное</string>
 	<string name="revanced_preference_screen_navigation_buttons_summary">Настройки кнопок навигации.</string>
 	<string name="revanced_preference_screen_navigation_buttons_title">Кнопки навигации</string>
@@ -984,7 +1033,7 @@ Shorts
 	<string name="revanced_preference_screen_sb_title">SponsorBlock</string>
 	<string name="revanced_preference_screen_seekbar_summary">Настроить компоненты шкалы воспроизведения.</string>
 	<string name="revanced_preference_screen_seekbar_title">Шкала воспроизведения</string>
-	<string name="revanced_preference_screen_settings_menu_summary">Элементы в меню настроек YouTube.</string>
+	<string name="revanced_preference_screen_settings_menu_summary">Настройка меню YouTube.</string>
 	<string name="revanced_preference_screen_settings_menu_title">Меню настроек</string>
 	<string name="revanced_preference_screen_settings_munu_summary">Элементы в меню настроек YouTube.</string>
 	<string name="revanced_preference_screen_settings_munu_title">Меню настроек</string>
@@ -1001,6 +1050,7 @@ Shorts
 	<string name="revanced_preference_screen_video_filter_summary">Скрытие видео по ключевым словам, просмотрам или продолжительности.</string>
 	<string name="revanced_preference_screen_video_filter_title">Фильтрация видео</string>
 	<string name="revanced_preference_screen_video_title">Видео</string>
+	<string name="revanced_quick_actions_top_margin_invalid_toast">Значение должно быть в диапазоне от 0 до 32. Сброс по умолчанию.</string>
 	<string name="revanced_quick_actions_top_margin_summary">Значение отступа поля быстрых действий от шкалы воспроизведения\nДиапазон от 0 до 32.</string>
 	<string name="revanced_quick_actions_top_margin_title">Отступ над быстрыми действиями</string>
 	<string name="revanced_quick_actions_top_margin_warning">Значение должно быть в диапазоне от 0 до 32. Сброс к значению по умолчанию.</string>
@@ -1269,6 +1319,7 @@ Shorts
 	<string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомление включено.</string>
 	<string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске буфера</string>
 	<string name="revanced_skipped_preloaded_buffer">Пропущен предварительно загруженный буфер.</string>
+	<string name="revanced_speed_overlay_value_invalid_toast">Значение должно быть в диапазоне от 0 до 8.0. Сброс по умолчанию.</string>
 	<string name="revanced_speed_overlay_value_summary">Значение от 0 до 8.0.</string>
 	<string name="revanced_speed_overlay_value_title">Значение скорости</string>
 	<string name="revanced_speed_overlay_value_warning">Значение должно быть в диапазоне от 0 до 8.0. Сброс к значению по умолчанию.</string>
@@ -1390,6 +1441,7 @@ Shorts
 	<string name="revanced_swipe_magnitude_threshold_title">Порог величины жеста</string>
 	<string name="revanced_swipe_overlay_background_alpha_summary">Видимость фона наложения при жесте.</string>
 	<string name="revanced_swipe_overlay_background_alpha_title">Видимость фона жестов</string>
+	<string name="revanced_swipe_overlay_rect_size_invalid_toast">Размер области для жеста больше 50 %. Сброс по умолчанию.</string>
 	<string name="revanced_swipe_overlay_rect_size_summary">Процент изменяемой области экрана для жестов.\n\nПримечание:\nЭто также изменит размер области экрана для жеста двойного нажатия (перемотка).</string>
 	<string name="revanced_swipe_overlay_rect_size_title">Размер области экрана для жестов</string>
 	<string formatted="false" name="revanced_swipe_overlay_rect_size_warning">Размер изменяемой области экрана не может превышать%s%%. Сброс к значению по умолчанию.</string>
