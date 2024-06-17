@@ -1,3 +1,11 @@
+# [2.226.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.11...v2.226.0-dev.12) (2024-06-17)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add `MMT Blue`, `MMT Green`, `MMT Yellow` ([941216e](https://github.com/anddea/revanced-patches/commit/941216eff18351580ac665fe49300432729aba26))
+* **YouTube - Start page:** Add `Playables` and `Courses / Learning` ([6c2c5b0](https://github.com/anddea/revanced-patches/commit/6c2c5b0060261dfaee47bf6c359b8db2ce9ce7ac))
+
 # [2.226.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.10...v2.226.0-dev.11) (2024-06-14)
 
 
