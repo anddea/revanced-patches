@@ -199,7 +199,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
         )
 
         // Copy resources with rename and update path data
-        context.copyResourcesWithRename("music/settings/icons", resourceMap)
+        context.copyResourcesWithRename("youtube/settings/icons", resourceMap)
 
         val validExtendedBrand = setOf(
             "revanced_extended_settings_key",
