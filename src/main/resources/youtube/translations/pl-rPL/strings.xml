@@ -3,6 +3,7 @@
 	<string name="accessibility_settings_edu_opt_in_text">Włączyć gesty ułatwień dostępu dla odtwarzacza wideo?</string>
 	<string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
 	<string name="gms_core_dialog_continue_text">Kontynuuj</string>
+	<string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
 	<string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
 
 Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
@@ -64,6 +65,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
 	<string name="revanced_change_shorts_repeat_state_entry_repeat">Powtarzanie</string>
 	<string name="revanced_change_shorts_repeat_state_title">Zmień stan powtarzania Shortsów</string>
 	<string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
+	<string name="revanced_change_start_page_entry_courses">Kursy / Nauka</string>
 	<string name="revanced_change_start_page_entry_default">Domyślna</string>
 	<string name="revanced_change_start_page_entry_explore">Odkrywanie</string>
 	<string name="revanced_change_start_page_entry_gaming">Gry</string>
@@ -73,6 +75,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
 	<string name="revanced_change_start_page_entry_live">Na żywo</string>
 	<string name="revanced_change_start_page_entry_movies">Filmy</string>
 	<string name="revanced_change_start_page_entry_music">Muzyka</string>
+	<string name="revanced_change_start_page_entry_playables">Pokój gier</string>
 	<string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
 	<string name="revanced_change_start_page_entry_shorts">Shortsy</string>
 	<string name="revanced_change_start_page_entry_sports">Sport</string>
@@ -295,6 +298,8 @@ Pobierz %2$s ze strony internetowej."</string>
 • Po rozpoczęciu wideo
 • Po stuknięciu w czas wideo w komentarzach"</string>
 	<string name="revanced_force_fullscreen_title">Wymuś tryb pełnoekranowy</string>
+	<string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
+	<string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
 	<string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
 	<string name="revanced_hide_account_menu_filter_strings_title">Filtr menu konta</string>
 	<string name="revanced_hide_account_menu_summary">"Ukrywa elementy menu konta i zakładki Ty.
@@ -898,8 +903,14 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
 	<string name="revanced_icon_custom">Własna</string>
 	<string name="revanced_icon_default">Domyślna</string>
 	<string name="revanced_icon_mmt">MMT</string>
+	<string name="revanced_icon_mmt_blue">Niebieska MMT</string>
+	<string name="revanced_icon_mmt_green">Zielona MMT</string>
+	<string name="revanced_icon_mmt_yellow">Żółta MMT</string>
 	<string name="revanced_icon_revancify_blue">Niebieska od Revancify</string>
 	<string name="revanced_icon_revancify_red">Czerwona od Revancify</string>
+	<string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
+	<string name="revanced_icon_vanced_black">Czarna Vanced</string>
+	<string name="revanced_icon_vanced_light">Jasna Vanced</string>
 	<string name="revanced_icon_youtube">YouTube</string>
 	<string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
 	<string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
@@ -1072,6 +1083,10 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
 	<string name="revanced_restore_old_video_quality_menu_summary_off">Niewidoczne</string>
 	<string name="revanced_restore_old_video_quality_menu_summary_on">Widoczne</string>
 	<string name="revanced_restore_old_video_quality_menu_title">Stare menu od jakości wideo</string>
+	<string name="revanced_return_shorts_channel_name_fetch_summary_off">"Użyj wbudowanej nazwy kanału YouTube."</string>
+	<string name="revanced_return_shorts_channel_name_fetch_summary_on">"Użyj nazwy kanału pobranej z kanału RSS.
+Pobieranie nazwy kanału może potrwać dłużej."</string>
+	<string name="revanced_return_shorts_channel_name_fetch_title">Pobierz z kanału RSS</string>
 	<string name="revanced_return_shorts_channel_name_summary_off">Widoczne nicki</string>
 	<string name="revanced_return_shorts_channel_name_summary_on">Widoczne nazwy</string>
 	<string name="revanced_return_shorts_channel_name_title">Nazwy kanałów w Shortsach</string>
@@ -1450,19 +1465,4 @@ Ograniczenia:
 	<string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
 	<string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
 	<string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-        <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
-        <string name="revanced_change_start_page_entry_courses">Kursy / Nauka</string>
-        <string name="revanced_change_start_page_entry_playables">Pokój gier</string>
-        <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
-        <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore/string>
-        <string name="revanced_icon_mmt_blue">Niebieska MMT</string>
-        <string name="revanced_icon_mmt_green">Zielona MMT</string>
-        <string name="revanced_icon_mmt_yellow">Żółta MMT</string>
-        <string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
-        <string name="revanced_icon_vanced_black">Czarna Vanced</string>
-        <string name="revanced_icon_vanced_light">Jasna Vanced</string>
-        <string name="revanced_return_shorts_channel_name_fetch_summary_off">"Użyj wbudowanej nazwy kanału YouTube."</string>
-        <string name="revanced_return_shorts_channel_name_fetch_summary_on">"Użyj nazwy kanału pobranej z kanału RSS.
-Pobieranie nazwy kanału może potrwać dłużej."</string>
-        <string name="revanced_return_shorts_channel_name_fetch_title">Pobierz z kanału RSS</string>
 </resources>
