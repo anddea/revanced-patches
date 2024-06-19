@@ -1,3 +1,10 @@
+# [2.226.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.14...v2.226.0-dev.15) (2024-06-19)
+
+
+### Features
+
+* **YouTube Music - Custom branding icon:** Add `MMT Blue`, `MMT Green` and `MMT Yellow` ([27b8aa7](https://github.com/anddea/revanced-patches/commit/27b8aa779642ef979ebd9448943cb8931dde647d))
+
 # [2.226.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.13...v2.226.0-dev.14) (2024-06-18)
 
 
