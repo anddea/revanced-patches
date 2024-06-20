@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <objectAnimator
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:duration="250"
+        android:valueFrom="M 170.84 226.063 C 170.84 209.267 187.742 198.789 201.289 207.208 L 239.839 231.097 C 253.387 239.519 253.387 260.479 239.839 268.901 L 201.289 292.791 C 187.742 301.21 170.84 290.731 170.84 273.934 Z"
+        android:valueTo="M 305.062 226.146 C 305.062 209.411 321.713 198.967 335.063 207.355 L 373.049 231.162 C 386.4 239.557 386.4 260.444 373.049 268.835 L 335.063 292.642 C 321.712 301.034 305.062 290.59 305.062 273.85 Z"
+        android:valueType="pathType"
+        android:propertyName="pathData" />
+    <objectAnimator
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:duration="428"
+        android:startOffset="250"
+        android:valueFrom="M 305.062 226.146 C 305.062 209.411 321.713 198.967 335.063 207.355 L 373.049 231.162 C 386.4 239.557 386.4 260.444 373.049 268.835 L 335.063 292.642 C 321.712 301.034 305.062 290.59 305.062 273.85 Z"
+        android:valueTo="M 28.245 226.146 C 28.245 209.411 44.896 198.967 58.246 207.355 L 96.232 231.162 C 109.583 239.557 109.583 260.444 96.232 268.835 L 58.246 292.642 C 44.895 301.034 28.245 290.59 28.245 273.85 Z"
+        android:valueType="pathType"
+        android:propertyName="pathData" />
+    <objectAnimator
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:duration="153"
+        android:startOffset="698"
+        android:valueFrom="M 28.245 226.146 C 28.245 209.411 44.896 198.967 58.246 207.355 L 96.232 231.162 C 109.583 239.557 109.583 260.444 96.232 268.835 L 58.246 292.642 C 44.895 301.034 28.245 290.59 28.245 273.85 Z"
+        android:valueTo="M 250 226.146 C 250 209.411 266.651 198.967 280.001 207.355 L 317.987 231.162 C 331.338 239.557 331.338 260.444 317.987 268.835 L 280.001 292.642 C 266.65 301.034 250 290.59 250 273.85 Z"
+        android:valueType="pathType"
+        android:propertyName="pathData" />
+    <objectAnimator
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:duration="88"
+        android:startOffset="851"
+        android:valueFrom="M 250 226.146 C 250 209.411 266.651 198.967 280.001 207.355 L 317.987 231.162 C 331.338 239.557 331.338 260.444 317.987 268.835 L 280.001 292.642 C 266.65 301.034 250 290.59 250 273.85 Z"
+        android:valueTo="M 222.471 224.627 C 222.471 207.892 239.122 197.448 252.472 205.836 L 290.457 229.643 C 303.808 238.038 303.808 258.925 290.457 267.316 L 252.472 291.123 C 239.121 299.515 222.471 289.071 222.471 272.331 Z"
+        android:valueType="pathType"
+        android:propertyName="pathData" />
+</set>
