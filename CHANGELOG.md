@@ -1,3 +1,10 @@
+# [2.226.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.15...v2.226.0-dev.16) (2024-06-21)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add new splash animations for all `Revancify` icons ([#629](https://github.com/anddea/revanced-patches/issues/629)) ([2d2e504](https://github.com/anddea/revanced-patches/commit/2d2e5045c94f409559e46f6871eabb64407d9443))
+
 # [2.226.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.14...v2.226.0-dev.15) (2024-06-19)
 
 
