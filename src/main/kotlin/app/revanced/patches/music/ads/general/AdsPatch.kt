@@ -25,8 +25,8 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.Interst
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithReference
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
@@ -139,15 +139,15 @@ object AdsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex =
                     getWideLiteralInstructionIndex(SharedResourceIdPatch.PrivacyTosFooter)
-                val walkerIndex = getTargetIndex(constIndex + 2, Opcode.INVOKE_VIRTUAL)
-                val viewIndex = getTargetIndex(constIndex, Opcode.IGET_OBJECT)
+                val walkerIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL)
+                val viewIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
                 val viewReference =
                     getInstruction<ReferenceInstruction>(viewIndex).reference.toString()
 
                 val walkerMethod = getWalkerMethod(context, walkerIndex)
                 walkerMethod.apply {
-                    val insertIndex = getTargetIndexWithReference(viewReference)
-                    val nullCheckIndex = getTargetIndex(insertIndex - 1, Opcode.IF_NEZ)
+                    val insertIndex = getTargetIndexWithReferenceOrThrow(viewReference)
+                    val nullCheckIndex = getTargetIndexOrThrow(insertIndex - 1, Opcode.IF_NEZ)
                     val nullCheckRegister =
                         getInstruction<OneRegisterInstruction>(nullCheckIndex).registerA
 

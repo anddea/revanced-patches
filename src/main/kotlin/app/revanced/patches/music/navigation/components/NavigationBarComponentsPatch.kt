@@ -12,8 +12,8 @@ import app.revanced.patches.music.utils.integrations.Constants.NAVIGATION_CLASS_
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -64,7 +64,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         TabLayoutTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.Text1)
-                val targetIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -98,9 +98,9 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val enumIndex = it.scanResult.patternScanResult!!.startIndex + 3
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
-                val insertEnumIndex = getTargetIndex(Opcode.AND_INT_LIT8) - 2
+                val insertEnumIndex = getTargetIndexOrThrow(Opcode.AND_INT_LIT8) - 2
 
-                val pivotTabIndex = getTargetIndexWithMethodReferenceName("getVisibility")
+                val pivotTabIndex = getTargetIndexWithMethodReferenceNameOrThrow("getVisibility")
                 val pivotTabRegister = getInstruction<Instruction35c>(pivotTabIndex).registerC
 
                 addInstruction(

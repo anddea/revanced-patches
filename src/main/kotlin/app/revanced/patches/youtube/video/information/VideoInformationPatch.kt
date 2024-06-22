@@ -34,10 +34,10 @@ import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHoo
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -192,11 +192,10 @@ object VideoInformationPatch : BytecodePatch(
 
         PlaybackInitializationFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstruction {
+                val targetIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_DIRECT
                             && getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
                 } + 1
-                if (targetIndex == 0) throw PatchException("Could not find instruction index.")
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -213,11 +212,10 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintBackgroundPlay.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstruction {
+                val targetIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE
                             && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
                 }
-                if (targetIndex < 0) throw PatchException("Could not find instruction index.")
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -232,11 +230,10 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintShorts.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstruction {
+                val targetIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE
                             && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
                 }
-                if (targetIndex < 0) throw PatchException("Could not find instruction index.")
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -281,10 +278,10 @@ object VideoInformationPatch : BytecodePatch(
         OnPlaybackSpeedItemClickFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 speedSelectionInsertMethod = this
-                val speedSelectionValueInstructionIndex = getTargetIndex(Opcode.IGET)
+                val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
 
                 val setPlaybackSpeedContainerClassFieldIndex =
-                    getTargetIndexReversed(speedSelectionValueInstructionIndex, Opcode.IGET_OBJECT)
+                    getTargetIndexReversedOrThrow(speedSelectionValueInstructionIndex, Opcode.IGET_OBJECT)
                 val setPlaybackSpeedContainerClassFieldReference =
                     getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference.toString()
 
@@ -455,12 +452,11 @@ object VideoInformationPatch : BytecodePatch(
 
     private fun MethodFingerprint.getMethodName(returnType: String): String {
         resultOrThrow().mutableMethod.apply {
-            val targetIndex = indexOfFirstInstruction {
+            val targetIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE
                         && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
                         && getReference<MethodReference>()?.returnType == returnType
             }
-            if (targetIndex < 0) throw PatchException("Could not find instruction index.")
             val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
 
             return "invoke-interface {v${REGISTER_PLAYER_RESPONSE_MODEL}}, $targetReference"

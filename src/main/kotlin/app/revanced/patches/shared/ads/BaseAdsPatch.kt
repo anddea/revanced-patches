@@ -12,11 +12,11 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.ads.fingerprints.MusicAdsFingerprint
 import app.revanced.patches.shared.ads.fingerprints.VideoAdsFingerprint
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -37,7 +37,7 @@ abstract class BaseAdsPatch(
     override fun execute(context: BytecodeContext) {
         MusicAdsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstruction {
+                val targetIndex = indexOfFirstInstructionOrThrow {
                     val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
                     opcode == Opcode.INVOKE_VIRTUAL
@@ -112,7 +112,7 @@ abstract class BaseAdsPatch(
             // Find the instruction whose name is "show" in [MethodReference] and click the 'AlertDialog.BUTTON_POSITIVE' button.
             // In this case, an instruction for 'getButton' must be added to smali, not in integrations
             // (This custom dialog cannot be cast to [AlertDialog] or [Dialog])
-            val dialogIndex = getTargetIndexWithMethodReferenceName("show")
+            val dialogIndex = getTargetIndexWithMethodReferenceNameOrThrow("show")
             val dialogReference = getInstruction<ReferenceInstruction>(dialogIndex).reference
             val dialogDefiningClass = (dialogReference as MethodReference).definingClass
             val getButtonMethod = context.findClass(dialogDefiningClass)!!
@@ -123,7 +123,7 @@ abstract class BaseAdsPatch(
             val getButtonCall =
                 dialogDefiningClass + "->" + getButtonMethod.name + "(I)Landroid/widget/Button;"
             val dialogRegister = getInstruction<FiveRegisterInstruction>(dialogIndex).registerC
-            val freeIndex = getTargetIndex(dialogIndex, Opcode.IF_EQZ)
+            val freeIndex = getTargetIndexOrThrow(dialogIndex, Opcode.IF_EQZ)
             val freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
 
             addInstructions(

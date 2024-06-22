@@ -19,7 +19,7 @@ import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.recyclerview.BottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -61,7 +61,7 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
                 it.mutableMethod.apply {
                     val freeRegister = implementation!!.registerCount - parameters.size - 2
                     val imageSpanIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setTextIndex = getTargetIndexWithMethodReferenceName("setText")
+                    val setTextIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
 
                     addInstruction(setTextIndex, "nop")
                     addInstructionsWithLabels(
@@ -94,7 +94,7 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
         if (SettingsPatch.upward1902) {
             TextViewComponentFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = getTargetIndexWithMethodReferenceName("setTextIsSelectable")
+                    val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTextIsSelectable")
                     val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                     replaceInstruction(
@@ -111,7 +111,7 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
             )
             EngagementPanelTitleFingerprint.resultOrThrow().mutableMethod.apply {
                 val contentDescriptionIndex =
-                    getTargetIndexWithMethodReferenceName("setContentDescription")
+                    getTargetIndexWithMethodReferenceNameOrThrow("setContentDescription")
                 val contentDescriptionRegister =
                     getInstruction<FiveRegisterInstruction>(contentDescriptionIndex).registerD
 

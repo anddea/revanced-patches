@@ -15,9 +15,9 @@ import app.revanced.patches.shared.litho.fingerprints.LithoFilterPatchConstructo
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
 import app.revanced.patches.shared.litho.fingerprints.SetByteBufferFingerprint
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
-import app.revanced.util.getTargetIndexWithFieldReferenceType
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
@@ -56,7 +56,7 @@ object LithoFilterPatch : BytecodePatch(
 
         SetByteBufferFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndex(Opcode.IF_EQZ) + 1
+                val insertIndex = getTargetIndexOrThrow(Opcode.IF_EQZ) + 1
 
                 addInstruction(
                     insertIndex,
@@ -136,17 +136,17 @@ object LithoFilterPatch : BytecodePatch(
                 }
 
                 val stringBuilderIndex =
-                    getTargetIndexWithFieldReferenceType("Ljava/lang/StringBuilder;")
+                    getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/lang/StringBuilder;")
                 val stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
                 val emptyStringIndex = getStringInstructionIndex("")
 
-                val identifierIndex = getTargetIndexReversed(emptyStringIndex, Opcode.IPUT_OBJECT)
+                val identifierIndex = getTargetIndexReversedOrThrow(emptyStringIndex, Opcode.IPUT_OBJECT)
                 val identifierRegister =
                     getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
 
-                val objectIndex = getTargetIndex(emptyStringIndex, Opcode.INVOKE_VIRTUAL)
+                val objectIndex = getTargetIndexOrThrow(emptyStringIndex, Opcode.INVOKE_VIRTUAL)
                 val objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
 
                 val insertIndex = stringBuilderIndex + 1

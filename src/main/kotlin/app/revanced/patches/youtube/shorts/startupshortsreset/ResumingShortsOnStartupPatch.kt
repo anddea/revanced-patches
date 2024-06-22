@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -70,12 +70,11 @@ object ResumingShortsOnStartupPatch : BaseBytecodePatch(
 
         UserWasInShortsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val listenableInstructionIndex = indexOfFirstInstruction {
+                val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE &&
                             getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                             getReference<MethodReference>()?.name == "isDone"
                 }
-                if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
                 val originalInstructionRegister =
                     getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
                 val freeRegister =

@@ -18,8 +18,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexWithReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -84,7 +84,7 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         PlayerButtonConstructorFingerprint.resultOrThrow().mutableMethod.apply {
             val registerResolver = implementation!!.registerCount - parameters.size - 1 + 6 // p6
 
-            val invokerObjectIndex = indexOfFirstInstruction {
+            val invokerObjectIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT
                         && getReference<FieldReference>()?.definingClass == definingClass
                         && (this as TwoRegisterInstruction).registerA == registerResolver
@@ -93,7 +93,7 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
                 getInstruction<ReferenceInstruction>(invokerObjectIndex).reference
 
             val onClickListenerReferenceIndex =
-                getTargetIndexWithReference("<init>(Ljava/lang/Object;I[B)V")
+                getTargetIndexWithReferenceOrThrow("<init>(Ljava/lang/Object;I[B)V")
             val onClickListenerReference =
                 getInstruction<ReferenceInstruction>(onClickListenerReferenceIndex).reference
             val onClickListenerClass =
@@ -103,7 +103,7 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
             onClickListenerClass.methods.find { method -> method.name == "onClick" }
                 ?.apply {
                     val invokeInterfaceIndex =
-                        getTargetIndexWithReference(invokerObjectReference.toString()) + 1
+                        getTargetIndexWithReferenceOrThrow(invokerObjectReference.toString()) + 1
                     if (getInstruction(invokeInterfaceIndex).opcode != Opcode.INVOKE_INTERFACE)
                         throw PatchException("Opcode does not match")
                     invokeInterfaceReference =

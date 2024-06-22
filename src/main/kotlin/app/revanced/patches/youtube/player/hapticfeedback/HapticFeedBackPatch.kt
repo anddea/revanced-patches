@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.player.hapticfeedback.fingerprints.ZoomHapti
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -65,7 +65,7 @@ object HapticFeedBackPatch : BaseBytecodePatch(
                 var register = 0
 
                 if (name == "run") {
-                    index = getTargetIndex(Opcode.SGET)
+                    index = getTargetIndexOrThrow(Opcode.SGET)
                     register = getInstruction<OneRegisterInstruction>(index).registerA
                 }
 

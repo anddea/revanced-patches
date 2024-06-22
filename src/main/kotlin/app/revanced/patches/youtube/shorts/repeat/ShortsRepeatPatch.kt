@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.containsReferenceInstructionIndex
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -45,7 +45,7 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                 val endScreenStringIndex =
                     getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
                 val endScreenReferenceIndex =
-                    getTargetIndex(endScreenStringIndex, Opcode.SPUT_OBJECT)
+                    getTargetIndexOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
                 val endScreenReference =
                     getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
 
@@ -74,7 +74,7 @@ object ShortsRepeatPatch : BaseBytecodePatch(
         fieldName: String
     ) {
         val stringIndex = getStringInstructionIndex(enumName)
-        val insertIndex = getTargetIndex(stringIndex, Opcode.SPUT_OBJECT)
+        val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.SPUT_OBJECT)
         val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
         addInstruction(

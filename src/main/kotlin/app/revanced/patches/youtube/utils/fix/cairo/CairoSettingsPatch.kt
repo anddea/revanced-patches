@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.utils.fix.cairo.fingerprints.CarioFragmentConfigFingerprint
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -33,7 +33,7 @@ object CairoSettingsPatch : BytecodePatch(
         CarioFragmentConfigFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getTargetIndex(getWideLiteralInstructionIndex(45532100), Opcode.MOVE_RESULT)
+                    getTargetIndexOrThrow(getWideLiteralInstructionIndex(45532100), Opcode.MOVE_RESULT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

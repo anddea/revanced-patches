@@ -13,7 +13,7 @@ import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.LikeFi
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.music.utils.returnyoutubedislike.fingerprints.TextComponentFingerprint
 import app.revanced.patches.music.video.videoid.VideoIdPatch
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -53,7 +53,7 @@ object ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
 
         TextComponentFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = indexOfFirstInstruction {
+                val insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC
                             && (this as ReferenceInstruction).reference.toString()
                         .endsWith("Ljava/lang/CharSequence;")

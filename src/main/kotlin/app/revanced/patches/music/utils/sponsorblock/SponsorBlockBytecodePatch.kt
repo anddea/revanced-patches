@@ -14,8 +14,8 @@ import app.revanced.patches.music.utils.sponsorblock.fingerprints.MusicPlaybackC
 import app.revanced.patches.music.utils.sponsorblock.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.videoid.VideoIdPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -70,7 +70,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Set seekbar thickness
-                val roundIndex = getTargetIndexWithMethodReferenceName("round") + 1
+                val roundIndex = getTargetIndexWithMethodReferenceNameOrThrow("round") + 1
                 val roundRegister = getInstruction<OneRegisterInstruction>(roundIndex).registerA
                 addInstruction(
                     roundIndex + 1,
@@ -79,7 +79,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Draw segment
-                val drawCircleIndex = getTargetIndexWithMethodReferenceNameReversed("drawCircle")
+                val drawCircleIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("drawCircle")
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 addInstruction(
                     drawCircleIndex,
@@ -114,7 +114,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Draw segment
-                val drawCircleIndex = getTargetIndexWithMethodReferenceName("drawCircle")
+                val drawCircleIndex = getTargetIndexWithMethodReferenceNameOrThrow("drawCircle")
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 addInstruction(
                     drawCircleIndex,

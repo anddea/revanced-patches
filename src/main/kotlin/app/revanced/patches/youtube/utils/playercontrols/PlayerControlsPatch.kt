@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.MotionEven
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityEntityModelFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -56,7 +56,7 @@ object PlayerControlsPatch : BytecodePatch(
         )
         PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val viewIndex = getTargetIndex(Opcode.INVOKE_INTERFACE)
+                val viewIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstruction(
@@ -88,7 +88,7 @@ object PlayerControlsPatch : BytecodePatch(
             YouTubeControlsOverlayFingerprint.resultOrThrow().mutableClass
         )
         MotionEventFingerprint.resultOrThrow().mutableMethod.apply {
-            val insertIndex = getTargetIndexWithMethodReferenceName("setTranslationY") + 1
+            val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTranslationY") + 1
 
             addInstruction(
                 insertIndex,

@@ -20,12 +20,12 @@ import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverla
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -102,7 +102,7 @@ object SpeedOverlayPatch : BytecodePatch(
             // Used on YouTube 19.18.41~
 
             NextGenWatchLayoutFingerprint.resultOrThrow().mutableMethod.apply {
-                val booleanValueIndex = getTargetIndexWithMethodReferenceName("booleanValue")
+                val booleanValueIndex = getTargetIndexWithMethodReferenceNameOrThrow("booleanValue")
 
                 val insertIndex = findIGetIndex(booleanValueIndex - 10, booleanValueIndex)
                 val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
@@ -139,9 +139,9 @@ object SpeedOverlayPatch : BytecodePatch(
             }
 
             slideToSeekBooleanMethod.apply {
-                var insertIndex = getTargetIndex(Opcode.IGET_OBJECT)
+                var insertIndex = getTargetIndexOrThrow(Opcode.IGET_OBJECT)
                 var insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                var jumpIndex = getTargetIndexReversed(Opcode.INVOKE_VIRTUAL)
+                var jumpIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_VIRTUAL)
 
                 hook(insertIndex, insertRegister, jumpIndex)
 
@@ -151,7 +151,7 @@ object SpeedOverlayPatch : BytecodePatch(
                         ?: throw PatchException("Could not find constructor method")
 
                 constructorMethod.apply {
-                    val syntheticIndex = getTargetIndexReversed(Opcode.NEW_INSTANCE)
+                    val syntheticIndex = getTargetIndexReversedOrThrow(Opcode.NEW_INSTANCE)
                     val syntheticClass =
                         getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
 
@@ -162,7 +162,7 @@ object SpeedOverlayPatch : BytecodePatch(
 
                     syntheticMethod.apply {
                         val speedOverlayValueIndex =
-                            indexOfFirstInstruction { (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
+                            indexOfFirstInstructionOrThrow { (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
                         val speedOverlayValueRegister =
                             getInstruction<OneRegisterInstruction>(speedOverlayValueIndex).registerA
 
@@ -173,13 +173,13 @@ object SpeedOverlayPatch : BytecodePatch(
                                 """
                         )
 
-                        insertIndex = getTargetIndexWithMethodReferenceNameReversed(
+                        insertIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow(
                             speedOverlayValueIndex,
                             "removeCallbacks"
                         ) + 1
                         insertRegister =
                             getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
-                        jumpIndex = getTargetIndex(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
+                        jumpIndex = getTargetIndexOrThrow(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
                         hook(insertIndex, insertRegister, jumpIndex)
                     }
                 }

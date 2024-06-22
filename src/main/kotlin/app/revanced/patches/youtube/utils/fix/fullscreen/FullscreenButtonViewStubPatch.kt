@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonViewStubFingerprint
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -33,7 +33,7 @@ object FullscreenButtonViewStubPatch : BytecodePatch(
         ).forEach { (fingerprint, literalValue) ->
             fingerprint.result?.let {
                 it.mutableMethod.apply {
-                    val targetIndex = getTargetIndex(
+                    val targetIndex = getTargetIndexOrThrow(
                         getWideLiteralInstructionIndex(literalValue.toLong()),
                         Opcode.MOVE_RESULT
                     )

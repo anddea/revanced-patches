@@ -38,9 +38,9 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FadeD
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ScrimOverlay
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SeekUndoEduOverlayStub
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -90,7 +90,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(ScrimOverlay)
-                val targetIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -203,7 +203,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(FadeDurationFast)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val insertIndex = getTargetIndexReversed(constIndex, Opcode.INVOKE_VIRTUAL) + 1
+                val insertIndex = getTargetIndexReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
                 val jumpIndex = implementation!!.instructions.let { instruction ->
                     insertIndex + instruction.subList(insertIndex, instruction.size - 1)
                         .indexOfFirst { instructions ->
@@ -272,7 +272,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 val onClickListenerIndex =
-                    getTargetIndexWithMethodReferenceName(insertIndex, "setOnClickListener")
+                    getTargetIndexWithMethodReferenceNameOrThrow(insertIndex, "setOnClickListener")
                 val constComponent = getConstComponent(insertIndex, onClickListenerIndex - 1)
 
                 if (constComponent.isNotEmpty()) {
@@ -318,7 +318,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 method.parameters == listOf("Landroid/view/View${'$'}OnClickListener;")
             }?.apply {
                 val setOnClickListenerIndex =
-                    getTargetIndexWithMethodReferenceName("setOnClickListener")
+                    getTargetIndexWithMethodReferenceNameOrThrow("setOnClickListener")
                 val setOnClickListenerRegister =
                     getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
