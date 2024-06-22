@@ -14,15 +14,15 @@ import java.nio.file.Files
 @Suppress("DEPRECATION", "unused")
 object DoubleTapLengthPatch : BaseResourcePatch(
     name = "Custom double tap length",
-    description = "Adds 'double-tap to seek' values that are specified in options.json.",
+    description = "Adds Double-tap to seek values that are specified in options.json.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
     private val DoubleTapLengthArrays by stringPatchOption(
         key = "DoubleTapLengthArrays",
         default = "3, 5, 10, 15, 20, 30, 60, 120, 180",
-        title = "Double-tap to seek Values",
-        description = "A list of custom double-tap to seek lengths to be added, separated by commas.",
+        title = "Double-tap to seek values",
+        description = "A list of custom Double-tap to seek lengths to be added, separated by commas.",
         required = true
     )
 
