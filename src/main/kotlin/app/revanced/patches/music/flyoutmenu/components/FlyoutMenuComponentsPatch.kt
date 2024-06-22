@@ -25,11 +25,11 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -98,7 +98,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                     val constIndex =
                         getWideLiteralInstructionIndex(SharedResourceIdPatch.TrimSilenceSwitch)
                     val onCheckedChangedListenerIndex =
-                        getTargetIndex(constIndex, Opcode.INVOKE_DIRECT)
+                        getTargetIndexOrThrow(constIndex, Opcode.INVOKE_DIRECT)
                     val onCheckedChangedListenerReference =
                         getInstruction<ReferenceInstruction>(onCheckedChangedListenerIndex).reference
                     val onCheckedChangedListenerDefiningClass =
@@ -108,7 +108,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
 
                     onCheckedChangedListenerClass.methods.find { method -> method.name == "onCheckedChanged" }
                         ?.apply {
-                            val walkerIndex = indexOfFirstInstruction {
+                            val walkerIndex = indexOfFirstInstructionOrThrow {
                                 val reference =
                                     ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
@@ -118,7 +118,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                                         && reference.parameterTypes[0] == "Z"
                             }
                             getWalkerMethod(context, walkerIndex).apply {
-                                val insertIndex = getTargetIndex(Opcode.MOVE_RESULT)
+                                val insertIndex = getTargetIndexOrThrow(Opcode.MOVE_RESULT)
                                 val insertRegister =
                                     getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -142,7 +142,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
 
         MenuItemFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val freeIndex = getTargetIndex(Opcode.OR_INT_LIT16)
+                val freeIndex = getTargetIndexOrThrow(Opcode.OR_INT_LIT16)
                 val textViewIndex = it.scanResult.patternScanResult!!.startIndex
                 val imageViewIndex = it.scanResult.patternScanResult!!.endIndex
 
@@ -153,7 +153,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                 val imageViewRegister =
                     getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
 
-                val enumIndex = indexOfFirstInstruction {
+                val enumIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC
                             && (this as? ReferenceInstruction)?.reference.toString()
                         .contains("(I)L")
@@ -176,7 +176,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
         TouchOutsideFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val setOnClickListenerIndex =
-                    getTargetIndexWithMethodReferenceName("setOnClickListener")
+                    getTargetIndexWithMethodReferenceNameOrThrow("setOnClickListener")
                 val setOnClickListenerRegister =
                     getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
@@ -190,7 +190,7 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
         EndButtonsContainerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val startIndex = getWideLiteralInstructionIndex(EndButtonsContainer)
-                val targetIndex = getTargetIndex(startIndex, Opcode.MOVE_RESULT_OBJECT)
+                val targetIndex = getTargetIndexOrThrow(startIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

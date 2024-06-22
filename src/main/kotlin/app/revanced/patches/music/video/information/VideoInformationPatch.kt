@@ -23,8 +23,8 @@ import app.revanced.patches.music.video.information.fingerprints.VideoQualityLis
 import app.revanced.patches.music.video.information.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.addFieldAndInstructions
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversed
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversedOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -138,8 +138,8 @@ object VideoInformationPatch : BytecodePatch(
         )
         VideoLengthFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val invalidateIndex = getTargetIndexWithMethodReferenceNameReversed("invalidate")
-                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(
+                val invalidateIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
+                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversedOrThrow(
                     invalidateIndex + 1,
                     "Landroid/graphics/Rect;"
                 )

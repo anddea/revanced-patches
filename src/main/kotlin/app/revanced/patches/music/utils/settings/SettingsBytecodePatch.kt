@@ -17,7 +17,7 @@ import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerpr
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.patches.shared.fingerprints.SharedSettingFingerprint
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -52,7 +52,7 @@ object SettingsBytecodePatch : BytecodePatch(
          */
         SharedSettingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val stringIndex = getTargetIndex(Opcode.CONST_STRING)
+                val stringIndex = getTargetIndexOrThrow(Opcode.CONST_STRING)
                 val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
 
                 replaceInstruction(

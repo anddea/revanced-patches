@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionViewHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -64,7 +64,7 @@ object PlayerFlyoutMenuPatch : BaseBytecodePatch(
             QualityMenuViewInflateFingerprint
         ).forEach { fingerprint ->
             fingerprint.resultOrThrow().mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceName("addHeaderView")
+                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addHeaderView")
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstructions(

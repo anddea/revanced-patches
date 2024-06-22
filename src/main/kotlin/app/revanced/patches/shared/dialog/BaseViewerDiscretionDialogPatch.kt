@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.dialog.fingerprints.CreateDialogFingerprint
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -22,7 +22,7 @@ abstract class BaseViewerDiscretionDialogPatch(
     }
 ) {
     private fun MutableMethod.invoke(isAgeVerified: Boolean) {
-        val showDialogIndex = getTargetIndexWithMethodReferenceName("show")
+        val showDialogIndex = getTargetIndexWithMethodReferenceNameOrThrow("show")
         val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
         val methodName =

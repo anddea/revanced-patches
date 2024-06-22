@@ -29,8 +29,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelT
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionBooleanHook
@@ -132,10 +132,10 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val charSequenceIndex = getTargetIndexWithMethodReferenceName("getString") + 1
+                val charSequenceIndex = getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
                 val charSequenceRegister =
                     getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
-                val textViewIndex = getTargetIndexWithMethodReferenceName("getText")
+                val textViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("getText")
                 val textViewRegister =
                     getInstruction<FiveRegisterInstruction>(textViewIndex).registerC
 
@@ -204,7 +204,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
-                val viewIndex = getTargetIndex(Opcode.INVOKE_INTERFACE)
+                val viewIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstructionsWithLabels(

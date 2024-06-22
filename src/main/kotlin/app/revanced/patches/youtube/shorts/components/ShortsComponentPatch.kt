@@ -34,9 +34,9 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
-import app.revanced.util.getTargetIndexWithReference
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -96,7 +96,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
                 val constIndex = getWideLiteralInstructionIndex(ReelRightDislikeIcon)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 
-                val jumpIndex = getTargetIndex(constIndex, Opcode.CONST_CLASS) + 2
+                val jumpIndex = getTargetIndexOrThrow(constIndex, Opcode.CONST_CLASS) + 2
 
                 addInstructionsWithLabels(
                     constIndex + 1, """
@@ -117,7 +117,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val insertIndex = getWideLiteralInstructionIndex(ReelRightLikeIcon)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-                val jumpIndex = getTargetIndex(insertIndex, Opcode.CONST_CLASS) + 2
+                val jumpIndex = getTargetIndexOrThrow(insertIndex, Opcode.CONST_CLASS) + 2
 
                 addInstructionsWithLabels(
                     insertIndex + 1, """
@@ -139,8 +139,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
                 val targetIndex = getWideLiteralInstructionIndex(ReelForcedMuteButton)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                val insertIndex = getTargetIndexReversed(targetIndex, Opcode.IF_EQZ)
-                val jumpIndex = getTargetIndex(targetIndex, Opcode.GOTO)
+                val insertIndex = getTargetIndexReversedOrThrow(targetIndex, Opcode.IF_EQZ)
+                val jumpIndex = getTargetIndexOrThrow(targetIndex, Opcode.GOTO)
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -157,7 +157,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
                         (instruction.value as? WideLiteralInstruction)?.wideLiteral == ReelPivotButton
                     }
                 val targetIndex = constCalls.elementAt(constCalls.size - 1).index
-                val insertIndex = getTargetIndexReversed(targetIndex, Opcode.INVOKE_STATIC) + 1
+                val insertIndex = getTargetIndexReversedOrThrow(targetIndex, Opcode.INVOKE_STATIC) + 1
                 if (insertIndex == 0)
                     throw PatchException("insert index not found")
 
@@ -267,7 +267,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         TextComponentSpecFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex =
-                    getTargetIndexWithReference("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
+                    getTargetIndexWithReferenceOrThrow("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
 
                 val charSequenceRegister =
                     getInstruction<FiveRegisterInstruction>(insertIndex).registerC
@@ -318,9 +318,9 @@ object ShortsComponentPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(id)
                 val insertIndex = if (reversed)
-                    getTargetIndexReversed(constIndex, Opcode.CHECK_CAST)
+                    getTargetIndexReversedOrThrow(constIndex, Opcode.CHECK_CAST)
                 else
-                    getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                    getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -338,7 +338,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         resultOrThrow().let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(id)
-                val insertIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val insertIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
 
                 hideButtons(insertIndex, descriptor)
             }

@@ -11,8 +11,8 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -49,9 +49,9 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
                     getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
                 val targetIndex =
                     if (reversed)
-                        getTargetIndexReversed(stringIndex, Opcode.INVOKE_DIRECT)
+                        getTargetIndexReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
                     else
-                        getTargetIndex(stringIndex, Opcode.INVOKE_DIRECT)
+                        getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
                 val targetClass =
                     (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
 

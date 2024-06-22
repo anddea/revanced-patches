@@ -15,10 +15,10 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.LikeDis
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithReference
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -48,7 +48,7 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
 
                 // hook download button
-                val addViewIndex = getTargetIndexWithMethodReferenceName("addView")
+                val addViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
                 val addViewRegister =
                     getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
 
@@ -58,13 +58,13 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
                 )
 
                 // hide action button label
-                val noLabelIndex = indexOfFirstInstruction {
+                val noLabelIndex = indexOfFirstInstructionOrThrow {
                     val reference = (this as? ReferenceInstruction)?.reference.toString()
                     opcode == Opcode.INVOKE_DIRECT
                             && reference.endsWith("<init>(Landroid/content/Context;)V")
                             && !reference.contains("Lcom/google/android/libraries/youtube/common/ui/YouTubeButton;")
                 } - 2
-                val replaceIndex = indexOfFirstInstruction {
+                val replaceIndex = indexOfFirstInstructionOrThrow {
                     val reference = (this as? ReferenceInstruction)?.reference.toString()
                     opcode == Opcode.INVOKE_DIRECT
                             && reference.endsWith("Lcom/google/android/libraries/youtube/common/ui/YouTubeButton;-><init>(Landroid/content/Context;)V")
@@ -83,10 +83,10 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
                 removeInstruction(replaceIndex)
 
                 // hide action button
-                val hasNextIndex = getTargetIndexWithMethodReferenceName("hasNext")
+                val hasNextIndex = getTargetIndexWithMethodReferenceNameOrThrow("hasNext")
                 val freeRegister = min(implementation!!.registerCount - parameters.size - 2, 15)
 
-                val spannedIndex = getTargetIndexWithReference(")Landroid/text/Spanned;")
+                val spannedIndex = getTargetIndexWithReferenceOrThrow(")Landroid/text/Spanned;")
                 val spannedRegister =
                     getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
                 val spannedReference = getInstruction<ReferenceInstruction>(spannedIndex).reference

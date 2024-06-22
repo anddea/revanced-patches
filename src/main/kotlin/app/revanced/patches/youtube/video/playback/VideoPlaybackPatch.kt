@@ -34,7 +34,9 @@ import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -133,7 +135,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             speedSelectionInsertMethod
         ).forEach {
             it.apply {
-                val speedSelectionValueInstructionIndex = getTargetIndex(Opcode.IGET)
+                val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
                 val speedSelectionValueRegister =
                     getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
@@ -206,7 +208,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
         QualityMenuViewInflateFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndex(Opcode.CHECK_CAST)
+                val insertIndex = getTargetIndexOrThrow(Opcode.CHECK_CAST)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -219,10 +221,10 @@ object VideoPlaybackPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
-                val insertIndex = getTargetIndex(Opcode.IGET_OBJECT)
+                val insertIndex = getTargetIndexOrThrow(Opcode.IGET_OBJECT)
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = indexOfFirstInstruction {
+                val jumpIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IGET_OBJECT
                             && this.getReference<FieldReference>()?.type == videoQualityClass
                 }

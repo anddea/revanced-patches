@@ -9,7 +9,7 @@ import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DES
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -28,7 +28,7 @@ object OldStyleLibraryShelfPatch : BaseBytecodePatch(
         BrowseIdFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val stringIndex = getStringInstructionIndex("FEmusic_offline")
-                val targetIndex = getTargetIndexReversed(stringIndex, Opcode.IGET_OBJECT)
+                val targetIndex = getTargetIndexReversedOrThrow(stringIndex, Opcode.IGET_OBJECT)
                 val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

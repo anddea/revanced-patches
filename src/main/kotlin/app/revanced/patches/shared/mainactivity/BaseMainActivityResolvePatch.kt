@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import kotlin.properties.Delegates
@@ -37,7 +37,7 @@ abstract class BaseMainActivityResolvePatch(
 
         // set onBackPressed method
         onBackPressedMethod = getMethod("onBackPressed")
-        onBackPressedMethodIndex = onBackPressedMethod.getTargetIndex(Opcode.RETURN_VOID)
+        onBackPressedMethodIndex = onBackPressedMethod.getTargetIndexOrThrow(Opcode.RETURN_VOID)
     }
 
     fun injectConstructorMethodCall(classDescriptor: String, methodDescriptor: String) =

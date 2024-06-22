@@ -27,8 +27,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AccountSwitcherAccessibility
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.viewgroup.ViewGroupMarginLayoutParamsHookPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithFieldReferenceType
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceName
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
@@ -173,7 +173,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         AccountSwitcherAccessibilityLabelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(AccountSwitcherAccessibility)
-                val insertIndex = getTargetIndex(constIndex, Opcode.IF_EQZ)
+                val insertIndex = getTargetIndexOrThrow(constIndex, Opcode.IF_EQZ)
                 val setVisibilityIndex =
                     getTargetIndexWithMethodReferenceName(insertIndex, "setVisibility")
                 val visibilityRegister =
@@ -195,7 +195,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         SettingsMenuFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex =
-                    getTargetIndexWithFieldReferenceType("Landroid/support/v7/widget/RecyclerView;")
+                    getTargetIndexWithFieldReferenceTypeOrThrow("Landroid/support/v7/widget/RecyclerView;")
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -229,7 +229,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         TooltipContentFullscreenFingerprint.resultOrThrow().mutableMethod.apply {
             val literalIndex = getWideLiteralInstructionIndex(45384061)
-            val targetIndex = getTargetIndex(literalIndex, Opcode.MOVE_RESULT)
+            val targetIndex = getTargetIndexOrThrow(literalIndex, Opcode.MOVE_RESULT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

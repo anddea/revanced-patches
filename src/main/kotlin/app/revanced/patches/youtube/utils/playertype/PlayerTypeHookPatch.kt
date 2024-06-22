@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFinge
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -90,7 +90,7 @@ object PlayerTypeHookPatch : BytecodePatch(
 
                 targetClass.methods.find { method -> method.name == "<init>" }
                     ?.apply {
-                        val browseIdFieldIndex = getTargetIndex(Opcode.IPUT_OBJECT)
+                        val browseIdFieldIndex = getTargetIndexOrThrow(Opcode.IPUT_OBJECT)
                         val browseIdFieldName =
                             (getInstruction<ReferenceInstruction>(browseIdFieldIndex).reference as FieldReference).name
 
@@ -128,7 +128,7 @@ object PlayerTypeHookPatch : BytecodePatch(
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
-            val instructionIndex = getTargetIndexWithMethodReferenceName("setLayoutDirection")
+            val instructionIndex = getTargetIndexWithMethodReferenceNameOrThrow("setLayoutDirection")
             val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
             addInstruction(

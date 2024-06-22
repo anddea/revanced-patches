@@ -39,10 +39,10 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.doRecursively
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithReference
-import app.revanced.util.getTargetIndexWithReferenceReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getTargetIndexWithReferenceReversedOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionHook
@@ -129,7 +129,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         )
         DrawerContentViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceName("addView")
+                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstruction(
@@ -145,7 +145,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         setActionBarRingoMutableClass.methods.first { method ->
             MethodUtil.isConstructor(method)
         }.apply {
-            val insertIndex = getTargetIndex(Opcode.IPUT_BOOLEAN)
+            val insertIndex = getTargetIndexOrThrow(Opcode.IPUT_BOOLEAN)
             val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(
@@ -278,12 +278,12 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         CreateSearchSuggestionsFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
                 val relativeIndex = getWideLiteralInstructionIndex(40)
-                val replaceIndex = getTargetIndexWithReferenceReversed(
+                val replaceIndex = getTargetIndexWithReferenceReversedOrThrow(
                     relativeIndex,
                     "Landroid/widget/ImageView;->setVisibility(I)V"
                 ) - 1
 
-                val jumpIndex = getTargetIndexWithReference(
+                val jumpIndex = getTargetIndexWithReferenceOrThrow(
                     relativeIndex,
                     "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
                 ) + 4
@@ -333,7 +333,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
                     val setVisibilityIndex =
-                        getTargetIndexWithMethodReferenceName(startIndex, "setVisibility")
+                        getTargetIndexWithMethodReferenceNameOrThrow(startIndex, "setVisibility")
                     val setVisibilityInstruction =
                         getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
@@ -349,7 +349,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = getWideLiteralInstructionIndex(VoiceSearch)
                     val setOnClickListenerIndex =
-                        getTargetIndexWithMethodReferenceName(startIndex, "setOnClickListener")
+                        getTargetIndexWithMethodReferenceNameOrThrow(startIndex, "setOnClickListener")
                     val viewRegister =
                         getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 

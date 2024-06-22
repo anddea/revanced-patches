@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_D
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -82,7 +82,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
 
         PivotBarSetTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceName("setText")
+                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
