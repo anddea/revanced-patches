@@ -100,10 +100,17 @@ abstract class BaseGmsCoreSupportResourcePatch(
             ).replace(
                 "com.google.android.c2dm",
                 "$gmsCoreVendorGroupId.android.c2dm",
-            ).replace(
-                "</queries>",
-                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
             ),
         )
+
+        // 'QUERY_ALL_PACKAGES' permission is required,
+        // To check whether apps such as GmsCore, YouTube or YouTube Music are installed on the device.
+        xmlEditor["AndroidManifest.xml"].use { editor ->
+            editor.file.getElementsByTagName("manifest").item(0).also {
+                it.appendChild(it.ownerDocument.createElement("uses-permission").also { element ->
+                    element.setAttribute("android:name", "android.permission.QUERY_ALL_PACKAGES")
+                })
+            }
+        }
     }
 }
