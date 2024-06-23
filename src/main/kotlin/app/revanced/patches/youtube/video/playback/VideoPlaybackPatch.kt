@@ -33,9 +33,8 @@ import app.revanced.patches.youtube.video.playback.fingerprints.QualitySetterFin
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -44,6 +43,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
@@ -108,14 +108,24 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         // region patch for disable HDR video
 
         HDRCapabilityFingerprint.resultOrThrow().mutableMethod.apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $INTEGRATIONS_HDR_VIDEO_CLASS_DESCRIPTOR->disableHDRVideo()Z
-                    move-result v0
-                    if-nez v0, :default
-                    return v0
-                    """, ExternalLabel("default", getInstruction(0))
-            )
+            val stringIndex = getStringInstructionIndex("av1_profile_main_10_hdr_10_plus_supported")
+            val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                val reference = getReference<MethodReference>()
+                        reference?.parameterTypes == listOf("I", "Landroid/view/Display;")
+                        && reference.returnType == "Z"
+            }
+
+            val walkerMethod = getWalkerMethod(context, walkerIndex)
+            walkerMethod.apply {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $INTEGRATIONS_HDR_VIDEO_CLASS_DESCRIPTOR->disableHDRVideo()Z
+                        move-result v0
+                        if-nez v0, :default
+                        return v0
+                        """, ExternalLabel("default", getInstruction(0))
+                )
+            }
         }
 
         // endregion
