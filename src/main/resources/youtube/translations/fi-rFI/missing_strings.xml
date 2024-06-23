@@ -28,7 +28,7 @@
     <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
     <string name="revanced_hide_fullscreen_ads_type_summary_off">"Fullscreen ads are blocked.
 
-Limitation: Community post image on the fullscreen may be blocked."</string>
+Side effect: Community post images may be blocked in fullscreen."</string>
     <string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
     <string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
@@ -56,7 +56,7 @@ Limitation: Community post image on the fullscreen may be blocked."</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"Suggested video end screen is hidden when autoplay is turned off.
 
 Autoplay can be changed in YouTube settings:
-'Settings → Autoplay → Autoplay next video'"</string>
+Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_mmt_blue">MMT Blue</string>
@@ -126,7 +126,10 @@ It may take longer to fetch the channel name."</string>
 Side effects include:
 • No HDR video.
 • Audio track menu is missing.
-• Captions may not be available."</string>
+• Captions may not be available.
+• Download button is missing.
+• End screen cards are missing.
+• Low quality seekbar thumbnail."</string>
     <string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
     <string name="revanced_spoof_client_use_android_tv_summary">"Spoof client to Android TV (YouTube TV).
 
@@ -134,6 +137,8 @@ Side effects include:
 • No HDR video.
 • Audio track menu is missing.
 • Captions may not be available.
+• Download button is missing.
+• Low quality seekbar thumbnail.
 • Some live streams are not supported for playback."</string>
     <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
     <string name="revanced_spoof_client_use_android_vr_summary">"Spoof client to Android VR.
@@ -184,4 +189,32 @@ Side effects include:
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_extended_confirm_user_dialog_title">Do you wish to proceed?</string>
+    <string name="revanced_hide_subscriptions_carousel_title">Hide subscriptions carousel</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_on">Subscriptions carousel is hidden.</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_off">Subscriptions carousel is shown.</string>
+    <string name="revanced_miniplayer_enable_drag_and_drop_title">Enable drag and drop</string>
+    <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Drag and drop is enabled.</string>
+    <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Drag and drop is disabled.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
+    <string name="revanced_disable_ambient_mode_summary_on">Ambient mode is disabled.</string>
+    <string name="revanced_disable_ambient_mode_summary_off">Ambient mode is enabled.</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">Ambient mode is disabled in fullscreen.</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">Ambient mode is enabled in fullscreen.</string>
+    <string name="revanced_enable_cairo_seekbar_title">Enable Cairo seekbar</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo seekbar is enabled.
+
+Side effect: Cairo theme is also applied to notification dots."</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo seekbar is disabled.</string>
+    <string name="revanced_hide_attributes_section_title">Hide Attributes section</string>
+    <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, and Music sections are hidden.</string>
+    <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, and Music sections are shown.</string>
+    <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
+    <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden.</string>
+    <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown.</string>
+    <string name="revanced_replace_channel_handle_title">Replace channel handle</string>
+    <string name="revanced_replace_channel_handle_summary_on">Channel name is used.</string>
+    <string name="revanced_replace_channel_handle_summary_off">Channel handle is used.</string>
 </resources>

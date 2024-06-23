@@ -114,8 +114,12 @@ Tocca qui per saperne di più su DeArrow"</string>
 	<string name="revanced_default_video_quality_mobile_title">Qualità predefinita dei video con connessione dati</string>
 	<string name="revanced_default_video_quality_wifi_title">Qualità predefinita dei video con Wi-Fi</string>
 	<string name="revanced_disable_ambient_mode_in_fullscreen_summary">Disattiva la modalità Ambient a schermo intero</string>
+	<string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">La modalità Ambient è abilitata a schermo intero.</string>
+	<string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">La modalità Ambient è disabilitata a schermo intero.</string>
 	<string name="revanced_disable_ambient_mode_in_fullscreen_title">Disattiva la modalità Ambient a schermo intero</string>
 	<string name="revanced_disable_ambient_mode_summary">Disattiva sempre la modalità Ambient</string>
+	<string name="revanced_disable_ambient_mode_summary_off">La modalità Ambient è abilitata.</string>
+	<string name="revanced_disable_ambient_mode_summary_on">La modalità Ambient è disabilitata.</string>
 	<string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
 	<string name="revanced_disable_auto_audio_tracks_summary_off">Le tracce audio automatiche forzate sono abilitate.</string>
 	<string name="revanced_disable_auto_audio_tracks_summary_on">Le tracce audio automatiche forzate sono disattivate.</string>
@@ -179,6 +183,11 @@ Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"S
 • Tocca per scorrere.
 • Tocca e tieni premuto per selezionare il testo."</string>
 	<string name="revanced_disable_video_description_interaction_title">Disabilita l\'interazione della descrizione video</string>
+	<string name="revanced_enable_cairo_seekbar_summary_off">La barra di avanzamento Cairo e disabilitata.</string>
+	<string name="revanced_enable_cairo_seekbar_summary_on">"La barra di avanzamento Cairo è abilitata.
+
+Effetto collaterale: il tema Cairo viene applicato anche ai punti di notifica."</string>
+	<string name="revanced_enable_cairo_seekbar_title">Abilita la barra di avanzamento Cairo</string>
 	<string name="revanced_enable_compact_controls_overlay_summary_off">La sovrapposizione dei controlli compatti è disattivata</string>
 	<string name="revanced_enable_compact_controls_overlay_summary_on">La sovrapposizione dei controlli compatti è attivata</string>
 	<string name="revanced_enable_compact_controls_overlay_title">Attiva la sovrapposizione dei controlli compatti</string>
@@ -242,6 +251,9 @@ Nota: disattivando la sovrapposizione della velocità verrà ripristinato lo \"S
 	<string name="revanced_enable_tablet_mini_player_summary_off">Il riproduttore mini da tablet è disattivato</string>
 	<string name="revanced_enable_tablet_mini_player_summary_on">Il riproduttore mini da tablet è attivato</string>
 	<string name="revanced_enable_tablet_mini_player_title">Attiva il riproduttore mini da tablet</string>
+	<string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
+	<string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
+	<string name="revanced_enable_translucent_navigation_bar_title">Abilita barra di navigazione traslucida</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_off">L\'inserimento a schermo intero quando scorri giù sotto il lettore video è disabilitato.</string>
 	<string name="revanced_enable_watch_panel_gestures_summary_on">L\'inserimento a schermo intero quando scorri giù sotto il lettore video è abilitato.</string>
 	<string name="revanced_enable_watch_panel_gestures_title">Abilita i gesti del pannello di controllo</string>
@@ -263,6 +275,7 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
 	<string name="revanced_expand_video_description_summary_off">Le descrizioni video non vengono espanse automaticamente.</string>
 	<string name="revanced_expand_video_description_summary_on">Le descrizioni video vengono espanse automaticamente.</string>
 	<string name="revanced_expand_video_description_title">Espandi descrizioni video</string>
+	<string name="revanced_extended_confirm_user_dialog_title">Desideri procedere?</string>
 	<string name="revanced_extended_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
 	<string name="revanced_extended_restart_message">Aggiorna e riavvia</string>
 	<string name="revanced_extended_settings_export_failed">Impossibile esportare le impostazioni</string>
@@ -304,6 +317,9 @@ Alcuni componenti potrebbero non essere nascosti"</string>
 	<string name="revanced_hide_album_card_summary_off">Le schede degli album sono visibili</string>
 	<string name="revanced_hide_album_card_summary_on">Le schede degli album sono nascoste</string>
 	<string name="revanced_hide_album_card_title">Nascondi le schede degli album</string>
+	<string name="revanced_hide_attributes_section_summary_off">Luoghi in evidenza, Giochi e sezioni Musica sono mostrati.</string>
+	<string name="revanced_hide_attributes_section_summary_on">Luoghi in evidenza, Giochi e sezioni Musica sono nascosti.</string>
+	<string name="revanced_hide_attributes_section_title">Nascondi sezione Attributi</string>
 	<string name="revanced_hide_autoplay_preview_summary_off">Il contenitore dell\'anteprima della riproduzione automatica è visibile</string>
 	<string name="revanced_hide_autoplay_preview_summary_on">Il contenitore dell\'anteprima della riproduzione automatica è nascosto</string>
 	<string name="revanced_hide_autoplay_preview_title">Nascondi il contenitore dell\'anteprima della riproduzione automatica</string>
@@ -365,9 +381,9 @@ Negozio"</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">I pulsanti Timestamp ed emoji sono mostrati.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">I pulsanti Timestamp ed emoji sono nascosti.</string>
 	<string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Nascondi i pulsanti timestamp ed emoji</string>
-	<string name="revanced_hide_comments_by_members_summary_off">"Il banner dei commenti dei membri è visibile"</string>
-	<string name="revanced_hide_comments_by_members_summary_on">"Il banner dei commenti dei membri è nascosto"</string>
-	<string name="revanced_hide_comments_by_members_title">"Nascondi il banner dei commenti dei membri"</string>
+	<string name="revanced_hide_comments_by_members_summary_off">Il banner dei commenti dei membri è visibile</string>
+	<string name="revanced_hide_comments_by_members_summary_on">Il banner dei commenti dei membri è nascosto</string>
+	<string name="revanced_hide_comments_by_members_title">Nascondi il banner dei commenti dei membri</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_off">La sezione dei commenti è mostrata nel feed home.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_summary_on">La sezione Commenti è nascosta nella home feed.</string>
 	<string name="revanced_hide_comments_section_in_home_feed_title">Nascondi la sezione commenti nel feed home</string>
@@ -415,9 +431,9 @@ Negozio"</string>
 	<string name="revanced_hide_floating_microphone_summary_off">Il pulsante fluttuante del microfono è visibile</string>
 	<string name="revanced_hide_floating_microphone_summary_on">Il pulsante fluttuante del microfono è nascosto</string>
 	<string name="revanced_hide_floating_microphone_title">Nascondi il pulsante fluttuante del microfono</string>
-	<string name="revanced_hide_for_you_shelf_summary_off">"Lo scaffale Per Te è visibile"</string>
-	<string name="revanced_hide_for_you_shelf_summary_on">"Lo scaffale Per Te è nascosto"</string>
-	<string name="revanced_hide_for_you_shelf_title">"Nascondi lo scaffale Per Te"</string>
+	<string name="revanced_hide_for_you_shelf_summary_off">Lo scaffale Per Te è visibile</string>
+	<string name="revanced_hide_for_you_shelf_summary_on">Lo scaffale Per Te è nascosto</string>
+	<string name="revanced_hide_for_you_shelf_title">Nascondi lo scaffale Per Te</string>
 	<string name="revanced_hide_fullscreen_ads_blocked_success">Gli annunci a schermo intero sono stati bloccati. (DialogType: %s)</string>
 	<string name="revanced_hide_fullscreen_ads_closed_success">Gli annunci a schermo intero sono stati chiusi.</string>
 	<string name="revanced_hide_fullscreen_ads_summary_off">Gli annunci a schermo intero sono visibili.</string>
@@ -455,6 +471,9 @@ Limitazione: l'immagine dei post della community a schermo intero potrebbe esser
 	<string name="revanced_hide_join_button_summary_off">Il pulsante Abbonati è visibile</string>
 	<string name="revanced_hide_join_button_summary_on">Il pulsante Abbonati è nascosto</string>
 	<string name="revanced_hide_join_button_title">Nascondi il pulsante Abbonati</string>
+	<string name="revanced_hide_key_concepts_section_summary_off">La sezione dei concetti chiave è mostrata.</string>
+	<string name="revanced_hide_key_concepts_section_summary_on">La sezione dei concetti chiave è nascosta.</string>
+	<string name="revanced_hide_key_concepts_section_title">Nascondi sezione concetti chiave</string>
 	<string name="revanced_hide_keyword_content_about_summary">"I risultati di Home, Iscrizioni e Cerca vengono filtrati per nascondere i contenuti che corrispondono alle parole chiave.
 
 Problemi noti:
@@ -484,9 +503,9 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
 	<string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
 	<string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti</string>
 	<string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
-	<string name="revanced_hide_latest_videos_button_summary_off">"Il pulsante Video Più Recenti è visibile"</string>
-	<string name="revanced_hide_latest_videos_button_summary_on">"Il pulsante Video Più Recenti è nascosto"</string>
-	<string name="revanced_hide_latest_videos_button_title">"Nascondi il pulsante Video Più Recenti"</string>
+	<string name="revanced_hide_latest_videos_button_summary_off">Il pulsante Video Più Recenti è visibile</string>
+	<string name="revanced_hide_latest_videos_button_summary_on">Il pulsante Video Più Recenti è nascosto</string>
+	<string name="revanced_hide_latest_videos_button_title">Nascondi il pulsante Video Più Recenti</string>
 	<string name="revanced_hide_like_dislike_button_summary_off">I pulsanti Mi Piace e Non Mi Piace sono mostrati.</string>
 	<string name="revanced_hide_like_dislike_button_summary_on">I pulsanti Mi Piace e Non Mi Piace sono nascosti.</string>
 	<string name="revanced_hide_like_dislike_button_title">Nascondi i pulsanti Mi Piace e Non Mi Piace</string>
@@ -534,9 +553,9 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
 	<string name="revanced_hide_navigation_subscriptions_button_summary_off">Il pulsante di abbonamenti è mostrato.</string>
 	<string name="revanced_hide_navigation_subscriptions_button_summary_on">Il pulsante di abbonamenti è nascosto.</string>
 	<string name="revanced_hide_navigation_subscriptions_button_title">Nascondi il pulsante abbonamenti</string>
-	<string name="revanced_hide_notify_me_button_summary_off">"Il pulsante Avvisami nei feed è visibile"</string>
-	<string name="revanced_hide_notify_me_button_summary_on">"Il pulsante Avvisami nei feed è nascosto"</string>
-	<string name="revanced_hide_notify_me_button_title">"Nascondi il pulsante Avvisami nei feed"</string>
+	<string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami nei feed è visibile</string>
+	<string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami nei feed è nascosto</string>
+	<string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami nei feed</string>
 	<string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile.</string>
 	<string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta.</string>
 	<string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
@@ -807,15 +826,18 @@ Sottotitoli"</string>
 	<string name="revanced_hide_shorts_video_title_summary_off">Il titolo è mostrato.</string>
 	<string name="revanced_hide_shorts_video_title_summary_on">Il titolo è nascosto.</string>
 	<string name="revanced_hide_shorts_video_title_title">Nascondi il titolo del video</string>
-	<string name="revanced_hide_show_more_button_summary_off">"Il pulsante 'Mostra di più' è mostrato."</string>
-	<string name="revanced_hide_show_more_button_summary_on">"Il tasto 'mostra altro' è nascosto"</string>
-	<string name="revanced_hide_show_more_button_title">"Nascondi il pulsante 'Mostra di più'"</string>
+	<string name="revanced_hide_show_more_button_summary_off">Il pulsante \'Mostra di più\' è mostrato.</string>
+	<string name="revanced_hide_show_more_button_summary_on">Il tasto \'mostra altro\' è nascosto</string>
+	<string name="revanced_hide_show_more_button_title">Nascondi il pulsante \'Mostra di più\'</string>
 	<string name="revanced_hide_snack_bar_summary_off">Le notifiche snackbar sono visibili</string>
 	<string name="revanced_hide_snack_bar_summary_on">Le notifiche snackbar sono nascoste</string>
 	<string name="revanced_hide_snack_bar_title">Nascondi le notifiche snackbar</string>
 	<string name="revanced_hide_start_trial_button_summary_off">Il pulsante Avvia Prova è visibile</string>
 	<string name="revanced_hide_start_trial_button_summary_on">Il pulsante Avvia Prova è nascosto</string>
 	<string name="revanced_hide_start_trial_button_title">Nascondi il pulsante Avvia Prova</string>
+	<string name="revanced_hide_subscriptions_carousel_summary_off">Il casello degli abbonamenti è mostrato.</string>
+	<string name="revanced_hide_subscriptions_carousel_summary_on">Il casello degli abbonamenti è nascosto.</string>
+	<string name="revanced_hide_subscriptions_carousel_title">Nascondi il carosello degli abbonamenti</string>
 	<string name="revanced_hide_subscriptions_channel_section_summary_off">La sezione del canale abbonamenti è mostrata.</string>
 	<string name="revanced_hide_subscriptions_channel_section_summary_on">La sezione del canale abbonamenti è nascosta.</string>
 	<string name="revanced_hide_subscriptions_channel_section_title">Nascondi sezione del canale abbonamenti</string>
@@ -921,6 +943,9 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
 	<string name="revanced_keyword_filter_summary">Nasconde i video nei feed e dei risultati di ricerca utilizzando il filtro delle parole chiave</string>
 	<string name="revanced_keyword_filter_title">Filtro delle parole chiave</string>
 	<string name="revanced_label_default">Inventario</string>
+	<string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Trascinamento e rilascio è disabilitato.</string>
+	<string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Trascinamento e rilascio è abilitato.</string>
+	<string name="revanced_miniplayer_enable_drag_and_drop_title">Abilita trascinamento e rilascio</string>
 	<string name="revanced_miniplayer_hide_expand_close_summary_off">I pulsanti Espandi e chiudi sono mostrati.</string>
 	<string name="revanced_miniplayer_hide_expand_close_summary_on">I pulsanti sono nascosti.\n(fai scorrere il mini riproduttore per espandere o chiudere)</string>
 	<string name="revanced_miniplayer_hide_expand_close_title">Nascondi i pulsanti espandi e chiudi</string>
@@ -1071,6 +1096,9 @@ Verrà applicato un codec diverso dopo circa 20 secondi di buffering."</string>
 	<string name="revanced_remove_viewer_discretion_dialog_title">Nascondi la finestra di discrezione del visualizzatore</string>
 	<string name="revanced_replace_av1_codec_summary">Sostituisce il codec software AV1 con il codec VP9.</string>
 	<string name="revanced_replace_av1_codec_title">Sostituire il codec AV1 software</string>
+	<string name="revanced_replace_channel_handle_summary_off">Il manico del canale è usato.</string>
+	<string name="revanced_replace_channel_handle_summary_on">Il nome del canale è usato.</string>
+	<string name="revanced_replace_channel_handle_title">Sostituisci manico del canale</string>
 	<string name="revanced_replace_time_stamp_action_summary_off">Tocca per mostrare il tempo restante.</string>
 	<string name="revanced_replace_time_stamp_action_summary_on">Tocca per aprire la velocità di riproduzione o il menu a comparsa di qualità video.</string>
 	<string name="revanced_replace_time_stamp_action_title">Sostituire l\'azione timestamp</string>
@@ -1333,7 +1361,7 @@ Note:
 	<string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
 	<string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
 	<string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
-	<string name="revanced_spoof_app_version_target_entry_18_48_39">"18.48.39 - Disabilita 'visualizzazioni' e 'mi piace' dall'essere aggiornato in tempo reale"</string>
+	<string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disabilita \'visualizzazioni\' e \'mi piace\' dall\'essere aggiornato in tempo reale</string>
 	<string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
 	<string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
 	<string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
@@ -1418,9 +1446,9 @@ Problemi noti:
 • This client is used for testing purposes, so most YouTube features are not available.
 • There are no playback buffer issues in the test client."</string>
 	<string name="revanced_spoof_test_client_title">Spoof test client</string>
-	<string name="revanced_swipe_gestures_lock_mode_summary_off">"I gesti di trascinamento in modalità Blocca Schermo sono disattivati"</string>
-	<string name="revanced_swipe_gestures_lock_mode_summary_on">"I gesti di trascinamento in modalità Blocca Schermo sono attivati"</string>
-	<string name="revanced_swipe_gestures_lock_mode_title">"Attiva i gesti di trascinamento in modalità Blocca Schermo"</string>
+	<string name="revanced_swipe_gestures_lock_mode_summary_off">I gesti di trascinamento in modalità Blocca Schermo sono disattivati</string>
+	<string name="revanced_swipe_gestures_lock_mode_summary_on">I gesti di trascinamento in modalità Blocca Schermo sono attivati</string>
+	<string name="revanced_swipe_gestures_lock_mode_title">Attiva i gesti di trascinamento in modalità Blocca Schermo</string>
 	<string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">Automatico</string>
 	<string name="revanced_swipe_magnitude_threshold_summary">La quantità di interazioni prima che il trascinamento si verifichi</string>
 	<string name="revanced_swipe_magnitude_threshold_title">L\'ampiezza del limite di trascinamento</string>

@@ -1,77 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Shared PreferenceScreen -->
-    <!-- Shared Category -->
-    <!-- PreferenceScreen: Account -->
-    <string name="revanced_hide_account_menu_title">Nascondi il menu dell\'account</string>
-    <string name="revanced_hide_account_menu_summary">Nascondi gli elementi del menu dell\'account.</string>
-    <string name="revanced_hide_account_menu_empty_component_title">Nascondi componente vuoto</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">Nasconde i componenti vuoti nel menu dell\'account</string>
-    <string name="revanced_hide_terms_container_title">Nascondi contenitore termini</string>
-    <string name="revanced_hide_terms_container_summary">Nasconde il contenitore dei termini di servizio.</string>
-    <!-- PreferenceScreen: Action Bar -->
-    <string name="revanced_external_downloader_package_name_title">Nome del pacchetto downloader esterno</string>
-    <string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, come NewPipe o Seal.</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s non è installato. Installalo.</string>
-    <!-- PreferenceScreen: Ads -->
-    <string name="revanced_hide_music_ads_title">Nascondi le pubblicità musicali</string>
-    <!-- PreferenceScreen: Flyout -->
-    <string name="revanced_enable_compact_dialog_title">Abilita dialogo compatto</string>
-    <!-- PreferenceScreen: General -->
-    <string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici forzati</string>
-    <string name="revanced_disable_auto_captions_summary">Sottotitoli automatici forzati disabilitati.</string>
-    <string name="revanced_enable_landscape_mode_title">Abilita la modalità orizzontale</string>
-    <string name="revanced_enable_landscape_mode_summary">Consente l\'accesso alla modalità orizzontale ruotando lo schermo del telefono.</string>
-    <string name="revanced_custom_filter_title">Abilita filtri personalizzati</string>
-    <string name="revanced_custom_filter_summary">Abilita il filtro personalizzato per nascondere i componenti del layout.</string>
-    <string name="revanced_custom_filter_strings_title">Modifica i filtri personalizzati</string>
-    <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-    <string name="revanced_custom_filter_strings_summary">Filtra i nomi dei componenti separati da righe.</string>
-    <string name="revanced_hide_button_shelf_title">Nasconde lo scaffale dei pulsanti</string>
-    <string name="revanced_hide_button_shelf_summary">Nasconde lo scaffale dei pulsanti dalla home page e da Explorer.</string>
-    <string name="revanced_hide_carousel_shelf_summary">Nasconde lo scaffale del carosello dalla home page e da Explorer.</string>
-    <string name="revanced_hide_cast_button_title">Nascondi il bottone cast</string>
-    <string name="revanced_hide_cast_button_summary">Nascondo il pulsante cast nella parte superiore della homepage e in cima al riproduttore.</string>
-    <string name="revanced_spoof_app_version_title">Versione dell\'app falsificata</string>
-    <!-- PreferenceScreen: Navigation Bar -->
-    <string name="revanced_enable_black_navigation_bar_title">Abilita la barra di navigazione nera</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Imposta il colore della barra di navigazione su nero.</string>
-    <string name="revanced_hide_navigation_label_title">Nascondi etichetta di navigazione</string>
-    <!-- PreferenceScreen: Player -->
-    <string name="revanced_enable_color_match_player_title">Abilita l\'abbinamento di colore dei Riproduttori</string>
-    <string name="revanced_enable_color_match_player_summary">Allinea il colore del lettore a schermo intero con quello in secondo piano.</string>
-    <string name="revanced_enable_force_minimized_player_title">Abilita il riproduttore in secondo piano forzato</string>
-    <string name="revanced_enable_force_minimized_player_summary">Mantieni il riproduttore in secondo piano anche se un\'altra traccia viene riprodotta.</string>
-    <string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
-    <string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi.</string>
-    <string name="revanced_remember_repeat_state_title">Ricorda lo stato di ripetizione</string>
-    <string name="revanced_remember_repeat_state_summary">Ricorda lo stato della ripetizione.</string>
-    <string name="revanced_remember_shuffle_state_title">Ricorda lo stato della riproduzione casuale</string>
-    <string name="revanced_remember_shuffle_state_summary">Ricorda lo stato della riproduzione casuale.</string>
-    <!-- PreferenceScreen: Video -->
-    <string name="revanced_custom_playback_speeds_title">Modifica velocità di riproduzione personalizzate</string>
-    <string name="revanced_custom_playback_speeds_summary">Aggiungi o modifica le velocità di riproduzione disponibili</string>
-    <string name="revanced_custom_playback_speeds_invalid">Velocità di riproduzione personalizzate non valide. Ripristina i valori predefiniti.</string>
-    <!-- PreferenceScreen: Return YouTube Dislike -->
-    <string name="revanced_ryd_enabled_summary">Mostra il numero di \"Non mi piace\" dei video.</string>
-    <string name="revanced_ryd_dislike_percentage_title">\"Non mi piace\" in percentuale</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Al posto del numero di \"Non mi piace\", viene mostrata la percentuale dei Non mi piace.</string>
-    <string name="revanced_ryd_compact_layout_title">Pulsante \"Mi piace\" compatto</string>
-    <string name="revanced_ryd_compact_layout_summary">Nasconde il separatore del pulsante \"Mi piace\".</string>
-    <string name="revanced_ryd_about">Informazioni</string>
-    <string name="revanced_ryd_attribution_summary">I dati vengono forniti dall\'API Return YouTube Dislike. Tocca qui per saperne di più.</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">\"Non mi piace\" non disponibile (limite API client raggiunto)</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
-    <!-- PreferenceScreen: SponsorBlock -->
-    <!-- PreferenceScreen: Miscellaneous -->
-    <string name="revanced_enable_debug_logging_title">Abilita la registrazione del debug</string>
-    <string name="revanced_enable_debug_logging_summary">Stampa il registro di debug.</string>
-    <string name="revanced_enable_opus_codec_title">Abilita il codec opus</string>
-    <string name="revanced_enable_opus_codec_summary">"Abilita il codec Opus 250/251 durante la riproduzione dell'audio."</string>
-    <string name="revanced_extended_settings_import_export_title">Importa/Esporta</string>
-    <string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni come testo.</string>
-    <string name="revanced_extended_settings_import">Importa</string>
-    <string name="revanced_extended_settings_import_copy">Copia</string>
-    <string name="revanced_extended_settings_import_reset">Ripristino impostazioni ai valori predefiniti</string>
-    <string name="revanced_extended_settings_import_success">Impostazioni %d importate</string>
+	<string name="revanced_custom_filter_strings_summary">Filtra i nomi dei componenti separati da righe.</string>
+	<string name="revanced_custom_filter_strings_title">Modifica i filtri personalizzati</string>
+	<string name="revanced_custom_filter_summary">Abilita il filtro personalizzato per nascondere i componenti del layout.</string>
+	<string name="revanced_custom_filter_title">Abilita filtri personalizzati</string>
+	<string name="revanced_custom_playback_speeds_invalid">Velocità di riproduzione personalizzate non valide. Ripristina i valori predefiniti.</string>
+	<string name="revanced_custom_playback_speeds_summary">Aggiungi o modifica le velocità di riproduzione disponibili</string>
+	<string name="revanced_custom_playback_speeds_title">Modifica velocità di riproduzione personalizzate</string>
+	<string name="revanced_disable_auto_captions_summary">Sottotitoli automatici forzati disabilitati.</string>
+	<string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici forzati</string>
+	<string name="revanced_enable_black_navigation_bar_summary">Imposta il colore della barra di navigazione su nero.</string>
+	<string name="revanced_enable_black_navigation_bar_title">Abilita la barra di navigazione nera</string>
+	<string name="revanced_enable_color_match_player_summary">Allinea il colore del lettore a schermo intero con quello in secondo piano.</string>
+	<string name="revanced_enable_color_match_player_title">Abilita l\'abbinamento di colore dei Riproduttori</string>
+	<string name="revanced_enable_compact_dialog_title">Abilita dialogo compatto</string>
+	<string name="revanced_enable_debug_logging_summary">Stampa il registro di debug.</string>
+	<string name="revanced_enable_debug_logging_title">Abilita la registrazione del debug</string>
+	<string name="revanced_enable_force_minimized_player_summary">Mantieni il riproduttore in secondo piano anche se un\'altra traccia viene riprodotta.</string>
+	<string name="revanced_enable_force_minimized_player_title">Abilita il riproduttore in secondo piano forzato</string>
+	<string name="revanced_enable_landscape_mode_summary">Consente l\'accesso alla modalità orizzontale ruotando lo schermo del telefono.</string>
+	<string name="revanced_enable_landscape_mode_title">Abilita la modalità orizzontale</string>
+	<string name="revanced_enable_opus_codec_summary">"Abilita il codec Opus 250/251 durante la riproduzione dell'audio."</string>
+	<string name="revanced_enable_opus_codec_title">Abilita il codec opus</string>
+	<string name="revanced_enable_zen_mode_summary">Aggiunge una sfumatura grigia al riproduttore video per ridurre l\'affaticamento degli occhi.</string>
+	<string name="revanced_enable_zen_mode_title">Abilita la modalità zen</string>
+	<string name="revanced_extended_settings_import">Importa</string>
+	<string name="revanced_extended_settings_import_copy">Copia</string>
+	<string name="revanced_extended_settings_import_export_summary">Importa o esporta le impostazioni come testo.</string>
+	<string name="revanced_extended_settings_import_export_title">Importa/Esporta</string>
+	<string name="revanced_extended_settings_import_reset">Ripristino impostazioni ai valori predefiniti</string>
+	<string name="revanced_extended_settings_import_success">Impostazioni %d importate</string>
+	<string name="revanced_external_downloader_not_installed_warning">%s non è installato. Installalo.</string>
+	<string name="revanced_external_downloader_package_name_summary">Nome del pacchetto dell\'app downloader esterna installata, come NewPipe o Seal.</string>
+	<string name="revanced_external_downloader_package_name_title">Nome del pacchetto downloader esterno</string>
+	<string name="revanced_hide_account_menu_empty_component_summary">Nasconde i componenti vuoti nel menu dell\'account</string>
+	<string name="revanced_hide_account_menu_empty_component_title">Nascondi componente vuoto</string>
+	<string name="revanced_hide_account_menu_summary">Nascondi gli elementi del menu dell\'account.</string>
+	<string name="revanced_hide_account_menu_title">Nascondi il menu dell\'account</string>
+	<string name="revanced_hide_button_shelf_summary">Nasconde lo scaffale dei pulsanti dalla home page e da Explorer.</string>
+	<string name="revanced_hide_button_shelf_title">Nasconde lo scaffale dei pulsanti</string>
+	<string name="revanced_hide_carousel_shelf_summary">Nasconde lo scaffale del carosello dalla home page e da Explorer.</string>
+	<string name="revanced_hide_cast_button_summary">Nascondo il pulsante cast nella parte superiore della homepage e in cima al riproduttore.</string>
+	<string name="revanced_hide_cast_button_title">Nascondi il bottone cast</string>
+	<string name="revanced_hide_music_ads_title">Nascondi le pubblicità musicali</string>
+	<string name="revanced_hide_navigation_label_title">Nascondi etichetta di navigazione</string>
+	<string name="revanced_hide_terms_container_summary">Nasconde il contenitore dei termini di servizio.</string>
+	<string name="revanced_hide_terms_container_title">Nascondi contenitore termini</string>
+	<string name="revanced_remember_repeat_state_summary">Ricorda lo stato della ripetizione.</string>
+	<string name="revanced_remember_repeat_state_title">Ricorda lo stato di ripetizione</string>
+	<string name="revanced_remember_shuffle_state_summary">Ricorda lo stato della riproduzione casuale.</string>
+	<string name="revanced_remember_shuffle_state_title">Ricorda lo stato della riproduzione casuale</string>
+	<string name="revanced_ryd_about">Informazioni</string>
+	<string name="revanced_ryd_attribution_summary">I dati vengono forniti dall\'API Return YouTube Dislike. Tocca qui per saperne di più.</string>
+	<string name="revanced_ryd_compact_layout_summary">Nasconde il separatore del pulsante \"Mi piace\".</string>
+	<string name="revanced_ryd_compact_layout_title">Pulsante \"Mi piace\" compatto</string>
+	<string name="revanced_ryd_dislike_percentage_summary">Al posto del numero di \"Non mi piace\", viene mostrata la percentuale dei Non mi piace.</string>
+	<string name="revanced_ryd_dislike_percentage_title">\"Non mi piace\" in percentuale</string>
+	<string name="revanced_ryd_enabled_summary">Mostra il numero di \"Non mi piace\" dei video.</string>
+	<string name="revanced_ryd_failure_client_rate_limit_requested">\"Non mi piace\" non disponibile (limite API client raggiunto)</string>
+	<string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
+	<string name="revanced_spoof_app_version_title">Versione dell\'app falsificata</string>
 </resources>
