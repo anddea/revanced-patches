@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.DrawableColorPatch
+import app.revanced.patches.youtube.player.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ShortsSeekbarColorFingerprint
@@ -58,6 +59,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        CairoSeekbarConfigFingerprint,
         ControlsOverlayStyleFingerprint,
         PlayerButtonsResourcesFingerprint,
         PlayerSeekbarColorFingerprint,
@@ -70,6 +72,11 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: PLAYER",
+            "SETTINGS: SEEKBAR_COMPONENTS"
+        )
 
         // region patch for enable seekbar tapping patch
 
@@ -132,7 +139,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val charSequenceIndex = getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
+                val charSequenceIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
                 val charSequenceRegister =
                     getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
                 val textViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("getText")
@@ -268,30 +276,29 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldSeekbarThumbnails()Z"
             )
 
-            /**
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE_SCREEN: PLAYER",
-                    "SETTINGS: SEEKBAR_COMPONENTS",
-                    "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
-                )
-            )
+            settingArray += "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
         }
             ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
+
+        // endregion
+
+        // region patch for enable cairo seekbar
+
+        if (SettingsPatch.upward1923) {
+            CairoSeekbarConfigFingerprint.literalInstructionBooleanHook(
+                45617850,
+                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
+            )
+
+            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
+        }
 
         // endregion
 
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: PLAYER",
-                "SETTINGS: SEEKBAR_COMPONENTS"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }
