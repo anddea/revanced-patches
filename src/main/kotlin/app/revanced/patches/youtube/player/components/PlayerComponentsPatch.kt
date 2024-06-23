@@ -203,7 +203,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(FadeDurationFast)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val insertIndex = getTargetIndexReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
+                val insertIndex =
+                    getTargetIndexReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
                 val jumpIndex = implementation!!.instructions.let { instruction ->
                     insertIndex + instruction.subList(insertIndex, instruction.size - 1)
                         .indexOfFirst { instructions ->

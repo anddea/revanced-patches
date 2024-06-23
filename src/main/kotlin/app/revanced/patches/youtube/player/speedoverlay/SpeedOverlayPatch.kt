@@ -179,7 +179,8 @@ object SpeedOverlayPatch : BytecodePatch(
                         ) + 1
                         insertRegister =
                             getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
-                        jumpIndex = getTargetIndexOrThrow(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
+                        jumpIndex =
+                            getTargetIndexOrThrow(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
                         hook(insertIndex, insertRegister, jumpIndex)
                     }
                 }

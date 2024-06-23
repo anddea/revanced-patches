@@ -138,7 +138,8 @@ abstract class BaseGmsCoreSupportPatch(
                     getTargetIndexWithReference(GET_PACKAGE_NAME_METHOD_REFERENCE)
 
                 if (getPackageNameIndex > -1) {
-                    val targetRegister = (getInstruction(getPackageNameIndex) as FiveRegisterInstruction).registerC
+                    val targetRegister =
+                        (getInstruction(getPackageNameIndex) as FiveRegisterInstruction).registerC
 
                     replaceInstruction(
                         getPackageNameIndex,

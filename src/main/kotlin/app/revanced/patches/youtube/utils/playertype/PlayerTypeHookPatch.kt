@@ -128,7 +128,8 @@ object PlayerTypeHookPatch : BytecodePatch(
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
-            val instructionIndex = getTargetIndexWithMethodReferenceNameOrThrow("setLayoutDirection")
+            val instructionIndex =
+                getTargetIndexWithMethodReferenceNameOrThrow("setLayoutDirection")
             val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
             addInstruction(

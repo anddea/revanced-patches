@@ -79,7 +79,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Draw segment
-                val drawCircleIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("drawCircle")
+                val drawCircleIndex =
+                    getTargetIndexWithMethodReferenceNameReversedOrThrow("drawCircle")
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 addInstruction(
                     drawCircleIndex,

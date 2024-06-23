@@ -146,7 +146,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         // Replace strings
         RectangleFieldInvalidatorFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
-                val invalidateIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
+                val invalidateIndex =
+                    getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
                 val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversedOrThrow(
                     invalidateIndex + 1,
                     "Landroid/graphics/Rect;"

@@ -359,10 +359,20 @@ fun MutableMethod.getTargetIndexWithFieldReferenceNameOrThrow(startIndex: Int, f
     checkIndex(getTargetIndexWithFieldReferenceName(startIndex, filedName), startIndex, filedName)
 
 fun MutableMethod.getTargetIndexWithFieldReferenceNameReversedOrThrow(returnType: String) =
-    getTargetIndexWithFieldReferenceNameReversedOrThrow(implementation!!.instructions.lastIndex, returnType)
+    getTargetIndexWithFieldReferenceNameReversedOrThrow(
+        implementation!!.instructions.lastIndex,
+        returnType
+    )
 
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversedOrThrow(startIndex: Int, returnType: String) =
-    checkIndex(getTargetIndexWithFieldReferenceNameReversed(startIndex, returnType), startIndex, returnType)
+fun MutableMethod.getTargetIndexWithFieldReferenceNameReversedOrThrow(
+    startIndex: Int,
+    returnType: String
+) =
+    checkIndex(
+        getTargetIndexWithFieldReferenceNameReversed(startIndex, returnType),
+        startIndex,
+        returnType
+    )
 
 fun Method.getTargetIndexWithFieldReferenceTypeOrThrow(returnType: String) =
     checkIndex(getTargetIndexWithFieldReferenceType(returnType), 0, returnType)
@@ -371,22 +381,49 @@ fun MutableMethod.getTargetIndexWithFieldReferenceTypeOrThrow(startIndex: Int, r
     checkIndex(getTargetIndexWithFieldReferenceType(startIndex, returnType), startIndex, returnType)
 
 fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversedOrThrow(returnType: String) =
-    getTargetIndexWithFieldReferenceTypeReversedOrThrow(implementation!!.instructions.lastIndex, returnType)
+    getTargetIndexWithFieldReferenceTypeReversedOrThrow(
+        implementation!!.instructions.lastIndex,
+        returnType
+    )
 
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversedOrThrow(startIndex: Int, returnType: String) =
-    checkIndex(getTargetIndexWithFieldReferenceTypeReversed(startIndex, returnType), startIndex, returnType)
+fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversedOrThrow(
+    startIndex: Int,
+    returnType: String
+) =
+    checkIndex(
+        getTargetIndexWithFieldReferenceTypeReversed(startIndex, returnType),
+        startIndex,
+        returnType
+    )
 
 fun Method.getTargetIndexWithMethodReferenceNameOrThrow(methodName: String) =
     checkIndex(getTargetIndexWithMethodReferenceName(methodName), 0, methodName)
 
-fun MutableMethod.getTargetIndexWithMethodReferenceNameOrThrow(startIndex: Int, methodName: String) =
-    checkIndex(getTargetIndexWithMethodReferenceName(startIndex, methodName), startIndex, methodName)
+fun MutableMethod.getTargetIndexWithMethodReferenceNameOrThrow(
+    startIndex: Int,
+    methodName: String
+) =
+    checkIndex(
+        getTargetIndexWithMethodReferenceName(startIndex, methodName),
+        startIndex,
+        methodName
+    )
 
 fun MutableMethod.getTargetIndexWithMethodReferenceNameReversedOrThrow(methodName: String) =
-    getTargetIndexWithMethodReferenceNameReversedOrThrow(implementation!!.instructions.lastIndex, methodName)
+    getTargetIndexWithMethodReferenceNameReversedOrThrow(
+        implementation!!.instructions.lastIndex,
+        methodName
+    )
 
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversedOrThrow(startIndex: Int, methodName: String) =
-    checkIndex(getTargetIndexWithMethodReferenceNameReversed(startIndex, methodName), startIndex, methodName)
+fun MutableMethod.getTargetIndexWithMethodReferenceNameReversedOrThrow(
+    startIndex: Int,
+    methodName: String
+) =
+    checkIndex(
+        getTargetIndexWithMethodReferenceNameReversed(startIndex, methodName),
+        startIndex,
+        methodName
+    )
 
 fun Method.getTargetIndexWithReferenceOrThrow(reference: String) =
     checkIndex(getTargetIndexWithReference(reference), 0, reference)
@@ -450,7 +487,10 @@ fun MutableMethod.getTargetIndexWithFieldReferenceName(startIndex: Int, filedNam
     }
 
 fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(returnType: String) =
-    getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.lastIndex, returnType)
+    getTargetIndexWithFieldReferenceTypeReversed(
+        implementation!!.instructions.lastIndex,
+        returnType
+    )
 
 fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(
     startIndex: Int,

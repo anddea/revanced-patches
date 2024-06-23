@@ -281,7 +281,10 @@ object VideoInformationPatch : BytecodePatch(
                 val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
 
                 val setPlaybackSpeedContainerClassFieldIndex =
-                    getTargetIndexReversedOrThrow(speedSelectionValueInstructionIndex, Opcode.IGET_OBJECT)
+                    getTargetIndexReversedOrThrow(
+                        speedSelectionValueInstructionIndex,
+                        Opcode.IGET_OBJECT
+                    )
                 val setPlaybackSpeedContainerClassFieldReference =
                     getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference.toString()
 

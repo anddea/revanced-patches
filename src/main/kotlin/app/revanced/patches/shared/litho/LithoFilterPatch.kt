@@ -142,7 +142,8 @@ object LithoFilterPatch : BytecodePatch(
 
                 val emptyStringIndex = getStringInstructionIndex("")
 
-                val identifierIndex = getTargetIndexReversedOrThrow(emptyStringIndex, Opcode.IPUT_OBJECT)
+                val identifierIndex =
+                    getTargetIndexReversedOrThrow(emptyStringIndex, Opcode.IPUT_OBJECT)
                 val identifierRegister =
                     getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
 

@@ -138,7 +138,8 @@ object VideoInformationPatch : BytecodePatch(
         )
         VideoLengthFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val invalidateIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
+                val invalidateIndex =
+                    getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
                 val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversedOrThrow(
                     invalidateIndex + 1,
                     "Landroid/graphics/Rect;"

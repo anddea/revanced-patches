@@ -111,7 +111,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             val stringIndex = getStringInstructionIndex("av1_profile_main_10_hdr_10_plus_supported")
             val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                 val reference = getReference<MethodReference>()
-                        reference?.parameterTypes == listOf("I", "Landroid/view/Display;")
+                reference?.parameterTypes == listOf("I", "Landroid/view/Display;")
                         && reference.returnType == "Z"
             }
 

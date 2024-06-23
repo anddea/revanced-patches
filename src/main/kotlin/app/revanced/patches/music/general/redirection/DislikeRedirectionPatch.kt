@@ -42,7 +42,8 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
         PendingIntentReceiverFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val startIndex = getStringInstructionIndex("YTM Dislike")
-                val onClickRelayIndex = getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
+                val onClickRelayIndex =
+                    getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
                 val onClickRelayMethod = getWalkerMethod(context, onClickRelayIndex)
 
                 onClickRelayMethod.apply {

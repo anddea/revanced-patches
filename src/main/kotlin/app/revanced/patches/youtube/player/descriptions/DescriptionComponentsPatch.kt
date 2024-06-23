@@ -94,7 +94,8 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
         if (SettingsPatch.upward1902) {
             TextViewComponentFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTextIsSelectable")
+                    val insertIndex =
+                        getTargetIndexWithMethodReferenceNameOrThrow("setTextIsSelectable")
                     val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                     replaceInstruction(

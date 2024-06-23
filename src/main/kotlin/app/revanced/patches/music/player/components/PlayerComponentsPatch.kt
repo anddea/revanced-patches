@@ -133,7 +133,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     colorMathPlayerMethodParameter = parameters
 
                     val relativeIndex = it.scanResult.patternScanResult!!.endIndex + 1
-                    val invokeVirtualIndex = getTargetIndexOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
+                    val invokeVirtualIndex =
+                        getTargetIndexOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
                     val iGetIndex = getTargetIndexOrThrow(relativeIndex, Opcode.IGET)
 
                     colorMathPlayerInvokeVirtualReference =

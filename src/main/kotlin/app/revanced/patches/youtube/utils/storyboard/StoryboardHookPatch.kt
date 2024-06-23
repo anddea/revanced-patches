@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.PlayerResponseModelGeneralStoryboardRendererFingerprint
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.PlayerResponseModelLiveStreamStoryboardRendererFingerprint
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.PlayerResponseModelStoryboardRecommendedLevelFingerprint
@@ -16,7 +17,6 @@ import app.revanced.patches.youtube.utils.storyboard.fingerprints.StoryboardRend
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.StoryboardRendererSpecFingerprint
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.StoryboardThumbnailFingerprint
 import app.revanced.patches.youtube.utils.storyboard.fingerprints.StoryboardThumbnailParentFingerprint
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
