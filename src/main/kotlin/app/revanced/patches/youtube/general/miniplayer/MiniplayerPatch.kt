@@ -25,6 +25,7 @@ import app.revanced.patches.youtube.general.miniplayer.fingerprints.YouTubePlaye
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint.YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerClose
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerExpand
@@ -42,6 +43,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfWideLiteralInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -275,6 +277,10 @@ object MiniplayerPatch : BaseBytecodePatch(
         }
 
         // endregion
+
+        if (SettingsPatch.upward1920) {
+            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "MiniplayerType1920")
+        }
 
         settingArray += "SETTINGS: MINIPLAYER_TYPE_MODERN"
         SettingsPatch.addPreference(settingArray)
