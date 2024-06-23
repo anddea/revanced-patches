@@ -1670,6 +1670,7 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public final fun addEntryValues (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addPreference (Lapp/revanced/patcher/data/ResourceContext;[Ljava/lang/String;)V
 	public final fun addPreferenceFragment (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun getIconType ()Ljava/lang/String;
 	public final fun getYoutubePackageName ()Ljava/lang/String;
 	public final fun setYoutubePackageName (Ljava/lang/String;)V
 	public final fun updatePackageName (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
