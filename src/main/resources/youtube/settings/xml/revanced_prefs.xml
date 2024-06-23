@@ -35,7 +35,13 @@
         <SwitchPreference android:title="@string/revanced_hide_navigation_subscriptions_button_title" android:key="revanced_hide_navigation_subscriptions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_navigation_subscriptions_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_subscriptions_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_navigation_library_button_title" android:key="revanced_hide_navigation_library_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_navigation_library_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_library_button_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_navigation_notifications_button_title" android:key="revanced_hide_navigation_notifications_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_navigation_notifications_button_summary_on" android:summaryOff="@string/revanced_hide_navigation_notifications_button_summary_off" />
-        <SwitchPreference android:title="@string/revanced_switch_create_with_notifications_button_title" android:key="revanced_switch_create_with_notifications_button" android:defaultValue="true" android:summary="@string/revanced_switch_create_with_notifications_button_summary" />
+        <SwitchPreference android:title="@string/revanced_switch_create_with_notifications_button_title" android:key="revanced_switch_create_with_notifications_button" android:summary="@string/revanced_switch_create_with_notifications_button_summary" />SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
+
+        <!-- SETTINGS: TRANSLUCENT_NAVIGATION_BAR
+        <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
+        <SwitchPreference android:title="@string/revanced_enable_translucent_navigation_bar_title" android:key="revanced_enable_translucent_navigation_bar" android:summaryOn="@string/revanced_enable_translucent_navigation_bar_summary_on" android:summaryOff="@string/revanced_enable_translucent_navigation_bar_summary_off" />SETTINGS: TRANSLUCENT_NAVIGATION_BAR -->
+
+        <!-- SETTINGS: HIDE_NAVIGATION_COMPONENTS
     </PreferenceScreen>SETTINGS: HIDE_NAVIGATION_COMPONENTS -->
 
     <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
