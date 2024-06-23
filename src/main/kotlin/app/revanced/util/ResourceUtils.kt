@@ -18,6 +18,9 @@ val classLoader: ClassLoader = object {}.javaClass.classLoader
 fun PatchOption<String>.valueOrThrow() = value
     ?: throw PatchException("Invalid patch option: $title.")
 
+fun PatchOption<Int?>.valueOrThrow() = value
+    ?: throw PatchException("Invalid patch option: $title.")
+
 fun PatchOption<String>.lowerCaseOrThrow() = valueOrThrow()
     .lowercase()
 
