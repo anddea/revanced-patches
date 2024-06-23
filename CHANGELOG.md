@@ -1,3 +1,26 @@
+# [2.226.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.16...v2.226.0-dev.17) (2024-06-23)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Spoof package name ([9c4e70c](https://github.com/anddea/revanced-patches/commit/9c4e70cf896e1ca9efc6c9b3766eca7c6869a413))
+* **Reddit - Settings:** Patch option `RVX settings menu name` does not apply to header in ReVanced Extended settings ([4827a0f](https://github.com/anddea/revanced-patches/commit/4827a0fa0b1ee8f576fa1020f9a0378b79cdf9cc))
+* **YouTube - Miniplayer:** `Hide expand and close buttons` setting is not disabled in `Modern 1` on YouTube 19.20.35+ ([b7c330a](https://github.com/anddea/revanced-patches/commit/b7c330ace90f9761cd06322eb0840b593d1e26d1))
+* **YouTube - Spoof client:** Seekbar thumbnail not shown in `Android Testsuite` client ([74d50b1](https://github.com/anddea/revanced-patches/commit/74d50b1b5ad5860a4f341039e953a7c38b457afb))
+* **YouTube:** `Hide animated button background` patch doesn't work ([37fac01](https://github.com/anddea/revanced-patches/commit/37fac01c5b173fbbdfa9c44043b086836cbb36cd))
+
+
+### Features
+
+* **Reddit:** Add `Change version code` patch ([ec7da6d](https://github.com/anddea/revanced-patches/commit/ec7da6d5c7f46cfc51a6b7121e712d1db3670b13))
+* **Reddit:** Add `Hide recommended communities shelf` patch ([3a07f0a](https://github.com/anddea/revanced-patches/commit/3a07f0a379e500b03dcdb265136d79360fc313b6))
+* **YouTube - Miniplayer:** Add `Enable drag and drop` setting (YouTube 19.23.40+) ([fa0ac0f](https://github.com/anddea/revanced-patches/commit/fa0ac0fc5dd710ed50f232c67820527e23cd9838))
+* **YouTube - Navigation bar components:** Add `Enable translucent navigation bar` setting ([e9ff3c9](https://github.com/anddea/revanced-patches/commit/e9ff3c9aa61ea0d4090e02e1fe9722d96cee9841))
+* **YouTube - Seekbar components:** Add `Enable Cairo seekbar` setting (YouTube 19.23.40+) ([95ed714](https://github.com/anddea/revanced-patches/commit/95ed714c4ef0bf3c88ab534ebb00e7b6e83b41d4))
+* **YouTube Music:** Add `Enable Cairo splash animation` patch (YouTube Music 7.06.53+) ([a09dd4c](https://github.com/anddea/revanced-patches/commit/a09dd4c47e6bebb50dfa35b7da0b1b76d073d8bc))
+* **YouTube Music:** Add support versions `7.05.54` ~ `7.06.53` ([cc2bd1f](https://github.com/anddea/revanced-patches/commit/cc2bd1f060ee5c0282baaeedf64ba3473d50c4c2))
+* **YouTube:** Add support version `19.23.40` ([19a14cd](https://github.com/anddea/revanced-patches/commit/19a14cd5d24c8867e1ee4c131f1e7a51763a1f11))
+
 # [2.226.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.15...v2.226.0-dev.16) (2024-06-21)
 
 
