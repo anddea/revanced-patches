@@ -56,5 +56,7 @@ object SettingsPatch : BaseResourcePatch(
                     )
             )
         }
+
+        SettingsBytecodePatch.updateSettingsLabel(settingsLabel)
     }
 }

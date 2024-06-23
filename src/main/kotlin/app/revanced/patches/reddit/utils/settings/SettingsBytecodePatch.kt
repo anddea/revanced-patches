@@ -33,14 +33,27 @@ object SettingsBytecodePatch : BytecodePatch(
     private const val INTEGRATIONS_METHOD_DESCRIPTOR =
         "$INTEGRATIONS_PATH/settings/ActivityHook;->initialize(Landroid/app/Activity;)V"
 
+    private lateinit var acknowledgementsLabelBuilderMethod: MutableMethod
     private lateinit var settingsStatusLoadMethod: MutableMethod
 
-    internal fun updateSettingsStatus(description: String) {
+    internal fun updateSettingsLabel(label: String) =
+        acknowledgementsLabelBuilderMethod.apply {
+            val insertIndex =
+                getWideLiteralInstructionIndex(LabelAcknowledgements) + 3
+            val insertRegister =
+                getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+
+            addInstruction(
+                insertIndex,
+                "const-string v$insertRegister, \"$label\""
+            )
+        }
+
+    internal fun updateSettingsStatus(description: String) =
         settingsStatusLoadMethod.addInstruction(
             0,
             "invoke-static {}, $INTEGRATIONS_PATH/settings/SettingsStatus;->$description()V"
         )
-    }
 
     override fun execute(context: BytecodeContext) {
 
@@ -62,19 +75,9 @@ object SettingsBytecodePatch : BytecodePatch(
         /**
          * Replace settings label
          */
-        AcknowledgementsLabelBuilderFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex =
-                    getWideLiteralInstructionIndex(LabelAcknowledgements) + 3
-                val insertRegister =
-                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-
-                addInstruction(
-                    insertIndex,
-                    "const-string v$insertRegister, \"ReVanced Extended\""
-                )
-            }
-        }
+        acknowledgementsLabelBuilderMethod = AcknowledgementsLabelBuilderFingerprint
+            .resultOrThrow()
+            .mutableMethod
 
         /**
          * Initialize settings activity
