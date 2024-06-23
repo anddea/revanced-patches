@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.parameter.fingerprints
+package app.revanced.patches.youtube.utils.storyboard.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

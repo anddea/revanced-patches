@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVide
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.utils.storyboard.StoryboardHookPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
@@ -49,7 +49,7 @@ object SpoofClientPatch : BaseBytecodePatch(
         SettingsPatch::class,
         VideoInformationPatch::class,
         SpoofUserAgentPatch::class,
-        SharedResourceIdPatch::class,
+        StoryboardHookPatch::class,
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -351,6 +351,12 @@ object SpoofClientPatch : BaseBytecodePatch(
                 )
             }
         }
+
+        // endregion
+
+        // region hook storyboard.
+
+        StoryboardHookPatch.hook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
         // endregion
 
