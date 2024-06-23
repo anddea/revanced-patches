@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerDi
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernAddViewListenerFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernCloseButtonFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernConstructorFingerprint
+import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernDragAndDropFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernExpandButtonFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernExpandCloseDrawablesFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernForwardButtonFingerprint
@@ -41,6 +42,7 @@ import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfWideLiteralInstructionOrThrow
+import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -72,6 +74,7 @@ object MiniplayerPatch : BaseBytecodePatch(
         MiniplayerResponseModelSizeCheckFingerprint,
         MiniplayerOverrideFingerprint,
         MiniplayerModernConstructorFingerprint,
+        MiniplayerModernDragAndDropFingerprint,
         MiniplayerModernViewParentFingerprint,
         YouTubePlayerOverlaysLayoutFingerprint,
     )
@@ -277,6 +280,20 @@ object MiniplayerPatch : BaseBytecodePatch(
         }
 
         // endregion
+
+
+        // region Enable drag and drop.
+
+        if (SettingsPatch.upward1923) {
+            MiniplayerModernDragAndDropFingerprint.literalInstructionBooleanHook(
+                45628752,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->enableMiniplayerDragAndDrop()Z"
+            )
+            settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
+        }
+
+        // endregion
+
 
         if (SettingsPatch.upward1920) {
             context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "MiniplayerType1920")

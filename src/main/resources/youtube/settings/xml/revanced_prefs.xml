@@ -18,7 +18,12 @@
 
     <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
     <PreferenceScreen android:title="@string/revanced_preference_screen_miniplayer_title" android:key="revanced_preference_screen_miniplayer" android:summary="@string/revanced_preference_screen_miniplayer_summary">
-        <ListPreference android:entries="@array/revanced_miniplayer_type_19_15_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_15_entry_values" />
+        <ListPreference android:entries="@array/revanced_miniplayer_type_19_15_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_15_entry_values" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
+
+        <!-- SETTINGS: MINIPLAYER_DRAG_AND_DROP
+        <SwitchPreference android:title="@string/revanced_miniplayer_enable_drag_and_drop_title" android:key="revanced_miniplayer_enable_drag_and_drop" android:summaryOn="@string/revanced_miniplayer_enable_drag_and_drop_summary_on" android:summaryOff="@string/revanced_miniplayer_enable_drag_and_drop_summary_off" />SETTINGS: MINIPLAYER_DRAG_AND_DROP -->
+
+        <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
         <SwitchPreference android:title="@string/revanced_miniplayer_hide_expand_close_title" android:key="revanced_miniplayer_hide_expand_close" android:summaryOn="@string/revanced_miniplayer_hide_expand_close_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_expand_close_summary_off" />
         <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" />
         <SwitchPreference android:title="@string/revanced_miniplayer_hide_rewind_forward_title" android:key="revanced_miniplayer_hide_rewind_forward" android:summaryOn="@string/revanced_miniplayer_hide_rewind_forward_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_rewind_forward_summary_off" />
