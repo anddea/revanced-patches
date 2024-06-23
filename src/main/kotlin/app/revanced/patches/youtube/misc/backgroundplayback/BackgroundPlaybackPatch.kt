@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackSettingsFingerprint
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerParentFingerprint
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.PiPControllerFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
@@ -31,7 +32,7 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
     fingerprints = setOf(
         BackgroundPlaybackManagerFingerprint,
         BackgroundPlaybackSettingsFingerprint,
-        KidsBackgroundPlaybackPolicyControllerFingerprint,
+        KidsBackgroundPlaybackPolicyControllerParentFingerprint,
         PiPControllerFingerprint
     )
 ) {
@@ -66,6 +67,10 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
         }
 
         // Force allowing background play for videos labeled for kids.
+        KidsBackgroundPlaybackPolicyControllerFingerprint.resolve(
+            context,
+            KidsBackgroundPlaybackPolicyControllerParentFingerprint.resultOrThrow().classDef
+        )
         KidsBackgroundPlaybackPolicyControllerFingerprint.resultOrThrow().mutableMethod.addInstruction(
             0,
             "return-void"

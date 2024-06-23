@@ -13,8 +13,7 @@ object Constants {
                 "18.48.39", // This is the last version that do not use Rolling Number.
                 "19.05.36", // This is the last version with the least YouTube experimental flag.
                 "19.16.39", // This is the last version that supports the 'Restore old seekbar thumbnails' setting.
-                "19.20.35", // This is the last version that play icon in the Miniplayer is not giant.
-                "19.21.40", // This is the latest version supported by the RVX patch.
+                "19.23.40", // This is the latest version supported by the RVX patch.
             )
         )
     )
