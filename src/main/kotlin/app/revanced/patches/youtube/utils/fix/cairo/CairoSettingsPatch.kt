@@ -33,7 +33,10 @@ object CairoSettingsPatch : BytecodePatch(
         CarioFragmentConfigFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getTargetIndexOrThrow(getWideLiteralInstructionIndex(45532100), Opcode.MOVE_RESULT)
+                    getTargetIndexOrThrow(
+                        getWideLiteralInstructionIndex(45532100),
+                        Opcode.MOVE_RESULT
+                    )
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

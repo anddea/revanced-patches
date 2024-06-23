@@ -22,9 +22,9 @@ object PlayerResponseMethodHookPatch :
 
     // Registers used to pass the parameters to integrations.
     private var playerResponseMethodCopyRegisters = false
-    private lateinit var REGISTER_VIDEO_ID : String
-    private lateinit var REGISTER_PLAYER_PARAMETER : String
-    private lateinit var REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING : String
+    private lateinit var REGISTER_VIDEO_ID: String
+    private lateinit var REGISTER_PLAYER_PARAMETER: String
+    private lateinit var REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING: String
 
     private lateinit var playerResponseMethod: MutableMethod
     private var numberOfInstructionsAdded = 0
@@ -86,7 +86,8 @@ object PlayerResponseMethodHookPatch :
         if (playerResponseMethodCopyRegisters) {
             playerResponseMethod.apply {
                 addInstructions(
-                    0, """
+                    0,
+                    """
                         move-object/from16 $REGISTER_VIDEO_ID, p$PARAMETER_VIDEO_ID
                         move-object/from16 $REGISTER_PLAYER_PARAMETER, p$PARAMETER_PLAYER_PARAMETER
                         move/from16        $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING

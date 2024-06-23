@@ -37,7 +37,10 @@ object AudioTracksPatch : BaseBytecodePatch(
                     "Ljava/util/List;->add(Ljava/lang/Object;)Z"
                 )
                 val insertIndex =
-                    getTargetIndexWithReferenceOrThrow(arrayListIndex, "Ljava/util/List;->isEmpty()Z") + 2
+                    getTargetIndexWithReferenceOrThrow(
+                        arrayListIndex,
+                        "Ljava/util/List;->isEmpty()Z"
+                    ) + 2
 
                 val formatStreamModelRegister =
                     getInstruction<OneRegisterInstruction>(formatStreamModelIndex).registerA

@@ -284,7 +284,8 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             )
             SearchBarFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val setVisibilityIndex = getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                    val setVisibilityIndex =
+                        getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
                     val setVisibilityInstruction =
                         getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 

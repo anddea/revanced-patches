@@ -157,7 +157,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
                         (instruction.value as? WideLiteralInstruction)?.wideLiteral == ReelPivotButton
                     }
                 val targetIndex = constCalls.elementAt(constCalls.size - 1).index
-                val insertIndex = getTargetIndexReversedOrThrow(targetIndex, Opcode.INVOKE_STATIC) + 1
+                val insertIndex =
+                    getTargetIndexReversedOrThrow(targetIndex, Opcode.INVOKE_STATIC) + 1
                 if (insertIndex == 0)
                     throw PatchException("insert index not found")
 

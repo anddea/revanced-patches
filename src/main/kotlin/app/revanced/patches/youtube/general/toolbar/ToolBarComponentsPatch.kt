@@ -349,7 +349,10 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 it.mutableMethod.apply {
                     val startIndex = getWideLiteralInstructionIndex(VoiceSearch)
                     val setOnClickListenerIndex =
-                        getTargetIndexWithMethodReferenceNameOrThrow(startIndex, "setOnClickListener")
+                        getTargetIndexWithMethodReferenceNameOrThrow(
+                            startIndex,
+                            "setOnClickListener"
+                        )
                     val viewRegister =
                         getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 

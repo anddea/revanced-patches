@@ -36,8 +36,10 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
 
-                val isDisLikesBooleanIndex = getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_BOOLEAN)
-                val textViewFieldIndex = getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_OBJECT)
+                val isDisLikesBooleanIndex =
+                    getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_BOOLEAN)
+                val textViewFieldIndex =
+                    getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_OBJECT)
 
                 // If the field is true, the TextView is for a dislike button.
                 val isDisLikesBooleanReference =

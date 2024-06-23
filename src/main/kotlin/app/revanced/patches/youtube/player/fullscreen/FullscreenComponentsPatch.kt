@@ -182,7 +182,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("setFocusableInTouchMode")
+                val targetIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow("setFocusableInTouchMode")
                 val walkerIndex = getTargetIndexOrThrow(targetIndex, Opcode.INVOKE_STATIC)
 
                 val walkerMethod = getWalkerMethod(context, walkerIndex)

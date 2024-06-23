@@ -144,7 +144,8 @@ object ChangeTogglePatch : BaseBytecodePatch(
                 val checkCastIndex = getTargetIndexReversedOrThrow(stringIndex, Opcode.CHECK_CAST)
                 val iGetObjectPrimaryIndex =
                     getTargetIndexReversedOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
-                val iGetObjectSecondaryIndex = getTargetIndexOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
+                val iGetObjectSecondaryIndex =
+                    getTargetIndexOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
 
                 val checkCastReference =
                     getInstruction<ReferenceInstruction>(checkCastIndex).reference

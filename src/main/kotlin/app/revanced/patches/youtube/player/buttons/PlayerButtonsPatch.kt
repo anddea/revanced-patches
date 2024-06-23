@@ -125,7 +125,8 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         TitleAnchorFingerprint.resultOrThrow().mutableMethod.apply {
             val titleAnchorConstIndex = getWideLiteralInstructionIndex(TitleAnchor)
-            val titleAnchorIndex = getTargetIndexOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
+            val titleAnchorIndex =
+                getTargetIndexOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
             val titleAnchorRegister =
                 getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
 

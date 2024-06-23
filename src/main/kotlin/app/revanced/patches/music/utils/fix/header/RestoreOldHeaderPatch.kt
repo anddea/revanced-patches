@@ -1,35 +1,40 @@
-package app.revanced.patches.youtube.utils.fix.shortsplayback
+package app.revanced.patches.music.utils.fix.header
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fix.shortsplayback.fingerprints.ShortsPlaybackFingerprint
+import app.revanced.patches.music.layout.header.ChangeHeaderPatch
+import app.revanced.patches.music.utils.fix.header.fingerprints.HeaderSwitchConfigFingerprint
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
-    description = "Fix issue with looping at the start of the video when applying default video quality to Shorts."
+    description = "Fix the issues where new headers are used."
 )
-object ShortsPlaybackPatch : BytecodePatch(
-    setOf(ShortsPlaybackFingerprint)
+object RestoreOldHeaderPatch : BytecodePatch(
+    setOf(HeaderSwitchConfigFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
         /**
-         * This issue only affects some versions of YouTube.
-         * Therefore, this patch only applies to versions that can resolve this fingerprint.
+         * New Header has been added from YouTube Music v7.04.51.
          *
-         * RVX applies default video quality to Shorts as well, so this patch is required.
+         * The new header's file names are  'action_bar_logo_ringo2.png' and 'ytm_logo_ringo2.png'.
+         * The only difference between the existing header and the new header is the dimensions of the image.
+         *
+         * The affected patch is [ChangeHeaderPatch].
+         *
+         * TODO: Add a new header image file to [ChangeHeaderPatch] later.
          */
-        ShortsPlaybackFingerprint.result?.let {
+        HeaderSwitchConfigFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex =
                     getTargetIndexOrThrow(
-                        getWideLiteralInstructionIndex(45387052),
+                        getWideLiteralInstructionIndex(45617851),
                         Opcode.MOVE_RESULT
                     )
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA

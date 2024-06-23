@@ -28,6 +28,13 @@ object ResourceUtils {
 
     var musicPackageName = "com.google.android.apps.youtube.music"
 
+    private var iconType = "default"
+    fun getIconType() = iconType
+
+    fun setIconType(iconName: String) {
+        iconType = iconName
+    }
+
     private fun isIncludedCategory(category: String): Boolean {
         CategoryType.entries.forEach { preference ->
             if (category == preference.value)
