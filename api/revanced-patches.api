@@ -137,6 +137,12 @@ public final class app/revanced/patches/music/layout/doubletapbackground/DoubleT
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/music/layout/header/ChangeHeaderPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/layout/header/ChangeHeaderPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/music/layout/overlayfilter/OverlayFilterBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/overlayfilter/OverlayFilterBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -181,6 +187,12 @@ public final class app/revanced/patches/music/misc/debugging/DebuggingPatch : ap
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/debugging/DebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/music/misc/splash/CairoSplashAnimationPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/splash/CairoSplashAnimationPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryBytecodePatch : app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch {
@@ -245,6 +257,12 @@ public final class app/revanced/patches/music/utils/fix/client/SpoofUserAgentPat
 
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/fileprovider/FileProviderPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/music/utils/fix/header/RestoreOldHeaderPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/utils/fix/header/RestoreOldHeaderPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -428,7 +446,9 @@ public final class app/revanced/patches/music/utils/settings/ResourceUtils {
 	public final fun addPreferenceWithIntent (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addRVXSettingsPreference (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun addSwitchPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public final fun getIconType ()Ljava/lang/String;
 	public final fun getMusicPackageName ()Ljava/lang/String;
+	public final fun setIconType (Ljava/lang/String;)V
 	public final fun setMusicPackageName (Ljava/lang/String;)V
 	public final fun sortPreferenceCategory (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public final fun updatePackageName (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
@@ -534,6 +554,12 @@ public final class app/revanced/patches/reddit/layout/branding/packagename/Chang
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/reddit/layout/communities/RecommendedCommunitiesPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/layout/communities/RecommendedCommunitiesPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/layout/navigation/NavigationButtonsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/layout/navigation/NavigationButtonsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -586,6 +612,12 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 	public static final field INSTANCE Lapp/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/reddit/misc/versioncode/ChangeVersionCodePatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/misc/versioncode/ChangeVersionCodePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/reddit/utils/compatibility/Constants {
@@ -669,6 +701,8 @@ public final class app/revanced/patches/shared/elements/StringsElementsUtils {
 }
 
 public abstract class app/revanced/patches/shared/gms/BaseGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field GMS_CORE_VENDOR_GROUP_ID Ljava/lang/String;
+	public static final field INTEGRATIONS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public fun <init> (Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1677,6 +1711,12 @@ public final class app/revanced/patches/youtube/utils/sponsorblock/SponsorBlockP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/utils/storyboard/StoryboardHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/storyboard/StoryboardHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1744,6 +1784,8 @@ public final class app/revanced/patches/youtube/video/videoid/VideoIdPatch : app
 public final class app/revanced/util/BytecodeUtilsKt {
 	public static final field REGISTER_TEMPLATE_REPLACEMENT Ljava/lang/String;
 	public static final fun addFieldAndInstructions (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public static final fun checkIndex (IILcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun checkIndex (IILjava/lang/String;)I
 	public static final fun containsMethodReferenceNameInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)Z
 	public static final fun containsReferenceInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)Z
 	public static final fun containsWideLiteralInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z
@@ -1754,25 +1796,45 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun getStringInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getTargetIndex (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun getTargetIndex (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun getTargetIndexOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun getTargetIndexOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun getTargetIndexReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun getTargetIndexReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun getTargetIndexReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILcom/android/tools/smali/dexlib2/Opcode;)I
+	public static final fun getTargetIndexReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun getTargetIndexWithFieldReferenceName (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceName (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceNameOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceNameOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceNameReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceNameReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceNameReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceNameReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceType (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceType (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceTypeOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceTypeOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceTypeReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithFieldReferenceTypeReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceTypeReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithFieldReferenceTypeReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithMethodReferenceName (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithMethodReferenceName (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithMethodReferenceNameOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithMethodReferenceNameOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithMethodReferenceNameReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithMethodReferenceNameReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithMethodReferenceNameReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithMethodReferenceNameReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithReference (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithReference (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithReference (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithReferenceOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithReferenceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun getTargetIndexWithReferenceReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
 	public static final fun getTargetIndexWithReferenceReversed (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
+	public static final fun getTargetIndexWithReferenceReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)I
+	public static final fun getTargetIndexWithReferenceReversedOrThrow (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)I
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lapp/revanced/patcher/data/BytecodeContext;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getWideLiteralInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
@@ -1819,6 +1881,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun startsWithAny (Ljava/lang/String;[Ljava/lang/String;)Z
 	public static final fun underBarOrThrow (Lapp/revanced/patcher/patch/options/PatchOption;)Ljava/lang/String;
 	public static final fun updatePathData (Lorg/w3c/dom/Document;Ljava/lang/String;)V
+	public static final fun valueOrThrow (Lapp/revanced/patcher/patch/options/PatchOption;)I
 	public static final fun valueOrThrow (Lapp/revanced/patcher/patch/options/PatchOption;)Ljava/lang/String;
 }
 
