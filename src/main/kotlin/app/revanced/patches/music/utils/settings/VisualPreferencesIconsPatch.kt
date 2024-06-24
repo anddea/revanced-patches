@@ -190,7 +190,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 val resourcePath = "music/branding/$appIconValue"
 
                 val iconPath = when {
-                    selectedIconType == "custom_branding_icon" -> "$resourcePath/launcher"
+                    selectedIconType == "custom_branding_icon" -> "$resourcePath/settings"
                     else -> "music/settings/icons/$selectedIconType"
                 }
 
