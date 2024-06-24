@@ -2,7 +2,7 @@ package app.revanced.patches.shared.elements
 
 import app.revanced.patcher.data.ResourceContext
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "unused")
 object StringsElementsUtils {
 
     internal fun ResourceContext.removeStringsElements(
@@ -41,4 +41,3 @@ object StringsElementsUtils {
         }
     }
 }
-
