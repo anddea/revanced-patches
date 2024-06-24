@@ -1,3 +1,11 @@
+# [2.226.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.17...v2.226.0-dev.18) (2024-06-24)
+
+
+### Bug Fixes
+
+* **Settings:** Failed with custom RVXSettingsMenuName ([c0d3ed0](https://github.com/anddea/revanced-patches/commit/c0d3ed0b377f018913d217962088e935084c167c))
+* **YouTube Music - Visual preferences icons:** Add missing custom branding icons ([1071471](https://github.com/anddea/revanced-patches/commit/10714717b69710f7c5eb364cb7d0a604c00dae55))
+
 # [2.226.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.16...v2.226.0-dev.17) (2024-06-23)
 
 
