@@ -12,6 +12,7 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.sortPreferenceCat
 import app.revanced.patches.shared.elements.StringsElementsUtils.removeStringsElements
 import app.revanced.util.copyXmlNode
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.Closeable
 import java.util.concurrent.Executors
@@ -30,7 +31,7 @@ object SettingsPatch : BaseResourcePatch(
 ), Closeable {
     private const val DEFAULT_NAME = "ReVanced Extended"
 
-    private val RVXSettingsMenuName by stringPatchOption(
+    private val RVXSettingsMenuName = stringPatchOption(
         key = "RVXSettingsMenuName",
         default = DEFAULT_NAME,
         title = "RVX settings menu name",
@@ -38,11 +39,19 @@ object SettingsPatch : BaseResourcePatch(
         required = true
     )
 
+    private lateinit var customName: String
+
     lateinit var contexts: ResourceContext
     internal var upward0636 = false
     internal var upward0642 = false
 
     override fun execute(context: ResourceContext) {
+
+        /**
+         * check patch options
+         */
+        customName = RVXSettingsMenuName
+            .valueOrThrow()
 
         /**
          * set resource context
@@ -193,35 +202,38 @@ object SettingsPatch : BaseResourcePatch(
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.
          */
-        RVXSettingsMenuName?.let { customName ->
-            if (customName != DEFAULT_NAME) {
-                contexts.removeStringsElements(
-                    arrayOf("revanced_extended_settings_title")
-                )
-                contexts.xmlEditor["res/values/strings.xml"].use { editor ->
-                    val document = editor.file
+        if (customName != DEFAULT_NAME) {
+            contexts.removeStringsElements(
+                arrayOf("revanced_extended_settings_title")
+            )
+            contexts.xmlEditor["res/values/strings.xml"].use { editor ->
+                val document = editor.file
 
-                    mapOf(
-                        "revanced_extended_settings_title" to customName
-                    ).forEach { (k, v) ->
-                        val stringElement = document.createElement("string")
+                mapOf(
+                    "revanced_extended_settings_title" to customName
+                ).forEach { (k, v) ->
+                    val stringElement = document.createElement("string")
 
-                        stringElement.setAttribute("name", k)
-                        stringElement.textContent = v
+                    stringElement.setAttribute("name", k)
+                    stringElement.textContent = v
 
-                        document.getElementsByTagName("resources").item(0)
-                            .appendChild(stringElement)
-                    }
+                    document.getElementsByTagName("resources").item(0)
+                        .appendChild(stringElement)
                 }
             }
-        } ?: println("WARNING: Invalid RVX settings menu name. RVX settings menu name does not change.")
+        }
 
-
+        /**
+         * add import export settings
+         */
         addPreferenceWithIntent(
             CategoryType.MISC,
             "revanced_extended_settings_import_export"
         )
 
+        /**
+         * sort preference
+         */
         CategoryType.entries.sorted().forEach {
             contexts.sortPreferenceCategory(it.value)
         }
