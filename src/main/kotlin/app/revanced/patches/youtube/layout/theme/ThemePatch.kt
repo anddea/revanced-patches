@@ -1,13 +1,17 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.theme.BaseThemePatch.isMonetPatchIncluded
+import app.revanced.patches.youtube.layout.theme.fingerprints.DarkThemeFingerprint
+import app.revanced.patches.youtube.layout.theme.fingerprints.LightThemeFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.resultOrThrow
 import org.w3c.dom.Element
 
 @Suppress("DEPRECATION", "unused")
@@ -151,6 +155,23 @@ object ThemePatch : BaseResourcePatch(
             }
         }
 
+        val hexDarkThemeColor = getHexColor(context, darkThemeColor)
+        val hexLightThemeColor = getHexColor(context, lightThemeColor)
+
+        println("Dark theme color: $hexDarkThemeColor")
+        println("Light theme color: $hexLightThemeColor")
+
+        DarkThemeFingerprint
+            .resultOrThrow()
+            .mutableMethod
+            .replaceInstruction(0, "const-string v0, \"$hexDarkThemeColor\"")
+
+        LightThemeFingerprint
+            .resultOrThrow()
+            .mutableMethod
+            .replaceInstruction(0, "const-string v0, \"$hexDarkThemeColor\"")
+
+
         val currentTheme = if (isMonetPatchIncluded)
             "MaterialYou + " + getThemeString(darkThemeColor, lightThemeColor)
         else
@@ -158,5 +179,21 @@ object ThemePatch : BaseResourcePatch(
 
         context.updatePatchStatusTheme(currentTheme)
 
+    }
+
+    private fun getHexColor(context: ResourceContext, themeColor: String): String {
+        return if (themeColor.startsWith("#")) {
+            // If the theme color is already a hex color, return it as is
+            themeColor
+        } else {
+            when (themeColor) {
+                AMOLED_BLACK_COLOR -> "#000000"
+                WHITE_COLOR -> "#FFFFFF"
+                else -> {
+                    // TODO: Implement the logic to get the hex color from a custom color resource reference
+                    throw PatchException("Not yet implemented: $themeColor")
+                }
+            }
+        }
     }
 }
