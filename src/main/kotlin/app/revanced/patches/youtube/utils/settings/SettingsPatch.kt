@@ -1,13 +1,9 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.shared.elements.StringsElementsUtils.removeStringsElements
 import app.revanced.patches.shared.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.theme.ThemePatch
-import app.revanced.patches.youtube.layout.theme.fingerprints.DarkThemeFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.LightThemeFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fix.cairo.CairoSettingsPatch
 import app.revanced.patches.youtube.utils.fix.litho.ConversionContextObfuscationPatch
@@ -17,7 +13,6 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreferenceFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
-import app.revanced.patches.youtube.utils.settings.SettingsPatch.updatePatchStatus
 import app.revanced.util.*
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.patch.BaseResourcePatch
@@ -228,13 +223,6 @@ object SettingsPatch : BaseResourcePatch(
     }
 
     override fun close() {
-
-        // add theme patch
-        SettingsBytecodePatch.putHex(
-            ThemePatch.getDarkThemeHex(),
-            ThemePatch.getLightThemeHex()
-        )
-
         /**
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.

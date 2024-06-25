@@ -20,8 +20,6 @@ object ThemePatch : BaseResourcePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
-    private var DARK_THEME_HEX: String = ""
-    private var LIGHT_THEME_HEX: String = ""
 
     private const val AMOLED_BLACK_COLOR = "@android:color/black"
     private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
@@ -154,10 +152,6 @@ object ThemePatch : BaseResourcePatch(
             }
         }
 
-        DARK_THEME_HEX = toHex(darkThemeColor)
-        LIGHT_THEME_HEX = toHex(lightThemeColor)
-
-
         val currentTheme = if (isMonetPatchIncluded)
             "MaterialYou + " + getThemeString(darkThemeColor, lightThemeColor)
         else
@@ -165,29 +159,5 @@ object ThemePatch : BaseResourcePatch(
 
         context.updatePatchStatusTheme(currentTheme)
 
-    }
-
-    private fun toHex(themeColor: String): String {
-        return if (themeColor.startsWith("#")) {
-            // If the theme color is already a hex color, return it as is
-            themeColor
-        } else {
-            when (themeColor) {
-                AMOLED_BLACK_COLOR -> "#000000"
-                WHITE_COLOR -> "#FFFFFF"
-                else -> {
-                    // TODO: Implement the logic to get the hex color from a custom color resource reference
-                    throw PatchException("Not yet implemented: $themeColor")
-                }
-            }
-        }
-    }
-
-    fun getDarkThemeHex(): String {
-        return DARK_THEME_HEX
-    }
-
-    fun getLightThemeHex(): String {
-        return LIGHT_THEME_HEX
     }
 }

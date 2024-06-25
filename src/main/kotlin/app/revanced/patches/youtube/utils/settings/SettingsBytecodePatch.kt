@@ -4,15 +4,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.theme.ThemePatch
-import app.revanced.patches.youtube.layout.theme.fingerprints.DarkThemeFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.LightThemeFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
@@ -75,17 +71,5 @@ object SettingsBytecodePatch : BytecodePatch(
                 """
         )
         removeInstruction(index)
-    }
-
-    fun putHex(darkHex: String, lightHex: String) {
-        DarkThemeFingerprint
-            .resultOrThrow()
-            .mutableMethod
-            .replaceInstruction(0, "const-string v0, \"$darkHex\"")
-
-        LightThemeFingerprint
-            .resultOrThrow()
-            .mutableMethod
-            .replaceInstruction(0, "const-string v0, \"$lightHex\"")
     }
 }
