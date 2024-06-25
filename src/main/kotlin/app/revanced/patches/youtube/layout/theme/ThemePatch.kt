@@ -20,7 +20,6 @@ object ThemePatch : BaseResourcePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
-
     private const val AMOLED_BLACK_COLOR = "@android:color/black"
     private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
     private const val DARK_PINK_COLOR = "#FF290025"
