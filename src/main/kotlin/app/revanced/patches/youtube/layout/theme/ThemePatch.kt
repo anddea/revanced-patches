@@ -1,17 +1,13 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.theme.BaseThemePatch.isMonetPatchIncluded
-import app.revanced.patches.youtube.layout.theme.fingerprints.DarkThemeFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.LightThemeFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.patch.BaseResourcePatch
-import app.revanced.util.resultOrThrow
 import org.w3c.dom.Element
 
 @Suppress("DEPRECATION", "unused")
@@ -24,6 +20,9 @@ object ThemePatch : BaseResourcePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
+    private var DARK_THEME_HEX: String = ""
+    private var LIGHT_THEME_HEX: String = ""
+
     private const val AMOLED_BLACK_COLOR = "@android:color/black"
     private const val CATPPUCCIN_MOCHA_COLOR = "#FF181825"
     private const val DARK_PINK_COLOR = "#FF290025"
@@ -155,21 +154,8 @@ object ThemePatch : BaseResourcePatch(
             }
         }
 
-        val hexDarkThemeColor = getHexColor(context, darkThemeColor)
-        val hexLightThemeColor = getHexColor(context, lightThemeColor)
-
-        println("Dark theme color: $hexDarkThemeColor")
-        println("Light theme color: $hexLightThemeColor")
-
-        DarkThemeFingerprint
-            .resultOrThrow()
-            .mutableMethod
-            .replaceInstruction(0, "const-string v0, \"$hexDarkThemeColor\"")
-
-        LightThemeFingerprint
-            .resultOrThrow()
-            .mutableMethod
-            .replaceInstruction(0, "const-string v0, \"$hexDarkThemeColor\"")
+        DARK_THEME_HEX = toHex(darkThemeColor)
+        LIGHT_THEME_HEX = toHex(lightThemeColor)
 
 
         val currentTheme = if (isMonetPatchIncluded)
@@ -181,7 +167,7 @@ object ThemePatch : BaseResourcePatch(
 
     }
 
-    private fun getHexColor(context: ResourceContext, themeColor: String): String {
+    private fun toHex(themeColor: String): String {
         return if (themeColor.startsWith("#")) {
             // If the theme color is already a hex color, return it as is
             themeColor
@@ -195,5 +181,13 @@ object ThemePatch : BaseResourcePatch(
                 }
             }
         }
+    }
+
+    fun getDarkThemeHex(): String {
+        return DARK_THEME_HEX
+    }
+
+    fun getLightThemeHex(): String {
+        return LIGHT_THEME_HEX
     }
 }

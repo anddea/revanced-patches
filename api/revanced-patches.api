@@ -1090,6 +1090,8 @@ public final class app/revanced/patches/youtube/layout/theme/ThemePatch : app/re
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/theme/ThemePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getDarkThemeHex ()Ljava/lang/String;
+	public final fun getLightThemeHex ()Ljava/lang/String;
 }
 
 public final class app/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -1685,6 +1687,7 @@ public final class app/revanced/patches/youtube/utils/settings/SettingsBytecodeP
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/SettingsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public final fun putHex (Ljava/lang/String;Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/youtube/utils/settings/SettingsPatch : app/revanced/util/patch/BaseResourcePatch, java/io/Closeable {
