@@ -1,3 +1,10 @@
+# [2.226.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.19...v2.226.0-dev.20) (2024-06-26)
+
+
+### Features
+
+* **YouTube - Shorts overlay buttons:** Update `Outline` and `OutlineCircle` icons ([527681c](https://github.com/anddea/revanced-patches/commit/527681c2572231dd15660e765c7408efd5cef4f1))
+
 # [2.226.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.18...v2.226.0-dev.19) (2024-06-26)
 
 
