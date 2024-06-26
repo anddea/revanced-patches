@@ -1,3 +1,10 @@
+# [2.227.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.226.0...v2.227.0-dev.1) (2024-06-26)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Custom header support for `Revancify Yellow` ([#656](https://github.com/anddea/revanced-patches/issues/656)) ([72dfa7e](https://github.com/anddea/revanced-patches/commit/72dfa7e2d00e65d027eb0ff423764f79d04f1018))
+
 # [2.226.0](https://github.com/anddea/revanced-patches/compare/v2.225.0...v2.226.0) (2024-06-26)
 
 
