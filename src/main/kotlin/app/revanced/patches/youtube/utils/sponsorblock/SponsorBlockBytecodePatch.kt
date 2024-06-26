@@ -19,10 +19,10 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Inset
 import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint
 import app.revanced.patches.youtube.utils.sponsorblock.fingerprints.SegmentPlaybackControllerFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversed
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversedOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -80,7 +80,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
 
         SeekbarOnDrawFingerprint.resultOrThrow().mutableMethod.apply {
             // Get left and right of seekbar rectangle
-            val moveObjectIndex = getTargetIndex(Opcode.MOVE_OBJECT_FROM16)
+            val moveObjectIndex = getTargetIndexOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
             addInstruction(
                 moveObjectIndex + 1,
@@ -89,7 +89,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             )
 
             // Set seekbar thickness
-            val roundIndex = getTargetIndexWithMethodReferenceName("round") + 1
+            val roundIndex = getTargetIndexWithMethodReferenceNameOrThrow("round") + 1
             val roundRegister = getInstruction<OneRegisterInstruction>(roundIndex).registerA
 
             addInstruction(
@@ -99,7 +99,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             )
 
             // Draw segment
-            val drawCircleIndex = getTargetIndexWithMethodReferenceNameReversed("drawCircle")
+            val drawCircleIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("drawCircle")
             val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
             addInstruction(
                 drawCircleIndex,
@@ -116,7 +116,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         // Append timestamp
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceName("getString") + 1
+                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -132,8 +132,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(InsetOverlayViewLayout)
-                val checkCastIndex = getTargetIndex(targetIndex, Opcode.CHECK_CAST)
-                val targetRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                val checkCastIndex = getTargetIndexOrThrow(targetIndex, Opcode.CHECK_CAST)
+                val targetRegister =
+                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
                     checkCastIndex + 1,
@@ -145,9 +146,14 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         // Replace strings
         RectangleFieldInvalidatorFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
-                val invalidateIndex = getTargetIndexWithMethodReferenceNameReversed("invalidate")
-                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversed(invalidateIndex + 1, "Landroid/graphics/Rect;")
-                val rectangleFieldName = (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
+                val invalidateIndex =
+                    getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
+                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversedOrThrow(
+                    invalidateIndex + 1,
+                    "Landroid/graphics/Rect;"
+                )
+                val rectangleFieldName =
+                    (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
                 SegmentPlaybackControllerFingerprint.resultOrThrow().let {
                     it.mutableMethod.apply {

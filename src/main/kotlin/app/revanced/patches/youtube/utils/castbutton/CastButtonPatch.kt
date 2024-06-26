@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CL
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -43,7 +43,8 @@ object CastButtonPatch : BytecodePatch(
         MenuItemVisibilityFingerprint.resolve(context, toolbarMenuItemInitializeResult.classDef)
 
         toolbarMenuItemInitializeMethod = toolbarMenuItemInitializeResult.mutableMethod
-        toolbarMenuItemVisibilityMethod = MenuItemVisibilityFingerprint.resultOrThrow().mutableMethod
+        toolbarMenuItemVisibilityMethod =
+            MenuItemVisibilityFingerprint.resultOrThrow().mutableMethod
 
         playerButtonMethod = PlayerButtonFingerprint.resultOrThrow().mutableMethod
 
@@ -63,7 +64,7 @@ object CastButtonPatch : BytecodePatch(
 
     internal fun hookPlayerButton(context: BytecodeContext) {
         playerButtonMethod.apply {
-            val index = getTargetIndexWithMethodReferenceName("setVisibility")
+            val index = getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
             val visibilityRegister = instruction.registerD
@@ -83,7 +84,7 @@ object CastButtonPatch : BytecodePatch(
 
     internal fun hookToolBarButton(context: BytecodeContext) {
         toolbarMenuItemInitializeMethod.apply {
-            val index = getTargetIndexWithMethodReferenceName("setShowAsAction") + 1
+            val index = getTargetIndexWithMethodReferenceNameOrThrow("setShowAsAction") + 1
 
             addInstruction(
                 index,

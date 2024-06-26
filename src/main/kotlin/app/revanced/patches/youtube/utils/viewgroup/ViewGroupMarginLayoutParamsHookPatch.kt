@@ -25,9 +25,10 @@ object ViewGroupMarginLayoutParamsHookPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        val method = context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)?.mutableClass?.methods?.first { method ->
-            method.name == "hideViewGroupByMarginLayoutParams"
-        } ?: throw PatchException("Could not find hideViewGroupByMarginLayoutParams method")
+        val method =
+            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)?.mutableClass?.methods?.first { method ->
+                method.name == "hideViewGroupByMarginLayoutParams"
+            } ?: throw PatchException("Could not find hideViewGroupByMarginLayoutParams method")
 
         SetViewGroupMarginFingerprint.resolve(
             context,

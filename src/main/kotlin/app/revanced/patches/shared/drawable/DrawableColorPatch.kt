@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.drawable.fingerprints.DrawableFingerprint
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversed
+import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -17,7 +17,7 @@ object DrawableColorPatch : BytecodePatch(
 
         DrawableFingerprint.resultOrThrow().mutableMethod.apply {
             insertMethod = this
-            insertIndex = getTargetIndexWithMethodReferenceNameReversed("setColor")
+            insertIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("setColor")
             insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
         }
     }

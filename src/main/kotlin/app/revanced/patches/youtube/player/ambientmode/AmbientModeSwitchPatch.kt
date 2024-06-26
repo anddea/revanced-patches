@@ -11,8 +11,8 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 object AmbientModeSwitchPatch : BaseBytecodePatch(
     name = "Ambient mode control",
-    description = "Adds options to disable ambient mode and to bypass ambient mode restrictions.",
+    description = "Adds options to disable Ambient mode and to bypass Ambient mode restrictions.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -45,13 +45,15 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
             PowerSaveModeSyntheticFingerprint to true
         ).forEach { (fingerprint, reversed) ->
             fingerprint.resultOrThrow().mutableMethod.apply {
-                val stringIndex = getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
+                val stringIndex =
+                    getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
                 val targetIndex =
                     if (reversed)
-                        getTargetIndexReversed(stringIndex, Opcode.INVOKE_DIRECT)
+                        getTargetIndexReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
                     else
-                        getTargetIndex(stringIndex, Opcode.INVOKE_DIRECT)
-                val targetClass = (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
+                        getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
+                val targetClass =
+                    (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
 
                 syntheticClassList += targetClass
             }

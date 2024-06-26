@@ -15,7 +15,12 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     fromPackageName = ORIGINAL_PACKAGE_NAME_YOUTUBE,
     mainActivityOnCreateFingerprint = MainActivityFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
-    dependencies = setOf(SpoofClientPatch::class, SpoofUserAgentPatch::class, PackageNamePatch::class, SettingsPatch::class),
+    dependencies = setOf(
+        SpoofClientPatch::class,
+        SpoofUserAgentPatch::class,
+        PackageNamePatch::class,
+        SettingsPatch::class
+    ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = COMPATIBLE_PACKAGE
 )

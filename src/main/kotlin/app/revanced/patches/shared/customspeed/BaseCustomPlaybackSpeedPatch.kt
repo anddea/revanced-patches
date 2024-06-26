@@ -8,10 +8,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFallBackFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFingerprint
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithFieldReferenceType
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -39,7 +39,7 @@ abstract class BaseCustomPlaybackSpeedPatch(
                         """
                 )
 
-                val sizeIndex = getTargetIndexWithMethodReferenceName("size") + 1
+                val sizeIndex = getTargetIndexWithMethodReferenceNameOrThrow("size") + 1
                 val sizeRegister = getInstruction<OneRegisterInstruction>(sizeIndex).registerA
 
                 addInstructions(
@@ -49,7 +49,7 @@ abstract class BaseCustomPlaybackSpeedPatch(
                         """
                 )
 
-                val arrayIndex = getTargetIndexWithFieldReferenceType("[F")
+                val arrayIndex = getTargetIndexWithFieldReferenceTypeOrThrow("[F")
                 val arrayRegister = getInstruction<OneRegisterInstruction>(arrayIndex).registerA
 
                 addInstructions(
@@ -71,9 +71,9 @@ abstract class BaseCustomPlaybackSpeedPatch(
         ).forEach {
             it.mutableMethod.apply {
                 val limiterMinConstIndex =
-                    indexOfFirstInstruction { (this as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
+                    indexOfFirstInstructionOrThrow { (this as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
                 val limiterMaxConstIndex =
-                    getTargetIndex(limiterMinConstIndex + 1, Opcode.CONST_HIGH16)
+                    getTargetIndexOrThrow(limiterMinConstIndex + 1, Opcode.CONST_HIGH16)
 
                 val limiterMinConstDestination =
                     getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA

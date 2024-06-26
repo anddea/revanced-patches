@@ -29,7 +29,10 @@ object GradientLoadingScreenPatch : BaseBytecodePatch(
             GradientLoadingScreenPrimaryFingerprint to 45412406,
             GradientLoadingScreenSecondaryFingerprint to 45418917
         ).forEach { (fingerprint, literal) ->
-            fingerprint.literalInstructionBooleanHook(literal, "$GENERAL_CLASS_DESCRIPTOR->enableGradientLoadingScreen()Z")
+            fingerprint.literalInstructionBooleanHook(
+                literal,
+                "$GENERAL_CLASS_DESCRIPTOR->enableGradientLoadingScreen()Z"
+            )
         }
 
         /**

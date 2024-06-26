@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 object CommentsComponentPatch : BaseBytecodePatch(
-    name = "Hide comments component",
+    name = "Hide comments components",
     description = "Adds options to hide components related to comments.",
     dependencies = setOf(
         LithoFilterPatch::class,
@@ -37,6 +37,7 @@ object CommentsComponentPatch : BaseBytecodePatch(
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/CommentsFilter;"
+
     override fun execute(context: BytecodeContext) {
 
         // region patch for emoji picker button in shorts
@@ -44,7 +45,7 @@ object CommentsComponentPatch : BaseBytecodePatch(
         ShortsLiveStreamEmojiPickerOpacityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = implementation!!.instructions.size - 1
-                val insertRegister= getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
                     insertIndex,
@@ -56,12 +57,15 @@ object CommentsComponentPatch : BaseBytecodePatch(
         ShortsLiveStreamEmojiPickerOnClickListenerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val emojiPickerEndpointIndex = getWideLiteralInstructionIndex(126326492)
-                val emojiPickerOnClickListenerIndex = getTargetIndex(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
-                val emojiPickerOnClickListenerMethod = getWalkerMethod(context, emojiPickerOnClickListenerIndex)
+                val emojiPickerOnClickListenerIndex =
+                    getTargetIndexOrThrow(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
+                val emojiPickerOnClickListenerMethod =
+                    getWalkerMethod(context, emojiPickerOnClickListenerIndex)
 
                 emojiPickerOnClickListenerMethod.apply {
-                    val insertIndex = getTargetIndex(Opcode.IF_EQZ)
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertIndex = getTargetIndexOrThrow(Opcode.IF_EQZ)
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """

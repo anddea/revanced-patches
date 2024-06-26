@@ -24,7 +24,8 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
         val output = StringBuilder()
 
         // create a temp file
-        val readMeTemplateTempFile = File.createTempFile("README", ".md", File(Paths.get("").toAbsolutePath().toString()))
+        val readMeTemplateTempFile =
+            File.createTempFile("README", ".md", File(Paths.get("").toAbsolutePath().toString()))
 
         // copy the contents of 'README-template.md' to the temp file
         StringBuilder(readMeTemplateFile.readText())
@@ -37,19 +38,24 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
             app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_REDDIT\"",
             app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE to "\"COMPATIBLE_PACKAGE_YOUTUBE\""
         ).forEach { (compatiblePackage, replaceString) ->
-            compatiblePackage.map { CompatiblePackage(it.name, it.versions?.toSet()?.ifEmpty { null }) }
+            compatiblePackage.map {
+                CompatiblePackage(
+                    it.name,
+                    it.versions?.toSet()?.ifEmpty { null })
+            }
                 .forEach { compatiblePackages ->
                     val pkgName = compatiblePackages.name
-                    val supportedVersion = if (compatiblePackages.versions == null && exception.containsKey(pkgName)) {
-                        exception[pkgName] + "+"
-                    } else {
-                        compatiblePackages.versions
-                            ?.toString()
-                            ?.replace("[", "[\n          \"")
-                            ?.replace("]", "\"\n        ]")
-                            ?.replace(", ", "\",\n          \"")
-                            ?: "\"ALL\""
-                    }
+                    val supportedVersion =
+                        if (compatiblePackages.versions == null && exception.containsKey(pkgName)) {
+                            exception[pkgName] + "+"
+                        } else {
+                            compatiblePackages.versions
+                                ?.toString()
+                                ?.replace("[", "[\n          \"")
+                                ?.replace("]", "\"\n        ]")
+                                ?.replace(", ", "\",\n          \"")
+                                ?: "\"ALL\""
+                        }
 
                     StringBuilder(readMeTemplateTempFile.readText())
                         .replace(Regex(replaceString), supportedVersion)

@@ -8,13 +8,14 @@ import app.revanced.patches.shared.transformation.IMethodCall
 import app.revanced.patches.shared.transformation.Instruction35cInfo
 import app.revanced.patches.shared.transformation.filterMapInstruction35c
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 abstract class BaseSpoofUserAgentPatch(
     private val packageName: String
@@ -36,44 +37,39 @@ abstract class BaseSpoofUserAgentPatch(
 
         // Replace the result of context.getPackageName(), if it is used in a user agent string.
         mutableMethod.apply {
-            var isTargetMethod = true
+            // After context.getPackageName() the result is moved to a register.
+            val targetRegister = (
+                    getInstruction(instructionIndex + 1)
+                            as? OneRegisterInstruction ?: return
+                    ).registerA
 
-            for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                if (instruction.opcode != Opcode.CONST_STRING)
-                    continue
+            // IndexOutOfBoundsException is possible here,
+            // but no such occurrences are present in the app.
+            val referee =
+                getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
 
-                val constString = getInstruction<BuilderInstruction21c>(index).reference.toString()
-
-                if (constString != "android.resource://" && constString != "gcore_")
-                    continue
-
-                isTargetMethod = false
-                break
+            // Only replace string builder usage.
+            if (referee != USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE) {
+                return
             }
 
-            if (isTargetMethod) {
-                // After context.getPackageName() the result is moved to a register.
-                val targetRegister = (
-                        getInstruction(instructionIndex + 1)
-                                as? OneRegisterInstruction ?: return
-                        ).registerA
-
-                // IndexOutOfBoundsException is not possible here,
-                // but no such occurrences are present in the app.
-                val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
-
-                // This can technically also match non-user agent string builder append methods,
-                // but no such occurrences are present in the app.
-                if (referee != "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;") {
-                    return
-                }
-
-                // Overwrite the result of context.getPackageName() with the original package name.
-                replaceInstruction(
-                    instructionIndex + 1,
-                    "const-string v$targetRegister, \"$packageName\"",
-                )
+            // Do not change the package name in methods that use resources, or for methods that use GmsCore.
+            // Changing these package names will result in playback limitations,
+            // particularly Android VR background audio only playback.
+            val resourceOrGmsStringInstructionIndex = indexOfFirstInstruction {
+                val reference = getReference<StringReference>()
+                opcode == Opcode.CONST_STRING &&
+                        (reference?.string == "android.resource://" || reference?.string == "gcore_")
             }
+            if (resourceOrGmsStringInstructionIndex >= 0) {
+                return
+            }
+
+            // Overwrite the result of context.getPackageName() with the original package name.
+            replaceInstruction(
+                instructionIndex + 1,
+                "const-string v$targetRegister, \"$packageName\"",
+            )
         }
     }
 
@@ -90,5 +86,10 @@ abstract class BaseSpoofUserAgentPatch(
             emptyArray(),
             "Ljava/lang/String;",
         ),
+    }
+
+    private companion object {
+        private const val USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE =
+            "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;"
     }
 }

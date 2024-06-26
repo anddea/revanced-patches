@@ -7,8 +7,8 @@ import app.revanced.patches.youtube.general.audiotracks.fingerprints.StreamingMo
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -28,15 +28,24 @@ object AudioTracksPatch : BaseBytecodePatch(
 
         StreamingModelBuilderFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val formatStreamModelIndex = indexOfFirstInstruction {
+                val formatStreamModelIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CHECK_CAST
                             && (this as ReferenceInstruction).reference.toString() == "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
                 }
-                val arrayListIndex = getTargetIndexWithReference(formatStreamModelIndex, "Ljava/util/List;->add(Ljava/lang/Object;)Z")
-                val insertIndex = getTargetIndexWithReference(arrayListIndex, "Ljava/util/List;->isEmpty()Z") + 2
+                val arrayListIndex = getTargetIndexWithReferenceOrThrow(
+                    formatStreamModelIndex,
+                    "Ljava/util/List;->add(Ljava/lang/Object;)Z"
+                )
+                val insertIndex =
+                    getTargetIndexWithReferenceOrThrow(
+                        arrayListIndex,
+                        "Ljava/util/List;->isEmpty()Z"
+                    ) + 2
 
-                val formatStreamModelRegister = getInstruction<OneRegisterInstruction>(formatStreamModelIndex).registerA
-                val arrayListRegister = getInstruction<FiveRegisterInstruction>(arrayListIndex).registerC
+                val formatStreamModelRegister =
+                    getInstruction<OneRegisterInstruction>(formatStreamModelIndex).registerA
+                val arrayListRegister =
+                    getInstruction<FiveRegisterInstruction>(arrayListIndex).registerC
 
                 addInstructions(
                     insertIndex, """
@@ -47,7 +56,7 @@ object AudioTracksPatch : BaseBytecodePatch(
 
                 addInstructions(
                     formatStreamModelIndex + 1,
-                        "invoke-static {v$formatStreamModelRegister}, $GENERAL_CLASS_DESCRIPTOR->setFormatStreamModelArray(Ljava/lang/Object;)V"
+                    "invoke-static {v$formatStreamModelRegister}, $GENERAL_CLASS_DESCRIPTOR->setFormatStreamModelArray(Ljava/lang/Object;)V"
                 )
             }
         }

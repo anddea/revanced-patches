@@ -1,12 +1,13 @@
 package app.revanced.patches.youtube.ads.general
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.ads.general.VideoAdsPatch.hookLithoFullscreenAds
+import app.revanced.patches.youtube.ads.general.VideoAdsPatch.hookNonLithoFullscreenAds
 import app.revanced.patches.youtube.ads.general.fingerprints.CompactYpcOfferModuleViewFingerprint
 import app.revanced.patches.youtube.ads.general.fingerprints.InterstitialsContainerFingerprint
 import app.revanced.patches.youtube.ads.general.fingerprints.ShowDialogCommandFingerprint
@@ -15,11 +16,9 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AdAttribution
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.InterstitialsContainer
 import app.revanced.util.findMutableMethodOf
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.injectHideViewCall
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -37,34 +36,14 @@ object AdsBytecodePatch : BytecodePatch(
         // region patch for hide fullscreen ads
 
         // non-litho view, used in some old clients.
-        InterstitialsContainerFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(InterstitialsContainer) + 2
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstruction(
-                    targetIndex + 1,
-                    "invoke-static {v$targetRegister}, $ADS_CLASS_DESCRIPTOR->hideFullscreenAds(Landroid/view/View;)V"
-                )
-            }
-        }
+        InterstitialsContainerFingerprint
+            .resultOrThrow()
+            .hookNonLithoFullscreenAds(InterstitialsContainer)
 
         // litho view, used in 'ShowDialogCommandOuterClass' in innertube
-        ShowDialogCommandFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                // In this method, custom dialog is created and shown.
-                // There were no issues despite adding “return-void” to the first index.
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static/range {p2 .. p2}, $ADS_CLASS_DESCRIPTOR->hideFullscreenAds(Ljava/lang/Object;)Z
-                        move-result v0
-                        if-eqz v0, :show
-                        return-void
-                        """, ExternalLabel("show", getInstruction(0))
-                )
-            }
-        }
+        ShowDialogCommandFingerprint
+            .resultOrThrow()
+            .hookLithoFullscreenAds(context)
 
         // endregion
 

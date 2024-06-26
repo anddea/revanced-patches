@@ -20,10 +20,14 @@ object OverlayBackgroundUtils {
                             arrayOf("height", "width").forEach replacement@{ replacement ->
                                 if (it !is Element) return@replacement
 
-                                if (it.attributes.getNamedItem("android:id")?.nodeValue?.endsWith(identifier) == true) {
-                                    it.getAttributeNode("android:layout_$replacement")?.let { attribute ->
-                                        attribute.textContent = "0.0dip"
-                                    }
+                                if (it.attributes.getNamedItem("android:id")?.nodeValue?.endsWith(
+                                        identifier
+                                    ) == true
+                                ) {
+                                    it.getAttributeNode("android:layout_$replacement")
+                                        ?.let { attribute ->
+                                            attribute.textContent = "0.0dip"
+                                        }
                                 }
                             }
                         }

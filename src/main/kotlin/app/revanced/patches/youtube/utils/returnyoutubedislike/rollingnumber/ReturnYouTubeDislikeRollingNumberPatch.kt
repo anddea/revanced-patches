@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fin
 import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints.RollingNumberMeasureTextParentFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints.RollingNumberSetterFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -60,7 +60,7 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
 
                     rollingNumberClass.methods.find { method -> method.name == "<init>" }
                         ?.apply {
-                            val rollingNumberFieldIndex = getTargetIndex(Opcode.IPUT_OBJECT)
+                            val rollingNumberFieldIndex = getTargetIndexOrThrow(Opcode.IPUT_OBJECT)
                             charSequenceFieldReference =
                                 getInstruction<ReferenceInstruction>(rollingNumberFieldIndex).reference
                         } ?: throw PatchException("RollingNumberClass not found!")
@@ -103,7 +103,7 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                             """
                     )
 
-                    val ifGeIndex = getTargetIndex(Opcode.IF_GE)
+                    val ifGeIndex = getTargetIndexOrThrow(Opcode.IF_GE)
                     val ifGeInstruction = getInstruction<TwoRegisterInstruction>(ifGeIndex)
 
                     removeInstruction(ifGeIndex)
@@ -153,7 +153,7 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                     realTimeUpdateTextViewMethod
                 ).forEach { insertMethod ->
                     insertMethod.apply {
-                        val setTextIndex = getTargetIndexWithMethodReferenceName("setText")
+                        val setTextIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
                         val textViewRegister =
                             getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
                         val textSpanRegister =

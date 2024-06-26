@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.containsReferenceInstructionIndex
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Suppress("unused")
 object ShortsRepeatPatch : BaseBytecodePatch(
-    name = "Change shorts repeat state",
+    name = "Change Shorts repeat state",
     description = "Adds an option to control whether Shorts should repeat, autoplay, or pause upon ending.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -42,9 +42,12 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                     injectEnum(enumName, fieldName)
                 }
 
-                val endScreenStringIndex = getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
-                val endScreenReferenceIndex = getTargetIndex(endScreenStringIndex, Opcode.SPUT_OBJECT)
-                val endScreenReference = getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
+                val endScreenStringIndex =
+                    getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
+                val endScreenReferenceIndex =
+                    getTargetIndexOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
+                val endScreenReference =
+                    getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
 
                 val enumMethodName = ReelEnumStaticFingerprint.resultOrThrow().mutableMethod.name
                 val enumMethodCall = "$definingClass->$enumMethodName(I)$definingClass"
@@ -71,7 +74,7 @@ object ShortsRepeatPatch : BaseBytecodePatch(
         fieldName: String
     ) {
         val stringIndex = getStringInstructionIndex(enumName)
-        val insertIndex = getTargetIndex(stringIndex, Opcode.SPUT_OBJECT)
+        val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.SPUT_OBJECT)
         val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
         addInstruction(
@@ -101,7 +104,8 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                             if ((instruction as ReferenceInstruction).reference.toString() != enumMethodCall)
                                 continue
 
-                            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                            val register =
+                                getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                             addInstructions(
                                 index + 2, """
@@ -109,8 +113,8 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                                     move-result-object v$register
                                     """
                             )
+                        }
                     }
-                }
             }
         }
     }

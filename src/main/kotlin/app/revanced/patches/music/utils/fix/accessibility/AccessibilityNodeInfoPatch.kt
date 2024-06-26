@@ -22,17 +22,20 @@ object AccessibilityNodeInfoPatch : BytecodePatch(
             it.mutableMethod.apply {
                 // Target instruction is invoke-static, but can also be invoke-virtual.
                 // Therefore, the opcode is not checked.
-                val touchExplorationHoverEventMethodIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                    val reference = ((instruction as? ReferenceInstruction)?.reference as? MethodReference)
-                    ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.definingClass == definingClass
-                            && reference?.returnType == "Z"
-                }
+                val touchExplorationHoverEventMethodIndex =
+                    implementation!!.instructions.indexOfFirst { instruction ->
+                        val reference =
+                            ((instruction as? ReferenceInstruction)?.reference as? MethodReference)
+                        ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.definingClass == definingClass
+                                && reference?.returnType == "Z"
+                    }
 
                 // Doesn't raise an exception, even if the target instruction is not found in this method
-                val touchExplorationHoverEventMethodName = if (touchExplorationHoverEventMethodIndex > -1)
-                    (getInstruction<ReferenceInstruction>(touchExplorationHoverEventMethodIndex).reference as MethodReference).name
-                else
-                    "UNDEFINED"
+                val touchExplorationHoverEventMethodName =
+                    if (touchExplorationHoverEventMethodIndex > -1)
+                        (getInstruction<ReferenceInstruction>(touchExplorationHoverEventMethodIndex).reference as MethodReference).name
+                    else
+                        "UNDEFINED"
 
                 val methods = it.mutableClass.methods
 

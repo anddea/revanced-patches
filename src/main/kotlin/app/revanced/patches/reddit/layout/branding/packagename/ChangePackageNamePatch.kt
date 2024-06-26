@@ -30,7 +30,8 @@ object ChangePackageNamePatch : BaseResourcePatch(
             "Original" to PACKAGE_NAME_REDDIT,
         ),
         title = "Package name of Reddit",
-        description = "The name of the package to rename the app to."
+        description = "The name of the package to rename the app to.",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

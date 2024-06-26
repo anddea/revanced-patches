@@ -33,8 +33,9 @@ import app.revanced.patches.youtube.video.playback.fingerprints.QualitySetterFin
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -42,6 +43,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
@@ -106,14 +108,24 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         // region patch for disable HDR video
 
         HDRCapabilityFingerprint.resultOrThrow().mutableMethod.apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $INTEGRATIONS_HDR_VIDEO_CLASS_DESCRIPTOR->disableHDRVideo()Z
-                    move-result v0
-                    if-nez v0, :default
-                    return v0
-                    """, ExternalLabel("default", getInstruction(0))
-            )
+            val stringIndex = getStringInstructionIndex("av1_profile_main_10_hdr_10_plus_supported")
+            val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                val reference = getReference<MethodReference>()
+                reference?.parameterTypes == listOf("I", "Landroid/view/Display;")
+                        && reference.returnType == "Z"
+            }
+
+            val walkerMethod = getWalkerMethod(context, walkerIndex)
+            walkerMethod.apply {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $INTEGRATIONS_HDR_VIDEO_CLASS_DESCRIPTOR->disableHDRVideo()Z
+                        move-result v0
+                        if-nez v0, :default
+                        return v0
+                        """, ExternalLabel("default", getInstruction(0))
+                )
+            }
         }
 
         // endregion
@@ -125,14 +137,15 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             QualityChangedFromRecyclerViewFingerprint.resultOrThrow().classDef
         )
 
-        val newMethod = PlaybackSpeedChangedFromRecyclerViewFingerprint.resultOrThrow().mutableMethod
+        val newMethod =
+            PlaybackSpeedChangedFromRecyclerViewFingerprint.resultOrThrow().mutableMethod
 
         arrayOf(
             newMethod,
             speedSelectionInsertMethod
         ).forEach {
             it.apply {
-                val speedSelectionValueInstructionIndex = getTargetIndex(Opcode.IGET)
+                val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
                 val speedSelectionValueRegister =
                     getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
@@ -205,7 +218,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
         QualityMenuViewInflateFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndex(Opcode.CHECK_CAST)
+                val insertIndex = getTargetIndexOrThrow(Opcode.CHECK_CAST)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -218,10 +231,10 @@ object VideoPlaybackPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
-                val insertIndex = getTargetIndex(Opcode.IGET_OBJECT)
+                val insertIndex = getTargetIndexOrThrow(Opcode.IGET_OBJECT)
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                val jumpIndex = indexOfFirstInstruction {
+                val jumpIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IGET_OBJECT
                             && this.getReference<FieldReference>()?.type == videoQualityClass
                 }
@@ -293,7 +306,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             ByteBufferArrayFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """

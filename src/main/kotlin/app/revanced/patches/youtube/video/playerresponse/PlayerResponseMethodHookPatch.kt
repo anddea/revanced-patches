@@ -8,6 +8,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderFingerprint
 import app.revanced.util.resultOrThrow
 import java.io.Closeable
+import kotlin.properties.Delegates
 
 object PlayerResponseMethodHookPatch :
     BytecodePatch(setOf(PlayerParameterBuilderFingerprint)),
@@ -17,57 +18,59 @@ object PlayerResponseMethodHookPatch :
     // Parameter numbers of the patched method.
     private var PARAMETER_VIDEO_ID = 1
     private var PARAMETER_PLAYER_PARAMETER = 3
-    private var PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
+    private var PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING by Delegates.notNull<Int>()
 
-    private var freeRegister = 0
-    private var shouldApplyNewMethod = false
+    // Registers used to pass the parameters to integrations.
+    private var playerResponseMethodCopyRegisters = false
+    private lateinit var REGISTER_VIDEO_ID: String
+    private lateinit var REGISTER_PLAYER_PARAMETER: String
+    private lateinit var REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING: String
 
     private lateinit var playerResponseMethod: MutableMethod
+    private var numberOfInstructionsAdded = 0
 
     override fun execute(context: BytecodeContext) {
-        playerResponseMethod = PlayerParameterBuilderFingerprint.resultOrThrow().mutableMethod
+        playerResponseMethod = PlayerParameterBuilderFingerprint
+            .resultOrThrow()
+            .mutableMethod
 
         playerResponseMethod.apply {
-            freeRegister = implementation!!.registerCount - parameters.size - 2
-            shouldApplyNewMethod = freeRegister > 2
-            if (shouldApplyNewMethod) {
-                PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = freeRegister
-                PARAMETER_PLAYER_PARAMETER = freeRegister - 2
-                PARAMETER_VIDEO_ID = freeRegister - 3
-            }
+            PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = parameters.size - 2
+
+            // On some app targets the method has too many registers pushing the parameters past v15.
+            // If needed, move the parameters to 4-bit registers so they can be passed to integrations.
+            playerResponseMethodCopyRegisters = implementation!!.registerCount -
+                    parameterTypes.size + PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING > 15
+        }
+
+        if (playerResponseMethodCopyRegisters) {
+            REGISTER_VIDEO_ID = "v0"
+            REGISTER_PLAYER_PARAMETER = "v1"
+            REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING = "v2"
+        } else {
+            REGISTER_VIDEO_ID = "p$PARAMETER_VIDEO_ID"
+            REGISTER_PLAYER_PARAMETER = "p$PARAMETER_PLAYER_PARAMETER"
+            REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING = "p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING"
         }
     }
 
     override fun close() {
         fun hookVideoId(hook: Hook) {
-            val instruction =
-                if (shouldApplyNewMethod)
-                    "invoke-static {v$PARAMETER_VIDEO_ID, v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook"
-                else
-                    "invoke-static {p$PARAMETER_VIDEO_ID, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook"
-
             playerResponseMethod.addInstruction(
-                0, instruction
+                0,
+                "invoke-static {$REGISTER_VIDEO_ID, $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook"
             )
+            numberOfInstructionsAdded++
         }
 
         fun hookPlayerParameter(hook: Hook) {
-            val instruction =
-                if (shouldApplyNewMethod)
-                    """
-                        invoke-static {v$PARAMETER_VIDEO_ID, v$PARAMETER_PLAYER_PARAMETER, v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
-                        move-result-object p3
-                        """
-                else
-                    """
-                        invoke-static {p$PARAMETER_VIDEO_ID, p$PARAMETER_PLAYER_PARAMETER, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
-                        move-result-object p$PARAMETER_PLAYER_PARAMETER
-                        """
-
             playerResponseMethod.addInstructions(
-                0,
-                instruction
+                0, """
+                    invoke-static {$REGISTER_VIDEO_ID, $REGISTER_PLAYER_PARAMETER, $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING}, $hook
+                    move-result-object $REGISTER_PLAYER_PARAMETER
+                    """
             )
+            numberOfInstructionsAdded += 2
         }
 
         // Reverse the order in order to preserve insertion order of the hooks.
@@ -80,14 +83,25 @@ object PlayerResponseMethodHookPatch :
         videoIdHooks.forEach(::hookVideoId)
         beforeVideoIdHooks.forEach(::hookPlayerParameter)
 
-        if (shouldApplyNewMethod) {
-            playerResponseMethod.addInstructions(
-                0, """
-                    move-object v$PARAMETER_VIDEO_ID, p1
-                    move-object v$PARAMETER_PLAYER_PARAMETER, p3
-                    move/from16 v$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING, p11
+        if (playerResponseMethodCopyRegisters) {
+            playerResponseMethod.apply {
+                addInstructions(
+                    0,
                     """
-            )
+                        move-object/from16 $REGISTER_VIDEO_ID, p$PARAMETER_VIDEO_ID
+                        move-object/from16 $REGISTER_PLAYER_PARAMETER, p$PARAMETER_PLAYER_PARAMETER
+                        move/from16        $REGISTER_IS_SHORT_AND_OPENING_OR_PLAYING, p$PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING
+                        """,
+                )
+
+                numberOfInstructionsAdded += 3
+
+                // Move the modified register back.
+                addInstruction(
+                    numberOfInstructionsAdded,
+                    "move-object/from16 p$PARAMETER_PLAYER_PARAMETER, $REGISTER_PLAYER_PARAMETER"
+                )
+            }
         }
     }
 
@@ -95,7 +109,8 @@ object PlayerResponseMethodHookPatch :
         internal class VideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
         internal class PlayerParameter(methodDescriptor: String) : Hook(methodDescriptor)
-        internal class PlayerParameterBeforeVideoId(methodDescriptor: String) : Hook(methodDescriptor)
+        internal class PlayerParameterBeforeVideoId(methodDescriptor: String) :
+            Hook(methodDescriptor)
 
         override fun toString() = methodDescriptor
     }

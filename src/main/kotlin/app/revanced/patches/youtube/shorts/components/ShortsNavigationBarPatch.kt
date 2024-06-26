@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.shorts.components.fingerprints.RenderBottomN
 import app.revanced.patches.youtube.shorts.components.fingerprints.SetPivotBarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -25,21 +25,23 @@ object ShortsNavigationBarPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         InitializeButtonsFingerprint.resultOrThrow().let { parentResult ->
-            SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
+            SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }
+                .resultOrThrow().let {
+                    it.mutableMethod.apply {
+                        val startIndex = it.scanResult.patternScanResult!!.startIndex
+                        val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
-                    addInstruction(
-                        startIndex + 1,
-                        "invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Ljava/lang/Object;)V"
-                    )
+                        addInstruction(
+                            startIndex + 1,
+                            "invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Ljava/lang/Object;)V"
+                        )
+                    }
                 }
-            }
         }
 
         RenderBottomNavigationBarFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerMethod.addInstruction(
                 0,
@@ -49,7 +51,7 @@ object ShortsNavigationBarPatch : BytecodePatch(
 
         BottomNavigationBarFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceName("findViewById") + 1
+                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("findViewById") + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

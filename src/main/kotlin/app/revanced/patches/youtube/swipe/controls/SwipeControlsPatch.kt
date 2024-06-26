@@ -2,13 +2,13 @@ package app.revanced.patches.youtube.swipe.controls
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.swipe.controls.fingerprints.FullScreenEngagementOverlayFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.HDRBrightnessFingerprint
+import app.revanced.patches.youtube.swipe.controls.fingerprints.SwipeToSwitchVideoFingerprint
 import app.revanced.patches.youtube.swipe.controls.fingerprints.WatchPanelGesturesFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
@@ -23,14 +23,13 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.getTargetIndex
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.transformMethods
 import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -49,6 +48,7 @@ object SwipeControlsPatch : BaseBytecodePatch(
     fingerprints = setOf(
         FullScreenEngagementOverlayFingerprint,
         HDRBrightnessFingerprint,
+        SwipeToSwitchVideoFingerprint,
         WatchPanelGesturesFingerprint
     )
 ) {
@@ -62,7 +62,8 @@ object SwipeControlsPatch : BaseBytecodePatch(
 
         // region patch for swipe controls patch
 
-        val hostActivityClass = context.findClass(INTEGRATIONS_SWIPE_CONTROLS_HOST_ACTIVITY_CLASS_DESCRIPTOR)!!.mutableClass
+        val hostActivityClass =
+            context.findClass(INTEGRATIONS_SWIPE_CONTROLS_HOST_ACTIVITY_CLASS_DESCRIPTOR)!!.mutableClass
         val mainActivityClass = mainActivityMutableClass
 
         // inject the wrapper class from integrations into the class hierarchy of MainActivity (WatchWhileActivity)
@@ -100,74 +101,63 @@ object SwipeControlsPatch : BaseBytecodePatch(
 
         // endregion
 
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: SWIPE_CONTROLS"
+        )
+
         // region patch for disable HDR auto brightness
 
-        HDRBrightnessFingerprint.result?.let {
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
-                        move-result v0
-                        if-eqz v0, :default
-                        return-void
-                        """, ExternalLabel("default", getInstruction(0))
-                )
-            }
-
-            /**
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS",
-                    "SETTINGS: DISABLE_HDR_BRIGHTNESS"
-                )
+        // Since it does not support all versions,
+        // add settings only if the patch is successful.
+        HDRBrightnessFingerprint.result?.mutableMethod?.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableHDRAutoBrightness()Z
+                    move-result v0
+                    if-eqz v0, :default
+                    return-void
+                    """, ExternalLabel("default", getInstruction(0))
             )
-        } // no exceptions are raised for compatibility with all versions.
+
+            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
+            settingArray += "SETTINGS: DISABLE_HDR_BRIGHTNESS"
+        }
+
+        // endregion
+
+        // region patch for enable swipe to switch video
+
+        // Since it does not support all versions,
+        // add settings only if the patch is successful.
+        SwipeToSwitchVideoFingerprint.result?.let {
+            SwipeToSwitchVideoFingerprint.literalInstructionBooleanHook(
+                45631116,
+                "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
+            )
+
+            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
+            settingArray += "SETTINGS: ENABLE_SWIPE_TO_SWITCH_VIDEO"
+        }
 
         // endregion
 
         // region patch for enable watch panel gestures
 
-        // Even if it fails to resolve the fingerprint, the [Swipe controls] patch should succeed.
-        // So instead of throwing an exception, it just prints WARNING.
+        // Since it does not support all versions,
+        // add settings only if the patch is successful.
         WatchPanelGesturesFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val literalIndex = getWideLiteralInstructionIndex(45372793)
-                val targetIndex = getTargetIndex(literalIndex, Opcode.MOVE_RESULT)
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstructions(
-                    targetIndex + 1, """
-                        invoke-static {}, $INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableWatchPanelGestures()Z
-                        move-result v$targetRegister
-                        """
-                )
-            }
-
-            /**
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS",
-                    "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
-                )
+            WatchPanelGesturesFingerprint.literalInstructionBooleanHook(
+                45372793,
+                "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableWatchPanelGestures()Z"
             )
-        } ?: println("WARNING: Failed to resolve WatchPanelGesturesFingerprint")
+
+            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
+            settingArray += "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
+        }
 
         // endregion
 
-        /**
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: SWIPE_CONTROLS"
-            )
-        )
-
-        SettingsPatch.updatePatchStatus(this)
+        // region copy resources
 
         contexts.copyResources(
             "youtube/swipecontrols",
@@ -179,5 +169,14 @@ object SwipeControlsPatch : BaseBytecodePatch(
                 "ic_sc_volume_normal.xml"
             )
         )
+
+        // endregion
+
+        /**
+         * Add settings
+         */
+        SettingsPatch.addPreference(settingArray)
+
+        SettingsPatch.updatePatchStatus(this)
     }
 }

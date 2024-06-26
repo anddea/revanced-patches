@@ -8,12 +8,14 @@ import app.revanced.patches.youtube.general.navigation.fingerprints.AutoMotiveFi
 import app.revanced.patches.youtube.general.navigation.fingerprints.PivotBarChangedFingerprint
 import app.revanced.patches.youtube.general.navigation.fingerprints.PivotBarSetTextFingerprint
 import app.revanced.patches.youtube.general.navigation.fingerprints.PivotBarStyleFingerprint
+import app.revanced.patches.youtube.general.navigation.fingerprints.TranslucentNavigationBarFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -32,10 +34,29 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         AutoMotiveFingerprint,
         PivotBarChangedFingerprint,
         PivotBarSetTextFingerprint,
-        PivotBarStyleFingerprint
+        PivotBarStyleFingerprint,
+        TranslucentNavigationBarFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: GENERAL",
+            "SETTINGS: HIDE_NAVIGATION_COMPONENTS"
+        )
+
+        // region patch for enable translucent navigation bar
+
+        if (SettingsPatch.upward1923) {
+            TranslucentNavigationBarFingerprint.literalInstructionBooleanHook(
+                45630927,
+                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
+            )
+
+            settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
+        }
+
+        // endregion
 
         // region patch for enable narrow navigation buttons
 
@@ -82,7 +103,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
 
         PivotBarSetTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceName("setText")
+                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -101,12 +122,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: HIDE_NAVIGATION_COMPONENTS"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }

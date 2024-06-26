@@ -39,13 +39,12 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.doRecursively
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithReference
-import app.revanced.util.getTargetIndexWithReferenceReversed
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getTargetIndexWithReferenceReversedOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -87,7 +86,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         key = "ForceHideVoiceSearchButton",
         default = false,
         title = "Force hide voice search button",
-        description = "Hide voice search button with legacy method, button will always be hidden."
+        description = "Permanently hide the voice search button with the legacy method.",
+        required = true
     )
 
     override fun execute(context: BytecodeContext) {
@@ -109,7 +109,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         // YouTube's headers have the form of AttributeSet, which is decoded from YouTube's built-in classes.
         val attributeResolverMethod = AttributeResolverFingerprint.resultOrThrow().mutableMethod
-        val attributeResolverMethodCall = attributeResolverMethod.definingClass + "->" + attributeResolverMethod.name + "(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;"
+        val attributeResolverMethodCall =
+            attributeResolverMethod.definingClass + "->" + attributeResolverMethod.name + "(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;"
 
         context.findClass(GENERAL_CLASS_DESCRIPTOR)!!.mutableClass.methods.single { method ->
             method.name == "getHeaderDrawable"
@@ -128,7 +129,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         )
         DrawerContentViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceName("addView")
+                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstruction(
@@ -139,11 +140,12 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         }
 
         // Override the header in the search bar.
-        val setActionBarRingoMutableClass = SetActionBarRingoFingerprint.resultOrThrow().mutableClass
-        setActionBarRingoMutableClass.methods.first {
-                method -> MethodUtil.isConstructor(method)
+        val setActionBarRingoMutableClass =
+            SetActionBarRingoFingerprint.resultOrThrow().mutableClass
+        setActionBarRingoMutableClass.methods.first { method ->
+            MethodUtil.isConstructor(method)
         }.apply {
-            val insertIndex = getTargetIndex(Opcode.IPUT_BOOLEAN)
+            val insertIndex = getTargetIndexOrThrow(Opcode.IPUT_BOOLEAN)
             val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(
@@ -190,7 +192,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 .apply {
                     val staticCalls = implementation!!.instructions.withIndex()
                         .filter { instruction ->
-                            val methodReference = ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)
+                            val methodReference =
+                                ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)
                             methodReference?.parameterTypes?.size == 1 &&
                                     methodReference.returnType == "Z"
                         }
@@ -275,12 +278,12 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         CreateSearchSuggestionsFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
                 val relativeIndex = getWideLiteralInstructionIndex(40)
-                val replaceIndex = getTargetIndexWithReferenceReversed(
+                val replaceIndex = getTargetIndexWithReferenceReversedOrThrow(
                     relativeIndex,
                     "Landroid/widget/ImageView;->setVisibility(I)V"
                 ) - 1
 
-                val jumpIndex = getTargetIndexWithReference(
+                val jumpIndex = getTargetIndexWithReferenceOrThrow(
                     relativeIndex,
                     "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
                 ) + 4
@@ -321,13 +324,18 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 )
             )
         } else {
-            SearchBarFingerprint.resolve(context, SearchBarParentFingerprint.resultOrThrow().classDef)
+            SearchBarFingerprint.resolve(
+                context,
+                SearchBarParentFingerprint.resultOrThrow().classDef
+            )
 
             SearchBarFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val startIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setVisibilityIndex = getTargetIndexWithMethodReferenceName(startIndex, "setVisibility")
-                    val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+                    val setVisibilityIndex =
+                        getTargetIndexWithMethodReferenceNameOrThrow(startIndex, "setVisibility")
+                    val setVisibilityInstruction =
+                        getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
                     replaceInstruction(
                         setVisibilityIndex,
@@ -340,8 +348,13 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
             SearchResultFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val startIndex = getWideLiteralInstructionIndex(VoiceSearch)
-                    val setOnClickListenerIndex = getTargetIndexWithMethodReferenceName(startIndex, "setOnClickListener")
-                    val viewRegister = getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
+                    val setOnClickListenerIndex =
+                        getTargetIndexWithMethodReferenceNameOrThrow(
+                            startIndex,
+                            "setOnClickListener"
+                        )
+                    val viewRegister =
+                        getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
                     addInstruction(
                         setOnClickListenerIndex + 1,

@@ -3,14 +3,29 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.options.PatchOption
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import java.io.File
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 val classLoader: ClassLoader = object {}.javaClass.classLoader
+
+fun PatchOption<String>.valueOrThrow() = value
+    ?: throw PatchException("Invalid patch option: $title.")
+
+fun PatchOption<Int?>.valueOrThrow() = value
+    ?: throw PatchException("Invalid patch option: $title.")
+
+fun PatchOption<String>.lowerCaseOrThrow() = valueOrThrow()
+    .lowercase()
+
+fun PatchOption<String>.underBarOrThrow() = lowerCaseOrThrow()
+    .replace(" ", "_")
 
 fun Node.adoptChild(tagName: String, block: Element.() -> Unit) {
     val child = ownerDocument.createElement(tagName)
@@ -48,6 +63,36 @@ fun String.startsWithAny(vararg prefixes: String): Boolean {
     return false
 }
 
+fun ResourceContext.copyFile(
+    resourceGroup: List<ResourceGroup>,
+    path: String,
+    warning: String
+): Boolean {
+    resourceGroup.let { resourceGroups ->
+        try {
+            val filePath = File(path)
+            val resourceDirectory = this["res"]
+
+            resourceGroups.forEach { group ->
+                val fromDirectory = filePath.resolve(group.resourceDirectoryName)
+                val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+
+                group.resources.forEach { iconFileName ->
+                    Files.write(
+                        toDirectory.resolve(iconFileName).toPath(),
+                        fromDirectory.resolve(iconFileName).readBytes()
+                    )
+                }
+            }
+
+            return true
+        } catch (_: Exception) {
+            println(warning)
+        }
+    }
+    return false
+}
+
 /**
  * Copy resources from the current class loader to the resource directory.
  *
@@ -63,12 +108,63 @@ fun ResourceContext.copyResources(
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
-            Files.copy(
-                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
-                targetResourceDirectory.resolve(resourceFile).toPath(),
-                StandardCopyOption.REPLACE_EXISTING,
-            )
+
+            inputStreamFromBundledResource(
+                sourceResourceDirectory,
+                resourceFile
+            )?.let { inputStream ->
+                Files.copy(
+                    inputStream,
+                    targetResourceDirectory.resolve(resourceFile).toPath(),
+                    StandardCopyOption.REPLACE_EXISTING,
+                )
+            }
         }
+    }
+}
+
+/**
+ * Copy resources from the current class loader to the resource directory with the option to rename.
+ *
+ * @param sourceResourceDirectory The source resource directory name.
+ * @param resourceMap The map containing resource titles and their respective path data.
+ */
+fun ResourceContext.copyResourcesWithRename(
+    sourceResourceDirectory: String,
+    resourceMap: Map<String, String>
+) {
+    val targetResourceDirectory = this["res"]
+
+    for ((title, pathData) in resourceMap) {
+        // Check if pathData is another title
+        if (resourceMap.containsKey(pathData)) {
+            continue // Skip copying if the pathData is another title
+        }
+
+        val resourceFile = "drawable/icon.xml"
+        val inputStream = inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!
+        val targetFile = targetResourceDirectory.resolve("drawable/$title.xml").toPath()
+
+        Files.copy(inputStream, targetFile, StandardCopyOption.REPLACE_EXISTING)
+
+        // Update the XML with the new path data
+        this.xmlEditor[targetFile.toString()].use { editor ->
+            updatePathData(editor.file, pathData)
+        }
+    }
+}
+
+/**
+ * Update the `android:pathData` attribute in the XML document.
+ *
+ * @param document The XML document.
+ * @param pathData The new path data to set.
+ */
+fun updatePathData(document: org.w3c.dom.Document, pathData: String) {
+    val elements = document.getElementsByTagName("path")
+    for (i in 0 until elements.length) {
+        val pathElement = elements.item(i) as? Element
+        pathElement?.setAttribute("android:pathData", pathData)
     }
 }
 

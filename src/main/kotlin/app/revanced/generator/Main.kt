@@ -8,5 +8,8 @@ internal fun main() = PatchBundleLoader.Jar(
 ).also { loader ->
     if (loader.isEmpty()) throw IllegalStateException("No patches found")
 }.let { bundle ->
-    arrayOf(JsonPatchesFileGenerator(), ReadMeFileGenerator()).forEach { generator -> generator.generate(bundle) }
+    arrayOf(
+        JsonPatchesFileGenerator(),
+        ReadMeFileGenerator()
+    ).forEach { generator -> generator.generate(bundle) }
 }

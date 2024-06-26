@@ -102,7 +102,9 @@ object AlternativeThumbnailsPatch : BaseBytecodePatch(
             block: (MutableMethod) -> Unit
         ) = alsoResolve(fingerprint).also { block(it.mutableMethod) }
 
-        MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(MessageDigestImageUrlParentFingerprint) {
+        MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(
+            MessageDigestImageUrlParentFingerprint
+        ) {
             loadImageUrlMethod = it
             addImageUrlHook(ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR, true)
         }

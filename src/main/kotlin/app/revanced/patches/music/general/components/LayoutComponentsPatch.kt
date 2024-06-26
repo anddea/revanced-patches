@@ -33,8 +33,8 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.shared.voicesearch.VoiceSearchUtils.patchXml
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -78,7 +78,8 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         key = "ForceHideVoiceSearchButton",
         default = false,
         title = "Force hide voice search button",
-        description = "Hide voice search button with legacy method, button will always be hidden."
+        description = "Permanently hide the voice search button with the legacy method.",
+        required = true
     )
 
     override fun execute(context: BytecodeContext) {
@@ -106,7 +107,8 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         // hide floating cast banner
         PlayerOverlayChipFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.PlayerOverlayChip) + 2
+                val targetIndex =
+                    getWideLiteralInstructionIndex(SharedResourceIdPatch.PlayerOverlayChip) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -164,7 +166,8 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             fingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex
-                    val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                    val insertRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                     addInstructions(
                         insertIndex, """
@@ -183,7 +186,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         if (SettingsPatch.upward0642) {
             TopBarMenuItemImageViewFingerprint.resultOrThrow().mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(TopBarMenuItemImageView)
-                val targetIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -232,8 +235,9 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             TasteBuilderSyntheticFingerprint.resolve(context, parentResult.classDef)
 
             parentResult.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.MusicTasteBuilderShelf)
-                val targetIndex = getTargetIndex(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val constIndex =
+                    getWideLiteralInstructionIndex(SharedResourceIdPatch.MusicTasteBuilderShelf)
+                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -280,8 +284,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             )
             SearchBarFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val setVisibilityIndex = getTargetIndexWithMethodReferenceName("setVisibility")
-                    val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+                    val setVisibilityIndex =
+                        getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                    val setVisibilityInstruction =
+                        getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
                     replaceInstruction(
                         setVisibilityIndex,

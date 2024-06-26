@@ -1,9 +1,13 @@
 package app.revanced.patches.youtube.video.playback.fingerprints
 
-import app.revanced.util.fingerprint.MethodReferenceNameFingerprint
+import app.revanced.patcher.extensions.or
+import app.revanced.patcher.fingerprint.MethodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object HDRCapabilityFingerprint : MethodReferenceNameFingerprint(
-    returnType = "Z",
-    parameters = listOf("I", "Landroid/view/Display;"),
-    reference = { "getSupportedHdrTypes" }
+internal object HDRCapabilityFingerprint : MethodFingerprint(
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    strings = listOf(
+        "av1_profile_main_10_hdr_10_plus_supported",
+        "video/av01"
+    )
 )
