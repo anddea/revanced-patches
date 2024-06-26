@@ -1,3 +1,10 @@
+# [2.226.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.18...v2.226.0-dev.19) (2024-06-26)
+
+
+### Features
+
+* **YouTube - Searchbar:** Complete restyle ([#652](https://github.com/anddea/revanced-patches/issues/652)) ([8458e1a](https://github.com/anddea/revanced-patches/commit/8458e1ae561622d2a49a4dc3e71bb9157f2e153e))
+
 # [2.226.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.226.0-dev.17...v2.226.0-dev.18) (2024-06-24)
 
 
