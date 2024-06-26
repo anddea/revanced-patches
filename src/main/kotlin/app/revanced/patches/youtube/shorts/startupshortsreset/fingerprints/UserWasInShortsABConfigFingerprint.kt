@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal object UserWasInShortsABConfigFingerprint : MethodFingerprint(
     returnType = "V",
     strings = listOf("Failed to get offline response: "),
-    customFingerprint =  { methodDef, _ ->
+    customFingerprint = { methodDef, _ ->
         indexOfOptionalInstruction(methodDef) >= 0
     }
 ) {

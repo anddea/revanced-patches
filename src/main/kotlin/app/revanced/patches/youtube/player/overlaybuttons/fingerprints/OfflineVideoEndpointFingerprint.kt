@@ -11,6 +11,7 @@ internal object OfflineVideoEndpointFingerprint : MethodFingerprint(
         "Ljava/util/Map;",
         "L",
         "Ljava/lang/String", // VideoId
-        "L"),
+        "L"
+    ),
     strings = listOf("Object is not an offlineable video: ")
 )

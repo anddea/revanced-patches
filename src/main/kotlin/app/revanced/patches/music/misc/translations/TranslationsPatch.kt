@@ -13,7 +13,7 @@ import java.io.File
 
 // Array of supported RVX languages, each represented by its language code.
 val LANGUAGES = arrayOf(
-    "bg-rBG", "bn", "cs-rCZ", "el-rGR", "es-rES", "fr-rFR", "id-rID", "in", "it-rIT",
+    "bg-rBG", "bn", "cs-rCZ", "el-rGR", "es-rES", "fr-rFR", "hu-rHU", "id-rID", "in", "it-rIT",
     "ja-rJP", "ko-rKR", "nl-rNL", "pl-rPL", "pt-rBR", "ro-rRO", "ru-rRU", "tr-rTR", "uk-rUA",
     "vi-rVN", "zh-rCN", "zh-rTW"
 )

@@ -14,6 +14,9 @@ object ResourceUtils {
 
     var youtubePackageName = "com.google.android.youtube"
 
+    private var iconType = "default"
+    fun getIconType() = iconType
+
     fun ResourceContext.updatePackageName(
         fromPackageName: String,
         toPackageName: String
@@ -72,6 +75,7 @@ object ResourceUtils {
     }
 
     fun ResourceContext.updatePatchStatusIcon(iconName: String) {
+        iconType = iconName
         updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
     }
 
@@ -111,7 +115,8 @@ object ResourceUtils {
                 doRecursively loop@{ node ->
                     if (node !is Element) return@loop // Skip if not an element
 
-                    val attributeNode = node.getAttributeNode("android:key") ?: return@loop // Skip if no key attribute
+                    val attributeNode = node.getAttributeNode("android:key")
+                        ?: return@loop // Skip if no key attribute
                     val currentKey = attributeNode.textContent
 
                     // Check if the current key has already been processed
@@ -128,7 +133,10 @@ object ResourceUtils {
                                 setAttribute("android:title", "@string/${key}_title")
                                 this.appendChild(
                                     ownerDocument.createElement("intent").also { intentNode ->
-                                        intentNode.setAttribute("android:targetPackage", youtubePackageName)
+                                        intentNode.setAttribute(
+                                            "android:targetPackage",
+                                            youtubePackageName
+                                        )
                                         intentNode.setAttribute("android:data", key + "_intent")
                                         intentNode.setAttribute("android:targetClass", targetClass)
                                     }
@@ -136,6 +144,7 @@ object ResourceUtils {
                             }
                             node.setAttribute("app:iconSpaceReserved", "true")
                         }
+
                         "true" -> {
                             attributeNode.textContent = "false"
                         }

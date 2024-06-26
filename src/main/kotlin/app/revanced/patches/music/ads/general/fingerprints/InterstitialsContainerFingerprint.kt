@@ -5,6 +5,6 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 
 internal object InterstitialsContainerFingerprint : LiteralValueFingerprint(
     returnType = "V",
-    strings= listOf("overlay_controller_param"),
+    strings = listOf("overlay_controller_param"),
     literalSupplier = { InterstitialsContainer }
 )

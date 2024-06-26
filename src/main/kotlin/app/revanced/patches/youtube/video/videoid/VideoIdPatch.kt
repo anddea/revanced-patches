@@ -32,15 +32,17 @@ object VideoIdPatch : BytecodePatch(
          *
          * @param consumer Consumer that receives the method, insert index and video id register index.
          */
-        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) = resultOrThrow().let { result ->
-            val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
+        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) =
+            resultOrThrow().let { result ->
+                val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
 
-            result.mutableMethod.let {
-                val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
-                val insertIndex = videoIdRegisterIndex + 1
-                consumer(it, insertIndex, videoIdRegister)
+                result.mutableMethod.let {
+                    val videoIdRegister =
+                        it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
+                    val insertIndex = videoIdRegisterIndex + 1
+                    consumer(it, insertIndex, videoIdRegister)
+                }
             }
-        }
 
         VideoIdFingerprint.resolve(context, VideoIdParentFingerprint.resultOrThrow().classDef)
 

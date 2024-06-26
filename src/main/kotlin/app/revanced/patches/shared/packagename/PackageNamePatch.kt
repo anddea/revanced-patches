@@ -36,7 +36,7 @@ object PackageNamePatch : ResourcePatch() {
             "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE
         ),
         title = "Package name of YouTube",
-        description = "The name of the package to use in MicroG support",
+        description = "The name of the package to use in GmsCore support.",
         required = true
     )
 
@@ -48,7 +48,7 @@ object PackageNamePatch : ResourcePatch() {
             "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC
         ),
         title = "Package name of YouTube Music",
-        description = "The name of the package to use in MicroG support",
+        description = "The name of the package to use in GmsCore support.",
         required = true
     )
 

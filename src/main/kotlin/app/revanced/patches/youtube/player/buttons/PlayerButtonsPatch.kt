@@ -24,7 +24,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullS
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.PlayerCollapseButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TitleAnchor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -36,7 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 @Suppress("unused")
 object PlayerButtonsPatch : BaseBytecodePatch(
     name = "Hide player buttons",
-    description = "Adds an option to hide buttons in the video player.",
+    description = "Adds options to hide buttons in the video player.",
     dependencies = setOf(
         CastButtonPatch::class,
         FullscreenButtonViewStubPatch::class,
@@ -65,7 +65,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(AutoNavToggle)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val jumpIndex = getTargetIndex(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     constIndex, """
@@ -125,17 +125,22 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         TitleAnchorFingerprint.resultOrThrow().mutableMethod.apply {
             val titleAnchorConstIndex = getWideLiteralInstructionIndex(TitleAnchor)
-            val titleAnchorIndex = getTargetIndex(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
-            val titleAnchorRegister = getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
+            val titleAnchorIndex =
+                getTargetIndexOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
+            val titleAnchorRegister =
+                getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
 
             addInstruction(
                 titleAnchorIndex + 1,
                 "invoke-static {v$titleAnchorRegister}, $PLAYER_CLASS_DESCRIPTOR->setTitleAnchorStartMargin(Landroid/view/View;)V"
             )
 
-            val playerCollapseButtonConstIndex = getWideLiteralInstructionIndex(PlayerCollapseButton)
-            val playerCollapseButtonIndex = getTargetIndex(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
-            val playerCollapseButtonRegister = getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
+            val playerCollapseButtonConstIndex =
+                getWideLiteralInstructionIndex(PlayerCollapseButton)
+            val playerCollapseButtonIndex =
+                getTargetIndexOrThrow(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
+            val playerCollapseButtonRegister =
+                getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
 
             addInstruction(
                 playerCollapseButtonIndex + 1,
@@ -154,7 +159,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
                         (instruction.value as? WideLiteralInstruction)?.wideLiteral == FullScreenButton
                     }
                 val constIndex = buttonCalls.elementAt(buttonCalls.size - 1).index
-                val castIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val castIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
                 val insertIndex = castIndex + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
 
@@ -175,7 +180,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         PlayerControlsVisibilityModelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val callIndex = getTargetIndex(Opcode.INVOKE_DIRECT_RANGE)
+                val callIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT_RANGE)
                 val callInstruction = getInstruction<Instruction3rc>(callIndex)
 
                 val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT

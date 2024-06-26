@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouT
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
-import app.revanced.util.getTargetIndexWithFieldReferenceType
+import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -70,13 +70,17 @@ object ReturnYouTubeDislikePatch : BaseBytecodePatch(
 
             TextComponentContextFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val conversionContextFieldIndex = getTargetIndexWithFieldReferenceType("Ljava/util/Map;") - 1
+                    val conversionContextFieldIndex =
+                        getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/Map;") - 1
                     val conversionContextFieldReference =
                         getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
-                    val charSequenceIndex = getTargetIndexWithFieldReferenceType("Ljava/util/BitSet;") - 1
-                    val charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
-                    val freeRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
+                    val charSequenceIndex =
+                        getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/BitSet;") - 1
+                    val charSequenceRegister =
+                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
+                    val freeRegister =
+                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
 
                     addInstructions(
                         charSequenceIndex - 1, """

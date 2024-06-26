@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.DrawableColorPatch
+import app.revanced.patches.youtube.player.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.SeekbarTappingFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ShortsSeekbarColorFingerprint
@@ -29,8 +30,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelT
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionBooleanHook
@@ -58,6 +59,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        CairoSeekbarConfigFingerprint,
         ControlsOverlayStyleFingerprint,
         PlayerButtonsResourcesFingerprint,
         PlayerSeekbarColorFingerprint,
@@ -70,6 +72,11 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: PLAYER",
+            "SETTINGS: SEEKBAR_COMPONENTS"
+        )
 
         // region patch for enable seekbar tapping patch
 
@@ -132,9 +139,11 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val charSequenceIndex = getTargetIndexWithMethodReferenceName("getString") + 1
-                val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
-                val textViewIndex = getTargetIndexWithMethodReferenceName("getText")
+                val charSequenceIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
+                val charSequenceRegister =
+                    getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
+                val textViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("getText")
                 val textViewRegister =
                     getInstruction<FiveRegisterInstruction>(textViewIndex).registerC
 
@@ -162,7 +171,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         }
 
         ControlsOverlayStyleFingerprint.resultOrThrow().let {
-            val walkerMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+            val walkerMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
             walkerMethod.apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
@@ -202,7 +212,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
-                val viewIndex = getTargetIndex(Opcode.INVOKE_INTERFACE)
+                val viewIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstructionsWithLabels(
@@ -221,18 +231,19 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for hide seekbar
 
         SeekbarFingerprint.resultOrThrow().mutableClass.let { mutableClass ->
-            SeekbarOnDrawFingerprint.also { it.resolve(context, mutableClass) }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0, """
+            SeekbarOnDrawFingerprint.also { it.resolve(context, mutableClass) }.resultOrThrow()
+                .let {
+                    it.mutableMethod.apply {
+                        addInstructionsWithLabels(
+                            0, """
                             invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekbar()Z
                             move-result v0
                             if-eqz v0, :show
                             return-void
                             """, ExternalLabel("show", getInstruction(0))
-                    )
+                        )
+                    }
                 }
-            }
         }
 
         // endregion
@@ -240,18 +251,19 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for hide time stamp
 
         PlayerSeekbarColorFingerprint.resultOrThrow().let { parentResult ->
-            TimeCounterFingerprint.also { it.resolve(context, parentResult.classDef) }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    addInstructionsWithLabels(
-                        0, """
+            TimeCounterFingerprint.also { it.resolve(context, parentResult.classDef) }
+                .resultOrThrow().let {
+                    it.mutableMethod.apply {
+                        addInstructionsWithLabels(
+                            0, """
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideTimeStamp()Z
                         move-result v0
                         if-eqz v0, :show
                         return-void
                         """, ExternalLabel("show", getInstruction(0))
-                    )
+                        )
+                    }
                 }
-            }
         }
 
         // endregion
@@ -264,29 +276,29 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldSeekbarThumbnails()Z"
             )
 
-            /**
-             * Add settings
-             */
-            SettingsPatch.addPreference(
-                arrayOf(
-                    "PREFERENCE_SCREEN: PLAYER",
-                    "SETTINGS: SEEKBAR_COMPONENTS",
-                    "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
-                )
+            settingArray += "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
+        }
+            ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
+
+        // endregion
+
+        // region patch for enable cairo seekbar
+
+        if (SettingsPatch.upward1923) {
+            CairoSeekbarConfigFingerprint.literalInstructionBooleanHook(
+                45617850,
+                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
             )
-        } ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
+
+            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
+        }
 
         // endregion
 
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: PLAYER",
-                "SETTINGS: SEEKBAR_COMPONENTS"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }

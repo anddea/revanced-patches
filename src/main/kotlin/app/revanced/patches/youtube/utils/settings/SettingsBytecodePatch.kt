@@ -46,11 +46,21 @@ object SettingsBytecodePatch : BytecodePatch(
             }
         }
 
-        MainActivityResolvePatch.injectOnCreateMethodCall(INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR, "setExtendedUtils")
-        MainActivityResolvePatch.injectOnCreateMethodCall(INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR, "onCreate")
-        MainActivityResolvePatch.injectConstructorMethodCall(INTEGRATIONS_UTILS_CLASS_DESCRIPTOR, "setActivity")
+        MainActivityResolvePatch.injectOnCreateMethodCall(
+            INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR,
+            "setExtendedUtils"
+        )
+        MainActivityResolvePatch.injectOnCreateMethodCall(
+            INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR,
+            "onCreate"
+        )
+        MainActivityResolvePatch.injectConstructorMethodCall(
+            INTEGRATIONS_UTILS_CLASS_DESCRIPTOR,
+            "setActivity"
+        )
 
     }
+
     private fun MutableMethod.injectCall(index: Int) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
 

@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.fix.shortsplayback.fingerprints.ShortsPlaybackFingerprint
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -27,7 +27,11 @@ object ShortsPlaybackPatch : BytecodePatch(
          */
         ShortsPlaybackFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndex(getWideLiteralInstructionIndex(45387052), Opcode.MOVE_RESULT)
+                val targetIndex =
+                    getTargetIndexOrThrow(
+                        getWideLiteralInstructionIndex(45387052),
+                        Opcode.MOVE_RESULT
+                    )
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(

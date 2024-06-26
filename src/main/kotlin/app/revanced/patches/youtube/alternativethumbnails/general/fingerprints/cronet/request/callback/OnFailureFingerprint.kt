@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object OnFailureFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters =  listOf(
+    parameters = listOf(
         "Lorg/chromium/net/UrlRequest;",
         "Lorg/chromium/net/UrlResponseInfo;",
         "Lorg/chromium/net/CronetException;"

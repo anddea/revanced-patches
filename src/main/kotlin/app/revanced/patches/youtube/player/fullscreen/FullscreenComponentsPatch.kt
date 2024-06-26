@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.player.fullscreen.fingerprints.LandScapeMode
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationParentFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationPrimaryFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationSecondaryFingerprint
+import app.revanced.patches.youtube.player.fullscreen.fingerprints.PlayerTitleViewFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.QuickActionsElementFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.RelatedEndScreenResultsFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.VideoPortraitParentFingerprint
@@ -31,8 +32,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullS
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QuickActionsElementContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceName
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
@@ -62,6 +63,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
         LandScapeModeConfigFingerprint,
         LayoutConstructorFingerprint,
         OrientationParentFingerprint,
+        PlayerTitleViewFingerprint,
         QuickActionsElementFingerprint,
         RelatedEndScreenResultsFingerprint,
         VideoPortraitParentFingerprint,
@@ -78,7 +80,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
         EngagementPanelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val literalIndex = getWideLiteralInstructionIndex(FullScreenEngagementPanel)
-                val targetIndex = getTargetIndex(literalIndex, Opcode.CHECK_CAST)
+                val targetIndex = getTargetIndexOrThrow(literalIndex, Opcode.CHECK_CAST)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -89,9 +91,13 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             }
         }
 
-        LayoutConstructorFingerprint.resultOrThrow().let {
+        PlayerTitleViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceName("addView")
+                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
+                val insertReference =
+                    getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
+                if (!insertReference.startsWith("Landroid/widget/FrameLayout;"))
+                    throw PatchException("Reference does not match: $insertReference")
                 val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                 replaceInstruction(
@@ -110,7 +116,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val constIndex = getWideLiteralInstructionIndex(AutoNavPreviewStub)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val jumpIndex = getTargetIndex(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     constIndex, """
@@ -152,7 +158,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                     }
                 val constIndex = containerCalls.elementAt(containerCalls.size - 1).index
 
-                val checkCastIndex = getTargetIndex(constIndex, Opcode.CHECK_CAST)
+                val checkCastIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
@@ -176,13 +182,15 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceName("setFocusableInTouchMode")
-                val walkerIndex = getTargetIndex(targetIndex, Opcode.INVOKE_STATIC)
+                val targetIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow("setFocusableInTouchMode")
+                val walkerIndex = getTargetIndexOrThrow(targetIndex, Opcode.INVOKE_STATIC)
 
                 val walkerMethod = getWalkerMethod(context, walkerIndex)
                 walkerMethod.apply {
                     val insertIndex = implementation!!.instructions.size - 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
@@ -236,8 +244,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val stringIndex =
                     getStringInstructionIndex("Acquiring NetLatencyActionLogger failed. taskId=")
-                val invokeIndex = getTargetIndex(stringIndex, Opcode.INVOKE_INTERFACE)
-                val targetIndex = getTargetIndex(invokeIndex, Opcode.CHECK_CAST)
+                val invokeIndex = getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_INTERFACE)
+                val targetIndex = getTargetIndexOrThrow(invokeIndex, Opcode.CHECK_CAST)
                 val targetClass = context
                     .findClass(getInstruction<ReferenceInstruction>(targetIndex).reference.toString())!!
                     .mutableClass
@@ -288,7 +296,8 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             LandScapeModeConfigFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = implementation!!.instructions.size - 1
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
@@ -300,8 +309,9 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
                 BroadcastReceiverFingerprint.resultOrThrow().let { result ->
                     result.mutableMethod.apply {
-                        val stringIndex = getStringInstructionIndex("android.intent.action.SCREEN_ON")
-                        val insertIndex = getTargetIndex(stringIndex, Opcode.IF_EQZ) + 1
+                        val stringIndex =
+                            getStringInstructionIndex("android.intent.action.SCREEN_ON")
+                        val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.IF_EQZ) + 1
 
                         addInstruction(
                             insertIndex,

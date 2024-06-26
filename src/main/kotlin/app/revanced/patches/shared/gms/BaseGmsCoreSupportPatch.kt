@@ -3,6 +3,7 @@ package app.revanced.patches.shared.gms
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -13,18 +14,21 @@ import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch.Constants.PERMISS
 import app.revanced.patches.shared.gms.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleV2Fingerprint
+import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint
+import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint.GET_PACKAGE_NAME_METHOD_REFERENCE
 import app.revanced.patches.shared.gms.fingerprints.GmsCoreSupportFingerprint
-import app.revanced.patches.shared.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
 import app.revanced.patches.shared.gms.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.shared.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.shared.gms.fingerprints.ServiceCheckFingerprint
-import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.shared.packagename.PackageNamePatch
 import app.revanced.util.getReference
+import app.revanced.util.getTargetIndexWithReference
 import app.revanced.util.resultOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -52,7 +56,7 @@ abstract class BaseGmsCoreSupportPatch(
 ) : BytecodePatch(
     name = "GmsCore support",
     description = "Allows patched Google apps to run without root and under a different package name " +
-        "by using GmsCore instead of Google Play Services.",
+            "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
         PackageNamePatch::class,
         gmsCoreSupportResourcePatch::class,
@@ -60,6 +64,7 @@ abstract class BaseGmsCoreSupportPatch(
     ) + dependencies,
     compatiblePackages = compatiblePackages,
     fingerprints = setOf(
+        // Google Play Services.
         CastContextFetchFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
@@ -67,11 +72,21 @@ abstract class BaseGmsCoreSupportPatch(
         GooglePlayUtilityFingerprint,
         PrimeMethodFingerprint,
         ServiceCheckFingerprint,
-        mainActivityOnCreateFingerprint
+
+        // Signature verification.
+        CertificateFingerprint,
+
+        // MainActivity.
+        mainActivityOnCreateFingerprint,
     ),
     requiresIntegrations = true,
 ) {
-    private val gmsCoreVendorGroupId = "app.revanced"
+    private companion object {
+        const val GMS_CORE_VENDOR_GROUP_ID = "app.revanced"
+
+        const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/GmsCoreSupport;"
+    }
 
     override fun execute(context: BytecodeContext) {
         val packageName = PackageNamePatch.getPackageName(fromPackageName)
@@ -106,46 +121,72 @@ abstract class BaseGmsCoreSupportPatch(
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
             1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
-            "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_PATH/patches/GmsCoreSupport;->" +
+            "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
         )
 
         // Change the vendor of GmsCore in ReVanced Integrations.
-        GmsCoreSupportFingerprint.resultOrThrow().mutableClass.methods
-            .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
-            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+        GmsCoreSupportFingerprint
+            .resultOrThrow()
+            .mutableMethod
+            .replaceInstruction(0, "const-string v0, \"$GMS_CORE_VENDOR_GROUP_ID\"")
+
+        // Spoof signature.
+        CertificateFingerprint.result?.mutableClass?.methods?.forEach { mutableMethod ->
+            mutableMethod.apply {
+                val getPackageNameIndex =
+                    getTargetIndexWithReference(GET_PACKAGE_NAME_METHOD_REFERENCE)
+
+                if (getPackageNameIndex > -1) {
+                    val targetRegister =
+                        (getInstruction(getPackageNameIndex) as FiveRegisterInstruction).registerC
+
+                    replaceInstruction(
+                        getPackageNameIndex,
+                        "invoke-static {v$targetRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->spoofPackageName(Landroid/content/Context;)Ljava/lang/String;",
+                    )
+                }
+            }
+        } // Since it has only been confirmed to work on YouTube and YouTube Music, does not raise an exception even if the fingerprint cannot be solved.
     }
 
-    private fun BytecodeContext.transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
-        val mutableClass by lazy {
-            proxy(it).mutableClass
-        }
-
-        it.methods.forEach classLoop@{ methodDef ->
-            val implementation = methodDef.implementation ?: return@classLoop
-
-            val mutableMethod by lazy {
-                mutableClass.methods.first { method -> MethodUtil.methodSignaturesMatch(method, methodDef) }
+    private fun BytecodeContext.transformStringReferences(transform: (str: String) -> String?) =
+        classes.forEach {
+            val mutableClass by lazy {
+                proxy(it).mutableClass
             }
 
-            implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                    ?: return@insnLoop
+            it.methods.forEach classLoop@{ methodDef ->
+                val implementation = methodDef.implementation ?: return@classLoop
 
-                // Apply transformation.
-                val transformedString = transform(string) ?: return@insnLoop
+                val mutableMethod by lazy {
+                    mutableClass.methods.first { method ->
+                        MethodUtil.methodSignaturesMatch(
+                            method,
+                            methodDef
+                        )
+                    }
+                }
 
-                mutableMethod.replaceInstruction(
-                    index,
-                    BuilderInstruction21c(
-                        Opcode.CONST_STRING,
-                        instruction.registerA,
-                        ImmutableStringReference(transformedString),
-                    ),
-                )
+                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                    val string =
+                        ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                            ?: return@insnLoop
+
+                    // Apply transformation.
+                    val transformedString = transform(string) ?: return@insnLoop
+
+                    mutableMethod.replaceInstruction(
+                        index,
+                        BuilderInstruction21c(
+                            Opcode.CONST_STRING,
+                            instruction.registerA,
+                            ImmutableStringReference(transformedString),
+                        ),
+                    )
+                }
             }
         }
-    }
 
     // region Collection of transformations that are applied to all strings.
 
@@ -156,10 +197,10 @@ abstract class BaseGmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-            -> referencedString.replace("com.google", gmsCoreVendorGroupId)
+            -> referencedString.replace("com.google", GMS_CORE_VENDOR_GROUP_ID)
 
             // No vendor prefix for whatever reason...
-            "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
+            "subscribedfeeds" -> "$GMS_CORE_VENDOR_GROUP_ID.subscribedfeeds"
             else -> null
         }
 
@@ -172,7 +213,7 @@ abstract class BaseGmsCoreSupportPatch(
                 if (str.startsWith(uriPrefix)) {
                     return str.replace(
                         uriPrefix,
-                        "content://${authority.replace("com.google", gmsCoreVendorGroupId)}",
+                        "content://${authority.replace("com.google", GMS_CORE_VENDOR_GROUP_ID)}",
                     )
                 }
             }
@@ -180,14 +221,20 @@ abstract class BaseGmsCoreSupportPatch(
             // gms also has a 'subscribedfeeds' authority, check for that one too
             val subFeedsUriPrefix = "content://subscribedfeeds"
             if (str.startsWith(subFeedsUriPrefix)) {
-                return str.replace(subFeedsUriPrefix, "content://$gmsCoreVendorGroupId.subscribedfeeds")
+                return str.replace(
+                    subFeedsUriPrefix,
+                    "content://$GMS_CORE_VENDOR_GROUP_ID.subscribedfeeds"
+                )
             }
         }
 
         return null
     }
 
-    private fun packageNameTransform(fromPackageName: String, toPackageName: String): (String) -> String? = { string ->
+    private fun packageNameTransform(
+        fromPackageName: String,
+        toPackageName: String
+    ): (String) -> String? = { string ->
         when (string) {
             "$fromPackageName.SuggestionsProvider",
             "$fromPackageName.fileprovider",

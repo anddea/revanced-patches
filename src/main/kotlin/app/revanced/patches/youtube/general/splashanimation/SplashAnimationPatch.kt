@@ -32,10 +32,14 @@ object SplashAnimationPatch : BaseBytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        StartUpResourceIdFingerprint.resolve(context, StartUpResourceIdParentFingerprint.resultOrThrow().classDef)
+        StartUpResourceIdFingerprint.resolve(
+            context,
+            StartUpResourceIdParentFingerprint.resultOrThrow().classDef
+        )
 
         val startUpResourceIdMethod = StartUpResourceIdFingerprint.resultOrThrow().mutableMethod
-        val startUpResourceIdMethodCall = startUpResourceIdMethod.definingClass + "->" + startUpResourceIdMethod.name + "(I)Z"
+        val startUpResourceIdMethodCall =
+            startUpResourceIdMethod.definingClass + "->" + startUpResourceIdMethod.name + "(I)Z"
 
         SplashAnimationFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {

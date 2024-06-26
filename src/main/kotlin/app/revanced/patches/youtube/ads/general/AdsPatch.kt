@@ -47,11 +47,15 @@ object AdsPatch : BaseResourcePatch(
         "Top"
     )
 
-    private const val FILTER_CLASS_DESCRIPTOR =
+    private const val ADS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/AdsFilter;"
 
+    private const val FULLSCREEN_ADS_FILTER_CLASS_DESCRIPTOR =
+        "${app.revanced.patches.shared.integrations.Constants.COMPONENTS_PATH}/FullscreenAdsFilter;"
+
     override fun execute(context: ResourceContext) {
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        LithoFilterPatch.addFilter(ADS_FILTER_CLASS_DESCRIPTOR)
+        LithoFilterPatch.addFilter(FULLSCREEN_ADS_FILTER_CLASS_DESCRIPTOR)
 
         context.forEach {
 

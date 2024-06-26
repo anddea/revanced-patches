@@ -12,10 +12,10 @@ import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DES
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexReversed
-import app.revanced.util.getTargetIndexWithReference
+import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -27,7 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 @Suppress("unused")
 object DislikeRedirectionPatch : BaseBytecodePatch(
     name = "Disable dislike redirection",
-    description = "Adds an option to disable redirection to the next track when clicking the dislike button.",
+    description = "Adds an option to disable redirection to the next track when clicking the Dislike button.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -42,22 +42,25 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
         PendingIntentReceiverFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val startIndex = getStringInstructionIndex("YTM Dislike")
-                val onClickRelayIndex = getTargetIndexReversed(startIndex, Opcode.INVOKE_VIRTUAL)
+                val onClickRelayIndex =
+                    getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
                 val onClickRelayMethod = getWalkerMethod(context, onClickRelayIndex)
 
                 onClickRelayMethod.apply {
-                    val onClickMethodIndex = getTargetIndexReversed(Opcode.INVOKE_DIRECT)
+                    val onClickMethodIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_DIRECT)
                     val onClickMethod = getWalkerMethod(context, onClickMethodIndex)
 
                     onClickMethod.apply {
-                        val onClickIndex = indexOfFirstInstruction {
-                            val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                        val onClickIndex = indexOfFirstInstructionOrThrow {
+                            val reference =
+                                ((this as? ReferenceInstruction)?.reference as? MethodReference)
 
                             opcode == Opcode.INVOKE_INTERFACE
                                     && reference?.returnType == "V"
                                     && reference.parameterTypes.size == 1
                         }
-                        onClickReference = getInstruction<ReferenceInstruction>(onClickIndex).reference
+                        onClickReference =
+                            getInstruction<ReferenceInstruction>(onClickIndex).reference
 
                         injectCall(onClickIndex)
                     }
@@ -67,7 +70,7 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
 
         DislikeButtonOnClickListenerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val onClickIndex = getTargetIndexWithReference(onClickReference.toString())
+                val onClickIndex = getTargetIndexWithReferenceOrThrow(onClickReference.toString())
                 injectCall(onClickIndex)
             }
         }
@@ -81,7 +84,7 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
     }
 
     private fun MutableMethod.injectCall(onClickIndex: Int) {
-        val targetIndex = getTargetIndexReversed(onClickIndex, Opcode.IF_EQZ)
+        val targetIndex = getTargetIndexReversedOrThrow(onClickIndex, Opcode.IF_EQZ)
         val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
         addInstructionsWithLabels(

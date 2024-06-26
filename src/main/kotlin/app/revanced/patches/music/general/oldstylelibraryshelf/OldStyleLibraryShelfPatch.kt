@@ -9,7 +9,7 @@ import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DES
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexReversed
+import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Suppress("unused")
 object OldStyleLibraryShelfPatch : BaseBytecodePatch(
     name = "Restore old style library shelf",
-    description = "Adds an option to return the library tab to the old style.",
+    description = "Adds an option to return the Library tab to the old style.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(BrowseIdFingerprint)
@@ -28,7 +28,7 @@ object OldStyleLibraryShelfPatch : BaseBytecodePatch(
         BrowseIdFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val stringIndex = getStringInstructionIndex("FEmusic_offline")
-                val targetIndex = getTargetIndexReversed(stringIndex, Opcode.IGET_OBJECT)
+                val targetIndex = getTargetIndexReversedOrThrow(stringIndex, Opcode.IGET_OBJECT)
                 val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

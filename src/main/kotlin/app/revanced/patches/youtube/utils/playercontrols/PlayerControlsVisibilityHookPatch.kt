@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityEntityModelFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -31,8 +31,9 @@ object PlayerControlsVisibilityHookPatch : BytecodePatch(
                 val staticReference = getInstruction<ReferenceInstruction>(startIndex + 1).reference
 
                 it.mutableClass.methods.find { method -> method.name == "<init>" }?.apply {
-                    val targetIndex = getTargetIndex(Opcode.IPUT_OBJECT)
-                    val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
+                    val targetIndex = getTargetIndexOrThrow(Opcode.IPUT_OBJECT)
+                    val targetRegister =
+                        getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """

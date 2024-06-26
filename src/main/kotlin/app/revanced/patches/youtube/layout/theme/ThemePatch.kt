@@ -71,6 +71,7 @@ object ThemePatch : BaseResourcePatch(
         ),
         title = "Light theme background color",
         description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        required = true
     )
 
     private fun getThemeString(

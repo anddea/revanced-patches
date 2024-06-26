@@ -21,9 +21,10 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
 
     // Returns the patch indices as a Sequence, which will execute lazily.
     fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? {
-        return method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
-            filterMap(classDef, method, instruction, index)
-        }
+        return method.implementation?.instructions?.asSequence()?.withIndex()
+            ?.mapNotNull { (index, instruction) ->
+                filterMap(classDef, method, instruction, index)
+            }
     }
 
     override fun execute(context: BytecodeContext) {
@@ -48,8 +49,9 @@ abstract class BaseTransformInstructionsPatch<T> : BytecodePatch(emptySet()) {
             val mutableClass = context.proxy(classDef).mutableClass
 
             methods.map(mutableClass::findMutableMethodOf).forEach methods@{ mutableMethod ->
-                val patchIndices = findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())
-                    ?: return@methods
+                val patchIndices =
+                    findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())
+                        ?: return@methods
 
                 while (!patchIndices.isEmpty()) transform(mutableMethod, patchIndices.removeLast())
             }

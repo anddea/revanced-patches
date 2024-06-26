@@ -7,14 +7,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.util.getTargetIndex
+import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import kotlin.properties.Delegates
 
 abstract class BaseMainActivityResolvePatch(
     private val mainActivityOnCreateFingerprint: MethodFingerprint
-): BytecodePatch(
+) : BytecodePatch(
     setOf(mainActivityOnCreateFingerprint)
 ) {
     lateinit var mainActivityMutableClass: MutableClass
@@ -37,14 +37,22 @@ abstract class BaseMainActivityResolvePatch(
 
         // set onBackPressed method
         onBackPressedMethod = getMethod("onBackPressed")
-        onBackPressedMethodIndex = onBackPressedMethod.getTargetIndex(Opcode.RETURN_VOID)
+        onBackPressedMethodIndex = onBackPressedMethod.getTargetIndexOrThrow(Opcode.RETURN_VOID)
     }
 
     fun injectConstructorMethodCall(classDescriptor: String, methodDescriptor: String) =
-        constructorMethod.injectMethodCall(classDescriptor, methodDescriptor, constructorMethodIndex)
+        constructorMethod.injectMethodCall(
+            classDescriptor,
+            methodDescriptor,
+            constructorMethodIndex
+        )
 
     fun injectOnBackPressedMethodCall(classDescriptor: String, methodDescriptor: String) =
-        onBackPressedMethod.injectMethodCall(classDescriptor, methodDescriptor, onBackPressedMethodIndex)
+        onBackPressedMethod.injectMethodCall(
+            classDescriptor,
+            methodDescriptor,
+            onBackPressedMethodIndex
+        )
 
     fun injectOnCreateMethodCall(classDescriptor: String, methodDescriptor: String) =
         onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor)

@@ -14,8 +14,8 @@ import app.revanced.patches.music.utils.integrations.Constants.ACCOUNT_CLASS_DES
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getTargetIndexWithReference
+import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -43,8 +43,8 @@ object AccountComponentsPatch : BaseBytecodePatch(
 
         MenuEntryFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val textIndex = getTargetIndexWithMethodReferenceName("setText")
-                val viewIndex = getTargetIndexWithMethodReferenceName("addView")
+                val textIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
+                val viewIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
 
                 val textRegister = getInstruction<FiveRegisterInstruction>(textIndex).registerD
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
@@ -64,9 +64,11 @@ object AccountComponentsPatch : BaseBytecodePatch(
         AccountSwitcherAccessibilityLabelFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
 
-                val textColorIndex = getTargetIndexWithMethodReferenceName("setTextColor")
-                val setVisibilityIndex = getTargetIndexWithMethodReferenceName(textColorIndex, "setVisibility")
-                val textViewInstruction = getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+                val textColorIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTextColor")
+                val setVisibilityIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow(textColorIndex, "setVisibility")
+                val textViewInstruction =
+                    getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
                 replaceInstruction(
                     setVisibilityIndex,
@@ -96,7 +98,8 @@ object AccountComponentsPatch : BaseBytecodePatch(
 
         TermsOfServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithReference("/PrivacyTosFooter;->setVisibility(I)V")
+                val insertIndex =
+                    getTargetIndexWithReferenceOrThrow("/PrivacyTosFooter;->setVisibility(I)V")
                 val visibilityRegister =
                     getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
