@@ -13,13 +13,9 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreferenceFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
-import app.revanced.util.ResourceGroup
-import app.revanced.util.classLoader
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
+import app.revanced.util.*
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.patch.BaseResourcePatch
-import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.Closeable
 import java.util.concurrent.Executors
