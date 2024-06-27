@@ -39,6 +39,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var CompactLink = -1L
     var CompactListItem = -1L
     var ControlsLayoutStub = -1L
+    var DarkBackground = -1L
     var DarkSplashAnimation = -1L
     var DonationCompanion = -1L
     var DrawerContentView = -1L
@@ -93,6 +94,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var SlidingDialogAnimation = -1L
     var SubtitleMenuSettingsFooterInfo = -1L
     var SuggestedAction = -1L
+    var TapBloomView = -1L
     var TitleAnchor = -1L
     var ToolTipContentView = -1L
     var TotalTime = -1L
@@ -132,6 +134,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         CompactLink = getId(LAYOUT, "compact_link")
         CompactListItem = getId(LAYOUT, "compact_list_item")
         ControlsLayoutStub = getId(ID, "controls_layout_stub")
+        DarkBackground = getId(ID, "dark_background")
         DarkSplashAnimation = getId(ID, "dark_splash_animation")
         DonationCompanion = getId(LAYOUT, "donation_companion")
         DrawerContentView = getId(ID, "drawer_content_view")
@@ -189,6 +192,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
         SubtitleMenuSettingsFooterInfo = getId(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = getId(LAYOUT, "suggested_action")
+        TapBloomView = getId(ID, "tap_bloom_view")
         TitleAnchor = getId(ID, "title_anchor")
         ToolTipContentView = getId(LAYOUT, "tooltip_content_view")
         TotalTime = getId(STRING, "total_time")
