@@ -79,8 +79,8 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ReelDynRemix = -1L
     var ReelDynShare = -1L
     var ReelForcedMuteButton = -1L
-    var ReelPivotButton = -1L
     var ReelPlayerFooter = -1L
+    var ReelPlayerRightPivotV2Size = -1L
     var ReelRightDislikeIcon = -1L
     var ReelRightLikeIcon = -1L
     var ReelTimeBarPlayedColor = -1L
@@ -176,8 +176,8 @@ object SharedResourceIdPatch : ResourcePatch() {
         ReelDynRemix = getId(ID, "reel_dyn_remix")
         ReelDynShare = getId(ID, "reel_dyn_share")
         ReelForcedMuteButton = getId(ID, "reel_player_forced_mute_button")
-        ReelPivotButton = getId(ID, "reel_pivot_button")
         ReelPlayerFooter = getId(LAYOUT, "reel_player_dyn_footer_vert_stories3")
+        ReelPlayerRightPivotV2Size = getId(DIMEN, "reel_player_right_pivot_v2_size")
         ReelRightDislikeIcon = getId(DRAWABLE, "reel_right_dislike_icon")
         ReelRightLikeIcon = getId(DRAWABLE, "reel_right_like_icon")
         ReelTimeBarPlayedColor = getId(COLOR, "reel_time_bar_played_color")
