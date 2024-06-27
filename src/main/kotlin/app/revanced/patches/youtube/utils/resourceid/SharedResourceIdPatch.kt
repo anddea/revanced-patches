@@ -78,6 +78,9 @@ object SharedResourceIdPatch : ResourcePatch() {
     var QuickActionsElementContainer = -1L
     var ReelDynRemix = -1L
     var ReelDynShare = -1L
+    var ReelFeedbackLike = -1L
+    var ReelFeedbackPause = -1L
+    var ReelFeedbackPlay = -1L
     var ReelForcedMuteButton = -1L
     var ReelPlayerFooter = -1L
     var ReelPlayerRightPivotV2Size = -1L
@@ -175,6 +178,9 @@ object SharedResourceIdPatch : ResourcePatch() {
         QuickActionsElementContainer = getId(ID, "quick_actions_element_container")
         ReelDynRemix = getId(ID, "reel_dyn_remix")
         ReelDynShare = getId(ID, "reel_dyn_share")
+        ReelFeedbackLike = getId(ID, "reel_feedback_like")
+        ReelFeedbackPause = getId(ID, "reel_feedback_pause")
+        ReelFeedbackPlay = getId(ID, "reel_feedback_play")
         ReelForcedMuteButton = getId(ID, "reel_player_forced_mute_button")
         ReelPlayerFooter = getId(LAYOUT, "reel_player_dyn_footer_vert_stories3")
         ReelPlayerRightPivotV2Size = getId(DIMEN, "reel_player_right_pivot_v2_size")
