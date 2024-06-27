@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.misc.versioncode
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.intPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.util.patch.BaseResourcePatch
 import app.revanced.util.valueOrThrow
@@ -18,6 +18,8 @@ object ChangeVersionCodePatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false
 ) {
+    private const val MAX_VALUE = Int.MAX_VALUE.toString()
+
     private val ChangeVersionCode by booleanPatchOption(
         key = "ChangeVersionCode",
         default = false,
@@ -26,11 +28,11 @@ object ChangeVersionCodePatch : BaseResourcePatch(
         required = true
     )
 
-    private val VersionCode = intPatchOption(
+    private val VersionCode = stringPatchOption(
         key = "VersionCode",
-        default = Int.MAX_VALUE,
+        default = MAX_VALUE,
         title = "Version code",
-        description = "The version code to use.",
+        description = "The version code to use. (1 ~ $MAX_VALUE)",
         required = true
     )
 
@@ -40,13 +42,17 @@ object ChangeVersionCodePatch : BaseResourcePatch(
             return
         }
 
-        val versionCode = VersionCode.valueOrThrow()
+        val versionCodeString = VersionCode.valueOrThrow()
+        val versionCode: Int
+
+        try {
+            versionCode = Integer.parseInt(versionCodeString)
+        } catch (e: NumberFormatException) {
+            throw throwVersionCodeException(versionCodeString)
+        }
 
         if (versionCode < 1) {
-            throw PatchException(
-                "Invalid versionCode: $versionCode, " +
-                        "Version code should be larger than 1 and smaller than ${Int.MAX_VALUE}."
-            )
+            throw throwVersionCodeException(versionCodeString)
         }
 
         context.document["AndroidManifest.xml"].use { document ->
@@ -54,4 +60,10 @@ object ChangeVersionCodePatch : BaseResourcePatch(
             manifestElement.setAttribute("android:versionCode", "$versionCode")
         }
     }
+
+    private fun throwVersionCodeException(versionCodeString: String): PatchException =
+        PatchException(
+            "Invalid versionCode: $versionCodeString, " +
+                    "Version code should be larger than 1 and smaller than $MAX_VALUE."
+        )
 }
