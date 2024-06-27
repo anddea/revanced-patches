@@ -57,6 +57,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
+        ShortsAnimationPatch::class,
         ShortsNavigationBarPatch::class,
         ShortsToolBarPatch::class,
         VideoInformationPatch::class
