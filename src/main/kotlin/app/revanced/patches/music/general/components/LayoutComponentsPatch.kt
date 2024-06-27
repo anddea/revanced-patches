@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.general.components.fingerprints.ChipCloudFingerprint
 import app.revanced.patches.music.general.components.fingerprints.ContentPillInFingerprint
@@ -32,7 +31,6 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopBarM
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
-import app.revanced.patches.shared.voicesearch.VoiceSearchUtils.patchXml
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
@@ -74,18 +72,9 @@ object LayoutComponentsPatch : BaseBytecodePatch(
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/LayoutComponentsFilter;"
 
-    private val ForceHideVoiceSearchButton by booleanPatchOption(
-        key = "ForceHideVoiceSearchButton",
-        default = false,
-        title = "Force hide voice search button",
-        description = "Permanently hide the voice search button with the legacy method.",
-        required = true
-    )
-
     override fun execute(context: BytecodeContext) {
         var notificationButtonIncluded = false
         var soundSearchButtonIncluded = false
-        var voiceSearchButtonIncluded = false
 
         // region patch for hide cast button
 
@@ -272,31 +261,23 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide voice search button
 
-        if (ForceHideVoiceSearchButton == true) {
-            SettingsPatch.contexts.patchXml(
-                arrayOf("search_toolbar_view.xml"),
-                arrayOf("height", "width")
-            )
-        } else {
-            SearchBarFingerprint.resolve(
-                context,
-                SearchBarParentFingerprint.resultOrThrow().classDef
-            )
-            SearchBarFingerprint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val setVisibilityIndex =
-                        getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
-                    val setVisibilityInstruction =
-                        getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
+        SearchBarFingerprint.resolve(
+            context,
+            SearchBarParentFingerprint.resultOrThrow().classDef
+        )
+        SearchBarFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val setVisibilityIndex =
+                    getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                val setVisibilityInstruction =
+                    getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
-                    replaceInstruction(
-                        setVisibilityIndex,
-                        "invoke-static {v${setVisibilityInstruction.registerC}, v${setVisibilityInstruction.registerD}}, " +
-                                "$GENERAL_CLASS_DESCRIPTOR->hideVoiceSearchButton(Landroid/widget/ImageView;I)V"
-                    )
-                }
+                replaceInstruction(
+                    setVisibilityIndex,
+                    "invoke-static {v${setVisibilityInstruction.registerC}, v${setVisibilityInstruction.registerD}}, " +
+                            "$GENERAL_CLASS_DESCRIPTOR->hideVoiceSearchButton(Landroid/widget/ImageView;I)V"
+                )
             }
-            voiceSearchButtonIncluded = true
         }
 
         // endregion
@@ -373,12 +354,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
                 "false"
             )
         }
-        if (voiceSearchButtonIncluded) {
-            SettingsPatch.addSwitchPreference(
-                CategoryType.GENERAL,
-                "revanced_hide_voice_search_button",
-                "false"
-            )
-        }
+        SettingsPatch.addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_voice_search_button",
+            "false"
+        )
     }
 }
