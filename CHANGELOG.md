@@ -1,3 +1,11 @@
+# [2.227.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.1...v2.227.0-dev.2) (2024-06-29)
+
+
+### Features
+
+* **YouTube - Shorts:** Add Original Outline Icons ([#663](https://github.com/anddea/revanced-patches/issues/663)) ([35a65f5](https://github.com/anddea/revanced-patches/commit/35a65f5e873bebc8ddf151cb194fe0d43f53022b))
+* **YouTube - Translations:** Update `Chinese Traditional` ([#666](https://github.com/anddea/revanced-patches/issues/666)) ([4f383eb](https://github.com/anddea/revanced-patches/commit/4f383eb45aa0610b1b27f039a718288ee193564a))
+
 # [2.227.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.226.0...v2.227.0-dev.1) (2024-06-26)
 
 
