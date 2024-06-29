@@ -23,6 +23,7 @@ object ShortsOverlayButtonsPatch : BaseResourcePatch(
         key = "IconType",
         default = DEFAULT_ICON_KEY,
         values = mapOf(
+            "OriginalOutline" to "originaloutline",
             "Outline" to "outline",
             "OutlineCircle" to "outlinecircle",
             DEFAULT_ICON_KEY to "tiktok"
