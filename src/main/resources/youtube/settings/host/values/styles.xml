@@ -30,4 +30,10 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="revanced_searchbar_cursor_light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textCursorDrawable">@drawable/revanced_cursor_light</item>
+    </style>
+    <style name="revanced_searchbar_cursor_dark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textCursorDrawable">@drawable/revanced_cursor_dark</item>
+    </style>
 </resources>
