@@ -16,7 +16,7 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
-    private const val DEFAULT_ICON = "tiktok"
+    private const val DEFAULT_ICON = "round"
     private const val YOUTUBE_ICON = "youtube"
 
     private val IconType = stringPatchOption(
@@ -26,8 +26,7 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
             "Outline" to "outline",
             "OriginalOutline" to "originaloutline",
             "OutlineCircle" to "outlinecircle",
-            "Round" to "round",
-            "TikTok" to DEFAULT_ICON,
+            "Round" to DEFAULT_ICON,
             "YouTube" to YOUTUBE_ICON
         ),
         title = "Shorts icon style ",
