@@ -402,6 +402,9 @@ Negozio"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_off">Il filtro di sovrapposizione doppio tocco è mostrato.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_on">Il filtro di sovrapposizione a doppio tocco è nascosto.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Nascondi il filtro di sovrapposizione doppio tocco</string>
     <string name="revanced_hide_download_button_summary_off">Il pulsante Scarica è mostrato.</string>
     <string name="revanced_hide_download_button_summary_on">Il pulsante Scarica è nascosto.</string>
     <string name="revanced_hide_download_button_title">Nascondi il pulsante Scarica</string>
@@ -456,6 +459,9 @@ Limitazione: l'immagine dei post della community a schermo intero potrebbe esser
     <string name="revanced_hide_handle_summary_off">L\'handle è visibile</string>
     <string name="revanced_hide_handle_summary_on">L\'handle è nascosto</string>
     <string name="revanced_hide_handle_title">Nascondi l\'handle</string>
+    <string name="revanced_hide_image_search_button_summary_off">Il pulsante di ricerca immagine è mostrato.</string>
+    <string name="revanced_hide_image_search_button_summary_on">Il pulsante di ricerca immagine è nascosto.</string>
+    <string name="revanced_hide_image_search_button_title">Nascondi il pulsante di ricerca immagine</string>
     <string name="revanced_hide_image_shelf_summary_off">Lo scaffale delle immagini è visibile</string>
     <string name="revanced_hide_image_shelf_summary_on">Lo scaffale delle immagini è nascosto</string>
     <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale delle immagini</string>
@@ -497,6 +503,7 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video della scheda Iscrizioni non sono nascosti tramite parole chiave</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video della scheda Iscrizioni sono nascosti tramite parole chiave</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda Iscrizioni tramite parole chiave</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%1$s\' nasconderà tutti i video.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida, non è possibile usare \'%s\' come filtro</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
@@ -772,6 +779,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">I pulsanti di sovrapposizione in pausa sono mostrati.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">I pulsanti di sovrapposizione in pausa sono nascosti.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Nascondi i pulsanti di sovrapposizione in pausa</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Lo sfondo del pulsante è mostrato.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Lo sfondo del pulsante è nascosto.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_title">Nascondi lo sfondo del pulsante Riproduci &amp; Pausa</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_off">Il pulsante Iscriviti è visibile</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_summary_on">Il pulsante Iscriviti è nascosto</string>
     <string name="revanced_hide_shorts_player_subscriptions_button_title">Nascondi il pulsante Iscriviti</string>
@@ -993,6 +1003,7 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_playback_speed_normal">Normale</string>
     <string name="revanced_preference_category_action_buttons">Pulsanti azione</string>
     <string name="revanced_preference_category_additional_settings">Impostazioni aggiuntive</string>
+    <string name="revanced_preference_category_animation_feedback">Animazione / Feedback</string>
     <string name="revanced_preference_category_duration_filter">Filtro durata</string>
     <string name="revanced_preference_category_experimental_flag">Opzioni sperimentali</string>
     <string name="revanced_preference_category_import_export_as_file">Importa / Esporta come file</string>
@@ -1326,6 +1337,13 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato negli appunti</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Originale</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pollice in su</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Pollice in su (Cairo)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_4">Cuore</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Cuore (tinta)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Nascosto</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_title">Animazione doppio tocco</string>
     <string name="revanced_show_video_title_section_summary">"Mostra la sezione del titolo del video a schermo intero.
 
 Limitazione: il titolo del video scompare quando si fa clic."</string>
@@ -1352,6 +1370,8 @@ Note:
 Note:
 • Questo cambierà l'aspetto dell'app, ma potrebbero verificarsi degli effetti collaterali sconosciuti
 • Se in seguito verrà disattivato, la vecchia interfaccia potrebbe rimanere fino a quando i dati dell'app non verranno cancellati"</string>
+    <string name="revanced_spoof_app_version_summary_off">Versione non spoofata</string>
+    <string name="revanced_spoof_app_version_summary_on">Versione spoofata</string>
     <string name="revanced_spoof_app_version_target_entry_16_08_35">16.08.35 - Ripristina la scheda Esplora</string>
     <string name="revanced_spoof_app_version_target_entry_17_08_35">17.08.35 - Ripristina la vecchia interfaccia</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Ripristina la vecchia interfaccia</string>
@@ -1365,6 +1385,11 @@ Note:
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"La versione dell'app sarà spoofata per una versione più vecchia di YouTube.
+
+Questo cambierà l'aspetto e le caratteristiche dell'app, ma possono verificarsi effetti collaterali sconosciuti.
+
+Se in seguito è disattivato, si consiglia di cancellare i dati dell'app per prevenire i bug dell'UI."</string>
     <string name="revanced_spoof_client_fallback_title">Alternativa</string>
     <string name="revanced_spoof_client_general_title">Generale</string>
     <string name="revanced_spoof_client_livestream_title">Live streams</string>
@@ -1416,6 +1441,7 @@ Gli effetti collaterali includono:
 • Le live Streams non possono essere riprodotti solo come audio.
 • Le live streams non sono disponibili su Android 8.0."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
+    <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Simula le dimensioni del dispositivo per sbloccare qualità video superiori che potrebbero non essere disponibili sul tuo dispositivo"</string>
     <string name="revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
     <string name="revanced_spoof_format_stream_data_summary">"Spoofs the format stream data to prevent playback issues.

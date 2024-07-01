@@ -228,6 +228,11 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط التقدم</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">تم تعطيل الطابع الزمني.</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"تم تمكين الطابع الزمني.
+
+مشكلة معروفة: نظرًا لأن هذه ميزة في مرحلة التطوير بواسطة Google، فقد يكون التخطيط معطلاً."</string>
+    <string name="revanced_enable_shorts_time_stamp_title">تمكين الطوابع الزمنية</string>
     <string name="revanced_enable_swipe_brightness_summary_off">تم تعطيل التحكم بمستوى السطوع عن طريق الإيماءة.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">تم تمكين التحكم بمستوى السطوع عن طريق الإيماءة.</string>
     <string name="revanced_enable_swipe_brightness_title">تمكين التحكم بالسطوع عن طريق إيماءة التمرير</string>
@@ -292,7 +297,7 @@
     <string name="revanced_extended_settings_import_summary">استيراد الإعدادات من ملف محفوظ.</string>
     <string name="revanced_extended_settings_import_title">استيراد الإعدادات</string>
     <string name="revanced_extended_settings_reset">إعادة تعيين</string>
-    <string name="revanced_extended_settings_search_title">بحث الإعدادات</string>
+    <string name="revanced_extended_settings_search_title">بحث %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary_off">يفتح زر التنزيل أداة التنزيل الأصلية داخل التطبيق.</string>
     <string name="revanced_external_downloader_action_summary_on">يفتح زر التنزيل الأصلي أداة التنزيل الخارجية.</string>
@@ -403,6 +408,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">يتم عرض مربع التمويل الجماعي.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">تم إخفاء مربع التمويل الجماعي.</string>
     <string name="revanced_hide_crowdfunding_box_title">إخفاء مربع التمويل الجماعي</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_off">يتم عرض فلتر واجهة النقر المزدوج.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_on">تم إخفاء فلتر واجهة النقر المزدوج.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">إخفاء فلتر واجهة النقر المزدوج</string>
     <string name="revanced_hide_download_button_summary_off">يتم عرض زر التنزيل.</string>
     <string name="revanced_hide_download_button_summary_on">تم إخفاء زر التنزيل.</string>
     <string name="revanced_hide_download_button_title">إخفاء زر التنزيل</string>
@@ -457,6 +465,9 @@
     <string name="revanced_hide_handle_summary_off">يتم عرض المقبض.</string>
     <string name="revanced_hide_handle_summary_on">تم إخفاء المقبض.</string>
     <string name="revanced_hide_handle_title">إخفاء المقبض</string>
+    <string name="revanced_hide_image_search_button_summary_off">يتم عرض زر البحث عن الصورة.</string>
+    <string name="revanced_hide_image_search_button_summary_on">تم إخفاء زر البحث عن الصورة.</string>
+    <string name="revanced_hide_image_search_button_title">إخفاء زر البحث عن الصورة</string>
     <string name="revanced_hide_image_shelf_summary_off">يتم عرض رفوف الصور.</string>
     <string name="revanced_hide_image_shelf_summary_on">تم إخفاء رفوف الصور.</string>
     <string name="revanced_hide_image_shelf_title">إخفاء رفوف الصور</string>
@@ -497,8 +508,9 @@
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">لا يتم تصفية الفيديوهات في موجز الاشتراكات.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">يتم تصفية الفيديوهات في موجز الاشتراكات.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء الفيديوهات الخاصة بالاشتراك عن طريق الكلمات الرئيسية</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة الرئيسية \'%1$s\' ستؤدي إلى إخفاء جميع مقاطع الفيديو.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">الكلمة الرئيسية غير صالحة. لا يمكن استخدام: \'%s\' كعامل تصفية</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">الكلمة الرئيسية غير صالحة. \'%1$s\' أقل من %2$d حرفًا</string>
+    <string name="revanced_hide_keyword_toast_invalid_keyword">الكلمة الرئيسية غير صالحة. \'%1$s\' أقل من %2$d حرف.</string>
     <string name="revanced_hide_latest_posts_summary_off">يتم عرض أحدث المشاركات.</string>
     <string name="revanced_hide_latest_posts_summary_on">تم إخفاء أحدث المشاركات.</string>
     <string name="revanced_hide_latest_posts_title">إخفاء آخر المشاركات</string>
@@ -774,6 +786,9 @@
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">يتم عرض أزرار تراكب التوقف.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">تم إخفاء أزرار تراكب التوقف.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">إخفاء أزرار واجهة التوقف</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">يتم عرض خلفية الزر.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">تم إخفاء خلفية الزر.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_title">إخفاء خلفية زر التشغيل &amp; الإيقاف</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">يتم عرض زر ريمكس.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">تم إخفاء زر ريمكس.</string>
     <string name="revanced_hide_shorts_remix_button_title">إخفاء زر ريمكس</string>
@@ -923,6 +938,12 @@
     <string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
     <string name="revanced_keep_landscape_mode_title">الإبقاء على الوضع الأفقي</string>
     <string name="revanced_label_default">الإفتراضي</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">تم تعطيل إجراء النقر المزدوج.</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"تم تمكين إجراء النقر المزدوج.
+
+• حديث 1: انقر نقرًا مزدوجًا لتغيير حجم الفيديو المصغر إلى حجم أكبر.
+• حديث 2، 3: انقر نقرًا مزدوجًا لإغلاق الفيديو المصغر."</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">إجراء النقر المزدوج</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">تم تعطيل السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">تم تمكين السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">تمكين السحب والإفلات</string>
@@ -973,6 +994,7 @@
     <string name="revanced_playback_speed_normal">عادي</string>
     <string name="revanced_preference_category_action_buttons">أزرار الإجراء</string>
     <string name="revanced_preference_category_additional_settings">إعدادات إضافية</string>
+    <string name="revanced_preference_category_animation_feedback">تأثير الحركة / رد الفعل</string>
     <string name="revanced_preference_category_duration_filter">فلترة المـدة</string>
     <string name="revanced_preference_category_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_preference_category_import_export_as_file">استيراد / تصدير كملف</string>
@@ -1306,6 +1328,12 @@
     <string name="revanced_share_copy_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>
     <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني إلى الحافظة.</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">الأصلي</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Cairo</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_4">قلب</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">قلب(لون)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_6">مخفي</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_title">تأثير الحركة عند النقر المزدوج</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة.
 
 التقييد: يختفي عنوان الفيديو عند النقر عليه."</string>
@@ -1330,6 +1358,8 @@
 
 • سيؤدي هذا إلى تغيير مظهر التطبيق، ولكن قد تحدث آثار جانبية غير معروفة
 • إذا تم إيقاف تشغيله لاحقًا، فقد تظل واجهة المستخدم القديمة حتى يتم مسح بيانات التطبيق."</string>
+    <string name="revanced_spoof_app_version_summary_off">لم يتم تغيير اصدار التطبيق</string>
+    <string name="revanced_spoof_app_version_summary_on">تم تغيير اصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - استعادة تخطيط واجهة المستخدم القديم</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - استعادة مربع إدخال التعليقات القديم</string>
@@ -1341,6 +1371,11 @@
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
     <string name="revanced_spoof_app_version_target_title">تعديل إصدار التطبيق الوهمي</string>
     <string name="revanced_spoof_app_version_title">إصدار تطبيق وهمي</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"سيتم تغيير إصدار التطبيق إلى إصدار قديم من Youtube.
+
+سيؤدي هذا إلى تغيير مظهر ومميزات التطبيق، ولكن قد تحدث تأثيرات جانبية غير معروفة.
+
+إذا تم إيقاف تشغيله لاحقا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
     <string name="revanced_spoof_client_fallback_title">الفيديو غير قابل للتشغيل</string>
     <string name="revanced_spoof_client_general_title">عام</string>
     <string name="revanced_spoof_client_livestream_title">بث مباشر</string>
@@ -1410,6 +1445,7 @@
 • البث المباشر غير متوفر على Android 8.0.
 • قد تكون جودة الفيديو الأعلى مفقودة."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
+    <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.
 قد يتم توفير الجودة العالية في بعض مقاطع الفيديو التي تتطلب أبعادًا عالية للجهاز، ولكن ليس كل مقاطع الفيديو."</string>
     <string name="revanced_spoof_device_dimensions_title">إيهام أبعاد الجهاز</string>

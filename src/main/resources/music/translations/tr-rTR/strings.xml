@@ -3,9 +3,9 @@
     <string name="gms_core_dialog_continue_text">Devam Et</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore'un arka planda çalışma izni yoktur.
 
-Telefonunuz için 'Uygulamamı öldürme' kılavuzunu izleyin ve talimatları MicroG kurulumunuza uygulayın.
+'Uygulamamı öldürmeyin!' cihazınız için kılavuzu kullanın ve talimatları GmsCore kurulumunuza uygulayın.
 
-Bu uygulamanın çalışması için gereklidir."</string>
+Uygulamanın çalışması için bu gereklidir."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için GmsCore pil optimizasyonları devre dışı bırakılmalıdır.
 
 Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."</string>
@@ -38,6 +38,8 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="revanced_enable_black_navigation_bar_title">Siyah gezinme çubuğunu etkinleştir</string>
     <string name="revanced_enable_black_player_background_summary">Oynatıcının arka plan rengini siyaha değiştirir.</string>
     <string name="revanced_enable_black_player_background_title">Siyah oynatıcı arka planını etkinleştir</string>
+    <string name="revanced_enable_cairo_splash_animation_summary">Uyuklama başlangıcında kahire açılış animasyonunu etkinleştirir.</string>
+    <string name="revanced_enable_cairo_splash_animation_title">Kahire açılış animasyonunu etkinleştir</string>
     <string name="revanced_enable_color_match_player_summary">Küçültülmüş oynatıcının rengi ile tam ekran oynatıcının rengini eşler.</string>
     <string name="revanced_enable_color_match_player_title">Oynatıcı renk eşlemesini etkinleştir</string>
     <string name="revanced_enable_compact_dialog_summary">"Telefonda kompakt iletişim kutusunu etkinleştirin. 
@@ -138,6 +140,8 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Kanal yönergelerini gizle</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Yorum yazarken zaman damgası ve emoji düğmelerini gizle.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Zaman damgası ve emoji düğmelerini gizle</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">Çift tıklayarak sürükleme etkinken kara arayüzü gizler.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Çift tıklama arayüz filtresini gizle</string>
     <string name="revanced_hide_floating_button_summary">Kitaplıktaki Yüzen Butonu Gizle.</string>
     <string name="revanced_hide_floating_button_title">Yüzen Butonu Gizle</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">3-sütunlu bileşenleri gizle</string>
@@ -212,7 +216,7 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_samples_shelf_title">Örnek rafını gizle</string>
     <string name="revanced_hide_sound_search_button_summary">Arama çubuğundaki ses arama düğmesini gizler.</string>
     <string name="revanced_hide_sound_search_button_title">Sesli arama düğmesini gizle</string>
-    <string name="revanced_hide_tap_to_update_button_summary">\'Güncellemek için tıkla\' butonunu gizler.</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Güncellemek için tıkla butonunu gizler.</string>
     <string name="revanced_hide_tap_to_update_button_title">Güncellemek için tıkla butonunu gizle</string>
     <string name="revanced_hide_terms_container_summary">Hizmet Şartları kapsayıcısını gizler.</string>
     <string name="revanced_hide_terms_container_title">Terimler kapsayıcısını gizle</string>
@@ -310,7 +314,7 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_sb_segments_preview">Önizleme / Özet / Hook</string>
     <string name="revanced_sb_segments_preview_sum">Videoda veya bir dizinin diğer videolarında neler olduğunu veya neler olduğunu gösteren, tüm bilgilerin başka bir yerde tekrarlandığı klip koleksiyonu.</string>
     <string name="revanced_sb_segments_selfpromo">Karşılıksız/Kişisel Promosyon</string>
-    <string name="revanced_sb_segments_selfpromo_sum">\"Sponsor\" seçeneğinden farkı para karşılığı olmaması veya kendi reklamını yapmasıdır. Buna kendi markalı ürünlerini satmak, bağış toplamak ve videoda işbirliği yaptığı kimselerden bahsetmek dahildir.</string>
+    <string name="revanced_sb_segments_selfpromo_sum">Ücretsiz veya kendi kendine tanıtım haricinde Sponsora benzer. Ürünler, bağışlar veya kiminle işbirliği yaptıklarına ilişkin bilgilerle ilgili bölümler içerir.</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
     <string name="revanced_sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendi tanıtımını yapmak veya beğendikleri olaylara / içerik üreticilerine / web sitelerine / ürünlere ücretsiz olarak atıfta bulunanlar için değil.</string>
     <string name="revanced_sb_skip_automatically">Otomatik olarak atla</string>
