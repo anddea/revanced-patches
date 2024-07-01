@@ -29,6 +29,7 @@ import app.revanced.patches.music.player.components.fingerprints.OldEngagementPa
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerBackgroundFingerprint
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerLayoutFingerprint
 import app.revanced.patches.music.player.components.fingerprints.PlayerPatchConstructorFingerprint
+import app.revanced.patches.music.player.components.fingerprints.QuickSeekOverlayFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RemixGenericButtonFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RepeatTrackFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint
@@ -42,13 +43,16 @@ import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESC
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DarkBackground
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TapBloomView
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopEnd
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopStart
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndexOrThrow
@@ -57,6 +61,7 @@ import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.literalInstructionViewHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.transformFields
@@ -106,6 +111,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         OldPlayerLayoutFingerprint,
         PendingIntentReceiverFingerprint,
         PlayerPatchConstructorFingerprint,
+        QuickSeekOverlayFingerprint,
         RemixGenericButtonFingerprint,
         RepeatTrackFingerprint,
         ShuffleClassReferenceFingerprint,
@@ -592,6 +598,30 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             "revanced_hide_comment_timestamp_and_emoji_buttons",
             "false"
         )
+
+        // region patch for hide double-tap overlay filter
+
+        val smaliInstruction = """
+            invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $PLAYER_CLASS_DESCRIPTOR->hideDoubleTapOverlayFilter(Landroid/view/View;)V
+            """
+
+        arrayOf(
+            DarkBackground,
+            TapBloomView
+        ).forEach { literal ->
+            QuickSeekOverlayFingerprint.literalInstructionViewHook(
+                literal,
+                smaliInstruction
+            )
+        }
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_double_tap_overlay_filter",
+            "false"
+        )
+
+        // endregion
 
         // region patch for hide fullscreen share button
 

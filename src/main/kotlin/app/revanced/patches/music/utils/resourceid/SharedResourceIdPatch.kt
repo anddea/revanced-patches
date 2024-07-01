@@ -21,6 +21,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ButtonIconPaddingMedium = -1L
     var ChipCloud = -1L
     var ColorGrey = -1L
+    var DarkBackground = -1L
     var DesignBottomSheetDialog = -1L
     var DialogSolid = -1L
     var EndButtonsContainer = -1L
@@ -43,6 +44,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var QualityAuto = -1L
     var RemixGenericButtonSize = -1L
     var SlidingDialogAnimation = -1L
+    var TapBloomView = -1L
     var Text1 = -1L
     var ToolTipContentView = -1L
     var TopEnd = -1L
@@ -61,6 +63,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ButtonIconPaddingMedium = getId(DIMEN, "button_icon_padding_medium")
         ChipCloud = getId(LAYOUT, "chip_cloud")
         ColorGrey = getId(COLOR, "ytm_color_grey_12")
+        DarkBackground = getId(ID, "dark_background")
         DesignBottomSheetDialog = getId(LAYOUT, "design_bottom_sheet_dialog")
         DialogSolid = getId(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         EndButtonsContainer = getId(ID, "end_buttons_container")
@@ -83,6 +86,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         QualityAuto = getId(STRING, "quality_auto")
         RemixGenericButtonSize = getId(DIMEN, "remix_generic_button_size")
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
+        TapBloomView = getId(ID, "tap_bloom_view")
         Text1 = getId(ID, "text1")
         ToolTipContentView = getId(LAYOUT, "tooltip_content_view")
         TopEnd = getId(ID, "TOP_END")

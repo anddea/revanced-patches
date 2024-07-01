@@ -8,7 +8,7 @@ import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 
 @Suppress("Deprecation", "unused")
-object ForcePlayerButtonBackgroundPatch : BaseResourcePatch(
+object PlayerButtonBackgroundPatch : BaseResourcePatch(
     name = "Force hide player buttons background",
     description = "Removes, at compile time, the dark background surrounding the video player controls.",
     dependencies = setOf(SettingsPatch::class),

@@ -39,6 +39,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var CompactLink = -1L
     var CompactListItem = -1L
     var ControlsLayoutStub = -1L
+    var DarkBackground = -1L
     var DarkSplashAnimation = -1L
     var DonationCompanion = -1L
     var DrawerContentView = -1L
@@ -77,9 +78,12 @@ object SharedResourceIdPatch : ResourcePatch() {
     var QuickActionsElementContainer = -1L
     var ReelDynRemix = -1L
     var ReelDynShare = -1L
+    var ReelFeedbackLike = -1L
+    var ReelFeedbackPause = -1L
+    var ReelFeedbackPlay = -1L
     var ReelForcedMuteButton = -1L
-    var ReelPivotButton = -1L
     var ReelPlayerFooter = -1L
+    var ReelPlayerRightPivotV2Size = -1L
     var ReelRightDislikeIcon = -1L
     var ReelRightLikeIcon = -1L
     var ReelTimeBarPlayedColor = -1L
@@ -93,6 +97,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var SlidingDialogAnimation = -1L
     var SubtitleMenuSettingsFooterInfo = -1L
     var SuggestedAction = -1L
+    var TapBloomView = -1L
     var TitleAnchor = -1L
     var ToolTipContentView = -1L
     var TotalTime = -1L
@@ -132,6 +137,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         CompactLink = getId(LAYOUT, "compact_link")
         CompactListItem = getId(LAYOUT, "compact_list_item")
         ControlsLayoutStub = getId(ID, "controls_layout_stub")
+        DarkBackground = getId(ID, "dark_background")
         DarkSplashAnimation = getId(ID, "dark_splash_animation")
         DonationCompanion = getId(LAYOUT, "donation_companion")
         DrawerContentView = getId(ID, "drawer_content_view")
@@ -172,9 +178,12 @@ object SharedResourceIdPatch : ResourcePatch() {
         QuickActionsElementContainer = getId(ID, "quick_actions_element_container")
         ReelDynRemix = getId(ID, "reel_dyn_remix")
         ReelDynShare = getId(ID, "reel_dyn_share")
+        ReelFeedbackLike = getId(ID, "reel_feedback_like")
+        ReelFeedbackPause = getId(ID, "reel_feedback_pause")
+        ReelFeedbackPlay = getId(ID, "reel_feedback_play")
         ReelForcedMuteButton = getId(ID, "reel_player_forced_mute_button")
-        ReelPivotButton = getId(ID, "reel_pivot_button")
         ReelPlayerFooter = getId(LAYOUT, "reel_player_dyn_footer_vert_stories3")
+        ReelPlayerRightPivotV2Size = getId(DIMEN, "reel_player_right_pivot_v2_size")
         ReelRightDislikeIcon = getId(DRAWABLE, "reel_right_dislike_icon")
         ReelRightLikeIcon = getId(DRAWABLE, "reel_right_like_icon")
         ReelTimeBarPlayedColor = getId(COLOR, "reel_time_bar_played_color")
@@ -189,6 +198,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
         SubtitleMenuSettingsFooterInfo = getId(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = getId(LAYOUT, "suggested_action")
+        TapBloomView = getId(ID, "tap_bloom_view")
         TitleAnchor = getId(ID, "title_anchor")
         ToolTipContentView = getId(LAYOUT, "tooltip_content_view")
         TotalTime = getId(STRING, "total_time")

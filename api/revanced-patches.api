@@ -131,12 +131,6 @@ public final class app/revanced/patches/music/layout/branding/name/CustomBrandin
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/music/layout/doubletapbackground/DoubleTapOverlayBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/doubletapbackground/DoubleTapOverlayBackgroundPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/music/layout/header/ChangeHeaderPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/header/ChangeHeaderPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -331,6 +325,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getButtonIconPaddingMedium ()J
 	public final fun getChipCloud ()J
 	public final fun getColorGrey ()J
+	public final fun getDarkBackground ()J
 	public final fun getDesignBottomSheetDialog ()J
 	public final fun getDialogSolid ()J
 	public final fun getEndButtonsContainer ()J
@@ -353,6 +348,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getQualityAuto ()J
 	public final fun getRemixGenericButtonSize ()J
 	public final fun getSlidingDialogAnimation ()J
+	public final fun getTapBloomView ()J
 	public final fun getText1 ()J
 	public final fun getToolTipContentView ()J
 	public final fun getTopBarMenuItemImageView ()J
@@ -368,6 +364,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setButtonIconPaddingMedium (J)V
 	public final fun setChipCloud (J)V
 	public final fun setColorGrey (J)V
+	public final fun setDarkBackground (J)V
 	public final fun setDesignBottomSheetDialog (J)V
 	public final fun setDialogSolid (J)V
 	public final fun setEndButtonsContainer (J)V
@@ -390,6 +387,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setQualityAuto (J)V
 	public final fun setRemixGenericButtonSize (J)V
 	public final fun setSlidingDialogAnimation (J)V
+	public final fun setTapBloomView (J)V
 	public final fun setText1 (J)V
 	public final fun setToolTipContentView (J)V
 	public final fun setTopBarMenuItemImageView (J)V
@@ -879,10 +877,6 @@ public final class app/revanced/patches/shared/translations/TranslationsUtilsKt 
 	public static final fun getAPP_LANGUAGES ()[Ljava/lang/String;
 }
 
-public final class app/revanced/patches/shared/voicesearch/VoiceSearchUtils {
-	public static final field INSTANCE Lapp/revanced/patches/shared/voicesearch/VoiceSearchUtils;
-}
-
 public final class app/revanced/patches/youtube/ads/general/AdsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/ads/general/AdsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1019,14 +1013,8 @@ public final class app/revanced/patches/youtube/general/toolbar/fingerprints/Sea
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/toolbar/fingerprints/SearchResultFingerprint;
 }
 
-public final class app/revanced/patches/youtube/layout/animated/AnimatedButtonBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/AnimatedButtonBackgroundPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/layout/animated/AnimatedLikePatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/animated/AnimatedLikePatch;
+public final class app/revanced/patches/youtube/layout/actionbuttons/ShortsActionButtonsPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/actionbuttons/ShortsActionButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1050,14 +1038,14 @@ public final class app/revanced/patches/youtube/layout/dimming/ShortsDimmingPatc
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/doubletapbackground/DoubleTapOverlayBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/doubletapbackground/DoubleTapOverlayBackgroundPatch;
+public final class app/revanced/patches/youtube/layout/doubletaplength/DoubleTapLengthPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/doubletaplength/DoubleTapLengthPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/doubletaplength/DoubleTapLengthPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/doubletaplength/DoubleTapLengthPatch;
+public final class app/revanced/patches/youtube/layout/header/ChangeHeaderPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/header/ChangeHeaderPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1068,8 +1056,8 @@ public final class app/revanced/patches/youtube/layout/header/CustomBrandingHead
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/playerbuttonbg/ForcePlayerButtonBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/playerbuttonbg/ForcePlayerButtonBackgroundPatch;
+public final class app/revanced/patches/youtube/layout/playerbuttonbg/PlayerButtonBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/playerbuttonbg/PlayerButtonBackgroundPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
@@ -1254,6 +1242,12 @@ public final class app/revanced/patches/youtube/player/speedoverlay/SpeedOverlay
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/shorts/components/ShortsAnimationPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsAnimationPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/shorts/components/ShortsComponentPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsComponentPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1276,12 +1270,6 @@ public final class app/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch 
 	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/shortsoverlay/ShortsOverlayButtonsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/youtube/shorts/startupshortsreset/ResumingShortsOnStartupPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -1423,6 +1411,12 @@ public final class app/revanced/patches/youtube/utils/lockmodestate/LockModeStat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/utils/lottie/LottieAnimationViewHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/lottie/LottieAnimationViewHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/utils/mainactivity/MainActivityResolvePatch : app/revanced/patches/shared/mainactivity/BaseMainActivityResolvePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/mainactivity/MainActivityResolvePatch;
 }
@@ -1485,6 +1479,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getCompactLink ()J
 	public final fun getCompactListItem ()J
 	public final fun getControlsLayoutStub ()J
+	public final fun getDarkBackground ()J
 	public final fun getDarkSplashAnimation ()J
 	public final fun getDonationCompanion ()J
 	public final fun getDrawerContentView ()J
@@ -1523,9 +1518,12 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getQuickActionsElementContainer ()J
 	public final fun getReelDynRemix ()J
 	public final fun getReelDynShare ()J
+	public final fun getReelFeedbackLike ()J
+	public final fun getReelFeedbackPause ()J
+	public final fun getReelFeedbackPlay ()J
 	public final fun getReelForcedMuteButton ()J
-	public final fun getReelPivotButton ()J
 	public final fun getReelPlayerFooter ()J
+	public final fun getReelPlayerRightPivotV2Size ()J
 	public final fun getReelRightDislikeIcon ()J
 	public final fun getReelRightLikeIcon ()J
 	public final fun getReelTimeBarPlayedColor ()J
@@ -1539,6 +1537,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getSlidingDialogAnimation ()J
 	public final fun getSubtitleMenuSettingsFooterInfo ()J
 	public final fun getSuggestedAction ()J
+	public final fun getTapBloomView ()J
 	public final fun getTitleAnchor ()J
 	public final fun getToolTipContentView ()J
 	public final fun getTotalTime ()J
@@ -1575,6 +1574,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setCompactLink (J)V
 	public final fun setCompactListItem (J)V
 	public final fun setControlsLayoutStub (J)V
+	public final fun setDarkBackground (J)V
 	public final fun setDarkSplashAnimation (J)V
 	public final fun setDonationCompanion (J)V
 	public final fun setDrawerContentView (J)V
@@ -1613,9 +1613,12 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setQuickActionsElementContainer (J)V
 	public final fun setReelDynRemix (J)V
 	public final fun setReelDynShare (J)V
+	public final fun setReelFeedbackLike (J)V
+	public final fun setReelFeedbackPause (J)V
+	public final fun setReelFeedbackPlay (J)V
 	public final fun setReelForcedMuteButton (J)V
-	public final fun setReelPivotButton (J)V
 	public final fun setReelPlayerFooter (J)V
+	public final fun setReelPlayerRightPivotV2Size (J)V
 	public final fun setReelRightDislikeIcon (J)V
 	public final fun setReelRightLikeIcon (J)V
 	public final fun setReelTimeBarPlayedColor (J)V
@@ -1629,6 +1632,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setSlidingDialogAnimation (J)V
 	public final fun setSubtitleMenuSettingsFooterInfo (J)V
 	public final fun setSuggestedAction (J)V
+	public final fun setTapBloomView (J)V
 	public final fun setTitleAnchor (J)V
 	public final fun setToolTipContentView (J)V
 	public final fun setTotalTime (J)V
