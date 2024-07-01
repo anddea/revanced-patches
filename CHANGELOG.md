@@ -1,3 +1,37 @@
+# [2.227.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.2...v2.227.0-dev.3) (2024-07-01)
+
+
+### Bug Fixes
+
+* **Reddit - Change version code:** `Version code` option is not available in RVX Manager ([9a4788d](https://github.com/anddea/revanced-patches/commit/9a4788d1c0dc089088990e8d561cd8c976b4ed55))
+* **Shorts components:** `Hide sound button` doesn't work (A/B tests) ([234feb7](https://github.com/anddea/revanced-patches/commit/234feb786b9b391815a2555c0a49aff66b66e5cf))
+* **YouTube - Custom header for YouTube:** Custom headers do not change (A/B tests) ([7b3e52d](https://github.com/anddea/revanced-patches/commit/7b3e52d4fefa5f67add79b47cbca84b62108070c))
+* **YouTube - Settings:** Toolbar added twice to RVX settings ([6346a5e](https://github.com/anddea/revanced-patches/commit/6346a5e7687cf37f7ce175a30c32c2c9df584f3a))
+* **YouTube - Theme:** Reverts background color of `More comments` icon in live chats ([3c7f976](https://github.com/anddea/revanced-patches/commit/3c7f9764c18eed33b6577e20f86c45df94a82091))
+
+
+### Features
+
+* **YouTube - Custom Shorts action buttons:** Add `YouTube` (unchanged) to selectable patch options ([0b77187](https://github.com/anddea/revanced-patches/commit/0b77187699f5c045f8f316dc5cad0c09ccf1917a))
+* **YouTube - Settings:** Show AlertDialog when changing some settings value (matches ReVanced) ([3f301e0](https://github.com/anddea/revanced-patches/commit/3f301e0c4226d77098424b74b44dcb5ebf0ba189))
+* **YouTube - Shorts components:** Add `Double-tap animation` settings ([a1868ec](https://github.com/anddea/revanced-patches/commit/a1868ecae8f74ca9d14a616707a5c94058d79591))
+* **YouTube - Shorts:** Rename ShortsOverlayButtonsPatch to ShortsActionButtonsPatch ([c3cf914](https://github.com/anddea/revanced-patches/commit/c3cf914c1b6c55d0e005d82077e639d59fb627d1))
+* **YouTube - Toolbar components:** Add `Hide image search button` settings ([457df98](https://github.com/anddea/revanced-patches/commit/457df9848340eec17c15f0fa6b156afe63c0975e))
+* **YouTube - Visual preferences icons:** RVX settings icon now changes even when the `Custom branding icon for YouTube` patch option is set to `YouTube` (unchanged) ([770b39b](https://github.com/anddea/revanced-patches/commit/770b39b6c08896041d7b227f6cb9cb8ddb2be1a5))
+* **YouTube Music - Custom branding icon:** Add `Revancify Yellow` header ([#670](https://github.com/anddea/revanced-patches/issues/670)) ([3dfcadb](https://github.com/anddea/revanced-patches/commit/3dfcadb2f1cdb7dafefe9f1337fc31f4d829a184))
+* **YouTube Music:** Add support versions `7.06.54` ~ `7.07.51` ([dc1e29a](https://github.com/anddea/revanced-patches/commit/dc1e29a77d06b72e6e48a3732b7f9ee305c53244))
+* **YouTube Music:** Integrate `Hide double tap overlay filter` patch into the `Player components` patch ([9bd92bb](https://github.com/anddea/revanced-patches/commit/9bd92bb25e610c347f6b3c6712ade0fb2b553271))
+* **YouTube:** DeArrow alternative domain ([#672](https://github.com/anddea/revanced-patches/issues/672)) ([ac46f0a](https://github.com/anddea/revanced-patches/commit/ac46f0af2f317629bb4e08bbcba16bb53516a975))
+* **YouTube:** Integrate `Hide double tap overlay filter` patch into the `Player components` patch ([d7ccd0d](https://github.com/anddea/revanced-patches/commit/d7ccd0dd352339d44f3e6330d6396876150b53c2))
+
+# [2.227.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.1...v2.227.0-dev.2) (2024-06-29)
+
+
+### Features
+
+* **YouTube - Shorts:** Add Original Outline Icons ([#663](https://github.com/anddea/revanced-patches/issues/663)) ([35a65f5](https://github.com/anddea/revanced-patches/commit/35a65f5e873bebc8ddf151cb194fe0d43f53022b))
+* **YouTube - Translations:** Update `Chinese Traditional` ([#666](https://github.com/anddea/revanced-patches/issues/666)) ([4f383eb](https://github.com/anddea/revanced-patches/commit/4f383eb45aa0610b1b27f039a718288ee193564a))
+
 # [2.227.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.226.0...v2.227.0-dev.1) (2024-06-26)
 
 

@@ -17,6 +17,10 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">This option allows you to replace the domain from which YouTube receives original avatars, images of community publications, etc.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">Use alternative domain for all original pictures</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">NOTE: put only domain name, without \"https\:\/\/\" prefix</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Set domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube.
 
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown.
@@ -231,6 +235,11 @@ Side effect: Cairo theme is also applied to notification dots."</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled.</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">Timestamp is disabled.</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"Timestamp is enabled.
+
+Known issue: As this is a feature in the development stage by Google, the layout may be broken."</string>
+    <string name="revanced_enable_shorts_time_stamp_title">Enable timestamps</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Brightness swipe is disabled.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Brightness swipe is enabled.</string>
     <string name="revanced_enable_swipe_brightness_title">Enable brightness gesture</string>
@@ -295,7 +304,7 @@ The Expand video description option may not work if the entered string does not 
     <string name="revanced_extended_settings_import_summary">Import settings from a saved file.</string>
     <string name="revanced_extended_settings_import_title">Import settings</string>
     <string name="revanced_extended_settings_reset">Reset</string>
-    <string name="revanced_extended_settings_search_title">Search settings</string>
+    <string name="revanced_extended_settings_search_title">Search %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary_off">Native download button opens the native in-app downloader.</string>
     <string name="revanced_external_downloader_action_summary_on">Native download button opens your external downloader.</string>
@@ -408,6 +417,9 @@ Store"</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden.</string>
     <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_off">Double-tap overlay filter is shown.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_on">Double-tap overlay filter is hidden.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Hide double-tap overlay filter</string>
     <string name="revanced_hide_download_button_summary_off">Download button is shown.</string>
     <string name="revanced_hide_download_button_summary_on">Download button is hidden.</string>
     <string name="revanced_hide_download_button_title">Hide Download button</string>
@@ -462,6 +474,9 @@ Side effect: Community post images may be blocked in fullscreen."</string>
     <string name="revanced_hide_handle_summary_off">Handle is shown.</string>
     <string name="revanced_hide_handle_summary_on">Handle is hidden.</string>
     <string name="revanced_hide_handle_title">Hide handle</string>
+    <string name="revanced_hide_image_search_button_summary_off">Image search button is shown.</string>
+    <string name="revanced_hide_image_search_button_summary_on">Image search button is hidden.</string>
+    <string name="revanced_hide_image_search_button_title">Hide image search button</string>
     <string name="revanced_hide_image_shelf_summary_off">Image shelves are shown.</string>
     <string name="revanced_hide_image_shelf_summary_on">Image shelves are hidden.</string>
     <string name="revanced_hide_image_shelf_title">Hide image shelves</string>
@@ -502,8 +517,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in subscriptions feed are not filtered.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in subscriptions feed are filtered.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%1$s\' will hide all videos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
+    <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters.</string>
     <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown.</string>
     <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden.</string>
     <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
@@ -637,7 +653,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_fullscreen_button_title">Hide Fullscreen button</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">Buttons are shown.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Buttons are hidden.</string>
-    <string name="revanced_hide_player_previous_next_button_title">Hide previous &amp; next buttons</string>
+    <string name="revanced_hide_player_previous_next_button_title">Hide Previous &amp; Next buttons</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Music button is shown.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Music button is hidden.</string>
     <string name="revanced_hide_player_youtube_music_button_title">Hide YouTube Music button</string>
@@ -776,6 +792,9 @@ Captions"</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Paused overlay buttons are shown.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Paused overlay buttons are hidden.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Hide paused overlay buttons</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Button background is shown.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Button background is hidden.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_title">Hide Play &amp; Pause button background</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix button is shown.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix button is hidden.</string>
     <string name="revanced_hide_shorts_remix_button_title">Hide Remix button</string>
@@ -888,7 +907,7 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_video_by_duration_shorter_than_title">Shorter than duration</string>
     <string name="revanced_hide_video_by_duration_summary">Hide videos with shorter than or longer than duration.\n\nKnown issue: It will not hide videos in the player related videos, instead it will hide the timestamp.</string>
     <string name="revanced_hide_video_by_duration_title">Hide videos based on duration</string>
-    <string name="revanced_hide_video_by_view_counts_summary">Hide recommended videos with less than a specified number of views.</string>
+    <string name="revanced_hide_video_by_view_counts_summary">Hide recommended videos with less than a specified number of views.\n\nKnown issue: Videos with 0 views are not filtered.</string>
     <string name="revanced_hide_video_by_view_counts_title">Hide recommended videos by views</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Greater than views</string>
@@ -925,6 +944,12 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
     <string name="revanced_keep_landscape_mode_title">Keep landscape mode</string>
     <string name="revanced_label_default">Stock</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Double-tap action is disabled.</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Double-tap action is enabled.
+
+• Modern 1: Double-tap to change the minimized video to a larger size.
+• Modern 2, 3: Double-tap to close the minimized video."</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">Double-tap action</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Drag and drop is disabled.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Drag and drop is enabled.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Enable drag and drop</string>
@@ -975,6 +1000,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
+    <string name="revanced_preference_category_animation_feedback">Animation / Feedback</string>
     <string name="revanced_preference_category_duration_filter">Duration filter</string>
     <string name="revanced_preference_category_experimental_flag">Experimental Flags</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
@@ -1309,6 +1335,13 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard.</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Thumbs up</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Thumbs up (Cairo)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_4">Heart</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Heart (Tint)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Hidden</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_title">Double-tap animation</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 
 Limitation: Video title disappears when clicked."</string>
@@ -1334,6 +1367,8 @@ Info:
 
 • This will change the appearance of the app, but unknown side effects may occur.
 • If later disabled, the old UI may remain until the app data is cleared."</string>
+    <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
+    <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - Restore old UI layout</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restore old playlist shelf</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restore old comment input box</string>
@@ -1345,6 +1380,11 @@ Info:
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Edit spoof app version</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"App version will be spoofed to an older version of YouTube.
+
+This will change the appearance and features of the app, but unknown side effects may occur.
+
+If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
     <string name="revanced_spoof_client_fallback_title">Unplayable video</string>
     <string name="revanced_spoof_client_general_title">General</string>
     <string name="revanced_spoof_client_livestream_title">Live streams</string>
@@ -1414,6 +1454,7 @@ Side effects include:
 • Live streams not available on Android 8.0.
 • Higher video qualities may be missing."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
+    <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
 High quality may be unlocked on some videos that require high device dimensions, but not all videos."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
