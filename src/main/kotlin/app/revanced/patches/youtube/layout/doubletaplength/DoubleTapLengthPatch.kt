@@ -27,6 +27,15 @@ object DoubleTapLengthPatch : BaseResourcePatch(
     )
 
     override fun execute(context: ResourceContext) {
+
+        // Check patch options first.
+        val splits = DoubleTapLengthArrays
+            ?.replace(" ", "")
+            ?.split(",")
+            ?: throw PatchException("Invalid double-tap length array.")
+        if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
+        val lengthElements = splits.map { it }
+
         val arrayPath = "res/values-v21/arrays.xml"
         val entriesName = "double_tap_length_entries"
         val entryValueName = "double_tap_length_values"
@@ -46,12 +55,6 @@ object DoubleTapLengthPatch : BaseResourcePatch(
             )
         )
 
-        val length = DoubleTapLengthArrays
-            ?: throw PatchException("Invalid double-tap length array.")
-
-        val splits = length.replace(" ", "").split(",")
-        if (splits.isEmpty()) throw IllegalArgumentException("Invalid double-tap length elements")
-        val lengthElements = splits.map { it }
         for (index in 0 until splits.count()) {
             context.addEntryValues(arrayPath, lengthElements[index], entryValueName)
             context.addEntryValues(arrayPath, lengthElements[index], entriesName)
