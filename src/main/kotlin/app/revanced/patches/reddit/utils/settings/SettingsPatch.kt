@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.integrations.IntegrationsPatch
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.valueOrThrow
 import kotlin.io.path.exists
 
 @Suppress("DEPRECATION")
@@ -21,7 +22,7 @@ object SettingsPatch : BaseResourcePatch(
 ) {
     private const val DEFAULT_NAME = "ReVanced Extended"
 
-    private val RVXSettingsMenuName by stringPatchOption(
+    private val RVXSettingsMenuName = stringPatchOption(
         key = "RVXSettingsMenuName",
         default = DEFAULT_NAME,
         title = "RVX settings menu name",
@@ -33,11 +34,8 @@ object SettingsPatch : BaseResourcePatch(
         /**
          * Replace settings icon and label
          */
-
-        var settingsLabel = DEFAULT_NAME
-
-        if (!RVXSettingsMenuName.isNullOrEmpty())
-            settingsLabel = RVXSettingsMenuName!!
+        val settingsLabel = RVXSettingsMenuName
+            .valueOrThrow()
 
         arrayOf("preferences", "preferences_logged_in").forEach { targetXML ->
             val resDirectory = context["res"]

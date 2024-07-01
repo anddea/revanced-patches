@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.Closeable
 
@@ -21,7 +22,7 @@ object ChangePackageNamePatch : BaseResourcePatch(
     private lateinit var context: ResourceContext
     private var redditPackageName = PACKAGE_NAME_REDDIT
 
-    private val PackageNameReddit by stringPatchOption(
+    private val PackageNameReddit = stringPatchOption(
         key = "PackageNameReddit",
         default = PACKAGE_NAME_REDDIT,
         values = mapOf(
@@ -37,26 +38,25 @@ object ChangePackageNamePatch : BaseResourcePatch(
     override fun execute(context: ResourceContext) {
         this.context = context
 
-        if (PackageNameReddit != null) {
-            redditPackageName = PackageNameReddit!!
-        } else {
-            println("WARNING: Invalid package name. Does not apply patches.")
+        redditPackageName = PackageNameReddit
+            .valueOrThrow()
+
+        if (redditPackageName == PACKAGE_NAME_REDDIT) {
+            println("INFO: Package name will remain unchanged as it matches the original.")
+            return
         }
 
-        if (redditPackageName != PACKAGE_NAME_REDDIT) {
-            // Ensure device runs Android.
-            try {
-                // RVX Manager
-                // ====
-                // For some reason, in Android AAPT2, a compilation error occurs when changing the [strings.xml] of the Reddit
-                // This only affects RVX Manager, and has not yet found a valid workaround
-                Class.forName("android.os.Environment")
-            } catch (_: ClassNotFoundException) {
-                // CLI
-                context.replacePackageName(redditPackageName)
-            }
-        } else {
-            println("INFO: Package name will remain unchanged as it matches the original.")
+        // Ensure device runs Android.
+        try {
+            // RVX Manager
+            // ====
+            // For some reason, in Android AAPT2, a compilation error occurs when changing the [strings.xml] of the Reddit
+            // This only affects RVX Manager, and has not yet found a valid workaround
+            Class.forName("android.os.Environment")
+            return
+        } catch (_: ClassNotFoundException) {
+            // CLI
+            context.replacePackageName(redditPackageName)
         }
     }
 

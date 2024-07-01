@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.drawable.DrawableColorPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
+import app.revanced.util.doRecursively
 import org.w3c.dom.Element
 
 @Patch(dependencies = [DrawableColorPatch::class])
@@ -84,6 +85,24 @@ object BaseThemePatch : ResourcePatch() {
 
                 if (resourcesNode.attributes.getNamedItem("android:drawable") != null)
                     resourcesNode.setAttribute("android:drawable", "?attr/splashScreenColor")
+            }
+        }
+
+        /**
+         * Since YouTube 19.20.35, the visibility of the background color of the `More comments` icon in live chat has worsened.
+         * See <a href="https://github.com/inotia00/ReVanced_Extended/issues/2197">ReVanced_Extended#2197</a>
+         *
+         * As a temporary workaround, revert to the colors of YouTube 19.19.39.
+         */
+        context.xmlEditor["res/drawable/live_chat_more_comments_selector.xml"].use { editor ->
+            editor.file.doRecursively loop@{ node ->
+                if (node !is Element) return@loop
+
+                node.getAttributeNode("android:color")?.let { attribute ->
+                    if (attribute.textContent == "?ytInvertedBackground") {
+                        attribute.textContent = "?ytThemedBlue"
+                    }
+                }
             }
         }
 
