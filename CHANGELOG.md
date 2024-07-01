@@ -1,3 +1,10 @@
+# [2.227.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.3...v2.227.0-dev.4) (2024-07-01)
+
+
+### Features
+
+* **YouTube - Searchbar:** Change cursor color dynamically ([#675](https://github.com/anddea/revanced-patches/issues/675)) ([e5babda](https://github.com/anddea/revanced-patches/commit/e5babda4e8f1fd054ad08bee948f22c8a735cb84))
+
 # [2.227.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.2...v2.227.0-dev.3) (2024-07-01)
 
 
