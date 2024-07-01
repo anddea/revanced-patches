@@ -80,7 +80,7 @@ def write_sorted_strings(file_path, strings_dict):
     xml_bytes = ET.tostring(tree, encoding='utf-8', pretty_print=True, xml_declaration=True)
     
     # Manually adjust the indentation to 4 spaces
-    xml_string = xml_bytes.decode('utf-8').replace('  ', '    ')
+    xml_string = xml_bytes.decode('utf-8').replace('  <string', '    <string')
 
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(xml_string)
