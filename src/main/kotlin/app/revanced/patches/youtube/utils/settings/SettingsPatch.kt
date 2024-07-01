@@ -161,8 +161,7 @@ object SettingsPatch : BaseResourcePatch(
         arrayOf(
             ResourceGroup(
                 "drawable",
-                "revanced_cursor_dark.xml",
-                "revanced_cursor_light.xml",
+                "revanced_cursor.xml",
             )
         ).forEach { resourceGroup ->
             context.copyResources("youtube/settings", resourceGroup)
