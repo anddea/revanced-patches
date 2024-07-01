@@ -1,3 +1,10 @@
+# [2.227.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.4...v2.227.0-dev.5) (2024-07-01)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts:** Restore `TikTok` icons ([#676](https://github.com/anddea/revanced-patches/issues/676)) ([8f6c985](https://github.com/anddea/revanced-patches/commit/8f6c9850c632247ae5feec2815358912e53f9c2f))
+
 # [2.227.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.3...v2.227.0-dev.4) (2024-07-01)
 
 
