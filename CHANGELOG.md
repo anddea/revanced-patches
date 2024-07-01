@@ -1,3 +1,10 @@
+# [2.227.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.5...v2.227.0-dev.6) (2024-07-01)
+
+
+### Reverts
+
+* Revert "fix(YouTube - Shorts): Restore `TikTok` icons (#676)" ([ad814d4](https://github.com/anddea/revanced-patches/commit/ad814d4b4a8329c43642648e4dfb4827fa45e07f)), closes [#676](https://github.com/anddea/revanced-patches/issues/676)
+
 # [2.227.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.4...v2.227.0-dev.5) (2024-07-01)
 
 
