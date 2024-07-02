@@ -17,6 +17,10 @@
     <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">이 설정을 활성화하면 YouTube에서 원본 아바타, 커뮤니티 게시물의 이미지 등을 수신하는 도메인을 변경할 수 있습니다.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">모든 원본 사진에 대체 도메인 활성화하기</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">알림: \"https\:\/\/\" 없이 도메인을 입력하세요.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">도메인 설정하기</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 동영상 스틸 컷 썸네일을 표시합니다.
@@ -90,7 +94,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_youtube_header_summary_off">일반 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_title">YouTube 헤더 변경하기</string>
-    <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈으로 구분하여 설정합니다.</string>
+    <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다.\n\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다.\n• 고급 기능이므로 대부분의 사용자는 이 기능을 사용하지 않습니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
     <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다.</string>
@@ -161,17 +165,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_landscape_mode_summary_off">전체 화면에서 동영상의 방향을 기기의 설정에 따라 활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_summary_on">전체 화면에서 동영상의 방향을 세로 모드로 활성화합니다.</string>
     <string name="revanced_disable_landscape_mode_title">전체 화면에서 세로 모드 활성화하기</string>
-    <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 버튼에 빛나는 애니메이션을 적용합니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
-    <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 버튼에 빛나는 애니메이션을 적용하지 않습니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
+    <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
+    <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
     <string name="revanced_disable_like_dislike_glow_title">빛나는 \'좋아요 &amp; 싫어요\' 버튼 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다.</string>
     <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
-    <string name="revanced_disable_rolling_number_animations_summary_off">실시간 조회수 카운팅 애니메이션을 활성화합니다.</string>
-    <string name="revanced_disable_rolling_number_animations_summary_on">실시간 조회수 카운팅 애니메이션을 비활성화합니다.</string>
-    <string name="revanced_disable_rolling_number_animations_title">실시간 조회수 카운팅 애니메이션 비활성화하기</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 실시간 조회수, 시청자 수 카운팅 애니메이션 (플레이어)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 실시간 조회수, 시청자 수 카운팅 애니메이션 (플레이어)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
     <string name="revanced_disable_speed_overlay_summary">"화면을 길게 눌러서 '2배속 &gt;&gt;'을 비활성화합니다.
 
 알림:
