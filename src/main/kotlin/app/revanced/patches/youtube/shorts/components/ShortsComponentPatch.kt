@@ -59,6 +59,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         SharedResourceIdPatch::class,
         ShortsAnimationPatch::class,
         ShortsNavigationBarPatch::class,
+        ShortsRepeatPatch::class,
         ShortsToolBarPatch::class,
         VideoInformationPatch::class
     ),
