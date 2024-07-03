@@ -189,6 +189,7 @@
                 <SwitchPreference android:title="@string/revanced_hide_keyword_content_subscriptions_title" android:key="revanced_hide_keyword_content_subscriptions" android:summaryOn="@string/revanced_hide_keyword_content_subscriptions_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_subscriptions_summary_off" />
                 <SwitchPreference android:title="@string/revanced_hide_keyword_content_comments_title" android:key="revanced_hide_keyword_content_comments" android:summaryOn="@string/revanced_hide_keyword_content_comments_summary_on" android:summaryOff="@string/revanced_hide_keyword_content_comments_summary_off" />
                 <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_keyword_content_phrases_title" android:key="revanced_hide_keyword_content_phrases" android:summary="@string/revanced_hide_keyword_content_phrases_summary" android:inputType="textMultiLine" />
+                <SwitchPreference android:title="@string/revanced_hide_keyword_content_full_word_title" android:key="revanced_hide_keyword_content_full_word" />
                 <Preference android:title="@string/revanced_hide_keyword_content_about_title" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_summary" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/revanced_preference_category_recommended_video" android:layout="@layout/revanced_settings_preferences_category">
