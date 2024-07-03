@@ -486,11 +486,8 @@
             <SwitchPreference android:title="@string/revanced_hide_shorts_toolbar_title" android:key="revanced_hide_shorts_toolbar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_toolbar_summary_on" android:summaryOff="@string/revanced_hide_shorts_toolbar_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_navigation_bar_title" android:key="revanced_hide_shorts_navigation_bar" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_navigation_bar_summary_on" android:summaryOff="@string/revanced_hide_shorts_navigation_bar_summary_off" />
             <SwitchPreference android:title="@string/revanced_replace_channel_handle_title" android:key="revanced_replace_channel_handle" android:summaryOn="@string/revanced_replace_channel_handle_summary_on" android:summaryOff="@string/revanced_replace_channel_handle_summary_off" />
-            <SwitchPreference android:title="@string/revanced_return_shorts_channel_name_fetch_title" android:key="revanced_return_shorts_channel_name_fetch" android:defaultValue="false" android:summaryOn="@string/revanced_return_shorts_channel_name_fetch_summary_on" android:summaryOff="@string/revanced_return_shorts_channel_name_fetch_summary_off" />
-        </PreferenceScreen>SETTINGS: SHORTS_COMPONENTS -->
-
-        <!-- SETTINGS: CHANGE_SHORTS_REPEAT_STATE
-        <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:defaultValue="2" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: CHANGE_SHORTS_REPEAT_STATE -->
+        </PreferenceScreen>
+        <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_COMPONENTS -->
 
         <!-- SETTINGS: DISABLE_RESUMING_SHORTS_PLAYER
         <SwitchPreference android:title="@string/revanced_disable_resuming_shorts_player_title" android:key="revanced_disable_resuming_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_disable_resuming_shorts_player_summary_on" android:summaryOff="@string/revanced_disable_resuming_shorts_player_summary_off" />SETTINGS: DISABLE_RESUMING_SHORTS_PLAYER -->
@@ -683,7 +680,6 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_shorts_title" >
-                <Preference android:title="Change Shorts repeat state" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable resuming Shorts on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Shorts components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Shorts outline button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
