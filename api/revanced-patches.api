@@ -1044,18 +1044,6 @@ public final class app/revanced/patches/youtube/layout/doubletaplength/DoubleTap
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/header/ChangeHeaderPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/header/ChangeHeaderPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/layout/header/CustomBrandingHeadingPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/header/CustomBrandingHeadingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/layout/playerbuttonbg/PlayerButtonBackgroundPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/playerbuttonbg/PlayerButtonBackgroundPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
