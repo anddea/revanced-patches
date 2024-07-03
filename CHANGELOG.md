@@ -1,3 +1,15 @@
+# [2.227.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.6...v2.227.0-dev.7) (2024-07-03)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Add missing `Custom branding icons` ([27efd27](https://github.com/anddea/revanced-patches/commit/27efd27bc0296ba43445a0ece90dbf81bf69706d))
+
+
+### Features
+
+* **YouTube - Hide feed components:** Add `Match full word` option for keyword filtering ([cd12a83](https://github.com/anddea/revanced-patches/commit/cd12a838b1e1f87c18af0f06fd0b1cd09974a8fb))
+
 # [2.227.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.5...v2.227.0-dev.6) (2024-07-01)
 
 
