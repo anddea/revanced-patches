@@ -1,3 +1,15 @@
+# [2.227.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.7...v2.227.0-dev.8) (2024-07-04)
+
+
+### Bug Fixes
+
+* **YouTube Music - Visual preferences icons:** Add missing `Custom branding icons` ([52d581c](https://github.com/anddea/revanced-patches/commit/52d581cc48567b46fa496375b7e079774bd7942c))
+
+
+### Features
+
+* **YouTube:** Add content descriptions to improve accessibility ([468978c](https://github.com/anddea/revanced-patches/commit/468978c77d0b25ab1b70e70f80b3cb2ec678b546))
+
 # [2.227.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.6...v2.227.0-dev.7) (2024-07-03)
 
 
