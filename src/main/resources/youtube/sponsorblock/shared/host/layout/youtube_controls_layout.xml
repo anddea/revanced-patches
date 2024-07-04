@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android">
     <com.google.android.libraries.youtube.common.ui.TouchImageView
+        android:contentDescription="@string/revanced_sb_enable_create_segment"
         android:id="@+id/revanced_sb_create_segment_button"
         style="@style/YouTubePlayerButton"
         android:layout_width="@dimen/controls_overlay_action_button_size"
@@ -13,6 +14,7 @@
         android:src="@drawable/revanced_sb_logo" />
 
     <com.google.android.libraries.youtube.common.ui.TouchImageView
+        android:contentDescription="@string/revanced_sb_enable_voting"
         android:id="@+id/revanced_sb_voting_button"
         style="@style/YouTubePlayerButton"
         android:layout_width="@dimen/controls_overlay_action_button_size"
