@@ -20,7 +20,12 @@ internal object MiniplayerModernConstructorFingerprint : MethodFingerprint(
             if (MethodUtil.isConstructor(it)) constructorMethodCount += 1
         }
 
-        constructorMethodCount > 0
+        if (!SettingsPatch.upward1925)
+            return@custom true
+
+        // Double tap action (Used in YouTube 19.25.39+).
+        methodDef.containsWideLiteralInstructionIndex(45628823)
+                && methodDef.containsWideLiteralInstructionIndex(45630429)
     }
 ) {
     private var constructorMethodCount = 0

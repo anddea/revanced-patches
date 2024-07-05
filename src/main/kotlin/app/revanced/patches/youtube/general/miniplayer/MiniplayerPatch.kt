@@ -178,6 +178,22 @@ object MiniplayerPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region Enable double tap action.
+
+        if (SettingsPatch.upward1925) {
+            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+                45628823,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->enableMiniplayerDoubleTapAction()Z"
+            )
+            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+                45630429,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
+            )
+            settingArray += "SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION"
+        }
+
+        // endregion
+
         val miniplayerModernViewParentClassDef = MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
 
         // region Fix 19.16 using mixed up drawables for tablet modern.
