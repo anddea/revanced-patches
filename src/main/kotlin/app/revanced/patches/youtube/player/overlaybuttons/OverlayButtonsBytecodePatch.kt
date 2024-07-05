@@ -94,7 +94,8 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
                 val moveObjectIndex = indexOfFirstInstructionOrThrow {
                     (this as? TwoRegisterInstruction)?.registerB == registerResolver
                 }
-                val moveObjectRegister = getInstruction<TwoRegisterInstruction>(moveObjectIndex).registerA
+                val moveObjectRegister =
+                    getInstruction<TwoRegisterInstruction>(moveObjectIndex).registerA
                 invokerObjectIndex = indexOfFirstInstructionOrThrow(moveObjectIndex) {
                     opcode == Opcode.IPUT_OBJECT
                             && getReference<FieldReference>()?.definingClass == definingClass

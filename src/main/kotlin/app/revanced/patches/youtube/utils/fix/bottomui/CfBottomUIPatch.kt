@@ -5,7 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.*
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.BottomUIContainerBooleanFingerprint
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.BottomUIContainerIntegerFingerprint
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonPositionFingerprint
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonViewStubFingerprint
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode

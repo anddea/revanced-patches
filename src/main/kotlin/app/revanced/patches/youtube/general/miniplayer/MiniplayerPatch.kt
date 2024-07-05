@@ -194,7 +194,8 @@ object MiniplayerPatch : BaseBytecodePatch(
 
         // endregion
 
-        val miniplayerModernViewParentClassDef = MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+        val miniplayerModernViewParentClassDef =
+            MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
 
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17.
@@ -266,11 +267,13 @@ object MiniplayerPatch : BaseBytecodePatch(
             )
         }.resultOrThrow().mutableMethod.apply {
             addInstructionsWithLabels(
-                0, """
+                0,
+                """
                     invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideMiniplayerSubTexts(Landroid/view/View;)Z
                     move-result v0
                     if-nez v0, :hidden
-                    """, ExternalLabel("hidden", getInstruction(implementation!!.instructions.lastIndex))
+                    """,
+                ExternalLabel("hidden", getInstruction(implementation!!.instructions.lastIndex))
             )
         }
 
