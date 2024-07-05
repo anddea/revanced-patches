@@ -18,7 +18,7 @@ import app.revanced.util.literalInstructionBooleanHook
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
             [
-                "7.06.53",
+                "7.08.52",
             ]
         )
     ]
