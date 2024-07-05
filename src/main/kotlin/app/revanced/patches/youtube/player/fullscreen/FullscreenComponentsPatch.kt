@@ -13,9 +13,6 @@ import app.revanced.patches.youtube.player.fullscreen.fingerprints.BroadcastRece
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.ClientSettingEndpointFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.EngagementPanelFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.LandScapeModeConfigFingerprint
-import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationParentFingerprint
-import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationPrimaryFingerprint
-import app.revanced.patches.youtube.player.fullscreen.fingerprints.OrientationSecondaryFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.PlayerTitleViewFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.QuickActionsElementFingerprint
 import app.revanced.patches.youtube.player.fullscreen.fingerprints.RelatedEndScreenResultsFingerprint
@@ -26,16 +23,19 @@ import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFin
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AutoNavPreviewStub
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QuickActionsElementContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -45,6 +45,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object FullscreenComponentsPatch : BaseBytecodePatch(
@@ -52,6 +53,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to fullscreen.",
     dependencies = setOf(
         LithoFilterPatch::class,
+        MainActivityResolvePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ),
@@ -62,7 +64,6 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
         EngagementPanelFingerprint,
         LandScapeModeConfigFingerprint,
         LayoutConstructorFingerprint,
-        OrientationParentFingerprint,
         PlayerTitleViewFingerprint,
         QuickActionsElementFingerprint,
         RelatedEndScreenResultsFingerprint,
@@ -265,25 +266,42 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         // region patch for disable landscape mode
 
-        OrientationParentFingerprint.resultOrThrow().classDef.let { classDef ->
+        MainActivityResolvePatch.onConfigurationChangedMethod.apply {
+            val walkerIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.parameterTypes == listOf("Landroid/content/res/Configuration;")
+                        && reference.returnType == "V"
+                        && reference.name != "onConfigurationChanged"
+            }
+
+            val walkerMethod = getWalkerMethod(context, walkerIndex)
+            val targetClass =
+                context.findClass(walkerMethod.definingClass)!!.mutableClass
+            val constructorMethod = targetClass
+                .methods
+                .find { method ->
+                    method.name == "<init>"
+                            && method.parameterTypes == listOf("Landroid/app/Activity;")
+                } ?: throw PatchException("Constructor method not found!")
+
             arrayOf(
-                OrientationPrimaryFingerprint,
-                OrientationSecondaryFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.resolve(context, classDef)
+                walkerMethod,
+                constructorMethod
+            ).forEach { method ->
+                method.apply {
+                    val index = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        reference?.parameterTypes == listOf("Landroid/content/Context;")
+                                && reference.returnType == "Z"
+                    } + 1
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                fingerprint.resultOrThrow().let {
-                    it.mutableMethod.apply {
-                        val index = it.scanResult.patternScanResult!!.endIndex
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                        addInstructions(
-                            index + 1, """
-                                    invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
-                                    move-result v$register
-                                    """
-                        )
-                    }
+                    addInstructions(
+                        index + 1, """
+                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->disableLandScapeMode(Z)Z
+                            move-result v$register
+                            """
+                    )
                 }
             }
         }

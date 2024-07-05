@@ -1,12 +1,11 @@
-package app.revanced.patches.youtube.utils.fix.fullscreen
+package app.revanced.patches.youtube.utils.fix.bottomui
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonPositionFingerprint
-import app.revanced.patches.youtube.utils.fix.fullscreen.fingerprints.FullscreenButtonViewStubFingerprint
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.*
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,8 +14,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     description = "Fixes an issue where overlay button patches were broken by the new layout."
 )
-object FullscreenButtonViewStubPatch : BytecodePatch(
+object CfBottomUIPatch : BytecodePatch(
     setOf(
+        BottomUIContainerBooleanFingerprint,
+        BottomUIContainerIntegerFingerprint,
         FullscreenButtonPositionFingerprint,
         FullscreenButtonViewStubFingerprint
     )
@@ -28,6 +29,8 @@ object FullscreenButtonViewStubPatch : BytecodePatch(
          * Therefore, this patch only applies to versions that can resolve this fingerprint.
          */
         mapOf(
+            BottomUIContainerBooleanFingerprint to 45637647,
+            BottomUIContainerIntegerFingerprint to 45637647,
             FullscreenButtonViewStubFingerprint to 45617294,
             FullscreenButtonPositionFingerprint to 45627640
         ).forEach { (fingerprint, literalValue) ->
