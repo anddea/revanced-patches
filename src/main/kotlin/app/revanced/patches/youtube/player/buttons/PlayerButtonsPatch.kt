@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.player.buttons.fingerprints.YouTubeControlsO
 import app.revanced.patches.youtube.utils.castbutton.CastButtonPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fingerprints.LayoutConstructorFingerprint
-import app.revanced.patches.youtube.utils.fix.fullscreen.FullscreenButtonViewStubPatch
+import app.revanced.patches.youtube.utils.fix.bottomui.CfBottomUIPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AutoNavToggle
@@ -39,7 +39,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
     description = "Adds options to hide buttons in the video player.",
     dependencies = setOf(
         CastButtonPatch::class,
-        FullscreenButtonViewStubPatch::class,
+        CfBottomUIPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class
     ),
