@@ -35,6 +35,6 @@ object LottieAnimationViewHookPatch : BytecodePatch(
             ?.addInstruction(
                 0,
                 setAnimationCall
-            )?: throw PatchException("Could not find setAnimation method")
+            ) ?: throw PatchException("Could not find setAnimation method")
     }
 }
