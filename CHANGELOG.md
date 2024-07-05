@@ -1,3 +1,10 @@
+# [2.227.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.8...v2.227.0-dev.9) (2024-07-05)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add `Mute Video` button ([#684](https://github.com/anddea/revanced-patches/issues/684)) ([fb26c7a](https://github.com/anddea/revanced-patches/commit/fb26c7a1d9044780158db771cc05dc50115bb3a8))
+
 # [2.227.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.7...v2.227.0-dev.8) (2024-07-04)
 
 
