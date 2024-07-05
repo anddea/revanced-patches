@@ -1,3 +1,10 @@
+# [2.227.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.9...v2.227.0-dev.10) (2024-07-05)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** `Mute Volume` button was black when light theme is enabled ([ad99667](https://github.com/anddea/revanced-patches/commit/ad99667ab1b5dc6fa8256978c024f05bbbcc552c))
+
 # [2.227.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.8...v2.227.0-dev.9) (2024-07-05)
 
 
