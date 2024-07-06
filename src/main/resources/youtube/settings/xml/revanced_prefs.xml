@@ -234,6 +234,36 @@
     <!-- PREFERENCE_SCREEN: PLAYER
     <PreferenceScreen android:title="@string/revanced_preference_screen_player_title" android:key="revanced_preference_screen_player">PREFERENCE_SCREEN: PLAYER -->
 
+    <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
+        <PreferenceScreen android:title="@string/revanced_preference_screen_player_buttons_title" android:key="revanced_preference_screen_player_buttons" android:summary="@string/revanced_preference_screen_player_buttons_summary">PREFERENCE_SCREENS: PLAYER_BUTTONS -->
+
+    <!-- SETTINGS: HIDE_PLAYER_BUTTONS
+        <SwitchPreference android:title="@string/revanced_hide_player_autoplay_button_title" android:key="revanced_hide_player_autoplay_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_autoplay_button_summary_on" android:summaryOff="@string/revanced_hide_player_autoplay_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_captions_button_title" android:key="revanced_hide_player_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_captions_button_summary_on" android:summaryOff="@string/revanced_hide_player_captions_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_cast_button_title" android:key="revanced_hide_player_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_cast_button_summary_on" android:summaryOff="@string/revanced_hide_player_cast_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_collapse_button_title" android:key="revanced_hide_player_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_player_collapse_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_fullscreen_button_title" android:key="revanced_hide_player_fullscreen_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_fullscreen_button_summary_on" android:summaryOff="@string/revanced_hide_player_fullscreen_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_previous_next_button_title" android:key="revanced_hide_player_previous_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_player_previous_next_button_summary_off" />
+        <SwitchPreference android:title="@string/revanced_hide_player_youtube_music_button_title" android:key="revanced_hide_player_youtube_music_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_player_youtube_music_button_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
+
+        <!-- SETTINGS: OVERLAY_BUTTONS
+        <PreferenceCategory android:title="@string/revanced_preference_category_overlay_buttons" android:layout="@layout/revanced_settings_preferences_category" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="true" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_title" android:key="revanced_overlay_button_copy_video_url" android:defaultValue="true" android:summary="@string/revanced_overlay_button_copy_video_url_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_timestamp_title" android:key="revanced_overlay_button_copy_video_url_timestamp" android:defaultValue="false" android:summary="@string/revanced_overlay_button_copy_video_url_timestamp_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_mute_volume_title" android:key="revanced_overlay_button_mute_volume" android:defaultValue="false" android:summary="@string/revanced_overlay_button_mute_volume_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_whitelist_title" android:key="revanced_overlay_button_whitelist" android:summary="@string/revanced_overlay_button_whitelist_summary" />
+        <app.revanced.integrations.youtube.settings.preference.WhitelistedChannelsPreference android:title="@string/revanced_whitelist_settings_title" android:key="revanced_whitelist_settings" android:summary="@string/revanced_whitelist_settings_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_time_ordered_playlist_title" android:key="revanced_overlay_button_time_ordered_playlist" android:defaultValue="false" android:summary="@string/revanced_overlay_button_time_ordered_playlist_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_always_repeat_title" android:key="revanced_overlay_button_always_repeat" android:defaultValue="false" android:summary="@string/revanced_overlay_button_always_repeat_summary" />
+        <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:defaultValue="false" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
+        <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPreference android:title="@string/revanced_external_downloader_package_name_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_package_name_summary" />
+        <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
+        <SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />SETTINGS: OVERLAY_BUTTONS -->
+
+        <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
+        </PreferenceScreen>PREFERENCE_SCREENS: PLAYER_BUTTONS -->
+
         <!-- SETTINGS: HIDE_ACTION_BUTTONS
         <PreferenceScreen android:title="@string/revanced_preference_screen_action_buttons_title" android:key="revanced_preference_screen_action_buttons" android:summary="@string/revanced_preference_screen_action_buttons_summary">
             <SwitchPreference android:title="@string/revanced_hide_like_dislike_button_title" android:key="revanced_hide_like_dislike_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_like_dislike_button_summary_on" android:summaryOff="@string/revanced_hide_like_dislike_button_summary_off" />
@@ -350,36 +380,6 @@
             <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_seek_undo_title" android:key="revanced_disable_haptic_feedback_seek_undo" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_seek_undo_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_seek_undo_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_haptic_feedback_zoom_title" android:key="revanced_disable_haptic_feedback_zoom" android:defaultValue="false" android:summaryOn="@string/revanced_disable_haptic_feedback_zoom_summary_on" android:summaryOff="@string/revanced_disable_haptic_feedback_zoom_summary_off" />
         </PreferenceScreen>SETTINGS: DISABLE_HAPTIC_FEEDBACK -->
-
-        <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
-        <PreferenceScreen android:title="@string/revanced_preference_screen_player_buttons_title" android:key="revanced_preference_screen_player_buttons" android:summary="@string/revanced_preference_screen_player_buttons_summary">PREFERENCE_SCREENS: PLAYER_BUTTONS -->
-
-            <!-- SETTINGS: HIDE_PLAYER_BUTTONS
-            <SwitchPreference android:title="@string/revanced_hide_player_autoplay_button_title" android:key="revanced_hide_player_autoplay_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_autoplay_button_summary_on" android:summaryOff="@string/revanced_hide_player_autoplay_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_captions_button_title" android:key="revanced_hide_player_captions_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_captions_button_summary_on" android:summaryOff="@string/revanced_hide_player_captions_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_cast_button_title" android:key="revanced_hide_player_cast_button" android:defaultValue="true" android:summaryOn="@string/revanced_hide_player_cast_button_summary_on" android:summaryOff="@string/revanced_hide_player_cast_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_collapse_button_title" android:key="revanced_hide_player_collapse_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_collapse_button_summary_on" android:summaryOff="@string/revanced_hide_player_collapse_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_fullscreen_button_title" android:key="revanced_hide_player_fullscreen_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_fullscreen_button_summary_on" android:summaryOff="@string/revanced_hide_player_fullscreen_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_previous_next_button_title" android:key="revanced_hide_player_previous_next_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_previous_next_button_summary_on" android:summaryOff="@string/revanced_hide_player_previous_next_button_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_player_youtube_music_button_title" android:key="revanced_hide_player_youtube_music_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_player_youtube_music_button_summary_on" android:summaryOff="@string/revanced_hide_player_youtube_music_button_summary_off" />SETTINGS: HIDE_PLAYER_BUTTONS -->
-
-            <!-- SETTINGS: OVERLAY_BUTTONS
-            <PreferenceCategory android:title="@string/revanced_preference_category_overlay_buttons" android:layout="@layout/revanced_settings_preferences_category" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_speed_dialog_title" android:key="revanced_overlay_button_speed_dialog" android:defaultValue="true" android:summary="@string/revanced_overlay_button_speed_dialog_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_title" android:key="revanced_overlay_button_copy_video_url" android:defaultValue="true" android:summary="@string/revanced_overlay_button_copy_video_url_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_copy_video_url_timestamp_title" android:key="revanced_overlay_button_copy_video_url_timestamp" android:defaultValue="false" android:summary="@string/revanced_overlay_button_copy_video_url_timestamp_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_mute_volume_title" android:key="revanced_overlay_button_mute_volume" android:defaultValue="false" android:summary="@string/revanced_overlay_button_mute_volume_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_whitelist_title" android:key="revanced_overlay_button_whitelist" android:summary="@string/revanced_overlay_button_whitelist_summary" />
-            <app.revanced.integrations.youtube.settings.preference.WhitelistedChannelsPreference android:title="@string/revanced_whitelist_settings_title" android:key="revanced_whitelist_settings" android:summary="@string/revanced_whitelist_settings_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_time_ordered_playlist_title" android:key="revanced_overlay_button_time_ordered_playlist" android:defaultValue="false" android:summary="@string/revanced_overlay_button_time_ordered_playlist_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_always_repeat_title" android:key="revanced_overlay_button_always_repeat" android:defaultValue="false" android:summary="@string/revanced_overlay_button_always_repeat_summary" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:defaultValue="false" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
-            <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPreference android:title="@string/revanced_external_downloader_package_name_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_package_name_summary" />
-            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
-            <SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />SETTINGS: OVERLAY_BUTTONS -->
-
-        <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
-        </PreferenceScreen>PREFERENCE_SCREENS: PLAYER_BUTTONS -->
 
         <!-- SETTINGS: SEEKBAR_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_seekbar_title" android:key="revanced_preference_screen_seekbar" android:summary="@string/revanced_preference_screen_seekbar_summary">
