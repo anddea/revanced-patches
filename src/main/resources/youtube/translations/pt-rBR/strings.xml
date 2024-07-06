@@ -16,6 +16,8 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Domínio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -48,6 +50,8 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Fim do vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Hora do vídeo para tirar a foto</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Aba de inscrições</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Substitui o domínio que está bloqueado em algumas regiões para que as miniaturas de vídeo, avatares do canal, imagens do post da comunidade, etc. possam ser recebidas.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Usar domínio alternativo para imagens</string>
     <string name="revanced_append_time_stamp_information_summary_off">Adicionar informação de registro de tempo está desativado.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Adicionar informação de registro de tempo está ativado.</string>
     <string name="revanced_append_time_stamp_information_title">Adicionar informações de registro de tempo</string>
@@ -228,6 +232,11 @@ Efeito colateral: o tema Cairo também é aplicado aos pontos de notificação."
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">O toque na barra de progresso está ativado.</string>
     <string name="revanced_enable_seekbar_tapping_title">Ativar toque na barra de progresso</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">A marcação de tempo está desativada.</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"A marcação de tempo está ativada.
+
+Problema conhecido: como se trata de um recurso em fase de desenvolvimento pelo Google, o layout pode estar corrompido."</string>
+    <string name="revanced_enable_shorts_time_stamp_title">Ativar marcação de tempo</string>
     <string name="revanced_enable_swipe_brightness_summary_off">O gesto de brilho está desativado.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">O gesto de brilho está ativado.</string>
     <string name="revanced_enable_swipe_brightness_title">Ativar gesto de brilho</string>
@@ -938,6 +947,12 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
     <string name="revanced_keep_landscape_mode_timeout_title">Tempo limite para manter o modo paisagem</string>
     <string name="revanced_keep_landscape_mode_title">Manter o modo paisagem</string>
     <string name="revanced_label_default">Padrão</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">A ação de toque duplo está desativada.</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"A ação de toque duplo está ativada.
+
+• Moderno 1: Toque duas vezes para alterar o vídeo minimizado para um tamanho maior.
+• Moderno 2, 3: Toque duas vezes para fechar o vídeo minimizado."</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">Ação de toque duplo</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Arrastar e soltar está desativado.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Arrastar e soltar está ativado.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Ativar arrastar e soltar</string>
@@ -1331,6 +1346,11 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Coração (Matiz)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Oculto</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Animação de toque duplo</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Margem inferior do painel meta deve estar entre 0-64. Voltar aos valores padrão.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configure o espaçamento da barra de busca para o painel meta, entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Margem inferior do painel meta</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Pressione e segure a marcação de tempo para alterar o status de repetição do Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Ação de toque longo na marcação de tempo</string>
     <string name="revanced_show_video_title_section_summary">"Exibe a seção de título do vídeo em tela cheia.
 
 Limitação: Título do vídeo desaparece quando clicado."</string>

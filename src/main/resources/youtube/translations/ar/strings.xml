@@ -16,6 +16,8 @@
     <string name="gms_core_settings_summary">تمكين المراسلة السحابية لتلقي الإشعارات.</string>
     <string name="gms_core_settings_title">فتح GmsCore</string>
     <string name="gms_core_toast_not_installed_message">لم يتم تثبيت GmsCore. قم بتثبيته.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">النطاق الذي سيتم جلب الصور منه.\nملاحظة: أدخل اسم النطاق فقط، أي بدون بادئة \"https\:\/\/\".</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">النطاق البديل</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مُصغَّرات فيديو من مصادر جماعية لمقاطع فيديو YouTube. غالبًا ما تكون مُصغَّرات فيديو هذه ذات صلة أكثر من تلك التي يقدمها موقع YouTube.
 
 في حالة التمكين، سيتم إرسال عناوين URL للفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا لم يكن الفيديو يحتوي على مُصغَّرات لـ DeArrow، فسيتم عرض اللقطات الأصلية أو الثابتة.
@@ -48,6 +50,8 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">نهاية الفيديو</string>
     <string name="revanced_alt_thumbnail_stills_time_title">وقت الفيديو لأخذ اللقطات الثابتة منه</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">علامة تبويب الاشتراكات</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">يستبدل النطاق المحظور في بعض المناطق بحيث يمكن استقبال مصغرات للفيديو والصور الرمزية للقناة وصور منشورات المجتمع وما إلى ذلك.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">استخدام نطاق بديل للصور</string>
     <string name="revanced_append_time_stamp_information_summary_off">لا يتم إضافة المعلومات بطابع الوقت.</string>
     <string name="revanced_append_time_stamp_information_summary_on">يتم إضافة المعلومات بطابع الوقت.</string>
     <string name="revanced_append_time_stamp_information_title">إضافة معلومات طابع الوقت</string>
@@ -231,7 +235,9 @@
     <string name="revanced_enable_shorts_time_stamp_summary_off">تم تعطيل الطابع الزمني.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"تم تمكين الطابع الزمني.
 
-مشكلة معروفة: نظرًا لأن هذه ميزة في مرحلة التطوير بواسطة Google، فقد يكون التخطيط معطلاً."</string>
+القيود:
+• لا يعمل هذا الإعداد على تمكين الطوابع الزمنية فحسب، بل يسمح أيضًا للمستخدمين بإخفاء واجهة المستخدم من خلال النقر على خلفية المشغل.
+• بما أن هذه ميزة في مرحلة التطوير بواسطة Google، فقد يكون التخطيط معطلاً."</string>
     <string name="revanced_enable_shorts_time_stamp_title">تمكين الطوابع الزمنية</string>
     <string name="revanced_enable_swipe_brightness_summary_off">تم تعطيل التحكم بمستوى السطوع عن طريق الإيماءة.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">تم تمكين التحكم بمستوى السطوع عن طريق الإيماءة.</string>
@@ -850,6 +856,9 @@
     <string name="revanced_hide_start_trial_button_summary_off">يتم عرض زر بدء التجربة.</string>
     <string name="revanced_hide_start_trial_button_summary_on">تم إخفاء زر بدء التجربة.</string>
     <string name="revanced_hide_start_trial_button_title">إخفاء زر بدء التجربة</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_off">يتم عرض دوائر الاشتراكات.</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_on">تم إخفاء دوائر الاشتراكات.</string>
+    <string name="revanced_hide_subscriptions_carousel_title">إخفاء دوائر الاشتراكات</string>
     <string name="revanced_hide_subscriptions_channel_section_summary_off">يتم عرض قسم اشتراكات القناة.</string>
     <string name="revanced_hide_subscriptions_channel_section_summary_on">تم إخفاء قسم اشتراكات القناة.</string>
     <string name="revanced_hide_subscriptions_channel_section_title">إخفاء قسم اشتراكات القناة</string>
@@ -943,7 +952,7 @@
 
 • حديث 1: انقر نقرًا مزدوجًا لتغيير حجم الفيديو المصغر إلى حجم أكبر.
 • حديث 2، 3: انقر نقرًا مزدوجًا لإغلاق الفيديو المصغر."</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">إجراء النقر المزدوج</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">تمكين إجراء النقر المزدوج</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">تم تعطيل السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">تم تمكين السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">تمكين السحب والإفلات</string>
@@ -1329,11 +1338,17 @@
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>
     <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني إلى الحافظة.</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">الأصلي</string>
-    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Cairo</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_2">أعجبني</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">أعجبني (Cairo)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_4">قلب</string>
-    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">قلب(لون)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">قلب(ملون)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">مخفي</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">تأثير الحركة عند النقر المزدوج</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">يجب أن يكون الهامش السفلي للوحة التعريف بين 0-64. إعادة التعيين إلى القيم الافتراضية.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">تكوين التباعد من شريط التقدم إلى لوحة التعريف، بين 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">الهامش السفلي للوحة التعريف</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">اضغط مع الاستمرار على الطابع الزمني لتغيير حالة تكرار فيديوهات Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">إجراء الضغط المطول على الوقت</string>
     <string name="revanced_show_video_title_section_summary">"يعرض قسم عنوان الفيديو في وضع ملء الشاشة.
 
 التقييد: يختفي عنوان الفيديو عند النقر عليه."</string>

@@ -17,6 +17,8 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知</string>
     <string name="gms_core_settings_title">打開 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GMSCore未安裝 請安裝</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">從中取得圖像網域。\n注意：只輸入域名, i.e., 不含 \"https\:\/\/\" 前綴。</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供群眾外包的 YouTube 影片縮圖。這些縮圖通常比 YouTube 提供的縮圖更具相關性。
 
 如果啟用，影片 URL 會傳送到 API 伺服器，不會傳送其他資料。如果影片沒有 DeArrow 縮圖，則顯示原始或靜態截圖。
@@ -49,6 +51,8 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">影片結尾</string>
     <string name="revanced_alt_thumbnail_stills_time_title">拍攝靜態捕捉的時間</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">訂閱標籤</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">替換某些地區被封鎖的域名，以便可以接收影片縮圖、頻道頭像、社群貼文圖片等。</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">圖像使用替代網域</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加時間戳訊息已關閉</string>
     <string name="revanced_append_time_stamp_information_summary_on">添加時間戳訊息已顯示</string>
     <string name="revanced_append_time_stamp_information_title">添加時間戳訊息</string>
@@ -232,6 +236,9 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">進度條點擊已停用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">時間戳已停用。</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"已知問題：由於這是 Google 開發階段的功能，因此佈局可能會被破壞。"</string>
+    <string name="revanced_enable_shorts_time_stamp_title">啟用時間戳</string>
     <string name="revanced_enable_swipe_brightness_summary_off">滑動控制亮度已停用</string>
     <string name="revanced_enable_swipe_brightness_summary_on">滑動控制亮度已啟用</string>
     <string name="revanced_enable_swipe_brightness_title">啟用滑動控制亮度</string>
@@ -409,6 +416,9 @@
     <string name="revanced_hide_crowdfunding_box_summary_off">募資已顯示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">募款活動已隱藏</string>
     <string name="revanced_hide_crowdfunding_box_title">隱藏募款活動</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_off">雙擊覆蓋過濾器已顯示。</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_on">雙擊覆蓋過濾器已隱藏。</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">隱藏雙擊覆蓋過濾器</string>
     <string name="revanced_hide_download_button_summary_off">顯示下載按鈕</string>
     <string name="revanced_hide_download_button_summary_on">隱藏下載按鈕</string>
     <string name="revanced_hide_download_button_title">隱藏下載按鈕</string>
@@ -945,6 +955,12 @@
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
     <string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
     <string name="revanced_label_default">預設</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">雙擊操作已停用。</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"雙擊操作已啟用。
+
+ • Modern 1：雙擊將最小化影片變更為更大的尺寸。
+ • Modern 2, 3：雙擊可關閉最小化影片。"</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">雙擊操作</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">拖曳已停用。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">拖曳已啟用。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">啟用拖曳。</string>
@@ -1347,6 +1363,11 @@
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">愛心 (著色)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">隱藏</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">雙擊動畫</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">面板底部邊距必須介於 0-64 之間。 重設為預設值。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">配置從搜尋欄到面板的間距，範圍為 0-64。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">面板下邊距</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">按住時間戳記可變更短片重複狀態。</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">長按時間戳記</string>
     <string name="revanced_show_video_title_section_summary">"在全螢幕模式下顯示影片標題部分
 
 限制：點擊後影片標題消失"</string>
