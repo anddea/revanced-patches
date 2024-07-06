@@ -761,14 +761,17 @@ public final class app/revanced/patches/shared/litho/LithoFilterPatch : app/reva
 
 public abstract class app/revanced/patches/shared/mainactivity/BaseMainActivityResolvePatch : app/revanced/patcher/patch/BytecodePatch {
 	public field mainActivityMutableClass Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;
+	public field onConfigurationChangedMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public final fun getMainActivityMutableClass ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;
+	public final fun getOnConfigurationChangedMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public final fun injectConstructorMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun injectOnBackPressedMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun injectOnCreateMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun setMainActivityMutableClass (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;)V
+	public final fun setOnConfigurationChangedMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
 }
 
 public final class app/revanced/patches/shared/mapping/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -1248,14 +1251,20 @@ public final class app/revanced/patches/youtube/shorts/components/ShortsNavigati
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/shorts/components/ShortsToolBarPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsToolBarPatch;
+public final class app/revanced/patches/youtube/shorts/components/ShortsRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsRepeatPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch : app/revanced/util/patch/BaseBytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/repeat/ShortsRepeatPatch;
+public final class app/revanced/patches/youtube/shorts/components/ShortsTimeStampPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsTimeStampPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/shorts/components/ShortsToolBarPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/shorts/components/ShortsToolBarPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1289,6 +1298,12 @@ public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOv
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1307,12 +1322,6 @@ public final class app/revanced/patches/youtube/utils/fix/client/SpoofUserAgentP
 
 public final class app/revanced/patches/youtube/utils/fix/doublebacktoclose/DoubleBackToClosePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/doublebacktoclose/DoubleBackToClosePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/fix/fullscreen/FullscreenButtonViewStubPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/fix/fullscreen/FullscreenButtonViewStubPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1493,6 +1502,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getInsetOverlayViewLayout ()J
 	public final fun getInterstitialsContainer ()J
 	public final fun getMenuItemView ()J
+	public final fun getMetaPanel ()J
 	public final fun getModernMiniPlayerClose ()J
 	public final fun getModernMiniPlayerExpand ()J
 	public final fun getModernMiniPlayerForwardButton ()J
@@ -1515,6 +1525,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getReelRightDislikeIcon ()J
 	public final fun getReelRightLikeIcon ()J
 	public final fun getReelTimeBarPlayedColor ()J
+	public final fun getReelVodTimeStampsContainer ()J
 	public final fun getRelatedChipCloudMargin ()J
 	public final fun getRightComment ()J
 	public final fun getScrimOverlay ()J
@@ -1588,6 +1599,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setInsetOverlayViewLayout (J)V
 	public final fun setInterstitialsContainer (J)V
 	public final fun setMenuItemView (J)V
+	public final fun setMetaPanel (J)V
 	public final fun setModernMiniPlayerClose (J)V
 	public final fun setModernMiniPlayerExpand (J)V
 	public final fun setModernMiniPlayerForwardButton (J)V
@@ -1610,6 +1622,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setReelRightDislikeIcon (J)V
 	public final fun setReelRightLikeIcon (J)V
 	public final fun setReelTimeBarPlayedColor (J)V
+	public final fun setReelVodTimeStampsContainer (J)V
 	public final fun setRelatedChipCloudMargin (J)V
 	public final fun setRightComment (J)V
 	public final fun setScrimOverlay (J)V
@@ -1865,7 +1878,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyFile (Lapp/revanced/patcher/data/ResourceContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyResourcesWithRename (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/util/Map;)V
-	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun getClassLoader ()Ljava/lang/ClassLoader;
