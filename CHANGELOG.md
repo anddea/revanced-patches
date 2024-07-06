@@ -1,3 +1,15 @@
+# [2.227.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.11...v2.227.0-dev.12) (2024-07-06)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Some settings were duplicated ([4e7d994](https://github.com/anddea/revanced-patches/commit/4e7d994ff8805aa602326357135669a2a9e37375))
+
+
+### Features
+
+* **YouTube - Settings:** Improved sorting of settings ([fc8bb8c](https://github.com/anddea/revanced-patches/commit/fc8bb8c350955ffed7d1850b8b94719577a24891))
+
 # [2.227.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.10...v2.227.0-dev.11) (2024-07-06)
 
 
