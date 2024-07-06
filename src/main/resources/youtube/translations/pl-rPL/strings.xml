@@ -21,7 +21,7 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="revanced_alt_thumbnail_alternative_domain_enable_title">Użyj alternatywnej domeny dla oryginalnych obrazów</string>
     <string name="revanced_alt_thumbnail_alternative_domain_summary">Domena, z której mają być pobierane obrazy.\nNotka: Wprowadź tylko nazwę domeny, tzn. bez prefiksu \"https\:\/\/\".</string>
     <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatywna domena</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli wideo nie posiada miniaturki od DeArrow to wyświetla się orginalna lub przechwycona z wideo.
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki wideo z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli wideo nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z wideo.
 
 Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
@@ -94,7 +94,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_change_youtube_header_summary_off">Domyślny</string>
     <string name="revanced_change_youtube_header_summary_on">Premium</string>
     <string name="revanced_change_youtube_header_title">Zmień nagłówek YouTube</string>
-    <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów, które mają być ukryte oddzielonych nowymi liniami.</string>
+    <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_custom_filter_strings_title">Własny filtr</string>
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
@@ -121,14 +121,14 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Wyłącza oświetlenie kinowe tylko w trybie pełnoekranowym</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">Włączone</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">Wyłączone</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Wyłącz oświetlenie kinowe w trybie pełnoekranowym</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_title">Oświetlenie kinowe w trybie pełnoekranowym</string>
     <string name="revanced_disable_ambient_mode_summary">Wyłącza oświetlenie kinowe</string>
     <string name="revanced_disable_ambient_mode_summary_off">Włączone</string>
     <string name="revanced_disable_ambient_mode_summary_on">Wyłączone</string>
-    <string name="revanced_disable_ambient_mode_title">Wyłącz oświetlenie kinowe</string>
+    <string name="revanced_disable_ambient_mode_title">Oświetlenie kinowe</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
     <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
-    <string name="revanced_disable_auto_audio_tracks_title">Wymuszone ścieżki audio</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Wymuszone ścieżki dźwiękowe</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
     <string name="revanced_disable_auto_captions_title">Wymuszone napisy</string>
@@ -158,7 +158,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">Wibracje podczas przybliżania wideo</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_off">Włączona</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">Wyłączona</string>
-    <string name="revanced_disable_hdr_auto_brightness_title">Automatyczna jasność podczas wideo z HDR</string>
+    <string name="revanced_disable_hdr_auto_brightness_title">Automatyczna jasność w wideo z HDR</string>
     <string name="revanced_disable_hdr_video_summary_off">Włączone</string>
     <string name="revanced_disable_hdr_video_summary_on">Wyłączone</string>
     <string name="revanced_disable_hdr_video_title">Wideo z HDR</string>
@@ -207,7 +207,7 @@ Efekt uboczny: motyw Cairo powiązany m.in. z paskiem postępu filmu, nakłada s
     <string name="revanced_enable_debug_buffer_logging_summary_off">Bez bufora</string>
     <string name="revanced_enable_debug_buffer_logging_summary_on">Z buforem</string>
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
-    <string name="revanced_enable_debug_logging_summary_off">Nie zapisywane</string>
+    <string name="revanced_enable_debug_logging_summary_off">Niezapisywane</string>
     <string name="revanced_enable_debug_logging_summary_on">Zapisywane</string>
     <string name="revanced_enable_debug_logging_title">Logi do debugowania</string>
     <string name="revanced_enable_default_playback_speed_shorts_summary_off">Wyłączona</string>
@@ -273,7 +273,7 @@ Ograniczenia:
     <string name="revanced_enable_watch_panel_gestures_title">Pełny ekran przesuwaniem</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Włączenie tej opcji ukryje przycisk ustawień na stronie Ty.
 
-W tym przypadku używaj następującej ścieżki:
+W tym przypadku użyj następującej ścieżki:
 Strona Ty &gt; Zobacz kanał &gt; Menu &gt; Ustawienia."</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Szeroki pasek wyszukiwania na stronie Ty</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Wyłączony</string>
@@ -327,7 +327,7 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_force_fullscreen_title">Wymuś tryb pełnoekranowy</string>
     <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
     <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta, które mają być ukryte oddzielonych nowymi liniami.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtr menu konta</string>
     <string name="revanced_hide_account_menu_summary">"Ukrywa elementy menu konta i zakładki Ty.
 Niektóre komponenty mogą nie być ukryte."</string>
@@ -373,7 +373,7 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_channel_tab_filter_strings_hint">"Shortsy
 Playlisty
 Sklep"</string>
-    <string name="revanced_hide_channel_tab_filter_strings_summary">Lista sekcji na stronie kanałów, które mają być ukryte oddzielonych nowymi liniami</string>
+    <string name="revanced_hide_channel_tab_filter_strings_summary">Lista sekcji na stronie kanałów do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_channel_tab_filter_strings_title">Filtr sekcji na stronie kanałów</string>
     <string name="revanced_hide_channel_tab_summary_off">Wyłączony</string>
     <string name="revanced_hide_channel_tab_summary_on">Włączony</string>
@@ -435,7 +435,7 @@ Sklep"</string>
     <string name="revanced_hide_feed_captions_button_off">Widoczny</string>
     <string name="revanced_hide_feed_captions_button_on">Ukryty</string>
     <string name="revanced_hide_feed_captions_button_title">Przycisk od napisów na stronie głównej</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Lista nazw menu, które mają być ukryte oddzielonych nowymi linami</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Lista nazw menu do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtr menu ze strony głównej</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Wyłączony</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Włączony</string>
@@ -459,7 +459,7 @@ Sklep"</string>
     <string name="revanced_hide_fullscreen_ads_closed_success">Zamknięto reklamy pełnoekranowe.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
-    <string name="revanced_hide_fullscreen_ads_title">Reklamy pełnoekranowe</string>
+    <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
     <string name="revanced_hide_fullscreen_ads_type_summary_off">"Blokowane
 
 Ograniczenie: obrazy postów społeczności w trybie pełnoekranowym mogą być zablokowane"</string>
@@ -585,7 +585,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_paid_promotion_label_title">Etykiety oznaczające płatne promocje</string>
     <string name="revanced_hide_playables_summary_off">Widoczne</string>
     <string name="revanced_hide_playables_summary_on">Ukryte</string>
-    <string name="revanced_hide_playables_title">Gry</string>
+    <string name="revanced_hide_playables_title">Pokój gier</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">Widoczny</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">Ukryty</string>
     <string name="revanced_hide_player_autoplay_button_title">Przycisk od automatycznego odtwarzania</string>
@@ -603,7 +603,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
-    <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki audio</string>
+    <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
     <string name="revanced_hide_player_flyout_menu_captions_footer_summary_off">Widoczny</string>
     <string name="revanced_hide_player_flyout_menu_captions_footer_summary_on">Ukryty</string>
     <string name="revanced_hide_player_flyout_menu_captions_footer_title">Opis menu od napisów</string>
@@ -748,9 +748,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_settings_menu_filter_strings_hint">"Konto
 Oszczędzanie danych
 Napisy"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista nazw ustawień YouTube, które mają być ukryte oddzielonych nowymi liniami</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista nazw ustawień YouTube do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_settings_menu_filter_strings_title">Filtr ustawień YouTube</string>
-    <string name="revanced_hide_settings_menu_summary">Ukryj ustawienia w ustawieniach YouTube</string>
+    <string name="revanced_hide_settings_menu_summary">Ukryj elementy ustawień w ustawieniach YouTube</string>
     <string name="revanced_hide_settings_menu_title">Menu ustawień YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Widoczny</string>
     <string name="revanced_hide_share_button_summary_on">Ukryty</string>
@@ -925,13 +925,13 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_video_by_duration_summary">Ukrywa filmy krótsze lub dłuższe od czasu trwania.\n\nZnany problem: Nie ukrywa filmów w rekomendacjach YouTube na końcach filmów - zamiast tego ukrywa czas.</string>
     <string name="revanced_hide_video_by_duration_title">Ukryj filmy na podstawie czasu trwania</string>
     <string name="revanced_hide_video_by_view_counts_summary">Ukryj rekomendowane wideo, które mają mniejszą ilość wyświetleń niż podana.</string>
-    <string name="revanced_hide_video_by_view_counts_title">Ukryj rekomendowane wideo, według ilości wyświetleń</string>
+    <string name="revanced_hide_video_by_view_counts_title">Ukryj rekomendowane wideo na podstawie ilości wyświetleń</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Filmy z wyświetleniami większymi niż ta liczba zostaną ukryte</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Popularniejsze</string>
     <string name="revanced_hide_video_view_counts_less_than_summary">Filmy z wyświetleniami mniejszymi niż ta liczba zostaną ukryte</string>
     <string name="revanced_hide_video_view_counts_less_than_title">Mniej popularne</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">tys. -&gt; 1 000\nmln -&gt; 1 000 000\nmld - &gt; 1 000 000 000\n wyświetleń-&gt; views</string>
-    <string name="revanced_hide_video_view_counts_multiplier_summary">Określ swój szablon językowy dla liczby wyświetleń pod każdym wideo w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) - &gt; wsrtość(znaczenie klucza) musi znajdować się w nowej linii. Klucze muszą znajdować się przed znakiem \"-&gt;\". Jeśli zmienisz język aplikacji, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -&gt; 1000, views -&gt; views\nHiszpański: 10 K vistas = K -&gt; 1000, vistas -&gt; views</string>
+    <string name="revanced_hide_video_view_counts_multiplier_summary">Określ swój szablon językowy dla liczby wyświetleń pod każdym wideo w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) - &gt; wartość (znaczenie klucza) musi znajdować się w nowej linii. Klucze muszą znajdować się przed znakiem "-&gt;". Jeśli zmienisz język aplikacji, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -&gt; 1000, views -&gt; views\nPolski: 10 tys. wyświetleń = tys -&gt; 1000, wyświetleń -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Wyświetl klucze</string>
     <string name="revanced_hide_view_products_summary_off">Widoczne</string>
     <string name="revanced_hide_view_products_summary_on">Ukryte</string>
@@ -999,6 +999,8 @@ Stuknij i przytrzymaj, by skopiować URL wideo z czasem."</string>
 Stuknij i przytrzymaj, by skopiować czas wideo."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Przycisk od kopiowania URL wideo z czasem</string>
     <string name="revanced_overlay_button_copy_video_url_title">Przycisk od kopiowania URL wideo</string>
+    <string name="revanced_overlay_button_mute_volume_title">Przycisk od wyciszenia głośności</string>
+    <string name="revanced_overlay_button_mute_volume_summary">"Stuknij, aby wyciszyć głośność bieżącego wideo. Stuknij ponownie, aby wyłączyć wyciszenie."</string>
     <string name="revanced_overlay_button_mute_volume_title">Przycisk od wyciszenia głośności</string>
     <string name="revanced_overlay_button_mute_volume_summary">"Stuknij, aby wyciszyć głośność bieżącego wideo. Stuknij ponownie, aby wyłączyć wyciszenie."</string>
     <string name="revanced_overlay_button_external_downloader_summary">Stuknij, by otworzyć aplikacje od pobierania.</string>
