@@ -1,3 +1,18 @@
+# [2.227.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.10...v2.227.0-dev.11) (2024-07-06)
+
+
+### Features
+
+* Merge RVX v4.10.1 ([#691](https://github.com/anddea/revanced-patches/issues/691)) ([a305ca9](https://github.com/anddea/revanced-patches/commit/a305ca95c32ba69a513c9ce9bf681d3a414f16f9))
+* **YouTube - Alternative thumbnails:** Add alternative domain ([5a86268](https://github.com/anddea/revanced-patches/commit/5a86268e7d5ae785f8cf6b81d4a1c120dfd0c542))
+* **YouTube - Custom branding icon:** Add old splash animation for `Revancify Red` and `Revancify Blue` ([ed2da7e](https://github.com/anddea/revanced-patches/commit/ed2da7e36a64a4b2aa653281ed7e762f7a0dd7b7))
+* **YouTube - Miniplayer:** Add `Enable double-tap action` setting ([157f25a](https://github.com/anddea/revanced-patches/commit/157f25a94a7d5aa0be46d9c39efd8b088a713806))
+* **YouTube - Settings:** Change cursor color dynamically in searchbar ([5133265](https://github.com/anddea/revanced-patches/commit/51332654c1e8419ccaa802f90e5bdb9e40fe9f96))
+* **YouTube - Shorts components:** Add `Enable timestamps`, `Timestamp long press action`, `Meta panel bottom margin` settings ([ad087ff](https://github.com/anddea/revanced-patches/commit/ad087ff2bc184b2cf9eb76e02c4dad719f2c6896))
+* **YouTube Music:** Add support versions `7.07.52` ~ `7.08.52` ([11a668b](https://github.com/anddea/revanced-patches/commit/11a668b52a3469dc64bc1a253711ca213272e4cf))
+* **YouTube:** Add support version `19.25.39`, drop support version `19.23.40` ([7a5d939](https://github.com/anddea/revanced-patches/commit/7a5d9394cd7ddf3a05363bdb43611504c5872e97))
+* **YouTube:** Integrate `Change Shorts repeat state` patch into the `Shorts components` patch ([ccc69ec](https://github.com/anddea/revanced-patches/commit/ccc69ec8b501f3877db9f658f637dd272dccafb2))
+
 # [2.227.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.9...v2.227.0-dev.10) (2024-07-05)
 
 
