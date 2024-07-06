@@ -243,7 +243,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 addLiteralValues(insertIndex, jumpIndex - 1)
 
                 addInstructionsWithLabels(
-                    insertIndex + 1, """
+                    insertIndex + 1, literalComponent + """
                         const v$constRegister, $FadeDurationFast
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay()Z
                         move-result v${replaceInstruction.registerA}
@@ -379,31 +379,16 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     ) {
         for (index in startIndex..endIndex) {
             val opcode = getInstruction(index).opcode
-            if (opcode != Opcode.CONST_16 && opcode != Opcode.CONST_4 && opcode != Opcode.CONST)
+            if (opcode != Opcode.CONST_16 && opcode != Opcode.CONST_4)
                 continue
 
             val register = getInstruction<OneRegisterInstruction>(index).registerA
             val value = getInstruction<WideLiteralInstruction>(index).wideLiteral.toInt()
 
-            val line =
-                when (opcode) {
-                    Opcode.CONST_16 -> """
-                            const/16 v$register, $value
-                            
-                            """.trimIndent()
-
-                    Opcode.CONST_4 -> """
-                            const/4 v$register, $value
-                            
-                            """.trimIndent()
-
-                    Opcode.CONST -> """
-                            const v$register, $value
-                            
-                            """.trimIndent()
-
-                    else -> ""
-                }
+            val line = """
+                const/16 v$register, $value
+                
+                """.trimIndent()
 
             literalComponent += line
         }

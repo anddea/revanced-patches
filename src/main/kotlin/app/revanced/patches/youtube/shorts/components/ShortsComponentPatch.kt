@@ -59,6 +59,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
         SharedResourceIdPatch::class,
         ShortsAnimationPatch::class,
         ShortsNavigationBarPatch::class,
+        ShortsRepeatPatch::class,
+        ShortsTimeStampPatch::class,
         ShortsToolBarPatch::class,
         VideoInformationPatch::class
     ),
@@ -82,6 +84,15 @@ object ShortsComponentPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/ReturnYouTubeChannelNameFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: SHORTS",
+            "SETTINGS: SHORTS_COMPONENTS"
+        )
+
+        if (SettingsPatch.upward1925) {
+            settingArray += "SETTINGS: SHORTS_TIME_STAMP"
+        }
 
         // region patch for hide comments button (non-litho)
 
@@ -299,12 +310,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: SHORTS",
-                "SETTINGS: SHORTS_COMPONENTS"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }

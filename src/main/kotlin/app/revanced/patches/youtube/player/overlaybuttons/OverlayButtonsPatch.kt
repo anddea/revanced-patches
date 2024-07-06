@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.player.overlaybuttons
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.fix.fullscreen.FullscreenButtonViewStubPatch
+import app.revanced.patches.youtube.utils.fix.bottomui.CfBottomUIPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -27,7 +27,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
     name = "Overlay buttons",
     description = "Adds options to display overlay buttons in the video player.",
     dependencies = setOf(
-        FullscreenButtonViewStubPatch::class,
+        CfBottomUIPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
         OverlayButtonsBytecodePatch::class,
