@@ -516,6 +516,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_keyword_toast_invalid_broad">Schlüsselwort \'%1$s\' wird alle Videos ausblenden.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Ungültiges Schlüsselwort. \'%1$s\' ist weniger als %2$d Zeichen.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
     <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown.</string>
     <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden.</string>
     <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
@@ -922,6 +923,8 @@ Einstellungen → Autoplay → Nächstes Video automatisch abspielen"</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nviews -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -&gt; value (meaning of the key) must be on a new line. Keys go before \"-&gt;\" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -&gt; 1000, views -&gt; views\nSpanish: 10 K vistas = K -&gt; 1000, vistas -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">View keys</string>
+    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
+    <string name="revanced_hide_video_view_counts_title">Number of views</string>
     <string name="revanced_hide_view_products_summary_off">View products banner is shown.</string>
     <string name="revanced_hide_view_products_summary_on">View products banner is hidden.</string>
     <string name="revanced_hide_view_products_title">Hide view products banner</string>
@@ -1209,6 +1212,7 @@ Limitation: Dislikes may not appear in incognito mode."</string>
     <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments.</string>
     <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
     <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
+    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">Das Segment ist von\n\n\n%1$s\nbis\n%2$s\n\n(%3$s)\n\nBereit zum Absenden?</string>
     <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
     <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
@@ -1510,8 +1514,4 @@ Limitations:
     <string name="revanced_whitelist_settings_summary">Überprüfen oder die Liste der Kanäle entfernen, die zur Whitelist hinzugefügt wurden.</string>
     <string name="revanced_whitelist_settings_title">Kanal Whitelist</string>
     <string name="revanced_whitelist_sponsor_block">Sponsorenblock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
-    <string name="revanced_hide_video_view_counts_title">Number of views</string>
-    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
 </resources>

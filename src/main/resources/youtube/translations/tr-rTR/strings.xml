@@ -501,6 +501,7 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_keyword_toast_invalid_broad">\'%1$s\' anahtar kelimesi tüm videoları gizleyecek.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Geçersiz anahtar kelime. \'%s\' kullanılamaz</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Geçersiz anahtar kelime. \'%1$s\', %2$d karakterden az.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Geçersiz anahtar kelime. \'%1$s\', %2$d karakterden az</string>
     <string name="revanced_hide_latest_posts_summary_off">Son gönderiler gizlenmiyor.</string>
     <string name="revanced_hide_latest_posts_summary_on">Son gönderiler gizleniyor.</string>
     <string name="revanced_hide_latest_posts_title">\"Son yayınlar\"ı gizle</string>
@@ -904,6 +905,8 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\ngörüntüleme -&gt; Görüntüleme</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Kullanıcı arayüzünde her videonun altında gösterilen görüntüleme sayısı için dil şablonunuzu belirtin. Her tuş (dilinizde bir harf/kelime) -&gt; değer (anahtarın anlamı) yeni bir satırda olmalıdır. Tuşlar \"-&gt;\"den önce gelir imza. Uygulamayı veya sistem dilini değiştirirseniz bu ayarı sıfırlamanız gerekir.\n\nÖrnekler:\nTürkçe: 10K görüntüleme = K -&gt; 1000, görüntülemeler -&gt; görüntüleme\nİspanyolca: 10 K manzara = K -&gt; 1000, manzaralar -&gt; Görüntüleme</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Anahtarları göster</string>
+    <string name="revanced_hide_video_view_counts_summary">Bu sayıdan daha az izlenen önerilen videolar gizlenecektir.</string>
+    <string name="revanced_hide_video_view_counts_title">Görüntülenme sayısı</string>
     <string name="revanced_hide_view_products_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_view_products_summary_on">Gizleniyor</string>
     <string name="revanced_hide_view_products_title">Ürünleri görüntüle yazısını gizle</string>
@@ -1190,6 +1193,7 @@ Bir örnek görmek için buraya dokunun.</string>
     <string name="revanced_sb_guidelines_preference_sum">Yönergeler yeni segmentler oluşturmak için kurallar ve ipuçları içerir.</string>
     <string name="revanced_sb_guidelines_preference_title">Yönergeleri görüntüle</string>
     <string name="revanced_sb_new_segment_choose_category">Kategori seçin</string>
+    <string name="revanced_sb_new_segment_confirm_content">Bu kısmın başlangıcı %1$02d.%2$02d, bitişi %3$02d.%4$02d, süresi %5$d dakika %6$02d saniye.\nGönderilmeye hazır mı?</string>
     <string name="revanced_sb_new_segment_confirm_contents">Segment\n\n%1$s\niçin\n%2$s\n\n(%3$s)\n\nGöndermeye hazır mısınız?</string>
     <string name="revanced_sb_new_segment_confirm_title">Zaman aralığı doğru mu?</string>
     <string name="revanced_sb_new_segment_disabled_category">Ayarlarda kategori devre dışı bırakıldı. Göndermek için kategoriyi etkinleştir.</string>
@@ -1499,8 +1503,4 @@ Bilinen sorunlar:
     <string name="revanced_whitelist_settings_summary">Beyaz listeye eklenen kanalların listesini kontrol edin veya kaldırın.</string>
     <string name="revanced_whitelist_settings_title">Kanal beyaz listesi</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Geçersiz anahtar kelime. \'%1$s\', %2$d karakterden az</string>
-    <string name="revanced_hide_video_view_counts_title">Görüntülenme sayısı</string>
-    <string name="revanced_hide_video_view_counts_summary">Bu sayıdan daha az izlenen önerilen videolar gizlenecektir.</string>
-    <string name="revanced_sb_new_segment_confirm_content">Bu kısmın başlangıcı %1$02d.%2$02d, bitişi %3$02d.%4$02d, süresi %5$d dakika %6$02d saniye.\nGönderilmeye hazır mı?</string>
 </resources>

@@ -517,6 +517,7 @@
     <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'%1$s\' приховає всі відео.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Невірне ключове слово. Неможливо використати \'%s\' як фільтр</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Невірне ключове слово. \'%1$s\' менше %2$d символів.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Невірне ключове слово. \'%1$s\' менше %2$d символів</string>
     <string name="revanced_hide_latest_posts_summary_off">Останні публікації показується</string>
     <string name="revanced_hide_latest_posts_summary_on">Останні публікації приховано</string>
     <string name="revanced_hide_latest_posts_title">Приховати останні публікації</string>
@@ -932,6 +933,8 @@
     <string name="revanced_hide_video_view_counts_multiplier_default_value">тис. -&gt; 1 000\nмлн -&gt; 1 000 000\nмлрд -&gt; 1 000 000 000\nпереглядів -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Вкажіть шаблон вашою мовою для кількості переглядів як показується під будь-яким відео в інтерфейсі користувача. Будь-який ключ (літера/слово на вашій мові) -&gt; значення (значення ключа) повинно бути з нового рядка. Ключі йдуть перед позначкою \"-&gt;\". Якщо змінили мову програми або системи, потрібно скинути це налаштування.\n\nЗразок:\nАнглійською: 10K views = K -&gt; 1000, views -&gt; views\nУкраїнською: 10 тис. переглядів = тис. -&gt; 1000, переглядів -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Ключі переглядів</string>
+    <string name="revanced_hide_video_view_counts_summary">Рекомендовані відео з переглядами менше, ніж ця кількість приховуватиметься.</string>
+    <string name="revanced_hide_video_view_counts_title">Кількість переглядів</string>
     <string name="revanced_hide_view_products_summary_off">Банер перегляду товарів показується</string>
     <string name="revanced_hide_view_products_summary_on">Банер перегляду товарів приховано</string>
     <string name="revanced_hide_view_products_title">Приховати банер перегляду товарів</string>
@@ -1000,8 +1003,8 @@
     <string name="revanced_overlay_button_copy_video_url_title">Показати кнопку копіювання URL відео</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантаження</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
-	<string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто (1.0х).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Натисніть, щоб відкрити діалог швидкості.
@@ -1230,6 +1233,7 @@
     <string name="revanced_sb_guidelines_preference_sum">Інструкція містить правила та поради щодо створення нових сегментів</string>
     <string name="revanced_sb_guidelines_preference_title">Переглянути інструкцію</string>
     <string name="revanced_sb_new_segment_choose_category">Вибрати категорію сегмента</string>
+    <string name="revanced_sb_new_segment_confirm_content">Сегмент триває від %1$02d:%2$02d до %3$02d:%4$02d (%5$d хвилин(-и) %6$02d секунд(-и))\nНадіслати?</string>
     <string name="revanced_sb_new_segment_confirm_contents">Сегмент від \n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nНадіслати?</string>
     <string name="revanced_sb_new_segment_confirm_title">Час правильний?</string>
     <string name="revanced_sb_new_segment_disabled_category">Категорія вимкнена у налаштуваннях. Увімкніть категорію, щоб надіслати.</string>
@@ -1546,8 +1550,4 @@
     <string name="revanced_whitelist_settings_summary">Перевірити чи вилучити список каналів, доданих до білого списку.</string>
     <string name="revanced_whitelist_settings_title">Білий список каналів</string>
     <string name="revanced_whitelist_sponsor_block">Спонсорблок</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Невірне ключове слово. \'%1$s\' менше %2$d символів</string>
-    <string name="revanced_hide_video_view_counts_title">Кількість переглядів</string>
-    <string name="revanced_hide_video_view_counts_summary">Рекомендовані відео з переглядами менше, ніж ця кількість приховуватиметься.</string>
-    <string name="revanced_sb_new_segment_confirm_content">Сегмент триває від %1$02d:%2$02d до %3$02d:%4$02d (%5$d хвилин(-и) %6$02d секунд(-и))\nНадіслати?</string>
 </resources>

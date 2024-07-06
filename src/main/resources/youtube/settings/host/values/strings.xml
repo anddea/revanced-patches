@@ -526,6 +526,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%1$s\' will hide all videos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
     <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown.</string>
     <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden.</string>
     <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
@@ -696,6 +697,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_off">Open playlist button is shown.</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_on">Open playlist button is hidden.</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_title">Hide open playlist button</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">Related videos are shown.</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">Related videos are hidden.</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">Hide related videos in quick actions</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_summary_off">Save to playlist button is shown.</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_summary_on">Save to playlist button is hidden.</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_title">Hide save to playlist button</string>
@@ -872,6 +876,12 @@ Limitation: Official headers in search results will be hidden."</string>
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions shown.</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions hidden.</string>
     <string name="revanced_hide_suggested_actions_title">Hide suggested actions</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary">"This setting has been deprecated.
+
+Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
+
+Note:
+• If you have any issues with 'Suggested video end screen', try restarting the app."</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_off">Suggested video end screen is shown.</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"Suggested video end screen is hidden when autoplay is turned off.
 
@@ -905,6 +915,9 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_transcript_section_summary_off">Transcript sections are shown.</string>
     <string name="revanced_hide_transcript_section_summary_on">Transcript sections are hidden.</string>
     <string name="revanced_hide_transcript_section_title">Hide transcript sections</string>
+    <string name="revanced_hide_trending_searches_summary_off">Trending searches are shown.</string>
+    <string name="revanced_hide_trending_searches_summary_on">Trending searches are hidden.</string>
+    <string name="revanced_hide_trending_searches_title">Hide trending searches</string>
     <string name="revanced_hide_video_ads_summary_off">Video ads are shown.</string>
     <string name="revanced_hide_video_ads_summary_on">Video ads are hidden.</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
@@ -923,6 +936,8 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nviews -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -&gt; value (meaning of the key) must be on a new line. Keys go before "-&gt;" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -&gt; 1000, views -&gt; views\nSpanish: 10 K vistas = K -&gt; 1000, vistas -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">View keys</string>
+    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
+    <string name="revanced_hide_video_view_counts_title">Number of views</string>
     <string name="revanced_hide_view_products_summary_off">View products banner is shown.</string>
     <string name="revanced_hide_view_products_summary_on">View products banner is hidden.</string>
     <string name="revanced_hide_view_products_title">Hide view products banner</string>
@@ -1027,6 +1042,8 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_category_view_counts_filter">View count filter</string>
     <string name="revanced_preference_screen_account_menu_summary">Hide or show elements in account menu and You tab.</string>
     <string name="revanced_preference_screen_account_menu_title">Account menu</string>
+    <string name="revanced_preference_screen_account_munu_summary">Hide or show elements in account menu and You tab.</string>
+    <string name="revanced_preference_screen_account_munu_title">Account menu</string>
     <string name="revanced_preference_screen_action_buttons_summary">Hide or show action buttons under videos.</string>
     <string name="revanced_preference_screen_action_buttons_title">Action buttons</string>
     <string name="revanced_preference_screen_ads_title">Ads</string>
@@ -1073,6 +1090,8 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_screen_seekbar_title">Seekbar</string>
     <string name="revanced_preference_screen_settings_menu_summary">Hide elements of the YouTube settings menu.</string>
     <string name="revanced_preference_screen_settings_menu_title">Settings menu</string>
+    <string name="revanced_preference_screen_settings_munu_summary">Hide elements in YouTube settings menu.</string>
+    <string name="revanced_preference_screen_settings_munu_title">Settings menu</string>
     <string name="revanced_preference_screen_shorts_player_summary">Hide or show components in the shorts player.</string>
     <string name="revanced_preference_screen_shorts_player_title">Shorts player</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
@@ -1218,6 +1237,7 @@ Limitation: Dislikes may not appear in incognito mode."</string>
     <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments.</string>
     <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
     <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
+    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
     <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
     <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
@@ -1492,6 +1512,11 @@ Limitations:
 • Offline downloads may not work.
 • Video may not start from the last watched time."</string>
     <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
+    <string name="revanced_spoof_test_client_summary">"Spoof the client as a test client.
+
+• This client is used for testing purposes, so most YouTube features are not available.
+• There are no playback buffer issues in the test client."</string>
+    <string name="revanced_spoof_test_client_title">Spoof test client</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
@@ -1528,29 +1553,4 @@ Limitations:
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
-    <string name="revanced_hide_video_view_counts_title">Number of views</string>
-    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
-    <string name="revanced_preference_screen_account_munu_title">Account menu</string>
-    <string name="revanced_preference_screen_account_munu_summary">Hide or show elements in account menu and You tab.</string>
-    <string name="revanced_preference_screen_settings_munu_title">Settings menu</string>
-    <string name="revanced_preference_screen_settings_munu_summary">Hide elements in YouTube settings menu.</string>
-    <string name="revanced_hide_trending_searches_title">Hide trending searches</string>
-    <string name="revanced_hide_trending_searches_summary_on">Trending searches are hidden.</string>
-    <string name="revanced_hide_trending_searches_summary_off">Trending searches are shown.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary">"This setting has been deprecated.
-
-Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
-
-Note:
-• If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_quick_actions_related_videos_title">Hide related videos in quick actions</string>
-    <string name="revanced_hide_quick_actions_related_videos_summary_on">Related videos are hidden.</string>
-    <string name="revanced_hide_quick_actions_related_videos_summary_off">Related videos are shown.</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
-    <string name="revanced_spoof_test_client_title">Spoof test client</string>
-    <string name="revanced_spoof_test_client_summary">"Spoof the client as a test client.
-
-• This client is used for testing purposes, so most YouTube features are not available.
-• There are no playback buffer issues in the test client."</string>
 </resources>

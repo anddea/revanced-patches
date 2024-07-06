@@ -509,6 +509,7 @@ A közepén nagybetűs szavakat a nagybetűvel kell megadni (pl.: iPhone, TikTok
     <string name="revanced_hide_keyword_toast_invalid_broad">A(z) %1$s kulcsszó elrejtené az összes videót.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Érvénytelen kulcsszó. Nem használható: \'%s\' szűrőként</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Érvénytelen kulcsszó. A(z) %1$s kevesebb, mint %2$d karakter.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Érvénytelen kulcsszó. \'%1$s\' kevesebb, mint %2$d karakter</string>
     <string name="revanced_hide_latest_posts_summary_off">A legutóbbi bejegyzések láthatóak.</string>
     <string name="revanced_hide_latest_posts_summary_on">A legutóbbi bejegyzések el vannak rejtve.</string>
     <string name="revanced_hide_latest_posts_title">Legutóbbi bejegyzések elrejtése</string>
@@ -918,6 +919,8 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nviews -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Specify your language template for the number of views shown under each video in the user interface. Each key (a letter/word in your language) -&gt; value (meaning of the key) must be on a new line. Keys go before \"-&gt;\" sign. If you switch app or system language you have to reset this setting.\n\nExamples:\nEnglish: 10K views = K -&gt; 1000, views -&gt; views\nSpanish: 10 K vistas = K -&gt; 1000, vistas -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">View keys</string>
+    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
+    <string name="revanced_hide_video_view_counts_title">Number of views</string>
     <string name="revanced_hide_view_products_summary_off">A termékek megtekintése banner látható.</string>
     <string name="revanced_hide_view_products_summary_on">A termékek megtekintése banner el van rejtve.</string>
     <string name="revanced_hide_view_products_title">Termékek megtekintése banner elrejtése</string>
@@ -1205,6 +1208,7 @@ Limitation: Dislikes may not appear in incognito mode."</string>
     <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments.</string>
     <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
     <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
+    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">A szegmens:\n\n%1$s-tól\n\n%2$s-ig\n\n(%3$s)\n\nKészen állsz a beküldésre?</string>
     <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
     <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
@@ -1500,8 +1504,4 @@ Megjegyzés: Ezzel a képernyőterület méretét is megváltoztatja, ahol érz�
     <string name="revanced_whitelist_settings_summary">Ellenőrizd vagy távolítsd el az kivétellistához hozzáadott csatornákat.</string>
     <string name="revanced_whitelist_settings_title">Csatorna kivétellista</string>
     <string name="revanced_whitelist_sponsor_block">Szponzor Blokk</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Érvénytelen kulcsszó. \'%1$s\' kevesebb, mint %2$d karakter</string>
-    <string name="revanced_hide_video_view_counts_title">Number of views</string>
-    <string name="revanced_hide_video_view_counts_summary">Recommended videos with views less than this number will be hidden.</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
 </resources>

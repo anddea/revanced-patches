@@ -1878,7 +1878,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyFile (Lapp/revanced/patcher/data/ResourceContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyResourcesWithRename (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/util/Map;)V
-	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun copyXmlNode (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun getClassLoader ()Ljava/lang/ClassLoader;
