@@ -1,3 +1,10 @@
+# [2.227.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.13...v2.227.0-dev.14) (2024-07-06)
+
+
+### Bug Fixes
+
+* Patch error due to invalid strings ([5069303](https://github.com/anddea/revanced-patches/commit/5069303f9dcc08a56a3d8582832db8f869e7245b))
+
 # [2.227.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.12...v2.227.0-dev.13) (2024-07-06)
 
 
