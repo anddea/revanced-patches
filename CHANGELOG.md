@@ -1,3 +1,10 @@
+# [2.227.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.12...v2.227.0-dev.13) (2024-07-06)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** MMT splash icon were missing ([6f29eec](https://github.com/anddea/revanced-patches/commit/6f29eecd0a98016e65492df8a47942ab1f0e2cb9))
+
 # [2.227.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.11...v2.227.0-dev.12) (2024-07-06)
 
 
