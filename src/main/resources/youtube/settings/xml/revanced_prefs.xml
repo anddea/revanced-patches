@@ -2,20 +2,6 @@
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yt="http://schemas.android.com/apk/res-auto">
 
-    <!-- PREFERENCE_SCREEN: ADS
-    <PreferenceScreen android:title="@string/revanced_preference_screen_ads_title" android:key="revanced_preference_screen_ads">
-        <SwitchPreference android:title="@string/revanced_hide_fullscreen_ads_title" android:key="revanced_hide_fullscreen_ads" android:summaryOn="@string/revanced_hide_fullscreen_ads_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_ads_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_fullscreen_ads_type_title" android:key="revanced_hide_fullscreen_ads_type" android:summaryOn="@string/revanced_hide_fullscreen_ads_type_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_ads_type_summary_off" android:dependency="revanced_hide_fullscreen_ads" />
-        <SwitchPreference android:title="@string/revanced_hide_general_ads_title" android:key="revanced_hide_general_ads" android:summaryOn="@string/revanced_hide_general_ads_summary_on" android:summaryOff="@string/revanced_hide_general_ads_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_merchandise_shelf_title" android:key="revanced_hide_merchandise_shelf" android:summaryOn="@string/revanced_hide_merchandise_shelf_summary_on" android:summaryOff="@string/revanced_hide_merchandise_shelf_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_paid_promotion_label_title" android:key="revanced_hide_paid_promotion_label" android:summaryOn="@string/revanced_hide_paid_promotion_label_summary_on" android:summaryOff="@string/revanced_hide_paid_promotion_label_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_self_sponsor_cards_title" android:key="revanced_hide_self_sponsor_cards" android:summaryOn="@string/revanced_hide_self_sponsor_cards_summary_on" android:summaryOff="@string/revanced_hide_self_sponsor_cards_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_video_ads_title" android:key="revanced_hide_video_ads" android:summaryOn="@string/revanced_hide_video_ads_summary_on" android:summaryOff="@string/revanced_hide_video_ads_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_view_products_title" android:key="revanced_hide_view_products" android:summaryOn="@string/revanced_hide_view_products_summary_on" android:summaryOff="@string/revanced_hide_view_products_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_web_search_results_title" android:key="revanced_hide_web_search_results" android:summaryOn="@string/revanced_hide_web_search_results_summary_on" android:summaryOff="@string/revanced_hide_web_search_results_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_get_premium_title" android:key="revanced_hide_get_premium" android:summaryOn="@string/revanced_hide_get_premium_summary_on" android:summaryOff="@string/revanced_hide_get_premium_summary_off" />
-    </PreferenceScreen>PREFERENCE_SCREEN: ADS -->
-
 
     <!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
     <PreferenceScreen android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:key="revanced_preference_screen_alt_thumbnails">
