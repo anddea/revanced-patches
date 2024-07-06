@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -84,10 +85,22 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         PlayerButtonConstructorFingerprint.resultOrThrow().mutableMethod.apply {
             val registerResolver = implementation!!.registerCount - parameters.size - 1 + 6 // p6
 
-            val invokerObjectIndex = indexOfFirstInstructionOrThrow {
+            var invokerObjectIndex = indexOfFirstInstruction {
                 opcode == Opcode.IPUT_OBJECT
                         && getReference<FieldReference>()?.definingClass == definingClass
                         && (this as TwoRegisterInstruction).registerA == registerResolver
+            }
+            if (invokerObjectIndex < 0) {
+                val moveObjectIndex = indexOfFirstInstructionOrThrow {
+                    (this as? TwoRegisterInstruction)?.registerB == registerResolver
+                }
+                val moveObjectRegister =
+                    getInstruction<TwoRegisterInstruction>(moveObjectIndex).registerA
+                invokerObjectIndex = indexOfFirstInstructionOrThrow(moveObjectIndex) {
+                    opcode == Opcode.IPUT_OBJECT
+                            && getReference<FieldReference>()?.definingClass == definingClass
+                            && (this as TwoRegisterInstruction).registerA == moveObjectRegister
+                }
             }
             val invokerObjectReference =
                 getInstruction<ReferenceInstruction>(invokerObjectIndex).reference

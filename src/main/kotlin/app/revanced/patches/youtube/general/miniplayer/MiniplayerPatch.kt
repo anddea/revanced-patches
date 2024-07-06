@@ -3,16 +3,20 @@ package app.revanced.patches.youtube.general.miniplayer
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerDimensionsCalculatorParentFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernAddViewListenerFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernCloseButtonFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernConstructorFingerprint
+import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernConstructorFingerprint.isMultiConstructorMethod
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernDragAndDropFingerprint
+import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernEnabledFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernExpandButtonFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernExpandCloseDrawablesFingerprint
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.MiniplayerModernForwardButtonFingerprint
@@ -26,7 +30,6 @@ import app.revanced.patches.youtube.general.miniplayer.fingerprints.YouTubePlaye
 import app.revanced.patches.youtube.general.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint.YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
-import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerClose
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ModernMiniPlayerExpand
@@ -45,7 +48,6 @@ import app.revanced.util.indexOfWideLiteralInstructionOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
-import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -57,6 +59,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
 @Suppress("unused", "SpellCheckingInspection")
@@ -75,6 +78,7 @@ object MiniplayerPatch : BaseBytecodePatch(
         MiniplayerOverrideFingerprint,
         MiniplayerModernConstructorFingerprint,
         MiniplayerModernDragAndDropFingerprint,
+        MiniplayerModernEnabledFingerprint,
         MiniplayerModernViewParentFingerprint,
         YouTubePlayerOverlaysLayoutFingerprint,
     )
@@ -149,13 +153,13 @@ object MiniplayerPatch : BaseBytecodePatch(
 
         MiniplayerModernConstructorFingerprint.resultOrThrow().mutableClass.methods.forEach {
             it.apply {
-                if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
+                if (MethodUtil.isConstructor(it)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
                         this.opcode == Opcode.IPUT && this.getReference<FieldReference>()?.type == "I"
                     }
 
                     insertModernMiniplayerTypeOverride(iPutIndex)
-                } else {
+                } else if (isMultiConstructorMethod()) {
                     findReturnIndicesReversed().forEach { index ->
                         insertModernMiniplayerOverride(
                             index
@@ -165,7 +169,33 @@ object MiniplayerPatch : BaseBytecodePatch(
             }
         }
 
+        if (SettingsPatch.upward1925) {
+            MiniplayerModernEnabledFingerprint.literalInstructionBooleanHook(
+                45622882,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
+            )
+        }
+
         // endregion
+
+        // region Enable double tap action.
+
+        if (SettingsPatch.upward1925) {
+            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+                45628823,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->enableMiniplayerDoubleTapAction()Z"
+            )
+            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+                45630429,
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
+            )
+            settingArray += "SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION"
+        }
+
+        // endregion
+
+        val miniplayerModernViewParentClassDef =
+            MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
 
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17.
@@ -174,7 +204,7 @@ object MiniplayerPatch : BaseBytecodePatch(
             MiniplayerModernExpandCloseDrawablesFingerprint.apply {
                 resolve(
                     context,
-                    MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+                    miniplayerModernViewParentClassDef
                 )
             }.resultOrThrow().mutableMethod.apply {
                 listOf(
@@ -220,7 +250,7 @@ object MiniplayerPatch : BaseBytecodePatch(
         ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.resolve(
                 context,
-                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+                miniplayerModernViewParentClassDef
             )
 
             fingerprint.hookInflatedView(
@@ -233,13 +263,19 @@ object MiniplayerPatch : BaseBytecodePatch(
         MiniplayerModernAddViewListenerFingerprint.apply {
             resolve(
                 context,
-                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+                miniplayerModernViewParentClassDef
             )
-        }.resultOrThrow().mutableMethod.addInstruction(
-            0,
-            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                    "hideMiniplayerSubTexts(Landroid/view/View;)V"
-        )
+        }.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideMiniplayerSubTexts(Landroid/view/View;)Z
+                    move-result v0
+                    if-nez v0, :hidden
+                    """,
+                ExternalLabel("hidden", getInstruction(implementation!!.instructions.lastIndex))
+            )
+        }
 
 
         // Modern 2 has a broken overlay subtitle view that is always present.
@@ -293,11 +329,6 @@ object MiniplayerPatch : BaseBytecodePatch(
         }
 
         // endregion
-
-
-        if (SettingsPatch.upward1920) {
-            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "MiniplayerType1920")
-        }
 
         settingArray += "SETTINGS: MINIPLAYER_TYPE_MODERN"
         SettingsPatch.addPreference(settingArray)

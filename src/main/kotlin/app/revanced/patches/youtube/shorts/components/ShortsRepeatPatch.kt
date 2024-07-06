@@ -1,32 +1,25 @@
-package app.revanced.patches.youtube.shorts.repeat
+package app.revanced.patches.youtube.shorts.components
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.shorts.repeat.fingerprints.ReelEnumConstructorFingerprint
-import app.revanced.patches.youtube.shorts.repeat.fingerprints.ReelEnumStaticFingerprint
-import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.shorts.components.fingerprints.ReelEnumConstructorFingerprint
+import app.revanced.patches.youtube.shorts.components.fingerprints.ReelEnumStaticFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.containsReferenceInstructionIndex
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
-@Suppress("unused")
-object ShortsRepeatPatch : BaseBytecodePatch(
-    name = "Change Shorts repeat state",
-    description = "Adds an option to control whether Shorts should repeat, autoplay, or pause upon ending.",
-    dependencies = setOf(SettingsPatch::class),
-    compatiblePackages = COMPATIBLE_PACKAGE,
-    fingerprints = setOf(ReelEnumConstructorFingerprint)
+object ShortsRepeatPatch : BytecodePatch(
+    setOf(ReelEnumConstructorFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -55,18 +48,6 @@ object ShortsRepeatPatch : BaseBytecodePatch(
                 context.injectHook(endScreenReference, enumMethodCall)
             }
         }
-
-        /**
-         * Add settings
-         */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: SHORTS",
-                "SETTINGS: CHANGE_SHORTS_REPEAT_STATE"
-            )
-        )
-
-        SettingsPatch.updatePatchStatus(this)
     }
 
     private fun MutableMethod.injectEnum(

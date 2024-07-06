@@ -65,6 +65,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var InsetOverlayViewLayout = -1L
     var InterstitialsContainer = -1L
     var MenuItemView = -1L
+    var MetaPanel = -1L
     var ModernMiniPlayerClose = -1L
     var ModernMiniPlayerExpand = -1L
     var ModernMiniPlayerForwardButton = -1L
@@ -87,6 +88,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ReelRightDislikeIcon = -1L
     var ReelRightLikeIcon = -1L
     var ReelTimeBarPlayedColor = -1L
+    var ReelVodTimeStampsContainer = -1L
     var RelatedChipCloudMargin = -1L
     var RightComment = -1L
     var ScrimOverlay = -1L
@@ -165,6 +167,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         InsetOverlayViewLayout = getId(ID, "inset_overlay_view_layout")
         InterstitialsContainer = getId(ID, "interstitials_container")
         MenuItemView = getId(ID, "menu_item_view")
+        MetaPanel = getId(ID, "metapanel")
         ModernMiniPlayerClose = getId(ID, "modern_miniplayer_close")
         ModernMiniPlayerExpand = getId(ID, "modern_miniplayer_expand")
         ModernMiniPlayerForwardButton = getId(ID, "modern_miniplayer_forward_button")
@@ -187,6 +190,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ReelRightDislikeIcon = getId(DRAWABLE, "reel_right_dislike_icon")
         ReelRightLikeIcon = getId(DRAWABLE, "reel_right_like_icon")
         ReelTimeBarPlayedColor = getId(COLOR, "reel_time_bar_played_color")
+        ReelVodTimeStampsContainer = getId(ID, "reel_vod_timestamps_container")
         RelatedChipCloudMargin = getId(LAYOUT, "related_chip_cloud_reduced_margins")
         RightComment = getId(DRAWABLE, "ic_right_comment_32c")
         ScrimOverlay = getId(ID, "scrim_overlay")
