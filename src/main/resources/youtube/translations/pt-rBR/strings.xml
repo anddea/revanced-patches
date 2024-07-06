@@ -516,6 +516,7 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%1$s\' irá ocultar todos os vídeos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Palavra-chave inválida. Não pode usar: \'%s\' como um filtro</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
     <string name="revanced_hide_latest_posts_summary_off">As últimas postagens serão exibidas.</string>
     <string name="revanced_hide_latest_posts_summary_on">As últimas postagens estão ocultas.</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas postagens</string>
@@ -925,6 +926,8 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1 000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nvisualizações -&gt; visualizações</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Especifique seu modelo de idioma para o número de visualizações mostradas em cada vídeo na interface do usuário. Cada chave (uma letra/palavra no seu idioma) sinal -&gt; (significado da chave) deve estar em uma nova linha. Chaves vão antes do sinal \"-&gt;\". Se você alternar o idioma do aplicativo ou do sistema, você terá que redefinir esta configuração.\n\nExemplos:\nInglês: 10K views = K -&gt; 1000, views -&gt; visualizações\nSpanish: 10 K vistas = K -&gt; 1000, vistas -&gt; visualizações</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Chaves de visualização</string>
+    <string name="revanced_hide_video_view_counts_summary">Vídeos recomendados com visualizações menores do que este número serão ocultados.</string>
+    <string name="revanced_hide_video_view_counts_title">Número de visualizações</string>
     <string name="revanced_hide_view_products_summary_off">O banner de produtos será exibido.</string>
     <string name="revanced_hide_view_products_summary_on">O banner de produtos está oculto.</string>
     <string name="revanced_hide_view_products_title">Ocultar visualização de banner de produtos</string>
@@ -1212,6 +1215,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_guidelines_preference_sum">As diretrizes contêm regras e dicas para a criação de novos segmentos.</string>
     <string name="revanced_sb_guidelines_preference_title">Ver diretrizes</string>
     <string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
+    <string name="revanced_sb_new_segment_confirm_content">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
     <string name="revanced_sb_new_segment_confirm_contents">O segmento é de\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto para enviar?</string>
     <string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
     <string name="revanced_sb_new_segment_disabled_category">A categoria está desativada nas configurações. Ative a categoria para enviar.</string>
@@ -1521,8 +1525,4 @@ Limitações:
     <string name="revanced_whitelist_settings_summary">Verifique ou remova a lista de canais adicionados à lista branca.</string>
     <string name="revanced_whitelist_settings_title">Lista branca de canais</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
-    <string name="revanced_hide_video_view_counts_title">Número de visualizações</string>
-    <string name="revanced_hide_video_view_counts_summary">Vídeos recomendados com visualizações menores do que este número serão ocultados.</string>
-    <string name="revanced_sb_new_segment_confirm_content">O segmento dura de %1$02d:%2$02d a %3$02d:%4$02d (%5$d minutos %6$02d segundos)\nEle está pronto para enviar?</string>
 </resources>

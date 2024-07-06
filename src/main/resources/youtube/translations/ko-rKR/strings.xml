@@ -531,6 +531,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">키워드 \'%1$s\'를 사용하면 모든 동영상이 숨겨집니다.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다.</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">\'%1$s\'는 잘못된 키워드입니다. 필터링 키워드는 %2$d 글자 이상이어야 합니다.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">잘못된 키워드입니다. \'%1$s\'가 %2$d 문자보다 짧아야 합니다.</string>
     <string name="revanced_hide_latest_posts_summary_off">최신 게시물이 노출됩니다.</string>
     <string name="revanced_hide_latest_posts_summary_on">최신 게시물이 숨겨집니다.</string>
     <string name="revanced_hide_latest_posts_title">최신 게시물 숨기기</string>
@@ -551,9 +552,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_medical_panel_summary_off">의학 정보 패널이 노출됩니다.</string>
     <string name="revanced_hide_medical_panel_summary_on">의학 정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_medical_panel_title">의학 정보 패널 숨기기</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">제품 선반이 노출됩니다.</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">제품 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_merchandise_shelf_title">제품 선반 숨기기</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">상품 선반이 노출됩니다.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">상품 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_merchandise_shelf_title">상품 선반 숨기기</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_off">미니 플레이어에서 버튼이 노출됩니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_on">미니 플레이어에서 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_title">\'되감기\' &amp; \'앞으로 가기\' 버튼 숨기기</string>
@@ -940,6 +941,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">천회 -&gt; 1000\n만회 -&gt; 10000\n억회 -&gt; 100000000\n조회수 -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">UI에서 노출되는 동영상의 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n• \'키(해당 언어의 문자/단어) -&gt; 값(키의 의미)\'은 줄바꿈으로 구분하여 설정해야 하고, 키는 \'-&gt;\' 기호 앞에 와야 합니다. \n• 편집창은 \'하나의 언어에 대한 키만 입력\' &amp; \'앞에는 숫자 관련 키, 마지막에는 조회수 단어 키 순으로 입력\' 해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 재설정해야 합니다.\n• 실시간 스트리밍 동영상과 \'조회수 없음\' 동영상은 숨길 수 없습니다. \n예시) 한국어: 조회수 10만회 = 만회 -&gt; 10000, 조회수 -&gt; views\n영어: 10K views = K -&gt; 1000, views -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">키 보기</string>
+    <string name="revanced_hide_video_view_counts_summary">설정한 숫자보다 낮은 조회수를 가진 추천 동영상이 숨겨집니다.</string>
+    <string name="revanced_hide_video_view_counts_title">조회수</string>
     <string name="revanced_hide_view_products_summary_off">플레이어에서 제품 쇼핑 배너가 노출됩니다.</string>
     <string name="revanced_hide_view_products_summary_on">플레이어에서 제품 쇼핑 배너가 숨겨집니다.</string>
     <string name="revanced_hide_view_products_title">제품 쇼핑 배너 숨기기</string>
@@ -964,7 +967,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때 가로 모드를 유지합니다.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간(밀리초)을 설정할 수 있습니다.
+
+화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
     <string name="revanced_keep_landscape_mode_title">가로 모드 유지하기</string>
     <string name="revanced_label_default">YouTube</string>
@@ -1006,10 +1011,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 길게 누르면 타임스탬프가 복사됩니다."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-    <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
-    <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거 할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로드 버튼 표시하기</string>
+    <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거 할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
+    <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
     <string name="revanced_overlay_button_not_allowed_warning">버튼을 길게 눌러서 버튼 상태를 변경할 수 있습니다.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">동영상 재생 속도 값 재설정 (1.0배속)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"버튼을 눌러서 동영상 재생 속도 다이얼로그를 열 수 있습니다.
@@ -1241,6 +1246,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_sb_guidelines_preference_sum">구간 제출 시의 주의사항에 대한 내용을 포함하고 있습니다.</string>
     <string name="revanced_sb_guidelines_preference_title">가이드라인 보기</string>
     <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택해주세요.</string>
+    <string name="revanced_sb_new_segment_confirm_content">선택된 구간은 %1$02d:%2$02d부터 %3$02d:%4$02d까지 입니다 (%5$d분 %6$02d초).\n이대로 제출하시겠습니까?</string>
     <string name="revanced_sb_new_segment_confirm_contents">선택한 구간이\n\n%1$s\n부터\n%2$s\n\n(%3$s) 까지 입니다.\n\n이렇게 제출하겠습니까?</string>
     <string name="revanced_sb_new_segment_confirm_title">설정한 구간이 정확합니까?</string>
     <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야합니다.</string>
@@ -1552,8 +1558,4 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_whitelist_settings_summary">화이트리스트에 추가된 채널을 확인 또는 제거할 수 있습니다.</string>
     <string name="revanced_whitelist_settings_title">채널 화이트리스트</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">잘못된 키워드입니다. \'%1$s\'가 %2$d 문자보다 짧아야 합니다.</string>
-    <string name="revanced_hide_video_view_counts_title">조회수</string>
-    <string name="revanced_hide_video_view_counts_summary">설정한 숫자보다 낮은 조회수를 가진 추천 동영상이 숨겨집니다.</string>
-    <string name="revanced_sb_new_segment_confirm_content">선택된 구간은 %1$02d:%2$02d부터 %3$02d:%4$02d까지 입니다 (%5$d분 %6$02d초).\n이대로 제출하시겠습니까?</string>
 </resources>

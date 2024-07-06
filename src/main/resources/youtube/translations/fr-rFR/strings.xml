@@ -523,6 +523,7 @@ Les mots avec des lettres majuscules au milieu doivent être saisis de la même 
     <string name="revanced_hide_keyword_toast_invalid_broad">Le mot-clé \"%1$s\" masquera toutes les vidéos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Mot-clé invalide. Impossible d\'utiliser : \'%s\' comme filtre.</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Mot-clé invalide. \'%1$s\' contient moins de %2$d caractères.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Longueur du mot-clé invalide (doit comporter au moins %2$d caractères) : %1$s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Les derniers posts sont affichés</string>
     <string name="revanced_hide_latest_posts_summary_on">Les derniers posts sont masqués</string>
     <string name="revanced_hide_latest_posts_title">Derniers posts</string>
@@ -939,6 +940,8 @@ Problèmes connus :
     <string name="revanced_hide_video_view_counts_multiplier_default_value">K -&gt; 1000\nM -&gt; 1 000 000\nB -&gt; 1 000 000 000\nviews -&gt; vues</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Spécifiez la langue du modèle pour le nombre de vues affichées sous chaque vidéo dans l\'interface utilisateur. Chaque clé (une lettre/mot dans votre langue) -&gt; valeur (signification de la clé) doit être sur une nouvelle ligne. Les clés vont avant le signe \"-&gt;\". Si vous changez de langue dans l\'application ou dans les parametres de votre telephone , vous devez réinitialiser ce paramètre.\n\nExemples : \nFrançais : 10K vues = K -&gt; 1000, vues -&gt; \nAnglais : 10K views = K -&gt; 1000, views -&gt; . 1K vues = 1000 vues</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Voir les filtres</string>
+    <string name="revanced_hide_video_view_counts_summary">Les vidéos recommandées avec moins de ce nombre de vues seront masquées.</string>
+    <string name="revanced_hide_video_view_counts_title">Nombre de vues</string>
     <string name="revanced_hide_view_products_summary_off">La bannière \"Voir les produits\" est affichée</string>
     <string name="revanced_hide_view_products_summary_on">La bannière \"Voir les produits\" est masquée</string>
     <string name="revanced_hide_view_products_title">Bannière \"Voir les produits\"</string>
@@ -1232,6 +1235,7 @@ Limitation : \"Je n'aime pas\" n'apparaîtras pas en mode incognito."</string>
     <string name="revanced_sb_guidelines_preference_sum">Les directives contiennent des règles et des conseils pour créer de nouveaux segments.</string>
     <string name="revanced_sb_guidelines_preference_title">Afficher les directives</string>
     <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
+    <string name="revanced_sb_new_segment_confirm_content">Le segment dure de %1$02d:%2$02d à %3$02d:%4$02d (%5$d minutes et %6$02d secondes)\nEst-il prêt à être soumis ?</string>
     <string name="revanced_sb_new_segment_confirm_contents">Le segment est de\n\n%1$s\nà\n%2$s\n\n(%3$s)\n\nPrêt à être soumis ?</string>
     <string name="revanced_sb_new_segment_confirm_title">Les temps sont-ils corrects ?</string>
     <string name="revanced_sb_new_segment_disabled_category">Catégorie désactivée dans les paramètres. Activez-la pour soumettre.</string>
@@ -1537,8 +1541,4 @@ Problèmes connus:
     <string name="revanced_whitelist_settings_summary">Vérifier ou supprimer les chaînes ajoutés à la liste blanche.</string>
     <string name="revanced_whitelist_settings_title">Liste blanche des chaînes</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Longueur du mot-clé invalide (doit comporter au moins %2$d caractères) : %1$s.</string>
-    <string name="revanced_hide_video_view_counts_title">Nombre de vues</string>
-    <string name="revanced_hide_video_view_counts_summary">Les vidéos recommandées avec moins de ce nombre de vues seront masquées.</string>
-    <string name="revanced_sb_new_segment_confirm_content">Le segment dure de %1$02d:%2$02d à %3$02d:%4$02d (%5$d minutes et %6$02d secondes)\nEst-il prêt à être soumis ?</string>
 </resources>

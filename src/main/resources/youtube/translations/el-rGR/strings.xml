@@ -524,6 +524,7 @@ Playlists
     <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη-κλειδί \'%1$s\' θα κρύβει όλα τα βίντεο.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Μη έγκυρη λέξη-κλειδί. Αδυναμία χρήσης: \'%s\' ως φίλτρο</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
     <string name="revanced_hide_latest_posts_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_latest_posts_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_latest_posts_title">Τελευταίες αναρτήσεις</string>
@@ -940,6 +941,8 @@ Playlists
     <string name="revanced_hide_video_view_counts_multiplier_default_value">χιλ. -&gt; 1 000\nεκ. -&gt; 1 000 000\nδισ. -&gt; 1 000 000 000\nπροβολές -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Γλωσσικό πρότυπο για τον αριθμό προβολών κάτω από κάθε βίντεο. Κάθε κλειδί (λέξη ή γράμμα στη γλώσσα σας) -&gt; τιμή (σημασία του κλειδιού) βρίσκεται σε νέα γραμμή. Τα κλειδιά μπαίνουν πριν από το \"-&gt;\". Αν αλλάξετε γλώσσα εφαρμογής ή συστήματος, θα χρειαστεί επαναρύθμιση. Παραδείγματα:\nΕλληνικά: 10 χιλιάδες προβολές = χιλ. -&gt; 1000, προβολές -&gt; views\nΑγγλικά: 10K views = K -&gt; 1000, views -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Επεξεργασία κλειδιών</string>
+    <string name="revanced_hide_video_view_counts_summary">Τα προτεινόμενα βίντεο με προβολές λιγότερες από αυτόν τον αριθμό δεν θα εμφανίζονται.</string>
+    <string name="revanced_hide_video_view_counts_title">Αριθμός προβολών</string>
     <string name="revanced_hide_video_with_duration_longer_than_summary">Τα βίντεο με διάρκεια μεγαλύτερη από αυτόν τον αριθμό δεν θα εμφανίζονται.</string>
     <string name="revanced_hide_video_with_duration_longer_than_title">Μέγιστο όριο διάρκειας</string>
     <string name="revanced_hide_video_with_duration_shorter_than_summary">Τα βίντεο με διάρκεια μικρότερη από αυτόν τον αριθμό δεν θα εμφανίζονται.</string>
@@ -1245,6 +1248,7 @@ Playlists
     <string name="revanced_sb_guidelines_preference_sum">Οι οδηγίες περιέχουν κανόνες και συμβουλές σχετικά με την υποβολή τμημάτων.</string>
     <string name="revanced_sb_guidelines_preference_title">Προβολή οδηγιών</string>
     <string name="revanced_sb_new_segment_choose_category">Επιλέξτε την κατηγορία τμήματος</string>
+    <string name="revanced_sb_new_segment_confirm_content">Το τμήμα έχει διάρκεια από %1$02d:%2$02d έως %3$02d:%4$02d (%5$d λεπτά και %6$02d δευτερόλεπτα)\nΕίναι έτοιμο για υποβολή;</string>
     <string name="revanced_sb_new_segment_confirm_contents">Το τμήμα είναι από\n\n%1$s\nσε\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
     <string name="revanced_sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
     <string name="revanced_sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
@@ -1549,8 +1553,4 @@ Playlists
     <string name="revanced_whitelist_settings_summary">Ελέγξτε ή καταργήστε την λίστα των καναλιών που έχουν προστεθεί στη λίστα επιτρεπόμενων.</string>
     <string name="revanced_whitelist_settings_title">Λίστα επιτρεπόμενων καναλιών</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
-    <string name="revanced_hide_video_view_counts_title">Αριθμός προβολών</string>
-    <string name="revanced_hide_video_view_counts_summary">Τα προτεινόμενα βίντεο με προβολές λιγότερες από αυτόν τον αριθμό δεν θα εμφανίζονται.</string>
-    <string name="revanced_sb_new_segment_confirm_content">Το τμήμα έχει διάρκεια από %1$02d:%2$02d έως %3$02d:%4$02d (%5$d λεπτά και %6$02d δευτερόλεπτα)\nΕίναι έτοιμο για υποβολή;</string>
 </resources>

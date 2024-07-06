@@ -512,6 +512,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_keyword_toast_invalid_broad">キーワード「%1$s」は範囲が広すぎるため、すべての動画を非表示にします。</string>
     <string name="revanced_hide_keyword_toast_invalid_common">無効なキーワードです。\'%s\' はフィルターとして使用できません</string>
     <string name="revanced_hide_keyword_toast_invalid_keyword">無効なキーワードです。「%1$s」 は %2$d 文字未満です。</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">無効なキーワードです。\'%1$s\' は %2$d 文字未満です</string>
     <string name="revanced_hide_latest_posts_summary_off">最新の投稿は表示されます。</string>
     <string name="revanced_hide_latest_posts_summary_on">最新の投稿は非表示です。</string>
     <string name="revanced_hide_latest_posts_title">最新の投稿を非表示</string>
@@ -684,6 +685,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_off">通常のプレイリストは表示されます。</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_summary_on">通常のプレイリストは非表示です。</string>
     <string name="revanced_hide_quick_actions_open_playlist_button_title">プレイリストを非表示</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_off">関連動画は表示されます。</string>
+    <string name="revanced_hide_quick_actions_related_videos_summary_on">関連動画は非表示です。</string>
+    <string name="revanced_hide_quick_actions_related_videos_title">関連動画を非表示</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_summary_off">プレイリストに追加するボタンは表示されます。</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_summary_on">プレイリストに追加するボタンは非表示です。</string>
     <string name="revanced_hide_quick_actions_save_to_playlist_button_title">プレイリストボタンを非表示</string>
@@ -860,6 +864,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_suggested_actions_summary_off">プレーヤー上の「Premium のコントロール」などの提案は表示されます。</string>
     <string name="revanced_hide_suggested_actions_summary_on">プレーヤー上の「Premium のコントロール」などの提案は非表示です。</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary">"この設定は非推奨になりました。
+
+代わりに、「設定 → 自動再生 → 次の動画の自動再生」設定を使用してください。"</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_off">自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」"</string>
     <string name="revanced_hide_suggested_video_end_screen_title">おすすめされた動画の終了画面を非表示</string>
@@ -890,6 +897,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_transcript_section_summary_off">概要欄の文字起こしセクションは表示されます。</string>
     <string name="revanced_hide_transcript_section_summary_on">概要欄の文字起こしセクションは非表示です。</string>
     <string name="revanced_hide_transcript_section_title">文字起こし欄を非表示</string>
+    <string name="revanced_hide_trending_searches_summary_off">検索のトレンドは表示されます。</string>
+    <string name="revanced_hide_trending_searches_summary_on">検索のトレンドは非表示です。</string>
+    <string name="revanced_hide_trending_searches_title">検索のトレンドを非表示</string>
     <string name="revanced_hide_video_ads_summary_off">動画プレーヤー内の広告は表示されます。</string>
     <string name="revanced_hide_video_ads_summary_on">動画プレーヤー内の広告は非表示です。</string>
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
@@ -908,6 +918,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_video_view_counts_multiplier_default_value">万 -&gt; 10 000\n億 -&gt; 100 000 000\n回視聴 -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Uiの各動画の下に表示される視聴回数の言語テンプレートを設定します。各キー (言語の文字/単語) -&gt; 値 (キーの意味) は、改行して記述する必要があります。キーは「-&gt;」記号の前に記述します。言語設定を更新した場合は、この設定をリセットする必要があります。\n\n例:\n英語: 10K views = K -&gt; 1000、views -&gt; 回\nスペイン語: 10 K vistas = K -&gt; 1000、vistas -&gt; 回</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">キーを表示</string>
+    <string name="revanced_hide_video_view_counts_summary">この数より少ない視聴回数のおすすめ動画は非表示になります。</string>
+    <string name="revanced_hide_video_view_counts_title">視聴回数</string>
     <string name="revanced_hide_view_products_summary_off">プレーヤー内の商品バナーは表示されます。</string>
     <string name="revanced_hide_view_products_summary_on">プレーヤー内の商品バナーは非表示です。</string>
     <string name="revanced_hide_view_products_title">商品バナーを非表示</string>
@@ -1204,6 +1216,7 @@ After about 20 seconds of buffering, switches to different codec."</string>
     <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments.</string>
     <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
     <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
+    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">セグメントは\n\n%1$s\nから\n%2$s\n\n(%3$s)です。\n\n送信してもよろしいですか？</string>
     <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
     <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
@@ -1471,6 +1484,11 @@ After about 20 seconds of buffering, switches to different codec."</string>
 • オフラインへの動画の保存が機能しない場合があります。
 • 動画が最後に視聴した時間から開始されない場合があります。"</string>
     <string name="revanced_spoof_player_parameter_title">プレーヤーのパラメーターを偽装</string>
+    <string name="revanced_spoof_test_client_summary">"アプリをテスト クライアントとして偽装します。
+
+ • このクライアントはテスト目的で使用されるため、ほとんどの YouTube 機能は使用できません。
+ • テスト クライアントではバッファリングの問題はありません。"</string>
+    <string name="revanced_spoof_test_client_title">Spoof test client</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
@@ -1507,22 +1525,4 @@ After about 20 seconds of buffering, switches to different codec."</string>
     <string name="revanced_whitelist_settings_summary">ホワイトリストに登録したチャンネルのリストを確認/削除します。</string>
     <string name="revanced_whitelist_settings_title">チャンネルのホワイトリスト</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">無効なキーワードです。\'%1$s\' は %2$d 文字未満です</string>
-    <string name="revanced_hide_video_view_counts_title">視聴回数</string>
-    <string name="revanced_hide_video_view_counts_summary">この数より少ない視聴回数のおすすめ動画は非表示になります。</string>
-    <string name="revanced_hide_trending_searches_title">検索のトレンドを非表示</string>
-    <string name="revanced_hide_trending_searches_summary_on">検索のトレンドは非表示です。</string>
-    <string name="revanced_hide_trending_searches_summary_off">検索のトレンドは表示されます。</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary">"この設定は非推奨になりました。
-
-代わりに、「設定 → 自動再生 → 次の動画の自動再生」設定を使用してください。"</string>
-    <string name="revanced_hide_quick_actions_related_videos_title">関連動画を非表示</string>
-    <string name="revanced_hide_quick_actions_related_videos_summary_on">関連動画は非表示です。</string>
-    <string name="revanced_hide_quick_actions_related_videos_summary_off">関連動画は表示されます。</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
-    <string name="revanced_spoof_test_client_title">Spoof test client</string>
-    <string name="revanced_spoof_test_client_summary">"アプリをテスト クライアントとして偽装します。
-
- • このクライアントはテスト目的で使用されるため、ほとんどの YouTube 機能は使用できません。
- • テスト クライアントではバッファリングの問題はありません。"</string>
 </resources>
