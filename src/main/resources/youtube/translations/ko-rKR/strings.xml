@@ -241,7 +241,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"타임스탬프를 활성화합니다.
 
 알려진 문제점:
-• 이 설정은 타임스탬프를 활성화할 뿐만 아니라 사용자가 플레이어 배경을 눌러서 레이아웃을 숨길 수 있도록 합니다.
+• Shorts 플레이어 배경을 누르면 모든 구성요소들이 숨겨졌다가 다시 누르면 다시 표시됩니다.
 • 이 기능은 Google에서 개발 단계에 있는 기능이므로 레이아웃이 깨질 수 있습니다."</string>
     <string name="revanced_enable_shorts_time_stamp_title">타임스탬프 활성화하기</string>
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
@@ -514,6 +514,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">댓글 섹션에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">댓글 섹션에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comments_title">댓글 섹션에서 키워드 필터 활성화하기</string>
+    <string name="revanced_hide_keyword_content_full_word_title">단일 필터링 키워드만 필터하기</string>
     <string name="revanced_hide_keyword_content_home_summary_off">홈 피드에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">홈 피드에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_home_title">홈 피드에서 키워드 필터 활성화하기</string>
@@ -550,9 +551,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_medical_panel_summary_off">의학 정보 패널이 노출됩니다.</string>
     <string name="revanced_hide_medical_panel_summary_on">의학 정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_medical_panel_title">의학 정보 패널 숨기기</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">상품 선반이 노출됩니다.</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">상품 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_merchandise_shelf_title">상품 선반 숨기기</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">제품 선반이 노출됩니다.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">제품 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_merchandise_shelf_title">제품 선반 숨기기</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_off">미니 플레이어에서 버튼이 노출됩니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_on">미니 플레이어에서 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_title">\'되감기\' &amp; \'앞으로 가기\' 버튼 숨기기</string>
@@ -963,9 +964,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때 가로 모드를 유지합니다.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간(밀리초)을 설정할 수 있습니다.
-
-화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
     <string name="revanced_keep_landscape_mode_title">가로 모드 유지하기</string>
     <string name="revanced_label_default">YouTube</string>
@@ -978,8 +977,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">드래그 앤드 드롭을 비활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">드래그 앤드 드롭을 활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">드래그 앤드 드롭 활성화하기</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 노출됩니다.\n• YouTube v19.20.35+에서는 위로 스와이프하여 미니 플레이어를 펼칠 수 없으므로 \'펼치기\' 버튼을 사용해야 합니다.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다.\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다.\n• YouTube v19.20.35+에서는 위로 스와이프하여 미니 플레이어를 펼칠 수 없으므로 \'펼치기\' 버튼을 사용해야 합니다.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 노출됩니다.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다.\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다.</string>
     <string name="revanced_miniplayer_hide_expand_close_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">\'되감기\' &amp; \'빨리 감기\' 버튼이 노출됩니다.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">\'되감기\' &amp; \'빨리 감기\' 버튼이 숨겨집니다.</string>
@@ -1007,6 +1006,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 길게 누르면 타임스탬프가 복사됩니다."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
+    <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
+    <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거 할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로드 버튼 표시하기</string>
     <string name="revanced_overlay_button_not_allowed_warning">버튼을 길게 눌러서 버튼 상태를 변경할 수 있습니다.</string>
