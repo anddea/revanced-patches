@@ -16,6 +16,8 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">El dominio del que se obtendrán las imágenes.\nNota: Introduzca solo el nombre del dominio, es decir, sin el prefijo \"https\:\/\/\".</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Dominio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow proporciona miniaturas de origen colectivo para los vídeos de YouTube. Estas miniaturas son a menudo más relevantes que las proporcionadas por YouTube.
 
 Si se activa, las URL de vídeo se enviarán al servidor API y no se enviará ningún otro dato. Si un video no tiene miniaturas de DeArrow, entonces se muestran las capturas originales o fijas.
@@ -48,6 +50,8 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Final del vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Tiempo de vídeo para tomar capturas fijas</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Pestaña de suscripciones</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Reemplaza el dominio que está bloqueado en algunas regiones para que se puedan recibir las miniaturas de vídeo, avatares de canales, imágenes de publicaciones de la comunidad, etc.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Utilizar dominio alternativo para imágenes</string>
     <string name="revanced_append_time_stamp_information_summary_off">La adición de información en la marca de tiempo está desactivada.</string>
     <string name="revanced_append_time_stamp_information_summary_on">La adición de información en la marca de tiempo está activada.</string>
     <string name="revanced_append_time_stamp_information_title">Añadir información en marca de tiempo</string>
@@ -1352,6 +1356,11 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Corazón (Tinte)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Oculto</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Animación de doble toque</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">El margen inferior del panel meta debe estar entre 0-64. Restablezca a los valores predeterminados.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configura el espaciado desde la barra de progreso al panel meta, entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Margen inferior del panel meta</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Mantén pulsada la marca de tiempo para cambiar el estado de repetición de los Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Acción de pulsación larga en marca de tiempo</string>
     <string name="revanced_show_video_title_section_summary">"Muestra la sección de título de vídeo en pantalla completa.
 
 Limitación: el título de vídeo desaparece cuando se pulsa."</string>

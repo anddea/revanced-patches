@@ -11,6 +11,8 @@
     <string name="gms_core_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення.</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">Домен для отримання зображень.\nЗауваження: Вводьте лише ім\'я домену, тобто без префікса \"https\:\/\/\".</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Альтернативний домен</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow надає краудсорсингові мініатюри для відео з YouTube. Ці мініатюри часто більш релевантні, ніж ті, що надаються YouTube. Якщо увімкнено, URL-адреси відео надсилатиметься на сервер API, а інші дані не надсилатиметься. Якщо для відео немає мініатюр DeArrow, зображається оригінал або кадр.
 
 Натисніть тут, щоб дізнатися більше про DeArrow."</string>
@@ -41,6 +43,8 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Вкладка Підписки</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Замінює домен, заблокований у деяких регіонах, щоб отримати мініатюри відео, аватари каналів, зображення публікацій спільноти, тощо.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Використовувати альтернативний домен для зображень</string>
     <string name="revanced_append_time_stamp_information_summary_off">Додавання інформації біля мітки часу вимкнено.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Додавання інформації біля мітки часу увімкнено.</string>
     <string name="revanced_append_time_stamp_information_title">Додавати інформацію біля мітки часу</string>
@@ -226,7 +230,9 @@
     <string name="revanced_enable_shorts_time_stamp_summary_off">Мітку часу вимкнено.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Мітку часу увімкнено.
 
-Відомо проблема: Оскільки ця функція на стадії розробки Google, макет може бути порушений."</string>
+Обмеження:
+Це налаштування вмикає не тільки мітку часу, але й дозволяє користувачам приховати інтерфейс, натиснувши на тло плеєра.
+• Оскільки ця функція на стадії розробки Google, макет може бути порушений."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Увімкнути мітку часу</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Зміну яскравості жестом вимкнено.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Зміну яскравості жестом увімкнено.</string>
@@ -915,7 +921,7 @@
     <string name="revanced_hide_video_by_duration_shorter_than_title">Коротші за тривалістю</string>
     <string name="revanced_hide_video_by_duration_summary">Приховати відео з меншою або більшою тривалістю.\n\nВідома проблема: Не приховуватимуться пов\'язані відео у плеєрі, натомість приховуватиметься мітку часу.</string>
     <string name="revanced_hide_video_by_duration_title">Приховати відео за тривалістю</string>
-    <string name="revanced_hide_video_by_view_counts_summary">Приховати рекомендовані відео з меншою за вказану кількість переглядів.\n\nВдома проблема: Відео з 0 переглядами не фільтруються.</string>
+    <string name="revanced_hide_video_by_view_counts_summary">Приховати рекомендовані відео з меншою за вказану кількість переглядів.\n\nВідома проблема: Відео з 0 переглядами не фільтруються.</string>
     <string name="revanced_hide_video_by_view_counts_title">Приховати рекомендовані відео за переглядами</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Відео з більше ніж ця кількість переглядів приховуватимуться.</string>
     <string name="revanced_hide_video_view_counts_greater_than_title">Більші за переглядами</string>
@@ -947,7 +953,7 @@
     <string name="revanced_icon_vanced_black">Vanced чорна</string>
     <string name="revanced_icon_vanced_light">Vanced світла</string>
     <string name="revanced_icon_youtube">YouTube</string>
-    <string name="revanced_keep_landscape_mode_summary">Зберігається ландшафтний режим під час вимкнення та ввімкнення екрана у повноекранному режимі.</string>
+    <string name="revanced_keep_landscape_mode_summary">Зберігає ландшафтний режим під час вимкнення та ввімкнення екрана у повноекранному режимі.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
     <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
@@ -957,7 +963,7 @@
 
 • Новітній 1: Подвійне натискання для зміни мінімізованого відео до більшого розміру.
 • Новітній 2, 3: Подвійне натискання для закриття мінімізованого відео."</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">Дія подвійного натискання</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">Увімкнути дію подвійного натискання</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Перетягування вимкнено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Перетягування увімкнено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Увімкнути перетягування</string>
@@ -1118,7 +1124,7 @@
     <string name="revanced_replace_time_stamp_action_summary_off">Натисніть, щоб показувався залишок часу.</string>
     <string name="revanced_replace_time_stamp_action_summary_on">Натисніть, щоб відкрити висувне меню швидкості відтворення або якості відео.</string>
     <string name="revanced_replace_time_stamp_action_title">Замінити дію мітки часу</string>
-    <string name="revanced_replace_toolbar_create_button_summary">Замінюється кнопку створення кнопкою налаштувань.</string>
+    <string name="revanced_replace_toolbar_create_button_summary">Замінює кнопку створення кнопкою налаштувань.</string>
     <string name="revanced_replace_toolbar_create_button_title">Замінити кнопку створення</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_off">"Натисніть, щоб відкрити налаштування YouTube.
 Натисніть і отримуйте, щоб відкрити Розширені налаштування."</string>
@@ -1166,7 +1172,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
-    <string name="revanced_sanitize_sharing_links_summary">Вилучаються параметри запиту відстеження з посилань під час поширення посилань.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Вилучає параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
     <string name="revanced_sb_about">Про Спонсорблок</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -1355,6 +1361,11 @@
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Серце (Тоноване)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Прихована</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Анімація подвійного натискання</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Нижній відступ метапанелі повинен бути в межах 0-64. Скинуто.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Налаштуйте відстань від панелі прогресу до метапанелі, діапазон 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Нижній відступ метапанелі</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Натисніть і утримуйте мітку часу для зміни станів повторення Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Дія довго натискання на мітку часу</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі.
 
 Обмеження: Назва відео зникає при натисканні."</string>

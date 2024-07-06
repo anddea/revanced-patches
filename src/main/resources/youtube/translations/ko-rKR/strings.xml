@@ -19,8 +19,8 @@
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">이 설정을 활성화하면 YouTube에서 원본 아바타, 커뮤니티 게시물의 이미지 등을 수신하는 도메인을 변경할 수 있습니다.</string>
     <string name="revanced_alt_thumbnail_alternative_domain_enable_title">모든 원본 사진에 대체 도메인 활성화하기</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">알림: \"https\:\/\/\" 없이 도메인을 입력하세요.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">도메인 설정하기</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">대체 도메인</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 동영상 스틸 컷 썸네일을 표시합니다.
@@ -53,6 +53,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 끝 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">동영상 스틸 컷 썸네일에 표시되는 이미지</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">구독 탭</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">일부 국가에서 차단된 도메인을 변경하여 동영상 썸네일, 채널 아바타, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">이미지에 대체 도메인 사용하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
@@ -240,7 +242,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">타임스탬프를 비활성화합니다.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"타임스탬프를 활성화합니다.
 
-알려진 문제점: Google의 개발 단계의 기능이기 때문에 레이아웃이 깨질 수 있습니다."</string>
+알려진 문제점:
+• 이 설정은 타임스탬프를 활성화할 뿐만 아니라 사용자가 플레이어 배경을 눌러서 레이아웃을 숨길 수 있도록 합니다.
+• 이 기능은 Google에서 개발 단계에 있는 기능이므로 레이아웃이 깨질 수 있습니다."</string>
     <string name="revanced_enable_shorts_time_stamp_title">타임스탬프 활성화하기</string>
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
@@ -548,9 +552,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_medical_panel_summary_off">의학 정보 패널이 노출됩니다.</string>
     <string name="revanced_hide_medical_panel_summary_on">의학 정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_medical_panel_title">의학 정보 패널 숨기기</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">상품 선반이 노출됩니다.</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">상품 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_merchandise_shelf_title">상품 선반 숨기기</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">제품 선반이 노출됩니다.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">제품 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_merchandise_shelf_title">제품 선반 숨기기</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_off">미니 플레이어에서 버튼이 노출됩니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_summary_on">미니 플레이어에서 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_mini_player_rewind_forward_button_title">\'되감기\' &amp; \'빨리 감기\' 버튼 숨기기</string>
@@ -963,9 +967,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때, 가로 모드를 유지합니다.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간(밀리초)을 설정할 수 있습니다.
-
-화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
     <string name="revanced_keep_landscape_mode_title">가로 모드 유지하기</string>
     <string name="revanced_label_default">YouTube</string>
@@ -974,7 +976,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 
 • 최신 1: 미니 플레이어를 두 번 눌러서 큰 사이즈로 변경할 수 있습니다.
 • 최신 2, 3: 미니 플레이어를 두 번 눌러서 닫을 수 있습니다."</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">두 번 누르기 동작</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">두 번 누르기 동작 활성화하기</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">드래그 앤드 드롭을 비활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">드래그 앤드 드롭을 활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">드래그 앤드 드롭 활성화하기</string>
@@ -1107,7 +1109,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_video_filter_title">동영상 필터</string>
     <string name="revanced_preference_screen_video_title">동영상</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">빠른 작업 상단 여백 값은 0-32 사이어야 하므로 기본값으로 초기화합니다.</string>
-    <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 작업 컨테이너까지의 간격을 0-32 사이로 설정할 수 있습니다.</string>
+    <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 작업 컨테이너까지의 간격을 0-32 사이로 지정할 수 있습니다.</string>
     <string name="revanced_quick_actions_top_margin_title">빠른 작업 상단 여백</string>
     <string name="revanced_quick_actions_top_margin_warning">상단 여백 값은 0-32 사이어야 하므로 기본값으로 초기화합니다.</string>
     <string name="revanced_reject_av1_codec_summary">"소프트웨어 AV1 코덱 응답을 강제로 거부합니다.
@@ -1373,6 +1375,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">하트 (엷은색)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">숨겨짐</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">두 번 누르기 애니메이션</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">메타 패널 하단 여백은 0-64 사이여야 하므로 기본값으로 초기화합니다.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">재생바에서 메타 패널까지의 간격을 0-64 사이로 지정할 수 있습니다.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">메타 패널 하단 여백</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">타임스탬프를 길게 눌러서 Shorts 반복 상태를 변경할 수 있습니다.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">타임스탬프 길게 누르기 동작</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다.
 
 알려진 문제점: 동영상 제목을 누르면 사라집니다."</string>
@@ -1515,7 +1522,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면 모드에서 스와이프 제스처를 활성화합니다.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면 모드에서 스와이프 제스처 활성화하기</string>
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">자동</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정할 수 있습니다. (0–255)</string>
     <string name="revanced_swipe_overlay_background_alpha_title">오버레이 투명도</string>
