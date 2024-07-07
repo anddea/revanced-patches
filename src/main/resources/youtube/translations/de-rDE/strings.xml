@@ -1313,14 +1313,14 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sb_stats_submissions">You\'ve created &lt;b&gt;%s&lt;/b&gt; segments</string>
     <string name="revanced_sb_stats_username">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Hier tippen, um deinen Benutzernamen zu ändern</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden: Status: %d %s</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">Benutzername konnte nicht geändert werden: Status: %1$d %2$s</string>
     <string name="revanced_sb_stats_username_changed">Benutzername wurde erfolgreich geändert</string>
     <string name="revanced_sb_submit_failed_duplicate">Das Segment kann nicht abgesendet werden. \nBereits vorhanden</string>
     <string name="revanced_sb_submit_failed_forbidden">Das Segment kann nicht gesendet werden: %s</string>
     <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s.</string>
     <string name="revanced_sb_submit_failed_rate_limit">Unable to submit segment.\nRate Limited (too many from the same user or IP).</string>
     <string name="revanced_sb_submit_failed_timeout">Segmente können nicht übermittelt werden (API Timeout)</string>
-    <string name="revanced_sb_submit_failed_unknown_error">Segmente können nicht übermittelt werden (status: %d %s)</string>
+    <string name="revanced_sb_submit_failed_unknown_error">Segmente können nicht übermittelt werden (status: %1$d %2$s)</string>
     <string name="revanced_sb_submit_succeeded">Segment erfolgreich gesendet</string>
     <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available.</string>
     <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available.</string>
@@ -1329,7 +1329,7 @@ Einschränkung: Dislikes werden im Inkognito Modus nicht angezeigt."</string>
     <string name="revanced_sb_vote_downvote">Negativ bewerten</string>
     <string name="revanced_sb_vote_failed_forbidden">Kann nicht für Segment abstimmen: %s</string>
     <string name="revanced_sb_vote_failed_timeout">Unable to vote for segment (API timed out).</string>
-    <string name="revanced_sb_vote_failed_unknown_error">Kann nicht für Segment abstimmen (status: %d %s)</string>
+    <string name="revanced_sb_vote_failed_unknown_error">Kann nicht für Segment abstimmen (status: %1$d %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
     <string name="revanced_sb_vote_upvote">Positiv bewerten</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
@@ -1499,16 +1499,16 @@ Limitations:
 • Sie sollten diese Einstellung deaktivieren, um Video-Werbung sichtbar zu machen."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Erstellungs- und Benachrichtigungs-Buttons tauschen</string>
     <string name="revanced_theme_default">Stock</string>
-    <string name="revanced_whitelist_add_failed">Der Kanal %s konnte nicht auf die Whitelist für %s gesetzt werden.</string>
-    <string name="revanced_whitelist_added">Der Kanal %s wurde auf die Whitelist für %s gesetzt.</string>
+    <string name="revanced_whitelist_add_failed">Der Kanal %1$s konnte nicht auf die Whitelist für %2$s gesetzt werden.</string>
+    <string name="revanced_whitelist_added">Der Kanal %1$s wurde auf die Whitelist für %2$s gesetzt.</string>
     <string name="revanced_whitelist_empty">Es gibt keine Kanäle auf der Whitelist.</string>
     <string name="revanced_whitelist_excluded">Nicht zur Whitelist hinzugefügt.</string>
     <string name="revanced_whitelist_failure_generic">Fehler beim Laden der Kanalinformationen.</string>
     <string name="revanced_whitelist_included">Zur Whitelist hinzugefügt.</string>
     <string name="revanced_whitelist_playback_speed">Wiedergabegeschwindigkeit</string>
     <string name="revanced_whitelist_remove_dialog_message">Kanal \'%1$s\' von %2$s entfernen?</string>
-    <string name="revanced_whitelist_remove_failed">Der Kanal %s konnte nicht von der Whitelist für %s entfernt werden.</string>
-    <string name="revanced_whitelist_removed">Der Kanal %s wurde von der Whitelist für %s entfernt.</string>
+    <string name="revanced_whitelist_remove_failed">Der Kanal %1$s konnte nicht von der Whitelist für %2$s entfernt werden.</string>
+    <string name="revanced_whitelist_removed">Der Kanal %1$s wurde von der Whitelist für %2$s entfernt.</string>
     <string name="revanced_whitelist_settings_summary">Überprüfen oder die Liste der Kanäle entfernen, die zur Whitelist hinzugefügt wurden.</string>
     <string name="revanced_whitelist_settings_title">Kanal Whitelist</string>
     <string name="revanced_whitelist_sponsor_block">Sponsorenblock</string>
