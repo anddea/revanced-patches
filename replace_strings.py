@@ -1,6 +1,7 @@
 import os
 from lxml import etree
 import sys
+import re
 
 # Set default value for the dynamic argument
 default_value = "youtube"
@@ -45,6 +46,32 @@ def main():
                 # Read and update language-specific strings.xml file
                 update_strings_file(strings_file, rvx_strings_file)
 
+def convert_to_positional_format(text):
+    """
+    Converts non-positional format specifiers in the given text to positional format specifiers
+    only if there are multiple specifiers, even of different types.
+
+    Args:
+    - text (str): The text to convert.
+
+    Returns:
+    - str: The text with converted format specifiers, if applicable.
+    """
+    # Regular expression to match format specifiers like %s, %d, etc.
+    specifier_regex = re.compile(r'%([sd])')
+    matches = specifier_regex.findall(text)
+
+    # Return original text if less than 2 specifiers are found
+    if len(matches) < 2:
+        return text
+
+    # Replace each specifier with its positional counterpart
+    for i, match in enumerate(matches, start=1):
+        text = re.sub(f'%{match}', f'%{i}${match}', text, count=1)
+
+    return text
+
+
 def update_strings_file(target_file, source_file):
     """
     Updates the target XML file with strings from the source XML file.
@@ -61,7 +88,7 @@ def update_strings_file(target_file, source_file):
     source_root = source_tree.getroot()
 
     # Create a dictionary for source strings
-    source_strings_map = {string.get("name"): string.text for string in source_root.findall("string")}
+    source_strings_map = {string.get("name"): convert_to_positional_format(string.text) for string in source_root.findall("string")}
 
     # Update target strings with source content
     for string in target_root.findall("string"):
