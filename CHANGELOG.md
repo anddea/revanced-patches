@@ -1,3 +1,10 @@
+# [2.227.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.15...v2.227.0-dev.16) (2024-07-07)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Language `de-rDE` was giving warnings during compilation ([20617d5](https://github.com/anddea/revanced-patches/commit/20617d51937c6117de0bd4735bf65e6cd4fa5ef4))
+
 # [2.227.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.14...v2.227.0-dev.15) (2024-07-07)
 
 
