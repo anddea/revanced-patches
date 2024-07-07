@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">\?</string>
-    <string name="accessibility_settings_edu_opt_out_text"/>
+    <string name="accessibility_settings_edu_opt_in_text">¿Activar controles de accesibilidad para el reproductor de vídeo?</string>
+    <string name="accessibility_settings_edu_opt_out_text">Tus controles se modifican porque un servicio de accesibilidad está activado.</string>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore no tiene permiso para ejecutarse en segundo plano.
 
@@ -297,7 +297,7 @@ Estos caracteres varían dependiendo de tu idioma.
     <string name="revanced_extended_settings_import">Importar</string>
     <string name="revanced_extended_settings_import_copy">Copiar</string>
     <string name="revanced_extended_settings_import_export_as_text_summary">Importar o exportar los ajustes como texto.</string>
-    <string name="revanced_extended_settings_import_export_as_text_title">Importar/Exportar como texto</string>
+    <string name="revanced_extended_settings_import_export_as_text_title">Importar / Exportar como texto</string>
     <string name="revanced_extended_settings_import_failed">Error al importar los ajustes.</string>
     <string name="revanced_extended_settings_import_reset">Los ajustes se restablecieron a los valores predeterminados.</string>
     <string name="revanced_extended_settings_import_success">Los ajustes se han importado correctamente.</string>
@@ -447,9 +447,9 @@ Tienda"</string>
     <string name="revanced_hide_floating_microphone_summary_off">El botón flotante del micrófono está visible.</string>
     <string name="revanced_hide_floating_microphone_summary_on">El botón flotante del micrófono está oculto.</string>
     <string name="revanced_hide_floating_microphone_title">Ocultar botón flotante del micrófono</string>
-    <string name="revanced_hide_for_you_shelf_summary_off">"Las estanterías Para Ti están visibles."</string>
-    <string name="revanced_hide_for_you_shelf_summary_on">"Las estanterías Para Ti están ocultas."</string>
-    <string name="revanced_hide_for_you_shelf_title">"Ocultar estanterías Para Ti"</string>
+    <string name="revanced_hide_for_you_shelf_summary_off">Las estanterías Para Ti están visibles.</string>
+    <string name="revanced_hide_for_you_shelf_summary_on">Las estanterías Para Ti están ocultas.</string>
+    <string name="revanced_hide_for_you_shelf_title">Ocultar estanterías Para Ti</string>
     <string name="revanced_hide_fullscreen_ads_blocked_success">Se han bloqueado anuncios en pantalla completa. (Tipo de diálogo: %s)</string>
     <string name="revanced_hide_fullscreen_ads_closed_success">Se han cerrado anuncios en pantalla completa.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Los anuncios en pantalla completa están visibles.</string>
@@ -522,9 +522,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_latest_posts_summary_off">Las últimas publicaciones están visibles.</string>
     <string name="revanced_hide_latest_posts_summary_on">Las últimas publicaciones están ocultas.</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas publicaciones</string>
-    <string name="revanced_hide_latest_videos_button_summary_off">"El botón de últimos vídeos está visible."</string>
-    <string name="revanced_hide_latest_videos_button_summary_on">"El botón de últimos vídeos está oculto."</string>
-    <string name="revanced_hide_latest_videos_button_title">"Ocultar botón de últimos vídeos"</string>
+    <string name="revanced_hide_latest_videos_button_summary_off">El botón de últimos vídeos está visible.</string>
+    <string name="revanced_hide_latest_videos_button_summary_on">El botón de últimos vídeos está oculto.</string>
+    <string name="revanced_hide_latest_videos_button_title">Ocultar botón de últimos vídeos</string>
     <string name="revanced_hide_like_dislike_button_summary_off">Los botones de me gusta y no me gusta están visibles.</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Los botones de me gusta y no me gusta están ocultos.</string>
     <string name="revanced_hide_like_dislike_button_title">Ocultar botones de me gusta y no me gusta</string>
@@ -575,9 +575,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_navigation_subscriptions_button_summary_off">El botón de suscripciones está visible.</string>
     <string name="revanced_hide_navigation_subscriptions_button_summary_on">El botón de suscripciones está oculto.</string>
     <string name="revanced_hide_navigation_subscriptions_button_title">Ocultar botón de suscripciones</string>
-    <string name="revanced_hide_notify_me_button_summary_off">"El botón de notificarme está visible."</string>
-    <string name="revanced_hide_notify_me_button_summary_on">"El botón de notificarme está oculto."</string>
-    <string name="revanced_hide_notify_me_button_title">"Ocultar botón de notificarme"</string>
+    <string name="revanced_hide_notify_me_button_summary_off">El botón de notificarme está visible.</string>
+    <string name="revanced_hide_notify_me_button_summary_on">El botón de notificarme está oculto.</string>
+    <string name="revanced_hide_notify_me_button_title">Ocultar botón de notificarme</string>
     <string name="revanced_hide_paid_promotion_label_summary_off">La etiqueta de promoción pagada está visible.</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">La etiqueta de promoción pagada está oculta.</string>
     <string name="revanced_hide_paid_promotion_label_title">Ocultar etiqueta de promoción pagada</string>
@@ -746,10 +746,10 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_settings_menu_filter_strings_hint">"Cuenta
 Ahorro de datos
 Subtítulos"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nombres del menú de ajustes de YouTube a filtrar separados por una nueva línea.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Filtro del menú de ajustes de YouTube</string>
-    <string name="revanced_hide_settings_menu_summary">Ocultar elementos en el menú de ajustes de YouTube.</string>
-    <string name="revanced_hide_settings_menu_title">Ocultar menú de ajustes de YouTube</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nombres del menú de configuración de YouTube a filtrar separados por una nueva línea.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Filtro de menú de configuración de YouTube</string>
+    <string name="revanced_hide_settings_menu_summary">Ocultar elementos del menú de configuración de YouTube.</string>
+    <string name="revanced_hide_settings_menu_title">Ocultar menú de configuración de YouTube</string>
     <string name="revanced_hide_share_button_summary_off">El botón de compartir está visible.</string>
     <string name="revanced_hide_share_button_summary_on">El botón de compartir está oculto.</string>
     <string name="revanced_hide_share_button_title">Ocultar botón de compartir</string>
@@ -853,9 +853,9 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_shorts_video_title_summary_off">El título está visible.</string>
     <string name="revanced_hide_shorts_video_title_summary_on">El título está oculto.</string>
     <string name="revanced_hide_shorts_video_title_title">Ocultar título de vídeo</string>
-    <string name="revanced_hide_show_more_button_summary_off">"El botón de mostrar más está visible."</string>
-    <string name="revanced_hide_show_more_button_summary_on">"El botón de mostrar más está oculto."</string>
-    <string name="revanced_hide_show_more_button_title">"Ocultar botón de mostrar más"</string>
+    <string name="revanced_hide_show_more_button_summary_off">El botón de mostrar más está visible.</string>
+    <string name="revanced_hide_show_more_button_summary_on">El botón de mostrar más está oculto.</string>
+    <string name="revanced_hide_show_more_button_title">Ocultar botón de mostrar más</string>
     <string name="revanced_hide_snack_bar_summary_off">La barra de notificaciones está visible.</string>
     <string name="revanced_hide_snack_bar_summary_on">La barra de notificaciones está oculta.</string>
     <string name="revanced_hide_snack_bar_title">Ocultar barra de notificaciones</string>
@@ -1019,8 +1019,8 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
     <string name="revanced_preference_category_duration_filter">Filtro de duración</string>
     <string name="revanced_preference_category_experimental_flag">Funciones experimentales</string>
-    <string name="revanced_preference_category_import_export_as_file">Importar/Exportar como archivo</string>
-    <string name="revanced_preference_category_import_export_as_text">Importar/Exportar como texto</string>
+    <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
+    <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
     <string name="revanced_preference_category_keyword_filter">Filtro de palabras clave</string>
     <string name="revanced_preference_category_others">Otros</string>
     <string name="revanced_preference_category_overlay_buttons">Botones superpuestos</string>
@@ -1063,7 +1063,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_screen_haptic_feedback_summary">Desactiva o activa la vibración.</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Vibración</string>
     <string name="revanced_preference_screen_import_export_summary">Importar o exportar los ajustes.</string>
-    <string name="revanced_preference_screen_import_export_title">Importar/Exportar ajustes</string>
+    <string name="revanced_preference_screen_import_export_title">Importar / Exportar ajustes</string>
     <string name="revanced_preference_screen_miniplayer_summary">Cambia el estilo del reproductor minimizado de la aplicación.</string>
     <string name="revanced_preference_screen_miniplayer_title">Minirreproductor</string>
     <string name="revanced_preference_screen_misc_title">Otros</string>
@@ -1185,12 +1185,12 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_color_reset">Color restablecido.</string>
     <string name="revanced_sb_create_segment_category">Creación de nuevos segmentos</string>
     <string name="revanced_sb_diff_segments">Cambiar comportamiento de segmentos</string>
-    <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ocultar automáticamente el botón omitir</string>
+    <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ocultar automáticamente el botón de omitir</string>
     <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">El botón de omitir se muestra durante todo el segmento.</string>
-    <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">El botón omitir se oculta después de unos segundos.</string>
+    <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">El botón de omitir se oculta después de unos segundos.</string>
     <string name="revanced_sb_enable_compact_skip_button">Usar botón compacto de omitir</string>
-    <string name="revanced_sb_enable_compact_skip_button_sum_off">El botón Omitir está diseñado para una mejor apariencia.</string>
-    <string name="revanced_sb_enable_compact_skip_button_sum_on">El botón Omitir está diseñado para una anchura mínima.</string>
+    <string name="revanced_sb_enable_compact_skip_button_sum_off">El botón de omitir está diseñado para una mejor apariencia.</string>
+    <string name="revanced_sb_enable_compact_skip_button_sum_on">El botón de omitir está diseñado para una anchura mínima.</string>
     <string name="revanced_sb_enable_create_segment">Mostrar botón de crear nuevo segmento</string>
     <string name="revanced_sb_enable_create_segment_sum_off">El botón de crear nuevo segmento está oculto.</string>
     <string name="revanced_sb_enable_create_segment_sum_on">El botón de crear nuevo segmento está visible.</string>
@@ -1241,33 +1241,33 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_sb_new_segment_preview_segment_first">Previsualiza el segmento y asegúrate de que se omite sin problemas.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">El inicio debe ser antes del final.</string>
     <string name="revanced_sb_new_segment_time_end">Tiempo en que finaliza el segmento</string>
-    <string name="revanced_sb_new_segment_time_start">Tiempo en que comienza el segmento</string>
+    <string name="revanced_sb_new_segment_time_start">Tiempo en que inicia el segmento</string>
     <string name="revanced_sb_new_segment_title">Nuevo segmento de SponsorBlock</string>
     <string name="revanced_sb_reset">Restablecer</string>
     <string name="revanced_sb_reset_color">Restablecer color</string>
-    <string name="revanced_sb_segments_filler">Tangente de relleno/Chistes</string>
+    <string name="revanced_sb_segments_filler">Tangente de relleno / Chistes</string>
     <string name="revanced_sb_segments_filler_sum">Escenas tangenciales añadidas solo para relleno o humor que no son necesarias para entender el contenido principal del vídeo. No incluye segmentos que proporcionen contexto o detalles de fondo.</string>
     <string name="revanced_sb_segments_highlight">Destacado</string>
     <string name="revanced_sb_segments_highlight_sum">La parte del vídeo que la mayoría de la gente busca.</string>
     <string name="revanced_sb_segments_interaction">Recordatorio de interacción (suscripción)</string>
     <string name="revanced_sb_segments_interaction_sum">Un breve recordatorio para que des me gusta, te suscribas o les sigas en medio del contenido. Si es largo o trata sobre algo específico, debería ir en la sección de promoción propia.</string>
-    <string name="revanced_sb_segments_intro">Intermedio/Animación de introducción</string>
+    <string name="revanced_sb_segments_intro">Intermedio / Animación de introducción</string>
     <string name="revanced_sb_segments_intro_sum">Un intervalo sin contenido real. Puede ser una pausa, un fotograma estático o una animación que se repite. No incluye transiciones que contengan información.</string>
     <string name="revanced_sb_segments_nomusic">Música: sección sin música</string>
     <string name="revanced_sb_segments_nomusic_sum">Solo para utilizar en vídeos musicales. Secciones de vídeos musicales sin música, que no estén ya cubiertas por otra categoría.</string>
-    <string name="revanced_sb_segments_outro">Tarjetas finales/Créditos</string>
+    <string name="revanced_sb_segments_outro">Tarjetas finales / Créditos</string>
     <string name="revanced_sb_segments_outro_sum">Créditos o cuando aparecen las tarjetas finales de YouTube. No es para conclusiones con información.</string>
-    <string name="revanced_sb_segments_preview">Adelanto/Resumen/Enganche</string>
+    <string name="revanced_sb_segments_preview">Adelanto / Resumen / Enganche</string>
     <string name="revanced_sb_segments_preview_sum">Colección de clips que muestran lo que está por venir o lo que sucedió en el vídeo o en otros vídeos de una serie, donde toda la información se repite en otra parte.</string>
-    <string name="revanced_sb_segments_selfpromo">Promoción propia/no pagada</string>
+    <string name="revanced_sb_segments_selfpromo">Promoción propia / no pagada</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similar a \"Patrocinador\", excepto cuando se trata de promoción propia o no pagada. Incluye secciones sobre mercancía, donaciones o información sobre con quién colaboraron.</string>
     <string name="revanced_sb_segments_sponsor">Patrocinador</string>
     <string name="revanced_sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No es para promoción propia ni para menciones gratuitas a causas, creadores, sitios web o productos que les gusten.</string>
     <string name="revanced_sb_settings_copy">Copiar</string>
     <string name="revanced_sb_settings_export_failed">Error al exportar: %s.</string>
-    <string name="revanced_sb_settings_ie">Importar/Exportar ajustes</string>
-    <string name="revanced_sb_settings_ie_sum">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados/exportados a ReVanced Extended y otras plataformas de SponsorBlock.</string>
-    <string name="revanced_sb_settings_ie_sum_warning">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados/exportados a ReVanced Extended y otras plataformas de SponsorBlock. Esto incluye tu ID de usuario privado. Asegúrate de compartir esto sabiamente.</string>
+    <string name="revanced_sb_settings_ie">Importar / Exportar ajustes</string>
+    <string name="revanced_sb_settings_ie_sum">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados / exportados a ReVanced Extended y otras plataformas de SponsorBlock.</string>
+    <string name="revanced_sb_settings_ie_sum_warning">Tus ajustes de SponsorBlock en formato JSON que pueden ser importados / exportados a ReVanced Extended y otras plataformas de SponsorBlock. Esto incluye tu ID de usuario privado. Asegúrate de compartir esto sabiamente.</string>
     <string name="revanced_sb_settings_import_failed">Error al importar: %s.</string>
     <string name="revanced_sb_settings_import_successful">Ajustes importados correctamente.</string>
     <string name="revanced_sb_settings_revanced_export_user_id_warning">Tus ajustes contienen un ID de usuario privado de SponsorBlock.\n\nTu ID de usuario es como una contraseña y nunca debe compartirse.\n</string>
@@ -1397,7 +1397,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restaura el antiguo panel desplegable del reproductor</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaura la antigua barra de acción de Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaura el antiguo comportamiento de la calidad predeterminada de vídeo</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">"18.48.39 - Desactiva la actualización en tiempo real de las visualizaciones y los me gusta"</string>
+    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Desactiva la actualización en tiempo real de las visualizaciones y los me gusta</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
     <string name="revanced_spoof_app_version_target_title">Editar versión falsa de la app</string>
@@ -1472,7 +1472,7 @@ Los efectos secundarios incluyen:
 • Pueden faltar calidades de vídeo superiores."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
-    <string name="revanced_spoof_device_dimensions_summary">Falsifica las dimensiones del dispositivo para desbloquear calidades de vídeo superiores que pueden no estar disponibles en tu dispositivo.</string>
+    <string name="revanced_spoof_device_dimensions_summary">"Falsifica las dimensiones del dispositivo para desbloquear calidades de vídeo superiores que pueden no estar disponibles en tu dispositivo."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensiones del dispositivo</string>
     <string name="revanced_spoof_format_stream_data_summary">"Falsifica los datos de formato de transmisión para evitar problemas de reproducción.
 
@@ -1501,9 +1501,9 @@ Limitación: los vídeos reproducidos automáticamente en el feed aparecerán en
 • Este cliente se utiliza con fines de prueba, por lo que la mayoría de las funciones de YouTube no están disponibles.
 • No hay problemas con el búfer de reproducción en el cliente de prueba."</string>
     <string name="revanced_spoof_test_client_title">Falsificar cliente de prueba</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_off">"Los gestos deslizantes están desactivados en el modo \"Bloquear pantalla\"."</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_on">"Los gestos deslizantes están activados en el modo \"Bloquear pantalla\"."</string>
-    <string name="revanced_swipe_gestures_lock_mode_title">"Gestos deslizantes en modo \"Bloquear pantalla\""</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">Los gestos deslizantes están desactivados en el modo \"Bloquear pantalla\".</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">Los gestos deslizantes están activados en el modo \"Bloquear pantalla\".</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">Gestos deslizantes en modo \"Bloquear pantalla\"</string>
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">Automático</string>
     <string name="revanced_swipe_magnitude_threshold_summary">La cantidad de umbral para que ocurra el deslizamiento.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Umbral de magnitud de deslizamiento</string>
