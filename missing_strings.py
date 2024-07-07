@@ -1,5 +1,7 @@
 import os
 import xml.etree.ElementTree as ET
+import xml.sax.saxutils as saxutils
+
 
 # Define source file path
 source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
@@ -67,6 +69,11 @@ def read_missing_strings(missing_file_path):
             return {}
     return {}
 
+
+def escape_xml_chars(text):
+    return saxutils.escape(text)
+
+
 def write_missing_strings(missing_file_path, missing_strings):
     """
     Write the missing strings to the missing_strings.xml file.
@@ -78,7 +85,7 @@ def write_missing_strings(missing_file_path, missing_strings):
     with open(missing_file_path, 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="utf-8"?>\n<resources>\n')
         for name, text in missing_strings.items():
-            f.write(f'    <string name="{name}">{text}</string>\n')
+            f.write(f'    <string name="{name}">{escape_xml_chars(text)}</string>\n')
         f.write('</resources>\n')
 
 def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path):
