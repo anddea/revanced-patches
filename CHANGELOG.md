@@ -1,3 +1,10 @@
+# [2.227.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.14...v2.227.0-dev.15) (2024-07-07)
+
+
+### Bug Fixes
+
+* Update broken Translations ([f2c2b21](https://github.com/anddea/revanced-patches/commit/f2c2b21821a497c8a88de9085f47b9c20c93a2e9))
+
 # [2.227.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.13...v2.227.0-dev.14) (2024-07-06)
 
 
