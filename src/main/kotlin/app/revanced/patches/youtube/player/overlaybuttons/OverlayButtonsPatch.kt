@@ -138,6 +138,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
                     "yt_outline_arrow_shuffle_1_white_24.png",
                     "yt_outline_screen_full_exit_white_24.png",
                     "yt_outline_screen_full_white_24.png",
+                    "yt_outline_screen_full_vd_theme_24.png",
                     "yt_outline_screen_vertical_vd_theme_24.png"
                 ),
                 ResourceGroup(

@@ -122,7 +122,7 @@ public final class app/revanced/patches/music/layout/branding/icon/CustomBrandin
 	public static final field INSTANCE Lapp/revanced/patches/music/layout/branding/icon/CustomBrandingIconPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun getAppIcon ()Ljava/lang/String;
+	public final fun getAppIcon ()Lapp/revanced/patcher/patch/options/PatchOption;
 }
 
 public final class app/revanced/patches/music/layout/branding/name/CustomBrandingNamePatch : app/revanced/util/patch/BaseResourcePatch {
@@ -1026,7 +1026,7 @@ public final class app/revanced/patches/youtube/layout/branding/icon/CustomBrand
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/icon/CustomBrandingIconPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun getAppIcon ()Ljava/lang/String;
+	public final fun getAppIcon ()Lapp/revanced/patcher/patch/options/PatchOption;
 }
 
 public final class app/revanced/patches/youtube/layout/branding/name/CustomBrandingNamePatch : app/revanced/util/patch/BaseResourcePatch {

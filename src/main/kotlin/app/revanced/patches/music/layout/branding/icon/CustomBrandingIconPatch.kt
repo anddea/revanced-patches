@@ -5,16 +5,18 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.settings.ResourceUtils.setIconType
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.underBarOrThrow
 import java.io.File
 import java.nio.file.Files
 
 @Suppress("DEPRECATION", "unused")
 object CustomBrandingIconPatch : BaseResourcePatch(
-    name = "Custom branding icon YouTube Music",
+    name = "Custom branding icon for YouTube Music",
     description = "Changes the YouTube Music app icon to the icon specified in options.json.",
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,
@@ -100,7 +102,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         )
     }
 
-    val AppIcon by stringPatchOption(
+    val AppIcon = stringPatchOption(
         key = "AppIcon",
         default = DEFAULT_ICON_KEY,
         values = availableIcon,
@@ -136,70 +138,74 @@ object CustomBrandingIconPatch : BaseResourcePatch(
     )
 
     override fun execute(context: ResourceContext) {
-        AppIcon?.let { appIcon ->
-            val appIconValue = appIcon.lowercase().replace(" ", "_")
-            val appIconResourcePath = "music/branding/$appIconValue"
 
-            // Check if a custom path is used in the patch options.
-            if (!availableIcon.containsValue(appIconValue)) {
-                launcherIconResourceGroups.let { resourceGroups ->
-                    try {
-                        val path = File(appIcon)
-                        val resourceDirectory = context["res"]
+        // Check patch options first.
+        val appIcon = AppIcon
+            .underBarOrThrow()
 
-                        resourceGroups.forEach { group ->
-                            val fromDirectory = path.resolve(group.resourceDirectoryName)
-                            val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+        val appIconResourcePath = "music/branding/$appIcon"
 
-                            group.resources.forEach { iconFileName ->
-                                Files.write(
-                                    toDirectory.resolve(iconFileName).toPath(),
-                                    fromDirectory.resolve(iconFileName).readBytes()
-                                )
-                            }
+        // Check if a custom path is used in the patch options.
+        if (!availableIcon.containsValue(appIcon)) {
+            launcherIconResourceGroups.let { resourceGroups ->
+                try {
+                    val path = File(appIcon)
+                    val resourceDirectory = context["res"]
+
+                    resourceGroups.forEach { group ->
+                        val fromDirectory = path.resolve(group.resourceDirectoryName)
+                        val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+
+                        group.resources.forEach { iconFileName ->
+                            Files.write(
+                                toDirectory.resolve(iconFileName).toPath(),
+                                fromDirectory.resolve(iconFileName).readBytes()
+                            )
                         }
-                    } catch (_: Exception) {
-                        // Exception is thrown if an invalid path is used in the patch option.
-                        throw PatchException("Invalid app icon path: $appIcon")
                     }
+                } catch (_: Exception) {
+                    // Exception is thrown if an invalid path is used in the patch option.
+                    throw PatchException("Invalid app icon path: $appIcon")
                 }
-            } else {
+            }
+        } else {
 
-                // Change launcher icon.
-                launcherIconResourceGroups.let { resourceGroups ->
+            // Change launcher icon.
+            launcherIconResourceGroups.let { resourceGroups ->
+                resourceGroups.forEach {
+                    context.copyResources("$appIconResourcePath/launcher", it)
+                }
+            }
+
+            // Change monochrome icon.
+            arrayOf(
+                ResourceGroup(
+                    "drawable",
+                    "ic_app_icons_themed_youtube_music.xml"
+                )
+            ).forEach { resourceGroup ->
+                context.copyResources("$appIconResourcePath/monochrome", resourceGroup)
+            }
+
+            // Change header.
+            if (ChangeHeader == true) {
+                headerIconResourceGroups.let { resourceGroups ->
                     resourceGroups.forEach {
-                        context.copyResources("$appIconResourcePath/launcher", it)
-                    }
-                }
-
-                // Change monochrome icon.
-                arrayOf(
-                    ResourceGroup(
-                        "drawable",
-                        "ic_app_icons_themed_youtube_music.xml"
-                    )
-                ).forEach { resourceGroup ->
-                    context.copyResources("$appIconResourcePath/monochrome", resourceGroup)
-                }
-
-                // Change header.
-                if (ChangeHeader == true) {
-                    headerIconResourceGroups.let { resourceGroups ->
-                        resourceGroups.forEach {
-                            context.copyResources("$appIconResourcePath/header", it)
-                        }
-                    }
-                }
-
-                // Change splash icon.
-                if (ChangeSplashIcon == true) {
-                    splashIconResourceGroups.let { resourceGroups ->
-                        resourceGroups.forEach {
-                            context.copyResources("$appIconResourcePath/splash", it)
-                        }
+                        context.copyResources("$appIconResourcePath/header", it)
                     }
                 }
             }
-        } ?: throw PatchException("Invalid app icon path.")
+
+            // Change splash icon.
+            if (ChangeSplashIcon == true) {
+                splashIconResourceGroups.let { resourceGroups ->
+                    resourceGroups.forEach {
+                        context.copyResources("$appIconResourcePath/splash", it)
+                    }
+                }
+            }
+
+            setIconType(appIcon)
+        }
     }
 }
