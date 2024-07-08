@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.layout.theme.BaseThemePatch.isMonetPatchIncluded
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusTheme
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 
 @Suppress("DEPRECATION", "unused")
@@ -38,7 +38,7 @@ object ThemePatch : BaseResourcePatch(
     private const val LIGHT_ORANGE_COLOR = "#FFFFE6CC"
     private const val LIGHT_RED_COLOR = "#FFFFD6D6"
 
-    private val DarkThemeBackgroundColor by stringPatchOption(
+    private val DarkThemeBackgroundColor = stringPatchOption(
         key = "DarkThemeBackgroundColor",
         default = AMOLED_BLACK_COLOR,
         values = mapOf(
@@ -56,7 +56,7 @@ object ThemePatch : BaseResourcePatch(
         required = true
     )
 
-    private val LightThemeBackgroundColor by stringPatchOption(
+    private val LightThemeBackgroundColor = stringPatchOption(
         key = "LightThemeBackgroundColor",
         default = WHITE_COLOR,
         values = mapOf(
@@ -111,11 +111,12 @@ object ThemePatch : BaseResourcePatch(
 
     override fun execute(context: ResourceContext) {
 
+        // Check patch options first.
         val darkThemeColor = DarkThemeBackgroundColor
-            ?: throw PatchException("Invalid dark color.")
+            .valueOrThrow()
 
         val lightThemeColor = LightThemeBackgroundColor
-            ?: throw PatchException("Invalid light color.")
+            .valueOrThrow()
 
         arrayOf("values", "values-v31").forEach { path ->
             context.xmlEditor["res/$path/colors.xml"].use { editor ->
