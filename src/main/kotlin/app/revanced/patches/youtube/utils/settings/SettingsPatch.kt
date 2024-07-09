@@ -13,13 +13,9 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreferenceFragment
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusSettings
-import app.revanced.util.ResourceGroup
-import app.revanced.util.classLoader
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
+import app.revanced.util.*
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.patch.BaseResourcePatch
-import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.Closeable
 import java.util.concurrent.Executors
@@ -42,7 +38,7 @@ object SettingsPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
 ), Closeable {
-    private const val DEFAULT_ELEMENT = "@string/about_key"
+    private const val DEFAULT_POSITION_KEY = "About"
     private const val DEFAULT_NAME = "ReVanced Extended"
 
     private val SETTINGS_ELEMENTS_MAP = mapOf(
@@ -67,12 +63,12 @@ object SettingsPatch : BaseResourcePatch(
         "Live chat" to "@string/live_chat_key",
         "Captions" to "@string/captions_key",
         "Accessibility" to "@string/accessibility_settings_key",
-        "About" to DEFAULT_ELEMENT
+        DEFAULT_POSITION_KEY to "@string/about_key",
     )
 
     private val InsertPosition = stringPatchOption(
         key = "InsertPosition",
-        default = DEFAULT_ELEMENT,
+        default = DEFAULT_POSITION_KEY,
         values = SETTINGS_ELEMENTS_MAP,
         title = "Insert position",
         description = "The settings menu name that the RVX settings menu should be above.",
@@ -108,8 +104,16 @@ object SettingsPatch : BaseResourcePatch(
         customName = RVXSettingsMenuName
             .valueOrThrow()
 
-        val insertKey = InsertPosition
-            .valueOrThrow()
+        // can be a key (case-insensitive) or a value
+        val rawLowerInsertKey = InsertPosition.lowerCaseOrThrow()
+
+        val lowerCaseSettingsMap = SETTINGS_ELEMENTS_MAP.mapKeys { it.key.lowercase() }
+
+        val insertKey = lowerCaseSettingsMap[rawLowerInsertKey]
+            // If not found, look for a matching value in the lowercase settings map
+            ?: lowerCaseSettingsMap.values.find { it == rawLowerInsertKey }
+            // If still not found, use the default position key from the original map
+            ?: SETTINGS_ELEMENTS_MAP[DEFAULT_POSITION_KEY]!!
 
         /**
          * set resource context
