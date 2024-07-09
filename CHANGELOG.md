@@ -1,3 +1,10 @@
+# [2.227.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.16...v2.227.0-dev.17) (2024-07-09)
+
+
+### Features
+
+* **YouTube - Settings:** Make `InsertPosition` case-insensitive and interchangeable between Setting name and Setting key ([#713](https://github.com/anddea/revanced-patches/issues/713)) ([269dc50](https://github.com/anddea/revanced-patches/commit/269dc50f707e6e15ff95a956dad34b4151860649))
+
 # [2.227.0-dev.16](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.15...v2.227.0-dev.16) (2024-07-07)
 
 
