@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Ενεργοποίηση των στοιχείων ελέγχου προσβασιμότητας για το πρόγραμμα αναπαραγωγής βίντεο;</string>
     <string name="accessibility_settings_edu_opt_out_text">Τα στοιχεία ελέγχου σας τροποποιούνται επειδή είναι ενεργή κάποια υπηρεσία προσβασιμότητας.</string>
@@ -514,7 +514,6 @@ Playlists
     <string name="revanced_hide_keyword_content_subscriptions_title">Φιλτράρισμα καρτέλας «Εγγραφές»</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη-κλειδί \'%1$s\' θα κρύβει όλα τα βίντεο.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Μη έγκυρη λέξη-κλειδί. Αδυναμία χρήσης: \'%s\' ως φίλτρο</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Μη έγκυρη λέξη-κλειδί. \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
     <string name="revanced_hide_latest_posts_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_latest_posts_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_latest_posts_title">Τελευταίες αναρτήσεις</string>
@@ -533,8 +532,6 @@ Playlists
     <string name="revanced_hide_live_chat_replay_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_live_chat_replay_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_live_chat_replay_title">Κουμπί επανάληψης ζωντανής συνομιλίας</string>
-    <string name="revanced_hide_low_views_video_summary">Απόκρυψη των βίντεο με λιγότερες από 1,000 προβολές από τη ροή τα οποία ανήκουν σε κανάλια που δεν είστε συνδρομητές.</string>
-    <string name="revanced_hide_low_views_video_title">Απόκρυψη βίντεο χαμηλών προβολών</string>
     <string name="revanced_hide_medical_panel_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_medical_panel_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_medical_panel_title">Πάνελ ιατρικών πληροφοριών</string>
@@ -940,8 +937,11 @@ Playlists
     <string name="revanced_hide_web_search_results_title">Αποτελέσματα αναζήτησης στο διαδίκτυο</string>
     <string name="revanced_icon_afn_blue">AFN Blue</string>
     <string name="revanced_icon_afn_red">AFN Red</string>
+    <string name="revanced_icon_custom">Προσαρμοσμένο</string>
     <string name="revanced_icon_default">Προεπιλογή</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blue</string>
+    <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Διατήρηση της οριζόντιας λειτουργίας στο κλείσιμο και άνοιγμα της οθόνης ενώ βρίσκεστε σε λειτουργία πλήρους οθόνης.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Ο αριθμός των χιλιοστών δευτερολέπτου που θα εξαναγκάζεται η οριζόντια λειτουργία.</string>
@@ -1103,9 +1103,7 @@ Playlists
     <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
-    <string name="revanced_remember_video_quality_mobile">Η προεπιλεγμένη ποιότητα δεδομένων άλλαξε σε %s.</string>
     <string name="revanced_remember_video_quality_none">Αποτυχία ορισμού ποιότητας βίντεο.</string>
-    <string name="revanced_remember_video_quality_wifi">Η προεπιλεγμένη ποιότητα με Wi-Fi άλλαξε σε %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Αφαίρεση του παραθύρου προειδοποίησης ηλικιακού περιορισμού.
 Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό, απλά τον αποδέχεται αυτόματα."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Παράθυρο ηλικιακού περιορισμού</string>
@@ -1397,13 +1395,10 @@ Playlists
     <string name="revanced_spoof_client_general_title">Γενικά βίντεο</string>
     <string name="revanced_spoof_client_livestream_title">Ζωντανές μεταδόσεις</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Ενσωματωμένος αναπαραγωγέας Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">Τηλεόραση HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Ιστός (Web)</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Κλιπ</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Η έκδοση παραποίησης δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Η έκδοση παραποίησης εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
@@ -1440,15 +1435,6 @@ Playlists
 • Το ιστορικό παρακολούθησης δε λειτουργεί με λογαριασμό επωνυμίας (Brand).
 • Η αναπαραγωγή ζωντανών μεταδόσεων σε λειτουργία ήχου μόνο δεν είναι διαθέσιμη.
 • Η αναπαραγωγή ζωντανών μεταδόσεων δεν είναι διαθέσιμη σε συσκευές Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Το πρόγραμμα πελάτη παραποιείται σε έκδοση Android VR. (η έκδοση iOS χρησιμοποιείται για Κλιπ ή Shorts)
-• Οι χειρονομίες σάρωσης αναπαραγωγέα του YouTube δε λειτουργούν.
-• Τα βίντεο YouTube Kids δεν αναπαράγονται.
-• Tα βίντεο σε παύση μπορεί να συνεχίσουν να παίζουν από μόνα τους."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Το πρόγραμμα πελάτη παραποιείται σε έκδοση iOS.
-• Το μενού ταχύτητας αναπαραγωγής λείπει.
-• Το ιστορικό αναπαραγωγής δεν λειτουργεί σε λογαριασμούς επωνυμίας (Brand).
-• Η αναπαραγωγή παρασκηνίου δεν λειτουργεί για ζωντανές μεταδόσεις σε λειτουργία ήχου μόνο.
-• Οι ζωντανές μεταδόσεις δεν παίζουν σε έκδοση Android 8.0."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Παραποίηση διαστάσεων συσκευής στη μέγιστη τιμή.
@@ -1480,7 +1466,6 @@ Playlists
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Το μέγεθος οθόνης πρέπει να ναι μικρότερο από 50, επαναφέρθηκε.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Ποσοστό επιφάνειας της οθόνης που μπορεί να γίνει η σάρωση.\n\nΣημείωση: Αυτό θα αλλάξει επίσης το μέγεθος της περιοχής οθόνης της χειρονομίας διπλού πατήματος για αναζήτηση.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Μέγεθος περιοχής οθόνης σάρωσης</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Το μέγεθος οθόνης πρέπει να ναι μικρότερο από %s%%, επαναφέρθηκε.</string>
     <string name="revanced_swipe_overlay_rect_summary">Ποσοστό επιφάνειας της οθόνης που μπορεί να γίνει η σάρωση.</string>
     <string name="revanced_swipe_overlay_rect_title">Μέγεθος οθόνης σάρωσης</string>
     <string name="revanced_swipe_overlay_rect_warning">Το μέγεθος οθόνης σάρωσης δεν μπορεί να είναι μεγαλύτερο από %s%%. Έγινε επαναφορά στην προεπιλεγμένη τιμή.</string>

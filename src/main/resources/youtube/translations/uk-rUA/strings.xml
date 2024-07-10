@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Керування змінено, оскільки служба спеціальних можливостей увімкнена.</string>
@@ -508,7 +508,6 @@
     <string name="revanced_hide_keyword_content_subscriptions_title">Приховати відео підписок за ключовими словами</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'%1$s\' приховає всі відео.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Невірне ключове слово. Неможливо використати \'%s\' як фільтр</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Невірне ключове слово. \'%1$s\' менше %2$d символів.</string>
     <string name="revanced_hide_latest_posts_summary_off">Останні публікації показується.</string>
     <string name="revanced_hide_latest_posts_summary_on">Останні публікації приховано.</string>
     <string name="revanced_hide_latest_posts_title">Приховати останні публікації</string>
@@ -527,8 +526,6 @@
     <string name="revanced_hide_live_chat_replay_summary_off">Кнопку повтору онлайн чату в правому нижньому куті показується.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
     <string name="revanced_hide_live_chat_replay_summary_on">Кнопку повтору онлайн чату в правому нижньому куті приховано.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
     <string name="revanced_hide_live_chat_replay_title">Приховати кнопку повтору онлайн чату</string>
-    <string name="revanced_hide_low_views_video_summary">Приховати відео з менш ніж 1,000 переглядів з головної стрічки, вантажені з каналів, на які не підписані.</string>
-    <string name="revanced_hide_low_views_video_title">Приховати відео з малою кількістю переглядів</string>
     <string name="revanced_hide_medical_panel_summary_off">Панелі про медицину показується.</string>
     <string name="revanced_hide_medical_panel_summary_on">Панелі про медицину приховано.</string>
     <string name="revanced_hide_medical_panel_title">Приховати медичні панелі</string>
@@ -919,11 +916,14 @@
     <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
     <string name="revanced_icon_afn_blue">AFN синя</string>
     <string name="revanced_icon_afn_red">AFN червона</string>
+    <string name="revanced_icon_custom">Користувацька</string>
     <string name="revanced_icon_default">Стандартна</string>
     <string name="revanced_icon_mmt">ММТ</string>
     <string name="revanced_icon_mmt_blue">MMT синя</string>
     <string name="revanced_icon_mmt_green">MMT зелена</string>
     <string name="revanced_icon_mmt_yellow">MMT жовта</string>
+    <string name="revanced_icon_revancify_blue">Revancify синя</string>
+    <string name="revanced_icon_revancify_red">Revancify червона</string>
     <string name="revanced_icon_revancify_yellow">Revancify жовта</string>
     <string name="revanced_icon_vanced_black">Vanced чорна</string>
     <string name="revanced_icon_vanced_light">Vanced світла</string>
@@ -1082,9 +1082,7 @@
     <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
-    <string name="revanced_remember_video_quality_mobile">Зміна типової якості при мобільному з\'єднанні на %s.</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити якість відео.</string>
-    <string name="revanced_remember_video_quality_wifi">Зміна типової якості при Wi-Fi на %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучається діалогове вікно.
 Це не обходить вікові обмеження, а просто приймається автоматично."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Вилучати діалогове вікно</string>
@@ -1109,10 +1107,6 @@
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старе меню якості відео не показується.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старе меню якості відео показується.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">"Використовується вбудовану назву каналу YouTube."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">"Використовується назву каналу взяту зі стрічки RSS.
-Отримання назви каналу може зайняти більше часу."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">Отримувати зі стрічки rss</string>
     <string name="revanced_ryd_about">Про Повернення дизлайків</string>
     <string name="revanced_ryd_attribution_summary">Дані про Дизлайки надаються за допомогою API Повернення дизлайків YouTube. Натисніть тут, щоб дізнатися більше.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1382,13 +1376,10 @@
     <string name="revanced_spoof_client_general_title">Загальні</string>
     <string name="revanced_spoof_client_livestream_title">Прямі трансляції</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Вбудований плеєр Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Тестовий Android</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">YouTube Shorts, Кліпи</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Імітований клієнт приховано в Статистика для сисадмінів.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Імітований клієнт показується в Статистика для сисадмінів.</string>
@@ -1433,19 +1424,6 @@
 • Історія перегляду не працює з акаунтом бренду.
 • Прямі трансляції не відтворюються як лише звук.
 • Прямі трансляції недоступні на Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Наразі імітується клієнт для Android VR. (Клієнт iOS використовується для Кліпів чи Shorts)
-
-Побічні ефекти включають:
-• Жести проведення у плеєрі не працюють.
-• Відео для дітей не відтворюються.
-• Призупинені відео можуть навмання продовжуватися."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Наразі імітується клієнт для iOS.
-
-Побічні ефекти включають:
-• Меню швидкості відтворення відсутнє.
-• Прямі трансляції не відтворюються як лише звук.
-• Прямі трансляції недоступні на Android 8.0.
-• Вищі якості відео можуть бути відсутні."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
@@ -1477,7 +1455,6 @@
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Розмір площі для проведення не може бути більшим ніж 50. Скинуто.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Відсоток площі екрана для проведення.\n\nЗауваження: це також змінить розмір площі екрану для жесту перемотування подвійним натисканням.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Розмір екрана накладки проведення</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Розмір площі для проведення не може бути більшим, ніж %s%%. Скинуто.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Розмір шрифту в панелі при жесті</string>
     <string name="revanced_swipe_overlay_text_size_title">Розмір шрифту панелі</string>
     <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд панель буде показуватися</string>

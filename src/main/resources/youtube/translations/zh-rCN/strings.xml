@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">开启视频播放器的访问控制？</string>
     <string name="accessibility_settings_edu_opt_out_text">由于无障碍服务已启用，您的控制被修改</string>
@@ -523,7 +523,6 @@
     <string name="revanced_hide_keyword_content_subscriptions_title">启用订阅视频关键词过滤器</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">关键词 \'%1$s\' 太宽，这将隐藏所有视频</string>
     <string name="revanced_hide_keyword_toast_invalid_common">关键词无效无法使用：\'%s\' 作为过滤器</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">关键字无效。\'%1$s\' 少于 %2$d 个字符</string>
     <string name="revanced_hide_latest_posts_summary_off">最新投稿已显示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新投稿已隐藏</string>
     <string name="revanced_hide_latest_posts_title">隐藏最新投稿</string>
@@ -539,8 +538,6 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">实时聊天重播按钮已显示\n\n关闭实时聊天时它会以全屏显示</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">实时聊天重播按钮已隐藏\n\n在关闭实时聊天时它会以全屏显示</string>
     <string name="revanced_hide_live_chat_replay_button_title">隐藏实时聊天重播按钮</string>
-    <string name="revanced_hide_low_views_video_summary">从主页隐藏未订阅的频道上传的且播放量少于 1,000 的推荐视频</string>
-    <string name="revanced_hide_low_views_video_title">隐藏低播放量的视频</string>
     <string name="revanced_hide_medical_panel_summary_off">医疗面板已显示</string>
     <string name="revanced_hide_medical_panel_summary_on">医疗面板已隐藏</string>
     <string name="revanced_hide_medical_panel_title">隐藏医疗面板</string>
@@ -929,8 +926,11 @@ Note:
     <string name="revanced_hide_web_search_results_title">隐藏网页搜索结果</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
+    <string name="revanced_icon_custom">Custom</string>
     <string name="revanced_icon_default">Stock</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blue</string>
+    <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
@@ -1086,9 +1086,7 @@ Note:
     <string name="revanced_remember_video_quality_last_selected_summary_off">画质更改仅适用于当前视频</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">画质更改适用于所有视频</string>
     <string name="revanced_remember_video_quality_last_selected_title">记住视频画质更改</string>
-    <string name="revanced_remember_video_quality_mobile">将默认移动数据画质更改为 %s</string>
     <string name="revanced_remember_video_quality_none">无法设置视频画质</string>
-    <string name="revanced_remember_video_quality_wifi">将默认 WiFi 画质更改为 %s</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"移除查看器的自由裁量对话框
 这不会绕过年龄限制它只会自动同意"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量对话框</string>
@@ -1111,9 +1109,6 @@ Note:
     <string name="revanced_restore_old_video_quality_menu_summary_off">不显示旧的视频画质菜单</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">显示旧的视频画质菜单</string>
     <string name="revanced_restore_old_video_quality_menu_title">恢复旧的视频画质菜单</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">使用 YouTube 内置的频道名称。</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">使用来自 RSS 订阅的频道名称。获取频道名称可能需要更长时间。</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">从 RSS 订阅获取</string>
     <string name="revanced_ryd_about">关于</string>
     <string name="revanced_ryd_attribution_summary">点踩数据由 Return YouTube Dislike API 提供。点击了解更多信息</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1376,13 +1371,10 @@ Note:
     <string name="revanced_spoof_client_general_title">常规设置</string>
     <string name="revanced_spoof_client_livestream_title">直播</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入式播放器</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android 测试套件</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">网址</string>
     <string name="revanced_spoof_client_shorts_title">短视频，剪辑</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">伪装客户端已在统计信息中隐藏</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">伪装客户端已在统计信息中显示</string>
@@ -1425,19 +1417,6 @@ Note:
 • 历史记录不适用于品牌帐号
 • 直播不能只作为音频播放
 • 直播在 Android 8.0 上不可用"</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"客户端已伪装为 Android VR (iOS 客户端用于 Clips 或 Shorts)
-
- 副作用：
- • 播放滑动手势无法使用
- • 无法播放儿童视频
- • 暂停的视频可以随机恢复"</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"已伪装为 IOS 客户端
-
-副作用:
-• 失去播放速度菜单
-• 无法在后台播放直播
-• 无法在 Android 8.0 播放直播
-• 可能失去视频更高画质"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">关闭此选项可能会导致视频不能正常播放</string>
     <string name="revanced_spoof_device_dimensions_summary">"伪装设备尺寸，以解锁设备可能无法提供的更高视频质量"</string>
@@ -1468,7 +1447,6 @@ Note:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑动区域大小不能超过50 重置为默认值</string>
     <string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比\n\n注意：这也会改变双击搜索手势的屏幕区域大小</string>
     <string name="revanced_swipe_overlay_rect_size_title">滑动叠加层大小</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">可滑动区域大小不能超过 %s%% 重置为默认值</string>
     <string name="revanced_swipe_overlay_text_size_summary">滑动叠加层上的文本大小</string>
     <string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>

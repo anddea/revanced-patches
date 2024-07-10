@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Video oynatıcı için erişilebilirlik kontrolleri açılsın mı?</string>
     <string name="accessibility_settings_edu_opt_out_text">Bir erişilebilirlik hizmeti açık olduğundan kontrolleriniz değiştirildi.</string>
@@ -491,7 +491,6 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_keyword_content_subscriptions_title">Abonelik videolarını anahtar kelimelerle gizle</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">\'%1$s\' anahtar kelimesi tüm videoları gizleyecek.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Geçersiz anahtar kelime. \'%s\' kullanılamaz</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Geçersiz anahtar kelime. \'%1$s\', %2$d karakterden az.</string>
     <string name="revanced_hide_latest_posts_summary_off">Son gönderiler gizlenmiyor.</string>
     <string name="revanced_hide_latest_posts_summary_on">Son gönderiler gizleniyor.</string>
     <string name="revanced_hide_latest_posts_title">\"Son yayınlar\"ı gizle</string>
@@ -507,8 +506,6 @@ Ortasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (
     <string name="revanced_hide_live_chat_replay_button_summary_off">Canlı sohbeti tekrar oynat düğmesi görünür.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Canlı sohbeti tekrar oynat düğmesi gizlidir.\n\nCanlı sohbet kapatıldığında tam ekranda görünür.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Canlı sohbet tekrarı butonunu gizle</string>
-    <string name="revanced_hide_low_views_video_summary">Abone olunmayan kanallardan yüklenen ana sayfa yayınlarında 1.000\'den az izlenen videoları gizleyin.</string>
-    <string name="revanced_hide_low_views_video_title">Az izlenen videoları gizle</string>
     <string name="revanced_hide_medical_panel_summary_off">Tıbbi bilgi içeren paneller gizlenmiyor.</string>
     <string name="revanced_hide_medical_panel_summary_on">Tıbbi bilgi içeren paneller gizleniyor.</string>
     <string name="revanced_hide_medical_panel_title">Tıbbi panelleri gizle</string>
@@ -890,8 +887,11 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
     <string name="revanced_hide_web_search_results_title">Web arama sonuçlarını gizle</string>
     <string name="revanced_icon_afn_blue">Afn Mavi</string>
     <string name="revanced_icon_afn_red">Afn Kırmızı</string>
+    <string name="revanced_icon_custom">Özel</string>
     <string name="revanced_icon_default">Stok</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Mavi</string>
+    <string name="revanced_icon_revancify_red">Revancify Kırmızı</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Ekranı tam ekranda kapatıp açarken yatay modu korur.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Manzara modunun zorlandığı milisaniye miktarı.</string>
@@ -1045,9 +1045,7 @@ Yaklaşık 20 saniyelik ara belleğe alma işleminin ardından farklı codec bil
     <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişimleri sadece oynatılan videoya uygulanıyor</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişimleri bütün videolara uygulanıyor</string>
     <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişimlerini hatırla</string>
-    <string name="revanced_remember_video_quality_mobile">Mobil ağda varsayılan video kalitesi %s olarak değiştiriliyor.</string>
     <string name="revanced_remember_video_quality_none">Video kalitesi ayarlanamadı.</string>
-    <string name="revanced_remember_video_quality_wifi">Wi-Fi\'da varsayılan video kalitesi %s olarak değiştiriliyor.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Görüntüleyicinin takdirine ilişkin iletişim kutusunu kaldırır. Bu yaş sınırlamasını atlamaz. Sadece otomatik olarak kabul ediyor."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">İzleyicinin takdirine bağlı iletişim kutusunu kaldır</string>
     <string name="revanced_replace_av1_codec_summary">AV1 codec yazılımı bileşenini VP9 kodeği ile değiştirin.</string>
@@ -1334,13 +1332,10 @@ Daha sonra kapatılırsa kullanıcı arayüzü hatalarını önlemek için uygul
     <string name="revanced_spoof_client_general_title">Genel</string>
     <string name="revanced_spoof_client_livestream_title">Canlı yayınlar</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android Gömülü Oynatıcı</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Test Paketi</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Klipler</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Taklit edilen istemci meraklılar için istatiklerde gösterilmiyor.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Taklit edilen istemci meraklılar için istatiklerde gösteriliyor.</string>
@@ -1385,18 +1380,6 @@ Yan etkiler şunları içerir:
 • İzleme geçmişi bir marka hesabıyla çalışmaz.
 • Canlı yayınlar yalnızca ses olarak oynatılamaz.
 • Canlı yayınlar Android 8.0'da mevcut değildir."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"İstemci şu anda Android VR'ye sahtedir. (iOS istemcisi Klipler veya Kısa Videolar için kullanılır)
-
-Yan etkiler şunları içerir:
-• Oyuncunun kaydırma hareketleri çalışmıyor.
-• Çocuk videoları oynatılmıyor.
-• Duraklatılan videolar rastgele devam ettirilebilir."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"İstemci şu anda iOS'a sahtedir.
-
-Yan etkiler şunları içerir:
-• Oynatma hızı menüsü eksik.
-• Arka planda oynatma canlı yayınlarda çalışmaz.
-• Daha yüksek video kaliteleri eksik olabilir."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Cihaz boyutlarını maksimum değere kadar taklit eder. Yüksek cihaz boyutları gerektiren bazı videolarda yüksek kalitenin kilidi açılabilir ancak tüm videolarda bu durum geçerli olmayabilir."</string>
@@ -1427,7 +1410,6 @@ Bilinen sorunlar:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Kaydırılabilir alan boyutu 50\'den fazla olamaz. Varsayılan değere sıfırlayın.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Kaydırılabilir ekran alanının yüzdesi.\n\nNot: Bu aynı zamanda aramak için iki kez dokunma hareketi için ekran alanının boyutunu da değiştirecektir.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Kaydırma arayüzü boyutu</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Kaydırılabilir alan boyutu %s%%\'den fazla olamaz. Varsayılan değere sıfırlayın.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Kaydırma animasyonu için metin boyutu</string>
     <string name="revanced_swipe_overlay_text_size_title">Kaydırma metin boyutu</string>
     <string name="revanced_swipe_overlay_timeout_summary">Kaplamanın görünür olduğu milisaniye miktarı</string>

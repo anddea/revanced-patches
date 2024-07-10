@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Activer les contrôles d\'accessibilité pour le lecteur vidéo ?</string>
     <string name="accessibility_settings_edu_opt_out_text">Vos contrôles sont modifiés car un service d\'accessibilité est activé.</string>
@@ -508,7 +508,6 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_keyword_content_subscriptions_title">Filtrer \"Abonnements\" par mots-clés</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Le mot-clé \"%1$s\" masquera toutes les vidéos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Mot-clé invalide. Impossible d\'utiliser : \'%s\' comme filtre.</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Mot-clé invalide. \'%1$s\' contient moins de %2$d caractères.</string>
     <string name="revanced_hide_latest_posts_summary_off">Les posts récents sont affichés.</string>
     <string name="revanced_hide_latest_posts_summary_on">Les posts récents sont masqués.</string>
     <string name="revanced_hide_latest_posts_title">Masquer les posts récents</string>
@@ -524,8 +523,6 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_live_chat_replay_button_summary_off">Le bouton Replay du chat en direct est affiché.\n\nPeut apparaître en plein écran lors de la fermeture du chat en direct.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Le bouton Replay du chat en direct est masqué.\n\nPeut apparaître en plein écran lors de la fermeture du chat en direct.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Masquer le bouton de chat en direct en replay</string>
-    <string name="revanced_hide_low_views_video_summary">Masque les vidéos avec moins de 1,000 vues dans le fil \"accueil\" qui ont été mis en ligne par des personnes auquel vous n\'êtes pas abonnés.</string>
-    <string name="revanced_hide_low_views_video_title">Masquer les vidéos avec peu de vues</string>
     <string name="revanced_hide_medical_panel_summary_off">Les panneaux d\'infos médicaux sont affichés.</string>
     <string name="revanced_hide_medical_panel_summary_on">Les panneaux d\'infos médicaux sont masqués.</string>
     <string name="revanced_hide_medical_panel_title">Masquer les panneaux d\'infos médicaux</string>
@@ -920,8 +917,11 @@ Problèmes connus :
     <string name="revanced_hide_web_search_results_title">Masquer les résultats web</string>
     <string name="revanced_icon_afn_blue">Afn Bleu</string>
     <string name="revanced_icon_afn_red">Afn Rouge</string>
+    <string name="revanced_icon_custom">Personnalisé</string>
     <string name="revanced_icon_default">Officiel</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Bleu</string>
+    <string name="revanced_icon_revancify_red">Revancify Rouge</string>
     <string name="revanced_icon_youtube">Youtube</string>
     <string name="revanced_keep_landscape_mode_summary">Maintient le mode paysage lorsque l\'écran est éteint et rallumé en mode plein écran.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Durée en millisecondes pendant lesquelles le mode paysage est forcé après l\'allumage de l\'écran.</string>
@@ -1081,9 +1081,7 @@ Un codec différent sera appliqué après environ 20 secondes de mise en mémoir
     <string name="revanced_remember_video_quality_last_selected_summary_off">La modification de la résolution est appliqué pour la vidéo en cours.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">La modification de la résolution est appliqué pour toutes les vidéos.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Enreg. modification de la qualité</string>
-    <string name="revanced_remember_video_quality_mobile">La résolution sur les données mobiles a été modifiée par %s.</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité vidéo.</string>
-    <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Supprime le message \"Confirmer votre âge\".
 Cela ne contourne pas la restriction d'âge, mais le confirme automatiquement."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Suppr. Message \"Confirmer votre âge\"</string>
@@ -1378,13 +1376,10 @@ Si l'option est désactivée ultérieurement, il est recommandé d'effacer les d
     <string name="revanced_spoof_client_general_title">Général</string>
     <string name="revanced_spoof_client_livestream_title">Contenu en direct</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Lecteur intégré Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Test suite</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Clips</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Le client falsifié est masqué dans les Statistiques avancées.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Le client falsifié est affiché dans les Statistiques avancées.</string>
@@ -1460,7 +1455,6 @@ Limitations :
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La zone glissable ne peut pas être supérieure à 50. Valeur réinitialisée par défaut.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Pourcentage de la zone de l\'écran pouvant être glissée.\n\nNote : Cela affecte également la zone du double appui pour avancer/reculer dans la vidéo.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Taille de la zone de gestes</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">La zone glissable ne peut pas être supérieure à %s%%. Valeur réinitialisée par défaut.</string>
     <string name="revanced_swipe_overlay_text_size_summary">La taille du texte pendant le voile lors du geste.</string>
     <string name="revanced_swipe_overlay_text_size_title">Taille du texte superposé</string>
     <string name="revanced_swipe_overlay_timeout_summary">La quantité de millisecondes pendant laquelle la superposition est visible.</string>

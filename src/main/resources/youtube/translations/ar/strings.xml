@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">تمكين عناصر التحكم في إمكانية الوصول لمشغل الفيديو؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
@@ -508,7 +508,6 @@
     <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء الفيديوهات الخاصة بالاشتراك عن طريق الكلمات الرئيسية</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة الرئيسية \'%1$s\' ستؤدي إلى إخفاء جميع مقاطع الفيديو.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">الكلمة الرئيسية غير صالحة. لا يمكن استخدام: \'%s\' كعامل تصفية</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">الكلمة الرئيسية غير صالحة. \'%1$s\' أقل من %2$d حرف.</string>
     <string name="revanced_hide_latest_posts_summary_off">يتم عرض أحدث المشاركات.</string>
     <string name="revanced_hide_latest_posts_summary_on">تم إخفاء أحدث المشاركات.</string>
     <string name="revanced_hide_latest_posts_title">إخفاء آخر المشاركات</string>
@@ -524,8 +523,6 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">يتم عرض زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">تم إخفاء زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
     <string name="revanced_hide_live_chat_replay_button_title">إخفاء زر إعادة عرض المحادثات المباشرة</string>
-    <string name="revanced_hide_low_views_video_summary">إخفاء مقاطع الفيديو التي حصلت على أقل من 1000 مشاهدة من موجز الصفحة الرئيسية التي تم تحميلها من القنوات غير المشترك بها.</string>
-    <string name="revanced_hide_low_views_video_title">إخفاء فيديو المشاهدات المنخفضة</string>
     <string name="revanced_hide_medical_panel_summary_off">يتم عرض اللوحات الطبية.</string>
     <string name="revanced_hide_medical_panel_summary_on">تم إخفاء اللوحات الطبية.</string>
     <string name="revanced_hide_medical_panel_title">إخفاء اللوحات الطبية</string>
@@ -913,8 +910,11 @@
     <string name="revanced_hide_web_search_results_title">إخفاء نتائج بحث الويب</string>
     <string name="revanced_icon_afn_blue">AFN Blue</string>
     <string name="revanced_icon_afn_red">AFN Red</string>
+    <string name="revanced_icon_custom">مخصص</string>
     <string name="revanced_icon_default">الإفتراضي</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blue</string>
+    <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">يحافظ على الوضع الأفقي عند إيقاف تشغيل الشاشة وتشغيلها في وضع ملء الشاشة.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">مقدار اجزاء الثانية التي يتم فرضها على الوضع الأفقي بعد تشغيل الشاشة.</string>
@@ -1068,9 +1068,7 @@
     <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات.</string>
     <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
-    <string name="revanced_remember_video_quality_mobile">تغيير جودة بيانات الجوّال الافتراضية إلى %s.</string>
     <string name="revanced_remember_video_quality_none">فشل في تعيين جودة الفيديو.</string>
-    <string name="revanced_remember_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"يزيل مربع حوار تقدير المشاهد. هذا لا يتجاوز القيود العمرية. إنه يقبل ذلك تلقائيًا."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">إزالة مربع حوار تقدير المشاهد</string>
     <string name="revanced_replace_av1_codec_summary">يستبدل برنامج الترميز AV1 ببرنامج الترميز VP9.</string>
@@ -1361,13 +1359,10 @@
     <string name="revanced_spoof_client_general_title">عام</string>
     <string name="revanced_spoof_client_livestream_title">بث مباشر</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">مشغل أندرويد المضمن</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">مقاطع ,Shorts</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">تم إخفاء محاكاة العميل في إحصاءات تقنية.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">يتم عرض محاكاة العميل في إحصاءات تقنية.</string>
@@ -1412,19 +1407,6 @@
 • سجل المشاهدة لا يعمل مع حساب العلامة التجارية.
 • لا يمكن تشغيل البث المباشر كصوت فقط.
 • البث المباشر غير متوفر على Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"تتم حاليًا محاكاة العميل إلى Android VR. (يتم استخدام عميل iOS للمقاطع أو Shorts)
-
-تشمل الآثار الجانبية ما يلي:
-• إيماءات التمرير الخاصة بالمشغل لا تعمل.
-• لا يتم تشغيل مقاطع فيديو الأطفال.
-• يمكن استئناف مقاطع الفيديو المتوقفة مؤقتًا بشكل عشوائي."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"تتم حاليًا محاكاة العميل إلى iOS.
-
-تشمل الآثار الجانبية ما يلي:
-• قائمة سرعة التشغيل مفقودة.
-• لا يمكن تشغيل البث المباشر كصوت فقط.
-• البث المباشر غير متوفر على Android 8.0.
-• قد تكون جودة الفيديو الأعلى مفقودة."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.
@@ -1460,7 +1442,6 @@
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير السريع عن 50. إعادة التعيين إلى القيمة الافتراضية.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">النسبة المئوية لمساحة الشاشة القابلة للتمرير السريع.\n\nملاحظة: سيؤدي هذا أيضًا إلى تغيير حجم مساحة الشاشة لإيماءة النقر المزدوج للتقديم أو التأخير.</string>
     <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير السريع عن %s%%. إعادة التعيين إلى القيمة الافتراضية.</string>
     <string name="revanced_swipe_overlay_text_size_summary">حجم النص على واجهة التمرير.
 
 الافتراضي:27</string>
