@@ -1,3 +1,10 @@
+# [2.227.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.17...v2.227.0-dev.18) (2024-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Branding:** Patch fails when selecting some custom icons ([3660723](https://github.com/anddea/revanced-patches/commit/36607234cb8755d9e703d342674284dc2dbd4c8c))
+
 # [2.227.0-dev.17](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.16...v2.227.0-dev.17) (2024-07-09)
 
 
