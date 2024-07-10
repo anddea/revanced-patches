@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Ativar os controles de acessibilidade para o reprodutor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Seus controles foram modificados porque um serviço de acessibilidade está ativado.</string>
@@ -507,7 +507,6 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_keyword_content_subscriptions_title">Ocultar vídeos no feed de inscrições por palavras-chave</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%1$s\' irá ocultar todos os vídeos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Palavra-chave inválida. Não pode usar: \'%s\' como um filtro</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Palavra-chave inválida. \'%1$s\' tem menos de %2$d caracteres</string>
     <string name="revanced_hide_latest_posts_summary_off">As últimas postagens serão exibidas.</string>
     <string name="revanced_hide_latest_posts_summary_on">As últimas postagens estão ocultas.</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas postagens</string>
@@ -523,8 +522,6 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_live_chat_replay_button_summary_off">O botão de repetição do chat ao vivo será exbido.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">O botão de repetição do chat ao vivo está oculto.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Ocultar botão de repetição do chat ao vivo</string>
-    <string name="revanced_hide_low_views_video_summary">Ocultar vídeos com menos de 1.000 visualizações do feed de início que foram enviadas de canais não inscritos.</string>
-    <string name="revanced_hide_low_views_video_title">Ocultar vídeos com baixas visualizações</string>
     <string name="revanced_hide_medical_panel_summary_off">Os painéis médicos serão exibidos.</string>
     <string name="revanced_hide_medical_panel_summary_on">Os painéis médicos estão ocultos.</string>
     <string name="revanced_hide_medical_panel_title">Ocultar painéis médicos</string>
@@ -913,8 +910,11 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
     <string name="revanced_hide_web_search_results_title">Ocultar resultados da pesquisa web</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
+    <string name="revanced_icon_custom">Personalizado</string>
     <string name="revanced_icon_default">Padrão</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blue</string>
+    <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Mantenha o modo paisagem ao desligar e ligar em tela cheia.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">A quantidade de milissegundos que o modo paisagem é forçado.</string>
@@ -1069,9 +1069,7 @@ Após cerca de 20 segundos de buffer, muda para um codec diferente."</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">As alterações de qualidade só se aplicam ao vídeo atual.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">As alterações de qualidade aplicam-se a todos os vídeos.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Lembrar alterações na qualidade do vídeo</string>
-    <string name="revanced_remember_video_quality_mobile">Alterando a qualidade padrão de dados móveis para %s.</string>
     <string name="revanced_remember_video_quality_none">Falha ao definir a qualidade de vídeo.</string>
-    <string name="revanced_remember_video_quality_wifi">Alterando a qualidade padrão do Wi-Fi para %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Remover o diálogo discricionário de visualização.
 Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remover o diálogo discricionário do visualizador</string>
@@ -1363,13 +1361,10 @@ Se for desativado posteriormente, é recomendável limpar os dados do aplicativo
     <string name="revanced_spoof_client_general_title">Geral</string>
     <string name="revanced_spoof_client_livestream_title">Transmissões ao vivo</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Reprodutor Incorporado Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Suite de teste Android</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Clipes</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">O cliente falsificado é oculto em Estatísticas para nerds.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">O cliente falsificado é exibido em Estatísticas para nerds.</string>
@@ -1409,19 +1404,6 @@ Os efeitos colaterais incluem:
 • O histórico de exibição não funciona com uma conta de marca.
 • As transmissões ao vivo não podem ser reproduzidas apenas como áudio.
 • Transmissões ao vivo não disponíveis no Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"O cliente está atualmente falsificado para Android VR. (O cliente iOS é usado para clipes ou Shorts)
-
-Os efeitos colaterais incluem:
-• Os gestos de deslizar do reprodutor não funcionam.
-• Os vídeos infantis não são reproduzidos.
-• Os vídeos pausados podem ser retomados aleatoriamente."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"O cliente está atualmente falsificado para iOS.
-
-Os efeitos colaterais incluem:
-• O menu de velocidade de reprodução está ausente.
-• As transmissões ao vivo não podem ser reproduzidas apenas como áudio.
-• Transmissões ao vivo não disponíveis no Android 8.0.
-• Qualidades de vídeo superiores podem estar faltando."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifica as dimensões do dispositivo para o valor máximo.
@@ -1453,7 +1435,6 @@ Limitações:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">O tamanho da área deslizável não pode ser maior que 50. Redefinir ao valor padrão.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Porcentagem de área deslizável da tela.\n\nNota: isto também altera o tamanho da área da tela para o gesto de toque duplo na tela.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Tamanho da área deslizável da tela de sobreposição</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Tamanho da área deslizável não pode ser maior que %s%%. Redefinir para o valor padrão.</string>
     <string name="revanced_swipe_overlay_text_size_summary">O tamanho do texto para a sobreposição de gestos</string>
     <string name="revanced_swipe_overlay_text_size_title">Tamanho do texto da sobreposição de gestos</string>
     <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível.</string>

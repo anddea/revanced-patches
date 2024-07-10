@@ -1,9 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Включить специальные возможности в плеере?</string>
     <string name="accessibility_settings_edu_opt_out_text">Служба специальных возможностей включена. Управление изменено.</string>
     <string name="gms_core_dialog_continue_text">Продолжить</string>
-    <string name="gms_core_dialog_dismiss_text">Больше не показывать</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не имеет разрешения на запуск в фоновом режиме.
 
 Следуйте инструкции \"Don't kill my app!\" для вашего устройства и примените её к вашему GmsCore.
@@ -17,8 +16,6 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">Этот параметр позволяет заменить домен, с которого YouTube получает оригинальные аватары, изображения публикаций сообщества и т.д.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">Использовать альтернативный домен для оригинальных картинок</string>
     <string name="revanced_alt_thumbnail_alternative_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
     <string name="revanced_alt_thumbnail_alternative_domain_title">Альтернативный домен</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет краудсорсинговые миниатюры для видео на YouTube. Они часто более актуальны, чем те, что предоставлены YouTube.
@@ -73,7 +70,6 @@
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Повторять</string>
     <string name="revanced_change_shorts_repeat_state_title">Состояние повторов в Shorts</string>
     <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
-    <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По умолчанию</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
     <string name="revanced_change_start_page_entry_gaming">Игры</string>
@@ -83,7 +79,6 @@
     <string name="revanced_change_start_page_entry_live">Трансляции</string>
     <string name="revanced_change_start_page_entry_movies">Фильмы</string>
     <string name="revanced_change_start_page_entry_music">Музыка</string>
-    <string name="revanced_change_start_page_entry_playables">Игротека</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
@@ -317,8 +312,6 @@
 • Нажатии на временную метку в комментариях.
 • Запуске видео."</string>
     <string name="revanced_force_fullscreen_title">Принудительный полноэкранный режим</string>
-    <string name="revanced_gms_show_dialog_summary">Показывает диалоговое окно оптимизации для GMSCore при каждом запуске приложения.</string>
-    <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации для GMSCore</string>
     <string name="revanced_header_default">По умолчанию</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр элементов меню аккаунта</string>
@@ -503,7 +496,6 @@ Shorts
     <string name="revanced_hide_keyword_content_comments_summary_off">Фильтр комментариев отключен.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Фильтр комментариев включен.</string>
     <string name="revanced_hide_keyword_content_comments_title">Фильтр комментариев</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Только целые слова</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Фильтр видео в \"Главная\" отключен.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Фильтр видео в \"Главная\" включен.</string>
     <string name="revanced_hide_keyword_content_home_title">Фильтр видео в \"Главная\"</string>
@@ -519,7 +511,6 @@ Shorts
     <string name="revanced_hide_keyword_content_subscriptions_title">Фильтр видео в подписках</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово \'%1$s\' не точное и скроет все видео</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Недопустимо. \'%s\' не подходит в качестве фильтра.</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Недопустимое ключевое слово. \'%1$s\' это менее %2$d символов</string>
     <string name="revanced_hide_latest_posts_summary_off">Последние публикации отображены.</string>
     <string name="revanced_hide_latest_posts_summary_on">Последние публикации скрыты.</string>
     <string name="revanced_hide_latest_posts_title">Последние публикации</string>
@@ -535,8 +526,6 @@ Shorts
     <string name="revanced_hide_live_chat_replay_button_summary_off">Кнопка \"Повтор\" в онлайн чате отображена.\n\nПоявляется в полноэкранном режиме при закрытии онлайн чата.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Кнопка \"Повтор\" в онлайн чате скрыта.\n\nПоявляется в полноэкранном режиме при закрытии онлайн чата.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Скрыть кнопку \"Повтор\" в онлайн чате</string>
-    <string name="revanced_hide_low_views_video_summary">Скрыть видео с менее 1000 просмотров из ленты, из каналов от которых Вы отписались.</string>
-    <string name="revanced_hide_low_views_video_title">Скрыть видео с низкими просмотрами</string>
     <string name="revanced_hide_medical_panel_summary_off">Медицинские панели отображены.</string>
     <string name="revanced_hide_medical_panel_summary_on">Медицинские панели скрыты.</string>
     <string name="revanced_hide_medical_panel_title">Медицинские панели</string>
@@ -758,9 +747,6 @@ Shorts
     <string name="revanced_hide_shorts_comments_button_summary_off">Кнопка \"Комментарии\" отображена.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Кнопка \"Комментарии\" скрыта.</string>
     <string name="revanced_hide_shorts_comments_button_title">Кнопка \"Комментарии\"</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Кнопка отключенных комментариев отображена.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Кнопка отключенных комментариев скрыта.</string>
-    <string name="revanced_hide_shorts_comments_disabled_button_title">Скрыть кнопку с отключенными комментариями</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Дизлайк\" отображена.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопка \"Дизлайк\" скрыта.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Кнопка \"Дизлайк\"</string>
@@ -940,14 +926,11 @@ Shorts
     <string name="revanced_hide_web_search_results_title">Результаты веб поиска</string>
     <string name="revanced_icon_afn_blue">Иконка Afn синяя</string>
     <string name="revanced_icon_afn_red">Иконка Afn красная</string>
+    <string name="revanced_icon_custom">Пользовательский</string>
     <string name="revanced_icon_default">По умолчанию</string>
     <string name="revanced_icon_mmt">MMT</string>
-    <string name="revanced_icon_mmt_blue">MMT Blue</string>
-    <string name="revanced_icon_mmt_green">MMT Green</string>
-    <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
-    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
-    <string name="revanced_icon_vanced_black">Vanced Black</string>
-    <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_revancify_blue">Revancify синяя</string>
+    <string name="revanced_icon_revancify_red">Revancify красная</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Удерживает альбомный режим в полноэкранном режиме.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Количество миллисекунд, в течение которых принудительно работает альбомный режим.</string>
@@ -995,8 +978,6 @@ Shorts
     <string name="revanced_overlay_button_copy_video_url_title">Кнопка копировать URL видео</string>
     <string name="revanced_overlay_button_external_downloader_summary">Запустить внешний загрузчик.</string>
     <string name="revanced_overlay_button_external_downloader_title">Кнопка внешний загрузчик</string>
-    <string name="revanced_overlay_button_mute_volume_summary">Нажмите, чтобы выключить звук текущего видео. Нажмите ещё раз, чтобы включить звук.</string>
-    <string name="revanced_overlay_button_mute_volume_title">Показать кнопку выключения звука</string>
     <string name="revanced_overlay_button_not_allowed_warning">Нажать и удерживать - изменить состояние кнопки.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость сброшена на: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Нажать - открытие окна скорости.
@@ -1104,9 +1085,7 @@ Shorts
     <string name="revanced_remember_video_quality_last_selected_summary_off">Изменяется качество у текущего видео.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Изменяется качество у всех видео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запомнить изменения качества видео</string>
-    <string name="revanced_remember_video_quality_mobile">Качество видео в моб. сети изменено на %s.</string>
     <string name="revanced_remember_video_quality_none">Ошибка установки качества видео.</string>
-    <string name="revanced_remember_video_quality_wifi">Качество видео в Wi-Fi сети изменено на %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Возрастные ограничения будут приниматься автоматически."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Скрыть диалог возрастного ограничения</string>
     <string name="revanced_replace_av1_codec_summary">Замена программного кодека AV1 на VP9.</string>
@@ -1130,9 +1109,6 @@ Shorts
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старое меню качества скрыто.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старое меню качества отображено.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Старое меню качества</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">Используйте встроенное название канала YouTube.</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">Используйте название канала из RSS-ленты. Получение названия канала может занять больше времени.</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">Получить из RSS-ленты</string>
     <string name="revanced_ryd_about">О \"Return YouTube Dislike\"</string>
     <string name="revanced_ryd_attribution_summary">Данные об отметках \"Не нравится\" предоставлены Return YouTube Dislike API.\nНажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1406,13 +1382,10 @@ Shorts
     <string name="revanced_spoof_client_general_title">Подмена для основных видео</string>
     <string name="revanced_spoof_client_livestream_title">Подмена для трансляций</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Встроенный плеер Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Тестовый набор Android</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Подмена для Shorts и Эпизодов</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Клиент подмены в статистике для сисадминов скрыт.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Клиент подмены в статистике для сисадминов отображен.</string>
@@ -1452,18 +1425,6 @@ Shorts
 • История просмотра не работает с учетной записью бренда.
 • Прямые трансляции не могут воспроизводиться в фоновом режиме
 • Прямые трансляции недоступны на Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Клиент подмене как Android VR. (iOS клиент используется только для Эпизодов или Shorts)
-
-Ограничения:
-• Жесты в плеере не работают.
-• Детские видео не воспроизводятся.
-• Пауза в видео работает рандомно."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Клиент подменен как iOS.
-
-Ограничения:
-• Меню выбора скорости отсутствует.
-• Трансляции не работают в фоне.
-• Выбор высокого качества видео отсутствует."</string>
     <string name="revanced_spoof_client_use_ios_title">Используется iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Подменяет размеры устройства, для разблокировки более высокого качества видео, которое может быть недоступно на вашем устройстве."</string>
@@ -1496,7 +1457,6 @@ Shorts
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Размер области для жеста больше 50 %. Сброс по умолчанию.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Процент изменяемой области экрана для жестов.\n\nПримечание:\nЭто также изменит размер области экрана для жеста двойного нажатия (перемотка).</string>
     <string name="revanced_swipe_overlay_rect_size_title">Размер области экрана для жестов</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Размер изменяемой области экрана не может превышать%s%%. Сброс к значению по умолчанию.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Размер текста для наложения жестов.</string>
     <string name="revanced_swipe_overlay_text_size_title">Размер текста при жесте</string>
     <string name="revanced_swipe_overlay_timeout_summary">Количество миллисекунд отображения наложения.</string>

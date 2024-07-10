@@ -6,13 +6,9 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.ResourceGroup
+import app.revanced.util.*
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.copyFile
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
 import app.revanced.util.patch.BaseResourcePatch
-import app.revanced.util.underBarOrThrow
 
 @Suppress("unused")
 object CustomBrandingIconPatch : BaseResourcePatch(

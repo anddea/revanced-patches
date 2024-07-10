@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty ułatwień dostępu dla odtwarzacza filmów?</string>
     <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
@@ -17,8 +17,6 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="gms_core_settings_summary">Włącz cloud messaging, by otrzymywać powiadomienia.</string>
     <string name="gms_core_settings_title">Otwórz GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">Pozwala zastąpić domenę, z której YouTube otrzymuje oryginalne awatary, obrazy publikacji społeczności itp.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">Użyj alternatywnej domeny dla oryginalnych obrazów</string>
     <string name="revanced_alt_thumbnail_alternative_domain_summary">Domena, z której mają być pobierane obrazy.\nNotka: Wprowadź tylko nazwę domeny, tzn. bez prefiksu \"https\:\/\/\".</string>
     <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatywna domena</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
@@ -514,7 +512,6 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_keyword_content_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Słowo \'%1$s\' ukryje wszystkie filmy.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Nieprawidłowe słowo. Nie można użyć: \'%s\' jako filtru</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Nieprawidłowe słowo. \'%1$s\' ma mniej niż %2$d znaków.</string>
     <string name="revanced_hide_latest_posts_summary_off">Widoczne</string>
     <string name="revanced_hide_latest_posts_summary_on">Ukryte</string>
     <string name="revanced_hide_latest_posts_title">Najnowsze posty</string>
@@ -530,8 +527,6 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_live_chat_replay_button_summary_off">Widoczny\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Ukryty\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Przycisk od ponownego odtwarzania czatu na żywo</string>
-    <string name="revanced_hide_low_views_video_summary">Ukrywa filmy poniżej 1000 wyświetleń ze strony głównej, które zostały przesłane z niesubskrybowanych kanałów.</string>
-    <string name="revanced_hide_low_views_video_title">Ukryj filmy z małą ilością wyświetleń</string>
     <string name="revanced_hide_medical_panel_summary_off">Widoczne</string>
     <string name="revanced_hide_medical_panel_summary_on">Ukryte</string>
     <string name="revanced_hide_medical_panel_title">Panele medyczne</string>
@@ -919,11 +914,14 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
     <string name="revanced_icon_afn_blue">Niebieska od Afn</string>
     <string name="revanced_icon_afn_red">Czerwona od Afn</string>
+    <string name="revanced_icon_custom">Własna</string>
     <string name="revanced_icon_default">Domyślna</string>
     <string name="revanced_icon_mmt">MMT</string>
     <string name="revanced_icon_mmt_blue">Niebieska MMT</string>
     <string name="revanced_icon_mmt_green">Zielona MMT</string>
     <string name="revanced_icon_mmt_yellow">Żółta MMT</string>
+    <string name="revanced_icon_revancify_blue">Niebieska od Revancify</string>
+    <string name="revanced_icon_revancify_red">Czerwona od Revancify</string>
     <string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
@@ -1082,9 +1080,7 @@ Po około 20 sekundach ładowania kodek zostanie zmieniony."</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
     <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości filmu</string>
-    <string name="revanced_remember_video_quality_mobile">Zmieniono domyślną jakość podczas używania sieci mobilnej na %s.</string>
     <string name="revanced_remember_video_quality_none">Nie udało się zmienić jakości obrazu.</string>
-    <string name="revanced_remember_video_quality_wifi">Zmieniono domyślną jakość podczas używania Wi-Fi na %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Usuwa okno dialogowe treści ograniczonej do oglądania.
 Nie pomija to ograniczeń wiekowych, lecz akceptuje je automatycznie."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe treści ograniczonej do oglądania</string>
@@ -1109,10 +1105,6 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Niewidoczne</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Widoczne</string>
     <string name="revanced_restore_old_video_quality_menu_title">Stare menu od jakości filmu</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">"Użyj wbudowanej nazwy kanału YouTube."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">"Użyj nazwy kanału pobranej z kanału RSS.
-Pobieranie nazwy kanału może potrwać dłużej."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">Pobierz z kanału RSS</string>
     <string name="revanced_ryd_about">O integracji</string>
     <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Stuknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1381,13 +1373,10 @@ Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych a
     <string name="revanced_spoof_client_general_title">Ogólne</string>
     <string name="revanced_spoof_client_livestream_title">Transmisje na żywo</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Wbudowany odtwarzacz Androida</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Klient Testowy dla Androida</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Przeglądarka</string>
     <string name="revanced_spoof_client_shorts_title">Shortsy, Klipy</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Ukryta</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Widoczna</string>
@@ -1432,19 +1421,6 @@ Efekty uboczne:
 • Historia odtwarzania nie działa podczas używania firmowego konta
 • Nie można odtwarzać transmisji na żywo w trybie samego dźwięku
 • Transmisje na żywo nie są dostępne na Androidzie 8.0"</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Klient jest obecnie oszukiwany do wersji Android VR (klient iOS jest używany do klipów oraz shortsów).
-
-Efekty uboczne:
-• Gesty w odtwarzaczu nie działają
-• Wideo dla dzieci nie odtwarzają się
-• Spauzowane filmy mogą się losowo wznawiać"</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Klient jest obecnie oszukiwany do wersji iOS.
-
-Efekty uboczne:
-• Brakuje menu prędkości odtwarzania
-• Transmisje na żywo nie działają w trybie odtwarzania jedynie dźwięku
-• Transmisje na żywo są niedostępne na Androidzie 8.0
-• Może brakować wyższych jakości wideo"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Wyłączenie ustawienia może spowodować problemy z odtwarzaniem filmu.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
@@ -1476,7 +1452,6 @@ Ograniczenia:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Rozmiar obszaru przesuwania nie może być większy niż 50. Przywrócono domyślną wartość.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Procentowa wartość obszaru ekranu, gdzie można przesuwać.\n\nNotka: Zmieni to także rozmiar obszaru ekranu dla gestu podwójnego kliknięcia, aby przewinąć film.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Rozmiar obszaru przesuwania</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Rozmiar obszaru przesuwania nie może być większy niż %s%%. Zresetowano do domyślnej wartości.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_text_size_title">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund, przez które nakładka jest widoczna</string>

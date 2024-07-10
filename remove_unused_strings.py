@@ -39,7 +39,7 @@ def search_in_files(directories, name_values):
             # Ignore dot directories and the build directory
             dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'build']
             for file in files:
-                if file == 'strings.xml' or not file.endswith(allowed_extensions):
+                if file in ('strings.xml', 'missing_strings.xml') or not file.endswith(allowed_extensions):
                     continue
                 file_path = os.path.join(root, file)
                 try:
@@ -68,7 +68,8 @@ def remove_unused_strings(xml_file_paths, unused_names):
         
         # Find and remove elements with unused 'name' attributes
         for element in root.findall(".//*[@name]"):
-            if element.get('name') in unused_names:
+            name_attr = element.get('name')
+            if name_attr in unused_names and not name_attr.startswith("revanced_icon_"):
                 root.remove(element)
         
         # Write the updated XML back to the file

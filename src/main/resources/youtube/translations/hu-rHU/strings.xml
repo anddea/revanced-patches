@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Engedélyezi a videolejátszó akadálymentesítési vezérlőit?</string>
     <string name="accessibility_settings_edu_opt_out_text">Az eszközök azért módosulnak, mert egy akadálymentesítési szolgáltatás be van kapcsolva.</string>
@@ -490,7 +490,6 @@ Korlátozás: előfordulhat, hogy a közösségi bejegyzés képe a teljes képe
     <string name="revanced_hide_keyword_content_subscriptions_title">Videók elrejtése a feliratkozások lapon kulcsszavak alapján</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">A(z) %1$s kulcsszó elrejtené az összes videót.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Érvénytelen kulcsszó.\'%s\'nem használható szűrőként</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Érvénytelen kulcsszó. A(z) %1$s kevesebb, mint %2$d karakter.</string>
     <string name="revanced_hide_latest_posts_summary_off">A legutóbbi bejegyzések láthatóak.</string>
     <string name="revanced_hide_latest_posts_summary_on">A legutóbbi bejegyzések el vannak rejtve.</string>
     <string name="revanced_hide_latest_posts_title">Legutóbbi bejegyzések elrejtése</string>
@@ -506,8 +505,6 @@ Korlátozás: előfordulhat, hogy a közösségi bejegyzés képe a teljes képe
     <string name="revanced_hide_live_chat_replay_button_summary_off">Az élő csevegés visszajátszása gomb látható.\n\nAz élő csevegés bezárásakor teljes képernyőn jelenik meg.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Az élő csevegés visszajátszása gomb rejtve van.\n\nAz élő csevegés bezárásakor teljes képernyőn jelenik meg.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Élő csevegés gomb elrejtése</string>
-    <string name="revanced_hide_low_views_video_summary">Az 1000-nél kevesebb megtekintést elért videók elrejtése a Kezdőlapon, amiket a leiratkozott csatornákról töltöttek fel.</string>
-    <string name="revanced_hide_low_views_video_title">Alacsony nézettségű videók elrejtése</string>
     <string name="revanced_hide_medical_panel_summary_off">Az egészségügyi panelek láthatóak.</string>
     <string name="revanced_hide_medical_panel_summary_on">Az egészségügyi panelek el vannak rejtve.</string>
     <string name="revanced_hide_medical_panel_title">Egészségügyi panelek elrejtése</string>
@@ -896,8 +893,11 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_hide_web_search_results_title">Webes keresési találatok elrejtése</string>
     <string name="revanced_icon_afn_blue">Kék Afn</string>
     <string name="revanced_icon_afn_red">Piros Afn</string>
+    <string name="revanced_icon_custom">Egyéni</string>
     <string name="revanced_icon_default">Alap</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Kék</string>
+    <string name="revanced_icon_revancify_red">Revancify Piros</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Megtartja a fekvő módot a képernyő ki- és bekapcsolásakor teljes képernyőn.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Az ezredmásodpercek száma, amelyek alatt a tájkép mód erőltetett, miután a képernyőt bekapcsolták.</string>
@@ -1051,9 +1051,7 @@ Egy másik kodek kerül alkalmazásra kb. 20 másodperc pufferezés után."</str
     <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
     <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
-    <string name="revanced_remember_video_quality_mobile">mobil</string>
     <string name="revanced_remember_video_quality_none">Nem sikerült beállítani a videóminőséget.</string>
-    <string name="revanced_remember_video_quality_wifi">wifi</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Eltávolítja a nézői belátás párbeszédpanelt.
 Ez nem kerüli meg a korhatárt. Csak automatikusan fogadja el."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Távolítsa el a nézői diszkréciós párbeszédpanelt</string>
@@ -1339,13 +1337,10 @@ Ha kikapcsolja, akkor ajánlott törölni az app adatait, hogy elkerülje a UI h
     <string name="revanced_spoof_client_general_title">Általános</string>
     <string name="revanced_spoof_client_livestream_title">Élő közvetítések</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android beágyazott lejátszó</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android tesztcsomag</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shortok, klippek</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">A meghamisított kliens el van rejtve a statisztikában kockáknak.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">A meghamisított kliens látszik a statisztikában kockáknak.</string>
@@ -1385,8 +1380,6 @@ A mellékhatások a következők lehetnek:
 • A megtekintési előzmények nem működnek márkafiókkal.
 • Az élő közvetítések nem játszhatók le csak hangként.
 • Az élő közvetítések nem érhetők el Android 8.0 rendszeren."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"A klienst egy Android Testsuite kliensre hamisítotva (az iOS klienst az élő közvetítésekhez használják)\n\nA mellékhatások a következők:\n• Hiányoznak a feliratok\n• Előfordulhat, hogy a játékos gesztusai nem működnek\n• Rossz minőségű Shorts keresősáv indexképei"</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"A klienst iOS-kliensre hamisítotva\n\nA mellékhatások a következők:\n• Lehet, hogy a 60 fps-es videó nem érhető el\n• Nincs HDR-videó\n• Előfordulhat, hogy egyes videók nem töltődnek be\n• Hiányozhatnak a jobb videóminőségek"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Ez a beállítás kikapcsolása videólejátszási problémákat okozhat.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Meghamisítja az eszköz méreteit annak érdekében, hogy feloldjon olyan jobb videóminőséget, amely esetleg nem érhető el az eszközön."</string>
@@ -1418,7 +1411,6 @@ Korlátozások:
     <string name="revanced_swipe_overlay_rect_size_summary">Az lehúzható képernyőterület százalékos aránya.\n\n
 Megjegyzés: Ezzel a képernyőterület méretét is megváltoztatja, ahol érzékeli az ugráshoz szükséges dupla koppintást.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Csúsztatható átfedés mérete</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">A csúsztatható terület mérete nem lehet nagyobb %s%%-nál. Visszaállítás az alapértelmezett értékre.</string>
     <string name="revanced_swipe_overlay_text_size_summary">A csúsztatási fedés szövegmérete.</string>
     <string name="revanced_swipe_overlay_text_size_title">Csúsztatási-átfedés szövegmérete</string>
     <string name="revanced_swipe_overlay_timeout_summary">Az átfedés láthatóságának időtartama ezredmásodpercben</string>

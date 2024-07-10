@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poichè un servizio di accessibilità è attivato</string>
@@ -502,7 +502,6 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
     <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda Iscrizioni tramite parole chiave</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%1$s\' nasconderà tutti i video.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida, non è possibile usare \'%s\' come filtro</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili</string>
     <string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti</string>
     <string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
@@ -518,8 +517,6 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
     <string name="revanced_hide_live_chat_replay_button_summary_off">Il pulsante Replay della Chat dal vivo è mostrato.\n\nApparirà a schermo intero quando si chiude la chat dal vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Il pulsante Replay della Chat dal vivo è nascosto.\n\nApparirà a schermo intero quando si chiude la chat dal vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Nascondi il pulsante replay della chat dal vivo</string>
-    <string name="revanced_hide_low_views_video_summary">Nascondi video con meno di 1.000 visualizzazioni dai feed home che sono stati caricati dai canali non inscritti.</string>
-    <string name="revanced_hide_low_views_video_title">Nascondi video con basse visualizzazioni</string>
     <string name="revanced_hide_medical_panel_summary_off">I pannelli medici sono visibili</string>
     <string name="revanced_hide_medical_panel_summary_on">I pannelli medici sono nascosti</string>
     <string name="revanced_hide_medical_panel_title">Nascondi i pannelli medici</string>
@@ -915,8 +912,11 @@ Problemi noti:
     <string name="revanced_hide_web_search_results_title">Nascondi i risultati di ricerca del web</string>
     <string name="revanced_icon_afn_blue">Afn Blu</string>
     <string name="revanced_icon_afn_red">Afn Rosso</string>
+    <string name="revanced_icon_custom">Personalizzato</string>
     <string name="revanced_icon_default">Inventario</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Revancify Blu</string>
+    <string name="revanced_icon_revancify_red">Revancify Rosso</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero
 
@@ -1079,9 +1079,7 @@ Verrà applicato un codec diverso dopo circa 20 secondi di buffering."</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">I cambiamenti di qualità si applicano solo al video corrente.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">I cambiamenti di qualità si applicano a tutti i video.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Ricorda i cambiamenti di qualità video</string>
-    <string name="revanced_remember_video_quality_mobile">Cambiando la qualità predefinita con connessione dati a %s.</string>
     <string name="revanced_remember_video_quality_none">Impossibile impostare la qualità video.</string>
-    <string name="revanced_remember_video_quality_wifi">Cambiare la qualità Wi-Fi predefinita in %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Questo non bypassa la restrizione di età, ma lo accetta automaticamente"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Nascondi la finestra di discrezione del visualizzatore</string>
     <string name="revanced_replace_av1_codec_summary">Sostituisce il codec software AV1 con il codec VP9.</string>
@@ -1371,13 +1369,10 @@ Se in seguito è disattivato, si consiglia di cancellare i dati dell'app per pre
     <string name="revanced_spoof_client_general_title">Generale</string>
     <string name="revanced_spoof_client_livestream_title">Live streams</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Riproduttore Incorporato Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Suite di test Android</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Clips</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Il client spoofato è nascosto nelle statistiche per nerd.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Il client spoofato è mostrato nelle statistiche per nerd.</string>
@@ -1447,7 +1442,6 @@ Problemi noti:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La dimensione dell\'area trascinabile non può essere superiore a 50. Ripristina il valore predefinito.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Percentuale dell\'area dello schermo scorrevole.\n\nNota: ciò modificherà anche la dimensione dell\'area dello schermo per il gesto doppio tocco.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Dimensioni dello scorrimento dello schermo in sovrapposizione</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">La dimensione dell\'area scorrevole non può essere superiore a %s%%. Ripristina il valore predefinito.</string>
     <string name="revanced_swipe_overlay_text_size_summary">La dimensione del testo in sovrapposizione durante il trascinamento</string>
     <string name="revanced_swipe_overlay_text_size_title">La dimensione del testo del trascinamento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>

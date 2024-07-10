@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Bật điều khiển trợ năng cho trình phát video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật.</string>
@@ -501,7 +501,6 @@ Bộ lọc có phân biệt chữ hoa chữ thường, vì vậy bạn cần nh�
     <string name="revanced_hide_keyword_content_subscriptions_title">Ẩn video trên thẻ Kênh đăng ký theo từ khoá</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'%1$s\' quá rộng và sẽ ẩn tất cả video</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Từ khoá không hợp lệ. Không thể sử dụng: \"%s\" làm điều kiện lọc.</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Từ khoá không hợp lệ. \'%1$s\' phải ít hơn %2$d ký tự.</string>
     <string name="revanced_hide_latest_posts_summary_off">Bài đăng mới nhất được hiển thị.</string>
     <string name="revanced_hide_latest_posts_summary_on">Bài đăng mới nhất đã ẩn.</string>
     <string name="revanced_hide_latest_posts_title">Ẩn bài đăng mới nhất</string>
@@ -517,8 +516,6 @@ Bộ lọc có phân biệt chữ hoa chữ thường, vì vậy bạn cần nh�
     <string name="revanced_hide_live_chat_replay_button_summary_off">Nút trò chuyện trực tiếp được hiển thị. Nút này xuất hiện ở chế độ toàn màn hình khi đóng cuộc trò chuyện trực tiếp.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Nút trò chuyện trực tiếp bị ẩn. Nút này xuất hiện ở chế độ toàn màn hình khi đóng cuộc trò chuyện trực tiếp.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Ẩn nút Trò chuyện trực tiếp</string>
-    <string name="revanced_hide_low_views_video_summary">Ẩn các Video có dưới 1.000 lượt xem từ các kênh chưa đăng ký khỏi thẻ Trang chủ.</string>
-    <string name="revanced_hide_low_views_video_title">Ẩn video có lượt xem thấp</string>
     <string name="revanced_hide_medical_panel_summary_off">Bảng thông tin y tế được hiển thị.</string>
     <string name="revanced_hide_medical_panel_summary_on">Bảng thông tin y tế đã ẩn.</string>
     <string name="revanced_hide_medical_panel_title">Ẩn bảng thông tin y tế</string>
@@ -905,8 +902,11 @@ Cài đặt → Tự động phát → Tự động phát video tiếp theo."</s
     <string name="revanced_hide_web_search_results_title">Ẩn kết quả tìm kiếm từ web</string>
     <string name="revanced_icon_afn_blue">Afn Xanh</string>
     <string name="revanced_icon_afn_red">Afn Đỏ</string>
+    <string name="revanced_icon_custom">Tùy chỉnh</string>
     <string name="revanced_icon_default">Nguyên gốc</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_revancify_blue">Đổi mới màu xanh</string>
+    <string name="revanced_icon_revancify_red">Đổi mới màu đỏ</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Giữ chế độ toàn màn hình hoạt động trong lúc bạn tắt và đánh thức thiết bị khi đang xem chế độ toàn màn hình.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Số mili giây mà chế độ toàn màn hình được giữ.</string>
@@ -1058,9 +1058,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Lưu thay đổi chất lượng video</string>
-    <string name="revanced_remember_video_quality_mobile">Thay đổi chất lượng trên dữ liệu di động mặc định thành %s.</string>
     <string name="revanced_remember_video_quality_none">Không thể đặt chất lượng video.</string>
-    <string name="revanced_remember_video_quality_wifi">Thay đổi chất lượng trên WiFi mặc định thành %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Đóng hộp thoại cảnh báo nội dung cần cân nhắc trước khi xem.
 Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, không thể bỏ qua giới hạn về độ tuổi."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Đóng hộp thoại cảnh báo trước khi xem</string>
@@ -1342,13 +1340,10 @@ Nếu bạn tắt tính năng này sau này, hãy xóa dữ liệu ứng dụng 
     <string name="revanced_spoof_client_general_title">Chung</string>
     <string name="revanced_spoof_client_livestream_title">Phát trực tiếp</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android Trình phát nhúng</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Thử nghiệm Android</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Video ngắn, Đoạn phim</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Ứng dụng khách giả mạo bị ẩn trong Thống kê cho Huy hiệu.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Ứng dụng khách giả mạo được hiển thị trong Thống kê cho Huy hiệu.</string>
@@ -1384,18 +1379,6 @@ Hạn chế gồm:
  • Lịch sử xem không hoạt động với tài khoản thương hiệu.
  • Luồng trực tiếp không thể chỉ phát dưới dạng âm thanh.
  • Phát trực tiếp không khả dụng trên Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Khách hàng hiện đang bị giả mạo sang Android VR. (Ứng dụng iOS được sử dụng cho Clip hoặc Shorts)
-
-Tác dụng phụ bao gồm:
-• Cử chỉ vuốt của người chơi không hoạt động.
-• Video trẻ em không phát được.
-• Video bị tạm dừng có thể tiếp tục ngẫu nhiên."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Khách hàng hiện đang bị giả mạo sang iOS.
-
-Tác dụng phụ bao gồm:
-• Thiếu menu tốc độ phát.
-• Tính năng phát trong nền không hoạt động trên live streams.
-• Chất lượng video cao hơn có thể bị thiếu."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Tắt cài đặt này có thể gây ra sự cố phát video.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Giả mạo kích thước thiết bị, để mở khóa chất lượng video cao hơn cho những thiết bị không đủ điều kiện."</string>
@@ -1424,7 +1407,6 @@ Hạn chế:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Kích thước khu vực vuốt không được lớn hơn 50. Đã đặt lại về mặc định.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Phần trăm diện tích màn hình có thể vuốt.\n\nLưu ý: Thao tác này cũng sẽ thay đổi kích thước vùng màn hình đối với cử chỉ nhấn đúp để tua.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Kích thước văn bản trên lớp phủ vuốt</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Kích thước vùng có thể vuốt không được lớn hơn %s%%. Đặt lại về giá trị mặc định.</string>
     <string name="revanced_swipe_overlay_text_size_summary">Độ to nhỏ của văn bản được hiển thị trên lớp phủ vuốt.</string>
     <string name="revanced_swipe_overlay_text_size_title">Kích thước văn bản trên lớp phủ vuốt</string>
     <string name="revanced_swipe_overlay_timeout_summary">Số mili giây mà lớp phủ vuốt được hiển thị.</string>

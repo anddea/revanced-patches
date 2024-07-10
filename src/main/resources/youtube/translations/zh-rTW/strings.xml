@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">要啟用影片播放器的無障礙控制嗎？</string>
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此您的控制項被修改。</string>
@@ -509,7 +509,6 @@
     <string name="revanced_hide_keyword_content_subscriptions_title">啟用訂閱影片關鍵字篩選器</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字 \'%1$s\' 將隱藏所有影片。</string>
     <string name="revanced_hide_keyword_toast_invalid_common">無效的關鍵字。不能使用：「%s」作為篩選器</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">無效的關鍵字。%1$s 少於 %2$d 個字元</string>
     <string name="revanced_hide_latest_posts_summary_off">最新貼文已顯示</string>
     <string name="revanced_hide_latest_posts_summary_on">最新貼文已隱藏</string>
     <string name="revanced_hide_latest_posts_title">隱藏最新貼文</string>
@@ -525,8 +524,6 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">顯示即時聊天重播按鈕。\n\n關閉即時聊天時它會以全螢幕顯示。</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">即時聊天重播按鈕已隱藏。\n\n關閉即時聊天時它會以全螢幕顯示。</string>
     <string name="revanced_hide_live_chat_replay_button_title">隱藏即時聊天重播按鈕</string>
-    <string name="revanced_hide_low_views_video_summary">在首頁隱藏來自未訂閱頻道的、觀看次數少於 1,000 次的影片。</string>
-    <string name="revanced_hide_low_views_video_title">隱藏低觀看次數的影片</string>
     <string name="revanced_hide_medical_panel_summary_off">醫療面板已顯示</string>
     <string name="revanced_hide_medical_panel_summary_on">醫療面板已隱藏</string>
     <string name="revanced_hide_medical_panel_title">隱藏醫療資訊</string>
@@ -914,11 +911,14 @@ Note:
     <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
+    <string name="revanced_icon_custom">自訂</string>
     <string name="revanced_icon_default">預設</string>
     <string name="revanced_icon_mmt">MMT</string>
     <string name="revanced_icon_mmt_blue">MMT 藍</string>
     <string name="revanced_icon_mmt_green">MMT 綠</string>
     <string name="revanced_icon_mmt_yellow">MMT 黃</string>
+    <string name="revanced_icon_revancify_blue">復興藍</string>
+    <string name="revanced_icon_revancify_red">復興紅</string>
     <string name="revanced_icon_revancify_yellow">復興黃</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
@@ -1075,9 +1075,7 @@ Note:
     <string name="revanced_remember_video_quality_last_selected_summary_off">畫質更改僅適用於當前影片</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">畫質更改適用於所有影片</string>
     <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質更改</string>
-    <string name="revanced_remember_video_quality_mobile">將預設移動數據畫質更改為 %s</string>
     <string name="revanced_remember_video_quality_none">無法設定影片畫質</string>
-    <string name="revanced_remember_video_quality_wifi">將預設 WiFi 畫質更改為 %s</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"移除觀眾酌情觀看對話方塊。
 這項選項不會繞過年齡限制，它只會自動接受。"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量對話框</string>
@@ -1102,10 +1100,6 @@ Note:
     <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_title">恢復舊的影片畫質選單</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">"使用YouTube內建的頻道名稱。"</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">"使用從RSS來源取得的頻道名稱。
-獲取頻道名稱可能需要較長時間。"</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">從RSS來源抓取</string>
     <string name="revanced_ryd_about">關於</string>
     <string name="revanced_ryd_attribution_summary">倒讚資訊由 Return YouTube Dislike API 提供
 
@@ -1380,13 +1374,10 @@ Note:
     <string name="revanced_spoof_client_general_title">一般設定</string>
     <string name="revanced_spoof_client_livestream_title">實況直播</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android 嵌入播放器</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android 測試套件</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">網頁</string>
     <string name="revanced_spoof_client_shorts_title">短片, 片段</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">已偽裝的用戶端隱藏在「數據統計」中。</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">已偽裝的用戶端顯示在「數據統計」中。</string>
@@ -1425,19 +1416,6 @@ Note:
  • 觀看記錄不適用於品牌帳戶
  • 即時串流不能只作為音訊播放
  • Android 8.0 上不支援直播"</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"客戶端目前已偽裝為 Android VR （iOS客戶端用於剪輯或短片）
-
- 可能會出現的問題包括：
- • 播放器滑動手勢無法使用
- • 無法播放兒童影片
- • 暫停的影片可以隨機恢復"</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"客戶端已偽裝到 iOS
-
- 可能出現的問題包括：
- • 缺少播放速度選單
- • 無法在背景播放直播
- • 無法在 Android 8.0 觀看直播
- • 可能會失去更高的影片畫質"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">關閉此設定可能會導致影片播放發生問題。</string>
     <string name="revanced_spoof_device_dimensions_summary">"變更裝置尺寸設定，以便解鎖在您目前的裝置上原本不支援的較高影片品質。"</string>
@@ -1469,7 +1447,6 @@ Note:
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑動區域大小不能超過50。重設為預設值。</string>
     <string name="revanced_swipe_overlay_rect_size_summary">可滑動螢幕區域的百分比。\n\n注意：這也會改變雙擊搜尋手勢的螢幕區域大小。</string>
     <string name="revanced_swipe_overlay_rect_size_title">滑動覆蓋螢幕尺寸</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">可滑動區域大小不能超過%s%%。 重設為預設值。</string>
     <string name="revanced_swipe_overlay_text_size_summary">滑動疊加層上的檔案大小</string>
     <string name="revanced_swipe_overlay_text_size_title">滑動疊加層上的檔案大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑動疊加層顯示的時長（毫秒）</string>
