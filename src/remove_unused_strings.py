@@ -2,6 +2,11 @@ import os
 from lxml import etree
 
 
+# Constants for blacklisted and prefixed strings
+BLACKLISTED_STRINGS = ('revanced_remember_video_quality_mobile', 'revanced_remember_video_quality_wifi')
+PREFIX_TO_IGNORE = "revanced_icon_"
+
+
 def parse_xml(file_path):
     """
     Parse the XML file and extract the values of the 'name' attributes.
@@ -54,6 +59,24 @@ def search_in_files(directories, name_values):
     return results
 
 
+def should_remove(name, unused_names):
+    """
+    Determine whether a string with the given 'name' attribute should be removed.
+
+    Args:
+        name (str): The value of the 'name' attribute.
+        unused_names (list): List of 'name' attribute values that are not used.
+
+    Returns:
+        bool: True if the element should be removed, False otherwise.
+    """
+    return (
+        name in unused_names and 
+        name not in BLACKLISTED_STRINGS and 
+        not name.startswith(PREFIX_TO_IGNORE)
+    )
+
+
 def remove_unused_strings(xml_file_paths, unused_names):
     """
     Remove strings with unused 'name' attributes from the specified XML files.
@@ -66,11 +89,12 @@ def remove_unused_strings(xml_file_paths, unused_names):
         tree = etree.parse(file_path)
         root = tree.getroot()
         
-        # Find and remove elements with unused 'name' attributes
-        for element in root.findall(".//*[@name]"):
-            name_attr = element.get('name')
-            if name_attr in unused_names and not name_attr.startswith("revanced_icon_"):
-                root.remove(element)
+        # Find elements with 'name' attributes that should be removed
+        elements_to_remove = [element for element in root.findall(".//*[@name]") if should_remove(element.get('name'), unused_names)]
+
+        # Remove elements from the root
+        for element in elements_to_remove:
+            root.remove(element)
         
         # Write the updated XML back to the file
         tree.write(file_path, pretty_print=True, xml_declaration=True, encoding='utf-8')

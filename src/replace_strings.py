@@ -22,7 +22,7 @@ else:
 def main():
     # Define the base directory paths
     base_dir = f"src/main/resources/{value}"
-    rvx_base_dir = f"rvx/revanced-patches/src/main/resources/{value}" # replace "rvx" with actual local path to the repo
+    rvx_base_dir = f"../rvx/src/main/resources/{value}" # replace "rvx" with actual local path to the repo
 
     # Define the base strings.xml file paths
     base_strings_file = os.path.join(base_dir, "settings/host/values/strings.xml")
