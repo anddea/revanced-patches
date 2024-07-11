@@ -5,6 +5,13 @@
 
 * **YouTube:** Bring back missing strings ([d47016a](https://github.com/anddea/revanced-patches/commit/d47016aa954d9dc9c308f7207818dbf29a8a5d80))
 
+# [2.227.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.18...v2.227.0-dev.19) (2024-07-11)
+
+
+### Bug Fixes
+
+* **YouTube:** Bring back missing strings ([d47016a](https://github.com/anddea/revanced-patches/commit/d47016aa954d9dc9c308f7207818dbf29a8a5d80))
+
 # [2.227.0-dev.18](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.17...v2.227.0-dev.18) (2024-07-10)
 
 
