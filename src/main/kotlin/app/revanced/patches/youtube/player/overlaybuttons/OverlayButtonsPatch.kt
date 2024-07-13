@@ -86,6 +86,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
             "AlwaysRepeat;",
             "CopyVideoUrl;",
             "CopyVideoUrlTimestamp;",
+            "MuteVolume;",
             "ExternalDownload;",
             "SpeedDialog;",
             "TimeOrderedPlaylist;",
@@ -101,7 +102,8 @@ object OverlayButtonsPatch : BaseResourcePatch(
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
-                "revanced_repeat_button.xml"
+                "revanced_repeat_button.xml",
+                "revanced_mute_volume_button.xml",
             )
         )
 
@@ -126,6 +128,8 @@ object OverlayButtonsPatch : BaseResourcePatch(
                     "revanced_copy_button.png",
                     "revanced_copy_timestamp_button.png",
                     "revanced_download_button.png",
+                    "revanced_volume_muted_button.png",
+                    "revanced_volume_unmuted_button.png",
                     "revanced_speed_button.png",
                     "revanced_whitelist_button.png",
                     "yt_fill_arrow_repeat_white_24.png",
