@@ -2,12 +2,12 @@ import os
 import xml.etree.ElementTree as ET
 import xml.sax.saxutils as saxutils
 
-
 # Define source file path
 source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
 
 # Define destination directory path
 destination_directory = "src/main/resources/youtube/translations"
+
 
 def parse_xml(file_path):
     """
@@ -30,6 +30,7 @@ def parse_xml(file_path):
     tree = ET.parse(file_path)
     return tree.getroot()
 
+
 def get_strings_dict(root):
     """
     Extract strings from the XML root and return them as a dictionary.
@@ -44,6 +45,7 @@ def get_strings_dict(root):
         strings_dict[name] = text
     return strings_dict
 
+
 def ensure_directory_exists(directory):
     """
     Ensure that the directory exists. If it does not, create it.
@@ -52,6 +54,7 @@ def ensure_directory_exists(directory):
     """
     if not os.path.exists(directory):
         os.makedirs(directory)
+
 
 def read_missing_strings(missing_file_path):
     """
@@ -87,6 +90,7 @@ def write_missing_strings(missing_file_path, missing_strings):
         for name, text in missing_strings.items():
             f.write(f'    <string name="{name}">{escape_xml_chars(text)}</string>\n')
         f.write('</resources>\n')
+
 
 def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path):
     """
@@ -124,6 +128,7 @@ def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_pa
         print(f"Deleting empty missing strings file: {missing_file_path}")
         os.remove(missing_file_path)
 
+
 def main():
     """
     Main function to handle the XML parsing, comparison, and updating process.
@@ -142,6 +147,7 @@ def main():
             dest_file_path = os.path.join(lang_dir, 'strings.xml')
             missing_file_path = os.path.join(lang_dir, 'missing_strings.xml')
             compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path)
+
 
 if __name__ == "__main__":
     main()
