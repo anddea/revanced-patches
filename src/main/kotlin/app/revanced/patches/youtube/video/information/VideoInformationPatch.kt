@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
@@ -19,6 +20,7 @@ import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelIdFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelNameFingerprint
+import app.revanced.patches.youtube.video.information.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.OnPlaybackSpeedItemClickFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackInitializationFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackSpeedClassFingerprint
@@ -37,6 +39,7 @@ import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -60,10 +63,12 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
         VideoIdPatch::class
     ]
 )
+@Suppress("MemberVisibilityCanBePrivate")
 object VideoInformationPatch : BytecodePatch(
     setOf(
         ChannelIdFingerprint,
         ChannelNameFingerprint,
+        MdxPlayerDirectorSetVideoStageFingerprint,
         OnPlaybackSpeedItemClickFingerprint,
         OrganicPlaybackContextModelFingerprint,
         PlaybackInitializationFingerprint,
@@ -108,8 +113,19 @@ object VideoInformationPatch : BytecodePatch(
     private lateinit var backgroundVideoInformationMethod: MutableMethod
     private lateinit var shortsVideoInformationMethod: MutableMethod
 
+    /**
+     * Used in [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint].
+     * Since both classes are inherited from the same class,
+     * [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint] always have the same [seekSourceEnumType] and [seekSourceMethodName].
+     */
+    private var seekSourceEnumType = ""
+    private var seekSourceMethodName = ""
+
     private lateinit var playerConstructorMethod: MutableMethod
-    private var playerConstructorInsertIndex = 4
+    private var playerConstructorInsertIndex = -1
+
+    private lateinit var mdxConstructorMethod: MutableMethod
+    private var mdxConstructorInsertIndex = -1
 
     private lateinit var videoTimeConstructorMethod: MutableMethod
     private var videoTimeConstructorInsertIndex = 2
@@ -118,66 +134,78 @@ object VideoInformationPatch : BytecodePatch(
     internal lateinit var speedSelectionInsertMethod: MutableMethod
     internal lateinit var videoEndMethod: MutableMethod
 
+    private fun getSeekToConstructorMethod(result: MethodFingerprintResult): Pair<MutableMethod, Int> {
+        result.mutableMethod.apply {
+            val constructorMethod =
+                result.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
+
+            val constructorInsertIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+            } + 1
+
+            if (seekSourceEnumType.isEmpty() && seekSourceMethodName.isEmpty()) {
+                seekSourceEnumType = parameterTypes[1].toString()
+                seekSourceMethodName = name
+            }
+
+            result.mutableClass.methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "seekTo",
+                    listOf(ImmutableMethodParameter("J", annotations, "time")),
+                    "Z",
+                    AccessFlags.PUBLIC or AccessFlags.FINAL,
+                    annotations,
+                    null,
+                    ImmutableMethodImplementation(
+                        4, """
+                            sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->$seekSourceMethodName(J$seekSourceEnumType)Z
+                            move-result p1
+                            return p1
+                            """.toInstructions(),
+                        null,
+                        null
+                    )
+                ).toMutable()
+            )
+
+            return Pair(constructorMethod, constructorInsertIndex)
+        }
+    }
+
     override fun execute(context: BytecodeContext) {
         val videoInformationMutableClass =
             context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
+            val (playerConstructorMethod, playerConstructorInsertIndex) =
+                getSeekToConstructorMethod(it)
 
-            playerConstructorMethod =
-                it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
+            this.playerConstructorMethod = playerConstructorMethod
+            this.playerConstructorInsertIndex = playerConstructorInsertIndex
 
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
             it.mutableMethod.apply {
-                val seekSourceEnumType = parameterTypes[1].toString()
-
-                it.mutableClass.methods.add(
-                    ImmutableMethod(
-                        definingClass,
-                        "seekTo",
-                        listOf(ImmutableMethodParameter("J", annotations, "time")),
-                        "Z",
-                        AccessFlags.PUBLIC or AccessFlags.FINAL,
-                        annotations,
-                        null,
-                        ImmutableMethodImplementation(
-                            4, """
-                                sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                                invoke-virtual {p0, p1, p2, v0}, ${definingClass}->${name}(J$seekSourceEnumType)Z
-                                move-result p1
-                                return p1
-                                """.toInstructions(),
-                            null,
-                            null
-                        )
-                    ).toMutable()
-                )
-
-                val smaliInstructions =
-                    """
-                        if-eqz v0, :ignore
-                        invoke-virtual {v0, p0, p1}, $definingClass->seekTo(J)Z
-                        move-result v0
-                        return v0
-                        :ignore
-                        const/4 v0, 0x0
-                        return v0
-                    """
-
-                videoInformationMutableClass.addFieldAndInstructions(
-                    context,
-                    "overrideVideoTime",
-                    "videoInformationClass",
-                    definingClass,
-                    smaliInstructions,
-                    true
-                )
+                val literalIndex = getWideLiteralInstructionIndex(45368273)
+                val walkerIndex = getTargetIndexReversedOrThrow(literalIndex, Opcode.INVOKE_VIRTUAL_RANGE)
 
                 videoEndMethod =
-                    getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex + 1)
+                    getWalkerMethod(context, walkerIndex)
             }
+        }
+
+        MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow().let {
+            val (mdxConstructorMethod, mdxConstructorInsertIndex) =
+                getSeekToConstructorMethod(it)
+
+            this.mdxConstructorMethod = mdxConstructorMethod
+            this.mdxConstructorInsertIndex = mdxConstructorInsertIndex
+
+            // hook the MDX director for use through integrations
+            onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
         }
 
         /**
@@ -437,7 +465,19 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         playerConstructorMethod.addInstruction(
             playerConstructorInsertIndex++,
-            "invoke-static {}, $targetMethodClass->$targetMethodName()V"
+            "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+        )
+
+    /**
+     * Hook the MDX player director. Called when playing videos while casting to a big screen device.
+     *
+     * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
+     * @param targetMethodName The name of the static method to invoke when the player controller is created.
+     */
+    internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
+        mdxConstructorMethod.addInstruction(
+            mdxConstructorInsertIndex++,
+            "invoke-static/range { p0 .. p0 }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
         )
 
     /**

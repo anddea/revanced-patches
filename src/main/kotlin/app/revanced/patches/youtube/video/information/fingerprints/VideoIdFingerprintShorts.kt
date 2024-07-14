@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.video.information.fingerprints
 
-import app.revanced.util.fingerprint.LiteralValueFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.getTargetIndexWithFieldReferenceName
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -8,12 +10,17 @@ import com.android.tools.smali.dexlib2.Opcode
  * This method is invoked only in Shorts.
  * Accurate video information is invoked even when the user moves Shorts upward or downward.
  */
-internal object VideoIdFingerprintShorts : LiteralValueFingerprint(
+internal object VideoIdFingerprintShorts : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"),
     opcodes = listOf(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { 45365621 }
+    customFingerprint = custom@{ methodDef, _ ->
+        if (methodDef.containsWideLiteralInstructionIndex(45365621))
+            return@custom true
+
+        methodDef.getTargetIndexWithFieldReferenceName("reelWatchEndpoint") >= 0
+    }
 )
