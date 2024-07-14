@@ -15,6 +15,8 @@ Làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài đặt
     <string name="gms_core_settings_summary">Bật tính năng tin nhắn trên đám mây để nhận thông báo.</string>
     <string name="gms_core_settings_title">Mở GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Cài đặt nó.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">Tên miền để tìm nạp hình ảnh.\nLưu ý: Chỉ nhập tên miền, không có tiền tố \"https://\"</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Tên miền thay thế</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm thay thế hình thu nhỏ mặc định của video YouTube bằng những hình thu nhỏ phù hợp hơn, giúp hạn chế clickbait.
 
 Nếu được bật, chỉ có URL video được gửi đến máy chủ API, ngoài ra không có bất kì dữ liệu nào khác được gửi đi. Nếu video không có hình thu nhỏ DeArrow, hình thu nhỏ gốc hoặc hình thu nhỏ tự động sẽ được hiển thị.
@@ -47,6 +49,8 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Cuối video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Thời điểm để lấy ảnh tĩnh từ video</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Thẻ Kênh đăng ký</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Thay thế tên miền bị chặn ở một số khu vực, để có thể nhận được hình thu nhỏ video, hình đại diện kênh, hình ảnh bài đăng cộng đồng, v.v.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Sử dụng tên miền thay thế cho hình ảnh</string>
     <string name="revanced_append_time_stamp_information_summary_off">Nối thông tin vào dấu Thời gian đã tắt.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Nối thông tin vào dấu Thời gian đã bật.</string>
     <string name="revanced_append_time_stamp_information_title">Nối thông tin vào dấu Thời gian</string>
@@ -952,6 +956,8 @@ Cài đặt → Tự động phát → Tự động phát video tiếp theo."</s
     <string name="revanced_overlay_button_copy_video_url_title">Nút Sao chép URL video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Nhấn để khởi chạy trình tải xuống bên ngoài.</string>
     <string name="revanced_overlay_button_external_downloader_title">Nút Tải xuống bên ngoài</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Nhấn để tắt tiếng video hiện tại. Nhấn lần nữa để bật tiếng.</string>
+    <string name="revanced_overlay_button_mute_volume_title">Hiển thị nút tắt tiếng</string>
     <string name="revanced_overlay_button_not_allowed_warning">Nhấn giữ để thay đổi trạng thái.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Đã đặt lại tốc độ phát bình thường (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"- Nhấn để mở hộp thoại Tốc độ phát.
@@ -1026,7 +1032,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menu hiện ra</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
     <string name="revanced_preference_screen_ryd_title">Lượt không thích</string>
-    <string name="revanced_preference_screen_sb_title">Chặn nhà tài trợ</string>
+    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Tùy chỉnh thanh tiến trình</string>
     <string name="revanced_preference_screen_seekbar_title">Thanh tiến trình</string>
     <string name="revanced_preference_screen_settings_menu_summary">Ẩn các thành phần của trình đơn Cài đặt YouTube.</string>
@@ -1301,6 +1307,11 @@ Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, kh
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Trái tim (Sắc thái)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Ẩn</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Hoạt ảnh nhấn đúp</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Lề dưới cùng của bảng meta phải nằm trong khoảng từ 0-64.  Đặt lại về giá trị mặc định.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Cấu hình khoảng cách từ thanh tìm kiếm đến bảng meta, trong khoảng 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Lề dưới của bảng Meta</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Nhấn và giữ vào dấu thời gian để thay đổi trạng thái phát lặp lại trên Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Hành động nhấn giữ dấu thời gian</string>
     <string name="revanced_show_video_title_section_summary">"Hiển thị tiêu đề video ở chế độ toàn màn hình.
  Hạn chế: Tiêu đề video sẽ biến mất khi nhấp vào."</string>
     <string name="revanced_show_video_title_section_title">Hiển thị tiêu đề video</string>

@@ -10,6 +10,8 @@
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához.</string>
     <string name="gms_core_settings_title">GmsCore megnyitása</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">A domain, ahonnan a képeket le lehet hívni.\nMegjegyzés: Csak a domainnevet írd be, azaz a \"https\:\/\/\" előtag nélkül.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatív domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"A DeArrow közösségi bélyegképeket biztosít a YouTube videókhoz. Ezek a bélyegképek gyakran helytállóbbak, mint a YouTube által biztosítottak.
 
 Ha engedélyezve van, a videó URL-je elküldésre kerül az API szerverre, de más adat nem lesz elküldve. Ha egy videónak nincs DeArrow bélyegképe, akkor az eredeti vagy egy pillanatkép jelenik meg.
@@ -42,6 +44,8 @@ Koppints ide, ha többet szeretnél megtudni a DeArrow-ról."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Videó vége</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Pillanatkép készítésének ideje</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Előfizetések oldal</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Lecseréli a domain-t, ami az egyes régiókban blokkolva van, így a videók miniatűrjei, a csatorna profilképei, a közösségi posztok képei, stb. fogadhatóak.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Alternatív domain használata a képekhez</string>
     <string name="revanced_append_time_stamp_information_summary_off">Az információ nem kerül hozzáadásra az időbélyeghez.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Az információ hozzáadásra kerül az időbélyeghez.</string>
     <string name="revanced_append_time_stamp_information_title">Időbélyegző információ hozzáfűzése</string>
@@ -844,8 +848,8 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_hide_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
     <string name="revanced_hide_thanks_button_title">Köszönet elrejtése</string>
     <string name="revanced_hide_ticket_shelf_summary_off">A jegy polcok láthatóak.</string>
-    <string name="revanced_hide_ticket_shelf_summary_on">A jegy polcok el vannak rejtve.</string>
-    <string name="revanced_hide_ticket_shelf_title">Rejtse el a jegypolcokat</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">A jegy polcok elrejtve.</string>
+    <string name="revanced_hide_ticket_shelf_title">Jegy polcok elrejtése</string>
     <string name="revanced_hide_time_stamp_summary_off">Az időtartam látható.</string>
     <string name="revanced_hide_time_stamp_summary_on">Az időtartam el van rejtve.</string>
     <string name="revanced_hide_time_stamp_title">Időtartam elrejtése</string>
@@ -944,6 +948,8 @@ Tartsa nyomva a videó időbélyegének másolásához."</string>
     <string name="revanced_overlay_button_copy_video_url_title">Videó URL-jének másolása gomb megjelenítése</string>
     <string name="revanced_overlay_button_external_downloader_summary">Érintse meg a külső videóletöltő indításához.</string>
     <string name="revanced_overlay_button_external_downloader_title">A külső letöltés gomb megjelenítése</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Érintsd meg a gombot az aktuális videó hangerejének elnémításához. Érintsd meg újra a némítás feloldásához.</string>
+    <string name="revanced_overlay_button_mute_volume_title">Némítás gomb megjelenítése</string>
     <string name="revanced_overlay_button_not_allowed_warning">Érintse meg és tartsa lenyomva a gomb állapotának megváltoztatásához.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Lejátszási sebesség visszaállítva (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Érintse meg a sebesség ablak megnyitásához.
@@ -984,7 +990,7 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához."</string>
     <string name="revanced_preference_screen_alt_thumbnails_title">Alternatív miniatűrök</string>
     <string name="revanced_preference_screen_ambient_mode_summary">Tiltsa le a környezeti módot, vagy kerülje meg a környezeti mód korlátozásait.</string>
     <string name="revanced_preference_screen_ambient_mode_title">Környezeti mód</string>
-    <string name="revanced_preference_screen_category_bar_summary">Rejtse el vagy mutassa meg a kategória sávot a hírfolyamban, keresésben és kapcsolódó videókban.</string>
+    <string name="revanced_preference_screen_category_bar_summary">Rejtse el vagy jelenítse meg a kategória sávot a hírfolyamban, keresésben és a kapcsolódó videókban.</string>
     <string name="revanced_preference_screen_category_bar_title">Kategória sáv</string>
     <string name="revanced_preference_screen_channel_bar_summary">Rejtse el vagy mutassa meg a videók alatt található csatornasáv elemeit.</string>
     <string name="revanced_preference_screen_channel_bar_title">Csatornasáv</string>
@@ -1293,6 +1299,11 @@ Ide hosszan nyomva tartva megnyílik a YouTube beállítások."</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Szív (színárnyalatos)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Rejtett</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Dupla koppintás animáció</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">A Meta panel alsó margójának 0-64 között kell lennie. Alapértelmezett értékekre visszaállítása.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Állítsd be a keresősáv és a meta panel közötti távolságot 0-64 között.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Meta panel alsó margó</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Nyomd meg és tartsd lenyomva az időbélyeget a Shortok ismétlés állapotának megváltoztatásához.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Időbélyegző hosszú nyomás művelet</string>
     <string name="revanced_show_video_title_section_summary">"Megjeleníti a videócím szakaszt teljes képernyős módban.
 
 Korlátozás: A videó címe eltűnik, ha rákattint."</string>

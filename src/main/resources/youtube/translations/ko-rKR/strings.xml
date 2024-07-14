@@ -171,8 +171,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다.</string>
     <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
-    <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 실시간 조회수, 시청자 수 카운팅 애니메이션 (플레이어)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
-    <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 실시간 조회수, 시청자 수 카운팅 애니메이션 (플레이어)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
     <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
     <string name="revanced_disable_speed_overlay_summary">"화면을 길게 눌러서 '2배속 &gt;&gt;'을 비활성화합니다.
 
@@ -236,7 +236,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"타임스탬프를 활성화합니다.
 
 알려진 문제점:
-• 이 설정은 타임스탬프를 활성화할 뿐만 아니라 사용자가 플레이어 배경을 눌러서 레이아웃을 숨길 수 있도록 합니다.
+• Shorts 플레이어 배경을 누르면 모든 구성요소들이 숨겨졌다가 다시 누르면 다시 표시됩니다.
 • 이 기능은 Google에서 개발 단계에 있는 기능이므로 레이아웃이 깨질 수 있습니다."</string>
     <string name="revanced_enable_shorts_time_stamp_title">타임스탬프 활성화하기</string>
     <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
@@ -257,7 +257,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 커뮤니티 게시물\n• 전체 화면의 일부 기능 (빠른 작업 ...)</string>
+    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 커뮤니티 게시물\n• 전체 화면의 일부 기능</string>
     <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">불투명 하단바를 활성화합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">반투명 하단바를 활성화합니다.</string>
@@ -348,7 +348,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 주요 뉴스
 • 맞춤 실시간 스트림
 • 라이브 쇼핑
-• 보건 정보 출처 ..."</string>
+• 보건 정보 출처 
+• 인기 상승 중인 크리에이터 ..."</string>
     <string name="revanced_hide_carousel_shelf_title">좌우 슬라이드형 선반 숨기기</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">피드에서 카테고리 바가 노출됩니다.</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다.</string>
@@ -501,7 +502,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 알려진 문제점:
 • 일부 Shorts는 숨겨지지 않을 수 있습니다.
 • 일부 화면 구성요소가 숨겨지지 않을 수 있습니다.
-• 키워드를 검색하면 결과가 표시되지 않을 수 있습니다."</string>
+• 필터링 키워드를 검색하면 결과가 표시되지 않을 수 있습니다."</string>
     <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">댓글 섹션에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">댓글 섹션에서 키워드 필터를 활성화합니다.</string>
@@ -785,6 +786,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">유료 광고 포함 라벨이 노출됩니다.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">유료 광고 포함 라벨이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">유료 광고 포함 라벨 숨기기</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">일시 정지 헤더가 노출됩니다. (Shorts 헤더)</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">일시 정지 헤더가 숨겨집니다. (Shorts 헤더)</string>
+    <string name="revanced_hide_shorts_paused_header_title">일시 정지 헤더 숨기기</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 \'구독\' &amp; \'라이브\' &amp; \'쇼핑\' 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 \'구독\' &amp; \'라이브\' &amp; \'쇼핑\' 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">일시 정지 오버레이 버튼 숨기기</string>
@@ -947,14 +951,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">두 번 누르기 동작을 비활성화합니다</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"두 번 누르기 동작을 활성화합니다.
 
-• 최신 1: 미니 플레이어를 두 번 눌러서 큰 사이즈로 변경할 수 있습니다.
-• 최신 2, 3: 미니 플레이어를 두 번 눌러서 닫을 수 있습니다."</string>
+• 미니 플레이어를 두 번 눌러서 더 큰 사이즈로 변경할 수 있습니다.
+• 다시 두 번 누르면 원래 사이즈로 변경됩니다."</string>
     <string name="revanced_miniplayer_enable_double_tap_action_title">두 번 누르기 동작 활성화하기</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">드래그 앤드 드롭을 비활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">드래그 앤드 드롭을 활성화합니다.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">드래그 앤드 드롭 활성화하기</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 노출됩니다.\n• YouTube v19.20.35+에서는 위로 스와이프하여 미니 플레이어를 펼칠 수 없으므로 \'펼치기\' 버튼을 사용해야 합니다.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다.\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다.\n• YouTube v19.20.35+에서는 위로 스와이프하여 미니 플레이어를 펼칠 수 없으므로 \'펼치기\' 버튼을 사용해야 합니다.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 노출됩니다.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다.\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다.</string>
     <string name="revanced_miniplayer_hide_expand_close_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">\'되감기\' &amp; \'빨리 감기\' 버튼이 노출됩니다.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">\'되감기\' &amp; \'빨리 감기\' 버튼이 숨겨집니다.</string>
@@ -984,7 +988,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로드 버튼 표시하기</string>
-    <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거 할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
+    <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
     <string name="revanced_overlay_button_not_allowed_warning">버튼을 길게 눌러서 버튼 상태를 변경할 수 있습니다.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">동영상 재생 속도 값 설정: %s배속</string>
@@ -1086,8 +1090,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 약 20초정도의 버퍼링 후에 다른 코덱으로 전환됩니다."</string>
     <string name="revanced_reject_av1_codec_title">소프트웨어 AV1 코덱 응답 거부하기</string>
     <string name="revanced_reject_av1_codec_toast">Fallback 프로세스로 인해 약 20초정도의 버퍼링이 발생합니다.</string>
-    <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다.</string>
-    <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
     <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다.</string>
@@ -1481,9 +1485,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_whitelist_failure_generic">채널 정보를 불러오지 못하였습니다.</string>
     <string name="revanced_whitelist_included">화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_playback_speed">재생 속도</string>
-    <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제하겠습니까?</string>
-    <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제할 수 없습니다.</string>
-    <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제하였습니다.</string>
+    <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하겠습니까?</string>
+    <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거할 수 없습니다.</string>
+    <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하였습니다.</string>
     <string name="revanced_whitelist_settings_summary">화이트리스트에 추가된 채널을 확인 또는 제거할 수 있습니다.</string>
     <string name="revanced_whitelist_settings_title">채널 화이트리스트</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
