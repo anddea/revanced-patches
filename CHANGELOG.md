@@ -1,3 +1,23 @@
+# [2.227.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.19...v2.227.0-dev.20) (2024-07-14)
+
+
+### Bug Fixes
+
+* **YouTube - Disable forced auto captions:** Subtitles don't work after playing Shorts ([b1d091f](https://github.com/anddea/revanced-patches/commit/b1d091f96107936cd48b56cf20cb257c2e9de61e))
+* **YouTube - Overlay buttons:** Image of the `Mute video` button is reversed ([9b5ebab](https://github.com/anddea/revanced-patches/commit/9b5ebab8e857fb163e26019353a3001f7eb3457f))
+* **YouTube - SponsorBlock:** Skip segments when casting ([a40bbcb](https://github.com/anddea/revanced-patches/commit/a40bbcb85447673c52eef94874148ebcf3bb6c16))
+* **YouTube - Video playback:** Default video quality does not apply ([04fa20d](https://github.com/anddea/revanced-patches/commit/04fa20da4dfff3772904be3e8be634a1f3c492e0))
+
+
+### Features
+
+* Merge RVX v4.10.2-dev.1 ([eb5f944](https://github.com/anddea/revanced-patches/commit/eb5f9449daf1dcbe8ce1c51b39e3371e7f2146b2))
+* **YouTube - Custom branding icon:** Update old splash animation for `Revancify Red` and `Revancify Blue` ([ff70195](https://github.com/anddea/revanced-patches/commit/ff7019555f536e530d5406469d22ac21dced11dd))
+* **YouTube - Shorts components:** Add `Hide paused header` setting ([b044b61](https://github.com/anddea/revanced-patches/commit/b044b61242c7e4200373debc57975482b81c070b))
+* **YouTube Music - Thumbnails:** Add `Alternative domain` patch ([e51c9a4](https://github.com/anddea/revanced-patches/commit/e51c9a4d766cd8928449743dd8c6b09e30d0b945))
+* **YouTube Music:** Add support version `7.08.53` ([259682b](https://github.com/anddea/revanced-patches/commit/259682b7c0f59ecac0468ee0c7a067c85d5f6bdc))
+* **YouTube:** Drop support versions `19.17.41` ~ `19.25.39` ([e6b589b](https://github.com/anddea/revanced-patches/commit/e6b589b68ae7774b5104743670c4eb8be1d140cc))
+
 # [2.227.0-dev.19](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.18...v2.227.0-dev.19) (2024-07-11)
 
 
