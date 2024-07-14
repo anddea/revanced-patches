@@ -310,7 +310,7 @@
     <string name="revanced_external_downloader_not_installed_warning">%s δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το.</string>
     <string name="revanced_external_downloader_package_name_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ NewPipe, YTLDnis).</string>
     <string name="revanced_external_downloader_package_name_title">Όνομα πακέτου εξωτερικού προγράμματος λήψης</string>
-    <string name="revanced_force_fullscreen_summary">"Τα βίντεο θα αναπαραχθούν σε λειτουργία πλήρους οθόνης στις ακόλουθες περιπτώσεις:
+    <string name="revanced_force_fullscreen_summary">"Τα βίντεο θα αλλάξουν σε λειτουργία πλήρους οθόνης στις ακόλουθες περιπτώσεις:
 
 • Όταν ξεκινάει ένα βίντεο.
 • Όταν πατιέται μια χρονοσήμανση στα σχόλια."</string>
@@ -414,7 +414,7 @@ Playlists
     <string name="revanced_hide_crowdfunding_box_title">Πλαίσιο δωρεών</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_double_tap_overlay_filter_title">Φόντο διπλού πατήματος του αναπαραγωγέα</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Μαύρο φόντο κατά το διπλό πάτημα</string>
     <string name="revanced_hide_download_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_download_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_download_button_title">Κουμπί «Λήψη»</string>
@@ -951,8 +951,8 @@ Playlists
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Η ενέργεια διπλού πατήματος είναι απενεργοποιημένη.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Η ενέργεια διπλού πατήματος είναι ενεργοποιημένη.
 
-• Μοντέρνα 1: Διπλό πάτημα για αλλαγή του ελαχιστοποιημένου βίντεο σε μεγαλύτερο μέγεθος.
-• Μοντέρνα 2, 3: Διπλό πάτημα για να κλείσετε το ελαχιστοποιημένο βίντεο."</string>
+• Διπλό πάτημα για αλλαγή του ελαχιστοποιημένου βίντεο σε μεγαλύτερο μέγεθος.
+• Διπλό πάτημα ξανά για αλλαγή πίσω στο αρχικό μέγεθος."</string>
     <string name="revanced_miniplayer_enable_double_tap_action_title">Διπλό πάτημα για ενέργεια</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Η λειτουργία μεταφοράς και απόθεσης της ελαχιστοποιημένης οθόνης είναι απενεργοποιημένη.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Η λειτουργία μεταφοράς και απόθεσης της ελαχιστοποιημένης οθόνης είναι ενεργοποιημένη.</string>
@@ -991,6 +991,10 @@ Playlists
     <string name="revanced_overlay_button_external_downloader_summary">Κουμπί εξωτερικής λήψης του βίντεο.
 Πατήστε για εκκίνηση του προεπιλεγμένου σας εξωτερικού προγράμματος λήψης.</string>
     <string name="revanced_overlay_button_external_downloader_title">Εξωτερική λήψη του βίντεο</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Κουμπί σίγασης του βίντεο.
+Πατήστε για σίγαση έντασης του τρέχοντος βίντεο.
+Πατήστε ξανά για κατάργηση της σίγασης.</string>
+    <string name="revanced_overlay_button_mute_volume_title">Σίγαση βίντεο</string>
     <string name="revanced_overlay_button_not_allowed_warning">Πατήστε παρατεταμένα για αλλαγή της κατάστασης κουμπιού.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Η ταχύτητας αναπαραγωγής επαναφέρθηκε: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Κουμπί ρύθμισης ταχύτητας αναπαραγωγής.
@@ -1347,9 +1351,9 @@ Playlists
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Καρδιά (χρωματιστή)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Τίποτα</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Εφέ διπλού πατήματος</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Το ύψος πρέπει να είναι μεταξύ 0-64, επαναφέρθηκε.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Αλλαγή ύψους της γραμμής προόδου, τιμές μεταξύ 0-64.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_title">Ύψος γραμμής προόδου</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Το βάθος πρέπει να είναι μεταξύ 0-64, επαναφέρθηκε.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Αλλαγή βάθους της γραμμής προόδου, τιμές μεταξύ 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Βάθος γραμμής προόδου</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Πατήστε παρατεταμένα την χρονοσφραγίδα για να αλλάξει η κατάσταση επανάληψης των Shorts.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Ενέργεια πατήματος χρονοσφραγίδας</string>
     <string name="revanced_show_video_title_section_summary">"Εμφάνιση τίτλου του βίντεο σε πλήρη οθόνη.
@@ -1393,7 +1397,7 @@ Playlists
 Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.
 
 Αν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI."</string>
-    <string name="revanced_spoof_client_fallback_title">Μη αναπαραγώγιμο βίντεο</string>
+    <string name="revanced_spoof_client_fallback_title">Εναλλακτική (μη αναπαραγόμενο βίντεο)</string>
     <string name="revanced_spoof_client_general_title">Γενικά βίντεο</string>
     <string name="revanced_spoof_client_livestream_title">Ζωντανές μεταδόσεις</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
@@ -1434,7 +1438,7 @@ Playlists
     <string name="revanced_spoof_client_use_ios_summary">"Παραποίηση σε έκδοση iOS. Παρενέργειες:
 • Η ποιότητα HDR δεν είναι διαθέσιμη.
 • Κάποιες πολύ υψηλές ποιότητες βίντεο ενδέχεται να μην είναι διαθέσιμες.
-• Το ιστορικό παρακολούθησης δε λειτουργεί με λογαριασμό επωνυμίας (Brand).
+• Το ιστορικό παρακολούθησης δε λειτουργεί σε λογαριασμούς επωνυμίας (brand).
 • Η αναπαραγωγή ζωντανών μεταδόσεων σε λειτουργία ήχου μόνο δεν είναι διαθέσιμη.
 • Η αναπαραγωγή ζωντανών μεταδόσεων δεν είναι διαθέσιμη σε συσκευές Android 8.0."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>

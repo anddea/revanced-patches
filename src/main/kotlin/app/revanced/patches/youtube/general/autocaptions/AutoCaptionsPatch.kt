@@ -20,7 +20,7 @@ object AutoCaptionsPatch : BaseBytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        VideoInformationPatch.hookBackgroundPlay("$GENERAL_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        VideoInformationPatch.hook("$GENERAL_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
 
         /**
          * Add settings
