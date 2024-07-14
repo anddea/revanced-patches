@@ -13,6 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsButtonFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPaidPromotionFingerprint
+import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPausedHeaderFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPivotLegacyFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsSubscriptionsTabletFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsSubscriptionsTabletParentFingerprint
@@ -37,6 +38,7 @@ import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -68,6 +70,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
     fingerprints = setOf(
         ShortsButtonFingerprint,
         ShortsPaidPromotionFingerprint,
+        ShortsPausedHeaderFingerprint,
         ShortsPivotLegacyFingerprint,
         ShortsSubscriptionsTabletParentFingerprint,
         TextComponentSpecFingerprint
@@ -268,6 +271,26 @@ object ShortsComponentPatch : BaseBytecodePatch(
                         )
                     }
                 }
+            }
+        }
+
+        // endregion
+
+        // region patch for hide paused header
+
+        ShortsPausedHeaderFingerprint.resultOrThrow().let {
+            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+
+            targetMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPausedHeader()Z
+                        move-result v0
+                        if-nez v0, :hide
+                        """,
+                    ExternalLabel("hide", getInstruction(implementation!!.instructions.lastIndex))
+                )
             }
         }
 
