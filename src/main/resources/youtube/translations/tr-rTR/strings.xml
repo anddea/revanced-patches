@@ -16,6 +16,8 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">Resimlerin alınacağı alan adı.\nNot: Yalnızca alan adını girin, yani \"https\:\/\/\" öneki olmadan.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatif alan adı</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için kitle kaynaklı kapak fotoğrafları sağlar. Bu kapak fotoğrafları genellikle YouTube tarafından sağlananlardan daha alakalıdır. Etkinleştirilirse video URL'leri API sunucusuna gönderilir ve başka veri gönderilmez.
 
 DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
@@ -46,6 +48,8 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Videonun sonu</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Fotoğrafın çekileceği video süresi</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Abonelikler sekmesi</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Bazı bölgelerde engellenen alan adını değiştirerek video küçük resimlerinin, kanal avatarlarının, topluluk gönderi görsellerinin vb. görüntülenmesini sağlar. alınabilir.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Resimler için alternatif alan adı kullanın</string>
     <string name="revanced_append_time_stamp_information_summary_off">Süre sayacının yanına gösterge eklenmiyor.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Süre sayacının yanına gösterge ekleniyor.</string>
     <string name="revanced_append_time_stamp_information_title">Süre sayacının yanına gösterge ekle</string>
@@ -222,7 +226,9 @@ Yan etki: Kahire teması bildirim noktalarına da uygulanır."</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Zaman damgası gizleniyor.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Zaman damgası etkin.
 
-Bilinen sorun: Bu, Google'ın geliştirme aşamasındaki bir özellik olduğundan düzen bozuk olabilir."</string>
+Bilinen sorunlar:
+•Bu, Google'ın geliştirme aşamasındaki bir özellik olduğundan düzen bozuk olabilir.
+•Bu ayar yalnızca zaman damgalarını etkinleştirmekle kalmaz, aynı zamanda kullanıcıların oynatıcı arka planına tıklayarak kullanıcı arayüzünü gizlemesine de olanak tanır."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Zaman damgalarını etkinleştir</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Video tam ekrandayken, ekranın solunu kaydırarak ekran parlaklığını ayarlama kapalı</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Video tam ekrandayken, ekranın solunu kaydırarak ekran parlaklığını ayarlama açık</string>
@@ -901,9 +907,9 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Çift tıklama eylemi devre dışı.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Çift dokunma eylemi etkin.
 
-• Modern 1: Küçültülmüş videoyu daha büyük bir boyuta değiştirmek için iki kez dokunun.
-• Modern 2, 3: Küçültülmüş videoyu kapatmak için iki kez dokunun."</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">Çift tıklama eylemi</string>
+• Küçültülmüş videoyu daha büyük bir boyuta değiştirmek için iki kez dokunun.
+• Orijinal boyuta geçmek için bir kez daha iki kez dokunun."</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">Çift tıklama eylemini etkinleştir</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Sürükle ve Burak devre dışı.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Sürükle ve Bırak etkin.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Sürükle ve Bırak\'ı etkinleştir</string>
@@ -1289,6 +1295,11 @@ Bir örnek görmek için buraya dokunun.</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Kalp (Renk Tonlu)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Gizlendi</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Çift tıklama animasyonu</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Meta panel alt kenar boşluğu 0-64 arasında olmalıdır. Varsayılan değerlere sıfırlayın.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Arama çubuğundan meta panele kadar olan aralığı 0-64 arasında yapılandırın.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Meta panel alt kenar boşluğu</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Kısa videoların tekrarlanma durumunu değiştirmek için zaman damgasını basılı tutun.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Zaman damgası uzun basma aksiyonu</string>
     <string name="revanced_show_video_title_section_summary">"Video başlığı bölümünü tam ekranda gösterir.
 
 Sınırlama: Tıklandığında video başlığı kayboluyor."</string>

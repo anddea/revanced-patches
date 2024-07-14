@@ -16,6 +16,8 @@ Tocca il pulsante continua e disabilita le ottimizzazioni della batteria."</stri
     <string name="gms_core_settings_summary">Abilitare la messaggistica cloud per ricevere notifiche.</string>
     <string name="gms_core_settings_title">Apri GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore non è installato. Installarlo.</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">Il dominio da cui prelevare le immagini.\nNota: Inserisce solo il nome di dominio, cioè senza il prefisso \"https\:\/\/\".</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">Dominio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornisce thumbnails provenienti da crowdsourcing per i video di YouTube. Questi thumbnails sono spesso più rilevanti di quelle fornite da YouTube. Se attivato, gli URL dei video verranno inviati al server API e non vengono inviati altri dati.
 
 Tocca qui per saperne di più su DeArrow"</string>
@@ -46,6 +48,8 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Fine video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Il tempo del video da cui prendere il fotogramma</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Scheda iscrizioni</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Sostituisce il dominio bloccato in alcune regioni in modo che le miniature video, gli avatar dei canali, le immagini dei post della comunità, ecc. possano essere ricevute.</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Usa dominio alternativo per le immagini</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'informazione nel timestamp è nascosto</string>
     <string name="revanced_append_time_stamp_information_summary_on">L\'informazione nel timestamp è visibile</string>
     <string name="revanced_append_time_stamp_information_title">Mostra l\'informazione nel timestamp</string>
@@ -547,9 +551,9 @@ Le parole con lettere maiuscole al centro devono essere inserite con il maiuscol
     <string name="revanced_hide_navigation_shorts_button_summary_off">Il pulsante Shorts è mostrato.</string>
     <string name="revanced_hide_navigation_shorts_button_summary_on">Il pulsante Shorts è nascosto.</string>
     <string name="revanced_hide_navigation_shorts_button_title">Nascondi il pulsante Shorts</string>
-    <string name="revanced_hide_navigation_subscriptions_button_summary_off">Il pulsante di abbonamenti è mostrato.</string>
-    <string name="revanced_hide_navigation_subscriptions_button_summary_on">Il pulsante di abbonamenti è nascosto.</string>
-    <string name="revanced_hide_navigation_subscriptions_button_title">Nascondi il pulsante abbonamenti</string>
+    <string name="revanced_hide_navigation_subscriptions_button_summary_off">Il pulsante d\'iscrizione è mostrato.</string>
+    <string name="revanced_hide_navigation_subscriptions_button_summary_on">Il pulsante iscrizioni è nascosto.</string>
+    <string name="revanced_hide_navigation_subscriptions_button_title">Nascondi la pagina Iscrizioni</string>
     <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami nei feed è visibile</string>
     <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami nei feed è nascosto</string>
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami nei feed</string>
@@ -832,9 +836,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_start_trial_button_summary_off">Il pulsante Avvia Prova è visibile</string>
     <string name="revanced_hide_start_trial_button_summary_on">Il pulsante Avvia Prova è nascosto</string>
     <string name="revanced_hide_start_trial_button_title">Nascondi il pulsante Avvia Prova</string>
-    <string name="revanced_hide_subscriptions_carousel_summary_off">Il casello degli abbonamenti è mostrato.</string>
-    <string name="revanced_hide_subscriptions_carousel_summary_on">Il casello degli abbonamenti è nascosto.</string>
-    <string name="revanced_hide_subscriptions_carousel_title">Nascondi il carosello degli abbonamenti</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_off">Il casello delle iscrizioni è mostrato.</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_on">Il casello delle iscrizioni è nascosto.</string>
+    <string name="revanced_hide_subscriptions_carousel_title">Nascondi il carosello delle iscrizioni</string>
     <string name="revanced_hide_suggested_actions_summary_off">Le azioni consigliate sono visibili</string>
     <string name="revanced_hide_suggested_actions_summary_on">Le azioni consigliate sono nascoste</string>
     <string name="revanced_hide_suggested_actions_title">Nascondi le azioni consigliate</string>
@@ -1322,6 +1326,11 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Cuore (tinta)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Nascosto</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Animazione doppio tocco</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Il margine inferiore del pannello Meta deve essere compreso tra 0-64. Reimposta ai valori predefiniti.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configura la spaziatura dalla barra di ricerca al pannello meta, tra 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Margine inferiore del pannello Meta</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Premi e tieni premuto il timestamp per cambiare lo stato di ripetizione degli Shorts.</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">Azione pressione prolungata timestamp</string>
     <string name="revanced_show_video_title_section_summary">"Mostra la sezione del titolo del video a schermo intero.
 
 Limitazione: il titolo del video scompare quando si fa clic."</string>

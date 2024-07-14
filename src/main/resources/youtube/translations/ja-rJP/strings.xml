@@ -17,6 +17,8 @@
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
+    <string name="revanced_alt_thumbnail_alternative_domain_title">代替ドメイン</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrowは、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。 有効にすると、動画のURLが API サーバーに送信されますが、他のデータは送信されません。 動画にDeArrowサムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
 
 DeArrowの詳細については、ここをタップしてください。"</string>
@@ -47,6 +49,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の最後</string>
     <string name="revanced_alt_thumbnail_stills_time_title">取得する静止画のサムネイルの位置</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">[登録チャンネル]タブ</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">一部の地域でブロックされているドメインを置き換えることで、動画のサムネイル、チャンネルのアバター、コミュニティの投稿画像などを閲覧可能にします。</string>
+    <string name="revanced_alt_thumbnail_use_alternative_domain_title">画像に代替ドメインを使用</string>
     <string name="revanced_append_time_stamp_information_summary_off">タイムスタンプの横に情報を表示します。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報を表示します。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの横に情報を追加</string>
@@ -913,8 +917,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_keep_landscape_mode_timeout_title">横画面モードのタイムアウトを維持</string>
     <string name="revanced_keep_landscape_mode_title">横画面モードを維持</string>
     <string name="revanced_label_default">オリジナル</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">ダブルタップアクションを有効化します。\n\n・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。
-・モダン2, 3: ダブルタップで、最小化された動画を閉じます。</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">ダブルタップアクションを有効化します。\n\n・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。\n・モダン2, 3: ダブルタップで、最小化された動画を閉じます。</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"ダブルタップアクションを有効化します。
 
 ・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。
@@ -923,8 +926,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">ドラッグ&amp;ドロップを有効化</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) \n\n注意: YouTube v19.20.35 以降の場合、スワイプして拡大することはできません。</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) \n\n注意: YouTube v19.20.35 以降の場合、スワイプして拡大することはできません。</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
     <string name="revanced_miniplayer_hide_expand_close_title">拡大/縮小ボタンを非表示</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">次の動画/前の動画へスキップするボタンを非表示にします。</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">次の動画/前の動画へスキップするボタンを非表示にします。</string>
@@ -1305,6 +1308,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">ハート(赤色)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">非表示</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">ダブルタップ時のアニメーション</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">メタパネルの下部の余白は 0 ~ 64 の間でなければなりません。デフォルト値にリセットします。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">シークバーからメタパネルまでの間隔を 0 ~ 64 の間で設定できます。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">メタパネルの下部の余白</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">タイムスタンプを長押しすると、ショートのリピート状態を変更できます。</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">タイムスタンプ長押し時の動作</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 
 注意: 動画のタイトルをタップすると消えます。"</string>
