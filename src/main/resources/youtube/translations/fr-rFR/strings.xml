@@ -295,7 +295,7 @@ L'option \"Ouvrir la description automatiquement\" risque de ne pas fonctionner 
     <string name="revanced_extended_settings_import_summary">Importer les paramètres depuis un fichier enregistré.</string>
     <string name="revanced_extended_settings_import_title">Importer des paramètres</string>
     <string name="revanced_extended_settings_reset">Réinitialiser</string>
-    <string name="revanced_extended_settings_search_title">Rechercher %s</string>
+    <string name="revanced_extended_settings_search_title">Rechercher sur %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary_off">Le bouton \"Télécharger\" ouvre le téléchargeur de l\'appli.</string>
     <string name="revanced_external_downloader_action_summary_on">Le bouton \"Télécharger\" ouvre votre téléchargeur externe.</string>
@@ -390,7 +390,7 @@ Boutique"</string>
     <string name="revanced_hide_comments_by_members_title">Masquer les commentaires des membres</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_off">La section commentaires à la page d\'accueil est affiché.</string>
     <string name="revanced_hide_comments_section_in_home_feed_summary_on">La section commentaires à la page d\'accueil est masqué.</string>
-    <string name="revanced_hide_comments_section_in_home_feed_title">Masquer la section commentaires sur la page d\'accueil</string>
+    <string name="revanced_hide_comments_section_in_home_feed_title">Masquer la section commentaires dans le fil accueil</string>
     <string name="revanced_hide_comments_section_summary_off">La section des commentaires est affichée.</string>
     <string name="revanced_hide_comments_section_summary_on">La section des commentaires est masquée.</string>
     <string name="revanced_hide_comments_section_title">Masquer la section des commentaires</string>
@@ -937,8 +937,8 @@ Les mots avec des majuscules au milieu doivent être écrits avec des majuscules
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">L\'action du double appui est désactivé.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"L'action du double appui est activé.
 
-• Moderne 1 : Double appui pour agrandir la vidéo minimisé.
-• Moderne 2, 3 : Double appui pour fermer la vidéo minimisé."</string>
+• Double-appui pour agrandir la vidéo minimisé.
+• Double-appui une seconde fois pour revenir à la taille d'origine."</string>
     <string name="revanced_miniplayer_enable_double_tap_action_title">Activer l\'action du double appui</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Le glisser-déposer est désactivé.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Le glisser-déposer est activé.</string>
@@ -1227,7 +1227,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_segments_selfpromo">Auto-promotion / Non Rémunérée</string>
     <string name="revanced_sb_segments_selfpromo_sum">Similaire à \'Sponsor\', à l\'exception de la promotion non rémunérée ou l\'autopromotion. Comprend les sections produits, les dons, et des informations sur les partenaires avec lesquels ils ont collaboré.</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
-    <string name="revanced_sb_segments_sponsor_sum">Partenariat rémunéré, parrainage rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes / créateurs / sites web / produits qu\'ils apprécient.</string>
+    <string name="revanced_sb_segments_sponsor_sum">Promotion rémunérée, parrainage rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes / créateurs / sites web / produits qu\'ils apprécient.</string>
     <string name="revanced_sb_settings_copy">Copier</string>
     <string name="revanced_sb_settings_export_failed">Exportation échouée : %s.</string>
     <string name="revanced_sb_settings_ie">Importer / Exporter des paramètres</string>
@@ -1281,7 +1281,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_stats_connection_failure">Les statistiques sont temporairement indisponibles (API indisponible).</string>
     <string name="revanced_sb_stats_loading">Chargement...</string>
     <string name="revanced_sb_stats_reputation">Votre réputation est de &lt;b&gt;%.2f&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_saved">Les gens ont passé &lt;b&gt;%s&lt;/b&gt; segments grâce à vous</string>
+    <string name="revanced_sb_stats_saved">Vous avez sauvé les utilisateurs de &lt;b&gt;%s&lt;/b&gt; segments</string>
     <string name="revanced_sb_stats_saved_hour_format">%1$s heures et %2$s minutes</string>
     <string name="revanced_sb_stats_saved_minute_format">%1$s minutes et %2$s secondes</string>
     <string name="revanced_sb_stats_saved_second_format">%s secondes</string>
@@ -1324,7 +1324,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_shorts_double_tap_to_like_animation_entry_4">Cœur</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Cœur (Teinte)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Masqué</string>
-    <string name="revanced_shorts_double_tap_to_like_animation_title">Animation du double appui</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_title">Animation lors du double appui</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">La taille de la marge du panneau méta doit être entre 0-64, Valeur réinitialisée par défaut.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_summary">Définir l\'espacement entre la barre de recherche et le panneau méta, entre 0-64.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Marge en bas du panneau Meta</string>
@@ -1334,8 +1334,8 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
 
 Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</string>
     <string name="revanced_show_video_title_section_title">Afficher la section titre de la vidéo</string>
-    <string name="revanced_skip_autoplay_countdown_summary_off">Si la lecture automatique est activée, la prochaine vidéo sera lue après la fin du compte à rebours.</string>
-    <string name="revanced_skip_autoplay_countdown_summary_on">Si la lecture automatique est activée, la vidéo suivante sera lue sans prendre en compte le compte à rebours.</string>
+    <string name="revanced_skip_autoplay_countdown_summary_off">Si la lecture automatique est activée, la vidéo suivante sera lue après la fin du compte à rebours.</string>
+    <string name="revanced_skip_autoplay_countdown_summary_on">Si la lecture automatique est activée, la vidéo suivante sera lue immédiatement.</string>
     <string name="revanced_skip_autoplay_countdown_title">Ignorer le compteur lecture auto</string>
     <string name="revanced_skip_preloaded_buffer_summary">"Passer le tampon préchargé au début de la vidéo pour appliquer immédiatement la qualité vidéo.
 
@@ -1369,11 +1369,11 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version de l\'application à falsifier.</string>
     <string name="revanced_spoof_app_version_target_title">Saisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_title">Falsifier la version de l\'app</string>
-    <string name="revanced_spoof_app_version_user_dialog_message">"La version de l'application est falsifié et sera remplacée par une ancienne version de YouTube.
+    <string name="revanced_spoof_app_version_user_dialog_message">"La version de l'application sera falsifiée par une ancienne version de YouTube.
 
-L'interface et les fonctionnalités de l'application seront modifiées, mais des effets secondaires inconnus peuvent se produire.
+Cela modifie l'interface et les fonctionnalités de l'application, mais des effets inconnus peuvent se produire.
 
-Si l'option est désactivée ultérieurement, il est recommandé d'effacer les données de l'application pour éviter les bugs d'interface."</string>
+Si désactivé ultérieurement, il est recommandé d'effacer les données de l'application pour éviter les bugs d'interface."</string>
     <string name="revanced_spoof_client_fallback_title">Lecture impossible</string>
     <string name="revanced_spoof_client_general_title">Général</string>
     <string name="revanced_spoof_client_livestream_title">Contenu en direct</string>
