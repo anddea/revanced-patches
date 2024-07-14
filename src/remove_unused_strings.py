@@ -1,7 +1,6 @@
 import os
 from lxml import etree
 
-
 # Constants for blacklisted and prefixed strings
 BLACKLISTED_STRINGS = ('revanced_remember_video_quality_mobile', 'revanced_remember_video_quality_wifi')
 PREFIX_TO_IGNORE = "revanced_icon_"
@@ -55,7 +54,7 @@ def search_in_files(directories, name_values):
                                 results[name].append(file_path)
                 except Exception as e:
                     print(f"Error reading {file_path}: {e}")
-    
+
     return results
 
 
@@ -71,9 +70,9 @@ def should_remove(name, unused_names):
         bool: True if the element should be removed, False otherwise.
     """
     return (
-        name in unused_names and 
-        name not in BLACKLISTED_STRINGS and 
-        not name.startswith(PREFIX_TO_IGNORE)
+            name in unused_names and
+            name not in BLACKLISTED_STRINGS and
+            not name.startswith(PREFIX_TO_IGNORE)
     )
 
 
@@ -88,14 +87,15 @@ def remove_unused_strings(xml_file_paths, unused_names):
     for file_path in xml_file_paths:
         tree = etree.parse(file_path)
         root = tree.getroot()
-        
+
         # Find elements with 'name' attributes that should be removed
-        elements_to_remove = [element for element in root.findall(".//*[@name]") if should_remove(element.get('name'), unused_names)]
+        elements_to_remove = [element for element in root.findall(".//*[@name]") if
+                              should_remove(element.get('name'), unused_names)]
 
         # Remove elements from the root
         for element in elements_to_remove:
             root.remove(element)
-        
+
         # Write the updated XML back to the file
         tree.write(file_path, pretty_print=True, xml_declaration=True, encoding='utf-8')
 
@@ -126,7 +126,7 @@ def main():
         translation_file_path = os.path.join(translation_dir, lang_code, 'strings.xml')
         if os.path.isfile(translation_file_path):
             translation_files.append(translation_file_path)
-    
+
     # Remove unused strings from all translation strings.xml files
     remove_unused_strings(translation_files, unused_names)
 

@@ -1,7 +1,7 @@
 import os
-from lxml import etree
-import sys
 import re
+import sys
+from lxml import etree
 
 # Set default value for the dynamic argument
 default_value = "youtube"
@@ -19,21 +19,35 @@ elif '--music' in args:
 else:
     value = default_value
 
+# Look for --rvx-base-dir argument
+rvx_base_dir = None
+for arg in args:
+    if arg.startswith('--rvx-base-dir='):
+        rvx_base_dir = arg.split('=')[1]
+        args.remove(arg)
+        break
+
+# Ensure rvx_base_dir is provided
+if not rvx_base_dir:
+    raise ValueError("The --rvx-base-dir argument is required. "
+                     "Provide the path of the 'revanced-patches' directory of the RVX repository.")
+
+
 def main():
     # Define the base directory paths
     base_dir = f"src/main/resources/{value}"
-    rvx_base_dir = f"../rvx/src/main/resources/{value}" # replace "rvx" with actual local path to the repo
+    rvx_base_dir_path = f"{rvx_base_dir}/src/main/resources/{value}"
 
     # Define the base strings.xml file paths
     base_strings_file = os.path.join(base_dir, "settings/host/values/strings.xml")
-    rvx_base_strings_file = os.path.join(rvx_base_dir, "settings/host/values/strings.xml")
+    rvx_base_strings_file = os.path.join(rvx_base_dir_path, "settings/host/values/strings.xml")
 
     # Read and update base strings.xml file
     update_strings_file(base_strings_file, rvx_base_strings_file)
 
     # Define the translations directories
     translations_dir = os.path.join(base_dir, "translations")
-    rvx_translations_dir = os.path.join(rvx_base_dir, "translations")
+    rvx_translations_dir = os.path.join(rvx_base_dir_path, "translations")
 
     # Iterate through each language directory in "translations"
     for language_dir in os.listdir(translations_dir):
@@ -45,6 +59,7 @@ def main():
             if os.path.exists(rvx_strings_file):
                 # Read and update language-specific strings.xml file
                 update_strings_file(strings_file, rvx_strings_file)
+
 
 def convert_to_positional_format(text):
     """
@@ -88,7 +103,8 @@ def update_strings_file(target_file, source_file):
     source_root = source_tree.getroot()
 
     # Create a dictionary for source strings
-    source_strings_map = {string.get("name"): convert_to_positional_format(string.text) for string in source_root.findall("string")}
+    source_strings_map = {string.get("name"): convert_to_positional_format(string.text) for string in
+                          source_root.findall("string")}
 
     # Update target strings with source content
     for string in target_root.findall("string"):
@@ -110,6 +126,7 @@ def update_strings_file(target_file, source_file):
     # Save the updated XML content back to the target file
     save_xml_file(target_file, target_tree)
 
+
 def parse_xml_file(file_path):
     """
     Parses an XML file and returns the ElementTree object.
@@ -124,6 +141,7 @@ def parse_xml_file(file_path):
     tree = etree.parse(file_path, parser)
     return tree
 
+
 def save_xml_file(file_path, tree):
     """
     Saves the XML document to a file, preserving the XML declaration and indentation.
@@ -134,12 +152,13 @@ def save_xml_file(file_path, tree):
     """
     xml_declaration = "<?xml version='1.0' encoding='utf-8'?>\n"
     xml_content = etree.tostring(tree, pretty_print=True, xml_declaration=False, encoding='unicode')
-    
+
     # Adjust the indentation to 4 spaces
     xml_content = xml_content.replace('  <string', '    <string')
 
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(xml_declaration + xml_content)
+
 
 if __name__ == "__main__":
     main()

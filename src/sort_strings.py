@@ -1,6 +1,6 @@
 import os
-from lxml import etree as ET
 import sys
+from lxml import etree as ET
 
 # Set default value for the dynamic argument
 default_value = "youtube"
@@ -24,6 +24,7 @@ source_file = f"src/main/resources/{value}/settings/host/values/strings.xml"
 # Define the destination directory path based on the dynamic value
 destination_directory = f"src/main/resources/{value}/translations"
 
+
 def parse_xml(file_path):
     """
     Parse the XML file and return the root element.
@@ -45,6 +46,7 @@ def parse_xml(file_path):
     tree = ET.parse(file_path)
     return tree.getroot()
 
+
 def get_strings_dict(root):
     """
     Extract strings from the XML root and return them as a dictionary.
@@ -58,6 +60,7 @@ def get_strings_dict(root):
         text = string.text
         strings_dict[name] = text
     return strings_dict
+
 
 def write_sorted_strings(file_path, strings_dict):
     """
@@ -78,12 +81,13 @@ def write_sorted_strings(file_path, strings_dict):
     # Write the XML file with 4-space indentation
     tree = ET.ElementTree(root)
     xml_bytes = ET.tostring(tree, encoding='utf-8', pretty_print=True, xml_declaration=True)
-    
+
     # Manually adjust the indentation to 4 spaces
     xml_string = xml_bytes.decode('utf-8').replace('  <string', '    <string')
 
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(xml_string)
+
 
 def ensure_directory_exists(directory):
     """
@@ -93,6 +97,7 @@ def ensure_directory_exists(directory):
     """
     if not os.path.exists(directory):
         os.makedirs(directory)
+
 
 def sort_strings_in_file(file_path):
     """
@@ -107,6 +112,7 @@ def sort_strings_in_file(file_path):
     except (FileNotFoundError, ET.XMLSyntaxError) as e:
         print(f"Error processing file {file_path}: {e}")
 
+
 def main():
     """
     Main function to handle the sorting of strings in the XML files.
@@ -120,6 +126,7 @@ def main():
             lang_dir = os.path.join(dirpath, dirname)
             dest_file_path = os.path.join(lang_dir, 'strings.xml')
             sort_strings_in_file(dest_file_path)
+
 
 if __name__ == "__main__":
     main()
