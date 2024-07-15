@@ -18,7 +18,6 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
     description = "Adds icons to specific preferences in the settings.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
-    use = false
 ) {
     private const val DEFAULT_ICON = "extension"
 
