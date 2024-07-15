@@ -12,7 +12,7 @@ destination_directory = "src/main/resources/youtube/translations"
 def parse_xml(file_path):
     """
     Parse the XML file and return the root element.
-    
+
     :param file_path: Path to the XML file.
     :return: Root element of the XML tree.
     :raises FileNotFoundError: If the file does not exist.
@@ -21,11 +21,13 @@ def parse_xml(file_path):
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
 
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         if not file.read().strip():
             print(f"File is empty, deleting: {file_path}")
             os.remove(file_path)
-            raise ET.ParseError(f"File is empty and has been deleted: {file_path}")
+            raise ET.ParseError(
+                f"File is empty and has been deleted: {file_path}"
+            )
 
     tree = ET.parse(file_path)
     return tree.getroot()
@@ -39,8 +41,8 @@ def get_strings_dict(root):
     :return: Dictionary with name attributes as keys and text as values.
     """
     strings_dict = {}
-    for string in root.findall('string'):
-        name = string.get('name')
+    for string in root.findall("string"):
+        name = string.get("name")
         text = string.text
         strings_dict[name] = text
     return strings_dict
@@ -58,7 +60,8 @@ def ensure_directory_exists(directory):
 
 def read_missing_strings(missing_file_path):
     """
-    Read the missing strings from the missing_strings.xml file and return them as a dictionary.
+    Read the missing strings from the missing_strings.xml file and return them
+    as a dictionary.
 
     :param missing_file_path: Path to the missing_strings.xml file.
     :return: Dictionary of missing strings.
@@ -85,16 +88,22 @@ def write_missing_strings(missing_file_path, missing_strings):
     :param missing_strings: Dictionary of missing strings to write.
     """
     ensure_directory_exists(os.path.dirname(missing_file_path))
-    with open(missing_file_path, 'w', encoding='utf-8') as f:
+    with open(missing_file_path, "w", encoding="utf-8") as f:
         f.write('<?xml version="1.0" encoding="utf-8"?>\n<resources>\n')
         for name, text in missing_strings.items():
-            f.write(f'    <string name="{name}">{escape_xml_chars(text)}</string>\n')
-        f.write('</resources>\n')
+            f.write(
+                f'    <string name="{name}">{
+                    escape_xml_chars(text)}</string>\n'
+            )
+        f.write("</resources>\n")
 
 
-def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path):
+def compare_and_update_missing_file(
+    source_dict, dest_file_path, missing_file_path
+):
     """
-    Compare source strings with destination strings and update missing_strings.xml accordingly.
+    Compare source strings with destination strings and update
+    missing_strings.xml accordingly.
 
     :param source_dict: Dictionary of source strings.
     :param dest_file_path: Path to the destination XML file.
@@ -121,7 +130,8 @@ def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_pa
         else:
             missing_strings[name] = text
 
-    # Write updated missing strings back to the file if not empty, otherwise delete the file
+    # Write updated missing strings back to the file if not empty,
+    # otherwise delete the file
     if missing_strings:
         write_missing_strings(missing_file_path, missing_strings)
     elif os.path.exists(missing_file_path):
@@ -144,9 +154,11 @@ def main():
     for dirpath, dirnames, filenames in os.walk(destination_directory):
         for dirname in dirnames:
             lang_dir = os.path.join(dirpath, dirname)
-            dest_file_path = os.path.join(lang_dir, 'strings.xml')
-            missing_file_path = os.path.join(lang_dir, 'missing_strings.xml')
-            compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path)
+            dest_file_path = os.path.join(lang_dir, "strings.xml")
+            missing_file_path = os.path.join(lang_dir, "missing_strings.xml")
+            compare_and_update_missing_file(
+                source_dict, dest_file_path, missing_file_path
+            )
 
 
 if __name__ == "__main__":

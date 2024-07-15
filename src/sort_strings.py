@@ -9,12 +9,12 @@ default_value = "youtube"
 args = sys.argv[1:]
 
 # Check for --youtube or --music arguments and set the value accordingly
-if '--youtube' in args:
+if "--youtube" in args:
     value = "youtube"
-    args.remove('--youtube')
-elif '--music' in args:
+    args.remove("--youtube")
+elif "--music" in args:
     value = "music"
-    args.remove('--music')
+    args.remove("--music")
 else:
     value = default_value
 
@@ -28,7 +28,7 @@ destination_directory = f"src/main/resources/{value}/translations"
 def parse_xml(file_path):
     """
     Parse the XML file and return the root element.
-    
+
     :param file_path: Path to the XML file.
     :return: Root element of the XML tree.
     :raises FileNotFoundError: If the file does not exist.
@@ -37,11 +37,13 @@ def parse_xml(file_path):
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
 
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         if not file.read().strip():
             print(f"File is empty, deleting: {file_path}")
             os.remove(file_path)
-            raise ET.XMLSyntaxError(f"File is empty and has been deleted: {file_path}")
+            raise ET.XMLSyntaxError(
+                f"File is empty and has been deleted: {file_path}"
+            )
 
     tree = ET.parse(file_path)
     return tree.getroot()
@@ -55,8 +57,8 @@ def get_strings_dict(root):
     :return: Dictionary with name attributes as keys and text as values.
     """
     strings_dict = {}
-    for string in root.findall('string'):
-        name = string.get('name')
+    for string in root.findall("string"):
+        name = string.get("name")
         text = string.text
         strings_dict[name] = text
     return strings_dict
@@ -72,20 +74,22 @@ def write_sorted_strings(file_path, strings_dict):
     ensure_directory_exists(os.path.dirname(file_path))
 
     # Create the root element and add strings sorted by name
-    root = ET.Element('resources')
+    root = ET.Element("resources")
     for name in sorted(strings_dict.keys()):
-        string_element = ET.Element('string', name=name)
+        string_element = ET.Element("string", name=name)
         string_element.text = strings_dict[name]
         root.append(string_element)
 
     # Write the XML file with 4-space indentation
     tree = ET.ElementTree(root)
-    xml_bytes = ET.tostring(tree, encoding='utf-8', pretty_print=True, xml_declaration=True)
+    xml_bytes = ET.tostring(
+        tree, encoding="utf-8", pretty_print=True, xml_declaration=True
+    )
 
     # Manually adjust the indentation to 4 spaces
-    xml_string = xml_bytes.decode('utf-8').replace('  <string', '    <string')
+    xml_string = xml_bytes.decode("utf-8").replace("  <string", "    <string")
 
-    with open(file_path, 'w', encoding='utf-8') as f:
+    with open(file_path, "w", encoding="utf-8") as f:
         f.write(xml_string)
 
 
@@ -124,7 +128,7 @@ def main():
     for dirpath, dirnames, filenames in os.walk(destination_directory):
         for dirname in dirnames:
             lang_dir = os.path.join(dirpath, dirname)
-            dest_file_path = os.path.join(lang_dir, 'strings.xml')
+            dest_file_path = os.path.join(lang_dir, "strings.xml")
             sort_strings_in_file(dest_file_path)
 
 
