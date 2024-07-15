@@ -93,7 +93,8 @@ def should_remove(name, unused_names):
 
 def remove_unused_strings(xml_file_paths, unused_names):
     """
-    Remove strings with unused 'name' attributes from the specified XML files.
+    Remove strings with unused 'name' attributes from the specified XML files
+    and write the sorted strings back to the file.
 
     Args:
         xml_file_paths (list): List of paths to XML files.
@@ -103,30 +104,21 @@ def remove_unused_strings(xml_file_paths, unused_names):
         tree = etree.parse(file_path)
         root = tree.getroot()
 
-        # Find elements with 'name' attributes that should be removed
-        elements_to_remove = [
-            element
-            for element in root.findall(".//*[@name]")
-            if should_remove(element.get("name"), unused_names)
-        ]
+        # Create a dictionary of strings to keep
+        strings_dict = {}
+        for element in root.findall(".//*[@name]"):
+            name = element.get("name")
+            if not should_remove(name, unused_names):
+                strings_dict[name] = element.text
 
-        # Remove elements from the root
-        for element in elements_to_remove:
-            root.remove(element)
-
-        # Write the updated XML back to the file
-        tree.write(
-            file_path,
-            pretty_print=True,
-            xml_declaration=True,
-            encoding="utf-8",
-        )
+        # Write the sorted strings back to the file
+        write_sorted_strings(file_path, strings_dict)
 
 
 def check_translation_files(main_xml_path, translation_files):
     """
-    Check each translation file against the main XML file and remove strings
-    that don't exist in the main XML file.
+    Check each translation file against the main XML file, remove strings
+    that don't exist in the main XML file, and write the sorted strings back.
 
     Args:
         main_xml_path (str): Path to the main XML file.
@@ -142,22 +134,57 @@ def check_translation_files(main_xml_path, translation_files):
         translation_tree = etree.parse(translation_file)
         translation_root = translation_tree.getroot()
 
-        elements_to_remove = [
-            element
-            for element in translation_root.findall(".//*[@name]")
-            if element.get("name") not in main_names
-        ]
+        # Create a dictionary of strings to keep
+        strings_dict = {}
+        for element in translation_root.findall(".//*[@name]"):
+            name = element.get("name")
+            if name in main_names:
+                strings_dict[name] = element.text
+            else:
+                print(f"Removed '{name}' from {translation_file}")
 
-        for element in elements_to_remove:
-            translation_root.remove(element)
-            print(f"Removed '{element.get('name')}' from {translation_file}")
+        # Write the sorted strings back to the file
+        write_sorted_strings(translation_file, strings_dict)
 
-        translation_tree.write(
-            translation_file,
-            pretty_print=True,
-            xml_declaration=True,
-            encoding="utf-8",
-        )
+
+def write_sorted_strings(file_path, strings_dict):
+    """
+    Write the strings to the XML file sorted by their name attributes.
+
+    Args:
+        file_path (str): Path to the XML file.
+        strings_dict (dict): Dictionary of strings to write.
+    """
+    ensure_directory_exists(os.path.dirname(file_path))
+
+    # Create the root element and add strings sorted by name
+    root = etree.Element("resources")
+    for name in sorted(strings_dict.keys()):
+        string_element = etree.Element("string", name=name)
+        string_element.text = strings_dict[name]
+        root.append(string_element)
+
+    # Write the XML file with 4-space indentation
+    tree = etree.ElementTree(root)
+    xml_bytes = etree.tostring(
+        tree, encoding="utf-8", pretty_print=True, xml_declaration=True
+    )
+
+    # Manually adjust the indentation to 4 spaces
+    xml_string = xml_bytes.decode("utf-8").replace("  <string", "    <string")
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(xml_string)
+
+
+def ensure_directory_exists(directory):
+    """
+    Ensure that the specified directory exists.
+
+    Args:
+        directory (str): Path to the directory.
+    """
+    os.makedirs(directory, exist_ok=True)
 
 
 def main():
@@ -182,13 +209,15 @@ def main():
     remove_unused_strings([xml_file_path], unused_names)
 
     # Collect paths to all translation strings.xml files
-    translation_files = []
-    for lang_code in os.listdir(translation_dir):
-        translation_file_path = os.path.join(
-            translation_dir, lang_code, "strings.xml"
+    translation_files = [
+        f
+        for lang_code in os.listdir(translation_dir)
+        for f in (
+            os.path.join(translation_dir, lang_code, "strings.xml"),
+            os.path.join(translation_dir, lang_code, "missing_strings.xml"),
         )
-        if os.path.isfile(translation_file_path):
-            translation_files.append(translation_file_path)
+        if os.path.isfile(f)
+    ]
 
     # Remove unused strings from all translation strings.xml files
     remove_unused_strings(translation_files, unused_names)

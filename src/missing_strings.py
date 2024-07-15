@@ -89,7 +89,7 @@ def write_missing_strings(missing_file_path, missing_strings):
     """
     ensure_directory_exists(os.path.dirname(missing_file_path))
     with open(missing_file_path, "w", encoding="utf-8") as f:
-        f.write('<?xml version="1.0" encoding="utf-8"?>\n<resources>\n')
+        f.write("<?xml version='1.0' encoding='utf-8'?>\n<resources>\n")
         for name, text in missing_strings.items():
             f.write(
                 f'    <string name="{name}">{
