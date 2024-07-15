@@ -1,3 +1,10 @@
+# [2.227.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.21...v2.227.0-dev.22) (2024-07-15)
+
+
+### Bug Fixes
+
+* **YouTube - VIsual preferences icons:** Revert ([c002788](https://github.com/anddea/revanced-patches/commit/c00278891f01b2a197674c79a9bf27341edfd47b))
+
 # [2.227.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.20...v2.227.0-dev.21) (2024-07-15)
 
 
