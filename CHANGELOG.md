@@ -1,3 +1,12 @@
+# [2.227.0-dev.21](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.20...v2.227.0-dev.21) (2024-07-15)
+
+
+### Features
+
+* **YouTube - Sponsorblock:** Add content descriptions to `New Segment` buttons ([1deec38](https://github.com/anddea/revanced-patches/commit/1deec386beded1e2d685c3306a61ec8601691cb1))
+* **YouTube & YouTube Music - Custom branding icon:** Updated `Revancify Yellow` icon  ([#689](https://github.com/anddea/revanced-patches/issues/689)) ([b86e084](https://github.com/anddea/revanced-patches/commit/b86e084b47da31aea5349d424902f5be11d4da99))
+* **YouTube Music - Custom branding icon:** Updated `AFN` icons ([#724](https://github.com/anddea/revanced-patches/issues/724)) ([700af02](https://github.com/anddea/revanced-patches/commit/700af022f47a70d9f611dc0e9555cfc2840992f6))
+
 # [2.227.0-dev.20](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.19...v2.227.0-dev.20) (2024-07-14)
 
 
