@@ -123,6 +123,43 @@ def remove_unused_strings(xml_file_paths, unused_names):
         )
 
 
+def check_translation_files(main_xml_path, translation_files):
+    """
+    Check each translation file against the main XML file and remove strings
+    that don't exist in the main XML file.
+
+    Args:
+        main_xml_path (str): Path to the main XML file.
+        translation_files (list): List of paths to translation XML files.
+    """
+    main_tree = etree.parse(main_xml_path)
+    main_root = main_tree.getroot()
+    main_names = set(
+        element.get("name") for element in main_root.findall(".//*[@name]")
+    )
+
+    for translation_file in translation_files:
+        translation_tree = etree.parse(translation_file)
+        translation_root = translation_tree.getroot()
+
+        elements_to_remove = [
+            element
+            for element in translation_root.findall(".//*[@name]")
+            if element.get("name") not in main_names
+        ]
+
+        for element in elements_to_remove:
+            translation_root.remove(element)
+            print(f"Removed '{element.get('name')}' from {translation_file}")
+
+        translation_tree.write(
+            translation_file,
+            pretty_print=True,
+            xml_declaration=True,
+            encoding="utf-8",
+        )
+
+
 def main():
     xml_file_path = (
         "src/main/resources/youtube/settings/host/values/strings.xml"
@@ -155,6 +192,9 @@ def main():
 
     # Remove unused strings from all translation strings.xml files
     remove_unused_strings(translation_files, unused_names)
+
+    # Check translation files against the main XML file
+    check_translation_files(xml_file_path, translation_files)
 
 
 if __name__ == "__main__":
