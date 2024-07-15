@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore 没有安装。请安装它</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">该选项允许您更改 YouTube 用于接收原始头像、社区发布图片等资源的域名</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">使用替代域名获取所有原始图片</string>
     <string name="revanced_alt_thumbnail_alternative_domain_summary">获取图片的域名\n注意：仅输入域名，不输入“https\:\/\/”前缀</string>
     <string name="revanced_alt_thumbnail_alternative_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 视频的众包缩略图。 这些缩略图通常比 YouTube 提供的缩略图更相关。 
@@ -108,7 +106,6 @@
     <string name="revanced_custom_playback_speeds_parse_exception">无效的自定义播放速度将使用默认值</string>
     <string name="revanced_custom_playback_speeds_summary">添加或更改播放速度</string>
     <string name="revanced_custom_playback_speeds_title">编辑自定义播放速度</string>
-    <string name="revanced_custom_playback_speeds_warning">自定义播放速度不能大于 %sx。已重置为默认值</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">播放器的不透明度必须介于 0-100 之间 重置为默认值</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介于 0-100 之间，0 为透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">自定义播放器的不透明度</string>
@@ -154,8 +151,6 @@
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">启用进度条跳转撤销的震动反馈</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">禁用进度条跳转撤销的震动反馈</string>
     <string name="revanced_disable_haptic_feedback_seek_undo_title">禁用进度条跳转撤销的震动反馈</string>
-    <string name="revanced_disable_haptic_feedback_summary_off">震动反馈已启用</string>
-    <string name="revanced_disable_haptic_feedback_summary_on">震动反馈已禁用</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_off">启用缩放触感反馈</string>
     <string name="revanced_disable_haptic_feedback_zoom_summary_on">禁用缩放触感反馈</string>
     <string name="revanced_disable_haptic_feedback_zoom_title">缩放触感反馈</string>
@@ -193,11 +188,6 @@
 • 点击滚动
 • 长按选择文本"</string>
     <string name="revanced_disable_video_description_interaction_title">禁用视频描述交互</string>
-    <string name="revanced_double_back_timeout_summary">（首页）双击返回间隔X秒以内退出应用</string>
-    <string name="revanced_double_back_timeout_title">双击返回</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_off">禁用在视频播放器下方向下滑动时进入全屏</string>
-    <string name="revanced_enable_bottom_player_gestures_summary_on">启用在视频播放器下方向下滑动时进入全屏</string>
-    <string name="revanced_enable_bottom_player_gestures_title">启用底部播放器手势</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo 搜索栏已禁用</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo 搜索栏已启用
 
@@ -227,9 +217,6 @@
     <string name="revanced_enable_gradient_loading_screen_summary_off">渐变的加载屏幕已禁用</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">渐变的加载屏幕已启用</string>
     <string name="revanced_enable_gradient_loading_screen_title">启用渐变的加载屏幕</string>
-    <string name="revanced_enable_language_switch_summary_off">语言切换开关已禁用</string>
-    <string name="revanced_enable_language_switch_summary_on">语言切换开关已启用</string>
-    <string name="revanced_enable_language_switch_title">启用语言切换开关</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">导航按钮之间的间距不会变窄</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">导航按钮之间的间距变窄</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">启用窄间距导航按钮</string>
@@ -268,9 +255,6 @@
     <string name="revanced_enable_swipe_volume_title">音量手势</string>
     <string name="revanced_enable_tablet_layout_summary">伪装 DPI 以使用一些平板布局</string>
     <string name="revanced_enable_tablet_layout_title">启用平板布局</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_off">平板导航底栏已禁用</string>
-    <string name="revanced_enable_tablet_navigation_bar_summary_on">平板导航底栏已启用</string>
-    <string name="revanced_enable_tablet_navigation_bar_title">启用平板导航底栏</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">导航栏不透明</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">导航栏半透明</string>
     <string name="revanced_enable_translucent_navigation_bar_title">启用半透明导航栏</string>
@@ -304,11 +288,8 @@
     <string name="revanced_extended_settings_export_title">导出配置</string>
     <string name="revanced_extended_settings_import">导入</string>
     <string name="revanced_extended_settings_import_copy">复制</string>
-    <string name="revanced_extended_settings_import_export_as_file_title">导入 / 导出配置文件</string>
     <string name="revanced_extended_settings_import_export_as_text_summary">导入 / 导出配置文本</string>
     <string name="revanced_extended_settings_import_export_as_text_title">导入 / 导出配置文本</string>
-    <string name="revanced_extended_settings_import_export_summary">导入或导出配置文件</string>
-    <string name="revanced_extended_settings_import_export_title">导入 / 导出配置</string>
     <string name="revanced_extended_settings_import_failed">导入配置失败</string>
     <string name="revanced_extended_settings_import_reset">配置已被重置为默认值</string>
     <string name="revanced_extended_settings_import_success">导入配置成功</string>
@@ -363,7 +344,6 @@
     <string name="revanced_hide_category_bar_in_feed_summary_off">在新闻源中显示</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">在新闻源中隐藏</string>
     <string name="revanced_hide_category_bar_in_feed_title">在新闻源中隐藏</string>
-    <string name="revanced_hide_category_bar_in_related_video_title">隐藏相关视频中的类别栏</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_off">在相关视频中显示</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_on">在相关视频中隐藏</string>
     <string name="revanced_hide_category_bar_in_related_videos_title">在相关视频中隐藏</string>
