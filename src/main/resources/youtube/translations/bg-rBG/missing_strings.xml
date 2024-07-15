@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_summary">This option allows you to replace the domain from which YouTube receives original avatars, images of community publications, etc.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_enable_title">Use alternative domain for all original pictures</string>
     <string name="revanced_alt_thumbnail_alternative_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
     <string name="revanced_alt_thumbnail_alternative_domain_title">Alternative domain</string>
     <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Replaces the domain that is blocked in some regions so that video thumbnails, channel avatars, community post images, etc. can be received.</string>
@@ -70,15 +68,12 @@ Side effect: Community post images may be blocked in fullscreen."</string>
     <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
     <string name="revanced_hide_keyword_content_full_word_title">Match full word</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%1$s\' will hide all videos.</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">Invalid keyword. \'%1$s\' is less than %2$d characters.</string>
     <string name="revanced_hide_live_chat_messages_summary_off">Live chat messages are shown.\n\nThis setting applies to Shorts live videos too.</string>
     <string name="revanced_hide_live_chat_messages_summary_on">Live chat messages are hidden.\n\nThis setting applies to Shorts live videos too.</string>
     <string name="revanced_hide_live_chat_messages_title">Hide live chat messages</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
-    <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
-    <string name="revanced_hide_low_views_video_title">Hide low views video</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Quality menu header is shown.</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Quality menu header is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_title">Hide quality menu header</string>
@@ -88,6 +83,9 @@ Side effect: Community post images may be blocked in fullscreen."</string>
     <string name="revanced_hide_shorts_live_header_summary_off">Live chat header is shown.\n\nBack button in header will not be hidden.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Live chat header is hidden.\n\nBack button in header will not be hidden.</string>
     <string name="revanced_hide_shorts_live_header_title">Hide live chat header</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">Paused header is shown.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">Paused header is hidden.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Hide paused header</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Button background is shown.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Button background is hidden.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Hide Play &amp; Pause button background</string>
@@ -158,10 +156,12 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_replace_channel_handle_summary_off">Channel handle is used.</string>
     <string name="revanced_replace_channel_handle_summary_on">Channel name is used.</string>
     <string name="revanced_replace_channel_handle_title">Replace channel handle</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">"Use YouTube's built-in channel name."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">"Use the channel name taken from RSS feed.
-It may take longer to fetch the channel name."</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">Fetch from rss feed</string>
+    <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
+    <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
+    <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
+    <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
+    <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Thumbs up</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Thumbs up (Cairo)</string>
@@ -186,13 +186,10 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
     <string name="revanced_spoof_client_general_title">General</string>
     <string name="revanced_spoof_client_livestream_title">Live streams</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android Embedded Player</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">Shorts, Clips</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">Spoofed client is hidden in Stats for nerds.</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">Spoofed client is shown in Stats for nerds.</string>
@@ -237,25 +234,11 @@ Side effects include:
 • Watch history does not work with a brand account.
 • Live streams cannot play as audio-only.
 • Live streams not available on Android 8.0."</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"Client is currently spoofed to Android VR. (iOS client is used for Clips or Shorts)
-
-Side effects include:
-• Player swipe gestures do not work.
-• Kids videos do not playback.
-• Paused videos can randomly resume."</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"Client is currently spoofed to iOS.
-
-Side effects include:
-• Playback speed menu is missing.
-• Live streams cannot play as audio only.
-• Live streams not available on Android 8.0.
-• Higher video qualities may be missing."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Swipeable area size cannot be more than 50. Reset to default value.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">Swipeable area size cannot be more than %s%%. Reset to default value.</string>
     <string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
     <string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
     <string name="revanced_whitelist_empty">There are no whitelisted channels.</string>
@@ -269,13 +252,4 @@ Side effects include:
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_shorts_paused_header_summary_off">Paused header is shown.</string>
-    <string name="revanced_hide_shorts_paused_header_summary_on">Paused header is hidden.</string>
-    <string name="revanced_hide_shorts_paused_header_title">Hide paused header</string>
-    <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
-    <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
-    <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
-    <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
-    <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
-    <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
 </resources>
