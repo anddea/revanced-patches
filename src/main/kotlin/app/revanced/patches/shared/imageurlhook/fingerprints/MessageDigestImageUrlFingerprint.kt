@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.alternativedomain.fingerprints
+package app.revanced.patches.shared.imageurlhook.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object MessageDigestImageUrlFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Ljava/lang/String;", "L")
+    parameters =  listOf("Ljava/lang/String;", "L")
 )

@@ -138,7 +138,9 @@
 
 
 	<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
-	<PreferenceScreen android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:key="revanced_preference_screen_alt_thumbnails">
+	<PreferenceScreen android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
+
+		<!-- SETTINGS: ALTERNATIVE_THUMBNAILS
 		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_home_title" android:key="revanced_alt_thumbnail_home" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
 		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_subscriptions_title" android:key="revanced_alt_thumbnail_subscriptions" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
 		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_library_title" android:key="revanced_alt_thumbnail_library" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
@@ -149,10 +151,14 @@
 		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:defaultValue="https://dearrow-thumb.ajay.app/api/v1/getThumbnail" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
 		<Preference android:title="@string/revanced_alt_thumbnail_stills_about_title" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills_about_summary" />
 		<SwitchPreference android:title="@string/revanced_alt_thumbnail_stills_fast_title" android:key="revanced_alt_thumbnail_stills_fast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_stills_fast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_stills_fast_summary_off" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />
-		<SwitchPreference android:title="@string/revanced_alt_thumbnail_use_alternative_domain_title" android:key="revanced_alt_thumbnail_use_alternative_domain" android:summary="@string/revanced_alt_thumbnail_use_alternative_domain_summary"/>
-		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:hint="yt4.ggpht.com" android:title="@string/revanced_alt_thumbnail_alternative_domain_title" android:key="revanced_alt_thumbnail_alternative_domain" android:summary="@string/revanced_alt_thumbnail_alternative_domain_summary" android:inputType="textUri"/>
-	</PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
+		<ListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />SETTINGS: ALTERNATIVE_THUMBNAILS -->
+
+		<!-- SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS
+		<PreferenceCategory android:title="@string/revanced_preference_category_image_region_restrictions" android:layout="@layout/revanced_settings_preferences_category"/>
+		<SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
+
+		<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
+    </PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
 
 
 	<!-- PREFERENCE_SCREEN: FEED
@@ -653,6 +659,7 @@
 
 			<PreferenceCategory android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:layout="@layout/revanced_settings_preferences_category">
 				<Preference android:title="Alternative thumbnails" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+				<Preference android:title="Bypass image region restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 			</PreferenceCategory>
 
 			<PreferenceCategory android:title="@string/revanced_preference_screen_feed_title" android:layout="@layout/revanced_settings_preferences_category">

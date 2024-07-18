@@ -1,6 +1,0 @@
-package app.revanced.patches.youtube.alternativethumbnails.general
-
-import app.revanced.patches.shared.alternativedomain.BaseAlternativeDomainPatch
-import app.revanced.patches.youtube.utils.integrations.Constants.ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR
-
-object AlternativeDomainBytecodePatch : BaseAlternativeDomainPatch(ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR)

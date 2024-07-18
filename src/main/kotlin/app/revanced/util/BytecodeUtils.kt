@@ -42,6 +42,9 @@ fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 val MethodFingerprint.exception
     get() = PatchException("Failed to resolve ${this.javaClass.simpleName}")
 
+fun MethodFingerprint.alsoResolve(context: BytecodeContext, fingerprint: MethodFingerprint) =
+    also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
+
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
  *
