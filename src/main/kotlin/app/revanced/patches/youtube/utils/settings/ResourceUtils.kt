@@ -23,7 +23,22 @@ object ResourceUtils {
     ) {
         youtubePackageName = toPackageName
 
-        val prefs = this["res/xml/settings_fragment.xml"]
+        val prefs = this[YOUTUBE_SETTINGS_PATH]
+
+        prefs.writeText(
+            prefs.readText()
+                .replace(
+                    "android:targetPackage=\"$fromPackageName",
+                    "android:targetPackage=\"$toPackageName"
+                )
+        )
+    }
+
+    fun ResourceContext.updateGmsCorePackageName(
+        fromPackageName: String,
+        toPackageName: String
+    ) {
+        val prefs = this[TARGET_PREFERENCE_PATH]
 
         prefs.writeText(
             prefs.readText()
