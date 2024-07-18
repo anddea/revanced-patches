@@ -1,23 +1,24 @@
-package app.revanced.patches.reddit.misc.versioncode
+package app.revanced.patches.all.misc.versioncode
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
-import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.util.patch.BaseResourcePatch
 import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 
-@Suppress("unused")
-object ChangeVersionCodePatch : BaseResourcePatch(
+@Patch(
     name = "Change version code",
     description = "Changes the version code of the app. By default the highest version code is set. " +
             "This allows older versions of an app to be installed " +
-            "if their version code is set to the same or a higher value and can stop app stores to update the app.",
-    compatiblePackages = COMPATIBLE_PACKAGE,
-    use = false
-) {
+            "if their version code is set to the same or a higher value and can stop app stores to update the app. " +
+            "This does not apply when installing with root install (mount).",
+    use = false,
+)
+@Suppress("unused")
+object ChangeVersionCodePatch : ResourcePatch() {
     private const val MAX_VALUE = Int.MAX_VALUE.toString()
 
     private val ChangeVersionCode by booleanPatchOption(
