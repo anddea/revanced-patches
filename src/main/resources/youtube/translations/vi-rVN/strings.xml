@@ -15,8 +15,6 @@ Làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài đặt
     <string name="gms_core_settings_summary">Bật tính năng tin nhắn trên đám mây để nhận thông báo.</string>
     <string name="gms_core_settings_title">Mở GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Cài đặt nó.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">Tên miền để tìm nạp hình ảnh.\nLưu ý: Chỉ nhập tên miền, không có tiền tố \"https://\"</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Tên miền thay thế</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm thay thế hình thu nhỏ mặc định của video YouTube bằng những hình thu nhỏ phù hợp hơn, giúp hạn chế clickbait.
 
 Nếu được bật, chỉ có URL video được gửi đến máy chủ API, ngoài ra không có bất kì dữ liệu nào khác được gửi đi. Nếu video không có hình thu nhỏ DeArrow, hình thu nhỏ gốc hoặc hình thu nhỏ tự động sẽ được hiển thị.
@@ -49,8 +47,6 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Cuối video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Thời điểm để lấy ảnh tĩnh từ video</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Thẻ Kênh đăng ký</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Thay thế tên miền bị chặn ở một số khu vực, để có thể nhận được hình thu nhỏ video, hình đại diện kênh, hình ảnh bài đăng cộng đồng, v.v.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Sử dụng tên miền thay thế cho hình ảnh</string>
     <string name="revanced_append_time_stamp_information_summary_off">Nối thông tin vào dấu Thời gian đã tắt.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Nối thông tin vào dấu Thời gian đã bật.</string>
     <string name="revanced_append_time_stamp_information_title">Nối thông tin vào dấu Thời gian</string>
@@ -60,6 +56,9 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Không giới hạn khi tiết kiệm pin đã tắt.\nChế độ môi trường xung quanh sẽ tắt khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Không giới hạn khi tiết kiệm pin đã bật.\nChế độ môi trường xung quanh sẽ không tự động tắt khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Không giới hạn khi tiết kiệm pin</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Sử dụng máy chủ lưu trữ hình ảnh gốc.\n\nBật tính năng này có thể khắc phục tình trạng hình ảnh bị chặn ở một số khu vực.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Sử dụng máy chủ hình ảnh yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế vùng hình ảnh</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Công tắc chuyển đổi được sử dụng.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Chuyển đổi văn bản được sử dụng.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Thay đổi kiểu chuyển đổi</string>
@@ -221,6 +220,9 @@ Hiệu ứng khác: Chủ đề Cairo cũng được áp dụng cho dấu chấm
     <string name="revanced_enable_opus_codec_title">Bật Codec OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Thay đổi DPI để sử dụng một số bố cục điện thoại.</string>
     <string name="revanced_enable_phone_layout_title">Bố cục điện thoại</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Không lưu và khôi phục độ sáng khi thoát ra hoặc vào chế độ toàn màn hình.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Lưu và khôi phục độ sáng khi thoát ra hoặc vào chế độ toàn màn hình.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Bật lưu và khôi phục độ sáng</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Chạm thanh tiến trình video để tua đã tắt.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Chạm thanh tiến trình video để tua đã bật.</string>
     <string name="revanced_enable_seekbar_tapping_title">Chạm thanh tiến trình để tua</string>
@@ -769,6 +771,9 @@ Phụ đề"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Nhãn quảng cáo trả phí được hiển thị.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Nhãn quảng cáo trả phí đã ẩn.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ẩn nhãn Quảng cáo trả phí</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">Tiêu đề tạm dừng đã được hiển thị.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">Tiêu đề tạm dừng đã bị ẩn.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Ẩn tiêu đề tạm dừng</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Lớp phủ nút tạm dừng được hiển thị.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Lớp phủ nút tạm dừng được ẩn.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Lớp phủ nút tạm dừng</string>
@@ -976,6 +981,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_category_animation_feedback">Hoạt ảnh / Phản hồi</string>
     <string name="revanced_preference_category_duration_filter">Bộ lọc thời lượng</string>
     <string name="revanced_preference_category_experimental_flag">Tính năng thử nghiệm</string>
+    <string name="revanced_preference_category_image_region_restrictions">Hạn chế vùng hình ảnh</string>
     <string name="revanced_preference_category_import_export_as_file">Nhập/Xuất dưới dạng tập tin</string>
     <string name="revanced_preference_category_import_export_as_text">Nhập/Xuất dưới dạng văn bản</string>
     <string name="revanced_preference_category_keyword_filter">Bộ lọc từ khoá</string>
@@ -1011,7 +1017,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_screen_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">Ẩn hoặc hiển thị thành phần của trình đơn tuỳ chọn trên các trang video.</string>
     <string name="revanced_preference_screen_feed_flyout_menu_title">Trình đơn tuỳ chọn</string>
-    <string name="revanced_preference_screen_feed_title">Các trang video</string>
+    <string name="revanced_preference_screen_feed_title">Bảng tin</string>
     <string name="revanced_preference_screen_fullscreen_summary">Ẩn hoặc thay đổi các thành phần liên quan đến toàn màn hình.</string>
     <string name="revanced_preference_screen_fullscreen_title">Toàn màn hình</string>
     <string name="revanced_preference_screen_general_title">Chung</string>
@@ -1031,7 +1037,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ẩn hoặc thay đổi menu hiện ra trong trình phát video.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menu hiện ra</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
-    <string name="revanced_preference_screen_ryd_title">Lượt không thích</string>
+    <string name="revanced_preference_screen_ryd_title">Khôi phục lượt Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Tùy chỉnh thanh tiến trình</string>
     <string name="revanced_preference_screen_seekbar_title">Thanh tiến trình</string>

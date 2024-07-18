@@ -1,11 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternative domain</string>
     <string name="revanced_alt_thumbnail_stills">Still video captures</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Replaces the domain that is blocked in some regions so that video thumbnails, channel avatars, community post images, etc. can be received.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Use alternative domain for images</string>
     <string name="revanced_change_start_page_entry_browse">Browse channels</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
@@ -253,4 +249,11 @@ Side effects include:
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host.\n\nEnabling this can fix missing images that are blocked in some regions.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
+    <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
 </resources>

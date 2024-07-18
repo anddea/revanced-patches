@@ -17,8 +17,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternative domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube.
 
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown.
@@ -51,8 +49,6 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Subscriptions tab</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Replaces the domain that is blocked in some regions so that video thumbnails, channel avatars, community post images, etc. can be received.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Use alternative domain for images</string>
     <string name="revanced_append_time_stamp_information_summary_off">Information is not appended to the timestamp.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Information is appended to the timestamp.</string>
     <string name="revanced_append_time_stamp_information_title">Append timestamp information</string>
@@ -62,6 +58,9 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient mode is disabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient mode is enabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypass Ambient mode restrictions</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host.\n\nEnabling this can fix missing images that are blocked in some regions.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Switch toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Text toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Change toggle type</string>
@@ -227,6 +226,9 @@ Side effect: Cairo theme is also applied to notification dots."</string>
     <string name="revanced_enable_opus_codec_title">Enable OPUS codec</string>
     <string name="revanced_enable_phone_layout_summary">Spoofs the dpi to use some phone layouts.</string>
     <string name="revanced_enable_phone_layout_title">Enable phone layout</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled.</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
@@ -997,6 +999,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_category_animation_feedback">Animation / Feedback</string>
     <string name="revanced_preference_category_duration_filter">Duration filter</string>
     <string name="revanced_preference_category_experimental_flag">Experimental Flags</string>
+    <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export as text</string>
     <string name="revanced_preference_category_keyword_filter">Keyword filter</string>
