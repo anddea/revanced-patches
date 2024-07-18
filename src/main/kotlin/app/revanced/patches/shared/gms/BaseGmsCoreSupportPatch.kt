@@ -8,9 +8,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch.Constants.ACTIONS
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch.Constants.AUTHORITIES
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
+import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE
+import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC
 import app.revanced.patches.shared.gms.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleV2Fingerprint
@@ -21,7 +24,6 @@ import app.revanced.patches.shared.gms.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.shared.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.shared.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
-import app.revanced.patches.shared.packagename.PackageNamePatch
 import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexWithReference
 import app.revanced.util.resultOrThrow
@@ -46,6 +48,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
  * @param dependencies Additional dependencies of this patch.
  * @param compatiblePackages The compatible packages of this patch.
  */
+@Suppress("SameParameterValue")
 abstract class BaseGmsCoreSupportPatch(
     private val fromPackageName: String,
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
@@ -58,7 +61,6 @@ abstract class BaseGmsCoreSupportPatch(
     description = "Allows patched Google apps to run without root and under a different package name " +
             "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
-        PackageNamePatch::class,
         gmsCoreSupportResourcePatch::class,
         integrationsPatchDependency,
     ) + dependencies,
@@ -82,14 +84,53 @@ abstract class BaseGmsCoreSupportPatch(
     requiresIntegrations = true,
 ) {
     private companion object {
-        const val GMS_CORE_VENDOR_GROUP_ID = "app.revanced"
-
         const val INTEGRATIONS_CLASS_DESCRIPTOR =
             "$PATCHES_PATH/GmsCoreSupport;"
+
+        var gmsCoreVendor = "app.revanced"
+        var checkGmsCore = true
+        var packageNameYouTube = "com.google.android.youtube"
+        var packageNameYouTubeMusic = "com.google.android.apps.youtube.music"
+
+    }
+
+    init {
+        // Manually register all options of the resource patch so that they are visible in the patch API.
+        gmsCoreSupportResourcePatch.options.values.forEach(options::register)
+    }
+
+    private fun getBooleanPatchOption(optionKey: String): Boolean {
+        this.options.values.forEach { options ->
+            if (options.key == optionKey && options.value is Boolean)
+                return options.value as Boolean
+        }
+        throw PatchException("Patch option not found: $optionKey")
+    }
+
+    private fun getStringPatchOption(optionKey: String): String {
+        this.options.values.forEach { options ->
+            if (options.key == optionKey)
+                return options.value.toString()
+        }
+        throw PatchException("Patch option not found: $optionKey")
+    }
+
+    private fun getPackageName(originalPackageName: String): String {
+        if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE) {
+            return packageNameYouTube
+        } else if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC) {
+            return packageNameYouTubeMusic
+        }
+        throw PatchException("Unknown package name!")
     }
 
     override fun execute(context: BytecodeContext) {
-        val packageName = PackageNamePatch.getPackageName(fromPackageName)
+        gmsCoreVendor = getStringPatchOption("GmsCoreVendorGroupId")
+        checkGmsCore = getBooleanPatchOption("CheckGmsCore")
+        packageNameYouTube = getStringPatchOption("PackageNameYouTube")
+        packageNameYouTubeMusic = getStringPatchOption("PackageNameYouTubeMusic")
+
+        val packageName = getPackageName(fromPackageName)
 
         // Transform all strings using all provided transforms, first match wins.
         val transformations = arrayOf(
@@ -119,17 +160,19 @@ abstract class BaseGmsCoreSupportPatch(
         ).returnEarly()
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
-            "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                    "checkGmsCore(Landroid/app/Activity;)V",
-        )
+        if (checkGmsCore) {
+            mainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
+                1, // Hack to not disturb other patches (such as the YTMusic integrations patch).
+                "invoke-static/range { p0 .. p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                        "checkGmsCore(Landroid/app/Activity;)V",
+            )
+        }
 
         // Change the vendor of GmsCore in ReVanced Integrations.
         GmsCoreSupportFingerprint
             .resultOrThrow()
             .mutableMethod
-            .replaceInstruction(0, "const-string v0, \"$GMS_CORE_VENDOR_GROUP_ID\"")
+            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendor\"")
 
         // Spoof signature.
         CertificateFingerprint.result?.mutableClass?.methods?.forEach { mutableMethod ->
@@ -197,10 +240,10 @@ abstract class BaseGmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-            -> referencedString.replace("com.google", GMS_CORE_VENDOR_GROUP_ID)
+            -> referencedString.replace("com.google", gmsCoreVendor)
 
             // No vendor prefix for whatever reason...
-            "subscribedfeeds" -> "$GMS_CORE_VENDOR_GROUP_ID.subscribedfeeds"
+            "subscribedfeeds" -> "$gmsCoreVendor.subscribedfeeds"
             else -> null
         }
 
@@ -213,7 +256,7 @@ abstract class BaseGmsCoreSupportPatch(
                 if (str.startsWith(uriPrefix)) {
                     return str.replace(
                         uriPrefix,
-                        "content://${authority.replace("com.google", GMS_CORE_VENDOR_GROUP_ID)}",
+                        "content://${authority.replace("com.google", gmsCoreVendor)}",
                     )
                 }
             }
@@ -223,7 +266,7 @@ abstract class BaseGmsCoreSupportPatch(
             if (str.startsWith(subFeedsUriPrefix)) {
                 return str.replace(
                     subFeedsUriPrefix,
-                    "content://$GMS_CORE_VENDOR_GROUP_ID.subscribedfeeds"
+                    "content://$gmsCoreVendor.subscribedfeeds"
                 )
             }
         }

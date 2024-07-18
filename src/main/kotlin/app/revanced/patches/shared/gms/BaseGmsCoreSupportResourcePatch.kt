@@ -2,8 +2,12 @@ package app.revanced.patches.shared.gms
 
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patches.shared.packagename.PackageNamePatch
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
@@ -15,15 +19,63 @@ import org.w3c.dom.Node
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param dependencies Additional dependencies of this patch.
  */
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "PrivatePropertyName", "PropertyName", "unused")
 abstract class BaseGmsCoreSupportResourcePatch(
     private val fromPackageName: String,
     private val spoofedPackageSignature: String,
     dependencies: Set<PatchClass> = setOf(),
 ) : ResourcePatch(
-    dependencies = setOf(PackageNamePatch::class) + dependencies
+    dependencies = dependencies
 ) {
-    private val gmsCoreVendorGroupId = "app.revanced"
+    internal val GmsCoreVendorGroupId =
+        stringPatchOption(
+            key = "GmsCoreVendorGroupId",
+            default = DEFAULT_GMS_CORE_VENDOR_GROUP_ID,
+            values =
+            mapOf(
+                "ReVanced" to DEFAULT_GMS_CORE_VENDOR_GROUP_ID,
+            ),
+            title = "GmsCore vendor group ID",
+            description = "The vendor's group ID for GmsCore.",
+            required = true,
+        ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
+
+    private val CheckGmsCore by booleanPatchOption(
+        key = "CheckGmsCore",
+        default = true,
+        title = "Check GmsCore",
+        description = """
+            Checks whether GmsCore is installed on the device when the app starts.
+            
+            If GmsCore is not installed on your device, the app won't work, so don't disable it if possible.
+            """.trimIndentMultiline(),
+        required = true,
+    )
+    internal val PackageNameYouTube = stringPatchOption(
+        key = "PackageNameYouTube",
+        default = DEFAULT_PACKAGE_NAME_YOUTUBE,
+        values = mapOf(
+            "Clone" to CLONE_PACKAGE_NAME_YOUTUBE,
+            "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE
+        ),
+        title = "Package name of YouTube",
+        description = "The name of the package to use in GmsCore support.",
+        required = true
+    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) && it != ORIGINAL_PACKAGE_NAME_YOUTUBE }
+
+    internal val PackageNameYouTubeMusic = stringPatchOption(
+        key = "PackageNameYouTubeMusic",
+        default = DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC,
+        values = mapOf(
+            "Clone" to CLONE_PACKAGE_NAME_YOUTUBE_MUSIC,
+            "Default" to DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC
+        ),
+        title = "Package name of YouTube Music",
+        description = "The name of the package to use in GmsCore support.",
+        required = true
+    ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) && it != ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC }
+
+    protected val gmsCoreVendorGroupId by GmsCoreVendorGroupId
 
     override fun execute(context: ResourceContext) {
         context.patchManifest()
@@ -81,7 +133,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
      * Patch the manifest to support GmsCore.
      */
     private fun ResourceContext.patchManifest() {
-        val packageName = PackageNamePatch.getPackageName(fromPackageName)
+        val packageName = getPackageName(fromPackageName)
 
         val manifest = this["AndroidManifest.xml"].readText()
         this["AndroidManifest.xml"].writeText(
@@ -112,5 +164,28 @@ abstract class BaseGmsCoreSupportResourcePatch(
                 })
             }
         }
+    }
+
+    private fun getPackageName(originalPackageName: String): String {
+        if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE) {
+            return PackageNameYouTube.valueOrThrow()
+        } else if (originalPackageName == ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC) {
+            return PackageNameYouTubeMusic.valueOrThrow()
+        }
+        throw PatchException("Unknown package name!")
+    }
+
+    companion object {
+        internal const val DEFAULT_GMS_CORE_VENDOR_GROUP_ID = "app.revanced"
+
+        private const val CLONE_PACKAGE_NAME_YOUTUBE = "bill.youtube"
+        private const val DEFAULT_PACKAGE_NAME_YOUTUBE = "anddea.youtube"
+        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE = "com.google.android.youtube"
+
+        private const val CLONE_PACKAGE_NAME_YOUTUBE_MUSIC = "bill.youtube.music"
+        private const val DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC = "anddea.youtube.music"
+        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music"
+
+        private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }
 }
