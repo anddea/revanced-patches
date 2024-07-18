@@ -16,8 +16,6 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="gms_core_settings_summary">Activa la mensajería en la nube para recibir notificaciones.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore no está instalado. Instálalo.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">El dominio del que se obtendrán las imágenes.\nNota: Introduzca solo el nombre del dominio, es decir, sin el prefijo \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Dominio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow proporciona miniaturas de origen colectivo para los vídeos de YouTube. Estas miniaturas son a menudo más relevantes que las proporcionadas por YouTube.
 
 Si se activa, las URL de vídeo se enviarán al servidor API y no se enviará ningún otro dato. Si un video no tiene miniaturas de DeArrow, entonces se muestran las capturas originales o fijas.
@@ -50,8 +48,6 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Final del vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Tiempo de vídeo para tomar capturas fijas</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Pestaña de suscripciones</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Reemplaza el dominio que está bloqueado en algunas regiones para que se puedan recibir las miniaturas de vídeo, avatares de canales, imágenes de publicaciones de la comunidad, etc.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Utilizar dominio alternativo para imágenes</string>
     <string name="revanced_append_time_stamp_information_summary_off">La adición de información en la marca de tiempo está desactivada.</string>
     <string name="revanced_append_time_stamp_information_summary_on">La adición de información en la marca de tiempo está activada.</string>
     <string name="revanced_append_time_stamp_information_title">Añadir información en marca de tiempo</string>
@@ -61,6 +57,9 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">El modo ambiente está desactivado en el modo de ahorro de batería.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">El modo ambiente está activado en el modo de ahorro de batería.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Omitir restricciones del modo ambiente</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Utilizando el host de imágenes original.\n\nAl activar esto se pueden arreglar las imágenes faltantes que están bloqueadas en algunas regiones.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Utilizando host de imágenes yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Omitir restricciones de región de imágenes</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambiar tipo de interruptores</string>
@@ -224,6 +223,9 @@ Efecto secundario: El tema Cairo también se aplica a los puntos de notificació
     <string name="revanced_enable_opus_codec_title">Activar códec OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Modifica los DPI para utilizar algunos diseños de teléfono.</string>
     <string name="revanced_enable_phone_layout_title">Activar diseño de teléfono</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">No se guarda ni restaura el brillo al salir o entrar en pantalla completa.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Guarda y restaura el brillo al salir o entrar en pantalla completa.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Activar guardar y restaurar brillo</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">La pulsación en la barra de progreso está desactivada.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">La pulsación en la barra de progreso está activada.</string>
     <string name="revanced_enable_seekbar_tapping_title">Activar pulsación en barra de progreso</string>
@@ -771,6 +773,9 @@ Subtítulos"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">La etiqueta de promoción pagada está visible.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">La etiqueta de promoción pagada está oculta.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ocultar etiqueta de promoción pagada</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">La cabecera pausada está visible.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">La cabecera pausada está oculta.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Ocultar cabecera pausada</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Los botones superpuestos en pausa están visibles.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Los botones superpuestos en pausa están ocultos.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Ocultar botones superpuestos en pausa</string>
@@ -978,6 +983,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
     <string name="revanced_preference_category_duration_filter">Filtro de duración</string>
     <string name="revanced_preference_category_experimental_flag">Funciones experimentales</string>
+    <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
     <string name="revanced_preference_category_keyword_filter">Filtro de palabras clave</string>

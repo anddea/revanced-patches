@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">대체 도메인</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 동영상 스틸 컷 썸네일을 표시합니다.
@@ -51,8 +49,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 끝 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">동영상 스틸 컷 썸네일에 표시되는 이미지</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">구독 탭</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">일부 국가에서 차단된 도메인을 변경하여 동영상 썸네일, 채널 아바타, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">이미지에 대체 도메인 사용하기</string>
     <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.</string>
     <string name="revanced_append_time_stamp_information_summary_on">타임스탬프에서 정보를 표시합니다.</string>
     <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
@@ -62,6 +58,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 앰비언트 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 호스트를 사용합니다.\n\n이 설정을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다. (채널 프로필 사진, 커뮤니티 게시물 이미지 ...)</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 국가 제한 우회하기</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">스위치 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">텍스트 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">토글 타입 변경하기</string>
@@ -130,8 +129,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막을 활성화합니다.</string>
     <string name="revanced_disable_auto_captions_summary_on">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.\n• 재생목록, 실시간 채팅 ...</string>
-    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.\n• 재생목록, 실시간 채팅 ...</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.\n• 재생목록, 실시간 채팅, 제품 선반 ...</string>
+    <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.\n• 재생목록, 실시간 채팅, 제품 선반 ...</string>
     <string name="revanced_disable_auto_player_popup_panels_title">플레이어 팝업 패널 비활성화하기</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">실시간 스트림에서 기본 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">실시간 스트림에서 기본 동영상 재생 속도를 비활성화합니다.</string>
@@ -229,6 +228,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화하기</string>
     <string name="revanced_enable_phone_layout_summary">dpi를 변경하여 일부 레이아웃을 휴대폰 레이아웃으로 활성화합니다.</string>
     <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원하지 않습니다.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원합니다.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">화면 밝기 값 저장 및 복원 활성화하기</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -786,8 +788,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">유료 광고 포함 라벨이 노출됩니다.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">유료 광고 포함 라벨이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">유료 광고 포함 라벨 숨기기</string>
-    <string name="revanced_hide_shorts_paused_header_summary_off">일시 정지 헤더가 노출됩니다. (Shorts 헤더)</string>
-    <string name="revanced_hide_shorts_paused_header_summary_on">일시 정지 헤더가 숨겨집니다. (Shorts 헤더)</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">일시 정지 헤더(Shorts 헤더)가 노출됩니다.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">일시 정지 헤더(Shorts 헤더)가 숨겨집니다.</string>
     <string name="revanced_hide_shorts_paused_header_title">일시 정지 헤더 숨기기</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 \'구독\' &amp; \'라이브\' &amp; \'쇼핑\' 버튼이 노출됩니다.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 \'구독\' &amp; \'라이브\' &amp; \'쇼핑\' 버튼이 숨겨집니다.</string>
@@ -1009,6 +1011,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_category_animation_feedback">애니메이션 / 피드백</string>
     <string name="revanced_preference_category_duration_filter">재생시간 필터</string>
     <string name="revanced_preference_category_experimental_flag">실험적인 기능</string>
+    <string name="revanced_preference_category_image_region_restrictions">이미지 표시 국가 제한</string>
     <string name="revanced_preference_category_import_export_as_file">파일로 가져오기 / 내보내기</string>
     <string name="revanced_preference_category_import_export_as_text">텍스트로 가져오기 / 내보내기</string>
     <string name="revanced_preference_category_keyword_filter">키워드 필터</string>

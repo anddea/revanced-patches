@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore 没有安装。请安装它</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">获取图片的域名\n注意：仅输入域名，不输入“https\:\/\/”前缀</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 视频的众包缩略图。 这些缩略图通常比 YouTube 提供的缩略图更相关。 
 	
 如果启用，视频链接将发送到 API 服务器，这不会发送其他数据。
@@ -51,8 +49,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">视频结尾</string>
     <string name="revanced_alt_thumbnail_stills_time_title">拍摄静态捕捉的时间</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">订阅标签</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">替换在某些地区被阻止的域名，以便能够接收视频缩略图，频道头像，社区帖子等等</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">为图片使用替代域名</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加时间戳信息已关闭</string>
     <string name="revanced_append_time_stamp_information_summary_on">添加时间戳信息已显示</string>
     <string name="revanced_append_time_stamp_information_title">添加时间戳信息</string>
@@ -777,6 +773,9 @@
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">付费推广横幅标签已显示</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">付费推广横幅已隐藏</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">隐藏付费推广横幅</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">已暂停的标题已显示</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">已暂停的标题已隐藏</string>
+    <string name="revanced_hide_shorts_paused_header_title">隐藏已暂停的标题</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">暂停时叠加按钮已显示</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">暂停时叠加按钮已隐藏</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">隐藏暂停时叠加按钮</string>
@@ -969,7 +968,7 @@ Note:
     <string name="revanced_overlay_button_copy_video_url_title">复制链接按钮</string>
     <string name="revanced_overlay_button_external_downloader_summary">点击以打开外部下载器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下载按钮</string>
-    <string name="revanced_overlay_button_mute_volume_summary">"点击静音当前视频 再次点击取消静音"</string>
+    <string name="revanced_overlay_button_mute_volume_summary">点击以静音当前视频 再次点击取消静音</string>
     <string name="revanced_overlay_button_mute_volume_title">显示静音按钮</string>
     <string name="revanced_overlay_button_not_allowed_warning">长按以更改按钮状态</string>
     <string name="revanced_overlay_button_speed_dialog_reset">重置播放速度: %sx</string>

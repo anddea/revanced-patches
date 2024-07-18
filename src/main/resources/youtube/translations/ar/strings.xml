@@ -16,8 +16,6 @@
     <string name="gms_core_settings_summary">تمكين المراسلة السحابية لتلقي الإشعارات.</string>
     <string name="gms_core_settings_title">فتح GmsCore</string>
     <string name="gms_core_toast_not_installed_message">لم يتم تثبيت GmsCore. قم بتثبيته.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">النطاق الذي سيتم جلب الصور منه.\nملاحظة: أدخل اسم النطاق فقط، أي بدون بادئة \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">النطاق البديل</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مُصغَّرات فيديو من مصادر جماعية لمقاطع فيديو YouTube. غالبًا ما تكون مُصغَّرات فيديو هذه ذات صلة أكثر من تلك التي يقدمها موقع YouTube.
 
 في حالة التمكين، سيتم إرسال عناوين URL للفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا لم يكن الفيديو يحتوي على مُصغَّرات لـ DeArrow، فسيتم عرض اللقطات الأصلية أو الثابتة.
@@ -50,8 +48,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">نهاية الفيديو</string>
     <string name="revanced_alt_thumbnail_stills_time_title">وقت الفيديو لأخذ اللقطات الثابتة منه</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">علامة تبويب الاشتراكات</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">يستبدل النطاق المحظور في بعض المناطق بحيث يمكن استقبال مصغرات للفيديو والصور الرمزية للقناة وصور منشورات المجتمع وما إلى ذلك.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">استخدام نطاق بديل للصور</string>
     <string name="revanced_append_time_stamp_information_summary_off">لا يتم إضافة المعلومات بطابع الوقت.</string>
     <string name="revanced_append_time_stamp_information_summary_on">يتم إضافة المعلومات بطابع الوقت.</string>
     <string name="revanced_append_time_stamp_information_title">إضافة معلومات طابع الوقت</string>
@@ -61,6 +57,9 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">تم تعطيل الإضاءة السينمائية في وضع توفير شحن البطارية.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">تم تمكين الإضاءة السينمائية في وضع توفير شحن البطارية.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">تجاوز قيود الإضاءة السينمائية</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">استخدام مضيف الصور الأصلية.\n\nتمكين هذا يمكن إصلاح الصور المفقودة المحظورة في بعض المناطق.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">استخدام مضيف الصورة yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">تجاوز القيود على منطقة الصورة</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">يتم استخدام مفتاح التبديل النصي.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">تغيير نوع التبديل</string>
@@ -224,6 +223,9 @@
     <string name="revanced_enable_opus_codec_title">تمكين ترميز OPUS</string>
     <string name="revanced_enable_phone_layout_summary">محاكاة Dpi لاستخدام بعض تخطيطات الجوال.</string>
     <string name="revanced_enable_phone_layout_title">تمكين تخطيط الجوَّال</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">لا تقم بحفظ واستعادة السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">حفظ واستعادة السطوع عند الخروج أو الدخول إلى وضع ملء الشاشة.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">تمكين حفظ واستعادة السطوع</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط التقدم</string>
@@ -982,6 +984,7 @@
     <string name="revanced_preference_category_animation_feedback">تأثير الحركة / رد الفعل</string>
     <string name="revanced_preference_category_duration_filter">فلترة المـدة</string>
     <string name="revanced_preference_category_experimental_flag">تعديلات تجريبية</string>
+    <string name="revanced_preference_category_image_region_restrictions">قيود منطقة الصورة</string>
     <string name="revanced_preference_category_import_export_as_file">استيراد / تصدير كملف</string>
     <string name="revanced_preference_category_import_export_as_text">استيراد / تصدير كنص</string>
     <string name="revanced_preference_category_keyword_filter">تصفية الكلمات الرئيسية</string>

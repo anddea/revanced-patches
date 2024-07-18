@@ -10,8 +10,6 @@
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához.</string>
     <string name="gms_core_settings_title">GmsCore megnyitása</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">A domain, ahonnan a képeket le lehet hívni.\nMegjegyzés: Csak a domainnevet írd be, azaz a \"https\:\/\/\" előtag nélkül.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatív domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"A DeArrow közösségi bélyegképeket biztosít a YouTube videókhoz. Ezek a bélyegképek gyakran helytállóbbak, mint a YouTube által biztosítottak.
 
 Ha engedélyezve van, a videó URL-je elküldésre kerül az API szerverre, de más adat nem lesz elküldve. Ha egy videónak nincs DeArrow bélyegképe, akkor az eredeti vagy egy pillanatkép jelenik meg.
@@ -44,8 +42,6 @@ Koppints ide, ha többet szeretnél megtudni a DeArrow-ról."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Videó vége</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Pillanatkép készítésének ideje</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Előfizetések oldal</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Lecseréli a domain-t, ami az egyes régiókban blokkolva van, így a videók miniatűrjei, a csatorna profilképei, a közösségi posztok képei, stb. fogadhatóak.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Alternatív domain használata a képekhez</string>
     <string name="revanced_append_time_stamp_information_summary_off">Az információ nem kerül hozzáadásra az időbélyeghez.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Az információ hozzáadásra kerül az időbélyeghez.</string>
     <string name="revanced_append_time_stamp_information_title">Időbélyegző információ hozzáfűzése</string>
@@ -55,6 +51,9 @@ Koppints ide, ha többet szeretnél megtudni a DeArrow-ról."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">A \'Mozifilmes világítás\' mód le van tiltva akkumulátorkímélő üzemmódban.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">A \'Mozifilmes világítás\' mód engedélyezett akkumulátorkímélő üzemmódban.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Megkerüli a \'Mozifilmes világítás\' mód korlátozásait</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Az eredeti cím használata a képekhez.\n\nEnnek engedélyezése javíthatja a hiányzó képeket, amelyek bizonyos régiókban le vannak tiltva.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Az yt4.ggpht.com cím használata a képekhez.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Kerülje meg a régiós kép korlátozásokat</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Kapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Szövegkapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Kapcsolótípus megváltoztatása</string>
@@ -218,6 +217,9 @@ Mellékhatás: a Cairo stílus az értesítési pontokra is alkalmazódik."</str
     <string name="revanced_enable_opus_codec_title">OPUS kodek engedélyezése</string>
     <string name="revanced_enable_phone_layout_summary">Hamisítja a dpi-t néhány telefonos elrendezés használatához.</string>
     <string name="revanced_enable_phone_layout_title">Telefonos felület engedélyezése</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Ne mentse és állítsa vissza a fényerőt, amikor kilép vagy belép a teljes képernyőbe.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">A fényerő mentése és visszaállítása teljes képernyőből való kilépéskor vagy belépéskor.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">A fényerő mentésének és visszaállításának engedélyezése</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">A keresősávon történő érintés ki van kapcsolva.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">A keresősávon történő érintés engedélyezve van.</string>
     <string name="revanced_enable_seekbar_tapping_title">Érintés engedélyezése a kereső sávon</string>
@@ -759,6 +761,9 @@ Feliratok"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Fizetett promóciós címke elrejtése</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">A szüneteltetett fejléc látható.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">A szüneteltetett fejléc el van rejtve.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Szüneteltetett fejléc elrejtése</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">A szüneteltetett fedő gombok megjelennek</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">A szüneteltetett fedő gombok el vannak rejtve</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Szüneteltetett fedő gombok elrejtése</string>
@@ -969,6 +974,7 @@ Tartsa nyomva a sebesség alaphelyzetbe állításához."</string>
     <string name="revanced_preference_category_animation_feedback">Animáció / Visszajelzés</string>
     <string name="revanced_preference_category_duration_filter">Időtartam szűrő</string>
     <string name="revanced_preference_category_experimental_flag">Kísérleti funkciók</string>
+    <string name="revanced_preference_category_image_region_restrictions">Régiós kép korlátozások</string>
     <string name="revanced_preference_category_import_export_as_file">Importálás / Exportálás fájlként</string>
     <string name="revanced_preference_category_import_export_as_text">Importálás / Exportálás szövegként</string>
     <string name="revanced_preference_category_keyword_filter">Kulcsszó szűrő</string>

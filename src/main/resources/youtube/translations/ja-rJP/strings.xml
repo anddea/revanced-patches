@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">代替ドメイン</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrowは、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。 有効にすると、動画のURLが API サーバーに送信されますが、他のデータは送信されません。 動画にDeArrowサムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
 
 DeArrowの詳細については、ここをタップしてください。"</string>
@@ -49,8 +47,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の最後</string>
     <string name="revanced_alt_thumbnail_stills_time_title">取得する静止画のサムネイルの位置</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">[登録チャンネル]タブ</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">一部の地域でブロックされているドメインを置き換えることで、動画のサムネイル、チャンネルのアバター、コミュニティの投稿画像などを閲覧可能にします。</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">画像に代替ドメインを使用</string>
     <string name="revanced_append_time_stamp_information_summary_off">タイムスタンプの横に情報を表示します。</string>
     <string name="revanced_append_time_stamp_information_summary_on">タイムスタンプの横に情報を表示します。</string>
     <string name="revanced_append_time_stamp_information_title">タイムスタンプの横に情報を追加</string>
@@ -60,6 +56,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限を回避</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
+    <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">現在の設定: スイッチのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">現在の設定: テキストのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">トグルの種類を変更</string>
@@ -225,13 +224,19 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_enable_opus_codec_title">OPUS コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効化</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">明るさの保存と復元を有効化</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効化</string>
-    <string name="revanced_enable_shorts_time_stamp_summary_off">タイムスタンプを表示します。\n\n注意: 開発段階の機能であるため、レイアウトが崩れる可能性があります。</string>
-    <string name="revanced_enable_shorts_time_stamp_summary_on">"タイムスタンプを表示します。
+    <string name="revanced_enable_shorts_time_stamp_summary_off">プレーヤーの左下にタイムスタンプを表示します。\n\n注意: \n・プレーヤーの背景をタップすると UI が非表示 (画面クリアモード) になります。\n
+・開発段階の機能であるため、レイアウトが崩れる可能性があります。</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"プレーヤーの左下にタイムスタンプを表示します。
 
-注意: 開発段階の機能であるため、レイアウトが崩れる可能性があります。"</string>
+注意:
+・プレーヤーの背景をタップすると UI が非表示 (画面クリアモード) になります。
+・開発段階の機能であるため、レイアウトが崩れる可能性があります。"</string>
     <string name="revanced_enable_shorts_time_stamp_title">タイムスタンプを表示</string>
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールを有効化します。</string>
@@ -931,7 +936,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 
 ・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。
 ・モダン2, 3: ダブルタップで、最小化された動画を閉じます。"</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">ダブルタップアクション</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">ダブルタップアクションを有効化</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">ドラッグ&amp;ドロップを有効化</string>
@@ -987,6 +992,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_preference_category_animation_feedback">アニメーション/フィードバック</string>
     <string name="revanced_preference_category_duration_filter">再生時間フィルター</string>
     <string name="revanced_preference_category_experimental_flag">実験的な機能</string>
+    <string name="revanced_preference_category_image_region_restrictions">画像表示の地域制限</string>
     <string name="revanced_preference_category_import_export_as_file">ファイルとしてインポート/エクスポート</string>
     <string name="revanced_preference_category_import_export_as_text">テキストとしてインポート/エクスポート</string>
     <string name="revanced_preference_category_keyword_filter">キーワードフィルター</string>

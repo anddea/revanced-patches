@@ -11,8 +11,6 @@
     <string name="gms_core_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення.</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">Домен для отримання зображень.\nЗауваження: Вводьте лише ім\'я домену, тобто без префікса \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Альтернативний домен</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow надає краудсорсингові мініатюри для відео з YouTube. Ці мініатюри часто більш релевантні, ніж ті, що надаються YouTube. Якщо увімкнено, URL-адреси відео надсилатиметься на сервер API, а інші дані не надсилатиметься. Якщо для відео немає мініатюр DeArrow, зображається оригінал або кадр.
 
 Натисніть тут, щоб дізнатися більше про DeArrow."</string>
@@ -43,8 +41,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Вкладка Підписки</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Замінює домен, заблокований у деяких регіонах, щоб отримати мініатюри відео, аватари каналів, зображення публікацій спільноти, тощо.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Використовувати альтернативний домен для зображень</string>
     <string name="revanced_append_time_stamp_information_summary_off">Додавання інформації біля мітки часу вимкнено.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Додавання інформації біля мітки часу увімкнено.</string>
     <string name="revanced_append_time_stamp_information_title">Додавати інформацію біля мітки часу</string>
@@ -54,6 +50,9 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Кінематографічне освітлення вимкнено в енергозберігаючому режимі.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Кінематографічне освітлення увімкнено в енергозберігаючому режимі.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Обхід обмежень кінематографічного освітлення</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Використовується оригінальний хост зображень\n\nУвімкнення може виправити відсутність зображень, які заблоковані в деяких регіонах.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Використовується хост зображень yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Обхід регіональних обмежень зображень</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Використовується змінні перемикачі.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Використовується текстові перемикачі.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Тип перемикача змін</string>
@@ -219,6 +218,9 @@
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
     <string name="revanced_enable_phone_layout_title">Увімкнути телефонний інтерфейс</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Не зберігається і не відновлюється яскравість при переході з/до повноекранного режиму.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Зберігається та відновлюється яскравість при переході з/до повноекранного режиму.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Увімкнути збереження та відновлення яскравості</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на смугу прогресу вимкнено.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на смугу прогресу увімкнено.</string>
     <string name="revanced_enable_seekbar_tapping_title">Увімкнути натискання на смугу прогресу</string>
@@ -990,6 +992,7 @@
     <string name="revanced_preference_category_animation_feedback">Анімація / Відгук</string>
     <string name="revanced_preference_category_duration_filter">Фільтр тривалості</string>
     <string name="revanced_preference_category_experimental_flag">Експериментальні опції</string>
+    <string name="revanced_preference_category_image_region_restrictions">Регіональні обмеження зображень</string>
     <string name="revanced_preference_category_import_export_as_file">Імпорт / Експорт як файл</string>
     <string name="revanced_preference_category_import_export_as_text">Імпорт / Експорт як текст</string>
     <string name="revanced_preference_category_keyword_filter">Фільтр ключових слів</string>

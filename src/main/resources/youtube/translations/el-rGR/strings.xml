@@ -16,8 +16,6 @@
     <string name="gms_core_settings_summary">Ενεργοποιήστε τις ρυθμίσεις cloud messaging για να λαμβάνετε ειδοποιήσεις.</string>
     <string name="gms_core_settings_title">Άνοιγμα του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">Το domain από το οποίο θα ληφθούν οι εικόνες.\nΣημείωση: Εισάγετε μόνο το όνομα του domain, χωρίς το πρόθεμα \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Εναλλακτικό domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.
 
 Πατήστε για να μάθετε περισσότερα για το DeArrow."</string>
@@ -48,8 +46,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Τέλος του βίντεο</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Ο χρόνος του βίντεο από τον οποίο θα ληφθούν τα καρέ</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Καρτέλα «Εγγραφές»</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Αντικαθιστά το domain το οποίο μπορεί να είναι αποκλεισμένο σε κάποιες περιοχές, έτσι ώστε να μπορούν να ληφθούν μικρογραφίες βίντεο, avatar καναλιών, εικόνες δημοσιεύσεων κοινότητας, κλπ.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Εναλλακτικό domain για εικόνες</string>
     <string name="revanced_append_time_stamp_information_summary_off">Η προσθήκη πληροφοριών στη χρονοσφραγίδα είναι απενεργοποιημένη.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Η προσθήκη πληροφοριών στη χρονοσφραγίδα είναι ενεργοποιημένη.</string>
     <string name="revanced_append_time_stamp_information_title">Προσθήκη πληροφοριών χρονοσφραγίδας</string>
@@ -59,6 +55,9 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Η λειτουργία περιβάλλοντος απενεργοποιείται σε λειτουργία εξοικονόμησης μπαταρίας.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Η λειτουργία περιβάλλοντος παραμένει ενεργή σε λειτουργία εξοικονόμησης μπαταρίας.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων\n\nΗ ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε ορισμένες περιοχές.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Χρησιμοποιείται το domain yt4.ggpht.com για την φόρτωση εικόνων.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Εμφανίζονται εναλλαγές διακόπτη.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Εμφανίζονται εναλλαγές κειμένου.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Αλλαγή τύπου εναλλαγής ρυθμίσεων</string>
@@ -217,13 +216,16 @@
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">Το διάστημα μεταξύ των κουμπιών πλοήγησης δεν είναι στενότερο.</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">Το διάστημα μεταξύ των κουμπιών πλοήγησης είναι στενότερο.</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Κουμπιά πλοήγησης στενού στυλ</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Οι ανακατευθύνσεις URL δεν παρακάμπτονται σε άνοιγμα συνδέσμων.</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Οι ανακατευθύνσεις URL παρακάμπτονται σε άνοιγμα συνδέσμων.</string>
+    <string name="revanced_enable_open_links_directly_summary_off">Οι ανακατευθύνσεις URL δεν παρακάμπτονται κατά το άνοιγμα συνδέσμων.</string>
+    <string name="revanced_enable_open_links_directly_summary_on">Οι ανακατευθύνσεις URL παρακάμπτονται κατά το άνοιγμα συνδέσμων.</string>
     <string name="revanced_enable_open_links_directly_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
     <string name="revanced_enable_opus_codec_summary">Ενεργοποίηση του κωδικοποιητή OPUS αν η ανταπόκριση του προγράμματος αναπαραγωγής τον περιλαμβάνει.</string>
     <string name="revanced_enable_opus_codec_title">Ενεργοποίηση κωδικοποιητή OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Παραποίηση του dpi συσκευής ώστε να χρησιμοποιηθεί η διεπαφή κινητού.</string>
     <string name="revanced_enable_phone_layout_title">Λειτουργία διεπαφής κινητού</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Δεν αποθηκεύεται ούτε επαναφέρεται η φωτεινότητα κατά την έξοδο ή την είσοδο σε πλήρη οθόνη.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Αποθήκευση και επαναφορά φωτεινότητας κατά την έξοδο ή την είσοδο σε πλήρη οθόνη.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Αποθήκευση και επαναφορά φωτεινότητας</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Το πάτημα γραμμής προόδου είναι απενεργοποιημένο.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Το πάτημα γραμμής προόδου είναι ενεργοποιημένο.</string>
     <string name="revanced_enable_seekbar_tapping_title">Πάτημα γραμμής προόδου</string>
@@ -786,6 +788,9 @@ Playlists
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ετικέτες προώθησης επί πληρωμή</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Επικεφαλίδα κατά την παύση</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Κουμπιά εμφάνισης κατά την παύση</string>
@@ -1001,6 +1006,7 @@ Playlists
     <string name="revanced_preference_category_animation_feedback">Εφέ / Απόκριση</string>
     <string name="revanced_preference_category_duration_filter">Φίλτρο διάρκειας</string>
     <string name="revanced_preference_category_experimental_flag">Πειραματικές Λειτουργίες</string>
+    <string name="revanced_preference_category_image_region_restrictions">Περιορισμοί περιοχής εικόνων</string>
     <string name="revanced_preference_category_import_export_as_file">Εισαγωγή / Εξαγωγή ως αρχείο</string>
     <string name="revanced_preference_category_import_export_as_text">Εισαγωγή / Εξαγωγή ως κείμενο</string>
     <string name="revanced_preference_category_keyword_filter">Φίλτρο λέξεων-κλειδιών</string>
@@ -1326,7 +1332,7 @@ Playlists
     <string name="revanced_share_copy_timestamp_success">Η χρονική σήμανση αντιγράφηκε στο πρόχειρο. (%s)</string>
     <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο.</string>
     <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL με χρονική σήμανση αντιγράφηκε στο πρόχειρο.</string>
-    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Αρχικό</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Προεπιλογή</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Αντίχειρας προς τα πάνω</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Αντίχειρας προς τα πάνω (Θέμα Cairo)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_4">Καρδιά</string>

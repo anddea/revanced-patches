@@ -16,8 +16,6 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">Resimlerin alınacağı alan adı.\nNot: Yalnızca alan adını girin, yani \"https\:\/\/\" öneki olmadan.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Alternatif alan adı</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için kitle kaynaklı kapak fotoğrafları sağlar. Bu kapak fotoğrafları genellikle YouTube tarafından sağlananlardan daha alakalıdır. Etkinleştirilirse video URL'leri API sunucusuna gönderilir ve başka veri gönderilmez.
 
 DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
@@ -48,8 +46,6 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Videonun sonu</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Fotoğrafın çekileceği video süresi</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Abonelikler sekmesi</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Bazı bölgelerde engellenen alan adını değiştirerek video küçük resimlerinin, kanal avatarlarının, topluluk gönderi görsellerinin vb. görüntülenmesini sağlar. alınabilir.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Resimler için alternatif alan adı kullanın</string>
     <string name="revanced_append_time_stamp_information_summary_off">Süre sayacının yanına gösterge eklenmiyor.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Süre sayacının yanına gösterge ekleniyor.</string>
     <string name="revanced_append_time_stamp_information_title">Süre sayacının yanına gösterge ekle</string>
@@ -59,6 +55,9 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu modundayken ambiyans modu kullanılamıyor.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu modundayken ambiyans modu kullanılabilir.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atlayın</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Orijinal resim barındırıcısı kullanılıyor.\n\nBunun etkinleştirilmesi bazı bölgelerde engellenen eksik resimleri düzeltebilir.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Yt4.ggpht.com resim sunucusu kullanılıyor.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Anahtar geçişleri kullanılıyor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Yazı geçişleri kullanılıryor.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Geçiş anahtarı tipini değiştir</string>
@@ -220,6 +219,9 @@ Yan etki: Kahire teması bildirim noktalarına da uygulanır."</string>
     <string name="revanced_enable_opus_codec_title">OPUS kodek bileşenini etkinleştir</string>
     <string name="revanced_enable_phone_layout_summary">Bazı telefon arayüzlerini kullanabilmek için dpi\'ı kandırır.</string>
     <string name="revanced_enable_phone_layout_title">Telefon düzenini kullan</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Tam ekrana girip çıkarken parlaklığı kaydetme ve geri yükleme.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Tam ekrandan çıkarken veya tam ekrana girerken parlaklığı kaydedin ve geri yükleyin.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Kaydetmeyi ve parlaklığı geri yüklemeyi etkinleştir</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Zaman çubuğuna dokunma kapalı</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Zaman çubuğuna dokunma etkin</string>
     <string name="revanced_enable_seekbar_tapping_title">Zaman çubuğuna dokunmayı etkinleştir</string>
@@ -758,6 +760,9 @@ Altyazılar"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Ücretli tanıtım etiketi gösteriliyor.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Ücretli tanıtım etiketi gizli.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ücretli tanıtım etiketini gizle</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">Durdurulmuş başlık gizlenmiyor.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">Durdurulmuş başlık gizli</string>
+    <string name="revanced_hide_shorts_paused_header_title">Durdurulmuş başlığı gizle</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Duraklama katmanı düğmeleri görünür.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Duraklama katmanı düğmeleri gizli.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Duraklama katmanı düğmelerini gizle</string>
@@ -944,6 +949,8 @@ Videoyu zaman damgasıyla kopyalamak için basılı tutun."</string>
     <string name="revanced_overlay_button_copy_video_url_title">Linki kopyala butonunu ekle</string>
     <string name="revanced_overlay_button_external_downloader_summary">Harici indirme uygulamasını açmak için tıklayın</string>
     <string name="revanced_overlay_button_external_downloader_title">Harici indirici butonunu ekle</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Geçerli videonun sesini kapatmak için dokunun. Sesi açmak için tekrar dokunun.</string>
+    <string name="revanced_overlay_button_mute_volume_title">Sesi sustur butonunu göster</string>
     <string name="revanced_overlay_button_not_allowed_warning">Buton durumunu değiştirmek için buraya dokunup basılı tutun.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Oynatma hızı sıfırlandı: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Hız iletişim kutusunu açmak için dokunun.
@@ -963,6 +970,7 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_preference_category_animation_feedback">Animasyon / geri bildirim</string>
     <string name="revanced_preference_category_duration_filter">Süre filtresi</string>
     <string name="revanced_preference_category_experimental_flag">Deneysel Parametreler</string>
+    <string name="revanced_preference_category_image_region_restrictions">Resim bölgesi kısıtlamaları</string>
     <string name="revanced_preference_category_import_export_as_file">İçe / Dışa dosya olarak aktar</string>
     <string name="revanced_preference_category_import_export_as_text">İçe / Dışa yazı olarak aktar</string>
     <string name="revanced_preference_category_keyword_filter">Anahtar kelime filtresi</string>

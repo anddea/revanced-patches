@@ -16,8 +16,6 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Domínio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -50,8 +48,6 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Fim do vídeo</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Hora do vídeo para tirar a foto</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Aba de inscrições</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Substitui o domínio que está bloqueado em algumas regiões para que as miniaturas de vídeo, avatares do canal, imagens do post da comunidade, etc. possam ser recebidas.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Usar domínio alternativo para imagens</string>
     <string name="revanced_append_time_stamp_information_summary_off">Adicionar informação de registro de tempo está desativado.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Adicionar informação de registro de tempo está ativado.</string>
     <string name="revanced_append_time_stamp_information_title">Adicionar informações de registro de tempo</string>
@@ -61,6 +57,9 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">O modo ambiente está desativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">O modo ambiente está ativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ignorar restrições do modo ambiente</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Usando o host de imagem original.\n\nAtivar isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Usando o host de imagem yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de imagem por região</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Alternadores serão usados.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Alternadores de texto são usados.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Modificar tipo de alternância</string>
@@ -224,6 +223,9 @@ Efeito colateral: o tema Cairo também é aplicado aos pontos de notificação."
     <string name="revanced_enable_opus_codec_title">Ativar codec OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Engana o dpi para usar alguns layouts para telefone.</string>
     <string name="revanced_enable_phone_layout_title">Ativar layout de telefone</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Não salvar e restaurar o brilho ao sair ou entrar em tela cheia.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Salvar e restaurar o brilho ao sair ou entrar em tela cheia.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Ativar salvar e restaurar brilho</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">O toque na barra de progresso desativado.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">O toque na barra de progresso está ativado.</string>
     <string name="revanced_enable_seekbar_tapping_title">Ativar toque na barra de progresso</string>
@@ -294,7 +296,7 @@ Estes caracteres variam dependendo do seu idioma.
     <string name="revanced_extended_settings_import_summary">Importar configurações de um arquivo salvo.</string>
     <string name="revanced_extended_settings_import_title">Importar configurações</string>
     <string name="revanced_extended_settings_reset">Redefinir</string>
-    <string name="revanced_extended_settings_search_title">Pesquisar configurações</string>
+    <string name="revanced_extended_settings_search_title">Buscar %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary_off">O botão de download abre o download nativo do aplicativo</string>
     <string name="revanced_external_downloader_action_summary_on">O botão de download abre seu aplicativo de download externo</string>
@@ -772,6 +774,9 @@ Legendas"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">O rótulo de promoção pago será exibido.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">O cabeçalho pausado será exibido.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">O cabeçalho pausado está oculto.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Ocultar cabeçalho pausado</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Os botões de sobreposição pausados serão exibidos.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Os botões de sobreposição pausados estão ocultos.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Ocultar botões de sobreposição pausados</string>
@@ -980,6 +985,7 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_category_animation_feedback">Animação / Feedback</string>
     <string name="revanced_preference_category_duration_filter">Filtro de duração</string>
     <string name="revanced_preference_category_experimental_flag">Sinalizadores experimentais</string>
+    <string name="revanced_preference_category_image_region_restrictions">Restrições de imagem por região</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como arquivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
     <string name="revanced_preference_category_keyword_filter">Filtro por palavras-chave</string>

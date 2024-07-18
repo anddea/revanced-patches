@@ -40,11 +40,11 @@ Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và �
     <string name="revanced_enable_cairo_splash_animation_title">Sử dụng hoạt ảnh kiểu Cairo</string>
     <string name="revanced_enable_color_match_player_summary">Đồng bộ màu của trình phát thu nhỏ với màu của trình phát.</string>
     <string name="revanced_enable_color_match_player_title">Trình phát thu nhỏ khớp màu</string>
-    <string name="revanced_enable_compact_dialog_summary">"Bật menu nổi thu gọn trên điện thoại.
+    <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
 Hạn chế:
-- Ảnh bìa album trong thẻ Thư viện (Danh sách phát, Podcast, Bài hát, Đĩa nhạc, Nghệ sĩ,...) cũng thu gọn theo.
-- Bố cục Hẹn giờ ngủ có thể xuất hiện bất thường."</string>
+• Ảnh bìa Album trong thẻ Thư viện (Danh sách phát, Podcast, Bài hát, Đĩa nhạc, Nghệ sĩ,...) cũng thu gọn theo.
+• Bố cục Hẹn giờ ngủ có thể xuất hiện bất thường."</string>
     <string name="revanced_enable_compact_dialog_title">Trình đơn tuỳ chọn thu gọn</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Bao gồm bộ đệm trong nhật ký gỡ lỗi.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Bật nhật ký gỡ lỗi bộ đệm</string>
@@ -62,7 +62,7 @@ Hạn chế:
     <string name="revanced_enable_opus_codec_title">Codec Opus</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Bật thao tác vuốt xuống để loại bỏ trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Bật thao tác vuốt để loại bỏ trình phát thu nhỏ</string>
-    <string name="revanced_enable_trim_silence_summary">"Thêm công tắc Cắt bớt khoảng im lặng vào thanh menu nổi tốc độ phát lại.
+    <string name="revanced_enable_trim_silence_summary">"Thêm nút Trim silence vào trình đơn tuỳ chọn tốc độ phát lại.
 
  Cụ thể:
  • Tính năng này dành cho podcast.
@@ -91,7 +91,7 @@ Hạn chế:
     <string name="revanced_external_downloader_action_summary">"Nút tải xuống mở trình tải xuống bên thứ ba của bạn.
 
 • Chỉ ghi đè lên nút Tải xuống trong trình phát.
-• Không ghi đè lên nút Tải xuống trong Thanh menu nổi hoặc Thư viện."</string>
+• Không ghi đè lên nút Tải xuống trong Trình đơn tuỳ chọn hoặc Thư viện."</string>
     <string name="revanced_external_downloader_action_title">Ghi đè nút tải xuống</string>
     <string name="revanced_external_downloader_dialog_title">Trình tải xuống bên thứ ba</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s chưa được cài đặt.
@@ -220,13 +220,13 @@ Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (c�
     <string name="revanced_preference_screen_account_title">Tài khoản</string>
     <string name="revanced_preference_screen_action_bar_title">Thanh Thao tác</string>
     <string name="revanced_preference_screen_ads_title">Quảng cáo</string>
-    <string name="revanced_preference_screen_flyout_title">Thanh menu nổi</string>
+    <string name="revanced_preference_screen_flyout_title">Trình đơn tuỳ chọn</string>
     <string name="revanced_preference_screen_general_title">Tổng quan</string>
     <string name="revanced_preference_screen_misc_title">Khác</string>
     <string name="revanced_preference_screen_navigation_title">Thanh điều hướng</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike (hiển thị số lượt không thích)</string>
-    <string name="revanced_preference_screen_sb_title">SponsorBlock (chặn nhà tài trợ)</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Ghi nhớ giá trị tốc độ phát được chọn gần đây nhất.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Ghi nhớ thay đổi tốc độ phát</string>
@@ -293,7 +293,7 @@ Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (c�
     <string name="revanced_sb_color_invalid">Mã màu không hợp lệ. Đã đặt lại màu về mặc định.</string>
     <string name="revanced_sb_color_reset">Đã đặt lại màu phân đoạn về mặc định.</string>
     <string name="revanced_sb_diff_segments">Thay đổi hành vi của phân đoạn</string>
-    <string name="revanced_sb_enabled">Kích hoạt Chặn nhà tài trợ</string>
+    <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video YouTube.</string>
     <string name="revanced_sb_reset_color">Đặt lại màu</string>
     <string name="revanced_sb_segments_filler">Cảnh phụ/Nội dung lạc đề - hài hước</string>

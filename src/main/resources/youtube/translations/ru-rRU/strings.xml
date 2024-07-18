@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">Альтернативный домен</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет краудсорсинговые миниатюры для видео на YouTube. Они часто более актуальны, чем те, что предоставлены YouTube.
 
 При активации URL-адрес видео будут отправлен на API-сервер. Если у видео нет миниатюр DeArrow, то будет показан оригинал или захваченный кадр.
@@ -51,8 +49,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Конец видео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Время захвата миниатюры</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Подписки</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">Заменяет домен, заблокированный в некоторых регионах, чтобы можно было получать миниатюры видео, аватары каналов, изображения постов сообщества и т.д.</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">Использовать альтернативный домен картинок</string>
     <string name="revanced_append_time_stamp_information_summary_off">Информация метки времени отключена.</string>
     <string name="revanced_append_time_stamp_information_summary_on">Информация метки времени включена.</string>
     <string name="revanced_append_time_stamp_information_title">Информация метки времени</string>
@@ -786,6 +782,9 @@ Shorts
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Метка \"Содержит прямую рекламу\" отображена.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Метка \"Содержит прямую рекламу\" скрыта.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Метка \"Содержит прямую рекламу\"</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">Надпись паузы отображена.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">Надпись паузы скрыта.</string>
+    <string name="revanced_hide_shorts_paused_header_title">Надпись паузы</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Фоновые кнопки во время паузы отображены.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Фоновые кнопки во время паузы скрыты.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Фоновые кнопки во время паузы</string>
@@ -989,8 +988,8 @@ Shorts
     <string name="revanced_overlay_button_copy_video_url_title">Кнопка копировать URL видео</string>
     <string name="revanced_overlay_button_external_downloader_summary">Запустить внешний загрузчик.</string>
     <string name="revanced_overlay_button_external_downloader_title">Кнопка внешний загрузчик</string>
-    <string name="revanced_overlay_button_mute_volume_summary">Нажмите, чтобы выключить звук текущего видео. Нажмите ещё раз, чтобы включить звук</string>
-    <string name="revanced_overlay_button_mute_volume_title">Показать кнопку выключения звука</string>
+    <string name="revanced_overlay_button_mute_volume_summary">Нажатия кнопки, отключает/включает звук текущего видео.</string>
+    <string name="revanced_overlay_button_mute_volume_title">Кнопка отключения звука</string>
     <string name="revanced_overlay_button_not_allowed_warning">Нажать и удерживать - изменить состояние кнопки.</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость сброшена на: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Нажать - открытие окна скорости.

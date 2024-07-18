@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知</string>
     <string name="gms_core_settings_title">打開 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GMSCore未安裝 請安裝</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_summary">從中取得圖像網域。\n注意：只輸入域名, i.e., 不含 \"https\:\/\/\" 前綴。</string>
-    <string name="revanced_alt_thumbnail_alternative_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供群眾外包的 YouTube 影片縮圖。這些縮圖通常比 YouTube 提供的縮圖更具相關性。
 
 如果啟用，影片 URL 會傳送到 API 伺服器，不會傳送其他資料。如果影片沒有 DeArrow 縮圖，則顯示原始或靜態截圖。
@@ -51,8 +49,6 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">影片結尾</string>
     <string name="revanced_alt_thumbnail_stills_time_title">拍攝靜態捕捉的時間</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">訂閱標籤</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_summary">替換某些地區被封鎖的域名，以便可以接收影片縮圖、頻道頭像、社群貼文圖片等。</string>
-    <string name="revanced_alt_thumbnail_use_alternative_domain_title">圖像使用替代網域</string>
     <string name="revanced_append_time_stamp_information_summary_off">添加時間戳訊息已關閉</string>
     <string name="revanced_append_time_stamp_information_summary_on">添加時間戳訊息已顯示</string>
     <string name="revanced_append_time_stamp_information_title">添加時間戳訊息</string>
@@ -773,6 +769,9 @@
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">付費推廣橫幅標簽已顯示</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">付費促銷標籤被隱藏</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">隱藏付費促銷標籤</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">顯示暫停的標題。</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">暫停的標題被隱藏。</string>
+    <string name="revanced_hide_shorts_paused_header_title">隱藏暫停的標題</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">暫停時疊加按鈕已顯示</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">暫停時疊加按鈕已隱藏</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">隱藏暫停時疊加按鈕</string>
@@ -968,6 +967,8 @@ Note:
     <string name="revanced_overlay_button_copy_video_url_title">複製連結按鈕</string>
     <string name="revanced_overlay_button_external_downloader_summary">點擊以打開外部下載器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下載按鈕</string>
+    <string name="revanced_overlay_button_mute_volume_summary">點選可將目前影片靜音。 再次點擊即可取消靜音。</string>
+    <string name="revanced_overlay_button_mute_volume_title">顯示靜音按鈕</string>
     <string name="revanced_overlay_button_not_allowed_warning">長按以更改按鈕狀態</string>
     <string name="revanced_overlay_button_speed_dialog_reset">播放速度重置：%sx。</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊選擇影片播放速度
@@ -998,7 +999,7 @@ Note:
     <string name="revanced_preference_category_shorts_shelf">短片欄</string>
     <string name="revanced_preference_category_spoof_client_about">關於</string>
     <string name="revanced_preference_category_spoof_client_options">偽裝客戶端選項</string>
-    <string name="revanced_preference_category_tool_used">使用的工具</string>
+    <string name="revanced_preference_category_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_preference_category_view_counts_filter">觀看次數篩選器</string>
     <string name="revanced_preference_screen_account_menu_summary">隱藏或顯示帳戶選單和你的內容分頁中的元素。</string>
     <string name="revanced_preference_screen_account_menu_title">帳戶選單</string>
