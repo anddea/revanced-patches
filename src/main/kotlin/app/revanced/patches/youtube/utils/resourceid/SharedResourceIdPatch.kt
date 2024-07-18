@@ -38,6 +38,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ChannelListSubMenu = -1L
     var CompactLink = -1L
     var CompactListItem = -1L
+    var ComponentLongClickListener = -1L
     var ControlsLayoutStub = -1L
     var DarkBackground = -1L
     var DarkSplashAnimation = -1L
@@ -71,7 +72,9 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ModernMiniPlayerForwardButton = -1L
     var ModernMiniPlayerRewindButton = -1L
     var MusicAppDeeplinkButtonView = -1L
+    var Notice = -1L
     var NotificationBigPictureIconWidth = -1L
+    var OfflineActionsVideoDeletedUndoSnackbarText = -1L
     var PlayerCollapseButton = -1L
     var PlayerVideoTitleView = -1L
     var PosterArtWidthDefault = -1L
@@ -138,6 +141,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ChannelListSubMenu = getId(LAYOUT, "channel_list_sub_menu")
         CompactLink = getId(LAYOUT, "compact_link")
         CompactListItem = getId(LAYOUT, "compact_list_item")
+        ComponentLongClickListener = getId(ID, "component_long_click_listener")
         ControlsLayoutStub = getId(ID, "controls_layout_stub")
         DarkBackground = getId(ID, "dark_background")
         DarkSplashAnimation = getId(ID, "dark_splash_animation")
@@ -173,7 +177,9 @@ object SharedResourceIdPatch : ResourcePatch() {
         ModernMiniPlayerForwardButton = getId(ID, "modern_miniplayer_forward_button")
         ModernMiniPlayerRewindButton = getId(ID, "modern_miniplayer_rewind_button")
         MusicAppDeeplinkButtonView = getId(ID, "music_app_deeplink_button_view")
+        Notice = getId(ID, "notice")
         NotificationBigPictureIconWidth = getId(DIMEN, "notification_big_picture_icon_width")
+        OfflineActionsVideoDeletedUndoSnackbarText = getId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         PlayerCollapseButton = getId(ID, "player_collapse_button")
         PlayerVideoTitleView = getId(ID, "player_video_title_view")
         PosterArtWidthDefault = getId(DIMEN, "poster_art_width_default")

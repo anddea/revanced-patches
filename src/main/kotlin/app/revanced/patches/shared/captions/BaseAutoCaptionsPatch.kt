@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.shared.captions.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.shared.captions.fingerprints.SubtitleTrackFingerprint
+import app.revanced.patches.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
