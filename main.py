@@ -99,7 +99,6 @@ def main():
     if args.all:
         if git_operations(rvx_base_dir):
             commands = [
-                [sys.executable, "src/missing_strings.py"],
                 [sys.executable, "src/replace_strings.py", rvx_base_dir_arg],
                 [
                     sys.executable,
@@ -108,6 +107,7 @@ def main():
                     rvx_base_dir_arg,
                 ],
                 [sys.executable, "src/remove_unused_strings.py"],
+                [sys.executable, "src/missing_strings.py"],
                 [sys.executable, "src/sort_strings.py"],
                 [sys.executable, "src/sort_strings.py", "--music"],
             ]
