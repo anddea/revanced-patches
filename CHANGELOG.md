@@ -1,3 +1,19 @@
+# [2.227.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.22...v2.227.0-dev.23) (2024-07-18)
+
+
+### Bug Fixes
+
+* **Change version code:** Change to a universal patch ([11a00ca](https://github.com/anddea/revanced-patches/commit/11a00ca5c046806124b6441904ce66df3ce002a6))
+
+
+### Features
+
+* Merge the `Custom package name` patch into the `GmsCore support` patch and add patch options `GmsCoreVendorGroupId`, `CheckGmsCore`, `PackageNameYouTube`, `PackageNameYouTubeMusic` ([2b4931a](https://github.com/anddea/revanced-patches/commit/2b4931a2151984c57b0f9d3f660ccadd502609ca))
+* **YouTube - Player components:** `Hide player popup panels` setting now hides the products panel ([e96317b](https://github.com/anddea/revanced-patches/commit/e96317b703bc645b657ae697ed2790645bd54d7c))
+* **YouTube - Swipe controls:** Add `Enable save and restore brightness` setting (Match to ReVanced) ([4fb9334](https://github.com/anddea/revanced-patches/commit/4fb9334c1597fea75aecd7873ee57d4a5360473a))
+* **YouTube Music:** Add support versions `7.08.54` ~ `7.10.51` ([0098528](https://github.com/anddea/revanced-patches/commit/009852881590e4a83038af29ce0f34b230d848a2))
+* **YouTube:** Separate the `Bypass image region restrictions` patch from the `Alternative thumbnails` patch (Reflecting changes in ReVanced) ([5d41bff](https://github.com/anddea/revanced-patches/commit/5d41bffbeb93e22cc348ebd9f928b67ea506c92c))
+
 # [2.227.0-dev.22](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.21...v2.227.0-dev.22) (2024-07-15)
 
 
