@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスがオンになっているため、操作方法が変わります。</string>
@@ -69,6 +69,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_shorts_repeat_state_entry_repeat">リピート再生</string>
     <string name="revanced_change_shorts_repeat_state_title">リピート状態を変更</string>
     <string name="revanced_change_start_page_entry_browse">チャンネルを探す</string>
+    <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
     <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
@@ -78,6 +79,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_start_page_entry_live">ライブ</string>
     <string name="revanced_change_start_page_entry_movies">映画</string>
     <string name="revanced_change_start_page_entry_music">音楽</string>
+    <string name="revanced_change_start_page_entry_playables">Playables</string>
     <string name="revanced_change_start_page_entry_search">検索</string>
     <string name="revanced_change_start_page_entry_shorts">ショート</string>
     <string name="revanced_change_start_page_entry_sports">スポーツ</string>
@@ -492,6 +494,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_keyword_content_comments_summary_off">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_title">コメントをフィルタリング</string>
+    <string name="revanced_hide_keyword_content_full_word_title">完全単語一致</string>
     <string name="revanced_hide_keyword_content_home_summary_off">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_summary_on">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_title">ホームフィードをフィルタリング</string>
@@ -771,6 +774,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">有料プロモーションラベルを非表示</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">一時停止中に左上に表示される「ショート」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">一時停止中に左上に表示される「ショート」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_title">一時停止中のヘッダーを非表示</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイボタンを非表示</string>
@@ -906,6 +912,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_icon_custom">カスタム</string>
     <string name="revanced_icon_default">オリジナル</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT ブルー</string>
+    <string name="revanced_icon_mmt_green">MMT グリーン</string>
+    <string name="revanced_icon_mmt_yellow">MMT イエロー</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
@@ -957,6 +966,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_overlay_button_copy_video_url_title">動画 URL のコピーボタンを表示</string>
     <string name="revanced_overlay_button_external_downloader_summary">タップして外部の動画ダウンローダーを起動します。</string>
     <string name="revanced_overlay_button_external_downloader_title">外部ダウンロードボタンを表示</string>
+    <string name="revanced_overlay_button_mute_volume_summary">現在の動画の音声をミュートするには、タップします。 ミュートを解除するには、もう一度タップします。</string>
+    <string name="revanced_overlay_button_mute_volume_title">音声ミュートボタンを表示</string>
     <string name="revanced_overlay_button_not_allowed_warning">ボタンの状態を変更するには、長押ししてください。</string>
     <string name="revanced_overlay_button_speed_dialog_reset">再生速度を %s 倍速にリセットしました。</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"タップして再生速度ダイアログをを開きます。
@@ -1173,20 +1184,26 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_sb_guidelines_popup_title">ガイドラインに従ってください</string>
     <string name="revanced_sb_guidelines_preference_sum">ガイドラインには、セグメントの作成に関するルールとヒントが含まれています。</string>
     <string name="revanced_sb_guidelines_preference_title">ガイドラインを表示</string>
+    <string name="revanced_sb_new_segment_adjust">調整: セグメントの開始時間と終了時間をマークする</string>
     <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
+    <string name="revanced_sb_new_segment_compare">セグメントを確認</string>
     <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">セグメントは\n\n%1$s\nから\n%2$s\n\n(%3$s)です。\n\n送信してもよろしいですか？</string>
     <string name="revanced_sb_new_segment_confirm_title">これらの変更は正しいですか？</string>
     <string name="revanced_sb_new_segment_disabled_category">カテゴリーは設定で無効になっています。送信するにはカテゴリーを有効にしてください。</string>
+    <string name="revanced_sb_new_segment_edit">セグメントを編集</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">時間の値が無効です。</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
+    <string name="revanced_sb_new_segment_forward">指定された時間までスキップ (デフォルト: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_end">終了</string>
     <string name="revanced_sb_new_segment_mark_locations_first">タイムバーの2か所をマークしてください</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
     <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d を新しいセグメントの開始または終了として設定しますか？</string>
     <string name="revanced_sb_new_segment_now">現在</string>
     <string name="revanced_sb_new_segment_preview_segment_first">セグメントをプレビューして、スムーズにスキップできるようにしてください。</string>
+    <string name="revanced_sb_new_segment_publish">作成したセグメントを送信</string>
+    <string name="revanced_sb_new_segment_rewind">指定された時間まで巻き戻す (デフォルト: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始は終了より前になければなりません</string>
     <string name="revanced_sb_new_segment_time_end">セグメントの終了時刻</string>
     <string name="revanced_sb_new_segment_time_start">セグメントの開始時刻</string>
