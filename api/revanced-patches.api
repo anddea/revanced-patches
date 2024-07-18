@@ -2,6 +2,12 @@ public final class app/revanced/generator/MainKt {
 	public static synthetic fun main ([Ljava/lang/String;)V
 }
 
+public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCodePatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/versioncode/ChangeVersionCodePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/music/account/components/AccountComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/account/components/AccountComponentsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -155,17 +161,6 @@ public final class app/revanced/patches/music/layout/playeroverlay/PlayerOverlay
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/music/misc/alternativedomain/AlternativeDomainBytecodePatch : app/revanced/patches/shared/alternativedomain/BaseAlternativeDomainPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/alternativedomain/AlternativeDomainBytecodePatch;
-}
-
-public final class app/revanced/patches/music/misc/alternativedomain/AlternativeDomainPatch : app/revanced/util/patch/BaseBytecodePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/alternativedomain/AlternativeDomainPatch;
-	public fun close ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -196,6 +191,12 @@ public final class app/revanced/patches/music/misc/debugging/DebuggingPatch : ap
 
 public final class app/revanced/patches/music/misc/splash/CairoSplashAnimationPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/splash/CairoSplashAnimationPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/thumbnails/BypassImageRegionRestrictionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -286,6 +287,10 @@ public final class app/revanced/patches/music/utils/gms/GmsCoreSupportResourcePa
 	public static final field INSTANCE Lapp/revanced/patches/music/utils/gms/GmsCoreSupportResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/music/utils/imageurlhook/CronetImageUrlHookPatch : app/revanced/patches/shared/imageurlhook/BaseCronetImageUrlHookPatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/utils/imageurlhook/CronetImageUrlHookPatch;
 }
 
 public final class app/revanced/patches/music/utils/integrations/Constants {
@@ -623,12 +628,6 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/misc/versioncode/ChangeVersionCodePatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/misc/versioncode/ChangeVersionCodePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/reddit/utils/compatibility/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/utils/compatibility/Constants;
 	public final fun getCOMPATIBLE_PACKAGE ()Ljava/util/Set;
@@ -679,12 +678,6 @@ public abstract class app/revanced/patches/shared/ads/BaseAdsPatch : app/revance
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/shared/alternativedomain/BaseAlternativeDomainPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public abstract class app/revanced/patches/shared/captions/BaseAutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -716,7 +709,6 @@ public final class app/revanced/patches/shared/elements/StringsElementsUtils {
 }
 
 public abstract class app/revanced/patches/shared/gms/BaseGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field GMS_CORE_VENDOR_GROUP_ID Ljava/lang/String;
 	public static final field INTEGRATIONS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public fun <init> (Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -725,10 +717,25 @@ public abstract class app/revanced/patches/shared/gms/BaseGmsCoreSupportPatch : 
 }
 
 public abstract class app/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field Companion Lapp/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
+}
+
+public final class app/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch$Companion {
+}
+
+public abstract class app/revanced/patches/shared/imageurlhook/BaseCronetImageUrlHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field Companion Lapp/revanced/patches/shared/imageurlhook/BaseCronetImageUrlHookPatch$Companion;
+	public fun <init> (Z)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/shared/imageurlhook/BaseCronetImageUrlHookPatch$Companion {
 }
 
 public abstract class app/revanced/patches/shared/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -840,13 +847,6 @@ public final class app/revanced/patches/shared/overlaybackground/OverlayBackgrou
 	public static final field INSTANCE Lapp/revanced/patches/shared/overlaybackground/OverlayBackgroundUtils;
 }
 
-public final class app/revanced/patches/shared/packagename/PackageNamePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/shared/packagename/PackageNamePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun getPackageName (Ljava/lang/String;)Ljava/lang/String;
-}
-
 public abstract class app/revanced/patches/shared/spoofappversion/BaseSpoofAppVersionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -913,12 +913,14 @@ public final class app/revanced/patches/youtube/ads/general/VideoAdsPatch : app/
 	public static final field INSTANCE Lapp/revanced/patches/youtube/ads/general/VideoAdsPatch;
 }
 
-public final class app/revanced/patches/youtube/alternativethumbnails/general/AlternativeDomainBytecodePatch : app/revanced/patches/shared/alternativedomain/BaseAlternativeDomainPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/alternativethumbnails/general/AlternativeDomainBytecodePatch;
+public final class app/revanced/patches/youtube/alternative/thumbnails/AlternativeThumbnailsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/alternative/thumbnails/AlternativeThumbnailsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/alternativethumbnails/general/AlternativeThumbnailsPatch : app/revanced/util/patch/BaseBytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/alternativethumbnails/general/AlternativeThumbnailsPatch;
+public final class app/revanced/patches/youtube/alternative/thumbnails/BypassImageRegionRestrictionsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/alternative/thumbnails/BypassImageRegionRestrictionsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1399,6 +1401,10 @@ public final class app/revanced/patches/youtube/utils/gms/GmsCoreSupportResource
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/utils/imageurlhook/CronetImageUrlHookPatch : app/revanced/patches/shared/imageurlhook/BaseCronetImageUrlHookPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/imageurlhook/CronetImageUrlHookPatch;
+}
+
 public final class app/revanced/patches/youtube/utils/integrations/Constants {
 	public static final field ADS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field ADS_PATH Ljava/lang/String;
@@ -1501,6 +1507,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getChannelListSubMenu ()J
 	public final fun getCompactLink ()J
 	public final fun getCompactListItem ()J
+	public final fun getComponentLongClickListener ()J
 	public final fun getControlsLayoutStub ()J
 	public final fun getDarkBackground ()J
 	public final fun getDarkSplashAnimation ()J
@@ -1534,7 +1541,9 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getModernMiniPlayerForwardButton ()J
 	public final fun getModernMiniPlayerRewindButton ()J
 	public final fun getMusicAppDeeplinkButtonView ()J
+	public final fun getNotice ()J
 	public final fun getNotificationBigPictureIconWidth ()J
+	public final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public final fun getPlayerCollapseButton ()J
 	public final fun getPlayerVideoTitleView ()J
 	public final fun getPosterArtWidthDefault ()J
@@ -1598,6 +1607,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setChannelListSubMenu (J)V
 	public final fun setCompactLink (J)V
 	public final fun setCompactListItem (J)V
+	public final fun setComponentLongClickListener (J)V
 	public final fun setControlsLayoutStub (J)V
 	public final fun setDarkBackground (J)V
 	public final fun setDarkSplashAnimation (J)V
@@ -1631,7 +1641,9 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setModernMiniPlayerForwardButton (J)V
 	public final fun setModernMiniPlayerRewindButton (J)V
 	public final fun setMusicAppDeeplinkButtonView (J)V
+	public final fun setNotice (J)V
 	public final fun setNotificationBigPictureIconWidth (J)V
+	public final fun setOfflineActionsVideoDeletedUndoSnackbarText (J)V
 	public final fun setPlayerCollapseButton (J)V
 	public final fun setPlayerVideoTitleView (J)V
 	public final fun setPosterArtWidthDefault (J)V
@@ -1704,6 +1716,7 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public final fun getIconType ()Ljava/lang/String;
 	public final fun getYoutubePackageName ()Ljava/lang/String;
 	public final fun setYoutubePackageName (Ljava/lang/String;)V
+	public final fun updateGmsCorePackageName (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun updatePackageName (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun updatePatchStatus (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public final fun updatePatchStatusIcon (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
@@ -1810,6 +1823,7 @@ public final class app/revanced/patches/youtube/video/videoid/VideoIdPatch : app
 public final class app/revanced/util/BytecodeUtilsKt {
 	public static final field REGISTER_TEMPLATE_REPLACEMENT Ljava/lang/String;
 	public static final fun addFieldAndInstructions (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public static final fun alsoResolve (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/data/BytecodeContext;Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
 	public static final fun checkIndex (IILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun checkIndex (IILjava/lang/String;)I
 	public static final fun containsMethodReferenceNameInstructionIndex (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)Z
