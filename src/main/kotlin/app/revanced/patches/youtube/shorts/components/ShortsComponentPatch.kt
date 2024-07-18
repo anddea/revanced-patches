@@ -279,7 +279,8 @@ object ShortsComponentPatch : BaseBytecodePatch(
         // region patch for hide paused header
 
         ShortsPausedHeaderFingerprint.resultOrThrow().let {
-            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            val targetMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             targetMethod.apply {
                 addInstructionsWithLabels(

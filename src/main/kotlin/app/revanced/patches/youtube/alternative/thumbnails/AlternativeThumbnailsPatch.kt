@@ -23,7 +23,9 @@ object AlternativeThumbnailsPatch : BaseBytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         CronetImageUrlHookPatch.addImageUrlHook(ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR)
-        CronetImageUrlHookPatch.addImageUrlSuccessCallbackHook(ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR)
+        CronetImageUrlHookPatch.addImageUrlSuccessCallbackHook(
+            ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR
+        )
         CronetImageUrlHookPatch.addImageUrlErrorCallbackHook(ALTERNATIVE_THUMBNAILS_CLASS_DESCRIPTOR)
 
         /**

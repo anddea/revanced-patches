@@ -209,7 +209,10 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
         VideoInformationPatch.hookBackgroundPlay("$INTEGRATIONS_RELOAD_VIDEO_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         VideoInformationPatch.hook("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        VideoInformationPatch.onCreateHook(INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR, "newVideoStarted")
+        VideoInformationPatch.onCreateHook(
+            INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR,
+            "newVideoStarted"
+        )
 
         // endregion
 
