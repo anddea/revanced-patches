@@ -179,7 +179,8 @@ object SharedResourceIdPatch : ResourcePatch() {
         MusicAppDeeplinkButtonView = getId(ID, "music_app_deeplink_button_view")
         Notice = getId(ID, "notice")
         NotificationBigPictureIconWidth = getId(DIMEN, "notification_big_picture_icon_width")
-        OfflineActionsVideoDeletedUndoSnackbarText = getId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
+        OfflineActionsVideoDeletedUndoSnackbarText =
+            getId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         PlayerCollapseButton = getId(ID, "player_collapse_button")
         PlayerVideoTitleView = getId(ID, "player_video_title_view")
         PosterArtWidthDefault = getId(DIMEN, "poster_art_width_default")

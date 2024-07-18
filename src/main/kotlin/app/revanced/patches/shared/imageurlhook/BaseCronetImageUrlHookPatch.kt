@@ -33,7 +33,8 @@ abstract class BaseCronetImageUrlHookPatch(
     )
 ) {
     companion object {
-        private const val INTEGRATION_SHARED_CLASS_DESCRIPTOR = "$PATCHES_PATH/BypassImageRegionRestrictionsPatch;"
+        private const val INTEGRATION_SHARED_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/BypassImageRegionRestrictionsPatch;"
 
         private lateinit var loadImageUrlMethod: MutableMethod
         private var loadImageUrlIndex = 0
@@ -44,10 +45,14 @@ abstract class BaseCronetImageUrlHookPatch(
         private lateinit var loadImageErrorCallbackMethod: MutableMethod
         private var loadImageErrorCallbackIndex = 0
     }
+
     /**
      * @param highPriority If the hook should be called before all other hooks.
      */
-    internal fun addImageUrlHook(targetMethodClass: String = INTEGRATION_SHARED_CLASS_DESCRIPTOR, highPriority: Boolean = true) {
+    internal fun addImageUrlHook(
+        targetMethodClass: String = INTEGRATION_SHARED_CLASS_DESCRIPTOR,
+        highPriority: Boolean = true
+    ) {
         loadImageUrlMethod.addInstructions(
             if (highPriority) 0 else loadImageUrlIndex,
             """

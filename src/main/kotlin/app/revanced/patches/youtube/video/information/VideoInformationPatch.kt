@@ -190,7 +190,8 @@ object VideoInformationPatch : BytecodePatch(
 
             it.mutableMethod.apply {
                 val literalIndex = getWideLiteralInstructionIndex(45368273)
-                val walkerIndex = getTargetIndexReversedOrThrow(literalIndex, Opcode.INVOKE_VIRTUAL_RANGE)
+                val walkerIndex =
+                    getTargetIndexReversedOrThrow(literalIndex, Opcode.INVOKE_VIRTUAL_RANGE)
 
                 videoEndMethod =
                     getWalkerMethod(context, walkerIndex)

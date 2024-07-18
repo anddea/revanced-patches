@@ -53,7 +53,8 @@ object BottomSheetRecyclerViewPatch : BytecodePatch(
                 opcode == Opcode.IPUT_OBJECT
                         && getReference<FieldReference>()?.type == "Landroid/view/ViewTreeObserver${'$'}OnDrawListener;"
             }
-            recyclerViewTreeObserverInsertIndex = getTargetIndexReversedOrThrow(onDrawListenerIndex, Opcode.CHECK_CAST) + 1
+            recyclerViewTreeObserverInsertIndex =
+                getTargetIndexReversedOrThrow(onDrawListenerIndex, Opcode.CHECK_CAST) + 1
         }
 
     }
