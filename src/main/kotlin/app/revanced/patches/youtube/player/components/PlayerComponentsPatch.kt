@@ -9,6 +9,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.player.components.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.EngagementPanelControllerFingerprint
@@ -20,6 +21,9 @@ import app.revanced.patches.youtube.player.components.fingerprints.InfoCardsInco
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutCircleFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutIconFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.LayoutVideoFingerprint
+import app.revanced.patches.youtube.player.components.fingerprints.LithoComponentOnClickListenerFingerprint
+import app.revanced.patches.youtube.player.components.fingerprints.NoticeOnClickListenerFingerprint
+import app.revanced.patches.youtube.player.components.fingerprints.OfflineActionsOnClickListenerFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.QuickSeekOverlayFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.SeekEduContainerFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.SuggestedActionsFingerprint
@@ -67,7 +71,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         SpeedOverlayPatch::class,
-        SuggestedVideoEndScreenPatch::class
+        SuggestedVideoEndScreenPatch::class,
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -78,8 +82,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         LayoutCircleFingerprint,
         LayoutIconFingerprint,
         LayoutVideoFingerprint,
+        LithoComponentOnClickListenerFingerprint,
+        NoticeOnClickListenerFingerprint,
+        OfflineActionsOnClickListenerFingerprint,
         QuickSeekOverlayFingerprint,
         SeekEduContainerFingerprint,
+        StartVideoInformerFingerprint,
         SuggestedActionsFingerprint,
         TouchAreaOnClickListenerFingerprint,
         WatermarkParentFingerprint,
@@ -114,15 +122,45 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for disable auto player popup panels
 
+        fun MutableMethod.hookInitVideoPanel(initVideoPanel: Int) =
+            addInstructions(
+                0, """
+                    const/4 v0, $initVideoPanel
+                    invoke-static {v0}, $PLAYER_CLASS_DESCRIPTOR->setInitVideoPanel(Z)V
+                    """
+            )
+
+        arrayOf(
+            LithoComponentOnClickListenerFingerprint,
+            NoticeOnClickListenerFingerprint,
+            OfflineActionsOnClickListenerFingerprint,
+            StartVideoInformerFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.resultOrThrow().mutableMethod.apply {
+                if (fingerprint == StartVideoInformerFingerprint) {
+                    hookInitVideoPanel(1)
+                } else {
+                    val syntheticIndex = getTargetIndexOrThrow(Opcode.NEW_INSTANCE)
+                    val syntheticReference =
+                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
+                    val syntheticClass =
+                        context.findClass(syntheticReference)!!.mutableClass
+
+                    syntheticClass.methods.find { method -> method.name == "onClick" }
+                        ?.hookInitVideoPanel(0)
+                        ?: throw PatchException("Could not find onClick method in $syntheticReference")
+                }
+            }
+        }
+
         EngagementPanelControllerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableAutoPlayerPopupPanels()Z
+                        move/from16 v0, p4
+                        invoke-static {v0}, $PLAYER_CLASS_DESCRIPTOR->disableAutoPlayerPopupPanels(Z)Z
                         move-result v0
                         if-eqz v0, :shown
-                        # The type of the fourth parameter is boolean.
-                        if-eqz p4, :shown
                         const/4 v0, 0x0
                         return-object v0
                         """, ExternalLabel("shown", getInstruction(0))
