@@ -155,7 +155,8 @@
 
 		<!-- SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS
 		<PreferenceCategory android:title="@string/revanced_preference_category_image_region_restrictions" android:layout="@layout/revanced_settings_preferences_category"/>
-		<SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
+		<SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />
+		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:hint="yt4.ggpht.com" android:title="@string/revanced_bypass_image_region_restrictions_domain_title" android:key="revanced_bypass_image_region_restrictions_domain" android:summary="@string/revanced_bypass_image_region_restrictions_domain_summary" android:inputType="textUri"/>SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
 
 		<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
     </PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
