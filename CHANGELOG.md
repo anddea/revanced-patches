@@ -1,3 +1,11 @@
+# [2.227.0-dev.24](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.23...v2.227.0-dev.24) (2024-07-22)
+
+
+### Features
+
+* **YouTube - Bypass image region restrictions:** Bring back setting to change alternative domain ([a037281](https://github.com/anddea/revanced-patches/commit/a037281dd1da76fd55ee5e3f537e99c8ffe1199f))
+* **YouTube - Force player buttons background:** Add an option to change the color and opacity of the player buttons' background ([eab9795](https://github.com/anddea/revanced-patches/commit/eab979534b5b98fb532a3c6ad79d338e8f23ab4c))
+
 # [2.227.0-dev.23](https://github.com/anddea/revanced-patches/compare/v2.227.0-dev.22...v2.227.0-dev.23) (2024-07-18)
 
 
