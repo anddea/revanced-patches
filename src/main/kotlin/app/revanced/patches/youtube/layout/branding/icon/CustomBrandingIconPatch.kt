@@ -22,7 +22,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,
 ) {
-    private const val DEFAULT_ICON_KEY = "Revancify Blue"
+    private const val DEFAULT_ICON_KEY = "Revancify Yellow"
 
     private val availableIcon = mapOf(
         "AFN Blue" to "afn_blue",
@@ -31,9 +31,9 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "MMT Blue" to "mmt_blue",
         "MMT Green" to "mmt_green",
         "MMT Yellow" to "mmt_yellow",
-        DEFAULT_ICON_KEY to "revancify_blue",
+        "Revancify Blue" to "revancify_blue",
         "Revancify Red" to "revancify_red",
-        "Revancify Yellow" to "revancify_yellow",
+        DEFAULT_ICON_KEY to "revancify_yellow",
         "Vanced Black" to "vanced_black",
         "Vanced Light" to "vanced_light",
         "YouTube" to "youtube"
