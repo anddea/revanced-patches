@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="gms_core_dialog_continue_text">Tiếp tục</string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore chưa được cấp quyền để chạy trong nền.
+
+Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và áp dụng các hướng dẫn cho việc thiết lập GmsCore của bạn."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Tắt tối ưu hoá pin cho GmsCore để tránh phát sinh vẫn đề.
+
+ Nhấn vào nút Tiếp tục và tắt tối ưu hóa pin."</string>
+    <string name="gms_core_dialog_open_website_text">Mở trang web</string>
+    <string name="gms_core_dialog_title">Hành động cần thiết</string>
+    <string name="gms_core_settings_summary">Mở MicroG để thiết lập tính năng nhận thông báo và các tuỳ chọn khác.</string>
+    <string name="gms_core_settings_title">Mở GmsCore</string>
+    <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó.</string>
     <string name="revanced_change_start_page_entry_chart">Bảng xếp hạng</string>
     <string name="revanced_change_start_page_entry_explore">Khám phá</string>
     <string name="revanced_change_start_page_entry_home">Trang chủ</string>
@@ -11,31 +23,57 @@
     <string name="revanced_custom_filter_strings_title">Chỉnh sửa bộ lọc</string>
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
+    <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s.</string>
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại tốc độ phát về mặc định.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ. Đã khôi phục lại các giá trị mặc định.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát hiện có.</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
+    <string name="revanced_disable_dislike_redirection_summary">Vô hiệu hóa chuyển hướng đến bài hát tiếp theo khi nhấp vào nút Không thích.</string>
+    <string name="revanced_disable_dislike_redirection_title">Vô hiệu hoá chuyển hướng khi ấn nút không thích</string>
     <string name="revanced_enable_black_navigation_bar_summary">Đặt màu thanh điều hướng phía dưới cùng thành màu đen.</string>
     <string name="revanced_enable_black_navigation_bar_title">Thanh điều hướng màu đen</string>
+    <string name="revanced_enable_black_player_background_summary">Thay đổi màu nền trình phát sang màu đen.</string>
+    <string name="revanced_enable_black_player_background_title">Sử dụng nền trình phát màu đen</string>
+    <string name="revanced_enable_cairo_splash_animation_summary">Sử dụng hoạt ảnh kiểu Cairo khi khởi động ứng dụng.</string>
+    <string name="revanced_enable_cairo_splash_animation_title">Sử dụng hoạt ảnh kiểu Cairo</string>
     <string name="revanced_enable_color_match_player_summary">Đồng bộ màu của trình phát thu nhỏ với màu của trình phát.</string>
     <string name="revanced_enable_color_match_player_title">Trình phát thu nhỏ khớp màu</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
-Sự cố đã biết:
-- Ảnh bìa nghệ thuật trong thẻ Thư viện (Danh sách phát, Podcast, Bài hát, Đĩa nhạc, Nghệ sĩ,...) cũng thu gọn theo.
-- Bố cục Hẹn giờ ngủ có thể xuất hiện bất thường."</string>
+Hạn chế:
+• Ảnh bìa Album trong thẻ Thư viện (Danh sách phát, Podcast, Bài hát, Đĩa nhạc, Nghệ sĩ,...) cũng thu gọn theo.
+• Bố cục Hẹn giờ ngủ có thể xuất hiện bất thường."</string>
     <string name="revanced_enable_compact_dialog_title">Trình đơn tuỳ chọn thu gọn</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Bao gồm bộ đệm trong nhật ký gỡ lỗi.</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Bật nhật ký gỡ lỗi bộ đệm</string>
     <string name="revanced_enable_debug_logging_summary">Bật ghi nhật ký gỡ lỗi.</string>
     <string name="revanced_enable_debug_logging_title">Nhật ký gỡ lỗi</string>
     <string name="revanced_enable_force_minimized_player_summary">Luôn phát nhạc trong trình phát thu nhỏ bất cứ khi nào bạn nghe một bài hát nằm ngoài trình phát hoặc bắt đầu đài phát.</string>
     <string name="revanced_enable_force_minimized_player_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ.</string>
     <string name="revanced_enable_landscape_mode_title">Tự động xoay màn hình</string>
+    <string name="revanced_enable_mini_player_next_button_summary">Thêm nút bài hát tiếp theo vào trình phát thu nhỏ.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Thêm nút tiếp theo vào trình phát thu nhỏ</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Thêm nút phát trước đó vào trình phát thu nhỏ</string>
     <string name="revanced_enable_opus_codec_summary">"Áp dụng codec âm thanh Opus thay vì MP4A."</string>
     <string name="revanced_enable_opus_codec_title">Codec Opus</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Bật thao tác vuốt xuống để loại bỏ trình phát thu nhỏ.</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Bật thao tác vuốt để loại bỏ trình phát thu nhỏ</string>
+    <string name="revanced_enable_trim_silence_summary">"Thêm nút Trim silence vào trình đơn tuỳ chọn tốc độ phát lại.
+
+ Cụ thể:
+ • Tính năng này dành cho podcast.
+ • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
+    <string name="revanced_enable_trim_silence_title">Thêm công tắc Cắt bỏ khoảng im lặng</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Đồng thời bật chế độ tập trung cho podcast.</string>
+    <string name="revanced_enable_zen_mode_podcast_title">Bật Chế độ tập trung trong podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
+    <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
+    <string name="revanced_extended_restart_message">Làm mới và khởi động lại</string>
     <string name="revanced_extended_settings_export_as_file">Xuất cài đặt dưới dạng tệp</string>
     <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
     <string name="revanced_extended_settings_export_success">Cài đặt đã được xuất thành công.</string>
@@ -48,11 +86,24 @@ Sự cố đã biết:
     <string name="revanced_extended_settings_import_failed">Nhập cài đặt thất bại: %s.</string>
     <string name="revanced_extended_settings_import_reset">Đã đặt lại cài đặt về mặc định.</string>
     <string name="revanced_extended_settings_import_success">Đã nhập %d cài đặt.</string>
+    <string name="revanced_extended_settings_reset">Đặt lại</string>
+    <string name="revanced_extended_settings_title">Cài đặt ReVanced Extended</string>
+    <string name="revanced_external_downloader_action_summary">"Nút tải xuống mở trình tải xuống bên thứ ba của bạn.
+
+• Chỉ ghi đè lên nút Tải xuống trong trình phát.
+• Không ghi đè lên nút Tải xuống trong Trình đơn tuỳ chọn hoặc Thư viện."</string>
+    <string name="revanced_external_downloader_action_title">Ghi đè nút tải xuống</string>
+    <string name="revanced_external_downloader_dialog_title">Trình tải xuống bên thứ ba</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s chưa được cài đặt.
+ Vui lòng tải xuống %2$s từ trang web."</string>
+    <string name="revanced_external_downloader_not_installed_dialog_title">Chú ý</string>
     <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_external_downloader_package_name_summary">Nhập tên gói ứng dụng trình tải xuống đã cài đặt trên thiết bị của bạn, chẳng hạn như NewPipe hoặc YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Tên gói ứng dụng trình tải xuống</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Ẩn các mục trống khỏi trình đơn Tài khoản.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ẩn mục trống</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Danh sách tên menu tài khoản cần lọc, cách nhau từng dòng một.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Bộ lọc menu tài khoản</string>
     <string name="revanced_hide_account_menu_summary">Ẩn các thành phần của trình đơn Tài khoản bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_hide_account_menu_title">Ẩn trình đơn Tài khoản</string>
     <string name="revanced_hide_action_button_add_to_playlist_summary">Ẩn nút Lưu trong bảng nút thao tác.</string>
@@ -69,6 +120,8 @@ Sự cố đã biết:
     <string name="revanced_hide_action_button_radio_title">Ẩn nút Đài phát</string>
     <string name="revanced_hide_action_button_share_summary">Ẩn nút Chia sẻ trong bảng nút thao tác.</string>
     <string name="revanced_hide_action_button_share_title">Ẩn nút Chia sẻ</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Ẩn nút chuyển đổi Âm thanh / Video trong trình phát.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Ẩn nút chuyển đổi Âm thanh / Video</string>
     <string name="revanced_hide_button_shelf_summary">Ẩn khối danh mục ở cuối thẻ Trang chủ và đầu thẻ Khám phá.</string>
     <string name="revanced_hide_button_shelf_title">Ẩn khối danh mục</string>
     <string name="revanced_hide_carousel_shelf_summary">Ẩn các kệ được cá nhân hoá dựa trên sở thích của bạn khỏi thẻ Trang chủ và thẻ Khám phá.</string>
@@ -77,6 +130,49 @@ Sự cố đã biết:
     <string name="revanced_hide_cast_button_title">Ẩn nút Truyền</string>
     <string name="revanced_hide_category_bar_summary">Ẩn thanh danh mục.</string>
     <string name="revanced_hide_category_bar_title">Ẩn thanh danh mục</string>
+    <string name="revanced_hide_comment_channel_guidelines_summary">Ẩn các nhãn nguyên tắc (Nguyên tắc cộng đồng, Nguyên tắc của kênh,...) trong phần Bình luận.</string>
+    <string name="revanced_hide_comment_channel_guidelines_title">Ẩn các nhãn nguyên tắc</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ẩn dấu thời gian và biểu tượng cảm xúc khi đang nhập bình luận.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ẩn dấu thời gian và biểu tượng cảm xúc</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">Ẩn lớp phủ tối xuất hiện khi chạm đúp để tìm kiếm.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Ẩn bộ lọc lớp phủ nhấn đúp</string>
+    <string name="revanced_hide_floating_button_summary">Ẩn nút nổi trong thẻ Thư viện.</string>
+    <string name="revanced_hide_floating_button_title">Ẩn nút nổi</string>
+    <string name="revanced_hide_flyout_menu_3_column_component_title">Ẩn thành phần có 3 dòng</string>
+    <string name="revanced_hide_flyout_menu_add_to_queue_title">Ẩn mục Thêm vào danh sách chờ</string>
+    <string name="revanced_hide_flyout_menu_captions_title">Ẩn mục Phụ đề</string>
+    <string name="revanced_hide_flyout_menu_delete_playlist_title">Ẩn mục Xoá danh sách phát</string>
+    <string name="revanced_hide_flyout_menu_dismiss_queue_title">Ẩn mục Loại bỏ danh sách chờ</string>
+    <string name="revanced_hide_flyout_menu_download_title">Ẩn mục Tải xuống</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Ẩn mục Chỉnh sửa danh sách phát</string>
+    <string name="revanced_hide_flyout_menu_go_to_album_title">Ẩn mục Chuyển đến menu album</string>
+    <string name="revanced_hide_flyout_menu_go_to_artist_title">Ẩn mục Chuyển đến trang của nghệ sĩ</string>
+    <string name="revanced_hide_flyout_menu_go_to_episode_title">Ẩn mục Chuyển đến tập</string>
+    <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ẩn mục Chuyển đến podcast</string>
+    <string name="revanced_hide_flyout_menu_help_title">Ẩn mục Trợ giúp &amp; phản hồi</string>
+    <string name="revanced_hide_flyout_menu_like_dislike_title">Ẩn các nút Thích và Không thích</string>
+    <string name="revanced_hide_flyout_menu_play_next_title">Ẩn mục Phát tiếp theo</string>
+    <string name="revanced_hide_flyout_menu_quality_title">Ẩn mục Chất lượng</string>
+    <string name="revanced_hide_flyout_menu_remove_from_library_title">Ẩn mục Xoá khỏi thư viện</string>
+    <string name="revanced_hide_flyout_menu_remove_from_playlist_title">Ẩn mục Xóa khỏi danh sách phát</string>
+    <string name="revanced_hide_flyout_menu_report_title">Ẩn mục Báo cáo</string>
+    <string name="revanced_hide_flyout_menu_save_episode_for_later_title">Ẩn mục Lưu tập này để thưởng thức sau</string>
+    <string name="revanced_hide_flyout_menu_save_to_library_title">Ẩn mục Lưu vào thư viện</string>
+    <string name="revanced_hide_flyout_menu_save_to_playlist_title">Ẩn mục Lưu vào danh sách phát</string>
+    <string name="revanced_hide_flyout_menu_share_title">Ẩn mục Chia sẻ</string>
+    <string name="revanced_hide_flyout_menu_shuffle_play_title">Ẩn mục Phát ngẫu nhiên</string>
+    <string name="revanced_hide_flyout_menu_sleep_timer_title">Ẩn mục Hẹn giờ đi ngủ</string>
+    <string name="revanced_hide_flyout_menu_start_radio_title">Ẩn mục Bắt đầu đài phát</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ẩn mục Thống kê chi tiết</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Ẩn mục Đăng ký / Huỷ đăng ký</string>
+    <string name="revanced_hide_flyout_menu_view_song_credit_title">Ẩn mục Xem thông tin của bài hát</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Quảng cáo toàn màn hình đã bị chặn. (Loại hộp thoại: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Quảng cáo toàn màn hình đã được đóng.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Ẩn quảng cáo toàn màn hình.</string>
+    <string name="revanced_hide_fullscreen_ads_title">Ẩn quảng cáo toàn màn hình</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Nếu tính năng này bật, quảng cáo toàn màn hình sẽ được đóng thông qua nút Đóng.
+Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (có thể có tác dụng phụ)."</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Đóng quảng cáo toàn màn hình</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ẩn nút Chia sẻ trong trình phát toàn màn hình.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ẩn nút Chia sẻ trong trình phát toàn màn hình</string>
     <string name="revanced_hide_general_ads_summary">Ẩn quảng cáo xuất hiện trước khi phát.</string>
@@ -89,28 +185,92 @@ Sự cố đã biết:
     <string name="revanced_hide_music_ads_title">Ẩn quảng cáo</string>
     <string name="revanced_hide_navigation_bar_summary">Ẩn thanh điều hướng.</string>
     <string name="revanced_hide_navigation_bar_title">Ẩn thanh điều hướng</string>
+    <string name="revanced_hide_navigation_explore_button_summary">Ẩn thẻ Khám phá khỏi thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_explore_button_title">Ẩn thẻ Khám phá</string>
+    <string name="revanced_hide_navigation_home_button_summary">Ẩn thẻ Trang chủ khỏi thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_home_button_title">Ẩn nút Trang chủ</string>
     <string name="revanced_hide_navigation_label_summary">Ẩn tên thẻ trên thanh điều hướng.</string>
     <string name="revanced_hide_navigation_label_title">Ẩn tên thẻ</string>
+    <string name="revanced_hide_navigation_library_button_summary">Ẩn thẻ Thư viện khỏi thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_library_button_title">Ẩn thẻ Thư viện</string>
+    <string name="revanced_hide_navigation_samples_button_summary">Ẩn thẻ Đoạn nhạc khỏi thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_samples_button_title">Ẩn thẻ Đoạn nhạc</string>
+    <string name="revanced_hide_navigation_upgrade_button_summary">Ẩn thẻ Nâng cấp khỏi thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_upgrade_button_title">Ẩn thẻ Nâng cấp</string>
+    <string name="revanced_hide_notification_button_summary">Ẩn nút Thông báo trong thanh công cụ.</string>
+    <string name="revanced_hide_notification_button_title">Ẩn nút Thông báo</string>
+    <string name="revanced_hide_paid_promotion_label_summary">Ẩn nhãn quảng cáo được tài trợ.</string>
+    <string name="revanced_hide_paid_promotion_label_title">Ẩn nhãn quảng cáo được tài trợ</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Ẩn thẻ danh sách phát trong bảng feed.</string>
+    <string name="revanced_hide_playlist_card_shelf_title">Ẩn thẻ danh sách phát</string>
     <string name="revanced_hide_premium_promotion_summary">Ẩn quảng cáo mua Music Premium bật lên.</string>
     <string name="revanced_hide_premium_promotion_title">Ẩn quảng cáo bật lên</string>
     <string name="revanced_hide_premium_renewal_summary">Ẩn quảng cáo biểu ngữ mua Music Premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ẩn quảng cáo biểu ngữ</string>
+    <string name="revanced_hide_samples_shelf_summary">Ẩn thẻ Đoạn nhạc trong bảng feed.</string>
+    <string name="revanced_hide_samples_shelf_title">Ẩn thẻ Đoạn nhạc</string>
+    <string name="revanced_hide_sound_search_button_summary">Ẩn nút tìm kiếm âm thanh trên thanh tìm kiếm.</string>
+    <string name="revanced_hide_sound_search_button_title">Ẩn nút tìm kiếm âm thanh</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Ẩn nút \'Chạm để nâng cấp\'.</string>
+    <string name="revanced_hide_tap_to_update_button_title">Ẩn nút \'Chạm để nâng cấp\'</string>
     <string name="revanced_hide_terms_container_summary">Ẩn các mục Chính sách quyền riêng tư và Điều khoản dịch vụ khỏi trình đơn Tài khoản.</string>
     <string name="revanced_hide_terms_container_title">Ẩn mục Bảo mật và Điều khoản</string>
+    <string name="revanced_hide_voice_search_button_summary">Ẩn nút tìm kiếm bằng giọng nói trên thanh tìm kiếm.</string>
+    <string name="revanced_hide_voice_search_button_title">Ẩn nút Tìm kiếm bằng giọng nói</string>
+    <string name="revanced_preference_screen_account_title">Tài khoản</string>
+    <string name="revanced_preference_screen_action_bar_title">Thanh Thao tác</string>
+    <string name="revanced_preference_screen_ads_title">Quảng cáo</string>
+    <string name="revanced_preference_screen_flyout_title">Trình đơn tuỳ chọn</string>
+    <string name="revanced_preference_screen_general_title">Tổng quan</string>
+    <string name="revanced_preference_screen_misc_title">Khác</string>
+    <string name="revanced_preference_screen_navigation_title">Thanh điều hướng</string>
+    <string name="revanced_preference_screen_player_title">Trình phát</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary">Ghi nhớ giá trị tốc độ phát được chọn gần đây nhất.</string>
+    <string name="revanced_remember_playback_speed_last_selected_title">Ghi nhớ thay đổi tốc độ phát</string>
+    <string name="revanced_remember_playback_speed_toast">Đã lưu tốc độ phát mặc định thành %s.</string>
     <string name="revanced_remember_repeat_state_summary">Ghi nhớ trạng thái phát lặp lại một danh sách phát hoặc phát lặp lại một bài hát.</string>
     <string name="revanced_remember_repeat_state_title">Lưu trạng thái phát lặp lại</string>
     <string name="revanced_remember_shuffle_state_summary">Ghi nhớ trạng thái phát ngẫu nhiên các bài hát.</string>
     <string name="revanced_remember_shuffle_state_title">Lưu trạng thái phát ngẫu nhiên</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">Ghi nhớ chất lượng video nhạc được chọn gần đây nhất.</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Ghi nhớ chất lượng video</string>
+    <string name="revanced_remember_video_quality_mobile">Đã lưu chất lượng video mặc định trên mạng di động thành %s.</string>
+    <string name="revanced_remember_video_quality_none">Đặt chất lượng video thất bại.</string>
+    <string name="revanced_remember_video_quality_wifi">Đã lưu chất lượng video mặc định trên mạng Wi-Fi thành %s.</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Xoá hộp thoại cảnh báo nội dung cần cân nhắc trước khi xem.
 \nLưu ý: Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, không thể bỏ qua giới hạn về độ tuổi."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Xoá hộp thoại cảnh báo trước khi xem</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Tiếp tục phát video từ thời điểm đã dừng lại khi chuyển sang YouTube.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Tiếp tục xem</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Thay thế mục Loại bỏ danh sách chờ bằng mục Xem trên YouTube.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_title">Thay thế mục Loại bỏ danh sách chờ</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Xem trên YouTube</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">Url video không hợp lệ.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_summary">Giữ nguyên mục Phản hồi trong phần bình luận.</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">Giữ nút Phản hồi trong phần bình luận</string>
+    <string name="revanced_replace_flyout_menu_report_summary">Thay thế mục Phản hồi bằng mục Tốc độ phát lại.</string>
+    <string name="revanced_replace_flyout_menu_report_title">Thay thế mục Phản hồi</string>
+    <string name="revanced_restore_old_comments_popup_panels_summary">Khôi phục lại bảng bình luận nổi về kiểu cũ.</string>
+    <string name="revanced_restore_old_comments_popup_panels_title">Khôi phục bảng bình luận nổi kiểu cũ</string>
+    <string name="revanced_restore_old_player_background_summary">Khôi phục nền trình phát về kiểu cũ.</string>
+    <string name="revanced_restore_old_player_background_title">Khôi phục nền trình phát kiểu cũ</string>
+    <string name="revanced_restore_old_player_layout_summary">"Khôi phục bố cục trình phát về kiểu cũ.
+\nLưu ý: Một số tính năng có thể không hoạt động bình thường trong bố cục trình phát kiểu cũ."</string>
+    <string name="revanced_restore_old_player_layout_title">Khôi phục bố cục trình phát kiểu cũ</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Khôi phục lại thẻ Thư viện về kiểu cũ. (Thử nghiệm)</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Khôi phục thẻ thư viện kiểu cũ</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
     <string name="revanced_ryd_attribution_summary">Dữ liệu về số lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
+    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary">Ẩn dấu phân cách giữa nút Thích và số lượt thích.</string>
     <string name="revanced_ryd_compact_layout_title">Nút Thích thu gọn</string>
     <string name="revanced_ryd_dislike_percentage_summary">Hiển thị số lượt không thích dưới dạng tỉ lệ phần trăm.</string>
     <string name="revanced_ryd_dislike_percentage_title">Hiện số lượt không thích theo phần trăm</string>
     <string name="revanced_ryd_enabled_summary">Hiển thị số lượt không thích của bài hát và video nhạc.</string>
+    <string name="revanced_ryd_enabled_title">Kích hoạt Hiển thị số lượt không thích</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
     <string name="revanced_ryd_failure_connection_status_code">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
@@ -120,12 +280,67 @@ Sự cố đã biết:
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
+    <string name="revanced_sb_about">Giới thiệu</string>
+    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
+    <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải xuống cho các nền tảng khác.</string>
+    <string name="revanced_sb_api_url">Thay đổi địa chỉ URL của API</string>
+    <string name="revanced_sb_api_url_changed">Đã thay đổi địa chỉ URL của API SponsorBlock.</string>
+    <string name="revanced_sb_api_url_invalid">Địa chỉ URL của API SponsorBlock không hợp lệ.</string>
+    <string name="revanced_sb_api_url_reset">Đã đặt lại địa chỉ URL của API SponsorBlock.</string>
+    <string name="revanced_sb_api_url_sum">Địa chỉ Url của Api SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.</string>
+    <string name="revanced_sb_color_changed">Đã thay đổi màu phân đoạn.</string>
+    <string name="revanced_sb_color_dot_label">Màu:</string>
+    <string name="revanced_sb_color_invalid">Mã màu không hợp lệ. Đã đặt lại màu về mặc định.</string>
+    <string name="revanced_sb_color_reset">Đã đặt lại màu phân đoạn về mặc định.</string>
+    <string name="revanced_sb_diff_segments">Thay đổi hành vi của phân đoạn</string>
+    <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
+    <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video YouTube.</string>
+    <string name="revanced_sb_reset_color">Đặt lại màu</string>
+    <string name="revanced_sb_segments_filler">Cảnh phụ/Nội dung lạc đề - hài hước</string>
+    <string name="revanced_sb_segments_filler_sum">Những cảnh chỉ được thêm vào để bổ sung hoặc mang tính chất hài hước, không bắt buộc phải hiểu nội dung chính của video. Không bao gồm các phân đoạn cung cấp chi tiết bối cảnh.</string>
+    <string name="revanced_sb_segments_interaction">Nhắc nhở tương tác (Đăng ký)</string>
+    <string name="revanced_sb_segments_interaction_sum">Một lời nhắc ngắn rằng bạn hãy ấn thích, đăng ký hoặc theo dõi họ ở giữa nội dung. Nếu nó dài hoặc về một cái gì đó cụ thể, thay vào đó nó nên được tự quảng cáo.</string>
+    <string name="revanced_sb_segments_intro">Hoạt ảnh Tạm dừng / Giới thiệu</string>
+    <string name="revanced_sb_segments_intro_sum">Khoảng thời gian không có nội dung thực tế, có thể là treo video, khung hình tĩnh hoặc hoạt ảnh lặp lại. Phân đoạn này không bao gồm các phần chuyển tiếp chứa thông tin.</string>
+    <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không phải nhạc</string>
+    <string name="revanced_sb_segments_nomusic_sum">Chỉ dành cho video âm nhạc. Phần trong video âm nhạc không có nhạc, gồm cả những phần không có trong bản nhạc chính thức.</string>
+    <string name="revanced_sb_segments_outro">Video đề xuất / Giới thiệu</string>
+    <string name="revanced_sb_segments_outro_sum">Giới thiệu hoặc khi phần video đề xuất ở màn hình kết thúc của YouTube xuất hiện. Phân đoạn này không bao gồm kết thúc bằng lời nói.</string>
+    <string name="revanced_sb_segments_preview">Xem trước / tóm tắt / gây chú ý</string>
+    <string name="revanced_sb_segments_preview_sum">Phân đoạn này cho thấy những gì sẽ xảy ra/đã xảy ra trong video hiện tại hoặc các video tiếp theo/trước đó trong cùng một loạt video, bao gồm tất cả thông tin được lặp lại ở một thời điểm khác.</string>
+    <string name="revanced_sb_segments_selfpromo">Quảng cáo không được trả tiền/Tự quảng cáo</string>
+    <string name="revanced_sb_segments_selfpromo_sum">Tương tự như \"Nhà tài trợ\" ngoại trừ việc nhà sáng tạo không được trả tiền quảng cáo hoặc tự họ quảng cáo. Phân đoạn này cũng bao gồm các sản phẩm hàng hoá được rao bán, khoản quyên góp hoặc thông tin về những người họ đã cộng tác.</string>
+    <string name="revanced_sb_segments_sponsor">Nhà tài trợ</string>
+    <string name="revanced_sb_segments_sponsor_sum">Quảng cáo trả phí, giới thiệu trả phí và quảng cáo trực tiếp. Không nhằm mục đích tự quảng cáo hoặc quảng cáo miễn phí cho mục đích/người sáng tạo/trang web/sản phẩm mà họ thích.</string>
+    <string name="revanced_sb_skip_automatically">Tự động bỏ qua</string>
+    <string name="revanced_sb_skip_ignore">Vô hiệu hoá</string>
+    <string name="revanced_sb_skipped_filler">Đã bỏ qua cảnh phụ/nội dung lạc đề - hài hước.</string>
+    <string name="revanced_sb_skipped_interaction">Đã bỏ qua nhắc nhở tương tác.</string>
+    <string name="revanced_sb_skipped_intro_beginning">Đã bỏ qua giới thiệu.</string>
+    <string name="revanced_sb_skipped_intro_end">Đã bỏ qua hoạt ảnh tạm dừng.</string>
+    <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua hoạt ảnh tạm dừng.</string>
+    <string name="revanced_sb_skipped_multiple_segments">Đã bỏ qua nhiều phân đoạn.</string>
+    <string name="revanced_sb_skipped_nomusic">Đã bỏ qua phần không phải nhạc.</string>
+    <string name="revanced_sb_skipped_outro">Đã bỏ qua phần kết thúc.</string>
+    <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua đoạn xem trước.</string>
+    <string name="revanced_sb_skipped_preview_end">Đã bỏ qua đoạn tóm tắt.</string>
+    <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua đoạn xem trước.</string>
+    <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua tự quảng cáo.</string>
+    <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tạm thời không khả dụng (API đã hết thời gian chờ).</string>
+    <string name="revanced_sb_toast_on_connection_error">Hiện thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">Hiện thông báo ngắn nếu API SponsorBlock không khả dụng.</string>
+    <string name="revanced_sb_toast_on_skip">Hiện thông báo ngắn khi tự động bỏ qua</string>
+    <string name="revanced_sb_toast_on_skip_sum">Hiện thông báo ngắn mỗi khi tự động bỏ qua phân đoạn.</string>
     <string name="revanced_share_copy_settings_success">Đã sao chép cài đặt sang bảng nhớ tạm.</string>
     <string name="revanced_spoof_app_version_summary">"Giả mạo phiên bản YouTube Music hiện tại thành phiên bản cũ.
 
 Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhiên có thể xảy ra các sự cố chưa xác định khác.
 - Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở một số vùng của Canada</string>
+    <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Tắt lời bài hát theo thời gian thực</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>

@@ -13,7 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsButtonFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPaidPromotionFingerprint
-import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPivotFingerprint
+import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPausedHeaderFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsPivotLegacyFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsSubscriptionsTabletFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ShortsSubscriptionsTabletParentFingerprint
@@ -27,17 +27,20 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynRemix
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelDynShare
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelForcedMuteButton
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPivotButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPlayerFooter
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelPlayerRightPivotV2Size
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightDislikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightLikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -45,7 +48,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
@@ -57,7 +59,10 @@ object ShortsComponentPatch : BaseBytecodePatch(
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
+        ShortsAnimationPatch::class,
         ShortsNavigationBarPatch::class,
+        ShortsRepeatPatch::class,
+        ShortsTimeStampPatch::class,
         ShortsToolBarPatch::class,
         VideoInformationPatch::class
     ),
@@ -65,7 +70,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
     fingerprints = setOf(
         ShortsButtonFingerprint,
         ShortsPaidPromotionFingerprint,
-        ShortsPivotFingerprint,
+        ShortsPausedHeaderFingerprint,
         ShortsPivotLegacyFingerprint,
         ShortsSubscriptionsTabletParentFingerprint,
         TextComponentSpecFingerprint
@@ -82,6 +87,15 @@ object ShortsComponentPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/ReturnYouTubeChannelNameFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: SHORTS",
+            "SETTINGS: SHORTS_COMPONENTS"
+        )
+
+        if (SettingsPatch.upward1925) {
+            settingArray += "SETTINGS: SHORTS_TIME_STAMP"
+        }
 
         // region patch for hide comments button (non-litho)
 
@@ -134,8 +148,11 @@ object ShortsComponentPatch : BaseBytecodePatch(
 
         // region patch for hide sound button
 
-        ShortsPivotLegacyFingerprint.result?.let {
-            it.mutableMethod.apply {
+        val shortsPivotLegacyFingerprintResult = ShortsPivotLegacyFingerprint.result
+
+        if (shortsPivotLegacyFingerprintResult != null) {
+            // Legacy method.
+            shortsPivotLegacyFingerprintResult.mutableMethod.apply {
                 val targetIndex = getWideLiteralInstructionIndex(ReelForcedMuteButton)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -150,23 +167,19 @@ object ShortsComponentPatch : BaseBytecodePatch(
                         """, ExternalLabel("hide", getInstruction(jumpIndex))
                 )
             }
-        } ?: ShortsPivotFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val constCalls = implementation!!.instructions.withIndex()
-                    .filter { instruction ->
-                        (instruction.value as? WideLiteralInstruction)?.wideLiteral == ReelPivotButton
-                    }
-                val targetIndex = constCalls.elementAt(constCalls.size - 1).index
-                val insertIndex =
-                    getTargetIndexReversedOrThrow(targetIndex, Opcode.INVOKE_STATIC) + 1
-                if (insertIndex == 0)
-                    throw PatchException("insert index not found")
+        } else if (ReelPlayerRightPivotV2Size != -1L) {
+            // Invoke Sound button dimen into integrations.
+            val smaliInstruction = """
+                invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $SHORTS_CLASS_DESCRIPTOR->getShortsSoundButtonDimenId(I)I
+                move-result v$REGISTER_TEMPLATE_REPLACEMENT
+                """
 
-                hideButtons(
-                    insertIndex,
-                    "hideShortsSoundButton(Ljava/lang/Object;)Ljava/lang/Object;"
-                )
-            }
+            context.literalInstructionHook(
+                ReelPlayerRightPivotV2Size,
+                smaliInstruction
+            )
+        } else {
+            throw PatchException("ReelPlayerRightPivotV2Size is not found")
         }
 
         // endregion
@@ -263,6 +276,27 @@ object ShortsComponentPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region patch for hide paused header
+
+        ShortsPausedHeaderFingerprint.resultOrThrow().let {
+            val targetMethod =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+
+            targetMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPausedHeader()Z
+                        move-result v0
+                        if-nez v0, :hide
+                        """,
+                    ExternalLabel("hide", getInstruction(implementation!!.instructions.lastIndex))
+                )
+            }
+        }
+
+        // endregion
+
         // region patch for return shorts channel name
 
         TextComponentSpecFingerprint.resultOrThrow().let {
@@ -300,12 +334,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: SHORTS",
-                "SETTINGS: SHORTS_COMPONENTS"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }

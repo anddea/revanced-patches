@@ -4,7 +4,7 @@
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore에 백그라운드에서 실행할 수 있는 권한이 없습니다.
 
-휴대폰에 대한 \"Don't kill my app\" 가이드를 읽어보시고, MicroG 설치 지침을 적용하세요.
+이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, GmsCore 설치 지침을 적용하세요.
 
 앱을 실행하려면 이 과정이 필요합니다."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore를 배터리 최적화 목록에서 제외하여 앱 문제를 방지할 수 있습니다.
@@ -15,6 +15,10 @@
     <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
+    <string name="revanced_alternative_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
+    <string name="revanced_alternative_domain_title">대체 도메인</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 국가 제한 우회하기</string>
     <string name="revanced_change_start_page_entry_chart">차트</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_home">홈</string>
@@ -33,12 +37,14 @@
     <string name="revanced_custom_playback_speeds_title">사용자 정의 재생 속도 편집</string>
     <string name="revanced_disable_auto_captions_summary">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
-    <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리디렉션\'을 비활성화합니다.</string>
-    <string name="revanced_disable_dislike_redirection_title">싫어요 리디렉션 비활성화</string>
+    <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리다이렉션\'을 비활성화합니다.</string>
+    <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
     <string name="revanced_enable_black_navigation_bar_summary">하단바 색상을 검정으로 설정합니다.</string>
     <string name="revanced_enable_black_navigation_bar_title">검정 하단바 활성화</string>
     <string name="revanced_enable_black_player_background_summary">플레이어 배경 색상을 검정으로 설정합니다.</string>
     <string name="revanced_enable_black_player_background_title">검정 플레이어 배경 활성화</string>
+    <string name="revanced_enable_cairo_splash_animation_summary">앱을 시작할 때, Cairo 스플래시 애니메이션을 활성화합니다.</string>
+    <string name="revanced_enable_cairo_splash_animation_title">Cairo 스플래시 애니메이션 활성화</string>
     <string name="revanced_enable_color_match_player_summary">최소화 상태의 플레이어와 전체 화면 플레이어의 색상을 통일시킵니다.</string>
     <string name="revanced_enable_color_match_player_title">색상 일치 플레이어 활성화</string>
     <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 메뉴 구성요소를 활성화합니다.
@@ -92,7 +98,7 @@
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_extended_settings_reset">초기화</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">ReVanced Extended 설정</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다.
 
 • 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다.
@@ -141,6 +147,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프와 이모지 버튼을 숨깁니다.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 눌러서 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">두 번 누르기 오버레이 필터</string>
     <string name="revanced_hide_floating_button_summary">보관함에서 플로팅 버튼을 숨깁니다.</string>
     <string name="revanced_hide_floating_button_title">플로팅 버튼 제거</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">3-열 구성요소 제거</string>
@@ -249,14 +257,14 @@
 
 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube에서 시청\' 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube로 시청\' 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">이어서 시청</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube에서 시청\' 메뉴로 변경합니다.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube로 시청\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">YouTube에서 시청</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">YouTube로 시청</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_warning">잘못된 동영상 URL입니다.</string>
     <string name="revanced_replace_flyout_menu_report_only_player_summary">댓글 섹션에서 \'신고\' 메뉴를 그대로 유지합니다.</string>
-    <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고 유지</string>
+    <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고 메뉴 유지</string>
     <string name="revanced_replace_flyout_menu_report_summary">\'신고\' 메뉴를 \'재생 속도\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_menu_report_title">신고 메뉴 변경</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">이전 댓글 팝업 패널으로 복원합니다.</string>
@@ -350,4 +358,6 @@
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
+    <string name="revanced_use_alternative_domain_summary">일부 국가에서 차단된 도메인을 변경하여 재생목록 썸네일, 채널 아바타, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
+    <string name="revanced_use_alternative_domain_title">이미지에 대체 도메인 사용하기</string>
 </resources>

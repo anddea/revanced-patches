@@ -38,7 +38,7 @@ object SettingsPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
 ), Closeable {
-    private const val DEFAULT_ELEMENT = "@string/about_key"
+    private const val DEFAULT_POSITION_KEY = "About"
     private const val DEFAULT_NAME = "ReVanced Extended"
 
     private val SETTINGS_ELEMENTS_MAP = mapOf(
@@ -63,12 +63,12 @@ object SettingsPatch : BaseResourcePatch(
         "Live chat" to "@string/live_chat_key",
         "Captions" to "@string/captions_key",
         "Accessibility" to "@string/accessibility_settings_key",
-        "About" to DEFAULT_ELEMENT
+        DEFAULT_POSITION_KEY to "@string/about_key",
     )
 
     private val InsertPosition = stringPatchOption(
         key = "InsertPosition",
-        default = DEFAULT_ELEMENT,
+        default = DEFAULT_POSITION_KEY,
         values = SETTINGS_ELEMENTS_MAP,
         title = "Insert position",
         description = "The settings menu name that the RVX settings menu should be above.",
@@ -93,8 +93,8 @@ object SettingsPatch : BaseResourcePatch(
     internal var upward1849 = false
     internal var upward1902 = false
     internal var upward1912 = false
-    internal var upward1920 = false
     internal var upward1923 = false
+    internal var upward1925 = false
 
     override fun execute(context: ResourceContext) {
 
@@ -104,8 +104,16 @@ object SettingsPatch : BaseResourcePatch(
         customName = RVXSettingsMenuName
             .valueOrThrow()
 
-        val insertKey = InsertPosition
-            .valueOrThrow()
+        // can be a key (case-insensitive) or a value
+        val rawLowerInsertKey = InsertPosition.lowerCaseOrThrow()
+
+        val lowerCaseSettingsMap = SETTINGS_ELEMENTS_MAP.mapKeys { it.key.lowercase() }
+
+        val insertKey = lowerCaseSettingsMap[rawLowerInsertKey]
+            // If not found, look for a matching value in the lowercase settings map
+            ?: lowerCaseSettingsMap.values.find { it == rawLowerInsertKey }
+            // If still not found, use the default position key from the original map
+            ?: SETTINGS_ELEMENTS_MAP[DEFAULT_POSITION_KEY]!!
 
         /**
          * set resource context
@@ -145,6 +153,10 @@ object SettingsPatch : BaseResourcePatch(
         }
 
         arrayOf(
+            ResourceGroup(
+                "drawable",
+                "revanced_cursor.xml",
+            ),
             ResourceGroup(
                 "layout",
                 "revanced_settings_preferences_category.xml",
@@ -283,8 +295,8 @@ object SettingsPatch : BaseResourcePatch(
                         upward1849 = 235000000 <= playServicesVersion
                         upward1902 = 240204000 < playServicesVersion
                         upward1912 = 241302000 <= playServicesVersion
-                        upward1920 = 242099000 <= playServicesVersion
                         upward1923 = 242402000 <= playServicesVersion
+                        upward1925 = 242599000 <= playServicesVersion
 
                         break
                     }

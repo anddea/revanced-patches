@@ -17,6 +17,8 @@
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">代替ドメイン</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrowは、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。 有効にすると、動画のURLが API サーバーに送信されますが、他のデータは送信されません。 動画にDeArrowサムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
 
 DeArrowの詳細については、ここをタップしてください。"</string>
@@ -56,6 +58,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限を回避</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
+    <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">現在の設定: スイッチのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">現在の設定: テキストのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">トグルの種類を変更</string>
@@ -63,8 +68,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_shorts_repeat_state_entry_default">デフォルト</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">一時停止</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">リピート再生</string>
-    <string name="revanced_change_shorts_repeat_state_title">ショートのリピート状態を変更</string>
+    <string name="revanced_change_shorts_repeat_state_title">リピート状態を変更</string>
     <string name="revanced_change_start_page_entry_browse">チャンネルを探す</string>
+    <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
     <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
@@ -74,6 +80,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_start_page_entry_live">ライブ</string>
     <string name="revanced_change_start_page_entry_movies">映画</string>
     <string name="revanced_change_start_page_entry_music">音楽</string>
+    <string name="revanced_change_start_page_entry_playables">Playables</string>
     <string name="revanced_change_start_page_entry_search">検索</string>
     <string name="revanced_change_start_page_entry_shorts">ショート</string>
     <string name="revanced_change_start_page_entry_sports">スポーツ</string>
@@ -82,7 +89,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
     <string name="revanced_change_start_page_invalid_toast">無効なスタートページです。デフォルトにリセットします。</string>
     <string name="revanced_change_start_page_title">起動時のページを変更</string>
-    <string name="revanced_change_start_page_warning">無効なスタートページです。デフォルトにリセットします。</string>
     <string name="revanced_change_youtube_header_summary_off">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_summary_on">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_title">YouTube ヘッダーを変更</string>
@@ -102,7 +108,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">プレーヤーのオーバーレイの不透明度は 0 ~ 100 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_custom_player_overlay_opacity_summary">透明度の値は 0 〜 100 の範囲で、 0 が透明です。</string>
     <string name="revanced_custom_player_overlay_opacity_title">プレーヤーのオーバーレイのカスタム不透明度</string>
-    <string name="revanced_custom_player_overlay_opacity_warning">プレーヤーオーバーレイの透明度は 0〜100 の範囲内でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_custom_seekbar_color_value_summary">シークバーの色を16進数カラーコードで入力してください。</string>
     <string name="revanced_custom_seekbar_color_value_title">シークバーの色</string>
     <string name="revanced_default_app_settings_summary">外部ブラウザから ReVanced Extended を開くには、「デフォルトで開く」→「対応リンクを開く」→「対応リンクを開くことをアプリに許可する」を選択してください。</string>
@@ -111,8 +116,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_default_video_quality_mobile_title">モバイルネットワーク使用時のデフォルト画質</string>
     <string name="revanced_default_video_quality_wifi_title">Wi-Fi 使用時のデフォルト画質</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">全画面表示時のアンビエントモードを無効化します。</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">全画面表示時のアンビエントモードを無効化します。</string>
-    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">全画面表示時のアンビエントモードを無効化します。</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">全画面表示時にアンビエントモードを無効化します。</string>
+    <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">全画面表示時にアンビエントモードを無効化します。</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_title">全画面表示時のアンビエントモードを無効化</string>
     <string name="revanced_disable_ambient_mode_summary">アンビエントモードを無効化します。</string>
     <string name="revanced_disable_ambient_mode_summary_off">アンビエントモードを無効化します。</string>
@@ -164,7 +169,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_disable_quic_protocol_title">QUIC プロトコルを無効化</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">アプリを閉じる前に視聴していたショート動画をアプリ起動時に再開しないようにします。</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">アプリを閉じる前に視聴していたショート動画をアプリ起動時に再開しないようにします。</string>
-    <string name="revanced_disable_resuming_shorts_player_title">ショートのプレーヤーの再開を無効化</string>
+    <string name="revanced_disable_resuming_shorts_player_title">プレーヤーの再開を無効化</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">高評価数と視聴回数の回転アニメーションを無効にします。</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">高評価数と視聴回数の回転アニメーションを無効にします。</string>
     <string name="revanced_disable_rolling_number_animations_title">数字の回転アニメーションを無効化</string>
@@ -182,10 +187,10 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 • タップしてスクロールする。
 • タップしたままテキストを選択する。"</string>
     <string name="revanced_disable_video_description_interaction_title">概要欄の操作を無効化</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo シークバーを有効化します。\n\n副作用: 通知ドットにも Cairo テーマが適用されます。</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo シークバーを有効化します。
+    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo シークバー(シークバーの色が動画に応じて変更される機能)を有効化します。\n\n注意: 通知ドットにも Cairo テーマが適用されるという副作用があります。</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo シークバー(シークバーの色が動画に応じて変更される機能)を有効化します。
 
-副作用: 通知ドットにも Cairo テーマが適用されます。"</string>
+注意: 通知ドットにも Cairo テーマが適用されるという副作用があります。"</string>
     <string name="revanced_enable_cairo_seekbar_title">Cairo シークバーを有効化</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">コントロールのオーバーレイを全画面に表示せず、コンパクトに表示します。</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">コントロールのオーバーレイを全画面に表示せず、コンパクトに表示します。</string>
@@ -211,9 +216,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_enable_gradient_loading_screen_summary_off">アプリ起動時や動画の読み込み画面などでグラデーションを有効化します。</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">アプリ起動時や動画の読み込み画面などでグラデーションを有効化します。</string>
     <string name="revanced_enable_gradient_loading_screen_title">グラデーションの読み込み画面を有効化</string>
-    <string name="revanced_enable_modern_mini_player_summary_off">モダンなミニプレーヤーを有効化します。</string>
-    <string name="revanced_enable_modern_mini_player_summary_on">モダンなミニプレーヤーを有効化します。</string>
-    <string name="revanced_enable_modern_mini_player_title">モダンなミニプレーヤーを有効化</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">ナビゲーション ボタンの間隔を狭くします。</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">ナビゲーション ボタンの間隔は狭くなります。</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">幅の狭いナビゲーションボタンを有効化</string>
@@ -224,9 +226,20 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_enable_opus_codec_title">OPUS コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効化</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">明るさの保存と復元を有効化</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効化</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_off">プレーヤーの左下にタイムスタンプを表示します。\n\n注意: \n・プレーヤーの背景をタップすると UI が非表示 (画面クリアモード) になります。\n
+・開発段階の機能であるため、レイアウトが崩れる可能性があります。</string>
+    <string name="revanced_enable_shorts_time_stamp_summary_on">"プレーヤーの左下にタイムスタンプを表示します。
+
+注意:
+・プレーヤーの背景をタップすると UI が非表示 (画面クリアモード) になります。
+・開発段階の機能であるため、レイアウトが崩れる可能性があります。"</string>
+    <string name="revanced_enable_shorts_time_stamp_title">タイムスタンプを表示</string>
     <string name="revanced_enable_swipe_brightness_summary_off">明るさのスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_brightness_summary_on">明るさのスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_brightness_title">明るさのジェスチャーを有効化</string>
@@ -247,11 +260,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_enable_swipe_volume_title">音量ジェスチャーを有効化</string>
     <string name="revanced_enable_tablet_layout_summary">タブレット用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_tablet_layout_title">タブレット用のレイアウトを有効化</string>
-    <string name="revanced_enable_tablet_mini_player_summary_off">タブレットのミニプレーヤーを有効化します。</string>
-    <string name="revanced_enable_tablet_mini_player_summary_on">タブレットのミニプレーヤーを有効化します。</string>
-    <string name="revanced_enable_tablet_mini_player_title">タブレットのミニプレーヤーを有効化</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
@@ -321,7 +331,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_album_card_title">アルバムカードを非表示</string>
     <string name="revanced_hide_attributes_section_summary_off">注目の場所、ゲーム、音楽セクションを非表示にします。</string>
     <string name="revanced_hide_attributes_section_summary_on">注目の場所、ゲーム、音楽セクションを非表示にします。</string>
-    <string name="revanced_hide_attributes_section_title">属性セクションを非表示</string>
+    <string name="revanced_hide_attributes_section_title">提案セクションを非表示</string>
     <string name="revanced_hide_autoplay_preview_summary_off">「次の動画」コンテナーを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_summary_on">「次の動画」コンテナーを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_title">自動再生プレビューコンテナーを非表示</string>
@@ -404,6 +414,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_off">ダブルタップオーバーレイフィルタを非表示にします。</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary_on">ダブルタップオーバーレイフィルタを非表示にします。</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">ダブルタップオーバーレイフィルタを非表示</string>
     <string name="revanced_hide_download_button_summary_off">「ダウンロード」ボタンを非表示にします。</string>
     <string name="revanced_hide_download_button_summary_on">「ダウンロード」ボタンを非表示にします。</string>
     <string name="revanced_hide_download_button_title">「オフライン」ボタンを非表示</string>
@@ -458,6 +471,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_handle_summary_off">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_summary_on">ハンドル (例: @youtubecreators) を非表示にします。</string>
     <string name="revanced_hide_handle_title">ハンドルを非表示</string>
+    <string name="revanced_hide_image_search_button_summary_off">画像検索ボタンを非表示にします。</string>
+    <string name="revanced_hide_image_search_button_summary_on">画像検索ボタンを非表示にします。</string>
+    <string name="revanced_hide_image_search_button_title">画像検索ボタンを非表示</string>
     <string name="revanced_hide_image_shelf_summary_off">画像欄を非表示にします。</string>
     <string name="revanced_hide_image_shelf_summary_on">画像欄を非表示にします。</string>
     <string name="revanced_hide_image_shelf_title">画像欄を非表示</string>
@@ -473,8 +489,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_join_button_summary_off">「メンバーになる」ボタンを非表示にします。</string>
     <string name="revanced_hide_join_button_summary_on">「メンバーになる」ボタンを非表示にします。</string>
     <string name="revanced_hide_join_button_title">「メンバーになる」ボタンを非表示</string>
-    <string name="revanced_hide_key_concepts_section_summary_off">キーコンセプトセクションを非表示にします。</string>
-    <string name="revanced_hide_key_concepts_section_summary_on">キーコンセプトセクションを非表示にします。</string>
+    <string name="revanced_hide_key_concepts_section_summary_off">概要欄下部に表示されるキーコンセプトセクションを非表示にします。</string>
+    <string name="revanced_hide_key_concepts_section_summary_on">概要欄下部に表示されるキーコンセプトセクションを非表示にします。</string>
     <string name="revanced_hide_key_concepts_section_title">キーコンセプトセクションを非表示</string>
     <string name="revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果 は、キーワードやフレーズに一致するコンテンツを非表示にするようにフィルタリングされます。
 注意:
@@ -485,6 +501,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_keyword_content_comments_summary_off">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_title">コメントをフィルタリング</string>
+    <string name="revanced_hide_keyword_content_full_word_title">完全単語一致</string>
     <string name="revanced_hide_keyword_content_home_summary_off">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_summary_on">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_title">ホームフィードをフィルタリング</string>
@@ -497,8 +514,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">キーワードで登録チャンネルの動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードで登録チャンネルの動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">登録チャンネルをフィルタリング</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">キーワード「%1$s」は範囲が広すぎるため、すべての動画を非表示にします。</string>
     <string name="revanced_hide_keyword_toast_invalid_common">無効なキーワードです。\'%s\' はフィルターとして使用できません</string>
-    <string name="revanced_hide_keyword_toast_invalid_keyword">無効なキーワードです。「%1$s」 は %2$d 文字未満です。</string>
     <string name="revanced_hide_latest_posts_summary_off">最新の投稿を非表示にします。</string>
     <string name="revanced_hide_latest_posts_summary_on">最新の投稿を非表示にします。</string>
     <string name="revanced_hide_latest_posts_title">最新の投稿を非表示</string>
@@ -514,17 +531,12 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_live_chat_replay_button_summary_off">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_title">チャットのリプレイボタンを非表示</string>
-    <string name="revanced_hide_low_views_video_summary">登録していないチャンネルからアップロードされた、再生回数が 1,000 回未満の動画をホームフィードから非表示にします。</string>
-    <string name="revanced_hide_low_views_video_title">再生回数が少ない動画を非表示</string>
     <string name="revanced_hide_medical_panel_summary_off">医療情報パネルを非表示にします。</string>
     <string name="revanced_hide_medical_panel_summary_on">医療情報パネルを非表示にします。</string>
     <string name="revanced_hide_medical_panel_title">医療情報パネルを非表示</string>
     <string name="revanced_hide_merchandise_shelf_summary_off">フィードに表示される商品広告を非表示にします。</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">フィードに表示される商品広告を非表示にします。</string>
     <string name="revanced_hide_merchandise_shelf_title">商品欄を非表示</string>
-    <string name="revanced_hide_mini_player_rewind_forward_button_summary_off">ミニプレーヤーでボタンを非表示にします。</string>
-    <string name="revanced_hide_mini_player_rewind_forward_button_summary_on">ミニプレーヤーでボタンを非表示にします。</string>
-    <string name="revanced_hide_mini_player_rewind_forward_button_title">「巻き戻し &amp; スキップ」ボタンを非表示</string>
     <string name="revanced_hide_mix_playlists_summary_off">ミックスプレイリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_summary_on">ミックスプレイリストを非表示にします。</string>
     <string name="revanced_hide_mix_playlists_title">ミックスプレイリストを非表示</string>
@@ -682,7 +694,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 
 • 「メンバーシップ限定」タグの付いた動画
 • 動画の下部に「他のユーザーも視聴しています」などのフレーズがある動画
-• 登録していないチャンネルからアップロードされた、再生回数が    1,000 回未満の動画"</string>
+• 登録していないチャンネルからアップロードされた、再生回数が  1,000 回未満の動画"</string>
     <string name="revanced_hide_recommended_video_title">おすすめ動画を非表示</string>
     <string name="revanced_hide_related_video_overlay_summary_off">関連動画のオーバーレイを無効化します。</string>
     <string name="revanced_hide_related_video_overlay_summary_on">関連動画のオーバーレイを無効化します。</string>
@@ -769,9 +781,15 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">プレーヤー左上の「プロモーションを含みます」を非表示にします。</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">有料プロモーションラベルを非表示</string>
+    <string name="revanced_hide_shorts_paused_header_summary_off">一時停止中に左上に表示される「ショート」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">一時停止中に左上に表示される「ショート」を非表示にします。</string>
+    <string name="revanced_hide_shorts_paused_header_title">一時停止中のヘッダーを非表示</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイボタンを非表示</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">再生/一時停止ボタンの背景を非表示にします。</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">再生/一時停止ボタンの背景を非表示にします。</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_title">ボタンの背景を非表示</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">「リミックス」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">「リミックス」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_remix_button_title">「リミックス」ボタンを非表示</string>
@@ -833,21 +851,18 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_start_trial_button_summary_off">「トライアル開始」ボタンを非表示にします。</string>
     <string name="revanced_hide_start_trial_button_summary_on">「トライアル開始」ボタンを非表示にします。</string>
     <string name="revanced_hide_start_trial_button_title">「トライアル開始」ボタンを非表示</string>
-    <string name="revanced_hide_subscriptions_carousel_summary_off">登録カルーセルを非表示にします。</string>
-    <string name="revanced_hide_subscriptions_carousel_summary_on">登録カルーセルを非表示にします。</string>
-    <string name="revanced_hide_subscriptions_carousel_title">登録カルーセルを非表示</string>
-    <string name="revanced_hide_subscriptions_channel_section_summary_off">登録チャンネル欄を非表示にします。</string>
-    <string name="revanced_hide_subscriptions_channel_section_summary_on">登録チャンネル欄を非表示にします。</string>
-    <string name="revanced_hide_subscriptions_channel_section_title">登録チャンネル欄を非表示</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_off">「登録チャンネル」タブの上部に表示される登録チャンネル一覧を非表示にします。</string>
+    <string name="revanced_hide_subscriptions_carousel_summary_on">「登録チャンネル」タブの上部に表示される登録チャンネル一覧を非表示にします。</string>
+    <string name="revanced_hide_subscriptions_carousel_title">登録チャンネルのカルーセルを非表示</string>
     <string name="revanced_hide_suggested_actions_summary_off">プレーヤー上の「Premium のコントロール」などの提案を非表示にします。</string>
     <string name="revanced_hide_suggested_actions_summary_on">プレーヤー上の「Premium のコントロール」などの提案を非表示にします。</string>
     <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary">"この設定は非推奨になりました。
+
+代わりに、「設定 → 自動再生 → 次の動画の自動再生」設定を使用してください。"</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_off">自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」"</string>
     <string name="revanced_hide_suggested_video_end_screen_title">おすすめされた動画の終了画面を非表示</string>
-    <string name="revanced_hide_suggestions_section_summary_off">ゲームセクション、音楽セクション、場所セクションを非表示にします。</string>
-    <string name="revanced_hide_suggestions_section_summary_on">ゲームセクション、音楽セクション、場所セクションを非表示にします。</string>
-    <string name="revanced_hide_suggestions_section_title">提案されたセクションを非表示</string>
     <string name="revanced_hide_thanks_button_summary_off">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_summary_on">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_title">「Thanks」ボタンを非表示</string>
@@ -904,6 +919,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_icon_custom">カスタム</string>
     <string name="revanced_icon_default">オリジナル</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT ブルー</string>
+    <string name="revanced_icon_mmt_green">MMT グリーン</string>
+    <string name="revanced_icon_mmt_yellow">MMT イエロー</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
@@ -915,11 +933,17 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_keep_landscape_mode_timeout_title">横画面モードのタイムアウトを維持</string>
     <string name="revanced_keep_landscape_mode_title">横画面モードを維持</string>
     <string name="revanced_label_default">オリジナル</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">ダブルタップアクションを有効化します。\n\n・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。\n・モダン2, 3: ダブルタップで、最小化された動画を閉じます。</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"ダブルタップアクションを有効化します。
+
+・モダン1: ダブルタップで、最小化された動画を大きなサイズに変更します。
+・モダン2, 3: ダブルタップで、最小化された動画を閉じます。"</string>
+    <string name="revanced_miniplayer_enable_double_tap_action_title">ダブルタップアクションを有効化</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">ドラッグ&amp;ドロップを有効化します。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">ドラッグ&amp;ドロップを有効化</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) \n\n注意: YouTube v19.20.35 以降の場合、スワイプして拡大することはできません。</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) \n\n注意: YouTube v19.20.35 以降の場合、スワイプして拡大することはできません。</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします。\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
     <string name="revanced_miniplayer_hide_expand_close_title">拡大/縮小ボタンを非表示</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">次の動画/前の動画へスキップするボタンを非表示にします。</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">次の動画/前の動画へスキップするボタンを非表示にします。</string>
@@ -949,6 +973,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_overlay_button_copy_video_url_title">動画 URL のコピーボタンを表示</string>
     <string name="revanced_overlay_button_external_downloader_summary">タップして外部の動画ダウンローダーを起動します。</string>
     <string name="revanced_overlay_button_external_downloader_title">外部ダウンロードボタンを表示</string>
+    <string name="revanced_overlay_button_mute_volume_summary">現在の動画の音声をミュートするには、タップします。 ミュートを解除するには、もう一度タップします。</string>
+    <string name="revanced_overlay_button_mute_volume_title">音声ミュートボタンを表示</string>
     <string name="revanced_overlay_button_not_allowed_warning">ボタンの状態を変更するには、長押ししてください。</string>
     <string name="revanced_overlay_button_speed_dialog_reset">再生速度を %s 倍速にリセットしました。</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"タップして再生速度ダイアログをを開きます。
@@ -965,8 +991,10 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_playback_speed_normal">通常</string>
     <string name="revanced_preference_category_action_buttons">プレーヤー下部(共有、クリップなど)のボタン</string>
     <string name="revanced_preference_category_additional_settings">その他の設定</string>
+    <string name="revanced_preference_category_animation_feedback">アニメーション/フィードバック</string>
     <string name="revanced_preference_category_duration_filter">再生時間フィルター</string>
     <string name="revanced_preference_category_experimental_flag">実験的な機能</string>
+    <string name="revanced_preference_category_image_region_restrictions">画像表示の地域制限</string>
     <string name="revanced_preference_category_import_export_as_file">ファイルとしてインポート/エクスポート</string>
     <string name="revanced_preference_category_import_export_as_text">テキストとしてインポート/エクスポート</string>
     <string name="revanced_preference_category_keyword_filter">キーワードフィルター</string>
@@ -982,8 +1010,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_preference_category_view_counts_filter">再生回数フィルター</string>
     <string name="revanced_preference_screen_account_menu_summary">「アカウント」メニューと「マイページ」タブで要素を非表示または表示します。</string>
     <string name="revanced_preference_screen_account_menu_title">「アカウント」メニュー</string>
-    <string name="revanced_preference_screen_account_munu_summary">アカウントメニューとマイページ タブで要素を非表示または表示します。</string>
-    <string name="revanced_preference_screen_account_munu_title">アカウントメニュー</string>
     <string name="revanced_preference_screen_action_buttons_summary">動画下のアクションボタンを非表示または表示します。</string>
     <string name="revanced_preference_screen_action_buttons_title">アクションボタン</string>
     <string name="revanced_preference_screen_ads_title">広告</string>
@@ -1030,10 +1056,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_seekbar_title">シークバー</string>
     <string name="revanced_preference_screen_settings_menu_summary">「YouTube 設定」メニューの要素を非表示にします。</string>
     <string name="revanced_preference_screen_settings_menu_title">設定メニュー</string>
-    <string name="revanced_preference_screen_settings_munu_summary">YouTube 設定メニューの要素を非表示にします。</string>
-    <string name="revanced_preference_screen_settings_munu_title">設定メニュー</string>
     <string name="revanced_preference_screen_shorts_player_summary">ショートのプレーヤー内のコンポーネントを非表示または表示します。</string>
-    <string name="revanced_preference_screen_shorts_player_title">ショートのプレーヤー</string>
+    <string name="revanced_preference_screen_shorts_player_title">プレーヤー</string>
     <string name="revanced_preference_screen_shorts_title">ショート</string>
     <string name="revanced_preference_screen_spoof_client_summary">バッファリングの問題を防ぐためにクライアントを偽装します。</string>
     <string name="revanced_preference_screen_spoof_client_title">クライアントを偽装</string>
@@ -1048,7 +1072,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_quick_actions_top_margin_invalid_toast">クイックアクションの上部の余白は 0 ~ 32 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_top_margin_summary">シークバーからクイックアクション コンテナーまでの間隔を 0 ～ 32 の間で設定してください。</string>
     <string name="revanced_quick_actions_top_margin_title">クイック操作上部の余白</string>
-    <string name="revanced_quick_actions_top_margin_warning">値は 0 ～ 32 の範囲内でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_reject_av1_codec_summary">"AV1 コーデック応答を強制的に拒否します。
 約20秒間のバッファリングの後、異なるコーデックに切り替わります。"</string>
     <string name="revanced_reject_av1_codec_title">AV1 コーデックの応答を拒否</string>
@@ -1087,14 +1110,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_restore_old_video_quality_menu_summary_off">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_title">古いスタイルの画質メニューを復元</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_off">"RSSフィードから取得したチャンネル名を使用します。
-チャンネル名を取得するのに時間がかかる場合があります。"</string>
-    <string name="revanced_return_shorts_channel_name_fetch_summary_on">"RSSフィードから取得したチャンネル名を使用します。
-チャンネル名を取得するのに時間がかかる場合があります。"</string>
-    <string name="revanced_return_shorts_channel_name_fetch_title">タイトル名をRSSフィードから取得</string>
-    <string name="revanced_return_shorts_channel_name_summary_off">現在の設定: チャンネルのハンドル名が表示されます。</string>
-    <string name="revanced_return_shorts_channel_name_summary_on">現在の設定: チャンネル名が表示されます。</string>
-    <string name="revanced_return_shorts_channel_name_title">ショートのチャンネル名を復元</string>
     <string name="revanced_ryd_about">Return YouTube Dislike について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1177,19 +1192,26 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_sb_guidelines_popup_title">ガイドラインに従ってください</string>
     <string name="revanced_sb_guidelines_preference_sum">ガイドラインには、セグメントの作成に関するルールとヒントが含まれています。</string>
     <string name="revanced_sb_guidelines_preference_title">ガイドラインを表示</string>
+    <string name="revanced_sb_new_segment_adjust">調整: セグメントの開始時間と終了時間をマークする</string>
     <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
+    <string name="revanced_sb_new_segment_compare">セグメントを確認</string>
+    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">セグメントは\n\n%1$s\nから\n%2$s\n\n(%3$s)です。\n\n送信してもよろしいですか？</string>
     <string name="revanced_sb_new_segment_confirm_title">これらの変更は正しいですか？</string>
     <string name="revanced_sb_new_segment_disabled_category">カテゴリーは設定で無効になっています。送信するにはカテゴリーを有効にしてください。</string>
+    <string name="revanced_sb_new_segment_edit">セグメントを編集</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">セグメントの開始または終了のタイミングを編集しますか？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">時間の値が無効です。</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
+    <string name="revanced_sb_new_segment_forward">指定された時間までスキップ (デフォルト: 150ms)</string>
     <string name="revanced_sb_new_segment_mark_end">終了</string>
     <string name="revanced_sb_new_segment_mark_locations_first">タイムバーの2か所をマークしてください</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
     <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d を新しいセグメントの開始または終了として設定しますか？</string>
     <string name="revanced_sb_new_segment_now">現在</string>
     <string name="revanced_sb_new_segment_preview_segment_first">セグメントをプレビューして、スムーズにスキップできるようにしてください。</string>
+    <string name="revanced_sb_new_segment_publish">作成したセグメントを送信</string>
+    <string name="revanced_sb_new_segment_rewind">指定された時間まで巻き戻す (デフォルト: 150ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始は終了より前になければなりません</string>
     <string name="revanced_sb_new_segment_time_end">セグメントの終了時刻</string>
     <string name="revanced_sb_new_segment_time_start">セグメントの開始時刻</string>
@@ -1304,6 +1326,18 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_share_copy_timestamp_success">タイムスタンプをクリップボードにコピーしました。 (%s)</string>
     <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました。</string>
     <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_1">オリジナル</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_2">いいね！</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_3">いいね！(Cairo)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_4">ハート(白色)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">ハート(赤色)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_6">非表示</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_title">ダブルタップ時のアニメーション</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">メタパネルの下部の余白は 0 ~ 64 の間でなければなりません。デフォルト値にリセットします。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">シークバーからメタパネルまでの間隔を 0 ~ 64 の間で設定できます。</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">メタパネルの下部の余白</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_summary">タイムスタンプを長押しすると、ショートのリピート状態を変更できます。</string>
+    <string name="revanced_shorts_time_stamp_change_repeat_state_title">タイムスタンプ長押し時の動作</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 
 注意: 動画のタイトルをタップすると消えます。"</string>
@@ -1323,11 +1357,12 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_speed_overlay_value_invalid_toast">再生速度のオーバーレイの値は 0 ~ 8.0 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_speed_overlay_value_summary">再生速度のオーバーレイの値は 0 ~ 8.0 の間です。</string>
     <string name="revanced_speed_overlay_value_title">再生速度のオーバーレイの値</string>
-    <string name="revanced_speed_overlay_value_warning">スピードオーバレイは 0〜8.0 の範囲内でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_spoof_app_version_summary">"YouTube のバージョンを古いバージョンに偽装します。
 
 • アプリの外観が変わりますが、未知の問題が発生する場合があります。
 • 後からこの機能を無効にしても、アプリのデータを消去するまで古い UI のままになる場合があります。"</string>
+    <string name="revanced_spoof_app_version_summary_off">アプリのバージョンは偽装されていません。</string>
+    <string name="revanced_spoof_app_version_summary_on">アプリのバージョンは偽装されています。</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - 古い UI レイアウトを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 古い再生リスト欄を復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
@@ -1339,17 +1374,19 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
+    <string name="revanced_spoof_app_version_user_dialog_message">"アプリのバージョンを以前のバージョンに偽装します。
+
+これによりアプリの外観や機能が変更されますが、予期しない副作用が発生する可能性があります。
+
+後でこの機能をオフにする場合は、UIのバグを防ぐためにアプリのデータを消去することをお勧めします。"</string>
     <string name="revanced_spoof_client_fallback_title">再生できない動画</string>
     <string name="revanced_spoof_client_general_title">一般</string>
     <string name="revanced_spoof_client_livestream_title">ライブ配信</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_embedded_player">Android 埋め込みプレーヤー</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_options_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_client_options_entry_web">Web</string>
     <string name="revanced_spoof_client_shorts_title">ショート、クリップ</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_off">統計情報に偽装したクライアントを表示します。</string>
     <string name="revanced_spoof_client_stats_for_nerds_summary_on">統計情報に偽装したクライアントを表示します。</string>
@@ -1360,7 +1397,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_client_use_android_testsuite_summary">"Android Testsuite に偽装します。
 
 以下の副作用があります:
-• HDR の画質の設定は使用できません。
+• HDR 画質は使用できません。
 • オーディオトラックメニューは表示されません。
 • 字幕が利用できない可能性があります。
 • ダウンロードボタンは表示されません。
@@ -1370,7 +1407,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_client_use_android_tv_summary">"Android TV (YouTube TV) に偽装します。
 
 以下の副作用があります:
-•    HDR の画質の設定は使用できません。
+• HDR 画質は使用できません。
 • オーディオトラックメニューは表示されません。
 • 字幕が利用できない可能性があります。
 • ダウンロードボタンは表示されません。
@@ -1380,42 +1417,25 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_client_use_android_vr_summary">"Android VR に偽装します。
 
 以下の副作用があります:
-• HDR の画質の設定は使用できません。
-• アクションバーから「オフライン」ボタンがなくなります。
+• HDR 画質は使用できません。
+• ダウンロードボタンは表示されません。
 • 一時停止した動画がランダムに再開する場合があります。
 • ショートのシークバーのサムネイルが低画質になります。
-• 子供向けの動画は再生できない可能性があります。"</string>
+• 子供向けの動画は再生できません。"</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
     <string name="revanced_spoof_client_use_ios_summary">"iOS クライアントに偽装します。
 
 以下の副作用があります:
-• HDR の画質の設定は使用できません。
-• 再生履歴が動作しない可能性があります。
-• 動画を超高画質で再生できない可能性があります。
+• HDR 画質は使用できません。
+• 高い画質が表示されない可能性があります。
+• 再生履歴がブランドアカウントでは保存されません。
 • ライブ配信を音声のみで再生できません。
-• ライブ配信は Android 8.0 では利用できません。"</string>
-    <string name="revanced_spoof_client_use_ios_summary_off">"現在の設定: Android VR に偽装します。(クリップやショートを視聴する際は、iOS クライアントが使用されます)
-
-以下の副作用があります:
-• 子供向けの動画は再生できない可能性があります。
-• 一時停止した動画がランダムに再開する場合があります。"</string>
-    <string name="revanced_spoof_client_use_ios_summary_on">"現在の設定: iOS クライアントに偽装します。
-
-以下の副作用があります:
-• 再生速度のメニューが表示されません。
-• ライブ配信を音声のみで再生できません。
-• ライブ配信は Android 8.0 では利用できません。
-• 高画質な動画が表示されない可能性があります。"</string>
+• ライブ配信は Android 8.0 では再生できません。"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
+    <string name="revanced_spoof_client_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
     <string name="revanced_spoof_device_dimensions_summary">"デバイスの解像度を最大値に偽装します。
 高画質は、高いデバイスの解像度を必要とする一部の動画でアンロックされる可能性がありますが、すべての動画でアンロックされるわけではありません。"</string>
     <string name="revanced_spoof_device_dimensions_title">デバイスの解像度を偽装</string>
-    <string name="revanced_spoof_format_stream_data_summary">"バッファリングの問題を回避するために、ストリーム データを偽装します。
-注意事項: 
-• 動画の再生開始時に約 5 秒間のバッファリングが発生する場合があります。 
-• バッファリングに時間がかかりすぎる場合は、動画を閉じて再度開く必要がある場合があります。 
-• まだ開発段階のため、他にも未知の問題がある可能性があります。"</string>
-    <string name="revanced_spoof_format_stream_data_title">フォーマットストリームデータを偽装</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"現在の設定: フィードの動画のパラメーターを偽装しません。
 
 注意: フィードの動画は、1分未満でバッファリングの問題が発生します。"</string>
@@ -1442,7 +1462,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">スワイプ可能な領域は 50 を超えることはできません。デフォルト値にリセットします。</string>
     <string name="revanced_swipe_overlay_rect_size_summary">スワイプ可能な画面領域の割合です。\n\n注意: ダブルタップでシークするジェスチャーの画面領域のサイズも変化します。</string>
     <string name="revanced_swipe_overlay_rect_size_title">スワイプオーバーレイの画面サイズ</string>
-    <string name="revanced_swipe_overlay_rect_size_warning">スワイプ可能な領域は %s を超えることはできません。デフォルト値にリセットします。</string>
     <string name="revanced_swipe_overlay_text_size_summary">スワイプオーバーレイのテキストサイズです。</string>
     <string name="revanced_swipe_overlay_text_size_title">スワイプオーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (単位: ミリ秒)</string>

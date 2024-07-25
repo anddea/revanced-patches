@@ -190,13 +190,14 @@ fun ResourceContext.copyXmlNode(
     resourceDirectory: String,
     targetResource: String,
     elementTag: String
-) {
-    val stringsResourceInputStream =
-        inputStreamFromBundledResource(resourceDirectory, targetResource)!!
+) = inputStreamFromBundledResource(
+    resourceDirectory,
+    targetResource
+)?.let { inputStream ->
 
     // Copy nodes from the resources node to the real resource node
     elementTag.copyXmlNode(
-        this.xmlEditor[stringsResourceInputStream],
+        this.xmlEditor[inputStream],
         this.xmlEditor["res/$targetResource"]
     ).close()
 }

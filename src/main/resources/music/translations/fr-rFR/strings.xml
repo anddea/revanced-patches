@@ -3,10 +3,10 @@
     <string name="gms_core_dialog_continue_text">Continuer</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore n'a pas les permissions pour fonctionner en arrière-plan.
 
-Suivez le guide \"Don't kill my app!\" pour votre appareil, et appliquez les instructions sur Gmscore.
+Suivez le guide \"Don't kill my app!\" pour votre appareil, et appliquez les instructions sur GmsCore.
 
 Requis pour que l'application fonctionne."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Désactivez les optimisations batterie de GmsCore pour éviter tout problème.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"L'optimisation de la batterie de GmsCore doit être désactivé pour éviter tout problème.
 
 Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie."</string>
     <string name="gms_core_dialog_open_website_text">Ouvrir le site web</string>
@@ -20,83 +20,85 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_change_start_page_entry_library">Bibliothèque</string>
     <string name="revanced_change_start_page_entry_subscription">Abonnements</string>
     <string name="revanced_change_start_page_summary">Sélectionnez la page de démarrage de l\'appli.</string>
-    <string name="revanced_change_start_page_title">Page de démarrage</string>
-    <string name="revanced_custom_filter_strings_summary">Filtrer les noms des composants par une virgule.</string>
+    <string name="revanced_change_start_page_title">Modifier la page de démarrage</string>
+    <string name="revanced_custom_filter_strings_summary">Filtrer la liste des noms du composant séparés par un saut de ligne.</string>
     <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
-    <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de la mise en page.</string>
+    <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de l’interface.</string>
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx. Retour aux valeurs par défaut.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture non valides. Réinitialisation des valeurs par défaut.</string>
-    <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture disponibles.</string>
-    <string name="revanced_custom_playback_speeds_title">Vitesses de lecture personnalisées</string>
+    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture invalides. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_custom_playback_speeds_summary">Ajoute ou modifie les vitesses de lecture disponibles.</string>
+    <string name="revanced_custom_playback_speeds_title">Éditez les vitesses de lecture personnalisées</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres automatiquement activés.</string>
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
-    <string name="revanced_disable_dislike_redirection_summary">Désactive la redirection vers la piste suivante lorsque vous cliquez sur le bouton \"Je n\'aime pas\".</string>
-    <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection en cliquant sur \"Je n\'aime pas\"</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Définit la couleur de la barre de navigation en noir.</string>
-    <string name="revanced_enable_black_navigation_bar_title">Définir la barre de navigation en noir</string>
+    <string name="revanced_disable_dislike_redirection_summary">Désactive le passage à la piste suivante lorsque vous cliquez sur le bouton \"Je n\'aime pas\".</string>
+    <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
+    <string name="revanced_enable_black_navigation_bar_summary">Modifie la couleur de la barre de navigation en noir.</string>
+    <string name="revanced_enable_black_navigation_bar_title">Activer la barre de navigation en noir</string>
     <string name="revanced_enable_black_player_background_summary">Change la couleur de l\'interface du lecteur en noir.</string>
     <string name="revanced_enable_black_player_background_title">Activer l\'interface du lecteur en noir</string>
-    <string name="revanced_enable_color_match_player_summary">Fait correspondre la couleur du mini lecteur à celle du lecteur en plein écran.</string>
-    <string name="revanced_enable_color_match_player_title">Assortir les couleurs du lecteur réduit</string>
-    <string name="revanced_enable_compact_dialog_summary">"Activer les dialogues compacts sur téléphone.
+    <string name="revanced_enable_cairo_splash_animation_summary">Active l\'animation Cairo lors du démarrage de l\'application.</string>
+    <string name="revanced_enable_cairo_splash_animation_title">Activer l\'animation Cairo au démarrage</string>
+    <string name="revanced_enable_color_match_player_summary">Harmonise les couleurs du minilecteur à celle du lecteur en plein écran.</string>
+    <string name="revanced_enable_color_match_player_title">Activer l\'harmonisation des couleurs du lecteur</string>
+    <string name="revanced_enable_compact_dialog_summary">"Active le menu déroulant compact sur téléphones.
 
 Limitations :
-• Les pochettes d'albums de la bibliothèque deviennent aussi plus petites.
-• La disposition du Délai de mise en veille peut être inhabituelle."</string>
-    <string name="revanced_enable_compact_dialog_title">Activer les boîtes de dialogues compacts</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Ajoute la mise de mémoire tampon dans le journal de débogage.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Activer la journalisation de tampon de débogage</string>
+• Les pochettes d'albums de la bibliothèque deviennent petites si organisées en mode grille.
+• La mise en page du délai de mise en veille peut être inhabituelle."</string>
+    <string name="revanced_enable_compact_dialog_title">Activer la boîte de dialogue compacte</string>
+    <string name="revanced_enable_debug_buffer_logging_summary">Ajoute les informations sur la mémoire tampon dans le journal de débogage.</string>
+    <string name="revanced_enable_debug_buffer_logging_title">Activer les informations sur la mémoire tampon dans le journal de débogage</string>
     <string name="revanced_enable_debug_logging_summary">Enregistrer le journal de débogage.</string>
     <string name="revanced_enable_debug_logging_title">Activer le journal de débogage</string>
-    <string name="revanced_enable_force_minimized_player_summary">Le lecteur reste toujours réduit même si une autre piste est lue.</string>
-    <string name="revanced_enable_force_minimized_player_title">Forcer le lecteur réduit</string>
+    <string name="revanced_enable_force_minimized_player_summary">Maintient le lecteur minimisé même si une autre piste est lue.</string>
+    <string name="revanced_enable_force_minimized_player_title">Activer la minimisation forcée du lecteur</string>
     <string name="revanced_enable_landscape_mode_summary">Active le mode paysage lors de la rotation du téléphone.</string>
     <string name="revanced_enable_landscape_mode_title">Activer le mode paysage</string>
-    <string name="revanced_enable_mini_player_next_button_summary">Ajoute le bouton \"Suivant\" sur le mini lecteur.</string>
-    <string name="revanced_enable_mini_player_next_button_title">Ajouter le bouton \"Suivant\" sur le mini lecteur</string>
-    <string name="revanced_enable_mini_player_previous_button_summary">Ajoute le bouton \"Précédent\" sur le mini lecteur.</string>
-    <string name="revanced_enable_mini_player_previous_button_title">Ajouter le bouton \"Précédent\" sur le mini lecteur</string>
-    <string name="revanced_enable_opus_codec_summary">"Active le codec audio Opus si la réponse du lecteur inclue le codec OPUS.
+    <string name="revanced_enable_mini_player_next_button_summary">Ajoute le bouton \"Suivant\" sur le minilecteur.</string>
+    <string name="revanced_enable_mini_player_next_button_title">Ajouter le bouton \"Suivant\" sur le minilecteur</string>
+    <string name="revanced_enable_mini_player_previous_button_summary">Ajoute le bouton \"Précédent\" sur le minilecteur.</string>
+    <string name="revanced_enable_mini_player_previous_button_title">Ajouter le bouton \"Précédent\" sur le minilecteur</string>
+    <string name="revanced_enable_opus_codec_summary">"Active le codec OPUS si la réponse du lecteur inclut le codec OPUS.
 
 Info :
-• Les dernières versions du client utilisent par défaut le codec audio Opus.
-• N'est disponible uniquement pour les utilisateurs qui falsifient une très ancienne version du client."</string>
-    <string name="revanced_enable_opus_codec_title">Activer le codec Opus</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Active le glissement vers le bas pour fermer le mini lecteur.</string>
-    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Activer le glissement pour fermer le mini lecteur</string>
-    <string name="revanced_enable_trim_silence_summary">"Active le commutateur « Masquer les silences » vers le menu déroulant de vitesse de lecture
+• Les dernières versions de YouTube Music utilisent par défaut le codec audio Opus.
+• Disponible uniquement pour les utilisateurs qui falsifient une très ancienne version du client."</string>
+    <string name="revanced_enable_opus_codec_title">Activer le Codec OPUS</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Active le geste vers le bas pour fermer le minilecteur.</string>
+    <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Activer le geste pour fermer le minilecteur</string>
+    <string name="revanced_enable_trim_silence_summary">"Ajoute \"Masquer les silences\" dans le menu \"Vitesse de lecture\" du menu déroulant.
 
 Info :
 • Cette fonctionnalité est destinée aux podcasts. 
 • Cette fonctionnalité est encore en développement, elle peut donc être instable."</string>
-    <string name="revanced_enable_trim_silence_title">Activer le réglage du silence</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">Le mode \"Zen\" est également appliqué pour les Podcasts.</string>
+    <string name="revanced_enable_trim_silence_title">Ajouter une option \"Masquer les silences\"</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Active également le mode \"Zen\" pour les Podcasts.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Activer le mode \"Zen\" sur les Podcasts</string>
-    <string name="revanced_enable_zen_mode_summary">Ajoute une teinte grise au lecteur vidéo pour réduire la fatigue oculaire.</string>
+    <string name="revanced_enable_zen_mode_summary">Change la couleur du lecteur par un voile gris pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
     <string name="revanced_extended_restart_first_run">Redémarrer pour charger l\'interface correctement</string>
-    <string name="revanced_extended_restart_message">Redémarrer pour appliquer ces changements ?</string>
+    <string name="revanced_extended_restart_message">Appliquer et redémarrer ?</string>
     <string name="revanced_extended_settings_export_as_file">Exporter les paramètres vers un fichier</string>
-    <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres</string>
-    <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès</string>
+    <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres.</string>
+    <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès.</string>
     <string name="revanced_extended_settings_import">Importer</string>
     <string name="revanced_extended_settings_import_as_file">Importer les paramètres depuis un fichier</string>
     <string name="revanced_extended_settings_import_copy">Copier</string>
     <string name="revanced_extended_settings_import_export_as_text">Importer / Exporter les paramètres sous forme de texte</string>
-    <string name="revanced_extended_settings_import_export_summary">Importer ou exporter les paramètres au format texte.</string>
-    <string name="revanced_extended_settings_import_export_title">Importer / Exporter</string>
+    <string name="revanced_extended_settings_import_export_summary">Importe ou exporte les paramètres.</string>
+    <string name="revanced_extended_settings_import_export_title">Importer / Exporter les paramètres</string>
     <string name="revanced_extended_settings_import_failed">Importation échouée : %s.</string>
     <string name="revanced_extended_settings_import_reset">Les paramètres ont étés réinitialisés.</string>
-    <string name="revanced_extended_settings_import_success"> %d Paramètres importés </string>
+    <string name="revanced_extended_settings_import_success">%d paramètres ont étés importés.</string>
     <string name="revanced_extended_settings_reset">Réinitialiser</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary">"Le bouton \"Télécharger\" ouvre votre téléchargeur externe.
 
-• Remplace uniquement le bouton de téléchargement dans le lecteur.
-• Ne remplace pas le bouton de téléchargement dans le menu flottant ou la bibliothèque."</string>
-    <string name="revanced_external_downloader_action_title">Remplace l\'action du bouton \"Télécharger\"</string>
+• Remplace uniquement l’action du bouton \"Télécharger\" du lecteur.
+• Ne remplace pas le bouton de téléchargement dans le menu déroulant ou la bibliothèque."</string>
+    <string name="revanced_external_downloader_action_title">Remplacer l\'action du bouton \"Télécharger\"</string>
     <string name="revanced_external_downloader_dialog_title">Téléchargeur externe</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s n'est pas installé.
 Veuillez télécharger %2$s à partir du site web."</string>
@@ -106,38 +108,40 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_package_name_title">Nom du paquet du téléchargeur externe</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Masque les catégories vides dans le menu du compte.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Masquer les catégories vides</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par une nouvelle ligne.</string>
-    <string name="revanced_hide_account_menu_filter_strings_title">Modifier le menu filtre du compte</string>
-    <string name="revanced_hide_account_menu_summary">Masque les éléments du menu du compte à l\'aide du filtre personnalisé.</string>
-    <string name="revanced_hide_account_menu_title">Masquer les menus du compte</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Masque le bouton \"Enregistrer dans la playlist\".</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Masquer \"Enregistrer dans la playlist\"</string>
-    <string name="revanced_hide_action_button_comment_summary">Masque le bouton commentaire.</string>
-    <string name="revanced_hide_action_button_comment_title">Masquer le bouton Commentaire</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par un saut de ligne.</string>
+    <string name="revanced_hide_account_menu_filter_strings_title">Filtre du menu du compte</string>
+    <string name="revanced_hide_account_menu_summary">Masque les éléments dans le menu du compte à l\'aide du filtre personnalisé.</string>
+    <string name="revanced_hide_account_menu_title">Masquer le menu du compte</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Masque le bouton \"Enregistrer\".</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Masquer le bouton \"Enregistrer\"</string>
+    <string name="revanced_hide_action_button_comment_summary">Masque le bouton \"Commentaires\".</string>
+    <string name="revanced_hide_action_button_comment_title">Masquer le bouton \"Commentaires\"</string>
     <string name="revanced_hide_action_button_download_summary">Masque le bouton \"Télécharger\".</string>
     <string name="revanced_hide_action_button_download_title">Masquer le bouton \"Télécharger\"</string>
-    <string name="revanced_hide_action_button_label_summary">Masque le nom des catégories dans la barre de navigation.</string>
-    <string name="revanced_hide_action_button_label_title">Masquer les labels des boutons d\'actions</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Masque les boutons \"J\'aime\" et \"Je n\'aime pas\". Ne fonctionne pas sur l\'ancienne disposition du lecteur.</string>
+    <string name="revanced_hide_action_button_label_summary">Masque les noms de la barre d’action.</string>
+    <string name="revanced_hide_action_button_label_title">Masquer les noms de la barre d’action</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Masque les boutons \"J\'aime\" et \"Je n\'aime pas\". Ne fonctionne pas sur l\'ancienne interface du lecteur.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Masquer les boutons \"J\'aime\" et \"Je n\'aime pas\"</string>
-    <string name="revanced_hide_action_button_radio_summary">Masque le bouton \"démarrer la radio\".</string>
+    <string name="revanced_hide_action_button_radio_summary">Masque le bouton \"Démarrer la radio\".</string>
     <string name="revanced_hide_action_button_radio_title">Masquer le bouton \"Radio\"</string>
     <string name="revanced_hide_action_button_share_summary">Masque le bouton \"Partager\".</string>
     <string name="revanced_hide_action_button_share_title">Masquer le bouton \"Partager\"</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Masque le sélecteur Audio/Vidéo en haut du lecteur.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Masquer le sélecteur Audio/Vidéo</string>
-    <string name="revanced_hide_button_shelf_summary">Masque les étagères dans les flux.</string>
-    <string name="revanced_hide_button_shelf_title">Masquer les barres de boutons</string>
-    <string name="revanced_hide_carousel_shelf_summary">Masque les menus déroulants dans les flux.</string>
-    <string name="revanced_hide_carousel_shelf_title">Masquer les menus déroulants</string>
+    <string name="revanced_hide_button_shelf_summary">Masque les étagères à boutons dans les flux.</string>
+    <string name="revanced_hide_button_shelf_title">Masquer les étagères de boutons</string>
+    <string name="revanced_hide_carousel_shelf_summary">Masque les étagères à suggestions dans les flux.</string>
+    <string name="revanced_hide_carousel_shelf_title">Masquer les étagères à suggestions</string>
     <string name="revanced_hide_cast_button_summary">Masque le Bouton \"Caster\".</string>
     <string name="revanced_hide_cast_button_title">Masquer le bouton \"Caster\"</string>
     <string name="revanced_hide_category_bar_summary">Masque la barre de catégorie.</string>
     <string name="revanced_hide_category_bar_title">Masquer la barre de catégories</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Masque les règles de la chaîne en haut de la section des commentaires.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Masquer les règles de la chaîne</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Masque le sélecteur d\'émoji et horodatage en écrivant un commentaire.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Masquer le sélecteur d\'émoji et horodatage</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Masque les boutons \"émoji\" et \"horodatage\" lors de la rédaction d\'un commentaire.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Masquer les boutons émoji et horodatage</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">Masque le voile sombre qui apparaît lors du double appui pour avancer.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Masquer le voile sombre lors du double appuie</string>
     <string name="revanced_hide_floating_button_summary">Masque les boutons flottants dans la bibliothèque.</string>
     <string name="revanced_hide_floating_button_title">Masquer les boutons flottants</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Masquer le composant à 3 colonnes</string>
@@ -146,7 +150,7 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_flyout_menu_delete_playlist_title">Masquer le menu \"Supprimer la playlist\"</string>
     <string name="revanced_hide_flyout_menu_dismiss_queue_title">Masquer le menu \"Supprimer la file d\'attente\"</string>
     <string name="revanced_hide_flyout_menu_download_title">Masquer le menu \"Télécharger\"</string>
-    <string name="revanced_hide_flyout_menu_edit_playlist_title">Masquer \"Modifier la playlist\"</string>
+    <string name="revanced_hide_flyout_menu_edit_playlist_title">Masquer le menu \"Modifier la playlist\"</string>
     <string name="revanced_hide_flyout_menu_go_to_album_title">Masquer le menu \"Accéder à l\'album\"</string>
     <string name="revanced_hide_flyout_menu_go_to_artist_title">Masquer le menu \"Accéder à la page de l\'artiste\"</string>
     <string name="revanced_hide_flyout_menu_go_to_episode_title">Masquer le menu \"Accéder à l\'épisode\"</string>
@@ -165,88 +169,88 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_flyout_menu_shuffle_play_title">Masquer le bouton \"Lecture aléatoire\"</string>
     <string name="revanced_hide_flyout_menu_sleep_timer_title">Masquer le menu \"Délai de mise en veille\"</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Masquer le menu \"Lancer la radio\"</string>
-    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Masquer le menu \"Stats pour les nerds\"</string>
-    <string name="revanced_hide_flyout_menu_subscribe_title">Masquer le bouton \"S\'abonner\" / \"Se désabonner\"</string>
+    <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Masquer le menu \"Statistiques avancées\"</string>
+    <string name="revanced_hide_flyout_menu_subscribe_title">Masquer le menu \"S\'abonner\" / \"Se désabonner\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Masquer le menu \"Afficher les crédits du titre\"</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Les publicités en plein écran sont bloquées. (Type de dialogue : %s)</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">La publicité en plein écran a été bloquée. (Type de dialogue : %s)</string>
     <string name="revanced_hide_fullscreen_ads_closed_success">La publicité en plein écran a été fermée.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Masque les publicités en plein écran.</string>
     <string name="revanced_hide_fullscreen_ads_title">Masquer les publicités en plein écran</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary">"Si activé, les publicités en plein écran sont fermées à l'aide du bouton Fermer.
-Si désactivé, les publicités en plein écran sont bloquées (peut avoir des effets secondaires)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Si activé, les publicités en plein écran seront fermées grâce au bouton \"Fermer\".
+Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir des effets secondaires)"</string>
     <string name="revanced_hide_fullscreen_ads_type_title">Fermer les publicités en plein écran</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Masque le bouton \"Partager\" sur le lecteur en plein écran.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Masquer le bouton \"Partager\" en plein écran</string>
-    <string name="revanced_hide_general_ads_summary">Masque les publicités général</string>
-    <string name="revanced_hide_general_ads_title">Les publicités générales</string>
-    <string name="revanced_hide_handle_summary">Masque le menu de compte.</string>
-    <string name="revanced_hide_handle_title">Masquer le menu de compte</string>
+    <string name="revanced_hide_general_ads_summary">Masque les publicités générales.</string>
+    <string name="revanced_hide_general_ads_title">Masquer les publicités générales</string>
+    <string name="revanced_hide_handle_summary">Masque l\'identifiant dans le menu \"compte\".</string>
+    <string name="revanced_hide_handle_title">Masquer l\'identifiant</string>
     <string name="revanced_hide_history_button_summary">Masque le bouton \"Historique\" de la barre d\'outils.</string>
     <string name="revanced_hide_history_button_title">Masquer le bouton \"Historique\"</string>
     <string name="revanced_hide_music_ads_summary">Masque les publicités avant la lecture d\'une musique.</string>
     <string name="revanced_hide_music_ads_title">Masquer les publicités musicales</string>
     <string name="revanced_hide_navigation_bar_summary">Masque la barre de navigation.</string>
     <string name="revanced_hide_navigation_bar_title">Masquer la barre de navigation</string>
-    <string name="revanced_hide_navigation_explore_button_summary">Masque la catégorie \"Explorer\" de la barre de navigation.</string>
-    <string name="revanced_hide_navigation_explore_button_title">Masquer la catégorie \"Explorer\"</string>
-    <string name="revanced_hide_navigation_home_button_summary">Masquer la catégorie \"Accueil\" de la barre de navigation.</string>
-    <string name="revanced_hide_navigation_home_button_title">Masquer la catégorie \"Accueil\"</string>
-    <string name="revanced_hide_navigation_label_summary">Masque le nom des catégories dans la barre de navigation.</string>
+    <string name="revanced_hide_navigation_explore_button_summary">Masque le bouton \"Explorer\".</string>
+    <string name="revanced_hide_navigation_explore_button_title">Masquer le bouton \"Explorer\"</string>
+    <string name="revanced_hide_navigation_home_button_summary">Masque le bouton \"Accueil\".</string>
+    <string name="revanced_hide_navigation_home_button_title">Masquer le bouton \"Accueil\"</string>
+    <string name="revanced_hide_navigation_label_summary">Masque le nom sous les boutons de la barre de navigation.</string>
     <string name="revanced_hide_navigation_label_title">Masquer les noms dans barre de navigation</string>
-    <string name="revanced_hide_navigation_library_button_summary">Masque la catégorie \"Bibliothèque\" de la barre de navigation.</string>
-    <string name="revanced_hide_navigation_library_button_title">Masquer la catégorie \"Bibliothèque\"</string>
+    <string name="revanced_hide_navigation_library_button_summary">Masque le bouton \"Bibliothèque\".</string>
+    <string name="revanced_hide_navigation_library_button_title">Masquer le bouton \"Bibliothèque\"</string>
     <string name="revanced_hide_navigation_samples_button_summary">Masque le bouton \"Samples\".</string>
     <string name="revanced_hide_navigation_samples_button_title">Masquer le bouton \"Samples\"</string>
-    <string name="revanced_hide_navigation_upgrade_button_summary">Masque la catégorie \"S\'abonner\" (à YouTube Music) de la barre de navigation.</string>
-    <string name="revanced_hide_navigation_upgrade_button_title">Masquer la catégorie \"S\'abonner\"</string>
-    <string name="revanced_hide_notification_button_summary">Masquer le bouton \"Notification\" de la barre d\'outils.</string>
+    <string name="revanced_hide_navigation_upgrade_button_summary">Masque le bouton \"S\'abonner\" de la barre de navigation.</string>
+    <string name="revanced_hide_navigation_upgrade_button_title">Masquer le bouton \"S\'abonner\"</string>
+    <string name="revanced_hide_notification_button_summary">Masque le bouton \"Notification\" de la barre d\'outils.</string>
     <string name="revanced_hide_notification_button_title">Masquer les boutons \"Notification\"</string>
     <string name="revanced_hide_paid_promotion_label_summary">Masque la bannière \"Inclut une communication commerciale\".</string>
-    <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière \"Inclut une communication commerciale\"</string>
-    <string name="revanced_hide_playlist_card_shelf_summary">Masque la catégorie \"Playlist\" de la barre de navigation.</string>
-    <string name="revanced_hide_playlist_card_shelf_title">Masquer l\'étagère \"Playlist\"</string>
+    <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière \"Communication commerciale\"</string>
+    <string name="revanced_hide_playlist_card_shelf_summary">Masque les étagères de cartes \"Playlists\" dans les flux.</string>
+    <string name="revanced_hide_playlist_card_shelf_title">Masquer les étagères de cartes \"Playlists\"</string>
     <string name="revanced_hide_premium_promotion_summary">Masque les publicités pour YouTube Premium.</string>
     <string name="revanced_hide_premium_promotion_title">Masquer les publicités pour YouTube Premium</string>
-    <string name="revanced_hide_premium_renewal_summary">Masque la bannière de renouvellement de l\'abonnement Premium</string>
-    <string name="revanced_hide_premium_renewal_title">Bannière de renouvellement de Premium</string>
-    <string name="revanced_hide_samples_shelf_summary">Masque la catégorie \'\"Samples\" de la barre de navigation.</string>
-    <string name="revanced_hide_samples_shelf_title">Masquer la catégorie \"Samples\"</string>
+    <string name="revanced_hide_premium_renewal_summary">Masque la bannière \"Renouveler votre abonnement Premium\".</string>
+    <string name="revanced_hide_premium_renewal_title">Masquer la bannière \"Renouveler votre abonnement Premium\"</string>
+    <string name="revanced_hide_samples_shelf_summary">Masque l’étagère \"Samples\" dans les flux.</string>
+    <string name="revanced_hide_samples_shelf_title">Masquer l’étagère \"Samples\"</string>
     <string name="revanced_hide_sound_search_button_summary">Masque le bouton \"Rechercher une musique\" de la barre de recherche.</string>
     <string name="revanced_hide_sound_search_button_title">Masquer le bouton \"Rechercher une musique\"</string>
-    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \'Appuyer pour mettre à jour\'.</string>
-    <string name="revanced_hide_tap_to_update_button_title">Masquer le bouton \'Appuyer pour mettre à jour\'</string>
-    <string name="revanced_hide_terms_container_summary">Masque les Conditions générales d\'utilisation.</string>
+    <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \"Appuyer pour mettre à jour\".</string>
+    <string name="revanced_hide_tap_to_update_button_title">Masquer le bouton \"Appuyer pour mettre à jour\"</string>
+    <string name="revanced_hide_terms_container_summary">Masque le conteneur des conditions d\'utilisation.</string>
     <string name="revanced_hide_terms_container_title">Masquer le conteneur de termes</string>
     <string name="revanced_hide_voice_search_button_summary">Masque le bouton \"Recherche vocale\" de la barre de recherche.</string>
     <string name="revanced_hide_voice_search_button_title">Masquer le bouton \"Recherche vocale\"</string>
     <string name="revanced_preference_screen_account_title">Compte</string>
     <string name="revanced_preference_screen_action_bar_title">Barre d\'action</string>
-    <string name="revanced_preference_screen_ads_title">Pubs</string>
+    <string name="revanced_preference_screen_ads_title">Publicités</string>
     <string name="revanced_preference_screen_flyout_title">Menu déroulant</string>
-    <string name="revanced_preference_screen_general_title">Général</string>
+    <string name="revanced_preference_screen_general_title">Interface</string>
     <string name="revanced_preference_screen_misc_title">Paramètres avancés</string>
     <string name="revanced_preference_screen_navigation_title">Barre de navigation</string>
     <string name="revanced_preference_screen_player_title">Lecteur</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_preference_screen_video_title">Vidéo</string>
+    <string name="revanced_preference_screen_video_title">Qualité et vitesse vidéo</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Enregistre la dernière vitesse de lecture sélectionnée.</string>
-    <string name="revanced_remember_playback_speed_last_selected_title">Enregistrer la modification de vitesse de lecture</string>
+    <string name="revanced_remember_playback_speed_last_selected_title">Enregistrer la modification de la vitesse de lecture</string>
     <string name="revanced_remember_playback_speed_toast">Vitesse de lecture modifiée par %s.</string>
-    <string name="revanced_remember_repeat_state_summary">Enregistre le mode de répétition.</string>
-    <string name="revanced_remember_repeat_state_title">Mémorisation du mode répétition</string>
-    <string name="revanced_remember_shuffle_state_summary">Enregistre le mode aléatoire.</string>
-    <string name="revanced_remember_shuffle_state_title">Mémorisation du mode aléatoire</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">Enregistre la dernière modification de la résolution sélectionnée.</string>
+    <string name="revanced_remember_repeat_state_summary">Enregistre l\'état du mode répétition.</string>
+    <string name="revanced_remember_repeat_state_title">Enregistrer l\'état du mode répétition</string>
+    <string name="revanced_remember_shuffle_state_summary">Enregistre l\'état du mode aléatoire.</string>
+    <string name="revanced_remember_shuffle_state_title">Enregistrer l\'état du mode aléatoire</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">Enregistre la dernière qualité vidéo sélectionnée.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Enregistrer la modification de la résolution</string>
-    <string name="revanced_remember_video_quality_mobile">Qualité en donnée mobile modifiée par %s.</string>
+    <string name="revanced_remember_video_quality_mobile">La résolution sur les données mobiles a été modifiée par %s.</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité.</string>
-    <string name="revanced_remember_video_quality_wifi">Qualité en Wi-Fi modifiée par %s.</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"Retire le message de confirmation d'âge
-Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le dialogue sur la discrétion du spectateur</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continuer la vidéo avec l\'horodatage en cours en passant vers YouTube.</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continuer à regarder</string>
+    <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s.</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"Supprime le message \"Confirmer votre âge\".
+Cela ne contourne pas la restriction d'âge, mais le confirme automatiquement."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le message \"Confirmer votre âge\"</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">Continuer la lecture avec l\'horodatage en cours sur YouTube.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">Continuer la lecture</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">Remplace le menu \"Supprimer de la file d\'attente\" par le menu \"Regarder sur YouTube\".</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">Remplacer le menu \"Supprimer de la file d\'attente\"</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label">Regarder sur YouTube</string>
@@ -255,73 +259,73 @@ Cela ne contourne pas la restriction d'âge, mais confirme automatiquement."</st
     <string name="revanced_replace_flyout_menu_report_only_player_title">Conserver le menu \"Signaler\" dans les commentaires</string>
     <string name="revanced_replace_flyout_menu_report_summary">Remplace le menu \"Signaler\" par le menu \"Vitesse de lecture\".</string>
     <string name="revanced_replace_flyout_menu_report_title">Remplacer le menu \"Signaler\"</string>
-    <string name="revanced_restore_old_comments_popup_panels_summary">Restaure l\'ancienne interface de la section commentaire.</string>
-    <string name="revanced_restore_old_comments_popup_panels_title">Restaurer l\'ancienne interface des commentaire</string>
-    <string name="revanced_restore_old_player_background_summary">Restaure l\'ancien arrière-plan du lecteur.</string>
+    <string name="revanced_restore_old_comments_popup_panels_summary">Restaure l\'ancien style de la section commentaire.</string>
+    <string name="revanced_restore_old_comments_popup_panels_title">Restaurer l\'ancienne interface des commentaires</string>
+    <string name="revanced_restore_old_player_background_summary">Restaure l\'ancien style de l\'arrière-plan du lecteur.</string>
     <string name="revanced_restore_old_player_background_title">Restaurer l\'ancien arrière-plan du lecteur</string>
-    <string name="revanced_restore_old_player_layout_summary">"Restaure l'ancienne interface du lecteur.
-Certaines fonctions peuvent ne pas fonctionner sur l'ancienne interface."</string>
-    <string name="revanced_restore_old_player_layout_title">Restaurer l\'ancienne interface du lecteur</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">Restaure l\'ancienne interface de l\'onglet bibliothèque. (Expérimental)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Restaurer l\'ancienne interface de la bibliothèque</string>
+    <string name="revanced_restore_old_player_layout_summary">"Restaure l'ancien style de la mise en page du lecteur.
+Certaines fonctions peuvent ne pas fonctionner sur l'ancienne mise en page."</string>
+    <string name="revanced_restore_old_player_layout_title">Restaurer l\'ancienne mise en page du lecteur</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Restaure l\'ancien style de l’étagère \"Bibliothèque\". (Expérimental)</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Restaurer l\'ancien style de l’étagère \"Bibliothèque\"</string>
     <string name="revanced_ryd_about">À propos</string>
     <string name="revanced_ryd_attribution_summary">Les données des \"Je n\'aime pas\" sont fournies par l\'API de Return YouTube Dislike. Appuyez ici pour en savoir plus.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_compact_layout_summary">Masque les séparateurs gris sur les \"J\'aime\".</string>
+    <string name="revanced_ryd_compact_layout_summary">Masque les séparateurs sur le bouton \"J\'aime\".</string>
     <string name="revanced_ryd_compact_layout_title">Bouton \"J\'aime\" compact</string>
-    <string name="revanced_ryd_dislike_percentage_summary">Les \"Je n\'aime pas\" sont affichés en pourcentages au lieu des nombres.</string>
+    <string name="revanced_ryd_dislike_percentage_summary">Les \"Je n\'aime pas\" sont affichés en pourcentage plutôt qu\'en nombre.</string>
     <string name="revanced_ryd_dislike_percentage_title">\"Je n\'aime pas\" en pourcentage</string>
-    <string name="revanced_ryd_enabled_summary">Affiche les \"Je n\'aime pas\" sur les vidéos.</string>
+    <string name="revanced_ryd_enabled_summary">Affiche le compteur des \"Je n\'aime pas\" sur les vidéos.</string>
     <string name="revanced_ryd_enabled_title">Activer Return YouTube Dislike</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Les dislikes sont indisponibles (limite d\'API client atteinte).</string>
-    <string name="revanced_ryd_failure_connection_status_code">Les Dislikes sont indisponible (status %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">Les dislikes sont temporairement indisponible (API obsolète)</string>
-    <string name="revanced_ryd_failure_generic">Les Dislikes sont indisponible (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Affiche un message si l\'API Return YouTube Dislike n\'est pas disponible.</string>
-    <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API n\'est pas disponible</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Les \"Je n\'aime pas\" sont indisponibles (le client a atteint la limite de l\'API).</string>
+    <string name="revanced_ryd_failure_connection_status_code">Les \"Je n\'aime pas\" sont indisponible (status %d).</string>
+    <string name="revanced_ryd_failure_connection_timeout">Les \"Je n\'aime pas\" sont temporairement indisponible (API obsolète).</string>
+    <string name="revanced_ryd_failure_generic">Les \"Je n\'aime pas\" sont indisponible (%s).</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Affiche un message si l\'API de Return YouTube Dislike n\'est pas disponible.</string>
+    <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API est indisponible</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
-    <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de tracking des URL lors des partages de liens.</string>
-    <string name="revanced_sanitize_sharing_links_title">Nettoies les liens partagés</string>
+    <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de suivi (tracking) des URL lors du partage de liens.</string>
+    <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="revanced_sb_about">À propos</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes.</string>
     <string name="revanced_sb_api_url">Modifier l\'URL de l\'API</string>
     <string name="revanced_sb_api_url_changed">L\'URL de l\'API a été modifiée.</string>
     <string name="revanced_sb_api_url_invalid">L\'URL de l\'API est invalide.</string>
-    <string name="revanced_sb_api_url_reset">Réinitialiser l\'URL de l\'API.</string>
-    <string name="revanced_sb_api_url_sum">L\'adresse que SponsorBlock utilise pour passer des appels vers le serveur. Ne le modifiez que si vous savez ce que vous faites.</string>
+    <string name="revanced_sb_api_url_reset">L\'URL de l\'API a été réinitialisé.</string>
+    <string name="revanced_sb_api_url_sum">L\'adresse qu\'utilise SponsorBlock pour contacter le serveur. Ne le modifiez que si vous savez ce que vous faites.</string>
     <string name="revanced_sb_color_changed">Couleur modifiée.</string>
     <string name="revanced_sb_color_dot_label">Couleur (hex) :</string>
-    <string name="revanced_sb_color_invalid">Code de couleur invalide.</string>
+    <string name="revanced_sb_color_invalid">Code couleur invalide. Couleur réinitialisée par défaut.</string>
     <string name="revanced_sb_color_reset">Couleur réinitialisée.</string>
     <string name="revanced_sb_diff_segments">Modifier le comportement des segments</string>
     <string name="revanced_sb_enabled">Activer Sponsorblock</string>
-    <string name="revanced_sb_enabled_sum">SponsorBlock est un système de collecte de données qui permet d\'ignorer les parties gênantes des vidéos YouTube.</string>
+    <string name="revanced_sb_enabled_sum">SponsorBlock est un service d\'entraide permettant de passer des parties gênantes des vidéos YouTube.</string>
     <string name="revanced_sb_reset_color">Réinitialiser la couleur</string>
     <string name="revanced_sb_segments_filler">Remplissage / Blagues</string>
-    <string name="revanced_sb_segments_filler_sum">Le segment \"Remplissage et Blagues\" sont à ajouter uniquement lors des scènes de remplissage ou d\'humour qui ne sont pas nécessaires à la compréhension de la vidéo. Ne conviens pas pour les moments fournissant un contexte ou des détails.</string>
+    <string name="revanced_sb_segments_filler_sum">Scènes secondaires ajoutées uniquement à des fins de remplissage ou d\'humour qui ne sont pas nécessaires à la compréhension de la vidéo. N\'inclus pas les segments fournissant un contexte ou des détails utiles.</string>
     <string name="revanced_sb_segments_interaction">Rappel d\'interaction (S\'abonner)</string>
-    <string name="revanced_sb_segments_interaction_sum">Un rappel bref pour aimer, s\'abonner ou les suivre au milieu du contenu. S\'il est long ou concerne quelque chose de spécifique, il devrait plutôt être considéré comme de l\'auto-promotion.</string>
+    <string name="revanced_sb_segments_interaction_sum">Un bref rappel pour aimer, s\'abonner ou pour les suivre au milieu du contenu. S\'il est long ou s\'il traite d\'un sujet spécifique, il devrait être placé dans la section \"auto-promotion\".</string>
     <string name="revanced_sb_segments_intro">Intro / Entracte</string>
-    <string name="revanced_sb_segments_intro_sum">Intervalle sans réel contenu. Il peut s\'agir d\'une pause, d\'une image statique ou d\'une animation répétitive. Ne comprend pas les transitions contenant des informations.</string>
+    <string name="revanced_sb_segments_intro_sum">Un intervalle sans contenu réel. Il peut s\'agir d\'une pause, d\'une image fixe ou d\'une animation répétitive. Ne comprends pas des passages contenant des informations.</string>
     <string name="revanced_sb_segments_nomusic">Musique : Section non musicale</string>
-    <string name="revanced_sb_segments_nomusic_sum">Uniquement destiné aux vidéos musicales. Sections de vidéos musicales sans musique, qui ne sont pas déjà couvertes par une autre catégorie.</string>
+    <string name="revanced_sb_segments_nomusic_sum">Uniquement destiné pour les vidéos musicales. Sections de vidéos musicales sans musique, qui ne sont pas déjà couvertes par une autre catégorie.</string>
     <string name="revanced_sb_segments_outro">Outro / Crédits</string>
-    <string name="revanced_sb_segments_outro_sum">Crédits ou les vidéos suggérées apparaissent en fin de vidéo. Non destiné aux conclusions contenant des informations.</string>
+    <string name="revanced_sb_segments_outro_sum">Crédits ou lorsque les cartes de fin de vidéo YouTube apparaissent. Ne pas utiliser pour des conclusions avec des informations.</string>
     <string name="revanced_sb_segments_preview">Aperçu / Récapitulatif</string>
-    <string name="revanced_sb_segments_preview_sum">Un récapitulatif montrant ce qu\'il va se passer ou qui s\'est passé dans cette vidéo, dans une autre vidéo ou provenant une série de vidéos, lorsque des informations se répètes.</string>
+    <string name="revanced_sb_segments_preview_sum">Un récapitulatif montrant ce qu\'il va se passer ou qui s\'est passé dans la vidéo ou dans d\'autres vidéos de la série, lorsque des informations se répètes.</string>
     <string name="revanced_sb_segments_selfpromo">Auto-promotion / Non Rémunérée</string>
-    <string name="revanced_sb_segments_selfpromo_sum">Similaire à \'Sponsor\', sauf pour la promotion non rémunérée ou l\'auto-promotion. Comprend des sections sur les marchandises, les dons ou des informations sur les personnes avec qui ils ont collaboré.</string>
+    <string name="revanced_sb_segments_selfpromo_sum">Similaire à \'Sponsor\', à l\'exception de la promotion non rémunérée ou l\'autopromotion. Comprend les sections produits, les dons, et des informations sur les partenaires avec lesquels ils ont collaboré.</string>
     <string name="revanced_sb_segments_sponsor">Sponsor</string>
-    <string name="revanced_sb_segments_sponsor_sum">Promotion rémunérée, parrainages rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes/créateurs/sites web/produits qu\'ils apprécient.</string>
+    <string name="revanced_sb_segments_sponsor_sum">Partenariat rémunéré, parrainage rémunérés et publicités directes. Ne concerne pas l\'autopromotion ou les mentions gratuites pour des causes / créateurs / sites web / produits qu\'ils apprécient.</string>
     <string name="revanced_sb_skip_automatically">Passer automatiquement</string>
     <string name="revanced_sb_skip_ignore">Désactiver</string>
     <string name="revanced_sb_skipped_filler">Remplissages passés.</string>
-    <string name="revanced_sb_skipped_interaction">Rappel ennuyeux passé.</string>
+    <string name="revanced_sb_skipped_interaction">Passage ennuyeux passé.</string>
     <string name="revanced_sb_skipped_intro_beginning">Intro passée.</string>
     <string name="revanced_sb_skipped_intro_end">Entracte passé.</string>
     <string name="revanced_sb_skipped_intro_middle">Entracte passé.</string>
-    <string name="revanced_sb_skipped_multiple_segments">Plusieurs segments ont été passés.</string>
+    <string name="revanced_sb_skipped_multiple_segments">Plusieurs segments passés.</string>
     <string name="revanced_sb_skipped_nomusic">Section non musicale passée.</string>
     <string name="revanced_sb_skipped_outro">Outro passée.</string>
     <string name="revanced_sb_skipped_preview_beginning">Aperçu passé.</string>
@@ -332,18 +336,18 @@ Certaines fonctions peuvent ne pas fonctionner sur l'ancienne interface."</strin
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock est temporairement indisponible.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock est temporairement indisponible (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock est temporairement indisponible (API obsolète).</string>
-    <string name="revanced_sb_toast_on_connection_error">Afficher un message si l\'API n\'est pas disponible</string>
-    <string name="revanced_sb_toast_on_connection_error_sum">Affiche un message si l\'API n\'est pas disponible.</string>
-    <string name="revanced_sb_toast_on_skip">Afficher un message lorsqu\'un segment est passé</string>
-    <string name="revanced_sb_toast_on_skip_sum">Affiche un message lorsqu\'un segment est passé automatiquement.</string>
+    <string name="revanced_sb_toast_on_connection_error">Afficher un message si l\'API est indisponible</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">Affiche un message si l\'API de SponsorBlock est indisponible.</string>
+    <string name="revanced_sb_toast_on_skip">Afficher un message lors du passage auto des segments</string>
+    <string name="revanced_sb_toast_on_skip_sum">Affiche un message lorsqu\'un segment est automatiquement passé.</string>
     <string name="revanced_share_copy_settings_success">Paramètres copiés dans le presse-papier.</string>
     <string name="revanced_spoof_app_version_summary">"Falsifie la version du client par une ancienne version.
 
-• Celle-ci modifiera l'apparence de l'application, mais des effets indésirables inconnus peuvent se produire
-• Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut subsister jusqu'à ce que les données de l'application soient effacées."</string>
+• Cela change l'apparence de l'application, mais des effets secondaires inconnus peuvent se produire.
+• Si désactivée ultérieurement, l'ancienne interface peut subsister jusqu'à la suppression des données de l'application."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Désactive le mode radio dans les régions canadiennes</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Désactive les paroles en temps réel</string>
-    <string name="revanced_spoof_app_version_target_summary">Sélectionnez la version cible de l\'application à falsifier.</string>
-    <string name="revanced_spoof_app_version_target_title">Version cible pour la falsification</string>
+    <string name="revanced_spoof_app_version_target_summary">Sélectionner la version de l\'application à falsifier.</string>
+    <string name="revanced_spoof_app_version_target_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_title">Falsifier la version de l\'app</string>
 </resources>

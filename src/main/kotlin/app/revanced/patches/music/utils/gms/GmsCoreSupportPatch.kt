@@ -6,17 +6,15 @@ import app.revanced.patches.music.utils.fix.fileprovider.FileProviderPatch
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
 import app.revanced.patches.music.utils.mainactivity.fingerprints.MainActivityFingerprint
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch
-import app.revanced.patches.shared.packagename.PackageNamePatch
-import app.revanced.patches.shared.packagename.PackageNamePatch.ORIGINAL_PACKAGE_NAME_YOUTUBE
+import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC
 
 @Suppress("unused")
 object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
-    fromPackageName = ORIGINAL_PACKAGE_NAME_YOUTUBE,
+    fromPackageName = ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC,
     mainActivityOnCreateFingerprint = MainActivityFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         SpoofUserAgentPatch::class,
-        PackageNamePatch::class,
         FileProviderPatch::class
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,

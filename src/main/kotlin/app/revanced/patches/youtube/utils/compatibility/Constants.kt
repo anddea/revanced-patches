@@ -12,8 +12,7 @@ object Constants {
                 "18.38.44", // This is the last version with no delay in applying video quality on the server side.
                 "18.48.39", // This is the last version that do not use Rolling Number.
                 "19.05.36", // This is the last version with the least YouTube experimental flag.
-                "19.16.39", // This is the last version that supports the 'Restore old seekbar thumbnails' setting.
-                "19.23.40", // This is the latest version supported by the RVX patch.
+                "19.16.39", // This is the latest version supported by the RVX patch.
             )
         )
     )
