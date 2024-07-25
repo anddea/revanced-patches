@@ -38,15 +38,15 @@ object OverlayButtonsPatch : BaseResourcePatch(
     private const val DEFAULT_MARGIN = "0.0dip"
     private const val WIDER_MARGIN = "6.0dip"
 
-    private const val DEFAULT_ICON = "bold"
+    private const val DEFAULT_ICON = "rounded"
 
     // Option to select icon type
     private val IconType = stringPatchOption(
         key = "IconType",
         default = DEFAULT_ICON,
         values = mapOf(
-            "Bold" to DEFAULT_ICON,
-            "Rounded" to "rounded",
+            "Bold" to "bold",
+            "Rounded" to DEFAULT_ICON,
             "Thin" to "thin"
         ),
         title = "Icon type",
