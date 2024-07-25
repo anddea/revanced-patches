@@ -4,20 +4,19 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.utils.fix.fileprovider.fingerprints.FileProviderResolverFingerprint
-import app.revanced.patches.shared.packagename.PackageNamePatch
+import app.revanced.patches.music.utils.gms.GmsCoreSupportResourcePatch
 import app.revanced.util.resultOrThrow
+import app.revanced.util.valueOrThrow
 
-@Patch(dependencies = [PackageNamePatch::class])
 object FileProviderPatch : BytecodePatch(
     setOf(FileProviderResolverFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
 
-        val youtubePackageName = PackageNamePatch.packageNameYouTube
-        val musicPackageName = PackageNamePatch.packageNameYouTubeMusic
+        val youtubePackageName = GmsCoreSupportResourcePatch.PackageNameYouTube.valueOrThrow()
+        val musicPackageName = GmsCoreSupportResourcePatch.PackageNameYouTubeMusic.valueOrThrow()
 
         /**
          * For some reason, if the app gets "android.support.FILE_PROVIDER_PATHS",

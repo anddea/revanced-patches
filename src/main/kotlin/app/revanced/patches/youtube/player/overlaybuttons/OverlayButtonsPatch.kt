@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.player.overlaybuttons
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.fix.fullscreen.FullscreenButtonViewStubPatch
+import app.revanced.patches.youtube.utils.fix.bottomui.CfBottomUIPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -27,7 +27,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
     name = "Overlay buttons",
     description = "Adds options to display overlay buttons in the video player.",
     dependencies = setOf(
-        FullscreenButtonViewStubPatch::class,
+        CfBottomUIPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
         OverlayButtonsBytecodePatch::class,
@@ -86,25 +86,26 @@ object OverlayButtonsPatch : BaseResourcePatch(
             "AlwaysRepeat;",
             "CopyVideoUrl;",
             "CopyVideoUrlTimestamp;",
+            "MuteVolume;",
             "ExternalDownload;",
             "SpeedDialog;",
             "TimeOrderedPlaylist;",
             "Whitelists;"
         ).forEach { className ->
-            PlayerControlsPatch.hookOverlayButtons("$OVERLAY_BUTTONS_PATH/$className")
+            PlayerControlsPatch.hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
         }
 
         // Copy necessary resources for the overlay buttons.
-        arrayOf(
+        context.copyResources(
+            "youtube/overlaybuttons/shared",
             ResourceGroup(
                 "drawable",
                 "playlist_repeat_button.xml",
                 "playlist_shuffle_button.xml",
-                "revanced_repeat_icon.xml"
+                "revanced_repeat_button.xml",
+                "revanced_mute_volume_button.xml",
             )
-        ).forEach { resourceGroup ->
-            context.copyResources("youtube/overlaybuttons/shared", resourceGroup)
-        }
+        )
 
         // Apply the selected icon type to the overlay buttons.
         arrayOf(
@@ -118,23 +119,25 @@ object OverlayButtonsPatch : BaseResourcePatch(
                 "youtube/overlaybuttons/$iconType",
                 ResourceGroup(
                     "drawable-$dpi",
-                    "ic_fullscreen_vertical_button.png",
                     "ic_vr.png",
                     "quantum_ic_fullscreen_exit_grey600_24.png",
                     "quantum_ic_fullscreen_exit_white_24.png",
                     "quantum_ic_fullscreen_grey600_24.png",
                     "quantum_ic_fullscreen_white_24.png",
-                    "revanced_time_ordered_playlist_icon.png",
-                    "revanced_copy_icon.png",
-                    "revanced_copy_icon_with_time.png",
-                    "revanced_download_icon.png",
-                    "revanced_speed_icon.png",
-                    "revanced_whitelist_icon.png",
+                    "revanced_time_ordered_playlist_button.png",
+                    "revanced_copy_button.png",
+                    "revanced_copy_timestamp_button.png",
+                    "revanced_download_button.png",
+                    "revanced_volume_muted_button.png",
+                    "revanced_volume_unmuted_button.png",
+                    "revanced_speed_button.png",
+                    "revanced_whitelist_button.png",
                     "yt_fill_arrow_repeat_white_24.png",
                     "yt_outline_arrow_repeat_1_white_24.png",
                     "yt_outline_arrow_shuffle_1_white_24.png",
                     "yt_outline_screen_full_exit_white_24.png",
                     "yt_outline_screen_full_white_24.png",
+                    "yt_outline_screen_full_vd_theme_24.png",
                     "yt_outline_screen_vertical_vd_theme_24.png"
                 ),
                 ResourceGroup(
@@ -153,8 +156,9 @@ object OverlayButtonsPatch : BaseResourcePatch(
 
         // Modify the layout of fullscreen button for newer YouTube versions (19.09.xx+)
         arrayOf(
+            "youtube_controls_bottom_ui_container.xml",
+            "youtube_controls_fullscreen_button.xml",
             "youtube_controls_cf_fullscreen_button.xml",
-            "youtube_controls_fullscreen_button.xml"
         ).forEach { xmlFile ->
             val targetXml = context["res"].resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
@@ -162,75 +166,45 @@ object OverlayButtonsPatch : BaseResourcePatch(
                     editor.file.doRecursively loop@{ node ->
                         if (node !is Element) return@loop
 
-                        if (node.getAttribute("android:id").endsWith("_button")) {
+                        // Change the relationship between buttons
+                        node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
+                            ?.let { attribute ->
+                                if (attribute.textContent == "@id/fullscreen_button") {
+                                    attribute.textContent = "@+id/speed_dialog_button"
+                                }
+                            }
+
+                        val (id, height, width) = Triple(
+                            node.getAttribute("android:id"),
+                            node.getAttribute("android:layout_height"),
+                            node.getAttribute("android:layout_width")
+                        )
+                        val (heightIsNotZero, widthIsNotZero, isButton) = Triple(
+                            height != "0.0dip",
+                            width != "0.0dip",
+                            id.endsWith("_button") || id == "@id/youtube_controls_fullscreen_button_stub"
+                        )
+
+                        // Adjust TimeBar and Chapter bottom padding
+                        val timBarItem = mutableMapOf(
+                            "@id/time_bar_chapter_title" to "16.0dip",
+                            "@id/timestamps_container" to "14.0dip"
+                        )
+
+                        if (isButton) {
                             node.setAttribute("android:layout_marginBottom", marginBottom)
                             node.setAttribute("android:paddingLeft", "0.0dip")
                             node.setAttribute("android:paddingRight", "0.0dip")
                             node.setAttribute("android:paddingBottom", "22.0dip")
-                            if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                                !node.getAttribute("android:layout_width").equals("0.0dip")
-                            ) {
+                            if (heightIsNotZero && widthIsNotZero) {
                                 node.setAttribute("android:layout_height", "48.0dip")
                                 node.setAttribute("android:layout_width", "48.0dip")
                             }
+                        } else if (timBarItem.containsKey(id)) {
+                            node.setAttribute("android:layout_marginBottom", marginBottom)
+                            node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
                         }
                     }
-                }
-            }
-        }
-
-        context.xmlEditor["res/layout/youtube_controls_bottom_ui_container.xml"].use { editor ->
-            editor.file.doRecursively loop@{ node ->
-                if (node !is Element) return@loop
-
-                // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                    ?.let { attribute ->
-                        if (attribute.textContent == "@id/fullscreen_button") {
-                            attribute.textContent = "@+id/speed_dialog_button"
-                        }
-                    }
-
-                // Adjust TimeBar and Chapter bottom padding
-                arrayOf(
-                    "@id/time_bar_chapter_title" to "16.0dip",
-                    "@id/timestamps_container" to "14.0dip"
-                ).forEach { (id, replace) ->
-                    node.getAttributeNode("android:id")?.let { attribute ->
-                        if (attribute.textContent == id) {
-                            node.getAttributeNode("android:paddingBottom").textContent =
-                                replace
-                        }
-                    }
-                }
-
-                // Adjust layout for fullscreen button stub
-                if (node.getAttribute("android:id") == "@id/youtube_controls_fullscreen_button_stub") {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
-                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                        !node.getAttribute("android:layout_width").equals("0.0dip")
-                    ) {
-                        node.setAttribute("android:layout_height", "48.0dip")
-                        node.setAttribute("android:layout_width", "48.0dip")
-                    }
-                }
-
-                // Adjust margin and padding for other buttons
-                if (node.getAttribute("android:id").endsWith("_button")) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
-                    node.setAttribute("android:paddingLeft", "0.0dip")
-                    node.setAttribute("android:paddingRight", "0.0dip")
-                    node.setAttribute("android:paddingBottom", "22.0dip")
-                    if (!node.getAttribute("android:layout_height").equals("0.0dip") &&
-                        !node.getAttribute("android:layout_width").equals("0.0dip")
-                    ) {
-                        node.setAttribute("android:layout_height", "48.0dip")
-                        node.setAttribute("android:layout_width", "48.0dip")
-                    }
-                } else if (node.getAttribute("android:id") == "@id/time_bar_chapter_title_container" ||
-                    node.getAttribute("android:id") == "@id/timestamps_container"
-                ) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
                 }
             }
         }

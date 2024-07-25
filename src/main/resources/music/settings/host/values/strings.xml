@@ -4,7 +4,7 @@
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore does not have permission to run in the background.
 
-Follow the Don't kill my app! guide for your device, and apply the instructions to your GmsCore installation.
+Follow the 'Don't kill my app!' guide for your device, and apply the instructions to your GmsCore installation.
 
 This is required for the app to work."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore battery optimizations must be disabled to prevent issues.
@@ -15,6 +15,10 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="revanced_alternative_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
+    <string name="revanced_alternative_domain_title">Alternative domain</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
     <string name="revanced_change_start_page_entry_explore">Explore</string>
     <string name="revanced_change_start_page_entry_home">Home</string>
@@ -143,6 +147,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Hides the timestamp and emoji buttons when typing comments.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">Hides dark overlay that appears when double-tapping to seek.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Hide double-tap overlay filter</string>
     <string name="revanced_hide_floating_button_summary">Hides the floating button in the Library tab.</string>
     <string name="revanced_hide_floating_button_title">Hide floating button</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Hide 3-column component</string>
@@ -351,4 +357,6 @@ Some features may not work properly in the old player layout."</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
+    <string name="revanced_use_alternative_domain_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
+    <string name="revanced_use_alternative_domain_title">Use alternative domain for images</string>
 </resources>

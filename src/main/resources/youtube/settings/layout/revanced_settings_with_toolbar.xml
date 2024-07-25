@@ -16,7 +16,7 @@
             android:background="@color/yt_white1"
             android:elevation="0dp">
 
-            <android.support.v7.widget.Toolbar
+            <android.widget.Toolbar
                 android:id="@+id/revanced_toolbar"
                 android:layout_width="0.0dip"
                 android:layout_height="0.0dip"
@@ -25,17 +25,16 @@
                 app:title="@string/revanced_extended_settings_title" />
         </FrameLayout>
 
-        <SearchView
+        <android.widget.SearchView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
             android:searchIcon="@null"
-            android:queryHint="@string/revanced_extended_settings_search_title"
+            android:queryBackground="@null"
             android:layout_margin="5dp"
-            android:queryBackground="@android:color/transparent"
-            app:queryBackground="@android:color/transparent"
-            />
+            android:theme="@style/revanced_searchbar_cursor"
+            android:padding="5dp" />
 
         <FrameLayout
             android:id="@+id/revanced_settings_fragments"

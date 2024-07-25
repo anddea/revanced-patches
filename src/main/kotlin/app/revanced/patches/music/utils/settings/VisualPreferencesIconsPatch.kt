@@ -8,6 +8,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyResourcesWithRename
 import app.revanced.util.patch.BaseResourcePatch
+import app.revanced.util.underBarOrThrow
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.NodeList
@@ -185,8 +186,8 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
 
         ExtendedIcon?.let { iconType ->
             val selectedIconType = iconType.lowercase().replace(" ", "_")
-            CustomBrandingIconPatch.AppIcon?.let { appIcon ->
-                val appIconValue = appIcon.lowercase().replace(" ", "_")
+            CustomBrandingIconPatch.AppIcon.let { appIcon ->
+                val appIconValue = appIcon.underBarOrThrow()
                 val resourcePath = "music/branding/$appIconValue"
 
                 val iconPath = when {
