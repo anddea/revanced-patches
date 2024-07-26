@@ -192,7 +192,6 @@ object CustomBrandingIconPatch : BaseResourcePatch(
             .underBarOrThrow()
 
         val appIconResourcePath = "youtube/branding/$appIcon"
-        val stockResourcePath = "youtube/branding/stock"
 
         // Check if a custom path is used in the patch options.
         if (!availableIcon.containsValue(appIcon)) {
@@ -260,7 +259,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
                 }
 
                 context.copyXmlNode(
-                    "$stockResourcePath/splash",
+                    "$appIconResourcePath/splash",
                     "values-v31/styles.xml",
                     "resources"
                 )
