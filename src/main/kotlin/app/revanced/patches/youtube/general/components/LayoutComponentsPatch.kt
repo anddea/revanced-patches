@@ -8,27 +8,26 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.patches.shared.settingmenu.SettingsMenuPatch
+import app.revanced.patches.shared.viewgroup.ViewGroupMarginLayoutParamsHookPatch
 import app.revanced.patches.youtube.general.components.fingerprints.AccountListFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.AccountListParentFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.AccountMenuFingerprint
+import app.revanced.patches.youtube.general.components.fingerprints.AccountMenuParentFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.AccountSwitcherAccessibilityLabelFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.AppBlockingCheckResultToStringFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.BottomUiContainerFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.FloatingMicrophoneFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.PiPNotificationFingerprint
-import app.revanced.patches.youtube.general.components.fingerprints.SettingsMenuFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.TooltipContentFullscreenFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.TooltipContentViewFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.fingerprints.AccountMenuParentFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AccountSwitcherAccessibility
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.utils.viewgroup.ViewGroupMarginLayoutParamsHookPatch
 import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceName
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.patch.BaseBytecodePatch
@@ -46,6 +45,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide general layout components.",
     dependencies = setOf(
         LithoFilterPatch::class,
+        SettingsMenuPatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
         ViewGroupMarginLayoutParamsHookPatch::class
@@ -59,7 +59,6 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         BottomUiContainerFingerprint,
         FloatingMicrophoneFingerprint,
         PiPNotificationFingerprint,
-        SettingsMenuFingerprint,
         TooltipContentFullscreenFingerprint,
         TooltipContentViewFingerprint
     )
@@ -184,24 +183,6 @@ object LayoutComponentsPatch : BaseBytecodePatch(
                         invoke-static {v$visibilityRegister}, $GENERAL_CLASS_DESCRIPTOR->hideHandle(I)I
                         move-result v$visibilityRegister
                         """
-                )
-            }
-        }
-
-        // endregion
-
-        // region patch for hide settings menu
-
-        SettingsMenuFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex =
-                    getTargetIndexWithFieldReferenceTypeOrThrow("Landroid/support/v7/widget/RecyclerView;")
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static {v$insertRegister}, " +
-                            "$GENERAL_CLASS_DESCRIPTOR->hideSettingsMenu(Landroid/support/v7/widget/RecyclerView;)V"
                 )
             }
         }
