@@ -1,3 +1,10 @@
+## [2.227.1-dev.1](https://github.com/anddea/revanced-patches/compare/v2.227.0...v2.227.1-dev.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Patch failed for some icons ([97bc461](https://github.com/anddea/revanced-patches/commit/97bc461be57e5ed4f37dd56b3df19cfb933b4d39))
+
 # [2.227.0](https://github.com/anddea/revanced-patches/compare/v2.226.0...v2.227.0) (2024-07-25)
 
 
