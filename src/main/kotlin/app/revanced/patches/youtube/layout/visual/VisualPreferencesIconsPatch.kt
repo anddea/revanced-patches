@@ -33,8 +33,9 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "ReVanced" to "revanced",
             "ReVanced Colored" to "revanced_colored",
         ),
-        title = "Extended icon",
-        description = "Apply different icons for Extended preference."
+        title = "RVX settings menu icon",
+        description = "The icon for the RVX settings menu.",
+        required = true
     )
 
     override fun execute(context: ResourceContext) {

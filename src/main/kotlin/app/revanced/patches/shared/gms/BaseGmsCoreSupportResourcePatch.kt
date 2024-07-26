@@ -45,9 +45,9 @@ abstract class BaseGmsCoreSupportResourcePatch(
         default = true,
         title = "Check GmsCore",
         description = """
-            Checks whether GmsCore is installed on the device when the app starts.
+            Check if GmsCore is installed on the device when the app starts.
             
-            If GmsCore is not installed on your device, the app won't work, so don't disable it if possible.
+            If GmsCore is not installed on the device, the app won't work, so don't disable it if possible.
             """.trimIndentMultiline(),
         required = true,
     )

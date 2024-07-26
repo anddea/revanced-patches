@@ -179,7 +179,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         key = "RestoreOldSplashAnimation",
         default = true,
         title = "Restore old splash animation",
-        description = "Restores old style splash animation.",
+        description = "Restore the old style splash animation.",
         required = true
     )
 
