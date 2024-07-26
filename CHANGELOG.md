@@ -1,3 +1,10 @@
+# [2.228.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.227.1-dev.1...v2.228.0-dev.1) (2024-07-26)
+
+
+### Features
+
+* **Custom Branding Icons:** Change default icon to `Revancify Yellow` ([#752](https://github.com/anddea/revanced-patches/issues/752)) ([60163db](https://github.com/anddea/revanced-patches/commit/60163dbde9d90035763ed66827515485393e6b4d))
+
 ## [2.227.1-dev.1](https://github.com/anddea/revanced-patches/compare/v2.227.0...v2.227.1-dev.1) (2024-07-26)
 
 
