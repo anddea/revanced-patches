@@ -10,6 +10,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
@@ -121,6 +122,9 @@ object VideoInformationPatch : BytecodePatch(
     private var seekSourceEnumType = ""
     private var seekSourceMethodName = ""
 
+    private lateinit var videoInformationMutableClass: MutableClass
+    private lateinit var context: BytecodeContext
+
     private lateinit var playerConstructorMethod: MutableMethod
     private var playerConstructorInsertIndex = -1
 
@@ -134,7 +138,11 @@ object VideoInformationPatch : BytecodePatch(
     internal lateinit var speedSelectionInsertMethod: MutableMethod
     internal lateinit var videoEndMethod: MutableMethod
 
-    private fun getSeekToConstructorMethod(result: MethodFingerprintResult): Pair<MutableMethod, Int> {
+    private fun getSeekToConstructorMethod(
+        result: MethodFingerprintResult,
+        methodName: String,
+        fieldName: String
+    ): Pair<MutableMethod, Int> {
         result.mutableMethod.apply {
             val constructorMethod =
                 result.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
@@ -170,17 +178,38 @@ object VideoInformationPatch : BytecodePatch(
                 ).toMutable()
             )
 
+            val smaliInstructions =
+                """
+                    if-eqz v0, :ignore
+                    invoke-virtual {v0, p0, p1}, $definingClass->seekTo(J)Z
+                    move-result v0
+                    return v0
+                    :ignore
+                    const/4 v0, 0x0
+                    return v0
+                    """
+
+            videoInformationMutableClass.addFieldAndInstructions(
+                context,
+                methodName,
+                fieldName,
+                definingClass,
+                smaliInstructions,
+                true
+            )
+
             return Pair(constructorMethod, constructorInsertIndex)
         }
     }
 
     override fun execute(context: BytecodeContext) {
-        val videoInformationMutableClass =
+        this.context = context
+        videoInformationMutableClass =
             context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
             val (playerConstructorMethod, playerConstructorInsertIndex) =
-                getSeekToConstructorMethod(it)
+                getSeekToConstructorMethod(it, "overrideVideoTime", "videoInformationClass")
 
             this.playerConstructorMethod = playerConstructorMethod
             this.playerConstructorInsertIndex = playerConstructorInsertIndex
@@ -200,7 +229,7 @@ object VideoInformationPatch : BytecodePatch(
 
         MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow().let {
             val (mdxConstructorMethod, mdxConstructorInsertIndex) =
-                getSeekToConstructorMethod(it)
+                getSeekToConstructorMethod(it, "overrideMDXVideoTime", "videoInformationMDXClass")
 
             this.mdxConstructorMethod = mdxConstructorMethod
             this.mdxConstructorInsertIndex = mdxConstructorInsertIndex
