@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.components.fingerprints
+package app.revanced.patches.shared.settingmenu.fingerprints
 
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 

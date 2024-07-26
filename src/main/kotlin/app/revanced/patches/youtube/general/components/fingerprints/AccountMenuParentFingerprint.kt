@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fingerprints
+package app.revanced.patches.youtube.general.components.fingerprints
 
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CompactLink
 import app.revanced.util.fingerprint.LiteralValueFingerprint

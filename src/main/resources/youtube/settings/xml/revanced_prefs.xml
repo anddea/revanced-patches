@@ -55,7 +55,7 @@
 	<!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
 	<PreferenceScreen android:title="@string/revanced_preference_screen_settings_menu_title" android:key="revanced_preference_screen_settings_menu" android:summary="@string/revanced_preference_screen_settings_menu_summary">
 		<SwitchPreference android:title="@string/revanced_hide_settings_menu_title" android:key="revanced_hide_settings_menu" android:defaultValue="false" android:summary="@string/revanced_hide_settings_menu_summary" />
-		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_settings_menu_filter_strings_title" android:key="revanced_hide_settings_menu_filter_strings" android:summary="@string/revanced_hide_settings_menu_filter_strings_summary" android:hint="@string/revanced_hide_settings_menu_filter_strings_hint" android:defaultValue="" android:inputType="textMultiLine" />
+		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_settings_menu_filter_strings_title" android:key="revanced_hide_settings_menu_filter_strings" android:summary="@string/revanced_hide_settings_menu_filter_strings_summary" android:hint="@string/revanced_hide_settings_menu_filter_strings_hint" android:inputType="textMultiLine" android:dependency="revanced_hide_settings_menu" />
 	</PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
 	<!-- SETTINGS: TOOLBAR_COMPONENTS
