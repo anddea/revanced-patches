@@ -5,9 +5,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.viewgroup.fingerprints.ViewGroupMarginFingerprint
 import app.revanced.patches.shared.viewgroup.fingerprints.ViewGroupMarginParentFingerprint
-import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
 import app.revanced.util.resultOrThrow
 
 @Patch(

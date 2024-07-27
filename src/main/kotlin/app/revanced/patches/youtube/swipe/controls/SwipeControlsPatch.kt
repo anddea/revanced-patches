@@ -37,7 +37,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 object SwipeControlsPatch : BaseBytecodePatch(
     name = "Swipe controls",
     description = "Adds options for controlling volume and brightness with swiping, " +
-        "and whether to enter fullscreen when swiping down below the player.",
+            "and whether to enter fullscreen when swiping down below the player.",
     dependencies = setOf(
         LockModeStateHookPatch::class,
         MainActivityResolvePatch::class,
