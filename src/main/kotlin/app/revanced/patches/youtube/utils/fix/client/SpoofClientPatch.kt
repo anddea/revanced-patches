@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVide
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.storyboard.StoryboardHookPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -30,6 +31,7 @@ import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -359,6 +361,8 @@ object SpoofClientPatch : BaseBytecodePatch(
         StoryboardHookPatch.hook(INTEGRATIONS_CLASS_DESCRIPTOR)
 
         // endregion
+
+        context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "SpoofClient")
 
         /**
          * Add settings

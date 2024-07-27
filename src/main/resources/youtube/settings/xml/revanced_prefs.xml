@@ -616,6 +616,15 @@
 			<Preference android:title="@string/revanced_spoof_client_use_android_vr_title" android:key="revanced_spoof_client_use_android_vr" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_vr_summary" android:dependency="revanced_spoof_client" />
 		</PreferenceScreen>SETTINGS: SPOOF_CLIENT -->
 
+		<!-- SETTINGS: WATCH_HISTORY
+        <PreferenceScreen android:title="@string/revanced_preference_screen_watch_history_title" android:key="revanced_preference_screen_watch_history" android:summary="@string/revanced_preference_screen_watch_history_summary">
+            <Preference android:title="@string/revanced_watch_history_management_title" android:summary="@string/revanced_watch_history_management_summary">
+                <intent android:action="android.intent.action.VIEW" android:data="https://history.google.com/history/youtube/watch" />
+            </Preference>
+            <ListPreference android:entries="@array/revanced_watch_history_type_entries" android:title="@string/revanced_watch_history_type_title" android:key="revanced_watch_history_type" android:entryValues="@array/revanced_watch_history_type_entry_values" />
+            <app.revanced.integrations.youtube.settings.preference.WatchHistoryStatusPreference android:title="@string/revanced_watch_history_about_title" />
+        </PreferenceScreen>SETTINGS: WATCH_HISTORY -->
+
 		<!-- SETTINGS: DISABLE_QUIC_PROTOCOL
 		<SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->
 
