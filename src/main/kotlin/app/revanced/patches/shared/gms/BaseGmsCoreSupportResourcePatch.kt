@@ -75,7 +75,7 @@ abstract class BaseGmsCoreSupportResourcePatch(
         required = true
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) && it != ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC }
 
-    protected val gmsCoreVendorGroupId by GmsCoreVendorGroupId
+    private val gmsCoreVendorGroupId by GmsCoreVendorGroupId
 
     override fun execute(context: ResourceContext) {
         context.patchManifest()
