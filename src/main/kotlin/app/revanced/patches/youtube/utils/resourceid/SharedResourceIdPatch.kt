@@ -117,6 +117,8 @@ object SharedResourceIdPatch : ResourcePatch() {
     var YtOutlineXWhite = -1L
     var YtPremiumWordMarkHeader = -1L
     var YtWordMarkHeader = -1L
+    var ActionsBarV2 = -1L
+    var OfflineButton = -1L
 
     override fun execute(context: ResourceContext) {
 
@@ -226,6 +228,8 @@ object SharedResourceIdPatch : ResourcePatch() {
         YtOutlineXWhite = getId(DRAWABLE, "yt_outline_x_white_24")
         YtPremiumWordMarkHeader = getId(ATTR, "ytPremiumWordmarkHeader")
         YtWordMarkHeader = getId(ATTR, "ytWordmarkHeader")
+        ActionsBarV2 = getId(ID, "actions_bar_v2")
+        OfflineButton = getId(ID, "offline_button")
 
     }
 }

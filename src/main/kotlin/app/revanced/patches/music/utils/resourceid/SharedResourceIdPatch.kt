@@ -39,8 +39,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var MusicTasteBuilderShelf = -1L
     var NamesInactiveAccountThumbnailSize = -1L
     var OfflineSettingsMenuItem = -1L
-    var ActionsBarV2 = -1L
-    var OfflineButton = -1L
     var PlayerOverlayChip = -1L
     var PrivacyTosFooter = -1L
     var QualityAuto = -1L
@@ -83,8 +81,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         MusicTasteBuilderShelf = getId(LAYOUT, "music_tastebuilder_shelf")
         NamesInactiveAccountThumbnailSize = getId(DIMEN, "names_inactive_account_thumbnail_size")
         OfflineSettingsMenuItem = getId(ID, "offline_settings_menu_item")
-        ActionsBarV2 = getId(ID, "actions_bar_v2")
-        OfflineButton = getId(ID, "offline_button")
         PlayerOverlayChip = getId(ID, "player_overlay_chip")
         PrivacyTosFooter = getId(ID, "privacy_tos_footer")
         QualityAuto = getId(STRING, "quality_auto")

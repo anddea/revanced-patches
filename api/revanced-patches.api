@@ -336,7 +336,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun getAccountSwitcherAccessibility ()J
-	public final fun getActionsBarV2 ()J
 	public final fun getAudioVideoSwitchToggle ()J
 	public final fun getButtonContainer ()J
 	public final fun getButtonIconPaddingMedium ()J
@@ -359,7 +358,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getMusicNotifierShelf ()J
 	public final fun getMusicTasteBuilderShelf ()J
 	public final fun getNamesInactiveAccountThumbnailSize ()J
-	public final fun getOfflineButton ()J
 	public final fun getOfflineSettingsMenuItem ()J
 	public final fun getPlayerOverlayChip ()J
 	public final fun getPrivacyTosFooter ()J
@@ -377,7 +375,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getTrimSilenceSwitch ()J
 	public final fun getVarispeedUnavailableTitle ()J
 	public final fun setAccountSwitcherAccessibility (J)V
-	public final fun setActionsBarV2 (J)V
 	public final fun setAudioVideoSwitchToggle (J)V
 	public final fun setButtonContainer (J)V
 	public final fun setButtonIconPaddingMedium (J)V
@@ -400,7 +397,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setMusicNotifierShelf (J)V
 	public final fun setMusicTasteBuilderShelf (J)V
 	public final fun setNamesInactiveAccountThumbnailSize (J)V
-	public final fun setOfflineButton (J)V
 	public final fun setOfflineSettingsMenuItem (J)V
 	public final fun setPlayerOverlayChip (J)V
 	public final fun setPrivacyTosFooter (J)V
@@ -1502,6 +1498,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getActionBarRingo ()J
 	public final fun getActionBarRingoBackground ()J
 	public final fun getActionBarSearchResultsViewMic ()J
+	public final fun getActionsBarV2 ()J
 	public final fun getAdAttribution ()J
 	public final fun getAppRelatedEndScreenResults ()J
 	public final fun getAppearance ()J
@@ -1556,6 +1553,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getNotice ()J
 	public final fun getNotificationBigPictureIconWidth ()J
 	public final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
+	public final fun getOfflineButton ()J
 	public final fun getPlayerCollapseButton ()J
 	public final fun getPlayerVideoTitleView ()J
 	public final fun getPosterArtWidthDefault ()J
@@ -1602,6 +1600,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setActionBarRingo (J)V
 	public final fun setActionBarRingoBackground (J)V
 	public final fun setActionBarSearchResultsViewMic (J)V
+	public final fun setActionsBarV2 (J)V
 	public final fun setAdAttribution (J)V
 	public final fun setAppRelatedEndScreenResults (J)V
 	public final fun setAppearance (J)V
@@ -1656,6 +1655,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setNotice (J)V
 	public final fun setNotificationBigPictureIconWidth (J)V
 	public final fun setOfflineActionsVideoDeletedUndoSnackbarText (J)V
+	public final fun setOfflineButton (J)V
 	public final fun setPlayerCollapseButton (J)V
 	public final fun setPlayerVideoTitleView (J)V
 	public final fun setPosterArtWidthDefault (J)V
