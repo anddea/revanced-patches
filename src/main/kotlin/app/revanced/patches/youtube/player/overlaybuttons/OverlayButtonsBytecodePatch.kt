@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Offli
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -106,12 +107,12 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
             val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
             targetMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.CONST_16 }
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 replaceInstruction(
                     insertIndex,
-                    "const/16 v$insertRegister, 0x0"
+                    "invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V"
                 )
             }
         }
