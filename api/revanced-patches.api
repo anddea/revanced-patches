@@ -336,6 +336,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 	public final fun getAccountSwitcherAccessibility ()J
+	public final fun getActionsBarV2 ()J
 	public final fun getAudioVideoSwitchToggle ()J
 	public final fun getButtonContainer ()J
 	public final fun getButtonIconPaddingMedium ()J
@@ -358,6 +359,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getMusicNotifierShelf ()J
 	public final fun getMusicTasteBuilderShelf ()J
 	public final fun getNamesInactiveAccountThumbnailSize ()J
+	public final fun getOfflineButton ()J
 	public final fun getOfflineSettingsMenuItem ()J
 	public final fun getPlayerOverlayChip ()J
 	public final fun getPrivacyTosFooter ()J
@@ -375,6 +377,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getTrimSilenceSwitch ()J
 	public final fun getVarispeedUnavailableTitle ()J
 	public final fun setAccountSwitcherAccessibility (J)V
+	public final fun setActionsBarV2 (J)V
 	public final fun setAudioVideoSwitchToggle (J)V
 	public final fun setButtonContainer (J)V
 	public final fun setButtonIconPaddingMedium (J)V
@@ -397,6 +400,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setMusicNotifierShelf (J)V
 	public final fun setMusicTasteBuilderShelf (J)V
 	public final fun setNamesInactiveAccountThumbnailSize (J)V
+	public final fun setOfflineButton (J)V
 	public final fun setOfflineSettingsMenuItem (J)V
 	public final fun setPlayerOverlayChip (J)V
 	public final fun setPrivacyTosFooter (J)V
@@ -1248,6 +1252,14 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayBut
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/ActivateDownloadButtonFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/ActivateDownloadButtonFingerprint;
+}
+
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickFingerprint;
 }
 
 public final class app/revanced/patches/youtube/player/seekbar/SeekbarComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {

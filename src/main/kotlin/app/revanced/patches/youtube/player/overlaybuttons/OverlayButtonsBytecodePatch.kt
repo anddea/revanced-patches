@@ -8,24 +8,24 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ActionsBarV2
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.OfflineButton
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.*
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.OfflineVideoEndpointFingerprint
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.PiPPlaybackFingerprint
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.PlayerButtonConstructorFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.addFieldAndInstructions
-import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.resultOrThrow
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -40,7 +40,9 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
     setOf(
         OfflineVideoEndpointFingerprint,
         PiPPlaybackFingerprint,
-        PlayerButtonConstructorFingerprint
+        PlayerButtonConstructorFingerprint,
+        PlaylistOfflineDownloadOnClickFingerprint,
+        ActivateDownloadButtonFingerprint
     )
 ) {
     private const val INTEGRATIONS_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
@@ -48,6 +50,9 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
 
     private const val INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR =
         "$INTEGRATIONS_PATH/utils/VideoUtils;"
+
+    private const val INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR =
+        "$MISC_PATH/DownloadPlaylistButton;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -62,6 +67,38 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
                     return-void
                     """, ExternalLabel("show_native_downloader", getInstruction(0))
             )
+        }
+
+        // Get playlistId and startPlaylistDownloadActivity
+        ActivateDownloadButtonFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.IGET_OBJECT }
+
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex + 2,
+                    """
+                        invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->enablePlaylistDownloadButton(I)I
+                        move-result v$insertRegister
+                    """.trimIndent()
+                )
+            }
+        }
+
+        // set download button visible
+        PlaylistOfflineDownloadOnClickFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = getWideLiteralInstructionIndex(OfflineButton) + 3
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V
+                    """.trimIndent()
+                )
+            }
         }
 
         PiPPlaybackFingerprint.resultOrThrow().let {
