@@ -1258,6 +1258,14 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprin
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickFingerprint;
 }
 
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickV1Fingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickV1Fingerprint;
+}
+
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint;
+}
+
 public final class app/revanced/patches/youtube/player/seekbar/SeekbarComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/seekbar/SeekbarComponentsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1494,10 +1502,12 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/resourceid/SharedResourceIdPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getAccessibilityOfflineButtonSync ()J
 	public final fun getAccountSwitcherAccessibility ()J
 	public final fun getActionBarRingo ()J
 	public final fun getActionBarRingoBackground ()J
 	public final fun getActionBarSearchResultsViewMic ()J
+	public final fun getActionsBar ()J
 	public final fun getActionsBarV2 ()J
 	public final fun getAdAttribution ()J
 	public final fun getAppRelatedEndScreenResults ()J
@@ -1596,10 +1606,12 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getYtOutlineXWhite ()J
 	public final fun getYtPremiumWordMarkHeader ()J
 	public final fun getYtWordMarkHeader ()J
+	public final fun setAccessibilityOfflineButtonSync (J)V
 	public final fun setAccountSwitcherAccessibility (J)V
 	public final fun setActionBarRingo (J)V
 	public final fun setActionBarRingoBackground (J)V
 	public final fun setActionBarSearchResultsViewMic (J)V
+	public final fun setActionsBar (J)V
 	public final fun setActionsBarV2 (J)V
 	public final fun setAdAttribution (J)V
 	public final fun setAppRelatedEndScreenResults (J)V

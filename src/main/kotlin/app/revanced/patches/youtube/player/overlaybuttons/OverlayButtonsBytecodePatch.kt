@@ -1,9 +1,11 @@
 package app.revanced.patches.youtube.player.overlaybuttons
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
@@ -37,6 +39,8 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         PiPPlaybackFingerprint,
         PlayerButtonConstructorFingerprint,
         PlaylistOfflineDownloadOnClickFingerprint,
+        PlaylistOfflineDownloadOnClickV1Fingerprint,
+        SetVisibilityOfflineArrowViewFingerprint,
         ActivateDownloadButtonFingerprint
     )
 ) {
@@ -82,19 +86,37 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         }
 
         // set download button visible
-        PlaylistOfflineDownloadOnClickFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = getWideLiteralInstructionIndex(OfflineButton) + 3
+        setOf(
+            PlaylistOfflineDownloadOnClickFingerprint,
+            PlaylistOfflineDownloadOnClickV1Fingerprint
+        ).forEach { fingerPrint ->
+            fingerPrint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val insertIndex = getWideLiteralInstructionIndex(OfflineButton) + 3
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstruction(
+                        insertIndex,
+                        "invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V"
+                    )
+                }
+            }
+        }
+
+        SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
+            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
+            targetMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.CONST_16 }
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
+                replaceInstruction(
                     insertIndex,
-                    """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V
-                    """.trimIndent()
+                    "const/16 v$insertRegister, 0x0"
                 )
             }
         }
+
+
 
         PiPPlaybackFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
