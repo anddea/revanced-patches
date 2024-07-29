@@ -34,7 +34,7 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         OfflineVideoEndpointFingerprint,
         PiPPlaybackFingerprint,
         PlayerButtonConstructorFingerprint,
-        SetVisibilityOfflineArrowViewFingerprint,
+        AccessibilityOfflineButtonSyncFingerprint,
         HookDownloadPlaylistButtonFingerprint
     )
 ) {
