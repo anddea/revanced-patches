@@ -1278,8 +1278,8 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprin
 	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
 }
 
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint;
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/AccessibilityOfflineButtonSyncFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/AccessibilityOfflineButtonSyncFingerprint;
 }
 
 public final class app/revanced/patches/youtube/player/seekbar/SeekbarComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
