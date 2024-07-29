@@ -17,8 +17,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternative domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube.
 
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown.
@@ -60,6 +58,8 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Ambient mode is disabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Ambient mode is enabled in battery saver mode.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypass Ambient mode restrictions</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternative domain</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host.\n\nEnabling this can fix missing images that are blocked in some regions.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
@@ -415,6 +415,9 @@ Store"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Shown in subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Hidden in subscriptions feed.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Hide in subscriptions feed</string>
+    <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
+    <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
+    <string name="revanced_hide_contents_section_title">Hide Contents section</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden.</string>
     <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -924,6 +927,9 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_web_search_results_summary_off">Web search results are shown.</string>
     <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden.</string>
     <string name="revanced_hide_web_search_results_title">Hide web search results</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Zoom overlay is shown.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Zoom overlay is hidden.</string>
+    <string name="revanced_hide_zoom_overlay_title">Hide zoom overlay</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">Custom</string>
@@ -937,6 +943,7 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced after the screen in turned on.</string>
@@ -1079,6 +1086,8 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_screen_video_filter_summary">Hide videos by keywords or views.</string>
     <string name="revanced_preference_screen_video_filter_title">Video filter</string>
     <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_preference_screen_watch_history_summary">Change settings related with watch history.</string>
+    <string name="revanced_preference_screen_watch_history_title">Watch history</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32. Reset to default values.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure the spacing from the seekbar to the quick action container, between 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Quick actions top margin</string>
@@ -1214,10 +1223,10 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Set %s as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_mark_end">end</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first.</string>
     <string name="revanced_sb_new_segment_mark_start">start</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Set %1$02d:%2$02d:%3$03d as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_now">now</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly.</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
@@ -1364,6 +1373,7 @@ Info:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Toast is not shown.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Toast is shown.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Show a toast when skipping</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Turning on this setting may cause video playback issues.</string>
     <string name="revanced_skipped_preloaded_buffer">Skipped preloaded buffer.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Speed overlay value must be between 0-8.0. Reset to default values.</string>
     <string name="revanced_speed_overlay_value_summary">Speed overlay value between 0-8.0.</string>
@@ -1437,11 +1447,9 @@ Side effects include:
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
-• No HDR video.
-• Higher video qualities may not be available.
+• HDR video is supported only on AV1 codec.
 • Watch history does not work with a brand account.
-• Live streams cannot play as audio-only.
-• Live streams not available on Android 8.0."</string>
+• Live streams cannot play as audio-only."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
@@ -1484,6 +1492,24 @@ Limitations:
 • You should disable this setting to make video ads visible."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Swap Create and Notifications buttons</string>
     <string name="revanced_theme_default">Stock</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Follows the watch history settings of Google account.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Watch history does not work.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Follows the watch history settings of Google account.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_title">About watch history</string>
+    <string name="revanced_watch_history_management_summary">Click to open the YouTube watch history management.</string>
+    <string name="revanced_watch_history_management_title">Manage all history</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Replace domain</string>
+    <string name="revanced_watch_history_type_entry_3">Block watch history</string>
+    <string name="revanced_watch_history_type_title">Watch history type</string>
     <string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
     <string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
     <string name="revanced_whitelist_empty">There are no whitelisted channels.</string>

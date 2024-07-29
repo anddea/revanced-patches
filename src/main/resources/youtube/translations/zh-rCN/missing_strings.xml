@@ -1,19 +1,41 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host.\n\nEnabling this can fix missing images that are blocked in some regions.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-    <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
-    <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
-    <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
+    <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
+    <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
+    <string name="revanced_hide_contents_section_title">Hide Contents section</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Zoom overlay is shown.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Zoom overlay is hidden.</string>
+    <string name="revanced_hide_zoom_overlay_title">Hide zoom overlay</string>
     <string name="revanced_icon_mmt_blue">MMT Blue</string>
     <string name="revanced_icon_mmt_green">MMT Green</string>
     <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
-    <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
+    <string name="revanced_preference_screen_watch_history_summary">Change settings related with watch history.</string>
+    <string name="revanced_preference_screen_watch_history_title">Watch history</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Set %s as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Turning on this setting may cause video playback issues.</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Follows the watch history settings of Google account.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Watch history does not work.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Follows the watch history settings of Google account.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_title">About watch history</string>
+    <string name="revanced_watch_history_management_summary">Click to open the YouTube watch history management.</string>
+    <string name="revanced_watch_history_management_title">Manage all history</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Replace domain</string>
+    <string name="revanced_watch_history_type_entry_3">Block watch history</string>
+    <string name="revanced_watch_history_type_title">Watch history type</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
 </resources>

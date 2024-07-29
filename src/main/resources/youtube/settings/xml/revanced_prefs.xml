@@ -55,7 +55,7 @@
 	<!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
 	<PreferenceScreen android:title="@string/revanced_preference_screen_settings_menu_title" android:key="revanced_preference_screen_settings_menu" android:summary="@string/revanced_preference_screen_settings_menu_summary">
 		<SwitchPreference android:title="@string/revanced_hide_settings_menu_title" android:key="revanced_hide_settings_menu" android:defaultValue="false" android:summary="@string/revanced_hide_settings_menu_summary" />
-		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_settings_menu_filter_strings_title" android:key="revanced_hide_settings_menu_filter_strings" android:summary="@string/revanced_hide_settings_menu_filter_strings_summary" android:hint="@string/revanced_hide_settings_menu_filter_strings_hint" android:defaultValue="" android:inputType="textMultiLine" />
+		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_settings_menu_filter_strings_title" android:key="revanced_hide_settings_menu_filter_strings" android:summary="@string/revanced_hide_settings_menu_filter_strings_summary" android:hint="@string/revanced_hide_settings_menu_filter_strings_hint" android:inputType="textMultiLine" android:dependency="revanced_hide_settings_menu" />
 	</PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
 	<!-- SETTINGS: TOOLBAR_COMPONENTS
@@ -419,6 +419,7 @@
 	<!-- SETTINGS: DESCRIPTION_COMPONENTS
 	<SwitchPreference android:title="@string/revanced_hide_attributes_section_title" android:key="revanced_hide_attributes_section" android:summaryOn="@string/revanced_hide_attributes_section_summary_on" android:summaryOff="@string/revanced_hide_attributes_section_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_chapters_section_title" android:key="revanced_hide_chapters_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_chapters_section_summary_on" android:summaryOff="@string/revanced_hide_chapters_section_summary_off" />
+	<SwitchPreference android:title="@string/revanced_hide_contents_section_title" android:key="revanced_hide_contents_section" android:summaryOn="@string/revanced_hide_contents_section_summary_on" android:summaryOff="@string/revanced_hide_contents_section_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_info_cards_section_title" android:key="revanced_hide_info_cards_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_info_cards_section_summary_on" android:summaryOff="@string/revanced_hide_info_cards_section_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_key_concepts_section_title" android:key="revanced_hide_key_concepts_section" android:summaryOn="@string/revanced_hide_key_concepts_section_summary_on" android:summaryOff="@string/revanced_hide_key_concepts_section_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_podcast_section_title" android:key="revanced_hide_podcast_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_podcast_section_summary_on" android:summaryOff="@string/revanced_hide_podcast_section_summary_off" />
@@ -454,7 +455,8 @@
 	<SwitchPreference android:title="@string/revanced_hide_suggested_actions_title" android:key="revanced_hide_suggested_actions" android:summaryOn="@string/revanced_hide_suggested_actions_summary_on" android:summaryOff="@string/revanced_hide_suggested_actions_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_timed_reactions_title" android:key="revanced_hide_timed_reactions" android:summaryOn="@string/revanced_hide_timed_reactions_summary_on" android:summaryOff="@string/revanced_hide_timed_reactions_summary_off" />
 	<SwitchPreference android:title="@string/revanced_hide_suggested_video_end_screen_title" android:key="revanced_hide_suggested_video_end_screen" android:summaryOn="@string/revanced_hide_suggested_video_end_screen_summary_on" android:summaryOff="@string/revanced_hide_suggested_video_end_screen_summary_off" />
-	<SwitchPreference android:title="@string/revanced_skip_autoplay_countdown_title" android:key="revanced_skip_autoplay_countdown" android:defaultValue="false" android:summaryOn="@string/revanced_skip_autoplay_countdown_summary_on" android:summaryOff="@string/revanced_skip_autoplay_countdown_summary_off" />SETTINGS: PLAYER_COMPONENTS -->
+	<SwitchPreference android:title="@string/revanced_skip_autoplay_countdown_title" android:key="revanced_skip_autoplay_countdown" android:summaryOn="@string/revanced_skip_autoplay_countdown_summary_on" android:summaryOff="@string/revanced_skip_autoplay_countdown_summary_off" />
+	<SwitchPreference android:title="@string/revanced_hide_zoom_overlay_title" android:key="revanced_hide_zoom_overlay" android:summaryOn="@string/revanced_hide_zoom_overlay_summary_on" android:summaryOff="@string/revanced_hide_zoom_overlay_summary_off" />SETTINGS: PLAYER_COMPONENTS -->
 
 	<!-- PREFERENCE_SCREEN: PLAYER
 	</PreferenceScreen>PREFERENCE_SCREEN: PLAYER -->
@@ -616,6 +618,15 @@
 			<Preference android:title="@string/revanced_spoof_client_use_android_tv_title" android:key="revanced_spoof_client_use_android_tv" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_tv_summary" android:dependency="revanced_spoof_client" />
 			<Preference android:title="@string/revanced_spoof_client_use_android_vr_title" android:key="revanced_spoof_client_use_android_vr" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_vr_summary" android:dependency="revanced_spoof_client" />
 		</PreferenceScreen>SETTINGS: SPOOF_CLIENT -->
+
+		<!-- SETTINGS: WATCH_HISTORY
+        <PreferenceScreen android:title="@string/revanced_preference_screen_watch_history_title" android:key="revanced_preference_screen_watch_history" android:summary="@string/revanced_preference_screen_watch_history_summary">
+            <Preference android:title="@string/revanced_watch_history_management_title" android:summary="@string/revanced_watch_history_management_summary">
+                <intent android:action="android.intent.action.VIEW" android:data="https://history.google.com/history/youtube/watch" />
+            </Preference>
+            <ListPreference android:entries="@array/revanced_watch_history_type_entries" android:title="@string/revanced_watch_history_type_title" android:key="revanced_watch_history_type" android:entryValues="@array/revanced_watch_history_type_entry_values" />
+            <app.revanced.integrations.youtube.settings.preference.WatchHistoryStatusPreference android:title="@string/revanced_watch_history_about_title" />
+        </PreferenceScreen>SETTINGS: WATCH_HISTORY -->
 
 		<!-- SETTINGS: DISABLE_QUIC_PROTOCOL
 		<SwitchPreference android:title="@string/revanced_disable_quic_protocol_title" android:key="revanced_disable_quic_protocol" android:defaultValue="false" android:summary="@string/revanced_disable_quic_protocol_summary" />SETTINGS: DISABLE_QUIC_PROTOCOL -->

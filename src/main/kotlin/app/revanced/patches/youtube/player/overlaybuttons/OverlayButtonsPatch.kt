@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.player.overlaybuttons
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fix.bottomui.CfBottomUIPatch
@@ -38,15 +39,15 @@ object OverlayButtonsPatch : BaseResourcePatch(
     private const val DEFAULT_MARGIN = "0.0dip"
     private const val WIDER_MARGIN = "6.0dip"
 
-    private const val DEFAULT_ICON = "bold"
+    private const val DEFAULT_ICON = "rounded"
 
     // Option to select icon type
     private val IconType = stringPatchOption(
         key = "IconType",
         default = DEFAULT_ICON,
         values = mapOf(
-            "Bold" to DEFAULT_ICON,
-            "Rounded" to "rounded",
+            "Bold" to "bold",
+            "Rounded" to DEFAULT_ICON,
             "Thin" to "thin"
         ),
         title = "Icon type",
@@ -64,6 +65,15 @@ object OverlayButtonsPatch : BaseResourcePatch(
         ),
         title = "Bottom margin",
         description = "The bottom margin for the overlay buttons and timestamp.",
+        required = true
+    )
+
+    // Option to change top buttons
+    private val ChangeTopButtons by booleanPatchOption(
+        key = "ChangeTopButtons",
+        default = false,
+        title = "Change top buttons",
+        description = "Change the icons at the top of the player.",
         required = true
     )
 
@@ -206,6 +216,28 @@ object OverlayButtonsPatch : BaseResourcePatch(
                         }
                     }
                 }
+            }
+        }
+
+        if (ChangeTopButtons == true) {
+            // Apply the selected icon type to the top buttons.
+            arrayOf(
+                "xxxhdpi",
+                "xxhdpi",
+                "xhdpi",
+                "hdpi",
+                "mdpi"
+            ).forEach { dpi ->
+                context.copyResources(
+                    "youtube/overlaybuttons/$iconType",
+                    ResourceGroup(
+                        "drawable-$dpi",
+                        "yt_outline_gear_white_24.png",
+                        "quantum_ic_closed_caption_off_grey600_24.png",
+                        "quantum_ic_closed_caption_off_white_24.png",
+                        "quantum_ic_closed_caption_white_24.png"
+                    )
+                )
             }
         }
 

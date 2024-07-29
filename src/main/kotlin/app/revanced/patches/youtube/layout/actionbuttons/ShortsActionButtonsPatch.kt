@@ -24,10 +24,10 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
         default = DEFAULT_ICON,
         values = mapOf(
             "Outline" to "outline",
-            "OriginalOutline" to "originaloutline",
             "OutlineCircle" to "outlinecircle",
             "Round" to DEFAULT_ICON,
-            "YouTube" to YOUTUBE_ICON
+            "YouTube" to YOUTUBE_ICON,
+            "YouTubeOutline" to "youtubeoutline",
         ),
         title = "Shorts icon style ",
         description = "The style of the icons for the action buttons in the Shorts player.",

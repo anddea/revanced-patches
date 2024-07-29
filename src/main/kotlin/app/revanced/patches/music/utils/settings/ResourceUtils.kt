@@ -156,7 +156,8 @@ object ResourceUtils {
         key: String,
         defaultValue: String,
         dependencyKey: String,
-        setSummary: Boolean
+        setSummary: Boolean,
+        setSummaryOnOff: Boolean
     ) {
         this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -169,6 +170,10 @@ object ResourceUtils {
                         setAttribute("android:title", "@string/$key" + "_title")
                         if (setSummary) {
                             setAttribute("android:summary", "@string/$key" + "_summary")
+                        }
+                        if (setSummaryOnOff) {
+                            setAttribute("android:summaryOn", "@string/$key" + "_summary_on")
+                            setAttribute("android:summaryOff", "@string/$key" + "_summary_off")
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)
