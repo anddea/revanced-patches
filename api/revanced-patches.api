@@ -1250,18 +1250,6 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayBut
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/ActivateDownloadButtonFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/ActivateDownloadButtonFingerprint;
-}
-
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickFingerprint;
-}
-
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickV1Fingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/PlaylistOfflineDownloadOnClickV1Fingerprint;
-}
-
 public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint;
 }
@@ -1507,8 +1495,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getActionBarRingo ()J
 	public final fun getActionBarRingoBackground ()J
 	public final fun getActionBarSearchResultsViewMic ()J
-	public final fun getActionsBar ()J
-	public final fun getActionsBarV2 ()J
 	public final fun getAdAttribution ()J
 	public final fun getAppRelatedEndScreenResults ()J
 	public final fun getAppearance ()J
@@ -1563,7 +1549,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getNotice ()J
 	public final fun getNotificationBigPictureIconWidth ()J
 	public final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
-	public final fun getOfflineButton ()J
 	public final fun getPlayerCollapseButton ()J
 	public final fun getPlayerVideoTitleView ()J
 	public final fun getPosterArtWidthDefault ()J
@@ -1611,8 +1596,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setActionBarRingo (J)V
 	public final fun setActionBarRingoBackground (J)V
 	public final fun setActionBarSearchResultsViewMic (J)V
-	public final fun setActionsBar (J)V
-	public final fun setActionsBarV2 (J)V
 	public final fun setAdAttribution (J)V
 	public final fun setAppRelatedEndScreenResults (J)V
 	public final fun setAppearance (J)V
@@ -1667,7 +1650,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setNotice (J)V
 	public final fun setNotificationBigPictureIconWidth (J)V
 	public final fun setOfflineActionsVideoDeletedUndoSnackbarText (J)V
-	public final fun setOfflineButton (J)V
 	public final fun setPlayerCollapseButton (J)V
 	public final fun setPlayerVideoTitleView (J)V
 	public final fun setPosterArtWidthDefault (J)V

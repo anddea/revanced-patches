@@ -1,26 +1,25 @@
 package app.revanced.patches.youtube.player.overlaybuttons
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.*
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.OfflineVideoEndpointFingerprint
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.PiPPlaybackFingerprint
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.PlayerButtonConstructorFingerprint
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.SetVisibilityOfflineArrowViewFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.OfflineButton
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -39,10 +38,7 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
         OfflineVideoEndpointFingerprint,
         PiPPlaybackFingerprint,
         PlayerButtonConstructorFingerprint,
-        PlaylistOfflineDownloadOnClickFingerprint,
-        PlaylistOfflineDownloadOnClickV1Fingerprint,
-        SetVisibilityOfflineArrowViewFingerprint,
-        ActivateDownloadButtonFingerprint
+        SetVisibilityOfflineArrowViewFingerprint
     )
 ) {
     private const val INTEGRATIONS_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
@@ -69,55 +65,22 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
             )
         }
 
-        // Get playlistId and startPlaylistDownloadActivity
-        ActivateDownloadButtonFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.IGET_OBJECT }
+        SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
 
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
+            val targetMethod = it.mutableClass.methods.first { method ->
+                method.parameters == listOf("Ljava/lang/Boolean;")
+                        && method.returnType == "V"
+            }
+            targetMethod.apply {
                 addInstructions(
-                    insertIndex + 2,
+                    2,
                     """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->enablePlaylistDownloadButton(I)I
-                        move-result v$insertRegister
+                    invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility()Z
+                    move-result p1
                     """.trimIndent()
                 )
             }
         }
-
-        // set download button visible
-        setOf(
-            PlaylistOfflineDownloadOnClickFingerprint,
-            PlaylistOfflineDownloadOnClickV1Fingerprint
-        ).forEach { fingerPrint ->
-            fingerPrint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val insertIndex = getWideLiteralInstructionIndex(OfflineButton) + 3
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                    addInstruction(
-                        insertIndex,
-                        "invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V"
-                    )
-                }
-            }
-        }
-
-        SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
-            val targetMethod = it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
-            targetMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
-                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-                replaceInstruction(
-                    insertIndex,
-                    "invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->setPlaylistDownloadButtonVisibility(Landroid/view/View;)V"
-                )
-            }
-        }
-
-
 
         PiPPlaybackFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
