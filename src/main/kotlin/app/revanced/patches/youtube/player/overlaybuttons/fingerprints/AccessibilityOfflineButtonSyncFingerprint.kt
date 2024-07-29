@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Acces
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object SetVisibilityOfflineArrowViewFingerprint : LiteralValueFingerprint(
+object AccessibilityOfflineButtonSyncFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     literalSupplier = { AccessibilityOfflineButtonSync }
