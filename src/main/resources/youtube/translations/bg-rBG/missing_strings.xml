@@ -54,6 +54,9 @@ Limitations:
     <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, and Music sections are shown.</string>
     <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, and Music sections are hidden.</string>
     <string name="revanced_hide_attributes_section_title">Hide Attributes section</string>
+    <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
+    <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
+    <string name="revanced_hide_contents_section_title">Hide Contents section</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">Double-tap overlay filter is shown.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">Double-tap overlay filter is hidden.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Hide double-tap overlay filter</string>
@@ -104,6 +107,9 @@ Side effect: Community post images may be blocked in fullscreen."</string>
 
 Autoplay can be changed in YouTube settings:
 Settings → Autoplay → Autoplay next video"</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Zoom overlay is shown.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Zoom overlay is hidden.</string>
+    <string name="revanced_hide_zoom_overlay_title">Hide zoom overlay</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_mmt_blue">MMT Blue</string>
@@ -157,6 +163,8 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
     <string name="revanced_preference_screen_spoof_client_summary">Spoof the client to prevent playback issues.</string>
     <string name="revanced_preference_screen_spoof_client_title">Spoof client</string>
+    <string name="revanced_preference_screen_watch_history_summary">Change settings related with watch history.</string>
+    <string name="revanced_preference_screen_watch_history_title">Watch history</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Quick actions top margin must be between 0-32. Reset to default values.</string>
     <string name="revanced_replace_channel_handle_summary_off">Channel handle is used.</string>
     <string name="revanced_replace_channel_handle_summary_on">Channel name is used.</string>
@@ -165,6 +173,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Set %s as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
@@ -179,6 +188,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Meta panel bottom margin</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Press and hold the timestamp to change the Shorts repeat status.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Timestamp long press action</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Turning on this setting may cause video playback issues.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Speed overlay value must be between 0-8.0. Reset to default values.</string>
     <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
     <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
@@ -234,16 +244,32 @@ Side effects include:
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
-• No HDR video.
-• Higher video qualities may not be available.
+• HDR video is supported only on AV1 codec.
 • Watch history does not work with a brand account.
-• Live streams cannot play as audio-only.
-• Live streams not available on Android 8.0."</string>
+• Live streams cannot play as audio-only."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Swipeable area size cannot be more than 50. Reset to default value.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Percentage of swipeable screen area.\n\nNote: This will also change the size of the screen area for the double-tap-to-seek gesture.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Swipe overlay screen size</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Follows the watch history settings of Google account.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Watch history does not work.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Follows the watch history settings of Google account.
+• Watch history may not work due to DNS or VPN.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Follows the watch history settings of Google account.
+• Watch history may not work with a brand account.
+(Spoof client setting is turned on and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_title">About watch history</string>
+    <string name="revanced_watch_history_management_summary">Click to open the YouTube watch history management.</string>
+    <string name="revanced_watch_history_management_title">Manage all history</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Replace domain</string>
+    <string name="revanced_watch_history_type_entry_3">Block watch history</string>
+    <string name="revanced_watch_history_type_title">Watch history type</string>
     <string name="revanced_whitelist_add_failed">Failed to add channel \'%1$s\' to the %2$s whitelist.</string>
     <string name="revanced_whitelist_added">Channel \'%1$s\' was added to the %2$s whitelist.</string>
     <string name="revanced_whitelist_empty">There are no whitelisted channels.</string>
@@ -257,4 +283,5 @@ Side effects include:
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
 </resources>

@@ -16,8 +16,6 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_settings_summary">Bildirimleri alabilmek için bulut mesajlaşmayı etkinleştirin.</string>
     <string name="gms_core_settings_title">GmsCore\'yi aç</string>
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Resimlerin alınacağı alan adı.\nNot: Yalnızca alan adını girin, yani \"https\:\/\/\" öneki olmadan.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatif alan adı</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları için kitle kaynaklı kapak fotoğrafları sağlar. Bu kapak fotoğrafları genellikle YouTube tarafından sağlananlardan daha alakalıdır. Etkinleştirilirse video URL'leri API sunucusuna gönderilir ve başka veri gönderilmez.
 
 DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
@@ -57,6 +55,8 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Güç tasarrufu modundayken ambiyans modu kullanılamıyor.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Güç tasarrufu modundayken ambiyans modu kullanılabilir.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ambiyans modu kısıtlamalarını atlayın</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Resimlerin alınacağı alan adı.\nNot: Yalnızca alan adını girin, yani \"https\:\/\/\" öneki olmadan.</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatif alan adı</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Orijinal resim barındırıcısı kullanılıyor.\n\nBunun etkinleştirilmesi bazı bölgelerde engellenen eksik resimleri düzeltebilir.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Yt4.ggpht.com resim sunucusu kullanılıyor.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
@@ -395,6 +395,9 @@ Mağaza"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Abonelikler sayfasında topluluk gönderileri gösteriliyor</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Abonelikler sayfasında topluluk gönderileri gizleniyor</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Abonelikler kısmında topluluk gönderilerini gizle</string>
+    <string name="revanced_hide_contents_section_summary_off">Bu içeriğin nasıl yapıldığı bölümü gizlenmiyor.</string>
+    <string name="revanced_hide_contents_section_summary_on">Bu içeriğin nasıl yapıldığı bölümü gizlidir.</string>
+    <string name="revanced_hide_contents_section_title">İçerikler bölümünü gizle</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Bağış etkinliği menüleri gösteriliyor</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Bağış etkinliği menüleri gizleniyor</string>
     <string name="revanced_hide_crowdfunding_box_title">Video altındaki bağış etkinliklerini gizle</string>
@@ -1181,7 +1184,6 @@ Bir örnek görmek için buraya dokunun.</string>
     <string name="revanced_sb_new_segment_mark_end">bitiş</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Öncelikle zaman çizgisinde iki konum işaretleyin.</string>
     <string name="revanced_sb_new_segment_mark_start">başlangıç</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
     <string name="revanced_sb_new_segment_now">şimdi</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Segmenti önizleyin ve sorunsuz bir şekilde atladığından emin olun.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Başlangıç, bitişten önce olmalıdır</string>
@@ -1325,6 +1327,7 @@ Sınırlama: Tıklandığında video başlığı kayboluyor."</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Gizleniyor</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Gizlenmiyor</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Bir kısım atlanırken uyarı ver</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Bu ayarı etkinleştirmek video oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_skipped_preloaded_buffer">Önceden yüklenmiş arabellek atlandı.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Hız arayüzü değeri 0 ila 8.0 arasında olmalıdır. Varsayılan değere sıfırlandı.</string>
     <string name="revanced_speed_overlay_value_summary">0-8.0 arası hız kaydırma değeri.</string>

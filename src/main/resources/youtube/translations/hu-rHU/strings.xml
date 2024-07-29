@@ -10,8 +10,6 @@
     <string name="gms_core_settings_summary">Engedélyezze a felhő alapú üzenetküldést az értesítések fogadásához.</string>
     <string name="gms_core_settings_title">GmsCore megnyitása</string>
     <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">A domain, ahonnan a képeket le lehet hívni.\nMegjegyzés: Csak a domainnevet írd be, azaz a \"https\:\/\/\" előtag nélkül.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatív domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"A DeArrow közösségi bélyegképeket biztosít a YouTube videókhoz. Ezek a bélyegképek gyakran helytállóbbak, mint a YouTube által biztosítottak.
 
 Ha engedélyezve van, a videó URL-je elküldésre kerül az API szerverre, de más adat nem lesz elküldve. Ha egy videónak nincs DeArrow bélyegképe, akkor az eredeti vagy egy pillanatkép jelenik meg.
@@ -53,9 +51,11 @@ Koppints ide, ha többet szeretnél megtudni a DeArrow-ról."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">A \'Mozifilmes világítás\' mód le van tiltva akkumulátorkímélő üzemmódban.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">A \'Mozifilmes világítás\' mód engedélyezett akkumulátorkímélő üzemmódban.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Megkerüli a \'Mozifilmes világítás\' mód korlátozásait</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">A domain, ahonnan a képeket le lehet hívni.\nMegjegyzés: Csak a domainnevet írd be, azaz a \"https\:\/\/\" előtag nélkül.</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatív domain</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Az eredeti cím használata a képekhez.\n\nEnnek engedélyezése javíthatja a hiányzó képeket, amelyek bizonyos régiókban le vannak tiltva.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Az yt4.ggpht.com cím használata a képekhez.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Kerülje meg a régiós kép korlátozásokat</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Területi kép-korlátozások megkerülése</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Kapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Szövegkapcsolók használata.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Kapcsolótípus megváltoztatása</string>
@@ -399,6 +399,9 @@ Lejátszási listák
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Megjelenítve az előfizetési hírfolyamban.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Elrejtve az előfizetési hírfolyamban.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Elrejtése az előfizetési hírfolyamban</string>
+    <string name="revanced_hide_contents_section_summary_off">A tartalom készítésének módja rész látható.</string>
+    <string name="revanced_hide_contents_section_summary_on">A tartalom készítésének módja rész elrejtve.</string>
+    <string name="revanced_hide_contents_section_title">A tartalmak szekció elrejtése</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">A közösségi finanszírozási doboz megjelenik</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">A közösségi finanszírozási doboz el van rejtve</string>
     <string name="revanced_hide_crowdfunding_box_title">Közösségi finanszírozási doboz elrejtése</string>
@@ -764,7 +767,7 @@ Feliratok"</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve.</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Fizetett promóciós címke elrejtése</string>
     <string name="revanced_hide_shorts_paused_header_summary_off">A szüneteltetett fejléc látható.</string>
-    <string name="revanced_hide_shorts_paused_header_summary_on">A szüneteltetett fejléc el van rejtve.</string>
+    <string name="revanced_hide_shorts_paused_header_summary_on">A szüneteltetett fejléc elrejtve.</string>
     <string name="revanced_hide_shorts_paused_header_title">Szüneteltetett fejléc elrejtése</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">A szüneteltetett fedő gombok megjelennek</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">A szüneteltetett fedő gombok el vannak rejtve</string>
@@ -1183,7 +1186,6 @@ Ide hosszan nyomva tartva megnyílik a YouTube beállítások."</string>
     <string name="revanced_sb_new_segment_mark_end">végpont</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Előbb jelöljön meg két pontot az idősávon</string>
     <string name="revanced_sb_new_segment_mark_start">kezdőpont</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Beállítja a(z) %1$02d:%2$02d:%3$03d -t az új szakasz kezdetének vagy végének?</string>
     <string name="revanced_sb_new_segment_now">most</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Szakasz előnézete a zökkenőmentesen kihagyás érdekében</string>
     <string name="revanced_sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie</string>
@@ -1328,6 +1330,7 @@ Info:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">A felugró értesítés nem látható.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Felugró értesítés látható.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Pirítós mutatása átugoráskor</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">A beállítás bekapcsolása videolejátszási problémákat okozhat.</string>
     <string name="revanced_skipped_preloaded_buffer">Kihagyott előtöltött puffer.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Az egyéni lejátszási sebességnek 0 és 8.0 között kell lennie. Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_speed_overlay_value_summary">Sebesség átfedés érték 0-8.0 között.</string>

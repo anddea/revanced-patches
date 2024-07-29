@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">启用云消息传递以接收通知</string>
     <string name="gms_core_settings_title">打开 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore 没有安装。请安装它</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">获取图片的域名\n注意：仅输入域名，不输入“https\:\/\/”前缀</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供 YouTube 视频的众包缩略图。 这些缩略图通常比 YouTube 提供的缩略图更相关。 
 	
 如果启用，视频链接将发送到 API 服务器，这不会发送其他数据。
@@ -60,6 +58,11 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省电模式下氛围模式已禁用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省电模式下氛围模式已启用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">解除氛围模式限制</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">获取图片的域名\n注意：仅输入域名，不输入“https\:\/\/”前缀</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">替代域名</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始图像主机\n\n启用此功能可以修复在某些地区被阻止的缺失图像</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">使用图像主机 yt4.ggpht.com</string>
+    <string name="revanced_bypass_image_region_restrictions_title">绕过图像区域限制</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用开关切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用文本切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切换类型</string>
@@ -225,6 +228,9 @@
     <string name="revanced_enable_opus_codec_title">启用 OPUS 编解码器</string>
     <string name="revanced_enable_phone_layout_summary">伪装 DPI 以使用一些手机布局</string>
     <string name="revanced_enable_phone_layout_title">启用手机布局</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">退出/进入全屏时不保存或恢复亮度</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">退出/进入全屏时保存和恢复亮度</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">启用保存和恢复亮度</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">进度条点击已禁用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">进度条点击已启用</string>
     <string name="revanced_enable_seekbar_tapping_title">启用进度条点击</string>
@@ -991,6 +997,7 @@ Note:
     <string name="revanced_preference_category_animation_feedback">动画/反馈</string>
     <string name="revanced_preference_category_duration_filter">视频时长过滤器</string>
     <string name="revanced_preference_category_experimental_flag">实验性功能</string>
+    <string name="revanced_preference_category_image_region_restrictions">图像区域限制</string>
     <string name="revanced_preference_category_import_export_as_file">导入 / 导出为文件</string>
     <string name="revanced_preference_category_import_export_as_text">导入 / 导出为文本</string>
     <string name="revanced_preference_category_keyword_filter">关键词过滤器</string>
@@ -1196,7 +1203,6 @@ Note:
     <string name="revanced_sb_new_segment_mark_end">结束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在时间轴上标记两个位置</string>
     <string name="revanced_sb_new_segment_mark_start">开始</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">将%1$02d:%2$02d:%3$03d设置为新片段的开始或结束时间？</string>
     <string name="revanced_sb_new_segment_now">立即</string>
     <string name="revanced_sb_new_segment_preview_segment_first">预览片段，并确保跳过顺畅</string>
     <string name="revanced_sb_new_segment_start_is_before_end">开始时间必须早于结束时间</string>
