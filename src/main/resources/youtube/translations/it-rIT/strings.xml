@@ -16,8 +16,6 @@ Tocca il pulsante continua e disabilita le ottimizzazioni della batteria."</stri
     <string name="gms_core_settings_summary">Abilitare la messaggistica cloud per ricevere notifiche.</string>
     <string name="gms_core_settings_title">Apri GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore non è installato. Installarlo.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Il dominio da cui prelevare le immagini.\nNota: Inserisce solo il nome di dominio, cioè senza il prefisso \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Dominio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornisce thumbnails provenienti da crowdsourcing per i video di YouTube. Questi thumbnails sono spesso più rilevanti di quelle fornite da YouTube. Se attivato, gli URL dei video verranno inviati al server API e non vengono inviati altri dati.
 
 Tocca qui per saperne di più su DeArrow"</string>
@@ -61,6 +59,11 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient in modalità risparmio energetico è attivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Bypassa le restrizioni della modalità Ambient</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Il dominio da cui prelevare le immagini.\nNota: Inserisce solo il nome di dominio, cioè senza il prefisso \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Dominio alternativo</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Usando l\'host immagine originale.\n\nAbilitando questo si possono correggere le immagini mancanti che sono bloccate in alcune regioni.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Utilizzando host immagine yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bypassa restrizioni della regione dell\'immagine</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Vengono utilizzati gli interruttori a levetta.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Vengono utilizzati i commutatori di testo.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambia il tipo d\'interruttore</string>
@@ -222,6 +225,9 @@ Effetto collaterale: il tema Cairo viene applicato anche ai punti di notifica."<
     <string name="revanced_enable_opus_codec_title">Abilita codec OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Simula un diverso valore DPI per usare alcune parti dell\'interfaccia da telefono</string>
     <string name="revanced_enable_phone_layout_title">Attiva l\'interfaccia da telefono</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Non salvare e ripristinare la luminosità quando si esce o si entra a schermo intero.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Salva e ripristina la luminosità quando esci o entri a schermo intero.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Abilita salvataggio e ripristino luminosità</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Il tocco della barra di avanzamento è disattivato</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Il tocco della barra di avanzamento è attivato</string>
     <string name="revanced_enable_seekbar_tapping_title">Attiva il tocco della barra di avanzamento</string>
@@ -980,6 +986,7 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_category_animation_feedback">Animazione / Feedback</string>
     <string name="revanced_preference_category_duration_filter">Filtro durata</string>
     <string name="revanced_preference_category_experimental_flag">Opzioni sperimentali</string>
+    <string name="revanced_preference_category_image_region_restrictions">Restrizioni della regione dell\'immagine</string>
     <string name="revanced_preference_category_import_export_as_file">Importa / Esporta come file</string>
     <string name="revanced_preference_category_import_export_as_text">Importa / Esporta come testo</string>
     <string name="revanced_preference_category_keyword_filter">Filtro parola chiave</string>
@@ -1187,7 +1194,6 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_sb_new_segment_mark_end">fine</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento.</string>
     <string name="revanced_sb_new_segment_mark_start">inizio</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Impostare %1$02d:%2$02d:%3$03d come inizio o fine di un nuovo segmento?</string>
     <string name="revanced_sb_new_segment_now">adesso</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Anteprima del segmento, e assicurarti che lo salti senza problemi.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">L\'inizio deve essere prima della fine.</string>
@@ -1332,6 +1338,7 @@ Note:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">La notifica toast è nascosta</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">La notifica toast è visibile</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Mostra una notifica toast quando un segmento è saltato</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Attivare questa impostazione può causare problemi di riproduzione video.</string>
     <string name="revanced_skipped_preloaded_buffer">Buffer precaricato saltato</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Il valore della sovrapposizione di velocità deve essere compreso tra 0-8.0. Reimposta ai valori predefiniti.</string>
     <string name="revanced_speed_overlay_value_summary">Valore sovrapposizione velocità tra 0-8.0.</string>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">Bật điều khiển trợ năng cho trình phát video?</string>
+    <string name="accessibility_settings_edu_opt_in_text">Bật các điều khiển trợ năng cho trình phát video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật.</string>
     <string name="gms_core_dialog_continue_text">Tiếp tục</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore không được cấp quyền chạy ở chế độ nền.
@@ -15,8 +15,6 @@ Làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài đặt
     <string name="gms_core_settings_summary">Bật tính năng tin nhắn trên đám mây để nhận thông báo.</string>
     <string name="gms_core_settings_title">Mở GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Cài đặt nó.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Tên miền để tìm nạp hình ảnh.\nLưu ý: Chỉ nhập tên miền, không có tiền tố \"https://\"</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Tên miền thay thế</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm thay thế hình thu nhỏ mặc định của video YouTube bằng những hình thu nhỏ phù hợp hơn, giúp hạn chế clickbait.
 
 Nếu được bật, chỉ có URL video được gửi đến máy chủ API, ngoài ra không có bất kì dữ liệu nào khác được gửi đi. Nếu video không có hình thu nhỏ DeArrow, hình thu nhỏ gốc hoặc hình thu nhỏ tự động sẽ được hiển thị.
@@ -58,9 +56,11 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Không giới hạn khi tiết kiệm pin đã tắt.\nChế độ môi trường xung quanh sẽ tắt khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Không giới hạn khi tiết kiệm pin đã bật.\nChế độ môi trường xung quanh sẽ không tự động tắt khi thiết bị ở chế độ tiết kiệm pin.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Không giới hạn khi tiết kiệm pin</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Tên miền để tìm nạp hình ảnh.\nLưu ý: Chỉ nhập tên miền, không có tiền tố \"https://\"</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Tên miền thay thế</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Sử dụng máy chủ lưu trữ hình ảnh gốc.\n\nBật tính năng này có thể khắc phục tình trạng hình ảnh bị chặn ở một số khu vực.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Sử dụng máy chủ hình ảnh yt4.ggpht.com.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế vùng hình ảnh</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Công tắc chuyển đổi được sử dụng.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Chuyển đổi văn bản được sử dụng.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Thay đổi kiểu chuyển đổi</string>
@@ -404,6 +404,9 @@ Cửa hàng"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Bài đăng cộng đồng được hiển thị trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Bài đăng cộng đồng đã ẩn trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ẩn trên thẻ Kênh đăng ký</string>
+    <string name="revanced_hide_contents_section_summary_off">Phần \"Cách tạo Nội dung này\" đã được hiển thị.</string>
+    <string name="revanced_hide_contents_section_summary_on">Phần \"Cách tạo Nội dung này\" đã bị ẩn.</string>
+    <string name="revanced_hide_contents_section_title">Ẩn phần Nội dung</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Chiến dịch gây quỹ được hiển thị.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Chiến dịch gây quỹ đã ẩn.</string>
     <string name="revanced_hide_crowdfunding_box_title">Ẩn chiến dịch gây quỹ</string>
@@ -911,6 +914,9 @@ Cài đặt → Tự động phát → Tự động phát video tiếp theo."</s
     <string name="revanced_hide_web_search_results_summary_off">Kết quả tìm kiếm từ web được hiển thị.</string>
     <string name="revanced_hide_web_search_results_summary_on">Kết quả tìm kiếm từ web đã ẩn.</string>
     <string name="revanced_hide_web_search_results_title">Ẩn kết quả tìm kiếm từ web</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Lớp phủ zoom đã được hiển thị.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Lớp phủ zoom đã bị ẩn.</string>
+    <string name="revanced_hide_zoom_overlay_title">Ẩn lớp phủ zoom</string>
     <string name="revanced_icon_afn_blue">Afn Xanh</string>
     <string name="revanced_icon_afn_red">Afn Đỏ</string>
     <string name="revanced_icon_custom">Tùy chỉnh</string>
@@ -925,10 +931,10 @@ Cài đặt → Tự động phát → Tự động phát video tiếp theo."</s
     <string name="revanced_keep_landscape_mode_title">Giữ chế độ toàn màn hình</string>
     <string name="revanced_label_default">Nguyên gốc</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Thao tác nhấn đúp đã tắt.</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Hành động nhấn đúp được kích hoạt.
+    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Thao tác nhấn đúp đã được bật.
 
- • Hiện đại 1: Nhấn đúp để thay đổi video thu nhỏ thành kích thước lớn hơn.
- • Hiện đại 2, 3: Nhấn đúp để đóng video thu nhỏ"</string>
+• Nhấn đúp để phóng to video đang thu nhỏ.
+• Nhấn đúp một lần nữa để trả về kích thước ban đầu."</string>
     <string name="revanced_miniplayer_enable_double_tap_action_title">Hành động nhấn đúp</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Đã vô hiệu kéo và thả.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Đã kích hoạt kéo và thả.</string>
@@ -948,9 +954,9 @@ Cài đặt → Tự động phát → Tự động phát video tiếp theo."</s
     <string name="revanced_miniplayer_type_entry_1">Gốc</string>
     <string name="revanced_miniplayer_type_entry_2">Điện thoại</string>
     <string name="revanced_miniplayer_type_entry_3">Máy tính bảng</string>
-    <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
-    <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
-    <string name="revanced_miniplayer_type_entry_6">Hiện đại 3</string>
+    <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+    <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+    <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
     <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
     <string name="revanced_overlay_button">Nút trên lớp phủ trình phát</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Nhấn để luôn phát lặp lại một video."</string>
@@ -983,7 +989,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_category_animation_feedback">Hoạt ảnh / Phản hồi</string>
     <string name="revanced_preference_category_duration_filter">Bộ lọc thời lượng</string>
     <string name="revanced_preference_category_experimental_flag">Tính năng thử nghiệm</string>
-    <string name="revanced_preference_category_image_region_restrictions">Hạn chế vùng hình ảnh</string>
+    <string name="revanced_preference_category_image_region_restrictions">Hạn chế về hình ảnh do khu vực</string>
     <string name="revanced_preference_category_import_export_as_file">Nhập/Xuất dưới dạng tập tin</string>
     <string name="revanced_preference_category_import_export_as_text">Nhập/Xuất dưới dạng văn bản</string>
     <string name="revanced_preference_category_keyword_filter">Bộ lọc từ khoá</string>
@@ -1039,7 +1045,7 @@ Nhấn và giữ để hoàn tác."</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ẩn hoặc thay đổi menu hiện ra trong trình phát video.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menu hiện ra</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
-    <string name="revanced_preference_screen_ryd_title">Khôi phục lượt Dislike</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Tùy chỉnh thanh tiến trình</string>
     <string name="revanced_preference_screen_seekbar_title">Thanh tiến trình</string>
@@ -1188,10 +1194,10 @@ Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, kh
     <string name="revanced_sb_new_segment_edit_by_hand_content">Bạn có muốn chỉnh sửa thời gian bắt đầu hoặc kết thúc phân đoạn không?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Thời gian không hợp lệ.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Chỉnh sửa thời gian của phân đoạn thủ công</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Đặt %s là bắt đầu hoặc là kết thúc của một phân đoạn mới?</string>
     <string name="revanced_sb_new_segment_mark_end">Kết thúc</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Đánh dấu hai vị trí trên thanh thời gian trước.</string>
     <string name="revanced_sb_new_segment_mark_start">Bắt đầu</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Đặt %1$02d:%2$02d:%3$03d làm điểm bắt đầu hoặc kết thúc của một phân đoạn mới?</string>
     <string name="revanced_sb_new_segment_now">Ngay bây giờ</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Xem trước phân đoạn và đảm bảo phân đoạn đó trôi qua suôn sẻ.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Bắt đầu phải trước khi kết thúc.</string>
@@ -1312,7 +1318,7 @@ Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, kh
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Thumbs up</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Thumbs up (Cairo)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_4">Trái tim</string>
-    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Trái tim (Sắc thái)</string>
+    <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Trái tim (Đỏ)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Ẩn</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Hoạt ảnh nhấn đúp</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">Lề dưới cùng của bảng meta phải nằm trong khoảng từ 0-64.  Đặt lại về giá trị mặc định.</string>
@@ -1331,6 +1337,7 @@ Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, kh
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Thông báo ngắn đã ẩn.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Thông báo ngắn được hiển thị.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Thông báo ngắn khi bỏ qua</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Việc bật cài đặt này có thể gây ra sự cố phát lại video.</string>
     <string name="revanced_skipped_preloaded_buffer">Đã bỏ qua bộ đệm tải trước.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Tốc độ phát khi nhấn và giữ phải nằm trong khoảng 0 - 8.0. Đã đặt lại về mặc định.</string>
     <string name="revanced_speed_overlay_value_summary">Nhập tốc độ phát khi nhấn và giữ trong khoảng từ 0 đến 8.0.</string>

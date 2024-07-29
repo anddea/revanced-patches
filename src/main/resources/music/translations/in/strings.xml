@@ -14,6 +14,8 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Mengganti domain yang ke blokir di negara tertentu sehingga playlist thumbnail, channel avatar, dll bisa di terima.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Bypass gambar larangan wilayah</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
     <string name="revanced_change_start_page_entry_explore">Jelajahi</string>
     <string name="revanced_change_start_page_entry_home">Beranda</string>
@@ -38,12 +40,14 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_enable_black_navigation_bar_title">Aktifkan bilah navigasi hitam</string>
     <string name="revanced_enable_black_player_background_summary">Changes the player background color to black.</string>
     <string name="revanced_enable_black_player_background_title">Enable black player background</string>
+    <string name="revanced_enable_cairo_splash_animation_summary">Mengaktifkan Animasi splash Cairo ketika app dibuka.</string>
+    <string name="revanced_enable_cairo_splash_animation_title">Aktifkan animasi splash Cairo</string>
     <string name="revanced_enable_color_match_player_summary">Mencocokkan warna pemutar layar penuh dengan yang diperkecil.</string>
     <string name="revanced_enable_color_match_player_title">Aktifkan pencocokan warna pemutar</string>
     <string name="revanced_enable_compact_dialog_summary">"Aktifkan dialog ringkas di ponsel.
 
 Masalah yang diketahui:
-• Gambar album di rak koleksi juga menjadi lebih kecil.
+• Gambar album di Tab library juga menjadi lebih kecil.
 • Tata letak pengatur waktu tidur mungkin terlihat tidak biasa."</string>
     <string name="revanced_enable_compact_dialog_title">Aktifkan dialog ringkas</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
@@ -67,13 +71,13 @@ Masalah yang diketahui:
 Info:
 • This feature is for podcasts.
 • This feature is still in development, so it may be unstable."</string>
-    <string name="revanced_enable_trim_silence_title">Add Trim silence switch</string>
+    <string name="revanced_enable_trim_silence_title">Tambah switch Trim silence</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Also enables Zen mode for podcasts.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Enable Zen mode in podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Menambahkan rona abu-abu ke pemutar video untuk mengurangi ketegangan mata.</string>
     <string name="revanced_enable_zen_mode_title">Aktifkan mode zen</string>
-    <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
-    <string name="revanced_extended_restart_message">Refresh dan restart</string>
+    <string name="revanced_extended_restart_first_run">Mulai ulang untuk memuat layout secara normal</string>
+    <string name="revanced_extended_restart_message">Refresh dan mulai ulang</string>
     <string name="revanced_extended_settings_export_as_file">Export settings to file</string>
     <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
@@ -88,38 +92,38 @@ Info:
     <string name="revanced_extended_settings_import_success">Setelan %d diimpor.</string>
     <string name="revanced_extended_settings_reset">Reset</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary">"Download button opens your external downloader.
+    <string name="revanced_external_downloader_action_summary">"Tombol Download membuka Downloader eksternal mu.
 
-• Only overrides the Download action button in the player.
-• Does not override the Download button in the flyout menu or Library tab."</string>
-    <string name="revanced_external_downloader_action_title">Override Download action button</string>
-    <string name="revanced_external_downloader_dialog_title">Unduhan Eksternal</string>
-    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
-Please download %2$s from the website."</string>
+• Hanya menggantikan tombol Download di player.
+• Tidak bisa menggantikan tombol download di menu flyout atau tab Library."</string>
+    <string name="revanced_external_downloader_action_title">Ganti tombol tindakan Download</string>
+    <string name="revanced_external_downloader_dialog_title">Downloader eksternal</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s belum terinstall.
+Segera download %2$s dari website."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Peringatan</string>
     <string name="revanced_external_downloader_not_installed_warning">%s tidak diinstal. Silakan instal.</string>
     <string name="revanced_external_downloader_package_name_summary">Nama paket aplikasi downloader eksternal yang terinstal, seperti NewPipe atau YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nama paket downloader eksternal</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Menyembunyikan komponen kosong di menu akun.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Sembunyikan komponen kosong</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Daftar dari nama-nama menu akun ke filter, terpisah oleh garis baru.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filter menu Akun</string>
-    <string name="revanced_hide_account_menu_summary">Sembunyikan elemen menu akun.</string>
+    <string name="revanced_hide_account_menu_summary">Menyembunyikan elemen menu akun menggunakan filter kustom.</string>
     <string name="revanced_hide_account_menu_title">Sembunyikan menu akun</string>
-    <string name="revanced_hide_action_button_add_to_playlist_summary">Sembunyikan Tombol Simpan.</string>
-    <string name="revanced_hide_action_button_add_to_playlist_title">Sembunyikan Tombol Simpan</string>
-    <string name="revanced_hide_action_button_comment_summary">Sembunyikan Tombol Komentar.</string>
-    <string name="revanced_hide_action_button_comment_title">Sembunyikan Tombol Komentar</string>
-    <string name="revanced_hide_action_button_download_summary">Sembunyikan Tombol Download.</string>
-    <string name="revanced_hide_action_button_download_title">Sembunyikan Tombol Download</string>
-    <string name="revanced_hide_action_button_label_summary">Hides the labels of the action buttons.</string>
-    <string name="revanced_hide_action_button_label_title">Sembunyikan Tombol Bilah Tindakan</string>
-    <string name="revanced_hide_action_button_like_dislike_summary">Hides the Like and Dislike buttons. It does not work in the old player layout.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_summary">Menyembunyikan tombol Save.</string>
+    <string name="revanced_hide_action_button_add_to_playlist_title">Sembunyikan tombol Save</string>
+    <string name="revanced_hide_action_button_comment_summary">Menyembunyikan tombol Komentar.</string>
+    <string name="revanced_hide_action_button_comment_title">Sembunyikan tombol Komentar</string>
+    <string name="revanced_hide_action_button_download_summary">Menyembunyikan tombol Download.</string>
+    <string name="revanced_hide_action_button_download_title">Sembunyikan tombol Download</string>
+    <string name="revanced_hide_action_button_label_summary">Menyembunyikan bilah dari tombol tindakan.</string>
+    <string name="revanced_hide_action_button_label_title">Sembunyikan tombol bilah tindakan</string>
+    <string name="revanced_hide_action_button_like_dislike_summary">Menyembunyikan tombol Like dan Dislike. Itu tidak akan work di layout player lawas.</string>
     <string name="revanced_hide_action_button_like_dislike_title">Sembunyikan tombol Like dan Dislike</string>
-    <string name="revanced_hide_action_button_radio_summary">Sembunyikan Tombol Radio.</string>
-    <string name="revanced_hide_action_button_radio_title">Sembunyikan Tombol Radio</string>
-    <string name="revanced_hide_action_button_share_summary">Sembunyikan Tombol Bagikan.</string>
-    <string name="revanced_hide_action_button_share_title">Sembunyikan Tombol Bagikan</string>
+    <string name="revanced_hide_action_button_radio_summary">Menyembunyikan tombol Radio.</string>
+    <string name="revanced_hide_action_button_radio_title">Sembunyikan tombol Radio</string>
+    <string name="revanced_hide_action_button_share_summary">Menyembunyikan tombol Share.</string>
+    <string name="revanced_hide_action_button_share_title">Sembunyikan tombol Share</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the Audio / Video toggle in the player.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Hide Audio / Video toggle</string>
     <string name="revanced_hide_button_shelf_summary">Menyembunyikan rak tombol dari beranda dan eksplorasi.</string>
@@ -134,6 +138,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Hide channel guidelines</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Hides the timestamp and emoji buttons when typing comments.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">Menyembunyikan overlay gelap yang muncul ketika double-tap to seek.</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Sembunyikan filter overlay double-tap</string>
     <string name="revanced_hide_floating_button_summary">Hides the floating button in the Library tab.</string>
     <string name="revanced_hide_floating_button_title">Hide floating button</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Hide 3-column component</string>
@@ -164,15 +170,17 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Iklan Fullscreen Telah Diblokir. (Blokir: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Iklan Fullscreen Telah Ditutup.</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Sembunyikan Iklan Fullscreen.</string>
-    <string name="revanced_hide_fullscreen_ads_title">Sembunyikan Iklan Fullscreen</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">"If it is enabled, fullscreen ads are closed through the Close button.
-If it is disabled, fullscreen ads are blocked. (there may be side effects)"</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Iklan fullscreen telah diblok. (Blokir: %s)</string>
+    <string name="revanced_hide_fullscreen_ads_closed_success">Iklan fullscreen telah ditutup.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Menyembunyikan iklan fullscreen.</string>
+    <string name="revanced_hide_fullscreen_ads_title">Sembunyikan iklan fullscreen</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary">"Jika Diaktifkan, iklan fullscreen akan ditutup lewat tombol Close.
+Jika dimatikan, ikan fullscreen akan di block. (kemungkinan akan ada side effect)"</string>
     <string name="revanced_hide_fullscreen_ads_type_summary_off">"If it is enabled, fullscreen ads are closed through the Close button.
 If it is disabled, fullscreen ads are blocked. (there may be side effects)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Tutup Iklan Fullscreen</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">"If it is enabled, fullscreen ads are closed through the Close button.
+If it is disabled, fullscreen ads are blocked. (there may be side effects)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_title">Tutup iklan fullscreen</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
     <string name="revanced_hide_general_ads_summary">Sembunyikan Iklan Umum.</string>
@@ -203,24 +211,24 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Hides the playlist card shelf in the feed.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Hide playlist card shelf</string>
-    <string name="revanced_hide_premium_promotion_summary">Hides premium promotion popups.</string>
-    <string name="revanced_hide_premium_promotion_title">Hide premium promotion popups</string>
-    <string name="revanced_hide_premium_renewal_summary">Hides the premium renewal banner.</string>
-    <string name="revanced_hide_premium_renewal_title">Hide premium renewal banner</string>
+    <string name="revanced_hide_premium_promotion_summary">Menyembunyikan popup promosi premium.</string>
+    <string name="revanced_hide_premium_promotion_title">Sembunykan popup promosi premium</string>
+    <string name="revanced_hide_premium_renewal_summary">Menyembunyikan banner pembaruan premium.</string>
+    <string name="revanced_hide_premium_renewal_title">Sembunykan banner pembaruan premium</string>
     <string name="revanced_hide_samples_shelf_summary">Hides the Samples shelf in the feed.</string>
     <string name="revanced_hide_samples_shelf_title">Hide Samples shelf</string>
     <string name="revanced_hide_sound_search_button_summary">Hides the sound search button in the search bar.</string>
     <string name="revanced_hide_sound_search_button_title">Hide sound search button</string>
     <string name="revanced_hide_tap_to_update_button_summary">Hides the \'Tap to update\' button.</string>
     <string name="revanced_hide_tap_to_update_button_title">Hide \'Tap to update\' button</string>
-    <string name="revanced_hide_terms_container_summary">Menyembunyikan wadah ketentuan layanan.</string>
-    <string name="revanced_hide_terms_container_title">Sembunyikan wadah ketentuan</string>
+    <string name="revanced_hide_terms_container_summary">Menyembunyikan container ketentuan layanan.</string>
+    <string name="revanced_hide_terms_container_title">Sembunyikan container ketentuan</string>
     <string name="revanced_hide_voice_search_button_summary">Hides the voice search button in the search bar.</string>
     <string name="revanced_hide_voice_search_button_title">Hide voice search button</string>
     <string name="revanced_preference_screen_account_title">Akun</string>
     <string name="revanced_preference_screen_action_bar_title">Bilah Tindakan</string>
     <string name="revanced_preference_screen_ads_title">Iklan</string>
-    <string name="revanced_preference_screen_flyout_title">Flyout Menu</string>
+    <string name="revanced_preference_screen_flyout_title">Menu flyout</string>
     <string name="revanced_preference_screen_general_title">Umum</string>
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
     <string name="revanced_preference_screen_navigation_title">Bilah Navigasi</string>

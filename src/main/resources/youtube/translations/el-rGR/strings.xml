@@ -16,8 +16,6 @@
     <string name="gms_core_settings_summary">Ενεργοποιήστε τις ρυθμίσεις cloud messaging για να λαμβάνετε ειδοποιήσεις.</string>
     <string name="gms_core_settings_title">Άνοιγμα του MicroG GmsCore</string>
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Το domain από το οποίο θα ληφθούν οι εικόνες.\nΣημείωση: Εισάγετε μόνο το όνομα του domain, χωρίς το πρόθεμα \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Εναλλακτικό domain</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.
 
 Πατήστε για να μάθετε περισσότερα για το DeArrow."</string>
@@ -57,6 +55,8 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Η λειτουργία περιβάλλοντος απενεργοποιείται σε λειτουργία εξοικονόμησης μπαταρίας.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Η λειτουργία περιβάλλοντος παραμένει ενεργή σε λειτουργία εξοικονόμησης μπαταρίας.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Παράκαμψη περιορισμών λειτουργίας περιβάλλοντος</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Το domain από το οποίο θα ληφθούν οι εικόνες.\nΣημείωση: Εισάγετε μόνο το όνομα του domain, χωρίς το πρόθεμα \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Εναλλακτικό domain</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων\n\nΗ ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε ορισμένες περιοχές.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Χρησιμοποιείται το domain yt4.ggpht.com για την φόρτωση εικόνων.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
@@ -247,8 +247,8 @@
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">Η χαμηλότερη τιμή της χειρονομίας φωτεινότητας δεν ενεργοποιεί την αυτόματη φωτεινότητα.</string>
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_on">Η χαμηλότερη τιμή της χειρονομίας φωτεινότητας ενεργοποιεί την αυτόματη φωτεινότητα.</string>
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_title">Αυτόματη φωτεινότητα με σάρωση</string>
-    <string name="revanced_enable_swipe_press_to_engage_summary_off">Αγγίξτε για να ενεργοποιήσετε τις χειρονομίες σάρωσης.</string>
-    <string name="revanced_enable_swipe_press_to_engage_summary_on">Αγγίξτε παρατεταμένα για να ενεργοποιήσετε τις χειρονομίες σάρωσης.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_off">Το παρατεταμένο πάτημα για ενεργοποίηση της χειρονομίας σάρωσης είναι απενεργοποιημένο.</string>
+    <string name="revanced_enable_swipe_press_to_engage_summary_on">Το παρατεταμένο πάτημα για ενεργοποίηση της χειρονομίας σάρωσης είναι ενεργοποιημένο.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">Παρατεταμένο πάτημα για σάρωση</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_off">Η χειρονομία εναλλαγής βίντεο στη λειτουργία πλήρους οθόνης είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Η χειρονομία εναλλαγής βίντεο στη λειτουργία πλήρους οθόνης είναι ενεργοποιημένη.
@@ -413,6 +413,13 @@ Playlists
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Απόκρυψη στη ροή «Εγγραφές»</string>
+    <string name="revanced_hide_contents_section_summary_off">Εμφανίζεται.
+
+Αφορά την ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο».</string>
+    <string name="revanced_hide_contents_section_summary_on">Κρυμμένη.
+
+Αφορά την ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο».</string>
+    <string name="revanced_hide_contents_section_title">Ενότητα περιεχομένου</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_crowdfunding_box_title">Πλαίσιο δωρεών</string>
@@ -926,6 +933,9 @@ Playlists
     <string name="revanced_hide_web_search_results_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_web_search_results_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_web_search_results_title">Αποτελέσματα αναζήτησης στο διαδίκτυο</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_zoom_overlay_title">Διεπαφή ζουμ</string>
     <string name="revanced_icon_afn_blue">AFN Blue</string>
     <string name="revanced_icon_afn_red">AFN Red</string>
     <string name="revanced_icon_custom">Προσαρμοσμένο</string>
@@ -1083,6 +1093,8 @@ Playlists
     <string name="revanced_preference_screen_video_filter_summary">Απόκρυψη βίντεο με βάση λέξεις-κλειδιά, αριθμό προβολών ή τη διάρκειά τους.</string>
     <string name="revanced_preference_screen_video_filter_title">Φιλτράρισμα των βίντεο</string>
     <string name="revanced_preference_screen_video_title">Βίντεο</string>
+    <string name="revanced_preference_screen_watch_history_summary">Διαχείριση των ρυθμίσεων που σχετίζονται με το ιστορικό παρακολούθησης.</string>
+    <string name="revanced_preference_screen_watch_history_title">Ιστορικό παρακολούθησης</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Το ύψος πρέπει να είναι μεταξύ 0-32, επαναφέρθηκε.</string>
     <string name="revanced_quick_actions_top_margin_summary">Αλλαγή ύψους της γραμμής προόδου, τιμές μεταξύ 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Ύψος γραμμής προόδου</string>
@@ -1214,10 +1226,10 @@ Playlists
     <string name="revanced_sb_new_segment_edit_by_hand_content">Θέλετε να επεξεργαστείτε τον χρονισμό του τμήματος από την αρχή ή από το τέλος του τμήματος;</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Δόθηκε μη έγκυρος χρόνος.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Επεξεργασία χρονισμού του τμήματος χειροκίνητα</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Ορισμός %s ως αρχή ή τέλος ενός νέου τμήματος;</string>
     <string name="revanced_sb_new_segment_mark_end">τέλος</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Σημειώστε δύο σημεία στην γραμμή προόδου πρώτα.</string>
     <string name="revanced_sb_new_segment_mark_start">αρχή</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Ορισμός %1$02d:%2$02d:%3$03d ως αρχή ή τέλος ενός νέου τμήματος;</string>
     <string name="revanced_sb_new_segment_now">τώρα</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Κάντε προεπισκόπηση του τμήματος, και σιγουρευτείτε ότι παραλείπεται σωστά.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Η αρχή πρέπει να είναι πριν το τέλος.</string>
@@ -1361,6 +1373,7 @@ Playlists
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Δεν εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Εμφάνιση μηνύματος κατά την παράλειψη</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Η ενεργοποίηση αυτής της ρύθμισης μπορεί να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_skipped_preloaded_buffer">Η προφόρτωση βίντεο παραλείφθηκε.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Η ταχύτητα πρέπει να ναι μεταξύ 0-8.0, επαναφέρθηκε.</string>
     <string name="revanced_speed_overlay_value_summary">Τιμή ταχύτητας που εφαρμόζεται κατά το παρατεταμένο πάτημα, μεταξύ 0 και 8.0.</string>
@@ -1387,7 +1400,7 @@ Playlists
 Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.
 
 Αν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI."</string>
-    <string name="revanced_spoof_client_fallback_title">Εναλλακτική (μη αναπαραγόμενο βίντεο)</string>
+    <string name="revanced_spoof_client_fallback_title">Περίπτωση μη αναπαραγόμενου βίντεο</string>
     <string name="revanced_spoof_client_general_title">Γενικά βίντεο</string>
     <string name="revanced_spoof_client_livestream_title">Ζωντανές μεταδόσεις</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
@@ -1426,11 +1439,9 @@ Playlists
 • Τα βίντεο YouTube Kids (για παιδιά) δεν αναπαράγονται."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
     <string name="revanced_spoof_client_use_ios_summary">"Παραποίηση σε έκδοση iOS. Παρενέργειες:
-• Η ποιότητα HDR δεν είναι διαθέσιμη.
-• Κάποιες πολύ υψηλές ποιότητες βίντεο ενδέχεται να μην είναι διαθέσιμες.
+• Η ποιότητα HDR είναι διαθέσιμη μόνο με τον κωδικοποιητή AV1.
 • Το ιστορικό παρακολούθησης δε λειτουργεί σε λογαριασμούς επωνυμίας (brand).
-• Η αναπαραγωγή ζωντανών μεταδόσεων σε λειτουργία ήχου μόνο δεν είναι διαθέσιμη.
-• Η αναπαραγωγή ζωντανών μεταδόσεων δεν είναι διαθέσιμη σε συσκευές Android 8.0."</string>
+• Η αναπαραγωγή ζωντανών μεταδόσεων σε λειτουργία ήχου μόνο δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Παραποίηση διαστάσεων συσκευής στη μέγιστη τιμή.
@@ -1472,6 +1483,22 @@ Playlists
 • Η ενεργοποίηση αυτής της ρύθμισης εξαναγκάζει επίσης την απενεργοποίηση των διαφημίσεων βίντεο."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Εναλλαγή «Δημιουργία» με «Ειδοποιήσεις»</string>
     <string name="revanced_theme_default">Προεπιλογή</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Προεπιλεγμένες ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.
+• Το ιστορικό παρακολούθησης μπορεί να μη λειτουργεί λόγω DNS ή χρήσης VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Προεπιλεγμένες ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.</string>
+    <string name="revanced_watch_history_about_status_blocked">Το ιστορικό παρακολούθησης δεν λειτουργεί.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Προεπιλεγμένες ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.
+• Το ιστορικό παρακολούθησης μπορεί να μη λειτουργεί λόγω DNS ή χρήσης VPN.
+• Το ιστορικό παρακολούθησης ενδέχεται να μη λειτουργεί χρησιμοποιώντας λογαριασμό επωνυμίας αν έχετε ενεργοποιημένη τη ρύθμιση παραποίησης προγράμματος αναπαραγωγής σε έκδοση iOS."</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Προεπιλεγμένες ρυθμίσεις ιστορικού παρακολούθησης του λογαριασμού Google σας.
+• Το ιστορικό παρακολούθησης ενδέχεται να μη λειτουργεί χρησιμοποιώντας λογαριασμό επωνυμίας αν έχετε ενεργοποιημένη τη ρύθμιση παραποίησης προγράμματος αναπαραγωγής σε έκδοση iOS."</string>
+    <string name="revanced_watch_history_about_title">Σχετικά με το ιστορικό παρακολούθησης</string>
+    <string name="revanced_watch_history_management_summary">Πατήστε για άνοιγμα της διαχείρισης του ιστορικού παρακολούθησης του YouTube.</string>
+    <string name="revanced_watch_history_management_title">Διαχείριση όλου του ιστορικού</string>
+    <string name="revanced_watch_history_type_entry_1">Αρχικό</string>
+    <string name="revanced_watch_history_type_entry_2">Αντικατάσταση του domain</string>
+    <string name="revanced_watch_history_type_entry_3">Αποκλεισμός ιστορικού παρακολούθησης</string>
+    <string name="revanced_watch_history_type_title">Τύπος ιστορικού παρακολούθησης</string>
     <string name="revanced_whitelist_add_failed">Αποτυχία προσθήκης καναλιού \'%1$s\' στη λίστα επιτρεπόμενων %2$s.</string>
     <string name="revanced_whitelist_added">Το κανάλι \'%1$s\' προστέθηκε στη λίστα επιτρεπόμενων %2$s.</string>
     <string name="revanced_whitelist_empty">Δεν υπάρχουν κανάλια στην λίστα επιτρεπόμενων.</string>

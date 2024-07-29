@@ -16,8 +16,6 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Domínio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -59,6 +57,8 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">O modo ambiente está desativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">O modo ambiente está ativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ignorar restrições do modo ambiente</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Domínio alternativo</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Usando o host de imagem original.\n\nAtivar isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Usando o host de imagem yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de imagem por região</string>
@@ -1196,7 +1196,6 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_new_segment_mark_end">fim</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marque dois locais na barra de tempo primeiro.</string>
     <string name="revanced_sb_new_segment_mark_start">início</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Definir %1$02d:%2$02d:%3$03d como início ou fim de um novo segmento?</string>
     <string name="revanced_sb_new_segment_now">agora</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Pré-visualizar o segmento e garantir que ele pule sem problemas.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">O início deve ser antes do fim.</string>
