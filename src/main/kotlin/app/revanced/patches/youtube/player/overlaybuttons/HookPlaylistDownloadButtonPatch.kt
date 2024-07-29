@@ -4,7 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.HookDownloadPlaylistButtonFingerprint
-import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.SetVisibilityOfflineArrowViewFingerprint
+import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.AccessibilityOfflineButtonSyncFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -23,7 +23,7 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
     description = "Adds options to hook the playlist download button.",
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        SetVisibilityOfflineArrowViewFingerprint,
+        AccessibilityOfflineButtonSyncFingerprint,
         HookDownloadPlaylistButtonFingerprint
     )
 ) {
@@ -31,7 +31,8 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
         "$MISC_PATH/DownloadPlaylistButton;"
 
     override fun execute(context: BytecodeContext) {
-        SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
+        // region Force shown playlist button
+        AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let {
             val targetMethod = it.mutableClass.methods.first { method ->
                 method.parameters == listOf("Ljava/lang/Boolean;")
                         && method.returnType == "V"
@@ -46,10 +47,12 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
                 )
             }
         }
+        // endregion
 
+        // region Hook Download Playlist Button OnClick method
         HookDownloadPlaylistButtonFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                // region get the index of the instruction that initializes the onClickListener
+                // region Get the index of the instruction that initializes the onClickListener
 
                 val onClickListenerInitializeIndex = indexOfFirstInstructionOrThrow {
                     val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
@@ -60,7 +63,7 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
 
                 // endregion
 
-                // region get the class that contains the onClick method
+                // region Get the class that contains the onClick method
 
                 val onClickListenerInitializeReference =
                     getInstruction<ReferenceInstruction>(onClickListenerInitializeIndex).reference
@@ -73,7 +76,7 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
                 // endregion
 
                 onClickClass.methods.find { method -> method.name == "onClick" }?.apply {
-                    // region get the index of the first instruction for the register value
+                    // region Get the index of playlist id
 
                     val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
                         instruction.opcode == Opcode.INVOKE_STATIC
@@ -94,7 +97,8 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
                 }
             }
         }
-
+        // endregion
+        
         /**
          * Add settings
          */
