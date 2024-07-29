@@ -1250,6 +1250,11 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayBut
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/HookDownloadPlaylistButtonFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/HookDownloadPlaylistButtonFingerprint;
+	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
+}
+
 public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/SetVisibilityOfflineArrowViewFingerprint;
 }
