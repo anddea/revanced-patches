@@ -1238,6 +1238,12 @@ public final class app/revanced/patches/youtube/player/hapticfeedback/HapticFeed
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/player/overlaybuttons/HookPlaylistDownloadButtonPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/HookPlaylistDownloadButtonPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V

@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.*
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
-import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -20,7 +19,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -46,9 +44,6 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
     private const val INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR =
         "$INTEGRATIONS_PATH/utils/VideoUtils;"
 
-    private const val INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR =
-        "$MISC_PATH/DownloadPlaylistButton;"
-
     override fun execute(context: BytecodeContext) {
 
         // region patch for hook download button
@@ -62,70 +57,6 @@ object OverlayButtonsBytecodePatch : BytecodePatch(
                     return-void
                     """, ExternalLabel("show_native_downloader", getInstruction(0))
             )
-        }
-
-        SetVisibilityOfflineArrowViewFingerprint.resultOrThrow().let {
-            val targetMethod = it.mutableClass.methods.first { method ->
-                method.parameters == listOf("Ljava/lang/Boolean;")
-                        && method.returnType == "V"
-            }
-            targetMethod.apply {
-                addInstructions(
-                    2,
-                    """
-                    invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
-                    move-result p1
-                    """.trimIndent()
-                )
-            }
-        }
-
-        HookDownloadPlaylistButtonFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                // region get the index of the instruction that initializes the onClickListener
-
-                val onClickListenerInitializeIndex = indexOfFirstInstructionOrThrow {
-                    val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
-
-                    opcode == Opcode.INVOKE_VIRTUAL_RANGE
-                            && reference?.parameterTypes?.first() == "Ljava/lang/String;"
-                }
-
-                // endregion
-
-                // region get the class that contains the onClick method
-
-                val onClickListenerInitializeReference =
-                    getInstruction<ReferenceInstruction>(onClickListenerInitializeIndex).reference
-
-
-                val onClickClass = context.findClass(
-                    (onClickListenerInitializeReference as MethodReference).returnType
-                )!!.mutableClass
-
-                // endregion
-
-                onClickClass.methods.find { method -> method.name == "onClick" }?.apply {
-                    // region get the index of the first instruction for the register value
-
-                    val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_STATIC
-                                && instruction.getReference<MethodReference>()?.name == "isEmpty"
-                    }
-
-                    val insertRegister = getInstruction<Instruction35c>(insertIndex).registerC
-
-                    // endregion
-
-                    addInstructions(
-                        insertIndex,
-                        """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->startPlaylistDownloadActivity(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$insertRegister
-                        """.trimIndent()
-                    )
-                }
-            }
         }
 
         PiPPlaybackFingerprint.resultOrThrow().let {
