@@ -1,3 +1,24 @@
+# [2.228.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.1...v2.228.0-dev.2) (2024-07-29)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Some side effects of iOS client ([823711e](https://github.com/anddea/revanced-patches/commit/823711e84bc95b88faa620690ee0fb0960b93808))
+* **YouTube - Disable auto captions:** Turning on `Disable forced auto captions` will disable subtitles ([f4dc6d3](https://github.com/anddea/revanced-patches/commit/f4dc6d39b75a61ae954cc7657551535499826f5f))
+* **YouTube - Toolbar components:** Turning on the `Hide voice search button` setting makes the margin of the searchbar 0 ([ca02dba](https://github.com/anddea/revanced-patches/commit/ca02dba30710decc4ddea07318e72a9966124665))
+
+
+### Features
+
+* **YouTube - Description components:** Add `Hide Contents section` setting ([e8358ff](https://github.com/anddea/revanced-patches/commit/e8358ffc680693e2923e3c03933b9fcfb0874eb7))
+* **YouTube - Overlay buttons:** Add patch option `Change top buttons` ([504a1fe](https://github.com/anddea/revanced-patches/commit/504a1fe46ae97b7b328c4245941c69be698bb4f3))
+* **YouTube - Player components:** Add `Hide zoom overlay` setting ([00640e6](https://github.com/anddea/revanced-patches/commit/00640e661753802439dfba65827307e7e703fb14))
+* **YouTube & Music - Custom branding icon:** Rename `Revancify Yellow` To `Xisr Yellow` ([#756](https://github.com/anddea/revanced-patches/issues/756)) ([26d7deb](https://github.com/anddea/revanced-patches/commit/26d7debb8d40013b65b66ac1d56f13c01755ea23))
+* **YouTube & Music - Custom branding icon:** Update `Xisr Yellow` icon ([#755](https://github.com/anddea/revanced-patches/issues/755)) ([c1dfd1f](https://github.com/anddea/revanced-patches/commit/c1dfd1f20b777828f57c69bebb9d1f85190f8c7c))
+* **YouTube Music - Hide layout components:** Add `Hide settings menu` setting ([78b61dc](https://github.com/anddea/revanced-patches/commit/78b61dc799c4a3106a6800b176f464b8465b27d7))
+* **YouTube Music:** Add support version `7.10.52` ([a842d17](https://github.com/anddea/revanced-patches/commit/a842d1743d13dac33db8ba0179f18289b4a8a742))
+* **YouTube:** Add `Watch history` patch ([f1fd6e6](https://github.com/anddea/revanced-patches/commit/f1fd6e68f19d9c6ba45efc081e7ac50d42ef8529))
+
 # [2.228.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.227.1-dev.1...v2.228.0-dev.1) (2024-07-26)
 
 
