@@ -35,11 +35,13 @@ object SharedResourceIdPatch : ResourcePatch() {
     var MiniPlayerDefaultText = -1L
     var MiniPlayerMdxPlaying = -1L
     var MiniPlayerPlayPauseReplayButton = -1L
+    var MiniPlayerViewPager = -1L
     var MusicNotifierShelf = -1L
     var MusicTasteBuilderShelf = -1L
     var NamesInactiveAccountThumbnailSize = -1L
     var OfflineSettingsMenuItem = -1L
     var PlayerOverlayChip = -1L
+    var PlayerViewPager = -1L
     var PrivacyTosFooter = -1L
     var QualityAuto = -1L
     var RemixGenericButtonSize = -1L
@@ -77,11 +79,13 @@ object SharedResourceIdPatch : ResourcePatch() {
         MiniPlayerDefaultText = getId(STRING, "mini_player_default_text")
         MiniPlayerMdxPlaying = getId(STRING, "mini_player_mdx_playing")
         MiniPlayerPlayPauseReplayButton = getId(ID, "mini_player_play_pause_replay_button")
+        MiniPlayerViewPager = getId(ID, "mini_player_view_pager")
         MusicNotifierShelf = getId(LAYOUT, "music_notifier_shelf")
         MusicTasteBuilderShelf = getId(LAYOUT, "music_tastebuilder_shelf")
         NamesInactiveAccountThumbnailSize = getId(DIMEN, "names_inactive_account_thumbnail_size")
         OfflineSettingsMenuItem = getId(ID, "offline_settings_menu_item")
         PlayerOverlayChip = getId(ID, "player_overlay_chip")
+        PlayerViewPager = getId(ID, "player_view_pager")
         PrivacyTosFooter = getId(ID, "privacy_tos_footer")
         QualityAuto = getId(STRING, "quality_auto")
         RemixGenericButtonSize = getId(DIMEN, "remix_generic_button_size")
