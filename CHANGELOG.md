@@ -1,3 +1,16 @@
+# [2.228.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.2...v2.228.0-dev.3) (2024-07-31)
+
+
+### Bug Fixes
+
+* **YouTube - Hide feed components:** Sometimes `Hide carousel shelf` setting doesn't work ([f53ce46](https://github.com/anddea/revanced-patches/commit/f53ce46c1461ac8699af767f03f92a20e7c1ed65))
+
+
+### Features
+
+* **YouTube Music - Player components:** Add settings `Disable miniplayer gesture`, `Disable player gesture` ([0bf84f9](https://github.com/anddea/revanced-patches/commit/0bf84f9d4cf3cad63b4cb6adbac1334be966e5ed))
+* **YouTube Music:** Add support version `7.11.51` ~ `7.12.51` ([b8a62ae](https://github.com/anddea/revanced-patches/commit/b8a62aeb0528f5ef513330ae5ef1790ffe4cd920))
+
 # [2.228.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.1...v2.228.0-dev.2) (2024-07-29)
 
 
