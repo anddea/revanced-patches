@@ -355,11 +355,13 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getMiniPlayerDefaultText ()J
 	public final fun getMiniPlayerMdxPlaying ()J
 	public final fun getMiniPlayerPlayPauseReplayButton ()J
+	public final fun getMiniPlayerViewPager ()J
 	public final fun getMusicNotifierShelf ()J
 	public final fun getMusicTasteBuilderShelf ()J
 	public final fun getNamesInactiveAccountThumbnailSize ()J
 	public final fun getOfflineSettingsMenuItem ()J
 	public final fun getPlayerOverlayChip ()J
+	public final fun getPlayerViewPager ()J
 	public final fun getPrivacyTosFooter ()J
 	public final fun getQualityAuto ()J
 	public final fun getRemixGenericButtonSize ()J
@@ -394,11 +396,13 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setMiniPlayerDefaultText (J)V
 	public final fun setMiniPlayerMdxPlaying (J)V
 	public final fun setMiniPlayerPlayPauseReplayButton (J)V
+	public final fun setMiniPlayerViewPager (J)V
 	public final fun setMusicNotifierShelf (J)V
 	public final fun setMusicTasteBuilderShelf (J)V
 	public final fun setNamesInactiveAccountThumbnailSize (J)V
 	public final fun setOfflineSettingsMenuItem (J)V
 	public final fun setPlayerOverlayChip (J)V
+	public final fun setPlayerViewPager (J)V
 	public final fun setPrivacyTosFooter (J)V
 	public final fun setQualityAuto (J)V
 	public final fun setRemixGenericButtonSize (J)V
@@ -1473,6 +1477,14 @@ public final class app/revanced/patches/youtube/utils/navigation/NavigationBarHo
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class app/revanced/patches/youtube/utils/navigation/fingerprints/MobileTopBarButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navigation/fingerprints/MobileTopBarButtonOnClickFingerprint;
+}
+
+public final class app/revanced/patches/youtube/utils/navigation/fingerprints/SettingsActivityOnBackPressedFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navigation/fingerprints/SettingsActivityOnBackPressedFingerprint;
 }
 
 public final class app/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatch : app/revanced/patcher/patch/BytecodePatch {
