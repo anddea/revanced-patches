@@ -1,8 +1,8 @@
-package app.revanced.patches.youtube.player.overlaybuttons.fingerprints
+package app.revanced.patches.youtube.misc.downloadactions.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.HookDownloadPlaylistButtonFingerprint.PLAYLIST_ON_CLICK_INITIALIZE_PAREMETER
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.DownloadPlaylistButtonOnClickFingerprint.PLAYLIST_ON_CLICK_INITIALIZE_PAREMETER
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 
-object HookDownloadPlaylistButtonFingerprint : MethodFingerprint(
+object DownloadPlaylistButtonOnClickFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     customFingerprint = { methodDef, _ ->

@@ -1,11 +1,16 @@
-package app.revanced.patches.youtube.player.overlaybuttons
+package app.revanced.patches.youtube.misc.downloadactions
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.HookDownloadPlaylistButtonFingerprint
-import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.AccessibilityOfflineButtonSyncFingerprint
-import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.DownloadPlaylistButtonOnClickFingerprint
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.OfflineVideoEndpointFingerprint
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.PiPPlaybackFingerprint
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.AccessibilityOfflineButtonSyncFingerprint
+import app.revanced.patches.youtube.utils.compatibility.Constants
+import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
@@ -13,25 +18,61 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
-    name = "Hook playlist download button",
-    description = "Adds options to hook the playlist download button.",
-    compatiblePackages = COMPATIBLE_PACKAGE,
+object HookDownloadActionsPatch : BaseBytecodePatch(
+    name = "Hook download actions",
+    description = "Adds options to show the download playlist button and hook the download actions.",
+    compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        OfflineVideoEndpointFingerprint,
+        PiPPlaybackFingerprint,
         AccessibilityOfflineButtonSyncFingerprint,
-        HookDownloadPlaylistButtonFingerprint
+        DownloadPlaylistButtonOnClickFingerprint
     )
 ) {
     private const val INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR =
         "$MISC_PATH/DownloadPlaylistButton;"
 
+    private const val INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR =
+        "$INTEGRATIONS_PATH/utils/VideoUtils;"
+
     override fun execute(context: BytecodeContext) {
-        // region Force shown playlist button
+
+        // region Patch for hook download actions
+
+        OfflineVideoEndpointFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static/range {p3 .. p3}, $INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
+                    move-result v0
+                    if-eqz v0, :show_native_downloader
+                    return-void
+                    """, ExternalLabel("show_native_downloader", getInstruction(0))
+            )
+        }
+
+        PiPPlaybackFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR->getExternalDownloaderLaunchedState(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
+            }
+        }
+
+        // endregion
+
+        // region Force show the playlist download button
         AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let {
             val targetMethod = it.mutableClass.methods.first { method ->
                 method.parameters == listOf("Ljava/lang/Boolean;")
@@ -50,7 +91,7 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
         // endregion
 
         // region Hook Download Playlist Button OnClick method
-        HookDownloadPlaylistButtonFingerprint.resultOrThrow().let {
+        DownloadPlaylistButtonOnClickFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 // region Get the index of the instruction that initializes the onClickListener
 
@@ -98,7 +139,7 @@ object HookPlaylistDownloadButtonPatch : BaseBytecodePatch(
             }
         }
         // endregion
-        
+
         /**
          * Add settings
          */

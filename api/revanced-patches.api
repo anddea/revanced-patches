@@ -1137,6 +1137,21 @@ public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : 
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/misc/downloadactions/HookDownloadActionsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/HookDownloadActionsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/AccessibilityOfflineButtonSyncFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/AccessibilityOfflineButtonSyncFingerprint;
+}
+
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/DownloadPlaylistButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/DownloadPlaylistButtonOnClickFingerprint;
+	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
+}
+
 public final class app/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -1259,12 +1274,6 @@ public final class app/revanced/patches/youtube/player/hapticfeedback/HapticFeed
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/player/overlaybuttons/HookPlaylistDownloadButtonPatch : app/revanced/util/patch/BaseBytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/HookPlaylistDownloadButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1275,15 +1284,6 @@ public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayBut
 	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/AccessibilityOfflineButtonSyncFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/AccessibilityOfflineButtonSyncFingerprint;
-}
-
-public final class app/revanced/patches/youtube/player/overlaybuttons/fingerprints/HookDownloadPlaylistButtonFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/player/overlaybuttons/fingerprints/HookDownloadPlaylistButtonFingerprint;
-	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
 }
 
 public final class app/revanced/patches/youtube/player/seekbar/SeekbarComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {

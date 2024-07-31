@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.player.overlaybuttons.fingerprints
+package app.revanced.patches.youtube.misc.downloadactions.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AccessibilityOfflineButtonSync
