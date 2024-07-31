@@ -15,6 +15,7 @@ object ForceSnackbarTheme : BaseResourcePatch(
     description = "Force snackbar background color to match selected theme.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
+    use = false
 ) {
     private const val BACKGROUND = "?ytChipBackground"
     private const val STROKE = "none"

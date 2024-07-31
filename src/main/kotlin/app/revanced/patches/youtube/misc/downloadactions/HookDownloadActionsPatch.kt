@@ -4,11 +4,10 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.misc.downloadactions.fingerprints.DownloadPlaylistButtonOnClickFingerprint
-import app.revanced.patches.youtube.misc.downloadactions.fingerprints.OfflineVideoEndpointFingerprint
-import app.revanced.patches.youtube.misc.downloadactions.fingerprints.PiPPlaybackFingerprint
-import app.revanced.patches.youtube.misc.downloadactions.fingerprints.AccessibilityOfflineButtonSyncFingerprint
+import app.revanced.patches.youtube.misc.downloadactions.fingerprints.*
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
@@ -73,21 +72,28 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
         // endregion
 
         // region Force show the playlist download button
-        AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let {
-            val targetMethod = it.mutableClass.methods.first { method ->
-                method.parameters == listOf("Ljava/lang/Boolean;")
-                        && method.returnType == "V"
-            }
-            targetMethod.apply {
-                addInstructions(
-                    2,
-                    """
-                    invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
-                    move-result p1
-                    """.trimIndent()
+        AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let { parentResult ->
+            // use different fingerprint for backwards compatibility
+            SetPlaylistDownloadButtonVisibilityFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
                 )
+            }.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    // TODO: replace the label if the if-nez instruction
+                    replaceInstructions(
+                        2,
+                        """
+                        invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
+                        move-result v0
+                        if-nez v0, :show_native_downloader
+                        """.trimIndent()
+                    )
+                }
             }
         }
+
         // endregion
 
         // region Hook Download Playlist Button OnClick method

@@ -1152,6 +1152,10 @@ public final class app/revanced/patches/youtube/misc/downloadactions/fingerprint
 	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
 }
 
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/SetPlaylistDownloadButtonVisibilityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/SetPlaylistDownloadButtonVisibilityFingerprint;
+}
+
 public final class app/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
