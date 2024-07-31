@@ -404,6 +404,9 @@ Negozio"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">I post della community nel feed delle iscrizioni sono visibili</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">I post della community nel feed delle iscrizioni sono nascosti</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Nascondi i post della community nel feed delle iscrizioni</string>
+    <string name="revanced_hide_contents_section_summary_off">Come è stato fatto questo contenuto la sezione è mostrata.</string>
+    <string name="revanced_hide_contents_section_summary_on">Come questo contenuto è stato fatto sezione è nascosto.</string>
+    <string name="revanced_hide_contents_section_title">Nascondi sezione Contenuti</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Il riquadro della raccolta fondi è visibile</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Il riquadro della raccolta fondi è nascosto</string>
     <string name="revanced_hide_crowdfunding_box_title">Nascondi il riquadro della raccolta fondi</string>
@@ -909,6 +912,9 @@ La riproduzione automatica può essere modificato nelle impostazioni di YouTube:
     <string name="revanced_hide_web_search_results_summary_off">I risultati di ricerca del web sono visibili</string>
     <string name="revanced_hide_web_search_results_summary_on">I risultati di ricerca del web sono nascosti</string>
     <string name="revanced_hide_web_search_results_title">Nascondi i risultati di ricerca del web</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">La sovrapposizione zoom è mostrata.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">La sovrapposizione zoom è nascosta.</string>
+    <string name="revanced_hide_zoom_overlay_title">Nascondi sovrapposizione zoom</string>
     <string name="revanced_icon_afn_blue">Afn Blu</string>
     <string name="revanced_icon_afn_red">Afn Rosso</string>
     <string name="revanced_icon_custom">Personalizzato</string>
@@ -1061,6 +1067,8 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_screen_video_filter_summary">Nascondi video per parole chiave o visualizzazioni.</string>
     <string name="revanced_preference_screen_video_filter_title">Filtro video</string>
     <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_preference_screen_watch_history_summary">Cambia le impostazioni relative alla cronologia.</string>
+    <string name="revanced_preference_screen_watch_history_title">Cronologia</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Il margine superiore delle azioni rapide deve essere compreso tra 0-32. Reimposta ai valori predefiniti.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configura la spaziatura dalla barra di ricerca al contenitore di azione rapida, tra 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Margine superiore delle azioni rapide</string>
@@ -1191,6 +1199,7 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale dell\'inizio o fine del segmento?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">L\'intervallo temporale fornito non è valido.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Modifica l\'intervallo temporale del segmento manualmente</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Impostare %s come inizio o fine di un nuovo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">fine</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento.</string>
     <string name="revanced_sb_new_segment_mark_start">inizio</string>
@@ -1454,6 +1463,24 @@ Problemi noti:
 • Dovresti disabilitare questa impostazione per rendere visibili gli annunci video."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Scambia crea con notifiche</string>
     <string name="revanced_theme_default">Inventario</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Segue le impostazioni di cronologia dell'account Google.
+• La cronologia potrebbe non funzionare a causa di DNS o VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Segue le impostazioni di cronologia dell\'account Google.</string>
+    <string name="revanced_watch_history_about_status_blocked">• La cronologia non funziona.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Segue le impostazioni di cronologia dell'account Google.
+• La cronologia potrebbe non funzionare a causa di DNS o VPN.
+• La cronologia potrebbe non funzionare con un account brand.
+(L'impostazione di Spoof del client è attiva e il client iOS è selezionato)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Segue le impostazioni di cronologia dell'account Google.
+• La cronologia potrebbe non funzionare con un account brand.
+(L'impostazione di Spoof del client è attiva e il client iOS è selezionato)"</string>
+    <string name="revanced_watch_history_about_title">Informazioni sulla cronologia</string>
+    <string name="revanced_watch_history_management_summary">Clicca per aprire la gestione della cronologia di YouTube.</string>
+    <string name="revanced_watch_history_management_title">Gestisci tutta la cronologia</string>
+    <string name="revanced_watch_history_type_entry_1">Originale</string>
+    <string name="revanced_watch_history_type_entry_2">Sostituisci dominio</string>
+    <string name="revanced_watch_history_type_entry_3">Blocca cronologia</string>
+    <string name="revanced_watch_history_type_title">Tipo di cronologia</string>
     <string name="revanced_whitelist_add_failed">Aggiunta del canale \'%1$s\' alla whitelist %2$s non riuscita.</string>
     <string name="revanced_whitelist_added">Canale \'%1$s\' è stato aggiunto alla whitelist %2$s.</string>
     <string name="revanced_whitelist_empty">Non ci sono canali whitelisted.</string>
