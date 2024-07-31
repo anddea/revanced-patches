@@ -901,6 +901,9 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
     <string name="revanced_hide_web_search_results_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_web_search_results_summary_on">Gizleniyor</string>
     <string name="revanced_hide_web_search_results_title">Web arama sonuçlarını gizle</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Yakınlaştırma arayüzü gizlenmiyor.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Yakınlaştırma arayüzü gizli.</string>
+    <string name="revanced_hide_zoom_overlay_title">Yakınlaştırma arayüzünü gizle</string>
     <string name="revanced_icon_afn_blue">Afn Mavi</string>
     <string name="revanced_icon_afn_red">Afn Kırmızı</string>
     <string name="revanced_icon_custom">Özel</string>
@@ -1050,6 +1053,8 @@ Beyaz liste ayarı iletişim kutusunu açmak için dokunun ve basılı tutun.</s
     <string name="revanced_preference_screen_video_filter_summary">Videoları anahtar kelimelere veya görüntülemelere göre gizleyin.</string>
     <string name="revanced_preference_screen_video_filter_title">Video filtresi</string>
     <string name="revanced_preference_screen_video_title">Video</string>
+    <string name="revanced_preference_screen_watch_history_summary">İzlemek geçmişi ile alakalı ayarları değiştirir.</string>
+    <string name="revanced_preference_screen_watch_history_title">İzleme geçmişi</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Hızlı eylemler üst kenar boşluğu 0-32 arasında olmalıdır. Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_quick_actions_top_margin_summary">Zaman çubuğundan hızlı işlem kapsayıcısına kadar olan aralığı 0-32 arasında yapılandırın.</string>
     <string name="revanced_quick_actions_top_margin_title">Hızlı ayarlar çubuğunun yerden yüksekliği</string>
@@ -1181,6 +1186,7 @@ Bir örnek görmek için buraya dokunun.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Bu segmentin başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Girilen süre geçersiz.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Segmentin süresini elle düzenleyin</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">%s bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
     <string name="revanced_sb_new_segment_mark_end">bitiş</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Öncelikle zaman çizgisinde iki konum işaretleyin.</string>
     <string name="revanced_sb_new_segment_mark_start">başlangıç</string>
@@ -1401,11 +1407,9 @@ Yan etkiler şunları içerir:
     <string name="revanced_spoof_client_use_ios_summary">"İstemciyi iOS'a taklit et.
 
 Yan etkiler şunları içerir:
-• HDR video yok.
-• Daha yüksek video kaliteleri eksik olabilir.
+• HDR video yalnızca AV1 codec bileşeninde desteklenir.
 • İzleme geçmişi bir marka hesabıyla çalışmaz.
-• Canlı yayınlar yalnızca ses olarak oynatılamaz.
-• Canlı yayınlar Android 8.0'da mevcut değildir."</string>
+• Canlı yayınlar yalnızca ses olarak oynatılamaz."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Cihaz boyutlarını maksimum değere kadar taklit eder. Yüksek cihaz boyutları gerektiren bazı videolarda yüksek kalitenin kilidi açılabilir ancak tüm videolarda bu durum geçerli olmayabilir."</string>
@@ -1447,6 +1451,14 @@ Bilinen sorunlar:
 • Video reklamların görünür olması için bu ayarı devre dışı bırakmalısınız."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Oluştur düğmesini Bildirimler düğmesi ile yer değiş</string>
     <string name="revanced_theme_default">Stok</string>
+    <string name="revanced_watch_history_about_status_blocked">• İzleme geçmişi çalışmaz.</string>
+    <string name="revanced_watch_history_about_title">İzleme geçmişi hakkında</string>
+    <string name="revanced_watch_history_management_summary">YouTube izleme geçmişi yönetimini açmak için tıklayın.</string>
+    <string name="revanced_watch_history_management_title">Tüm geçmişi yönet</string>
+    <string name="revanced_watch_history_type_entry_1">Orjinal</string>
+    <string name="revanced_watch_history_type_entry_2">Alan adını değiştir</string>
+    <string name="revanced_watch_history_type_entry_3">İzleme geçmişini durdur</string>
+    <string name="revanced_watch_history_type_title">İzleme geçmişi tipi</string>
     <string name="revanced_whitelist_add_failed">Kanal \'%1$s\', \'%2$s\' beyaz listesine eklenemedi.</string>
     <string name="revanced_whitelist_added">\'%1$s\' kanalı \'%2$s\' beyaz listesine eklendi.</string>
     <string name="revanced_whitelist_empty">Beyaz listeye alınmış kanal yok.</string>

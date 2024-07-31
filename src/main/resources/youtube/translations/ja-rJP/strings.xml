@@ -1435,11 +1435,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_client_use_ios_summary">"iOS クライアントに偽装します。
 
 以下の副作用があります:
-• HDR 画質は使用できません。
-• 高い画質が表示されない可能性があります。
+• HDR 画質は AV1 コーデック対応端末以外では使用できません。
 • 再生履歴がブランドアカウントでは保存されません。
-• ライブ配信を音声のみで再生できません。
-• ライブ配信は Android 8.0 では再生できません。"</string>
+• ライブ配信を音声のみで再生できません。"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
     <string name="revanced_spoof_device_dimensions_summary">"デバイスの解像度を最大値に偽装します。
@@ -1486,12 +1484,12 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_watch_history_about_status_android_replaced">• Google アカウントの再生履歴の設定に従います。</string>
     <string name="revanced_watch_history_about_status_blocked">• 再生履歴が動作しません。</string>
     <string name="revanced_watch_history_about_status_ios_original">"• Google アカウントの再生履歴の設定に従います。
-• DNS や VPN が原因で履歴が表示されない可能性があります。
-• ブランドアカウントでは履歴が表示されない可能性があります。
-(「クライアント偽装」設定がオンで iOS クライアントが選択されている場合）"</string>
+• DNS や VPN が原因で再生履歴が表示されない可能性があります。
+• ブランドアカウントでは再生履歴が表示されない可能性があります。
+(クライアント偽装の設定がオンになっていて iOS クライアントが選択されている場合)"</string>
     <string name="revanced_watch_history_about_status_ios_replaced">"• Google アカウントの再生履歴の設定に従います。
-• ブランドアカウントでは再生履歴が機能しない可能性があります。
-(「クライアント偽装」設定がオンで iOS クライアントが選択されている場合）"</string>
+• ブランドアカウントでは再生履歴が表示されない可能性があります。
+(クライアント偽装の設定がオンになっていて iOS クライアントが選択されている場合)"</string>
     <string name="revanced_watch_history_about_title">再生履歴について</string>
     <string name="revanced_watch_history_management_summary">タップして YouTube 再生履歴の管理画面を開きます。</string>
     <string name="revanced_watch_history_management_title">すべての履歴を管理</string>

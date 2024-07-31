@@ -29,6 +29,7 @@ import app.revanced.patches.music.player.components.fingerprints.OldEngagementPa
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerBackgroundFingerprint
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerLayoutFingerprint
 import app.revanced.patches.music.player.components.fingerprints.PlayerPatchConstructorFingerprint
+import app.revanced.patches.music.player.components.fingerprints.PlayerViewPagerConstructorFingerprint
 import app.revanced.patches.music.player.components.fingerprints.QuickSeekOverlayFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RemixGenericButtonFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RepeatTrackFingerprint
@@ -40,11 +41,14 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.fingerprints.PendingIntentReceiverFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DarkBackground
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerViewPager
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerViewPager
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TapBloomView
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopEnd
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopStart
@@ -55,11 +59,13 @@ import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionViewHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -88,6 +94,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to the player.",
     dependencies = setOf(
         LithoFilterPatch::class,
+        MainActivityResolvePatch::class,
         PlayerComponentsResourcePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
@@ -111,6 +118,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         OldPlayerLayoutFingerprint,
         PendingIntentReceiverFingerprint,
         PlayerPatchConstructorFingerprint,
+        PlayerViewPagerConstructorFingerprint,
         QuickSeekOverlayFingerprint,
         RemixGenericButtonFingerprint,
         RepeatTrackFingerprint,
@@ -122,6 +130,54 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/PlayerComponentsFilter;"
 
     override fun execute(context: BytecodeContext) {
+
+        // region patch for disable gesture in player
+
+        val playerViewPagerConstructorMethod =
+            PlayerViewPagerConstructorFingerprint.resultOrThrow().mutableMethod
+        val mainActivityOnStartMethod =
+            MainActivityResolvePatch.getMethod("onStart")
+
+        mapOf(
+            MiniPlayerViewPager to "disableMiniPlayerGesture",
+            PlayerViewPager to "disablePlayerGesture"
+        ).forEach { (literal, methodName) ->
+            val viewPagerReference = playerViewPagerConstructorMethod.let {
+                val constIndex = it.getWideLiteralInstructionIndex(literal)
+                val targetIndex = it.getTargetIndexOrThrow(constIndex, Opcode.IPUT_OBJECT)
+
+                it.getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+            }
+            mainActivityOnStartMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT
+                            && getReference<FieldReference>()?.toString() == viewPagerReference
+                }
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val jumpIndex = getTargetIndex(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :disable
+                        """, ExternalLabel("disable", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_mini_player_gesture",
+            "false"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_player_gesture",
+            "false"
+        )
+
+        // endregion
 
         // region patch for enable color match player and enable black player background
 
@@ -803,16 +859,18 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for restore old comments popup panels
 
-        OldEngagementPanelFingerprint.literalInstructionBooleanHook(
-            45427672,
-            "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
-        )
+        OldEngagementPanelFingerprint.result?.let {
+            OldEngagementPanelFingerprint.literalInstructionBooleanHook(
+                45427672,
+                "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
+            )
 
-        SettingsPatch.addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_restore_old_comments_popup_panels",
-            "false"
-        )
+            SettingsPatch.addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_restore_old_comments_popup_panels",
+                "false"
+            )
+        }
 
         // endregion
 
