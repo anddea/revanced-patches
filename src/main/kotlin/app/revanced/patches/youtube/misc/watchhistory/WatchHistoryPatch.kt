@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
 object WatchHistoryPatch : BaseBytecodePatch(
-    name = "Watch history",
+    name = "Spoof watch history",
     description = "Adds an option to change the domain of the watch history or check its status.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
