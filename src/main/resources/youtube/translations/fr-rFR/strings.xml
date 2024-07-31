@@ -912,6 +912,9 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
     <string name="revanced_hide_web_search_results_summary_off">Les résultats web sont affichés.</string>
     <string name="revanced_hide_web_search_results_summary_on">Les résultats web sont masqués.</string>
     <string name="revanced_hide_web_search_results_title">Masquer les résultats web</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Le voile du zoom est affiché.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Le voile du zoom est masqué.</string>
+    <string name="revanced_hide_zoom_overlay_title">Masquer le voile du zoom</string>
     <string name="revanced_icon_afn_blue">Afn Bleu</string>
     <string name="revanced_icon_afn_red">Afn Rouge</string>
     <string name="revanced_icon_custom">Personnalisé</string>
@@ -1061,6 +1064,8 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_video_filter_summary">Masque les vidéos par mot-clés ou par vues.</string>
     <string name="revanced_preference_screen_video_filter_title">Filtre vidéo</string>
     <string name="revanced_preference_screen_video_title">Vitesses et qualités vidéo</string>
+    <string name="revanced_preference_screen_watch_history_summary">Modifie les paramètres liés à l\'historique de visionnage.</string>
+    <string name="revanced_preference_screen_watch_history_title">Historique de visionnage</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">La hauteur de l\'action rapide doit être comprise entre 0 et 32. Valeur réinitialisée par défaut.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure l\'espacement entre la barre de progression et le conteneur d\'actions rapides, entre 0 et 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Hauteur de la barre de progression </string>
@@ -1192,6 +1197,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_new_segment_edit_by_hand_content">Souhaitez-vous modifier la durée du début ou de la fin du segment ?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">La durée spécifiée est invalide.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Éditer la durée du segment manuellement</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Définir %s comme début ou fin du nouveau segment ?</string>
     <string name="revanced_sb_new_segment_mark_end">fin</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marquez d\'abord deux points sur la barre de progression.</string>
     <string name="revanced_sb_new_segment_mark_start">début</string>
@@ -1413,11 +1419,9 @@ Les effets secondaires incluent :
     <string name="revanced_spoof_client_use_ios_summary">"Falsifie le client vers iOS.
 
 Créée des effets secondaires :
-• Pas de vidéo HDR.
-• Les hautes qualités peuvent être absent.
+• Les vidéos HDR ne fonctionnent uniquement avec le codec AV1.
 • L'historique de visionnage ne fonctionne pas pour les comptes de marques.
-• Les diffusions en direct ne peuvent pas être lu en audio uniquement.
-• Les diffusions en direct ne sont pas disponibles sur Android 8.0."</string>
+• Les diffusions en direct ne peuvent pas être lu en audio uniquement."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil a la valeur maximale.
@@ -1460,6 +1464,14 @@ Limitations :
 • Vous devez désactiver ce paramètre afin de rendre les publicités vidéo visibles."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Échanger \"Créer\" et \"Notifications\"</string>
     <string name="revanced_theme_default">Officiel</string>
+    <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage ne fonctionne pas.</string>
+    <string name="revanced_watch_history_about_title">À propos de l\'historique de visionnage</string>
+    <string name="revanced_watch_history_management_summary">Cliquez pour ouvrir la gestion de l\'historique de visionnage YouTube.</string>
+    <string name="revanced_watch_history_management_title">Gérer tout l\'historique</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Remplacer le domaine</string>
+    <string name="revanced_watch_history_type_entry_3">Bloquer l\'historique de visionnage</string>
+    <string name="revanced_watch_history_type_title">Type d\'historique de visionnage</string>
     <string name="revanced_whitelist_add_failed">Impossible d\'ajouter la chaîne \'%1$s\' à la liste blanche \'%2$s\'.</string>
     <string name="revanced_whitelist_added">La chaîne \'%1$s\' a été ajoutée à la liste blanche \'%2$s\'.</string>
     <string name="revanced_whitelist_empty">Il n\'y a pas de chaînes dans la liste blanche.</string>

@@ -919,6 +919,9 @@ Note:
     <string name="revanced_hide_web_search_results_summary_off">網頁搜尋結果已顯示</string>
     <string name="revanced_hide_web_search_results_summary_on">網頁搜尋結果已隱藏</string>
     <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">顯示縮放疊加。</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">縮放疊加被隱藏。</string>
+    <string name="revanced_hide_zoom_overlay_title">隱藏縮放疊加</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">自訂</string>
@@ -1074,6 +1077,8 @@ Note:
     <string name="revanced_preference_screen_video_filter_summary">依關鍵字或觀看次數隱藏影片</string>
     <string name="revanced_preference_screen_video_filter_title">影片篩選器</string>
     <string name="revanced_preference_screen_video_title">影片</string>
+    <string name="revanced_preference_screen_watch_history_summary">變更與觀看歷史記錄相關的設定。</string>
+    <string name="revanced_preference_screen_watch_history_title">觀看歷史記錄</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作上邊距必須介於 0-32 之間。 重設為預設值。</string>
     <string name="revanced_quick_actions_top_margin_summary">配置從進度條到快速操作容器的間距，範圍在 0 到 32 之間。</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作頂部邊距</string>
@@ -1208,6 +1213,7 @@ Note:
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手動編輯片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段時間</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記兩個位置</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
@@ -1473,6 +1479,24 @@ Note:
 • 你應該停用這項設定以顯示影片廣告"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
     <string name="revanced_theme_default">預設</string>
+    <string name="revanced_watch_history_about_status_android_original">"• 遵循Google帳戶的觀看記錄設定。
+• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。"</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• 遵循Google帳戶的觀看記錄設定。</string>
+    <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• 遵循Google帳戶的觀看記錄設定。
+• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。
+• 觀看記錄可能不適用於品牌帳戶。
+(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• 遵循Google帳戶的觀看記錄設定。
+• 觀看記錄可能不適用於品牌帳戶。
+(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
+    <string name="revanced_watch_history_about_title">關於觀看歷史記錄</string>
+    <string name="revanced_watch_history_management_summary">按一下可開啟 YouTube 觀看記錄管理。</string>
+    <string name="revanced_watch_history_management_title">管理所有歷史記錄</string>
+    <string name="revanced_watch_history_type_entry_1">原始</string>
+    <string name="revanced_watch_history_type_entry_2">替換域名</string>
+    <string name="revanced_watch_history_type_entry_3">區塊觀看歷史記錄</string>
+    <string name="revanced_watch_history_type_title">觀看歷史類型</string>
     <string name="revanced_whitelist_add_failed">無法將頻道 %1$s 新增至 %2$s 白名單。</string>
     <string name="revanced_whitelist_added">頻道 %1$s 已加入 %2$s 白名單。</string>
     <string name="revanced_whitelist_empty">沒有列入白名單的頻道。</string>
