@@ -30,7 +30,8 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
     description = "Adds options to show the download playlist button and hook the download actions.",
     dependencies = setOf(
         MainActivityResolvePatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
+        SettingsPatch::class
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
