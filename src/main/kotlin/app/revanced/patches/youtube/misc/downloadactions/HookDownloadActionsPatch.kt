@@ -10,6 +10,8 @@ import app.revanced.patches.youtube.misc.downloadactions.fingerprints.*
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
+import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -26,6 +28,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HookDownloadActionsPatch : BaseBytecodePatch(
     name = "Hook download actions",
     description = "Adds options to show the download playlist button and hook the download actions.",
+    dependencies = setOf(
+        MainActivityResolvePatch::class,
+        SharedResourceIdPatch::class
+    ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         OfflineVideoEndpointFingerprint,
@@ -169,7 +175,7 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: HOOK_PLAYLIST_DOWNLOAD_BUTTON"
+                "SETTINGS: HOOK_DOWNLOAD_ACTIONS"
             )
         )
 
