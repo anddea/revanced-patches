@@ -4,7 +4,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.downloadactions.fingerprints.*
 import app.revanced.patches.youtube.utils.compatibility.Constants
@@ -18,7 +17,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -80,39 +78,31 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
 
         // region Force show the playlist download button
 
-        SetPlaylistDownloadButtonVisibilityFingerprint.also {
-            it.resolve(
-                context,
-                AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().classDef
-            )
-        }.resultOrThrow().let {
-            it.mutableMethod.apply {
-
-                // region Replace the if-nez instruction with a new one that uses v registers and not p parameters
-
-                val ifIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val showButtonLabel = getInstruction<BuilderInstruction21t>(ifIndex).target
-
-                replaceInstruction(
-                    ifIndex,
-                    BuilderInstruction21t(
-                        Opcode.IF_NEZ,
-                        0,
-                        showButtonLabel,
-                    ),
+        AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let { parentResult ->
+            SetPlaylistDownloadButtonVisibilityFingerprint.also {
+                it.resolve(
+                    context,
+                    parentResult.classDef
                 )
+            }.resultOrThrow().mutableMethod.apply {
+                // Find the index of if-nez
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IF_NEZ
+                }
+                // Get register values used in if-nez
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                // endregion
-
+                // Add instructions just above the index of if-nez
                 addInstructions(
-                    ifIndex,
+                    insertIndex,
                     """
                     invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
-                    move-result v0
-                    """.trimIndent()
+                    move-result v$insertRegister
+                    """
                 )
             }
         }
+
 
         // endregion
 
