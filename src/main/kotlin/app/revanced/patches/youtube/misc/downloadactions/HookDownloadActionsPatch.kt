@@ -4,7 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.downloadactions.fingerprints.*
 import app.revanced.patches.youtube.utils.compatibility.Constants
@@ -16,6 +16,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -71,33 +72,48 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
         // endregion
 
         // region Force show the playlist download button
-        AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().let { parentResult ->
-            // use different fingerprint for backwards compatibility
-            SetPlaylistDownloadButtonVisibilityFingerprint.also {
-                it.resolve(
-                    context,
-                    parentResult.classDef
+
+        SetPlaylistDownloadButtonVisibilityFingerprint.also {
+            it.resolve(
+                context,
+                AccessibilityOfflineButtonSyncFingerprint.resultOrThrow().classDef
+            )
+        }.resultOrThrow().let {
+            it.mutableMethod.apply {
+
+                // region Replace the if-nez instruction with a new one that uses v registers and not p parameters
+
+                val ifIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val showButtonLabel = getInstruction<BuilderInstruction21t>(ifIndex).target
+
+                replaceInstruction(
+                    ifIndex,
+                    BuilderInstruction21t(
+                        Opcode.IF_NEZ,
+                        0,
+                        showButtonLabel,
+                    ),
                 )
-            }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    // TODO: replace the label if the if-nez instruction
-                    replaceInstructions(
-                        2,
-                        """
-                        invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
-                        move-result v0
-                        if-nez v0, :show_native_downloader
-                        """.trimIndent()
-                    )
-                }
+
+                // endregion
+
+                addInstructions(
+                    ifIndex,
+                    """
+                    invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
+                    move-result v0
+                    """.trimIndent()
+                )
             }
         }
 
         // endregion
 
         // region Hook Download Playlist Button OnClick method
+
         DownloadPlaylistButtonOnClickFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
+
                 // region Get the index of the instruction that initializes the onClickListener
 
                 val onClickListenerInitializeIndex = indexOfFirstInstructionOrThrow {
@@ -122,6 +138,7 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
                 // endregion
 
                 onClickClass.methods.find { method -> method.name == "onClick" }?.apply {
+
                     // region Get the index of playlist id
 
                     val insertIndex = implementation!!.instructions.indexOfFirst { instruction ->
@@ -143,6 +160,7 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
                 }
             }
         }
+
         // endregion
 
         /**
