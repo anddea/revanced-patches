@@ -84,25 +84,24 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
                     context,
                     parentResult.classDef
                 )
-            }.resultOrThrow().mutableMethod.apply {
-                // Find the index of if-nez
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IF_NEZ
-                }
-                // Get register values used in if-nez
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            }.resultOrThrow().let { setVisibilityMethod ->
+                setVisibilityMethod.mutableMethod.apply {
+                    // Find the index of if-nez
+                    val insertIndex = setVisibilityMethod.scanResult.patternScanResult!!.startIndex + 2
+                    // Get register values used in if-nez
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                // Add instructions just above the index of if-nez
-                addInstructions(
-                    insertIndex,
-                    """
-                    invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
-                    move-result v$insertRegister
-                    """
-                )
+                    // Add instructions just above the index of if-nez
+                    addInstructions(
+                        insertIndex,
+                        """
+                        invoke-static {}, $INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR->isPlaylistDownloadButtonHooked()Z
+                        move-result v$insertRegister
+                        """
+                    )
+                }
             }
         }
-
 
         // endregion
 
