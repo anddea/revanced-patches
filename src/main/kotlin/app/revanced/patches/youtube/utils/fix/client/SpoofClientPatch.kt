@@ -3,15 +3,19 @@ package app.revanced.patches.youtube.utils.fix.client
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint.indexOfModelInstruction
+import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.BackgroundPlaybackPlayerResponseFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlaybackSpeedMenuItemFingerprint
@@ -24,6 +28,7 @@ import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerReque
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.storyboard.StoryboardHookPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -50,6 +55,10 @@ object SpoofClientPatch : BaseBytecodePatch(
     name = "Spoof client",
     description = "Adds options to spoof the client to allow video playback.",
     dependencies = setOf(
+        // Required to fix background playback issue of live stream on iOS client.
+        BackgroundPlaybackPatch::class,
+        PlayerTypeHookPatch::class,
+
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         VideoInformationPatch::class,
@@ -66,6 +75,9 @@ object SpoofClientPatch : BaseBytecodePatch(
         CreatePlayerRequestBodyWithModelFingerprint,
         CreatePlayerRequestBodyWithVersionReleaseFingerprint,
         UserAgentHeaderBuilderFingerprint,
+
+        // Background playback in live stream.
+        BackgroundPlaybackPlayerResponseFingerprint,
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
@@ -375,6 +387,30 @@ object SpoofClientPatch : BaseBytecodePatch(
                         """,
                 )
             }
+        }
+
+        // endregion
+
+        // region fix background playback in live stream, if spoofing to iOS
+
+        /**
+         * If the return value of this method is true, background playback is always enabled.
+         *
+         * If [BackgroundPlaybackPatch] is excluded, there may be unintended behavior.
+         * Therefore, [BackgroundPlaybackPatch] must be included.
+         *
+         * Also, [PlayerTypeHookPatch] is required to disable background playback in Shorts.
+         */
+        BackgroundPlaybackPlayerResponseFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceEnableBackgroundPlayback()Z
+                    move-result v0
+                    if-eqz v0, :disabled
+                    const/4 v0, 0x1
+                    return v0
+                    """, ExternalLabel("disabled", getInstruction(0))
+            )
         }
 
         // endregion
