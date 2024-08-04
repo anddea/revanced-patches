@@ -1,3 +1,10 @@
+# [2.228.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.5...v2.228.0-dev.6) (2024-08-04)
+
+
+### Features
+
+* **YouTube - Default Quality & Speed:** Add an option to disable toasts when changing the default values ([cc95f31](https://github.com/anddea/revanced-patches/commit/cc95f316485fe1759621b37471980c0ffe14d7cd))
+
 # [2.228.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.4...v2.228.0-dev.5) (2024-08-04)
 
 
