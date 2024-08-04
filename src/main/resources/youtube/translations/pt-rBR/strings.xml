@@ -16,8 +16,6 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
     <string name="gms_core_settings_title">Abrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">O GmsCore não está instalado. Instale-o.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Domínio alternativo</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas costumam ser mais relevantes do que as fornecidas pelo YouTube.
 
 Se ativado, os URLs dos vídeos serão enviados ao servidor API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as capturas originais ou estáticas serão mostradas.
@@ -59,6 +57,8 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">O modo ambiente está desativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">O modo ambiente está ativado no modo de economia de bateria</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Ignorar restrições do modo ambiente</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">O domínio para buscar imagens de.\nNota: Digite apenas o nome do domínio, ou seja, sem o prefixo \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Domínio alternativo</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Usando o host de imagem original.\n\nAtivar isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Usando o host de imagem yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de imagem por região</string>
@@ -406,6 +406,9 @@ Loja"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Exibido no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Oculto no feed de inscrições.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ocultar no feed de inscrições</string>
+    <string name="revanced_hide_contents_section_summary_off">A seção Como este conteúdo foi feito será exibida.</string>
+    <string name="revanced_hide_contents_section_summary_on">A seção Como este conteúdo foi feito está oculta.</string>
+    <string name="revanced_hide_contents_section_title">Ocultar seção de Conteúdo</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">A caixa de financiamento coletivo será exibida.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">A caixa de financiamento coletivo está oculta.</string>
     <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
@@ -912,6 +915,9 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
     <string name="revanced_hide_web_search_results_summary_off">Os resultados de pesquisa web serão exibidos.</string>
     <string name="revanced_hide_web_search_results_summary_on">Os resultados de pesquisa web estão ocultos.</string>
     <string name="revanced_hide_web_search_results_title">Ocultar resultados da pesquisa web</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">A sobreposição de zoom será exibida.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">A sobreposição de zoom está oculta.</string>
+    <string name="revanced_hide_zoom_overlay_title">Ocultar sobreposição de zoom</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">Personalizado</string>
@@ -1062,6 +1068,8 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_screen_video_filter_summary">Ocultar vídeos por palavras-chave ou visualizações.</string>
     <string name="revanced_preference_screen_video_filter_title">Filtro de vídeo</string>
     <string name="revanced_preference_screen_video_title">Vídeo</string>
+    <string name="revanced_preference_screen_watch_history_summary">Altere as configurações relacionadas ao histórico de exibição.</string>
+    <string name="revanced_preference_screen_watch_history_title">Histórico de exibição</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">A margem superior das ações rápidas deve ser entre 0-32. Redefinir para os valores padrão.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure o espaçamento da barra de progresso para o contêiner de ação rápida, entre 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Margem superior das ações rápidas</string>
@@ -1193,10 +1201,10 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Você quer editar o tempo para o início ou o fim do segmento?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Tempo inserido inválido.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Editar tempo do segmento manualmente</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Definir %s como início ou fim de um novo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">fim</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Marque dois locais na barra de tempo primeiro.</string>
     <string name="revanced_sb_new_segment_mark_start">início</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Definir %1$02d:%2$02d:%3$03d como início ou fim de um novo segmento?</string>
     <string name="revanced_sb_new_segment_now">agora</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Pré-visualizar o segmento e garantir que ele pule sem problemas.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">O início deve ser antes do fim.</string>
@@ -1340,6 +1348,7 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Uma notificação flutuante não será exibida.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Uma notificação flutuante será exibida.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Mostrar uma notificação flutuante quando ignorado</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Ativar essa configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_skipped_preloaded_buffer">O buffer pré-carregado é ignorado.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">O valor da sobreposição de velocidade deve estar entre 0-8.0. Redefinir aos valores padrão.</string>
     <string name="revanced_speed_overlay_value_summary">Valor da sobreposição de velocidade entre 0-8.0.</string>
@@ -1455,6 +1464,14 @@ Limitações:
 • Você deve desativar esta configuração para tornar os anúncios em vídeo visíveis."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Alternar criar com notificações</string>
     <string name="revanced_theme_default">Padrão</string>
+    <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona.</string>
+    <string name="revanced_watch_history_about_title">Sobre o histórico de exibição</string>
+    <string name="revanced_watch_history_management_summary">Clique para abrir o gerenciamento do histórico de exibição do YouTube.</string>
+    <string name="revanced_watch_history_management_title">Gerenciar todo o histórico</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
+    <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>
+    <string name="revanced_watch_history_type_title">Tipo de histórico de exibição</string>
     <string name="revanced_whitelist_add_failed">Falha ao adicionar o canal \'%1$s\' à lista branca de %2$s.</string>
     <string name="revanced_whitelist_added">O canal \'%1$s\' foi adicionado à lista branca de %2$s.</string>
     <string name="revanced_whitelist_empty">Não há canais na lista branca.</string>

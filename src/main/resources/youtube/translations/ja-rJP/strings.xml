@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
     <string name="gms_core_settings_title">GmsCore を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">代替ドメイン</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrowは、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。 有効にすると、動画のURLが API サーバーに送信されますが、他のデータは送信されません。 動画にDeArrowサムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
 
 DeArrowの詳細については、ここをタップしてください。"</string>
@@ -58,6 +56,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">バッテリーセーバーモードでもアンビエントモードを有効にします。</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">アンビエントモードの制限を回避</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">画像を取得するためのドメインです。\n注意: 「https://」のような接頭辞を付けずにドメイン名のみを入力してください。</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">代替ドメイン</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します。</string>
     <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
@@ -358,9 +358,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_channel_guidelines_summary_off">チャンネルのガイドラインを非表示にします。</string>
     <string name="revanced_hide_channel_guidelines_summary_on">チャンネルのガイドラインを非表示にします。</string>
     <string name="revanced_hide_channel_guidelines_title">コミュニティガイドラインを非表示</string>
-    <string name="revanced_hide_channel_member_shelf_summary_off">チャンネルのメンバー欄を非表示にします。</string>
-    <string name="revanced_hide_channel_member_shelf_summary_on">チャンネルのメンバー欄を非表示にします。</string>
-    <string name="revanced_hide_channel_member_shelf_title">チャンネルメンバー欄を非表示</string>
+    <string name="revanced_hide_channel_member_shelf_summary_off">チャンネルページからメンバー欄を非表示にします。</string>
+    <string name="revanced_hide_channel_member_shelf_summary_on">チャンネルページからメンバー欄を非表示にします。</string>
+    <string name="revanced_hide_channel_member_shelf_title">メンバー欄を非表示</string>
     <string name="revanced_hide_channel_profile_links_summary_off">チャンネルプロフィール上部のリンクを非表示にします。</string>
     <string name="revanced_hide_channel_profile_links_summary_on">チャンネルプロフィール上部のリンクを非表示にします。</string>
     <string name="revanced_hide_channel_profile_links_title">チャンネルプロフィールのリンクを非表示</string>
@@ -411,6 +411,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_community_posts_subscriptions_summary_off">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">登録チャンネルフィードから非表示にします。</string>
     <string name="revanced_hide_community_posts_subscriptions_title">登録チャンネルフィードから非表示</string>
+    <string name="revanced_hide_contents_section_summary_off">概要欄下部に表示される「このコンテンツの作成手段」を非表示にします。</string>
+    <string name="revanced_hide_contents_section_summary_on">概要欄下部に表示される「このコンテンツの作成手段」を非表示にします。</string>
+    <string name="revanced_hide_contents_section_title">コンテンツ欄を非表示</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間のクラウドファンディングボックスを非表示にします。</string>
     <string name="revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
@@ -866,8 +869,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_thanks_button_summary_off">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_summary_on">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_title">「Thanks」ボタンを非表示</string>
-    <string name="revanced_hide_ticket_shelf_summary_off">チケット欄を非表示にします。</string>
-    <string name="revanced_hide_ticket_shelf_summary_on">チケット欄を非表示にします。</string>
+    <string name="revanced_hide_ticket_shelf_summary_off">検索結果/関連動画からチケット欄を非表示にします。</string>
+    <string name="revanced_hide_ticket_shelf_summary_on">検索結果/関連動画からチケット欄を非表示にします。</string>
     <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示</string>
     <string name="revanced_hide_time_stamp_summary_off">タイムスタンプを非表示にします。</string>
     <string name="revanced_hide_time_stamp_summary_on">タイムスタンプを非表示にします。</string>
@@ -914,6 +917,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_web_search_results_summary_off">検索フィードから Web 検索結果を非表示にします。</string>
     <string name="revanced_hide_web_search_results_summary_on">検索フィードから Web 検索結果を非表示にします。</string>
     <string name="revanced_hide_web_search_results_title">ウェブの検索結果を非表示</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">ズーム時のオーバーレイを非表示にします。</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">ズーム時のオーバーレイを非表示にします。</string>
+    <string name="revanced_hide_zoom_overlay_title">ズームオーバーレイを非表示</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">カスタム</string>
@@ -1069,6 +1075,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_video_filter_summary">キーワードや再生回数で動画をフィルタリングします。</string>
     <string name="revanced_preference_screen_video_filter_title">動画フィルター</string>
     <string name="revanced_preference_screen_video_title">動画</string>
+    <string name="revanced_preference_screen_watch_history_summary">再生履歴に関連する設定を変更します。</string>
+    <string name="revanced_preference_screen_watch_history_title">再生履歴</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">クイックアクションの上部の余白は 0 ~ 32 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_quick_actions_top_margin_summary">シークバーからクイックアクション コンテナーまでの間隔を 0 ～ 32 の間で設定してください。</string>
     <string name="revanced_quick_actions_top_margin_title">クイック操作上部の余白</string>
@@ -1204,10 +1212,10 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">時間の値が無効です。</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">セグメントのタイミングを手動で編集</string>
     <string name="revanced_sb_new_segment_forward">指定された時間までスキップ (デフォルト: 150ms)</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">%s を新しいセグメントの開始または終了として設定しますか？</string>
     <string name="revanced_sb_new_segment_mark_end">終了</string>
     <string name="revanced_sb_new_segment_mark_locations_first">タイムバーの2か所をマークしてください</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d を新しいセグメントの開始または終了として設定しますか？</string>
     <string name="revanced_sb_new_segment_now">現在</string>
     <string name="revanced_sb_new_segment_preview_segment_first">セグメントをプレビューして、スムーズにスキップできるようにしてください。</string>
     <string name="revanced_sb_new_segment_publish">作成したセグメントを送信</string>
@@ -1353,6 +1361,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">スキップ時にトーストを表示します。</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">スキップ時にトーストを表示します。</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">スキップ時にトーストを表示</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">この設定をオンにした場合、バッファリングの問題が発生する可能性があります。</string>
     <string name="revanced_skipped_preloaded_buffer">プリロードバッファをスキップしました。</string>
     <string name="revanced_speed_overlay_value_invalid_toast">再生速度のオーバーレイの値は 0 ~ 8.0 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_speed_overlay_value_summary">再生速度のオーバーレイの値は 0 ~ 8.0 の間です。</string>
@@ -1426,11 +1435,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_spoof_client_use_ios_summary">"iOS クライアントに偽装します。
 
 以下の副作用があります:
-• HDR 画質は使用できません。
-• 高い画質が表示されない可能性があります。
+• HDR 画質は AV1 コーデック対応端末以外では使用できません。
 • 再生履歴がブランドアカウントでは保存されません。
-• ライブ配信を音声のみで再生できません。
-• ライブ配信は Android 8.0 では再生できません。"</string>
+• ライブ配信を音声のみで再生できません。"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
     <string name="revanced_spoof_device_dimensions_summary">"デバイスの解像度を最大値に偽装します。
@@ -1472,6 +1479,24 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 • 動画広告を表示するには、この設定を無効にする必要があります。"</string>
     <string name="revanced_switch_create_with_notifications_button_title">「作成」を「通知」と入れ替え</string>
     <string name="revanced_theme_default">オリジナル</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Google アカウントの再生履歴の設定に従います。
+• DNS や VPN が原因で再生履歴が動作しない可能性があります。"</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Google アカウントの再生履歴の設定に従います。</string>
+    <string name="revanced_watch_history_about_status_blocked">• 再生履歴が動作しません。</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Google アカウントの再生履歴の設定に従います。
+• DNS や VPN が原因で再生履歴が表示されない可能性があります。
+• ブランドアカウントでは再生履歴が表示されない可能性があります。
+(クライアント偽装の設定がオンになっていて iOS クライアントが選択されている場合)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Google アカウントの再生履歴の設定に従います。
+• ブランドアカウントでは再生履歴が表示されない可能性があります。
+(クライアント偽装の設定がオンになっていて iOS クライアントが選択されている場合)"</string>
+    <string name="revanced_watch_history_about_title">再生履歴について</string>
+    <string name="revanced_watch_history_management_summary">タップして YouTube 再生履歴の管理画面を開きます。</string>
+    <string name="revanced_watch_history_management_title">すべての履歴を管理</string>
+    <string name="revanced_watch_history_type_entry_1">オリジナル</string>
+    <string name="revanced_watch_history_type_entry_2">ドメインを置き換え</string>
+    <string name="revanced_watch_history_type_entry_3">再生履歴をブロック</string>
+    <string name="revanced_watch_history_type_title">再生履歴の種類</string>
     <string name="revanced_whitelist_add_failed">チャンネル「%1$s」を %2$s ホワイトリストに追加できませんでした。</string>
     <string name="revanced_whitelist_added">チャンネル「%1$s」を %2$s ホワイトリストに登録しました。</string>
     <string name="revanced_whitelist_empty">ホワイトリストに登録されているチャンネルはありません。</string>

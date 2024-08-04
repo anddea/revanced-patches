@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">啟用雲端訊息傳遞以接收通知</string>
     <string name="gms_core_settings_title">打開 GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GMSCore未安裝 請安裝</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">從中取得圖像網域。\n注意：只輸入域名, i.e., 不含 \"https\:\/\/\" 前綴。</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">替代域名</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 提供群眾外包的 YouTube 影片縮圖。這些縮圖通常比 YouTube 提供的縮圖更具相關性。
 
 如果啟用，影片 URL 會傳送到 API 伺服器，不會傳送其他資料。如果影片沒有 DeArrow 縮圖，則顯示原始或靜態截圖。
@@ -60,6 +58,11 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">省電模式下微光模式已停用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">省電模式下微光模式已啟用</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">解除微光模式限制</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">從中取得圖像網域。\n注意：只輸入域名, i.e., 不含 \"https\:\/\/\" 前綴。</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">替代域名</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">使用原圖主機。\n\n啟用此功能可以修復某些區域被封鎖的遺失影像。</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖像主機 yt4.ggpht.com</string>
+    <string name="revanced_bypass_image_region_restrictions_title">繞過影像區域限制</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
@@ -225,6 +228,9 @@
     <string name="revanced_enable_opus_codec_title">啟用 OPUS 編解碼器</string>
     <string name="revanced_enable_phone_layout_summary">以 DPI 欺騙系統使用手機版面配置</string>
     <string name="revanced_enable_phone_layout_title">啟用手機版面配置</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">退出或進入全螢幕時不儲存和還原亮度。</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">退出或進入全螢幕時儲存和還原亮度。</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">啟用儲存和還原亮度</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">進度條點擊已停用</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">進度條點擊已啟用</string>
     <string name="revanced_enable_seekbar_tapping_title">啟用進度條點擊</string>
@@ -402,6 +408,9 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">訂閱內容中的社群貼文已顯示</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">訂閱內容中的社群貼文已隱藏</string>
     <string name="revanced_hide_community_posts_subscriptions_title">隱藏訂閱內容中的社群貼文</string>
+    <string name="revanced_hide_contents_section_summary_off">「此內容的製作過程」區已顯示。</string>
+    <string name="revanced_hide_contents_section_summary_on">「此內容的製作過程」區已隱藏。</string>
+    <string name="revanced_hide_contents_section_title">隱藏內容區</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">募資已顯示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">募款活動已隱藏</string>
     <string name="revanced_hide_crowdfunding_box_title">隱藏募款活動</string>
@@ -910,6 +919,9 @@ Note:
     <string name="revanced_hide_web_search_results_summary_off">網頁搜尋結果已顯示</string>
     <string name="revanced_hide_web_search_results_summary_on">網頁搜尋結果已隱藏</string>
     <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">顯示縮放疊加。</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">縮放疊加被隱藏。</string>
+    <string name="revanced_hide_zoom_overlay_title">隱藏縮放疊加</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">自訂</string>
@@ -990,6 +1002,7 @@ Note:
     <string name="revanced_preference_category_animation_feedback">動畫 / 回饋</string>
     <string name="revanced_preference_category_duration_filter">影片時長篩選器</string>
     <string name="revanced_preference_category_experimental_flag">實驗性功能</string>
+    <string name="revanced_preference_category_image_region_restrictions">影像區域限制</string>
     <string name="revanced_preference_category_import_export_as_file">導入 / 導出為文件</string>
     <string name="revanced_preference_category_import_export_as_text">導入 / 導出為檔案</string>
     <string name="revanced_preference_category_keyword_filter">關鍵字篩選器</string>
@@ -1064,6 +1077,8 @@ Note:
     <string name="revanced_preference_screen_video_filter_summary">依關鍵字或觀看次數隱藏影片</string>
     <string name="revanced_preference_screen_video_filter_title">影片篩選器</string>
     <string name="revanced_preference_screen_video_title">影片</string>
+    <string name="revanced_preference_screen_watch_history_summary">變更與觀看歷史記錄相關的設定。</string>
+    <string name="revanced_preference_screen_watch_history_title">觀看歷史記錄</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作上邊距必須介於 0-32 之間。 重設為預設值。</string>
     <string name="revanced_quick_actions_top_margin_summary">配置從進度條到快速操作容器的間距，範圍在 0 到 32 之間。</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作頂部邊距</string>
@@ -1198,10 +1213,10 @@ Note:
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手動編輯片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段時間</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記兩個位置</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">將%1$02d:%2$02d:%3$03d設定為新片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_now">立即</string>
     <string name="revanced_sb_new_segment_preview_segment_first">預覽片段，並確保跳過順暢</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始時間必須早於結束時間</string>
@@ -1349,6 +1364,7 @@ Note:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">提示訊息已隱藏</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">提示訊息已顯示</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">跳過時的提示訊息</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">啟用此設定可能會導致影片播放問題。</string>
     <string name="revanced_skipped_preloaded_buffer">跳過預加載緩衝</string>
     <string name="revanced_speed_overlay_value_invalid_toast">速度疊加層值必須介於 0-8.0 之間。重設為預設值。</string>
     <string name="revanced_speed_overlay_value_summary">速度疊加值在 0 到 8.0 之間</string>
@@ -1463,6 +1479,24 @@ Note:
 • 你應該停用這項設定以顯示影片廣告"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
     <string name="revanced_theme_default">預設</string>
+    <string name="revanced_watch_history_about_status_android_original">"• 遵循Google帳戶的觀看記錄設定。
+• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。"</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• 遵循Google帳戶的觀看記錄設定。</string>
+    <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• 遵循Google帳戶的觀看記錄設定。
+• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。
+• 觀看記錄可能不適用於品牌帳戶。
+(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• 遵循Google帳戶的觀看記錄設定。
+• 觀看記錄可能不適用於品牌帳戶。
+(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
+    <string name="revanced_watch_history_about_title">關於觀看歷史記錄</string>
+    <string name="revanced_watch_history_management_summary">按一下可開啟 YouTube 觀看記錄管理。</string>
+    <string name="revanced_watch_history_management_title">管理所有歷史記錄</string>
+    <string name="revanced_watch_history_type_entry_1">原始</string>
+    <string name="revanced_watch_history_type_entry_2">替換域名</string>
+    <string name="revanced_watch_history_type_entry_3">區塊觀看歷史記錄</string>
+    <string name="revanced_watch_history_type_title">觀看歷史類型</string>
     <string name="revanced_whitelist_add_failed">無法將頻道 %1$s 新增至 %2$s 白名單。</string>
     <string name="revanced_whitelist_added">頻道 %1$s 已加入 %2$s 白名單。</string>
     <string name="revanced_whitelist_empty">沒有列入白名單的頻道。</string>

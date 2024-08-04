@@ -17,8 +17,6 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Альтернативный домен</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет краудсорсинговые миниатюры для видео на YouTube. Они часто более актуальны, чем те, что предоставлены YouTube.
 
 При активации URL-адрес видео будут отправлен на API-сервер. Если у видео нет миниатюр DeArrow, то будет показан оригинал или захваченный кадр.
@@ -60,6 +58,12 @@
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Окружающая подсветка в режиме экономии заряда батареи отключена.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Окружающая подсветка в режиме экономии заряда батареи включена.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Окружающая подсветка в режиме экономии заряда батареи</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Альтернативный домен</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_off">Использовать оригинальный хост изображений.
+Включение может исправить недостающие изображения, в некоторых регионах.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary_on">Использовать для изображений host yt4.ggpht.com.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Текущий переключатель - Визуальный.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Текущий переключатель - Текстовый.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Изменить тип переключателя</string>
@@ -226,6 +230,9 @@
     <string name="revanced_enable_opus_codec_title">Включить кодек OPUS</string>
     <string name="revanced_enable_phone_layout_summary">Подмена DPI для телефонного интерфейса.</string>
     <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">Не сохранять и не восстанавливать яркость при переключениях полного экрана.</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">Сохранять и восстанавливать яркость при переключениях полного экрана.</string>
+    <string name="revanced_enable_save_and_restore_brightness_title">Сохранение и восстановление яркости</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Перемотка нажатием отключена.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Перемотка нажатием включена.</string>
     <string name="revanced_enable_seekbar_tapping_title">Перемотка нажатием</string>
@@ -406,6 +413,9 @@ Shorts
     <string name="revanced_hide_community_posts_subscriptions_summary_off">В подписках отображены.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">В подписках скрыты.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Посты сообщества в подписках</string>
+    <string name="revanced_hide_contents_section_summary_off">Секция содержимого отображена.</string>
+    <string name="revanced_hide_contents_section_summary_on">Секция содержимого скрыта.</string>
+    <string name="revanced_hide_contents_section_title">Секция содержимого</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">\"Пожертвования\" отображено.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">\"Пожертвования\" скрыто.</string>
     <string name="revanced_hide_crowdfunding_box_title">\"Пожертвования\"</string>
@@ -444,7 +454,7 @@ Shorts
     <string name="revanced_hide_for_you_shelf_summary_off">Секции \"Для вас\" отображены.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">Секции \"Для вас\" скрыты.</string>
     <string name="revanced_hide_for_you_shelf_title">Секция \"Для вас\"</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Реклама в полном экране была заблокирована. (Взаимодействие :%s)</string>
+    <string name="revanced_hide_fullscreen_ads_blocked_success">Реклама в полном экране была заблокирована. (Взаимодействие: %s)</string>
     <string name="revanced_hide_fullscreen_ads_closed_success">Реклама в полном экране была закрыта.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама отображена.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама скрыта.</string>
@@ -930,6 +940,9 @@ Shorts
     <string name="revanced_hide_web_search_results_summary_off">Результаты веб поиска отображены.</string>
     <string name="revanced_hide_web_search_results_summary_on">Результаты веб поиска скрыты.</string>
     <string name="revanced_hide_web_search_results_title">Результаты веб поиска</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Увеличение наложения включено.</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Увеличение наложения отключено.</string>
+    <string name="revanced_hide_zoom_overlay_title">Увеличение наложения</string>
     <string name="revanced_icon_afn_blue">Иконка Afn синяя</string>
     <string name="revanced_icon_afn_red">Иконка Afn красная</string>
     <string name="revanced_icon_custom">Пользовательский</string>
@@ -1011,6 +1024,7 @@ Shorts
     <string name="revanced_preference_category_animation_feedback">Анимация / Обратная связь</string>
     <string name="revanced_preference_category_duration_filter">Фильтр по продолжительности</string>
     <string name="revanced_preference_category_experimental_flag">Экспериментальные опции</string>
+    <string name="revanced_preference_category_image_region_restrictions">Ограничения изображений по региону</string>
     <string name="revanced_preference_category_import_export_as_file">Импорт/экспорт в виде файла</string>
     <string name="revanced_preference_category_import_export_as_text">Импорт/экспорт настроек в виде текста</string>
     <string name="revanced_preference_category_keyword_filter">Фильтр ключевых слов</string>
@@ -1085,6 +1099,8 @@ Shorts
     <string name="revanced_preference_screen_video_filter_summary">Скрытие видео по ключевым словам, просмотрам или продолжительности.</string>
     <string name="revanced_preference_screen_video_filter_title">Фильтрация видео</string>
     <string name="revanced_preference_screen_video_title">Видео</string>
+    <string name="revanced_preference_screen_watch_history_summary">Изменить настройки истории просмотра.</string>
+    <string name="revanced_preference_screen_watch_history_title">История просмотра</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Значение должно быть в диапазоне от 0 до 32. Сброс по умолчанию.</string>
     <string name="revanced_quick_actions_top_margin_summary">Значение отступа поля быстрых действий от шкалы воспроизведения\nДиапазон от 0 до 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Отступ над быстрыми действиями</string>
@@ -1216,10 +1232,10 @@ Shorts
     <string name="revanced_sb_new_segment_edit_by_hand_content">Вы хотите изменить время начала или окончания сегмента?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Указано неверное время.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Изменить время сегмента вручную</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Установить %s как начало или конец нового сегмента?</string>
     <string name="revanced_sb_new_segment_mark_end">конец</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале воспроизведения.</string>
     <string name="revanced_sb_new_segment_mark_start">начало</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Установить %1$02d:%2$02d:%3$03d как начало или конец нового сегмента?</string>
     <string name="revanced_sb_new_segment_now">сейчас</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Предварительный просмотр сегмента и обеспечение его плавного пропуска.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Начало сегмента должно быть перед его окончанием.</string>
@@ -1366,6 +1382,8 @@ Shorts
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Уведомление отключено.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Уведомление включено.</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Уведомление при пропуске буфера</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Включение приведет к проблемам при воспроизведении видео.
+(Связанно с буфером предзагрузки).</string>
     <string name="revanced_skipped_preloaded_buffer">Пропущен предварительно загруженный буфер.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Значение должно быть в диапазоне от 0 до 8.0. Сброс по умолчанию.</string>
     <string name="revanced_speed_overlay_value_summary">Значение от 0 до 8.0.</string>
@@ -1482,6 +1500,24 @@ Shorts
 • Чтобы видеореклама была видна, следует отключить этот параметр."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Подмена кнопки \"Создать\" на \"Уведомления\"</string>
     <string name="revanced_theme_default">По умолчанию</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Следует настройкам истории просмотров аккаунта Google.
+• История просмотра может не работать из-за DNS или VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Следует настройкам истории просмотров аккаунта Google.</string>
+    <string name="revanced_watch_history_about_status_blocked">• История просмотра не работает.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Следует настройкам истории просмотров аккаунта Google.
+• История просмотра может не работать из-за DNS или VPN.
+• История просмотра может не работать с аккаунтом бренда.
+(Настройка клиента подмены включен и выбран клиент iOS)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Следует настройкам истории просмотров аккаунта Google.
+• История просмотра может не работать с аккаунтом бренда.
+(Настройка клиента подмены включен и выбран клиент iOS)"</string>
+    <string name="revanced_watch_history_about_title">Об истории просмотра</string>
+    <string name="revanced_watch_history_management_summary">Управление истории просмотра YouTube.</string>
+    <string name="revanced_watch_history_management_title">Управление всей историей</string>
+    <string name="revanced_watch_history_type_entry_1">Обычный</string>
+    <string name="revanced_watch_history_type_entry_2">Замена домена</string>
+    <string name="revanced_watch_history_type_entry_3">Блокировать историю просмотра</string>
+    <string name="revanced_watch_history_type_title">Режим истории просмотра</string>
     <string name="revanced_whitelist_add_failed">Ошибка добавления канала \'%1$s\' в белый список %2$s.</string>
     <string name="revanced_whitelist_added">Канал \'%1$s\' добавлен в белый список %2$s.</string>
     <string name="revanced_whitelist_empty">Каналы в белом списке отсутствуют.</string>

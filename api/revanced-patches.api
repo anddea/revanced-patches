@@ -355,11 +355,13 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getMiniPlayerDefaultText ()J
 	public final fun getMiniPlayerMdxPlaying ()J
 	public final fun getMiniPlayerPlayPauseReplayButton ()J
+	public final fun getMiniPlayerViewPager ()J
 	public final fun getMusicNotifierShelf ()J
 	public final fun getMusicTasteBuilderShelf ()J
 	public final fun getNamesInactiveAccountThumbnailSize ()J
 	public final fun getOfflineSettingsMenuItem ()J
 	public final fun getPlayerOverlayChip ()J
+	public final fun getPlayerViewPager ()J
 	public final fun getPrivacyTosFooter ()J
 	public final fun getQualityAuto ()J
 	public final fun getRemixGenericButtonSize ()J
@@ -394,11 +396,13 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setMiniPlayerDefaultText (J)V
 	public final fun setMiniPlayerMdxPlaying (J)V
 	public final fun setMiniPlayerPlayPauseReplayButton (J)V
+	public final fun setMiniPlayerViewPager (J)V
 	public final fun setMusicNotifierShelf (J)V
 	public final fun setMusicTasteBuilderShelf (J)V
 	public final fun setNamesInactiveAccountThumbnailSize (J)V
 	public final fun setOfflineSettingsMenuItem (J)V
 	public final fun setPlayerOverlayChip (J)V
+	public final fun setPlayerViewPager (J)V
 	public final fun setPrivacyTosFooter (J)V
 	public final fun setQualityAuto (J)V
 	public final fun setRemixGenericButtonSize (J)V
@@ -459,7 +463,7 @@ public final class app/revanced/patches/music/utils/settings/ResourceUtils {
 	public final fun addPreferenceCategoryUnderPreferenceScreen (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addPreferenceWithIntent (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addRVXSettingsPreference (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun addSwitchPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public final fun addSwitchPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 	public final fun getIconType ()Ljava/lang/String;
 	public final fun getMusicPackageName ()Ljava/lang/String;
 	public final fun setIconType (Ljava/lang/String;)V
@@ -679,7 +683,7 @@ public abstract class app/revanced/patches/shared/ads/BaseAdsPatch : app/revance
 }
 
 public abstract class app/revanced/patches/shared/captions/BaseAutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Z)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -722,7 +726,6 @@ public abstract class app/revanced/patches/shared/gms/BaseGmsCoreSupportResource
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/gms/BaseGmsCoreSupportResourcePatch$Companion {
@@ -847,6 +850,12 @@ public final class app/revanced/patches/shared/overlaybackground/OverlayBackgrou
 	public static final field INSTANCE Lapp/revanced/patches/shared/overlaybackground/OverlayBackgroundUtils;
 }
 
+public final class app/revanced/patches/shared/settingmenu/SettingsMenuPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/settingmenu/SettingsMenuPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public abstract class app/revanced/patches/shared/spoofappversion/BaseSpoofAppVersionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -895,6 +904,12 @@ public final class app/revanced/patches/shared/translations/TranslationsUtils {
 
 public final class app/revanced/patches/shared/translations/TranslationsUtilsKt {
 	public static final fun getAPP_LANGUAGES ()[Ljava/lang/String;
+}
+
+public final class app/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutParamsHookPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutParamsHookPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/youtube/ads/general/AdsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1122,6 +1137,25 @@ public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : 
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/misc/downloadactions/HookDownloadActionsPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/HookDownloadActionsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/AccessibilityOfflineButtonSyncFingerprint : app/revanced/util/fingerprint/LiteralValueFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/AccessibilityOfflineButtonSyncFingerprint;
+}
+
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/DownloadPlaylistButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/DownloadPlaylistButtonOnClickFingerprint;
+	public final fun getPLAYLIST_ON_CLICK_INITIALIZE_PAREMETER ()Ljava/util/List;
+}
+
+public final class app/revanced/patches/youtube/misc/downloadactions/fingerprints/SetPlaylistDownloadButtonVisibilityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/downloadactions/fingerprints/SetPlaylistDownloadButtonVisibilityFingerprint;
+}
+
 public final class app/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch : app/revanced/patches/shared/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyBytecodePatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -1176,6 +1210,12 @@ public final class app/revanced/patches/youtube/misc/translations/TranslationsPa
 
 public final class app/revanced/patches/youtube/misc/translations/TranslationsPatchKt {
 	public static final fun getLANGUAGES ()[Ljava/lang/String;
+}
+
+public final class app/revanced/patches/youtube/misc/watchhistory/WatchHistoryPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/watchhistory/WatchHistoryPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/youtube/player/action/ActionButtonsPatch : app/revanced/util/patch/BaseResourcePatch {
@@ -1458,6 +1498,14 @@ public final class app/revanced/patches/youtube/utils/navigation/NavigationBarHo
 	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
 }
 
+public final class app/revanced/patches/youtube/utils/navigation/fingerprints/MobileTopBarButtonOnClickFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navigation/fingerprints/MobileTopBarButtonOnClickFingerprint;
+}
+
+public final class app/revanced/patches/youtube/utils/navigation/fingerprints/SettingsActivityOnBackPressedFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/navigation/fingerprints/SettingsActivityOnBackPressedFingerprint;
+}
+
 public final class app/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/playercontrols/PlayerControlsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1486,6 +1534,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/resourceid/SharedResourceIdPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+	public final fun getAccessibilityOfflineButtonSync ()J
 	public final fun getAccountSwitcherAccessibility ()J
 	public final fun getActionBarRingo ()J
 	public final fun getActionBarRingoBackground ()J
@@ -1579,6 +1628,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getVarispeedUnavailableTitle ()J
 	public final fun getVideoQualityBottomSheet ()J
 	public final fun getVideoQualityUnavailableAnnouncement ()J
+	public final fun getVideoZoomSnapIndicator ()J
 	public final fun getVoiceSearch ()J
 	public final fun getYouTubeControlsOverlaySubtitleButton ()J
 	public final fun getYtOutlinePictureInPictureWhite ()J
@@ -1586,6 +1636,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getYtOutlineXWhite ()J
 	public final fun getYtPremiumWordMarkHeader ()J
 	public final fun getYtWordMarkHeader ()J
+	public final fun setAccessibilityOfflineButtonSync (J)V
 	public final fun setAccountSwitcherAccessibility (J)V
 	public final fun setActionBarRingo (J)V
 	public final fun setActionBarRingoBackground (J)V
@@ -1679,6 +1730,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setVarispeedUnavailableTitle (J)V
 	public final fun setVideoQualityBottomSheet (J)V
 	public final fun setVideoQualityUnavailableAnnouncement (J)V
+	public final fun setVideoZoomSnapIndicator (J)V
 	public final fun setVoiceSearch (J)V
 	public final fun setYouTubeControlsOverlaySubtitleButton (J)V
 	public final fun setYtOutlinePictureInPictureWhite (J)V
@@ -1758,12 +1810,6 @@ public final class app/revanced/patches/youtube/utils/storyboard/StoryboardHookP
 
 public final class app/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/toolbar/ToolBarHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/utils/viewgroup/ViewGroupMarginLayoutParamsHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/viewgroup/ViewGroupMarginLayoutParamsHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
