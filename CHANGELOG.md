@@ -1,3 +1,15 @@
+# [2.228.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.3...v2.228.0-dev.4) (2024-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Branding:** Fixed broken splash animation for `Xisr Yellow` ([#758](https://github.com/anddea/revanced-patches/issues/758)) ([b5ea4b1](https://github.com/anddea/revanced-patches/commit/b5ea4b1f41a43d8ab473bea0212d7f42564dd5b5))
+
+
+### Features
+
+* **YouTube - Download Playlist Button:** Add playlist download button ([#761](https://github.com/anddea/revanced-patches/issues/761)) ([449d45a](https://github.com/anddea/revanced-patches/commit/449d45aaff4be67937a89c177f3e6ee8b8e5d489))
+
 # [2.228.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.2...v2.228.0-dev.3) (2024-07-31)
 
 
