@@ -107,7 +107,8 @@
 	<SwitchPreference android:title="@string/revanced_remove_viewer_discretion_dialog_title" android:key="revanced_remove_viewer_discretion_dialog" android:defaultValue="false" android:summary="@string/revanced_remove_viewer_discretion_dialog_summary" />SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG -->
 
 	<!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
-	<SwitchPreference android:title="@string/revanced_hook_playlist_download_button_title" android:key="revanced_hook_playlist_download_button" android:defaultValue="true" android:summaryOn="@string/revanced_hook_playlist_download_button_summary_on" android:summaryOff="@string/revanced_hook_playlist_download_button_summary_off"/>SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
+	<SwitchPreference android:title="@string/revanced_hook_playlist_download_button_title" android:key="revanced_hook_playlist_download_button" android:defaultValue="true" android:summaryOn="@string/revanced_hook_playlist_download_button_summary_on" android:summaryOff="@string/revanced_hook_playlist_download_button_summary_off"/>
+	<SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
 
 	<!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
 	<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
@@ -268,8 +269,7 @@
 	<SwitchPreference android:title="@string/revanced_overlay_button_always_repeat_title" android:key="revanced_overlay_button_always_repeat" android:defaultValue="false" android:summary="@string/revanced_overlay_button_always_repeat_summary" />
 	<SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:defaultValue="false" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
 	<app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPreference android:title="@string/revanced_external_downloader_package_name_title" android:key="external_downloader" android:summary="@string/revanced_external_downloader_package_name_summary" />
-	<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
-	<SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />SETTINGS: OVERLAY_BUTTONS -->
+	<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />SETTINGS: OVERLAY_BUTTONS -->
 
 	<!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
 	</PreferenceScreen>PREFERENCE_SCREENS: PLAYER_BUTTONS -->
