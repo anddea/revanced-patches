@@ -1,3 +1,10 @@
+# [2.228.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.4...v2.228.0-dev.5) (2024-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Fix patch error regarding `Xisr Yellow` ([dae0a79](https://github.com/anddea/revanced-patches/commit/dae0a793acd2c50e8bda2c8809d3e377101d8c41))
+
 # [2.228.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.3...v2.228.0-dev.4) (2024-08-04)
 
 
