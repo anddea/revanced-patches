@@ -40,7 +40,7 @@ object HookDownloadActionsPatch : BaseBytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_DOWNLOAD_PLAYLIST_BUTTON_CLASS_DESCRIPTOR =
-        "$MISC_PATH/DownloadPlaylistButton;"
+        "$MISC_PATH/HookDownloadAction;"
 
     private const val INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR =
         "$INTEGRATIONS_PATH/utils/VideoUtils;"
