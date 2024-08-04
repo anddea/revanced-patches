@@ -17,6 +17,7 @@ import app.revanced.patches.shared.mapping.ResourceType.STYLE
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
+    var AccessibilityOfflineButtonSync = -1L
     var AccountSwitcherAccessibility = -1L
     var ActionBarRingo = -1L
     var ActionBarRingoBackground = -1L
@@ -118,10 +119,10 @@ object SharedResourceIdPatch : ResourcePatch() {
     var YtOutlineXWhite = -1L
     var YtPremiumWordMarkHeader = -1L
     var YtWordMarkHeader = -1L
-    var AccessibilityOfflineButtonSync = -1L
 
     override fun execute(context: ResourceContext) {
 
+        AccessibilityOfflineButtonSync = getId(STRING, "accessibility_offline_button_sync")
         AccountSwitcherAccessibility = getId(STRING, "account_switcher_accessibility_label")
         ActionBarRingo = getId(LAYOUT, "action_bar_ringo")
         ActionBarRingoBackground = getId(LAYOUT, "action_bar_ringo_background")
@@ -229,7 +230,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         YtOutlineXWhite = getId(DRAWABLE, "yt_outline_x_white_24")
         YtPremiumWordMarkHeader = getId(ATTR, "ytPremiumWordmarkHeader")
         YtWordMarkHeader = getId(ATTR, "ytWordmarkHeader")
-        AccessibilityOfflineButtonSync = getId(STRING, "accessibility_offline_button_sync")
 
     }
 }
