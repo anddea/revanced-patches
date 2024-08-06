@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.downloadactions.fingerprints
+package app.revanced.patches.youtube.general.downloads.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

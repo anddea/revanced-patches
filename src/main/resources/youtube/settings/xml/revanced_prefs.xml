@@ -106,10 +106,6 @@
 	<!-- SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG
 	<SwitchPreference android:title="@string/revanced_remove_viewer_discretion_dialog_title" android:key="revanced_remove_viewer_discretion_dialog" android:defaultValue="false" android:summary="@string/revanced_remove_viewer_discretion_dialog_summary" />SETTINGS: REMOVE_VIEWER_DISCRETION_DIALOG -->
 
-	<!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
-	<SwitchPreference android:title="@string/revanced_hook_playlist_download_button_title" android:key="revanced_hook_playlist_download_button" android:defaultValue="true" android:summaryOn="@string/revanced_hook_playlist_download_button_summary_on" android:summaryOff="@string/revanced_hook_playlist_download_button_summary_off"/>
-	<SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
-
 	<!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
 	<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
@@ -118,9 +114,10 @@
 	<SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
 
 	<!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
-	<SwitchPreference android:title="@string/revanced_hook_playlist_download_button_title" android:key="revanced_hook_playlist_download_button" android:defaultValue="true" android:summaryOn="@string/revanced_hook_playlist_download_button_summary_on" android:summaryOff="@string/revanced_hook_playlist_download_button_summary_off"/>
-	<SwitchPreference android:title="@string/revanced_external_downloader_action_title" android:key="revanced_external_downloader_action" android:defaultValue="false" android:summaryOn="@string/revanced_external_downloader_action_summary_on" android:summaryOff="@string/revanced_external_downloader_action_summary_off" />
-	<app.revanced.integrations.youtube.settings.preference.ExternalPlaylistDownloaderPreference android:title="@string/revanced_playlist_external_downloader_package_name_title" android:key="revanced_playlist_external_downloader_package_name" android:summary="@string/revanced_playlist_external_downloader_package_name_summary" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
+	<SwitchPreference android:title="@string/revanced_override_video_download_button_title" android:key="revanced_override_video_download_button" android:summaryOn="@string/revanced_override_video_download_button_summary_on" android:summaryOff="@string/revanced_override_video_download_button_summary_off" />
+	<SwitchPreference android:title="@string/revanced_override_playlist_download_button_title" android:key="revanced_override_playlist_download_button" android:summaryOn="@string/revanced_override_playlist_download_button_summary_on" android:summaryOff="@string/revanced_override_playlist_download_button_summary_off" />
+	<app.revanced.integrations.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />
+	<app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPlaylistPreference android:title="@string/revanced_external_downloader_package_name_playlist_title" android:key="revanced_external_downloader_package_name_playlist" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
 
 	<!-- SETTINGS: SPOOF_APP_VERSION
 	<SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
@@ -149,26 +146,26 @@
 	<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
 	<PreferenceScreen android:title="@string/revanced_preference_screen_alt_thumbnails_title" android:key="revanced_preference_screen_alt_thumbnails">PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
 
-		<!-- SETTINGS: ALTERNATIVE_THUMBNAILS
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_home_title" android:key="revanced_alt_thumbnail_home" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_subscriptions_title" android:key="revanced_alt_thumbnail_subscriptions" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_library_title" android:key="revanced_alt_thumbnail_library" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_player_title" android:key="revanced_alt_thumbnail_player" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_search_title" android:key="revanced_alt_thumbnail_search" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
-		<app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference android:title="@string/revanced_alt_thumbnail_dearrow_about_title" android:selectable="true" android:summary="@string/revanced_alt_thumbnail_dearrow_about_summary" />
-		<SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_connection_toast_title" android:key="revanced_alt_thumbnail_dearrow_connection_toast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_off" />
-		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:defaultValue="https://dearrow-thumb.ajay.app/api/v1/getThumbnail" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
-		<Preference android:title="@string/revanced_alt_thumbnail_stills_about_title" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills_about_summary" />
-		<SwitchPreference android:title="@string/revanced_alt_thumbnail_stills_fast_title" android:key="revanced_alt_thumbnail_stills_fast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_stills_fast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_stills_fast_summary_off" />
-		<ListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />SETTINGS: ALTERNATIVE_THUMBNAILS -->
+	<!-- SETTINGS: ALTERNATIVE_THUMBNAILS
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_home_title" android:key="revanced_alt_thumbnail_home" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_subscriptions_title" android:key="revanced_alt_thumbnail_subscriptions" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_library_title" android:key="revanced_alt_thumbnail_library" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_player_title" android:key="revanced_alt_thumbnail_player" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_options_entries" android:title="@string/revanced_alt_thumbnail_search_title" android:key="revanced_alt_thumbnail_search" android:entryValues="@array/revanced_alt_thumbnail_options_entry_values" />
+	<app.revanced.integrations.youtube.settings.preference.AlternativeThumbnailsAboutDeArrowPreference android:title="@string/revanced_alt_thumbnail_dearrow_about_title" android:selectable="true" android:summary="@string/revanced_alt_thumbnail_dearrow_about_summary" />
+	<SwitchPreference android:title="@string/revanced_alt_thumbnail_dearrow_connection_toast_title" android:key="revanced_alt_thumbnail_dearrow_connection_toast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_dearrow_connection_toast_summary_off" />
+	<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_alt_thumbnail_dearrow_api_url_title" android:key="revanced_alt_thumbnail_dearrow_api_url" android:defaultValue="https://dearrow-thumb.ajay.app/api/v1/getThumbnail" android:summary="@string/revanced_alt_thumbnail_dearrow_api_url_summary" android:inputType="text" />
+	<Preference android:title="@string/revanced_alt_thumbnail_stills_about_title" android:selectable="false" android:summary="@string/revanced_alt_thumbnail_stills_about_summary" />
+	<SwitchPreference android:title="@string/revanced_alt_thumbnail_stills_fast_title" android:key="revanced_alt_thumbnail_stills_fast" android:defaultValue="false" android:summaryOn="@string/revanced_alt_thumbnail_stills_fast_summary_on" android:summaryOff="@string/revanced_alt_thumbnail_stills_fast_summary_off" />
+	<ListPreference android:entries="@array/revanced_alt_thumbnail_stills_time_entries" android:title="@string/revanced_alt_thumbnail_stills_time_title" android:key="revanced_alt_thumbnail_stills_time" android:entryValues="@array/revanced_alt_thumbnail_stills_time_entry_values" />SETTINGS: ALTERNATIVE_THUMBNAILS -->
 
-		<!-- SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS
-		<PreferenceCategory android:title="@string/revanced_preference_category_image_region_restrictions" android:layout="@layout/revanced_settings_preferences_category"/>
-		<SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />
-		<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:hint="yt4.ggpht.com" android:title="@string/revanced_bypass_image_region_restrictions_domain_title" android:key="revanced_bypass_image_region_restrictions_domain" android:summary="@string/revanced_bypass_image_region_restrictions_domain_summary" android:inputType="textUri"/>SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
+	<!-- SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS
+	<PreferenceCategory android:title="@string/revanced_preference_category_image_region_restrictions" android:layout="@layout/revanced_settings_preferences_category"/>
+	<SwitchPreference android:title="@string/revanced_bypass_image_region_restrictions_title" android:key="revanced_bypass_image_region_restrictions" android:summaryOn="@string/revanced_bypass_image_region_restrictions_summary_on" android:summaryOff="@string/revanced_bypass_image_region_restrictions_summary_off" />
+	<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:hint="yt4.ggpht.com" android:title="@string/revanced_bypass_image_region_restrictions_domain_title" android:key="revanced_bypass_image_region_restrictions_domain" android:summary="@string/revanced_bypass_image_region_restrictions_domain_summary" android:inputType="textUri"/>SETTINGS: BYPASS_IMAGE_REGION_RESTRICTIONS -->
 
-		<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
-    </PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
+	<!-- PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS
+</PreferenceScreen>PREFERENCE_SCREEN: ALTERNATIVE_THUMBNAILS -->
 
 
 	<!-- PREFERENCE_SCREEN: FEED
@@ -697,6 +694,7 @@
 				<Preference android:title="Disable splash animation" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Enable gradient loading screen" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Hide layout components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+				<Preference android:title="Hook download actions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Layout switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Navigation bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

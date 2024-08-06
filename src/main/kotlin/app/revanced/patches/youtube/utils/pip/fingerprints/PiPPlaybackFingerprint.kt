@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.downloadactions.fingerprints
+package app.revanced.patches.youtube.utils.pip.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode

@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fix.bottomui.CfBottomUIPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS_PATH
+import app.revanced.patches.youtube.utils.pip.PiPStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -29,6 +30,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
     description = "Adds options to display overlay buttons in the video player.",
     dependencies = setOf(
         CfBottomUIPatch::class,
+        PiPStateHookPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
         OverlayButtonsBytecodePatch::class,
