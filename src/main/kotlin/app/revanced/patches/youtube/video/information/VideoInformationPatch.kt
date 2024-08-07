@@ -202,16 +202,20 @@ object VideoInformationPatch : BytecodePatch(
                 playerConstructorMethod =
                     it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
 
-                playerConstructorInsertIndex = playerConstructorMethod.indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
-                } + 1
+                playerConstructorInsertIndex =
+                    playerConstructorMethod.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                    } + 1
 
                 // hook the player controller for use through integrations
                 onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
                 seekSourceEnumType = parameterTypes[1].toString()
                 seekSourceMethodName = name
-                seekRelativeSourceMethodName = SeekRelativeFingerprint.alsoResolve(context, VideoEndFingerprint).mutableMethod.name
+                seekRelativeSourceMethodName = SeekRelativeFingerprint.alsoResolve(
+                    context,
+                    VideoEndFingerprint
+                ).mutableMethod.name
 
                 // Create integrations interface methods.
                 addSeekInterfaceMethods(
