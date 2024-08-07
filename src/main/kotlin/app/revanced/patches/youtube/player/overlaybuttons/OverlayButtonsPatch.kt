@@ -9,7 +9,6 @@ import app.revanced.patches.youtube.utils.integrations.Constants.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.PiPStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.PlayerControlsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
@@ -33,8 +32,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
         PiPStateHookPatch::class,
         PlayerControlsPatch::class,
         SettingsPatch::class,
-        OverlayButtonsBytecodePatch::class,
-        VideoInformationPatch::class
+        OverlayButtonsBytecodePatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
