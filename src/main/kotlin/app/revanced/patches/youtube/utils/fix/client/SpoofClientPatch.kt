@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
@@ -16,7 +15,6 @@ import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModel
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
-import app.revanced.patches.youtube.utils.fix.client.fingerprints.BackgroundPlaybackPlayerResponseFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlaybackStatsRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlayerRequestURIFingerprint
@@ -27,6 +25,7 @@ import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRe
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.OrganicPlaybackContextModelFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerResponseModelBackgroundAudioPlaybackFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
@@ -59,7 +58,7 @@ object SpoofClientPatch : BaseBytecodePatch(
     name = "Spoof client",
     description = "Adds options to spoof the client to allow video playback.",
     dependencies = setOf(
-        // Required to fix background playback issue of live stream on iOS client.
+        // Required since iOS livestream fix partially enables background playback.
         BackgroundPlaybackPatch::class,
         PlayerTypeHookPatch::class,
 
@@ -81,19 +80,19 @@ object SpoofClientPatch : BaseBytecodePatch(
         CreatePlayerRequestBodyWithVersionReleaseFingerprint,
         UserAgentHeaderBuilderFingerprint,
 
-        // Background playback in live stream.
-        BackgroundPlaybackPlayerResponseFingerprint,
-
-        // Watch history.
-        BuildPlaybackStatsRequestURIFingerprint,
-        OrganicPlaybackContextModelFingerprint,
-
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
 
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
         PlaybackRateBottomSheetBuilderFingerprint,
+
+        // Livestream audio only background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint,
+
+        // Watch history.
+        BuildPlaybackStatsRequestURIFingerprint,
+        OrganicPlaybackContextModelFingerprint,
 
         // Nerds stats video format.
         NerdsStatsVideoFormatBuilderFingerprint,
@@ -105,6 +104,10 @@ object SpoofClientPatch : BaseBytecodePatch(
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "SETTINGS: SPOOF_CLIENT"
+        )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
@@ -401,22 +404,13 @@ object SpoofClientPatch : BaseBytecodePatch(
         // endregion
 
         // region fix background playback in live stream, if spoofing to iOS
-
-        /**
-         * If the return value of this method is true, background playback is always enabled.
-         *
-         * If [BackgroundPlaybackPatch] is excluded, there may be unintended behavior.
-         * Therefore, [BackgroundPlaybackPatch] must be included.
-         *
-         * Also, [PlayerTypeHookPatch] is required to disable background playback in Shorts.
-         */
-        BackgroundPlaybackPlayerResponseFingerprint.resultOrThrow().mutableMethod.apply {
+        // This force enables audio background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint.resultOrThrow().mutableMethod.apply {
             addInstructionsWithLabels(
                 0, """
-                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceEnableBackgroundPlayback()Z
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideBackgroundAudioPlayback()Z
                     move-result v0
                     if-eqz v0, :disabled
-                    const/4 v0, 0x1
                     return v0
                     """, ExternalLabel("disabled", getInstruction(0))
             )
@@ -426,32 +420,34 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // region watch history if spoofing to iOS
 
-        BuildPlaybackStatsRequestURIFingerprint.resultOrThrow().let {
-            val walkerMethod = context.toMethodWalker(it.method)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex, true)
-                .getMethod() as MutableMethod
+        if (!SettingsPatch.upward1839) {
+            BuildPlaybackStatsRequestURIFingerprint.resultOrThrow().let {
+                val walkerMethod =
+                    it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
 
-            walkerMethod.addInstructions(
-                0, """
-                    invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object p0
-                    """
-            )
-        }
-
-        OrganicPlaybackContextModelFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->setCpn(Ljava/lang/String;)V"
+                walkerMethod.addInstructions(
+                    0, """
+                        invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object p0
+                        """
                 )
             }
-        }
 
-        TrackingUrlHookPatch.hookTrackingUrl("$INTEGRATIONS_CLASS_DESCRIPTOR->setTrackingUriParameter(Landroid/net/Uri;)V")
+            OrganicPlaybackContextModelFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                    addInstruction(
+                        insertIndex,
+                        "invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->setCpn(Ljava/lang/String;)V"
+                    )
+                }
+            }
+
+            TrackingUrlHookPatch.hookTrackingUrl("$INTEGRATIONS_CLASS_DESCRIPTOR->setTrackingUriParameter(Landroid/net/Uri;)V")
+        }
 
         // endregion
 
@@ -482,16 +478,18 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // endregion
 
-        context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "SpoofClient")
+        if (!SettingsPatch.upward1839) {
+            settingArray += "SETTINGS: IOS_CLIENT_SIDE_EFFECT_1838"
+        } else {
+            settingArray += "SETTINGS: IOS_CLIENT_SIDE_EFFECT_1839"
+
+            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "SpoofClient")
+        }
 
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "SETTINGS: SPOOF_CLIENT"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }

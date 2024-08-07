@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.Opcode
  * This fingerprint seems to break easily because there are many [Opcode] patterns, but it is not.
  * This fingerprint has been tested on all versions from YouTube 17.34.36 to YouTube 19.29.42.
  */
-internal object BackgroundPlaybackPlayerResponseFingerprint : MethodFingerprint(
+internal object PlayerResponseModelBackgroundAudioPlaybackFingerprint : MethodFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"),
