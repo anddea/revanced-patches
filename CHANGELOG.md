@@ -1,3 +1,22 @@
+# [2.228.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.6...v2.228.0-dev.7) (2024-08-07)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Improve create segment manual seek accuracy ([f0cefa8](https://github.com/anddea/revanced-patches/commit/f0cefa85a4288bda0e3f7324629f1c2a0bcc7839))
+* **YouTube - Spoof client:** Change default values ([b60c09a](https://github.com/anddea/revanced-patches/commit/b60c09afb2f7d6faa899cc0dee8e063989d25a90))
+* **YouTube - Spoof client:** Fix background playback issue with livestream on iOS clients ([0ef9a65](https://github.com/anddea/revanced-patches/commit/0ef9a655ce4a5f4ba5cd72ff3138b7e7d03b2613))
+* **YouTube - Spoof client:** Partial fix for watch history issue of brand accounts on iOS clients ([2294ffb](https://github.com/anddea/revanced-patches/commit/2294ffb1640661e4421887eef8b3bd6ddff49fc1))
+
+
+### Features
+
+* Merge RVX v4.12.1-dev.1 ([#791](https://github.com/anddea/revanced-patches/issues/791)) ([de1ddcf](https://github.com/anddea/revanced-patches/commit/de1ddcfe050660c044f68e2610590d94eff45b10))
+* **YouTube - Hook download actions:** Add package field in `Hook download actions` patch ([d32838a](https://github.com/anddea/revanced-patches/commit/d32838acf3f36bd01e5745516c993d9c69014b87))
+* **YouTube - Shorts components:** Move `Change Shorts repeat state` setting to `Experimental Flags` ([112060a](https://github.com/anddea/revanced-patches/commit/112060a75316b293671f1cec07730d7a05ad3a33))
+* **YouTube Music:** Add `Change share sheet` patch ([f4ebfff](https://github.com/anddea/revanced-patches/commit/f4ebfffa3dbd7fe5947b4d7e77ee80bbaf70a627))
+* **YouTube Music:** Add support version `7.12.52` ~ `7.13.52` ([4670f1d](https://github.com/anddea/revanced-patches/commit/4670f1d040dcf71376b5870b4330052800fadbd7))
+
 # [2.228.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.5...v2.228.0-dev.6) (2024-08-04)
 
 
