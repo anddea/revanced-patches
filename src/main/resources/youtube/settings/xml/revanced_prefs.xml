@@ -270,8 +270,7 @@
 	<SwitchPreference android:title="@string/revanced_overlay_button_time_ordered_playlist_title" android:key="revanced_overlay_button_time_ordered_playlist" android:defaultValue="false" android:summary="@string/revanced_overlay_button_time_ordered_playlist_summary" />
 	<SwitchPreference android:title="@string/revanced_overlay_button_always_repeat_title" android:key="revanced_overlay_button_always_repeat" android:defaultValue="false" android:summary="@string/revanced_overlay_button_always_repeat_summary" />
 	<SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:defaultValue="false" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
-	<app.revanced.integrations.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />
-	<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />SETTINGS: OVERLAY_BUTTONS -->
+	<app.revanced.integrations.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />SETTINGS: OVERLAY_BUTTONS -->
 
 	<!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
 	</PreferenceScreen>PREFERENCE_SCREENS: PLAYER_BUTTONS -->
