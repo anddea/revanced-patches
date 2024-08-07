@@ -99,7 +99,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Scrubbing = -1L
     var SeekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     var SeekUndoEduOverlayStub = -1L
-    var SingleLoopEduSnackBarText = -1L
     var SlidingDialogAnimation = -1L
     var SubtitleMenuSettingsFooterInfo = -1L
     var SuggestedAction = -1L
@@ -208,7 +207,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         SeekEasyHorizontalTouchOffsetToStartScrubbing =
             getId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         SeekUndoEduOverlayStub = getId(ID, "seek_undo_edu_overlay_stub")
-        SingleLoopEduSnackBarText = getId(STRING, "single_loop_edu_snackbar_text")
         SlidingDialogAnimation = getId(STYLE, "SlidingDialogAnimation")
         SubtitleMenuSettingsFooterInfo = getId(STRING, "subtitle_menu_settings_footer_info")
         SuggestedAction = getId(LAYOUT, "suggested_action")
