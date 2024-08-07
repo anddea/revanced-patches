@@ -10,6 +10,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.general.downloads.fingerprints.AccessibilityOfflineButtonSyncFingerprint
 import app.revanced.patches.youtube.general.downloads.fingerprints.DownloadPlaylistButtonOnClickFingerprint
 import app.revanced.patches.youtube.general.downloads.fingerprints.DownloadPlaylistButtonOnClickFingerprint.indexOfPlaylistDownloadActionInvokeInstruction
+import app.revanced.patches.youtube.general.downloads.fingerprints.OfflinePlaylistEndpointFingerprint
 import app.revanced.patches.youtube.general.downloads.fingerprints.OfflineVideoEndpointFingerprint
 import app.revanced.patches.youtube.general.downloads.fingerprints.SetPlaylistDownloadButtonVisibilityFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants
@@ -25,6 +26,8 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -40,11 +43,15 @@ object DownloadActionsPatch : BaseBytecodePatch(
     fingerprints = setOf(
         AccessibilityOfflineButtonSyncFingerprint,
         DownloadPlaylistButtonOnClickFingerprint,
+        OfflinePlaylistEndpointFingerprint,
         OfflineVideoEndpointFingerprint,
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$GENERAL_PATH/DownloadActionsPatch;"
+
+    private const val OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR =
+        "Lcom/google/protos/youtube/api/innertube/OfflinePlaylistEndpointOuterClass${'$'}OfflinePlaylistEndpoint;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -97,6 +104,46 @@ object DownloadActionsPatch : BaseBytecodePatch(
                         """
                 )
             } ?: throw PatchException("Could not find class $onClickListenerClass")
+
+        OfflinePlaylistEndpointFingerprint.resultOrThrow().mutableMethod.apply {
+            val playlistIdParameter = parameterTypes.indexOf("Ljava/lang/String;") + 1
+            if (playlistIdParameter > 0) {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {p$playlistIdParameter}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
+                        move-result v0
+                        if-eqz v0, :show_native_downloader
+                        return-void
+                        """, ExternalLabel("show_native_downloader", getInstruction(0))
+                )
+            } else {
+                val freeRegister = implementation!!.registerCount - parameters.size - 2
+
+                val playlistIdIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<FieldReference>()
+                    opcode == Opcode.IGET_OBJECT &&
+                            reference?.definingClass == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR &&
+                            reference.type == "Ljava/lang/String;"
+                }
+                val playlistIdReference = getInstruction<ReferenceInstruction>(playlistIdIndex).reference
+
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CHECK_CAST &&
+                            (this as? ReferenceInstruction)?.reference?.toString() == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR
+                }
+                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructionsWithLabels(
+                    targetIndex + 1, """
+                        iget-object v$freeRegister, v$targetRegister, $playlistIdReference
+                        invoke-static {v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :show_native_downloader
+                        return-void
+                        """, ExternalLabel("show_native_downloader", getInstruction(targetIndex + 1))
+                )
+            }
+        }
 
         // endregion
 
