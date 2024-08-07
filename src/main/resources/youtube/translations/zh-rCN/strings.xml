@@ -405,6 +405,9 @@
     <string name="revanced_hide_community_posts_subscriptions_summary_off">订阅内容中的社区帖子已显示</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">订阅内容中的社区帖子已隐藏</string>
     <string name="revanced_hide_community_posts_subscriptions_title">隐藏订阅内容中的社区帖子</string>
+    <string name="revanced_hide_contents_section_summary_off">此内容的制作过程部分已显示</string>
+    <string name="revanced_hide_contents_section_summary_on">此内容的制作过程部分已隐藏</string>
+    <string name="revanced_hide_contents_section_title">隐藏内容部分</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">众筹箱已显示</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">众筹箱已隐藏</string>
     <string name="revanced_hide_crowdfunding_box_title">隐藏众筹箱</string>
@@ -915,6 +918,9 @@ Note:
     <string name="revanced_hide_web_search_results_summary_off">网页搜索结果已显示</string>
     <string name="revanced_hide_web_search_results_summary_on">网页搜索结果已隐藏</string>
     <string name="revanced_hide_web_search_results_title">隐藏网页搜索结果</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">缩放叠加层已显示</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">缩放叠加层已隐藏</string>
+    <string name="revanced_hide_zoom_overlay_title">隐藏缩放叠加层</string>
     <string name="revanced_icon_afn_blue">Afn Blue</string>
     <string name="revanced_icon_afn_red">Afn Red</string>
     <string name="revanced_icon_custom">Custom</string>
@@ -1067,6 +1073,8 @@ Note:
     <string name="revanced_preference_screen_video_filter_summary">按关键词或观看次数隐藏视频</string>
     <string name="revanced_preference_screen_video_filter_title">视频筛选</string>
     <string name="revanced_preference_screen_video_title">视频</string>
+    <string name="revanced_preference_screen_watch_history_summary">更改与观看历史记录相关的设置</string>
+    <string name="revanced_preference_screen_watch_history_title">观看历史</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">快速操作顶部边距必须在 0-32 之间 重置为默认值</string>
     <string name="revanced_quick_actions_top_margin_summary">配置从进度条到快速操作容器的间距，范围在0-32之间</string>
     <string name="revanced_quick_actions_top_margin_title">快速操作顶部边距</string>
@@ -1195,6 +1203,7 @@ Note:
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手动编辑片段的开始或结束时间？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的时间无效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑片段时间</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">将 %s 设为新片段的开头或结尾？</string>
     <string name="revanced_sb_new_segment_mark_end">结束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在时间轴上标记两个位置</string>
     <string name="revanced_sb_new_segment_mark_start">开始</string>
@@ -1341,6 +1350,7 @@ Note:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">提示信息已隐藏</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">提示信息已显示</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">跳过时的提示信息</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">开启此选项可能会导致视频不能正常播放</string>
     <string name="revanced_skipped_preloaded_buffer">跳过预加载缓冲</string>
     <string name="revanced_speed_overlay_value_invalid_toast">速度叠加值必须在 0 到 8.0 之间 重置为默认值</string>
     <string name="revanced_speed_overlay_value_summary">速度叠加值在 0 到 8.0 之间</string>
@@ -1458,6 +1468,24 @@ Note:
 • 你应该禁用此设置以显示视频广告"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交换创建和通知按钮</string>
     <string name="revanced_theme_default">Stock</string>
+    <string name="revanced_watch_history_about_status_android_original">"• 遵循谷歌帐户的观看历史设置
+• 由于 DNS 或 VPN 的原因，观看历史可能无法工作"</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• 遵循谷歌帐户的观看历史设置</string>
+    <string name="revanced_watch_history_about_status_blocked">• 历史记录不可用</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• 遵循谷歌帐户的观看历史设置
+• 由于 DNS 或 VPN 的原因，观看历史可能无法工作
+• 历史记录可能无法适用于品牌帐户
+(已开启伪装客户端并选择 iOS 客户端)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• 遵循谷歌帐户的观看历史设置
+• 历史记录可能无法适用于品牌帐户
+(已开启伪装客户端并选择 iOS 客户端)"</string>
+    <string name="revanced_watch_history_about_title">关于历史记录</string>
+    <string name="revanced_watch_history_management_summary">点击以打开 YouTube 历史记录管理</string>
+    <string name="revanced_watch_history_management_title">管理所有历史记录</string>
+    <string name="revanced_watch_history_type_entry_1">原版</string>
+    <string name="revanced_watch_history_type_entry_2">替换域名</string>
+    <string name="revanced_watch_history_type_entry_3">屏蔽历史记录</string>
+    <string name="revanced_watch_history_type_title">历史记录类型</string>
     <string name="revanced_whitelist_add_failed">无法将频道 \'%1$s\' 添加到 %2$s 白名单</string>
     <string name="revanced_whitelist_added">频道 \'%1$s\'已添加到 %2$s 白名单</string>
     <string name="revanced_whitelist_empty">白名单中没有频道</string>

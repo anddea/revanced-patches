@@ -307,6 +307,10 @@
 الرجاء تنزيل %2$s من الموقع."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">تحذير</string>
     <string name="revanced_external_downloader_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">اسم حزمة تنزيل قائمة التشغيل</string>
+    <string name="revanced_external_downloader_package_name_video_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">اسم حزمة تنزيل الفيديو</string>
     <string name="revanced_force_fullscreen_summary">"سيتم تحويل مقاطع الفيديو إلى وضع ملء الشاشة في المواقف التالية:
 
 • عند بدء تشغيل الفيديو.
@@ -982,6 +986,12 @@
     <string name="revanced_overlay_button_whitelist_summary">\"انقر لفتح مربع حوار القائمة البيضاء.
 انقر مع الاستمرار لفتح مربع حوار إعداد القائمة البيضاء.</string>
     <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
+    <string name="revanced_override_playlist_download_button_summary_off">يفتح زر تنزيل قائمة التشغيل الأصلية أداة التنزيل الأصلية داخل التطبيق.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">يفتح زر تنزيل قائمة التشغيل الأصلية أداة التنزيل الخارجية.</string>
+    <string name="revanced_override_playlist_download_button_title">تجاوز زر تنزيل قائمة التشغيل</string>
+    <string name="revanced_override_video_download_button_summary_off">يفتح زر تنزيل الفيديو أداة التنزيل الأصلية داخل التطبيق.</string>
+    <string name="revanced_override_video_download_button_summary_on">يفتح زر تنزيل الفيديو الأصلي أداة التنزيل الخارجية.</string>
+    <string name="revanced_override_video_download_button_title">تجاوز زر تنزيل الفيديو</string>
     <string name="revanced_patches_excluded">مستبعد</string>
     <string name="revanced_patches_included">مضمن</string>
     <string name="revanced_playback_speed_normal">عادي</string>
@@ -1415,12 +1425,16 @@
 • مصغرات شريط تقدم Shorts ذات جودة منخفضة.
 • مقاطع فيديو الأطفال لا تعمل."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"تتم محاكاة العميل إلـى iOS.
+
+تشمل الآثار الجانبية ما يلي:
+• فيديو HDR مدعوم فقط على الترميز AV1.
+• لا يتم حفظ وقت المشاهدة في سجل المشاهدة على حساب العلامة التجارية."</string>
     <string name="revanced_spoof_client_use_ios_summary">"تتم محاكاة العميل إلـى iOS.
 
 تشمل الآثار الجانبية ما يلي:
 • فيديو HDR مدعوم فقط على الترميز AV1.
-• سجل المشاهدة لا يعمل مع حساب العلامة التجارية.
-• لا يمكن تشغيل البث المباشر كصوت فقط."</string>
+• سجل المشاهدة لا يعمل مع حساب العلامة التجارية."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.
@@ -1474,15 +1488,15 @@
     <string name="revanced_watch_history_about_status_android_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.
 • قد لا يعمل سجل المشاهدة بسبب DNS أو VPN."</string>
     <string name="revanced_watch_history_about_status_android_replaced">• يتبع إعدادات سجل المشاهدة لحساب Google.</string>
-    <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة لا يعمل.</string>
+    <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة محظور.</string>
     <string name="revanced_watch_history_about_status_ios_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.
 • قد لا يعمل سجل المشاهدة بسبب DNS أو VPN.
 • قد لا يعمل سجل المشاهدة مع حساب العلامة التجارية.
-(يتم تشغيل إعداد Spoof Client وتحديد عميل iOS)"</string>
+(يتم تمكين إعداد Spoof Client وتحديد عميل iOS)"</string>
     <string name="revanced_watch_history_about_status_ios_replaced">"• يتبع إعدادات سجل المشاهدة لحساب Google.
 • قد لا يعمل سجل المشاهدة مع حساب العلامة التجارية.
-(يتم تشغيل إعداد Spoof Client وتحديد عميل iOS)"</string>
-    <string name="revanced_watch_history_about_title">حول سجل المشاهدة</string>
+(يتم تمكين إعداد Spoof Client وتحديد عميل iOS)"</string>
+    <string name="revanced_watch_history_about_title">حالة سجل المشاهدة</string>
     <string name="revanced_watch_history_management_summary">انقر لفتح إدارة سجل مشاهدة YouTube.</string>
     <string name="revanced_watch_history_management_title">إدارة كل السجلات</string>
     <string name="revanced_watch_history_type_entry_1">الأصلي</string>

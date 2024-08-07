@@ -18,7 +18,9 @@
     <string name="revanced_alternative_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
     <string name="revanced_alternative_domain_title">대체 도메인</string>
     <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 국가 제한 우회하기</string>
+    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
+    <string name="revanced_change_share_sheet_summary">YT Music 기본 공유 시트에서 Android 기본 공유 시트로 변경합니다.\n\n• 공유 버튼으로 바로 Android 기본 공유 메뉴를 실행할 수 있습니다.</string>
+    <string name="revanced_change_share_sheet_title">공유 시트 변경</string>
     <string name="revanced_change_start_page_entry_chart">차트</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_home">홈</string>
@@ -87,7 +89,7 @@
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_extended_restart_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
+    <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
     <string name="revanced_extended_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_extended_settings_export_as_file">파일로 설정 내보내기</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
@@ -112,7 +114,7 @@
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
 웹사이트에서 %2$s 를 다운로드하세요."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치하세요.</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치해주세요.</string>
     <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명입니다.</string>
     <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
@@ -150,7 +152,7 @@
     <string name="revanced_hide_comment_channel_guidelines_summary">댓글 섹션 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프와 이모지 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프, 이모지 버튼 제거</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 눌러서 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 누르기 오버레이 필터</string>
     <string name="revanced_hide_floating_button_summary">보관함에서 플로팅 버튼을 숨깁니다.</string>
@@ -305,7 +307,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
-    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
+    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -314,7 +316,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_sb_api_url_changed">API URL을 변경하였습니다.</string>
     <string name="revanced_sb_api_url_invalid">잘못된 API URL입니다.</string>
     <string name="revanced_sb_api_url_reset">API URL을 초기화하였습니다.</string>
-    <string name="revanced_sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 URL을 변경하세요.</string>
+    <string name="revanced_sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요.</string>
     <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다.</string>
     <string name="revanced_sb_color_dot_label">색상:</string>
     <string name="revanced_sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 초기화합니다.</string>
@@ -330,13 +332,13 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_sb_segments_intro">무음 구간 / 인트로</string>
     <string name="revanced_sb_segments_intro_sum">아무 내용도 없는 구간입니다. 애니메이션이나 정적 프레임과 같은 내용을 포함하고 있습니다.</string>
     <string name="revanced_sb_segments_nomusic">음악이 아닌 구간</string>
-    <string name="revanced_sb_segments_nomusic_sum">정식 음원이 아닌 동영상 음원에서 음악이 아닌 구간이 해당합니다.</string>
+    <string name="revanced_sb_segments_nomusic_sum">정식 음원이 아닌 동영상 음원에서 음악이 아닌 구간이 해당됩니다.</string>
     <string name="revanced_sb_segments_outro">최종 화면 / 크레딧</string>
     <string name="revanced_sb_segments_outro_sum">엔딩 크레딧이나 최종 화면이 나타나는 구간입니다.</string>
     <string name="revanced_sb_segments_preview">미리 보기 / 요약 / 흥미 유발</string>
     <string name="revanced_sb_segments_preview_sum">이전 에피소드를 간략히 요약하거나 현재 동영상의 하이라이트를 미리 보여줍니다.</string>
     <string name="revanced_sb_segments_selfpromo">자체 홍보 구간</string>
-    <string name="revanced_sb_segments_selfpromo_sum">\'스폰서 광고\' 구간과 비슷하지만, 자발적으로 홍보하는 내용을 포함하는 구간입니다. 채널 굿즈 광고, 기부 광고와 동영상에 참여한 사람들을 홍보하는 광고가 해당합니다.</string>
+    <string name="revanced_sb_segments_selfpromo_sum">\'스폰서 광고\' 구간과 비슷하지만, 자발적으로 홍보하는 내용을 포함하는 구간입니다. 채널 굿즈 광고, 기부 광고와 동영상에 참여한 사람들을 홍보하는 광고가 해당됩니다.</string>
     <string name="revanced_sb_segments_sponsor">스폰서 광고</string>
     <string name="revanced_sb_segments_sponsor_sum">유료 광고, 협찬과 같은 직/간접적인 광고 구간입니다.</string>
     <string name="revanced_sb_skip_automatically">자동으로 건너뛰기</string>
@@ -360,7 +362,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_sb_toast_on_connection_error">API를 사용할 수 없을 때, 팝업 메시지 표시</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때, 팝업 메시지 표시</string>
-    <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
 

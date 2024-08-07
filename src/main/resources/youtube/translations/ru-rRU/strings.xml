@@ -310,6 +310,10 @@
 Пожалуйста, скачайте %2$s с сайта."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Предупреждение</string>
     <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Установите его.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Например: NewPipe или YTDLnis, или др. (Для плейлиста).</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Внешний загрузчик для плейлиста, название пакета</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Например: NewPipe или YTDLnis, или др.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
     <string name="revanced_force_fullscreen_summary">"Видео будут переведены в полноэкранный режим при:
 
 • Нажатии на временную метку в комментариях.
@@ -1011,6 +1015,12 @@ Shorts
     <string name="revanced_overlay_button_whitelist_summary">Нажать - Открыть \"Белый список\".
 Нажать и удерживать - Открыть настройки \"Белый список\".</string>
     <string name="revanced_overlay_button_whitelist_title">Кнопка \"Белый список\"</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Кнопка \"Скачать\" для плейлиста, использует внутренний загрузчик.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Кнопка \"Скачать\" для плейлиста, использует внешний загрузчик.</string>
+    <string name="revanced_override_playlist_download_button_title">Действие кнопки \"Скачать\" для плейлиста</string>
+    <string name="revanced_override_video_download_button_summary_off">Кнопка \"Скачать\" использует внутренний загрузчик.</string>
+    <string name="revanced_override_video_download_button_summary_on">Кнопка \"Скачать\" использует внешний загрузчик.</string>
+    <string name="revanced_override_video_download_button_title">Действие кнопки \"Скачать\" для видео</string>
     <string name="revanced_patches_excluded">Не применён</string>
     <string name="revanced_patches_included">Применён</string>
     <string name="revanced_playback_speed_normal">Обычная</string>
@@ -1443,6 +1453,11 @@ Shorts
 • Миниатюры шкалы воспроизведения Shorts будут низкого качества.
 • Детские видео не воспроизводятся."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Используется Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Подмена клиента на iOS.
+
+Ограничения:
+• HDR видео поддерживается только с кодеком AV1.
+• Время просмотра не сохраняется в истории, на каналах бренда."</string>
     <string name="revanced_spoof_client_use_ios_summary">"При подмене клиента под iOS.
 
 Ограничения:

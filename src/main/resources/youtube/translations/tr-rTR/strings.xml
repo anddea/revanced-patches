@@ -302,6 +302,8 @@ Siz sekmesi→ Kanalı görüntüle→ Menü→ Ayarlar"</string>
 Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Dikkat</string>
     <string name="revanced_external_downloader_not_installed_warning">%s kurulmamış. Lütfen önce indiriniz.</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Yüklü olan harici indirme uygulamanızın paket adı, örneğin NewPipe veya YTDLnis gibi.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Video indirici paket adı</string>
     <string name="revanced_force_fullscreen_summary">"Aşağıdaki durumlarda video tam ekrana geçecektir:
 
 • Yorumlardaki zaman damgasına tıklandığında.
@@ -1399,7 +1401,7 @@ Yan etkiler şunları içerir:
 • Düşük kaliteli Shorts arama çubuğu küçük resimleri.
 • Çocuk videoları oynatılmıyor."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_summary">"İstemciyi iOS'a taklit et.
+    <string name="revanced_spoof_client_use_ios_summary">"İstemci iOS'a taklit ediliyor.
 
 Yan etkiler şunları içerir:
 • HDR video yalnızca AV1 codec bileşeninde desteklenir.
@@ -1446,7 +1448,17 @@ Bilinen sorunlar:
 • Video reklamların görünür olması için bu ayarı devre dışı bırakmalısınız."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Oluştur düğmesini Bildirimler düğmesi ile yer değiş</string>
     <string name="revanced_theme_default">Stok</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Google hesabının izleme geçmişi ayarlarını takip eder.
+• İzleme geçmişi DNS veya VPN nedeniyle çalışmayabilir."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Google hesabının izleme geçmişi ayarlarını takip eder.</string>
     <string name="revanced_watch_history_about_status_blocked">• İzleme geçmişi çalışmaz.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Google hesabının izleme geçmişi ayarlarını takip eder.
+• İzleme geçmişi DNS veya VPN nedeniyle çalışmayabilir.
+• İzleme geçmişi bir marka hesabıyla çalışmayabilir.
+(Sahte istemci ayarı açılınca iOS istemcisi seçilir)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Google hesabının izleme geçmişi ayarlarını takip eder.
+ • İzleme geçmişi bir marka hesabıyla çalışmayabilir.
+ (Sahte istemci ayarı açık ve iOS istemcisi seçili)"</string>
     <string name="revanced_watch_history_about_title">İzleme geçmişi hakkında</string>
     <string name="revanced_watch_history_management_summary">YouTube izleme geçmişi yönetimini açmak için tıklayın.</string>
     <string name="revanced_watch_history_management_title">Tüm geçmişi yönet</string>
