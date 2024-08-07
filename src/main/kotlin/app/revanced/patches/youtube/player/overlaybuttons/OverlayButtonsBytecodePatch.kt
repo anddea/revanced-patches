@@ -5,31 +5,24 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.player.overlaybuttons.fingerprints.PlayerButtonConstructorFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
-import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.*
+import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.getReference
+import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Patch(
-    dependencies = [
-        MainActivityResolvePatch::class,
-        SharedResourceIdPatch::class,
-        VideoInformationPatch::class
-    ]
-)
 object OverlayButtonsBytecodePatch : BytecodePatch(
-    setOf(
-        PlayerButtonConstructorFingerprint
-    )
+    setOf(PlayerButtonConstructorFingerprint)
 ) {
     private const val INTEGRATIONS_ALWAYS_REPEAT_CLASS_DESCRIPTOR =
         "$UTILS_PATH/AlwaysRepeatPatch;"

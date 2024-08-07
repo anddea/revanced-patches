@@ -63,9 +63,6 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host.\n\nEnabling this can fix missing images that are blocked in some regions.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-    <string name="revanced_hook_playlist_download_button_title">Override playlist download action</string>
-    <string name="revanced_hook_playlist_download_button_summary_off">Playlist download will behave like the original, and button might not appear.</string>
-    <string name="revanced_hook_playlist_download_button_summary_on">Playlist download button will be present, and the download will be handled by YTDLnis.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Switch toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Text toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Change toggle type</string>
@@ -307,17 +304,16 @@ The Expand video description option may not work if the entered string does not 
     <string name="revanced_extended_settings_reset">Reset</string>
     <string name="revanced_extended_settings_search_title">Search %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary_off">Native download button opens the native in-app downloader.</string>
-    <string name="revanced_external_downloader_action_summary_on">Native download button opens your external downloader.</string>
-    <string name="revanced_external_downloader_action_title">Override download action button</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
     <string name="revanced_external_downloader_not_installed">Not installed</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
 Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
     <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-    <string name="revanced_external_downloader_package_name_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
-    <string name="revanced_external_downloader_package_name_title">External downloader package name</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app, such as YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Playlist downloader package name</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
 
 • When a video is started.
@@ -1003,6 +999,12 @@ Tap and hold to undo."</string>
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
+    <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
+    <string name="revanced_override_video_download_button_summary_on">Native video download button opens your external downloader.</string>
+    <string name="revanced_override_video_download_button_title">Override video download button</string>
     <string name="revanced_patches_excluded">Excluded</string>
     <string name="revanced_patches_included">Included</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -1102,12 +1104,6 @@ A different codec will be applied after about 20 seconds of buffering."</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
-    <string name="revanced_show_toast_remember_video_quality_title">Show a toast when changing the default video quality</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_on">A toast will be shown when changing the default video quality.</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_off">A toast will not be shown when changing the default video quality.</string>
-    <string name="revanced_show_toast_remember_video_speed_title">Show a toast when changing the default video speed</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_on">A toast will be shown when changing the default video speed.</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_off">A toast will not be shown when changing the default video speed.</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set video quality.</string>
     <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>
@@ -1363,6 +1359,12 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Meta panel bottom margin</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Press and hold the timestamp to change the Shorts repeat status.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Timestamp long press action</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_off">A toast will not be shown when changing the default video quality.</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_on">A toast will be shown when changing the default video quality.</string>
+    <string name="revanced_show_toast_remember_video_quality_title">Show a toast when changing the default video quality</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_off">A toast will not be shown when changing the default video speed.</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_on">A toast will be shown when changing the default video speed.</string>
+    <string name="revanced_show_toast_remember_video_speed_title">Show a toast when changing the default video speed</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 
 Limitation: Video title disappears when clicked."</string>
@@ -1450,12 +1452,16 @@ Side effects include:
 • Low quality Shorts seekbar thumbnails.
 • Kids videos do not play."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Spoof client to iOS.
+
+Side effects include:
+• HDR video is supported only on AV1 codec.
+• Watch time is not saved in watch history on brand account."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
 • HDR video is supported only on AV1 codec.
-• Watch history does not work with a brand account.
-• Live streams cannot play as audio-only."</string>
+• Watch history does not work with a brand account."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
@@ -1501,15 +1507,15 @@ Limitations:
     <string name="revanced_watch_history_about_status_android_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>
     <string name="revanced_watch_history_about_status_android_replaced">• Follows the watch history settings of Google account.</string>
-    <string name="revanced_watch_history_about_status_blocked">• Watch history does not work.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_ios_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN.
 • Watch history may not work with a brand account.
-(Spoof client setting is turned on and iOS client is selected)"</string>
+(Spoof client setting is enabled and iOS client is selected)"</string>
     <string name="revanced_watch_history_about_status_ios_replaced">"• Follows the watch history settings of Google account.
 • Watch history may not work with a brand account.
-(Spoof client setting is turned on and iOS client is selected)"</string>
-    <string name="revanced_watch_history_about_title">About watch history</string>
+(Spoof client setting is enabled and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_title">Status of watch history</string>
     <string name="revanced_watch_history_management_summary">Click to open the YouTube watch history management.</string>
     <string name="revanced_watch_history_management_title">Manage all history</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
