@@ -19,6 +19,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -647,15 +648,22 @@ fun MutableClass.addFieldAndInstructions(
             .filter { method -> method.name == "<init>" }
             .forEach { mutableMethod ->
                 mutableMethod.apply {
-                    val initializeIndex = getTargetIndexWithMethodReferenceName("<init>")
+                    val initializeIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                    }
                     val insertIndex = if (initializeIndex == -1)
                         1
                     else
                         initializeIndex + 1
 
+                    val initializeRegister = if (initializeIndex == -1)
+                        "p0"
+                    else
+                        "v${getInstruction<FiveRegisterInstruction>(initializeIndex).registerC}"
+
                     addInstruction(
                         insertIndex,
-                        "sput-object p0, $objectCall"
+                        "sput-object $initializeRegister, $objectCall"
                     )
                 }
             }

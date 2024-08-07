@@ -20,7 +20,7 @@ import app.revanced.util.literalInstructionBooleanHook
             "com.google.android.apps.youtube.music",
             [
                 "7.08.54",
-                "7.12.51",
+                "7.13.52",
             ]
         )
     ]
@@ -43,7 +43,8 @@ object CairoSplashAnimationPatch : BytecodePatch(
                 "false"
             )
 
-        } ?: throw PatchException("WARNING: This patch is not supported in this version. Use YouTube Music 7.08.54 or later.")
+        }
+            ?: throw PatchException("WARNING: This patch is not supported in this version. Use YouTube Music 7.08.54 or later.")
 
     }
 }

@@ -17,6 +17,7 @@ import app.revanced.patches.shared.mapping.ResourceType.STYLE
 object SharedResourceIdPatch : ResourcePatch() {
     var AccountSwitcherAccessibility = -1L
     var AudioVideoSwitchToggle = -1L
+    var BottomSheetRecyclerView = -1L
     var ButtonContainer = -1L
     var ButtonIconPaddingMedium = -1L
     var ChipCloud = -1L
@@ -61,6 +62,7 @@ object SharedResourceIdPatch : ResourcePatch() {
 
         AccountSwitcherAccessibility = getId(STRING, "account_switcher_accessibility_label")
         AudioVideoSwitchToggle = getId(ID, "audio_video_switch_toggle")
+        BottomSheetRecyclerView = getId(LAYOUT, "bottom_sheet_recycler_view")
         ButtonContainer = getId(ID, "button_container")
         ButtonIconPaddingMedium = getId(DIMEN, "button_icon_padding_medium")
         ChipCloud = getId(LAYOUT, "chip_cloud")

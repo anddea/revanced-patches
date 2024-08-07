@@ -40,19 +40,40 @@
     <string name="revanced_watch_history_about_status_android_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>
     <string name="revanced_watch_history_about_status_android_replaced">• Follows the watch history settings of Google account.</string>
-    <string name="revanced_watch_history_about_status_blocked">• Watch history does not work.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_ios_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN.
 • Watch history may not work with a brand account.
-(Spoof client setting is turned on and iOS client is selected)"</string>
+(Spoof client setting is enabled and iOS client is selected)"</string>
     <string name="revanced_watch_history_about_status_ios_replaced">"• Follows the watch history settings of Google account.
 • Watch history may not work with a brand account.
-(Spoof client setting is turned on and iOS client is selected)"</string>
-    <string name="revanced_watch_history_about_title">About watch history</string>
+(Spoof client setting is enabled and iOS client is selected)"</string>
+    <string name="revanced_watch_history_about_title">Status of watch history</string>
     <string name="revanced_watch_history_management_summary">Click to open the YouTube watch history management.</string>
     <string name="revanced_watch_history_management_title">Manage all history</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>
     <string name="revanced_watch_history_type_entry_2">Replace domain</string>
     <string name="revanced_watch_history_type_entry_3">Block watch history</string>
     <string name="revanced_watch_history_type_title">Watch history type</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app, such as YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Playlist downloader package name</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
+    <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
+    <string name="revanced_override_video_download_button_summary_on">Native video download button opens your external downloader.</string>
+    <string name="revanced_override_video_download_button_title">Override video download button</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_off">A toast will not be shown when changing the default video quality.</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_on">A toast will be shown when changing the default video quality.</string>
+    <string name="revanced_show_toast_remember_video_quality_title">Show a toast when changing the default video quality</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_off">A toast will not be shown when changing the default video speed.</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_on">A toast will be shown when changing the default video speed.</string>
+    <string name="revanced_show_toast_remember_video_speed_title">Show a toast when changing the default video speed</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Spoof client to iOS.
+
+Side effects include:
+• HDR video is supported only on AV1 codec.
+• Watch time is not saved in watch history on brand account."</string>
 </resources>
