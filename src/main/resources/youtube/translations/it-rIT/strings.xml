@@ -3,6 +3,7 @@
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poichè un servizio di accessibilità è attivato</string>
     <string name="gms_core_dialog_continue_text">Continua</string>
+    <string name="gms_core_dialog_dismiss_text">Non mostrare di nuovo</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore non ha il permesso di eseguire in background.
 
 Segui la guida 'Non uccidere la mia app!' Per il tuo dispositivo, e applica le istruzioni alla tua installazione di GmsCore.
@@ -73,6 +74,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Ripeti</string>
     <string name="revanced_change_shorts_repeat_state_title">Cambia lo stato di ripetizione degli shorts</string>
     <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
+    <string name="revanced_change_start_page_entry_courses">Corsi / Istruzione</string>
     <string name="revanced_change_start_page_entry_default">Home (predefinita)</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_gaming">Gaming</string>
@@ -82,6 +84,7 @@ Tocca qui per saperne di più su DeArrow"</string>
     <string name="revanced_change_start_page_entry_live">Diretta</string>
     <string name="revanced_change_start_page_entry_movies">Film</string>
     <string name="revanced_change_start_page_entry_music">Musica</string>
+    <string name="revanced_change_start_page_entry_playables">Giochi interattivi</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
@@ -313,6 +316,8 @@ Si prega di scaricare %2$s dal sito web."</string>
 • Toccando su un timestamp nei commenti
 • Appena il video inizia"</string>
     <string name="revanced_force_fullscreen_title">Forza lo schermo intero</string>
+    <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell'applicazione.</string>
+    <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Elenco dei nomi dei menu degli account da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
     <string name="revanced_hide_account_menu_summary">"Nascondi gli elementi del menù dell'account e della scheda Tu.
@@ -497,6 +502,7 @@ Problemi noti:
     <string name="revanced_hide_keyword_content_comments_summary_off">I commenti non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">I commenti sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_title">Nascondi commenti per parole chiave</string>
+    <string name="revanced_hide_keyword_content_full_word_title">Ricerca la parola completa</string>
     <string name="revanced_hide_keyword_content_home_summary_off">I video della scheda Home non sono nascosti tramite parole chiave</string>
     <string name="revanced_hide_keyword_content_home_summary_on">I video della scheda Home sono nascosti tramite parole chiave</string>
     <string name="revanced_hide_keyword_content_home_title">Nascondi i video della scheda Home tramite parole chiave</string>
@@ -747,6 +753,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_comments_button_summary_off">Il pulsante Commenti è mostrato.</string>
     <string name="revanced_hide_shorts_comments_button_summary_on">Il pulsante Commenti è nascosto.</string>
     <string name="revanced_hide_shorts_comments_button_title">Nascondi il pulsante Commenti</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Il pulsante dei commenti disabilitato o con l'etichetta \"0\" sono mostrati.</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Il pulsante dei commenti disabilitato o con l'etichetta \"0\" sono nascosti.</string>
+    <string name="revanced_hide_shorts_comments_disabled_button_title">Nascondi il pulsante dei commenti disabilitati</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Il pulsante Non Mi Piace è mostrato.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Il pulsante non mi piace è nascosto.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Nascondi il pulsante non mi piace</string>
@@ -919,8 +928,15 @@ La riproduzione automatica può essere modificato nelle impostazioni di YouTube:
     <string name="revanced_icon_custom">Personalizzato</string>
     <string name="revanced_icon_default">Inventario</string>
     <string name="revanced_icon_mmt">MMT</string>
+    <string name="revanced_icon_mmt_blue">MMT Blu</string>
+    <string name="revanced_icon_mmt_green">MMT Verde</string>
+    <string name="revanced_icon_mmt_yellow">MMT Giallo</string>
     <string name="revanced_icon_revancify_blue">Revancify Blu</string>
     <string name="revanced_icon_revancify_red">Revancify Rosso</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Giallo</string>
+    <string name="revanced_icon_vanced_black">Vanced Scuro</string>
+    <string name="revanced_icon_vanced_light">Vanced Chiaro</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Giallo</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Mantiene la modalità orizzontale quando lo schermo viene spento e acceso a schermo intero
 
@@ -1196,20 +1212,26 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_sb_guidelines_popup_title">Segui le linee guida</string>
     <string name="revanced_sb_guidelines_preference_sum">Le linee guida contengono regole e suggerimenti per creare nuovi segmenti.</string>
     <string name="revanced_sb_guidelines_preference_title">Visualizza le linee guida</string>
+    <string name="revanced_sb_new_segment_adjust">Regolazione: Segna l'ora di inizio e di fine del segmento</string>
     <string name="revanced_sb_new_segment_choose_category">Scegli la categoria del segmento</string>
+    <string name="revanced_sb_new_segment_compare">Verifica il Segmento</string>
     <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">Il segmento è da\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto per l\'invio?</string>
     <string name="revanced_sb_new_segment_confirm_title">I minutaggi sono corretti?</string>
     <string name="revanced_sb_new_segment_disabled_category">La categoria è disattivata nelle impostazioni. Attiva la categoria da inviare.</string>
+    <string name="revanced_sb_new_segment_edit">Modifica il Segmento</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">Vuoi modificare l\'intervallo temporale dell\'inizio o fine del segmento?</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">L\'intervallo temporale fornito non è valido.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Modifica l\'intervallo temporale del segmento manualmente</string>
+    <string name="revanced_sb_new_segment_forward">Avanzamento in base al Tempo Specificato (Predefinito: 150 ms)</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">Impostare %s come inizio o fine di un nuovo segmento?</string>
     <string name="revanced_sb_new_segment_mark_end">fine</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento.</string>
     <string name="revanced_sb_new_segment_mark_start">inizio</string>
     <string name="revanced_sb_new_segment_now">adesso</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Anteprima del segmento, e assicurarti che lo salti senza problemi.</string>
+    <string name="revanced_sb_new_segment_publish">Pubblica Segmento Creato</string>
+    <string name="revanced_sb_new_segment_rewind">Riavvolgimento in base al Tempo Specificato (Predefinito: 150 ms)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">L\'inizio deve essere prima della fine.</string>
     <string name="revanced_sb_new_segment_time_end">Minutaggio del segmento finisce a</string>
     <string name="revanced_sb_new_segment_time_start">Minutaggio del segmento inizia a</string>
@@ -1336,6 +1358,12 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Margine inferiore del pannello Meta</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Premi e tieni premuto il timestamp per cambiare lo stato di ripetizione degli Shorts.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Azione pressione prolungata timestamp</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_off">Quando si cambia la qualità video predefinita, non viene visualizzata una notifica toast.</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_on">Quando si cambia la qualità video predefinita, viene visualizzata una notifica toast.</string>
+    <string name="revanced_show_toast_remember_video_quality_title">Mostra una notifica toast quando si cambia la qualità video predefinita</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_off">Quando si cambia la velocità video predefinita, non viene visualizzata una notifica toast.</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_on">Quando si cambia la velocità video predefinita, viene visualizzata una notifica toast.</string>
+    <string name="revanced_show_toast_remember_video_speed_title">Mostra una notifica toast quando si cambia la velocità video predefinita</string>
     <string name="revanced_show_video_title_section_summary">"Mostra la sezione del titolo del video a schermo intero.
 
 Limitazione: il titolo del video scompare quando si fa clic."</string>
