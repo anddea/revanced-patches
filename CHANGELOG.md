@@ -1,3 +1,13 @@
+# [2.228.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.7...v2.228.0-dev.8) (2024-08-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hook download actions:** `Override playlist download button` setting does not work in `Download playlist` menu of flyout panel ([2c4d8c3](https://github.com/anddea/revanced-patches/commit/2c4d8c315cae4339331398f708362c4c4e8343fa))
+* **YouTube - Hook download actions:** Video download button was not responding ([fa53ea5](https://github.com/anddea/revanced-patches/commit/fa53ea58b6011eb0627d48f6f8bc85d9092b26f3))
+* **YouTube - Overlay buttons:** `Always repeat` button doesn't work when the video is minimized ([e03741f](https://github.com/anddea/revanced-patches/commit/e03741f0ac8073186f993a76495ccc86bde1a092))
+* **YouTube:** `Overlay buttons` patch fails ([09c8cc5](https://github.com/anddea/revanced-patches/commit/09c8cc5e3d2f315ce1d5182341ea7ff34633495d))
+
 # [2.228.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.6...v2.228.0-dev.7) (2024-08-07)
 
 
