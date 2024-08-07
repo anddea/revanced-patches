@@ -303,6 +303,10 @@
 Будь ласка, завантажте %2$s з сайту."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Попередження</string>
     <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Будь ласка, встановіть його.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Ім\'я пакета завантажувача списку відтворення</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
     <string name="revanced_force_fullscreen_summary">"Відео перемикатиметься на повний екран в таких ситуаціях:
 
 • Натиснуто на мітку часу у коментарях.
@@ -988,6 +992,12 @@
     <string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
 Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
     <string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Кнопка завантаження списку відтворення відкриває вбудований завантажувач.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Кнопка завантаження списку відтворення відкриває зовнішній завантажувач.</string>
+    <string name="revanced_override_playlist_download_button_title">Перевизначити кнопку завантаження списку відтворення</string>
+    <string name="revanced_override_video_download_button_summary_off">Кнопка завантаження відео відкриває вбудований завантажувач.</string>
+    <string name="revanced_override_video_download_button_summary_on">Кнопка завантаження відео відкриває зовнішній завантажувач.</string>
+    <string name="revanced_override_video_download_button_title">Перевизначити кнопку завантаження відео</string>
     <string name="revanced_patches_excluded">Виключено</string>
     <string name="revanced_patches_included">Включено</string>
     <string name="revanced_playback_speed_normal">Стандартна</string>
@@ -1434,12 +1444,16 @@
 • Низька якість мініатюр панелі прогресу Shorts.
 • Відео для дітей не відтворюються."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Імітація клієнта для iOS.
+
+Побічні ефекти включають:
+• Відео HDR підтримується тільки на кодеку AV1.
+• Час перегляду не зберігається в історії перегляду на акаунті бренду."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Імітація клієнта для iOS.
 
 Побічні ефекти включають:
 • Відео HDR підтримується тільки на кодеку AV1.
-• Історія перегляду не працює з акаунтом бренду.
-• Прямі трансляції не відтворюються як лише звук."</string>
+• Історія перегляду не працює з акаунтом бренду."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
@@ -1485,7 +1499,7 @@
     <string name="revanced_watch_history_about_status_android_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
 • Історія перегляду може не працювати через DNS або VPN."</string>
     <string name="revanced_watch_history_about_status_android_replaced">• Дотримується налаштувань історії перегляду облікового запису Google.</string>
-    <string name="revanced_watch_history_about_status_blocked">• Історія перегляду не працює.</string>
+    <string name="revanced_watch_history_about_status_blocked">• Історію перегляду заблоковано.</string>
     <string name="revanced_watch_history_about_status_ios_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
 • Історія перегляду може не працювати через DNS або VPN.
 • Історія перегляду може не працювати з акаунтом бренду.
@@ -1493,7 +1507,7 @@
     <string name="revanced_watch_history_about_status_ios_replaced">"• Дотримується налаштувань історії перегляду облікового запису Google.
 • Історія перегляду може не працювати з акаунтом бренду.
 (Налаштування імітації клієнта увімкнене та вибрано клієнт iOS)"</string>
-    <string name="revanced_watch_history_about_title">Про історію перегляду</string>
+    <string name="revanced_watch_history_about_title">Стан історії перегляду</string>
     <string name="revanced_watch_history_management_summary">Натисніть, щоб відкрити керування історією перегляду YouTube.</string>
     <string name="revanced_watch_history_management_title">Керувати всією історією</string>
     <string name="revanced_watch_history_type_entry_1">Оригінал</string>

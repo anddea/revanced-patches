@@ -305,6 +305,10 @@ Scheda Tu &gt; Visualizza canale &gt; Menù &gt; Impostazioni"</string>
 Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attenzione</string>
     <string name="revanced_external_downloader_not_installed_warning">%s non è installato. Per favore installalo</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nome del pacchetto dell\'applicazione esterna di downloader installata, come YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nome pacchetto playlist downloader</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nome del pacchetto dell\'app downloader esterna installata, ad esempio NewPipe o YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nome pacchetto downloader video</string>
     <string name="revanced_force_fullscreen_summary">"Il video passerà automaticamente a schermo intero nelle seguenti situazioni:
 • Toccando su un timestamp nei commenti
 • Appena il video inizia"</string>
@@ -979,6 +983,12 @@ Tocca e tieni premuto per annullare."</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Tocca per aprire la finestra della whitelist.
 Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostra il pulsante whitelist</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Il pulsante nativo di download della playlist apre il nativo in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Il pulsante nativo di download della playlist apre il tuo downloader esterno.</string>
+    <string name="revanced_override_playlist_download_button_title">Sovrascrivi il pulsante download playlist</string>
+    <string name="revanced_override_video_download_button_summary_off">Il pulsante nativo di download video apre il nativo in-app downloader.</string>
+    <string name="revanced_override_video_download_button_summary_on">Il pulsante nativo per il download video apre il tuo downloader esterno.</string>
+    <string name="revanced_override_video_download_button_title">Sovrascrivi il pulsante di download video</string>
     <string name="revanced_patches_excluded">Escluso</string>
     <string name="revanced_patches_included">Incluso</string>
     <string name="revanced_playback_speed_normal">Normale</string>
@@ -1408,6 +1418,11 @@ Gli effetti collaterali includono:
 • Bassa qualità miniature della barra di ricerca.
 • I video per bambini non riproducono."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Spoof client to iOS.
+
+Gli effetti collaterali includono:
+• Il video HDR è supportato solo su codec AV1.
+• Il tempo di osservazione non viene salvato nella cronologia sull'account brand."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client ad iOS.
 
 Gli effetti collaterali includono:

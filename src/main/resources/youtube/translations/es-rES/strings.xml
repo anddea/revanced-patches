@@ -308,6 +308,10 @@ Estos caracteres varían dependiendo de tu idioma.
 Descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Advertencia</string>
     <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nombre del paquete del descargador de listas de reproducción</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nombre del paquete de tu aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
     <string name="revanced_force_fullscreen_summary">"Los vídeos pasarán a pantalla completa en las siguientes situaciones:
 
 • Cuando se pulsa sobre una marca de tiempo en los comentarios.
@@ -978,6 +982,12 @@ Toca y mantén para deshacer."</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Toque para abrir el diálogo de la lista blanca.
 Toque y mantenga presionado para abrir el diálogo de configuración de la lista blanca.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
+    <string name="revanced_override_playlist_download_button_summary_off">El botón nativo de descarga de listas de reproducción abre el descargador nativo de la aplicación.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">El botón nativo de descarga de listas de reproducción abre tu descargador externo.</string>
+    <string name="revanced_override_playlist_download_button_title">Reemplazar botón de descarga de listas de reproducción</string>
+    <string name="revanced_override_video_download_button_summary_off">El botón nativo de descarga de vídeo abre el descargador nativo de la aplicación.</string>
+    <string name="revanced_override_video_download_button_summary_on">El botón nativo de descarga de vídeo abre tu descargador externo.</string>
+    <string name="revanced_override_video_download_button_title">Reemplazar botón de descarga de vídeo</string>
     <string name="revanced_patches_excluded">Excluidos</string>
     <string name="revanced_patches_included">Incluidos</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -1407,6 +1417,11 @@ Los efectos secundarios incluyen:
 • Las miniaturas de la barra de progreso de Shorts son de baja calidad.
 • Los vídeos infantiles no se reproducen."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Falsifica el cliente a iOS.
+
+Los efectos secundarios incluyen:
+• El vídeo HDR solo es compatible con el códec AV1.
+• El tiempo de visualización no se guarda en el historial de visualizaciones de la cuenta de marca."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Falsifica el cliente a iOS.
 
 Los efectos secundarios incluyen:

@@ -306,6 +306,10 @@ Estes caracteres variam dependendo do seu idioma.
 Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Aviso</string>
     <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nome do pacote do seu aplicativo de download externo instalado, como YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nome do pacote do aplicativo de download de playlist</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nome do pacote do aplicativo de download de vídeo</string>
     <string name="revanced_force_fullscreen_summary">"O vídeo será alternado para tela cheia nas seguintes situações:
 
 • Quando uma marcação de tempo nos comentários é clicada.
@@ -980,6 +984,12 @@ Toque e segure para desfazer."</string>
     <string name="revanced_overlay_button_whitelist_summary">Toque para abrir a caixa de diálogo da lista branca.
 Toque e segure para abrir a caixa de diálogo de configuração da lista branca.</string>
     <string name="revanced_overlay_button_whitelist_title">Exibir botão de lista branca</string>
+    <string name="revanced_override_playlist_download_button_summary_off">O botão de download de playlist nativo abre o download nativo do aplicativo.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">O botão de download de playlist nativo abre seu aplicativo de download externo.</string>
+    <string name="revanced_override_playlist_download_button_title">Substituir o botão de download da playlist</string>
+    <string name="revanced_override_video_download_button_summary_off">O botão de download de vídeo nativo abre o download nativo do aplicativo.</string>
+    <string name="revanced_override_video_download_button_summary_on">O botão de download de vídeo nativo abre seu aplicativo de download externo.</string>
+    <string name="revanced_override_video_download_button_title">Substituir o botão de download de vídeo</string>
     <string name="revanced_patches_excluded">Excluído</string>
     <string name="revanced_patches_included">Incluído</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -1409,6 +1419,11 @@ Os efeitos colaterais incluem:
 • Miniaturas da barra de busca de Shorts de baixa qualidade.
 • Os vídeos infantis não são reproduzidos."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Cliente falso para iOS.
+
+Os efeitos colaterais incluem:
+• Vídeo HDR é suportado somente no codec AV1.
+• O tempo de exibição não é salvo no histórico de exibição em conta de marca."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Cliente falso para iOS.
 
 Os efeitos colaterais incluem:
@@ -1459,7 +1474,17 @@ Limitações:
 • Você deve desativar esta configuração para tornar os anúncios em vídeo visíveis."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Alternar criar com notificações</string>
     <string name="revanced_theme_default">Padrão</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Segue as configurações do histórico de exibição da conta do Google.
+• O histórico de exibição pode não funcionar devido ao DNS ou à VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Segue as configurações do histórico de exibição da conta do Google.</string>
     <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Segue as configurações do histórico de exibição da conta do Google.
+• O histórico de exibição pode não funcionar devido ao DNS ou à VPN.
+• O histórico de exibição pode não funcionar com uma conta de marca.
+(A configuração do cliente falso está ativada e o cliente iOS está selecionado)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Segue as configurações do histórico de exibição da conta do Google.
+• O histórico de exibição pode não funcionar com uma conta de marca.
+(A configuração do cliente falso está ativada e o cliente iOS está selecionado)"</string>
     <string name="revanced_watch_history_about_title">Sobre o histórico de exibição</string>
     <string name="revanced_watch_history_management_summary">Clique para abrir o gerenciamento do histórico de exibição do YouTube.</string>
     <string name="revanced_watch_history_management_title">Gerenciar todo o histórico</string>

@@ -483,9 +483,9 @@ Effet secondaire : Les images des posts communautaires peuvent être bloquées e
     <string name="revanced_hide_join_button_summary_off">Le bouton \"Rejoindre\" est affiché.</string>
     <string name="revanced_hide_join_button_summary_on">Le bouton \"Rejoindre\" est masqué.</string>
     <string name="revanced_hide_join_button_title">Masquer le bouton \"Rejoindre\"</string>
-    <string name="revanced_hide_key_concepts_section_summary_off">La section \"Recherches clés\" est affiché.</string>
-    <string name="revanced_hide_key_concepts_section_summary_on">La section \"Recherches clés\" est masqué.</string>
-    <string name="revanced_hide_key_concepts_section_title">Masquer la section \"Recherches clés\"</string>
+    <string name="revanced_hide_key_concepts_section_summary_off">La section \"Concepts clés\" est affiché.</string>
+    <string name="revanced_hide_key_concepts_section_summary_on">La section \"Concepts clés\" est masqué.</string>
+    <string name="revanced_hide_key_concepts_section_title">Masquer la section \"Concepts clés\"</string>
     <string name="revanced_hide_keyword_content_about_summary">"Les onglets Page d'accueil / \"Abonnements\" / Résultats de recherche sont filtrés pour masquer le contenu correspondant aux mots-clés.
 
 Limitations :
@@ -1382,7 +1382,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
     <string name="revanced_spoof_client_summary_off">"Le client n'est pas falsifié, la lecture des vidéos peut ne pas fonctionner."</string>
     <string name="revanced_spoof_client_summary_on">Le client est falsifié.</string>
     <string name="revanced_spoof_client_title">Falsifier le client</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"Falsifie le client vers Android Test suite.
+    <string name="revanced_spoof_client_use_android_testsuite_summary">"Falsifier le client vers Android Test suite.
 
 Créée des effets secondaires :
 • Pas de vidéo HDR.
@@ -1392,7 +1392,7 @@ Créée des effets secondaires :
 • Les cartes d'écran de fin ne sont pas disponibles.
 • Les miniatures de la barre de progression sont en basse qualités."</string>
     <string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"Falsifie le client vers Android TV (YouTube TV).
+    <string name="revanced_spoof_client_use_android_tv_summary">"Falsifier le client vers Android TV (YouTube TV).
 
 Créée des effets secondaires :
 • Pas de vidéo HDR.
@@ -1402,7 +1402,7 @@ Créée des effets secondaires :
 • Les miniatures de la barre de progression sont en basse qualités.
 • Certaines diffusions en direct ne sont pas pris en charge pour la lecture."</string>
     <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"Falsifie le client vers Android VR.
+    <string name="revanced_spoof_client_use_android_vr_summary">"Falsifier le client vers Android VR.
 
 Les effets secondaires incluent :
 • Pas de vidéo HDR.
@@ -1411,12 +1411,11 @@ Les effets secondaires incluent :
 • Les miniatures de la barre de progression sur les Shorts sont en basses qualités.
 • Les vidéos conçues pour les enfants ne seront pas lues."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_summary">"Falsifie le client vers iOS.
+    <string name="revanced_spoof_client_use_ios_summary">"Falsifier le client vers iOS.
 
 Créée des effets secondaires :
-• Les vidéos HDR ne fonctionnent uniquement avec le codec AV1.
-• L'historique de visionnage ne fonctionne pas pour les comptes de marques.
-• Les diffusions en direct ne peuvent pas être lu en audio uniquement."</string>
+• Les vidéos HDR supportent uniquement le codec AV1.
+• L'historique de visionnage ne fonctionne pas pour les comptes de marques."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil a la valeur maximale.
@@ -1459,7 +1458,17 @@ Limitations :
 • Vous devez désactiver ce paramètre afin de rendre les publicités vidéo visibles."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Échanger \"Créer\" et \"Notifications\"</string>
     <string name="revanced_theme_default">Officiel</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
+• L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN."</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Suis les paramètres de l\'historique de visionnage du compte Google.</string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage ne fonctionne pas.</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
+• L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN.
+• L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
+(Le paramètre 'Falsifier le client' est activé et le client iOS est sélectionné)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Suis les paramètres de l'historique de visionnage du compte Google.
+• L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
+(Le paramètre 'Falsifier le client' est activé et le client iOS est sélectionné)"</string>
     <string name="revanced_watch_history_about_title">À propos de l\'historique de visionnage</string>
     <string name="revanced_watch_history_management_summary">Cliquez pour ouvrir la gestion de l\'historique de visionnage YouTube.</string>
     <string name="revanced_watch_history_management_title">Gérer tout l\'historique</string>
