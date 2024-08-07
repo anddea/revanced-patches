@@ -1,3 +1,10 @@
+# [2.228.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.8...v2.228.0-dev.9) (2024-08-07)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Removed unused `Experimental flags` section ([d96ee79](https://github.com/anddea/revanced-patches/commit/d96ee7945b5f97b3e3d4fe94ff5a32f0ec75c8c7))
+
 # [2.228.0-dev.8](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.7...v2.228.0-dev.8) (2024-08-07)
 
 
