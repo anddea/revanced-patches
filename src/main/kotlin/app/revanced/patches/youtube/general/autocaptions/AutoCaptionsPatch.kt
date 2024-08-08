@@ -2,9 +2,8 @@ package app.revanced.patches.youtube.general.autocaptions
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.patch.BaseBytecodePatch
 
 @Suppress("unused")
@@ -13,14 +12,12 @@ object AutoCaptionsPatch : BaseBytecodePatch(
     description = "Adds an option to disable captions from being automatically enabled.",
     dependencies = setOf(
         AutoCaptionsBytecodePatch::class,
-        SettingsPatch::class,
-        VideoInformationPatch::class
+        PlayerTypeHookPatch::class,
+        SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
     override fun execute(context: BytecodeContext) {
-
-        VideoInformationPatch.hook("$GENERAL_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
 
         /**
          * Add settings

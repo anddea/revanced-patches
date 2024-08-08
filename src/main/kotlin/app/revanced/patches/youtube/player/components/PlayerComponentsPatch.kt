@@ -28,6 +28,7 @@ import app.revanced.patches.youtube.player.components.fingerprints.QuickSeekOver
 import app.revanced.patches.youtube.player.components.fingerprints.SeekEduContainerFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.SuggestedActionsFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.TouchAreaOnClickListenerFingerprint
+import app.revanced.patches.youtube.player.components.fingerprints.VideoZoomSnapIndicatorFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.WatermarkFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.WatermarkParentFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.SpeedOverlayPatch
@@ -90,6 +91,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         StartVideoInformerFingerprint,
         SuggestedActionsFingerprint,
         TouchAreaOnClickListenerFingerprint,
+        VideoZoomSnapIndicatorFingerprint,
         WatermarkParentFingerprint,
         YouTubeControlsOverlayFingerprint,
     )
@@ -390,6 +392,21 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     "invoke-static {v$setOnClickListenerRegister}, $PLAYER_CLASS_DESCRIPTOR->skipAutoPlayCountdown(Landroid/view/View;)V"
                 )
             } ?: throw PatchException("Failed to find setOnClickListener method")
+        }
+
+        // endregion
+
+        // region patch for hide video zoom overlay
+
+        VideoZoomSnapIndicatorFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideZoomOverlay()Z
+                    move-result v0
+                    if-eqz v0, :shown
+                    return-void
+                    """, ExternalLabel("shown", getInstruction(0))
+            )
         }
 
         // endregion

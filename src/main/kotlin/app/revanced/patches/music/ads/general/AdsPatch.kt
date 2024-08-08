@@ -185,7 +185,9 @@ object AdsPatch : BaseBytecodePatch(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads_type",
             "true",
-            "revanced_hide_fullscreen_ads"
+            "revanced_hide_fullscreen_ads",
+            false,
+            setSummaryOnOff = true
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.ADS,

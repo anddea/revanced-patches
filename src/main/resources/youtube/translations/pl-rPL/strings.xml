@@ -17,8 +17,6 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="gms_core_settings_summary">Włącz cloud messaging, by otrzymywać powiadomienia.</string>
     <string name="gms_core_settings_title">Otwórz GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_summary">Domena, z której mają być pobierane obrazy.\nNotka: Wprowadź tylko nazwę domeny, tzn. bez prefiksu \"https\:\/\/\".</string>
-    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatywna domena</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
 
 Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
@@ -58,6 +56,8 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Oświetlenie kinowe w trybie oszczędzania baterii jest wyłączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Oświetlenie kinowe w trybie oszczędzania baterii jest włączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Obejdź ograniczenia oświetlenia kinowego</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_summary">Domena, z której mają być pobierane obrazy.\nNotka: Wprowadź tylko nazwę domeny, tzn. bez prefiksu \"https\:\/\/\".</string>
+    <string name="revanced_bypass_image_region_restrictions_domain_title">Alternatywna domena</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Oryginalny\n\nWłączenie tej opcji może naprawić brakujące obrazy, które są blokowane w niektórych regionach.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com</string>
     <string name="revanced_bypass_image_region_restrictions_title">Host dla obrazów</string>
@@ -302,17 +302,16 @@ Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znak�
     <string name="revanced_extended_settings_reset">Zresetuj</string>
     <string name="revanced_extended_settings_search_title">Wyszukaj w %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary_off">Natywny przycisk od pobierania otwiera natywne pobieranie w aplikacji</string>
-    <string name="revanced_external_downloader_action_summary_on">Natywny przycisk od pobierania otwiera zewnetrzną aplikację od pobierania</string>
-    <string name="revanced_external_downloader_action_title">Zastąp przycisk od pobierania</string>
-    <string name="revanced_external_downloader_dialog_title">Aplikacja od pobierania</string>
+    <string name="revanced_external_downloader_dialog_title">Zewnętrzna aplikacja od pobierania</string>
     <string name="revanced_external_downloader_not_installed">Nie zainstalowany</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s nie jest zainstalowany.
 Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Ostrzeżenie</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Proszę go zainstalować.</string>
-    <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis</string>
-    <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nazwa pakietu aplikacji od pobierania</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania</string>
     <string name="revanced_force_fullscreen_summary">"Filmy zostaną przełączone w tryb pełnoekranowy w następujących sytuacjach:
 
 • Po rozpoczęciu filmu
@@ -410,6 +409,9 @@ Sklep"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Widoczne</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Ukryte</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Na stronie subskrypcji</string>
+    <string name="revanced_hide_contents_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_contents_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_contents_section_title">Sekcja \'Jak powstały te treści\'</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Widoczne</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Ukryte</string>
     <string name="revanced_hide_crowdfunding_box_title">Ramki ze zbiórkami</string>
@@ -916,6 +918,9 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_web_search_results_summary_off">Widoczne</string>
     <string name="revanced_hide_web_search_results_summary_on">Ukryte</string>
     <string name="revanced_hide_web_search_results_title">Wyniki wyszukiwania stron internetowych</string>
+    <string name="revanced_hide_zoom_overlay_summary_off">Widoczna</string>
+    <string name="revanced_hide_zoom_overlay_summary_on">Ukryta</string>
+    <string name="revanced_hide_zoom_overlay_title">Poświata przy powiększaniu filmu</string>
     <string name="revanced_icon_afn_blue">Niebieska od Afn</string>
     <string name="revanced_icon_afn_red">Czerwona od Afn</string>
     <string name="revanced_icon_custom">Własna</string>
@@ -929,6 +934,7 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
+    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Ilość milisekund, podczas których tryb poziomy jest wymuszony.</string>
@@ -988,6 +994,12 @@ Stuknij i przytrzymaj, by cofnąć generowanie playlisty."</string>
     <string name="revanced_overlay_button_whitelist_summary">Stuknij, by otworzyć okno białej listy.
 Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_button_whitelist_title">Przycisk od białej listy</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Natywne pobieranie</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Zewnętrzna aplikacja</string>
+    <string name="revanced_override_playlist_download_button_title">Metoda pobierania playlist</string>
+    <string name="revanced_override_video_download_button_summary_off">Natywne pobieranie</string>
+    <string name="revanced_override_video_download_button_summary_on">Zewnętrzna aplikacja</string>
+    <string name="revanced_override_video_download_button_title">Metoda pobierania filmów</string>
     <string name="revanced_patches_excluded">Wykluczone</string>
     <string name="revanced_patches_included">Zawarte</string>
     <string name="revanced_playback_speed_normal">Normalna</string>
@@ -1071,6 +1083,8 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_video_filter_summary">Ukryj filmy, używając słów lub wyświetleń</string>
     <string name="revanced_preference_screen_video_filter_title">Filtr filmów</string>
     <string name="revanced_preference_screen_video_title">Filmy</string>
+    <string name="revanced_preference_screen_watch_history_summary">Zmień ustawienia związane z historią oglądania</string>
+    <string name="revanced_preference_screen_watch_history_title">Historia oglądania</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Górny margines przycisków na dole odtwarzacza musi wynosić między 0 a 32. Przywrócono domyślną wartość.</string>
     <string name="revanced_quick_actions_top_margin_summary">Skonfiguruj odstęp od paska postępu filmu do kontenera szybkich akcji, w zakresie od 0 do 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Górny margines przycisków na dole odtwarzacza</string>
@@ -1206,10 +1220,10 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Wprowadzono czas w złym formacie.</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">Edytuj ręcznie czas segmentu</string>
     <string name="revanced_sb_new_segment_forward">Przewiń o określony czas (Domyślnie: 150 ms)</string>
+    <string name="revanced_sb_new_segment_mark_current_time_as_question">Ustawić %s jako początek, bądź koniec nowego segmentu?</string>
     <string name="revanced_sb_new_segment_mark_end">koniec</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Najpierw zaznacz dwa miejsca na pasku postępu filmu.</string>
     <string name="revanced_sb_new_segment_mark_start">początek</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Ustawić %1$02d:%2$02d:%3$03d jako początek czy koniec nowego segmentu?</string>
     <string name="revanced_sb_new_segment_now">obecny</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Zobacz i dopilnuj, aby segment pomijał się płynnie.</string>
     <string name="revanced_sb_new_segment_publish">Opublikuj utworzony segment</string>
@@ -1340,6 +1354,12 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Dolny margines panelu meta</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Naciśnij i przytrzymaj czas, aby zmienić status powtarzania Shortsów</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Akcja po długim naciśnięciu czasu</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_off">Ukryty</string>
+    <string name="revanced_show_toast_remember_video_quality_summary_on">Widoczny</string>
+    <string name="revanced_show_toast_remember_video_quality_title">Komunikat przy zmianie domyślnej jakości filmu</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_off">Ukryty</string>
+    <string name="revanced_show_toast_remember_video_speed_summary_on">Widoczny</string>
+    <string name="revanced_show_toast_remember_video_speed_title">Komunikat przy zmianie domyślnej prędkości odtwarzania</string>
     <string name="revanced_show_video_title_section_summary">"Tytuły filmów w trybie pełnoekranowym są widoczne.
 
 Ograniczenie: tytuły filmów znikają po stuknięciu w nie."</string>
@@ -1356,6 +1376,7 @@ Informacje:
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Ukryte</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Widoczne</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">Komunikaty o pominięciu</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">Włączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_skipped_preloaded_buffer">Pominięto wstępnie załadowany bufor.</string>
     <string name="revanced_speed_overlay_value_invalid_toast">Przezroczystość nakładki prędkości odtwarzania musi wynosić między 0 a 8.0. Przywrócono domyślną wartość.</string>
     <string name="revanced_speed_overlay_value_summary">Wartość nakładki prędkości odtwarzania między 0, a 8.</string>
@@ -1426,16 +1447,18 @@ Efekty uboczne:
 • Niska jakość podglądu podczas przewijania Shortsów
 • Filmy dla dzieci nie mogą zostać odtworzone"</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Oszukuje klienta do iOS.
+
+Efekty uboczne:
+• Filmy z HDR są wspierane jedynie przy kodeku AV1
+• Czas oglądania filmu w historii oglądania nie jest zapisywany na firmowych kontach"</string>
     <string name="revanced_spoof_client_use_ios_summary">"Oszukuje klienta do iOS.
 
 Efekty uboczne:
-• Brak filmów z HDR
-• Wyższe jakości filmu mogą być niedostępne
-• Historia odtwarzania nie działa podczas używania firmowego konta
-• Nie można odtwarzać transmisji na żywo w trybie samego dźwięku
-• Transmisje na żywo nie są dostępne na Androidzie 8.0"</string>
+• Filmy z HDR są wspierane jedynie przy kodeku AV1
+• Historia odtwarzania nie działa na firmowych kontach"</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">Wyłączenie ustawienia może spowodować problemy z odtwarzaniem filmu.</string>
+    <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
@@ -1476,6 +1499,24 @@ Ograniczenia:
 • Powinieneś wyłączyć to ustawienie jeśli chcesz, by reklamy w filmach były widoczne."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Zamień przyciski przesyłania i powiadomień</string>
     <string name="revanced_theme_default">Domyślny</string>
+    <string name="revanced_watch_history_about_status_android_original">"• Stosuje się do ustawień historii oglądania konta Google
+• Historia oglądania może nie działać przez DNS lub VPN"</string>
+    <string name="revanced_watch_history_about_status_android_replaced">• Stosuje się do ustawień historii oglądania konta Google</string>
+    <string name="revanced_watch_history_about_status_blocked">• Historia oglądania nie działa</string>
+    <string name="revanced_watch_history_about_status_ios_original">"• Stosuje się do ustawień historii oglądania konta Google
+• Historia oglądania może nie działać przez DNS lub VPN
+• Historia oglądania może nie działać na firmowym koncie
+(Gdy oszukiwanie klienta jest włączone i wybrano klienta iOS)"</string>
+    <string name="revanced_watch_history_about_status_ios_replaced">"• Stosuje się do ustawień historii oglądania konta Google
+• Historia oglądania może nie działać na firmowym koncie
+(Gdy oszukiwanie klienta jest włączone i wybrano klienta iOS)"</string>
+    <string name="revanced_watch_history_about_title">O historii oglądania</string>
+    <string name="revanced_watch_history_management_summary">Stuknij, aby otworzyć zarządzanie historią oglądania YouTube.</string>
+    <string name="revanced_watch_history_management_title">Zarządzaj całą historią</string>
+    <string name="revanced_watch_history_type_entry_1">s.youtube.com</string>
+    <string name="revanced_watch_history_type_entry_2">www.youtube.com</string>
+    <string name="revanced_watch_history_type_entry_3">Wyłączona</string>
+    <string name="revanced_watch_history_type_title">Historia</string>
     <string name="revanced_whitelist_add_failed">Nie udało się dodać kanału \'%1$s\' do białej listy %2$s.</string>
     <string name="revanced_whitelist_added">Kanał \'%1$s\' został dodany do białej listy %2$s.</string>
     <string name="revanced_whitelist_empty">Brak kanałów na białej liście.</string>

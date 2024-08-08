@@ -31,6 +31,7 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopBarM
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.patches.shared.settingmenu.SettingsMenuPatch
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
@@ -48,6 +49,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
     dependencies = setOf(
         LithoFilterPatch::class,
         SharedResourceIdPatch::class,
+        SettingsMenuPatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -294,6 +296,16 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             CategoryType.GENERAL,
             "revanced_custom_filter_strings",
             "revanced_custom_filter"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_settings_menu",
+            "false"
+        )
+        SettingsPatch.addPreferenceWithIntent(
+            CategoryType.GENERAL,
+            "revanced_hide_settings_menu_filter_strings",
+            "revanced_hide_settings_menu"
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.GENERAL,

@@ -10,17 +10,22 @@ import app.revanced.patches.music.navigation.components.fingerprints.TabLayoutTe
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.integrations.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
+import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("DEPRECATION", "SpellCheckingInspection", "unused")
 object NavigationBarComponentsPatch : BaseBytecodePatch(
@@ -44,18 +49,20 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         /**
          * Enable black navigation bar
          */
-        TabLayoutFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstructions(
-                    targetIndex + 1, """
-                        invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->enableBlackNavigationBar()I
-                        move-result v$targetRegister
-                        """
-                )
+        TabLayoutFingerprint.resultOrThrow().mutableMethod.apply {
+            val constIndex = getWideLiteralInstructionIndex(ColorGrey)
+            val insertIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && getReference<MethodReference>()?.name == "setBackgroundColor"
             }
+            val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+            addInstructions(
+                insertIndex, """
+                    invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->enableBlackNavigationBar()I
+                    move-result v$insertRegister
+                    """
+            )
         }
 
         /**

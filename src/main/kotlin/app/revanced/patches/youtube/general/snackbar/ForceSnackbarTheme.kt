@@ -88,9 +88,18 @@ object ForceSnackbarTheme : BaseResourcePatch(
         }
 
         if (StrokeColor?.lowercase() != "none")
-            insert("res/drawable/snackbar_rounded_corners_background.xml", "stroke", "corners", "android:width", "1dp", "android:color", StrokeColor)
+            insert(
+                "res/drawable/snackbar_rounded_corners_background.xml",
+                "stroke",
+                "corners",
+                "android:width",
+                "1dp",
+                "android:color",
+                StrokeColor
+            )
 
-        editXml("res/drawable/snackbar_rounded_corners_background.xml", "corners",
+        editXml(
+            "res/drawable/snackbar_rounded_corners_background.xml", "corners",
             "android:bottomLeftRadius", CornerRadius,
             "android:bottomRightRadius", CornerRadius,
             "android:topLeftRadius", CornerRadius,
@@ -99,9 +108,13 @@ object ForceSnackbarTheme : BaseResourcePatch(
 
         editXml("res/drawable/snackbar_rounded_corners_background.xml", "solid", "android:color", BackgroundColor)
 
-        listOf("res/layout/inset_snackbar.xml", "res/layout/inset_youtube_snackbar.xml",
-            "res/layout-sw600dp/inset_snackbar.xml", "res/layout-sw600dp/inset_youtube_snackbar.xml")
-            .forEach { editXml(it, "", "yt:messageTextColor", "?ytTextPrimary") }
+        try {
+            listOf(
+                "res/layout/inset_snackbar.xml", "res/layout/inset_youtube_snackbar.xml",
+                "res/layout-sw600dp/inset_snackbar.xml", "res/layout-sw600dp/inset_youtube_snackbar.xml"
+            )
+                .forEach { editXml(it, "", "yt:messageTextColor", "?ytTextPrimary") }
+        } catch (_: Exception) { /* Ignore the error in lower versions */ }
 
         SettingsPatch.updatePatchStatus(this)
 

@@ -3,25 +3,37 @@ package app.revanced.patches.youtube.utils.fix.client
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint.indexOfModelInstruction
+import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildInitPlaybackRequestFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlaybackStatsRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlaybackSpeedMenuItemFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRequestBodyFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRequestBodyWithVersionReleaseFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.CreatePlayerRequestBodyWithVersionReleaseFingerprint.indexOfBuildInstruction
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.OrganicPlaybackContextModelFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerGestureConfigSyntheticFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.PlayerResponseModelBackgroundAudioPlaybackFingerprint
 import app.revanced.patches.youtube.utils.fix.client.fingerprints.SetPlayerRequestClientTypeFingerprint
+import app.revanced.patches.youtube.utils.fix.client.fingerprints.UserAgentHeaderBuilderFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.storyboard.StoryboardHookPatch
+import app.revanced.patches.youtube.utils.trackingurlhook.TrackingUrlHookPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.util.getReference
@@ -30,6 +42,7 @@ import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -45,6 +58,11 @@ object SpoofClientPatch : BaseBytecodePatch(
     name = "Spoof client",
     description = "Adds options to spoof the client to allow video playback.",
     dependencies = setOf(
+        // Required since iOS livestream fix partially enables background playback.
+        BackgroundPlaybackPatch::class,
+        PlayerTypeHookPatch::class,
+
+        TrackingUrlHookPatch::class,
         PlayerResponseMethodHookPatch::class,
         SettingsPatch::class,
         VideoInformationPatch::class,
@@ -59,6 +77,8 @@ object SpoofClientPatch : BaseBytecodePatch(
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
+        CreatePlayerRequestBodyWithVersionReleaseFingerprint,
+        UserAgentHeaderBuilderFingerprint,
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
@@ -66,6 +86,13 @@ object SpoofClientPatch : BaseBytecodePatch(
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
         PlaybackRateBottomSheetBuilderFingerprint,
+
+        // Livestream audio only background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint,
+
+        // Watch history.
+        BuildPlaybackStatsRequestURIFingerprint,
+        OrganicPlaybackContextModelFingerprint,
 
         // Nerds stats video format.
         NerdsStatsVideoFormatBuilderFingerprint,
@@ -77,6 +104,10 @@ object SpoofClientPatch : BaseBytecodePatch(
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
     override fun execute(context: BytecodeContext) {
+
+        var settingArray = arrayOf(
+            "SETTINGS: SPOOF_CLIENT"
+        )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
@@ -176,6 +207,23 @@ object SpoofClientPatch : BaseBytecodePatch(
                     ?: throw PatchException("Could not find clientInfoClientModelField")
             }
 
+        val clientInfoOsVersionField =
+            CreatePlayerRequestBodyWithVersionReleaseFingerprint.resultOrThrow().mutableMethod.let {
+                val buildIndex = indexOfBuildInstruction(it)
+                val instructions = it.getInstructions()
+
+                instructions.subList(
+                    buildIndex - 5,
+                    buildIndex,
+                ).find { instruction ->
+                    val reference = instruction.getReference<FieldReference>()
+                    instruction.opcode == Opcode.IPUT_OBJECT
+                            && reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR
+                            && reference.type == "Ljava/lang/String;"
+                }?.getReference<FieldReference>()
+                    ?: throw PatchException("Could not find clientInfoOsVersionField")
+            }
+
         // endregion
 
         // region Spoof client type for /player requests.
@@ -241,6 +289,12 @@ object SpoofClientPatch : BaseBytecodePatch(
                                 move-result-object v1
                                 iput-object v1, v0, $clientInfoClientVersionField
 
+                                # Set client os version to the spoofed value.
+                                iget-object v1, v0, $clientInfoOsVersionField
+                                invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getOsVersion(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v1
+                                iput-object v1, v0, $clientInfoOsVersionField
+
                                 :disabled
                                 return-void
                                 """,
@@ -248,6 +302,22 @@ object SpoofClientPatch : BaseBytecodePatch(
                     },
                 )
             }
+        }
+
+        // endregion
+
+        // region Spoof user-agent
+
+        UserAgentHeaderBuilderFingerprint.resultOrThrow().mutableMethod.apply {
+            val insertIndex = implementation!!.instructions.lastIndex
+            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+            addInstructions(
+                insertIndex, """
+                    invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getUserAgent(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$insertRegister
+                    """
+            )
         }
 
         // endregion
@@ -333,6 +403,54 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region fix background playback in live stream, if spoofing to iOS
+        // This force enables audio background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideBackgroundAudioPlayback()Z
+                    move-result v0
+                    if-eqz v0, :disabled
+                    return v0
+                    """, ExternalLabel("disabled", getInstruction(0))
+            )
+        }
+
+        // endregion
+
+        // region watch history if spoofing to iOS
+
+        if (!SettingsPatch.upward1839) {
+            BuildPlaybackStatsRequestURIFingerprint.resultOrThrow().let {
+                val walkerMethod =
+                    it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
+
+                walkerMethod.addInstructions(
+                    0, """
+                        invoke-static {p0}, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object p0
+                        """
+                )
+            }
+
+            OrganicPlaybackContextModelFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                    addInstruction(
+                        insertIndex,
+                        "invoke-static { v$insertRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->setCpn(Ljava/lang/String;)V"
+                    )
+                }
+            }
+
+            TrackingUrlHookPatch.hookTrackingUrl("$INTEGRATIONS_CLASS_DESCRIPTOR->setTrackingUriParameter(Landroid/net/Uri;)V")
+        }
+
+        // endregion
+
         // region append spoof info.
 
         NerdsStatsVideoFormatBuilderFingerprint.resultOrThrow().mutableMethod.apply {
@@ -360,14 +478,18 @@ object SpoofClientPatch : BaseBytecodePatch(
 
         // endregion
 
+        if (!SettingsPatch.upward1839) {
+            settingArray += "SETTINGS: IOS_CLIENT_SIDE_EFFECT_1838"
+        } else {
+            settingArray += "SETTINGS: IOS_CLIENT_SIDE_EFFECT_1839"
+
+            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "SpoofClient")
+        }
+
         /**
          * Add settings
          */
-        SettingsPatch.addPreference(
-            arrayOf(
-                "SETTINGS: SPOOF_CLIENT"
-            )
-        )
+        SettingsPatch.addPreference(settingArray)
 
         SettingsPatch.updatePatchStatus(this)
     }
