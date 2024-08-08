@@ -1,3 +1,10 @@
+# [2.228.0-dev.10](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.9...v2.228.0-dev.10) (2024-08-08)
+
+
+### Bug Fixes
+
+* **YouTube - Translations:** Fix `Italian` translations ([#796](https://github.com/anddea/revanced-patches/issues/796)) ([66f0d1b](https://github.com/anddea/revanced-patches/commit/66f0d1bfd839c0f597e577856bc9e2537ae2e9a3))
+
 # [2.228.0-dev.9](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.8...v2.228.0-dev.9) (2024-08-07)
 
 
