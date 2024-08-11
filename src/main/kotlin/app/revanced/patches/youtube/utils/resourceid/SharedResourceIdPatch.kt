@@ -32,6 +32,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var Bar = -1L
     var BarContainerHeight = -1L
     var BottomSheetFooterText = -1L
+    var BottomSheetRecyclerView = -1L
     var BottomUiContainerStub = -1L
     var CaptionToggleContainer = -1L
     var CastMediaRouteButton = -1L
@@ -136,6 +137,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         Bar = getId(LAYOUT, "bar")
         BarContainerHeight = getId(DIMEN, "bar_container_height")
         BottomSheetFooterText = getId(ID, "bottom_sheet_footer_text")
+        BottomSheetRecyclerView = getId(LAYOUT, "bottom_sheet_recycler_view")
         BottomUiContainerStub = getId(ID, "bottom_ui_container_stub")
         CaptionToggleContainer = getId(ID, "caption_toggle_container")
         CastMediaRouteButton = getId(LAYOUT, "castmediaroutebutton")

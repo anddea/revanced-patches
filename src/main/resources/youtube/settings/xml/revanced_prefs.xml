@@ -666,6 +666,9 @@
 		<!-- PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS
 		<PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS -->
 
+		<!-- SETTINGS: CHANGE_SHARE_SHEET
+		<SwitchPreference android:title="@string/revanced_change_share_sheet_title" android:key="revanced_change_share_sheet" android:summaryOn="@string/revanced_change_share_sheet_summary_on" android:summaryOff="@string/revanced_change_share_sheet_summary_off" />SETTINGS: CHANGE_SHARE_SHEET -->
+
 		<!-- SETTINGS: ENABLE_OPUS_CODEC
 		<SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_OPUS_CODEC -->
 
@@ -740,6 +743,7 @@
 			</PreferenceCategory>
 
 			<PreferenceCategory android:title="@string/revanced_preference_screen_misc_title" android:layout="@layout/revanced_settings_preferences_category">
+				<Preference android:title="Change share sheet" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Enable external browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -748,6 +752,7 @@
 				<Preference android:title="Remove background playback restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 				<Preference android:title="Spoof client" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+				<Preference android:title="Watch history" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 			</PreferenceCategory>
 
 			<PreferenceCategory android:title="@string/revanced_preference_category_others" android:layout="@layout/revanced_settings_preferences_category">
