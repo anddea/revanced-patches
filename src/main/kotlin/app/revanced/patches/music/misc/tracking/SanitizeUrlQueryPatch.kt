@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
+import app.revanced.patches.shared.tracking.BaseSanitizeUrlQueryPatch
 import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
@@ -11,7 +12,7 @@ object SanitizeUrlQueryPatch : BaseResourcePatch(
     name = "Sanitize sharing links",
     description = "Adds an option to remove tracking query parameters from URLs when sharing links.",
     dependencies = setOf(
-        SanitizeUrlQueryBytecodePatch::class,
+        BaseSanitizeUrlQueryPatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE

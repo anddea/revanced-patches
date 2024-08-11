@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.tracking.fingerprints
+package app.revanced.patches.shared.tracking.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
@@ -6,16 +6,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 /**
- * Sharing panel of YouTube Music
+ * Sharing panel
  */
 internal object ShareLinkFormatterFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("L", "Ljava/util/Map;"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.GOTO,
-        Opcode.CONST_STRING,
+        null,
         Opcode.INVOKE_VIRTUAL
     ),
     customFingerprint = custom@{ methodDef, _ ->
