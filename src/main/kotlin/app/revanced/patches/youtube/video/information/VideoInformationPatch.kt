@@ -541,7 +541,7 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
         mdxConstructorMethod.addInstruction(
             mdxConstructorInsertIndex++,
-            "invoke-static { }, $targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "invoke-static { }, $targetMethodClass->$targetMethodName()V"
         )
 
     /**
