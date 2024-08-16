@@ -13,6 +13,7 @@ ReVanced Extended Patches.
 | `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 18.29.38 ~ 19.16.39 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 18.29.38 ~ 19.16.39 |
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 18.29.38 ~ 19.16.39 |
+| `Change share sheet` | Add option to change from in-app share sheet to system share sheet. | 18.29.38 ~ 19.16.39 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 18.29.38 ~ 19.16.39 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 18.29.38 ~ 19.16.39 |
 | `Custom branding icon for YouTube` | Changes the YouTube app icon to the icon specified in options.json. | 18.29.38 ~ 19.16.39 |
@@ -50,7 +51,7 @@ ReVanced Extended Patches.
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 18.29.38 ~ 19.16.39 |
 | `Overlay buttons` | Adds options to display overlay buttons in the video player. | 18.29.38 ~ 19.16.39 |
 | `Player components` | Adds options to hide or change components related to the video player. | 18.29.38 ~ 19.16.39 |
-| `Remove background playback restrictions` | Removes restrictions on background playback, including playing kids videos in the background. | 18.29.38 ~ 19.16.39 |
+| `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 18.29.38 ~ 19.16.39 |
 | `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 18.29.38 ~ 19.16.39 |
 | `Return YouTube Dislike` | Adds an option to show the dislike count of videos using the Return YouTube Dislike API. | 18.29.38 ~ 19.16.39 |
 | `Sanitize sharing links` | Adds an option to remove tracking query parameters from URLs when sharing links. | 18.29.38 ~ 19.16.39 |
@@ -99,7 +100,7 @@ ReVanced Extended Patches.
 | `Hide player overlay filter` | Removes, at compile time, the dark overlay that appears when single-tapping in the player. | 6.29.58 ~ 7.13.52 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 6.29.58 ~ 7.13.52 |
 | `Player components` | Adds options to hide or change components related to the player. | 6.29.58 ~ 7.13.52 |
-| `Remove background playback restrictions` | Removes restrictions on background playback, including playing kids videos in the background. | 6.29.58 ~ 7.13.52 |
+| `Remove background playback restrictions` | Removes restrictions on background playback, including for kids videos. | 6.29.58 ~ 7.13.52 |
 | `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 6.29.58 ~ 7.13.52 |
 | `Restore old style library shelf` | Adds an option to return the Library tab to the old style. | 6.29.58 ~ 7.13.52 |
 | `Return YouTube Dislike` | Adds an option to show the dislike count of songs using the Return YouTube Dislike API. | 6.29.58 ~ 7.13.52 |
