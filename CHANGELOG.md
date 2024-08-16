@@ -1,3 +1,16 @@
+# [2.228.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.11...v2.228.0-dev.12) (2024-08-16)
+
+
+### Bug Fixes
+
+* **YouTube - Video information:** App crash when casting ([ea08ad8](https://github.com/anddea/revanced-patches/commit/ea08ad8845a6b32b1a47995ed607e952c30630a5))
+* **YouTube Music - Sanitize sharing links:** Tracking parameters are not removed from the system share panel ([5774c2d](https://github.com/anddea/revanced-patches/commit/5774c2d3d98781a6ba871f39383ee56f82eb3fbe))
+
+
+### Features
+
+* **YouTube:** Add `Change share sheet` patch ([af81ee7](https://github.com/anddea/revanced-patches/commit/af81ee72b1c4e5d2d86753d833e038ce99ae55de))
+
 # [2.228.0-dev.11](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.10...v2.228.0-dev.11) (2024-08-08)
 
 
