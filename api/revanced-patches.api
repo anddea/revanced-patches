@@ -207,10 +207,6 @@ public final class app/revanced/patches/music/misc/thumbnails/BypassImageRegionR
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryBytecodePatch : app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/tracking/SanitizeUrlQueryBytecodePatch;
-}
-
 public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -878,9 +874,8 @@ public abstract class app/revanced/patches/shared/spoofuseragent/BaseSpoofUserAg
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
-public abstract class app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1185,8 +1180,8 @@ public final class app/revanced/patches/youtube/misc/quic/QUICProtocolPatch : ap
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryBytecodePatch : app/revanced/patches/shared/tracking/BaseSanitizeUrlQueryPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryBytecodePatch;
+public final class app/revanced/patches/youtube/misc/share/ShareSheetPatch : app/revanced/util/patch/BaseBytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/share/ShareSheetPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1550,6 +1545,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getBar ()J
 	public final fun getBarContainerHeight ()J
 	public final fun getBottomSheetFooterText ()J
+	public final fun getBottomSheetRecyclerView ()J
 	public final fun getBottomUiContainerStub ()J
 	public final fun getCaptionToggleContainer ()J
 	public final fun getCastMediaRouteButton ()J
@@ -1651,6 +1647,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setBar (J)V
 	public final fun setBarContainerHeight (J)V
 	public final fun setBottomSheetFooterText (J)V
+	public final fun setBottomSheetRecyclerView (J)V
 	public final fun setBottomUiContainerStub (J)V
 	public final fun setCaptionToggleContainer (J)V
 	public final fun setCastMediaRouteButton (J)V
