@@ -65,6 +65,9 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Les boutons à bascule sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Les boutons à bascule avec textes sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Type de bouton à bascule</string>
+    <string name="revanced_change_share_sheet_summary_off">La feuille de partage de l\'application est utilisée.</string>
+    <string name="revanced_change_share_sheet_summary_on">La feuille de partage du système est utilisée.</string>
+    <string name="revanced_change_share_sheet_title">Modifier la feuille de partage</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Lecture auto.</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Par défaut</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pause</string>
@@ -307,6 +310,10 @@ L'option \"Ouvrir la description automatiquement\" risque de ne pas fonctionner 
 Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Attention</string>
     <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">Nom de package du téléchargeur externe installé, telle que YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">Nom du paquet du téléchargeur de la playlist</string>
+    <string name="revanced_external_downloader_package_name_video_summary">Nom du paquet de l\'appli de téléchargement externe installée, telle que NewPipe ou YTDLnis.</string>
+    <string name="revanced_external_downloader_package_name_video_title">Nom du paquet du téléchargeur vidéo</string>
     <string name="revanced_force_fullscreen_summary">"La vidéo passera en mode plein écran dans les situations suivantes :
 
 • Lors du démarrage de la vidéo.
@@ -976,6 +983,12 @@ Appuyez longuement pour annuler."</string>
     <string name="revanced_overlay_button_whitelist_summary">Appuyez pour ouvrir la liste blanche.
 Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_overlay_button_whitelist_title">Afficher le bouton \"Liste blanche\"</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Le bouton \"Télécharger\" natif de la playlist ouvre votre téléchargeur de l\'appli.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Le bouton \"Télécharger\" natif de la playlist ouvre votre téléchargeur externe.</string>
+    <string name="revanced_override_playlist_download_button_title">Remplacer le bouton de téléchargement de la playlist</string>
+    <string name="revanced_override_video_download_button_summary_off">Le bouton \"Télécharger\" natif ouvre le téléchargeur de l\'appli.</string>
+    <string name="revanced_override_video_download_button_summary_on">Le bouton \"Télécharger\" natif ouvre votre téléchargeur externe.</string>
+    <string name="revanced_override_video_download_button_title">Remplacer le bouton de téléchargement de la vidéo</string>
     <string name="revanced_patches_excluded">Exclus</string>
     <string name="revanced_patches_included">Appliqué</string>
     <string name="revanced_playback_speed_normal">Normal</string>
@@ -1411,6 +1424,11 @@ Les effets secondaires incluent :
 • Les miniatures de la barre de progression sur les Shorts sont en basses qualités.
 • Les vidéos conçues pour les enfants ne seront pas lues."</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"Falsifier le client vers iOS.
+
+Créée des effets secondaires :
+• Les vidéos HDR supportent uniquement le codec AV1.
+• Le temps de visionnage n'es pas enregistré dans l'historique de visionnage pour les comptes de marques."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Falsifier le client vers iOS.
 
 Créée des effets secondaires :
@@ -1461,7 +1479,7 @@ Limitations :
     <string name="revanced_watch_history_about_status_android_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
 • L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN."</string>
     <string name="revanced_watch_history_about_status_android_replaced">• Suis les paramètres de l\'historique de visionnage du compte Google.</string>
-    <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage ne fonctionne pas.</string>
+    <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué.</string>
     <string name="revanced_watch_history_about_status_ios_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
 • L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN.
 • L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
@@ -1469,7 +1487,7 @@ Limitations :
     <string name="revanced_watch_history_about_status_ios_replaced">"• Suis les paramètres de l'historique de visionnage du compte Google.
 • L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
 (Le paramètre 'Falsifier le client' est activé et le client iOS est sélectionné)"</string>
-    <string name="revanced_watch_history_about_title">À propos de l\'historique de visionnage</string>
+    <string name="revanced_watch_history_about_title">Statut de l\'historique de visionnage</string>
     <string name="revanced_watch_history_management_summary">Cliquez pour ouvrir la gestion de l\'historique de visionnage YouTube.</string>
     <string name="revanced_watch_history_management_title">Gérer tout l\'historique</string>
     <string name="revanced_watch_history_type_entry_1">Original</string>

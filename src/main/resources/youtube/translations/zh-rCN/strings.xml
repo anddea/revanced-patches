@@ -308,6 +308,10 @@
 请从网站下载 %2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
     <string name="revanced_external_downloader_not_installed_warning">%s未安装，请先安装</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">已安装的外部下载器应用包名，例如 YTDLnis</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">播放列表下载器名称</string>
+    <string name="revanced_external_downloader_package_name_video_summary">已安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis</string>
+    <string name="revanced_external_downloader_package_name_video_title">视频下载器应用包名</string>
     <string name="revanced_force_fullscreen_summary">"在以下情况下，视频将切换为全屏：
 
 • 开始播放视频时
@@ -990,6 +994,12 @@ Note:
     <string name="revanced_overlay_button_whitelist_summary">点按打开白名单对话框
 长按打开白名单设置对话框</string>
     <string name="revanced_overlay_button_whitelist_title">显示白名单按钮</string>
+    <string name="revanced_override_playlist_download_button_summary_off">播放列表下载按钮打开应用内下载器</string>
+    <string name="revanced_override_playlist_download_button_summary_on">播放列表下载按钮打开外部下载器</string>
+    <string name="revanced_override_playlist_download_button_title">覆盖播放列表下载按钮</string>
+    <string name="revanced_override_video_download_button_summary_off">视频下载按钮打开应用内下载器</string>
+    <string name="revanced_override_video_download_button_summary_on">视频下载按钮打开外部下载器</string>
+    <string name="revanced_override_video_download_button_title">覆盖视频下载按钮</string>
     <string name="revanced_patches_excluded">Excluded</string>
     <string name="revanced_patches_included">Included</string>
     <string name="revanced_playback_speed_normal">正常</string>
@@ -1418,6 +1428,11 @@ Note:
 • 低质量的短视频滚动栏缩略图
 • 儿童视频无法播放"</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"伪装客户端为 iOS 客户端
+
+副作用：
+• 仅在 AV1 编解码器上支持 HDR 视频
+• 观看时间不保存在品牌帐户的历史记录中"</string>
     <string name="revanced_spoof_client_use_ios_summary">"伪装客户端到iOS
 
 副作用:
