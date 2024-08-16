@@ -96,7 +96,7 @@ def convert_to_positional_format(text):
     """
     # Regular expression to match format specifiers like %s, %d, etc.
     specifier_regex = re.compile(r"%([sd])")
-    matches = specifier_regex.findall(text)
+    matches = specifier_regex.findall(str(text))
 
     # Return original text if less than 2 specifiers are found
     if len(matches) < 2:
