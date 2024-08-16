@@ -66,6 +66,9 @@
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
+    <string name="revanced_change_share_sheet_summary_off">使用應用程式內分享擴展。</string>
+    <string name="revanced_change_share_sheet_summary_on">使用系統分享擴展。</string>
+    <string name="revanced_change_share_sheet_title">更改分享擴展</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">自動播放</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">預設</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">暫停</string>
@@ -306,6 +309,10 @@
 請從網站下載 %2$s"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
     <string name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
+    <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
+    <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
+    <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
+    <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_force_fullscreen_summary">"影片將在以下情況下切換到全螢幕模式：
 
 ・當影片開始播放時。
@@ -989,6 +996,12 @@ Note:
     <string name="revanced_overlay_button_whitelist_summary">點選可開啟白名單對話框。
  點選並按住可開啟白名單設定對話框。</string>
     <string name="revanced_overlay_button_whitelist_title">顯示白名單按鈕</string>
+    <string name="revanced_override_playlist_download_button_summary_off">原生播放清單下載按鈕可開啟本機應用程式內下載器。</string>
+    <string name="revanced_override_playlist_download_button_summary_on">原生播放清單下載按鈕可開啟您的外部下載器。</string>
+    <string name="revanced_override_playlist_download_button_title">覆蓋播放清單下載按鈕</string>
+    <string name="revanced_override_video_download_button_summary_off">原生影片下載按鈕可開啟本機應用程式內下載器。</string>
+    <string name="revanced_override_video_download_button_summary_on">原生影片下載按鈕可開啟你的外部下載器。</string>
+    <string name="revanced_override_video_download_button_title">覆蓋影片下載按鈕</string>
     <string name="revanced_patches_excluded">排除</string>
     <string name="revanced_patches_included">包括</string>
     <string name="revanced_playback_speed_normal">一般</string>
@@ -1424,6 +1437,11 @@ Note:
  • 低品質的短片搜尋欄縮圖。
  • 無法播放兒童影片。"</string>
     <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
+    <string name="revanced_spoof_client_use_ios_legacy_summary">"偽裝客戶端到iOS。
+
+ 副作用包括：
+ • HDR影片僅在AV1編解碼器上支援。
+ • 觀看時間不會保存在品牌帳戶的觀看記錄中。"</string>
     <string name="revanced_spoof_client_use_ios_summary">"偽裝用戶端到 iOS。
 
  副作用包括：

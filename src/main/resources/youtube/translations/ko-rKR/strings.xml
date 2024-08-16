@@ -66,6 +66,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">스위치 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">텍스트 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">토글 타입 변경하기</string>
+    <string name="revanced_change_share_sheet_summary_off">YouTube 기본 공유 시트를 사용합니다.</string>
+    <string name="revanced_change_share_sheet_summary_on">Android 기본 공유 시트를 사용합니다.\n\n• 공유 버튼으로 바로 Android 기본 공유 메뉴를 실행할 수 있습니다.</string>
+    <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">자동재생</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">기본값</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">일시정지</string>
@@ -166,7 +169,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_landscape_mode_title">전체 화면에서 세로 모드 활성화하기</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">동영상에서 \'Like (좋아요)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다.\n• 일부 언어는 아직 지원되지 않습니다.</string>
-    <string name="revanced_disable_like_dislike_glow_title">일정시점부터 업데이트된 동영상에서 유튜버가 \'LIke\' 또는 \'Subscribe\'라고 말을 하면 버튼에서 빛이 나는 효과가 발생합니다 (시간제한 횟수제한이 있음). 하지만 한국어(\'좋아요\'와 \'구독\')은 인식되지 않는 거로 보입니다.</string>
+    <string name="revanced_disable_like_dislike_glow_title">빛나는 \'좋아요 &amp; 싫어요\' 버튼 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화해서 동영상을 불러올 때 발생하는 동영상 압축과 푸는 과정을 제거하여 동영상 로딩 속도를 향상시킵니다. 모바일 데이터 사용량이 증가할 수 있으니 주의하세요."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다.</string>
@@ -261,7 +264,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 커뮤니티 게시물\n• 전체 화면의 일부 기능</string>
+    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 최신 동영상 버튼 숨기기\n• 믹스 재생목록 숨기기\n• 커뮤니티 게시물 설정\n• 전체 화면의 일부 설정 (빠른 작업)</string>
     <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">불투명 하단바를 활성화합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">반투명 하단바를 활성화합니다.</string>
@@ -343,12 +346,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_browse_store_button_summary_on">스토어 방문 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_browse_store_button_title">스토어 방문 버튼 숨기기</string>
     <string name="revanced_hide_carousel_shelf_summary">"다음 선반들이 숨겨집니다:
-• 뉴스 속보
-• 계속 시청하기
-• 더 많은 채널 살펴보기
 • 다시 듣기
-• 쇼핑
-• 다시 보기"</string>
+• 다시 시청하기
+• 이어서 시청하기
+• 채널 더보기
+• 이 게임 더보기
+• 주요 뉴스, 뉴스 속보
+• 맞춤 실시간 스트림
+• 라이브 쇼핑
+• 보건 정보 출처 ..."</string>
     <string name="revanced_hide_carousel_shelf_title">좌우 슬라이드형 선반 숨기기</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">피드에서 카테고리 바가 표시됩니다.</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다.</string>
@@ -432,7 +438,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_end_screen_cards_title">최종 화면 카드 숨기기</string>
     <string name="revanced_hide_expandable_chip_summary_off">다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
     <string name="revanced_hide_expandable_chip_summary_on">다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
-    <string name="revanced_hide_expandable_chip_title">동영상 하단에서 동영상 관련 정보 숨기기</string>
+    <string name="revanced_hide_expandable_chip_title">썸네일 하단에서 동영상 관련 정보 숨기기</string>
     <string name="revanced_hide_feed_captions_button_off">자막 버튼이 표시됩니다.</string>
     <string name="revanced_hide_feed_captions_button_on">자막 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_feed_captions_button_title">피드 자막 버튼 숨기기</string>
@@ -516,7 +522,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_home_title">홈 피드에서 키워드 필터 활성화하기</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.
 
-영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)."</string>
+영어 키워드는 대소문자를 구분하여 입력해야 합니다."</string>
     <string name="revanced_hide_keyword_content_phrases_title">키워드 필터</string>
     <string name="revanced_hide_keyword_content_search_summary_off">검색 결과에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_search_summary_on">검색 결과에서 키워드 필터를 활성화합니다.</string>
@@ -722,9 +728,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_seek_message_summary_off">다음 탐색 메시지가 표시됩니다.\n• \'왼쪽이나 오른쪽으로 슬라이드하여 탐색\' </string>
     <string name="revanced_hide_seek_message_summary_on">다음 탐색 메시지가 숨겨집니다.\n• \'왼쪽이나 오른쪽으로 슬라이드하여 탐색\' </string>
     <string name="revanced_hide_seek_message_title">탐색 메시지 숨기기</string>
-    <string name="revanced_hide_seek_undo_message_summary_off">탐색을 취소하려 할 때, 메시지가 표시됩니다.</string>
-    <string name="revanced_hide_seek_undo_message_summary_on">탐색을 취소하려 할 때, 메시지가 숨겨집니다.</string>
-    <string name="revanced_hide_seek_undo_message_title">탐색을 취소하려 할 때, 메시지 숨기기</string>
+    <string name="revanced_hide_seek_undo_message_summary_off">탐색 취소 메시지가 표시됩니다.\n• \'손가락을 떼어 취소\'</string>
+    <string name="revanced_hide_seek_undo_message_summary_on">탐색 취소 메시지가 숨겨집니다.\n• \'손가락을 떼어 취소\'</string>
+    <string name="revanced_hide_seek_undo_message_title">탐색 취소 메시지 숨기기</string>
     <string name="revanced_hide_seekbar_chapters_summary_off">재생바에서 챕터가 표시됩니다.</string>
     <string name="revanced_hide_seekbar_chapters_summary_on">재생바에서 챕터가 숨겨집니다.</string>
     <string name="revanced_hide_seekbar_chapters_title">재생바 챕터 숨기기</string>
@@ -1469,7 +1475,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
     <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대값으로 변경합니다.
-높은 기기 크기 정보가 필요한 일부 동영상에서는 초고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다. (1440p, 2160p)"</string>
+높은 기기 크기 정보가 필요한 일부 동영상에서는 고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
     <string name="revanced_spoof_player_parameter_in_feed_summary_off">"피드 동영상에 대한 플레이어 매개변수를 변경하지 않습니다.
 
