@@ -117,8 +117,20 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.VIDEO,
+            "revanced_remember_playback_speed_last_selected_toast",
+            "true",
+            "revanced_remember_playback_speed_last_selected"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.VIDEO,
             "revanced_remember_video_quality_last_selected",
             "true"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.VIDEO,
+            "revanced_remember_video_quality_last_selected_toast",
+            "true",
+            "revanced_remember_video_quality_last_selected"
         )
     }
 }
