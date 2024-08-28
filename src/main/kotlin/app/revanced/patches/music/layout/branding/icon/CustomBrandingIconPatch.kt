@@ -198,10 +198,15 @@ object CustomBrandingIconPatch : BaseResourcePatch(
 
             // Change splash icon.
             if (ChangeSplashIcon == true) {
-                splashIconResourceGroups.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        context.copyResources("$appIconResourcePath/splash", it)
+                // Some resources have been removed in the latest YouTube Music.
+                // For compatibility, use try...catch.
+                try {
+                    splashIconResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            context.copyResources("$appIconResourcePath/splash", it)
+                        }
                     }
+                } catch (_: Exception) {
                 }
             }
 
