@@ -1103,10 +1103,16 @@ A different codec will be applied after about 20 seconds of buffering."</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">A toast will not be shown when changing the default playback speed.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">A toast will be shown when changing the default playback speed.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_playback_speed_toast">Changing default speed to %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">A toast will not be shown when changing the default video quality.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">A toast will be shown when changing the default video quality.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set video quality.</string>
     <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>
@@ -1197,6 +1203,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_general_api_url">Change API URL</string>
     <string name="revanced_sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server.</string>
     <string name="revanced_sb_general_min_duration">Minimum segment duration</string>
+    <string name="revanced_sb_general_min_duration_invalid">Invalid time duration.</string>
     <string name="revanced_sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped.</string>
     <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
     <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled.</string>
@@ -1362,12 +1369,6 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Meta panel bottom margin</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Press and hold the timestamp to change the Shorts repeat status.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Timestamp long press action</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_off">A toast will not be shown when changing the default video quality.</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_on">A toast will be shown when changing the default video quality.</string>
-    <string name="revanced_show_toast_remember_video_quality_title">Show a toast when changing the default video quality</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_off">A toast will not be shown when changing the default video speed.</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_on">A toast will be shown when changing the default video speed.</string>
-    <string name="revanced_show_toast_remember_video_speed_title">Show a toast when changing the default video speed</string>
     <string name="revanced_show_video_title_section_summary">"Shows the video title section in fullscreen.
 
 Limitation: Video title disappears when clicked."</string>
@@ -1413,6 +1414,12 @@ This will change the appearance and features of the app, but unknown side effect
 If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
     <string name="revanced_spoof_client_fallback_title">Unplayable video</string>
     <string name="revanced_spoof_client_general_title">General</string>
+    <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec is AVC (H.264), VP9, or AV1.</string>
+    <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC (H.264).</string>
+    <string name="revanced_spoof_client_ios_force_avc_title">Force iOS AVC (H.264)</string>
+    <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
+
+AVC (H.264) has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1."</string>
     <string name="revanced_spoof_client_livestream_title">Live streams</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android Testsuite</string>
@@ -1458,12 +1465,12 @@ Side effects include:
     <string name="revanced_spoof_client_use_ios_legacy_summary">"Spoof client to iOS.
 
 Side effects include:
-• HDR video is supported only on AV1 codec.
+• HDR is supported only with AV1 codec.
 • Watch time is not saved in watch history on brand account."</string>
     <string name="revanced_spoof_client_use_ios_summary">"Spoof client to iOS.
 
 Side effects include:
-• HDR video is supported only on AV1 codec.
+• HDR is supported only with AV1 codec.
 • Watch history does not work with a brand account."</string>
     <string name="revanced_spoof_client_use_ios_title">iOS</string>
     <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>

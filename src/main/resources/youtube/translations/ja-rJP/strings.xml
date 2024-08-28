@@ -64,8 +64,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">現在の設定: スイッチのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">現在の設定: テキストのトグル</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">トグルの種類を変更</string>
-    <string name="revanced_change_share_sheet_summary_off">「共有」ボタンをタップした際に表示される共有メニューを、システムのデフォルトの共有メニューに置き換えます。</string>
-    <string name="revanced_change_share_sheet_summary_on">「共有」ボタンをタップした際に表示される共有メニューを、システムのデフォルトの共有メニューに置き換えます。</string>
+    <string name="revanced_change_share_sheet_summary_off">「共有」ボタンをタップした際に表示される共有メニューを、システムの共有メニューに置き換えます。</string>
+    <string name="revanced_change_share_sheet_summary_on">「共有」ボタンをタップした際に表示される共有メニューを、システムの共有メニューに置き換えます。</string>
     <string name="revanced_change_share_sheet_title">共有メニューを変更</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">次の動画を自動再生</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">デフォルト</string>
@@ -838,8 +838,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_shorts_super_thanks_button_summary_off">「Super Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_super_thanks_button_summary_on">「Super Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_super_thanks_button_title">「Super Thanks」ボタンを非表示</string>
-    <string name="revanced_hide_shorts_tagged_products_summary_off">タグ付けされた商品を非表示にします。</string>
-    <string name="revanced_hide_shorts_tagged_products_summary_on">タグ付けされた商品を非表示にします。</string>
+    <string name="revanced_hide_shorts_tagged_products_summary_off">タグ付けされている商品を非表示にします。</string>
+    <string name="revanced_hide_shorts_tagged_products_summary_on">タグ付けされている商品を非表示にします。</string>
     <string name="revanced_hide_shorts_tagged_products_title">タグ付き商品を非表示</string>
     <string name="revanced_hide_shorts_toolbar_summary_off">ツールバー(カメラ、検索などのボタン)を非表示にします。</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">ツールバー(カメラ、検索などのボタン)を非表示にします。</string>
@@ -861,13 +861,13 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_subscriptions_carousel_title">登録チャンネルのカルーセルを非表示</string>
     <string name="revanced_hide_suggested_actions_summary_off">プレーヤー上の「Premium のコントロール」などの提案を非表示にします。</string>
     <string name="revanced_hide_suggested_actions_summary_on">プレーヤー上の「Premium のコントロール」などの提案を非表示にします。</string>
-    <string name="revanced_hide_suggested_actions_title">提案されたアクションを非表示</string>
+    <string name="revanced_hide_suggested_actions_title">提案されるアクションを非表示</string>
     <string name="revanced_hide_suggested_video_end_screen_summary">"この設定は非推奨になりました。
 
 代わりに、「設定 → 自動再生 → 次の動画の自動再生」設定を使用してください。"</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_off">自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"自動再生がオフの場合、おすすめの動画は動画の終了画面で表示されません。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">おすすめされた動画の終了画面を非表示</string>
+    <string name="revanced_hide_suggested_video_end_screen_title">おすすめされる動画の終了画面を非表示</string>
     <string name="revanced_hide_thanks_button_summary_off">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_summary_on">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_thanks_button_title">「Thanks」ボタンを非表示</string>
@@ -1058,7 +1058,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_preference_screen_misc_title">その他</string>
     <string name="revanced_preference_screen_navigation_buttons_summary">ナビゲーションバーセクションのコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_navigation_buttons_title">ナビゲーションボタン</string>
-    <string name="revanced_preference_screen_patch_information_summary">適用されたパッチに関する情報</string>
+    <string name="revanced_preference_screen_patch_information_summary">適用されたパッチに関する情報です。</string>
     <string name="revanced_preference_screen_patch_information_title">パッチ情報</string>
     <string name="revanced_preference_screen_player_buttons_summary">プレーヤー内のボタンを非表示または表示します。</string>
     <string name="revanced_preference_screen_player_buttons_title">プレーヤーボタン</string>
@@ -1355,12 +1355,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_shorts_meta_panel_bottom_margin_title">メタパネルの下部の余白</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">タイムスタンプを長押しすると、ショートのリピート状態を変更できます。</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">タイムスタンプ長押し時の動作</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_off">デフォルトの画質を変更する際にトーストを表示します。</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_on">デフォルトの画質を変更する際にトーストを表示します。</string>
-    <string name="revanced_show_toast_remember_video_quality_title">デフォルトの画質を変更する際にトーストを表示</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_off">デフォルトの再生速度を変更する際にトーストを表示します。</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_on">デフォルトの再生速度を変更する際にトーストを表示します。</string>
-    <string name="revanced_show_toast_remember_video_speed_title">デフォルトの再生速度を変更する際にトーストを表示</string>
     <string name="revanced_show_video_title_section_summary">"全画面表示時にタイトルを表示します。
 
 注意: 動画のタイトルをタップすると消えます。"</string>

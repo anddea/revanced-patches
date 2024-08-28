@@ -1114,10 +1114,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">팝업 메시지 표시하기</string>
     <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시하지 않습니다.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">팝업 메시지 표시하기</string>
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 화질을 설정할 수 없습니다.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
@@ -1209,6 +1215,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_sb_general_api_url">API URL 변경하기</string>
     <string name="revanced_sb_general_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요.</string>
     <string name="revanced_sb_general_min_duration">건너뛸 최소 구간 길이</string>
+    <string name="revanced_sb_general_min_duration_invalid">잘못된 지속 시간입니다.</string>
     <string name="revanced_sb_general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에도 표시되지 않습니다.</string>
     <string name="revanced_sb_general_skipcount">건너뛴 횟수 기록 활성화하기</string>
     <string name="revanced_sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다.</string>
@@ -1374,12 +1381,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">메타 패널 하단 여백</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">타임스탬프를 길게 눌러서 Shorts 반복 상태를 변경할 수 있습니다.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">타임스탬프 길게 누르기 동작</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_off">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시하지 않습니다.</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_on">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
-    <string name="revanced_show_toast_remember_video_quality_title">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지 표시하기</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_off">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지를 표시하지 않습니다.</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_on">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
-    <string name="revanced_show_toast_remember_video_speed_title">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지 표시하기</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다.
 
 알려진 문제점: 동영상 제목을 누르면 사라집니다."</string>
@@ -1420,6 +1421,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 이전 YouTube 앱 버전으로 변경합니다.\n\n변경하면 앱 레이아웃과 기능이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.\n\n나중에 이 기능을 비활성화하게 되면 앱 레이아웃 문제점을 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
     <string name="revanced_spoof_client_fallback_title">재생할 수 없는 동영상</string>
     <string name="revanced_spoof_client_general_title">일반 동영상</string>
+    <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.</string>
+    <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC (H.264)로 활성화합니다.</string>
+    <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
+    <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">"이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다.
+
+AVC (H.264)의 최대 해상도는 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다."</string>
     <string name="revanced_spoof_client_livestream_title">실시간 스트림</string>
     <string name="revanced_spoof_client_options_entry_android">Android</string>
     <string name="revanced_spoof_client_options_entry_android_testsuite">Android TestSuite</string>
