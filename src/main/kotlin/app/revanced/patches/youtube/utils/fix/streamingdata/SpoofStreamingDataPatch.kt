@@ -61,7 +61,8 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         BuildInitPlaybackRequestFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val moveUriStringIndex = it.scanResult.patternScanResult!!.startIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+                val targetRegister =
+                    getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
                 addInstructions(
                     moveUriStringIndex + 1,
@@ -79,8 +80,10 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
 
         BuildPlayerRequestURIFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val invokeToStringIndex = BuildPlayerRequestURIFingerprint.indexOfToStringInstruction(this)
-                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+                val invokeToStringIndex =
+                    BuildPlayerRequestURIFingerprint.indexOfToStringInstruction(this)
+                val uriRegister =
+                    getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
                 addInstructions(
                     invokeToStringIndex,
@@ -100,11 +103,13 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
             result.mutableMethod.apply {
                 val buildRequestIndex =
                     BuildRequestFingerprint.indexOfBuildUrlRequestInstruction(this)
-                val requestBuilderRegister = getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
+                val requestBuilderRegister =
+                    getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
 
                 val newRequestBuilderIndex =
                     BuildRequestFingerprint.indexOfNewUrlRequestBuilderInstruction(this)
-                val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+                val urlRegister =
+                    getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
                 // Replace "requestBuilder.build()" with integrations call.
                 replaceInstruction(
@@ -143,10 +148,13 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         CreateStreamingDataFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
                 val setStreamingDataIndex = result.scanResult.patternScanResult!!.startIndex
-                val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>().toString()
+                val setStreamingDataField =
+                    getInstruction(setStreamingDataIndex).getReference<FieldReference>().toString()
 
-                val playerProtoClass = getInstruction(setStreamingDataIndex + 1).getReference<FieldReference>()!!.definingClass
-                val protobufClass = ProtobufClassParseByteBufferFingerprint.resultOrThrow().mutableMethod.definingClass
+                val playerProtoClass =
+                    getInstruction(setStreamingDataIndex + 1).getReference<FieldReference>()!!.definingClass
+                val protobufClass =
+                    ProtobufClassParseByteBufferFingerprint.resultOrThrow().mutableMethod.definingClass
 
                 val getStreamingDataField = getInstructions().find { instruction ->
                     instruction.opcode == Opcode.IGET_OBJECT &&
@@ -155,10 +163,12 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
                     ?: throw PatchException("Could not find getStreamingDataField")
 
                 val videoDetailsIndex = result.scanResult.patternScanResult!!.endIndex
-                val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+                val videoDetailsClass =
+                    getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
                 val insertIndex = videoDetailsIndex + 1
-                val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
+                val videoDetailsRegister =
+                    getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
 
                 val overrideRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
