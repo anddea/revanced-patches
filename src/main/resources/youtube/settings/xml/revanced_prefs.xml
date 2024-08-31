@@ -207,6 +207,7 @@
 			<app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_keyword_content_phrases_title" android:key="revanced_hide_keyword_content_phrases" android:summary="@string/revanced_hide_keyword_content_phrases_summary" android:inputType="textMultiLine" />
 			<SwitchPreference android:title="@string/revanced_hide_keyword_content_full_word_title" android:key="revanced_hide_keyword_content_full_word" />
 			<Preference android:title="@string/revanced_hide_keyword_content_about_title" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_summary" />
+			<app.revanced.integrations.youtube.settings.preference.HtmlPreference android:title="@string/revanced_hide_keyword_content_about_whole_words_title" android:selectable="false" android:summary="@string/revanced_hide_keyword_content_about_whole_words_summary" />
 		</PreferenceCategory>
 		<PreferenceCategory android:title="@string/revanced_preference_category_recommended_video" android:layout="@layout/revanced_settings_preferences_category">
 			<SwitchPreference android:title="@string/revanced_hide_recommended_video_title" android:key="revanced_hide_recommended_video" android:defaultValue="false" android:summary="@string/revanced_hide_recommended_video_summary" />
