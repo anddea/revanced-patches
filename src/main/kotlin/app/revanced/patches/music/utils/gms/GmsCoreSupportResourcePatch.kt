@@ -23,7 +23,7 @@ object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
         context.addMicroGPreference(
             CategoryType.MISC.value,
             "gms_core_settings",
-            GmsCoreVendorGroupId.valueOrThrow(),
+            GmsCoreVendorGroupId.valueOrThrow() + ".android.gms",
             GMS_CORE_SETTINGS_ACTIVITY
         )
 
