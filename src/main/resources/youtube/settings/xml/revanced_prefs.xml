@@ -605,33 +605,7 @@
 			<app.revanced.integrations.youtube.settings.preference.ImportExportPreference android:title="@string/revanced_extended_settings_import_export_as_text_title" android:summary="@string/revanced_extended_settings_import_export_as_text_summary" android:inputType="textMultiLine" />
 		</PreferenceScreen>
 
-		<!-- SETTINGS: SPOOF_CLIENT
-		<PreferenceScreen android:title="@string/revanced_preference_screen_spoof_client_title" android:key="revanced_preference_screen_spoof_client" android:summary="@string/revanced_preference_screen_spoof_client_summary">
-			<SwitchPreference android:title="@string/revanced_spoof_client_title" android:key="revanced_spoof_client" android:summaryOn="@string/revanced_spoof_client_summary_on" android:summaryOff="@string/revanced_spoof_client_summary_off" />
-			<SwitchPreference android:title="@string/revanced_spoof_client_ios_force_avc_title" android:key="revanced_spoof_client_ios_force_avc" android:summaryOn="@string/revanced_spoof_client_ios_force_avc_summary_on" android:summaryOff="@string/revanced_spoof_client_ios_force_avc_summary_off" />
-			<SwitchPreference android:title="@string/revanced_spoof_client_stats_for_nerds_title" android:key="revanced_spoof_client_stats_for_nerds" android:summaryOn="@string/revanced_spoof_client_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_spoof_client_stats_for_nerds_summary_off" />
-
-			<PreferenceCategory android:title="@string/revanced_preference_category_spoof_client_options" android:layout="@layout/revanced_settings_preferences_category" />
-			<ListPreference android:entries="@array/revanced_spoof_client_general_options_entries" android:title="@string/revanced_spoof_client_general_title" android:key="revanced_spoof_client_general" android:entryValues="@array/revanced_spoof_client_general_options_entry_values" android:dependency="revanced_spoof_client" />
-			<ListPreference android:entries="@array/revanced_spoof_client_livestream_options_entries" android:title="@string/revanced_spoof_client_livestream_title" android:key="revanced_spoof_client_livestream" android:entryValues="@array/revanced_spoof_client_livestream_options_entry_values" android:dependency="revanced_spoof_client" />
-			<ListPreference android:entries="@array/revanced_spoof_client_shorts_options_entries" android:title="@string/revanced_spoof_client_shorts_title" android:key="revanced_spoof_client_shorts" android:entryValues="@array/revanced_spoof_client_shorts_options_entry_values" android:dependency="revanced_spoof_client" />
-			<ListPreference android:entries="@array/revanced_spoof_client_fallback_options_entries" android:title="@string/revanced_spoof_client_fallback_title" android:key="revanced_spoof_client_fallback" android:entryValues="@array/revanced_spoof_client_fallback_options_entry_values" android:dependency="revanced_spoof_client" />
-
-			<PreferenceCategory android:title="@string/revanced_preference_category_spoof_client_about" android:layout="@layout/revanced_settings_preferences_category" />SETTINGS: SPOOF_CLIENT -->
-
-		<!-- SETTINGS: IOS_CLIENT_SIDE_EFFECT_1838
-		<Preference android:title="@string/revanced_spoof_client_use_ios_title" android:key="revanced_spoof_client_use_ios" android:selectable="false" android:summary="@string/revanced_spoof_client_use_ios_legacy_summary" android:dependency="revanced_spoof_client" />SETTINGS: IOS_CLIENT_SIDE_EFFECT_1838 -->
-
-		<!-- SETTINGS: IOS_CLIENT_SIDE_EFFECT_1839
-		<Preference android:title="@string/revanced_spoof_client_use_ios_title" android:key="revanced_spoof_client_use_ios" android:selectable="false" android:summary="@string/revanced_spoof_client_use_ios_summary" android:dependency="revanced_spoof_client" />SETTINGS: IOS_CLIENT_SIDE_EFFECT_1839 -->
-
-		<!-- SETTINGS: SPOOF_CLIENT
-		<Preference android:title="@string/revanced_spoof_client_use_android_testsuite_title" android:key="revanced_spoof_client_use_android_testsuite" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_testsuite_summary" android:dependency="revanced_spoof_client" />
-		<Preference android:title="@string/revanced_spoof_client_use_android_tv_title" android:key="revanced_spoof_client_use_android_tv" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_tv_summary" android:dependency="revanced_spoof_client" />
-		<Preference android:title="@string/revanced_spoof_client_use_android_vr_title" android:key="revanced_spoof_client_use_android_vr" android:selectable="false" android:summary="@string/revanced_spoof_client_use_android_vr_summary" android:dependency="revanced_spoof_client" />
-	</PreferenceScreen>SETTINGS: SPOOF_CLIENT -->
-
-		<!-- SETTINGS: WATCH_HISTORY
+        <!-- SETTINGS: WATCH_HISTORY
         <PreferenceScreen android:title="@string/revanced_preference_screen_watch_history_title" android:key="revanced_preference_screen_watch_history" android:summary="@string/revanced_preference_screen_watch_history_summary">
             <Preference android:title="@string/revanced_watch_history_management_title" android:summary="@string/revanced_watch_history_management_summary">
                 <intent android:action="android.intent.action.VIEW" android:data="https://history.google.com/history/youtube/watch" />
@@ -673,16 +647,12 @@
 		<!-- SETTINGS: ENABLE_OPUS_CODEC
 		<SwitchPreference android:title="@string/revanced_enable_opus_codec_title" android:key="revanced_enable_opus_codec" android:summary="@string/revanced_enable_opus_codec_summary" />SETTINGS: ENABLE_OPUS_CODEC -->
 
-		<!-- SETTINGS: SPOOF_PLAYER_PARAMETER
-		<SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="false" android:summary="@string/revanced_spoof_player_parameter_summary" />
-		<SwitchPreference android:title="@string/revanced_spoof_player_parameter_in_feed_title" android:key="revanced_spoof_player_parameter_in_feed" android:defaultValue="false" android:summaryOn="@string/revanced_spoof_player_parameter_in_feed_summary_on" android:summaryOff="@string/revanced_spoof_player_parameter_in_feed_summary_off" android:dependency="revanced_spoof_player_parameter" />SETTINGS: SPOOF_PLAYER_PARAMETER -->
-
-		<PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>
-		<PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
-			<PreferenceCategory android:title="@string/revanced_preference_category_tool_used" android:layout="@layout/revanced_settings_preferences_category" >
-				<Preference android:title="ReVanced Patches" android:selectable="false" android:summary="" />
-				<Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
-			</PreferenceCategory>
+        <PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>
+        <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
+            <PreferenceCategory android:title="@string/revanced_preference_category_tool_used" android:layout="@layout/revanced_settings_preferences_category" >
+                <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="" />
+                <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
+            </PreferenceCategory>
 
 			<PreferenceCategory android:title="@string/revanced_preference_screen_ads_title" android:layout="@layout/revanced_settings_preferences_category">
 				<Preference android:title="Hide ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -743,18 +713,17 @@
 				<Preference android:title="Video playback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 			</PreferenceCategory>
 
-			<PreferenceCategory android:title="@string/revanced_preference_screen_misc_title" android:layout="@layout/revanced_settings_preferences_category">
-				<Preference android:title="Change share sheet" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Enable external browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Enable open links directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Enable OPUS codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Remove background playback restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Spoof client" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-				<Preference android:title="Watch history" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-			</PreferenceCategory>
+            <PreferenceCategory android:title="@string/revanced_preference_screen_misc_title" android:layout="@layout/revanced_settings_preferences_category">
+                <Preference android:title="Change share sheet" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Disable QUIC protocol" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Enable debug logging" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Enable external browser" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Enable open links directly" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Enable OPUS codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Remove background playback restrictions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Sanitize sharing links" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Watch history" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            </PreferenceCategory>
 
 			<PreferenceCategory android:title="@string/revanced_preference_category_others" android:layout="@layout/revanced_settings_preferences_category">
 				<Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
