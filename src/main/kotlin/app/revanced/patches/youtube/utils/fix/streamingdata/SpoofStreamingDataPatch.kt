@@ -5,19 +5,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.compatibility.Constants
+import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildBrowseRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildMediaDataSourceFingerprint
-import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildPlayerRequestURIFingerprint
-import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.CreateStreamingDataFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.ProtobufClassParseByteBufferFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -33,13 +32,13 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
     dependencies = setOf(
         SettingsPatch::class,
         SpoofUserAgentPatch::class,
+        VideoIdPatch::class,
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
+        BuildBrowseRequestFingerprint,
         BuildInitPlaybackRequestFingerprint,
         BuildMediaDataSourceFingerprint,
-        BuildPlayerRequestURIFingerprint,
-        BuildRequestFingerprint,
         CreateStreamingDataFingerprint,
         ProtobufClassParseByteBufferFingerprint,
 
@@ -49,10 +48,6 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$MISC_PATH/SpoofStreamingDataPatch;"
-    private const val REQUEST_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/UrlRequest;"
-    private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/UrlRequest\$Builder;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -76,51 +71,16 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
 
         // endregion
 
-        // region Block /get_watch requests to fall back to /player requests.
+        // region Copy request headers for streaming data fetch.
 
-        BuildPlayerRequestURIFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val invokeToStringIndex =
-                    BuildPlayerRequestURIFingerprint.indexOfToStringInstruction(this)
-                val uriRegister =
-                    getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
-
-                addInstructions(
-                    invokeToStringIndex,
-                    """
-                        invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                        move-result-object v$uriRegister
-                        """,
-                )
-            }
-        }
-
-        // endregion
-
-        // region Fetch replacement streams.
-
-        BuildRequestFingerprint.resultOrThrow().let { result ->
+        BuildBrowseRequestFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
-                val buildRequestIndex =
-                    BuildRequestFingerprint.indexOfBuildUrlRequestInstruction(this)
-                val requestBuilderRegister =
-                    getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
-
                 val newRequestBuilderIndex =
-                    BuildRequestFingerprint.indexOfNewUrlRequestBuilderInstruction(this)
+                    BuildBrowseRequestFingerprint.indexOfNewUrlRequestBuilderInstruction(this)
                 val urlRegister =
                     getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
-                // Replace "requestBuilder.build()" with integrations call.
-                replaceInstruction(
-                    buildRequestIndex,
-                    "invoke-static { v$requestBuilderRegister }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "buildRequest($REQUEST_BUILDER_CLASS_DESCRIPTOR)" +
-                            REQUEST_CLASS_DESCRIPTOR
-                )
-
-                val entrySetIndex = BuildRequestFingerprint.indexOfEntrySetInstruction(this)
+                val entrySetIndex = BuildBrowseRequestFingerprint.indexOfEntrySetInstruction(this)
                 val mapRegister = if (entrySetIndex < 0)
                     urlRegister + 1
                 else
@@ -129,7 +89,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
                 var smaliInstructions =
                     "invoke-static { v$urlRegister, v$mapRegister }, " +
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "setHeader(Ljava/lang/String;Ljava/util/Map;)V"
+                            "setFetchHeaders(Ljava/lang/String;Ljava/util/Map;)V"
 
                 if (entrySetIndex < 0) smaliInstructions = """
                         move-object/from16 v$mapRegister, p1
@@ -256,6 +216,9 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         }
 
         // endregion
+
+        // Prefetch streaming data.
+        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->fetchStreamingData(Ljava/lang/String;Z)V")
 
         /**
          * Add settings
