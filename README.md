@@ -2,10 +2,6 @@
 
 ReVanced Extended Patches.
 
-## Documentation
-
-Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources on patching, customization, and debugging.
-
 ## 📋 List of patches in this repository
 
 ### [📦 `com.google.android.youtube`](https://play.google.com/store/apps/details?id=com.google.android.youtube)
