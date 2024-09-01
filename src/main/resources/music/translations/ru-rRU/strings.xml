@@ -16,6 +16,10 @@
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
     <string name="revanced_alternative_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
     <string name="revanced_alternative_domain_title">Альтернативный домен</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Заменяет заблокированный в некоторых регионах домен, чтобы можно было получать миниатюры плейлистов, аватары каналов и т. д.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
+    <string name="revanced_change_share_sheet_summary">Меняет встроенное диалоговое окно \"Поделиться\" на системное.</string>
+    <string name="revanced_change_share_sheet_title">Изменить список \"Поделиться\"</string>
     <string name="revanced_change_start_page_entry_chart">Хит-парады</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
     <string name="revanced_change_start_page_entry_home">Главная</string>
@@ -36,6 +40,10 @@
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_disable_dislike_redirection_summary">Отключает перенаправление на следующий трек при нажатии на кнопку \"Не нравится\".</string>
     <string name="revanced_disable_dislike_redirection_title">Отключить переключение при \"Не нравится\"</string>
+    <string name="revanced_disable_mini_player_gesture_summary">Отключает свайп для переключения треков в миниплеере.</string>
+    <string name="revanced_disable_mini_player_gesture_title">Отключить жест мини плеера</string>
+    <string name="revanced_disable_player_gesture_summary">Отключает свайп для переключения треков в плеере.</string>
+    <string name="revanced_disable_player_gesture_title">Отключить жест плеера</string>
     <string name="revanced_enable_black_navigation_bar_summary">Устанавливает чёрный цвет панели навигации.</string>
     <string name="revanced_enable_black_navigation_bar_title">Чёрная панель навигации</string>
     <string name="revanced_enable_black_player_background_summary">Меняет адаптивный цвет фона плеера на черный.</string>
@@ -221,6 +229,11 @@
     <string name="revanced_hide_premium_renewal_title">Скрыть баннер продления Premium</string>
     <string name="revanced_hide_samples_shelf_summary">Скрывает полку \"Семплы\" в ленте.</string>
     <string name="revanced_hide_samples_shelf_title">Скрыть полку \"Семплы\"</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">Список названий меню настроек для фильтрации, разделенных новыми строками.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Фильтр настроек меню</string>
+    <string name="revanced_hide_settings_menu_summary">"Скрывает элементы меню настроек.
+При этом скрывается не только меню настроек YT Music, но и меню настроек ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Скрыть меню настроек</string>
     <string name="revanced_hide_sound_search_button_summary">Скрывает кнопку поиска звука в строке поиска.</string>
     <string name="revanced_hide_sound_search_button_title">Скрыть кнопку поиска звука</string>
     <string name="revanced_hide_tap_to_update_button_summary">Скрывает кнопку \"Обновить\".</string>
@@ -242,6 +255,8 @@
     <string name="revanced_preference_screen_video_title">Видео</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Запоминает последнюю выбранную скорость воспроизведения.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запоминать изменения скорости</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Показывать всплывающее уведомление при смене скорости воспроизведения по умолчанию.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Показывать всплывающее уведомление</string>
     <string name="revanced_remember_playback_speed_toast">Скорость по умолчанию изменена на %s.</string>
     <string name="revanced_remember_repeat_state_summary">Запоминает состояние переключателя \"Повтор воспроизведения\".</string>
     <string name="revanced_remember_repeat_state_title">Запоминать состояние повтора</string>
@@ -249,6 +264,8 @@
     <string name="revanced_remember_shuffle_state_title">Запоминать состояние перемешивания</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Запоминает последнее выбранное качество видео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Показывать всплывающее уведомление при смене качества видео по умолчанию.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Показывать всплывающее уведомление</string>
     <string name="revanced_remember_video_quality_mobile">Качество по умолчанию при моб. сети изменено на %s.</string>
     <string name="revanced_remember_video_quality_none">Не удалось установить качество.</string>
     <string name="revanced_remember_video_quality_wifi">Качество по умолчанию при Wi-Fi изменено на %s.</string>

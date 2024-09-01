@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.client
+package app.revanced.patches.youtube.utils.fix.streamingdata
 
 import app.revanced.patches.shared.spoofuseragent.BaseSpoofUserAgentPatch
 

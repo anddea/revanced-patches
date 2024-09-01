@@ -125,7 +125,8 @@ object DownloadActionsPatch : BaseBytecodePatch(
                             reference?.definingClass == OFFLINE_PLAYLIST_ENDPOINT_OUTER_CLASS_DESCRIPTOR &&
                             reference.type == "Ljava/lang/String;"
                 }
-                val playlistIdReference = getInstruction<ReferenceInstruction>(playlistIdIndex).reference
+                val playlistIdReference =
+                    getInstruction<ReferenceInstruction>(playlistIdIndex).reference
 
                 val targetIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CHECK_CAST &&
@@ -134,13 +135,15 @@ object DownloadActionsPatch : BaseBytecodePatch(
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructionsWithLabels(
-                    targetIndex + 1, """
+                    targetIndex + 1,
+                    """
                         iget-object v$freeRegister, v$targetRegister, $playlistIdReference
                         invoke-static {v$freeRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppPlaylistDownloadMenuOnClick(Ljava/lang/String;)Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :show_native_downloader
                         return-void
-                        """, ExternalLabel("show_native_downloader", getInstruction(targetIndex + 1))
+                        """,
+                    ExternalLabel("show_native_downloader", getInstruction(targetIndex + 1))
                 )
             }
         }

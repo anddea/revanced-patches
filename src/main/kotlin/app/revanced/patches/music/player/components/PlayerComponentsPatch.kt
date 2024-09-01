@@ -34,6 +34,8 @@ import app.revanced.patches.music.player.components.fingerprints.QuickSeekOverla
 import app.revanced.patches.music.player.components.fingerprints.RemixGenericButtonFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RepeatTrackFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint
+import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfImageViewInstruction
+import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfOrdinalInstruction
 import app.revanced.patches.music.player.components.fingerprints.SwipeToCloseFingerprint
 import app.revanced.patches.music.player.components.fingerprints.SwitchToggleColorFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ZenModeFingerprint
@@ -740,28 +742,53 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 rememberShuffleStateObjectClass = definingClass
 
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val imageViewIndex =
-                    getTargetIndexWithFieldReferenceTypeOrThrow("Landroid/widget/ImageView;")
+                val constIndex = getWideLiteralInstructionIndex(45468)
+                val iGetObjectIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
+                val checkCastIndex = getTargetIndexOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
 
-                val shuffleReference1 = getInstruction<ReferenceInstruction>(startIndex).reference
-                val shuffleReference2 =
-                    getInstruction<ReferenceInstruction>(startIndex + 1).reference
-                val shuffleReference3 = getInstruction<ReferenceInstruction>(endIndex).reference
-                val shuffleFieldReference = shuffleReference3 as FieldReference
+                val ordinalIndex = indexOfOrdinalInstruction(this)
+                val imageViewIndex = indexOfImageViewInstruction(this)
+
+                val iGetObjectReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
+                val invokeInterfaceReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex + 1).reference
+                val checkCastReference =
+                    getInstruction<ReferenceInstruction>(checkCastIndex).reference
+                val getOrdinalClassReference =
+                    getInstruction<ReferenceInstruction>(checkCastIndex + 1).reference
+                val ordinalReference =
+                    getInstruction<ReferenceInstruction>(ordinalIndex).reference
+
                 rememberShuffleStateImageViewReference =
                     getInstruction<ReferenceInstruction>(imageViewIndex).reference
 
                 rememberShuffleStateShuffleStateLabel = """
-                    iget-object v1, v0, $shuffleReference1
-                    invoke-interface {v1}, $shuffleReference2
+                    iget-object v1, v0, $iGetObjectReference
+                    invoke-interface {v1}, $invokeInterfaceReference
                     move-result-object v1
-                    check-cast v1, ${shuffleFieldReference.definingClass}
-                    iget-object v1, v1, $shuffleReference3
-                    invoke-virtual {v1}, ${shuffleFieldReference.type}->ordinal()I
-                    move-result v1
+                    check-cast v1, $checkCastReference
                     """
+
+                rememberShuffleStateShuffleStateLabel += if (getInstruction(checkCastIndex + 1).opcode == Opcode.INVOKE_VIRTUAL) {
+                    // YouTube Music 7.16.52+
+                    """
+                        invoke-virtual {v1}, $getOrdinalClassReference
+                        move-result-object v1
+                        
+                        """.trimIndent()
+                } else {
+                    """
+                        iget-object v1, v1, $getOrdinalClassReference
+                        
+                        """.trimIndent()
+                }
+
+                rememberShuffleStateShuffleStateLabel += """
+                    invoke-virtual {v1}, $ordinalReference
+                    move-result v1
+                    
+                    """.trimIndent()
             }
 
             val constructorMethod =
@@ -770,7 +797,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             constructorMethod.apply {
                 addInstruction(
-                    implementation!!.instructions.size - 1,
+                    implementation!!.instructions.lastIndex,
                     "sput-object p0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass"
                 )
             }
@@ -836,9 +863,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                             sget-object v0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass
                             """ + rememberShuffleStateShuffleStateLabel + """
                             iget-object v3, v0, $rememberShuffleStateImageViewReference
-                            invoke-virtual {v3}, Landroid/widget/ImageView;->performClick()Z
+                            if-eqz v3, :dont_shuffle
+                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
                             if-eqz v1, :dont_shuffle
-                            invoke-virtual {v3}, Landroid/widget/ImageView;->performClick()Z
+                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
                             :dont_shuffle
                             return-void
                             """

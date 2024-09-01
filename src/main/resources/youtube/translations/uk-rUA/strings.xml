@@ -121,7 +121,9 @@
     <string name="revanced_disable_ambient_mode_summary_on">Кінематографічне освітлення вимкнено.</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">"Примусові автоматичні звукові доріжки вимкнено.
+
+Застереження: Це налаштування не застосовується до Shorts."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
     <string name="revanced_disable_auto_captions_summary_off">Примусові авто субтитри увімкнено.</string>
     <string name="revanced_disable_auto_captions_summary_on">Примусові авто субтитри вимкнено.</string>
@@ -494,10 +496,12 @@
     <string name="revanced_hide_keyword_content_about_summary">"Головна/Підписки/Результати пошуку фільтрується, щоб приховати контент, який відповідає ключовим фразам.
 
 Застереження:
-• Деякі YouTube Shorts не можливо приховати.
+• YouTube Shorts не можливо приховати за назвою каналу.
 • Деякі компоненти інтерфейсу не можливо приховати.
 • Шукання за ключовим словом може не давати результатів."</string>
     <string name="revanced_hide_keyword_content_about_title">Про фільтрування ключових слів</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Взяття ключового слова/фрази в подвійні лапки запобігатиме частковим збігам назв відео та каналів.&lt;br&gt;&lt;br&gt;Наприклад,&lt;br&gt;&lt;b&gt;\"ші\"&lt;/b&gt; приховає відео: &lt;b&gt;Як працює ШІ?&lt;/b&gt;&lt;br&gt;але не приховає: &lt;b&gt;Що означає цифра шість?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Лише цілі слова</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Коментарі не фільтрується.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Коментарі фільтрується.</string>
     <string name="revanced_hide_keyword_content_comments_title">Приховати коментарі за ключовими словами</string>
@@ -506,6 +510,9 @@
     <string name="revanced_hide_keyword_content_home_summary_on">Відео у головній стрічці фільтруються.</string>
     <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній за ключовими словами.</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Ключові слова та фрази для приховування, відокремлені новими рядками.
+
+Ключовими словами можуть бути назви каналів чи будь-який текст у заголовках відео.
+
 Слова з великими літерами в середині повинні вводитися відповідно регістру (тобто: iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_hide_keyword_content_phrases_title">Ключові слова для приховування</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Результати пошуку не фільтрується.</string>
@@ -514,8 +521,11 @@
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Відео у стрічці підписок не фільтруються.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Відео у стрічці підписок фільтруються.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Приховати відео підписок за ключовими словами</string>
-    <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'%1$s\' приховає всі відео.</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Невірне ключове слово. Неможливо використати \'%s\' як фільтр</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово приховає всі відео: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common">Неможливо використати ключове слово: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Додайте лапки, щоб використовувати ключове слово: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">Ключове слово комплектує з: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Ключове слово занадто коротке і потребує лапок: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Останні публікації показується.</string>
     <string name="revanced_hide_latest_posts_summary_on">Останні публікації приховано.</string>
     <string name="revanced_hide_latest_posts_title">Приховати останні публікації</string>
@@ -585,9 +595,6 @@
     <string name="revanced_hide_player_collapse_button_summary_off">Кнопку згортування показується.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Кнопку згортування приховано.</string>
     <string name="revanced_hide_player_collapse_button_title">Приховати кнопку згортування</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню кінематографічного освітлення показується.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню кінематографічного освітлення приховано.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Приховати меню кінематографічного освітлення</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню звукової доріжки показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню звукової доріжки приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню звукової доріжки</string>
@@ -756,6 +763,9 @@
     <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопку Не подобається показується.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку Не подобається приховано.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Приховати кнопку Не подобається</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">"Плавучі кнопки, такі як 'Використати цей звук' показується у вкладці YouTube Shorts каналу."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">"Плавучі кнопки, такі як 'Використати цей звук' приховано у вкладці YouTube Shorts каналу."</string>
+    <string name="revanced_hide_shorts_floating_button_title">Приховати плавучу кнопку</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Мітку посилання відео показується.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Мітку посилання відео приховано.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Приховати мітку посилання на повне відео</string>
@@ -771,9 +781,9 @@
     <string name="revanced_hide_shorts_live_header_summary_off">Заголовок онлайн чату показується.\n\nКнопку назад у заголовку не приховуватиметься.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Заголовок онлайн чату приховано.\n\nКнопку назад у заголовку не приховуватиметься.</string>
     <string name="revanced_hide_shorts_live_header_title">Приховати заголовок онлайн чату</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">Мітку місцезнаходження показується.</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано.</string>
-    <string name="revanced_hide_shorts_location_label_title">Приховати мітку місцезнаходження</string>
+    <string name="revanced_hide_shorts_location_button_summary_off">Кнопку місцезнаходження показується.</string>
+    <string name="revanced_hide_shorts_location_button_summary_on">Кнопку місцезнаходження приховано.</string>
+    <string name="revanced_hide_shorts_location_button_title">Приховати кнопку місцезнаходження</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навігації показується.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навігації приховано.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Приховати панель навігації</string>
@@ -795,9 +805,9 @@
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Зберегти звук в списку відтворення показується.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Зберегти звук в списку відтворення приховано.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Приховати кнопку Зберегти звук в списку відтворення</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">Пропозиції пошуку показується.</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">Пропозиції пошуку приховано.</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">Приховати пропозиції пошуку</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Кнопку пропозицій пошуку показується.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Кнопку пропозицій пошуку приховано.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_title">Приховати кнопку пропозицій пошуку</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Кнопку Поділитися показується.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Кнопку Поділитися приховано.</string>
     <string name="revanced_hide_shorts_share_button_title">Приховати кнопку Поділитися</string>
@@ -820,6 +830,9 @@
     <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка Магазин показується.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Кнопку Магазин приховано.</string>
     <string name="revanced_hide_shorts_shop_button_title">Приховати кнопку Магазин</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_off">Кнопку Магазин показується.</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">Кнопку Магазин приховано.</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Приховати кнопку Магазин</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Кнопку Зі звуком показується.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Кнопку Зі звуком приховано.</string>
     <string name="revanced_hide_shorts_sound_button_title">Приховати кнопку Зі звуком</string>
@@ -838,6 +851,15 @@
     <string name="revanced_hide_shorts_toolbar_summary_off">Панель інструментів показується.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">Панель інструментів приховано.</string>
     <string name="revanced_hide_shorts_toolbar_title">Приховати панель інструментів</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">Кнопку Тренди показується.</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">Кнопку Тренди приховано.</string>
+    <string name="revanced_hide_shorts_trends_button_title">Приховати кнопку Тренди</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопку Використати шаблон показується.</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопку Використати шаблон приховано.</string>
+    <string name="revanced_hide_shorts_use_template_button_title">Приховати кнопку Використати шаблон</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопку Використати цей звук показується.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопку Використати цей звук приховано.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Приховати кнопку Використати цей звук</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Назву показується.</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Назву приховано.</string>
     <string name="revanced_hide_shorts_video_title_title">Приховати назву відео</string>
@@ -1019,8 +1041,6 @@
     <string name="revanced_preference_category_quick_actions">Швидкі дії</string>
     <string name="revanced_preference_category_recommended_video">Рекомендовані відео</string>
     <string name="revanced_preference_category_shorts_shelf">Полиця Shorts</string>
-    <string name="revanced_preference_category_spoof_client_about">Про це</string>
-    <string name="revanced_preference_category_spoof_client_options">Опції імітації клієнта</string>
     <string name="revanced_preference_category_tool_used">Використано інструменти</string>
     <string name="revanced_preference_category_view_counts_filter">Фільтр за кількістю переглядів</string>
     <string name="revanced_preference_screen_account_menu_summary">Приховувати чи показувати елементи меню облікового запису і вкладки Ви.</string>
@@ -1074,8 +1094,8 @@
     <string name="revanced_preference_screen_shorts_player_summary">Приховувати чи показувати компоненти у плеєрі Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Плеєр Shorts</string>
     <string name="revanced_preference_screen_shorts_title">YouTube Shorts</string>
-    <string name="revanced_preference_screen_spoof_client_summary">Імітація клієнта для вирішення проблем відтворення.</string>
-    <string name="revanced_preference_screen_spoof_client_title">Імітація клієнта</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Підробка даних трансляції для вирішення проблем відтворення.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Підробка даних трансляції</string>
     <string name="revanced_preference_screen_swipe_controls_title">Керування жестами</string>
     <string name="revanced_preference_screen_toolbar_summary">Приховати або змінити компоненти, розташовані на панелі інструментів, такі як кнопки панелі інструментів, панель пошуку, заголовок.</string>
     <string name="revanced_preference_screen_toolbar_title">Панель інструментів</string>
@@ -1096,10 +1116,16 @@
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного відео.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Зміни швидкості відтворення застосовуються до всіх відео.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості відтворення</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової швидкості відтворення.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Тост показуватиметься при зміні типової швидкості відтворення.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Показувати тост</string>
     <string name="revanced_remember_playback_speed_toast">Зміна типової швидкості на %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової якості відео.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Тост показуватиметься при зміні типової якості відео.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати тост</string>
     <string name="revanced_remember_video_quality_mobile">Зміна типової якості при мобільному з\'єднанні на %s.</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити якість відео.</string>
     <string name="revanced_remember_video_quality_wifi">Зміна типової якості при Wi-Fi на %s.</string>
@@ -1190,6 +1216,7 @@
     <string name="revanced_sb_general_api_url">Змінити API URL</string>
     <string name="revanced_sb_general_api_url_sum">Адреса, яку Спонсорблок використовує для звернень до сервера</string>
     <string name="revanced_sb_general_min_duration">Мінімальна тривалість сегменту</string>
+    <string name="revanced_sb_general_min_duration_invalid">Недопустима тривалість часу.</string>
     <string name="revanced_sb_general_min_duration_sum">Сегменти, коротші за це значення (в секундах), не будуть показані або пропущені</string>
     <string name="revanced_sb_general_skipcount">Увімкнути відстеження кількості пропусків</string>
     <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків не ввімкнено</string>
@@ -1355,12 +1382,6 @@
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Нижній відступ метапанелі</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Натисніть і утримуйте мітку часу для зміни станів повторення Shorts.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Дія довго натискання на мітку часу</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_off">Тост не показуватиметься при зміні типової якості відео.</string>
-    <string name="revanced_show_toast_remember_video_quality_summary_on">Тост показуватиметься при зміні типової якості відео.</string>
-    <string name="revanced_show_toast_remember_video_quality_title">Показувати тост при зміні типової якості відео</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_off">Тост не показуватиметься при зміні типової швидкості відео.</string>
-    <string name="revanced_show_toast_remember_video_speed_summary_on">Тост показуватиметься при зміні типової швидкості відео.</string>
-    <string name="revanced_show_toast_remember_video_speed_title">Показувати тост при зміні типової швидкості відео</string>
     <string name="revanced_show_video_title_section_summary">"Показується секцію назви відео в повноекранному режимі.
 
 Застереження: Назва відео зникає при натисканні."</string>
@@ -1403,80 +1424,29 @@
 Це змінить вигляд і функції додатка, але можуть трапитися невідомі побічні ефекти.
 
 Якщо пізніше вимкнути, рекомендується очистити дані додатка, щоб запобігти помилкам інтерфейсу."</string>
-    <string name="revanced_spoof_client_fallback_title">Відео не відтворюється</string>
-    <string name="revanced_spoof_client_general_title">Загальні</string>
-    <string name="revanced_spoof_client_livestream_title">Прямі трансляції</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Тестовий Android</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_shorts_title">YouTube Shorts, Кліпи</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">Імітований клієнт приховано в Статистика для сисадмінів.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">Імітований клієнт показується в Статистика для сисадмінів.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
-    <string name="revanced_spoof_client_summary_off">"Клієнт не імітується. Відтворення відео може не працювати."</string>
-    <string name="revanced_spoof_client_summary_on">Клієнт імітується.</string>
-    <string name="revanced_spoof_client_title">Імітація клієнта</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"Імітація тестового клієнта Android.
-
-Побічні ефекти включають:
-• Немає HDR відео.
-• Меню звукової доріжки відсутнє.
-• Субтитри можуть бути недоступні.
-• Кнопка завантаження відсутня.
-• Картки кінцевого екрана відсутні.
-• Низька якість мініатюр панелі прогресу."</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Тестовий Android</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"Імітація клієнта для Android TV (YouTube TV).
-
-Побічні ефекти включають:
-• Немає HDR відео.
-• Меню звукової доріжки відсутнє.
-• Субтитри можуть бути недоступні.
-• Кнопка завантаження відсутня.
-• Низька якість мініатюр панелі прогресу.
-• Деякі прямі трансляції не підтримуються для відтворення."</string>
-    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"Імітація клієнта для Android VR.
-
-Побічні ефекти включають:
-• Немає HDR відео.
-• Відсутня кнопка завантаження відео на панелі дій.
-• Призупинені відео можуть навмання продовжуватися.
-• Низька якість мініатюр панелі прогресу Shorts.
-• Відео для дітей не відтворюються."</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_legacy_summary">"Імітація клієнта для iOS.
-
-Побічні ефекти включають:
-• Відео HDR підтримується тільки на кодеку AV1.
-• Час перегляду не зберігається в історії перегляду на акаунті бренду."</string>
-    <string name="revanced_spoof_client_use_ios_summary">"Імітація клієнта для iOS.
-
-Побічні ефекти включають:
-• Відео HDR підтримується тільки на кодеку AV1.
-• Історія перегляду не працює з акаунтом бренду."</string>
-    <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
 Високу якість може бути розблоковано для деяких відео, які вимагають великих розмірів пристрою, але не для всіх відео."</string>
     <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Параметр плеєра не підроблений для відео у стрічці.
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">AVC (H.264), VP9, чи AV1 кодек відео iOS.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">AVC (H.264) кодек відео iOS.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Примусово AVC (H.264) iOS</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Увімкнення може зменшити споживання акумулятора та усунути затинання при відтворенні.
 
-Застереження: Стрічка відео відтворюватиметься менше однієї хвилини до виникнення проблем відтворення."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Параметр плеєра підроблений для відео у стрічці.
-
-Застереження: Автоматично відтворені відео у стрічці показуватимуться у вашій історії перегляду."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Підробити параметр плеєра у стрічці</string>
-    <string name="revanced_spoof_player_parameter_summary">"Підробка параметрів плеєра для вирішення проблем відтворення.
-
-Застереження:
-• Покращений бітрейт недоступний.
-• Немає мініатюр панелі прогресу для платних відео.
-• Офлайн завантаження можуть не працювати.
-• Відео може не починатися з останнього часу перегляду."</string>
-    <string name="revanced_spoof_player_parameter_title">Підробити параметр плеєра</string>
+AVC (H.264) має максимальну роздільну здатність 1080p, а для відтворення відео використовується більше інтернет-даних, ніж VP9 або AV1."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Клієнт, що використовується для отримання даних трансляції показується у Статистика для сисадмінів.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"Дані трансляції не підроблено. Відтворення відео може не працювати."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">Дані трансляції підроблено.</string>
+    <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">Основний клієнт</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жести переміщення вимкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жести переміщення в режимі \'Блокування екрана\'</string>
@@ -1499,17 +1469,10 @@
 • Ви повинні вимкнути це налаштування, щоб зробити відеорекламу видимою."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Поміняти Створити зі Сповіщення</string>
     <string name="revanced_theme_default">Стандартна</string>
-    <string name="revanced_watch_history_about_status_android_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
-• Історія перегляду може не працювати через DNS або VPN."</string>
-    <string name="revanced_watch_history_about_status_android_replaced">• Дотримується налаштувань історії перегляду облікового запису Google.</string>
     <string name="revanced_watch_history_about_status_blocked">• Історію перегляду заблоковано.</string>
-    <string name="revanced_watch_history_about_status_ios_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
-• Історія перегляду може не працювати через DNS або VPN.
-• Історія перегляду може не працювати з акаунтом бренду.
-(Налаштування імітації клієнта увімкнене та вибрано клієнт iOS)"</string>
-    <string name="revanced_watch_history_about_status_ios_replaced">"• Дотримується налаштувань історії перегляду облікового запису Google.
-• Історія перегляду може не працювати з акаунтом бренду.
-(Налаштування імітації клієнта увімкнене та вибрано клієнт iOS)"</string>
+    <string name="revanced_watch_history_about_status_original">"• Дотримується налаштувань історії перегляду облікового запису Google.
+• Історія перегляду може не працювати через DNS або VPN."</string>
+    <string name="revanced_watch_history_about_status_replaced">• Дотримується налаштувань історії перегляду облікового запису Google.</string>
     <string name="revanced_watch_history_about_title">Стан історії перегляду</string>
     <string name="revanced_watch_history_management_summary">Натисніть, щоб відкрити керування історією перегляду YouTube.</string>
     <string name="revanced_watch_history_management_title">Керувати всією історією</string>

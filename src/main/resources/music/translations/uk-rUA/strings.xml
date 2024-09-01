@@ -11,7 +11,7 @@
 Натисніть кнопку продовжити й вимкніть оптимізацію акумулятора."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
-    <string name="gms_core_settings_summary">Увімкніть \"Харні повідомлення\", щоб отримувати сповіщення.</string>
+    <string name="gms_core_settings_summary">Увімкніть \"Хмарні повідомлення\", щоб отримувати сповіщення.</string>
     <string name="gms_core_settings_title">Відкрити GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Замінює домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо.</string>
@@ -253,6 +253,8 @@
     <string name="revanced_preference_screen_video_title">Відео</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Запам\'ятовує останню вибрану швидкість відтворення.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості відтворення</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Показує тост під час зміни стандартної швидкості відтворення.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Показувати тост</string>
     <string name="revanced_remember_playback_speed_toast">Зміна типової швидкості на %s.</string>
     <string name="revanced_remember_repeat_state_summary">Запам\'ятовує стан кнопки \"Повтор відтворення\".</string>
     <string name="revanced_remember_repeat_state_title">Запам\'ятовувати стан повтору</string>
@@ -260,6 +262,8 @@
     <string name="revanced_remember_shuffle_state_title">Запам\'ятовувати стан перемішування</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Запам\'ятовує останню вибрану якість відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Показує тост під час зміни стандартної якості відео.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати тост</string>
     <string name="revanced_remember_video_quality_mobile">Зміна типової якості відео в мобільній мережі на %s.</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити обрану якість.</string>
     <string name="revanced_remember_video_quality_wifi">Зміна типової якості відео для Wi-Fi мережі на %s.</string>
@@ -298,7 +302,7 @@
     <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (закінчився час API).</string>
     <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s).</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary">Показується тост, якщо API ReturnYouTubeDislike не доступний.</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary">Показує тост, якщо API ReturnYouTubeDislike не доступний.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Видаляє параметри запиту відстеження з URL-адрес під час обміну посиланнями.</string>
@@ -354,9 +358,9 @@
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (закінчився час APІ).</string>
     <string name="revanced_sb_toast_on_connection_error">Показувати тост, якщо API недоступний</string>
-    <string name="revanced_sb_toast_on_connection_error_sum">Показується тост, якщо API SponsorBlock не доступний.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">Показує тост, якщо API SponsorBlock не доступний.</string>
     <string name="revanced_sb_toast_on_skip">Показати тост, коли сегмент пропущено автоматично</string>
-    <string name="revanced_sb_toast_on_skip_sum">Показується тост, коли сегмент автоматично пропущено.</string>
+    <string name="revanced_sb_toast_on_skip_sum">Показує тост, коли сегмент автоматично пропущено.</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
     <string name="revanced_spoof_app_version_summary">"Підміна версії клієнта на старішу версію.
 
