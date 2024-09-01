@@ -2,6 +2,10 @@
 
 ReVanced Extended Patches.
 
+## Documentation
+
+Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources on patching, customization, and debugging.
+
 ## 📋 List of patches in this repository
 
 {{ table }}
