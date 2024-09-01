@@ -1,3 +1,29 @@
+# [2.228.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.12...v2.228.0-dev.13) (2024-09-01)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof streaming data:** App crashes when loading ads in Shorts ([e3e6a31](https://github.com/anddea/revanced-patches/commit/e3e6a311299d9496e95818a69e7b4867f7da07d9))
+* **YouTube - Video playback:** Update the option to disable toasts when changing the default values ([4d69bbb](https://github.com/anddea/revanced-patches/commit/4d69bbb6cced058650f7917bb1c74db3be90f2fa))
+* **YouTube Music - GmsCore support:** `Open GmsCore` setting is not added if user only includes `GmsCore support` patch ([697ef75](https://github.com/anddea/revanced-patches/commit/697ef758c940c7d6e6fc2c3fe0ced98234807e77))
+* **YouTube Music - GmsCore support:** YT Music crashes when using the `Open GmsCore` setting ([ea869f4](https://github.com/anddea/revanced-patches/commit/ea869f477841aa74bcab62d73674ecea7ae11519))
+
+
+### Features
+
+* Merge v4.13.1-dev.3 ([59f0424](https://github.com/anddea/revanced-patches/commit/59f0424e8b43833e4728b570b88c2f1aef1d8926))
+* **YouTube - Hide feed components:** Add syntax to match whole keywords and not substrings ([8ac266d](https://github.com/anddea/revanced-patches/commit/8ac266dd7679bd69af8f95faf816c6bdcc8b2e71))
+* **YouTube - Hide player flyout menu:** Remove `Hide Ambient mode menu` setting ([62f94f5](https://github.com/anddea/revanced-patches/commit/62f94f50b03dd1dc3b99116f31089c91b65c23e9))
+* **YouTube - Overlay buttons:** Add `Collapse` button and update thin-type overlay button icons ([ac90242](https://github.com/anddea/revanced-patches/commit/ac902425787b1d5786f4b6034ca1185e4074d0ba))
+* **YouTube - Shorts components:** Add `Hide Use this sound button` setting ([aec5326](https://github.com/anddea/revanced-patches/commit/aec5326712262a8a16545a0ef1621a7c77eaa243))
+* **YouTube - Shorts components:** Add settings - `Hide floating button`, `Hide Trends button`, `Hide Use template button` ([b9f0bd8](https://github.com/anddea/revanced-patches/commit/b9f0bd8ee2b714f9b3219edcff2b7abc50efb7af))
+* **YouTube - Shorts components:** Clarify the description of some settings ([53b690c](https://github.com/anddea/revanced-patches/commit/53b690ca1ea02106e273ccd616dd163f8a2189e6))
+* **YouTube - Spoof client:** Allow forcing AVC codec with iOS ([beb94d1](https://github.com/anddea/revanced-patches/commit/beb94d1d5cecf039c2ede7cdf2c8199a5739b0b9))
+* **YouTube Music - Video playback:** Add an option to disable toasts when changing the default values ([a663655](https://github.com/anddea/revanced-patches/commit/a66365558a0fb489842bdd73324df798c090549b))
+* **YouTube Music:** Add support versions `7.15.52` ~ `7.16.52` ([26ff170](https://github.com/anddea/revanced-patches/commit/26ff170d3acb87a2348f2b3e646bc8afc9936185))
+* **YouTube:** Add `Spoof streaming data` patch ([a792753](https://github.com/anddea/revanced-patches/commit/a792753b2bec84790ee4023c8572f712415097e2))
+* **YouTube:** Remove `Spoof client` patch ([4c7538e](https://github.com/anddea/revanced-patches/commit/4c7538e921d1c6afef7e4eeb19c2ac1bae9b86d5))
+
 # [2.228.0-dev.12](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.11...v2.228.0-dev.12) (2024-08-16)
 
 
