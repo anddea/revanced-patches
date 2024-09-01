@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.client.fingerprints
+package app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
