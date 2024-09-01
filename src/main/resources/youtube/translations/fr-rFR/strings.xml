@@ -126,7 +126,9 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Le mode ambiant est désactivé.</string>
     <string name="revanced_disable_ambient_mode_title">Désactiver le Mode ambiant</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Les pistes audio automatiques forcées sont activés.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">Les pistes audio automatiques forcées sont désactivé.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">"Les pistes audio automatiques forcées sont désactivé.
+
+Limitation : Ce paramètre ne s'applique pas pour les Shorts."</string>
     <string name="revanced_disable_auto_audio_tracks_title">Désact. les pistes audio forcés</string>
     <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques forcés sont activés.</string>
     <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques forcés sont désactivés.</string>
@@ -257,7 +259,7 @@ Limitations :
     <string name="revanced_enable_swipe_to_switch_video_summary_on">Les gestes vers le haut / bas pour lire la vidéo suivante / précédente.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">Activer les gestes pour changer de vidéo</string>
     <string name="revanced_enable_swipe_volume_summary_off">Les gestes de volume sont désactivé.</string>
-    <string name="revanced_enable_swipe_volume_summary_on">Les gestes des volumes sont activé.</string>
+    <string name="revanced_enable_swipe_volume_summary_on">Les gestes de volume sont activé.</string>
     <string name="revanced_enable_swipe_volume_title">Activer les gestes de volume</string>
     <string name="revanced_enable_tablet_layout_summary">Falsifie le dpi pour activer l\'interface tablette.</string>
     <string name="revanced_enable_tablet_layout_title">Activer l\'interface tablette</string>
@@ -493,13 +495,15 @@ Effet secondaire : Les images des posts communautaires peuvent être bloquées e
     <string name="revanced_hide_key_concepts_section_summary_off">La section \"Concepts clés\" est affiché.</string>
     <string name="revanced_hide_key_concepts_section_summary_on">La section \"Concepts clés\" est masqué.</string>
     <string name="revanced_hide_key_concepts_section_title">Masquer la section \"Concepts clés\"</string>
-    <string name="revanced_hide_keyword_content_about_summary">"Les onglets Page d'accueil / \"Abonnements\" / Résultats de recherche sont filtrés pour masquer le contenu correspondant aux mots-clés.
+    <string name="revanced_hide_keyword_content_about_summary">"Les onglets \"Pages d'accueil\" / \"Abonnements\" / Résultats de recherche sont filtrés pour masquer le contenu correspondant aux mots clés.
 
 Limitations :
-• Certains shorts peuvent ne pas être masqués.
+• Les shorts ne peuvent pas être masqués par le nom de la chaîne.
 • Certains éléments de l'interface utilisateur peuvent ne pas être masqués.
 • La recherche par mot-clé peut n'afficher aucun résultat."</string>
     <string name="revanced_hide_keyword_content_about_title">À propos du filtrage par mots-clés</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Le fait de placer un mot-clé ou une expression entre guillemets permet d\'éviter les correspondances partielles entre les titres de vidéos et les noms des chaînes.&lt;br&gt;&lt;br&gt;Par exemple,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; masquera la vidéo : &lt;b&gt;Comment fonctionne l\'IA?&lt;/b&gt;&lt;br&gt;mais ne masquera pas : &lt;b&gt;Comment fonctionne l\'Intelligence Artificielle ?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Faire correspondre des mots complets</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Les commentaires ne sont pas filtrés.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Les commentaires sont filtrés.</string>
     <string name="revanced_hide_keyword_content_comments_title">Filtrer les commentaires par mot-clés</string>
@@ -507,6 +511,9 @@ Limitations :
     <string name="revanced_hide_keyword_content_home_summary_on">Les vidéos dans le flux \"accueil\" sont filtrées.</string>
     <string name="revanced_hide_keyword_content_home_title">Filtrer la page d\'accueil par mot-clés</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"Mots-clés et phrases à masquer, séparés par des sauts de lignes.
+
+Les mots-clés peuvent être des noms de chaînes ou tout texte figurant dans les titres des vidéos.
+
 Les mots comportant des majuscules au milieu doivent être saisis de la même façon (par exemple : iPhone, TikTok, TheoBabac)."</string>
     <string name="revanced_hide_keyword_content_phrases_title">Mots-clés à masquer</string>
     <string name="revanced_hide_keyword_content_search_summary_off">Les résultats de recherche ne sont pas filtrés.</string>
@@ -515,8 +522,11 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">Les vidéos dans le flux \"Abonnements\" ne sont pas filtrées.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">Les vidéos dans le flux \"Abonnements\" sont filtrées.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Filtrer \"Abonnements\" par mots-clés</string>
-    <string name="revanced_hide_keyword_toast_invalid_broad">Le mot-clé \'%1$s\' masquera toutes les vidéos.</string>
-    <string name="revanced_hide_keyword_toast_invalid_common">Mot-clé invalide. Impossible d\'utiliser : \'%s\' comme filtre.</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">Ce mot-clé va masquer toutes les vidéos : %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common">Impossible d\'utiliser ce mot-clé : %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Ajouter des guillemets pour utiliser un mot-clé : %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">Le mot-clé a des déclarations incompatibles : %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Le mot-clé est trop court et nécessite des guillemets : %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Les posts récents sont affichés.</string>
     <string name="revanced_hide_latest_posts_summary_on">Les posts récents sont masqués.</string>
     <string name="revanced_hide_latest_posts_title">Masquer les posts récents</string>
@@ -586,9 +596,6 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_player_collapse_button_summary_off">Le bouton \"Réduire\" est affiché.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Le bouton \"Réduire\" est masqué.</string>
     <string name="revanced_hide_player_collapse_button_title">Masquer le bouton \"Réduire\"</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Le menu \"Mode ambiant\" est affiché.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Le menu \"Mode ambiant\" est masqué.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Masquer le menu \"Mode ambiant\"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Le menu \"Piste audio\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Le menu \"Piste audio\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Masquer le menu \"Piste audio\"</string>
@@ -769,9 +776,6 @@ Sous-titres"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">L\'en-tête du chat en direct est affiché.\n\nLe bouton de retour sur l\'en-tête ne sera pas masqué.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">L\'en-tête du chat en direct est masqué.\n\nLe bouton de retour sur l\'en-tête ne sera pas masqué.</string>
     <string name="revanced_hide_shorts_live_header_title">Masquer l\'en-tête du chat en direct</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">Les informations de localisation sont affichés.</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">Les informations de localisation sont masqués.</string>
-    <string name="revanced_hide_shorts_location_label_title">Masquer les informations de localisation</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">La barre de navigation est affichée.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">La barre de navigation est masqué.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Masquer la barre de navigation</string>
@@ -793,9 +797,6 @@ Sous-titres"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Le son d\'enregistrement dans la Playlist est affiché.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Le son d\'enregistrement dans la Playlist est masqué.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Masquer le son du bouton \"Playlist\"</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">Les suggestions de recherche sont affichés.</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">Les suggestions de recherche sont masqués.</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">Masquer les suggestions de recherche</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Le bouton \"Partager\" est affiché.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Le bouton \"Partager\" est masqué.</string>
     <string name="revanced_hide_shorts_share_button_title">Masquer le bouton \"Partager\"</string>
@@ -836,6 +837,9 @@ Effet secondaire : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_shorts_toolbar_summary_off">La barre d\'outils est affiché.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">La barre d\'outils est masqué.</string>
     <string name="revanced_hide_shorts_toolbar_title">Masquer la barre d\'outils</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Le bouton \"Utiliser ce son\" est affiché.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Le bouton \"Utiliser ce son\" est masqué.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Masquer le bouton \"Utiliser ce son\"</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Le titre est affiché.</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Le titre est masqué.</string>
     <string name="revanced_hide_shorts_video_title_title">Masquer le titre de la vidéo</string>
@@ -1007,8 +1011,6 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_category_quick_actions">Actions rapides</string>
     <string name="revanced_preference_category_recommended_video">Vidéo recommandée</string>
     <string name="revanced_preference_category_shorts_shelf">Étagères Shorts</string>
-    <string name="revanced_preference_category_spoof_client_about">À propos</string>
-    <string name="revanced_preference_category_spoof_client_options">Falsifier les options du client</string>
     <string name="revanced_preference_category_tool_used">Outil utilisé</string>
     <string name="revanced_preference_category_view_counts_filter">Filtre du compteur de vues</string>
     <string name="revanced_preference_screen_account_menu_summary">Masque ou affiche des éléments dans le menu du compte et dans l\'onglet \"Vous\".</string>
@@ -1062,8 +1064,8 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_shorts_player_summary">Masque ou affiche des composants dans le lecteur Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Lecteur Shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
-    <string name="revanced_preference_screen_spoof_client_summary">Falsifie le client pour empêcher les problèmes de lecture.</string>
-    <string name="revanced_preference_screen_spoof_client_title">Falsifier le client</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Falsifier les données de diffusion en direct afin d\'éviter les problèmes de lecture.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Falsifier les données de diffusion en direct</string>
     <string name="revanced_preference_screen_swipe_controls_title">Contrôles par gestes</string>
     <string name="revanced_preference_screen_toolbar_summary">Masque ou change les éléments situés dans la barre d\'outils, tels que les boutons de la barre d\'outils, la barre de recherche, l\'en-tête.</string>
     <string name="revanced_preference_screen_toolbar_title">Barre d\'outils</string>
@@ -1084,10 +1086,16 @@ Un codec différent sera appliqué après environ 20 secondes de mise en mémoir
     <string name="revanced_remember_playback_speed_last_selected_summary_off">La modification de la vitesse de lecture est appliqué pour la vidéo en cours.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">La modification de vitesse de lecture est appliqué pour toutes les vidéos.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Enreg. modif. de la vitesse de lecture</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Un message ne sera pas affiché lorsque vous modifiez la vitesse de lecture par défaut.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Un message sera affiché lorsque vous modifiez la vitesse de lecture par défaut.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Afficher un message</string>
     <string name="revanced_remember_playback_speed_toast">Vitesse de lecture modifiée par %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">La modification de la résolution est appliqué pour la vidéo en cours.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">La modification de la résolution est appliqué pour toutes les vidéos.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Enreg. modification de la qualité</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Un message ne sera pas affiché lorsque vous modifiez la qualité vidéo par défaut.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Un message sera affiché lorsque vous modifiez la qualité vidéo par défaut.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Afficher un message</string>
     <string name="revanced_remember_video_quality_mobile">La résolution sur les données mobiles a été modifiée par %s.</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité vidéo.</string>
     <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s.</string>
@@ -1178,6 +1186,7 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_sb_general_api_url">Modifier l\'URL de l\'API</string>
     <string name="revanced_sb_general_api_url_sum">L\'adresse qu\'utilise SponsorBlock pour contacter le serveur.</string>
     <string name="revanced_sb_general_min_duration">Durée minimale du segment</string>
+    <string name="revanced_sb_general_min_duration_invalid">Durée invalide.</string>
     <string name="revanced_sb_general_min_duration_sum">Les segments plus courts que cette valeur (en secondes) ne pourront être affichés ou passés.</string>
     <string name="revanced_sb_general_skipcount">Activer le compteur de segments passés</string>
     <string name="revanced_sb_general_skipcount_sum_off">Le compteur de segments passés n\'est pas activé.</string>
@@ -1380,80 +1389,29 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
 Cela modifie l'apparence et les fonctionnalités de l'application, mais des effets inconnus peuvent se produire.
 
 Si désactivé ultérieurement, il est recommandé d'effacer les données de l'application pour éviter des bugs d'interface."</string>
-    <string name="revanced_spoof_client_fallback_title">Lecture impossible</string>
-    <string name="revanced_spoof_client_general_title">Général</string>
-    <string name="revanced_spoof_client_livestream_title">Diffusions en direct</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Android Test suite</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_shorts_title">Shorts, Clips</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">Le client falsifié est masqué dans les Statistiques avancées.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">Le client falsifié est affiché dans les Statistiques avancées.</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">Afficher dans \"Statistiques avancées\"</string>
-    <string name="revanced_spoof_client_summary_off">"Le client n'est pas falsifié, la lecture des vidéos peut ne pas fonctionner."</string>
-    <string name="revanced_spoof_client_summary_on">Le client est falsifié.</string>
-    <string name="revanced_spoof_client_title">Falsifier le client</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"Falsifier le client vers Android Test suite.
-
-Créée des effets secondaires :
-• Pas de vidéo HDR.
-• Le menu \"piste audio\" est absent.
-• Les sous-titres peuvent ne pas être disponibles.
-• Le bouton \"Télécharger\" n'es pas disponible.
-• Les cartes d'écran de fin ne sont pas disponibles.
-• Les miniatures de la barre de progression sont en basse qualités."</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Android Testsuite</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"Falsifier le client vers Android TV (YouTube TV).
-
-Créée des effets secondaires :
-• Pas de vidéo HDR.
-• Le menu \"piste audio\" est absent.
-• Les sous-titres peuvent ne pas être disponibles.
-• Le bouton \"Télécharger\" est absent.
-• Les miniatures de la barre de progression sont en basse qualités.
-• Certaines diffusions en direct ne sont pas pris en charge pour la lecture."</string>
-    <string name="revanced_spoof_client_use_android_tv_title">Android TV</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"Falsifier le client vers Android VR.
-
-Les effets secondaires incluent :
-• Pas de vidéo HDR.
-• Le bouton \"Télécharger\" de la barre d'action vidéo est absent.
-• Les vidéos en pause peuvent reprendre aléatoirement.
-• Les miniatures de la barre de progression sur les Shorts sont en basses qualités.
-• Les vidéos conçues pour les enfants ne seront pas lues."</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_legacy_summary">"Falsifier le client vers iOS.
-
-Créée des effets secondaires :
-• Les vidéos HDR supportent uniquement le codec AV1.
-• Le temps de visionnage n'es pas enregistré dans l'historique de visionnage pour les comptes de marques."</string>
-    <string name="revanced_spoof_client_use_ios_summary">"Falsifier le client vers iOS.
-
-Créée des effets secondaires :
-• Les vidéos HDR supportent uniquement le codec AV1.
-• L'historique de visionnage ne fonctionne pas pour les comptes de marques."</string>
-    <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil a la valeur maximale.
 Les hautes qualités peuvent être débloquées sur certaines vidéos qui requièrent des appareils ayant des dimensions élevées, mais pas sur toutes les vidéos."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Les paramètres du lecteur ne sont pas falsifiés dans les flux vidéos.
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Les codecs vidéos d\'iOS sont AVC (H.264), VP9, ou AV1.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Le codec vidéo d\'iOS est AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forcer iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activer ce paramètre peut améliorer l'autonomie de la batterie et résoudre les problèmes de lecture.
 
-Limitation : Les vidéos du flux seront lues moins d'une minute avant de rencontrer des problèmes de lecture."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Les paramètres du lecteur sont falsifiés dans les flux vidéos.
-
-Limitation : Les vidéos lues automatiquement dans les flux peuvent apparaître dans votre historique de visionnage."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Falsifier les param. lecteur dans les flux</string>
-    <string name="revanced_spoof_player_parameter_summary">"Falsifie les paramètres du lecteur pour empêcher les problèmes de lecture.
-
-Limitations :
-• Les bitrates améliorés ne sont pas disponibles.
-• Les miniatures sur la barre de progression ne sont pas disponibles sur les vidéos payantes .
-• Les téléchargements hors ligne peux ne pas fonctionner.
-• Les vidéos peuvent ne pas démarrer à partir du dernier moment visionné."</string>
-    <string name="revanced_spoof_player_parameter_title">Falsifier les paramètres du lecteur</string>
+AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera plus de données internet que le VP9 ou le AV1."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Effets inconnus de la falsification</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Les vidéos peuvent ne pas être lus.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client utilisé pour récupérer les données de lecture en direct est masqué dans \"Statistiques pour les nerds\".</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le client utilisé pour récupérer les données de lecture en direct est affiché dans \"Statistiques pour les nerds\".</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans \"Statistiques pour les nerds\"</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"Les données de lecture en direct ne sont pas falsifiées. La lecture vidéo peut ne pas fonctionner."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">Les données de lecture en direct sont falsifiées.</string>
+    <string name="revanced_spoof_streaming_data_title">Falsifier les données de lecture en direct</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">Client par défaut</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Les contrôles par gestes sont désactivés en mode \"Écran verrouillé\".</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Les contrôles par gestes sont activés en mode \"Écran verrouillé\".</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestes en mode \"Écran verrouillé\"</string>
@@ -1476,17 +1434,10 @@ Limitations :
 • Vous devez désactiver ce paramètre afin de rendre les publicités vidéo visibles."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Échanger \"Créer\" et \"Notifications\"</string>
     <string name="revanced_theme_default">Officiel</string>
-    <string name="revanced_watch_history_about_status_android_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
-• L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN."</string>
-    <string name="revanced_watch_history_about_status_android_replaced">• Suis les paramètres de l\'historique de visionnage du compte Google.</string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué.</string>
-    <string name="revanced_watch_history_about_status_ios_original">"• Suis les paramètres de l'historique de visionnage du compte Google.
-• L'historique de visionnage peut ne pas fonctionner à cause d'un DNS ou d'un VPN.
-• L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
-(Le paramètre 'Falsifier le client' est activé et le client iOS est sélectionné)"</string>
-    <string name="revanced_watch_history_about_status_ios_replaced">"• Suis les paramètres de l'historique de visionnage du compte Google.
-• L'historique de visionnage peut ne pas fonctionner sur les comptes de marques.
-(Le paramètre 'Falsifier le client' est activé et le client iOS est sélectionné)"</string>
+    <string name="revanced_watch_history_about_status_original">"• Suit les paramètres de l'historique de visionnage du compte Google.
+• L'historique de visionnage peut ne pas fonctionner en raison d'un DNS ou d'un VPN."</string>
+    <string name="revanced_watch_history_about_status_replaced">• Suit les paramètres de l\'historique de visionnage du compte Google.</string>
     <string name="revanced_watch_history_about_title">Statut de l\'historique de visionnage</string>
     <string name="revanced_watch_history_management_summary">Cliquez pour ouvrir la gestion de l\'historique de visionnage YouTube.</string>
     <string name="revanced_watch_history_management_title">Gérer tout l\'historique</string>

@@ -130,7 +130,7 @@
     <string name="revanced_disable_ambient_mode_summary_on">微光模式已停用。</string>
     <string name="revanced_disable_ambient_mode_title">停用微光模式</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">強制自動音軌已啟用</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">強制自動音軌已停用</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">"強制自動音軌已停用"</string>
     <string name="revanced_disable_auto_audio_tracks_title">停用強制自動音軌</string>
     <string name="revanced_disable_auto_captions_summary_off">強制顯示字幕已啟用</string>
     <string name="revanced_disable_auto_captions_summary_on">強制顯示字幕已停用</string>
@@ -587,9 +587,6 @@
     <string name="revanced_hide_player_collapse_button_summary_off">折疊按鈕已顯示</string>
     <string name="revanced_hide_player_collapse_button_summary_on">折疊按鈕已隱藏</string>
     <string name="revanced_hide_player_collapse_button_title">隱藏折疊按鈕</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">微光模式選單已顯示</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">微光模式選單已隱藏</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">隱藏微光模式選單</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">音軌選單已顯示</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">音軌選單已隱藏</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">隱藏音軌選單</string>
@@ -773,9 +770,6 @@
     <string name="revanced_hide_shorts_live_header_summary_off">顯示即時聊天標題。\n\n標題中的後退按鈕不會被隱藏。</string>
     <string name="revanced_hide_shorts_live_header_summary_on">即時聊天標題被隱藏。\n\n標題中的後退按鈕不會被隱藏。</string>
     <string name="revanced_hide_shorts_live_header_title">隱藏即時聊天標題</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">位置標簽已顯示</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">位置標簽已隱藏</string>
-    <string name="revanced_hide_shorts_location_label_title">隱藏位置標簽</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">導航欄已顯示</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">導航欄已隱藏</string>
     <string name="revanced_hide_shorts_navigation_bar_title">隱藏導航欄</string>
@@ -797,9 +791,6 @@
     <string name="revanced_hide_shorts_save_sound_button_summary_off">儲存音效到播放清單按鈕已顯示。</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">儲存音效到播放清單按鈕已隱藏。</string>
     <string name="revanced_hide_shorts_save_sound_button_title">隱藏儲存音效到播放清單按鈕</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">搜尋建議已顯示</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">搜尋建議已隱藏</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
     <string name="revanced_hide_shorts_share_button_summary_off">分享按鈕已顯示</string>
     <string name="revanced_hide_shorts_share_button_summary_on">分享按鈕已隱藏</string>
     <string name="revanced_hide_shorts_share_button_title">隱藏分享按鈕</string>
@@ -1020,8 +1011,6 @@ Note:
     <string name="revanced_preference_category_quick_actions">快速操作</string>
     <string name="revanced_preference_category_recommended_video">推薦影片</string>
     <string name="revanced_preference_category_shorts_shelf">短片欄</string>
-    <string name="revanced_preference_category_spoof_client_about">關於</string>
-    <string name="revanced_preference_category_spoof_client_options">偽裝客戶端選項</string>
     <string name="revanced_preference_category_tool_used">使用的工具 --唐懂翻譯</string>
     <string name="revanced_preference_category_view_counts_filter">觀看次數篩選器</string>
     <string name="revanced_preference_screen_account_menu_summary">隱藏或顯示帳戶選單和你的內容分頁中的元素。</string>
@@ -1075,8 +1064,6 @@ Note:
     <string name="revanced_preference_screen_shorts_player_summary">隱藏或顯示短片播放器中的組件</string>
     <string name="revanced_preference_screen_shorts_player_title">短片播放器</string>
     <string name="revanced_preference_screen_shorts_title">短片</string>
-    <string name="revanced_preference_screen_spoof_client_summary">偽裝客戶端以防止播放問題。</string>
-    <string name="revanced_preference_screen_spoof_client_title">偽裝客戶端</string>
     <string name="revanced_preference_screen_swipe_controls_title">滑動控制</string>
     <string name="revanced_preference_screen_toolbar_summary">隱藏或變更工具欄上的元件，例如工具欄按鈕、搜尋欄、標題</string>
     <string name="revanced_preference_screen_toolbar_title">工具欄</string>
@@ -1097,10 +1084,16 @@ Note:
     <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度更改僅適用於當前影片</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度更改適用於所有影片</string>
     <string name="revanced_remember_playback_speed_last_selected_title">記住播放速度更改</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">變更預設播放速度時不會顯示提示訊息。</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">變更預設播放速度時會顯示提示訊息。</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">顯示提示訊息</string>
     <string name="revanced_remember_playback_speed_toast">將預設速度更改為 %s</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">畫質更改僅適用於當前影片</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">畫質更改適用於所有影片</string>
     <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質更改</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_off">更改預設影片畫質時不會顯示提示訊息。</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary_on">更改預設影片畫質時將顯示提示訊息。</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">顯示提示訊息</string>
     <string name="revanced_remember_video_quality_mobile">將預設移動數據畫質更改為 %s</string>
     <string name="revanced_remember_video_quality_none">無法設定影片畫質</string>
     <string name="revanced_remember_video_quality_wifi">將預設 WiFi 畫質更改為 %s</string>
@@ -1194,6 +1187,7 @@ Note:
     <string name="revanced_sb_general_api_url">更改 API 網址</string>
     <string name="revanced_sb_general_api_url_sum">SponsorBlock 用於向伺服器發出調用的位址</string>
     <string name="revanced_sb_general_min_duration">最短片段持續時間</string>
+    <string name="revanced_sb_general_min_duration_invalid">持續時間無效。</string>
     <string name="revanced_sb_general_min_duration_sum">小於此值（以秒為單位）的片段將不會顯示或跳過</string>
     <string name="revanced_sb_general_skipcount">啟用跳過計數跟蹤</string>
     <string name="revanced_sb_general_skipcount_sum_off">未啟用跳過計數跟蹤</string>
@@ -1399,77 +1393,8 @@ Note:
 這將改變應用程式的外觀和功能，但可能會出現未知的副作用。
 
 如果稍後關閉，建議清除應用程式資料以防止 UI 錯誤。"</string>
-    <string name="revanced_spoof_client_fallback_title">回復</string>
-    <string name="revanced_spoof_client_general_title">一般設定</string>
-    <string name="revanced_spoof_client_livestream_title">實況直播</string>
-    <string name="revanced_spoof_client_options_entry_android">Android</string>
-    <string name="revanced_spoof_client_options_entry_android_testsuite">Android 測試套件</string>
-    <string name="revanced_spoof_client_options_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_client_options_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_client_options_entry_ios">iOS</string>
-    <string name="revanced_spoof_client_shorts_title">短片, 片段</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_off">已偽裝的用戶端隱藏在「數據統計」中。</string>
-    <string name="revanced_spoof_client_stats_for_nerds_summary_on">已偽裝的用戶端顯示在「數據統計」中。</string>
-    <string name="revanced_spoof_client_stats_for_nerds_title">在「數據統計」中顯示</string>
-    <string name="revanced_spoof_client_summary_off">"客戶端未偽裝。 影片可能無法播放。"</string>
-    <string name="revanced_spoof_client_summary_on">已偽裝客戶端。</string>
-    <string name="revanced_spoof_client_title">偽裝客戶端</string>
-    <string name="revanced_spoof_client_use_android_testsuite_summary">"偽裝用戶端為 Android 測試套件。
-
-副作用包括：
-・沒有 HDR 影片
-・缺少音訊選單
-・字幕可能不可用"</string>
-    <string name="revanced_spoof_client_use_android_testsuite_title">Android 測試套件</string>
-    <string name="revanced_spoof_client_use_android_tv_summary">"偽裝用戶端到 Android 電視 (YouTube TV)。
-
- 副作用包括：
- • 沒有 HDR 影片
- • 缺少音訊選單
- • 字幕可能不可用
- • 部分直播串流不支援回放"</string>
-    <string name="revanced_spoof_client_use_android_tv_title">安卓電視</string>
-    <string name="revanced_spoof_client_use_android_vr_summary">"偽裝 Android VR 用戶端。
-
- 副作用包括：
- • 無 HDR 影片。
- • 暫停的影片可以隨機恢復。
- • 低品質的短片搜尋欄縮圖。
- • 無法播放兒童影片。"</string>
-    <string name="revanced_spoof_client_use_android_vr_title">Android VR</string>
-    <string name="revanced_spoof_client_use_ios_legacy_summary">"偽裝客戶端到iOS。
-
- 副作用包括：
- • HDR影片僅在AV1編解碼器上支援。
- • 觀看時間不會保存在品牌帳戶的觀看記錄中。"</string>
-    <string name="revanced_spoof_client_use_ios_summary">"偽裝用戶端到 iOS。
-
- 副作用包括：
- • 沒有 HDR 影片
- • 更高的影片畫質可能不可用
- • 觀看記錄不適用於品牌帳戶
- • 即時串流不能只作為音訊播放
- • Android 8.0 上不支援直播"</string>
-    <string name="revanced_spoof_client_use_ios_title">iOS</string>
-    <string name="revanced_spoof_client_user_dialog_message">關閉此設定可能會導致影片播放發生問題。</string>
     <string name="revanced_spoof_device_dimensions_summary">"變更裝置尺寸設定，以便解鎖在您目前的裝置上原本不支援的較高影片品質。"</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"未偽裝播放器參數針對探索內影片
-
-已知問題
- • 動態影片播放時間不滿1分鐘會出現播放問題"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"偽裝播放器參數針對探索內影片
-
-已知問題：自動播放的動態影片將出現在你的觀看記錄裡"</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">偽裝探索播放器參數</string>
-    <string name="revanced_spoof_player_parameter_summary">"偽裝播放器參數以回避播放問題
-
-已知問題：
- • 進階位元率無法使用
- • 付費影片無進度條縮圖
- • 離線下載可能無法使用
- • 影片可能無法從上次播放的位置開始"</string>
-    <string name="revanced_spoof_player_parameter_title">偽裝播放器參數</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在「鎖定螢幕」模式下停用滑動手勢</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在「鎖定螢幕」模式下啟用滑動手勢</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在「鎖定螢幕」模式下滑動手勢</string>
@@ -1492,17 +1417,7 @@ Note:
 • 你應該停用這項設定以顯示影片廣告"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
     <string name="revanced_theme_default">預設</string>
-    <string name="revanced_watch_history_about_status_android_original">"• 遵循Google帳戶的觀看記錄設定。
-• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。"</string>
-    <string name="revanced_watch_history_about_status_android_replaced">• 遵循Google帳戶的觀看記錄設定。</string>
     <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
-    <string name="revanced_watch_history_about_status_ios_original">"• 遵循Google帳戶的觀看記錄設定。
-• 由於 DNS 或 VPN 的原因，觀看記錄可能無法運作。
-• 觀看記錄可能不適用於品牌帳戶。
-(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
-    <string name="revanced_watch_history_about_status_ios_replaced">"• 遵循Google帳戶的觀看記錄設定。
-• 觀看記錄可能不適用於品牌帳戶。
-(偽裝客戶端設定已開啟，並選擇iOS客戶端)"</string>
     <string name="revanced_watch_history_about_title">關於觀看歷史記錄</string>
     <string name="revanced_watch_history_management_summary">按一下可開啟 YouTube 觀看記錄管理。</string>
     <string name="revanced_watch_history_management_title">管理所有歷史記錄</string>
