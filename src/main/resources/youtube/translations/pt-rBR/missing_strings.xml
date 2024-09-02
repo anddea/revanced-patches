@@ -5,22 +5,9 @@
     <string name="revanced_change_start_page_entry_playables">Playables</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Match full word</string>
-    <string name="revanced_icon_mmt_blue">MMT Blue</string>
-    <string name="revanced_icon_mmt_green">MMT Green</string>
-    <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
-    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
-    <string name="revanced_icon_vanced_black">Vanced Black</string>
-    <string name="revanced_icon_vanced_light">Vanced Light</string>
-    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
-    <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
-    <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
-    <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
-    <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
-    <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
-    <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Match whole words</string>
+    <string name="revanced_hide_keyword_content_full_word_title">Match full word</string>
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s.</string>
@@ -45,8 +32,21 @@
     <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Use this sound button is shown.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Use this sound button is hidden.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_title">Hide Use this sound button</string>
+    <string name="revanced_icon_mmt_blue">MMT Blue</string>
+    <string name="revanced_icon_mmt_green">MMT Green</string>
+    <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
+    <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
+    <string name="revanced_icon_vanced_black">Vanced Black</string>
+    <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Spoof the streaming data to prevent playback issues.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Spoof streaming data</string>
+    <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
+    <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
+    <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
+    <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
+    <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS video codec is AVC (H.264), VP9, or AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS video codec is AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -70,4 +70,7 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.
 • Watch history may not work due to DNS or VPN."</string>
     <string name="revanced_watch_history_about_status_replaced">• Follows the watch history settings of Google account.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Audio track menu is missing.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Audio track menu is missing.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Movies or paid videos may not play.</string>
 </resources>
