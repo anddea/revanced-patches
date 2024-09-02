@@ -212,7 +212,7 @@
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/revanced_preference_category_recommended_video" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_hide_recommended_video_title" android:key="revanced_hide_recommended_video" android:defaultValue="false" android:summary="@string/revanced_hide_recommended_video_summary" />
-                <SwitchPreference android:title="@string/revanced_hide_low_views_video_title" android:key="revanced_hide_low_views_video" android:summary="@string/revanced_hide_low_views_video_summary" />
+                <SwitchPreference android:title="@string/revanced_hide_low_views_video_title" android:key="revanced_hide_low_views_video" android:defaultValue="false" android:summary="@string/revanced_hide_low_views_video_summary" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/revanced_preference_category_view_counts_filter" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_hide_video_by_view_counts_title" android:key="revanced_hide_video_by_view_counts" android:defaultValue="false" android:summary="@string/revanced_hide_video_by_view_counts_summary" />
@@ -619,9 +619,9 @@
 
         <!-- SETTINGS: SPOOF_STREAMING_DATA
         <PreferenceScreen android:title="@string/revanced_preference_screen_spoof_streaming_data_title" android:key="revanced_preference_screen_spoof_streaming_data" android:summary="@string/revanced_preference_screen_spoof_streaming_data_summary">
-            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_title" android:key="revanced_spoof_streaming_data" android:summaryOn="@string/revanced_spoof_streaming_data_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_summary_off" />
+            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_title" android:key="revanced_spoof_streaming_data" android:defaultValue="false" android:summaryOn="@string/revanced_spoof_streaming_data_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_summary_off" />
             <ListPreference android:entries="@array/revanced_spoof_streaming_data_type_entries" android:title="@string/revanced_spoof_streaming_data_type_title" android:key="revanced_spoof_streaming_data_type" android:entryValues="@array/revanced_spoof_streaming_data_type_entry_values" />
-            <app.revanced.integrations.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference android:title="@string/revanced_spoof_streaming_data_side_effects_title" />
+            <app.revanced.integrations.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference android:title="@string/revanced_spoof_streaming_data_side_effects_title" android:dependency="revanced_spoof_streaming_data" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_ios_force_avc_title" android:key="revanced_spoof_streaming_data_ios_force_avc" android:summaryOn="@string/revanced_spoof_streaming_data_ios_force_avc_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_ios_force_avc_summary_off" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_stats_for_nerds_title" android:key="revanced_spoof_streaming_data_stats_for_nerds" android:summaryOn="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_off" />
         </PreferenceScreen>SETTINGS: SPOOF_STREAMING_DATA -->
