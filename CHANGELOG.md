@@ -1,3 +1,11 @@
+# [2.228.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.13...v2.228.0-dev.14) (2024-09-02)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Update default values for "Hide low views video", "Spoof streaming data" and BottomMargin of "Overlay buttons" ([9bb8ceb](https://github.com/anddea/revanced-patches/commit/9bb8ceb65d4b43e707e7aec8d37b92190df3cbbf))
+* **YouTube - Spoof streaming data:** Display spoofing side effects option ([7fcced7](https://github.com/anddea/revanced-patches/commit/7fcced78cbe85caa898b94b27b5ad151c5ff6e26))
+
 # [2.228.0-dev.13](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.12...v2.228.0-dev.13) (2024-09-01)
 
 
