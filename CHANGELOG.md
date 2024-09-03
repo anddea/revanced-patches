@@ -1,3 +1,10 @@
+# [2.228.0-dev.15](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.14...v2.228.0-dev.15) (2024-09-03)
+
+
+### Features
+
+* **YouTube - Settings:** Show categories while searching settings ([177b016](https://github.com/anddea/revanced-patches/commit/177b016c5918ebe3778135c6eab235e7841ebb65))
+
 # [2.228.0-dev.14](https://github.com/anddea/revanced-patches/compare/v2.228.0-dev.13...v2.228.0-dev.14) (2024-09-02)
 
 
