@@ -46,6 +46,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Scrim
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SeekUndoEduOverlayStub
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TapBloomView
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
@@ -73,6 +74,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         SharedResourceIdPatch::class,
         SpeedOverlayPatch::class,
         SuggestedVideoEndScreenPatch::class,
+        VideoInformationPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -169,6 +171,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 )
             }
         }
+
+        // endregion
+
+        // region patch for disable auto switch mix playlists
+
+        VideoInformationPatch.hook("$PLAYER_CLASS_DESCRIPTOR->disableAutoSwitchMixPlaylists(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
 
         // endregion
 
