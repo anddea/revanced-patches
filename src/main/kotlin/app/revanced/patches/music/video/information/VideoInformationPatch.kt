@@ -8,6 +8,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
@@ -22,20 +23,26 @@ import app.revanced.patches.music.video.information.fingerprints.VideoLengthFing
 import app.revanced.patches.music.video.information.fingerprints.VideoQualityListFingerprint
 import app.revanced.patches.music.video.information.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.music.video.videoid.VideoIdPatch
+import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.getReference
 import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversedOrThrow
 import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     dependencies = [
@@ -46,6 +53,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 @Suppress("MemberVisibilityCanBePrivate")
 object VideoInformationPatch : BytecodePatch(
     setOf(
+        MdxPlayerDirectorSetVideoStageFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         PlaybackSpeedParentFingerprint,
         SeekBarConstructorFingerprint,
@@ -57,6 +65,23 @@ object VideoInformationPatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$SHARED_PATH/VideoInformation;"
 
+    /**
+     * Used in [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint].
+     * Since both classes are inherited from the same class,
+     * [VideoEndFingerprint] and [MdxPlayerDirectorSetVideoStageFingerprint] always have the same [seekSourceEnumType] and [seekSourceMethodName].
+     */
+    private var seekSourceEnumType = ""
+    private var seekSourceMethodName = ""
+
+    private lateinit var videoInformationMutableClass: MutableClass
+    private lateinit var context: BytecodeContext
+
+    private lateinit var playerConstructorMethod: MutableMethod
+    private var playerConstructorInsertIndex = -1
+
+    private lateinit var mdxConstructorMethod: MutableMethod
+    private var mdxConstructorInsertIndex = -1
+
     private lateinit var videoTimeConstructorMethod: MutableMethod
     private var videoTimeConstructorInsertIndex = 2
 
@@ -64,54 +89,107 @@ object VideoInformationPatch : BytecodePatch(
     lateinit var rectangleFieldName: String
     internal lateinit var playbackSpeedResult: MethodFingerprintResult
 
+    private fun addSeekInterfaceMethods(
+        result: MethodFingerprintResult,
+        seekMethodName: String,
+        methodName: String,
+        fieldName: String
+    ) {
+        result.mutableMethod.apply {
+            result.mutableClass.methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "seekTo",
+                    listOf(ImmutableMethodParameter("J", annotations, "time")),
+                    "Z",
+                    AccessFlags.PUBLIC or AccessFlags.FINAL,
+                    annotations,
+                    null,
+                    ImmutableMethodImplementation(
+                        4, """
+                            # first enum (field a) is SEEK_SOURCE_UNKNOWN
+                            sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->$seekMethodName(J$seekSourceEnumType)Z
+                            move-result p1
+                            return p1
+                            """.toInstructions(),
+                        null,
+                        null
+                    )
+                ).toMutable()
+            )
+
+            val smaliInstructions =
+                """
+                    if-eqz v0, :ignore
+                    invoke-virtual {v0, p0, p1}, $definingClass->seekTo(J)Z
+                    move-result v0
+                    return v0
+                    :ignore
+                    const/4 v0, 0x0
+                    return v0
+                    """
+
+            videoInformationMutableClass.addFieldAndInstructions(
+                context,
+                methodName,
+                fieldName,
+                definingClass,
+                smaliInstructions,
+                true
+            )
+        }
+    }
+
     override fun execute(context: BytecodeContext) {
-        val videoInformationMutableClass =
+        this.context = context
+        videoInformationMutableClass =
             context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val seekSourceEnumType = parameterTypes[1].toString()
+                playerConstructorMethod =
+                    it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
 
-                it.mutableClass.methods.add(
-                    ImmutableMethod(
-                        definingClass,
-                        "seekTo",
-                        listOf(ImmutableMethodParameter("J", annotations, "time")),
-                        "Z",
-                        AccessFlags.PUBLIC or AccessFlags.FINAL,
-                        annotations,
-                        null,
-                        ImmutableMethodImplementation(
-                            4, """
-                                sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                                invoke-virtual {p0, p1, p2, v0}, ${definingClass}->${name}(J$seekSourceEnumType)Z
-                                move-result p1
-                                return p1
-                                """.toInstructions(),
-                            null,
-                            null
-                        )
-                    ).toMutable()
-                )
+                playerConstructorInsertIndex =
+                    playerConstructorMethod.indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                    } + 1
 
-                val smaliInstructions =
-                    """
-                        if-eqz v0, :ignore
-                        invoke-virtual {v0, p0, p1}, $definingClass->seekTo(J)Z
-                        move-result v0
-                        return v0
-                        :ignore
-                        const/4 v0, 0x0
-                        return v0
-                    """
+                // hook the player controller for use through integrations
+                onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
-                videoInformationMutableClass.addFieldAndInstructions(
-                    context,
+                seekSourceEnumType = parameterTypes[1].toString()
+                seekSourceMethodName = name
+
+                // Create integrations interface methods.
+                addSeekInterfaceMethods(
+                    it,
+                    seekSourceMethodName,
                     "overrideVideoTime",
-                    "videoInformationClass",
-                    definingClass,
-                    smaliInstructions,
-                    true
+                    "videoInformationClass"
+                )
+            }
+        }
+
+        MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                mdxConstructorMethod =
+                    it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
+
+                mdxConstructorInsertIndex = mdxConstructorMethod.indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                } + 1
+
+                // hook the MDX director for use through integrations
+                onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
+
+                // Create integrations interface methods.
+                addSeekInterfaceMethods(
+                    it,
+                    seekSourceMethodName,
+                    "overrideMDXVideoTime",
+                    "videoInformationMDXClass"
                 )
             }
         }
@@ -245,6 +323,33 @@ object VideoInformationPatch : BytecodePatch(
 
     private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
         insert(insertIndex, "p1, p2", descriptor)
+
+    /**
+     * Hook the player controller.  Called when a video is opened or the current video is changed.
+     *
+     * Note: This hook is called very early and is called before the video id, video time, video length,
+     * and many other data fields are set.
+     *
+     * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
+     * @param targetMethodName The name of the static method to invoke when the player controller is created.
+     */
+    internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
+        playerConstructorMethod.addInstruction(
+            playerConstructorInsertIndex++,
+            "invoke-static { }, $targetMethodClass->$targetMethodName()V"
+        )
+
+    /**
+     * Hook the MDX player director. Called when playing videos while casting to a big screen device.
+     *
+     * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
+     * @param targetMethodName The name of the static method to invoke when the player controller is created.
+     */
+    internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
+        mdxConstructorMethod.addInstruction(
+            mdxConstructorInsertIndex++,
+            "invoke-static { }, $targetMethodClass->$targetMethodName()V"
+        )
 
     /**
      * Hook the video time.

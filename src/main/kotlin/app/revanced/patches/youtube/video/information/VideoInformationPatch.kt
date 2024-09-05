@@ -14,13 +14,13 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelIdFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.ChannelNameFingerprint
-import app.revanced.patches.youtube.video.information.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.OnPlaybackSpeedItemClickFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackInitializationFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.PlaybackSpeedClassFingerprint
