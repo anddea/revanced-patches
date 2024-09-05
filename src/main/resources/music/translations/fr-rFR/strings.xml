@@ -14,6 +14,10 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="gms_core_settings_summary">Activez la messagerie cloud pour recevoir les notifications.</string>
     <string name="gms_core_settings_title">Ouvrir GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore n\'est pas installé. Veuillez l\'installer.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Remplace le domaine qui est bloqué dans certaines régions afin que les miniatures des listes de lecture, les avatars des chaînes, etc. puissent être reçus.</string>
+    <string name="revanced_bypass_image_region_restrictions_title">Contourner les restrictions d\'image selon les régions</string>
+    <string name="revanced_change_share_sheet_summary">Remplace la fiche de partage de l\'appli par celui du système.</string>
+    <string name="revanced_change_share_sheet_title">Modifier la fiche de partage</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
     <string name="revanced_change_start_page_entry_explore">Explorer</string>
     <string name="revanced_change_start_page_entry_home">Accueil</string>
@@ -34,6 +38,10 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
     <string name="revanced_disable_dislike_redirection_summary">Désactive le passage à la piste suivante lorsque vous cliquez sur le bouton \"Je n\'aime pas\".</string>
     <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
+    <string name="revanced_disable_mini_player_gesture_summary">Désactive les gestes pour changer de musique dans le minilecteur.</string>
+    <string name="revanced_disable_mini_player_gesture_title">Désactiver les gestes du minilecteur</string>
+    <string name="revanced_disable_player_gesture_summary">Désactive les gestes pour changer de musique dans le lecteur.</string>
+    <string name="revanced_disable_player_gesture_title">Désactiver les gestes du lecteur</string>
     <string name="revanced_enable_black_navigation_bar_summary">Modifie la couleur de la barre de navigation en noir.</string>
     <string name="revanced_enable_black_navigation_bar_title">Activer la barre de navigation en noir</string>
     <string name="revanced_enable_black_player_background_summary">Change la couleur de l\'interface du lecteur en noir.</string>
@@ -178,6 +186,10 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_fullscreen_ads_title">Masquer les publicités en plein écran</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Si activé, les publicités en plein écran seront fermées grâce au bouton \"Fermer\".
 Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir des effets secondaires)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Si activé, les publicités en plein écran seront fermées grâce au bouton \"Fermer\".
+Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir des effets secondaires)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">"Si activé, les publicités en plein écran seront fermées grâce au bouton \"Fermer\".
+Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir des effets secondaires)"</string>
     <string name="revanced_hide_fullscreen_ads_type_title">Fermer les publicités en plein écran</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Masque le bouton \"Partager\" sur le lecteur en plein écran.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Masquer le bouton \"Partager\" en plein écran</string>
@@ -215,6 +227,11 @@ Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir de
     <string name="revanced_hide_premium_renewal_title">Masquer la bannière \"Renouveler votre abonnement Premium\"</string>
     <string name="revanced_hide_samples_shelf_summary">Masque l’étagère \"Samples\" dans les flux.</string>
     <string name="revanced_hide_samples_shelf_title">Masquer l’étagère \"Samples\"</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">Liste des noms du menu paramètre à filtrer, séparé par des sauts de lignes.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Filtre du menu \'Paramètres\'</string>
+    <string name="revanced_hide_settings_menu_summary">"Masquer les éléments du menu Paramètre.
+Cela masque non seulement le menu paramètre de YT Music, mais également le menu paramètre de ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Masquer le menu \'Paramètres\'</string>
     <string name="revanced_hide_sound_search_button_summary">Masque le bouton \"Rechercher une musique\" de la barre de recherche.</string>
     <string name="revanced_hide_sound_search_button_title">Masquer le bouton \"Rechercher une musique\"</string>
     <string name="revanced_hide_tap_to_update_button_summary">Masque le bouton \"Appuyer pour mettre à jour\".</string>
@@ -236,6 +253,8 @@ Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir de
     <string name="revanced_preference_screen_video_title">Qualité et vitesse vidéo</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Enregistre la dernière vitesse de lecture sélectionnée.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Enregistrer la modification de la vitesse de lecture</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Afficher un message lorsque vous modifiez la vitesse de lecture par défaut.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Afficher un message</string>
     <string name="revanced_remember_playback_speed_toast">Vitesse de lecture modifiée par %s.</string>
     <string name="revanced_remember_repeat_state_summary">Enregistre l\'état du mode répétition.</string>
     <string name="revanced_remember_repeat_state_title">Enregistrer l\'état du mode répétition</string>
@@ -243,6 +262,8 @@ Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir de
     <string name="revanced_remember_shuffle_state_title">Enregistrer l\'état du mode aléatoire</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Enregistre la dernière qualité vidéo sélectionnée.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Enregistrer la modification de la résolution</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Afficher un message lorsque vous modifiez la qualité vidéo par défaut.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Afficher un message</string>
     <string name="revanced_remember_video_quality_mobile">La résolution sur les données mobiles a été modifiée par %s.</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité.</string>
     <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s.</string>

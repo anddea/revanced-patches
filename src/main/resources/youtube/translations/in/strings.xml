@@ -255,17 +255,12 @@ These characters vary depending on your language.
     <string name="revanced_extended_settings_import_title">Import settings</string>
     <string name="revanced_extended_settings_reset">Reset</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary_off">Download button opens the native in-app downloader</string>
-    <string name="revanced_external_downloader_action_summary_on">Download button opens your external downloader</string>
-    <string name="revanced_external_downloader_action_title">Override download action button</string>
     <string name="revanced_external_downloader_dialog_title">External downloader</string>
     <string name="revanced_external_downloader_not_installed">Tidak terinstal</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
 Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
     <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
-    <string name="revanced_external_downloader_package_name_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
-    <string name="revanced_external_downloader_package_name_title">External downloader package name</string>
     <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
 
 • When a timestamp in the comments is clicked on.
@@ -509,9 +504,6 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_collapse_button_summary_off">Collapse button is shown.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Collapse button is hidden.</string>
     <string name="revanced_hide_player_collapse_button_title">Hide collapse button</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden.</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide ambient mode menu</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide audio track menu</string>
@@ -687,9 +679,6 @@ Captions"</string>
     <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown.</string>
     <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden.</string>
     <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
-    <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown.</string>
-    <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden.</string>
-    <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Hide navigation bar</string>
@@ -705,9 +694,6 @@ Captions"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown.</string>
-    <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden.</string>
-    <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Share button is shown.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Share button is hidden.</string>
     <string name="revanced_hide_shorts_share_button_title">Hide share button</string>
@@ -1050,7 +1036,6 @@ Limitation: Dislikes may not appear in incognito mode."</string>
     <string name="revanced_sb_new_segment_mark_end">end</string>
     <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first.</string>
     <string name="revanced_sb_new_segment_mark_start">start</string>
-    <string name="revanced_sb_new_segment_mark_time_as_question">Set %1$02d:%2$02d:%3$03d as the start or end of a new segment?</string>
     <string name="revanced_sb_new_segment_now">now</string>
     <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly.</string>
     <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end.</string>
@@ -1202,21 +1187,6 @@ Limitation: Video title disappears when clicked."</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
     <string name="revanced_spoof_device_dimensions_summary">Spoofs the device dimensions in order to unlock higher video qualities that may not be available on your device.</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_off">"Player parameter not spoofed for feed videos.
-
-Limitation: Feed videos will play for less than 1 minute before encountering playback issues."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_summary_on">"Player parameter spoofed for feed videos.
-
-Limitation: Automatically played feed videos will show up in your watch history."</string>
-    <string name="revanced_spoof_player_parameter_in_feed_title">Spoof player parameter in feed</string>
-    <string name="revanced_spoof_player_parameter_summary">"Spoofs player parameters to prevent playback issues.
-
-Limitations:
-• Enhanced bitrate is not available.
-• No seekbar thumbnails for paid videos.
-• Offline downloads may not work.
-• Video may not start from the last watched time."</string>
-    <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">"Swipe gestures are disabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">"Swipe gestures are enabled in 'Lock screen' mode."</string>
     <string name="revanced_swipe_gestures_lock_mode_title">"Swipe gestures in 'Lock screen' mode"</string>
