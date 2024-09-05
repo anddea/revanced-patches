@@ -9,7 +9,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.player.components.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.EngagementPanelControllerFingerprint
@@ -34,6 +33,7 @@ import app.revanced.patches.youtube.player.components.fingerprints.WatermarkPare
 import app.revanced.patches.youtube.player.speedoverlay.SpeedOverlayPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.ControlsOverlayConfigPatch
+import app.revanced.patches.youtube.utils.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.SuggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
