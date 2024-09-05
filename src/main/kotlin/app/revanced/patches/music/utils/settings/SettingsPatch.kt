@@ -153,6 +153,42 @@ object SettingsPatch : BaseResourcePatch(
     internal fun addSwitchPreference(
         category: CategoryType,
         key: String,
+        defaultValue: String,
+        setSummary: Boolean
+    ) = addSwitchPreference(category, key, defaultValue, "", setSummary, false)
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
+        defaultValue: String,
+        setSummary: Boolean,
+        setSummaryOnOff: Boolean
+    ) = addSwitchPreference(category, key, defaultValue, "", setSummary, setSummaryOnOff)
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
+        defaultValue: String,
+        dependencyKey: String,
+        setSummaryOnOff: Boolean
+    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, true, setSummaryOnOff)
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
+        defaultValue: String,
+        dependencyKey: String,
+        setSummary: Boolean,
+        setSummaryOnOff: Boolean = false
+    ) {
+        val categoryValue = category.value
+        contexts.addPreferenceCategory(categoryValue)
+        contexts.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary, setSummaryOnOff)
+    }
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
         defaultValue: String
     ) = addSwitchPreference(category, key, defaultValue, "")
 
@@ -160,27 +196,8 @@ object SettingsPatch : BaseResourcePatch(
         category: CategoryType,
         key: String,
         defaultValue: String,
-        setSummary: Boolean
-    ) = addSwitchPreference(category, key, defaultValue, "", setSummary)
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
-        defaultValue: String,
         dependencyKey: String
-    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, true)
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
-        defaultValue: String,
-        dependencyKey: String,
-        setSummary: Boolean
-    ) {
-        val categoryValue = category.value
-        contexts.addPreferenceCategory(categoryValue)
-        contexts.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
-    }
+    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, false)
 
     internal fun addPreferenceWithIntent(
         category: CategoryType,

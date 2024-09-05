@@ -2,6 +2,7 @@ package app.revanced.patches.music.misc.splash
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.music.misc.splash.fingerprints.CairoSplashAnimationConfigFingerprint
@@ -18,7 +19,8 @@ import app.revanced.util.literalInstructionBooleanHook
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
             [
-                "7.08.52",
+                "7.08.54",
+                "7.16.52",
             ]
         )
     ]
@@ -29,16 +31,20 @@ object CairoSplashAnimationPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        CairoSplashAnimationConfigFingerprint.literalInstructionBooleanHook(
-            45635386,
-            "$MISC_PATH/CairoSplashAnimationPatch;->enableCairoSplashAnimation()Z"
-        )
+        CairoSplashAnimationConfigFingerprint.result?.let {
+            CairoSplashAnimationConfigFingerprint.literalInstructionBooleanHook(
+                45635386,
+                "$MISC_PATH/CairoSplashAnimationPatch;->enableCairoSplashAnimation()Z"
+            )
 
-        SettingsPatch.addSwitchPreference(
-            CategoryType.MISC,
-            "revanced_enable_cairo_splash_animation",
-            "false"
-        )
+            SettingsPatch.addSwitchPreference(
+                CategoryType.MISC,
+                "revanced_enable_cairo_splash_animation",
+                "false"
+            )
+
+        }
+            ?: throw PatchException("WARNING: This patch is not supported in this version. Use YouTube Music 7.08.54 or later.")
 
     }
 }

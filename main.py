@@ -35,13 +35,9 @@ def git_operations(rvx_dir):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Run various string processing scripts."
-    )
+    parser = argparse.ArgumentParser(description="Run various string processing scripts.")
 
-    parser.add_argument(
-        "-a", "--all", action="store_true", help="Run all commands in order."
-    )
+    parser.add_argument("-a", "--all", action="store_true", help="Run all commands in order.")
     parser.add_argument(
         "-m",
         "--missing",
@@ -59,9 +55,8 @@ def main():
         action="store_true",
         help="Run src/remove_unused_strings.py.",
     )
-    parser.add_argument(
-        "-s", "--sort", action="store_true", help="Run src/sort_strings.py."
-    )
+    parser.add_argument("-s", "--sort", action="store_true", help="Run src/sort_strings.py.")
+    parser.add_argument("-p", "--prefs", action="store_true", help="Run src/missing_prefs.py.")
 
     parser.add_argument(
         "--youtube",
@@ -128,6 +123,8 @@ def main():
             commands.append([sys.executable, "src/remove_unused_strings.py"])
         if args.sort:
             commands.append([sys.executable, "src/sort_strings.py", sub_arg])
+        if args.prefs:
+            commands.append([sys.executable, "src/missing_prefs.py", rvx_base_dir_arg])
 
     for command in commands:
         run_command(command)

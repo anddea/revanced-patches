@@ -29,10 +29,13 @@ import app.revanced.patches.music.player.components.fingerprints.OldEngagementPa
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerBackgroundFingerprint
 import app.revanced.patches.music.player.components.fingerprints.OldPlayerLayoutFingerprint
 import app.revanced.patches.music.player.components.fingerprints.PlayerPatchConstructorFingerprint
+import app.revanced.patches.music.player.components.fingerprints.PlayerViewPagerConstructorFingerprint
 import app.revanced.patches.music.player.components.fingerprints.QuickSeekOverlayFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RemixGenericButtonFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RepeatTrackFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint
+import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfImageViewInstruction
+import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfOrdinalInstruction
 import app.revanced.patches.music.player.components.fingerprints.SwipeToCloseFingerprint
 import app.revanced.patches.music.player.components.fingerprints.SwitchToggleColorFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ZenModeFingerprint
@@ -40,11 +43,14 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.fingerprints.PendingIntentReceiverFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DarkBackground
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerViewPager
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerViewPager
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TapBloomView
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopEnd
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopStart
@@ -55,11 +61,13 @@ import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getTargetIndex
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionViewHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -88,6 +96,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to the player.",
     dependencies = setOf(
         LithoFilterPatch::class,
+        MainActivityResolvePatch::class,
         PlayerComponentsResourcePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
@@ -111,6 +120,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         OldPlayerLayoutFingerprint,
         PendingIntentReceiverFingerprint,
         PlayerPatchConstructorFingerprint,
+        PlayerViewPagerConstructorFingerprint,
         QuickSeekOverlayFingerprint,
         RemixGenericButtonFingerprint,
         RepeatTrackFingerprint,
@@ -122,6 +132,54 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/PlayerComponentsFilter;"
 
     override fun execute(context: BytecodeContext) {
+
+        // region patch for disable gesture in player
+
+        val playerViewPagerConstructorMethod =
+            PlayerViewPagerConstructorFingerprint.resultOrThrow().mutableMethod
+        val mainActivityOnStartMethod =
+            MainActivityResolvePatch.getMethod("onStart")
+
+        mapOf(
+            MiniPlayerViewPager to "disableMiniPlayerGesture",
+            PlayerViewPager to "disablePlayerGesture"
+        ).forEach { (literal, methodName) ->
+            val viewPagerReference = playerViewPagerConstructorMethod.let {
+                val constIndex = it.getWideLiteralInstructionIndex(literal)
+                val targetIndex = it.getTargetIndexOrThrow(constIndex, Opcode.IPUT_OBJECT)
+
+                it.getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+            }
+            mainActivityOnStartMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT
+                            && getReference<FieldReference>()?.toString() == viewPagerReference
+                }
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val jumpIndex = getTargetIndex(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :disable
+                        """, ExternalLabel("disable", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_mini_player_gesture",
+            "false"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_player_gesture",
+            "false"
+        )
+
+        // endregion
 
         // region patch for enable color match player and enable black player background
 
@@ -684,28 +742,53 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 rememberShuffleStateObjectClass = definingClass
 
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-                val imageViewIndex =
-                    getTargetIndexWithFieldReferenceTypeOrThrow("Landroid/widget/ImageView;")
+                val constIndex = getWideLiteralInstructionIndex(45468)
+                val iGetObjectIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
+                val checkCastIndex = getTargetIndexOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
 
-                val shuffleReference1 = getInstruction<ReferenceInstruction>(startIndex).reference
-                val shuffleReference2 =
-                    getInstruction<ReferenceInstruction>(startIndex + 1).reference
-                val shuffleReference3 = getInstruction<ReferenceInstruction>(endIndex).reference
-                val shuffleFieldReference = shuffleReference3 as FieldReference
+                val ordinalIndex = indexOfOrdinalInstruction(this)
+                val imageViewIndex = indexOfImageViewInstruction(this)
+
+                val iGetObjectReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
+                val invokeInterfaceReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex + 1).reference
+                val checkCastReference =
+                    getInstruction<ReferenceInstruction>(checkCastIndex).reference
+                val getOrdinalClassReference =
+                    getInstruction<ReferenceInstruction>(checkCastIndex + 1).reference
+                val ordinalReference =
+                    getInstruction<ReferenceInstruction>(ordinalIndex).reference
+
                 rememberShuffleStateImageViewReference =
                     getInstruction<ReferenceInstruction>(imageViewIndex).reference
 
                 rememberShuffleStateShuffleStateLabel = """
-                    iget-object v1, v0, $shuffleReference1
-                    invoke-interface {v1}, $shuffleReference2
+                    iget-object v1, v0, $iGetObjectReference
+                    invoke-interface {v1}, $invokeInterfaceReference
                     move-result-object v1
-                    check-cast v1, ${shuffleFieldReference.definingClass}
-                    iget-object v1, v1, $shuffleReference3
-                    invoke-virtual {v1}, ${shuffleFieldReference.type}->ordinal()I
-                    move-result v1
+                    check-cast v1, $checkCastReference
                     """
+
+                rememberShuffleStateShuffleStateLabel += if (getInstruction(checkCastIndex + 1).opcode == Opcode.INVOKE_VIRTUAL) {
+                    // YouTube Music 7.16.52+
+                    """
+                        invoke-virtual {v1}, $getOrdinalClassReference
+                        move-result-object v1
+                        
+                        """.trimIndent()
+                } else {
+                    """
+                        iget-object v1, v1, $getOrdinalClassReference
+                        
+                        """.trimIndent()
+                }
+
+                rememberShuffleStateShuffleStateLabel += """
+                    invoke-virtual {v1}, $ordinalReference
+                    move-result v1
+                    
+                    """.trimIndent()
             }
 
             val constructorMethod =
@@ -714,7 +797,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             constructorMethod.apply {
                 addInstruction(
-                    implementation!!.instructions.size - 1,
+                    implementation!!.instructions.lastIndex,
                     "sput-object p0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass"
                 )
             }
@@ -780,9 +863,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                             sget-object v0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass
                             """ + rememberShuffleStateShuffleStateLabel + """
                             iget-object v3, v0, $rememberShuffleStateImageViewReference
-                            invoke-virtual {v3}, Landroid/widget/ImageView;->performClick()Z
+                            if-eqz v3, :dont_shuffle
+                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
                             if-eqz v1, :dont_shuffle
-                            invoke-virtual {v3}, Landroid/widget/ImageView;->performClick()Z
+                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
                             :dont_shuffle
                             return-void
                             """
@@ -803,16 +887,18 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for restore old comments popup panels
 
-        OldEngagementPanelFingerprint.literalInstructionBooleanHook(
-            45427672,
-            "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
-        )
+        OldEngagementPanelFingerprint.result?.let {
+            OldEngagementPanelFingerprint.literalInstructionBooleanHook(
+                45427672,
+                "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
+            )
 
-        SettingsPatch.addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_restore_old_comments_popup_panels",
-            "false"
-        )
+            SettingsPatch.addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_restore_old_comments_popup_panels",
+                "false"
+            )
+        }
 
         // endregion
 

@@ -5,6 +5,7 @@ import app.revanced.patches.music.utils.fix.client.SpoofUserAgentPatch
 import app.revanced.patches.music.utils.fix.fileprovider.FileProviderPatch
 import app.revanced.patches.music.utils.integrations.IntegrationsPatch
 import app.revanced.patches.music.utils.mainactivity.fingerprints.MainActivityFingerprint
+import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC
 
@@ -15,7 +16,8 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
         SpoofUserAgentPatch::class,
-        FileProviderPatch::class
+        FileProviderPatch::class,
+        SettingsPatch::class
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = COMPATIBLE_PACKAGE

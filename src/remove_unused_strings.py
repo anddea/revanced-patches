@@ -6,7 +6,10 @@ BLACKLISTED_STRINGS = (
     "revanced_remember_video_quality_mobile",
     "revanced_remember_video_quality_wifi",
 )
-PREFIX_TO_IGNORE = "revanced_icon_"
+PREFIX_TO_IGNORE = (
+    "revanced_icon_",
+    "revanced_spoof_streaming_data_side_effects_",
+)
 
 
 def parse_xml(file_path):
@@ -23,11 +26,7 @@ def parse_xml(file_path):
     root = tree.getroot()
 
     # Extract the values of the 'name' attributes
-    name_values = [
-        element.get("name")
-        for element in root.iter()
-        if "name" in element.attrib
-    ]
+    name_values = [element.get("name") for element in root.iter() if "name" in element.attrib]
     return name_values, tree, root
 
 
@@ -50,9 +49,7 @@ def search_in_files(directories, name_values):
     for directory in directories:
         for root, dirs, files in os.walk(directory):
             # Ignore dot directories and the build directory
-            dirs[:] = [
-                d for d in dirs if not d.startswith(".") and d != "build"
-            ]
+            dirs[:] = [d for d in dirs if not d.startswith(".") and d != "build"]
             for file in files:
                 if file in (
                     "strings.xml",
@@ -87,7 +84,7 @@ def should_remove(name, unused_names):
     return (
         name in unused_names
         and name not in BLACKLISTED_STRINGS
-        and not name.startswith(PREFIX_TO_IGNORE)
+        and not any(name.startswith(prefix) for prefix in PREFIX_TO_IGNORE)
     )
 
 
@@ -126,9 +123,7 @@ def check_translation_files(main_xml_path, translation_files):
     """
     main_tree = etree.parse(main_xml_path)
     main_root = main_tree.getroot()
-    main_names = set(
-        element.get("name") for element in main_root.findall(".//*[@name]")
-    )
+    main_names = set(element.get("name") for element in main_root.findall(".//*[@name]"))
 
     for translation_file in translation_files:
         translation_tree = etree.parse(translation_file)
@@ -166,9 +161,7 @@ def write_sorted_strings(file_path, strings_dict):
 
     # Write the XML file with 4-space indentation
     tree = etree.ElementTree(root)
-    xml_bytes = etree.tostring(
-        tree, encoding="utf-8", pretty_print=True, xml_declaration=True
-    )
+    xml_bytes = etree.tostring(tree, encoding="utf-8", pretty_print=True, xml_declaration=True)
 
     # Manually adjust the indentation to 4 spaces
     xml_string = xml_bytes.decode("utf-8").replace("  <string", "    <string")
@@ -188,9 +181,7 @@ def ensure_directory_exists(directory):
 
 
 def main():
-    xml_file_path = (
-        "src/main/resources/youtube/settings/host/values/strings.xml"
-    )
+    xml_file_path = "src/main/resources/youtube/settings/host/values/strings.xml"
     translation_dir = "src/main/resources/youtube/translations"
     directories_to_search = ["../revanced-patches", "../revanced-integrations"]
 
@@ -201,9 +192,7 @@ def main():
     search_results = search_in_files(directories_to_search, name_values)
 
     # Determine which 'name' values are not used
-    unused_names = [
-        name for name, files in search_results.items() if not files
-    ]
+    unused_names = [name for name, files in search_results.items() if not files]
 
     # Remove unused strings from the main XML file
     remove_unused_strings([xml_file_path], unused_names)

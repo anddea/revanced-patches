@@ -61,7 +61,7 @@ abstract class BaseMainActivityResolvePatch(
     fun injectOnCreateMethodCall(classDescriptor: String, methodDescriptor: String) =
         onCreateMethod.injectMethodCall(classDescriptor, methodDescriptor)
 
-    private fun getMethod(methodDescriptor: String) =
+    internal fun getMethod(methodDescriptor: String) =
         mainActivityMutableClass.methods.find { method -> method.name == methodDescriptor }
             ?: throw PatchException("Could not find $methodDescriptor")
 

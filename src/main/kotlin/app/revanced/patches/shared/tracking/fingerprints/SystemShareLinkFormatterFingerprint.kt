@@ -1,0 +1,12 @@
+package app.revanced.patches.shared.tracking.fingerprints
+
+import app.revanced.patcher.fingerprint.MethodFingerprint
+
+/**
+ * Sharing panel of System
+ */
+internal object SystemShareLinkFormatterFingerprint : MethodFingerprint(
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    strings = listOf("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
+)

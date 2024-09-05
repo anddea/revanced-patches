@@ -19,6 +19,8 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_alternative_domain_title">Alternative domain</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+    <string name="revanced_change_share_sheet_summary">Change from in-app share sheet to system share sheet.</string>
+    <string name="revanced_change_share_sheet_title">Change share sheet</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
     <string name="revanced_change_start_page_entry_explore">Explore</string>
     <string name="revanced_change_start_page_entry_home">Home</string>
@@ -39,6 +41,10 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
     <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the Dislike button.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
+    <string name="revanced_disable_mini_player_gesture_summary">Disable swipe to change tracks in the miniplayer.</string>
+    <string name="revanced_disable_mini_player_gesture_title">Disable miniplayer gesture</string>
+    <string name="revanced_disable_player_gesture_summary">Disable swipe to change tracks in the player.</string>
+    <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
     <string name="revanced_enable_black_navigation_bar_summary">Sets the navigation bar color to black.</string>
     <string name="revanced_enable_black_navigation_bar_title">Enable black navigation bar</string>
     <string name="revanced_enable_black_player_background_summary">Changes the player background color to black.</string>
@@ -185,6 +191,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"If it is enabled, fullscreen ads are closed through the Close button.
 If it is disabled, fullscreen ads are blocked. (there may be side effects)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">Fullscreen ads are blocked. (there may be side effects)</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
     <string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
@@ -222,6 +230,11 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_hide_premium_renewal_title">Hide premium renewal banner</string>
     <string name="revanced_hide_samples_shelf_summary">Hides the Samples shelf in the feed.</string>
     <string name="revanced_hide_samples_shelf_title">Hide Samples shelf</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">List of settings menu names to filter, separated by new lines.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Settings menu filter</string>
+    <string name="revanced_hide_settings_menu_summary">"Hide elements of the settings menu.
+This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."</string>
+    <string name="revanced_hide_settings_menu_title">Hide settings menu</string>
     <string name="revanced_hide_sound_search_button_summary">Hides the sound search button in the search bar.</string>
     <string name="revanced_hide_sound_search_button_title">Hide sound search button</string>
     <string name="revanced_hide_tap_to_update_button_summary">Hides the Tap to update button.</string>
@@ -243,6 +256,8 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Remembers the last playback speed selected.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Show a toast when changing the default playback speed.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_playback_speed_toast">Changing default speed to %s.</string>
     <string name="revanced_remember_repeat_state_summary">Remembers the state of the repeat toggle.</string>
     <string name="revanced_remember_repeat_state_title">Remember repeat state</string>
@@ -250,6 +265,8 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_remember_shuffle_state_title">Remember shuffle state</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Remembers the last video quality selected.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Show a toast when changing the default video quality.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set quality.</string>
     <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>

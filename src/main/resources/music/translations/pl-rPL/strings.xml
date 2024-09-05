@@ -16,6 +16,8 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu dla obrazów</string>
+    <string name="revanced_change_share_sheet_summary">Zmienia wygląd panelu udostępniania z natywnego aplikacji na systemowy.</string>
+    <string name="revanced_change_share_sheet_title">Zmień wygląd panelu udostępniania</string>
     <string name="revanced_change_start_page_entry_chart">Listy przebojów</string>
     <string name="revanced_change_start_page_entry_explore">Odkrywaj</string>
     <string name="revanced_change_start_page_entry_home">Strona główna</string>
@@ -36,6 +38,10 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
     <string name="revanced_disable_dislike_redirection_summary">Wyłącza przenoszenie do następnego utworu po kliknięciu łapki w dół.</string>
     <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
+    <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
+    <string name="revanced_disable_mini_player_gesture_title">Wyłącz gest w miniodtwarzaczu</string>
+    <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
+    <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
     <string name="revanced_enable_black_navigation_bar_summary">Ustawia kolor paska nawigacji na czarny.</string>
     <string name="revanced_enable_black_navigation_bar_title">Włącz czarny pasek nawigacji</string>
     <string name="revanced_enable_black_player_background_summary">Zmienia tło odtwarzacza na czarne.</string>
@@ -180,6 +186,10 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Jeśli opcja jest włączona, pełnoekranowe reklamy są zamykane poprzez przycisk zamknięcia.
 Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wystąpić efekty uboczne)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Jeśli opcja jest włączona, pełnoekranowe reklamy są zamykane poprzez przycisk zamknięcia.
+Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wystąpić efekty uboczne)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">"Jeśli opcja jest włączona, pełnoekranowe reklamy są zamykane poprzez przycisk zamknięcia.
+Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wystąpić efekty uboczne)"</string>
     <string name="revanced_hide_fullscreen_ads_type_title">Zamknij pełnoekranowe reklamy</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ukrywa przycisk udostępniania w trybie pełnoekranowym.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>
@@ -217,6 +227,11 @@ Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wyst�
     <string name="revanced_hide_premium_renewal_title">Ukryj baner odnawiania Premium</string>
     <string name="revanced_hide_samples_shelf_summary">Ukrywa półke z samplami na stronie głównej.</string>
     <string name="revanced_hide_samples_shelf_title">Ukryj półkę z samplami</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista menu ustawień do filtrowania, która musi być oddzielona nowymi liniami.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Filtr menu ustawień</string>
+    <string name="revanced_hide_settings_menu_summary">"Ukrywa elementy menu ustawień.
+Działa nie tylko na elementy menu ustawień YT Music, lecz także ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Ukryj menu ustawień</string>
     <string name="revanced_hide_sound_search_button_summary">Ukrywa przycisk od rozpoznawania piosenek w pasku wyszukiwania.</string>
     <string name="revanced_hide_sound_search_button_title">Ukryj przycisk od rozpoznawania piosenek</string>
     <string name="revanced_hide_tap_to_update_button_summary">Ukrywa przycisk \'Stuknij, aby zaktualizować\'.</string>
@@ -235,16 +250,20 @@ Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wyst�
     <string name="revanced_preference_screen_player_title">Odtwarzacz</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_preference_screen_video_title">Filmy</string>
+    <string name="revanced_preference_screen_video_title">Teledyski</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Zapisuje ostatnią wybraną prędkość odtwarzania.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętuj zmiany prędkości odtwarzania</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Komunikaty będą wyświetlane po zmianie domyślnej prędkości odtwarzania.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Komunikaty o zmianie domyślnej prędkości odtwarzania</string>
     <string name="revanced_remember_playback_speed_toast">Zmieniono domyślną prędkość odtwarzania na %s.</string>
     <string name="revanced_remember_repeat_state_summary">Zapisuje stan pętli.</string>
     <string name="revanced_remember_repeat_state_title">Zapamiętaj stan pętli</string>
     <string name="revanced_remember_shuffle_state_summary">Zapisuje stan odtwarzania losowego.</string>
     <string name="revanced_remember_shuffle_state_title">Zapamiętaj stan odtwarzania losowego</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">Zapisuje ostatnią wybraną jakość filmu.</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości filmu</string>
+    <string name="revanced_remember_video_quality_last_selected_summary">Zapisuje ostatnią wybraną jakość teledysku.</string>
+    <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości teledysku</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Komunikaty będą wyświetlane po zmianie domyślnej jakości filmów.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Komunikaty o zmianie domyślnej jakości filmów</string>
     <string name="revanced_remember_video_quality_mobile">Zmieniono domyślną jakość podczas używania sieci mobilnej na %s.</string>
     <string name="revanced_remember_video_quality_none">Jakość nie została ustawiona.</string>
     <string name="revanced_remember_video_quality_wifi">Zmieniono domyślną jakość podczas używania Wi-Fi na %s.</string>

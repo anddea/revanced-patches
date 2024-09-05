@@ -27,6 +27,7 @@ import app.revanced.patches.youtube.general.toolbar.fingerprints.YouActionBarFin
 import app.revanced.patches.youtube.utils.castbutton.CastButtonPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ActionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.VoiceSearch
@@ -48,6 +49,7 @@ import app.revanced.util.literalInstructionBooleanHook
 import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -306,11 +308,13 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide voice search button
 
-        if (SettingsPatch.upward1923) {
+        if (SettingsPatch.upward1928) {
             ImageSearchButtonConfigFingerprint.literalInstructionBooleanHook(
                 45617544,
                 "$GENERAL_CLASS_DESCRIPTOR->hideImageSearchButton(Z)Z"
             )
+
+            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "ImageSearchButton")
 
             settingArray += "SETTINGS: HIDE_IMAGE_SEARCH_BUTTON"
         }

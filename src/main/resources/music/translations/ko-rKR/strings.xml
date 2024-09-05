@@ -18,7 +18,9 @@
     <string name="revanced_alternative_domain_summary">이미지를 가져올 대체 도메인을 입력하세요.\n알림: \'https\:\/\/\' 없이 도메인 이름만 입력해야 합니다.</string>
     <string name="revanced_alternative_domain_title">대체 도메인</string>
     <string name="revanced_bypass_image_region_restrictions_summary">이미지 도메인을 변경하여 일부 국가에서 차단된 재생목록 썸네일, 채널 프로필 사진, 커뮤니티 게시물 이미지 등을 수신할 수 있습니다.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 국가 제한 우회하기</string>
+    <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
+    <string name="revanced_change_share_sheet_summary">YT Music 기본 공유 시트에서 Android 기본 공유 시트로 변경합니다.\n\n• 공유 버튼으로 바로 Android 기본 공유 메뉴를 실행할 수 있습니다.</string>
+    <string name="revanced_change_share_sheet_title">공유 시트 변경</string>
     <string name="revanced_change_start_page_entry_chart">차트</string>
     <string name="revanced_change_start_page_entry_explore">둘러보기</string>
     <string name="revanced_change_start_page_entry_home">홈</string>
@@ -39,6 +41,10 @@
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화</string>
     <string name="revanced_disable_dislike_redirection_summary">\'싫어요 버튼을 누르면 다음 트랙으로 리다이렉션\'을 비활성화합니다.</string>
     <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
+    <string name="revanced_disable_mini_player_gesture_summary">미니 플레이어에서 \'스와이프 제스처로 트랙 변경\'을 비활성화합니다.</string>
+    <string name="revanced_disable_mini_player_gesture_title">미니 플레이어 제스처 비활성화</string>
+    <string name="revanced_disable_player_gesture_summary">플레이어에서 \'스와이프 제스처로 트랙 변경\'을 비활성화합니다.</string>
+    <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
     <string name="revanced_enable_black_navigation_bar_summary">하단바 색상을 검정으로 설정합니다.</string>
     <string name="revanced_enable_black_navigation_bar_title">검정 하단바 활성화</string>
     <string name="revanced_enable_black_player_background_summary">플레이어 배경 색상을 검정으로 설정합니다.</string>
@@ -83,7 +89,7 @@
     <string name="revanced_enable_zen_mode_podcast_title">팟캐스트에서 집중 모드 활성화</string>
     <string name="revanced_enable_zen_mode_summary">동영상 플레이어의 색상을 회색조로 설정해 눈의 피로를 줄입니다.</string>
     <string name="revanced_enable_zen_mode_title">집중 모드 활성화</string>
-    <string name="revanced_extended_restart_first_run">기능 및 레이아웃을 정상적으로 실행시키기 위해 다시 시작합니다.</string>
+    <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
     <string name="revanced_extended_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_extended_settings_export_as_file">파일로 설정 내보내기</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보내는 데 실패하였습니다.</string>
@@ -99,18 +105,18 @@
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_extended_settings_reset">초기화</string>
     <string name="revanced_extended_settings_title">ReVanced Extended 설정</string>
-    <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더를 실행할 수 있습니다.
+    <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다.
 
 • 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다.
 • 메뉴 구성요소 또는 보관함에서는 오프라인 저장 버튼을 재정의할 수 없습니다."</string>
     <string name="revanced_external_downloader_action_title">오프라인 저장 버튼 재정의</string>
-    <string name="revanced_external_downloader_dialog_title">외부 다운로더</string>
+    <string name="revanced_external_downloader_dialog_title">외부 다운로더 앱</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 가 설치되어 있지 않습니다.
 웹사이트에서 %2$s 를 다운로드하세요."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">경고</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치하세요.</string>
-    <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 패키지명입니다.</string>
-    <string name="revanced_external_downloader_package_name_title">외부 다운로더 패키지명</string>
+    <string name="revanced_external_downloader_not_installed_warning">%s가 설치되지 않았습니다. 설치해주세요.</string>
+    <string name="revanced_external_downloader_package_name_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명입니다.</string>
+    <string name="revanced_external_downloader_package_name_title">외부 다운로더 앱 패키지명</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시</string>
     <string name="revanced_hide_account_menu_empty_component_summary">계정 메뉴에서 비어있는 구성요소를 숨깁니다.</string>
@@ -146,7 +152,7 @@
     <string name="revanced_hide_comment_channel_guidelines_summary">댓글 섹션 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프와 이모지 버튼을 숨깁니다.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 제거</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프, 이모지 버튼 제거</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 눌러서 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 누르기 오버레이 필터</string>
     <string name="revanced_hide_floating_button_summary">보관함에서 플로팅 버튼을 숨깁니다.</string>
@@ -185,6 +191,10 @@
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 제거</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"활성화하면 닫기 버튼을 누르면 전체 화면 광고가 닫혀집니다.
 비활성화하면 전체 화면 광고가 차단됩니다. (문제점이 발생할 수 있습니다.)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_off">"활성화하면 닫기 버튼을 누르면 전체 화면 광고가 닫혀집니다.
+비활성화하면 전체 화면 광고가 차단됩니다. (문제점이 발생할 수 있습니다.)"</string>
+    <string name="revanced_hide_fullscreen_ads_type_summary_on">"활성화하면 닫기 버튼을 누르면 전체 화면 광고가 닫혀집니다.
+비활성화하면 전체 화면 광고가 차단됩니다. (문제점이 발생할 수 있습니다.)"</string>
     <string name="revanced_hide_fullscreen_ads_type_title">전체 화면 광고 닫기</string>
     <string name="revanced_hide_fullscreen_share_button_summary">전체 화면에서 공유 버튼을 숨깁니다.</string>
     <string name="revanced_hide_fullscreen_share_button_title">전체 화면에서 공유 버튼 제거</string>
@@ -222,6 +232,11 @@
     <string name="revanced_hide_premium_renewal_title">YouTube Premium 갱신 배너 제거</string>
     <string name="revanced_hide_samples_shelf_summary">피드에서 샘플 선반을 숨깁니다.</string>
     <string name="revanced_hide_samples_shelf_title">샘플 선반 제거</string>
+    <string name="revanced_hide_settings_menu_filter_strings_summary">필터링할 설정 메뉴 이름을 줄바꿈으로 구분하여 설정합니다.</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">설정 메뉴 필터</string>
+    <string name="revanced_hide_settings_menu_summary">"설정 메뉴 구성요소를 숨깁니다.
+YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨집니다."</string>
+    <string name="revanced_hide_settings_menu_title">설정 메뉴 제거</string>
     <string name="revanced_hide_sound_search_button_summary">툴바에서 노래 검색 버튼을 숨깁니다.</string>
     <string name="revanced_hide_sound_search_button_title">노래 검색 버튼 제거</string>
     <string name="revanced_hide_tap_to_update_button_summary">\'탭하여 업데이트\' 버튼을 숨깁니다.</string>
@@ -238,11 +253,13 @@
     <string name="revanced_preference_screen_misc_title">기타</string>
     <string name="revanced_preference_screen_navigation_title">하단바</string>
     <string name="revanced_preference_screen_player_title">플레이어</string>
-    <string name="revanced_preference_screen_ryd_title">Return Youtube Dislike</string>
+    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_video_title">동영상</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">재생 속도 저장 활성화</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">기본 동영상 재생 속도 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">팝업 메시지 표시하기</string>
     <string name="revanced_remember_playback_speed_toast">기본 재생 속도 값을 %s으로 변경합니다.</string>
     <string name="revanced_remember_repeat_state_summary">반복 재생 토글 상태를 저장합니다.</string>
     <string name="revanced_remember_repeat_state_title">반복 상태 저장</string>
@@ -250,6 +267,8 @@
     <string name="revanced_remember_shuffle_state_title">셔플 상태 저장</string>
     <string name="revanced_remember_video_quality_last_selected_summary">동영상 품질 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_title">동영상 품질 저장 활성화</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">기본 동영상 화질 값으로 변경되었을 때, 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">팝업 메시지 표시하기</string>
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 품질을 설정할 수 없습니다.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 품질 값을 %s로 변경합니다.</string>
@@ -257,7 +276,7 @@
 
 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거</string>
-    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube로 시청\' 메뉴를 누르면 YouTube에서 동영상을 ReVanced Extended Music에서 멈춘 시점부터 이어서 시청합니다.</string>
+    <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_summary">\'YouTube로 시청\' 메뉴를 누르면 YouTube로 변경하여 동영상을 현재 재생 시간부터 이어서 시청합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_continue_watch_title">이어서 시청</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_summary">\'현재 재생목록 닫기\' 메뉴를 \'YouTube로 시청\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_menu_dismiss_queue_title">현재 재생목록 닫기 메뉴 변경</string>
@@ -292,7 +311,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
-    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때 URL에서 추적 쿼리 매개변수를 제거합니다.</string>
+    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -301,7 +320,7 @@
     <string name="revanced_sb_api_url_changed">API URL을 변경하였습니다.</string>
     <string name="revanced_sb_api_url_invalid">잘못된 API URL입니다.</string>
     <string name="revanced_sb_api_url_reset">API URL을 초기화하였습니다.</string>
-    <string name="revanced_sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 알고 있는 경우에만 이 URL을 변경하세요.</string>
+    <string name="revanced_sb_api_url_sum">SponsorBlock이 요청을 보낼 서버 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요.</string>
     <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다.</string>
     <string name="revanced_sb_color_dot_label">색상:</string>
     <string name="revanced_sb_color_invalid">잘못된 헥스 코드이므로 기본값으로 초기화합니다.</string>
@@ -317,13 +336,13 @@
     <string name="revanced_sb_segments_intro">무음 구간 / 인트로</string>
     <string name="revanced_sb_segments_intro_sum">아무 내용도 없는 구간입니다. 애니메이션이나 정적 프레임과 같은 내용을 포함하고 있습니다.</string>
     <string name="revanced_sb_segments_nomusic">음악이 아닌 구간</string>
-    <string name="revanced_sb_segments_nomusic_sum">정식 음원이 아닌 동영상 음원에서 음악이 아닌 구간이 해당합니다.</string>
+    <string name="revanced_sb_segments_nomusic_sum">정식 음원이 아닌 동영상 음원에서 음악이 아닌 구간이 해당됩니다.</string>
     <string name="revanced_sb_segments_outro">최종 화면 / 크레딧</string>
     <string name="revanced_sb_segments_outro_sum">엔딩 크레딧이나 최종 화면이 나타나는 구간입니다.</string>
     <string name="revanced_sb_segments_preview">미리 보기 / 요약 / 흥미 유발</string>
     <string name="revanced_sb_segments_preview_sum">이전 에피소드를 간략히 요약하거나 현재 동영상의 하이라이트를 미리 보여줍니다.</string>
     <string name="revanced_sb_segments_selfpromo">자체 홍보 구간</string>
-    <string name="revanced_sb_segments_selfpromo_sum">\'스폰서 광고\' 구간과 비슷하지만, 자발적으로 홍보하는 내용을 포함하는 구간입니다. 채널 굿즈 광고, 기부 광고와 동영상에 참여한 사람들을 홍보하는 광고가 해당합니다.</string>
+    <string name="revanced_sb_segments_selfpromo_sum">\'스폰서 광고\' 구간과 비슷하지만, 자발적으로 홍보하는 내용을 포함하는 구간입니다. 채널 굿즈 광고, 기부 광고와 동영상에 참여한 사람들을 홍보하는 광고가 해당됩니다.</string>
     <string name="revanced_sb_segments_sponsor">스폰서 광고</string>
     <string name="revanced_sb_segments_sponsor_sum">유료 광고, 협찬과 같은 직/간접적인 광고 구간입니다.</string>
     <string name="revanced_sb_skip_automatically">자동으로 건너뛰기</string>
@@ -347,7 +366,7 @@
     <string name="revanced_sb_toast_on_connection_error">API를 사용할 수 없을 때, 팝업 메시지 표시</string>
     <string name="revanced_sb_toast_on_connection_error_sum">SponsorBlock를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_sb_toast_on_skip">자동으로 구간을 건너뛸 때, 팝업 메시지 표시</string>
-    <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때 팝업 메시지를 표시합니다.</string>
+    <string name="revanced_sb_toast_on_skip_sum">자동으로 구간을 건너뛸 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_spoof_app_version_summary">"이전 앱 버전으로 변경합니다.
 
