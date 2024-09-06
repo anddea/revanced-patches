@@ -13,10 +13,20 @@ PREFIX_TO_IGNORE = (
 )
 
 
+def get_base_name(name):
+    """Return the base name by stripping '_title' or '_summary' suffix."""
+    if name.endswith("_title"):
+        return name[:-6]
+    elif name.endswith("_summary"):
+        return name[:-8]
+    return name
+
+
 def search_in_files(directories, name_values):
     """
     Search for the values in all files with allowed extensions within the
-    specified directories, excluding 'strings.xml' files.
+    specified directories, excluding 'strings.xml' files. It also checks
+    for the base string by stripping the '_title' and '_summary' suffixes.
 
     Args:
         directories (list): List of directories to search in.
@@ -34,17 +44,15 @@ def search_in_files(directories, name_values):
             # Ignore dot directories and the build directory
             dirs[:] = [d for d in dirs if not d.startswith(".") and d != "build"]
             for file in files:
-                if file in (
-                    "strings.xml",
-                    "missing_strings.xml",
-                ) or not file.endswith(allowed_extensions):
+                if file in ("strings.xml", "missing_strings.xml") or not file.endswith(allowed_extensions):
                     continue
                 file_path = os.path.join(root, file)
                 try:
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read()
                         for name in name_values:
-                            if name in content:
+                            base_name = get_base_name(name)
+                            if name in content or base_name in content:
                                 results[name].append(file_path)
                 except Exception as e:
                     print(f"Error reading {file_path}: {e}")
@@ -55,7 +63,8 @@ def search_in_files(directories, name_values):
 def should_remove(name, unused_names):
     """
     Determine whether a string with the given 'name' attribute should be
-    removed.
+    removed. It checks both the original name and its base form without the
+    '_title' or '_summary' suffix.
 
     Args:
         name (str): The value of the 'name' attribute.
@@ -64,8 +73,9 @@ def should_remove(name, unused_names):
     Returns:
         bool: True if the element should be removed, False otherwise.
     """
+    base_name = get_base_name(name)
     return (
-        name in unused_names
+        (name in unused_names or base_name in unused_names)
         and name not in BLACKLISTED_STRINGS
         and not any(name.startswith(prefix) for prefix in PREFIX_TO_IGNORE)
     )
