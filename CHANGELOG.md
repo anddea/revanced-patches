@@ -1,3 +1,10 @@
+# [2.229.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.2...v2.229.0-dev.3) (2024-09-06)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Patch failed because of some missing strings ([29a3874](https://github.com/anddea/revanced-patches/commit/29a38742cd8a72357c2a4f2de42e97effbd11e23))
+
 # [2.229.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.1...v2.229.0-dev.2) (2024-09-06)
 
 
