@@ -25,6 +25,18 @@
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_on">Ambient mode is disabled in fullscreen.</string>
     <string name="revanced_disable_ambient_mode_summary_off">Ambient mode is enabled.</string>
     <string name="revanced_disable_ambient_mode_summary_on">Ambient mode is disabled.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Auto switch mix playlists is enabled when autoplay is turned on.
+
+Autoplay can be changed in YouTube settings:
+Settings → Autoplay → Autoplay next video"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Auto switch mix playlists is disabled.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Disable switch mix playlists</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Enabling this feature will disable automatic switching to YouTube Mix when playing music while autoplay is turned on.</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Default playback speed is disabled for music.
+
+Limitation: This setting may not apply to videos that do not include the 'Listen on YouTube Music' banner."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Disable playback speed for music</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Like and Dislike buttons will glow when mentioned.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Like and Dislike buttons will not glow when mentioned.</string>
     <string name="revanced_disable_like_dislike_glow_title">Disable Like and Dislike button glow</string>
@@ -94,9 +106,17 @@ Side effect: Community post images may be blocked in fullscreen."</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
+    <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
+    <string name="revanced_hide_low_views_video_title">Hide low views video</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_off">Quality menu header is shown.</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_summary_on">Quality menu header is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_quality_header_title">Hide quality menu header</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Promotion alert banner is shown.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Promotion alert banner is hidden.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
@@ -190,8 +210,8 @@ Tap and hold to undo."</string>
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button opens the native in-app downloader.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">If shown, the native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button is always shown, and in public playlists, it opens your external downloader.</string>
     <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
     <string name="revanced_override_video_download_button_summary_on">Native video download button opens your external downloader.</string>
@@ -293,6 +313,4 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_whitelist_settings_summary">Check or remove the list of channels added to the whitelist.</string>
     <string name="revanced_whitelist_settings_title">Channel whitelist</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
-    <string name="revanced_hide_low_views_video_title">Hide low views video</string>
 </resources>

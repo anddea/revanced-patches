@@ -6,6 +6,18 @@
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
     <string name="revanced_change_start_page_entry_playables">Playables</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Auto switch mix playlists is enabled when autoplay is turned on.
+
+Autoplay can be changed in YouTube settings:
+Settings → Autoplay → Autoplay next video"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Auto switch mix playlists is disabled.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Disable switch mix playlists</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Enabling this feature will disable automatic switching to YouTube Mix when playing music while autoplay is turned on.</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Default playback speed is disabled for music.
+
+Limitation: This setting may not apply to videos that do not include the 'Listen on YouTube Music' banner."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Disable playback speed for music</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
@@ -24,6 +36,12 @@
     <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Promotion alert banner is shown.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Promotion alert banner is hidden.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
@@ -60,8 +78,8 @@
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_overlay_button_mute_volume_summary">Tap to mute volume of the current video. Tap again to unmute.</string>
     <string name="revanced_overlay_button_mute_volume_title">Show mute volume button</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button opens the native in-app downloader.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">If shown, the native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button is always shown, and in public playlists, it opens your external downloader.</string>
     <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
     <string name="revanced_override_video_download_button_summary_on">Native video download button opens your external downloader.</string>

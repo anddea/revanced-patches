@@ -133,7 +133,7 @@ Tocca qui per saperne di più su DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">La modalità Ambient è disabilitata.</string>
     <string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Le tracce audio automatiche forzate sono abilitate.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"Le tracce audio automatiche forzate sono disattivate."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Le tracce audio automatiche forzate sono disattivate.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disabilita le tracce audio automatiche forzate</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
@@ -524,11 +524,11 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video della scheda iscrizioni non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video della scheda iscrizioni sono filtrati.</string>
     <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda iscrizioni per parole chiave</string>
-    <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%1$s\' nasconderà tutti i video.</string>
+    <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave nasconderà tutti i video: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida. Non è possibile usare: \'%s\' come filtro</string>
-    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Aggiungi virgolette da usare parola chiave: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Aggiungi le virgolette per usare parola chiave: %s.</string>
     <string name="revanced_hide_keyword_toast_invalid_conflicting">La parola chiave ha dichiarazioni in conflitto: %s.</string>
-    <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave troppo corta e richiede le virgolette: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">La parola chiave è troppo corta e richiede le virgolette: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">I post più recenti sono visibili.</string>
     <string name="revanced_hide_latest_posts_summary_on">I post più recenti sono nascosti.</string>
     <string name="revanced_hide_latest_posts_title">Nascondi i post più recenti</string>
@@ -588,7 +588,7 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_playables_summary_off">I Giochi Interattivi sono visibili.</string>
     <string name="revanced_hide_playables_summary_on">I Giochi Interattivi sono nascosti.</string>
     <string name="revanced_hide_playables_title">Nascondi Giochi Interattivi</string>
-    <string name="revanced_hide_player_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è mostrato.</string>
+    <string name="revanced_hide_player_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è visibile.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">Il pulsante Riproduzione Automatica è nascosto.</string>
     <string name="revanced_hide_player_autoplay_button_title">Nascondi il pulsante Riproduzione Automatica</string>
     <string name="revanced_hide_player_captions_button_summary_off">Il pulsante Sottotitoli è mostrato.</string>
@@ -768,6 +768,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">Il pulsante Non Mi Piace è mostrato.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Il pulsante non mi piace è nascosto.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Nascondi il pulsante non mi piace</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">"I pulsanti fluttuanti come 'Usa questo suono' sono mostrati nella scheda del Canale degli short."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">"I pulsanti fluttuanti come 'Usa questo suono' sono nascosti nella scheda del Canale degli short."</string>
+    <string name="revanced_hide_shorts_floating_button_title">Nascondi pulsante fluttuante</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">L\'etichetta del collegamento del video è mostrato.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">L\'etichetta del collegamento video è nascosta.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Nascondi l\'etichetta completa del collegamento video</string>
@@ -783,6 +786,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">L\'intestazione della Chat dal vivo è mostrata.\n\nIl pulsante Indietro nell\'intestazione non verrà nascosto.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">L\'intestazione della Chat dal vivo è nascosta.\n\nIl pulsante Indietro nell\'intestazione non verrà nascosto.</string>
     <string name="revanced_hide_shorts_live_header_title">Nascondi intestazione chat dal vivo</string>
+    <string name="revanced_hide_shorts_location_button_summary_off">Il pulsante posizione è mostrato.</string>
+    <string name="revanced_hide_shorts_location_button_summary_on">Il pulsante posizione è nascosto.</string>
+    <string name="revanced_hide_shorts_location_button_title">Nascondi pulsante posizione</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra di navigazione è mostrata.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra di navigazione è nascosta.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Nascondi la barra di navigazione</string>
@@ -804,6 +810,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva suono nella playlist è mostrato.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva suono nella playlist è nascosto.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva suono nella playlist</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Il pulsante suggerimenti di ricerca è mostrato.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Il pulsante suggerimenti di ricerca è nascosto.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_title">Nascondi il pulsante suggerimenti di ricerca</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Il pulsante condividi è mostrato.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Il pulsante Condividi è nascosto.</string>
     <string name="revanced_hide_shorts_share_button_title">Nascondi il pulsante Condividi</string>
@@ -824,6 +833,9 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_shop_button_summary_off">Il pulsante negozio è mostrato.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Il pulsante Negozio è nascosto.</string>
     <string name="revanced_hide_shorts_shop_button_title">Nascondi il pulsante Negozio</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_off">Il pulsante shopping è mostrato.</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">Il pulsante shopping è nascosto.</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Nascondi pulsante Shopping</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Il pulsante suono è mostrato.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Il pulsante suono è nascosto.</string>
     <string name="revanced_hide_shorts_sound_button_title">Nascondi pulsante suono</string>
@@ -842,6 +854,12 @@ Sottotitoli"</string>
     <string name="revanced_hide_shorts_toolbar_summary_off">La barra degli strumenti è mostrata.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">La barra degli strumenti è nascosta.</string>
     <string name="revanced_hide_shorts_toolbar_title">Nascondi la barra degli strumenti</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">Il pulsante Tendenze è mostrato.</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">Il pulsante Tendenze è nascosto.</string>
+    <string name="revanced_hide_shorts_trends_button_title">Nascondi pulsante Tendenze</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_off">Il pulsante Usa modello è mostrato.</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_on">Il pulsante Usa modello è nascosto.</string>
+    <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante Usa modello</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Usa il pulsante sonoro è mostrato.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Usa il pulsante sonoro è nascosto.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_title">Nascondi Usa questo pulsante sonoro</string>
@@ -874,7 +892,7 @@ Note:
 
 La riproduzione automatica può essere modificata nelle impostazioni di YouTube:
 Impostazioni → Riproduzione automatica → Riproduzione automatica del video successivo"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi il video suggerito della schermata finale</string>
+    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi il video suggerito nella schermata finale</string>
     <string name="revanced_hide_thanks_button_summary_off">Il pulsante Grazie è visibile.</string>
     <string name="revanced_hide_thanks_button_summary_on">Il pulsante Grazie è nascosto.</string>
     <string name="revanced_hide_thanks_button_title">Nascondi pulsante Grazie</string>
@@ -1167,7 +1185,6 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di ReturnYouTubeDislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di ReturnYouTubeDislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
     <string name="revanced_sanitize_sharing_links_summary">Rimuove i parametri della query di tracciamento dagli URL durante la condivisione dei link</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitizza i link di condivisione</string>
     <string name="revanced_sb_about">Informazioni</string>

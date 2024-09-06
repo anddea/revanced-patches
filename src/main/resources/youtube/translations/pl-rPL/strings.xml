@@ -52,7 +52,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Jakość filmu</string>
-    <string name="revanced_append_time_stamp_information_type_title">Informacja</string>
+    <string name="revanced_append_time_stamp_information_type_title">Typ informacji</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">Oświetlenie kinowe w trybie oszczędzania baterii jest wyłączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">Oświetlenie kinowe w trybie oszczędzania baterii jest włączone</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">Obejdź ograniczenia oświetlenia kinowego</string>
@@ -127,9 +127,9 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Wyłączone</string>
     <string name="revanced_disable_ambient_mode_title">Oświetlenie kinowe</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"Wyłączone
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone
 
-Ograniczenie: ustawienie nie działa na Shortsy."</string>
+Ograniczenie: ustawienie nie działa na Shortsy.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Wymuszone ścieżki dźwiękowe</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -137,6 +137,8 @@ Ograniczenie: ustawienie nie działa na Shortsy."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Ukryte</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Widoczne</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Wyskakujące panele w odtwarzaczu</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Wyłączone</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Automatyczne zmienianie playlist mix</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Włączona</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Wyłączona</string>
     <string name="revanced_disable_default_playback_speed_live_title">Domyślna prędkość odtwarzania podczas transmisji na żywo</string>
@@ -602,6 +604,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_collapse_button_summary_off">Widoczny</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Ukryty</string>
     <string name="revanced_hide_player_collapse_button_title">Przycisk od minimalizowania filmu</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Menu od ścieżki dźwiękowej</string>
@@ -674,6 +679,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_preview_comment_type_off">Zmienia wielkość sekcji komentarzy, przez co nie ma możliwości włączenia ponownego odtwarzania czatu na żywo w sekcji komentarzy.</string>
     <string name="revanced_hide_preview_comment_type_on">Nie zmienia wielkości sekcji komentarzy, dzięki czemu jest możliwość włączenia ponownego odtwarzania czatu na żywo w sekcji komentarzy.</string>
     <string name="revanced_hide_preview_comment_type_title">Sposób ukrywania wyróżnionych komentarzy</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Widoczne</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Ukryte</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Banery z alertami promocyjnymi</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Widoczny</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Ukryty</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Przycisk od komentarzy</string>
@@ -1041,7 +1049,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_category_keyword_filter">Filtr słów</string>
     <string name="revanced_preference_category_others">Inne</string>
     <string name="revanced_preference_category_overlay_buttons">Przyciski w odtwarzaczu</string>
-    <string name="revanced_preference_category_patch_information">Lista łatek</string>
+    <string name="revanced_preference_category_patch_information">Informacje o łatkach</string>
     <string name="revanced_preference_category_quick_actions">Pod paskiem postępu filmu</string>
     <string name="revanced_preference_category_recommended_video">Rekomendowane filmy</string>
     <string name="revanced_preference_category_shorts_shelf">Półki z Shortsami</string>
@@ -1068,7 +1076,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_custom_filter_summary">Ukryj komponenty używając własnego filtru</string>
     <string name="revanced_preference_screen_custom_filter_title">Własny filtr</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">Ukryj lub pokazuj menu na stronie głównej</string>
-    <string name="revanced_preference_screen_feed_flyout_menu_title">Menu ustawień filmu</string>
+    <string name="revanced_preference_screen_feed_flyout_menu_title">Menu ustawień ze strony głównej</string>
     <string name="revanced_preference_screen_feed_title">Strona główna</string>
     <string name="revanced_preference_screen_fullscreen_summary">Ukryj lub zmień układ trybu pełnoekranowego</string>
     <string name="revanced_preference_screen_fullscreen_title">Pełny ekran</string>
@@ -1083,7 +1091,7 @@ Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_preference_screen_navigation_buttons_summary">Ukryj lub pokazuj przyciski nawigacji</string>
     <string name="revanced_preference_screen_navigation_buttons_title">Przyciski nawigacji</string>
     <string name="revanced_preference_screen_patch_information_summary">Informacje na temat zastosowanych łatek.</string>
-    <string name="revanced_preference_screen_patch_information_title">Lista łatek</string>
+    <string name="revanced_preference_screen_patch_information_title">Informacje o łatkach</string>
     <string name="revanced_preference_screen_player_buttons_summary">Ukryj lub pokazuj przyciski w odtwarzaczu</string>
     <string name="revanced_preference_screen_player_buttons_title">Przyciski w odtwarzaczu</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ukryj lub zmień elementy menu ustawień filmu</string>
@@ -1183,7 +1191,6 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Ukryty</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Widoczny</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Komunikat, jeśli API jest niedostępne</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_sanitize_sharing_links_summary">Usuwa śledzące parametry z adresów URL podczas udostępniania linków</string>
     <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
     <string name="revanced_sb_about">O integracji</string>

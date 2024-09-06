@@ -126,7 +126,7 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">O modo ambiente está desativado.</string>
     <string name="revanced_disable_ambient_mode_title">Desativar o modo ambiente</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">As faixas de áudio automáticas forçadas estão ativadas.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"As faixas de áudio automáticas forçadas estão desativadas."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">As faixas de áudio automáticas forçadas estão desativadas.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Desativar faixas de áudio automáticas forçadas</string>
     <string name="revanced_disable_auto_captions_summary_off">As legendas automáticas forçadas estão ativadas.</string>
     <string name="revanced_disable_auto_captions_summary_on">As legendas automáticas forçadas estão desativadas.</string>
@@ -499,6 +499,8 @@ Limitações:
 • Alguns componentes da UI podem não ser ocultos.
 • A pesquisa por uma palavra-chave pode não apresentar resultados."</string>
     <string name="revanced_hide_keyword_content_about_title">Sobre a filtragem por palavra-chave</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Colocar uma palavra-chave/frase entre aspas duplas evitará correspondências parciais de títulos de vídeo e nomes de canais.&lt;br&gt;&lt;br&gt;Por exemplo,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; ocultará o vídeo: &lt;b&gt;Como funciona a IA?&lt;/b&gt;&lt;br&gt;mas não ocultará: &lt;b&gt;O que significa uso justo?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Corresponder palavras inteiras</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Os comentários não são filtrados.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Os comentários são filtrados.</string>
     <string name="revanced_hide_keyword_content_comments_title">Ocultar comentários por palavras-chave</string>
@@ -516,6 +518,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_keyword_content_subscriptions_title">Ocultar vídeos no feed de inscrições por palavras-chave</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%1$s\' irá ocultar todos os vídeos.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Palavra-chave inválida. Não pode usar: \'%s\' como um filtro</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Adicione aspas para usar a palavra-chave: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">A palavra-chave tem declarações conflitantes: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">A palavra-chave é muito curta e requer aspas: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">As últimas postagens serão exibidas.</string>
     <string name="revanced_hide_latest_posts_summary_on">As últimas postagens estão ocultas.</string>
     <string name="revanced_hide_latest_posts_title">Ocultar últimas postagens</string>
@@ -756,6 +761,9 @@ Legendas"</string>
     <string name="revanced_hide_shorts_dislike_button_summary_off">O botão dislike será exibido.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">O botão dislike está oculto.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Ocultar botão dislike</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">"Os botões flutuantes como \"Usar este som\" serão exibidos na aba do canal do Shorts."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">"Os botões flutuantes como \"Usar este som\" estão ocultos na aba do canal do Shorts."</string>
+    <string name="revanced_hide_shorts_floating_button_title">Ocultar botão flutuante</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">O rótulo de link de vídeo será exibido.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">O rótulo de link de vídeo está oculto.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar rótulo completo do link do vídeo</string>
@@ -771,6 +779,9 @@ Legendas"</string>
     <string name="revanced_hide_shorts_live_header_summary_off">O cabeçalho do chat ao vivo será exibido.\n\nO botão Voltar no cabeçalho não será ocultado.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">O cabeçalho do chat ao vivo está oculto.\n\nO botão Voltar no cabeçalho não será ocultado.</string>
     <string name="revanced_hide_shorts_live_header_title">Ocultar o cabeçalho do chat ao vivo</string>
+    <string name="revanced_hide_shorts_location_button_summary_off">O botão de localização será exibido.</string>
+    <string name="revanced_hide_shorts_location_button_summary_on">O botão localização está oculto.</string>
+    <string name="revanced_hide_shorts_location_button_title">Ocultar botão localização</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">A barra de navegação será exibida.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">A barra de navegação está oculta.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegação</string>
@@ -792,6 +803,9 @@ Legendas"</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Salvar música na lista de reprodução será exibida.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Salvar música na lista de reprodução está oculta.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão salvar música na lista de reprodução</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_off">O botão de sugestões de pesquisa será exibido.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_on">O botão de sugestões de pesquisa está oculto.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_title">Ocultar botão de sugestões de pesquisa</string>
     <string name="revanced_hide_shorts_share_button_summary_off">O botão compartilhar será exibido.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">O botão compartilhar está oculto.</string>
     <string name="revanced_hide_shorts_share_button_title">Ocultar botão compartilhar</string>
@@ -814,6 +828,9 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
     <string name="revanced_hide_shorts_shop_button_summary_off">O botão comprar será exibido.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">O botão comprar está oculto.</string>
     <string name="revanced_hide_shorts_shop_button_title">Ocultar botão comprar</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_off">O botão de compras será exibido.</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">O botão de compras está oculto.</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Ocultar botão de Compras</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">O botão som será exibido.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">O botão som está oculto.</string>
     <string name="revanced_hide_shorts_sound_button_title">Ocultar botão som</string>
@@ -832,6 +849,15 @@ Limitação: Os cabeçalhos oficiais nos resultados da pesquisa serão ocultados
     <string name="revanced_hide_shorts_toolbar_summary_off">A barra de ferramentas será exibida.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">A barra de ferramentas está oculta.</string>
     <string name="revanced_hide_shorts_toolbar_title">Ocultar barra de ferramentas</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">O botão de tendências será exibido.</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">O botão de tendências está oculto.</string>
+    <string name="revanced_hide_shorts_trends_button_title">Ocultar botão Tendências</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_off">O botão Usar template será exibido.</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar template está oculto.</string>
+    <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar template</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">O botão Usar este som será exibido.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">O botão Usar este som está oculto.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Ocultar botão Usar este som</string>
     <string name="revanced_hide_shorts_video_title_summary_off">O título será exibido.</string>
     <string name="revanced_hide_shorts_video_title_summary_on">O título está oculto.</string>
     <string name="revanced_hide_shorts_video_title_title">Ocultar título do vídeo</string>
@@ -1057,6 +1083,8 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_screen_shorts_player_summary">Ocultar ou mostrar componentes no reprodutor de shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Reprodutor de shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Falsifique os dados de streaming para evitar problemas de reprodução.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Dados de streaming falsos</string>
     <string name="revanced_preference_screen_swipe_controls_title">Controles deslizantes</string>
     <string name="revanced_preference_screen_toolbar_summary">Ocultar ou alterar componentes localizados na barra de ferramentas, como botões da barra de ferramentas, barra de pesquisa, cabeçalho.</string>
     <string name="revanced_preference_screen_toolbar_title">Barra de ferramentas</string>
@@ -1140,7 +1168,6 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Uma notificação flutuante não é exibida se o Retorn YouTube Dislike não estiver disponível.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Uma notificação flutuante é exibida se o Retorn YouTube Dislike não estiver disponível.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
     <string name="revanced_sb_about">Sobre</string>
@@ -1382,6 +1409,29 @@ Se for desativado posteriormente, é recomendável limpar os dados do aplicativo
     <string name="revanced_spoof_device_dimensions_summary">"Falsifica as dimensões do dispositivo para o valor máximo.
 A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões elevadas do dispositivo, mas não em todos os vídeos."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">O codec de vídeo do iOS é AVC (H.264), VP9 ou AV1.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">O codec de vídeo do iOS é AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forçar iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Ativar isto pode melhorar a duração da bateria e corrigir travamentos na reprodução.
+
+AVC (H. 64) tem uma resolução máxima de 1080p, e a reprodução de vídeo usará mais dados de internet do que VP9 ou AV1."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• O menu de faixa de áudio está faltando.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• O menu de faixa de áudio está faltando.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Filmes ou vídeos pagos podem não reproduzir.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O cliente usado para buscar dados de streaming é mostrado em Estatísticas para nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"Os dados de streaming não são falsificados. A reprodução de vídeo pode não funcionar."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">Os dados de streaming são falsificados.</string>
+    <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Os gestos de deslize estão desativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Os gestos de deslize estão ativados no modo \'Tela de bloqueio\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestos de deslize no modo \'Tela de bloqueio\'</string>
@@ -1405,6 +1455,9 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_switch_create_with_notifications_button_title">Alternar criar com notificações</string>
     <string name="revanced_theme_default">Padrão</string>
     <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona.</string>
+    <string name="revanced_watch_history_about_status_original">"• Segue as configurações do histórico de exibição da conta do Google.
+• O histórico de exibição pode não funcionar devido ao DNS ou à VPN."</string>
+    <string name="revanced_watch_history_about_status_replaced">• Segue as configurações do histórico de exibição da conta do Google.</string>
     <string name="revanced_watch_history_about_title">Sobre o histórico de exibição</string>
     <string name="revanced_watch_history_management_summary">Clique para abrir o gerenciamento do histórico de exibição do YouTube.</string>
     <string name="revanced_watch_history_management_title">Gerenciar todo o histórico</string>
