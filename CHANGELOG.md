@@ -1,3 +1,21 @@
+# [2.229.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.228.0...v2.229.0-dev.1) (2024-09-06)
+
+
+### Bug Fixes
+
+* **YouTube - Disable force auto captions:** Patch doesn't work with Shorts ([a01edc8](https://github.com/anddea/revanced-patches/commit/a01edc84ef41134f5b63b9c84e36ecf20b37bd36))
+* **YouTube Music - SponsorBlock:** SponsorBlock segments at the end of a song cause the player to get stuck ([d986a01](https://github.com/anddea/revanced-patches/commit/d986a0166eb925ec334afdf68dee706e8a3337f6))
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide promotion alert banner` setting ([2350d94](https://github.com/anddea/revanced-patches/commit/2350d94136b22403b7aecc6aa91d6db687bb7d4b))
+* **YouTube - Hide player flyout menu:** Restore `Hide Ambient mode menu` setting ([d99bdef](https://github.com/anddea/revanced-patches/commit/d99bdefeb4ef477c5277b00d2c64497858604b68))
+* **YouTube - Player components:** Add `Disable switch mix playlists` setting ([5d8650f](https://github.com/anddea/revanced-patches/commit/5d8650f14d8935ecaf670689e4c8f24042022dc1))
+* **YouTube - Video playback:** Add `Disable playback speed for music` setting ([b77e952](https://github.com/anddea/revanced-patches/commit/b77e9524ef4d8ab6d573e77c516a596ad5ac4652))
+* **YouTube Music - Hide ads:** Add `Hide promotion alert banner` setting ([ca6263c](https://github.com/anddea/revanced-patches/commit/ca6263c18f823507c55d77e15a1aeb268ab90352))
+* **YouTube Music:** Add support versions `7.16.53` ~ `7.17.51` ([390cabe](https://github.com/anddea/revanced-patches/commit/390cabeff02871b89cd3440de148a82008235f08))
+
 # [2.228.0](https://github.com/anddea/revanced-patches/compare/v2.227.0...v2.228.0) (2024-09-05)
 
 
