@@ -1,3 +1,10 @@
+# [2.229.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.1...v2.229.0-dev.2) (2024-09-06)
+
+
+### Bug Fixes
+
+* Revert bump dependencies ([d8f988b](https://github.com/anddea/revanced-patches/commit/d8f988bd955f31bd6c4874454585a32d666f942e))
+
 # [2.229.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.228.0...v2.229.0-dev.1) (2024-09-06)
 
 
