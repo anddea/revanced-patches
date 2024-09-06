@@ -1,5 +1,6 @@
 import os
 from lxml import etree
+from utils import Utils
 
 # Constants for blacklisted and prefixed strings
 BLACKLISTED_STRINGS = (
@@ -10,24 +11,6 @@ PREFIX_TO_IGNORE = (
     "revanced_icon_",
     "revanced_spoof_streaming_data_side_effects_",
 )
-
-
-def parse_xml(file_path):
-    """
-    Parse the XML file and extract the values of the 'name' attributes.
-
-    Args:
-        file_path (str): Path to the XML file.
-
-    Returns:
-        list: List of values of 'name' attributes.
-    """
-    tree = etree.parse(file_path)
-    root = tree.getroot()
-
-    # Extract the values of the 'name' attributes
-    name_values = [element.get("name") for element in root.iter() if "name" in element.attrib]
-    return name_values, tree, root
 
 
 def search_in_files(directories, name_values):
@@ -135,8 +118,6 @@ def check_translation_files(main_xml_path, translation_files):
             name = element.get("name")
             if name in main_names:
                 strings_dict[name] = element.text
-            else:
-                print(f"Removed '{name}' from {translation_file}")
 
         # Write the sorted strings back to the file
         write_sorted_strings(translation_file, strings_dict)
@@ -181,12 +162,15 @@ def ensure_directory_exists(directory):
 
 
 def main():
-    xml_file_path = "src/main/resources/youtube/settings/host/values/strings.xml"
-    translation_dir = "src/main/resources/youtube/translations"
-    directories_to_search = ["../revanced-patches", "../revanced-integrations"]
+    # Get the directories based on the user selection (YouTube or Music)
+    args = Utils.get_arguments()
+    xml_file_path = args["source_file"]
+    translation_dir = args["destination_directory"]
+
+    directories_to_search = ["../revanced-patches", "../revanced-integrations", "../revanced-temporary-files"]
 
     # Parse the main XML file to get the 'name' attribute values
-    name_values, tree, root = parse_xml(xml_file_path)
+    name_values, _, _ = Utils.parse_xml(xml_file_path)
 
     # Search for the 'name' values in the specified directories
     search_results = search_in_files(directories_to_search, name_values)
