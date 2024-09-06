@@ -100,7 +100,8 @@ object OverlayButtonsPatch : BaseResourcePatch(
             "ExternalDownload;",
             "SpeedDialog;",
             "TimeOrderedPlaylist;",
-            "Whitelists;"
+            "Whitelists;",
+            "SetBrightness;",
         ).forEach { className ->
             PlayerControlsPatch.hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
         }
@@ -114,6 +115,7 @@ object OverlayButtonsPatch : BaseResourcePatch(
                 "playlist_shuffle_button.xml",
                 "revanced_repeat_button.xml",
                 "revanced_mute_volume_button.xml",
+                "revanced_set_brightness_button.xml"
             )
         )
 
@@ -140,6 +142,8 @@ object OverlayButtonsPatch : BaseResourcePatch(
                     "revanced_download_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
+                    "revanced_low_brightness_button.png",
+                    "revanced_high_brightness_button.png",
                     "revanced_speed_button.png",
                     "revanced_whitelist_button.png",
                     "yt_fill_arrow_repeat_white_24.png",

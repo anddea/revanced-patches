@@ -237,6 +237,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "revanced_restore_old_video_quality_menu",
             "revanced_enable_debug_buffer_logging",
             "revanced_whitelist_settings",
+            "revanced_overlay_button_set_brightness"
         )
 
         val validExtendedBrandIcon = validExtendedBrand.associateWith { "${it}_icon" }
