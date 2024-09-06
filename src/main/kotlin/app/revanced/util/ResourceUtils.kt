@@ -63,6 +63,12 @@ fun String.startsWithAny(vararg prefixes: String): Boolean {
     return false
 }
 
+fun List<String>.getResourceGroup(fileNames: Array<String>) = map { directory ->
+    ResourceGroup(
+        directory, *fileNames
+    )
+}
+
 fun ResourceContext.copyFile(
     resourceGroup: List<ResourceGroup>,
     path: String,
@@ -98,16 +104,25 @@ fun ResourceContext.copyFile(
  *
  * @param sourceResourceDirectory The source resource directory name.
  * @param resources The resources to copy.
+ * @param createDirectoryIfNotExist Whether to create a new directory if it does not exist.
  */
 fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
     vararg resources: ResourceGroup,
+    createDirectoryIfNotExist: Boolean = false,
 ) {
     val targetResourceDirectory = this["res"]
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
-            val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
+            val resourceDirectoryName = resourceGroup.resourceDirectoryName
+
+            if (createDirectoryIfNotExist) {
+                val targetDirectory = targetResourceDirectory.resolve(resourceDirectoryName)
+                if (!targetDirectory.isDirectory) Files.createDirectories(targetDirectory.toPath())
+            }
+
+            val resourceFile = "$resourceDirectoryName/$resource"
 
             inputStreamFromBundledResource(
                 sourceResourceDirectory,

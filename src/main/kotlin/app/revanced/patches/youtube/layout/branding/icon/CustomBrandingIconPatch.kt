@@ -11,6 +11,7 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
+import app.revanced.util.getResourceGroup
 import app.revanced.util.patch.BaseResourcePatch
 import app.revanced.util.underBarOrThrow
 
@@ -98,12 +99,6 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "\$avd_anim__4",
         "avd_anim"
     ).map { "$it.xml" }.toTypedArray()
-
-    private fun List<String>.getResourceGroup(fileNames: Array<String>) = map { directory ->
-        ResourceGroup(
-            directory, *fileNames
-        )
-    }
 
     private val headerIconResourceGroups =
         drawableDirectories.getResourceGroup(headerIconResourceFileNames)
