@@ -234,12 +234,6 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                 "false"
             )
         }
-        SettingsPatch.addSwitchPreference(
-            CategoryType.FLYOUT,
-            "revanced_hide_flyout_menu_like_dislike",
-            "false",
-            false
-        )
         if (SettingsPatch.upward0636) {
             LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
@@ -250,6 +244,12 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                 false
             )
         }
+        SettingsPatch.addSwitchPreference(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_menu_like_dislike",
+            "false",
+            false
+        )
         SettingsPatch.addSwitchPreference(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_add_to_queue",
