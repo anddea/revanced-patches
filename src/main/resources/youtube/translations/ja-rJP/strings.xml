@@ -129,9 +129,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_disable_auto_audio_tracks_summary_off">音声トラックが自動で選択されるのを無効化します。
 
 注意: この設定はショートには適用されません。</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"音声トラックが自動で選択されるのを無効化します。
+    <string name="revanced_disable_auto_audio_tracks_summary_on">音声トラックが自動で選択されるのを無効化します。
 
-注意: この設定はショートには適用されません。"</string>
+注意: この設定はショートには適用されません。</string>
     <string name="revanced_disable_auto_audio_tracks_title">音声トラックの強制を無効化</string>
     <string name="revanced_disable_auto_captions_summary_off">字幕の自動的な強制を無効化します。</string>
     <string name="revanced_disable_auto_captions_summary_on">字幕の自動的な強制を無効化します。</string>
@@ -139,9 +139,18 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_disable_auto_player_popup_panels_summary_off">再生リストとライブチャットのパネルが自動で開くのを無効化します。</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">再生リストとライブチャットのパネルが自動で開くのを無効化します。</string>
     <string name="revanced_disable_auto_player_popup_panels_title">プレーヤーのポップアップパネルを無効化</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"自動再生がオフの場合、ミックスプレイリストの自動再生を無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動再生がオフの場合、ミックスプレイリストの自動再生を無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスプレイリストの切り替えを無効化</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">この設定をオンにした場合、自動再生がオフになっているときに音楽を再生すると、ミックスプレイリストの自動再生が無効になります。</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
     <string name="revanced_disable_default_playback_speed_live_title">ライブ配信でデフォルトの再生速度を無効化</string>
+    <string name="revanced_disable_default_playback_speed_music_off">音楽でデフォルトの再生速度を無効化します。\n\n注意: この設定は、「YouTube Musicで聴く」バナーが表示されている動画にのみ適用されます。</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"音楽でデフォルトの再生速度を無効化します。
+
+注意: この設定は、「YouTube Musicで聴く」バナーが表示されている動画にのみ適用されます。"</string>
+    <string name="revanced_disable_default_playback_speed_music_title">音楽でデフォルトの再生速度を無効化</string>
     <string name="revanced_disable_engagement_panel_summary_off">エンゲージメントパネルを無効化します。</string>
     <string name="revanced_disable_engagement_panel_summary_on">エンゲージメントパネルを無効化します。</string>
     <string name="revanced_disable_engagement_panel_title">エンゲージメントパネルを無効化</string>
@@ -601,6 +610,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_player_collapse_button_summary_off">「プレーヤーの最小化」ボタンを非表示にします。</string>
     <string name="revanced_hide_player_collapse_button_summary_on">「プレーヤーの最小化」ボタンを非表示にします。</string>
     <string name="revanced_hide_player_collapse_button_title">最小化ボタンを非表示</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">「アンビエントモード」メニューを非表示にします。</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">「アンビエントモード」メニューを非表示にします。</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">「アンビエントモード」を非表示</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">「音声トラック」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">「音声トラック」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">「音声トラック」を非表示</string>
@@ -643,6 +655,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_player_flyout_menu_report_summary_off">「報告」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">「報告」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_report_title">「報告」を非表示</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">スリープタイマーメニューを非表示</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">「一定音量」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">「一定音量」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">「一定音量」を非表示</string>
@@ -1180,7 +1193,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
     <string name="revanced_sb_about">SponsorBlock について</string>

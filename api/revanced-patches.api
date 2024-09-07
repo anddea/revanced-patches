@@ -56,14 +56,10 @@ public final class app/revanced/patches/music/general/amoled/AmoledPatch : app/r
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsBytecodePatch : app/revanced/patches/shared/captions/BaseAutoCaptionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/general/autocaptions/AutoCaptionsBytecodePatch;
-}
-
-public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseResourcePatch {
+public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/general/autocaptions/AutoCaptionsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/music/general/components/LayoutComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -686,12 +682,6 @@ public abstract class app/revanced/patches/shared/ads/BaseAdsPatch : app/revance
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public abstract class app/revanced/patches/shared/captions/BaseAutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Z)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public abstract class app/revanced/patches/shared/customspeed/BaseCustomPlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;F)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -959,10 +949,6 @@ public final class app/revanced/patches/youtube/general/audiotracks/AudioTracksP
 	public static final field INSTANCE Lapp/revanced/patches/youtube/general/audiotracks/AudioTracksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/general/autocaptions/AutoCaptionsBytecodePatch : app/revanced/patches/shared/captions/BaseAutoCaptionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/general/autocaptions/AutoCaptionsBytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/general/autocaptions/AutoCaptionsPatch : app/revanced/util/patch/BaseBytecodePatch {

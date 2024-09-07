@@ -1,36 +1,7 @@
 import os
 import xml.etree.ElementTree as ET
 import xml.sax.saxutils as saxutils
-
-# Define source file path
-source_file = "src/main/resources/youtube/settings/host/values/strings.xml"
-
-# Define destination directory path
-destination_directory = "src/main/resources/youtube/translations"
-
-
-def parse_xml(file_path):
-    """
-    Parse the XML file and return the root element.
-
-    :param file_path: Path to the XML file.
-    :return: Root element of the XML tree.
-    :raises FileNotFoundError: If the file does not exist.
-    :raises ET.ParseError: If the file is empty or cannot be parsed.
-    """
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-
-    with open(file_path, "r", encoding="utf-8") as file:
-        if not file.read().strip():
-            print(f"File is empty, deleting: {file_path}")
-            os.remove(file_path)
-            raise ET.ParseError(
-                f"File is empty and has been deleted: {file_path}"
-            )
-
-    tree = ET.parse(file_path)
-    return tree.getroot()
+from utils import Utils
 
 
 def get_strings_dict(root):
@@ -68,7 +39,7 @@ def read_missing_strings(missing_file_path):
     """
     if os.path.exists(missing_file_path):
         try:
-            missing_root = parse_xml(missing_file_path)
+            _, _, missing_root = Utils.parse_xml(missing_file_path)
             return get_strings_dict(missing_root)
         except ET.ParseError as e:
             print(f"Error parsing {missing_file_path}: {e}")
@@ -91,16 +62,11 @@ def write_missing_strings(missing_file_path, missing_strings):
     with open(missing_file_path, "w", encoding="utf-8") as f:
         f.write("<?xml version='1.0' encoding='utf-8'?>\n<resources>\n")
         for name, text in missing_strings.items():
-            f.write(
-                f'    <string name="{name}">{
-                    escape_xml_chars(text)}</string>\n'
-            )
+            f.write(f'    <string name="{name}">{escape_xml_chars(text)}</string>\n')
         f.write("</resources>\n")
 
 
-def compare_and_update_missing_file(
-    source_dict, dest_file_path, missing_file_path
-):
+def compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path):
     """
     Compare source strings with destination strings and update
     missing_strings.xml accordingly.
@@ -111,7 +77,7 @@ def compare_and_update_missing_file(
     """
     if os.path.exists(dest_file_path):
         try:
-            dest_root = parse_xml(dest_file_path)
+            _, _, dest_root = Utils.parse_xml(dest_file_path)
             dest_dict = get_strings_dict(dest_root)
         except ET.ParseError as e:
             print(f"Error parsing {dest_file_path}: {e}")
@@ -143,8 +109,13 @@ def main():
     """
     Main function to handle the XML parsing, comparison, and updating process.
     """
+    # Get the directories based on the user selection (YouTube or Music)
+    args = Utils.get_arguments()
+    source_file = args["source_file"]
+    destination_directory = args["destination_directory"]
+
     try:
-        source_root = parse_xml(source_file)
+        _, _, source_root = Utils.parse_xml(source_file)
     except (FileNotFoundError, ET.ParseError) as e:
         print(f"Error parsing source file {source_file}: {e}")
         return
@@ -156,9 +127,7 @@ def main():
             lang_dir = os.path.join(dirpath, dirname)
             dest_file_path = os.path.join(lang_dir, "strings.xml")
             missing_file_path = os.path.join(lang_dir, "missing_strings.xml")
-            compare_and_update_missing_file(
-                source_dict, dest_file_path, missing_file_path
-            )
+            compare_and_update_missing_file(source_dict, dest_file_path, missing_file_path)
 
 
 if __name__ == "__main__":

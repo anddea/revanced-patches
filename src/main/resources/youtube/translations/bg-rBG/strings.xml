@@ -117,7 +117,7 @@
     <string name="revanced_disable_ambient_mode_summary_on">Подсветка около видеото е деактивирана.</string>
     <string name="revanced_disable_ambient_mode_title">Деактивирайте подсветката около видеото</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Задължителните аудио записи са активирани.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"Задължителните аудио записи са деактивирани."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Задължителните аудио записи са деактивирани.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Принудителните автоматични аудио пътеки са деактивирани</string>
     <string name="revanced_disable_auto_captions_summary_off">Принудителните автоматични субтититри са включени.</string>
     <string name="revanced_disable_auto_captions_summary_on">Принудителните автоматични субтититри са изключени.</string>
@@ -490,6 +490,8 @@
 • Някои елементи на потребителския интерфейс може да не са скрити.
 • Търсенето на дума -ключ може да не покаже никакви резултати."</string>
     <string name="revanced_hide_keyword_content_about_title">За филтриране с ключови думи</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Ограждането на ключова дума/фраза с двойни кавички ще предотврати частични съвпадения на заглавия на видеоклипове и имена на канали&lt;br&gt;&lt;br&gt;Например,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ще скрие видеоклипа: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;но няма да скрие: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Съвпадение на цялата дума</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Коментарите не се филтрират.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Коментарите се филтрират.</string>
     <string name="revanced_hide_keyword_content_comments_title">Скриване на коментари по ключови думи</string>
@@ -506,6 +508,9 @@
     <string name="revanced_hide_keyword_content_subscriptions_title">Скриване на видеоклипове от абонаменти с ключови думи</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Ключовата дума „%1$s“ ще скрие всички видеоклипове.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Невалидна ключова дума. Не може да се използва: „%s“ като филтър</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Добавете кавички, за да използвате ключова дума: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">Ключовата дума има противоречиви твърдения: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Ключовата дума е твърде кратка и изисква кавички: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Последните постове се показват.</string>
     <string name="revanced_hide_latest_posts_summary_on">Последните постове са скрити.</string>
     <string name="revanced_hide_latest_posts_title">Скриване на последните постове</string>
@@ -619,6 +624,7 @@
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Менюто за докладване се показва.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Менюто за докладване е скрито.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Скрий Меню за докладване</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Скрийте менюто „Изчакване на заспиване“</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Стабилно ниво на звука се показва.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Постоянно ниво на звука е скрито.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">Скрийте елемента \"Стабилно ниво на звука\"</string>
@@ -745,6 +751,9 @@
     <string name="revanced_hide_shorts_dislike_button_summary_off">Бутона за нехаресване се показва.</string>
     <string name="revanced_hide_shorts_dislike_button_summary_on">Бутона за нехаресване е скрит.</string>
     <string name="revanced_hide_shorts_dislike_button_title">Скриване на бутона за нехаресване</string>
+    <string name="revanced_hide_shorts_floating_button_summary_off">"Изскачащи бутони като „Използване на този звук“ Се показват в раздела Shorts."</string>
+    <string name="revanced_hide_shorts_floating_button_summary_on">"Изскачащи бутони като „Използване на този звук“ са скрити в раздела Shorts."</string>
+    <string name="revanced_hide_shorts_floating_button_title">Скриване на изскачащ бутон</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Етикетът за видео връзка се показва.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Етикетът за видео връзка е скрит.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Скриване на етикет за връзка към видеоклипа</string>
@@ -760,6 +769,9 @@
     <string name="revanced_hide_shorts_live_header_summary_off">Показва се раздела Чата на живо.\n\nБутонът за връщане назад в раздела няма да бъде скрит.</string>
     <string name="revanced_hide_shorts_live_header_summary_on">Раздела Чата на живо е скрит.\n\nБутонът за връщане назад в Раздел няма да бъде скрит.</string>
     <string name="revanced_hide_shorts_live_header_title">Скриване на раздела на чата на живо</string>
+    <string name="revanced_hide_shorts_location_button_summary_off">Бутон за \"Местоположение\" се показва.</string>
+    <string name="revanced_hide_shorts_location_button_summary_on">Бутон за \"Местоположение\" е скрит.</string>
+    <string name="revanced_hide_shorts_location_button_title">Бутон за \"Местоположение\"</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Навигационната лента се показва.</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Навигационната лента е скрита.</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Скриване лентата за навигация</string>
@@ -781,6 +793,9 @@
     <string name="revanced_hide_shorts_save_sound_button_summary_off">Бутонът за Запазване в плейлиста се показва.</string>
     <string name="revanced_hide_shorts_save_sound_button_summary_on">Бутонът за Запазване в плейлиста е скрит.</string>
     <string name="revanced_hide_shorts_save_sound_button_title">Бутон за запазване на аудиото в плейлиста</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Бутон „Предложения за търсене“ се показва.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Бутон „Предложения за търсене“ е скрит.</string>
+    <string name="revanced_hide_shorts_search_suggestions_button_title">Бутон „Предложения за търсене“</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Бутона за споделяне се показва.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Бутона за споделяне е скрит.</string>
     <string name="revanced_hide_shorts_share_button_title">Скриване на бутона за споделяне</string>
@@ -803,6 +818,9 @@
     <string name="revanced_hide_shorts_shop_button_summary_off">Бутона за пазаруване се показва.</string>
     <string name="revanced_hide_shorts_shop_button_summary_on">Бутона за пазаруване е скрит.</string>
     <string name="revanced_hide_shorts_shop_button_title">Скриване на бутона за пазаруване</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_off">Бутона за пазаруване се показва.</string>
+    <string name="revanced_hide_shorts_shopping_button_summary_on">Бутона за пазаруване е скрит.</string>
+    <string name="revanced_hide_shorts_shopping_button_title">Бутон \"Пазаруване\"</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">Бутона за Звук се показва.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Бутона за Звук е скрит.</string>
     <string name="revanced_hide_shorts_sound_button_title">Скрийте бутона „Звук“</string>
@@ -821,6 +839,15 @@
     <string name="revanced_hide_shorts_toolbar_summary_off">Лента с инструменти се показва.</string>
     <string name="revanced_hide_shorts_toolbar_summary_on">Лента с инструменти е скрита.</string>
     <string name="revanced_hide_shorts_toolbar_title">Скриване на лентата с инструменти</string>
+    <string name="revanced_hide_shorts_trends_button_summary_off">Показва се.</string>
+    <string name="revanced_hide_shorts_trends_button_summary_on">Скрит.</string>
+    <string name="revanced_hide_shorts_trends_button_title">Бутон „Набиращи популярност“</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_off">Бутон за \"Използване на шаблон\" се показва.</string>
+    <string name="revanced_hide_shorts_use_template_button_summary_on">Бутон за \"Използване на шаблон\" е скрит.</string>
+    <string name="revanced_hide_shorts_use_template_button_title">Бутон за \"Използване на шаблон\"</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Бутон „Използване на този звук“ се показва.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Бутон „Използване на този звук“ е скрит.</string>
+    <string name="revanced_hide_shorts_use_this_sound_button_title">Бутон „Използване на този звук“</string>
     <string name="revanced_hide_shorts_video_title_summary_off">Заглавието се показва.</string>
     <string name="revanced_hide_shorts_video_title_summary_on">Заглавието е скрито.</string>
     <string name="revanced_hide_shorts_video_title_title">Заглавие на видеото</string>
@@ -1046,6 +1073,8 @@ Note:
     <string name="revanced_preference_screen_shorts_player_summary">Скриване или показване на компоненти в Shorts плейъра.</string>
     <string name="revanced_preference_screen_shorts_player_title">Плейър за кратки клипове</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">Подправете поточно предаваните данни, за да предотвратите проблеми с възпроизвеждането.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_title">Подправяне на поточни данни</string>
     <string name="revanced_preference_screen_swipe_controls_title">Плъзгащи контроли</string>
     <string name="revanced_preference_screen_toolbar_summary">Скрива или променя елементи, разположени в лентата с инструменти, като бутони на лентата с инструменти, лента за търсене, заглавия.</string>
     <string name="revanced_preference_screen_toolbar_title">Лента с инструменти</string>
@@ -1127,7 +1156,6 @@ Note:
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито</string>
     <string name="revanced_sanitize_sharing_links_summary">Премахва параметрите на заявката за проследяване от URL адресите при споделяне на връзки.</string>
     <string name="revanced_sanitize_sharing_links_title">Почистване на споделените връзки</string>
     <string name="revanced_sb_about">Относно</string>
@@ -1367,6 +1395,29 @@ Note:
 Това ще промени външния вид и функциите на приложението, но ако по-късно се деактивира, се препоръчва да изчистите данните на приложението, за да избегнете грешки в потребителския интерфейс."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Преоразмерява вашето устройство, за да покже видеоклипове с по-високо качество, които може да не са налични на вашето устройство."</string>
     <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">видео кодекът на iOS е AVC (H.264), VP9, or AV1.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">видео кодекът на iOS е AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Принудително AVC (H.264) за iOS</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.
+
+AVC (H.264) има максимална разделителна способност при 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Липсва менюто за избор на аудио.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Липсва менюто за избор на аудио.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Филми или платени видеоклипове може да не се възпроизвеждат.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Ефекти от замяната</string>
+    <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видеото може да не се възпроизведе.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиентът, използван за получаване на данни за поток, е скрит в Статистика за системни администратори.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Клиентът, използван за получаване на данни за потока, се показва в Статистика за системни администратори.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показване в \"Разширени статистики\"</string>
+    <string name="revanced_spoof_streaming_data_summary_off">"Данните за поточно предаване не са подправени. Възпроизвеждането на видео може да не работи."</string>
+    <string name="revanced_spoof_streaming_data_summary_on">Данните за поточно предаване са подправени.</string>
+    <string name="revanced_spoof_streaming_data_title">Подправяне на поточни данни</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">Клиент по подразбиране</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането на видео.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жестовете за плъзгане са деактивирани в режим „Заключен екран“.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жестовете за плъзгане са активирани в режим „Заключен екран“.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Плъзне в режим Заключен екран</string>
@@ -1390,6 +1441,9 @@ Note:
     <string name="revanced_switch_create_with_notifications_button_title">Разменете бутоните „Създаване“ с „Известия“</string>
     <string name="revanced_theme_default">По подразбиране</string>
     <string name="revanced_watch_history_about_status_blocked">• Хронологията на гледане е блокирана.</string>
+    <string name="revanced_watch_history_about_status_original">"• Следва настройките на хронологията на сърфирането в акаунта ви в Google.
+• Историята на сърфиране може да не работи поради DNS или VPN."</string>
+    <string name="revanced_watch_history_about_status_replaced">• Следва настройките на хронологията на сърфирането в акаунта ви в Google.</string>
     <string name="revanced_watch_history_about_title">Преглед на състоянието на хронологията</string>
     <string name="revanced_watch_history_management_summary">Кликнете, за да отворите управлението на хронологията на гледане в YouTube.</string>
     <string name="revanced_watch_history_management_title">Управление на цялата история</string>

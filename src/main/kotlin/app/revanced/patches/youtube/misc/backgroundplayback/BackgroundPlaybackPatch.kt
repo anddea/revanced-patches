@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -26,6 +27,7 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
     description = "Removes restrictions on background playback, including for music and kids videos.",
     dependencies = setOf(
         PlayerTypeHookPatch::class,
+        VideoInformationPatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,

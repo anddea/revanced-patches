@@ -129,9 +129,7 @@ Tap here to learn more about DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Ambient mode is disabled.</string>
     <string name="revanced_disable_ambient_mode_title">Disable Ambient mode</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Forced auto audio tracks are enabled.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"Forced auto audio tracks are disabled.
-
-Limitation: This setting does not apply to Shorts."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio tracks are disabled.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
     <string name="revanced_disable_auto_captions_summary_off">Forced auto captions are enabled.</string>
     <string name="revanced_disable_auto_captions_summary_on">Forced auto captions are disabled.</string>
@@ -139,9 +137,21 @@ Limitation: This setting does not apply to Shorts."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Auto player popup panels are enabled.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Auto player popup panels are disabled.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Disable player popup panels</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Auto switch mix playlists is enabled when autoplay is turned on.
+
+Autoplay can be changed in YouTube settings:
+Settings → Autoplay → Autoplay next video"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Auto switch mix playlists is disabled.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Disable switch mix playlists</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Enabling this feature will disable automatic switching to YouTube Mix when playing music while autoplay is turned on.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Default playback speed is enabled for live streams.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Default playback speed is disabled for live streams.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disable playback speed for live streams</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Default playback speed is disabled for music.
+
+Limitation: This setting may not apply to videos that do not include the 'Listen on YouTube Music' banner."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Disable playback speed for music</string>
     <string name="revanced_disable_engagement_panel_summary_off">Engagement panel is enabled.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Engagement panel is disabled.</string>
     <string name="revanced_disable_engagement_panel_title">Disable engagement panel</string>
@@ -604,6 +614,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_collapse_button_summary_off">Collapse button is shown.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Collapse button is hidden.</string>
     <string name="revanced_hide_player_collapse_button_title">Hide collapse button</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Ambient mode menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ambient mode menu is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Hide Ambient mode menu</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Audio track menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Audio track menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Hide Audio track menu</string>
@@ -646,6 +659,7 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Report menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Report menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Hide Report menu</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Hide Sleep timer menu</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Stable volume menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Stable volume menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">Hide Stable volume menu</string>
@@ -676,6 +690,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_preview_comment_type_off">This changes the size of the comments section, so it is impossible to open a live chat replay in the comments section.</string>
     <string name="revanced_hide_preview_comment_type_on">This does not change the size of the comments section, so it is possible to open the live chat replay in the comments section.</string>
     <string name="revanced_hide_preview_comment_type_title">Hide preview comment type</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Promotion alert banner is shown.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Promotion alert banner is hidden.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Comments button is shown.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Comments button is hidden.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Hide Comments button</string>
@@ -1028,8 +1045,8 @@ Tap and hold to undo."</string>
     <string name="revanced_overlay_button_whitelist_summary">"Tap to open whitelist dialog.
 Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_overlay_button_whitelist_title">Show whitelist button</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button opens the native in-app downloader.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button opens your external downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">If shown, the native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button is always shown, and in public playlists, it opens your external downloader.</string>
     <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
     <string name="revanced_override_video_download_button_summary_on">Native video download button opens your external downloader.</string>
@@ -1190,7 +1207,6 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
     <string name="revanced_sb_about">About</string>

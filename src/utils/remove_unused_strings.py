@@ -1,5 +1,6 @@
 import os
 from lxml import etree
+from utils import Utils
 
 # Constants for blacklisted and prefixed strings
 BLACKLISTED_STRINGS = (
@@ -12,28 +13,20 @@ PREFIX_TO_IGNORE = (
 )
 
 
-def parse_xml(file_path):
-    """
-    Parse the XML file and extract the values of the 'name' attributes.
-
-    Args:
-        file_path (str): Path to the XML file.
-
-    Returns:
-        list: List of values of 'name' attributes.
-    """
-    tree = etree.parse(file_path)
-    root = tree.getroot()
-
-    # Extract the values of the 'name' attributes
-    name_values = [element.get("name") for element in root.iter() if "name" in element.attrib]
-    return name_values, tree, root
+def get_base_name(name):
+    """Return the base name by stripping '_title' or '_summary' suffix."""
+    if name.endswith("_title"):
+        return name[:-6]
+    elif name.endswith("_summary"):
+        return name[:-8]
+    return name
 
 
 def search_in_files(directories, name_values):
     """
     Search for the values in all files with allowed extensions within the
-    specified directories, excluding 'strings.xml' files.
+    specified directories, excluding 'strings.xml' files. It also checks
+    for the base string by stripping the '_title' and '_summary' suffixes.
 
     Args:
         directories (list): List of directories to search in.
@@ -51,17 +44,15 @@ def search_in_files(directories, name_values):
             # Ignore dot directories and the build directory
             dirs[:] = [d for d in dirs if not d.startswith(".") and d != "build"]
             for file in files:
-                if file in (
-                    "strings.xml",
-                    "missing_strings.xml",
-                ) or not file.endswith(allowed_extensions):
+                if file in ("strings.xml", "missing_strings.xml") or not file.endswith(allowed_extensions):
                     continue
                 file_path = os.path.join(root, file)
                 try:
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read()
                         for name in name_values:
-                            if name in content:
+                            base_name = get_base_name(name)
+                            if name in content or base_name in content:
                                 results[name].append(file_path)
                 except Exception as e:
                     print(f"Error reading {file_path}: {e}")
@@ -72,7 +63,8 @@ def search_in_files(directories, name_values):
 def should_remove(name, unused_names):
     """
     Determine whether a string with the given 'name' attribute should be
-    removed.
+    removed. It checks both the original name and its base form without the
+    '_title' or '_summary' suffix.
 
     Args:
         name (str): The value of the 'name' attribute.
@@ -81,8 +73,9 @@ def should_remove(name, unused_names):
     Returns:
         bool: True if the element should be removed, False otherwise.
     """
+    base_name = get_base_name(name)
     return (
-        name in unused_names
+        (name in unused_names or base_name in unused_names)
         and name not in BLACKLISTED_STRINGS
         and not any(name.startswith(prefix) for prefix in PREFIX_TO_IGNORE)
     )
@@ -135,8 +128,6 @@ def check_translation_files(main_xml_path, translation_files):
             name = element.get("name")
             if name in main_names:
                 strings_dict[name] = element.text
-            else:
-                print(f"Removed '{name}' from {translation_file}")
 
         # Write the sorted strings back to the file
         write_sorted_strings(translation_file, strings_dict)
@@ -181,12 +172,15 @@ def ensure_directory_exists(directory):
 
 
 def main():
-    xml_file_path = "src/main/resources/youtube/settings/host/values/strings.xml"
-    translation_dir = "src/main/resources/youtube/translations"
-    directories_to_search = ["../revanced-patches", "../revanced-integrations"]
+    # Get the directories based on the user selection (YouTube or Music)
+    args = Utils.get_arguments()
+    xml_file_path = args["source_file"]
+    translation_dir = args["destination_directory"]
+
+    directories_to_search = ["../revanced-patches", "../revanced-integrations", "../revanced-temporary-files"]
 
     # Parse the main XML file to get the 'name' attribute values
-    name_values, tree, root = parse_xml(xml_file_path)
+    name_values, _, _ = Utils.parse_xml(xml_file_path)
 
     # Search for the 'name' values in the specified directories
     search_results = search_in_files(directories_to_search, name_values)
