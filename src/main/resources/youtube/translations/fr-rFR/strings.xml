@@ -126,9 +126,7 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Le mode ambiant est désactivé.</string>
     <string name="revanced_disable_ambient_mode_title">Désactiver le Mode ambiant</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Les pistes audio automatiques forcées sont activés.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">Les pistes audio automatiques forcées sont désactivé.
-
-Limitation : Ce paramètre ne s\'applique pas pour les Shorts.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Les pistes audio automatiques forcées sont désactivé.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Désact. les pistes audio forcés</string>
     <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques forcés sont activés.</string>
     <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques forcés sont désactivés.</string>
@@ -136,9 +134,21 @@ Limitation : Ce paramètre ne s\'applique pas pour les Shorts.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Les fenêtres pop-up du lecteur automatique sont activés.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Les fenêtres pop-up du lecteur automatique sont désactivées.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Fenêtres pop-up du lecteur automatique</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Le mélange auto des playlists est activé lorsque la lecture automatique est activé.
+
+La lecture automatique peut être modifiée dans les paramètres de YouTube :
+Paramètres → Lecture automatique → Lecture automatique de la vidéo suivante"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Le mélange auto des playlists est désactivé.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Désactiver le mélange des playlists mix</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Activer cette fonction désactivera le passage automatique à YouTube Mix lors de la lecture de musique lorsque la lecture automatique est activée.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La vitesse de lecture par défaut est activée pour les diffusions en direct.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La vitesse de lecture par défaut est désactivée pour les diffusions en direct.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Desact. vitesse lecture des diffusions en direct</string>
+    <string name="revanced_disable_default_playback_speed_music_off">La vitesse de lecture par défaut est activée pour la musique.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"La vitesse de lecture par défaut est désactivée pour la musique.
+
+Limitation : Ce paramètre peut ne pas s'appliquer aux vidéos qui n'incluent pas la bannière \"Écouter sur YouTube Music\"."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Désactiver la vitesse de lecture pour la musique</string>
     <string name="revanced_disable_engagement_panel_summary_off">La description en plein écran est activée.</string>
     <string name="revanced_disable_engagement_panel_summary_on">La description en plein écran est désactivée.</string>
     <string name="revanced_disable_engagement_panel_title">Désactiver description en plein écran</string>
@@ -598,6 +608,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_player_collapse_button_summary_off">Le bouton \"Réduire\" est affiché.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Le bouton \"Réduire\" est masqué.</string>
     <string name="revanced_hide_player_collapse_button_title">Masquer le bouton \"Réduire\"</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Le menu \"Mode Ambiant\" est affiché.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Le menu \"Mode Ambiant\" est masqué.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Masquer le menu \"Mode Ambiant\"</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Le menu \"Piste audio\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Le menu \"Piste audio\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Masquer le menu \"Piste audio\"</string>
@@ -640,6 +653,8 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Le menu \"Signaler\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Le menu \"Signaler\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Masquer le menu \"Signaler\"</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Le menu \"Délai de mise en veille\" est affiché.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Le menu \"Délai de mise en veille\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Masquer le menu \"Délai de mise en veille\"</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Le menu \"Volume stable\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Le menu \"Volume stable\" est masqué.</string>
@@ -671,6 +686,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_preview_comment_type_off">Cela modifie la taille de la section commentaires, il est donc impossible d\'ouvrir la section \"Rediffusion du chat en direct\" dans la section commentaires.</string>
     <string name="revanced_hide_preview_comment_type_on">Cela ne modifie pas la taille de la section commentaires, il est donc possible d\'ouvrir la section \"Rediffusion du chat en direct\" dans la section commentaires.</string>
     <string name="revanced_hide_preview_comment_type_title">Masquer le type d\'aperçu des commentaires</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">La bannière d\'alerte de promotion est affichée.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">La bannière d\'alerte de promotion est masquée.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Masquer la bannière d\'alerte de promotion</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">La section des commentaires est affichée.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">La section des commentaires est masquée.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Masquer le bouton \"Commentaire\"</string>
@@ -1008,8 +1026,8 @@ Appuyez longuement pour annuler."</string>
     <string name="revanced_overlay_button_whitelist_summary">Appuyez pour ouvrir la liste blanche.
 Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_overlay_button_whitelist_title">Afficher le bouton \"Liste blanche\"</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Le bouton \"Télécharger\" natif de la playlist ouvre votre téléchargeur de l\'appli.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Le bouton \"Télécharger\" natif de la playlist ouvre votre téléchargeur externe.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Si affiché, le bouton \"Télécharger\" natif de la playlist ouvre le téléchargeur natif de l\'appli.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Le bouton de téléchargement natif de la playlist est toujours affiché, tandis que les playlists publiques utilisera votre téléchargeur externe.</string>
     <string name="revanced_override_playlist_download_button_title">Remplacer le bouton de téléchargement de la playlist</string>
     <string name="revanced_override_video_download_button_summary_off">Le bouton \"Télécharger\" natif ouvre le téléchargeur de l\'appli.</string>
     <string name="revanced_override_video_download_button_summary_on">Le bouton \"Télécharger\" natif ouvre votre téléchargeur externe.</string>

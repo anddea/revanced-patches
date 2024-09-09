@@ -147,11 +147,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">실시간 스트림에서 기본 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">실시간 스트림에서 기본 동영상 재생 속도를 비활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_title">실시간 스트림에서 기본 동영상 재생 속도 비활성화하기</string>
-    <string name="revanced_disable_default_playback_speed_music_off">음악에 기본 동영상 재생 속도를 활성화합니다.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"음악에 기본 동영상 재생 속도를 비활성화합니다.
+    <string name="revanced_disable_default_playback_speed_music_off">음악 동영상에서 기본 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"음악 동영상에서 기본 동영상 재생 속도를 비활성화합니다.
 
 알려진 문제점: 이 설정은 'YouTube Music에서 감상하기' 배너가 포함되지 않은 동영상에는 적용되지 않을 수 있습니다."</string>
-    <string name="revanced_disable_default_playback_speed_music_title">음악 재생 속도 비활성화하기</string>
+    <string name="revanced_disable_default_playback_speed_music_title">음악에서 기본 동영상 재생 속도 비활성화하기</string>
     <string name="revanced_disable_engagement_panel_summary_off">참여 패널을 활성화합니다.</string>
     <string name="revanced_disable_engagement_panel_summary_on">참여 패널을 비활성화합니다.</string>
     <string name="revanced_disable_engagement_panel_title">참여 패널 비활성화하기</string>
@@ -226,9 +226,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Shorts에 기본 동영상 재생 속도를 적용하지 않습니다.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Shorts에 기본 동영상 재생 속도를 적용합니다.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts 기본 동영상 재생 속도 활성화하기</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Shorts에서 기본 동영상 재생 속도를 비활성화합니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Shorts에서 기본 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts에서 기본 동영상 재생 속도 활성화하기</string>
     <string name="revanced_enable_external_browser_summary_off">앱 내에서 외부 링크를 열 때, 내부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_summary_on">앱 내에서 외부 링크를 열 때, 외부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_title">외부 브라우저 사용하기</string>
@@ -666,6 +666,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_off">신고 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">신고 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">신고 메뉴 숨기기</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">취침 타이머 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">취침 타이머 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">취침 타이머 메뉴 숨기기</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">안정적인 볼륨 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">안정적인 볼륨 메뉴가 숨겨집니다.</string>
@@ -1456,7 +1458,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대값으로 변경합니다.
 높은 기기 크기 정보가 필요한 일부 동영상에서는 고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받는 경우, 일부 화질 값들이 누락되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들이 누락되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC (H.264)로 활성화합니다.\n\n• \'일부 VP9 코덱 동영상에서 누락되었던 화질 값들\'이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다. 

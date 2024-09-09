@@ -125,9 +125,20 @@
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Изскачащите панели на плейъра са активирани.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Изскачащите панели на плейъра са деактивирани.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Изскачащи прозорци на плейъра</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Автоматичното превключване на миксирани плейлисти е активирано, когато автоматичното пускане е включено.
+Автоматичното пускане може да се промени в настройките на YouTube:
+Настройки → Автоматично пускане → Автоматично пускане на следващия видеоклип"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Автоматичното превключване на миксирани плейлисти е изключено.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Деактивирайте превключването на микс плейлисти</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Активирането на тази функция ще деактивира автоматичното превключване към YouTube Mix при възпроизвеждане на музика, докато автоматичното пускане е включено.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Скоростта на възпроизвеждане по подразбиране е активирана за потоци на живо.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Скоростта на възпроизвеждане по подразбиране е деактивирана за потоци на живо.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Деактивирайте скоростта на възпроизвеждане за потоци на живо</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Скоростта на възпроизвеждане по подразбиране е активирана за музика.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Скоростта на възпроизвеждане по подразбиране не се прилага за музикални видеоклипове
+
+ Тази настройка може да не се прилага за видеоклипове, които не включват функцията „Слушане с YouTube Music“."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Деактивирайте скоростта на възпроизвеждане за музика</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панелът за взаимодействие е активиран.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панелът за взаимодействие е деактивиран.</string>
     <string name="revanced_disable_engagement_panel_title">Панел за взаимодействие</string>
@@ -582,6 +593,9 @@
     <string name="revanced_hide_player_collapse_button_summary_off">Бутон за минимизиране се показва.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Бутон за минимизиране е скрит.</string>
     <string name="revanced_hide_player_collapse_button_title">Бутон за минимизиране</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Менюто за подсветка около видеото се показва.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Менюто за подсветка около видеото е скрито.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Подсветка около видеото</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Менюто “Audio Track” се показва.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Менюто “Audio Track” е скрито.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Меню на аудио</string>
@@ -624,6 +638,8 @@
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Менюто за докладване се показва.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Менюто за докладване е скрито.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Скрий Меню за докладване</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Менюто на таймера за заспиване се показва.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Менюто на таймера за заспиване е скрито.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Скрийте менюто „Изчакване на заспиване“</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Стабилно ниво на звука се показва.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Постоянно ниво на звука е скрито.</string>
@@ -655,6 +671,9 @@
     <string name="revanced_hide_preview_comment_type_off">Това преоразмерява секцията за коментари, така че е невъзможно да се отвори повторението на чата на живо в секцията за коментари.</string>
     <string name="revanced_hide_preview_comment_type_on">Това не променя размера на секцията за коментари, така че е възможно да отворите повторението на чата на живо в секцията за коментари.</string>
     <string name="revanced_hide_preview_comment_type_title">Скриване на типа коментар за визуализация</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Банерът за известия за промоциите се показва.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Банерът за известия за промоциите е скрит.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Скриване на банери с известия за промоция</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Бутона за коментиране се показва.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Бутон за коментари е скрит.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Скриване на бутона за коментари</string>
@@ -1124,7 +1143,7 @@ Note:
 Докоснете и задръжте, за да отворите настройките на RVX."</string>
     <string name="revanced_replace_toolbar_create_button_type_summary_on">"Докоснете, за да отворите настройките на RVX.
 Докоснете и задръжте, за да отворите настройките на YouTube."</string>
-    <string name="revanced_replace_toolbar_create_button_type_title">Action à attribuer au bouton</string>
+    <string name="revanced_replace_toolbar_create_button_type_title">Тип действие за назначаване на бутона</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри.</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>

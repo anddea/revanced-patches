@@ -127,9 +127,7 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_disable_ambient_mode_summary_on">Wyłączone</string>
     <string name="revanced_disable_ambient_mode_title">Oświetlenie kinowe</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Włączone</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone
-
-Ograniczenie: ustawienie nie działa na Shortsy.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Wyłączone</string>
     <string name="revanced_disable_auto_audio_tracks_title">Wymuszone ścieżki dźwiękowe</string>
     <string name="revanced_disable_auto_captions_summary_off">Włączone</string>
     <string name="revanced_disable_auto_captions_summary_on">Wyłączone</string>
@@ -137,15 +135,21 @@ Ograniczenie: ustawienie nie działa na Shortsy.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Ukryte</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Widoczne</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Wyskakujące panele w odtwarzaczu</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Wyłączone</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Włączone, gdy autoodtwarzanie jest włączone.
 
 Autoodtwarzanie może być zmienione w ustawieniach YouTube:
 Ustawienia → Autoodtwarzanie → Autoodtwarzanie następnego filmu"</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">Automatyczne zmienianie playlist mix</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Wyłączone</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Automatyczne przełączanie na playlisty mix</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Włączenie tej funkcji wyłączy automatyczne zmienianie na YouTube Mix, podczas odtwarzania muzyki z włączonym autoodtwarzaniem.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Włączona</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Wyłączona</string>
     <string name="revanced_disable_default_playback_speed_live_title">Domyślna prędkość odtwarzania podczas transmisji na żywo</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Włączona</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Wyłączona
+
+Ograniczenie: To ustawienie może nie działać dla filmów bez baneru 'Słuchaj w YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Domyślna prędkość odtwarzania dla muzyki</string>
     <string name="revanced_disable_engagement_panel_summary_off">Widoczny</string>
     <string name="revanced_disable_engagement_panel_summary_on">Ukryty</string>
     <string name="revanced_disable_engagement_panel_title">Panel zaangażowania</string>
@@ -189,7 +193,6 @@ Ustawienia → Autoodtwarzanie → Autoodtwarzanie następnego filmu"</string>
 Notki:
 • Wyłączenie nakładki prędkości odtwarzania przywraca zachowanie 'Przesuń, by przewinąć' ze starego układu
 • Wyłączenie tego ustawienia nie powoduje wymuszonego włączenia nakładki prędkości odtwarzania"</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Włączenie tej funkcji wyłączy automatyczne zmienianie na YouTube Mix, podczas odtwarzania muzyki z włączonym autoodtwarzaniem.</string>
     <string name="revanced_disable_speed_overlay_title">Wyłącz nakładkę prędkości odtwarzania</string>
     <string name="revanced_disable_splash_animation_summary_off">Włączona</string>
     <string name="revanced_disable_splash_animation_summary_on">Wyłączona</string>
@@ -221,10 +224,6 @@ Efekt uboczny: motyw Cairo powiązany m.in. z paskiem postępu filmu, nakłada s
     <string name="revanced_enable_debug_logging_title">Logi do debugowania</string>
     <string name="revanced_enable_default_playback_speed_shorts_summary_off">Wyłączona</string>
     <string name="revanced_enable_default_playback_speed_shorts_summary_on">Włączona</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Wyłączona
-
-Ograniczenie: To ustawienie może nie działać dla filmów bez baneru 'Słuchaj w YouTube Music'."</string>
-    <string name="revanced_disable_default_playback_speed_music_off">Włączona</string>
     <string name="revanced_enable_default_playback_speed_shorts_title">Domyślna prędkość odtwarzania w Shortsach</string>
     <string name="revanced_enable_external_browser_summary_off">Wyłączona</string>
     <string name="revanced_enable_external_browser_summary_on">Włączona</string>
@@ -658,6 +657,8 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Menu od zgłaszania</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Menu od wyłącznika czasowego</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Ukryte</string>
@@ -1173,7 +1174,6 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Podgląd filmu pojawia się nad paskiem postępu filmów</string>
     <string name="revanced_restore_old_seekbar_thumbnails_title">Stary wygląd podglądu filmów</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Niewidoczne</string>
-    <string name="revanced_disable_default_playback_speed_music_title">Domyślna prędkość odtwarzania dla muzyki</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Widoczne</string>
     <string name="revanced_restore_old_video_quality_menu_title">Stare menu od jakości filmu</string>
     <string name="revanced_ryd_about">O integracji</string>
