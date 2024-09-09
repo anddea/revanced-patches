@@ -4,8 +4,15 @@ from utils import Utils
 
 # Constants for blacklisted and prefixed strings
 BLACKLISTED_STRINGS = (
+    # YouTube
     "revanced_remember_video_quality_mobile",
     "revanced_remember_video_quality_wifi",
+    # YouTube Music
+    "revanced_sb_api_url_sum",
+    "revanced_sb_enabled",
+    "revanced_sb_enabled_sum",
+    "revanced_sb_toast_on_skip",
+    "revanced_sb_toast_on_skip_sum",
 )
 PREFIX_TO_IGNORE = (
     "revanced_icon_",
@@ -19,6 +26,10 @@ def get_base_name(name):
         return name[:-6]
     elif name.endswith("_summary"):
         return name[:-8]
+    elif name.endswith("_summary_off"):
+        return name[:-12]
+    elif name.endswith("_summary_on"):
+        return name[:-11]
     return name
 
 
@@ -51,9 +62,14 @@ def search_in_files(directories, name_values):
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read()
                         for name in name_values:
-                            base_name = get_base_name(name)
-                            if name in content or base_name in content:
+                            # Check if the name exists in the content first
+                            if name in content:
                                 results[name].append(file_path)
+                            else:
+                                # If not, then check the base name
+                                base_name = get_base_name(name)
+                                if base_name in content:
+                                    results[name].append(file_path)
                 except Exception as e:
                     print(f"Error reading {file_path}: {e}")
 
@@ -177,7 +193,7 @@ def main():
     xml_file_path = args["source_file"]
     translation_dir = args["destination_directory"]
 
-    directories_to_search = ["../revanced-patches", "../revanced-integrations", "../revanced-temporary-files"]
+    directories_to_search = ["../revanced-patches", "../revanced-integrations"]
 
     # Parse the main XML file to get the 'name' attribute values
     name_values, _, _ = Utils.parse_xml(xml_file_path)
