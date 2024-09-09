@@ -1,3 +1,12 @@
+# [2.229.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.3...v2.229.0-dev.4) (2024-09-09)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add an option to select a different downloader on long press ([6f47b80](https://github.com/anddea/revanced-patches/commit/6f47b80d89abf9ce4b786a9eb7fa3f8db7257edc))
+* **YouTube Music - Custom branding icon:** Add patch option `RestoreOldSplashIcon` ([e272302](https://github.com/anddea/revanced-patches/commit/e27230246fdf82a35fe035f57a3cc02c16b75664))
+* **YouTube Music:** Rename `Enable Cairo splash animation` to `Disable Cairo splash animation` ([37373c9](https://github.com/anddea/revanced-patches/commit/37373c95f571545e220f125ea8645ade3459e045))
+
 # [2.229.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.2...v2.229.0-dev.3) (2024-09-06)
 
 

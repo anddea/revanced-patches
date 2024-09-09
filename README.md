@@ -88,9 +88,9 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in options.json. | 6.29.58 ~ 7.17.51 |
 | `Custom branding name for YouTube Music` | Renames the YouTube Music app to the name specified in options.json. | 6.29.58 ~ 7.17.51 |
 | `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 6.29.58 ~ 7.17.51 |
+| `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.06.54 ~ 7.17.51 |
 | `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 6.29.58 ~ 7.17.51 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.29.58 ~ 7.17.51 |
-| `Enable Cairo splash animation` | Adds an option to enable Cairo splash animation. | 7.08.54 ~ 7.17.51 |
 | `Enable OPUS codec` | Adds an option to use the OPUS audio codec instead of the MP4A audio codec. | 6.29.58 ~ 7.17.51 |
 | `Enable debug logging` | Adds an option to enable debug logging. | 6.29.58 ~ 7.17.51 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.29.58 ~ 7.17.51 |
