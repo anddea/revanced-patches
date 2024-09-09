@@ -82,7 +82,7 @@ Tocca qui per saperne di più su DeArrow."</string>
     <string name="revanced_change_start_page_entry_courses">Corsi / Istruzione</string>
     <string name="revanced_change_start_page_entry_default">Predefinita</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
-    <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+    <string name="revanced_change_start_page_entry_gaming">Giochi</string>
     <string name="revanced_change_start_page_entry_history">Cronologia</string>
     <string name="revanced_change_start_page_entry_library">Libreria</string>
     <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
@@ -141,9 +141,21 @@ Tocca qui per saperne di più su DeArrow."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">I pannelli popup del riproduttore automatico sono abilitati.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">I pannelli popup del riproduttore automatico sono disabilitati.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Disabilita i pannelli popup del riproduttore</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"L'interruttore automatico delle playlist miste è abilitato quando la riproduzione automatica è attivato.
+
+La riproduzione automatica può essere modificato nelle impostazioni di YouTube:
+Impostazioni → riproduzione automatica→ riproduzione automatica video successivo"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">L\'interruttore automatico delle playlist miste è disabilitato.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Disabilita interruttori delle playlist miste</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Abilitando questa funzionalità si disabiliterà l\'interruttore automatico a YouTube Misto quando si riproduce musica mentre la riproduzione automatica è attivata.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
+    <string name="revanced_disable_default_playback_speed_music_off">La velocità di riproduzione predefinita è abilitata per la musica.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"La velocità di riproduzione predefinita è disabilitata per la musica.
+
+Limitazione: Questa impostazione potrebbe non applicarsi ai video che non includono il banner 'Ascolta su YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Disabilita la velocità di riproduzione per la musica</string>
     <string name="revanced_disable_engagement_panel_summary_off">Il pannello di coinvolgimento è abilitato.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Il pannello di coinvolgimento è disabilitato.</string>
     <string name="revanced_disable_engagement_panel_title">Disabilita pannello di coinvolgimento</string>
@@ -188,7 +200,7 @@ Nota:
 • Disattivando la funzione di sovrimpressione della velocità, si ripristina il comportamento del 'Trascina per scorrere il video' del vecchio layout.
 • Disattivando questa impostazione non si abilita forzatamente la sovrimpressione della velocità."</string>
     <string name="revanced_disable_speed_overlay_title">Disattiva la sovrapposizione della velocità quando tieni premuto</string>
-    <string name="revanced_disable_splash_animation_summary_off">L\'animazione di avvio è abilitata.</string>
+    <string name="revanced_disable_splash_animation_summary_off">L\'animazione di avvio è attivata.</string>
     <string name="revanced_disable_splash_animation_summary_on">L\'animazione di avvio è disabilitata.</string>
     <string name="revanced_disable_splash_animation_title">Disabilita l\'animazione all\'avvio</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disabilita le seguenti interazioni quando la descrizione del video viene espansa:
@@ -578,7 +590,7 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_navigation_shorts_button_title">Nascondi il pulsante Shorts</string>
     <string name="revanced_hide_navigation_subscriptions_button_summary_off">Il pulsante Iscrizioni è visibile.</string>
     <string name="revanced_hide_navigation_subscriptions_button_summary_on">Il pulsante Iscrizioni è nascosto.</string>
-    <string name="revanced_hide_navigation_subscriptions_button_title">Nascondi la pagina Iscrizioni</string>
+    <string name="revanced_hide_navigation_subscriptions_button_title">Nascondi il pulsante Iscrizioni</string>
     <string name="revanced_hide_notify_me_button_summary_off">Il pulsante Avvisami è visibile.</string>
     <string name="revanced_hide_notify_me_button_summary_on">Il pulsante Avvisami è nascosto.</string>
     <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante Avvisami</string>
@@ -600,6 +612,9 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_player_collapse_button_summary_off">Il pulsante Comprimi è mostrato.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Il pulsante Comprimi è nascosto.</string>
     <string name="revanced_hide_player_collapse_button_title">Nascondi il pulsante Comprimi</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Il menu Modalità Ambient è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Il menu Modalità Ambient è nascosto.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menu Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menu Traccia audio è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Il menu Traccia audio è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Nascondi il menu Traccia audio</string>
@@ -642,6 +657,8 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Il menu Segnala è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Il menu Segnala è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Nascondi il menu Segnala</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Il menu del timer del sonno è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Il menu del timer del sonno è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Nascondi il menu Timer del sonno</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Il menu Volume stabile è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Il menu Volume stabile è nascosto.</string>
@@ -673,6 +690,9 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_preview_comment_type_off">Questo cambia la dimensione della sezione Commenti, quindi è impossibile aprire \"Riproduci Chat dal Vivo\".</string>
     <string name="revanced_hide_preview_comment_type_on">Questo non cambia la dimensione della sezione Commenti, quindi è possibile aprire \"Riproduci Chat dal Vivo\".</string>
     <string name="revanced_hide_preview_comment_type_title">Nascondi il tipo di commento di anteprima</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Il banner di avviso promozionale è visibile.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Il banner di avviso promozionale è nascosto.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Nascondi banner di avviso promozionale</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Il pulsante Commenti è mostrato.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Il pulsante Commenti è nascosto.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Nascondi il pulsante Commenti</string>
@@ -1024,12 +1044,12 @@ Tocca e tieni premuto per annullare."</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Tocca per aprire la finestra della whitelist.
 Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostra il pulsante whitelist</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Il pulsante nativo per scaricare una playlist apre lo scaricatore nativo.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Il pulsante nativo per scaricare una playlist apre il tuo scaricatore esterno.</string>
-    <string name="revanced_override_playlist_download_button_title">Sovrascrivi il pulsante per scaricare una playlist</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Se visualizzato, il pulsante nativo di download della playlist apre lo scaricatore nativo.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Il pulsante nativo di download della playlist è sempre visualizzato, e nelle playlist pubbliche, apre il tuo scaricatore esterno.</string>
+    <string name="revanced_override_playlist_download_button_title">Sovrascrivi il pulsante per scaricare le playlist</string>
     <string name="revanced_override_video_download_button_summary_off">Il pulsante nativo per scaricare il video apre lo scaricatore nativo.</string>
     <string name="revanced_override_video_download_button_summary_on">Il pulsante nativo per scaricare il video apre il tuo scaricatore esterno.</string>
-    <string name="revanced_override_video_download_button_title">Sovrascrivi il pulsante di download video</string>
+    <string name="revanced_override_video_download_button_title">Sovrascrivi il pulsante per scaricare i video</string>
     <string name="revanced_patches_excluded">Escluso</string>
     <string name="revanced_patches_included">Incluso</string>
     <string name="revanced_playback_speed_normal">Normale</string>
