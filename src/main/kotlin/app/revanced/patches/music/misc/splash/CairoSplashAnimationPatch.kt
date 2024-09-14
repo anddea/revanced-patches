@@ -19,7 +19,7 @@ import app.revanced.util.literalInstructionBooleanHook
             "com.google.android.apps.youtube.music",
             [
                 "7.06.54",
-                "7.17.51",
+                "7.16.52",
             ]
         )
     ]
