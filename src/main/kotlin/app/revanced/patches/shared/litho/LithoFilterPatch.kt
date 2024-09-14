@@ -5,84 +5,112 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.shared.litho.fingerprints.ByteBufferFingerprint
 import app.revanced.patches.shared.litho.fingerprints.EmptyComponentsFingerprint
-import app.revanced.patches.shared.litho.fingerprints.LithoFilterPatchConstructorFingerprint
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
-import app.revanced.patches.shared.litho.fingerprints.SetByteBufferFingerprint
+import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.io.Closeable
 
 @Suppress("SpellCheckingInspection", "unused")
 object LithoFilterPatch : BytecodePatch(
     setOf(
+        ByteBufferFingerprint,
         EmptyComponentsFingerprint,
-        LithoFilterPatchConstructorFingerprint,
-        SetByteBufferFingerprint
     )
 ), Closeable {
     private const val INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/LithoFilterPatch;"
 
-    private const val INTEGRATIONS_FILER_CLASS_DESCRIPTOR =
-        "$COMPONENTS_PATH/Filter;"
+    private const val INTEGRATIONS_FILER_ARRAY_DESCRIPTOR =
+        "[$COMPONENTS_PATH/Filter;"
+
+    private lateinit var filterArrayMethod: MutableMethod
+    private var filterCount = 0
 
     internal lateinit var addFilter: (String) -> Unit
         private set
 
-    private lateinit var emptyComponentMethod: MutableMethod
-
-    private lateinit var emptyComponentLabel: String
-    private lateinit var emptyComponentMethodName: String
-
-    private lateinit var pathBuilderMethodCall: String
-
-    private var filterCount = 0
-
     override fun execute(context: BytecodeContext) {
 
-        SetByteBufferFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = getTargetIndexOrThrow(Opcode.IF_EQZ) + 1
+        // region Pass the buffer into Integrations.
 
-                addInstruction(
-                    insertIndex,
-                    "invoke-static { p2 }, $INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
-                )
-            }
-        }
+        ByteBufferFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static { p2 }, $INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+        )
 
-        EmptyComponentsFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                // resolves fingerprint.
+        // endregion
+
+        var (emptyComponentMethod, emptyComponentLabel) =
+            EmptyComponentsFingerprint.resultOrThrow().let {
                 PathBuilderFingerprint.resolve(context, it.classDef)
-                emptyComponentMethod = this
-                emptyComponentMethodName = name
+                with(it.mutableMethod) {
+                    val emptyComponentMethodIndex = it.scanResult.patternScanResult!!.startIndex + 1
+                    val emptyComponentMethodReference =
+                        getInstruction<ReferenceInstruction>(emptyComponentMethodIndex).reference
+                    val emptyComponentFieldReference =
+                        getInstruction<ReferenceInstruction>(emptyComponentMethodIndex + 2).reference
 
-                val emptyComponentMethodIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                val emptyComponentMethodReference =
-                    getInstruction<ReferenceInstruction>(emptyComponentMethodIndex).reference
-                val emptyComponentFieldReference =
-                    getInstruction<ReferenceInstruction>(emptyComponentMethodIndex + 2).reference
+                    val label = """
+                        move-object/from16 v0, p1
+                        invoke-static {v0}, $emptyComponentMethodReference
+                        move-result-object v0
+                        iget-object v0, v0, $emptyComponentFieldReference
+                        return-object v0
+                        """
+
+                    Pair(this, label)
+                }
+            }
+
+        fun checkMethodSignatureMatch(pathBuilder: MutableMethod) = emptyComponentMethod.apply {
+            if (!MethodUtil.methodSignaturesMatch(pathBuilder, this)) {
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        val reference = (instruction as? ReferenceInstruction)?.reference
+                        reference is MethodReference &&
+                                MethodUtil.methodSignaturesMatch(pathBuilder, reference)
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach {
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(it + 1).registerA
+                        val insertIndex = it + 2
+
+                        addInstructionsWithLabels(
+                            insertIndex, """
+                                    if-nez v$insertRegister, :ignore
+                                    """ + emptyComponentLabel,
+                            ExternalLabel("ignore", getInstruction(insertIndex))
+                        )
+                    }
 
                 emptyComponentLabel = """
-                    move-object/from16 v0, p1
-                    invoke-static {v0}, $emptyComponentMethodReference
-                    move-result-object v0
-                    iget-object v0, v0, $emptyComponentFieldReference
+                    const/4 v0, 0x0
                     return-object v0
                     """
             }
@@ -90,65 +118,27 @@ object LithoFilterPatch : BytecodePatch(
 
         PathBuilderFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                // If the EmptyComponents Method and the PathBuilder Method are different,
-                // new inject way is required.
-                // TODO: Refactor LithoFilter patch when support for YouTube 18.29.38 ~ 19.17.41 and YT Music 6.29.58 ~ 6.51.53 is dropped.
-                if (emptyComponentMethodName != name) {
-                    // In this case, the access modifier of the method that handles PathBuilder is 'AccessFlags.PRIVATE or AccessFlags.FINAL.
-                    // Methods that handle PathBuilder are invoked by methods that handle EmptyComponents.
-                    // 'pathBuilderMethodCall' is a reference that invokes the PathBuilder Method.
-                    pathBuilderMethodCall = "$definingClass->$name("
-                    for (i in 0 until parameters.size) {
-                        pathBuilderMethodCall += parameterTypes[i]
-                    }
-                    pathBuilderMethodCall += ")$returnType"
+                checkMethodSignatureMatch(this)
 
-                    emptyComponentMethod.apply {
-                        // If the return value of the PathBuilder Method is null,
-                        // it means that pathBuilder has been filtered by the LithoFilterPatch.
-                        // (Refer comments below.)
-                        // Returns emptyComponents.
-                        for (index in implementation!!.instructions.size - 1 downTo 0) {
-                            val instruction = getInstruction(index)
-                            if ((instruction as? ReferenceInstruction)?.reference.toString() != pathBuilderMethodCall)
-                                continue
-
-                            val insertRegister =
-                                getInstruction<OneRegisterInstruction>(index + 1).registerA
-                            val insertIndex = index + 2
-
-                            addInstructionsWithLabels(
-                                insertIndex, """
-                                    if-nez v$insertRegister, :ignore
-                                    """ + emptyComponentLabel,
-                                ExternalLabel("ignore", getInstruction(insertIndex))
-                            )
-                        }
-                    }
-
-                    // If the EmptyComponents Method and the PathBuilder Method are different,
-                    // PathBuilder Method's returnType cannot cast emptyComponents.
-                    // So just returns null value.
-                    emptyComponentLabel = """
-                    const/4 v0, 0x0
-                    return-object v0
-                    """
+                val stringBuilderIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
                 }
-
-                val stringBuilderIndex =
-                    getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/lang/StringBuilder;")
                 val stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
                 val emptyStringIndex = getStringInstructionIndex("")
-
-                val identifierIndex =
-                    getTargetIndexReversedOrThrow(emptyStringIndex, Opcode.IPUT_OBJECT)
-                val identifierRegister =
-                    getInstruction<TwoRegisterInstruction>(identifierIndex).registerA
-
-                val objectIndex = getTargetIndexOrThrow(emptyStringIndex, Opcode.INVOKE_VIRTUAL)
-                val objectRegister = getInstruction<BuilderInstruction35c>(objectIndex).registerC
+                val identifierRegister = getInstruction<TwoRegisterInstruction>(
+                    indexOfFirstInstructionReversedOrThrow(emptyStringIndex) {
+                        opcode == Opcode.IPUT_OBJECT
+                                && getReference<FieldReference>()?.type == "Ljava/lang/String;"
+                    }
+                ).registerA
+                val objectRegister = getInstruction<FiveRegisterInstruction>(
+                    indexOfFirstInstructionOrThrow(emptyStringIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL
+                    }
+                ).registerC
 
                 val insertIndex = stringBuilderIndex + 1
 
@@ -163,29 +153,69 @@ object LithoFilterPatch : BytecodePatch(
             }
         }
 
-        LithoFilterPatchConstructorFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                removeInstructions(0, 6)
+        // Create a new method to get the filter array to avoid register conflicts.
+        // This fixes an issue with Integrations compiled with Android Gradle Plugin 8.3.0+.
+        // https://github.com/ReVanced/revanced-patches/issues/2818
+        val lithoFilterMethods = context.findClass(INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR)
+            ?.mutableClass
+            ?.methods
+            ?: throw PatchException("LithoFilterPatch class not found.")
 
-                addFilter = { classDescriptor ->
-                    addInstructions(
-                        0, """
-                            new-instance v1, $classDescriptor
-                            invoke-direct {v1}, $classDescriptor-><init>()V
-                            const/16 v2, ${filterCount++}
-                            aput-object v1, v0, v2
-                            """
+        lithoFilterMethods
+            .first { it.name == "<clinit>" }
+            .apply {
+                val setArrayIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.SPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == INTEGRATIONS_FILER_ARRAY_DESCRIPTOR
+                }
+                val setArrayRegister =
+                    getInstruction<OneRegisterInstruction>(setArrayIndex).registerA
+                val addedMethodName = "getFilterArray"
+
+                addInstructions(
+                    setArrayIndex, """
+                        invoke-static {}, $INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR->$addedMethodName()$INTEGRATIONS_FILER_ARRAY_DESCRIPTOR
+                        move-result-object v$setArrayRegister
+                        """
+                )
+
+                filterArrayMethod = ImmutableMethod(
+                    definingClass,
+                    addedMethodName,
+                    emptyList(),
+                    INTEGRATIONS_FILER_ARRAY_DESCRIPTOR,
+                    AccessFlags.PRIVATE or AccessFlags.STATIC,
+                    null,
+                    null,
+                    MutableMethodImplementation(3),
+                ).toMutable().apply {
+                    addInstruction(
+                        0,
+                        "return-object v2"
                     )
                 }
+
+                lithoFilterMethods.add(filterArrayMethod)
             }
+
+        addFilter = { classDescriptor ->
+            filterArrayMethod.addInstructions(
+                0,
+                """
+                    new-instance v0, $classDescriptor
+                    invoke-direct {v0}, $classDescriptor-><init>()V
+                    const/16 v1, ${filterCount++}
+                    aput-object v0, v2, v1
+                    """
+            )
         }
     }
 
-    override fun close() = LithoFilterPatchConstructorFingerprint.result!!
-        .mutableMethod.addInstructions(
-            0, """
-                const/16 v0, $filterCount
-                new-array v0, v0, [$INTEGRATIONS_FILER_CLASS_DESCRIPTOR
-                """
-        )
+    override fun close() = filterArrayMethod.addInstructions(
+        0,
+        """
+            const/16 v0, $filterCount
+            new-array v2, v0, $INTEGRATIONS_FILER_ARRAY_DESCRIPTOR
+            """
+    )
 }
