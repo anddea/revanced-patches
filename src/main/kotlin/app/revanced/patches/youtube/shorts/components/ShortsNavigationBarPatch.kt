@@ -49,7 +49,7 @@ object ShortsNavigationBarPatch : BytecodePatch(
             )
         }
 
-        BottomNavigationBarFingerprint.resultOrThrow().let {
+        BottomNavigationBarFingerprint.result?.let {
             it.mutableMethod.apply {
                 val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("findViewById") + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
