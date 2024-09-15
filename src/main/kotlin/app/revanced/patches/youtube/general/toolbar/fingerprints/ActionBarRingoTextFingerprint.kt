@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.general.toolbar.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoTextFingerprint.indexOfStaticInstruction
 import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoTextFingerprint.indexOfStartDelayInstruction
+import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoTextFingerprint.indexOfStaticInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -26,7 +26,7 @@ internal object ActionBarRingoTextFingerprint : MethodFingerprint(
         }
 
     fun indexOfStaticInstruction(methodDef: Method) =
-        methodDef.indexOfFirstInstructionReversed (indexOfStartDelayInstruction(methodDef)) {
+        methodDef.indexOfFirstInstructionReversed(indexOfStartDelayInstruction(methodDef)) {
             val reference = getReference<MethodReference>()
             opcode == Opcode.INVOKE_STATIC &&
                     reference?.parameterTypes?.size == 1 &&

@@ -20,8 +20,9 @@ internal object PlaybackInitializationFingerprint : MethodFingerprint(
         indexOfPlayerResponseModelInstruction(methodDef) >= 0
     }
 ) {
-    fun indexOfPlayerResponseModelInstruction(methodDef: Method) = methodDef.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_DIRECT &&
-                getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-    }
+    fun indexOfPlayerResponseModelInstruction(methodDef: Method) =
+        methodDef.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_DIRECT &&
+                    getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+        }
 }

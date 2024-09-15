@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction

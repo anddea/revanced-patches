@@ -10,8 +10,9 @@ internal object PlayerResponseModelUtils {
     const val PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
         "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
 
-    fun indexOfPlayerResponseModelInstruction(methodDef: Method) = methodDef.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_INTERFACE &&
-                getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-    }
+    fun indexOfPlayerResponseModelInstruction(methodDef: Method) =
+        methodDef.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_INTERFACE &&
+                    getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+        }
 }

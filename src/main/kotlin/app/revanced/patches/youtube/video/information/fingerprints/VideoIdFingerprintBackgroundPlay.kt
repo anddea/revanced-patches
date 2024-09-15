@@ -23,6 +23,7 @@ internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "l" &&
                 classDef.methods.count() == 17 &&
+                methodDef.implementation != null &&
                 indexOfPlayerResponseModelInstruction(methodDef) >= 0
     }
 )

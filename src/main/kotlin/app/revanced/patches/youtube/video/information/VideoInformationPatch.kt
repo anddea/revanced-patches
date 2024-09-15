@@ -274,10 +274,13 @@ object VideoInformationPatch : BytecodePatch(
         /**
          * Set current video information
          */
-        channelIdMethodCall = ChannelIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
-        channelNameMethodCall = ChannelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        channelIdMethodCall =
+            ChannelIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        channelNameMethodCall =
+            ChannelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
         videoIdMethodCall = VideoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
-        videoTitleMethodCall = VideoTitleFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoTitleMethodCall =
+            VideoTitleFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
         videoLengthMethodCall = VideoLengthFingerprint.getPlayerResponseInstruction("J")
         videoIsLiveMethodCall = ChannelIdFingerprint.getPlayerResponseInstruction("Z")
 
