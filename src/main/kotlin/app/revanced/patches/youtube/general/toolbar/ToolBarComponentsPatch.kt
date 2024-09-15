@@ -180,7 +180,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                     "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->setWideSearchBarLayout(Landroid/view/View;)V"
                 )
 
-                val targetIndex = ActionBarRingoBackgroundFingerprint.indexOfStaticInstruction(this) + 1
+                val targetIndex =
+                    ActionBarRingoBackgroundFingerprint.indexOfStaticInstruction(this) + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 injectSearchBarHook(

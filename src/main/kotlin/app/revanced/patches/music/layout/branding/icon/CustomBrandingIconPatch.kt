@@ -231,7 +231,11 @@ object CustomBrandingIconPatch : BaseResourcePatch(
                 if (oldSplashIconNotExists) {
                     splashIconResourceGroups.let { resourceGroups ->
                         resourceGroups.forEach {
-                            context.copyResources("$youtubeMusicIconResourcePath/splash", it, createDirectoryIfNotExist = true)
+                            context.copyResources(
+                                "$youtubeMusicIconResourcePath/splash",
+                                it,
+                                createDirectoryIfNotExist = true
+                            )
                         }
                     }
                 }

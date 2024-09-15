@@ -45,7 +45,7 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.apply {
-            findOpcodeIndicesReversed(Opcode.RETURN).forEach{ index ->
+            findOpcodeIndicesReversed(Opcode.RETURN).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 // Replace to preserve control flow label.
@@ -54,7 +54,8 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
                     "invoke-static { v$register }, $MISC_PATH/BackgroundPlaybackPatch;->allowBackgroundPlayback(Z)Z"
                 )
 
-                addInstructions(index + 1,
+                addInstructions(
+                    index + 1,
                     """
                        move-result v$register
                        return v$register

@@ -32,6 +32,11 @@ abstract class BaseAdsPatch(
         VideoAdsFingerprint
     )
 ) {
+    private companion object {
+        const val INTEGRATIONS_CLASS_DESCRIPTOR =
+            "$PATCHES_PATH/FullscreenAdsPatch;"
+    }
+
     override fun execute(context: BytecodeContext) {
         MusicAdsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -118,10 +123,5 @@ abstract class BaseAdsPatch(
                     """, ExternalLabel("show", getInstruction(0))
             )
         }
-    }
-
-    private companion object {
-        const val INTEGRATIONS_CLASS_DESCRIPTOR =
-            "$PATCHES_PATH/FullscreenAdsPatch;"
     }
 }

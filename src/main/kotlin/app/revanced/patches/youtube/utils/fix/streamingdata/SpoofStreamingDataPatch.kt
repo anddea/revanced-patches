@@ -222,7 +222,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         // region Append spoof info.
 
         NerdsStatsVideoFormatBuilderFingerprint.resultOrThrow().mutableMethod.apply {
-            findOpcodeIndicesReversed(Opcode.RETURN_OBJECT).forEach{ index ->
+            findOpcodeIndicesReversed(Opcode.RETURN_OBJECT).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(

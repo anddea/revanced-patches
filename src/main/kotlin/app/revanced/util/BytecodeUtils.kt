@@ -291,7 +291,10 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionReversed(
+    startIndex: Int? = null,
+    predicate: Instruction.() -> Boolean
+): Int {
     var instructions = this.implementation!!.instructions
     if (startIndex != null) {
         instructions = instructions.take(startIndex + 1)
@@ -308,7 +311,10 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, predicate: I
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
+fun Method.indexOfFirstInstructionReversedOrThrow(
+    startIndex: Int? = null,
+    targetOpcode: Opcode
+): Int =
     indexOfFirstInstructionReversedOrThrow(startIndex) {
         opcode == targetOpcode
     }
@@ -321,7 +327,10 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targe
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionReversedOrThrow(
+    startIndex: Int? = null,
+    predicate: Instruction.() -> Boolean
+): Int {
     val index = indexOfFirstInstructionReversed(startIndex, predicate)
 
     if (index < 0) {
@@ -424,7 +433,8 @@ inline fun <reified T : Reference> Instruction.getReference() =
  * @param predicate The predicate to match.
  * @return The index of the first [Instruction] that matches the predicate.
  */
-fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
+fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
+    indexOfFirstInstruction(0, predicate)
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
