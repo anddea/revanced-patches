@@ -2,7 +2,8 @@ package app.revanced.patches.youtube.general.startpage
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patches.youtube.general.startpage.fingerprints.StartActivityFingerprint
+import app.revanced.patches.youtube.general.startpage.fingerprints.ShortcutsActivityFingerprint
+import app.revanced.patches.youtube.general.startpage.fingerprints.UrlActivityFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -15,16 +16,21 @@ object ChangeStartPagePatch : BaseBytecodePatch(
     description = "Adds an option to set which page the app opens in instead of the homepage.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
-    fingerprints = setOf(StartActivityFingerprint)
+    fingerprints = setOf(
+        ShortcutsActivityFingerprint,
+        UrlActivityFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
-        StartActivityFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static { p1 }, $GENERAL_CLASS_DESCRIPTOR->changeStartPage(Landroid/content/Intent;)V"
-                )
-            }
+
+        mapOf(
+            ShortcutsActivityFingerprint to "changeStartPageToShortcuts",
+            UrlActivityFingerprint to "changeStartPageToUrl"
+        ).forEach { (fingerprint, method) ->
+            fingerprint.resultOrThrow().mutableMethod.addInstruction(
+                0,
+                "invoke-static { p1 }, $GENERAL_CLASS_DESCRIPTOR->$method(Landroid/content/Intent;)V"
+            )
         }
 
         /**
