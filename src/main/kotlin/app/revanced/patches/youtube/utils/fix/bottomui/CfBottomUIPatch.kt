@@ -5,8 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.BottomUIContainerBooleanFingerprint
-import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.BottomUIContainerIntegerFingerprint
 import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonViewStubFingerprint
 import app.revanced.util.getTargetIndexOrThrow
@@ -19,8 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 object CfBottomUIPatch : BytecodePatch(
     setOf(
-        BottomUIContainerBooleanFingerprint,
-        BottomUIContainerIntegerFingerprint,
         FullscreenButtonPositionFingerprint,
         FullscreenButtonViewStubFingerprint
     )
@@ -32,8 +28,6 @@ object CfBottomUIPatch : BytecodePatch(
          * Therefore, this patch only applies to versions that can resolve this fingerprint.
          */
         mapOf(
-            BottomUIContainerBooleanFingerprint to 45637647,
-            BottomUIContainerIntegerFingerprint to 45637647,
             FullscreenButtonViewStubFingerprint to 45617294,
             FullscreenButtonPositionFingerprint to 45627640
         ).forEach { (fingerprint, literalValue) ->
