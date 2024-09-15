@@ -129,7 +129,7 @@ object PlayerTypeHookPatch : BytecodePatch(
         // so this works regardless which layout is used.
         ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
             val instructionIndex =
-                getTargetIndexWithMethodReferenceNameOrThrow("setLayoutDirection")
+                ActionBarSearchResultsFingerprint.indexOfLayoutDirectionInstruction(this)
             val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
             addInstruction(

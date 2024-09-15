@@ -292,7 +292,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
                 addInstructions(
                     insertIndex + 1, """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_AV1_CODEC_CLASS_DESCRIPTOR->replaceCodec(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static/range {v$insertRegister .. v$insertRegister}, $INTEGRATIONS_AV1_CODEC_CLASS_DESCRIPTOR->replaceCodec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$insertRegister
                         """
                 )
