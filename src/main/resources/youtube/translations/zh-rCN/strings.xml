@@ -137,9 +137,21 @@
     <string name="revanced_disable_auto_player_popup_panels_summary_off">已禁用自动播放器弹出面板</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">已启用自动播放器弹出面板</string>
     <string name="revanced_disable_auto_player_popup_panels_title">禁用播放器弹出面板</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"自动播放开启时自动切换混合播放列表
+
+自动播放可以在 YouTube 设置中更改：
+设置 → 自动播放→ 自动播放下一个视频"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自动切换混合播放列表已禁用</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">禁用切换混合播放列表</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">启用此功能将禁止在自动播放音乐时自动切换到 YouTube Mix</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">直播默认播放速度已启用</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">直播默认播放速度已禁用</string>
     <string name="revanced_disable_default_playback_speed_live_title">禁用直播默认播放速度</string>
+    <string name="revanced_disable_default_playback_speed_music_off">音乐默认播放速度已启用</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"音乐默认播放速度已禁用
+
+限制：此设置可能不适用于不包含“监听YouTube Music”广告的视频"</string>
+    <string name="revanced_disable_default_playback_speed_music_title">禁用音乐播放速度</string>
     <string name="revanced_disable_engagement_panel_summary_off">启用互动面板</string>
     <string name="revanced_disable_engagement_panel_summary_on">禁用互动面板</string>
     <string name="revanced_disable_engagement_panel_title">禁用互动面板</string>
@@ -192,6 +204,13 @@
 • 点击滚动
 • 长按选择文本"</string>
     <string name="revanced_disable_video_description_interaction_title">禁用视频描述交互</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 编解码器已启用</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 编解码器已禁用
+
+• 最大分辨率是 1080p
+• 视频播放将使用比 VP9 更多的网络数据
+要获取 HDR 播放，HDR 视频仍使用VP9 编解码器"</string>
+    <string name="revanced_disable_vp9_codec_title">禁用 VP9 编解码器</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo 搜索栏已禁用</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo 搜索栏已启用
 
@@ -430,6 +449,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">扩展面板已显示</string>
     <string name="revanced_hide_expandable_chip_summary_on">扩展面板已隐藏</string>
     <string name="revanced_hide_expandable_chip_title">隐藏视频下方的扩展面板</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">扩展边框已显示</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">扩展边框已隐藏</string>
+    <string name="revanced_hide_expandable_shelf_title">隐藏扩展边框</string>
     <string name="revanced_hide_feed_captions_button_off">显示字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_on">隐藏字幕按钮</string>
     <string name="revanced_hide_feed_captions_button_title">隐藏动态字幕按钮</string>
@@ -453,8 +475,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">”个性化“功能架已显示</string>
     <string name="revanced_hide_for_you_shelf_summary_on">”个性化“功能架已隐藏</string>
     <string name="revanced_hide_for_you_shelf_title">隐藏”个性化“功能架</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">全屏广告已屏蔽(对话类型： %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">全屏广告已关闭</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">全屏广告已显示</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">全屏广告已隐藏</string>
     <string name="revanced_hide_fullscreen_ads_title">隐藏全屏广告</string>
@@ -508,7 +528,6 @@
     <string name="revanced_hide_keyword_content_comments_summary_off">评论关键词过滤器已禁用</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">评论关键词过滤器已启用</string>
     <string name="revanced_hide_keyword_content_comments_title">评论关键词过滤</string>
-    <string name="revanced_hide_keyword_content_full_word_title">匹配完整单词</string>
     <string name="revanced_hide_keyword_content_home_summary_off">首页订阅内容的关键词过滤已禁用</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首页订阅内容的关键词过滤已启用</string>
     <string name="revanced_hide_keyword_content_home_title">启用首页关键词过滤器</string>
@@ -597,6 +616,9 @@
     <string name="revanced_hide_player_collapse_button_summary_off">折叠按钮已显示</string>
     <string name="revanced_hide_player_collapse_button_summary_on">折叠按钮已隐藏</string>
     <string name="revanced_hide_player_collapse_button_title">隐藏折叠按钮</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">氛围模式菜单已显示</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">氛围模式菜单已隐藏</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">隐藏氛围模式菜单</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">音轨菜单已显示</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">音轨菜单已隐藏</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">隐藏音轨菜单</string>
@@ -672,6 +694,9 @@
     <string name="revanced_hide_preview_comment_type_off">这会改变评论区的大小，因此无法在评论区打开即时聊天回放</string>
     <string name="revanced_hide_preview_comment_type_on">这不会改变评论区的大小，因此可以在评论区打开即时聊天回放</string>
     <string name="revanced_hide_preview_comment_type_title">预览评论类型</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">推广横幅广告已显示</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">推广横幅广告已隐藏</string>
+    <string name="revanced_hide_promotion_alert_banner_title">隐藏推广横幅广告</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">评论按钮已显示</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">评论按钮已隐藏</string>
     <string name="revanced_hide_quick_actions_comment_button_title">隐藏评论按钮</string>
@@ -1347,6 +1372,7 @@ Note:
     <string name="revanced_sb_stats_self_saved_reset_title">重置跳过的段视频计数器？</string>
     <string name="revanced_sb_stats_self_saved_sum">那是 &lt;b&gt;%s&lt;/b&gt;。</string>
     <string name="revanced_sb_stats_submissions">你已经创建了 &lt;b&gt;%s&lt;/b&gt; 段视频</string>
+    <string name="revanced_sb_stats_submissions_sum">点击此处查看您的片段</string>
     <string name="revanced_sb_stats_username">你的用户名：&lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">点击这里更改你的用户名</string>
     <string name="revanced_sb_stats_username_change_unknown_error">无法更改用户名：状态：%1$d %2$s。</string>
@@ -1436,7 +1462,7 @@ Note:
 AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV1 更多的网路数据"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• 音轨菜单缺失</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• 音轨菜单缺失</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 电影或付费视频可能无法播放</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 电影或付费视频可能无法播放"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">伪装副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 视频可能无法播放</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用于获取流媒体数据的客户端已在统计信息中隐藏</string>
@@ -1471,7 +1497,16 @@ AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV
 • 更改此设置，可能需要重新启动设备才能生效
 • 禁用此设置会从服务器端加载更多广告
 • 你应该禁用此设置以显示视频广告"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">创建按钮未替换为通知按钮</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"创建按钮替换为通知按钮
+
+注意：启用此选项也强制隐藏视频广告"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交换创建和通知按钮</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"禁用此功能可能会从服务器加载更多广告
+
+此外，Shorts 中的广告将不再被屏蔽
+
+如果此设置未生效，请尝试切换到隐身模式"</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_watch_history_about_status_blocked">• 历史记录不可用</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循谷歌帐户的观看历史设置

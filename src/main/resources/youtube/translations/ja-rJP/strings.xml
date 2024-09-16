@@ -203,6 +203,19 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 • タップしてスクロールする。
 • タップしたままテキストを選択する。"</string>
     <string name="revanced_disable_video_description_interaction_title">概要欄の操作を無効化</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 コーデックを無効化します。
+
+注意: \n
+• 最大解像度は 1080p です。
+• 動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。
+• HDR 再生を可能にするために、HDR 動画では引き続き VP9 コーデックが使用されます。</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 コーデックを無効化します。
+
+注意: 
+• 最大解像度は 1080p です。
+• 動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。
+• HDR 再生を可能にするために、HDR 動画では引き続き VP9 コーデックが使用されます。"</string>
+    <string name="revanced_disable_vp9_codec_title">VP9 コーデックを無効化</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo シークバー (シークバーの色が動画に応じて変更される機能) を有効化します。\n\n注意: 通知ドットにも Cairo テーマが適用されるという副作用があります。</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo シークバー (シークバーの色が動画に応じて変更される機能) を有効化します。
 
@@ -242,8 +255,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_enable_opus_codec_title">OPUS コーデックを有効化</string>
     <string name="revanced_enable_phone_layout_summary">スマートフォン用レイアウトの一部を使用できるように、dpi を偽装します。</string>
     <string name="revanced_enable_phone_layout_title">スマートフォン用のレイアウトを有効化</string>
-    <string name="revanced_enable_save_and_restore_brightness_summary_off">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
-    <string name="revanced_enable_save_and_restore_brightness_summary_on">全画面表示を終了/開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_off">全画面表示を終了 / 開始した際に明るさを保存/復元します。</string>
+    <string name="revanced_enable_save_and_restore_brightness_summary_on">全画面表示を終了 / 開始した際に明るさを保存/復元します。</string>
     <string name="revanced_enable_save_and_restore_brightness_title">明るさの保存と復元を有効化</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効化します。</string>
@@ -327,10 +340,10 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">プレイリストの外部ダウンローダーのパッケージ名</string>
-    <string name="revanced_external_downloader_package_name_video_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
-    <string name="revanced_external_downloader_package_name_video_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">長押し時に使用する NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">長押し時の外部ダウンローダのパッケージ名</string>
+    <string name="revanced_external_downloader_package_name_video_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
+    <string name="revanced_external_downloader_package_name_video_title">外部ダウンローダーのパッケージ名</string>
     <string name="revanced_force_fullscreen_summary">"以下の状況で全画面に切り替わります: 
 
 • コメントのタイムスタンプをタップしたとき
@@ -446,6 +459,9 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_expandable_chip_summary_off">検索結果の動画の下に表示される、展開可能なチップを非表示にします。</string>
     <string name="revanced_hide_expandable_chip_summary_on">検索結果の動画の下に表示される、展開可能なチップを非表示にします。</string>
     <string name="revanced_hide_expandable_chip_title">展開可能なチップを非表示</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">検索結果に表示される、展開可能な棚を非表示にします。</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">検索結果に表示される、展開可能な棚を非表示にします。</string>
+    <string name="revanced_hide_expandable_shelf_title">展開可能な棚を非表示</string>
     <string name="revanced_hide_feed_captions_button_off">フィードで字幕ボタンを非表示にします。</string>
     <string name="revanced_hide_feed_captions_button_on">フィードで字幕ボタンを非表示にします。</string>
     <string name="revanced_hide_feed_captions_button_title">字幕ボタンを非表示</string>
@@ -469,8 +485,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_for_you_shelf_summary_off">おすすめ欄を非表示にします。</string>
     <string name="revanced_hide_for_you_shelf_summary_on">おすすめ欄を非表示にします。</string>
     <string name="revanced_hide_for_you_shelf_title">おすすめ欄を非表示</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">全画面広告をブロックしました。(ダイアログの種類: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">全画面広告を閉じました。</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">アプリ起動時に表示される全画面広告を非表示にします。</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">アプリ起動時に表示される全画面広告を非表示にします。</string>
     <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
@@ -523,7 +537,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_keyword_content_comments_summary_off">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">キーワードでコメントをフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_comments_title">コメントをフィルタリング</string>
-    <string name="revanced_hide_keyword_content_full_word_title">完全単語一致</string>
     <string name="revanced_hide_keyword_content_home_summary_off">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_summary_on">キーワードでホームフィード内の動画をフィルタリングします。</string>
     <string name="revanced_hide_keyword_content_home_title">ホームフィードをフィルタリング</string>
@@ -823,8 +836,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中に表示されるオーバーレイボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイボタンを非表示</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">再生/一時停止ボタンの背景を非表示にします。</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">再生/一時停止ボタンの背景を非表示にします。</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">再生 / 一時停止ボタンの背景を非表示にします。</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">再生 / 一時停止ボタンの背景を非表示にします。</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">ボタンの背景を非表示</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">「リミックス」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">「リミックス」ボタンを非表示にします。</string>
@@ -1049,7 +1062,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_playback_speed_normal">通常</string>
     <string name="revanced_preference_category_action_buttons">プレーヤー下部(共有、クリップなど)のボタン</string>
     <string name="revanced_preference_category_additional_settings">その他の設定</string>
-    <string name="revanced_preference_category_animation_feedback">アニメーション/フィードバック</string>
+    <string name="revanced_preference_category_animation_feedback">アニメーション / フィードバック</string>
     <string name="revanced_preference_category_duration_filter">再生時間フィルター</string>
     <string name="revanced_preference_category_experimental_flag">実験的な機能</string>
     <string name="revanced_preference_category_image_region_restrictions">画像表示の地域制限</string>
@@ -1365,6 +1378,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
     <string name="revanced_sb_stats_self_saved_reset_title">スキップしたセグメントの回数をリセットしますか？</string>
     <string name="revanced_sb_stats_self_saved_sum">合計 &lt;b&gt;%s&lt;/b&gt; です。</string>
     <string name="revanced_sb_stats_submissions">今までに &lt;b&gt;%s&lt;/b&gt; 個のセグメントを作成しました。</string>
+    <string name="revanced_sb_stats_submissions_sum">セグメントを表示するにはここをタップしてください。</string>
     <string name="revanced_sb_stats_username">あなたのユーザー名: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">ここをタップしてユーザー名を変更</string>
     <string name="revanced_sb_stats_username_change_unknown_error">ユーザー名を変更できませんでした。 ステータス: %1$d %2$s</string>
@@ -1455,7 +1469,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 注意: \n・AVC コーデック (H.264) の最大解像度は 1080p です。\n・動画の再生には VP9 や AV1 よりも多くの通信量を消費します。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">・「音声トラック」メニューは表示されません。</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">・「音声トラック」メニューは表示されません。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 映画や有料動画は再生できない場合があります。</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 映画や有料動画は再生できない場合があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">ストリーミングデータを偽装することによる副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 動画が再生できない可能性があります。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に偽装したストリーミングデータを表示します。</string>
@@ -1489,7 +1503,16 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 • この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
 • この設定を無効にすると、サーバーからさらに多くの広告が読み込まれます。
 • 動画広告を表示するには、この設定を無効にする必要があります。"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">「作成」ボタンと「通知」ボタンを入れ替えます。\n\n注意: これを有効にすると、動画広告が強制的に非表示になります。</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"「作成」ボタンと「通知」ボタンを入れ替えます。
+
+注意: これを有効にすると、動画広告が強制的に非表示になります。"</string>
     <string name="revanced_switch_create_with_notifications_button_title">「作成」を「通知」と入れ替え</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"これを無効にすると、サーバーからさらに多くの広告が読み込まれる可能性があります。
+
+また、ショートで広告がブロックされなくなります。
+
+この設定が有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
     <string name="revanced_theme_default">オリジナル</string>
     <string name="revanced_watch_history_about_status_blocked">• 再生履歴をブロックします。</string>
     <string name="revanced_watch_history_about_status_original">"• Google アカウントの再生履歴の設定に従います。
