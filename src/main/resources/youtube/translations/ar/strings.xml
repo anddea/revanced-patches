@@ -201,6 +201,13 @@
 • انقر للتمرير.
 • انقر مع الاستمرار لتحديد النص."</string>
     <string name="revanced_disable_video_description_interaction_title">تعطيل تفاعل وصف الفيديو</string>
+    <string name="revanced_disable_vp9_codec_summary_off">تم تمكين ترميز VP9.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"تم تعطيل برنامج ترميز VP9.
+
+• الحد الأقصى للدقة هو 1080P.
+• سيستهلك تشغيل الفيديو بيانات إنترنت أكثر من VP9.
+• للحصول على تشغيل HDR، لا يزال فيديو HDR يستخدم برنامج ترميز VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">تعطيل ترميز VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">تم تعطيل شريط تقدم Cairo.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"تم تمكين شريط تقدم Cairo.
 
@@ -299,7 +306,7 @@
     <string name="revanced_expand_video_description_title">توسيع وصف الفيديو</string>
     <string name="revanced_extended_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
     <string name="revanced_extended_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل طبيعي</string>
-    <string name="revanced_extended_restart_message">تحديث و إعادة تشغيل</string>
+    <string name="revanced_extended_restart_message">تحديث وإعادة تشغيل</string>
     <string name="revanced_extended_settings_export_failed">فشل تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_export_summary">تصدير الإعدادات إلى ملف.</string>
@@ -439,6 +446,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسع تحت مقاطع الفيديو</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">يتم عرض الرفوف القابلة للتوسع.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">تم إخفاء الرفوف القابلة للتوسع.</string>
+    <string name="revanced_hide_expandable_shelf_title">إخفاء الرفوف القابلة للتوسع</string>
     <string name="revanced_hide_feed_captions_button_off">يتم عرض زر التَرْجَمَة.</string>
     <string name="revanced_hide_feed_captions_button_on">تم إخفاء زر التَرْجَمَة.</string>
     <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة في الموجز</string>
@@ -462,8 +472,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">يتم عرض رف لـك.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">تم إخفاء رف لـك.</string>
     <string name="revanced_hide_for_you_shelf_title">إخفاء رف لـك</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">تم حظر الإعلانات بملء الشاشة. (نوع الحوار: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">تم إغلاق الإعلانات بملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">تم إخفاء إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
@@ -1352,6 +1360,7 @@
     <string name="revanced_sb_stats_self_saved_reset_title">إعادة تعيين عداد المقاطع التي تم تخطيها؟</string>
     <string name="revanced_sb_stats_self_saved_sum">هذا يساوي &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">لقد أنشأت &lt;b&gt;%s&lt;/b&gt; مقطع</string>
+    <string name="revanced_sb_stats_submissions_sum">اضغط هنا لعرض المقاطع الخاصة بك.</string>
     <string name="revanced_sb_stats_username">اسم المستخدم الخاص بك: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">انقر هنا لتغيير إسم المستخدم الخاص بك</string>
     <string name="revanced_sb_stats_username_change_unknown_error">غير قادر على تغيير اسم المستخدم: الحالة: %1$d %2$s.</string>
@@ -1442,7 +1451,8 @@
 يتمتع تنسيق AVC (H.264) بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو بيانات إنترنت اكثر من VP9 أو AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• قائمة المقطع الصوتي مفقودة.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• قائمة المقطع الصوتي مفقودة.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
+• يبدأ البث المباشر من البداية."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• قد لا يتم تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>
@@ -1485,7 +1495,16 @@
 • قد يحتاج الجهاز إلى إعادة التشغيل حتى يسري تغيير هذا الإعداد.
 • يؤدي تعطيل هذا الإعداد إلى تحميل المزيد من الإعلانات من جانب الخادم.
 • يجب عليك تعطيل هذا الإعداد لجعل إعلانات الفيديو مرئية."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">لا يتم تبديل زر الإنشاء بزر الإشعارات.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"تم تبديل زر الإنشاء بـزر الإشعارات.
+
+ملاحظة: يؤدي تمكين هذا أيضًا إلى إخفاء إعلانات الفيديو بالقوة."</string>
     <string name="revanced_switch_create_with_notifications_button_title">تبديل أزرار الإنشاء و الإشعارات</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"قد يؤدي تعطيل هذا إلى تحميل المزيد من الإعلانات من الخادم.
+
+كما لن يتم حظر الإعلانات في فيديوهات Shorts بعد الآن.
+
+إذا لم يتم تفعيل هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي."</string>
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة محظور.</string>
     <string name="revanced_watch_history_about_status_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.

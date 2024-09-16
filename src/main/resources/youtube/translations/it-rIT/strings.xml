@@ -61,7 +61,7 @@ Tocca qui per saperne di più su DeArrow."</string>
     <string name="revanced_append_time_stamp_information_type_title">Il tipo di informazione</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">La modalità Ambient in modalità risparmio energetico è disattivata</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">La modalità Ambient in modalità risparmio energetico è attivata</string>
-    <string name="revanced_bypass_ambient_mode_restrictions_title">Bypassa le restrizioni della modalità Ambient</string>
+    <string name="revanced_bypass_ambient_mode_restrictions_title">Ignora le restrizioni della modalità Ambient</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">Il dominio da cui prelevare le immagini.\nNota: Inserisce solo il nome di dominio, cioè senza il prefisso \"https\:\/\/\".</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Dominio alternativo</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Usando l\'host originale per le immagini.\n\nAbilitando questo si possono correggere le immagini mancanti che sono bloccate in alcune regioni.</string>
@@ -141,13 +141,13 @@ Tocca qui per saperne di più su DeArrow."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">I pannelli popup del riproduttore automatico sono abilitati.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">I pannelli popup del riproduttore automatico sono disabilitati.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Disabilita i pannelli popup del riproduttore</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"L'interruttore automatico delle playlist miste è abilitato quando la riproduzione automatica è attivato.
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"L'interruttore automatico delle playlist miste è abilitato quando la riproduzione automatica è attivata.
 
-La riproduzione automatica può essere modificato nelle impostazioni di YouTube:
-Impostazioni → riproduzione automatica→ riproduzione automatica video successivo"</string>
+La riproduzione automatica può essere modificata nelle impostazioni di YouTube:
+Impostazioni → Riproduzione automatica→ Riproduci automatic. video successivo"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">L\'interruttore automatico delle playlist miste è disabilitato.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Disabilita interruttori delle playlist miste</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Abilitando questa funzionalità si disabiliterà l\'interruttore automatico a YouTube Misto quando si riproduce musica mentre la riproduzione automatica è attivata.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">L\'attivazione di questa funzione disabilita il passaggio automatico a YouTube Mix durante la riproduzione di musica con la riproduzione automatica attiva.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video dal vivo è attivata</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video dal vivo è disattivata</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video dal vivo</string>
@@ -208,6 +208,13 @@ Nota:
 • Tocca per scorrere.
 • Tocca e tieni premuto per selezionare il testo."</string>
     <string name="revanced_disable_video_description_interaction_title">Disabilita l\'interazione della descrizione video</string>
+    <string name="revanced_disable_vp9_codec_summary_off">Codec VP9 è abilitato.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"Il codec VP9 è disabilitato.
+
+• La risoluzione massima è 1080p.
+• La riproduzione video utilizzerà più dati internet di VP9.
+• Per ottenere la riproduzione HDR, il video HDR utilizza ancora il codec VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">Disabilita codec VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">La barra di avanzamento Cairo e disabilitata.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"La barra di avanzamento Cairo è abilitata.
 
@@ -445,6 +452,9 @@ Negozio"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Il chip espandibile è visibile.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Il chip espandibile è nascosto.</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi il chip espandibile sotto i video</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Gli scaffali espandibili sono mostrati.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Gli scaffali espandibili sono nascosti.</string>
+    <string name="revanced_hide_expandable_shelf_title">Nascondi scaffali espandibili</string>
     <string name="revanced_hide_feed_captions_button_off">Il pulsante Sottotitoli è mostrato.</string>
     <string name="revanced_hide_feed_captions_button_on">Il pulsante Sottotitoli è nascosto.</string>
     <string name="revanced_hide_feed_captions_button_title">Nascondi il pulsante dei sottotitoli nel feed</string>
@@ -468,8 +478,6 @@ Negozio"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">La sezione Per Te è visibile.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">La sezione Per Te è nascosta.</string>
     <string name="revanced_hide_for_you_shelf_title">Nascondi la sezione Per Te</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Gli annunci a schermo intero sono stati bloccati. (DialogType: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Gli annunci a schermo intero sono stati chiusi.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Gli annunci a schermo intero sono visibili.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Gli annunci a schermo intero sono nascosti.</string>
     <string name="revanced_hide_fullscreen_ads_title">Nascondi gli annunci a schermo intero</string>
@@ -518,12 +526,11 @@ Limitazioni:
 - Alcuni componenti della interfaccia utente potrebbero non essere nascosti.
 - La ricerca di una parola chiave potrebbe non mostrare alcun risultato."</string>
     <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro per parole chiave</string>
-    <string name="revanced_hide_keyword_content_about_whole_words_summary">Circondare una parola chiave/frase con doppie virgolette impedirà partite parziali di titoli video e nomi di canale.&lt;br&gt;&lt;br&gt;Ad esempio,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; nasconderà il video: &lt;b&gt;Come funziona l\'intelligenza artificiale?&lt;/b&gt;&lt;br&gt;ma non si nasconde: &lt;b&gt;Cosa significa un uso equo?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Circondando una parola/frase chiave con doppi apici si impedirà corrispondenze parziali di titoli di video e nomi di canali.&lt;br&gt;&lt;br&gt;Ad esempio,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; nasconderà il video: &lt;b&gt;Come funziona la IA?&lt;/b&gt;&lt;br&gt;ma non nasconderà: &lt;b&gt;Cosa significa imparzialità?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">Abbina parole intere</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">I commenti non sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">I commenti sono filtrati.</string>
     <string name="revanced_hide_keyword_content_comments_title">Nascondi commenti per parole chiave</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Ricerca la parola completa</string>
     <string name="revanced_hide_keyword_content_home_summary_off">I video della scheda Home non sono filtrati per parole chiave.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">I video della scheda Home sono filtrati tramite parole chiave.</string>
     <string name="revanced_hide_keyword_content_home_title">Nascondi i video della scheda Home per parole chiave</string>
@@ -612,7 +619,7 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_player_collapse_button_summary_off">Il pulsante Comprimi è mostrato.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Il pulsante Comprimi è nascosto.</string>
     <string name="revanced_hide_player_collapse_button_title">Nascondi il pulsante Comprimi</string>
-    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Il menu Modalità Ambient è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Il menu Modalità Ambient è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Il menu Modalità Ambient è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Nascondi il menu Modalità Ambient</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Il menu Traccia audio è visibile.</string>
@@ -657,13 +664,13 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Il menu Segnala è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Il menu Segnala è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Nascondi il menu Segnala</string>
-    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Il menu del timer del sonno è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Il menu del timer del sonno è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Il menu del timer del sonno è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Nascondi il menu Timer del sonno</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Il menu Volume stabile è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Il menu Volume stabile è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">Nascondi il menu Volume stabile</string>
-    <string name="revanced_hide_player_flyout_menu_stats_for_nerds_summary_off">Il menu Statistiche per Nerd è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_stats_for_nerds_summary_off">Il menu Statistiche per Nerd è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_stats_for_nerds_summary_on">Il menu Statistiche per Nerd è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_stats_for_nerds_title">Nascondi il menu Statistiche per Nerd</string>
     <string name="revanced_hide_player_flyout_menu_watch_in_vr_summary_off">Il menu Guarda in VR è mostrato.</string>
@@ -926,7 +933,7 @@ Impostazioni → Riproduzione automatica → Riproduzione automatica del video s
     <string name="revanced_hide_timed_reactions_summary_off">Le reazioni temporizzate sono visibili</string>
     <string name="revanced_hide_timed_reactions_summary_on">Le reazioni temporizzate sono nascoste</string>
     <string name="revanced_hide_timed_reactions_title">Nascondi le reazioni temporizzate</string>
-    <string name="revanced_hide_toolbar_cast_button_summary_off">Il pulsante Trasmetti è mostrato.</string>
+    <string name="revanced_hide_toolbar_cast_button_summary_off">Il pulsante Trasmetti è visibile.</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">Il pulsante Trasmetti è nascosto.</string>
     <string name="revanced_hide_toolbar_cast_button_title">Nascondi il pulsante Trasmetti</string>
     <string name="revanced_hide_toolbar_create_button_summary_off">Il pulsante Crea è visibile.</string>
@@ -1371,6 +1378,7 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_sb_stats_self_saved_reset_title">Ripristinare il contatore dei segmenti saltati?</string>
     <string name="revanced_sb_stats_self_saved_sum">È &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">Hai creato &lt;b&gt;%s&lt;/b&gt; segmenti</string>
+    <string name="revanced_sb_stats_submissions_sum">Tocca qui per vedere i tuoi segmenti.</string>
     <string name="revanced_sb_stats_username">Il tuo nome utente: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tocca qui per cambiare il tuo nome utente</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Impossibile modificare il nome utente: Stato: %1$d %2$s.</string>
@@ -1462,7 +1470,7 @@ Se disattivata in seguito, si consiglia di cancellare i dati dell'app per evitar
 AVC (H. 264) ha una risoluzione massima di 1080p e la riproduzione video utilizzerà più dati internet rispetto a VP9 o AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• il menu traccia audio è mancante.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• il menu traccia audio è mancante.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• I film o i video a pagamento potrebbero non essere riprodotti.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• I film o i video a pagamento potrebbero non essere riprodotti."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client utilizzato per recuperare i dati di streaming è nascosto nelle statistiche per nerd.</string>
@@ -1497,7 +1505,16 @@ AVC (H. 264) ha una risoluzione massima di 1080p e la riproduzione video utilizz
 • Potrebbe essere necessario riavviare il dispositivo per rendere effettiva la modifica di questa impostazione.
 • Disabilitare questa impostazione carica più annunci dal lato server.
 • Dovresti disabilitare questa impostazione per rendere visibili gli annunci nei video."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Il pulsante Crea non è scambiato con il pulsante Notifiche.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"Il pulsante Crea è scambiato con il pulsante Notifiche.
+
+Nota: Abilitando questo nasconde forzatamente anche gli annunci video."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Scambia il pulsante Crea con il pulsante notifiche</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Disabilitare questo potrebbe caricare più annunci dal server.
+
+Inoltre, gli annunci non saranno più bloccati negli Shorts.
+
+Se questa impostazione non ha effetto, prova a passare alla modalità Incognito."</string>
     <string name="revanced_theme_default">Inventario</string>
     <string name="revanced_watch_history_about_status_blocked">• La cronologia non funziona.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue le impostazioni di cronologia dell'account Google.

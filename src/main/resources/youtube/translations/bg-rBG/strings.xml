@@ -191,6 +191,12 @@
 • Докоснете за превъртане.
 • Натиснете продължително, за да изберете текст."</string>
     <string name="revanced_disable_video_description_interaction_title">Деактивирайте взаимодействието с описание на видеоклипа</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 кодек е включен.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"Кодек VP9 е деактивиран.
+• Максималната разделителна способност е 1080p.
+• Възпроизвеждането на видео ще използва повече интернет данни от VP9.
+• За да получите възпроизвеждане на HDR, HDR видеото все още използва кодека VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">Деактивирайте кодека VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Темата Кайро в лентата за напредък е деактивирана.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Лентата за прогрес на тема Кайро е активирана. 
 Страничен ефект: 
@@ -429,6 +435,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">Показват се.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Падащите менюта са скрити.</string>
     <string name="revanced_hide_expandable_chip_title">Скриване на показващи се раздели под видеоклипове</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Показват се разширяеми секции.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Разширяващите се секции са скрити.</string>
+    <string name="revanced_hide_expandable_shelf_title">Разширяеми секции</string>
     <string name="revanced_hide_feed_captions_button_off">Бутона за субтити се показва.</string>
     <string name="revanced_hide_feed_captions_button_on">Бутона за субтити е скрит.</string>
     <string name="revanced_hide_feed_captions_button_title">Бутон за субтити</string>
@@ -452,8 +461,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">Секцията \'За Вас\' се показва.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">Секцията \'За Вас\' е скрита.</string>
     <string name="revanced_hide_for_you_shelf_title">Скриване на секцията \'За Вас\'</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Рекламите на цял екран са блокирани. (Тип на диалоговия прозорец: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Рекламите на цял екран са затворени.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Рекламите в режим на цял екран са показани.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Рекламите в режим на цял екран са скрити.</string>
     <string name="revanced_hide_fullscreen_ads_title">Скриване на рекламите в режим на цял екран</string>
@@ -1335,6 +1342,7 @@ Note:
     <string name="revanced_sb_stats_self_saved_reset_title">Нулиране на брояча на пропуснати части?</string>
     <string name="revanced_sb_stats_self_saved_sum">Това е &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">Създадохте &lt;b&gt;%s&lt;/b&gt; части</string>
+    <string name="revanced_sb_stats_submissions_sum">Докоснете тук, за да видите вашите сегменти.</string>
     <string name="revanced_sb_stats_username">Вашето потр. име: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Докоснете за промяна потребителското име</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Не може да се промени потреб. име: Състояние: %1$d%2$s.</string>
@@ -1422,7 +1430,7 @@ Note:
 AVC (H.264) има максимална разделителна способност при 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Липсва менюто за избор на аудио.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Липсва менюто за избор на аудио.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Филми или платени видеоклипове може да не се възпроизвеждат.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Филми или платени видеоклипове може да не се възпроизвеждат."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Ефекти от замяната</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видеото може да не се възпроизведе.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиентът, използван за получаване на данни за поток, е скрит в Статистика за системни администратори.</string>
@@ -1457,7 +1465,16 @@ AVC (H.264) има максимална разделителна способн�
 • Може да се наложи устройството да се рестартира, за да влезе в сила промяната на тази настройка.
 • Деактивирането на тази настройка зарежда повече реклами от страната на сървъра.
 • Трябва да деактивирате тази настройка, за да направите видео рекламите видими."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Бутоните \"Създаване\" и \"Известия\" не са разменени.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"Бутонът за създаване се заменя с бутона за известия
+
+Забележка: Активирането на тази опция също скрива видеореклами."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Разменете бутоните „Създаване“ с „Известия“</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Деактивирането на тази настройка може да доведе до зареждане на повече реклами от сървъра.
+
+ Освен това рекламите може да се показват в Shorts.
+
+Ако деактивирането не влезе в сила, опитайте да превключите към режим „инкогнито“."</string>
     <string name="revanced_theme_default">По подразбиране</string>
     <string name="revanced_watch_history_about_status_blocked">• Хронологията на гледане е блокирана.</string>
     <string name="revanced_watch_history_about_status_original">"• Следва настройките на хронологията на сърфирането в акаунта ви в Google.

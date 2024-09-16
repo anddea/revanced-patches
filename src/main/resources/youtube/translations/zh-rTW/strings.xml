@@ -205,6 +205,13 @@
 ・點擊捲動。
 ・點擊並按住以選擇文字。"</string>
     <string name="revanced_disable_video_description_interaction_title">停用影片描述交互</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 編解碼器已啟用。</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 編解碼器已停用。
+
+• 最高解析度為 1080p。
+• 影片播放將使用比 VP9 更多的網路數據。
+• 若要獲得 HDR 播放，HDR 影片仍會使用 VP9 編解碼器。"</string>
+    <string name="revanced_disable_vp9_codec_title">停用 VP9 編解碼器</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">開羅搜尋欄已停用。</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"開羅搜尋欄已啟用。
 副作用：開羅主題也適用於通知點。"</string>
@@ -440,6 +447,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">影片下方的章節選擇欄已顯示</string>
     <string name="revanced_hide_expandable_chip_summary_on">影片下方的章節選擇欄已隱藏</string>
     <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">可展開的選單已顯示。</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">可展開的選單已隱藏。</string>
+    <string name="revanced_hide_expandable_shelf_title">隱藏可展開的選單</string>
     <string name="revanced_hide_feed_captions_button_off">字幕按鈕已顯示</string>
     <string name="revanced_hide_feed_captions_button_on">字幕按鈕已隱藏</string>
     <string name="revanced_hide_feed_captions_button_title">隱藏動態字幕按鈕</string>
@@ -463,8 +473,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">「為你推薦」功能列已顯示。</string>
     <string name="revanced_hide_for_you_shelf_summary_on">「為你推薦」功能列已隱藏</string>
     <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」功能列</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">全螢幕廣告已攔截。（對話方塊類型： %s）</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">全螢幕廣告已隱藏。</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">全螢幕廣告已顯示</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">全螢幕廣告已隱藏</string>
     <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
@@ -1362,6 +1370,7 @@ Note:
     <string name="revanced_sb_stats_self_saved_reset_title">重置跳過片段影片計數器？</string>
     <string name="revanced_sb_stats_self_saved_sum">那是 &lt;b&gt;%s&lt;/b&gt;。</string>
     <string name="revanced_sb_stats_submissions">你已經創建了 &lt;b&gt;%s&lt;/b&gt; 段影片</string>
+    <string name="revanced_sb_stats_submissions_sum">點擊此處查看您的片段。</string>
     <string name="revanced_sb_stats_username">你的用戶名：&lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">點擊這裡更改你的用戶名</string>
     <string name="revanced_sb_stats_username_change_unknown_error">無法更改用戶名：狀態：%1$d %2$s。</string>
@@ -1453,7 +1462,7 @@ Note:
 AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用更多的網路資料。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• 音軌選單遺失。</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• 音軌選單遺失。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 電影或付費影片可能無法播放。</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 電影或付費影片可能無法播放。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">偽裝副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 影片可能無法播放。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用於獲取串流資料的用戶端隱藏在統計資料中。</string>
@@ -1488,7 +1497,16 @@ AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用�
 • 變更這項設定可能需要重新啟動裝置
 • 停用這項設定會從伺服器端載入更多廣告
 • 你應該停用這項設定以顯示影片廣告"</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">「建立」按鈕未與「通知」按鈕交換。</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"「建立」按鈕已與「通知」按鈕交換。
+
+注意：啟用此功能也會強制隱藏影片廣告。"</string>
     <string name="revanced_switch_create_with_notifications_button_title">交換創作和通知按鈕</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"停用此功能可能會從伺服器載入更多廣告。
+
+此外，廣告將不再在 Shorts 中被封鎖。
+
+若此設定未生效，請嘗試切換至無痕模式。"</string>
     <string name="revanced_theme_default">預設</string>
     <string name="revanced_watch_history_about_status_blocked">• 觀看歷史記錄不起作用。</string>
     <string name="revanced_watch_history_about_status_original">"• 遵循Google 帳戶的觀看記錄設定。
