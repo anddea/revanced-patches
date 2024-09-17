@@ -948,7 +948,16 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_transcript_section_title">Transkrypcje</string>
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Na stronie głównej</string>
     <string name="revanced_hide_video_ads_title">Reklamy w filmach</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">W wynikach wyszukiwania</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Włączone</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Wyłączone</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_hide_video_by_duration_longer_than_summary">Filmy o czasie trwania większym od tej liczby zostaną ukryte</string>
     <string name="revanced_hide_video_by_duration_longer_than_title">Dłuższe od czasu trwania</string>
     <string name="revanced_hide_video_by_duration_shorter_than_summary">Filmy o czasie trwania mniejszym od tej liczby zostaną ukryte</string>
@@ -962,6 +971,12 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_video_view_counts_less_than_summary">Filmy z wyświetleniami mniejszymi niż ta liczba zostaną ukryte</string>
     <string name="revanced_hide_video_view_counts_less_than_title">Mniej popularne</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">tys. -&gt; 1 000\nmln -&gt; 1 000 000\nmld - &gt; 1 000 000 000\n wyświetleń-&gt; views</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">O filtrowaniu filmów po wyświetleniach</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Strona główna / subskrypcje / wyniki wyszukiwania są filtrowane, by ukrywać filmy z ilością wyświetleń mniejszą bądź większą od określonej liczby.
+
+Ograniczenia:
+• Shortsy nie mogą zostać ukryte
+• Filmy z 0 wyświetleń nie są filtrowane"</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">Określ swój szablon językowy dla liczby wyświetleń pod każdym filmem w interfejsie użytkownika. Każdy klucz (litera/słowo w twoim języku) - &gt; wartość (znaczenie klucza) musi znajdować się w nowej linii. Klucze muszą znajdować się przed znakiem \"-&gt;\". Jeśli zmienisz język aplikacji, musisz zresetować to ustawienie.\n\nPrzykłady:\nAngielski: 10K views = K -&gt; 1000, views -&gt; views\nPolski: 10 tys. wyświetleń = tys -&gt; 1000, wyświetleń -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">Wyświetl klucze</string>
     <string name="revanced_hide_view_products_summary_off">Widoczne</string>
