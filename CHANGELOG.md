@@ -1,3 +1,12 @@
+# [2.229.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.5...v2.229.0-dev.6) (2024-09-17)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** New themed icon for `Xisr Yellow` ([#831](https://github.com/anddea/revanced-patches/issues/831)) ([ac08786](https://github.com/anddea/revanced-patches/commit/ac08786e3248f8d8a994b3941237e515396fd578))
+* **YouTube - Seekbar components:** Add patch options to set Cairo seekbar colors ([b956855](https://github.com/anddea/revanced-patches/commit/b956855183f3f6c85a41e0d3812da6ff71ec8157))
+* **YouTube - SponsorBlock:** Make new segment window draggable ([fd5b5e6](https://github.com/anddea/revanced-patches/commit/fd5b5e68a3dde895baa212e805293f0e3f57a1b6))
+
 # [2.229.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.4...v2.229.0-dev.5) (2024-09-16)
 
 
