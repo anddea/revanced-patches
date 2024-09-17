@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.video.playback.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object AV1CodecFingerprint : MethodFingerprint(
@@ -13,6 +13,6 @@ internal object AV1CodecFingerprint : MethodFingerprint(
         if (methodDef.returnType == "Ljava/util/List;")
             return@handler false
 
-        methodDef.containsWideLiteralInstructionIndex(1987076931)
+        methodDef.containsWideLiteralInstructionValue(1987076931)
     }
 )

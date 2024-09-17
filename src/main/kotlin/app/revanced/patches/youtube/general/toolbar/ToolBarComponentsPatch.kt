@@ -39,16 +39,16 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.alsoResolve
 import app.revanced.util.doRecursively
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
-import app.revanced.util.getTargetIndexWithReferenceReversedOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
-import app.revanced.util.literalInstructionHook
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
+import app.revanced.util.replaceLiteralInstructionCall
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
@@ -106,7 +106,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
             YtPremiumWordMarkHeader,
             YtWordMarkHeader
         ).forEach { literal ->
-            context.literalInstructionHook(literal, smaliInstruction)
+            context.replaceLiteralInstructionCall(literal, smaliInstruction)
         }
 
         // YouTube's headers have the form of AttributeSet, which is decoded from YouTube's built-in classes.
@@ -125,13 +125,11 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         )
 
         // The sidebar's header is lithoView. Add a listener to change it.
-        DrawerContentViewFingerprint.resolve(
-            context,
-            DrawerContentViewConstructorFingerprint.resultOrThrow().classDef
-        )
-        DrawerContentViewFingerprint.resultOrThrow().let {
+        DrawerContentViewFingerprint.alsoResolve(
+            context, DrawerContentViewConstructorFingerprint
+        ).let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
+                val insertIndex = DrawerContentViewFingerprint.indexOfAddViewInstruction(this)
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstruction(
@@ -147,7 +145,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         setActionBarRingoMutableClass.methods.first { method ->
             MethodUtil.isConstructor(method)
         }.apply {
-            val insertIndex = getTargetIndexOrThrow(Opcode.IPUT_BOOLEAN)
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IPUT_BOOLEAN)
             val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(
@@ -172,7 +170,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         ActionBarRingoBackgroundFingerprint.resultOrThrow().let {
             ActionBarRingoTextFingerprint.resolve(context, it.classDef)
             it.mutableMethod.apply {
-                val viewIndex = getWideLiteralInstructionIndex(ActionBarRingoBackground) + 2
+                val viewIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(ActionBarRingoBackground) + 2
                 val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
 
                 addInstructions(
@@ -281,16 +280,16 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         CreateSearchSuggestionsFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
-                val relativeIndex = getWideLiteralInstructionIndex(40)
-                val replaceIndex = getTargetIndexWithReferenceReversedOrThrow(
-                    relativeIndex,
-                    "Landroid/widget/ImageView;->setVisibility(I)V"
-                ) - 1
+                val relativeIndex = indexOfFirstWideLiteralInstructionValueOrThrow(40)
+                val replaceIndex = indexOfFirstInstructionReversedOrThrow(relativeIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.toString() == "Landroid/widget/ImageView;->setVisibility(I)V"
+                } - 1
 
-                val jumpIndex = getTargetIndexWithReferenceOrThrow(
-                    relativeIndex,
-                    "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
-                ) + 4
+                val jumpIndex = indexOfFirstInstructionOrThrow(relativeIndex) {
+                    opcode == Opcode.INVOKE_STATIC &&
+                            getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
+                } + 4
 
                 val replaceIndexInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
                 val replaceIndexReference =
@@ -313,7 +312,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         // region patch for hide voice search button
 
         if (SettingsPatch.upward1928) {
-            ImageSearchButtonConfigFingerprint.literalInstructionBooleanHook(
+            ImageSearchButtonConfigFingerprint.injectLiteralInstructionBooleanCall(
                 45617544,
                 "$GENERAL_CLASS_DESCRIPTOR->hideImageSearchButton(Z)Z"
             )
@@ -327,15 +326,15 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide voice search button
 
-        SearchBarFingerprint.resolve(
-            context,
-            SearchBarParentFingerprint.resultOrThrow().classDef
-        )
-        SearchBarFingerprint.resultOrThrow().let {
+        SearchBarFingerprint.alsoResolve(
+            context, SearchBarParentFingerprint
+        ).let {
             it.mutableMethod.apply {
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
-                val setVisibilityIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow(startIndex, "setVisibility")
+                val setVisibilityIndex = indexOfFirstInstructionOrThrow(startIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setVisibility"
+                }
                 val setVisibilityInstruction =
                     getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
@@ -349,12 +348,11 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         SearchResultFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val startIndex = getWideLiteralInstructionIndex(VoiceSearch)
-                val setOnClickListenerIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow(
-                        startIndex,
-                        "setOnClickListener"
-                    )
+                val startIndex = indexOfFirstWideLiteralInstructionValueOrThrow(VoiceSearch)
+                val setOnClickListenerIndex = indexOfFirstInstructionOrThrow(startIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setOnClickListener"
+                }
                 val viewRegister =
                     getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 
@@ -370,7 +368,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         // region patch for replace create button
 
         CreateButtonDrawableFingerprint.resultOrThrow().mutableMethod.apply {
-            val index = getWideLiteralInstructionIndex(YtOutlineVideoCamera)
+            val index = indexOfFirstWideLiteralInstructionValueOrThrow(YtOutlineVideoCamera)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstructions(

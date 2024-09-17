@@ -8,7 +8,7 @@ import app.revanced.patches.music.misc.splash.fingerprints.CairoSplashAnimationC
 import app.revanced.patches.music.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.injectLiteralInstructionBooleanCall
 
 @Patch(
     name = "Disable Cairo splash animation",
@@ -31,7 +31,7 @@ object CairoSplashAnimationPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         CairoSplashAnimationConfigFingerprint.result?.let {
-            CairoSplashAnimationConfigFingerprint.literalInstructionBooleanHook(
+            CairoSplashAnimationConfigFingerprint.injectLiteralInstructionBooleanCall(
                 45635386,
                 "$MISC_PATH/CairoSplashAnimationPatch;->disableCairoSplashAnimation(Z)Z"
             )

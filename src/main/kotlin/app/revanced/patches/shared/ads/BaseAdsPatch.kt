@@ -14,8 +14,8 @@ import app.revanced.patches.shared.ads.fingerprints.VideoAdsFingerprint
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -75,7 +75,7 @@ abstract class BaseAdsPatch(
 
     internal fun MethodFingerprintResult.hookNonLithoFullscreenAds(literal: Long) {
         mutableMethod.apply {
-            val targetIndex = getWideLiteralInstructionIndex(literal) + 2
+            val targetIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal) + 2
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

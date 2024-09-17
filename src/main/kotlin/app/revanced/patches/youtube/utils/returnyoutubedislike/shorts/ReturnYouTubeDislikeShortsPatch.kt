@@ -12,14 +12,15 @@ import app.revanced.patches.youtube.utils.fingerprints.TextComponentSpecFingerpr
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(dependencies = [SettingsPatch::class])
 object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
@@ -37,9 +38,9 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 val startIndex = it.scanResult.patternScanResult!!.startIndex
 
                 val isDisLikesBooleanIndex =
-                    getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_BOOLEAN)
+                    indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.IGET_BOOLEAN)
                 val textViewFieldIndex =
-                    getTargetIndexReversedOrThrow(startIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.IGET_OBJECT)
 
                 // If the field is true, the TextView is for a dislike button.
                 val isDisLikesBooleanReference =
@@ -51,7 +52,7 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
                 // Check if the hooked TextView object is that of the dislike button.
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
                 // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-                val insertIndex = getTargetIndexOrThrow(Opcode.CHECK_CAST) + 1
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST) + 1
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -73,14 +74,13 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
         if (SettingsPatch.upward1834) {
             TextComponentSpecFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex =
-                        getTargetIndexWithReferenceOrThrow("Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;")
-
+                    val insertIndex = indexOfFirstInstructionOrThrow {
+                        getReference<MethodReference>()?.toString() == "Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;"
+                    }
                     val charSequenceRegister =
                         getInstruction<FiveRegisterInstruction>(insertIndex).registerC
                     val conversionContextRegister =
                         getInstruction<TwoRegisterInstruction>(0).registerA
-
                     val replaceReference =
                         getInstruction<ReferenceInstruction>(insertIndex).reference
 

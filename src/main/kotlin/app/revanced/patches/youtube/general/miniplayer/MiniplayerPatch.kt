@@ -44,8 +44,8 @@ import app.revanced.util.fingerprint.LiteralValueFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfWideLiteralInstructionOrThrow
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -170,7 +170,7 @@ object MiniplayerPatch : BaseBytecodePatch(
         }
 
         if (SettingsPatch.upward1925) {
-            MiniplayerModernEnabledFingerprint.literalInstructionBooleanHook(
+            MiniplayerModernEnabledFingerprint.injectLiteralInstructionBooleanCall(
                 45622882,
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
             )
@@ -181,11 +181,11 @@ object MiniplayerPatch : BaseBytecodePatch(
         // region Enable double tap action.
 
         if (SettingsPatch.upward1925) {
-            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+            MiniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 45628823,
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->enableMiniplayerDoubleTapAction()Z"
             )
-            MiniplayerModernConstructorFingerprint.literalInstructionBooleanHook(
+            MiniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
                 45630429,
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
             )
@@ -211,7 +211,8 @@ object MiniplayerPatch : BaseBytecodePatch(
                     YtOutlinePictureInPictureWhite to YtOutlineXWhite,
                     YtOutlineXWhite to YtOutlinePictureInPictureWhite,
                 ).forEach { (originalResource, replacementResource) ->
-                    val imageResourceIndex = indexOfWideLiteralInstructionOrThrow(originalResource)
+                    val imageResourceIndex =
+                        indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
                     val register =
                         getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
@@ -321,7 +322,7 @@ object MiniplayerPatch : BaseBytecodePatch(
         // region Enable drag and drop.
 
         if (SettingsPatch.upward1923) {
-            MiniplayerModernDragAndDropFingerprint.literalInstructionBooleanHook(
+            MiniplayerModernDragAndDropFingerprint.injectLiteralInstructionBooleanCall(
                 45628752,
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->enableMiniplayerDragAndDrop()Z"
             )
@@ -388,7 +389,7 @@ object MiniplayerPatch : BaseBytecodePatch(
     ) {
         resultOrThrow().mutableMethod.apply {
             val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfWideLiteralInstructionOrThrow(literalValue)
+                indexOfFirstWideLiteralInstructionValueOrThrow(literalValue)
             ) {
                 opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
             }

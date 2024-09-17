@@ -16,9 +16,9 @@ import app.revanced.patches.shared.litho.fingerprints.ByteBufferFingerprint
 import app.revanced.patches.shared.litho.fingerprints.EmptyComponentsFingerprint
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -127,7 +127,7 @@ object LithoFilterPatch : BytecodePatch(
                 val stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
-                val emptyStringIndex = getStringInstructionIndex("")
+                val emptyStringIndex = indexOfFirstStringInstructionOrThrow("")
                 val identifierRegister = getInstruction<TwoRegisterInstruction>(
                     indexOfFirstInstructionReversedOrThrow(emptyStringIndex) {
                         opcode == Opcode.IPUT_OBJECT

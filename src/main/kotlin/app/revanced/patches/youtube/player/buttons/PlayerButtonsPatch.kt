@@ -24,8 +24,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullS
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.PlayerCollapseButton
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TitleAnchor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -63,9 +63,10 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         LayoutConstructorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(AutoNavToggle)
+                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(AutoNavToggle)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val jumpIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     constIndex, """
@@ -124,9 +125,9 @@ object PlayerButtonsPatch : BaseBytecodePatch(
         // region patch for hide collapse button
 
         TitleAnchorFingerprint.resultOrThrow().mutableMethod.apply {
-            val titleAnchorConstIndex = getWideLiteralInstructionIndex(TitleAnchor)
+            val titleAnchorConstIndex = indexOfFirstWideLiteralInstructionValueOrThrow(TitleAnchor)
             val titleAnchorIndex =
-                getTargetIndexOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
+                indexOfFirstInstructionOrThrow(titleAnchorConstIndex, Opcode.MOVE_RESULT_OBJECT)
             val titleAnchorRegister =
                 getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
 
@@ -136,9 +137,9 @@ object PlayerButtonsPatch : BaseBytecodePatch(
             )
 
             val playerCollapseButtonConstIndex =
-                getWideLiteralInstructionIndex(PlayerCollapseButton)
+                indexOfFirstWideLiteralInstructionValueOrThrow(PlayerCollapseButton)
             val playerCollapseButtonIndex =
-                getTargetIndexOrThrow(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
+                indexOfFirstInstructionOrThrow(playerCollapseButtonConstIndex, Opcode.CHECK_CAST)
             val playerCollapseButtonRegister =
                 getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
 
@@ -159,7 +160,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
                         (instruction.value as? WideLiteralInstruction)?.wideLiteral == FullScreenButton
                     }
                 val constIndex = buttonCalls.elementAt(buttonCalls.size - 1).index
-                val castIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+                val castIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
                 val insertIndex = castIndex + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
 
@@ -180,7 +181,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
 
         PlayerControlsVisibilityModelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val callIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT_RANGE)
+                val callIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT_RANGE)
                 val callInstruction = getInstruction<Instruction3rc>(callIndex)
 
                 val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT

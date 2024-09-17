@@ -10,8 +10,7 @@ import app.revanced.patches.youtube.general.layoutswitch.fingerprints.LayoutSwit
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -34,7 +33,7 @@ object LayoutSwitchPatch : BaseBytecodePatch(
 
         GetFormFactorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val jumpIndex = getTargetIndexReversedOrThrow(Opcode.SGET_OBJECT)
+                val jumpIndex = indexOfFirstInstructionReversedOrThrow(Opcode.SGET_OBJECT)
 
                 addInstructionsWithLabels(
                     0, """
@@ -56,7 +55,7 @@ object LayoutSwitchPatch : BaseBytecodePatch(
 
         LayoutSwitchFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexOrThrow(Opcode.IF_NEZ)
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.IF_NEZ)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(

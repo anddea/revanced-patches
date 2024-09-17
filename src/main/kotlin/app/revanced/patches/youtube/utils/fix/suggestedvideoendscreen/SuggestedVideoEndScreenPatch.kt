@@ -8,9 +8,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.fingerprints.RemoveOnLayoutChangeListenerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -36,9 +36,10 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
                 it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerIndex.apply {
-                val invokeInterfaceIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
+                val invokeInterfaceIndex =
+                    indexOfFirstInstructionOrThrow(opcode = Opcode.INVOKE_INTERFACE)
                 val iGetObjectIndex =
-                    getTargetIndexReversedOrThrow(invokeInterfaceIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstInstructionReversedOrThrow(invokeInterfaceIndex, Opcode.IGET_OBJECT)
 
                 val invokeInterfaceReference =
                     getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference

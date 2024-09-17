@@ -3,7 +3,6 @@ package app.revanced.patches.music.utils.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.fix.accessibility.AccessibilityNodeInfoPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceCategory
 import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.ResourceUtils.addRVXSettingsPreference
@@ -22,10 +21,7 @@ import java.util.concurrent.TimeUnit
 object SettingsPatch : BaseResourcePatch(
     name = "Settings for YouTube Music",
     description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
-    dependencies = setOf(
-        AccessibilityNodeInfoPatch::class,
-        SettingsBytecodePatch::class
-    ),
+    dependencies = setOf(SettingsBytecodePatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
 ), Closeable {

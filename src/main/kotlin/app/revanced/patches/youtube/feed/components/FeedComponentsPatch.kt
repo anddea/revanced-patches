@@ -33,11 +33,10 @@ import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CaptionToggleContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -113,8 +112,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         // region patch for hide caption button
 
         CaptionsButtonFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(CaptionToggleContainer)
-            val insertIndex = getTargetIndexReversedOrThrow(constIndex, Opcode.IF_EQZ)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(CaptionToggleContainer)
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.IF_EQZ)
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
@@ -126,8 +125,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         }
 
         CaptionsButtonSyntheticFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(CaptionToggleContainer)
-            val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(CaptionToggleContainer)
+            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(
@@ -198,7 +197,7 @@ object FeedComponentsPatch : BaseBytecodePatch(
                             && reference.returnType.startsWith("L")
                 }
 
-                val objectIndex = getTargetIndexOrThrow(Opcode.MOVE_OBJECT)
+                val objectIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT)
                 val objectRegister = getInstruction<TwoRegisterInstruction>(objectIndex).registerA
 
                 val jumpIndex = it.scanResult.patternScanResult!!.startIndex
@@ -253,7 +252,9 @@ object FeedComponentsPatch : BaseBytecodePatch(
 
         ChannelTabRendererFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val iteratorIndex = getTargetIndexWithMethodReferenceName("hasNext")
+                val iteratorIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "hasNext"
+                }
                 val iteratorRegister =
                     getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
 
@@ -265,7 +266,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
                             && reference.parameterTypes == channelTabBuilderMethod.parameterTypes
                 }
 
-                val objectIndex = getTargetIndexReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
+                val objectIndex =
+                    indexOfFirstInstructionReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
                 val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
                 val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
 

@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFinge
 import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.addFieldAndInstructions
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -82,14 +82,14 @@ object PlayerTypeHookPatch : BytecodePatch(
 
         BrowseIdClassFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getStringInstructionIndex("VL") - 1
+                val targetIndex = indexOfFirstStringInstructionOrThrow("VL") - 1
                 val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetClass =
                     context.findClass((targetReference as FieldReference).definingClass)!!.mutableClass
 
                 targetClass.methods.find { method -> method.name == "<init>" }
                     ?.apply {
-                        val browseIdFieldIndex = getTargetIndexOrThrow(Opcode.IPUT_OBJECT)
+                        val browseIdFieldIndex = indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
                         val browseIdFieldName =
                             (getInstruction<ReferenceInstruction>(browseIdFieldIndex).reference as FieldReference).name
 

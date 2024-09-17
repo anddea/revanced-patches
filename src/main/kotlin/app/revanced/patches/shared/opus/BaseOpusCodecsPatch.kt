@@ -7,11 +7,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.opus.fingerprints.CodecReferenceFingerprint
 import app.revanced.patches.shared.opus.fingerprints.CodecSelectorFingerprint
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 /**
  * This patch is generally not required for the latest versions of YouTube and YouTube Music.
@@ -25,15 +27,14 @@ abstract class BaseOpusCodecsPatch(
         CodecSelectorFingerprint
     )
 ) {
-    private lateinit var opusCodecReference: Reference
-
     override fun execute(context: BytecodeContext) {
 
-        CodecReferenceFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithReferenceOrThrow("Ljava/util/Set;")
-                opusCodecReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+        val opusCodecReference = with(CodecReferenceFingerprint.resultOrThrow().mutableMethod) {
+            val codecIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_STATIC &&
+                        getReference<MethodReference>()?.returnType == "Ljava/util/Set;"
             }
+            getInstruction<ReferenceInstruction>(codecIndex).reference
         }
 
         CodecSelectorFingerprint.resultOrThrow().let {

@@ -25,9 +25,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -96,45 +96,51 @@ fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V"
 )
 
-fun MethodFingerprint.literalInstructionBooleanHook(
+fun MethodFingerprint.injectLiteralInstructionBooleanCall(
     literal: Int,
     descriptor: String
-) = literalInstructionBooleanHook(literal.toLong(), descriptor)
+) = injectLiteralInstructionBooleanCall(literal.toLong(), descriptor)
 
-fun MethodFingerprint.literalInstructionBooleanHook(
+fun MethodFingerprint.injectLiteralInstructionBooleanCall(
     literal: Long,
     descriptor: String
 ) {
     resultOrThrow().mutableMethod.apply {
-        val literalIndex = getWideLiteralInstructionIndex(literal)
-        val targetIndex = getTargetIndex(literalIndex, Opcode.MOVE_RESULT)
+        val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+        val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
         val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-        val smaliInstruction = if (descriptor.endsWith("(Z)Z"))
-            "invoke-static {v$targetRegister}, $descriptor"
-        else
-            "invoke-static {}, $descriptor"
-
-        addInstructions(
-            targetIndex + 1, """
-                $smaliInstruction
+        val smaliInstruction =
+            if (descriptor.startsWith("0x")) """
+                const/16 v$targetRegister, $descriptor
+                """
+            else if (descriptor.endsWith("(Z)Z")) """
+                invoke-static {v$targetRegister}, $descriptor
                 move-result v$targetRegister
                 """
+            else """
+                invoke-static {}, $descriptor
+                move-result v$targetRegister
+                """
+
+        addInstructions(
+            targetIndex + 1,
+            smaliInstruction
         )
     }
 }
 
-fun MethodFingerprint.literalInstructionViewHook(
+fun MethodFingerprint.injectLiteralInstructionViewCall(
     literal: Long,
     smaliInstruction: String
-) = resultOrThrow().mutableMethod.literalInstructionViewHook(literal, smaliInstruction)
+) = resultOrThrow().mutableMethod.injectLiteralInstructionViewCall(literal, smaliInstruction)
 
-fun MutableMethod.literalInstructionViewHook(
+fun MutableMethod.injectLiteralInstructionViewCall(
     literal: Long,
     smaliInstruction: String
 ) {
-    val literalIndex = getWideLiteralInstructionIndex(literal)
-    val targetIndex = getTargetIndex(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+    val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA.toString()
 
     addInstructions(
@@ -143,7 +149,7 @@ fun MutableMethod.literalInstructionViewHook(
     )
 }
 
-fun BytecodeContext.literalInstructionViewHook(
+fun BytecodeContext.injectLiteralInstructionViewCall(
     literal: Long,
     smaliInstruction: String
 ) {
@@ -160,14 +166,14 @@ fun BytecodeContext.literalInstructionViewHook(
                     context.proxy(classDef)
                         .mutableClass
                         .findMutableMethodOf(method)
-                        .literalInstructionViewHook(literal, smaliInstruction)
+                        .injectLiteralInstructionViewCall(literal, smaliInstruction)
                 }
             }
         }
     }
 }
 
-fun BytecodeContext.literalInstructionHook(
+fun BytecodeContext.replaceLiteralInstructionCall(
     literal: Long,
     smaliInstruction: String
 ) {
@@ -184,7 +190,7 @@ fun BytecodeContext.literalInstructionHook(
                     context.proxy(classDef)
                         .mutableClass
                         .findMutableMethodOf(method).apply {
-                            val index = getWideLiteralInstructionIndex(literal)
+                            val index = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
                             val register =
                                 (instruction as OneRegisterInstruction).registerA.toString()
 
@@ -200,24 +206,16 @@ fun BytecodeContext.literalInstructionHook(
 }
 
 /**
- * Get the index of the first instruction with the literal value or throw a [PatchException].
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
- * @throws [PatchException] if the literal index not found.
+ * @param startIndex Optional starting index to start searching from.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfWideLiteralInstructionOrThrow(literal: Long): Int {
-    val index = getWideLiteralInstructionIndex(literal)
-    if (index < 0) {
-        val value =
-            if (literal >= 2130706432) // 0x7f000000, general resource id
-                String.format("%#X", literal).lowercase()
-            else
-                literal.toString()
-
-        throw PatchException("Found literal value for: '$value' but method does not contain the id: $this")
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, opcode: Opcode): Int =
+    indexOfFirstInstruction(startIndex) {
+        this.opcode == opcode
     }
-
-    return index
-}
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -227,7 +225,10 @@ fun Method.indexOfWideLiteralInstructionOrThrow(literal: Long): Int {
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
-    var instructions = this.implementation!!.instructions
+    if (implementation == null) {
+        return -1
+    }
+    var instructions = implementation!!.instructions
     if (startIndex != 0) {
         instructions = instructions.drop(startIndex)
     }
@@ -240,6 +241,9 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
     }
 }
 
+fun Method.indexOfFirstInstructionOrThrow(opcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(0, opcode)
+
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
@@ -247,10 +251,13 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, opcode: Opcode): Int =
     indexOfFirstInstructionOrThrow(startIndex) {
-        opcode == targetOpcode
+        this.opcode == opcode
     }
+
+fun Method.indexOfFirstInstructionReversedOrThrow(opcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow(null, opcode)
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -278,9 +285,9 @@ fun Method.indexOfFirstInstructionOrThrow(
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, opcode: Opcode): Int =
     indexOfFirstInstructionReversed(startIndex) {
-        opcode == targetOpcode
+        this.opcode == opcode
     }
 
 /**
@@ -295,7 +302,10 @@ fun Method.indexOfFirstInstructionReversed(
     startIndex: Int? = null,
     predicate: Instruction.() -> Boolean
 ): Int {
-    var instructions = this.implementation!!.instructions
+    if (implementation == null) {
+        return -1
+    }
+    var instructions = implementation!!.instructions
     if (startIndex != null) {
         instructions = instructions.take(startIndex + 1)
     }
@@ -313,10 +323,10 @@ fun Method.indexOfFirstInstructionReversed(
  */
 fun Method.indexOfFirstInstructionReversedOrThrow(
     startIndex: Int? = null,
-    targetOpcode: Opcode
+    opcode: Opcode
 ): Int =
     indexOfFirstInstructionReversedOrThrow(startIndex) {
-        opcode == targetOpcode
+        this.opcode == opcode
     }
 
 /**
@@ -365,40 +375,59 @@ fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<In
  * Find the index of the first wide literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstWideLiteralInstructionValueOrThrow
  */
-fun Method.getWideLiteralInstructionIndex(literal: Long) = implementation?.let {
+fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
 } ?: -1
 
-fun Method.getStringInstructionIndex(value: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        instruction.opcode == Opcode.CONST_STRING
-                && (instruction as? ReferenceInstruction)?.reference.toString() == value
-    }
-} ?: -1
 
-fun Method.getStartsWithStringInstructionIndex(value: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        instruction.opcode == Opcode.CONST_STRING
-                && (instruction as? ReferenceInstruction)?.reference.toString().startsWith(value)
+/**
+ * Find the index of the first wide literal instruction with the given value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long): Int {
+    val index = indexOfFirstWideLiteralInstructionValue(literal)
+    if (index < 0) {
+        val value =
+            if (literal >= 2130706432) // 0x7f000000, general resource id
+                String.format("%#X", literal).lowercase()
+            else
+                literal.toString()
+
+        throw PatchException("Found literal value: '$value' but method does not contain the id: $this")
     }
-} ?: -1
+
+    return index
+}
+
+fun Method.indexOfFirstStringInstruction(str: String) =
+    indexOfFirstInstruction {
+        opcode == Opcode.CONST_STRING &&
+                getReference<StringReference>()?.string == str
+    }
+
+
+fun Method.indexOfFirstStringInstructionOrThrow(str: String): Int {
+    val index = indexOfFirstStringInstruction(str)
+    if (index < 0) {
+        throw PatchException("Found string value for: '$str' but method does not contain the id: $this")
+    }
+
+    return index
+}
 
 /**
  * Check if the method contains a literal with the given value.
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsWideLiteralInstructionIndex(literal: Long) =
-    getWideLiteralInstructionIndex(literal) >= 0
-
-fun Method.containsMethodReferenceNameInstructionIndex(methodName: String) =
-    getTargetIndexWithMethodReferenceName(methodName) >= 0
-
-fun Method.containsReferenceInstructionIndex(reference: String) =
-    getTargetIndexWithReference(reference) >= 0
+fun Method.containsWideLiteralInstructionValue(literal: Long) =
+    indexOfFirstWideLiteralInstructionValue(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -427,305 +456,12 @@ fun BytecodeContext.traverseClassHierarchy(
 inline fun <reified T : Reference> Instruction.getReference() =
     (this as? ReferenceInstruction)?.reference as? T
 
-/**
- * Get the index of the first [Instruction] that matches the predicate.
- *
- * @param predicate The predicate to match.
- * @return The index of the first [Instruction] that matches the predicate.
- */
-fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
-    indexOfFirstInstruction(0, predicate)
-
-/**
- * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
- *
- * @param startIndex Optional starting index to start searching from.
- * @return -1 if the instruction is not found.
- * @see indexOfFirstInstructionOrThrow
- */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
-    indexOfFirstInstruction(startIndex) {
-        opcode == targetOpcode
-    }
-
-fun MutableMethod.getTargetIndexOrThrow(opcode: Opcode) =
-    getTargetIndexOrThrow(0, opcode)
-
-fun MutableMethod.getTargetIndexOrThrow(startIndex: Int, opcode: Opcode) =
-    checkIndex(getTargetIndex(startIndex, opcode), startIndex, opcode)
-
-fun MutableMethod.getTargetIndexReversedOrThrow(opcode: Opcode) =
-    getTargetIndexReversedOrThrow(implementation!!.instructions.lastIndex, opcode)
-
-fun MutableMethod.getTargetIndexReversedOrThrow(startIndex: Int, opcode: Opcode) =
-    checkIndex(getTargetIndexReversed(startIndex, opcode), startIndex, opcode)
-
-fun Method.getTargetIndexWithFieldReferenceNameOrThrow(filedName: String) =
-    checkIndex(getTargetIndexWithFieldReferenceName(filedName), 0, filedName)
-
-fun MutableMethod.getTargetIndexWithFieldReferenceNameOrThrow(startIndex: Int, filedName: String) =
-    checkIndex(getTargetIndexWithFieldReferenceName(startIndex, filedName), startIndex, filedName)
-
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversedOrThrow(returnType: String) =
-    getTargetIndexWithFieldReferenceNameReversedOrThrow(
-        implementation!!.instructions.lastIndex,
-        returnType
-    )
-
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversedOrThrow(
-    startIndex: Int,
-    returnType: String
-) =
-    checkIndex(
-        getTargetIndexWithFieldReferenceNameReversed(startIndex, returnType),
-        startIndex,
-        returnType
-    )
-
-fun Method.getTargetIndexWithFieldReferenceTypeOrThrow(returnType: String) =
-    checkIndex(getTargetIndexWithFieldReferenceType(returnType), 0, returnType)
-
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeOrThrow(startIndex: Int, returnType: String) =
-    checkIndex(getTargetIndexWithFieldReferenceType(startIndex, returnType), startIndex, returnType)
-
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversedOrThrow(returnType: String) =
-    getTargetIndexWithFieldReferenceTypeReversedOrThrow(
-        implementation!!.instructions.lastIndex,
-        returnType
-    )
-
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversedOrThrow(
-    startIndex: Int,
-    returnType: String
-) =
-    checkIndex(
-        getTargetIndexWithFieldReferenceTypeReversed(startIndex, returnType),
-        startIndex,
-        returnType
-    )
-
-fun Method.getTargetIndexWithMethodReferenceNameOrThrow(methodName: String) =
-    checkIndex(getTargetIndexWithMethodReferenceName(methodName), 0, methodName)
-
-fun MutableMethod.getTargetIndexWithMethodReferenceNameOrThrow(
-    startIndex: Int,
-    methodName: String
-) =
-    checkIndex(
-        getTargetIndexWithMethodReferenceName(startIndex, methodName),
-        startIndex,
-        methodName
-    )
-
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversedOrThrow(methodName: String) =
-    getTargetIndexWithMethodReferenceNameReversedOrThrow(
-        implementation!!.instructions.lastIndex,
-        methodName
-    )
-
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversedOrThrow(
-    startIndex: Int,
-    methodName: String
-) =
-    checkIndex(
-        getTargetIndexWithMethodReferenceNameReversed(startIndex, methodName),
-        startIndex,
-        methodName
-    )
-
-fun Method.getTargetIndexWithReferenceOrThrow(reference: String) =
-    checkIndex(getTargetIndexWithReference(reference), 0, reference)
-
-fun MutableMethod.getTargetIndexWithReferenceOrThrow(startIndex: Int, reference: String) =
-    checkIndex(getTargetIndexWithReference(startIndex, reference), startIndex, reference)
-
-fun MutableMethod.getTargetIndexWithReferenceReversedOrThrow(reference: String) =
-    getTargetIndexWithReferenceReversedOrThrow(implementation!!.instructions.lastIndex, reference)
-
-fun MutableMethod.getTargetIndexWithReferenceReversedOrThrow(startIndex: Int, reference: String) =
-    checkIndex(getTargetIndexWithReferenceReversed(startIndex, reference), startIndex, reference)
-
-fun checkIndex(index: Int, startIndex: Int, opcode: Opcode): Int {
-    if (index < 0) {
-        throw PatchException("Target index not found. startIndex: $startIndex, opcode: $opcode")
-    }
-    return index
-}
-
-fun checkIndex(index: Int, startIndex: Int, name: String): Int {
-    if (index < 0) {
-        throw PatchException("Target index not found. startIndex: $startIndex, name: $name")
-    }
-    return index
-}
-
-fun MutableMethod.getTargetIndex(opcode: Opcode) = getTargetIndex(0, opcode)
-
-fun MutableMethod.getTargetIndex(startIndex: Int, opcode: Opcode) =
-    implementation!!.instructions.let {
-        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
-            instruction.opcode == opcode
-        }
-    }
-
-fun MutableMethod.getTargetIndexReversed(opcode: Opcode) =
-    getTargetIndexReversed(implementation!!.instructions.size - 1, opcode)
-
-fun MutableMethod.getTargetIndexReversed(startIndex: Int, opcode: Opcode): Int {
-    for (index in startIndex downTo 0) {
-        if (getInstruction(index).opcode != opcode)
-            continue
-
-        return index
-    }
-    return -1
-}
-
-fun Method.getTargetIndexWithFieldReferenceName(filedName: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        instruction.getReference<FieldReference>()?.name == filedName
-    }
-} ?: -1
-
-fun MutableMethod.getTargetIndexWithFieldReferenceName(startIndex: Int, filedName: String) =
-    implementation!!.instructions.let {
-        startIndex + it.subList(startIndex, it.lastIndex).indexOfFirst { instruction ->
-            instruction.getReference<FieldReference>()?.name == filedName
-        }
-    }
-
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(returnType: String) =
-    getTargetIndexWithFieldReferenceTypeReversed(
-        implementation!!.instructions.lastIndex,
-        returnType
-    )
-
-fun MutableMethod.getTargetIndexWithFieldReferenceNameReversed(
-    startIndex: Int,
-    filedName: String
-): Int {
-    for (index in startIndex downTo 0) {
-        val instruction = getInstruction(index)
-        if (instruction.getReference<FieldReference>()?.name != filedName)
-            continue
-
-        return index
-    }
-    return -1
-}
-
-fun Method.getTargetIndexWithFieldReferenceType(returnType: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        instruction.getReference<FieldReference>()?.type == returnType
-    }
-} ?: -1
-
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(returnType: String) =
-    getTargetIndexWithFieldReferenceTypeReversed(implementation!!.instructions.size - 1, returnType)
-
-fun MutableMethod.getTargetIndexWithFieldReferenceType(startIndex: Int, returnType: String) =
-    implementation!!.instructions.let {
-        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
-            instruction.getReference<FieldReference>()?.type == returnType
-        }
-    }
-
-fun MutableMethod.getTargetIndexWithFieldReferenceTypeReversed(
-    startIndex: Int,
-    returnType: String
-): Int {
-    for (index in startIndex downTo 0) {
-        val instruction = getInstruction(index)
-        if (instruction.getReference<FieldReference>()?.type != returnType)
-            continue
-
-        return index
-    }
-    return -1
-}
-
-fun Method.getTargetIndexWithMethodReferenceName(methodName: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        instruction.getReference<MethodReference>()?.name == methodName
-    }
-} ?: -1
-
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(methodName: String) =
-    getTargetIndexWithMethodReferenceNameReversed(
-        implementation!!.instructions.size - 1,
-        methodName
-    )
-
-
-fun MutableMethod.getTargetIndexWithMethodReferenceName(startIndex: Int, methodName: String) =
-    implementation!!.instructions.let {
-        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
-            instruction.getReference<MethodReference>()?.name == methodName
-        }
-    }
-
-fun MutableMethod.getTargetIndexWithMethodReferenceNameReversed(
-    startIndex: Int,
-    methodName: String
-): Int {
-    for (index in startIndex downTo 0) {
-        val instruction = getInstruction(index)
-        if (instruction.getReference<MethodReference>()?.name != methodName)
-            continue
-
-        return index
-    }
-    return -1
-}
-
-fun Method.getTargetIndexWithReference(reference: String) = implementation?.let {
-    it.instructions.indexOfFirst { instruction ->
-        (instruction as? ReferenceInstruction)?.reference.toString().contains(reference)
-    }
-} ?: -1
-
-fun MutableMethod.getTargetIndexWithReference(reference: String) =
-    getTargetIndexWithReference(0, reference)
-
-fun MutableMethod.getTargetIndexWithReferenceReversed(reference: String) =
-    getTargetIndexWithReferenceReversed(implementation!!.instructions.size - 1, reference)
-
-fun MutableMethod.getTargetIndexWithReference(startIndex: Int, reference: String) =
-    implementation!!.instructions.let {
-        startIndex + it.subList(startIndex, it.size - 1).indexOfFirst { instruction ->
-            (instruction as? ReferenceInstruction)?.reference.toString().contains(reference)
-        }
-    }
-
-fun MutableMethod.getTargetIndexWithReferenceReversed(startIndex: Int, reference: String): Int {
-    for (index in startIndex downTo 0) {
-        val instruction = getInstruction(index)
-        if (!(instruction as? ReferenceInstruction)?.reference.toString().contains(reference))
-            continue
-
-        return index
-    }
-    return -1
-}
-
 fun MethodFingerprintResult.getWalkerMethod(context: BytecodeContext, offset: Int) =
     mutableMethod.getWalkerMethod(context, offset)
 
 /**
- * MethodWalker structural limitations cause incorrect class to be found
- *
- * MethodReference to find in YouTube 18.29.38:
- * 'Lng;->d(Lou;)Z'
- *
- * Class found by MethodWalker in YouTube 18.29.38:
- * 'Lcom/google/android/gms/maps/model/LatLng;'
- *
- * The reason this error occurs is because [BytecodeContext.findClass] checks whether className is included or not
- *
- * In ReVanced Patcher 19.3.1:
- * fun findClass(className: String) = findClass { it.type.contains(className) }
- *
- * (Class 'Lcom/google/android/gms/maps/model/LatLng;' is returned because class 'Lcom/google/android/gms/maps/model/LatLng;' contains keyword 'Lng;')
+ * MethodWalker can find the wrong class:
+ * https://github.com/ReVanced/revanced-patcher/issues/309
  *
  * As a workaround, redefine MethodWalker here
  */

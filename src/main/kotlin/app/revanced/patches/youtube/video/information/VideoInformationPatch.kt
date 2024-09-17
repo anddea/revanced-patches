@@ -40,11 +40,10 @@ import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -232,9 +231,12 @@ object VideoInformationPatch : BytecodePatch(
                     "videoInformationClass"
                 )
 
-                val literalIndex = getWideLiteralInstructionIndex(45368273)
+                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(45368273)
                 val walkerIndex =
-                    getTargetIndexReversedOrThrow(literalIndex, Opcode.INVOKE_VIRTUAL_RANGE)
+                    indexOfFirstInstructionReversedOrThrow(
+                        literalIndex,
+                        Opcode.INVOKE_VIRTUAL_RANGE
+                    )
 
                 videoEndMethod =
                     getWalkerMethod(context, walkerIndex)
@@ -364,10 +366,11 @@ object VideoInformationPatch : BytecodePatch(
         OnPlaybackSpeedItemClickFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 speedSelectionInsertMethod = this
-                val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
+                val speedSelectionValueInstructionIndex =
+                    indexOfFirstInstructionOrThrow(Opcode.IGET)
 
                 val setPlaybackSpeedContainerClassFieldIndex =
-                    getTargetIndexReversedOrThrow(
+                    indexOfFirstInstructionReversedOrThrow(
                         speedSelectionValueInstructionIndex,
                         Opcode.IGET_OBJECT
                     )

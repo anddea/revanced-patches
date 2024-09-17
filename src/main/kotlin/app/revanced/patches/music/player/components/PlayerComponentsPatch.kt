@@ -60,16 +60,13 @@ import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.literalInstructionBooleanHook
-import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.transformFields
@@ -145,8 +142,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             PlayerViewPager to "disablePlayerGesture"
         ).forEach { (literal, methodName) ->
             val viewPagerReference = playerViewPagerConstructorMethod.let {
-                val constIndex = it.getWideLiteralInstructionIndex(literal)
-                val targetIndex = it.getTargetIndexOrThrow(constIndex, Opcode.IPUT_OBJECT)
+                val constIndex = it.indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+                val targetIndex = it.indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
 
                 it.getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
             }
@@ -156,7 +153,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                             && getReference<FieldReference>()?.toString() == viewPagerReference
                 }
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                val jumpIndex = getTargetIndex(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -198,8 +196,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
                     val relativeIndex = it.scanResult.patternScanResult!!.endIndex + 1
                     val invokeVirtualIndex =
-                        getTargetIndexOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
-                    val iGetIndex = getTargetIndexOrThrow(relativeIndex, Opcode.IGET)
+                        indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
+                    val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
 
                     colorMathPlayerInvokeVirtualReference =
                         getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference
@@ -207,11 +205,11 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         getInstruction<ReferenceInstruction>(iGetIndex).reference
 
                     // black player background
-                    val invokeDirectIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
                     val targetMethod = getWalkerMethod(context, invokeDirectIndex)
 
                     targetMethod.apply {
-                        val insertIndex = getTargetIndexOrThrow(0, Opcode.IF_NE)
+                        val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IF_NE)
 
                         addInstructions(
                             insertIndex, """
@@ -225,8 +223,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 }
 
                 parentResult.mutableMethod.apply {
-                    val colorGreyIndex = getWideLiteralInstructionIndex(ColorGrey)
-                    val iPutIndex = getTargetIndexOrThrow(colorGreyIndex, Opcode.IPUT)
+                    val colorGreyIndex = indexOfFirstWideLiteralInstructionValueOrThrow(ColorGrey)
+                    val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
 
                     colorMathPlayerIPutReference =
                         getInstruction<ReferenceInstruction>(iPutIndex).reference
@@ -240,7 +238,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     mutableMethod.apply {
                         val freeRegister = implementation!!.registerCount - parameters.size - 3
 
-                        val invokeDirectIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_DIRECT)
+                        val invokeDirectIndex =
+                            indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                         val invokeDirectReference =
                             getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
 
@@ -401,9 +400,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             reversed: Boolean
         ): Reference {
             val targetIndex = if (reversed)
-                getTargetIndexReversedOrThrow(swipeToDismissWidgetIndex, opcode)
+                indexOfFirstInstructionReversedOrThrow(swipeToDismissWidgetIndex, opcode)
             else
-                getTargetIndexOrThrow(swipeToDismissWidgetIndex, opcode)
+                indexOfFirstInstructionOrThrow(swipeToDismissWidgetIndex, opcode)
 
             return getInstruction<ReferenceInstruction>(targetIndex).reference
         }
@@ -411,7 +410,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         if (!SettingsPatch.upward0642) {
             SwipeToCloseFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = implementation!!.instructions.size - 1
+                    val insertIndex = implementation!!.instructions.lastIndex
                     val targetRegister =
                         getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -430,8 +429,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             InteractionLoggingEnumFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val stringIndex =
-                        getStringInstructionIndex("INTERACTION_LOGGING_GESTURE_TYPE_SWIPE")
-                    val sPutObjectIndex = getTargetIndexOrThrow(stringIndex, Opcode.SPUT_OBJECT)
+                        indexOfFirstStringInstructionOrThrow("INTERACTION_LOGGING_GESTURE_TYPE_SWIPE")
+                    val sPutObjectIndex =
+                        indexOfFirstInstructionOrThrow(stringIndex, Opcode.SPUT_OBJECT)
 
                     swipeToDismissSGetObjectReference =
                         getInstruction<ReferenceInstruction>(sPutObjectIndex).reference
@@ -440,7 +440,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             MusicActivityWidgetFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    swipeToDismissWidgetIndex = getWideLiteralInstructionIndex(79500)
+                    swipeToDismissWidgetIndex =
+                        indexOfFirstWideLiteralInstructionValueOrThrow(79500)
 
                     swipeToDismissIGetObjectReference =
                         getSwipeToDismissReference(Opcode.IGET_OBJECT, true)
@@ -468,8 +469,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
 
                     dismissBehaviorMethod.apply {
-                        val insertIndex =
-                            getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/concurrent/atomic/AtomicBoolean;")
+                        val insertIndex = indexOfFirstInstructionOrThrow {
+                            getReference<FieldReference>()?.type == "Ljava/util/concurrent/atomic/AtomicBoolean;"
+                        }
                         val primaryRegister =
                             getInstruction<TwoRegisterInstruction>(insertIndex).registerB
                         val secondaryRegister = primaryRegister + 1
@@ -592,7 +594,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             SwitchToggleColorFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val invokeDirectIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
                     val walkerMethod = getWalkerMethod(context, invokeDirectIndex)
 
                     walkerMethod.addInstructions(
@@ -624,8 +626,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for hide audio video switch toggle
 
         AudioVideoSwitchToggleFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(AudioVideoSwitchToggle)
-            val viewIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(AudioVideoSwitchToggle)
+            val viewIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
             val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
 
             addInstruction(
@@ -667,7 +669,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             DarkBackground,
             TapBloomView
         ).forEach { literal ->
-            QuickSeekOverlayFingerprint.literalInstructionViewHook(
+            QuickSeekOverlayFingerprint.injectLiteralInstructionViewCall(
                 literal,
                 smaliInstruction
             )
@@ -742,9 +744,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 rememberShuffleStateObjectClass = definingClass
 
-                val constIndex = getWideLiteralInstructionIndex(45468)
-                val iGetObjectIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
-                val checkCastIndex = getTargetIndexOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
+                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(45468)
+                val iGetObjectIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IGET_OBJECT)
+                val checkCastIndex =
+                    indexOfFirstInstructionOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
 
                 val ordinalIndex = indexOfOrdinalInstruction(this)
                 val imageViewIndex = indexOfImageViewInstruction(this)
@@ -888,7 +891,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for restore old comments popup panels
 
         OldEngagementPanelFingerprint.result?.let {
-            OldEngagementPanelFingerprint.literalInstructionBooleanHook(
+            OldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
                 45427672,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
             )
@@ -905,7 +908,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for restore old player background
 
         OldPlayerBackgroundFingerprint.result?.let {
-            OldPlayerBackgroundFingerprint.literalInstructionBooleanHook(
+            OldPlayerBackgroundFingerprint.injectLiteralInstructionBooleanCall(
                 45415319,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerBackground(Z)Z"
             )
@@ -922,7 +925,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for restore old player layout
 
         OldPlayerLayoutFingerprint.result?.let {
-            OldPlayerLayoutFingerprint.literalInstructionBooleanHook(
+            OldPlayerLayoutFingerprint.injectLiteralInstructionBooleanCall(
                 45399578,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerLayout(Z)Z"
             )
@@ -943,11 +946,14 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         viewId: Long
     ) {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val miniPlayerPlayPauseReplayButtonRegister =
             getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
         val findViewByIdIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_VIRTUAL)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_VIRTUAL
+            )
         val parentViewRegister =
             getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
 
@@ -966,11 +972,14 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         viewId: Long
     ) {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val constRegister =
             getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
         val findViewByIdIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_VIRTUAL)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_VIRTUAL
+            )
         val findViewByIdRegister =
             getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
 
@@ -986,9 +995,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
     private fun MutableMethod.setViewArray() {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val invokeStaticIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_STATIC)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_STATIC
+            )
         val viewArrayRegister = getInstruction<FiveRegisterInstruction>(invokeStaticIndex).registerC
 
         addInstructions(
@@ -1005,8 +1017,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         methodName: String,
         fieldName: String
     ) {
-        val startIndex = getStringInstructionIndex(intentString)
-        val onClickIndex = getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
+        val startIndex = indexOfFirstStringInstructionOrThrow(intentString)
+        val onClickIndex = indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
         val onClickReference = getInstruction<ReferenceInstruction>(onClickIndex).reference
         val onClickReferenceDefiningClass = (onClickReference as MethodReference).definingClass
 
@@ -1016,7 +1028,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         onClickClass.methods.find { method -> method.name == "<init>" }
             ?.apply {
                 addInstruction(
-                    implementation!!.instructions.size - 1,
+                    implementation!!.instructions.lastIndex,
                     "sput-object p0, $PLAYER_CLASS_DESCRIPTOR->$fieldName:$onClickReferenceDefiningClass"
                 )
             } ?: throw PatchException("onClickClass not found!")

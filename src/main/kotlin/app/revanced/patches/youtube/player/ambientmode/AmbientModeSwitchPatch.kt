@@ -10,10 +10,10 @@ import app.revanced.patches.youtube.player.ambientmode.fingerprints.PowerSaveMod
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -46,12 +46,12 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
         ).forEach { (fingerprint, reversed) ->
             fingerprint.resultOrThrow().mutableMethod.apply {
                 val stringIndex =
-                    getStringInstructionIndex("android.os.action.POWER_SAVE_MODE_CHANGED")
+                    indexOfFirstStringInstructionOrThrow("android.os.action.POWER_SAVE_MODE_CHANGED")
                 val targetIndex =
                     if (reversed)
-                        getTargetIndexReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
+                        indexOfFirstInstructionReversedOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
                     else
-                        getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
+                        indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_DIRECT)
                 val targetClass =
                     (getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference).definingClass
 
@@ -87,7 +87,7 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
 
         // region patch for disable ambient mode in fullscreen
 
-        AmbientModeInFullscreenFingerprint.literalInstructionBooleanHook(
+        AmbientModeInFullscreenFingerprint.injectLiteralInstructionBooleanCall(
             45389368,
             "$PLAYER_CLASS_DESCRIPTOR->disableAmbientModeInFullscreen()Z"
         )

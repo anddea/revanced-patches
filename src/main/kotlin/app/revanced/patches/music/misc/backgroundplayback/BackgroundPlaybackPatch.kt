@@ -10,15 +10,16 @@ import app.revanced.patches.music.misc.backgroundplayback.fingerprints.KidsBackg
 import app.revanced.patches.music.misc.backgroundplayback.fingerprints.MusicBrowserServiceFingerprint
 import app.revanced.patches.music.misc.backgroundplayback.fingerprints.PodCastConfigFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.util.getStartsWithStringInstructionIndex
-import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object BackgroundPlaybackPatch : BaseBytecodePatch(
@@ -51,26 +52,20 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
         // don't play music video
         MusicBrowserServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex =
-                    getStartsWithStringInstructionIndex("MBS: Return empty root for client: %s")
-
-                for (index in targetIndex downTo 0) {
-                    if (getInstruction(index).opcode != Opcode.INVOKE_VIRTUAL) continue
-
-                    val targetReference = getInstruction<ReferenceInstruction>(index).reference
-
-                    if (!targetReference.toString().endsWith("()Z")) continue
-
-                    val walkerMethod = getWalkerMethod(context, index)
-
-                    walkerMethod.addInstructions(
-                        0, """
-                            const/4 v0, 0x1
-                            return v0
-                            """
-                    )
-                    break
+                val stringIndex = MusicBrowserServiceFingerprint.indexOfMBSInstruction(this)
+                val targetIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "Z" &&
+                            reference.parameterTypes.size == 0
                 }
+
+                getWalkerMethod(context, targetIndex).addInstructions(
+                    0, """
+                        const/4 v0, 0x1
+                        return v0
+                        """
+                )
             }
         }
 
@@ -97,7 +92,8 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
             }
 
             dataSavingSettingsFragmentFingerprintResult!!.mutableMethod.apply {
-                val insertIndex = getStringInstructionIndex("pref_key_dont_play_nma_video") + 4
+                val insertIndex =
+                    indexOfFirstStringInstructionOrThrow("pref_key_dont_play_nma_video") + 4
                 val targetRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstruction(

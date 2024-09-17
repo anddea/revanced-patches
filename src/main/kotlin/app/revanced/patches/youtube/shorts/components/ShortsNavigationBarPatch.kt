@@ -10,10 +10,12 @@ import app.revanced.patches.youtube.shorts.components.fingerprints.RenderBottomN
 import app.revanced.patches.youtube.shorts.components.fingerprints.SetPivotBarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 object ShortsNavigationBarPatch : BytecodePatch(
     setOf(
@@ -51,7 +53,9 @@ object ShortsNavigationBarPatch : BytecodePatch(
 
         BottomNavigationBarFingerprint.result?.let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("findViewById") + 1
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "findViewById"
+                } + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

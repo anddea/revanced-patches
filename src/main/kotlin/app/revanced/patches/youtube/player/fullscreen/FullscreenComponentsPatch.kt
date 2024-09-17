@@ -30,12 +30,10 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullS
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QuickActionsElementContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -80,8 +78,9 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         EngagementPanelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val literalIndex = getWideLiteralInstructionIndex(FullScreenEngagementPanel)
-                val targetIndex = getTargetIndexOrThrow(literalIndex, Opcode.CHECK_CAST)
+                val literalIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(FullScreenEngagementPanel)
+                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.CHECK_CAST)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -94,7 +93,10 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         PlayerTitleViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "addView"
+                }
                 val insertReference =
                     getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
                 if (!insertReference.startsWith("Landroid/widget/FrameLayout;"))
@@ -115,9 +117,10 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         LayoutConstructorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(AutoNavPreviewStub)
+                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(AutoNavPreviewStub)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-                val jumpIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     constIndex, """
@@ -159,7 +162,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                     }
                 val constIndex = containerCalls.elementAt(containerCalls.size - 1).index
 
-                val checkCastIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+                val checkCastIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
                 val insertRegister =
                     getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
@@ -183,9 +186,11 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("setFocusableInTouchMode")
-                val walkerIndex = getTargetIndexOrThrow(targetIndex, Opcode.INVOKE_STATIC)
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setFocusableInTouchMode"
+                }
+                val walkerIndex = indexOfFirstInstructionOrThrow(targetIndex, Opcode.INVOKE_STATIC)
 
                 val walkerMethod = getWalkerMethod(context, walkerIndex)
                 walkerMethod.apply {
@@ -209,14 +214,14 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
         ClientSettingEndpointFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val getActivityIndex = getStringInstructionIndex("watch") + 2
+                val getActivityIndex = indexOfFirstStringInstructionOrThrow("watch") + 2
                 val getActivityReference =
                     getInstruction<ReferenceInstruction>(getActivityIndex).reference
                 val classRegister =
                     getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
 
                 val watchDescriptorMethodIndex =
-                    getStringInstructionIndex("start_watch_minimized") - 1
+                    indexOfFirstStringInstructionOrThrow("start_watch_minimized") - 1
                 val watchDescriptorRegister =
                     getInstruction<FiveRegisterInstruction>(watchDescriptorMethodIndex).registerD
 
@@ -228,7 +233,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                 )
 
                 // hooks Activity.
-                val insertIndex = getStringInstructionIndex("force_fullscreen")
+                val insertIndex = indexOfFirstStringInstructionOrThrow("force_fullscreen")
                 val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
@@ -244,9 +249,10 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
         VideoPortraitParentFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val stringIndex =
-                    getStringInstructionIndex("Acquiring NetLatencyActionLogger failed. taskId=")
-                val invokeIndex = getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_INTERFACE)
-                val targetIndex = getTargetIndexOrThrow(invokeIndex, Opcode.CHECK_CAST)
+                    indexOfFirstStringInstructionOrThrow("Acquiring NetLatencyActionLogger failed. taskId=")
+                val invokeIndex =
+                    indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_INTERFACE)
+                val targetIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.CHECK_CAST)
                 val targetClass = context
                     .findClass(getInstruction<ReferenceInstruction>(targetIndex).reference.toString())!!
                     .mutableClass
@@ -328,8 +334,9 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                 BroadcastReceiverFingerprint.resultOrThrow().let { result ->
                     result.mutableMethod.apply {
                         val stringIndex =
-                            getStringInstructionIndex("android.intent.action.SCREEN_ON")
-                        val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.IF_EQZ) + 1
+                            indexOfFirstStringInstructionOrThrow("android.intent.action.SCREEN_ON")
+                        val insertIndex =
+                            indexOfFirstInstructionOrThrow(stringIndex, Opcode.IF_EQZ) + 1
 
                         addInstruction(
                             insertIndex,

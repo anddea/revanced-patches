@@ -14,12 +14,14 @@ import app.revanced.patches.music.utils.integrations.Constants.ACCOUNT_CLASS_DES
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object AccountComponentsPatch : BaseBytecodePatch(
@@ -43,8 +45,14 @@ object AccountComponentsPatch : BaseBytecodePatch(
 
         MenuEntryFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val textIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
-                val viewIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
+                val textIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setText"
+                }
+                val viewIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "addView"
+                }
 
                 val textRegister = getInstruction<FiveRegisterInstruction>(textIndex).registerD
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
@@ -64,9 +72,14 @@ object AccountComponentsPatch : BaseBytecodePatch(
         AccountSwitcherAccessibilityLabelFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
 
-                val textColorIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTextColor")
-                val setVisibilityIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow(textColorIndex, "setVisibility")
+                val textColorIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setTextColor"
+                }
+                val setVisibilityIndex = indexOfFirstInstructionOrThrow(textColorIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setVisibility"
+                }
                 val textViewInstruction =
                     getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
@@ -98,8 +111,12 @@ object AccountComponentsPatch : BaseBytecodePatch(
 
         TermsOfServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex =
-                    getTargetIndexWithReferenceOrThrow("/PrivacyTosFooter;->setVisibility(I)V")
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.name == "setVisibility" &&
+                            reference.definingClass.endsWith("/PrivacyTosFooter;")
+                }
                 val visibilityRegister =
                     getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
