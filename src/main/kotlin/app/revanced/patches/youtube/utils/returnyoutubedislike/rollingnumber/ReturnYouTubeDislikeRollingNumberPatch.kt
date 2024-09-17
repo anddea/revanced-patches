@@ -17,14 +17,15 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fin
 import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints.RollingNumberMeasureTextParentFingerprint
 import app.revanced.patches.youtube.utils.returnyoutubedislike.rollingnumber.fingerprints.RollingNumberSetterFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 @Patch(dependencies = [SettingsPatch::class])
@@ -60,7 +61,8 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
 
                     rollingNumberClass.methods.find { method -> method.name == "<init>" }
                         ?.apply {
-                            val rollingNumberFieldIndex = getTargetIndexOrThrow(Opcode.IPUT_OBJECT)
+                            val rollingNumberFieldIndex =
+                                indexOfFirstInstructionOrThrow(opcode = Opcode.IPUT_OBJECT)
                             charSequenceFieldReference =
                                 getInstruction<ReferenceInstruction>(rollingNumberFieldIndex).reference
                         } ?: throw PatchException("RollingNumberClass not found!")
@@ -103,7 +105,7 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                             """
                     )
 
-                    val ifGeIndex = getTargetIndexOrThrow(Opcode.IF_GE)
+                    val ifGeIndex = indexOfFirstInstructionOrThrow(opcode = Opcode.IF_GE)
                     val ifGeInstruction = getInstruction<TwoRegisterInstruction>(ifGeIndex)
 
                     removeInstruction(ifGeIndex)
@@ -153,7 +155,9 @@ object ReturnYouTubeDislikeRollingNumberPatch : BytecodePatch(
                     realTimeUpdateTextViewMethod
                 ).forEach { insertMethod ->
                     insertMethod.apply {
-                        val setTextIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
+                        val setTextIndex = indexOfFirstInstructionOrThrow {
+                            getReference<MethodReference>()?.name == "setText"
+                        }
                         val textViewRegister =
                             getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
                         val textSpanRegister =

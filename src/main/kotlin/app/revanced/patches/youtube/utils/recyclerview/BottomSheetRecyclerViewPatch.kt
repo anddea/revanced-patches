@@ -2,18 +2,16 @@ package app.revanced.patches.youtube.utils.recyclerview
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.recyclerview.fingerprints.BottomSheetRecyclerViewBuilderFingerprint
 import app.revanced.patches.youtube.utils.recyclerview.fingerprints.RecyclerViewTreeObserverFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 object BottomSheetRecyclerViewPatch : BytecodePatch(
@@ -35,15 +33,10 @@ object BottomSheetRecyclerViewPatch : BytecodePatch(
          * Therefore, we need to force this to be true.
          */
         BottomSheetRecyclerViewBuilderFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(45382015) + 2
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstruction(
-                    targetIndex + 1,
-                    "const/4 v$targetRegister, 0x1"
-                )
-            }
+            BottomSheetRecyclerViewBuilderFingerprint.injectLiteralInstructionBooleanCall(
+                45382015,
+                "0x1"
+            )
         }
 
         RecyclerViewTreeObserverFingerprint.resultOrThrow().mutableMethod.apply {
@@ -54,7 +47,7 @@ object BottomSheetRecyclerViewPatch : BytecodePatch(
                         && getReference<FieldReference>()?.type == "Landroid/view/ViewTreeObserver${'$'}OnDrawListener;"
             }
             recyclerViewTreeObserverInsertIndex =
-                getTargetIndexReversedOrThrow(onDrawListenerIndex, Opcode.CHECK_CAST) + 1
+                indexOfFirstInstructionReversedOrThrow(onDrawListenerIndex, Opcode.CHECK_CAST) + 1
         }
 
     }

@@ -5,6 +5,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * This value restores the 'Slide to seek' behavior.
+ * Deprecated in YouTube v19.18.41+.
  */
 internal object RestoreSlideToSeekBehaviorFingerprint : LiteralValueFingerprint(
     returnType = "Z",

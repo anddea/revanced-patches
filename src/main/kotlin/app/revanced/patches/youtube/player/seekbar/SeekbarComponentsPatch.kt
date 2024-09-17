@@ -33,7 +33,11 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.updatePatchStatus
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
@@ -42,6 +46,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 @Suppress("DEPRECATION", "unused")
@@ -151,11 +156,14 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         TotalTimeFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val charSequenceIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("getString") + 1
+                val charSequenceIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "getString"
+                } + 1
                 val charSequenceRegister =
                     getInstruction<OneRegisterInstruction>(charSequenceIndex).registerA
-                val textViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("getText")
+                val textViewIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "getText"
+                }
                 val textViewRegister =
                     getInstruction<FiveRegisterInstruction>(textViewIndex).registerC
 
@@ -174,12 +182,12 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for seekbar color
 
         PlayerSeekbarColorFingerprint.resultOrThrow().mutableMethod.apply {
-            hook(getWideLiteralInstructionIndex(InlineTimeBarColorizedBarPlayedColorDark) + 2)
-            hook(getWideLiteralInstructionIndex(InlineTimeBarPlayedNotHighlightedColor) + 2)
+            hook(InlineTimeBarColorizedBarPlayedColorDark)
+            hook(InlineTimeBarPlayedNotHighlightedColor)
         }
 
         ShortsSeekbarColorFingerprint.resultOrThrow().mutableMethod.apply {
-            hook(getWideLiteralInstructionIndex(ReelTimeBarPlayedColor) + 2)
+            hook(ReelTimeBarPlayedColor)
         }
 
         ControlsOverlayStyleFingerprint.resultOrThrow().let {
@@ -237,7 +245,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
-                val viewIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
+                val viewIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_INTERFACE)
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstructionsWithLabels(
@@ -296,7 +304,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for restore old seekbar thumbnails
 
         ThumbnailPreviewConfigFingerprint.result?.let {
-            ThumbnailPreviewConfigFingerprint.literalInstructionBooleanHook(
+            ThumbnailPreviewConfigFingerprint.injectLiteralInstructionBooleanCall(
                 45398577,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldSeekbarThumbnails()Z"
             )
@@ -310,7 +318,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         // region patch for enable cairo seekbar
 
         if (SettingsPatch.upward1923) {
-            CairoSeekbarConfigFingerprint.literalInstructionBooleanHook(
+            CairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
                 45617850,
                 "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
             )
@@ -328,7 +336,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         SettingsPatch.updatePatchStatus(this)
     }
 
-    private fun MutableMethod.hook(insertIndex: Int) {
+    private fun MutableMethod.hook(literal: Long) {
+        val insertIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal) + 2
         val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
         addInstructions(

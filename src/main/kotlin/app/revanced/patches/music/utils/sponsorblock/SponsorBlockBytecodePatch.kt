@@ -14,13 +14,17 @@ import app.revanced.patches.music.utils.sponsorblock.fingerprints.MusicPlaybackC
 import app.revanced.patches.music.utils.sponsorblock.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.videoid.VideoIdPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
+import app.revanced.util.alsoResolve
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     dependencies = [
@@ -55,10 +59,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         /**
          * Responsible for seekbar in fullscreen
          */
-        val seekBarClass = SeekBarConstructorFingerprint.resultOrThrow().mutableClass
-        SeekbarOnDrawFingerprint.resolve(context, seekBarClass)
-
-        SeekbarOnDrawFingerprint.resultOrThrow().let {
+        SeekbarOnDrawFingerprint.alsoResolve(
+            context, SeekBarConstructorFingerprint
+        ).let {
             it.mutableMethod.apply {
                 // Initialize seekbar method
                 addInstructions(
@@ -70,7 +73,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Set seekbar thickness
-                val roundIndex = getTargetIndexWithMethodReferenceNameOrThrow("round") + 1
+                val roundIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "round"
+                } + 1
                 val roundRegister = getInstruction<OneRegisterInstruction>(roundIndex).registerA
                 addInstruction(
                     roundIndex + 1,
@@ -79,8 +84,9 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Draw segment
-                val drawCircleIndex =
-                    getTargetIndexWithMethodReferenceNameReversedOrThrow("drawCircle")
+                val drawCircleIndex = indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "drawCircle"
+                }
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 addInstruction(
                     drawCircleIndex,
@@ -115,7 +121,10 @@ object SponsorBlockBytecodePatch : BytecodePatch(
                 )
 
                 // Draw segment
-                val drawCircleIndex = getTargetIndexWithMethodReferenceNameOrThrow("drawCircle")
+                val drawCircleIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL
+                            && getReference<MethodReference>()?.name == "drawCircle"
+                }
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 addInstruction(
                     drawCircleIndex,

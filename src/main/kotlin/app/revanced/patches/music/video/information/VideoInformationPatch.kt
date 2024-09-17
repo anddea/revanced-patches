@@ -26,10 +26,9 @@ import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.util.addFieldAndInstructions
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeReversedOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -216,12 +215,10 @@ object VideoInformationPatch : BytecodePatch(
         )
         VideoLengthFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val invalidateIndex =
-                    getTargetIndexWithMethodReferenceNameReversedOrThrow("invalidate")
-                val rectangleIndex = getTargetIndexWithFieldReferenceTypeReversedOrThrow(
-                    invalidateIndex + 1,
-                    "Landroid/graphics/Rect;"
-                )
+                val invalidateIndex = VideoLengthFingerprint.indexOfInvalidateInstruction(this)
+                val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
+                    getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+                }
                 rectangleFieldName =
                     (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 

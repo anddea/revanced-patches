@@ -27,15 +27,17 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicTasteBuilderShelf
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerOverlayChip
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopBarMenuItemImageView
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.shared.settingmenu.SettingsMenuPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.alsoResolve
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -99,7 +101,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         PlayerOverlayChipFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getWideLiteralInstructionIndex(SharedResourceIdPatch.PlayerOverlayChip) + 2
+                    indexOfFirstWideLiteralInstructionValueOrThrow(PlayerOverlayChip) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -176,8 +178,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         if (SettingsPatch.upward0642) {
             TopBarMenuItemImageViewFingerprint.resultOrThrow().mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(TopBarMenuItemImageView)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val constIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(TopBarMenuItemImageView)
+                val targetIndex =
+                    indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -193,7 +197,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         // region patch for hide sound search button
 
         SoundSearchFingerprint.result?.let {
-            SoundSearchFingerprint.literalInstructionBooleanHook(
+            SoundSearchFingerprint.injectLiteralInstructionBooleanCall(
                 45625491,
                 "$GENERAL_CLASS_DESCRIPTOR->hideSoundSearchButton(Z)Z"
             )
@@ -227,8 +231,9 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
             parentResult.mutableMethod.apply {
                 val constIndex =
-                    getWideLiteralInstructionIndex(SharedResourceIdPatch.MusicTasteBuilderShelf)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                    indexOfFirstWideLiteralInstructionValueOrThrow(MusicTasteBuilderShelf)
+                val targetIndex =
+                    indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -263,14 +268,11 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide voice search button
 
-        SearchBarFingerprint.resolve(
-            context,
-            SearchBarParentFingerprint.resultOrThrow().classDef
-        )
-        SearchBarFingerprint.resultOrThrow().let {
+        SearchBarFingerprint.alsoResolve(
+            context, SearchBarParentFingerprint
+        ).let {
             it.mutableMethod.apply {
-                val setVisibilityIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                val setVisibilityIndex = SearchBarFingerprint.indexOfVisibilityInstruction(this)
                 val setVisibilityInstruction =
                     getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 

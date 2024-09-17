@@ -8,9 +8,11 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.shared.settingmenu.fingerprints.SettingsMenuFingerprint
 import app.revanced.patches.shared.viewgroup.ViewGroupMarginLayoutParamsHookPatch
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     description = "Hide the settings menu for YouTube or YouTube Music.",
@@ -25,8 +27,9 @@ object SettingsMenuPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         SettingsMenuFingerprint.resultOrThrow().mutableMethod.apply {
-            val insertIndex =
-                getTargetIndexWithFieldReferenceTypeOrThrow("Landroid/support/v7/widget/RecyclerView;")
+            val insertIndex = indexOfFirstInstructionOrThrow {
+                getReference<FieldReference>()?.type == "Landroid/support/v7/widget/RecyclerView;"
+            }
             val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(

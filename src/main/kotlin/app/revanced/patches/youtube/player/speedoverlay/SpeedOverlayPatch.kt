@@ -15,18 +15,15 @@ import app.revanced.patches.youtube.player.speedoverlay.fingerprints.NextGenWatc
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.RestoreSlideToSeekBehaviorFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SlideToSeekMotionEventFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayFingerprint
+import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayFloatValueFingerprint
 import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayTextValueFingerprint
-import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverlayValueFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
-import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -35,6 +32,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
 object SpeedOverlayPatch : BytecodePatch(
@@ -43,8 +42,8 @@ object SpeedOverlayPatch : BytecodePatch(
         NextGenWatchLayoutFingerprint,
         RestoreSlideToSeekBehaviorFingerprint,
         SpeedOverlayFingerprint,
+        SpeedOverlayFloatValueFingerprint,
         SpeedOverlayTextValueFingerprint,
-        SpeedOverlayValueFingerprint,
     )
 ) {
     override fun execute(context: BytecodeContext) {
@@ -52,36 +51,33 @@ object SpeedOverlayPatch : BytecodePatch(
         val restoreSlideToSeekBehaviorFingerprintResult =
             RestoreSlideToSeekBehaviorFingerprint.result
         val speedOverlayFingerprintResult = SpeedOverlayFingerprint.result
-        val speedOverlayValueFingerprintResult = SpeedOverlayValueFingerprint.result
+        val speedOverlayFloatValueFingerprintResult = SpeedOverlayFloatValueFingerprint.result
 
         val resolvable =
             restoreSlideToSeekBehaviorFingerprintResult != null
                     && speedOverlayFingerprintResult != null
-                    && speedOverlayValueFingerprintResult != null
+                    && speedOverlayFloatValueFingerprintResult != null
 
         if (resolvable) {
-            // Legacy method.
             // Used on YouTube 18.29.38 ~ YouTube 19.17.41
 
-            // region patch for disable speed overlay
+            // region patch for Disable speed overlay (Enable slide to seek)
 
             mapOf(
                 RestoreSlideToSeekBehaviorFingerprint to 45411329,
                 SpeedOverlayFingerprint to 45411330
             ).forEach { (fingerprint, literal) ->
-                fingerprint.result!!.let {
-                    fingerprint.literalInstructionBooleanHook(
-                        literal,
-                        "$PLAYER_CLASS_DESCRIPTOR->disableSpeedOverlay(Z)Z"
-                    )
-                }
+                fingerprint.injectLiteralInstructionBooleanCall(
+                    literal,
+                    "$PLAYER_CLASS_DESCRIPTOR->disableSpeedOverlay(Z)Z"
+                )
             }
 
             // endregion
 
-            // region patch for custom speed overlay value
+            // region patch for Custom speed overlay float value
 
-            speedOverlayValueFingerprintResult!!.let {
+            speedOverlayFloatValueFingerprintResult!!.let {
                 it.mutableMethod.apply {
                     val index = it.scanResult.patternScanResult!!.startIndex
                     val register = getInstruction<TwoRegisterInstruction>(index).registerA
@@ -98,13 +94,18 @@ object SpeedOverlayPatch : BytecodePatch(
             // endregion
 
         } else {
-            // New method.
             // Used on YouTube 19.18.41~
 
-            NextGenWatchLayoutFingerprint.resultOrThrow().mutableMethod.apply {
-                val booleanValueIndex = getTargetIndexWithMethodReferenceNameOrThrow("booleanValue")
+            // region patch for Disable speed overlay (Enable slide to seek)
 
-                val insertIndex = findIGetIndex(booleanValueIndex - 10, booleanValueIndex)
+            NextGenWatchLayoutFingerprint.resultOrThrow().mutableMethod.apply {
+                val booleanValueIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "booleanValue"
+                }
+                val insertIndex = indexOfFirstInstructionOrThrow(booleanValueIndex - 10) {
+                    opcode == Opcode.IGET_OBJECT
+                            && getReference<FieldReference>()?.definingClass == definingClass
+                }
                 val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
                 val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
 
@@ -113,77 +114,107 @@ object SpeedOverlayPatch : BytecodePatch(
                     "iget-object v${insertInstruction.registerA}, v${insertInstruction.registerB}, $insertReference"
                 )
 
-                val jumpIndex = findIGetIndex(booleanValueIndex, booleanValueIndex + 10)
+                val jumpIndex = indexOfFirstInstructionOrThrow(booleanValueIndex) {
+                    opcode == Opcode.IGET_OBJECT
+                            && getReference<FieldReference>()?.definingClass == definingClass
+                }
 
                 hook(insertIndex + 1, insertInstruction.registerA, jumpIndex)
             }
 
-            SlideToSeekMotionEventFingerprint.resolve(
-                context,
-                HorizontalTouchOffsetConstructorFingerprint.resultOrThrow().classDef
-            )
-            SlideToSeekMotionEventFingerprint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val scanResult = it.scanResult.patternScanResult!!
+            val (slideToSeekBooleanMethod, slideToSeekSyntheticMethod) =
+                SlideToSeekMotionEventFingerprint.alsoResolve(
+                    context, HorizontalTouchOffsetConstructorFingerprint
+                ).let {
+                    with(it.mutableMethod) {
+                        val scanResult = it.scanResult.patternScanResult!!
+                        val jumpIndex = scanResult.endIndex + 1
+                        val insertIndex = scanResult.endIndex - 1
+                        val insertRegister =
+                            getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                    val slideToSeekBooleanIndex = scanResult.startIndex + 1
-                    slideToSeekBooleanMethod = getWalkerMethod(context, slideToSeekBooleanIndex)
-
-                    val jumpIndex = scanResult.endIndex + 1
-                    val insertIndex = scanResult.endIndex - 1
-                    val insertRegister =
-                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                    hook(insertIndex, insertRegister, jumpIndex)
-                }
-            }
-
-            slideToSeekBooleanMethod.apply {
-                var insertIndex = getTargetIndexOrThrow(Opcode.IGET_OBJECT)
-                var insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                var jumpIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_VIRTUAL)
-
-                hook(insertIndex, insertRegister, jumpIndex)
-
-                val constructorMethod =
-                    context.findClass(definingClass)?.mutableClass
-                        ?.methods?.find { method -> method.name == "<init>" }
-                        ?: throw PatchException("Could not find constructor method")
-
-                constructorMethod.apply {
-                    val syntheticIndex = getTargetIndexReversedOrThrow(Opcode.NEW_INSTANCE)
-                    val syntheticClass =
-                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
-
-                    val syntheticMethod =
-                        context.findClass(syntheticClass)?.mutableClass
-                            ?.methods?.find { method -> method.name == "run" }
-                            ?: throw PatchException("Could not find synthetic method")
-
-                    syntheticMethod.apply {
-                        val speedOverlayValueIndex =
-                            indexOfFirstInstructionOrThrow { (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits() }
-                        val speedOverlayValueRegister =
-                            getInstruction<OneRegisterInstruction>(speedOverlayValueIndex).registerA
-
-                        addInstructions(
-                            speedOverlayValueIndex + 1, """
-                                invoke-static {v$speedOverlayValueRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
-                                move-result v$speedOverlayValueRegister
-                                """
-                        )
-
-                        insertIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow(
-                            speedOverlayValueIndex,
-                            "removeCallbacks"
-                        ) + 1
-                        insertRegister =
-                            getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
-                        jumpIndex =
-                            getTargetIndexOrThrow(speedOverlayValueIndex, Opcode.RETURN_VOID) + 1
                         hook(insertIndex, insertRegister, jumpIndex)
+
+                        val slideToSeekBooleanMethod = context.toMethodWalker(it.mutableMethod)
+                            .nextMethod(scanResult.startIndex + 1, true)
+                            .getMethod() as MutableMethod
+
+                        val slideToSeekConstructorMethod =
+                            context.findClass { classDef -> classDef.type == slideToSeekBooleanMethod.definingClass }
+                                ?.mutableClass
+                                ?.methods
+                                ?.find { method -> MethodUtil.isConstructor(method) }
+                                ?: throw PatchException("Could not find constructor method")
+
+                        val slideToSeekSyntheticIndex = slideToSeekConstructorMethod
+                            .indexOfFirstInstructionReversedOrThrow {
+                                opcode == Opcode.NEW_INSTANCE
+                            }
+
+                        val slideToSeekSyntheticClass = slideToSeekConstructorMethod
+                            .getInstruction<ReferenceInstruction>(slideToSeekSyntheticIndex)
+                            .reference
+                            .toString()
+
+                        val slideToSeekSyntheticMethod =
+                            context.findClass { classDef -> classDef.type == slideToSeekSyntheticClass }
+                                ?.mutableClass
+                                ?.methods
+                                ?.find { method -> method.name == "run" }
+                                ?: throw PatchException("Could not find synthetic method")
+
+                        Pair(slideToSeekBooleanMethod, slideToSeekSyntheticMethod)
                     }
                 }
+
+            slideToSeekBooleanMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT
+                }
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val jumpIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL
+                }
+
+                hook(insertIndex, insertRegister, jumpIndex)
+            }
+
+            slideToSeekSyntheticMethod.apply {
+                val speedOverlayFloatValueIndex = indexOfFirstInstructionOrThrow {
+                    (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
+                }
+                val insertIndex =
+                    indexOfFirstInstructionReversedOrThrow(speedOverlayFloatValueIndex) {
+                        getReference<MethodReference>()?.name == "removeCallbacks"
+                    } + 1
+                val insertRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerC
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(
+                        speedOverlayFloatValueIndex,
+                        Opcode.RETURN_VOID
+                    ) + 1
+
+                hook(insertIndex, insertRegister, jumpIndex)
+            }
+
+            // endregion
+
+            // region patch for Custom speed overlay float value
+
+            slideToSeekSyntheticMethod.apply {
+                val speedOverlayFloatValueIndex = indexOfFirstInstructionOrThrow {
+                    (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
+                }
+                val speedOverlayFloatValueRegister =
+                    getInstruction<OneRegisterInstruction>(speedOverlayFloatValueIndex).registerA
+
+                addInstructions(
+                    speedOverlayFloatValueIndex + 1, """
+                        invoke-static {v$speedOverlayFloatValueRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
+                        move-result v$speedOverlayFloatValueRegister
+                        """
+                )
             }
 
             SpeedOverlayTextValueFingerprint.resultOrThrow().let {
@@ -200,10 +231,11 @@ object SpeedOverlayPatch : BytecodePatch(
                     )
                 }
             }
+
+            // endregion
+
         }
     }
-
-    private lateinit var slideToSeekBooleanMethod: MutableMethod
 
     // restore slide to seek
     private fun MutableMethod.hook(
@@ -219,15 +251,5 @@ object SpeedOverlayPatch : BytecodePatch(
                 if-eqz v$insertRegister, :disable
                 """, ExternalLabel("disable", getInstruction(jumpIndex))
         )
-    }
-
-    private fun MutableMethod.findIGetIndex(
-        startIndex: Int,
-        endIndex: Int
-    ): Int = implementation!!.instructions.let { instruction ->
-        startIndex + instruction.subList(startIndex, endIndex).indexOfFirst {
-            it.opcode == Opcode.IGET_OBJECT
-                    && it.getReference<FieldReference>()?.definingClass == definingClass
-        }
     }
 }

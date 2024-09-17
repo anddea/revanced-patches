@@ -7,8 +7,9 @@ import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * This value is the key for the playback speed overlay value.
+ * Deprecated in YouTube v19.18.41+.
  */
-internal object SpeedOverlayValueFingerprint : LiteralValueFingerprint(
+internal object SpeedOverlayFloatValueFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(Opcode.DOUBLE_TO_FLOAT),

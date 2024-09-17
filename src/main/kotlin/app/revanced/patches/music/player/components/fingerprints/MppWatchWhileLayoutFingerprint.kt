@@ -2,7 +2,7 @@ package app.revanced.patches.music.player.components.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object MppWatchWhileLayoutFingerprint : MethodFingerprint(
@@ -11,6 +11,6 @@ internal object MppWatchWhileLayoutFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass.endsWith("/MppWatchWhileLayout;")
                 && methodDef.name == "onFinishInflate"
-                && methodDef.containsWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+                && methodDef.containsWideLiteralInstructionValue(MiniPlayerPlayPauseReplayButton)
     }
 )

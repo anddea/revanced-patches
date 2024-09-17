@@ -48,11 +48,11 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TapBl
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -61,6 +61,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object PlayerComponentsPatch : BaseBytecodePatch(
@@ -107,8 +108,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(ScrimOverlay)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(ScrimOverlay)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -144,7 +145,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 if (fingerprint == StartVideoInformerFingerprint) {
                     hookInitVideoPanel(1)
                 } else {
-                    val syntheticIndex = getTargetIndexOrThrow(Opcode.NEW_INSTANCE)
+                    val syntheticIndex =
+                        indexOfFirstInstructionOrThrow(opcode = Opcode.NEW_INSTANCE)
                     val syntheticReference =
                         getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
                     val syntheticClass =
@@ -228,7 +230,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             DarkBackground,
             TapBloomView
         ).forEach { literal ->
-            QuickSeekOverlayFingerprint.literalInstructionViewHook(
+            QuickSeekOverlayFingerprint.injectLiteralInstructionViewCall(
                 literal,
                 smaliInstruction
             )
@@ -273,10 +275,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(FadeDurationFast)
+                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(FadeDurationFast)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
                 val insertIndex =
-                    getTargetIndexReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
+                    indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
                 val jumpIndex = implementation!!.instructions.let { instruction ->
                     insertIndex + instruction.subList(insertIndex, instruction.size - 1)
                         .indexOfFirst { instructions ->
@@ -341,11 +343,14 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         YouTubeControlsOverlayFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
-                val insertIndex = getWideLiteralInstructionIndex(SeekUndoEduOverlayStub)
+                val insertIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(SeekUndoEduOverlayStub)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val onClickListenerIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow(insertIndex, "setOnClickListener")
+                val onClickListenerIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setOnClickListener"
+                }
                 val constComponent = getConstComponent(insertIndex, onClickListenerIndex - 1)
 
                 if (constComponent.isNotEmpty()) {
@@ -390,8 +395,10 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableClass.methods.find { method ->
                 method.parameters == listOf("Landroid/view/View${'$'}OnClickListener;")
             }?.apply {
-                val setOnClickListenerIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("setOnClickListener")
+                val setOnClickListenerIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setOnClickListener"
+                }
                 val setOnClickListenerRegister =
                     getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 

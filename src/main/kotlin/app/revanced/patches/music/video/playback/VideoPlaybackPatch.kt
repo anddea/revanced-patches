@@ -13,7 +13,7 @@ import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.playback.fingerprints.PlaybackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.video.playback.fingerprints.UserQualityChangeFingerprint
 import app.revanced.patches.music.video.videoid.VideoIdPatch
-import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -52,7 +52,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
-                val targetIndex = getTargetIndexOrThrow(Opcode.IGET)
+                val targetIndex = indexOfFirstInstructionOrThrow(Opcode.IGET)
                 val targetRegister =
                     getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 

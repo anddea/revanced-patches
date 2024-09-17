@@ -16,12 +16,15 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetFooterText
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.literalInstructionBooleanHook
-import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object PlayerFlyoutMenuPatch : BaseBytecodePatch(
@@ -56,7 +59,7 @@ object PlayerFlyoutMenuPatch : BaseBytecodePatch(
             val smaliInstruction = """
                     invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $PLAYER_CLASS_DESCRIPTOR->$name(Landroid/view/View;)V
                     """
-            fingerprint.literalInstructionViewHook(BottomSheetFooterText, smaliInstruction)
+            fingerprint.injectLiteralInstructionViewCall(BottomSheetFooterText, smaliInstruction)
         }
 
         arrayOf(
@@ -64,15 +67,17 @@ object PlayerFlyoutMenuPatch : BaseBytecodePatch(
             QualityMenuViewInflateFingerprint
         ).forEach { fingerprint ->
             fingerprint.resultOrThrow().mutableMethod.apply {
-                val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("addHeaderView")
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "addHeaderView"
+                }
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
                 addInstructions(
-                    insertIndex,
-                    """
-                    invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuQualityHeader(Landroid/view/View;)Landroid/view/View;
-                    move-result-object v$insertRegister
-                    """
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hidePlayerFlyoutMenuQualityHeader(Landroid/view/View;)Landroid/view/View;
+                        move-result-object v$insertRegister
+                        """
                 )
             }
         }
@@ -95,7 +100,7 @@ object PlayerFlyoutMenuPatch : BaseBytecodePatch(
         SettingsPatch.updatePatchStatus(this)
 
         if (SettingsPatch.upward1839) {
-            PiPModeConfigFingerprint.literalInstructionBooleanHook(
+            PiPModeConfigFingerprint.injectLiteralInstructionBooleanCall(
                 45427407,
                 "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
             )

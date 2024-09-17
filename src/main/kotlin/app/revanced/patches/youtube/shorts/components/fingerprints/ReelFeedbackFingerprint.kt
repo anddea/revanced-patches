@@ -4,13 +4,13 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelFeedbackLike
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelFeedbackPause
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelFeedbackPlay
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 
 internal object ReelFeedbackFingerprint : MethodFingerprint(
     returnType = "V",
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(ReelFeedbackLike)
-                && methodDef.containsWideLiteralInstructionIndex(ReelFeedbackPause)
-                && methodDef.containsWideLiteralInstructionIndex(ReelFeedbackPlay)
+        methodDef.containsWideLiteralInstructionValue(ReelFeedbackLike)
+                && methodDef.containsWideLiteralInstructionValue(ReelFeedbackPause)
+                && methodDef.containsWideLiteralInstructionValue(ReelFeedbackPlay)
     },
 )

@@ -33,10 +33,9 @@ import app.revanced.patches.youtube.video.playback.fingerprints.QualitySetterFin
 import app.revanced.patches.youtube.video.playback.fingerprints.VP9CapabilityFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
@@ -112,7 +111,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         // region patch for disable HDR video
 
         HDRCapabilityFingerprint.resultOrThrow().mutableMethod.apply {
-            val stringIndex = getStringInstructionIndex("av1_profile_main_10_hdr_10_plus_supported")
+            val stringIndex =
+                indexOfFirstStringInstructionOrThrow("av1_profile_main_10_hdr_10_plus_supported")
             val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                 val reference = getReference<MethodReference>()
                 reference?.parameterTypes == listOf("I", "Landroid/view/Display;")
@@ -149,7 +149,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             speedSelectionInsertMethod
         ).forEach {
             it.apply {
-                val speedSelectionValueInstructionIndex = getTargetIndexOrThrow(Opcode.IGET)
+                val speedSelectionValueInstructionIndex =
+                    indexOfFirstInstructionOrThrow(Opcode.IGET)
                 val speedSelectionValueRegister =
                     getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
@@ -227,7 +228,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
         QualityMenuViewInflateFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getTargetIndexOrThrow(Opcode.CHECK_CAST)
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -240,7 +241,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method -> method.name == "onItemClick" }
 
             onItemClickMethod?.apply {
-                val insertIndex = getTargetIndexOrThrow(Opcode.IGET_OBJECT)
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 val jumpIndex = indexOfFirstInstructionOrThrow {
@@ -291,7 +292,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
         AV1CodecFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = getStringInstructionIndex("video/av01")
+                val insertIndex = indexOfFirstStringInstructionOrThrow("video/av01")
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(

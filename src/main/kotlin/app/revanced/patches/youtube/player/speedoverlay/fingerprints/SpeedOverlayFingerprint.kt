@@ -5,6 +5,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * This value disables 'Playing at 2x speed' while holding down.
+ * Deprecated in YouTube v19.18.41+.
  */
 internal object SpeedOverlayFingerprint : LiteralValueFingerprint(
     returnType = "Z",
