@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.utils.sponsorblock
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
+import app.revanced.util.*
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.patch.BaseResourcePatch
+import org.w3c.dom.Element
 
 @Suppress("DEPRECATION", "unused")
 object SponsorBlockPatch : BaseResourcePatch(
@@ -21,11 +21,25 @@ object SponsorBlockPatch : BaseResourcePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
+    private const val RIGHT = "right"
+
     private val OutlineIcon by booleanPatchOption(
         key = "OutlineIcon",
         default = true,
         title = "Outline icons",
         description = "Apply the outline icon.",
+        required = true
+    )
+
+    private val NewSegmentAlignment by stringPatchOption(
+        key = "NewSegmentAlignment",
+        default = RIGHT,
+        values = mapOf(
+            "Right" to RIGHT,
+            "Left" to "left",
+        ),
+        title = "New segment alignment",
+        description = "Align new segment window.",
         required = true
     )
 
@@ -87,6 +101,17 @@ object SponsorBlockPatch : BaseResourcePatch(
                 )
             ).forEach { resourceGroup ->
                 context.copyResources("youtube/sponsorblock/default", resourceGroup)
+            }
+        }
+
+        if (NewSegmentAlignment == "left") {
+            context.xmlEditor["res/layout/revanced_sb_inline_sponsor_overlay.xml"].use { editor ->
+                editor.file.doRecursively { node ->
+                    if (node is Element && node.tagName == "app.revanced.integrations.youtube.sponsorblock.ui.NewSegmentLayout") {
+                        node.setAttribute("android:layout_alignParentRight", "false")
+                        node.setAttribute("android:layout_alignParentLeft", "true")
+                    }
+                }
             }
         }
 
