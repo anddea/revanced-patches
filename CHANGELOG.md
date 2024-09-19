@@ -1,3 +1,10 @@
+# [2.229.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.6...v2.229.0-dev.7) (2024-09-19)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add patch option to select new segment window alignment ([28fc1d5](https://github.com/anddea/revanced-patches/commit/28fc1d5527181a123129439a3384335a28c98346))
+
 # [2.229.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.5...v2.229.0-dev.6) (2024-09-17)
 
 
