@@ -1,3 +1,47 @@
+# [2.229.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.6...v2.229.0-dev.7) (2024-09-19)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add patch option to select new segment window alignment ([28fc1d5](https://github.com/anddea/revanced-patches/commit/28fc1d5527181a123129439a3384335a28c98346))
+
+# [2.229.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.5...v2.229.0-dev.6) (2024-09-17)
+
+
+### Features
+
+* **YouTube - Custom branding icon:** New themed icon for `Xisr Yellow` ([#831](https://github.com/anddea/revanced-patches/issues/831)) ([ac08786](https://github.com/anddea/revanced-patches/commit/ac08786e3248f8d8a994b3941237e515396fd578))
+* **YouTube - Seekbar components:** Add patch options to set Cairo seekbar colors ([b956855](https://github.com/anddea/revanced-patches/commit/b956855183f3f6c85a41e0d3812da6ff71ec8157))
+* **YouTube - SponsorBlock:** Make new segment window draggable ([fd5b5e6](https://github.com/anddea/revanced-patches/commit/fd5b5e68a3dde895baa212e805293f0e3f57a1b6))
+
+# [2.229.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.4...v2.229.0-dev.5) (2024-09-16)
+
+
+### Bug Fixes
+
+* **YouTube Music - Disable auto captions:** Captions cannot be changed when `Disable forced auto captions` is turned on ([ec8d633](https://github.com/anddea/revanced-patches/commit/ec8d63331c5701979f89be90cf5cdfb746e02905))
+* **YouTube Music - GmsCore support:** Can't share Stories to Facebook, Instagram and Snapchat ([01ec72a](https://github.com/anddea/revanced-patches/commit/01ec72a993391d31be06783d2a11a787412dc245))
+
+
+### Features
+
+* **Hide ads:** Remove `Close fullscreen ads` setting ([5dc3f7a](https://github.com/anddea/revanced-patches/commit/5dc3f7a4a8d80140fcef4d2a89b8ae101e3441b7))
+* **YouTube - Hide feed components:** Add `Hide expandable shelves` setting ([482d48d](https://github.com/anddea/revanced-patches/commit/482d48d6a495302c14be0926e753548901bd0358))
+* **YouTube - Hide feed components:** Selectively hide video by views for Home / Subscription / Search ([c842248](https://github.com/anddea/revanced-patches/commit/c842248e074399350ea73c1067bf1d5bc1f6da42))
+* **YouTube - Video playback:** Add `Disable VP9 codec` setting ([559236b](https://github.com/anddea/revanced-patches/commit/559236b9681b24c22901c4a7b1d8df7c2e48de7e))
+* **YouTube Music - Custom branding icon:** Update monochrome icon for `afn_red` & `afn_blue` ([88c4da1](https://github.com/anddea/revanced-patches/commit/88c4da1306a99d919ad3b092de937a8800d8c317))
+* **YouTube Music:** Add support version `6.20.51` ([6d89cb0](https://github.com/anddea/revanced-patches/commit/6d89cb09228a5dd30bdc00caa040361c84a48032))
+* **YouTube Music:** Drop support version `7.17.51` ([f49cd50](https://github.com/anddea/revanced-patches/commit/f49cd5068b6bf6827353d5c11c9b1e05eaf5f776))
+
+# [2.229.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.3...v2.229.0-dev.4) (2024-09-09)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add an option to select a different downloader on long press ([6f47b80](https://github.com/anddea/revanced-patches/commit/6f47b80d89abf9ce4b786a9eb7fa3f8db7257edc))
+* **YouTube Music - Custom branding icon:** Add patch option `RestoreOldSplashIcon` ([e272302](https://github.com/anddea/revanced-patches/commit/e27230246fdf82a35fe035f57a3cc02c16b75664))
+* **YouTube Music:** Rename `Enable Cairo splash animation` to `Disable Cairo splash animation` ([37373c9](https://github.com/anddea/revanced-patches/commit/37373c95f571545e220f125ea8645ade3459e045))
+
 # [2.229.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.2...v2.229.0-dev.3) (2024-09-06)
 
 

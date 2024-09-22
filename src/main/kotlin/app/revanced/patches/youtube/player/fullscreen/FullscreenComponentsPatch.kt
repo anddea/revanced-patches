@@ -165,7 +165,7 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
 
                 addInstruction(
                     checkCastIndex + 1,
-                    "invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->setQuickActionMargin(Landroid/widget/FrameLayout;)V"
+                    "invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->setQuickActionMargin(Landroid/view/View;)V"
                 )
 
                 addInstruction(

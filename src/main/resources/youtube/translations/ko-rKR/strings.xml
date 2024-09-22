@@ -147,11 +147,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">실시간 스트림에서 기본 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">실시간 스트림에서 기본 동영상 재생 속도를 비활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_title">실시간 스트림에서 기본 동영상 재생 속도 비활성화하기</string>
-    <string name="revanced_disable_default_playback_speed_music_off">음악에 기본 동영상 재생 속도를 활성화합니다.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"음악에 기본 동영상 재생 속도를 비활성화합니다.
+    <string name="revanced_disable_default_playback_speed_music_off">음악 동영상에서 기본 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"음악 동영상에서 기본 동영상 재생 속도를 비활성화합니다.
 
 알려진 문제점: 이 설정은 'YouTube Music에서 감상하기' 배너가 포함되지 않은 동영상에는 적용되지 않을 수 있습니다."</string>
-    <string name="revanced_disable_default_playback_speed_music_title">음악 재생 속도 비활성화하기</string>
+    <string name="revanced_disable_default_playback_speed_music_title">음악에서 기본 동영상 재생 속도 비활성화하기</string>
     <string name="revanced_disable_engagement_panel_summary_off">참여 패널을 활성화합니다.</string>
     <string name="revanced_disable_engagement_panel_summary_on">참여 패널을 비활성화합니다.</string>
     <string name="revanced_disable_engagement_panel_title">참여 패널 비활성화하기</string>
@@ -187,8 +187,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다.</string>
     <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
-    <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
-    <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
     <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
     <string name="revanced_disable_speed_overlay_summary">"화면을 길게 눌러서 '2배속 &gt;&gt;'을 비활성화합니다.
 
@@ -204,6 +204,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 눌러서 스크롤하기
 • 길게 눌러서 텍스트 선택하기"</string>
     <string name="revanced_disable_video_description_interaction_title">동영상 설명 상호 작용 비활성화하기</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 코덱을 활성화합니다.\n\n• 예전에 업로드된 동영상에서 일부 화질 값들(480p+)이 누락되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 코덱을 비활성화합니다.
+
+• 일부 동영상에서 누락되었던 화질 값들(480p+)이 표시될 수 있습이다.
+• 최대 화질 값은 1080p으므로 초고화질 동영상을 재생할 수 없습니다.
+• 동영상을 재생하면 VP9보다 더 많은 인터넷 데이터를 사용합니다.
+• HDR 동영상을 재생할 수 없습니다."</string>
+    <string name="revanced_disable_vp9_codec_title">VP9 코덱 비활성화하기</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo 재생바를 비활성화합니다.\n• 그라데이션 색상 재생바</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo 재생바를 활성화합니다.
 • 그라데이션 색상 재생바
@@ -226,9 +234,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
     <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Shorts에 기본 동영상 재생 속도를 적용하지 않습니다.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Shorts에 기본 동영상 재생 속도를 적용합니다.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts 기본 동영상 재생 속도 활성화하기</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Shorts에서 기본 동영상 재생 속도를 비활성화합니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Shorts에서 기본 동영상 재생 속도를 활성화합니다.</string>
+    <string name="revanced_enable_default_playback_speed_shorts_title">Shorts에서 기본 동영상 재생 속도 활성화하기</string>
     <string name="revanced_enable_external_browser_summary_off">앱 내에서 외부 링크를 열 때, 내부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_summary_on">앱 내에서 외부 링크를 열 때, 외부 브라우저를 사용합니다.</string>
     <string name="revanced_enable_external_browser_title">외부 브라우저 사용하기</string>
@@ -276,7 +284,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 최신 동영상 버튼 숨기기\n• 믹스 재생목록 숨기기\n• 커뮤니티 게시물 설정\n• 전체 화면의 일부 설정 (빠른 작업)</string>
+    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 커뮤니티 게시물 숨기기\n• 믹스 재생목록 숨기기\n• 빠른 작업 컨테이너 숨기기\n• 최신 동영상 버튼 숨기기\n• 관련 동영상 오버레이 숨기기</string>
     <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">불투명 하단바를 활성화합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">반투명 하단바를 활성화합니다.</string>
@@ -448,9 +456,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_end_screen_cards_summary_off">최종 화면 카드가 표시됩니다.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">최종 화면 카드가 숨겨집니다.</string>
     <string name="revanced_hide_end_screen_cards_title">최종 화면 카드 숨기기</string>
-    <string name="revanced_hide_expandable_chip_summary_off">다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
-    <string name="revanced_hide_expandable_chip_summary_on">다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
-    <string name="revanced_hide_expandable_chip_title">썸네일 하단에서 동영상 관련 정보 숨기기</string>
+    <string name="revanced_hide_expandable_chip_summary_off">썸네일 하단에서 다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
+    <string name="revanced_hide_expandable_chip_summary_on">썸네일 하단에서 다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품 ...</string>
+    <string name="revanced_hide_expandable_chip_title">펼칠 수 있는 정보 숨기기</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">펼칠 수 있는 선반이 표시됩니다.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">펼칠 수 있는 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_expandable_shelf_title">펼칠 수 있는 선반 숨기기</string>
     <string name="revanced_hide_feed_captions_button_off">자막 버튼이 표시됩니다.</string>
     <string name="revanced_hide_feed_captions_button_on">자막 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_feed_captions_button_title">피드 자막 버튼 숨기기</string>
@@ -475,8 +486,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_for_you_shelf_summary_off">추천 선반이 표시됩니다.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다.</string>
     <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">전체 화면 광고가 차단되었습니다. (다이얼로그 타입: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">전체 화면 광고가 닫혔습니다.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">전체 화면 광고가 표시됩니다.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">전체 화면 광고가 숨겨집니다.</string>
     <string name="revanced_hide_fullscreen_ads_title">전체 화면 광고 숨기기</string>
@@ -488,9 +497,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_general_ads_summary_off">일반 레이아웃 광고가 표시됩니다.</string>
     <string name="revanced_hide_general_ads_summary_on">일반 레이아웃 광고가 숨겨집니다.</string>
     <string name="revanced_hide_general_ads_title">일반 레이아웃 광고 숨기기</string>
-    <string name="revanced_hide_get_premium_summary_off">YouTube Premium 광고가 표시됩니다.</string>
+    <string name="revanced_hide_get_premium_summary_off">YouTube Premium 프로모션이 표시됩니다.</string>
     <string name="revanced_hide_get_premium_summary_on">YouTube Premium 광고가 숨겨집니다.</string>
-    <string name="revanced_hide_get_premium_title">YouTube Premium 광고 숨기기</string>
+    <string name="revanced_hide_get_premium_title">YouTube Premium 프로모션 숨기기</string>
     <string name="revanced_hide_gray_separator_summary_off">동영상들 사이에서 회색 구분선이 표시됩니다.</string>
     <string name="revanced_hide_gray_separator_summary_on">동영상들 사이에서 회색 구분선이 숨겨집니다.</string>
     <string name="revanced_hide_gray_separator_title">회색 구분선 숨기기</string>
@@ -530,7 +539,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">댓글 섹션에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">댓글 섹션에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_comments_title">댓글 섹션에서 키워드 필터 활성화하기</string>
-    <string name="revanced_hide_keyword_content_full_word_title">전체 단어와 일치시키기</string>
     <string name="revanced_hide_keyword_content_home_summary_off">홈 피드에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">홈 피드에서 키워드 필터를 활성화합니다.</string>
     <string name="revanced_hide_keyword_content_home_title">홈 피드에서 키워드 필터 활성화하기</string>
@@ -666,6 +674,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_off">신고 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">신고 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">신고 메뉴 숨기기</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">취침 타이머 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">취침 타이머 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">취침 타이머 메뉴 숨기기</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">안정적인 볼륨 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">안정적인 볼륨 메뉴가 숨겨집니다.</string>
@@ -959,6 +969,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_video_by_duration_shorter_than_title">재생시간이 짧은 동영상 숨기기</string>
     <string name="revanced_hide_video_by_duration_summary">재생시간이 짧거나 긴 동영상을 숨길 수 있습니다.\n\n알려진 문제점: 관련 동영상에서는 동영상이 숨겨지지 않고, 타임스탬프만 숨겨집니다.</string>
     <string name="revanced_hide_video_by_duration_title">재생시간을 기준으로 동영상 숨기기</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">홈 피드 동영상이 필터링되지 않습니다.</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">홈 피드 동영상이 필터링됩니다.</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">조회수로 홈 피드 동영상 숨기기</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">검색 결과가 필터링되지 않습니다.</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">검색 결과가 필터링됩니다.</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">조회수로 검색 결과 숨기기</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">구독 피드 동영상이 필터링되지 않습니다.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">구독 피드 동영상이 필터링됩니다.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">조회수로 구독 피드 동영상 숨기기</string>
     <string name="revanced_hide_video_by_view_counts_summary">조회수가 높거나 낮은 추천 동영상을 숨길 수 있습니다.\n\n알려진 문제점: 실시간 스트림과 \'조회수 없음\' 동영상은 숨겨지지 않습니다.</string>
     <string name="revanced_hide_video_by_view_counts_title">조회수를 기준으로 동영상 숨기기</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">입력한 숫자보다 높은 조회수를 가진 동영상을 숨길 수 있습니다.</string>
@@ -966,7 +985,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_video_view_counts_less_than_summary">입력한 숫자보다 낮은 조회수를 가진 동영상을 숨길 수 있습니다.</string>
     <string name="revanced_hide_video_view_counts_less_than_title">조회수가 낮은 동영상 숨기기</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">천회 -&gt; 1000\n만회 -&gt; 10000\n억회 -&gt; 100000000\n조회수 -&gt; views</string>
-    <string name="revanced_hide_video_view_counts_multiplier_summary">레이아웃에서 표시되는 동영상의 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n• \'키(해당 언어의 문자/단어) -&gt; 값(키의 의미)\'은 줄바꿈으로 구분하여 설정해야 하고, 키는 \'-&gt;\' 기호 앞에 와야 합니다. \n• 편집창은 \'하나의 언어에 대한 키만 입력\' &amp; \'앞에는 숫자 관련 키, 마지막에는 조회수 단어 키 순으로 입력\' 해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 다시 설정해야 합니다.\n\n예시) 한국어: 조회수 10만회 = 만회 -&gt; 10000, 조회수 -&gt; views\n영어: 10K views = K -&gt; 1000, views -&gt; views</string>
+    <string name="revanced_hide_video_view_counts_multiplier_summary">레이아웃에서 표시되는 동영상의 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n• \'키(해당 언어의 문자/단어) -&gt; 값(키의 의미)\'은 줄바꿈으로 구분하여 설정해야 하고, 키는 \'-&gt;\' 기호 앞에 와야 합니다. \n• 편집창은 \'하나의 언어에 대한 키만 입력\' &amp; \'앞에는 숫자 관련 키, 마지막에는 조회수 단어 키 순으로 입력\' 해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 다시 설정해야 합니다.\n예) 한국어: 조회수 10만회 = 만회 -&gt; 10000, 조회수 -&gt; views\n영어: 10K views = K -&gt; 1000, views -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">조회수 키</string>
     <string name="revanced_hide_view_products_summary_off">플레이어에서 제품 보기 배너가 표시됩니다.</string>
     <string name="revanced_hide_view_products_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다.</string>
@@ -1188,28 +1207,28 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">이전 동영상 화질 설정 메뉴를 활성화합니다.</string>
     <string name="revanced_restore_old_video_quality_menu_title">이전 동영상 화질 설정 메뉴 활성화하기</string>
     <string name="revanced_ryd_about">정보</string>
-    <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
+    <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다.</string>
     <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다.</string>
     <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 숨기기</string>
-    <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 개수를 숫자로 표시합니다.</string>
-    <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 개수를 퍼센트로 표시합니다.</string>
-    <string name="revanced_ryd_dislike_percentage_title">싫어요 개수를 퍼센트로 표시하기</string>
-    <string name="revanced_ryd_enable_summary_off">싫어요 개수를 표시하지 않습니다.</string>
-    <string name="revanced_ryd_enable_summary_on">싫어요 개수를 표시합니다.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 수를 숫자로 표시합니다.</string>
+    <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 수를 퍼센트로 표시합니다.</string>
+    <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
+    <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
-    <string name="revanced_ryd_failure_connection_status_code">싫어요 개수를 표시할 수 없습니다 (상태 코드: %d).</string>
-    <string name="revanced_ryd_failure_connection_timeout">싫어요 개수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
-    <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s).</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
+    <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
+    <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
+    <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s).</string>
     <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike를 사용하여 투표하려면 동영상을 다시 로드하세요.</string>
-    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 개수를 표시하지 않습니다.</string>
-    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수를 표시합니다.</string>
-    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 개수를 표시합니다.
+    <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 수를 표시합니다.</string>
+    <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다.
 
-알려진 문제점: 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 개수가 표시되지 않을 수 있습니다."</string>
-    <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 개수 표시하기</string>
+알려진 문제점: 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다."</string>
+    <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
@@ -1378,6 +1397,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_sb_stats_self_saved_reset_title">건너뛴 횟수 기록을 초기화하시겠습니까?</string>
     <string name="revanced_sb_stats_self_saved_sum">이는 &lt;b&gt;%s&lt;/b&gt;에 해당됩니다.</string>
     <string name="revanced_sb_stats_submissions">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_submissions_sum">구간을 보려면 여기를 누르세요.</string>
     <string name="revanced_sb_stats_username">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">사용자 이름을 변경하려면 여기를 누르세요.</string>
     <string name="revanced_sb_stats_username_change_unknown_error">사용자 이름을 변경할 수 없습니다. 상태 코드: %1$d %2$s</string>
@@ -1456,15 +1476,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대값으로 변경합니다.
 높은 기기 크기 정보가 필요한 일부 동영상에서는 고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받는 경우, 일부 화질 값들이 누락되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC (H.264)로 활성화합니다.\n\n• \'일부 VP9 코덱 동영상에서 누락되었던 화질 값들\'이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들(480p+)이 누락되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC (H.264)로 활성화합니다.\n\n• 일부 VP9 코덱 동영상에서 누락되었던 화질 값들(480p+)이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다. 
 
 AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• 오디오 트랙 메뉴가 표시되지 않습니다.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• 오디오 트랙 메뉴가 표시되지 않습니다.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.</string>
@@ -1499,7 +1519,16 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
 • 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)가 로드됩니다.
 • 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다. (동영상 광고, 일반 레이아웃 광고)
 • 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다.
+
+알림: 이 설정을 활성화하면 동영상 광고도 강제로 숨겨집니다."</string>
     <string name="revanced_switch_create_with_notifications_button_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 서버에서 더 많은 광고가 로드될 수 있습니다.
+
+또한 Shorts에서 광고가 더 이상 차단되지 않습니다.
+
+이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요."</string>
     <string name="revanced_theme_default">YouTube</string>
     <string name="revanced_watch_history_about_status_blocked">• 시청 기록이 차단됩니다.</string>
     <string name="revanced_watch_history_about_status_original">"• Google 계정의 시청 기록 설정을 따릅니다.

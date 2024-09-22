@@ -204,6 +204,13 @@ Note:
 • Tap to scroll.
 • Tap and hold to select text."</string>
     <string name="revanced_disable_video_description_interaction_title">Disable video description interaction</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 codec is enabled.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"VP9 codec is disabled.
+
+• Maximum resolution is 1080p.
+• Video playback will use more internet data than VP9.
+• To get HDR playback, HDR video still uses the VP9 codec."</string>
+    <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo seekbar is disabled.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo seekbar is enabled.
 
@@ -327,6 +334,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app, such as YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Playlist downloader package name</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
@@ -444,6 +453,9 @@ Store"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden.</string>
     <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Expandable shelves are shown.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Expandable shelves are hidden.</string>
+    <string name="revanced_hide_expandable_shelf_title">Hide expandable shelves</string>
     <string name="revanced_hide_feed_captions_button_off">Captions button is shown.</string>
     <string name="revanced_hide_feed_captions_button_on">Captions button is hidden.</string>
     <string name="revanced_hide_feed_captions_button_title">Hide feed captions button</string>
@@ -467,8 +479,6 @@ Store"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">For You shelf is shown.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">For You shelf is hidden.</string>
     <string name="revanced_hide_for_you_shelf_title">Hide For You shelf</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden.</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
@@ -522,7 +532,6 @@ Limitations:
     <string name="revanced_hide_keyword_content_comments_summary_off">Comments are not filtered.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Comments are filtered.</string>
     <string name="revanced_hide_keyword_content_comments_title">Hide comments by keywords</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Match full word</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Videos in home feed are not filtered.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Videos in home feed are filtered.</string>
     <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
@@ -659,6 +668,8 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Report menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Report menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Hide Report menu</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Sleep timer menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Sleep timer menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Hide Sleep timer menu</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Stable volume menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Stable volume menu is hidden.</string>
@@ -949,6 +960,21 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_video_by_duration_shorter_than_title">Shorter than duration</string>
     <string name="revanced_hide_video_by_duration_summary">Hide videos with shorter than or longer than duration.\n\nKnown issue: It will not hide videos in the player related videos, instead it will hide the timestamp.</string>
     <string name="revanced_hide_video_by_duration_title">Hide videos based on duration</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscription / Search results are filtered to hide videos with views less or greater than a specified number.
+
+Limitations: 
+• Shorts cannot be hidden.
+• Videos with 0 views are not filtered."</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Videos in home feed are not filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Videos in home feed are filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Hide home videos by views</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Search results are not filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">Search results are filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">Hide search results by views</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Videos in subscriptions feed are not filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Videos in subscriptions feed are filtered.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Hide subscription videos by views</string>
     <string name="revanced_hide_video_by_view_counts_summary">Hide recommended videos with less than a specified number of views.\n\nKnown issue: Videos with 0 views are not filtered.</string>
     <string name="revanced_hide_video_by_view_counts_title">Hide recommended videos by views</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden.</string>
@@ -1372,6 +1398,7 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
     <string name="revanced_sb_stats_self_saved_sum">That\'s &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">You\'ve created &lt;b&gt;%s&lt;/b&gt; segments</string>
+    <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments.</string>
     <string name="revanced_sb_stats_username">Your username: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Tap here to change your username</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d %2$s.</string>
@@ -1463,7 +1490,8 @@ High quality may be unlocked on some videos that require high device dimensions,
 AVC (H.264) has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Audio track menu is missing.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Audio track menu is missing.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Movies or paid videos may not play.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Movies or paid videos may not play.
+• Livestreams start from the beginning."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
@@ -1498,7 +1526,16 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
 • The device may need to be rebooted for a change of this setting to take effect.
 • Disabling this setting loads more ads from the server side.
 • You should disable this setting to make video ads visible."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"Create button is switched with Notifications button.
+
+Note: Enabling this also forcibly hides video ads."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Swap Create and Notifications buttons</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Disabling this might load more ads from the server.
+
+Also, ads will no longer be blocked in Shorts.
+
+If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_watch_history_about_status_blocked">• Watch history is blocked.</string>
     <string name="revanced_watch_history_about_status_original">"• Follows the watch history settings of Google account.

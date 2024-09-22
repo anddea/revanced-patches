@@ -33,6 +33,8 @@
     <string name="revanced_custom_playback_speeds_title">カスタム再生速度の編集</string>
     <string name="revanced_disable_auto_captions_summary">動画側で設定されている、字幕の強制は無効です。</string>
     <string name="revanced_disable_auto_captions_title">字幕の強制を無効化</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">アプリ起動時のCairo のスプラッシュアニメーションを無効にします。</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Cairo スプラッシュアニメーションを無効にする</string>
     <string name="revanced_disable_dislike_redirection_summary">低評価ボタンを押したとき、次の曲へのリダイレクトするのを無効にする。</string>
     <string name="revanced_disable_dislike_redirection_title">低評価リダイレクトを無効化</string>
     <string name="revanced_disable_mini_player_gesture_summary">ミニプレーヤーでスワイプによる曲の変更を無効にします</string>
@@ -43,8 +45,6 @@
     <string name="revanced_enable_black_navigation_bar_title">黒いナビゲーションバーを有効化</string>
     <string name="revanced_enable_black_player_background_summary">プレイヤーの背景の色を黒に固定します。</string>
     <string name="revanced_enable_black_player_background_title">黒のプレイヤー背景を有効化</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">アプリ起動時にCairo のスプラッシュアニメーションを有効にします。</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Cairo のスプラッシュアニメーションを有効化</string>
     <string name="revanced_enable_color_match_player_summary">ミニプレーヤーと全画面プレーヤーの色を統一します。</string>
     <string name="revanced_enable_color_match_player_title">カラーマッチプレーヤーを有効化</string>
     <string name="revanced_enable_compact_dialog_summary">"コンパクトなダイアログを有効にします。
@@ -175,8 +175,6 @@
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">統計情報を非表示</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">登録/解除メニューを非表示</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">「曲のクレジットを表示」を非表示</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">全画面広告をブロックしました（ダイアログの種類: %s）</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">全画面広告を閉じました</string>
     <string name="revanced_hide_fullscreen_ads_summary">全画面広告を非表示にします。</string>
     <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"有効の場合、全画面広告は閉じるボタンで閉じられます。
@@ -220,6 +218,8 @@
     <string name="revanced_hide_premium_promotion_title">プレミアムプロモーションポップアップを非表示</string>
     <string name="revanced_hide_premium_renewal_summary">プレミアム更新バナーを非表示にします。</string>
     <string name="revanced_hide_premium_renewal_title">プレミアム更新バナーを非表示</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">プロモーションバナーを非表示にします。</string>
+    <string name="revanced_hide_promotion_alert_banner_title">プロモーションバナーを非表示</string>
     <string name="revanced_hide_samples_shelf_summary">フィードからサンプルシェルフを非表示にします。</string>
     <string name="revanced_hide_samples_shelf_title">サンプルシェルフを非表示</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">フィルタリングするYT Music 設定メニュー名のリスト（改行区切り）</string>

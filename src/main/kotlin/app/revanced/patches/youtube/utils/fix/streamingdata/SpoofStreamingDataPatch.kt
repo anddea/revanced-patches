@@ -11,12 +11,13 @@ import app.revanced.patches.youtube.utils.compatibility.Constants
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildBrowseRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildMediaDataSourceFingerprint
+import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.CreateStreamingDataFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.NerdsStatsVideoFormatBuilderFingerprint
 import app.revanced.patches.youtube.utils.fix.streamingdata.fingerprints.ProtobufClassParseByteBufferFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -32,13 +33,13 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
     dependencies = setOf(
         SettingsPatch::class,
         SpoofUserAgentPatch::class,
-        VideoIdPatch::class,
     ),
     compatiblePackages = Constants.COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         BuildBrowseRequestFingerprint,
         BuildInitPlaybackRequestFingerprint,
         BuildMediaDataSourceFingerprint,
+        BuildPlayerRequestURIFingerprint,
         CreateStreamingDataFingerprint,
         ProtobufClassParseByteBufferFingerprint,
 
@@ -50,6 +51,27 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         "$MISC_PATH/SpoofStreamingDataPatch;"
 
     override fun execute(context: BytecodeContext) {
+
+        // region Block /get_watch requests to fall back to /player requests.
+
+        BuildPlayerRequestURIFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val invokeToStringIndex =
+                    BuildPlayerRequestURIFingerprint.indexOfToStringInstruction(this)
+                val uriRegister =
+                    getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                        """,
+                )
+            }
+        }
+
+        // endregion
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
@@ -71,7 +93,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
 
         // endregion
 
-        // region Copy request headers for streaming data fetch.
+        // region Fetch replacement streams.
 
         BuildBrowseRequestFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
@@ -89,7 +111,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
                 var smaliInstructions =
                     "invoke-static { v$urlRegister, v$mapRegister }, " +
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "setFetchHeaders(Ljava/lang/String;Ljava/util/Map;)V"
+                            "fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
 
                 if (entrySetIndex < 0) smaliInstructions = """
                         move-object/from16 v$mapRegister, p1
@@ -160,6 +182,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
                         iget-object v$freeRegister, v$freeRegister, $getStreamingDataField
                         if-eqz v0, :disabled
                         iput-object v$freeRegister, p0, $setStreamingDataField
+
                         """,
                     ExternalLabel("disabled", getInstruction(insertIndex))
                 )
@@ -189,7 +212,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
                         invoke-static { v1, v2, v3 }, $INTEGRATIONS_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
                         move-result-object v1
                         iput-object v1, v0, $definingClass->d:[B
-                    """,
+                        """,
                 )
             }
         }
@@ -199,26 +222,19 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
         // region Append spoof info.
 
         NerdsStatsVideoFormatBuilderFingerprint.resultOrThrow().mutableMethod.apply {
-            for (index in implementation!!.instructions.size - 1 downTo 0) {
-                val instruction = getInstruction(index)
-                if (instruction.opcode != Opcode.RETURN_OBJECT)
-                    continue
-
-                val register = (instruction as OneRegisterInstruction).registerA
+            findOpcodeIndicesReversed(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
                     index, """
-                            invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->appendSpoofedClient(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object v$register
-                            """
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->appendSpoofedClient(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                        """
                 )
             }
         }
 
         // endregion
-
-        // Prefetch streaming data.
-        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->fetchStreamingData(Ljava/lang/String;Z)V")
 
         /**
          * Add settings

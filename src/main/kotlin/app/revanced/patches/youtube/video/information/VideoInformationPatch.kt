@@ -15,6 +15,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
 import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
+import app.revanced.patches.youtube.utils.PlayerResponseModelUtils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.PlayerResponseModelUtils.indexOfPlayerResponseModelInstruction
 import app.revanced.patches.youtube.utils.fingerprints.VideoEndFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
@@ -87,9 +89,6 @@ object VideoInformationPatch : BytecodePatch(
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "$SHARED_PATH/VideoInformation;"
-
-    private const val PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
-        "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
 
     private const val REGISTER_PLAYER_RESPONSE_MODEL = 8
 
@@ -275,19 +274,20 @@ object VideoInformationPatch : BytecodePatch(
         /**
          * Set current video information
          */
-        channelIdMethodCall = ChannelIdFingerprint.getMethodName("Ljava/lang/String;")
-        channelNameMethodCall = ChannelNameFingerprint.getMethodName("Ljava/lang/String;")
-        videoIdMethodCall = VideoIdFingerprint.getMethodName("Ljava/lang/String;")
-        videoTitleMethodCall = VideoTitleFingerprint.getMethodName("Ljava/lang/String;")
-        videoLengthMethodCall = VideoLengthFingerprint.getMethodName("J")
-        videoIsLiveMethodCall = ChannelIdFingerprint.getMethodName("Z")
+        channelIdMethodCall =
+            ChannelIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        channelNameMethodCall =
+            ChannelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoIdMethodCall = VideoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoTitleMethodCall =
+            VideoTitleFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+        videoLengthMethodCall = VideoLengthFingerprint.getPlayerResponseInstruction("J")
+        videoIsLiveMethodCall = ChannelIdFingerprint.getPlayerResponseInstruction("Z")
 
         PlaybackInitializationFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_DIRECT
-                            && getReference<MethodReference>()?.returnType == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                } + 1
+                val targetIndex =
+                    PlaybackInitializationFingerprint.indexOfPlayerResponseModelInstruction(this) + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -304,10 +304,7 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintBackgroundPlay.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_INTERFACE
-                            && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                }
+                val targetIndex = indexOfPlayerResponseModelInstruction(this)
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -322,10 +319,7 @@ object VideoInformationPatch : BytecodePatch(
 
         VideoIdFingerprintShorts.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_INTERFACE
-                            && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                }
+                val targetIndex = indexOfPlayerResponseModelInstruction(this)
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(
@@ -557,14 +551,16 @@ object VideoInformationPatch : BytecodePatch(
             "invoke-static { p1, p2 }, $targetMethodClass->$targetMethodName(J)V"
         )
 
-    private fun MethodFingerprint.getMethodName(returnType: String): String {
+    private fun MethodFingerprint.getPlayerResponseInstruction(returnType: String): String {
         resultOrThrow().mutableMethod.apply {
-            val targetIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_INTERFACE
-                        && getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
-                        && getReference<MethodReference>()?.returnType == returnType
-            }
-            val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+            val targetReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            reference?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR &&
+                            reference.returnType == returnType
+                }
+            ).reference
 
             return "invoke-interface {v${REGISTER_PLAYER_RESPONSE_MODEL}}, $targetReference"
         }

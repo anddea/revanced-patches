@@ -30,6 +30,7 @@ import app.revanced.patches.youtube.video.playback.fingerprints.PlaybackSpeedCha
 import app.revanced.patches.youtube.video.playback.fingerprints.PlaybackSpeedInitializeFingerprint
 import app.revanced.patches.youtube.video.playback.fingerprints.QualityChangedFromRecyclerViewFingerprint
 import app.revanced.patches.youtube.video.playback.fingerprints.QualitySetterFingerprint
+import app.revanced.patches.youtube.video.playback.fingerprints.VP9CapabilityFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.getStringInstructionIndex
@@ -72,7 +73,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         QualityChangedFromRecyclerViewFingerprint,
         QualityMenuViewInflateFingerprint,
         QualitySetterFingerprint,
-        VideoEndFingerprint
+        VideoEndFingerprint,
+        VP9CapabilityFingerprint
     )
 ) {
     private const val PLAYBACK_SPEED_MENU_FILTER_CLASS_DESCRIPTOR =
@@ -81,6 +83,8 @@ object VideoPlaybackPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/VideoQualityMenuFilter;"
     private const val INTEGRATIONS_AV1_CODEC_CLASS_DESCRIPTOR =
         "$VIDEO_PATH/AV1CodecPatch;"
+    private const val INTEGRATIONS_VP9_CODEC_CLASS_DESCRIPTOR =
+        "$VIDEO_PATH/VP9CodecPatch;"
     private const val INTEGRATIONS_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR =
         "$VIDEO_PATH/CustomPlaybackSpeedPatch;"
     private const val INTEGRATIONS_HDR_VIDEO_CLASS_DESCRIPTOR =
@@ -292,7 +296,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
 
                 addInstructions(
                     insertIndex + 1, """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_AV1_CODEC_CLASS_DESCRIPTOR->replaceCodec(Ljava/lang/String;)Ljava/lang/String;
+                        invoke-static/range {v$insertRegister .. v$insertRegister}, $INTEGRATIONS_AV1_CODEC_CLASS_DESCRIPTOR->replaceCodec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$insertRegister
                         """
                 )
@@ -322,6 +326,21 @@ object VideoPlaybackPatch : BaseBytecodePatch(
                     )
                 }
             }
+        }
+
+        // endregion
+
+        // region patch for disable VP9 codec
+
+        VP9CapabilityFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $INTEGRATIONS_VP9_CODEC_CLASS_DESCRIPTOR->disableVP9Codec()Z
+                    move-result v0
+                    if-nez v0, :default
+                    return v0
+                    """, ExternalLabel("default", getInstruction(0))
+            )
         }
 
         // endregion

@@ -10,8 +10,7 @@ internal object ShortsPausedHeaderFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.MOVE_RESULT_OBJECT
     ),
     strings = listOf("r_pfcv")
 )

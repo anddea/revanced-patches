@@ -28,6 +28,8 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_change_start_page_title">Change start page</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
     <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the Dislike button.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
     <string name="revanced_disable_mini_player_gesture_summary">Disable swipe to change tracks in the miniplayer.</string>
@@ -36,8 +38,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
     <string name="revanced_enable_black_player_background_summary">Changes the player background color to black.</string>
     <string name="revanced_enable_black_player_background_title">Enable black player background</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Enables Cairo splash animation when the app starts up.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Enable Cairo splash animation</string>
     <string name="revanced_enable_compact_dialog_summary">"Enables the compact flyout menu on phones.
 
 Limitations:
@@ -137,8 +137,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"If it is enabled, fullscreen ads are closed through the Close button.

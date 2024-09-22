@@ -126,9 +126,7 @@
     <string name="revanced_disable_ambient_mode_summary_on">تم تعطيل وضع الإضاءة السينمائية.</string>
     <string name="revanced_disable_ambient_mode_title">تعطيل وضع الإضاءة السينمائية</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">تم تمكين المقطع الصوتي التلقائي المفروض.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">تم تعطيل المقطع الصوتي التلقائي المفروض.
-
-التقييد: لا ينطبق هذا الإعداد على فيديوهات Shorts.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">تم تعطيل المقطع الصوتي التلقائي المفروض.</string>
     <string name="revanced_disable_auto_audio_tracks_title">تعطيل المقطع الصوتي التلقائي المفروض</string>
     <string name="revanced_disable_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية المفروضة.</string>
     <string name="revanced_disable_auto_captions_summary_on">تم تعطيل التَّرْجَمَة التلقائية المفروضة.</string>
@@ -136,9 +134,21 @@
     <string name="revanced_disable_auto_player_popup_panels_summary_off">تم تمكين لوحات المشغل المنبثقة تلقائيًا.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">تم تعطيل لوحات المشغل المنبثقة تلقائيًا.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">تعطيل لوحات المشغل المنبثقة</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"تم تمكين التبديل التلقائي لقوائم تشغيل التشكيلة عند تمكين التشغيل التلقائي.
+
+يمكن تغيير التشغيل التلقائي في إعدادات YouTube:
+الإعدادات ← التشغيل التلقائي ← تشغيل الفيديو التالي تلقائيًا"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">تم تعطيل التبديل التلقائي لقوائم تشغيل التشكيلة.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">تعطيل تبديل قوائم تشغيل التشكيلة</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">سيؤدي تمكين هذه الميزة إلى تعطيل التبديل التلقائي إلى YouTube Mix عند تشغيل الموسيقى أثناء تمكين التشغيل التلقائي.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">تم تمكين سرعة التشغيل الافتراضية للبث المباشر.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">تم تعطيل سرعة التشغيل الافتراضية للبث المباشر.</string>
     <string name="revanced_disable_default_playback_speed_live_title">تعطيل سرعة التشغيل للبث المباشر</string>
+    <string name="revanced_disable_default_playback_speed_music_off">تم تمكين سرعة التشغيل الافتراضية للموسيقى.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"تم تعطيل سرعة التشغيل الافتراضية للموسيقى.
+
+التقييد: قد لا ينطبق هذا الإعداد على مقاطع الفيديو التي لا تتضمن لافتة \"الاستماع على YouTube Music\"."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">تعطيل سرعة التشغيل للموسيقى</string>
     <string name="revanced_disable_engagement_panel_summary_off">تم تمكين لوحة المشاركة.</string>
     <string name="revanced_disable_engagement_panel_summary_on">تم تعطيل لوحة المشاركة.</string>
     <string name="revanced_disable_engagement_panel_title">تعطيل لوحة المشاركة</string>
@@ -191,6 +201,13 @@
 • انقر للتمرير.
 • انقر مع الاستمرار لتحديد النص."</string>
     <string name="revanced_disable_video_description_interaction_title">تعطيل تفاعل وصف الفيديو</string>
+    <string name="revanced_disable_vp9_codec_summary_off">تم تمكين ترميز VP9.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"تم تعطيل برنامج ترميز VP9.
+
+• الحد الأقصى للدقة هو 1080P.
+• سيستهلك تشغيل الفيديو بيانات إنترنت أكثر من VP9.
+• للحصول على تشغيل HDR، لا يزال فيديو HDR يستخدم برنامج ترميز VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">تعطيل ترميز VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">تم تعطيل شريط تقدم Cairo.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"تم تمكين شريط تقدم Cairo.
 
@@ -289,7 +306,7 @@
     <string name="revanced_expand_video_description_title">توسيع وصف الفيديو</string>
     <string name="revanced_extended_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
     <string name="revanced_extended_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل طبيعي</string>
-    <string name="revanced_extended_restart_message">تحديث و إعادة تشغيل</string>
+    <string name="revanced_extended_restart_message">تحديث وإعادة تشغيل</string>
     <string name="revanced_extended_settings_export_failed">فشل تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
     <string name="revanced_extended_settings_export_summary">تصدير الإعدادات إلى ملف.</string>
@@ -429,6 +446,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسع تحت مقاطع الفيديو</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">يتم عرض الرفوف القابلة للتوسع.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">تم إخفاء الرفوف القابلة للتوسع.</string>
+    <string name="revanced_hide_expandable_shelf_title">إخفاء الرفوف القابلة للتوسع</string>
     <string name="revanced_hide_feed_captions_button_off">يتم عرض زر التَرْجَمَة.</string>
     <string name="revanced_hide_feed_captions_button_on">تم إخفاء زر التَرْجَمَة.</string>
     <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة في الموجز</string>
@@ -452,8 +472,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">يتم عرض رف لـك.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">تم إخفاء رف لـك.</string>
     <string name="revanced_hide_for_you_shelf_title">إخفاء رف لـك</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">تم حظر الإعلانات بملء الشاشة. (نوع الحوار: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">تم إغلاق الإعلانات بملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">تم إخفاء إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
@@ -598,6 +616,9 @@
     <string name="revanced_hide_player_collapse_button_summary_off">يتم عرض زر الطَيّ.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">تم إخفاء زر الطَيّ.</string>
     <string name="revanced_hide_player_collapse_button_title">إخفاء زر الطَيّ</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">يتم عرض قائمة الإضاءة السينمائية.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">تم إخفاء قائمة الإضاءة السينمائية.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">إخفاء قائمة الإضاءة السينمائية</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">إخفاء قائمة المقطع الصوتي</string>
@@ -640,6 +661,8 @@
     <string name="revanced_hide_player_flyout_menu_report_summary_off">يتم عرض قائمة الإبلاغ.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">تم إخفاء قائمة الإبلاغ.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">إخفاء قائمة الإبلاغ</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">يتم عرض قائمة مؤقت النوم.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">تم إخفاء قائمة مؤقت النوم.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">إخفاء قائمة مؤقت النوم</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">يتم عرض قائمة مستوى الصوت الثابت.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">تم إخفاء قائمة مستوى الصوت الثابت.</string>
@@ -671,6 +694,9 @@
     <string name="revanced_hide_preview_comment_type_off">يؤدي هذا إلى تغيير حجم قسم التعليقات، لذلك من المستحيل فتح إعادة تشغيل الدردشة المباشرة في قسم التعليقات.</string>
     <string name="revanced_hide_preview_comment_type_on">لا يغير هذا حجم قسم التعليقات، لذلك من الممكن فتح إعادة الدردشة المباشرة في قسم التعليقات.</string>
     <string name="revanced_hide_preview_comment_type_title">إخفاء نوع معاينة التعليق</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">يتم عرض لافتة تنبيه الترقية.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">تم إخفاء لافتة تنبيه الترقية.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">إخفاء لافتة تنبيه الترقية</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">يتم عرض زر التعليقات.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">تم إخفاء زر التعليقات.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">إخفاء زر التعليقات</string>
@@ -1014,8 +1040,8 @@
     <string name="revanced_overlay_button_whitelist_summary">\"انقر لفتح مربع حوار القائمة البيضاء.
 انقر مع الاستمرار لفتح مربع حوار إعداد القائمة البيضاء.</string>
     <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
-    <string name="revanced_override_playlist_download_button_summary_off">يفتح زر تنزيل قائمة التشغيل الأصلية أداة التنزيل الأصلية داخل التطبيق.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">يفتح زر تنزيل قائمة التشغيل الأصلية أداة التنزيل الخارجية.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">إذا تم عرضه، فإن زر تنزيل قائمة التشغيل الأصلية يفتح أداة التنزيل الأصلية داخل التطبيق.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">يتم دائمًا عرض زر تنزيل قائمة التشغيل الأصلية، وفي قوائم التشغيل العامة، يتم فتح أداة التنزيل الخارجية لديك.</string>
     <string name="revanced_override_playlist_download_button_title">تجاوز زر تنزيل قائمة التشغيل</string>
     <string name="revanced_override_video_download_button_summary_off">يفتح زر تنزيل الفيديو أداة التنزيل الأصلية داخل التطبيق.</string>
     <string name="revanced_override_video_download_button_summary_on">يفتح زر تنزيل الفيديو الأصلي أداة التنزيل الخارجية.</string>
@@ -1334,6 +1360,7 @@
     <string name="revanced_sb_stats_self_saved_reset_title">إعادة تعيين عداد المقاطع التي تم تخطيها؟</string>
     <string name="revanced_sb_stats_self_saved_sum">هذا يساوي &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">لقد أنشأت &lt;b&gt;%s&lt;/b&gt; مقطع</string>
+    <string name="revanced_sb_stats_submissions_sum">اضغط هنا لعرض المقاطع الخاصة بك.</string>
     <string name="revanced_sb_stats_username">اسم المستخدم الخاص بك: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">انقر هنا لتغيير إسم المستخدم الخاص بك</string>
     <string name="revanced_sb_stats_username_change_unknown_error">غير قادر على تغيير اسم المستخدم: الحالة: %1$d %2$s.</string>
@@ -1424,7 +1451,8 @@
 يتمتع تنسيق AVC (H.264) بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو بيانات إنترنت اكثر من VP9 أو AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• قائمة المقطع الصوتي مفقودة.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• قائمة المقطع الصوتي مفقودة.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
+• يبدأ البث المباشر من البداية."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• قد لا يتم تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>
@@ -1467,7 +1495,16 @@
 • قد يحتاج الجهاز إلى إعادة التشغيل حتى يسري تغيير هذا الإعداد.
 • يؤدي تعطيل هذا الإعداد إلى تحميل المزيد من الإعلانات من جانب الخادم.
 • يجب عليك تعطيل هذا الإعداد لجعل إعلانات الفيديو مرئية."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">لا يتم تبديل زر الإنشاء بزر الإشعارات.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"تم تبديل زر الإنشاء بـزر الإشعارات.
+
+ملاحظة: يؤدي تمكين هذا أيضًا إلى إخفاء إعلانات الفيديو بالقوة."</string>
     <string name="revanced_switch_create_with_notifications_button_title">تبديل أزرار الإنشاء و الإشعارات</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"قد يؤدي تعطيل هذا إلى تحميل المزيد من الإعلانات من الخادم.
+
+كما لن يتم حظر الإعلانات في فيديوهات Shorts بعد الآن.
+
+إذا لم يتم تفعيل هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي."</string>
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_watch_history_about_status_blocked">• سجل المشاهدة محظور.</string>
     <string name="revanced_watch_history_about_status_original">"• يتبع إعدادات سجل المشاهدة لحساب Google.

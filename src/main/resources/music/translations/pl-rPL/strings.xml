@@ -36,6 +36,8 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
     <string name="revanced_disable_auto_captions_summary">Wyłącza automatycznie włączane napisy w odtwarzaczu filmów.</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Wyłącza animację ładowania aplikacji związaną z motywem Cairo podczas otwierania aplikacji.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Wyłącz animację uruchamiania aplikacji</string>
     <string name="revanced_disable_dislike_redirection_summary">Wyłącza przenoszenie do następnego utworu po kliknięciu łapki w dół.</string>
     <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
     <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
@@ -46,8 +48,6 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="revanced_enable_black_navigation_bar_title">Włącz czarny pasek nawigacji</string>
     <string name="revanced_enable_black_player_background_summary">Zmienia tło odtwarzacza na czarne.</string>
     <string name="revanced_enable_black_player_background_title">Włącz czarne tło odtwarzacza</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Włącza animację ładowania aplikacji związaną z motywem Cairo podczas otwierania aplikacji.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Włącz animację uruchamiania aplikacji</string>
     <string name="revanced_enable_color_match_player_summary">Dopasowuje kolor miniodtwarzacza do otwarzacza pełnoekranowego.</string>
     <string name="revanced_enable_color_match_player_title">Włącz pasujące kolory odtwarzaczy</string>
     <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe menu ustawień utworu na telefonie.
@@ -180,8 +180,6 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ukryj menu od statystyk dla nerdów</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / odsubskrybowywania</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu do autorów utworu</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Zablokowano reklamy pełnoekranowe. (Typ okna: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Zamknięto reklamy pełnoekranowe.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Ukrywa reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Jeśli opcja jest włączona, pełnoekranowe reklamy są zamykane poprzez przycisk zamknięcia.
@@ -225,6 +223,8 @@ Jeśli opcja jest wyłączona, pełnoekranowe reklamy są blokowane (mogą wyst�
     <string name="revanced_hide_premium_promotion_title">Ukryj wyskakujące okienka promocyjne Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Ukrywa baner odnawiania Premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ukryj baner odnawiania Premium</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Ukrywa banery z alertami promocyjnymi.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Ukryj banery z alertami promocyjnymi</string>
     <string name="revanced_hide_samples_shelf_summary">Ukrywa półke z samplami na stronie głównej.</string>
     <string name="revanced_hide_samples_shelf_title">Ukryj półkę z samplami</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Lista menu ustawień do filtrowania, która musi być oddzielona nowymi liniami.</string>
@@ -262,8 +262,8 @@ Działa nie tylko na elementy menu ustawień YT Music, lecz także ReVanced Exte
     <string name="revanced_remember_shuffle_state_title">Zapamiętaj stan odtwarzania losowego</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Zapisuje ostatnią wybraną jakość teledysku.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Zapamiętuj zmiany jakości teledysku</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary">Komunikaty będą wyświetlane po zmianie domyślnej jakości filmów.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Komunikaty o zmianie domyślnej jakości filmów</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Komunikaty będą wyświetlane po zmianie domyślnej jakości teledysków.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Komunikaty o zmianie domyślnej jakości teledysków</string>
     <string name="revanced_remember_video_quality_mobile">Zmieniono domyślną jakość podczas używania sieci mobilnej na %s.</string>
     <string name="revanced_remember_video_quality_none">Jakość nie została ustawiona.</string>
     <string name="revanced_remember_video_quality_wifi">Zmieniono domyślną jakość podczas używania Wi-Fi na %s.</string>

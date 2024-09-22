@@ -43,7 +43,7 @@ object AdsBytecodePatch : BytecodePatch(
         // litho view, used in 'ShowDialogCommandOuterClass' in innertube
         ShowDialogCommandFingerprint
             .resultOrThrow()
-            .hookLithoFullscreenAds(context)
+            .hookLithoFullscreenAds()
 
         // endregion
 

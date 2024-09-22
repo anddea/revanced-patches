@@ -134,9 +134,21 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Os painéis popup do reprodutor automático estão desativados.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Os painéis popup do reprodutor automático estão ativados.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Desativar painéis popup do reprodutor</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"A troca automática de playlists de mix está ativada quando a reprodução automática está ativada.
+
+A reprodução automática pode ser alterada nas configurações do YouTube:
+Configurações → Reprodução automática → Reprodução automática do próximo vídeo"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">A troca automática de playlists mix está desativada.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Desativar troca de playlists mix</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Ativar este recurso irá desativar a mudança automática para o YouTube Mix quando a reprodução automática estiver ativada.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">A velocidade de reprodução padrão está ativada na transmissão ao vivo.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">A velocidade de reprodução padrão está desativada na transmissão ao vivo.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Desativar a velocidade de reprodução na transmissão ao vivo</string>
+    <string name="revanced_disable_default_playback_speed_music_off">A velocidade de reprodução padrão está ativada para música.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"A velocidade de reprodução padrão é desabilitada para música.
+
+Limitação: esta configuração pode não se aplicar a vídeos que não incluem o banner 'Ouvir no YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Desativar a velocidade de reprodução para música</string>
     <string name="revanced_disable_engagement_panel_summary_off">O painel de engajamento está ativado.</string>
     <string name="revanced_disable_engagement_panel_summary_on">O painel de engajamento está desativado.</string>
     <string name="revanced_disable_engagement_panel_title">Desativar painel de engajamento</string>
@@ -189,6 +201,13 @@ Nota:
 • Toque para rolar.
 • Toque e segure para selecionar texto."</string>
     <string name="revanced_disable_video_description_interaction_title">Desativar interação com a descrição do vídeo</string>
+    <string name="revanced_disable_vp9_codec_summary_off">O codec VP9 está ativado.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"O codec VP9 está desativado.
+
+• A resolução máxima é 1080p.
+• A reprodução de vídeos usará mais dados na internet do que VP9.
+• Para fazer com que o HDR reproduza, o vídeo HDR ainda usa o codec VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">Desativar codec VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">A barra de busca do Cairo está desativada.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"A barra de busca do Cairo está ativada.
 
@@ -426,6 +445,9 @@ Loja"</string>
     <string name="revanced_hide_expandable_chip_summary_off">Os chips expansíveis serão exibidos.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Os chips expansíveis estão ocultos.</string>
     <string name="revanced_hide_expandable_chip_title">Ocultar chip expansível nos vídeos</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Os painéis expansíveis serão exibidos.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Os painéis expansíveis estão ocultos.</string>
+    <string name="revanced_hide_expandable_shelf_title">Ocultar painéis expansíveis</string>
     <string name="revanced_hide_feed_captions_button_off">O botão de legendas será exibido.</string>
     <string name="revanced_hide_feed_captions_button_on">O botão de legendas está oculto.</string>
     <string name="revanced_hide_feed_captions_button_title">Ocultar botão de legendas no feed</string>
@@ -449,8 +471,6 @@ Loja"</string>
     <string name="revanced_hide_for_you_shelf_summary_off">O painel \'Para Você\' será exibido.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">O painel \'Para Você\' está oculto.</string>
     <string name="revanced_hide_for_you_shelf_title">Ocultar painel \'Para Você\'</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Os anúncios em tela cheia foram bloqueados. (Tipo de diálogo: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Os anúncios de tela cheia foram fechados.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Os anúncios em tela cheia serão exibidos.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Os anúncios em tela cheia estão ocultos.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
@@ -546,7 +566,7 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_merchandise_shelf_title">Ocultar painel de mercadoria</string>
     <string name="revanced_hide_mix_playlists_summary_off">A playlist mix será exibida.</string>
     <string name="revanced_hide_mix_playlists_summary_on">A playlist mix está oculta.</string>
-    <string name="revanced_hide_mix_playlists_title">Ocultar playlist mix</string>
+    <string name="revanced_hide_mix_playlists_title">Ocultar playlists mix</string>
     <string name="revanced_hide_movie_shelf_summary_off">Os painéis de filmes serão exibidos.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Os painéis de filmes estão ocultos.</string>
     <string name="revanced_hide_movie_shelf_title">Ocultar painel de filmes</string>
@@ -592,6 +612,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_player_collapse_button_summary_off">O botão minimizar será exibido.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">O botão minimizar está oculto.</string>
     <string name="revanced_hide_player_collapse_button_title">Ocultar botão minimizar</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">O menu modo ambiente será exibido.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">O menu modo ambiente está oculto.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Ocultar menu do Modo Ambiente</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">O menu faixa de áudio será exibido.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">O menu faixa de áudio está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Ocultar menu faixa de áudio</string>
@@ -634,6 +657,8 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_player_flyout_menu_report_summary_off">O menu denunciar será exibido.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">O menu denunciar está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Ocultar menu denunciar</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">O menu Timer de suspensão será exibido.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">O menu Timer de suspensão está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Ocultar menu de Timer de suspensão</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">O menu volume estável será exibido.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">O menu volume estável está oculto.</string>
@@ -665,6 +690,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_preview_comment_type_off">Isto altera o tamanho da seção de comentários, por isso é impossível abrir um replay ao vivo do chat na seção de comentários.</string>
     <string name="revanced_hide_preview_comment_type_on">Isto não altera o tamanho da seção de comentários, por isso é possível abrir o replay do chat ao vivo na seção de comentários.</string>
     <string name="revanced_hide_preview_comment_type_title">Ocultar tipo de comentário de visualização</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">O banner de alerta de promoção será exibido.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">O banner de alerta de promoção está oculto.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoção</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">O botão comentários será exibido.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">O botão comentários está oculto.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Ocultar botão comentários</string>
@@ -1328,6 +1356,7 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_sb_stats_self_saved_reset_title">Redefinir o contador de segmentos pulados?</string>
     <string name="revanced_sb_stats_self_saved_sum">Isso é &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">Você criou &lt;b&gt;%s&lt;/b&gt; segmentos</string>
+    <string name="revanced_sb_stats_submissions_sum">Toque aqui para ver seus segmentos.</string>
     <string name="revanced_sb_stats_username">Seu nome de usuário: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Toque aqui para alterar seu nome de usuário</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Não foi possível alterar o nome de usuário: Status: %1$d %2$s.</string>
@@ -1418,7 +1447,7 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
 AVC (H. 64) tem uma resolução máxima de 1080p, e a reprodução de vídeo usará mais dados de internet do que VP9 ou AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• O menu de faixa de áudio está faltando.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• O menu de faixa de áudio está faltando.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Filmes ou vídeos pagos podem não reproduzir.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Filmes ou vídeos pagos podem não reproduzir."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
@@ -1453,7 +1482,16 @@ AVC (H. 64) tem uma resolução máxima de 1080p, e a reprodução de vídeo usa
 • Mesmo que você altere esta configuração, ela poderá não entrar em vigor até que você reinicie o dispositivo.
 • Desativar esta configuração carrega mais anúncios do lado do servidor.
 • Você deve desativar esta configuração para tornar os anúncios em vídeo visíveis."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">O botão criar não está alternado com o botão Notificações.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"O botão criar é alternado com o botão notificações.
+
+Nota: Ativar isso também oculta anúncios de vídeo à força."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Alternar criar com notificações</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Desativar isso pode carregar mais anúncios do servidor.
+
+Além disso, os anúncios não serão mais bloqueados no Shorts.
+
+Se essa configuração não surtir efeito, tente alternar para o modo anônimo."</string>
     <string name="revanced_theme_default">Padrão</string>
     <string name="revanced_watch_history_about_status_blocked">• O histórico de exibição não funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Segue as configurações do histórico de exibição da conta do Google.
