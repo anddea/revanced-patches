@@ -246,6 +246,32 @@ object OverlayButtonsPatch : BaseResourcePatch(
             }
         }
 
+        // Add the limited WRITE_SETTINGS permission to the manifest for the Brightness button.
+        context.xmlEditor["AndroidManifest.xml"].use { editor ->
+            val manifest = editor.file.getElementsByTagName("manifest").item(0)
+
+            // region Add the namespace for ignoring ProtectedPermissions
+
+            manifest.attributes.setNamedItem(
+                manifest.ownerDocument.createAttribute("xmlns:tools").apply {
+                    value = "http://schemas.android.com/tools"
+                }
+            )
+
+            // endregion
+
+            // region Add the WRITE_SETTINGS permission
+
+            manifest.appendChild(
+                manifest.ownerDocument.createElement("uses-permission").apply {
+                    setAttribute("android:name", "android.permission.WRITE_SETTINGS")
+                    setAttribute("tools:ignore", "ProtectedPermissions")
+                }
+            )
+
+            // endregion
+        }
+
         /**
          * Add settings for the overlay buttons.
          */
