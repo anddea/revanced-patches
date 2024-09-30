@@ -777,7 +777,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     """
 
                 rememberShuffleStateShuffleStateLabel += if (getInstruction(checkCastIndex + 1).opcode == Opcode.INVOKE_VIRTUAL) {
-                    // YouTube Music 7.16.52+
+                    // YouTube Music 7.16.53+
                     """
                         invoke-virtual {v1}, $getOrdinalClassReference
                         move-result-object v1
