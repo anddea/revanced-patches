@@ -59,7 +59,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var TouchOutside = -1L
     var TrimSilenceSwitch: Long = -1
     var VarispeedUnavailableTitle = -1L
-    var YtFillArrowShuffle = -1L
 
     override fun execute(context: ResourceContext) {
 
@@ -106,7 +105,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         TouchOutside = getId(ID, "touch_outside")
         TrimSilenceSwitch = getId(ID, "trim_silence_switch")
         VarispeedUnavailableTitle = getId(STRING, "varispeed_unavailable_title")
-        YtFillArrowShuffle = getId(DRAWABLE, "yt_fill_arrow_shuffle_vd_theme_24")
 
     }
 }

@@ -83,7 +83,7 @@ fun MutableClass.transformFields(transform: MutableField.() -> MutableField) {
  */
 fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) {
     val transformedMethods = methods.map { it.transform() }
-    methods.clear()
+    methods.removeIf { !MethodUtil.isConstructor(it) }
     methods.addAll(transformedMethods)
 }
 
