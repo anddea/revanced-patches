@@ -33,6 +33,9 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 const val REGISTER_TEMPLATE_REPLACEMENT: String = "REGISTER_INDEX"
 
+fun MethodFingerprint.deprecatedOrResultOrThrow() =
+    if (javaClass.annotations[0].toString().contains("Deprecated")) result else resultOrThrow()
+
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
 /**

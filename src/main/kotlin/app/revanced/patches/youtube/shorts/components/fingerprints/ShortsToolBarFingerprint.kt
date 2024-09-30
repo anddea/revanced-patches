@@ -8,7 +8,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object ShortsToolBarFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Z", "L", "L"),
     opcodes = listOf(Opcode.IPUT_BOOLEAN),
-    strings = listOf("Null topBarButtons")
+    strings = listOf("Null topBarButtons"),
+    customFingerprint = { methodDef, _ ->
+        methodDef.parameterTypes.firstOrNull() == "Z"
+    }
 )
