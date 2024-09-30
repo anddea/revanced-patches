@@ -56,8 +56,16 @@ object DoubleTapLengthPatch : BaseResourcePatch(
         )
 
         for (index in 0 until splits.count()) {
-            context.addEntryValues(arrayPath, lengthElements[index], entryValueName)
-            context.addEntryValues(arrayPath, lengthElements[index], entriesName)
+            context.addEntryValues(
+                entryValueName,
+                lengthElements[index],
+                path = arrayPath
+            )
+            context.addEntryValues(
+                entriesName,
+                lengthElements[index],
+                path = arrayPath
+            )
         }
 
         SettingsPatch.updatePatchStatus(this)

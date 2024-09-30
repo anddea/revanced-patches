@@ -30,8 +30,8 @@ import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 
 @Suppress("unused")
 object PlayerButtonsPatch : BaseBytecodePatch(
@@ -182,7 +182,7 @@ object PlayerButtonsPatch : BaseBytecodePatch(
         PlayerControlsVisibilityModelFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val callIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT_RANGE)
-                val callInstruction = getInstruction<Instruction3rc>(callIndex)
+                val callInstruction = getInstruction<RegisterRangeInstruction>(callIndex)
 
                 val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT
                 val hasPreviousParameterRegister = callInstruction.startRegister + HAS_PREVIOUS
