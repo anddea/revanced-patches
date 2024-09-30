@@ -134,8 +134,10 @@ object SettingsPatch : BaseResourcePatch(
 
                         val playServicesVersion = node.textContent.toInt()
 
+                        upward0627 = 234412000 <= playServicesVersion
                         upward0636 = 240399000 <= playServicesVersion
                         upward0642 = 240999000 <= playServicesVersion
+                        upward0718 = 243699000 <= playServicesVersion
 
                         break
                     }

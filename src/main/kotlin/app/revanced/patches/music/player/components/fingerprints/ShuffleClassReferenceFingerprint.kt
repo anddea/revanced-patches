@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfImageViewInstruction
 import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfOrdinalInstruction
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.YtFillArrowShuffle
 import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -19,7 +20,7 @@ internal object ShuffleClassReferenceFingerprint : MethodFingerprint(
     parameters = emptyList(),
     strings = listOf("Unknown shuffle mode"),
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(45468) &&
+        methodDef.containsWideLiteralInstructionValue(YtFillArrowShuffle) &&
                 indexOfOrdinalInstruction(methodDef) >= 0 &&
                 indexOfImageViewInstruction(methodDef) >= 0
     }
