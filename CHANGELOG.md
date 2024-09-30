@@ -1,3 +1,39 @@
+# [2.229.0](https://github.com/anddea/revanced-patches/compare/v2.228.0...v2.229.0) (2024-09-30)
+
+
+### Bug Fixes
+
+* Revert bump dependencies ([d8f988b](https://github.com/anddea/revanced-patches/commit/d8f988bd955f31bd6c4874454585a32d666f942e))
+* **YouTube - Disable force auto captions:** Patch doesn't work with Shorts ([a01edc8](https://github.com/anddea/revanced-patches/commit/a01edc84ef41134f5b63b9c84e36ecf20b37bd36))
+* **YouTube Music - Disable auto captions:** Captions cannot be changed when `Disable forced auto captions` is turned on ([ec8d633](https://github.com/anddea/revanced-patches/commit/ec8d63331c5701979f89be90cf5cdfb746e02905))
+* **YouTube Music - GmsCore support:** Can't share Stories to Facebook, Instagram and Snapchat ([01ec72a](https://github.com/anddea/revanced-patches/commit/01ec72a993391d31be06783d2a11a787412dc245))
+* **YouTube Music - SponsorBlock:** SponsorBlock segments at the end of a song cause the player to get stuck ([d986a01](https://github.com/anddea/revanced-patches/commit/d986a0166eb925ec334afdf68dee706e8a3337f6))
+* **YouTube Music:** Patch failed because of some missing strings ([29a3874](https://github.com/anddea/revanced-patches/commit/29a38742cd8a72357c2a4f2de42e97effbd11e23))
+
+
+### Features
+
+* **Hide ads:** Remove `Close fullscreen ads` setting ([5dc3f7a](https://github.com/anddea/revanced-patches/commit/5dc3f7a4a8d80140fcef4d2a89b8ae101e3441b7))
+* **YouTube - Custom branding icon:** New themed icon for `Xisr Yellow` ([#831](https://github.com/anddea/revanced-patches/issues/831)) ([ac08786](https://github.com/anddea/revanced-patches/commit/ac08786e3248f8d8a994b3941237e515396fd578))
+* **YouTube - Hide ads:** Add `Hide promotion alert banner` setting ([2350d94](https://github.com/anddea/revanced-patches/commit/2350d94136b22403b7aecc6aa91d6db687bb7d4b))
+* **YouTube - Hide feed components:** Add `Hide expandable shelves` setting ([482d48d](https://github.com/anddea/revanced-patches/commit/482d48d6a495302c14be0926e753548901bd0358))
+* **YouTube - Hide feed components:** Selectively hide video by views for Home / Subscription / Search ([c842248](https://github.com/anddea/revanced-patches/commit/c842248e074399350ea73c1067bf1d5bc1f6da42))
+* **YouTube - Hide player flyout menu:** Restore `Hide Ambient mode menu` setting ([d99bdef](https://github.com/anddea/revanced-patches/commit/d99bdefeb4ef477c5277b00d2c64497858604b68))
+* **YouTube - Overlay buttons:** Add an option to select a different downloader on long press ([6f47b80](https://github.com/anddea/revanced-patches/commit/6f47b80d89abf9ce4b786a9eb7fa3f8db7257edc))
+* **YouTube - Player components:** Add `Disable switch mix playlists` setting ([5d8650f](https://github.com/anddea/revanced-patches/commit/5d8650f14d8935ecaf670689e4c8f24042022dc1))
+* **YouTube - Seekbar components:** Add patch options to set Cairo seekbar colors ([b956855](https://github.com/anddea/revanced-patches/commit/b956855183f3f6c85a41e0d3812da6ff71ec8157))
+* **YouTube - SponsorBlock:** Add patch option to select new segment window alignment ([28fc1d5](https://github.com/anddea/revanced-patches/commit/28fc1d5527181a123129439a3384335a28c98346))
+* **YouTube - SponsorBlock:** Make new segment window draggable ([fd5b5e6](https://github.com/anddea/revanced-patches/commit/fd5b5e68a3dde895baa212e805293f0e3f57a1b6))
+* **YouTube - Video playback:** Add `Disable playback speed for music` setting ([b77e952](https://github.com/anddea/revanced-patches/commit/b77e9524ef4d8ab6d573e77c516a596ad5ac4652))
+* **YouTube - Video playback:** Add `Disable VP9 codec` setting ([559236b](https://github.com/anddea/revanced-patches/commit/559236b9681b24c22901c4a7b1d8df7c2e48de7e))
+* **YouTube Music - Custom branding icon:** Add patch option `RestoreOldSplashIcon` ([e272302](https://github.com/anddea/revanced-patches/commit/e27230246fdf82a35fe035f57a3cc02c16b75664))
+* **YouTube Music - Custom branding icon:** Update monochrome icon for `afn_red` & `afn_blue` ([88c4da1](https://github.com/anddea/revanced-patches/commit/88c4da1306a99d919ad3b092de937a8800d8c317))
+* **YouTube Music - Hide ads:** Add `Hide promotion alert banner` setting ([ca6263c](https://github.com/anddea/revanced-patches/commit/ca6263c18f823507c55d77e15a1aeb268ab90352))
+* **YouTube Music:** Add support version `6.20.51` ([6d89cb0](https://github.com/anddea/revanced-patches/commit/6d89cb09228a5dd30bdc00caa040361c84a48032))
+* **YouTube Music:** Add support versions `7.16.53` ~ `7.17.51` ([390cabe](https://github.com/anddea/revanced-patches/commit/390cabeff02871b89cd3440de148a82008235f08))
+* **YouTube Music:** Drop support version `7.17.51` ([f49cd50](https://github.com/anddea/revanced-patches/commit/f49cd5068b6bf6827353d5c11c9b1e05eaf5f776))
+* **YouTube Music:** Rename `Enable Cairo splash animation` to `Disable Cairo splash animation` ([37373c9](https://github.com/anddea/revanced-patches/commit/37373c95f571545e220f125ea8645ade3459e045))
+
 # [2.229.0-dev.7](https://github.com/anddea/revanced-patches/compare/v2.229.0-dev.6...v2.229.0-dev.7) (2024-09-19)
 
 
