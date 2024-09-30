@@ -12,7 +12,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.player.components.fingerprints.CrowdfundingBoxFingerprint
-import app.revanced.patches.youtube.player.components.fingerprints.EngagementPanelControllerFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.FilmStripOverlayConfigFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.FilmStripOverlayInteractionFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.FilmStripOverlayParentFingerprint
@@ -34,6 +33,7 @@ import app.revanced.patches.youtube.player.components.fingerprints.WatermarkPare
 import app.revanced.patches.youtube.player.speedoverlay.SpeedOverlayPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.ControlsOverlayConfigPatch
+import app.revanced.patches.youtube.utils.fingerprints.EngagementPanelBuilderFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.SuggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
@@ -81,7 +81,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         CrowdfundingBoxFingerprint,
-        EngagementPanelControllerFingerprint,
+        EngagementPanelBuilderFingerprint,
         FilmStripOverlayParentFingerprint,
         InfoCardsIncognitoFingerprint,
         LayoutCircleFingerprint,
@@ -158,7 +158,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             }
         }
 
-        EngagementPanelControllerFingerprint.resultOrThrow().let {
+        EngagementPanelBuilderFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0, """
