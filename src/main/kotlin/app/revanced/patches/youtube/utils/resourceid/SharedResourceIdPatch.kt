@@ -45,6 +45,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ControlsLayoutStub = -1L
     var DarkBackground = -1L
     var DarkSplashAnimation = -1L
+    var DesignBottomSheet = -1L
     var DonationCompanion = -1L
     var DrawerContentView = -1L
     var DrawerResults = -1L
@@ -152,6 +153,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ControlsLayoutStub = getId(ID, "controls_layout_stub")
         DarkBackground = getId(ID, "dark_background")
         DarkSplashAnimation = getId(ID, "dark_splash_animation")
+        DesignBottomSheet = getId(ID, "design_bottom_sheet")
         DonationCompanion = getId(LAYOUT, "donation_companion")
         DrawerContentView = getId(ID, "drawer_content_view")
         DrawerResults = getId(ID, "drawer_results")
