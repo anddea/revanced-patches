@@ -320,7 +320,13 @@ object SettingsPatch : BaseResourcePatch(
         updatePatchStatus(patch.name!!)
     }
 
+    private val patchList = ArrayList<String>()
+
     internal fun updatePatchStatus(patchName: String) {
+        patchList.add(patchName)
         contexts.updatePatchStatus(patchName)
     }
+
+    internal fun containsPatch(patchName: String) =
+        patchList.contains(patchName)
 }

@@ -176,7 +176,7 @@ object DownloadActionsPatch : BaseBytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
-                "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
+                "SETTINGS: HOOK_BUTTONS",
                 "SETTINGS: HOOK_DOWNLOAD_ACTIONS"
             )
         )
