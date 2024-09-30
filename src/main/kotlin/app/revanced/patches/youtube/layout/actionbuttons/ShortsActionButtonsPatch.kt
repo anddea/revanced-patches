@@ -23,6 +23,7 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
         key = "IconType",
         default = DEFAULT_ICON,
         values = mapOf(
+            "Cairo" to DEFAULT_ICON,
             "Outline" to "outline",
             "OutlineCircle" to "outlinecircle",
             "Round" to DEFAULT_ICON,
@@ -78,6 +79,11 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
                     "ic_right_share_32c.xml"
                 )
             )
+        }
+
+        if (iconType == DEFAULT_ICON) {
+            SettingsPatch.updatePatchStatus(this)
+            return
         }
 
         context.copyResources(
