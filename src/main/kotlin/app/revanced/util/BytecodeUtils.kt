@@ -16,6 +16,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.util.fingerprint.MultiMethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -38,12 +39,17 @@ fun MethodFingerprint.isDeprecated() =
 
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
+fun MultiMethodFingerprint.resultOrThrow() = result.ifEmpty { throw exception }
+
 /**
  * The [PatchException] of failing to resolve a [MethodFingerprint].
  *
  * @return The [PatchException].
  */
 val MethodFingerprint.exception
+    get() = PatchException("Failed to resolve ${this.javaClass.simpleName}")
+
+val MultiMethodFingerprint.exception
     get() = PatchException("Failed to resolve ${this.javaClass.simpleName}")
 
 fun MethodFingerprint.alsoResolve(context: BytecodeContext, fingerprint: MethodFingerprint) =

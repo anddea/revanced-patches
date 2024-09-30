@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.general.navigation.fingerprints.TranslucentN
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -30,6 +31,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to the navigation bar.",
     dependencies = setOf(
         SettingsPatch::class,
+        SharedResourceIdPatch::class,
         NavigationBarHookPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -81,6 +83,12 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
                 }
             }
         }
+
+        // endregion
+
+        // region patch for hide navigation bar
+
+        NavigationBarHookPatch.addBottomBarContainerHook("$GENERAL_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)V")
 
         // endregion
 
