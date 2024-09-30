@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.utils.navigation
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
@@ -12,13 +11,11 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
-import app.revanced.patches.youtube.utils.navigation.fingerprints.MobileTopBarButtonOnClickFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.NavigationEnumFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButtonsCreateDrawableViewFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButtonsCreateResourceViewFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButtonsViewSetSelectedFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarConstructorFingerprint
-import app.revanced.patches.youtube.utils.navigation.fingerprints.SettingsActivityOnBackPressedFingerprint
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.getReference
@@ -41,13 +38,11 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 @Suppress("unused")
 object NavigationBarHookPatch : BytecodePatch(
     setOf(
-        MobileTopBarButtonOnClickFingerprint,
         NavigationEnumFingerprint,
         PivotBarButtonsCreateDrawableViewFingerprint,
         PivotBarButtonsCreateResourceViewFingerprint,
         PivotBarButtonsViewSetSelectedFingerprint,
         PivotBarConstructorFingerprint,
-        SettingsActivityOnBackPressedFingerprint
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -110,16 +105,11 @@ object NavigationBarHookPatch : BytecodePatch(
                 val instruction = getInstruction<FiveRegisterInstruction>(index)
                 val viewRegister = instruction.registerC
                 val isSelectedRegister = instruction.registerD
-                val freeRegister = implementation!!.registerCount - parameters.size - 2
 
                 addInstruction(
                     index + 1,
-                    "invoke-static { v$viewRegister, v$freeRegister, v$isSelectedRegister }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;IZ)V",
-                )
-                addInstruction(
-                    0,
-                    "move/16 v$freeRegister, p1"
+                    "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
                 )
             }
         }
@@ -133,21 +123,6 @@ object NavigationBarHookPatch : BytecodePatch(
             INTEGRATIONS_CLASS_DESCRIPTOR,
             "onBackPressed"
         )
-
-        /**
-         * Since it is used only after opening the library tab, set index to 3.
-         */
-        arrayOf(
-            MobileTopBarButtonOnClickFingerprint,
-            SettingsActivityOnBackPressedFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.resultOrThrow().mutableMethod.addInstructions(
-                0, """
-                    const/4 v0, 0x3
-                    invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setNavigationTabIndex(I)V
-                    """
-            )
-        }
     }
 
     val hookNavigationButtonCreated: (String) -> Unit by lazy {
