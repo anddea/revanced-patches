@@ -8,9 +8,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
+import app.revanced.patches.youtube.utils.navigation.fingerprints.InitializeBottomBarContainerFingerprint
+import app.revanced.patches.youtube.utils.navigation.fingerprints.InitializeButtonsFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.NavigationEnumFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButtonsCreateDrawableViewFingerprint
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButtonsCreateResourceViewFingerprint
@@ -39,6 +40,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 @Suppress("unused")
 object NavigationBarHookPatch : BytecodePatch(
     setOf(
+        InitializeBottomBarContainerFingerprint,
         NavigationEnumFingerprint,
         PivotBarButtonsCreateDrawableViewFingerprint,
         PivotBarButtonsCreateResourceViewFingerprint,
@@ -52,6 +54,10 @@ object NavigationBarHookPatch : BytecodePatch(
         "$SHARED_PATH/NavigationBar\$NavigationButton;"
 
     private lateinit var navigationTabCreatedCallback: MutableMethod
+
+    private lateinit var bottomBarContainerMethod: MutableMethod
+    private var bottomBarContainerIndex = 0
+    private var bottomBarContainerRegister = 0
 
     override fun execute(context: BytecodeContext) {
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
@@ -124,6 +130,14 @@ object NavigationBarHookPatch : BytecodePatch(
             INTEGRATIONS_CLASS_DESCRIPTOR,
             "onBackPressed"
         )
+
+        InitializeBottomBarContainerFingerprint.resultOrThrow().mutableMethod.apply {
+            bottomBarContainerMethod = this
+            bottomBarContainerIndex =
+                InitializeBottomBarContainerFingerprint.indexOfLayoutChangeListenerInstruction(this)
+            bottomBarContainerRegister =
+                getInstruction<FiveRegisterInstruction>(bottomBarContainerIndex).registerC
+        }
     }
 
     val hookNavigationButtonCreated: (String) -> Unit by lazy {
@@ -137,6 +151,12 @@ object NavigationBarHookPatch : BytecodePatch(
             )
         }
     }
+
+    fun addBottomBarContainerHook(descriptor: String) =
+        bottomBarContainerMethod.addInstruction(
+            bottomBarContainerIndex,
+            "invoke-static { v$bottomBarContainerRegister }, $descriptor"
+        )
 
     private enum class Hook(val methodName: String, val parameters: String) {
         SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
