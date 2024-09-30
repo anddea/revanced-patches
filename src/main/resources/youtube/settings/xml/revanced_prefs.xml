@@ -16,6 +16,27 @@
             <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_filter_strings_title" android:key="revanced_custom_filter_strings" android:summary="@string/revanced_custom_filter_strings_summary" android:defaultValue="" android:inputType="textMultiLine" />
         </PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
+        <!-- SETTINGS: HOOK_BUTTONS
+        <PreferenceScreen android:title="@string/revanced_preference_screen_hook_buttons_title" android:key="revanced_preference_screen_hook_buttons" android:summary="@string/revanced_preference_screen_hook_buttons_summary">SETTINGS: HOOK_BUTTONS -->
+
+            <!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
+            <PreferenceCategory android:title="@string/revanced_preference_category_download_button" android:layout="@layout/revanced_settings_preferences_category" />
+            <SwitchPreference android:title="@string/revanced_override_video_download_button_title" android:key="revanced_override_video_download_button" android:summaryOn="@string/revanced_override_video_download_button_summary_on" android:summaryOff="@string/revanced_override_video_download_button_summary_off" />
+            <SwitchPreference android:title="@string/revanced_override_playlist_download_button_title" android:key="revanced_override_playlist_download_button" android:summaryOn="@string/revanced_override_playlist_download_button_summary_on" android:summaryOff="@string/revanced_override_playlist_download_button_summary_off" />
+            <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />
+            <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPlaylistPreference android:title="@string/revanced_external_downloader_package_name_playlist_title" android:key="revanced_external_downloader_package_name_playlist" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
+
+            <!-- SETTINGS: HOOK_YOUTUBE_MUSIC_ACTIONS
+            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
+            <SwitchPreference android:title="@string/revanced_override_youtube_music_button_title" android:key="revanced_override_youtube_music_button" android:summaryOn="@string/revanced_override_youtube_music_button_summary_on" android:summaryOff="@string/revanced_override_youtube_music_button_summary_off" />
+            <app.revanced.integrations.youtube.settings.preference.ThirdPartyYouTubeMusicPreference android:title="@string/revanced_third_party_youtube_music_package_name_title" android:key="revanced_third_party_youtube_music_package_name" android:summary="@string/revanced_third_party_youtube_music_package_name_summary" />
+            <Preference android:title="@string/revanced_override_youtube_music_button_about_prerequisite_title" android:key="revanced_override_youtube_music_button_about_prerequisite" android:summary="@string/revanced_override_youtube_music_button_about_prerequisite_summary">
+                <intent android:action="android.intent.action.VIEW" android:data="https://play.google.com/store/apps/details?id=com.google.android.apps.youtube.music" />
+            </Preference>SETTINGS: HOOK_YOUTUBE_MUSIC_ACTIONS -->
+
+        <!-- SETTINGS: HOOK_BUTTONS
+        </PreferenceScreen>SETTINGS: HOOK_BUTTONS -->
+
         <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
         <PreferenceScreen android:title="@string/revanced_preference_screen_miniplayer_title" android:key="revanced_preference_screen_miniplayer" android:summary="@string/revanced_preference_screen_miniplayer_summary">
             <ListPreference android:entries="@array/revanced_miniplayer_type_19_15_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_15_entry_values" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
@@ -113,12 +134,6 @@
         <!-- SETTINGS: LAYOUT_SWITCH
         <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" />
         <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" />SETTINGS: LAYOUT_SWITCH -->
-
-        <!-- SETTINGS: HOOK_DOWNLOAD_ACTIONS
-        <SwitchPreference android:title="@string/revanced_override_video_download_button_title" android:key="revanced_override_video_download_button" android:summaryOn="@string/revanced_override_video_download_button_summary_on" android:summaryOff="@string/revanced_override_video_download_button_summary_off" />
-        <SwitchPreference android:title="@string/revanced_override_playlist_download_button_title" android:key="revanced_override_playlist_download_button" android:summaryOn="@string/revanced_override_playlist_download_button_summary_on" android:summaryOff="@string/revanced_override_playlist_download_button_summary_off" />
-        <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" />
-        <app.revanced.integrations.youtube.settings.preference.ExternalDownloaderPlaylistPreference android:title="@string/revanced_external_downloader_package_name_playlist_title" android:key="revanced_external_downloader_package_name_playlist" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
