@@ -44,7 +44,10 @@ abstract class MultiMethodFingerprint(
          * @param context The [BytecodeContext] to host proxies.
          * @return True if the resolution was successful, false otherwise.
          */
-        fun Iterable<MultiMethodFingerprint>.resolve(context: BytecodeContext, classes: Iterable<ClassDef>) {
+        fun Iterable<MultiMethodFingerprint>.resolve(
+            context: BytecodeContext,
+            classes: Iterable<ClassDef>
+        ) {
             for (fingerprint in this) { // For each fingerprint
                 if (fingerprint.resolved) continue
                 for (classDef in classes) // search through all classes for the fingerprint
@@ -75,10 +78,17 @@ abstract class MultiMethodFingerprint(
          * @param context The [BytecodeContext] to host proxies.
          * @return True if the resolution was successful or if the fingerprint is already resolved, false otherwise.
          */
-        fun MultiMethodFingerprint.resolve(context: BytecodeContext, method: Method, forClass: ClassDef): Boolean {
+        fun MultiMethodFingerprint.resolve(
+            context: BytecodeContext,
+            method: Method,
+            forClass: ClassDef
+        ): Boolean {
             val methodFingerprint = this
 
-            if (methodFingerprint.returnType != null && !method.returnType.startsWith(methodFingerprint.returnType))
+            if (methodFingerprint.returnType != null && !method.returnType.startsWith(
+                    methodFingerprint.returnType
+                )
+            )
                 return false
 
             if (methodFingerprint.accessFlags != null && methodFingerprint.accessFlags != method.accessFlags)
@@ -102,7 +112,11 @@ abstract class MultiMethodFingerprint(
             ) return false
 
             @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
-            if (methodFingerprint.customFingerprint != null && !methodFingerprint.customFingerprint!!(method, forClass))
+            if (methodFingerprint.customFingerprint != null && !methodFingerprint.customFingerprint!!(
+                    method,
+                    forClass
+                )
+            )
                 return false
 
             val stringsScanResult = if (methodFingerprint.strings != null) {
@@ -118,7 +132,8 @@ abstract class MultiMethodFingerprint(
                                 instruction.opcode != Opcode.CONST_STRING_JUMBO
                             ) return@forEachIndexed
 
-                            val string = ((instruction as ReferenceInstruction).reference as StringReference).string
+                            val string =
+                                ((instruction as ReferenceInstruction).reference as StringReference).string
                             val index = stringsList.indexOfFirst(string::contains)
                             if (index == -1) return@forEachIndexed
 

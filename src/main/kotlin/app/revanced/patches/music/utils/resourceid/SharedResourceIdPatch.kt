@@ -33,6 +33,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var InterstitialsContainer = -1L
     var IsTablet = -1L
     var LikeDislikeContainer = -1L
+    var MainActivityLaunchAnimation = -1L
     var MenuEntry = -1L
     var MiniPlayerDefaultText = -1L
     var MiniPlayerMdxPlaying = -1L
@@ -79,6 +80,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         InterstitialsContainer = getId(ID, "interstitials_container")
         IsTablet = getId(BOOL, "is_tablet")
         LikeDislikeContainer = getId(ID, "like_dislike_container")
+        MainActivityLaunchAnimation = getId(LAYOUT, "main_activity_launch_animation")
         MenuEntry = getId(LAYOUT, "menu_entry")
         MiniPlayerDefaultText = getId(STRING, "mini_player_default_text")
         MiniPlayerMdxPlaying = getId(STRING, "mini_player_mdx_playing")
