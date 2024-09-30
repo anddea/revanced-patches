@@ -1,20 +1,65 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_change_start_page_type_summary_off">Start page changes only once.</string>
+    <string name="revanced_change_start_page_type_summary_on">"Start page always changes.
+
+Limitation: Back button on the toolbar may not work."</string>
+    <string name="revanced_change_start_page_type_title">Change start page type</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation is enabled above the Like button.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation is disabled above the Like button.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button animation</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
+    <string name="revanced_hide_navigation_bar_summary_off">Navigation bar is shown.</string>
+    <string name="revanced_hide_navigation_bar_summary_on">Navigation bar is hidden.</string>
+    <string name="revanced_hide_navigation_bar_title">Hide navigation bar</string>
+    <string name="revanced_hide_related_videos_summary_off">Related videos are shown.</string>
+    <string name="revanced_hide_related_videos_summary_on">Related videos are hidden.</string>
+    <string name="revanced_hide_related_videos_title">Hide related videos</string>
+    <string name="revanced_hide_related_videos_user_dialog_message">"This setting limits the maximum number of layouts that can be loaded on the player screen.
+
+If the layout of the player screen changes due to server-side changes, unintended layouts may be hidden on the player screen."</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown.</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden.</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_off">Save music button is shown.</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_on">Save music button is hidden.</string>
+    <string name="revanced_hide_shorts_save_music_button_title">Hide Save music button</string>
+    <string name="revanced_hide_shorts_stickers_summary_off">Stickers are shown.</string>
+    <string name="revanced_hide_shorts_stickers_summary_on">Stickers are hidden.</string>
+    <string name="revanced_hide_shorts_stickers_title">Hide stickers</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscription / Search results are filtered to hide videos with views less or greater than a specified number.
 
 Limitations: 
 • Shorts cannot be hidden.
 • Videos with 0 views are not filtered."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_off">Videos in home feed are not filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_on">Videos in home feed are filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_home_title">Hide home videos by views</string>
     <string name="revanced_hide_video_by_view_counts_search_summary_off">Search results are not filtered.</string>
     <string name="revanced_hide_video_by_view_counts_search_summary_on">Search results are filtered.</string>
     <string name="revanced_hide_video_by_view_counts_search_title">Hide search results by views</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Videos in subscriptions feed are not filtered.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Videos in subscriptions feed are filtered.</string>
     <string name="revanced_hide_video_by_view_counts_subscriptions_title">Hide subscription videos by views</string>
+    <string name="revanced_icon_mmt_orange">MMT Orange</string>
+    <string name="revanced_icon_mmt_pink">MMT Pink</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">YouTube Music is required to override button action. Tap here to download YouTube Music.</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Prerequisite</string>
+    <string name="revanced_override_youtube_music_button_summary_off">YouTube Music button opens the native app.</string>
+    <string name="revanced_override_youtube_music_button_summary_on">YouTube Music button opens the RVX Music.</string>
+    <string name="revanced_override_youtube_music_button_title">Override YouTube Music button</string>
+    <string name="revanced_preference_category_download_button">Download button</string>
+    <string name="revanced_preference_category_suggested_actions">Suggested actions</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">Overrides the click action of in-app buttons.</string>
+    <string name="revanced_preference_screen_hook_buttons_title">Hook buttons</string>
+    <string name="revanced_preference_screen_navigation_bar_summary">Hide or show navigation bar section components.</string>
+    <string name="revanced_preference_screen_navigation_bar_title">Navigation bar</string>
+    <string name="revanced_related_videos_offset_title">Offset</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">Height percentage must be between 0-100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure the height percentage of the empty space left when the navigation bar is hidden, between 0 and 100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_title">Height percentage of empty space</string>
+    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_warning">%s is not installed. Please install it.</string>
+    <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music.</string>
+    <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
 </resources>

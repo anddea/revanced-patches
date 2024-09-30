@@ -23,6 +23,7 @@
 
 点击此处了解更多关于 DeArrow 的信息。"</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">关于 DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">无效的 DeArrow API URL</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow 缩略图缓存端点 URL。除非您知道自己在做什么，否则请勿更改</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 端点</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">如果 DeArrow 不可用，不显示 Toast</string>
@@ -85,14 +86,12 @@
     <string name="revanced_change_start_page_entry_live">直播</string>
     <string name="revanced_change_start_page_entry_movies">电影</string>
     <string name="revanced_change_start_page_entry_music">音乐</string>
-    <string name="revanced_change_start_page_entry_playables">游戏</string>
     <string name="revanced_change_start_page_entry_search">搜索</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">体育</string>
     <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
     <string name="revanced_change_start_page_entry_trending">热门</string>
     <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
-    <string name="revanced_change_start_page_invalid_toast">起始页无效，正在重置为默认值</string>
     <string name="revanced_change_start_page_title">更改起始页</string>
     <string name="revanced_change_youtube_header_summary_off">默认标题已启用</string>
     <string name="revanced_change_youtube_header_summary_on">高级标题已启用</string>
@@ -306,6 +305,7 @@
     <string name="revanced_expand_video_description_summary_on">自动展开视频描述</string>
     <string name="revanced_expand_video_description_title">自动展开视频描述</string>
     <string name="revanced_extended_confirm_user_dialog_title">你想继续吗?</string>
+    <string name="revanced_extended_reset_to_default_toast">重置为默认值</string>
     <string name="revanced_extended_restart_first_run">重启应用以正常加载界面布局</string>
     <string name="revanced_extended_restart_message">刷新并重启</string>
     <string name="revanced_extended_settings_export_failed">导出配置失败</string>
@@ -833,9 +833,6 @@
     <string name="revanced_hide_shorts_remix_button_summary_off">混剪按钮已显示</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">混剪按钮已隐藏</string>
     <string name="revanced_hide_shorts_remix_button_title">隐藏混剪按钮</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_off">保存声音到播放列表按钮已显示</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_on">保存声音到播放列表按钮已隐藏</string>
-    <string name="revanced_hide_shorts_save_sound_button_title">隐藏保存声音到播放列表按钮</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_off">搜索建议按钮已显示</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_on">搜索建议按钮已隐藏</string>
     <string name="revanced_hide_shorts_search_suggestions_button_title">隐藏搜索建议按钮</string>
@@ -945,15 +942,16 @@ Note:
     <string name="revanced_hide_transcript_section_summary_off">转写文稿部分已显示</string>
     <string name="revanced_hide_transcript_section_summary_on">转写文稿部分已隐藏</string>
     <string name="revanced_hide_transcript_section_title">隐藏转写文稿部分</string>
+    <string name="revanced_hide_upcoming_video_summary">"隐藏带有 UPCOMING 标签的视频
+
+注意：启用此选项也隐藏通知按钮"</string>
+    <string name="revanced_hide_upcoming_video_title">隐藏 UPCOMING 视频</string>
     <string name="revanced_hide_video_ads_summary_off">视频广告已显示</string>
     <string name="revanced_hide_video_ads_summary_on">视频广告已隐藏</string>
     <string name="revanced_hide_video_ads_title">隐藏视频广告</string>
-    <string name="revanced_hide_video_by_duration_longer_than_summary">时长高于此数字的推荐视频将被隐藏</string>
-    <string name="revanced_hide_video_by_duration_longer_than_title">时长高于此数字</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_summary">时长低于此数字的视频将被隐藏</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_title">时长低于此数字</string>
-    <string name="revanced_hide_video_by_duration_summary">隐藏时长短于或长于指定时长的视频\n\n已知问题：它不会隐藏播放器中相关视频的时间戳，而是隐藏视频时间标记</string>
-    <string name="revanced_hide_video_by_duration_title">根据时长隐藏视频</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">首页订阅内容的关键词过滤已禁用</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">首页订阅内容的关键词过滤已启用</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">启用首页播放量过滤器</string>
     <string name="revanced_hide_video_by_view_counts_summary">隐藏播放量低于此数字的推荐视频</string>
     <string name="revanced_hide_video_by_view_counts_title">播放量</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">播放量大于此数字的视频将被隐藏。</string>
@@ -1060,7 +1058,6 @@ Note:
     <string name="revanced_preference_category_action_buttons">操作按钮</string>
     <string name="revanced_preference_category_additional_settings">其他设置</string>
     <string name="revanced_preference_category_animation_feedback">动画/反馈</string>
-    <string name="revanced_preference_category_duration_filter">视频时长过滤器</string>
     <string name="revanced_preference_category_experimental_flag">实验性功能</string>
     <string name="revanced_preference_category_image_region_restrictions">图像区域限制</string>
     <string name="revanced_preference_category_import_export_as_file">导入 / 导出为文件</string>
@@ -1107,8 +1104,6 @@ Note:
     <string name="revanced_preference_screen_miniplayer_summary">更改应用最小化播放器样式</string>
     <string name="revanced_preference_screen_miniplayer_title">迷你播放器</string>
     <string name="revanced_preference_screen_misc_title">杂项</string>
-    <string name="revanced_preference_screen_navigation_buttons_summary">隐藏或显示导航栏区域的组件</string>
-    <string name="revanced_preference_screen_navigation_buttons_title">导航按钮</string>
     <string name="revanced_preference_screen_patch_information_summary">已应用补丁的信息</string>
     <string name="revanced_preference_screen_patch_information_title">补丁信息</string>
     <string name="revanced_preference_screen_player_buttons_summary">隐藏或显示视频中的按钮</string>
@@ -1460,8 +1455,8 @@ Note:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"启用此功能可能会改善耗电并修复播放卡顿问题
 
 AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV1 更多的网路数据"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• 音轨菜单缺失</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• 音轨菜单缺失</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音轨菜单缺失"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音轨菜单缺失"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• 电影或付费视频可能无法播放"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">伪装副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 视频可能无法播放</string>

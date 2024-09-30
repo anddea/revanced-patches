@@ -691,9 +691,6 @@ Captions"</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Remix button is shown.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Remix button is hidden.</string>
     <string name="revanced_hide_shorts_remix_button_title">Hide remix button</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown.</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden.</string>
-    <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Share button is shown.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Share button is hidden.</string>
     <string name="revanced_hide_shorts_share_button_title">Hide share button</string>
@@ -780,12 +777,6 @@ Note:
     <string name="revanced_hide_video_ads_summary_off">Video ads are shown.</string>
     <string name="revanced_hide_video_ads_summary_on">Video ads are hidden.</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
-    <string name="revanced_hide_video_by_duration_longer_than_summary">Videos with duration longer than this number will be hidden.</string>
-    <string name="revanced_hide_video_by_duration_longer_than_title">Longer than duration</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_summary">Videos with duration shorter than this number will be hidden.</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_title">Shorter than duration</string>
-    <string name="revanced_hide_video_by_duration_summary">Hide videos with shorter than or longer than duration.\n\nKnown issue: It will not hide videos in the player related videos, instead it will hide the timestamp.</string>
-    <string name="revanced_hide_video_by_duration_title">Hide videos based on duration</string>
     <string name="revanced_hide_video_by_view_counts_summary">Hide recommended videos with less than a specified number of views.</string>
     <string name="revanced_hide_video_by_view_counts_title">Hide recommended videos by views</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Videos with views greater than this number will be hidden.</string>
@@ -836,7 +827,6 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
-    <string name="revanced_preference_category_duration_filter">Duration filter</string>
     <string name="revanced_preference_category_experimental_flag">Experimental Flags</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export as text</string>
@@ -880,8 +870,6 @@ Tap and hold to set playback speed to 1.0x."</string>
     <string name="revanced_preference_screen_import_export_summary">Import or export settings.</string>
     <string name="revanced_preference_screen_import_export_title">Import / Export settings</string>
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
-    <string name="revanced_preference_screen_navigation_buttons_summary">Hide or show navigation bar section components.</string>
-    <string name="revanced_preference_screen_navigation_buttons_title">Navigation buttons</string>
     <string name="revanced_preference_screen_patch_information_summary">Information about applied patches.</string>
     <string name="revanced_preference_screen_patch_information_title">Patch information</string>
     <string name="revanced_preference_screen_player_buttons_summary">Hide or show buttons in videos.</string>
@@ -1177,9 +1165,6 @@ Limitation: Video title disappears when clicked."</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Restore old playlist shelf</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Restore old comment input box</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Restore old player flyout panel</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restore old shorts action bar</string>
-    <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restore old default video quality behavior</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">"18.48.39 - Disables 'views' and 'likes' from being updated in real time"</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Edit spoof app version</string>
