@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.options.PatchOption
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import org.w3c.dom.NodeList
 import java.io.File
 import java.io.InputStream
 import java.nio.file.Files
@@ -239,4 +240,30 @@ fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoClosea
         source.close()
         target.close()
     }
+}
+
+internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
+    for (i in 0 until length) {
+        val node = item(i)
+        if (node.nodeType == Node.ELEMENT_NODE) {
+            val element = node as Element
+
+            if (element.getAttribute(attributeName) == value) {
+                return element
+            }
+
+            // Recursively search.
+            val found = element.childNodes.findElementByAttributeValue(attributeName, value)
+            if (found != null) {
+                return found
+            }
+        }
+    }
+
+    return null
+}
+
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
+    return findElementByAttributeValue(attributeName, value)
+        ?: throw PatchException("Could not find: $attributeName $value")
 }
