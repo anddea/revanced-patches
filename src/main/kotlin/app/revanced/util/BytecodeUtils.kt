@@ -227,7 +227,11 @@ fun Method.indexOfWideLiteralInstructionOrThrow(literal: Long): Int {
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
-    val index = this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
+    var instructions = this.implementation!!.instructions
+    if (startIndex != 0) {
+        instructions = instructions.drop(startIndex)
+    }
+    val index = instructions.indexOfFirst(predicate)
 
     return if (index >= 0) {
         startIndex + index
@@ -235,6 +239,18 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
         -1
     }
 }
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @return the index of the instruction
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -255,16 +271,92 @@ fun Method.indexOfFirstInstructionOrThrow(
 }
 
 /**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversedOrThrow
+ */
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed(startIndex) {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversedOrThrow
+ */
+fun Method.indexOfFirstInstructionReversed(
+    startIndex: Int? = null,
+    predicate: Instruction.() -> Boolean
+): Int {
+    var instructions = this.implementation!!.instructions
+    if (startIndex != null) {
+        instructions = instructions.take(startIndex + 1)
+    }
+
+    return instructions.indexOfLast(predicate)
+}
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(
+    startIndex: Int? = null,
+    targetOpcode: Opcode
+): Int =
+    indexOfFirstInstructionReversedOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(
+    startIndex: Int? = null,
+    predicate: Instruction.() -> Boolean
+): Int {
+    val index = indexOfFirstInstructionReversed(startIndex, predicate)
+
+    if (index < 0) {
+        throw PatchException("Could not find instruction index")
+    }
+
+    return index
+}
+
+/**
  * @return The list of indices of the opcode in reverse order.
  */
-fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
+fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> =
+    findOpcodeIndicesReversed { this.opcode == opcode }
+
+/**
+ * @return The list of indices of the opcode in reverse order.
+ */
+fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
     val indexes = implementation!!.instructions
         .withIndex()
-        .filter { (_, instruction) -> instruction.opcode == opcode }
+        .filter { (_, instruction) -> filter.invoke(instruction) }
         .map { (index, _) -> index }
         .reversed()
 
-    if (indexes.isEmpty()) throw PatchException("No ${opcode.name} instructions found in: $this")
+    if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
 
     return indexes
 }
@@ -342,7 +434,19 @@ inline fun <reified T : Reference> Instruction.getReference() =
  * @return The index of the first [Instruction] that matches the predicate.
  */
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) =
-    this.implementation!!.instructions.indexOfFirst(predicate)
+    indexOfFirstInstruction(0, predicate)
+
+/**
+ * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
+ *
+ * @param startIndex Optional starting index to start searching from.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(startIndex) {
+        opcode == targetOpcode
+    }
 
 fun MutableMethod.getTargetIndexOrThrow(opcode: Opcode) =
     getTargetIndexOrThrow(0, opcode)
@@ -604,13 +708,35 @@ fun MutableMethod.getTargetIndexWithReferenceReversed(startIndex: Int, reference
     return -1
 }
 
-fun MethodFingerprintResult.getWalkerMethod(context: BytecodeContext, index: Int) =
-    mutableMethod.getWalkerMethod(context, index)
+fun MethodFingerprintResult.getWalkerMethod(context: BytecodeContext, offset: Int) =
+    mutableMethod.getWalkerMethod(context, offset)
 
-fun MutableMethod.getWalkerMethod(context: BytecodeContext, index: Int) =
-    context.toMethodWalker(this)
-        .nextMethod(index, true)
-        .getMethod() as MutableMethod
+/**
+ * MethodWalker structural limitations cause incorrect class to be found
+ *
+ * MethodReference to find in YouTube 18.29.38:
+ * 'Lng;->d(Lou;)Z'
+ *
+ * Class found by MethodWalker in YouTube 18.29.38:
+ * 'Lcom/google/android/gms/maps/model/LatLng;'
+ *
+ * The reason this error occurs is because [BytecodeContext.findClass] checks whether className is included or not
+ *
+ * In ReVanced Patcher 19.3.1:
+ * fun findClass(className: String) = findClass { it.type.contains(className) }
+ *
+ * (Class 'Lcom/google/android/gms/maps/model/LatLng;' is returned because class 'Lcom/google/android/gms/maps/model/LatLng;' contains keyword 'Lng;')
+ *
+ * As a workaround, redefine MethodWalker here
+ */
+fun MutableMethod.getWalkerMethod(context: BytecodeContext, offset: Int): MutableMethod {
+    val newMethod = getInstruction<ReferenceInstruction>(offset).reference as MethodReference
+    return context.findClass { classDef -> classDef.type == newMethod.definingClass }
+        ?.mutableClass
+        ?.methods
+        ?.first { method -> MethodUtil.methodSignaturesMatch(method, newMethod) }
+        ?: throw PatchException("This method can not be walked at offset $offset inside the method $name")
+}
 
 fun MutableClass.addFieldAndInstructions(
     context: BytecodeContext,

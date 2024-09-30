@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.general.autocaptions
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patches.shared.captions.BaseAutoCaptionsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.patch.BaseBytecodePatch
 
@@ -11,8 +11,7 @@ object AutoCaptionsPatch : BaseBytecodePatch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
     dependencies = setOf(
-        AutoCaptionsBytecodePatch::class,
-        PlayerTypeHookPatch::class,
+        BaseAutoCaptionsPatch::class,
         SettingsPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE

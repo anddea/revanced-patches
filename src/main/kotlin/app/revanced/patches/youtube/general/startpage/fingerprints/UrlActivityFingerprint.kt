@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.general.startpage.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
-internal object StartActivityFingerprint : MethodFingerprint(
+internal object UrlActivityFingerprint : MethodFingerprint(
     parameters = listOf("Landroid/content/Intent;"),
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "startActivity"

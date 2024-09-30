@@ -36,6 +36,8 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reprodução personalizadas</string>
     <string name="revanced_disable_auto_captions_summary">Desativa as legendas de serem ativadas automaticamente.</string>
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Desabilita a animação inicial do Cairo quando o aplicativo é iniciado.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Desativar a animação inicial do Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Desativa o redirecionamento para a próxima faixa ao clicar no botão de Dislike.</string>
     <string name="revanced_disable_dislike_redirection_title">Desativar redirecionamento de dislike</string>
     <string name="revanced_disable_mini_player_gesture_summary">Desativar deslize para alterar faixas no mini reprodutor.</string>
@@ -46,8 +48,6 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="revanced_enable_black_navigation_bar_title">Ativar barra de navegação preta</string>
     <string name="revanced_enable_black_player_background_summary">Altera a cor de fundo do reprodutor para preto.</string>
     <string name="revanced_enable_black_player_background_title">Ativar fundo do reprodutor preto</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Ativa a animação inicial do Cairo quando o aplicativo é iniciado.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Ativar animação inicial do Cairo</string>
     <string name="revanced_enable_color_match_player_summary">Corresponde à cor do mini reprodutor para o reprodutor em tela cheia.</string>
     <string name="revanced_enable_color_match_player_title">Ativar combinação de cores do reprodutor</string>
     <string name="revanced_enable_compact_dialog_summary">"Ativa o menu flutuante compacto em telefones.
@@ -180,8 +180,6 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ocultar menu Estatísticas para nerds</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menu de Inscrição / Cancelar inscrição</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menu Mostrar créditos da música</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Os anúncios em tela cheia foram bloqueados. (Tipo de diálogo: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Os anúncios de tela cheia foram fechados.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Oculta anúncios em tela cheia.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Se estiver ativado, os anúncios em tela cheia são fechados através do botão Fechar.
@@ -225,6 +223,8 @@ Se estiver desativado, os anúncios em tela cheia serão bloqueados. (pode haver
     <string name="revanced_hide_premium_promotion_title">Ocultar pop-ups de promoção premium</string>
     <string name="revanced_hide_premium_renewal_summary">Oculta o banner de renovação premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ocultar banner de renovação premium</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Oculta o banner de alerta de promoção.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoção</string>
     <string name="revanced_hide_samples_shelf_summary">Oculta o painel Descobertas no feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ocultar painel Descobertas</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nomes do menu de configurações para filtrar, separados por novas linhas.</string>
@@ -254,7 +254,7 @@ Isso oculta não apenas o menu de configurações do YT Music, mas também o men
     <string name="revanced_remember_playback_speed_last_selected_summary">Lembra a última velocidade de reprodução selecionada.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Lembrar mudança na velocidade de reprodução</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary">Exibir uma notificação flutuante quando alterar a velocidade padrão de reprodução.</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_title">Mostrar uma notificação flutuante</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Exibir uma notificação flutuante</string>
     <string name="revanced_remember_playback_speed_toast">Alterando a velocidade padrão para %s.</string>
     <string name="revanced_remember_repeat_state_summary">Lembra o estado da alternância de repetição.</string>
     <string name="revanced_remember_repeat_state_title">Lembrar estado de repetição</string>
@@ -263,7 +263,7 @@ Isso oculta não apenas o menu de configurações do YT Music, mas também o men
     <string name="revanced_remember_video_quality_last_selected_summary">Lembra a última qualidade de vídeo selecionada.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudança na qualidade do vídeo</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary">Exibir uma notificação flutuante quando alterar a qualidade padrão do vídeo.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Mostrar uma notificação flutuante</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Exibir uma notificação flutuante</string>
     <string name="revanced_remember_video_quality_mobile">Alterando a qualidade padrão de dados móveis para %s.</string>
     <string name="revanced_remember_video_quality_none">Falha ao definir qualidade.</string>
     <string name="revanced_remember_video_quality_wifi">Alterando a qualidade padrão do Wi-Fi para %s.</string>
@@ -304,7 +304,6 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
     <string name="revanced_ryd_failure_generic">Deslikes indisponível (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Notificação flutuante exibida se o Return YouTube Dislike não está disponível.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
     <string name="revanced_sb_about">Sobre</string>
@@ -358,7 +357,7 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
     <string name="revanced_sb_sponsorblock_connection_failure_status">O SponsorBlock está temporariamente indisponível (status %d).</string>
     <string name="revanced_sb_sponsorblock_connection_failure_timeout">O SponsorBlock está temporariamente indisponível (API expirou).</string>
     <string name="revanced_sb_toast_on_connection_error">Exibir uma notificação flutuante se a API não estiver disponível</string>
-    <string name="revanced_sb_toast_on_connection_error_sum">Mostra uma notificação flutuante se a API SponsorBlock não estiver disponível.</string>
+    <string name="revanced_sb_toast_on_connection_error_sum">Exibe uma notificação flutuante se a API SponsorBlock não estiver disponível.</string>
     <string name="revanced_sb_toast_on_skip">Exibir uma notificação flutuante quando pular automaticamente</string>
     <string name="revanced_sb_toast_on_skip_sum">Uma notificação flutuante é exibida quando um segmento é ignorado automaticamente.</string>
     <string name="revanced_share_copy_settings_success">Configurações copiadas para área de transferência.</string>

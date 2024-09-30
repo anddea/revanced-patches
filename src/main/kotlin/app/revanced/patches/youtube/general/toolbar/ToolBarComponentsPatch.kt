@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoBackgroundFingerprint
+import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoConstructorFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.ActionBarRingoTextFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.AttributeResolverFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.CreateButtonDrawableFingerprint
@@ -72,6 +73,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         ActionBarRingoBackgroundFingerprint,
+        ActionBarRingoConstructorFingerprint,
         AttributeResolverFingerprint,
         CreateButtonDrawableFingerprint,
         CreateSearchSuggestionsFingerprint,
@@ -178,7 +180,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                     "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->setWideSearchBarLayout(Landroid/view/View;)V"
                 )
 
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                val targetIndex =
+                    ActionBarRingoBackgroundFingerprint.indexOfStaticInstruction(this) + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 injectSearchBarHook(
@@ -187,39 +190,11 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                     "enableWideSearchBarWithHeaderInverse"
                 )
             }
-
-            it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
-                .apply {
-                    val staticCalls = implementation!!.instructions.withIndex()
-                        .filter { instruction ->
-                            val methodReference =
-                                ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)
-                            methodReference?.parameterTypes?.size == 1 &&
-                                    methodReference.returnType == "Z"
-                        }
-
-                    if (staticCalls.size != 2)
-                        throw PatchException("Size of staticCalls does not match: ${staticCalls.size}")
-
-                    mapOf(
-                        staticCalls.elementAt(0).index to "enableWideSearchBar",
-                        staticCalls.elementAt(1).index to "enableWideSearchBarWithHeader"
-                    ).forEach { (index, descriptor) ->
-                        val walkerMethod = getWalkerMethod(context, index)
-
-                        walkerMethod.apply {
-                            injectSearchBarHook(
-                                implementation!!.instructions.size - 1,
-                                descriptor
-                            )
-                        }
-                    }
-                }
         }
 
         ActionBarRingoTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                val targetIndex = ActionBarRingoTextFingerprint.indexOfStaticInstruction(this) + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 injectSearchBarHook(
@@ -227,6 +202,35 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                     targetRegister,
                     "enableWideSearchBarWithHeader"
                 )
+            }
+        }
+
+        ActionBarRingoConstructorFingerprint.resultOrThrow().mutableMethod.apply {
+            val staticCalls = implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val methodReference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.INVOKE_STATIC &&
+                            methodReference is MethodReference &&
+                            methodReference.parameterTypes.size == 1 &&
+                            methodReference.returnType == "Z"
+                }
+
+            if (staticCalls.size != 2)
+                throw PatchException("Size of staticCalls does not match: ${staticCalls.size}")
+
+            mapOf(
+                staticCalls.elementAt(0).index to "enableWideSearchBar",
+                staticCalls.elementAt(1).index to "enableWideSearchBarWithHeader"
+            ).forEach { (index, descriptor) ->
+                val walkerMethod = getWalkerMethod(context, index)
+
+                walkerMethod.apply {
+                    injectSearchBarHook(
+                        implementation!!.instructions.lastIndex,
+                        descriptor
+                    )
+                }
             }
         }
 

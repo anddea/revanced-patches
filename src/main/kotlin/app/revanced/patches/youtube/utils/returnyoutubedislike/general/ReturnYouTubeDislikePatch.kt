@@ -4,6 +4,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
@@ -18,11 +19,18 @@ import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.ReturnYouT
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.getReference
+import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getTargetIndexWithFieldReferenceType
 import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object ReturnYouTubeDislikePatch : BaseBytecodePatch(
@@ -75,15 +83,36 @@ object ReturnYouTubeDislikePatch : BaseBytecodePatch(
                     val conversionContextFieldReference =
                         getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
-                    val charSequenceIndex =
-                        getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/BitSet;") - 1
-                    val charSequenceRegister =
-                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
-                    val freeRegister =
-                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerB
+                    val charSequenceIndex1932 =
+                        getTargetIndexWithFieldReferenceType("Ljava/util/BitSet;") - 1
+                    val charSequenceIndex1933 = indexOfFirstInstruction {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference?.returnType == "V" &&
+                                reference.parameterTypes.firstOrNull() == "Ljava/lang/CharSequence;"
+                    }
+
+                    val insertIndex: Int
+                    val charSequenceRegister: Int
+
+                    if (charSequenceIndex1932 > -2) {
+                        charSequenceRegister =
+                            getInstruction<TwoRegisterInstruction>(charSequenceIndex1932).registerA
+                        insertIndex = charSequenceIndex1932 - 1
+                    } else if (charSequenceIndex1933 > -1) {
+                        charSequenceRegister =
+                            getInstruction<FiveRegisterInstruction>(charSequenceIndex1933).registerD
+                        insertIndex = charSequenceIndex1933
+                    } else {
+                        throw PatchException("Could not find insert index")
+                    }
+
+                    val freeRegister = getInstruction<TwoRegisterInstruction>(
+                        getTargetIndexOrThrow(insertIndex, Opcode.IGET_OBJECT)
+                    ).registerA
 
                     addInstructions(
-                        charSequenceIndex - 1, """
+                        insertIndex, """
                             move-object/from16 v$freeRegister, p0
                             iget-object v$freeRegister, v$freeRegister, $conversionContextFieldReference
                             invoke-static {v$freeRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;

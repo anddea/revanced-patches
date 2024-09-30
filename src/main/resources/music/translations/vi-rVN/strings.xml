@@ -34,6 +34,8 @@ Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và �
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh Cairo khi ứng dụng khởi chạy.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Vô hiệu hóa hoạt ảnh Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Vô hiệu hóa chuyển hướng đến bài hát tiếp theo khi nhấp vào nút Không thích.</string>
     <string name="revanced_disable_dislike_redirection_title">Vô hiệu hoá chuyển hướng khi ấn nút không thích</string>
     <string name="revanced_disable_mini_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
@@ -44,8 +46,6 @@ Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và �
     <string name="revanced_enable_black_navigation_bar_title">Thanh điều hướng màu đen</string>
     <string name="revanced_enable_black_player_background_summary">Thay đổi màu nền trình phát sang màu đen.</string>
     <string name="revanced_enable_black_player_background_title">Sử dụng nền trình phát màu đen</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Sử dụng hoạt ảnh kiểu Cairo khi khởi động ứng dụng.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Sử dụng hoạt ảnh kiểu Cairo</string>
     <string name="revanced_enable_color_match_player_summary">Đồng bộ màu của trình phát thu nhỏ với màu của trình phát.</string>
     <string name="revanced_enable_color_match_player_title">Trình phát thu nhỏ khớp màu</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
@@ -174,8 +174,6 @@ Hạn chế:
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ẩn mục Thống kê chi tiết</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ẩn mục Đăng ký / Huỷ đăng ký</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ẩn mục Xem thông tin của bài hát</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Quảng cáo toàn màn hình đã bị chặn. (Loại hộp thoại: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Quảng cáo toàn màn hình đã được đóng.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Ẩn quảng cáo toàn màn hình.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ẩn quảng cáo toàn màn hình</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Nếu tính năng này bật, quảng cáo toàn màn hình sẽ được đóng thông qua nút Đóng.
@@ -219,6 +217,8 @@ Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (c�
     <string name="revanced_hide_premium_promotion_title">Ẩn quảng cáo bật lên</string>
     <string name="revanced_hide_premium_renewal_summary">Ẩn quảng cáo biểu ngữ mua Music Premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ẩn quảng cáo biểu ngữ</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Ẩn biểu ngữ thông báo khuyến mãi.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Ẩn biểu ngữ thông báo khuyến mãi</string>
     <string name="revanced_hide_samples_shelf_summary">Ẩn thẻ Đoạn nhạc trong bảng feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ẩn thẻ Đoạn nhạc</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Danh sách tên menu Cài đặt cần lọc, cách nhau từng dòng một.</string>
@@ -298,7 +298,6 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Hiển thị thông báo ngắn nếu API ReturnYouTubeDislike không khả dụng.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
     <string name="revanced_sb_about">Giới thiệu</string>

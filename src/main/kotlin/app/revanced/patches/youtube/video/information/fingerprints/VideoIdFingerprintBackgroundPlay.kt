@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.video.information.fingerprints
 
-import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patches.youtube.utils.PlayerResponseModelUtils.indexOfPlayerResponseModelInstruction
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -10,7 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
  */
 internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
     returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.DECLARED_SYNCHRONIZED,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_EQZ,
@@ -23,6 +21,9 @@ internal object VideoIdFingerprintBackgroundPlay : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, classDef ->
-        methodDef.name == "l" && classDef.methods.count() == 17
+        methodDef.name == "l" &&
+                classDef.methods.count() == 17 &&
+                methodDef.implementation != null &&
+                indexOfPlayerResponseModelInstruction(methodDef) >= 0
     }
 )
