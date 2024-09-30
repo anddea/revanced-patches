@@ -31,7 +31,7 @@ import app.revanced.patches.youtube.video.information.fingerprints.SeekRelativeF
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprintBackgroundPlay
 import app.revanced.patches.youtube.video.information.fingerprints.VideoIdFingerprintShorts
-import app.revanced.patches.youtube.video.information.fingerprints.VideoLengthFingerprint
+import app.revanced.patches.shared.fingerprints.VideoLengthFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoQualityListFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.VideoTitleFingerprint
@@ -158,7 +158,7 @@ object VideoInformationPatch : BytecodePatch(
                         4, """
                             # first enum (field a) is SEEK_SOURCE_UNKNOWN
                             sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                            invoke-virtual {p0, p1, p2, v0}, ${definingClass}->$seekMethodName(J$seekSourceEnumType)Z
+                            invoke-virtual {p0, p1, p2, v0}, $definingClass->$seekMethodName(J$seekSourceEnumType)Z
                             move-result p1
                             return p1
                             """.toInstructions(),
@@ -565,7 +565,7 @@ object VideoInformationPatch : BytecodePatch(
                 }
             ).reference
 
-            return "invoke-interface {v${REGISTER_PLAYER_RESPONSE_MODEL}}, $targetReference"
+            return "invoke-interface {v$REGISTER_PLAYER_RESPONSE_MODEL}, $targetReference"
         }
     }
 
@@ -585,7 +585,7 @@ object VideoInformationPatch : BytecodePatch(
             annotations,
             null,
             ImmutableMethodImplementation(
-                9, """
+                REGISTER_PLAYER_RESPONSE_MODEL + 1, """
                     $channelIdMethodCall
                     move-result-object v$REGISTER_CHANNEL_ID
                     $channelNameMethodCall
@@ -617,7 +617,7 @@ object VideoInformationPatch : BytecodePatch(
 
             insert(
                 index,
-                "v${REGISTER_CHANNEL_ID} .. v${REGISTER_VIDEO_IS_LIVE}",
+                "v$REGISTER_CHANNEL_ID .. v$REGISTER_VIDEO_IS_LIVE",
                 descriptor
             )
         }
@@ -631,7 +631,7 @@ object VideoInformationPatch : BytecodePatch(
 
             insert(
                 index,
-                "v${REGISTER_CHANNEL_ID} .. v${REGISTER_VIDEO_IS_LIVE}",
+                "v$REGISTER_CHANNEL_ID .. v$REGISTER_VIDEO_IS_LIVE",
                 descriptor
             )
         }
@@ -645,7 +645,7 @@ object VideoInformationPatch : BytecodePatch(
 
             insert(
                 index,
-                "v${REGISTER_CHANNEL_ID} .. v${REGISTER_VIDEO_IS_LIVE}",
+                "v$REGISTER_CHANNEL_ID .. v$REGISTER_VIDEO_IS_LIVE",
                 descriptor
             )
         }

@@ -1,14 +1,14 @@
-package app.revanced.patches.music.video.information.fingerprints
+package app.revanced.patches.music.utils.sponsorblock.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.music.video.information.fingerprints.VideoLengthFingerprint.indexOfInvalidateInstruction
+import app.revanced.patches.music.utils.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint.indexOfInvalidateInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal object VideoLengthFingerprint : MethodFingerprint(
+internal object RectangleFieldInvalidatorFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_WIDE,
