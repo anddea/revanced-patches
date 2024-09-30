@@ -75,6 +75,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         ShowMoreButtonFingerprint
     )
 ) {
+    private const val CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/CarouselShelfFilter;"
     private const val FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/FeedComponentsFilter;"
     private const val FEED_VIDEO_FILTER_CLASS_DESCRIPTOR =
@@ -287,6 +289,7 @@ object FeedComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        LithoFilterPatch.addFilter(CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_VIDEO_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)
