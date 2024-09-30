@@ -25,9 +25,9 @@
     <string-array name="revanced_change_start_page_entries">
         <item>@string/revanced_change_start_page_entry_default</item>
         <item>@string/revanced_change_start_page_entry_search</item>
+        <item>@string/revanced_change_start_page_entry_shorts</item>
         <item>@string/revanced_change_start_page_entry_subscriptions</item>
         <item>@string/revanced_change_start_page_entry_explore</item>
-        <item>@string/revanced_change_start_page_entry_shorts</item>
         <item>@string/revanced_change_start_page_entry_library</item>
         <item>@string/revanced_change_start_page_entry_liked_videos</item>
         <item>@string/revanced_change_start_page_entry_watch_later</item>
@@ -39,30 +39,28 @@
         <item>@string/revanced_change_start_page_entry_movies</item>
         <item>@string/revanced_change_start_page_entry_sports</item>
         <item>@string/revanced_change_start_page_entry_browse</item>
-        <item>@string/revanced_change_start_page_entry_playables</item>
         <item>@string/revanced_change_start_page_entry_courses</item>
     </string-array>
     <string-array name="revanced_change_start_page_entry_values">
-        <item></item>
-        <!-- YouTube Shortcuts -->
-        <item>open.search</item>
-        <item>open.subscriptions</item>
-        <item>open.explore</item>
-        <item>open.shorts</item>
-        <!-- YouTube Widgets -->
-        <item>www.youtube.com/feed/library</item>
-        <item>www.youtube.com/playlist?list=LL</item>
-        <item>www.youtube.com/playlist?list=WL</item>
-        <item>www.youtube.com/feed/history</item>
-        <item>www.youtube.com/feed/trending</item>
-        <item>www.youtube.com/gaming</item>
-        <item>www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig</item>
-        <item>www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ</item>
-        <item>www.youtube.com/feed/storefront?bp=ogUCKAI%3D</item>
-        <item>www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw</item>
-        <item>www.youtube.com/feed/guide_builder</item>
-        <item>www.youtube.com/playables</item>
-        <item>www.youtube.com/channel/UCtFRv9O2AHqOZjjynzrv-xg</item>
+        <item>ORIGINAL</item>
+        <!-- Intent Action -->
+        <item>SEARCH</item>
+        <item>SHORTS</item>
+        <!-- Browser Id -->
+        <item>SUBSCRIPTIONS</item>
+        <item>EXPLORE</item>
+        <item>LIBRARY</item>
+        <item>LIKED_VIDEO</item>
+        <item>WATCH_LATER</item>
+        <item>HISTORY</item>
+        <item>TRENDING</item>
+        <item>GAMING</item>
+        <item>LIVE</item>
+        <item>MUSIC</item>
+        <item>MOVIE</item>
+        <item>SPORTS</item>
+        <item>BROWSE</item>
+        <item>COURSES</item>
     </string-array>
     <string-array name="revanced_change_shorts_repeat_state_entries">
         <item>@string/revanced_change_shorts_repeat_state_entry_default</item>
