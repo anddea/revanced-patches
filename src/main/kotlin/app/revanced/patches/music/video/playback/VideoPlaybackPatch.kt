@@ -12,7 +12,6 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.playback.fingerprints.PlaybackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.video.playback.fingerprints.UserQualityChangeFingerprint
-import app.revanced.patches.music.video.videoid.VideoIdPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -29,7 +28,6 @@ object VideoPlaybackPatch : BaseBytecodePatch(
     dependencies = setOf(
         CustomPlaybackSpeedPatch::class,
         SettingsPatch::class,
-        VideoIdPatch::class,
         VideoInformationPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -102,7 +100,7 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             }
         }
 
-        VideoIdPatch.hookVideoId("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
+        VideoInformationPatch.videoIdHook("$INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;)V")
 
         // endregion
 

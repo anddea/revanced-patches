@@ -3,6 +3,7 @@ package app.revanced.patches.music.player.components.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.player.components.fingerprints.MppWatchWhileLayoutFingerprint.indexOfCallableInstruction
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
+import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -20,9 +21,14 @@ internal object MppWatchWhileLayoutFingerprint : MethodFingerprint(
         if (methodDef.name != "onFinishInflate") {
             return@custom false
         }
+        if (!methodDef.containsWideLiteralInstructionValue(MiniPlayerPlayPauseReplayButton)) {
+            return@custom false
+        }
+        if (!SettingsPatch.upward0718) {
+            return@custom true
+        }
 
-        methodDef.containsWideLiteralInstructionValue(MiniPlayerPlayPauseReplayButton) &&
-                indexOfCallableInstruction(methodDef) >= 0
+        indexOfCallableInstruction(methodDef) >= 0
     }
 ) {
     fun indexOfCallableInstruction(methodDef: Method) =
