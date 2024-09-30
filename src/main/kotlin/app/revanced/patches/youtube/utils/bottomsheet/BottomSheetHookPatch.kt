@@ -19,8 +19,6 @@ object BottomSheetHookPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        // region patch for set player type
-
         val bottomSheetClass =
             BottomSheetBehaviorFingerprint.resultOrThrow().mutableMethod.definingClass
 
