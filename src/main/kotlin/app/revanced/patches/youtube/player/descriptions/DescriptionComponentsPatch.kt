@@ -10,6 +10,7 @@ import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.player.descriptions.fingerprints.EngagementPanelTitleFingerprint
 import app.revanced.patches.youtube.player.descriptions.fingerprints.EngagementPanelTitleParentFingerprint
 import app.revanced.patches.youtube.player.descriptions.fingerprints.TextViewComponentFingerprint
+import app.revanced.patches.youtube.player.descriptions.fingerprints.TextViewComponentFingerprint.indexOfTextIsSelectableInstruction
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.RollingNumberTextViewFingerprint
@@ -94,8 +95,7 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
         if (SettingsPatch.upward1902) {
             TextViewComponentFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex =
-                        getTargetIndexWithMethodReferenceNameOrThrow("setTextIsSelectable")
+                    val insertIndex = indexOfTextIsSelectableInstruction(this)
                     val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
 
                     replaceInstruction(

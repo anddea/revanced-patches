@@ -25,17 +25,19 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_change_start_page_entry_subscription">Suscripciones</string>
     <string name="revanced_change_start_page_summary">Seleccione en qué página se abre la aplicación.</string>
     <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
-    <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes separados por líneas</string>
+    <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes, separados por líneas.</string>
     <string name="revanced_custom_filter_strings_title">Editar filtro personalizado</string>
-    <string name="revanced_custom_filter_summary">Activa los filtros personalizados</string>
+    <string name="revanced_custom_filter_summary">Habilita el filtro personalizado para ocultar los componentes de diseño.</string>
     <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado no válido: %s.</string>
     <string name="revanced_custom_playback_speeds_invalid">Las velocidades de reproducción personalizadas no son válidas. Restablezca a los valores predeterminados.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reproducción personalizadas no válidas. Utilizando valores predeterminados.</string>
-    <string name="revanced_custom_playback_speeds_summary">Agregar o cambiar las velocidades de reproducción disponibles</string>
+    <string name="revanced_custom_playback_speeds_summary">Agregar o cambiar las velocidades de reproducción disponibles.</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reproducción personalizadas</string>
     <string name="revanced_disable_auto_captions_summary">Desactiva la activación automática de los subtítulos forzados en el reproductor de vídeo.</string>
     <string name="revanced_disable_auto_captions_title">Desactivar subtítulos automáticos</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Deshabilita la animación de bienvenida \"Cairo\" cuando se inicia la aplicación.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Desactiva la animación Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Deshabilita la redirección a la siguiente pista al hacer clic en el botón No me Gusta.</string>
     <string name="revanced_disable_dislike_redirection_title">Desactivar redirección de No me Gusta</string>
     <string name="revanced_disable_mini_player_gesture_summary">Desactivar el gesto de deslizar para cambiar de pista en el minireproductor.</string>
@@ -46,8 +48,6 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_enable_black_navigation_bar_title">Activar barra de navegación negra</string>
     <string name="revanced_enable_black_player_background_summary">Cambia el color de fondo del reproductor a negro.</string>
     <string name="revanced_enable_black_player_background_title">Activar fondo de reproductor negro</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Habilita la animación de bienvenida \"Cairo\" cuando se inicia la aplicación.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Activar nueva animación de bienvenida</string>
     <string name="revanced_enable_color_match_player_summary">Hace coincidir el color del reproductor a pantalla completa con el de minimizado.</string>
     <string name="revanced_enable_color_match_player_title">Activar coincidencia de color de reproductores</string>
     <string name="revanced_enable_compact_dialog_summary">"Activa el diálogo compacto en el teléfono.
@@ -58,7 +58,7 @@ Problemas conocidos:
     <string name="revanced_enable_compact_dialog_title">Activar diálogo compacto</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Incluye el búfer en el registro de depuración.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Incluir búfer en registro de depuración</string>
-    <string name="revanced_enable_debug_logging_summary">Imprime el registro de depuración</string>
+    <string name="revanced_enable_debug_logging_summary">Imprime el registro de depuración.</string>
     <string name="revanced_enable_debug_logging_title">Activar registro de depuración</string>
     <string name="revanced_enable_force_minimized_player_summary">Mantiene el reproductor permanentemente minimizado incluso si se reproduce otra pista.</string>
     <string name="revanced_enable_force_minimized_player_title">Activar reproductor minimizado forzado</string>
@@ -94,8 +94,8 @@ Esta función aún está en desarrollo, por lo que puede ser inestable."</string
     <string name="revanced_extended_settings_import_export_summary">Importar o exportar ajustes como texto.</string>
     <string name="revanced_extended_settings_import_export_title">Importar / Exportar</string>
     <string name="revanced_extended_settings_import_failed">Error de importación: %s</string>
-    <string name="revanced_extended_settings_import_reset">Configuración restablecida por defecto</string>
-    <string name="revanced_extended_settings_import_success">Configuración importada de %d</string>
+    <string name="revanced_extended_settings_import_reset">La configuración se restableció a los valores predeterminados.</string>
+    <string name="revanced_extended_settings_import_success">Configuración importada de %d.</string>
     <string name="revanced_extended_settings_reset">Restablecer</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary">"El botón Descargar abre su descargador externo.
@@ -110,7 +110,7 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s no está instalado. Por favor, instálelo.</string>
     <string name="revanced_external_downloader_package_name_summary">Nombre del paquete de su aplicación de descargas externas instalada, como NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nombre del paquete del descargador externo</string>
-    <string name="revanced_hide_account_menu_empty_component_summary">Oculta componentes vacíos en el menú de la cuenta</string>
+    <string name="revanced_hide_account_menu_empty_component_summary">Oculta componentes vacíos en el menú de la cuenta.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ocultar componente vacío</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nombres del menú de la cuenta a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro de menú de cuenta</string>
@@ -176,8 +176,6 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ocultar menú Estadísticas para Nerds</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menú Suscribirse / Desuscribirse</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menú de vista de créditos de canción</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Se han bloqueado anuncios en pantalla completa. (Tipo de diálogo: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Se han cerrado anuncios en pantalla completa.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Oculta anuncios en pantalla completa.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Si está habilitado, los anuncios a pantalla completa se cierran mediante el botón Cerrar.
@@ -217,6 +215,8 @@ Si está deshabilitado, se bloquean los anuncios a pantalla completa. (puede hab
     <string name="revanced_hide_premium_promotion_title">Ocultar popups de promoción premium</string>
     <string name="revanced_hide_premium_renewal_summary">Oculta banner de renovación premium.</string>
     <string name="revanced_hide_premium_renewal_title">Ocultar banner de renovación premium</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Oculta el banner de alerta de promoción.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoción</string>
     <string name="revanced_hide_samples_shelf_summary">Oculta estante de Samples en el feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ocultar estante de Samples</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nombres del menú de configuración de YouTube a filtrar separados por una nueva línea.</string>
@@ -290,13 +290,12 @@ Algunas características pueden no funcionar correctamente en la disposición de
     <string name="revanced_ryd_dislike_percentage_title">Porcentaje de No Me Gusta</string>
     <string name="revanced_ryd_enabled_summary">Muestra el número de vídeos que no te gustan.</string>
     <string name="revanced_ryd_enabled_title">Activar Return YouTube Dislike</string>
-    <string name="revanced_ryd_failure_client_rate_limit_requested">Los No Me Gusta no están disponibles (se alcanzó el límite de la API del cliente)</string>
+    <string name="revanced_ryd_failure_client_rate_limit_requested">Los No Me Gusta no están disponibles (se alcanzó el límite de la API del cliente).</string>
     <string name="revanced_ryd_failure_connection_status_code">Los no me gusta no están disponibles (estado %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Los no me gusta están temporalmente no disponibles (la API no responde).</string>
     <string name="revanced_ryd_failure_generic">Los no me gusta no están disponibles (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Se muestra el mensaje si la API de ReturnYouTubeDislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
     <string name="revanced_sanitize_sharing_links_title">Desinfectar enlaces compartidos</string>
     <string name="revanced_sb_about">Acerca de</string>
@@ -360,7 +359,7 @@ Algunas características pueden no funcionar correctamente en la disposición de
 - Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desactivar el modo radio en las regiones canadienses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desactivar letras en tiempo real</string>
-    <string name="revanced_spoof_app_version_target_summary">Seleccione el objetivo de la versión de la app a modificar</string>
+    <string name="revanced_spoof_app_version_target_summary">Seleccione el objetivo de la versión de la app a modificar.</string>
     <string name="revanced_spoof_app_version_target_title">Objetivo de la versión de la app a modificar</string>
     <string name="revanced_spoof_app_version_title">Modificar versión de aplicación</string>
 </resources>

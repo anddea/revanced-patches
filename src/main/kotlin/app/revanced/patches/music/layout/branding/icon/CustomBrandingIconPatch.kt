@@ -9,8 +9,10 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.setIconType
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.getResourceGroup
 import app.revanced.util.patch.BaseResourcePatch
 import app.revanced.util.underBarOrThrow
+import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
 
@@ -84,23 +86,14 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "record"
     ).map { "$it.png" }.toTypedArray()
 
-    private val headerIconResourceGroups = drawableDirectories.map { directory ->
-        ResourceGroup(
-            directory, *headerIconResourceFileNames
-        )
-    }
+    private val headerIconResourceGroups =
+        drawableDirectories.getResourceGroup(headerIconResourceFileNames)
 
-    private val launcherIconResourceGroups = mipmapDirectories.map { directory ->
-        ResourceGroup(
-            directory, *launcherIconResourceFileNames
-        )
-    }
+    private val launcherIconResourceGroups =
+        mipmapDirectories.getResourceGroup(launcherIconResourceFileNames)
 
-    private val splashIconResourceGroups = largeDrawableDirectories.map { directory ->
-        ResourceGroup(
-            directory, *splashIconResourceFileNames
-        )
-    }
+    private val splashIconResourceGroups =
+        largeDrawableDirectories.getResourceGroup(splashIconResourceFileNames)
 
     val AppIcon = stringPatchOption(
         key = "AppIcon",
@@ -137,6 +130,20 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         required = true
     )
 
+    private val RestoreOldSplashIcon by booleanPatchOption(
+        key = "RestoreOldSplashIcon",
+        default = false,
+        title = "Restore old splash icon",
+        description = """
+            Restore the old style splash icon.
+            
+            If you enable both the old style splash icon and the Cairo splash animation,
+            
+            Old style splash icon will appear first and then the Cairo splash animation will start.
+            """.trimIndentMultiline(),
+        required = true
+    )
+
     override fun execute(context: ResourceContext) {
 
         // Check patch options first.
@@ -144,6 +151,7 @@ object CustomBrandingIconPatch : BaseResourcePatch(
             .underBarOrThrow()
 
         val appIconResourcePath = "music/branding/$appIcon"
+        val youtubeMusicIconResourcePath = "music/branding/youtube_music"
 
         // Check if a custom path is used in the patch options.
         if (!availableIcon.containsValue(appIcon)) {
@@ -192,6 +200,43 @@ object CustomBrandingIconPatch : BaseResourcePatch(
                 headerIconResourceGroups.let { resourceGroups ->
                     resourceGroups.forEach {
                         context.copyResources("$appIconResourcePath/header", it)
+                    }
+                }
+            }
+
+            // Change splash icon.
+            if (RestoreOldSplashIcon == true) {
+                var oldSplashIconNotExists: Boolean
+
+                context.xmlEditor["res/drawable/splash_screen.xml"].use { editor ->
+                    editor.file.apply {
+                        val node = getElementsByTagName("layer-list").item(0)
+                        oldSplashIconNotExists = (node as Element)
+                            .getElementsByTagName("item")
+                            .length == 1
+
+                        if (oldSplashIconNotExists) {
+                            createElement("item").also { itemNode ->
+                                itemNode.appendChild(
+                                    createElement("bitmap").also { bitmapNode ->
+                                        bitmapNode.setAttribute("android:gravity", "center")
+                                        bitmapNode.setAttribute("android:src", "@drawable/record")
+                                    }
+                                )
+                                node.appendChild(itemNode)
+                            }
+                        }
+                    }
+                }
+                if (oldSplashIconNotExists) {
+                    splashIconResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            context.copyResources(
+                                "$youtubeMusicIconResourcePath/splash",
+                                it,
+                                createDirectoryIfNotExist = true
+                            )
+                        }
                     }
                 }
             }

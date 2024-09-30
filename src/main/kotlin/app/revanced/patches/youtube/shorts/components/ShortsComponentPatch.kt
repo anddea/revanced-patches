@@ -38,7 +38,6 @@ import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.getTargetIndexWithReferenceOrThrow
-import app.revanced.util.getWalkerMethod
 import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.literalInstructionHook
 import app.revanced.util.patch.BaseBytecodePatch
@@ -93,7 +92,7 @@ object ShortsComponentPatch : BaseBytecodePatch(
             "SETTINGS: SHORTS_COMPONENTS"
         )
 
-        if (SettingsPatch.upward1925) {
+        if (SettingsPatch.upward1925 && !SettingsPatch.upward1928) {
             settingArray += "SETTINGS: SHORTS_TIME_STAMP"
         }
 
@@ -279,18 +278,15 @@ object ShortsComponentPatch : BaseBytecodePatch(
         // region patch for hide paused header
 
         ShortsPausedHeaderFingerprint.resultOrThrow().let {
-            val targetMethod =
-                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            targetMethod.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPausedHeader()Z
-                        move-result v0
-                        if-nez v0, :hide
-                        """,
-                    ExternalLabel("hide", getInstruction(implementation!!.instructions.lastIndex))
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->hideShortsPausedHeader(Z)Z
+                        move-result v$insertRegister
+                        """
                 )
             }
         }

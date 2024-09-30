@@ -15,8 +15,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
     <string name="gms_core_settings_title">Open GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-    <string name="revanced_alternative_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
-    <string name="revanced_alternative_domain_title">Alternative domain</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
     <string name="revanced_change_share_sheet_summary">Change from in-app share sheet to system share sheet.</string>
@@ -39,6 +37,8 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_custom_playback_speeds_title">Edit custom playback speeds</string>
     <string name="revanced_disable_auto_captions_summary">Disables captions from being automatically enabled.</string>
     <string name="revanced_disable_auto_captions_title">Disable forced auto captions</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
     <string name="revanced_disable_dislike_redirection_summary">Disables redirection to the next track when clicking the Dislike button.</string>
     <string name="revanced_disable_dislike_redirection_title">Disable dislike redirection</string>
     <string name="revanced_disable_mini_player_gesture_summary">Disable swipe to change tracks in the miniplayer.</string>
@@ -49,8 +49,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_enable_black_navigation_bar_title">Enable black navigation bar</string>
     <string name="revanced_enable_black_player_background_summary">Changes the player background color to black.</string>
     <string name="revanced_enable_black_player_background_title">Enable black player background</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Enables Cairo splash animation when the app starts up.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Enable Cairo splash animation</string>
     <string name="revanced_enable_color_match_player_summary">Matches the color of the miniplayer to the fullscreen player.</string>
     <string name="revanced_enable_color_match_player_title">Enable color match player</string>
     <string name="revanced_enable_compact_dialog_summary">"Enables the compact flyout menu on phones.
@@ -185,8 +183,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Fullscreen ads have been blocked. (DialogType: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Fullscreen ads have been closed.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"If it is enabled, fullscreen ads are closed through the Close button.
@@ -228,6 +224,8 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_hide_premium_promotion_title">Hide premium promotion popups</string>
     <string name="revanced_hide_premium_renewal_summary">Hides the premium renewal banner.</string>
     <string name="revanced_hide_premium_renewal_title">Hide premium renewal banner</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Hides the promotion alert banner.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_samples_shelf_summary">Hides the Samples shelf in the feed.</string>
     <string name="revanced_hide_samples_shelf_title">Hide Samples shelf</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">List of settings menu names to filter, separated by new lines.</string>
@@ -307,7 +305,6 @@ Some features may not work properly in the old player layout."</string>
     <string name="revanced_ryd_failure_generic">Dislikes are unavailable (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Shows a toast if the Return YouTube Dislike API is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from URLs when sharing links.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
     <string name="revanced_sb_about">About</string>
@@ -374,6 +371,4 @@ Some features may not work properly in the old player layout."</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
-    <string name="revanced_use_alternative_domain_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
-    <string name="revanced_use_alternative_domain_title">Use alternative domain for images</string>
 </resources>

@@ -61,9 +61,6 @@ object AdsPatch : BaseBytecodePatch(
     private const val ADS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/AdsFilter;"
 
-    private const val FULLSCREEN_ADS_FILTER_CLASS_DESCRIPTOR =
-        "${app.revanced.patches.shared.integrations.Constants.COMPONENTS_PATH}/FullscreenAdsFilter;"
-
     private const val PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR =
         "$ADS_PATH/PremiumPromotionPatch;"
 
@@ -82,7 +79,7 @@ object AdsPatch : BaseBytecodePatch(
         // litho view, used in 'ShowDialogCommandOuterClass' in innertube
         ShowDialogCommandFingerprint
             .resultOrThrow()
-            .hookLithoFullscreenAds(context)
+            .hookLithoFullscreenAds()
 
         // endregion
 
@@ -174,20 +171,11 @@ object AdsPatch : BaseBytecodePatch(
         // endregion
 
         LithoFilterPatch.addFilter(ADS_FILTER_CLASS_DESCRIPTOR)
-        LithoFilterPatch.addFilter(FULLSCREEN_ADS_FILTER_CLASS_DESCRIPTOR)
 
         SettingsPatch.addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads",
             "true"
-        )
-        SettingsPatch.addSwitchPreference(
-            CategoryType.ADS,
-            "revanced_hide_fullscreen_ads_type",
-            "true",
-            "revanced_hide_fullscreen_ads",
-            false,
-            setSummaryOnOff = true
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.ADS,
@@ -212,6 +200,11 @@ object AdsPatch : BaseBytecodePatch(
         SettingsPatch.addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_premium_renewal",
+            "true"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.ADS,
+            "revanced_hide_promotion_alert_banner",
             "true"
         )
     }

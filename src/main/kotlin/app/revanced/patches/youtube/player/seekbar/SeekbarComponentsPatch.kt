@@ -5,8 +5,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.player.components.PlayerComponentsResourcePatch
 import app.revanced.patches.shared.drawable.DrawableColorPatch
 import app.revanced.patches.youtube.player.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ControlsOverlayStyleFingerprint
@@ -29,14 +31,10 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Inlin
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
+import app.revanced.patches.youtube.utils.settings.SettingsPatch.updatePatchStatus
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.*
 import app.revanced.util.patch.BaseBytecodePatch
-import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedMethodReference
@@ -71,6 +69,20 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         TotalTimeFingerprint
     )
 ) {
+    private val CairoStartColor by stringPatchOption(
+        key = "CairoStartColor",
+        default = "#ffff2791",
+        title = "Cairo start color",
+        description = "Set Cairo start color for the seekbar."
+    )
+
+    private val CairoEndColor by stringPatchOption(
+        key = "CairoEndColor",
+        default = "#ffff0033",
+        title = "Cairo end color",
+        description = "Set Cairo end color for the seekbar."
+    )
+
     override fun execute(context: BytecodeContext) {
 
         var settingArray = arrayOf(
@@ -199,6 +211,19 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
                 "app.revanced.integrations.youtube.patches.utils.ProgressBarDrawable"
             )
             scaleNode.replaceChild(replacementNode, shapeNode)
+        }
+
+        contexts.xmlEditor["res/values/colors.xml"].use { editor ->
+            editor.file.doRecursively loop@{ node ->
+                if (node is Element && node.tagName == "color") {
+                    if (node.getAttribute("name") == "yt_youtube_magenta") {
+                        node.textContent = CairoStartColor
+                    }
+                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
+                        node.textContent = CairoEndColor
+                    }
+                }
+            }
         }
 
         // endregion

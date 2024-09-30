@@ -36,6 +36,8 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_custom_playback_speeds_title">Éditez les vitesses de lecture personnalisées</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres automatiquement activés.</string>
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Désactive l\'animation Cairo lors du démarrage de l\'application.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Désactiver l\'animation Cairo au démarrage</string>
     <string name="revanced_disable_dislike_redirection_summary">Désactive le passage à la piste suivante lorsque vous cliquez sur le bouton \"Je n\'aime pas\".</string>
     <string name="revanced_disable_dislike_redirection_title">Désactiver la redirection du bouton \"Je n\'aime pas\"</string>
     <string name="revanced_disable_mini_player_gesture_summary">Désactive les gestes pour changer de musique dans le minilecteur.</string>
@@ -46,8 +48,6 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_enable_black_navigation_bar_title">Activer la barre de navigation en noir</string>
     <string name="revanced_enable_black_player_background_summary">Change la couleur de l\'interface du lecteur en noir.</string>
     <string name="revanced_enable_black_player_background_title">Activer l\'interface du lecteur en noir</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Active l\'animation Cairo lors du démarrage de l\'application.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Activer l\'animation Cairo au démarrage</string>
     <string name="revanced_enable_color_match_player_summary">Harmonise les couleurs du minilecteur à celle du lecteur en plein écran.</string>
     <string name="revanced_enable_color_match_player_title">Activer l\'harmonisation des couleurs du lecteur</string>
     <string name="revanced_enable_compact_dialog_summary">"Active le menu déroulant compact sur téléphones.
@@ -180,8 +180,6 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Masquer le menu \"Statistiques avancées\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Masquer le menu \"S\'abonner\" / \"Se désabonner\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Masquer le menu \"Afficher les crédits du titre\"</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">La publicité en plein écran a été bloquée. (Type de dialogue : %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">La publicité en plein écran a été fermée.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Masque les publicités en plein écran.</string>
     <string name="revanced_hide_fullscreen_ads_title">Masquer les publicités en plein écran</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Si activé, les publicités en plein écran seront fermées grâce au bouton \"Fermer\".
@@ -225,6 +223,8 @@ Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir de
     <string name="revanced_hide_premium_promotion_title">Masquer les publicités pour YouTube Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Masque la bannière \"Renouveler votre abonnement Premium\".</string>
     <string name="revanced_hide_premium_renewal_title">Masquer la bannière \"Renouveler votre abonnement Premium\"</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Masque la bannière d\'alerte de promotion.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Masquer la bannière d\'alerte de promotion</string>
     <string name="revanced_hide_samples_shelf_summary">Masque l’étagère \"Samples\" dans les flux.</string>
     <string name="revanced_hide_samples_shelf_title">Masquer l’étagère \"Samples\"</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Liste des noms du menu paramètre à filtrer, séparé par des sauts de lignes.</string>
@@ -304,7 +304,6 @@ Certaines fonctions peuvent ne pas fonctionner sur l'ancienne mise en page."</st
     <string name="revanced_ryd_failure_generic">Les \"Je n\'aime pas\" sont indisponible (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Affiche un message si l\'API de Return YouTube Dislike n\'est pas disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message si l\'API est indisponible</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de suivi (tracking) des URL lors du partage de liens.</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
     <string name="revanced_sb_about">À propos</string>

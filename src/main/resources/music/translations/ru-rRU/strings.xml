@@ -14,8 +14,6 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
-    <string name="revanced_alternative_domain_summary">Домен для получения картинок.\nВажно: Вводите только название домена без префикса \"https\:\/\/\".</string>
-    <string name="revanced_alternative_domain_title">Альтернативный домен</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Заменяет заблокированный в некоторых регионах домен, чтобы можно было получать миниатюры плейлистов, аватары каналов и т. д.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
     <string name="revanced_change_share_sheet_summary">Меняет встроенное диалоговое окно \"Поделиться\" на системное.</string>
@@ -38,6 +36,8 @@
     <string name="revanced_custom_playback_speeds_title">Изменить скорости</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Отключает анимацию Кайро при запуске приложения.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Отключить анимацию Кайро</string>
     <string name="revanced_disable_dislike_redirection_summary">Отключает перенаправление на следующий трек при нажатии на кнопку \"Не нравится\".</string>
     <string name="revanced_disable_dislike_redirection_title">Отключить переключение при \"Не нравится\"</string>
     <string name="revanced_disable_mini_player_gesture_summary">Отключает свайп для переключения треков в миниплеере.</string>
@@ -48,8 +48,6 @@
     <string name="revanced_enable_black_navigation_bar_title">Чёрная панель навигации</string>
     <string name="revanced_enable_black_player_background_summary">Меняет адаптивный цвет фона плеера на черный.</string>
     <string name="revanced_enable_black_player_background_title">Включить черный фон плеера</string>
-    <string name="revanced_enable_cairo_splash_animation_summary">Включает анимацию заставки Каир при запуске приложения.</string>
-    <string name="revanced_enable_cairo_splash_animation_title">Анимация заставки Каир</string>
     <string name="revanced_enable_color_match_player_summary">Цвет мини-проигрывателя соответствует цвету полноэкранного проигрывателя.</string>
     <string name="revanced_enable_color_match_player_title">Цветовое соответствие проигрывателей</string>
     <string name="revanced_enable_compact_dialog_summary">"Включает компактное всплывающее меню на телефонах.
@@ -182,8 +180,6 @@
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Скрыть пункт \"Статистика для сисадминов\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Скрыть пункт \"Подписаться / Отменить подписку\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Скрыть пункт \"Участники и создатели\"</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Полноэкранная реклама была заблокирована. (Тип диалога: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Полноэкранная реклама была закрыта.</string>
     <string name="revanced_hide_fullscreen_ads_summary">Скрывает полноэкранную рекламу.</string>
     <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
     <string name="revanced_hide_fullscreen_ads_type_summary">"Если включено, полноэкранная реклама закрывается через кнопку Закрыть.
@@ -227,6 +223,8 @@
     <string name="revanced_hide_premium_promotion_title">Скрыть всплывающую рекламу Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Скрывает баннер продления Premium.</string>
     <string name="revanced_hide_premium_renewal_title">Скрыть баннер продления Premium</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Скрывает баннер с уведомлением о промо акции.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Скрыть баннер с уведомлением о промо акции</string>
     <string name="revanced_hide_samples_shelf_summary">Скрывает полку \"Семплы\" в ленте.</string>
     <string name="revanced_hide_samples_shelf_title">Скрыть полку \"Семплы\"</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Список названий меню настроек для фильтрации, разделенных новыми строками.</string>
@@ -306,7 +304,6 @@
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда API Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адресов при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Подчищать ссылки</string>
     <string name="revanced_sb_about">Об интеграции</string>
@@ -373,6 +370,4 @@
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
-    <string name="revanced_use_alternative_domain_summary">Заменяет домен, заблокированный в некоторых регионах, чтобы можно было получать миниатюры плейлистов, аватары каналов и т.д.</string>
-    <string name="revanced_use_alternative_domain_title">Использовать альтернативный домен картинок</string>
 </resources>

@@ -121,9 +121,7 @@
     <string name="revanced_disable_ambient_mode_summary_on">Кінематографічне освітлення вимкнено.</string>
     <string name="revanced_disable_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
     <string name="revanced_disable_auto_audio_tracks_summary_off">Примусові автоматичні звукові доріжки увімкнено.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">"Примусові автоматичні звукові доріжки вимкнено.
-
-Застереження: Це налаштування не застосовується до Shorts."</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">Примусові автоматичні звукові доріжки вимкнено.</string>
     <string name="revanced_disable_auto_audio_tracks_title">Вимкнути примусові автоматичні звукові доріжки</string>
     <string name="revanced_disable_auto_captions_summary_off">Примусові авто субтитри увімкнено.</string>
     <string name="revanced_disable_auto_captions_summary_on">Примусові авто субтитри вимкнено.</string>
@@ -131,9 +129,21 @@
     <string name="revanced_disable_auto_player_popup_panels_summary_off">Автовисувні панелі плеєра увімкнено.</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">Автовисувні панелі плеєра вимкнено.</string>
     <string name="revanced_disable_auto_player_popup_panels_title">Вимкнути висувні панелі плеєра</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"Автоперемикання списків створення Мікс увімкнено коли автовідтворення увімкнене.
+
+Автовідтворення можна змінити у налаштуваннях YouTube:
+Налаштування → Автоматичне відтворення → Автовідтворення наступного відео"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Автоперемикання списків відтворення Мікс вимкнено.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Вимкнути перемикання списків відтворення Мікс</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Вмикання цієї функції вимкне автоматичне перемикання на YouTube Mix коли музика відтворюється якщо автовідтворення увімкнене.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Типову швидкість відтворення увімкнено в прямих трансляціях.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Типову швидкість відтворення вимкнено в прямих трансляціях.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Вимкнути швидкість відтворення в прямих трансляціях</string>
+    <string name="revanced_disable_default_playback_speed_music_off">Типову швидкість відтворення увімкнено для музики.</string>
+    <string name="revanced_disable_default_playback_speed_music_on">"Типову швидкість відтворення вимкнено для музики.
+
+Застереження: Це налаштування може не застосовуватись до відео, які не містять напис 'Слухати через YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_title">Вимкнути швидкість відтворення для музики</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панель залучення увімкнено.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель залучення вимкнено.</string>
     <string name="revanced_disable_engagement_panel_title">Вимкнути панель залучення</string>
@@ -186,6 +196,13 @@
 • Натисніть, щоб прокрутити.
 • Натисніть і утримуйте, щоб вибрати текст."</string>
     <string name="revanced_disable_video_description_interaction_title">Вимкнути взаємодію з описом відео</string>
+    <string name="revanced_disable_vp9_codec_summary_off">Кодек VP9 увімкнено.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"Кодек VP9 вимкнено.
+
+• Максимальна роздільна здатність - 1080p.
+• Відтворення відео використовуватиме більше інтернет даних ніж VP9.
+• Щоб отримати відтворювання HDR, HDR відео використовує кодек VP9."</string>
+    <string name="revanced_disable_vp9_codec_title">Вимкнути кодек VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Смугу прогресу Каїр вимкнено.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Смугу прогресу Каїр увімкнено.
 
@@ -310,6 +327,8 @@
     <string name="revanced_external_downloader_not_installed_warning">%s не встановлено. Будь ласка, встановіть його.</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Ім\'я пакета завантажувача списку відтворення</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis, при довгому натисканні.</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">Ім\'я пакета завантажувача відео при довгому натисканні</string>
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
     <string name="revanced_force_fullscreen_summary">"Відео перемикатиметься на повний екран в таких ситуаціях:
@@ -427,6 +446,9 @@
     <string name="revanced_hide_expandable_chip_summary_off">Розширювані фішки показується.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Розширювані фішки приховано.</string>
     <string name="revanced_hide_expandable_chip_title">Приховати розширювану фішку під відео</string>
+    <string name="revanced_hide_expandable_shelf_summary_off">Висувні полиці показується.</string>
+    <string name="revanced_hide_expandable_shelf_summary_on">Висувні полиці приховано.</string>
+    <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
     <string name="revanced_hide_feed_captions_button_off">Кнопку субтитрів показується.</string>
     <string name="revanced_hide_feed_captions_button_on">Кнопку субтитрів приховано.</string>
     <string name="revanced_hide_feed_captions_button_title">Приховати кнопку субтитрів в стрічці</string>
@@ -450,8 +472,6 @@
     <string name="revanced_hide_for_you_shelf_summary_off">Полицю \'Для вас\' показується.</string>
     <string name="revanced_hide_for_you_shelf_summary_on">Полицю \'Для вас\' приховано.</string>
     <string name="revanced_hide_for_you_shelf_title">Приховати полицю \'Для вас\'</string>
-    <string name="revanced_hide_fullscreen_ads_blocked_success">Повноекранну рекламу заблоковано. (Тип діалогу: %s)</string>
-    <string name="revanced_hide_fullscreen_ads_closed_success">Повноекранну рекламу закрито.</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранну рекламу показується.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано.</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
@@ -505,7 +525,6 @@
     <string name="revanced_hide_keyword_content_comments_summary_off">Коментарі не фільтрується.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Коментарі фільтрується.</string>
     <string name="revanced_hide_keyword_content_comments_title">Приховати коментарі за ключовими словами</string>
-    <string name="revanced_hide_keyword_content_full_word_title">Слово повністю збігається</string>
     <string name="revanced_hide_keyword_content_home_summary_off">Відео у головній стрічці не фільтруються.</string>
     <string name="revanced_hide_keyword_content_home_summary_on">Відео у головній стрічці фільтруються.</string>
     <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній за ключовими словами.</string>
@@ -597,6 +616,9 @@
     <string name="revanced_hide_player_collapse_button_summary_off">Кнопку згортування показується.</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Кнопку згортування приховано.</string>
     <string name="revanced_hide_player_collapse_button_title">Приховати кнопку згортування</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Меню Кінематографічне освітлення показується.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Меню Кінематографічне освітлення приховано.</string>
+    <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Приховати меню Кінематографічне освітлення</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_off">Меню звукової доріжки показується.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_summary_on">Меню звукової доріжки приховано.</string>
     <string name="revanced_hide_player_flyout_menu_audio_track_title">Приховати меню звукової доріжки</string>
@@ -639,6 +661,9 @@
     <string name="revanced_hide_player_flyout_menu_report_summary_off">Меню Поскаржитися показується.</string>
     <string name="revanced_hide_player_flyout_menu_report_summary_on">Меню Поскаржитися приховано.</string>
     <string name="revanced_hide_player_flyout_menu_report_title">Приховати меню Поскаржитися</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Меню Таймер сну показується.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Меню Таймер сну приховано.</string>
+    <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Приховати меню Таймер сну</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_off">Меню стабілізації гучності показується.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_summary_on">Меню стабілізації гучності приховано.</string>
     <string name="revanced_hide_player_flyout_menu_stable_volume_title">Приховати меню стабілізації гучності</string>
@@ -669,6 +694,9 @@
     <string name="revanced_hide_preview_comment_type_off">Це змінює розмір секції коментарів, тому неможливо відкрити чат у секції коментарів.</string>
     <string name="revanced_hide_preview_comment_type_on">Це не змінює розмір секції коментарів, тому можливо відкрити чат у секції коментарів.</string>
     <string name="revanced_hide_preview_comment_type_title">Тип приховування закріпленого коментаря</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Рекламні сповіщення показується.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Рекламні сповіщення приховано.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Приховати рекламні сповіщення</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Кнопку коментарів показується.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Кнопку коментарів приховано.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Приховати кнопку коментарів</string>
@@ -1019,8 +1047,8 @@
     <string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
 Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
     <string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Кнопка завантаження списку відтворення відкриває вбудований завантажувач.</string>
-    <string name="revanced_override_playlist_download_button_summary_on">Кнопка завантаження списку відтворення відкриває зовнішній завантажувач.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Кнопка вбудованого завантаження списку відтворення відкриває вбудований завантажувач, якщо показується.</string>
+    <string name="revanced_override_playlist_download_button_summary_on">Кнопка вбудованого завантаження списку відтворення завжди показується, і в публічних списках відтворення відкриває зовнішній завантажувач.</string>
     <string name="revanced_override_playlist_download_button_title">Перевизначити кнопку завантаження списку відтворення</string>
     <string name="revanced_override_video_download_button_summary_off">Кнопка завантаження відео відкриває вбудований завантажувач.</string>
     <string name="revanced_override_video_download_button_summary_on">Кнопка завантаження відео відкриває зовнішній завантажувач.</string>
@@ -1181,7 +1209,6 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучає параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
     <string name="revanced_sb_about">Про Спонсорблок</string>
@@ -1347,6 +1374,7 @@
     <string name="revanced_sb_stats_self_saved_reset_title">Скинути лічильник пропущених сегментів?</string>
     <string name="revanced_sb_stats_self_saved_sum">Це &lt;b&gt;%s&lt;/b&gt;.</string>
     <string name="revanced_sb_stats_submissions">Ви створили &lt;b&gt;%s&lt;/b&gt; сегментів</string>
+    <string name="revanced_sb_stats_submissions_sum">Натисніть тут для перегляду Ваших сегментів.</string>
     <string name="revanced_sb_stats_username">Ваше ім\'я користувача: &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">Натисніть тут, щоб змінити ім\'я користувача</string>
     <string name="revanced_sb_stats_username_change_unknown_error">Не вдалося змінити ім\'я користувача: Статус: %1$d %2$s</string>
@@ -1437,7 +1465,8 @@
 AVC (H.264) має максимальну роздільну здатність 1080p, а для відтворення відео використовується більше інтернет-даних, ніж VP9 або AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Меню звукової доріжки відсутнє.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Меню звукової доріжки відсутнє.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Фільми чи платні відео можуть не відтворюватися.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Фільми чи платні відео можуть не відтворюватися.
+• Прямі трансляції починаються з початку."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
@@ -1472,7 +1501,16 @@ AVC (H.264) має максимальну роздільну здатність 
 • Навіть якщо ви зміните це налаштування, воно може не набути чинності, доки ви не перезапустите пристрій.
 • Вимкнувши це налаштування, вантажиться більше реклами з боку сервера.
 • Ви повинні вимкнути це налаштування, щоб зробити відеорекламу видимою."</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопку Створити не міняється з кнопкою Сповіщення.</string>
+    <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопку Створити міняється з кнопкою Сповіщення.
+
+Примітка: Увімкнення також примусово приховує відеорекламу."</string>
     <string name="revanced_switch_create_with_notifications_button_title">Поміняти Створити зі Сповіщення</string>
+    <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Вимкнення може спричинити вантаження більше реклами з сервера.
+
+А також, рекламу більше не блокуватиметься в Shorts.
+
+Якщо це налаштування не діє, спробуйте перемкнути Анонімний режим."</string>
     <string name="revanced_theme_default">Стандартна</string>
     <string name="revanced_watch_history_about_status_blocked">• Історію перегляду заблоковано.</string>
     <string name="revanced_watch_history_about_status_original">"• Дотримується налаштувань історії перегляду облікового запису Google.

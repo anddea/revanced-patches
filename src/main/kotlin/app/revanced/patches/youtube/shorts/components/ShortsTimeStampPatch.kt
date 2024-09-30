@@ -29,7 +29,7 @@ object ShortsTimeStampPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
 
-        if (!SettingsPatch.upward1925) return
+        if (!SettingsPatch.upward1925 || SettingsPatch.upward1928) return
 
         // region patch for enable time stamp
 
