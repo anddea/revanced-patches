@@ -103,7 +103,8 @@
         </PreferenceScreen>SETTINGS: TOOLBAR_COMPONENTS -->
 
         <!-- SETTINGS: CHANGE_START_PAGE
-        <ListPreference android:entries="@array/revanced_change_start_page_entries" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:defaultValue="" android:entryValues="@array/revanced_change_start_page_entry_values" />SETTINGS: CHANGE_START_PAGE -->
+        <ListPreference android:entries="@array/revanced_change_start_page_entries" android:title="@string/revanced_change_start_page_title" android:key="revanced_change_start_page" android:entryValues="@array/revanced_change_start_page_entry_values" />
+        <SwitchPreference android:title="@string/revanced_change_start_page_type_title" android:key="revanced_change_start_page_type" android:summaryOn="@string/revanced_change_start_page_type_summary_on" android:summaryOff="@string/revanced_change_start_page_type_summary_off" />SETTINGS: CHANGE_START_PAGE -->
 
         <!-- SETTINGS: DISABLE_AUTO_AUDIO_TRACKS
         <SwitchPreference android:title="@string/revanced_disable_auto_audio_tracks_title" android:key="revanced_disable_auto_audio_tracks" android:summaryOn="@string/revanced_disable_auto_audio_tracks_summary_on" android:summaryOff="@string/revanced_disable_auto_audio_tracks_summary_off" />SETTINGS: DISABLE_AUTO_AUDIO_TRACKS -->
