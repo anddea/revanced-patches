@@ -61,11 +61,13 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             RectangleFieldInvalidatorFingerprint.alsoResolve(
                 context, SeekBarConstructorFingerprint
             ).let {
-                with (it.mutableMethod) {
-                    val invalidateIndex = RectangleFieldInvalidatorFingerprint.indexOfInvalidateInstruction(this)
-                    val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
-                        getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
-                    }
+                with(it.mutableMethod) {
+                    val invalidateIndex =
+                        RectangleFieldInvalidatorFingerprint.indexOfInvalidateInstruction(this)
+                    val rectangleIndex =
+                        indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
+                            getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+                        }
                     val rectangleReference =
                         getInstruction<ReferenceInstruction>(rectangleIndex).reference
 
@@ -116,7 +118,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
          */
         rectangleFieldName =
             MusicPlaybackControlsTimeBarOnMeasureFingerprint.resultOrThrow().let {
-                with (it.mutableMethod) {
+                with(it.mutableMethod) {
                     val rectangleIndex = it.scanResult.patternScanResult!!.startIndex
                     val rectangleReference =
                         getInstruction<ReferenceInstruction>(rectangleIndex).reference

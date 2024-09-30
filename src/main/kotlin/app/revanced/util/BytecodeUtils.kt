@@ -470,87 +470,102 @@ fun MethodFingerprintResult.getWalkerMethod(context: BytecodeContext, offset: In
  */
 fun MutableMethod.getWalkerMethod(context: BytecodeContext, offset: Int): MutableMethod {
     val newMethod = getInstruction<ReferenceInstruction>(offset).reference as MethodReference
-    return context.findClass { classDef -> classDef.type == newMethod.definingClass }
-        ?.mutableClass
-        ?.methods
-        ?.first { method -> MethodUtil.methodSignaturesMatch(method, newMethod) }
-        ?: throw PatchException("This method can not be walked at offset $offset inside the method $name")
+    return context.findMethodOrThrow(newMethod.definingClass) {
+        MethodUtil.methodSignaturesMatch(this, newMethod)
+    }
 }
 
-fun MutableClass.addFieldAndInstructions(
-    context: BytecodeContext,
+fun BytecodeContext.addStaticFieldToIntegration(
+    className: String,
     methodName: String,
     fieldName: String,
     objectClass: String,
     smaliInstructions: String,
-    shouldAddConstructor: Boolean
+    shouldAddConstructor: Boolean = true
 ) {
-    val objectCall = "$this->$fieldName:$objectClass"
+    val mutableClass = findClass { classDef -> classDef.type == className }
+        ?.mutableClass
+        ?: throw PatchException("No matching classes found: $className")
 
-    methods.single { method -> method.name == methodName }.apply {
-        staticFields.add(
-            ImmutableField(
-                definingClass,
-                fieldName,
-                objectClass,
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
-                null,
-                annotations,
-                null
-            ).toMutable()
-        )
+    val objectCall = "$mutableClass->$fieldName:$objectClass"
 
-        addInstructionsWithLabels(
-            0,
-            """
+    mutableClass.apply {
+        methods.first { method -> method.name == methodName }.apply {
+            staticFields.add(
+                ImmutableField(
+                    definingClass,
+                    fieldName,
+                    objectClass,
+                    AccessFlags.PUBLIC or AccessFlags.STATIC,
+                    null,
+                    annotations,
+                    null
+                ).toMutable()
+            )
+
+            addInstructionsWithLabels(
+                0,
+                """
                 sget-object v0, $objectCall
                 """ + smaliInstructions
-        )
+            )
+        }
     }
 
-    if (shouldAddConstructor) {
-        context.findClass(objectClass)!!.mutableClass.methods
-            .filter { method -> method.name == "<init>" }
-            .forEach { mutableMethod ->
-                mutableMethod.apply {
-                    val initializeIndex = indexOfFirstInstructionOrThrow {
-                        opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
-                    }
-                    val insertIndex = if (initializeIndex == -1)
-                        1
-                    else
-                        initializeIndex + 1
+    if (!shouldAddConstructor) return
 
-                    val initializeRegister = if (initializeIndex == -1)
-                        "p0"
-                    else
-                        "v${getInstruction<FiveRegisterInstruction>(initializeIndex).registerC}"
-
-                    addInstruction(
-                        insertIndex,
-                        "sput-object $initializeRegister, $objectCall"
-                    )
+    findMethodsOrThrow(objectClass)
+        .filter { method -> MethodUtil.isConstructor(method) }
+        .forEach { mutableMethod ->
+            mutableMethod.apply {
+                val initializeIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.name == "<init>"
                 }
+                val insertIndex = if (initializeIndex == -1)
+                    1
+                else
+                    initializeIndex + 1
+
+                val initializeRegister = if (initializeIndex == -1)
+                    "p0"
+                else
+                    "v${getInstruction<FiveRegisterInstruction>(initializeIndex).registerC}"
+
+                addInstruction(
+                    insertIndex,
+                    "sput-object $initializeRegister, $objectCall"
+                )
             }
+        }
+}
+
+fun BytecodeContext.findMethodOrThrow(
+    reference: String,
+    methodPredicate: Method.() -> Boolean = { MethodUtil.isConstructor(this) }
+) = findMethodsOrThrow(reference).first(methodPredicate)
+
+fun BytecodeContext.findMethodsOrThrow(reference: String): MutableSet<MutableMethod> {
+    val methods =
+        findClass { classDef -> classDef.type == reference }
+            ?.mutableClass
+            ?.methods
+
+    if (methods != null) {
+        return methods
+    } else {
+        throw PatchException("No matching methods found in: $reference")
     }
 }
 
 fun BytecodeContext.updatePatchStatus(
     className: String,
     methodName: String
-) {
-    this.classes.forEach { classDef ->
-        if (classDef.type.endsWith(className)) {
-            val patchStatusMethod =
-                this.proxy(classDef).mutableClass.methods.first { it.name == methodName }
-
-            patchStatusMethod.replaceInstruction(
-                0,
-                "const/4 v0, 0x1"
-            )
-        }
-    }
-}
+) = findMethodOrThrow(className) { name == methodName }
+    .replaceInstruction(
+        0,
+        "const/4 v0, 0x1"
+    )
 
 /**
  * Return the resolved methods of [MethodFingerprint]s early.
@@ -571,7 +586,7 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
                         return v0
                         """
 
-                else -> throw Exception("This case should never happen.")
+                else -> throw PatchException("This case should never happen: ${fingerprint.javaClass.simpleName}")
             }
 
             result.mutableMethod.addInstructions(0, stringInstructions)

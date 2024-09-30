@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -20,7 +19,9 @@ import app.revanced.patches.youtube.player.speedoverlay.fingerprints.SpeedOverla
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.injectLiteralInstructionBooleanCall
@@ -33,7 +34,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
 object SpeedOverlayPatch : BytecodePatch(
@@ -135,16 +135,11 @@ object SpeedOverlayPatch : BytecodePatch(
 
                         hook(insertIndex, insertRegister, jumpIndex)
 
-                        val slideToSeekBooleanMethod = context.toMethodWalker(it.mutableMethod)
-                            .nextMethod(scanResult.startIndex + 1, true)
-                            .getMethod() as MutableMethod
+                        val slideToSeekBooleanMethod =
+                            getWalkerMethod(context, scanResult.startIndex + 1)
 
                         val slideToSeekConstructorMethod =
-                            context.findClass { classDef -> classDef.type == slideToSeekBooleanMethod.definingClass }
-                                ?.mutableClass
-                                ?.methods
-                                ?.find { method -> MethodUtil.isConstructor(method) }
-                                ?: throw PatchException("Could not find constructor method")
+                            context.findMethodOrThrow(slideToSeekBooleanMethod.definingClass)
 
                         val slideToSeekSyntheticIndex = slideToSeekConstructorMethod
                             .indexOfFirstInstructionReversedOrThrow {
@@ -157,11 +152,9 @@ object SpeedOverlayPatch : BytecodePatch(
                             .toString()
 
                         val slideToSeekSyntheticMethod =
-                            context.findClass { classDef -> classDef.type == slideToSeekSyntheticClass }
-                                ?.mutableClass
-                                ?.methods
-                                ?.find { method -> method.name == "run" }
-                                ?: throw PatchException("Could not find synthetic method")
+                            context.findMethodOrThrow(slideToSeekSyntheticClass) {
+                                name == "run"
+                            }
 
                         Pair(slideToSeekBooleanMethod, slideToSeekSyntheticMethod)
                     }

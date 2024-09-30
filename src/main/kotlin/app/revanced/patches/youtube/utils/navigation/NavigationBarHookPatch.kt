@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarButton
 import app.revanced.patches.youtube.utils.navigation.fingerprints.PivotBarConstructorFingerprint
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -115,9 +116,9 @@ object NavigationBarHookPatch : BytecodePatch(
         }
 
         navigationTabCreatedCallback =
-            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)?.mutableClass?.methods?.first { method ->
-                method.name == "navigationTabCreatedCallback"
-            } ?: throw PatchException("Could not find navigationTabCreatedCallback method")
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "navigationTabCreatedCallback"
+            }
 
         MainActivityResolvePatch.injectOnBackPressedMethodCall(
             INTEGRATIONS_CLASS_DESCRIPTOR,

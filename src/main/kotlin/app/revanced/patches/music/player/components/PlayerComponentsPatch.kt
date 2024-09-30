@@ -62,6 +62,7 @@ import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -539,7 +540,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         opcode == Opcode.INVOKE_VIRTUAL
                                 && reference?.definingClass == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;"
                                 && reference.parameterTypes.first() == "Z"
-                        }
+                    }
                     val freeRegister =
                         getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
@@ -908,7 +909,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             MppWatchWhileLayoutFingerprint.resultOrThrow().mutableMethod.apply {
                 val callableIndex =
                     MppWatchWhileLayoutFingerprint.indexOfCallableInstruction(this)
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
+                val insertIndex =
+                    indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructionsWithLabels(
@@ -929,7 +931,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             ).let {
                 it.mutableMethod.apply {
                     val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """
@@ -1095,16 +1098,13 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         val onClickReference = getInstruction<ReferenceInstruction>(onClickIndex).reference
         val onClickReferenceDefiningClass = (onClickReference as MethodReference).definingClass
 
-        val onClickClass =
-            context.findClass(onClickReferenceDefiningClass)!!.mutableClass
-
-        onClickClass.methods.find { method -> method.name == "<init>" }
-            ?.apply {
+        context.findMethodOrThrow(onClickReferenceDefiningClass)
+            .apply {
                 addInstruction(
                     implementation!!.instructions.lastIndex,
                     "sput-object p0, $PLAYER_CLASS_DESCRIPTOR->$fieldName:$onClickReferenceDefiningClass"
                 )
-            } ?: throw PatchException("onClickClass not found!")
+            }
 
         PlayerPatchConstructorFingerprint.resultOrThrow().let {
             val mutableClass = it.mutableClass

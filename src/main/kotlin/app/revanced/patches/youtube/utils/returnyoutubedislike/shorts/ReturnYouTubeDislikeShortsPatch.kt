@@ -71,28 +71,30 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
             }
         }
 
-        if (SettingsPatch.upward1834) {
-            TextComponentSpecFingerprint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val insertIndex = indexOfFirstInstructionOrThrow {
-                        getReference<MethodReference>()?.toString() == "Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;"
-                    }
-                    val charSequenceRegister =
-                        getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-                    val conversionContextRegister =
-                        getInstruction<TwoRegisterInstruction>(0).registerA
-                    val replaceReference =
-                        getInstruction<ReferenceInstruction>(insertIndex).reference
+        if (!SettingsPatch.upward1834) {
+            return
+        }
 
-                    addInstructions(
-                        insertIndex + 1, """
-                            invoke-static {v$conversionContextRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onCharSequenceLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                            move-result-object v$charSequenceRegister
-                            invoke-static {v$charSequenceRegister}, $replaceReference
-                            """
-                    )
-                    removeInstruction(insertIndex)
+        TextComponentSpecFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.toString() == "Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;"
                 }
+                val charSequenceRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+                val conversionContextRegister =
+                    getInstruction<TwoRegisterInstruction>(0).registerA
+                val replaceReference =
+                    getInstruction<ReferenceInstruction>(insertIndex).reference
+
+                addInstructions(
+                    insertIndex + 1, """
+                        invoke-static {v$conversionContextRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onCharSequenceLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$charSequenceRegister
+                        invoke-static {v$charSequenceRegister}, $replaceReference
+                        """
+                )
+                removeInstruction(insertIndex)
             }
         }
     }

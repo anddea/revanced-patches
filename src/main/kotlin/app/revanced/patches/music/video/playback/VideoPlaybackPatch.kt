@@ -12,12 +12,13 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.music.video.playback.fingerprints.PlaybackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.video.playback.fingerprints.UserQualityChangeFingerprint
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
@@ -84,19 +85,14 @@ object VideoPlaybackPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val endIndex = it.scanResult.patternScanResult!!.endIndex
                 val qualityChangedClass =
-                    context.findClass(
-                        (getInstruction<BuilderInstruction21c>(endIndex))
-                            .reference.toString()
-                    )!!
-                        .mutableClass
+                    getInstruction<ReferenceInstruction>(endIndex).reference.toString()
 
-                val onItemClickMethod =
-                    qualityChangedClass.methods.find { method -> method.name == "onItemClick" }
-
-                onItemClickMethod?.addInstruction(
+                context.findMethodOrThrow(qualityChangedClass) {
+                    name == "onItemClick"
+                }.addInstruction(
                     0,
                     "invoke-static {}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality()V"
-                ) ?: throw PatchException("Failed to find onItemClick method")
+                )
             }
         }
 

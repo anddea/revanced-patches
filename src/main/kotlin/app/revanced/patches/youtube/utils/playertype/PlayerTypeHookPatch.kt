@@ -15,7 +15,10 @@ import app.revanced.patches.youtube.utils.playertype.fingerprint.BrowseIdClassFi
 import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.addStaticFieldToIntegration
+import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.resultOrThrow
@@ -57,22 +60,20 @@ object PlayerTypeHookPatch : BytecodePatch(
 
         // region patch for set video state
 
-        YouTubeControlsOverlayFingerprint.resultOrThrow().let { parentResult ->
-            VideoStateFingerprint.also {
-                it.resolve(context, parentResult.classDef)
-            }.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val endIndex = it.scanResult.patternScanResult!!.endIndex
-                    val videoStateFieldName =
-                        getInstruction<ReferenceInstruction>(endIndex).reference
+        VideoStateFingerprint.alsoResolve(
+            context, YouTubeControlsOverlayFingerprint
+        ).let {
+            it.mutableMethod.apply {
+                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val videoStateFieldName =
+                    getInstruction<ReferenceInstruction>(endIndex).reference
 
-                    addInstructions(
-                        0, """
-                            iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
-                            invoke-static {v0}, $INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
-                            """
-                    )
-                }
+                addInstructions(
+                    0, """
+                        iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
+                        invoke-static {v0}, $INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
+                        """
+                )
             }
         }
 
@@ -83,39 +84,36 @@ object PlayerTypeHookPatch : BytecodePatch(
         BrowseIdClassFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex = indexOfFirstStringInstructionOrThrow("VL") - 1
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-                val targetClass =
-                    context.findClass((targetReference as FieldReference).definingClass)!!.mutableClass
+                val targetClass = getInstruction(targetIndex)
+                    .getReference<FieldReference>()
+                    ?.definingClass
+                    ?: throw PatchException("Could not find browseId class")
 
-                targetClass.methods.find { method -> method.name == "<init>" }
-                    ?.apply {
-                        val browseIdFieldIndex = indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
-                        val browseIdFieldName =
-                            (getInstruction<ReferenceInstruction>(browseIdFieldIndex).reference as FieldReference).name
+                context.findMethodOrThrow(targetClass).apply {
+                    val browseIdFieldReference = getInstruction<ReferenceInstruction>(
+                        indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
+                    ).reference
+                    val browseIdFieldName = (browseIdFieldReference as FieldReference).name
 
-                        val smaliInstructions =
+                    val smaliInstructions =
+                        """
+                            if-eqz v0, :ignore
+                            iget-object v0, v0, $definingClass->$browseIdFieldName:Ljava/lang/String;
+                            if-eqz v0, :ignore
+                            return-object v0
+                            :ignore
+                            const-string v0, ""
+                            return-object v0
                             """
-                                if-eqz v0, :ignore
-                                iget-object v0, v0, $definingClass->$browseIdFieldName:Ljava/lang/String;
-                                if-eqz v0, :ignore
-                                return-object v0
-                                :ignore
-                                const-string v0, ""
-                                return-object v0
-                                """
 
-                        val rootViewMutableClass =
-                            context.findClass(INTEGRATIONS_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR)!!.mutableClass
-
-                        rootViewMutableClass.addFieldAndInstructions(
-                            context,
-                            "getBrowseId",
-                            "browseIdClass",
-                            definingClass,
-                            smaliInstructions,
-                            true
-                        )
-                    } ?: throw PatchException("BrowseIdClass not found!")
+                    context.addStaticFieldToIntegration(
+                        INTEGRATIONS_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR,
+                        "getBrowseId",
+                        "browseIdClass",
+                        definingClass,
+                        smaliInstructions
+                    )
+                }
             }
         }
 

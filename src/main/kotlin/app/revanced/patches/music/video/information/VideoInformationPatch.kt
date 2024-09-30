@@ -9,7 +9,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
@@ -24,7 +23,7 @@ import app.revanced.patches.music.video.information.fingerprints.VideoQualityLis
 import app.revanced.patches.music.video.information.fingerprints.VideoQualityTextFingerprint
 import app.revanced.patches.shared.fingerprints.MdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.shared.fingerprints.VideoLengthFingerprint
-import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.addStaticFieldToIntegration
 import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
@@ -82,7 +81,6 @@ object VideoInformationPatch : BytecodePatch(
     private var seekSourceEnumType = ""
     private var seekSourceMethodName = ""
 
-    private lateinit var videoInformationMutableClass: MutableClass
     private lateinit var context: BytecodeContext
 
     private lateinit var playerConstructorMethod: MutableMethod
@@ -138,21 +136,18 @@ object VideoInformationPatch : BytecodePatch(
                     return v0
                     """
 
-            videoInformationMutableClass.addFieldAndInstructions(
-                context,
+            context.addStaticFieldToIntegration(
+                INTEGRATIONS_CLASS_DESCRIPTOR,
                 methodName,
                 fieldName,
                 definingClass,
-                smaliInstructions,
-                true
+                smaliInstructions
             )
         }
     }
 
     override fun execute(context: BytecodeContext) {
         this.context = context
-        videoInformationMutableClass =
-            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
 
         VideoEndFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -211,9 +206,9 @@ object VideoInformationPatch : BytecodePatch(
 
                 PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
                     getInstruction(playerResponseModelIndex)
-                    .getReference<MethodReference>()
-                    ?.definingClass
-                    ?: throw PatchException("Could not find Player Response Model class")
+                        .getReference<MethodReference>()
+                        ?.definingClass
+                        ?: throw PatchException("Could not find Player Response Model class")
 
                 videoIdMethodCall =
                     VideoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
@@ -302,13 +297,12 @@ object VideoInformationPatch : BytecodePatch(
                     return-void
                 """
 
-            videoInformationMutableClass.addFieldAndInstructions(
-                context,
+            VideoInformationPatch.context.addStaticFieldToIntegration(
+                INTEGRATIONS_CLASS_DESCRIPTOR,
                 "overrideVideoQuality",
                 "videoQualityClass",
                 videoQualityClass,
-                smaliInstructions,
-                true
+                smaliInstructions
             )
         }
 

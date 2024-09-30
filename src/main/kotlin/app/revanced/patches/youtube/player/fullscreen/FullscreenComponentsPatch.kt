@@ -29,6 +29,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AutoN
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.FullScreenEngagementPanel
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.QuickActionsElementContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -253,18 +254,16 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
                 val invokeIndex =
                     indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_INTERFACE)
                 val targetIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.CHECK_CAST)
-                val targetClass = context
-                    .findClass(getInstruction<ReferenceInstruction>(targetIndex).reference.toString())!!
-                    .mutableClass
+                val targetClass =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
 
                 // add an instruction to check the vertical video
-                targetClass.methods.find { method -> method.parameters == listOf("I", "I", "Z") }
-                    ?.apply {
-                        addInstruction(
-                            1,
-                            "invoke-static {p1, p2}, $PLAYER_CLASS_DESCRIPTOR->setVideoPortrait(II)V"
-                        )
-                    } ?: throw PatchException("Could not find targetMethod")
+                context.findMethodOrThrow(targetClass) {
+                    parameters == listOf("I", "I", "Z")
+                }.addInstruction(
+                    1,
+                    "invoke-static {p1, p2}, $PLAYER_CLASS_DESCRIPTOR->setVideoPortrait(II)V"
+                )
             }
         }
 
@@ -281,14 +280,11 @@ object FullscreenComponentsPatch : BaseBytecodePatch(
             }
 
             val walkerMethod = getWalkerMethod(context, walkerIndex)
-            val targetClass =
-                context.findClass(walkerMethod.definingClass)!!.mutableClass
-            val constructorMethod = targetClass
-                .methods
-                .find { method ->
-                    method.name == "<init>"
-                            && method.parameterTypes == listOf("Landroid/app/Activity;")
-                } ?: throw PatchException("Constructor method not found!")
+            val constructorMethod =
+                context.findMethodOrThrow(walkerMethod.definingClass) {
+                    name == "<init>" &&
+                            parameterTypes == listOf("Landroid/app/Activity;")
+                }
 
             arrayOf(
                 walkerMethod,

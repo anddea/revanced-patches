@@ -7,8 +7,8 @@ import app.revanced.patches.shared.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.mapping.ResourceMappingPatch.getId
 import app.revanced.patches.shared.mapping.ResourceType.BOOL
 import app.revanced.patches.shared.mapping.ResourceType.COLOR
-import app.revanced.patches.shared.mapping.ResourceType.DRAWABLE
 import app.revanced.patches.shared.mapping.ResourceType.DIMEN
+import app.revanced.patches.shared.mapping.ResourceType.DRAWABLE
 import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING

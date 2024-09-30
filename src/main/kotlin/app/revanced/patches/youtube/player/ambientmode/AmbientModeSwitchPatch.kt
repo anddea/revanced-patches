@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.player.ambientmode
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.youtube.player.ambientmode.fingerprints.AmbientModeInFullscreenFingerprint
 import app.revanced.patches.youtube.player.ambientmode.fingerprints.PowerSaveModeBroadcastReceiverFingerprint
 import app.revanced.patches.youtube.player.ambientmode.fingerprints.PowerSaveModeSyntheticFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
@@ -19,7 +19,6 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -60,27 +59,30 @@ object AmbientModeSwitchPatch : BaseBytecodePatch(
         }
 
         syntheticClassList.distinct().forEach { className ->
-            context.findClass(className)?.mutableClass?.methods?.first { method ->
-                method.name == "accept"
-            }?.apply {
-                for (index in implementation!!.instructions.size - 1 downTo 0) {
-                    val instruction = getInstruction(index)
-                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL)
-                        continue
+            context.findMethodOrThrow(className) {
+                name == "accept"
+            }.apply {
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        val reference = (instruction as? ReferenceInstruction)?.reference
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                                reference is MethodReference &&
+                                reference.name == "isPowerSaveMode"
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach { index ->
+                        val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
-                    if (((instruction as Instruction35c).reference as MethodReference).name != "isPowerSaveMode")
-                        continue
-
-                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                    addInstructions(
-                        index + 2, """
-                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->bypassAmbientModeRestrictions(Z)Z
-                            move-result v$register
-                            """
-                    )
-                }
-            } ?: throw PatchException("Could not find $className")
+                        addInstructions(
+                            index + 2, """
+                                invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->bypassAmbientModeRestrictions(Z)Z
+                                move-result v$register
+                                """
+                        )
+                    }
+            }
         }
 
         // endregion

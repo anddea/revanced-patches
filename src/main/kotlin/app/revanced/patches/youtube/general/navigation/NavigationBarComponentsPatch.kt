@@ -89,12 +89,12 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         AutoMotiveFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = indexOfFirstStringInstructionOrThrow("Android Automotive") - 1
-                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->switchCreateWithNotificationButton(Z)Z
-                        move-result v$register
+                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->switchCreateWithNotificationButton(Z)Z
+                        move-result v$insertRegister
                         """
                 )
             }
