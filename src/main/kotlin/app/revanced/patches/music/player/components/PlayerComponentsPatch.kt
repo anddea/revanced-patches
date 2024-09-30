@@ -13,6 +13,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint
+import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightFingerprint
+import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightParentFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSearchRenderedFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSignInEventFingerprint
 import app.revanced.patches.music.player.components.fingerprints.InteractionLoggingEnumFingerprint
@@ -59,6 +61,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -102,6 +105,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         AudioVideoSwitchToggleFingerprint,
+        EngagementPanelHeightParentFingerprint,
         HandleSearchRenderedFingerprint,
         InteractionLoggingEnumFingerprint,
         MinimizedPlayerFingerprint,
@@ -530,15 +534,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method ->
                     method.parameters == listOf("Landroid/view/View;", "I")
                 }?.apply {
-                    val bottomSheetBehaviorIndex =
-                        implementation!!.instructions.indexOfFirst { instruction ->
-                            instruction.opcode == Opcode.INVOKE_VIRTUAL
-                                    && instruction.getReference<MethodReference>()?.definingClass == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;"
-                                    && instruction.getReference<MethodReference>()?.parameterTypes?.first() == "Z"
+                    val bottomSheetBehaviorIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL
+                                && reference?.definingClass == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;"
+                                && reference.parameterTypes.first() == "Z"
                         }
-                    if (bottomSheetBehaviorIndex < 0)
-                        throw PatchException("Could not find bottomSheetBehaviorIndex")
-
                     val freeRegister =
                         getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
@@ -744,18 +745,20 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 rememberShuffleStateObjectClass = definingClass
 
-                val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(45468)
-                val iGetObjectIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IGET_OBJECT)
-                val checkCastIndex =
-                    indexOfFirstInstructionOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
-
-                val ordinalIndex = indexOfOrdinalInstruction(this)
                 val imageViewIndex = indexOfImageViewInstruction(this)
+                val ordinalIndex = indexOfOrdinalInstruction(this)
+
+                val invokeInterfaceIndex =
+                    indexOfFirstInstructionReversedOrThrow(ordinalIndex, Opcode.INVOKE_INTERFACE)
+                val iGetObjectIndex =
+                    indexOfFirstInstructionReversedOrThrow(invokeInterfaceIndex, Opcode.IGET_OBJECT)
+                val checkCastIndex =
+                    indexOfFirstInstructionOrThrow(invokeInterfaceIndex, Opcode.CHECK_CAST)
 
                 val iGetObjectReference =
                     getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
                 val invokeInterfaceReference =
-                    getInstruction<ReferenceInstruction>(iGetObjectIndex + 1).reference
+                    getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference
                 val checkCastReference =
                     getInstruction<ReferenceInstruction>(checkCastIndex).reference
                 val getOrdinalClassReference =
@@ -890,12 +893,82 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for restore old comments popup panels
 
-        OldEngagementPanelFingerprint.result?.let {
+        var restoreOldCommentsPopupPanel = false
+
+        if (SettingsPatch.upward0627 && !SettingsPatch.upward0718) {
             OldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
                 45427672,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
             )
+            restoreOldCommentsPopupPanel = true
+        } else if (SettingsPatch.upward0718) {
 
+            // region disable player from being pushed to the top when opening a comment
+
+            MppWatchWhileLayoutFingerprint.resultOrThrow().mutableMethod.apply {
+                val callableIndex =
+                    MppWatchWhileLayoutFingerprint.indexOfCallableInstruction(this)
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels()Z
+                        move-result v$insertRegister
+                        if-eqz v$insertRegister, :restore
+                        """, ExternalLabel("restore", getInstruction(callableIndex + 1))
+                )
+            }
+
+            // endregion
+
+            // region region limit the height of the engagement panel
+
+            EngagementPanelHeightFingerprint.alsoResolve(
+                context, EngagementPanelHeightParentFingerprint
+            ).let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                }
+            }
+
+            MiniPlayerDefaultViewVisibilityFingerprint.resultOrThrow().let {
+                it.mutableClass.methods.find { method ->
+                    method.parameters == listOf("Landroid/view/View;", "I")
+                }?.apply {
+                    val targetIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_INTERFACE
+                                && reference?.returnType == "Z"
+                                && reference.parameterTypes.size == 0
+                    } + 1
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                } ?: throw PatchException("Could not find targetMethod")
+
+            }
+
+            // endregion
+
+            restoreOldCommentsPopupPanel = true
+        }
+
+        if (restoreOldCommentsPopupPanel) {
             SettingsPatch.addSwitchPreference(
                 CategoryType.PLAYER,
                 "revanced_restore_old_comments_popup_panels",
