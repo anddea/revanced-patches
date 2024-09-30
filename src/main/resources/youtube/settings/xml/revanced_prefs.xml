@@ -531,6 +531,7 @@
             <SwitchPreference android:title="@string/revanced_hide_shorts_sound_button_title" android:key="revanced_hide_shorts_sound_button" android:summaryOn="@string/revanced_hide_shorts_sound_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_sound_button_summary_off" />
 
             <PreferenceCategory android:title="@string/revanced_preference_category_animation_feedback" android:layout="@layout/revanced_settings_preferences_category"/>
+            <SwitchPreference android:title="@string/revanced_disable_shorts_like_button_fountain_animation_title" android:key="revanced_disable_shorts_like_button_fountain_animation" android:summaryOn="@string/revanced_disable_shorts_like_button_fountain_animation_summary_on" android:summaryOff="@string/revanced_disable_shorts_like_button_fountain_animation_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_play_pause_button_background_title" android:key="revanced_hide_shorts_play_pause_button_background" android:summaryOn="@string/revanced_hide_shorts_play_pause_button_background_summary_on" android:summaryOff="@string/revanced_hide_shorts_play_pause_button_background_summary_off" />
             <ListPreference android:entries="@array/revanced_shorts_double_tap_to_like_animation_entries" android:title="@string/revanced_shorts_double_tap_to_like_animation_title" android:key="revanced_shorts_double_tap_to_like_animation" android:entryValues="@array/revanced_shorts_double_tap_to_like_animation_entry_values" />
 
