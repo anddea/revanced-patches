@@ -13,17 +13,21 @@ import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.playertype.fingerprint.ActionBarSearchResultsFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.BrowseIdClassFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.PlayerTypeFingerprint
+import app.revanced.patches.youtube.utils.playertype.fingerprint.ReelWatchPagerFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelWatchPlayer
 import app.revanced.util.addStaticFieldToIntegration
 import app.revanced.util.alsoResolve
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -33,6 +37,7 @@ object PlayerTypeHookPatch : BytecodePatch(
         ActionBarSearchResultsFingerprint,
         BrowseIdClassFingerprint,
         PlayerTypeFingerprint,
+        ReelWatchPagerFingerprint,
         YouTubeControlsOverlayFingerprint
     )
 ) {
@@ -46,14 +51,28 @@ object PlayerTypeHookPatch : BytecodePatch(
 
         // region patch for set player type
 
-        PlayerTypeFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static {p1}, " +
-                            "$INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
-                )
+        PlayerTypeFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static {p1}, " +
+                    "$INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V"
+        )
+
+        // endregion
+
+        // region patch for set shorts player state
+
+        ReelWatchPagerFingerprint.resultOrThrow().mutableMethod.apply {
+            val literIndex = indexOfFirstWideLiteralInstructionValueOrThrow(ReelWatchPlayer) + 2
+            val registerIndex = indexOfFirstInstructionOrThrow(literIndex) {
+                opcode == Opcode.MOVE_RESULT_OBJECT
             }
+            val viewRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
+
+            addInstruction(
+                registerIndex + 1,
+                "invoke-static {v$viewRegister}, " +
+                        "$INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V"
+            )
         }
 
         // endregion
