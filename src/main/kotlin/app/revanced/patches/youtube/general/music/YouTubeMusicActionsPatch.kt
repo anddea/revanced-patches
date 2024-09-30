@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addEntryValues
 import app.revanced.patches.youtube.utils.settings.SettingsBytecodePatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
@@ -39,13 +40,15 @@ object YouTubeMusicActionsPatch : BaseBytecodePatch(
         AppDeepLinkFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val packageNameIndex = it.scanResult.patternScanResult!!.startIndex
-                val packageNameField = getInstruction<ReferenceInstruction>(packageNameIndex).reference.toString()
+                val packageNameField =
+                    getInstruction<ReferenceInstruction>(packageNameIndex).reference.toString()
 
                 implementation!!.instructions
                     .withIndex()
                     .filter { (_, instruction) ->
                         instruction.opcode == Opcode.IGET_OBJECT &&
-                                instruction.getReference<FieldReference>()?.toString() == packageNameField
+                                instruction.getReference<FieldReference>()
+                                    ?.toString() == packageNameField
                     }
                     .map { (index, _) -> index }
                     .reversed()
@@ -78,30 +81,28 @@ object YouTubeMusicActionsPatch : BaseBytecodePatch(
 
     override fun close() {
         if (SettingsPatch.containsPatch("GmsCore support")) {
+            val musicPackageName = PackageNameYouTubeMusic.valueOrThrow()
             SettingsPatch.contexts.addEntryValues(
                 "revanced_third_party_youtube_music_label",
                 "RVX Music"
             )
             SettingsPatch.contexts.addEntryValues(
                 "revanced_third_party_youtube_music_package_name",
-                PackageNameYouTubeMusic.valueOrThrow()
+                musicPackageName
             )
 
-            SettingsBytecodePatch.contexts
-                .findClass { classDef -> classDef.type == INTEGRATIONS_CLASS_DESCRIPTOR }
-                ?.mutableClass
-                ?.methods
-                ?.first { method -> method.name == "getRVXMusicPackageName" }
-                ?.apply {
-                    val replaceIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
-                    val replaceRegister =
-                        getInstruction<OneRegisterInstruction>(replaceIndex).registerA
+            SettingsBytecodePatch.contexts.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "getRVXMusicPackageName"
+            }.apply {
+                val replaceIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
+                val replaceRegister =
+                    getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
-                    replaceInstruction(
-                        replaceIndex,
-                        "const-string v$replaceRegister, \"${PackageNameYouTubeMusic.valueOrThrow()}\""
-                    )
-                }
+                replaceInstruction(
+                    replaceIndex,
+                    "const-string v$replaceRegister, \"$musicPackageName\""
+                )
+            }
         }
 
     }

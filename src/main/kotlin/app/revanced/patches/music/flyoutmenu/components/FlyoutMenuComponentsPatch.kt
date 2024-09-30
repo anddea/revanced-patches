@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.DialogSolidFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.EndButtonsContainerFingerprint
@@ -20,11 +19,13 @@ import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.FLYOUT_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.EndButtonsContainer
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TrimSilenceSwitch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -95,40 +96,40 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
             TrimSilenceSwitchFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val constIndex =
-                        indexOfFirstWideLiteralInstructionValueOrThrow(SharedResourceIdPatch.TrimSilenceSwitch)
+                        indexOfFirstWideLiteralInstructionValueOrThrow(TrimSilenceSwitch)
                     val onCheckedChangedListenerIndex =
                         indexOfFirstInstructionOrThrow(constIndex, Opcode.INVOKE_DIRECT)
                     val onCheckedChangedListenerReference =
                         getInstruction<ReferenceInstruction>(onCheckedChangedListenerIndex).reference
                     val onCheckedChangedListenerDefiningClass =
                         (onCheckedChangedListenerReference as MethodReference).definingClass
-                    val onCheckedChangedListenerClass =
-                        context.findClass(onCheckedChangedListenerDefiningClass)!!.mutableClass
 
-                    onCheckedChangedListenerClass.methods.find { method -> method.name == "onCheckedChanged" }
-                        ?.apply {
-                            val walkerIndex = indexOfFirstInstructionOrThrow {
-                                val reference =
-                                    ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                    val onCheckedChangedMethod =
+                        context.findMethodOrThrow(onCheckedChangedListenerDefiningClass) {
+                            name == "onCheckedChanged"
+                        }
 
-                                opcode == Opcode.INVOKE_VIRTUAL
-                                        && reference?.returnType == "V"
-                                        && reference.parameterTypes.size == 1
-                                        && reference.parameterTypes[0] == "Z"
-                            }
-                            getWalkerMethod(context, walkerIndex).apply {
-                                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                                val insertRegister =
-                                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val onCheckedChangedWalkerIndex =
+                        onCheckedChangedMethod.indexOfFirstInstructionOrThrow {
+                            val reference = getReference<MethodReference>()
+                            opcode == Opcode.INVOKE_VIRTUAL
+                                    && reference?.returnType == "V"
+                                    && reference.parameterTypes.size == 1
+                                    && reference.parameterTypes[0] == "Z"
+                        }
 
-                                addInstructions(
-                                    insertIndex + 1, """
-                                    invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->enableTrimSilenceSwitch(Z)Z
-                                    move-result v$insertRegister
-                                    """
-                                )
-                            }
-                        } ?: throw PatchException("onClickClass not found!")
+                    getWalkerMethod(context, onCheckedChangedWalkerIndex).apply {
+                        val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                        addInstructions(
+                            insertIndex + 1, """
+                                invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->enableTrimSilenceSwitch(Z)Z
+                                move-result v$insertRegister
+                                """
+                        )
+                    }
                 }
             }
 

@@ -48,6 +48,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.TapBl
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -146,15 +147,13 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     hookInitVideoPanel(1)
                 } else {
                     val syntheticIndex =
-                        indexOfFirstInstructionOrThrow(opcode = Opcode.NEW_INSTANCE)
+                        indexOfFirstInstructionOrThrow(Opcode.NEW_INSTANCE)
                     val syntheticReference =
                         getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
-                    val syntheticClass =
-                        context.findClass(syntheticReference)!!.mutableClass
 
-                    syntheticClass.methods.find { method -> method.name == "onClick" }
-                        ?.hookInitVideoPanel(0)
-                        ?: throw PatchException("Could not find onClick method in $syntheticReference")
+                    context.findMethodOrThrow(syntheticReference) {
+                        name == "onClick"
+                    }.hookInitVideoPanel(0)
                 }
             }
         }

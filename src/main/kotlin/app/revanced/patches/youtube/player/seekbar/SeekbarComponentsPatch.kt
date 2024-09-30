@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.player.components.PlayerComponentsResourcePatch
 import app.revanced.patches.shared.drawable.DrawableColorPatch
 import app.revanced.patches.youtube.player.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ControlsOverlayStyleFingerprint
@@ -31,17 +30,10 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Inlin
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
-import app.revanced.patches.youtube.utils.settings.SettingsPatch.updatePatchStatus
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
-import app.revanced.util.injectLiteralInstructionBooleanCall
+import app.revanced.util.*
 import app.revanced.util.patch.BaseBytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.dexbacked.reference.DexBackedMethodReference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -100,14 +92,15 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         SeekbarTappingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val tapSeekIndex = it.scanResult.patternScanResult!!.startIndex + 1
-                val tapSeekReference = getInstruction<BuilderInstruction35c>(tapSeekIndex).reference
-                val tapSeekClass =
-                    context
-                        .findClass((tapSeekReference as DexBackedMethodReference).definingClass)!!
-                        .mutableClass
-                val tapSeekMethods = mutableMapOf<String, MutableMethod>()
+                val tapSeekClass = getInstruction(tapSeekIndex)
+                    .getReference<MethodReference>()!!
+                    .definingClass
 
-                for (method in tapSeekClass.methods) {
+                val tapSeekMethods = context.findMethodsOrThrow(tapSeekClass)
+                var pMethodCall = ""
+                var oMethodCall = ""
+
+                for (method in tapSeekMethods) {
                     if (method.implementation == null)
                         continue
 
@@ -126,15 +119,17 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
                     // method founds
                     if (literal == 1)
-                        tapSeekMethods["P"] = method
+                        pMethodCall = "${method.definingClass}->${method.name}(I)V"
                     else if (literal == 2)
-                        tapSeekMethods["O"] = method
+                        oMethodCall = "${method.definingClass}->${method.name}(I)V"
                 }
 
-                val pMethod = tapSeekMethods["P"]
-                    ?: throw PatchException("pMethod not found")
-                val oMethod = tapSeekMethods["O"]
-                    ?: throw PatchException("oMethod not found")
+                if (pMethodCall.isEmpty()) {
+                    throw PatchException("pMethod not found")
+                }
+                if (oMethodCall.isEmpty()) {
+                    throw PatchException("oMethod not found")
+                }
 
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
 
@@ -143,8 +138,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
                         move-result v0
                         if-eqz v0, :disabled
-                        invoke-virtual { p0, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
-                        invoke-virtual { p0, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
+                        invoke-virtual { p0, v2 }, $pMethodCall
+                        invoke-virtual { p0, v2 }, $oMethodCall
                         """, ExternalLabel("disabled", getInstruction(insertIndex))
                 )
             }

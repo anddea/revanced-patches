@@ -41,8 +41,7 @@ abstract class BaseAdsPatch(
         MusicAdsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex = indexOfFirstInstructionOrThrow {
-                    val reference = ((this as? ReferenceInstruction)?.reference as? MethodReference)
-
+                    val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL
                             && reference?.returnType == "V"
                             && reference.parameterTypes.size == 1

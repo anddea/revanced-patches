@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerCont
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -115,28 +116,25 @@ object PlayerControlsPatch : BytecodePatch(
 
         // region set methods to inject into integration
 
-        val playerControlsMutableClass =
-            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
-
         changeVisibilityMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "changeVisibility"
-                        && method.parameters == listOf("Z", "Z")
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "changeVisibility"
+                        && parameters == listOf("Z", "Z")
             }
 
         changeVisibilityNegatedImmediatelyMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "changeVisibilityNegatedImmediately"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "changeVisibilityNegatedImmediately"
             }
 
         initializeBottomControlButtonMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "initializeBottomControlButton"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "initializeBottomControlButton"
             }
 
         initializeTopControlButtonMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "initializeTopControlButton"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "initializeTopControlButton"
             }
 
         // endregion

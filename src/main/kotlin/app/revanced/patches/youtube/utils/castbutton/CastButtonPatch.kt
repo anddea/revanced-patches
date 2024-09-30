@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.castbutton.fingerprints.MenuItemInitializeFingerprint
@@ -18,6 +17,7 @@ import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DE
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
@@ -50,17 +50,14 @@ object CastButtonPatch : BytecodePatch(
 
         playerButtonMethod = PlayerButtonFingerprint.resultOrThrow().mutableMethod
 
-        val buttonClass = context.findClass("MediaRouteButton")
-            ?: throw PatchException("MediaRouteButton class not found.")
-
-        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.apply {
-            addInstructions(
-                0, """
-                    invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideCastButton(I)I
-                    move-result p1
-                    """
-            )
-        } ?: throw PatchException("setVisibility method not found.")
+        context.findMethodOrThrow("Landroidx/mediarouter/app/MediaRouteButton;") {
+            name == "setVisibility"
+        }.addInstructions(
+            0, """
+                invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideCastButton(I)I
+                move-result p1
+                """
+        )
 
     }
 

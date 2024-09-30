@@ -41,6 +41,7 @@ import app.revanced.patches.youtube.utils.toolbar.ToolBarHookPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.alsoResolve
 import app.revanced.util.doRecursively
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -114,8 +115,8 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         val attributeResolverMethodCall =
             attributeResolverMethod.definingClass + "->" + attributeResolverMethod.name + "(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;"
 
-        context.findClass(GENERAL_CLASS_DESCRIPTOR)!!.mutableClass.methods.single { method ->
-            method.name == "getHeaderDrawable"
+        context.findMethodOrThrow(GENERAL_CLASS_DESCRIPTOR) {
+            name == "getHeaderDrawable"
         }.addInstructions(
             0, """
                 invoke-static {p0, p1}, $attributeResolverMethodCall
@@ -381,15 +382,14 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
 
         ToolBarHookPatch.hook("$GENERAL_CLASS_DESCRIPTOR->replaceCreateButton")
 
-        val settingsClass = context.findClass("Shell_SettingsActivity")
-            ?: throw PatchException("Shell_SettingsActivity class not found.")
-
-        settingsClass.mutableClass.methods.find { it.name == "onCreate" }?.apply {
-            addInstruction(
-                0,
-                "invoke-static {p0}, $GENERAL_CLASS_DESCRIPTOR->setShellActivityTheme(Landroid/app/Activity;)V"
-            )
-        } ?: throw PatchException("onCreate method not found.")
+        context.findMethodOrThrow(
+            "Lcom/google/android/apps/youtube/app/application/Shell_SettingsActivity;"
+        ) {
+            name == "onCreate"
+        }.addInstruction(
+            0,
+            "invoke-static {p0}, $GENERAL_CLASS_DESCRIPTOR->setShellActivityTheme(Landroid/app/Activity;)V"
+        )
 
         // endregion
 
