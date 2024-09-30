@@ -104,31 +104,30 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
                     val onCheckedChangedListenerDefiningClass =
                         (onCheckedChangedListenerReference as MethodReference).definingClass
 
-                    val onCheckedChangedMethod =
-                        context.findMethodOrThrow(onCheckedChangedListenerDefiningClass) {
-                            name == "onCheckedChanged"
+                    context.findMethodOrThrow(onCheckedChangedListenerDefiningClass) {
+                        name == "onCheckedChanged"
+                    }.apply {
+                        val onCheckedChangedWalkerIndex =
+                            indexOfFirstInstructionOrThrow {
+                                val reference = getReference<MethodReference>()
+                                opcode == Opcode.INVOKE_VIRTUAL
+                                        && reference?.returnType == "V"
+                                        && reference.parameterTypes.size == 1
+                                        && reference.parameterTypes[0] == "Z"
+                            }
+
+                        getWalkerMethod(context, onCheckedChangedWalkerIndex).apply {
+                            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                            val insertRegister =
+                                getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                            addInstructions(
+                                insertIndex + 1, """
+                                    invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->enableTrimSilenceSwitch(Z)Z
+                                    move-result v$insertRegister
+                                    """
+                            )
                         }
-
-                    val onCheckedChangedWalkerIndex =
-                        onCheckedChangedMethod.indexOfFirstInstructionOrThrow {
-                            val reference = getReference<MethodReference>()
-                            opcode == Opcode.INVOKE_VIRTUAL
-                                    && reference?.returnType == "V"
-                                    && reference.parameterTypes.size == 1
-                                    && reference.parameterTypes[0] == "Z"
-                        }
-
-                    getWalkerMethod(context, onCheckedChangedWalkerIndex).apply {
-                        val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                        addInstructions(
-                            insertIndex + 1, """
-                                invoke-static {v$insertRegister}, $FLYOUT_CLASS_DESCRIPTOR->enableTrimSilenceSwitch(Z)Z
-                                move-result v$insertRegister
-                                """
-                        )
                     }
                 }
             }
