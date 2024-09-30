@@ -241,6 +241,10 @@
                 <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_video_view_counts_multiplier_title" android:key="revanced_hide_video_view_counts_multiplier" android:defaultValue="@string/revanced_hide_video_view_counts_multiplier_default_value" android:summary="@string/revanced_hide_video_view_counts_multiplier_summary" android:inputType="textMultiLine" />
                 <Preference android:title="@string/revanced_hide_video_by_view_counts_about_title" android:selectable="false" android:summary="@string/revanced_hide_video_by_view_counts_about_summary" />
             </PreferenceCategory>
+            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category">
+                <SwitchPreference android:title="@string/revanced_hide_related_videos_title" android:key="revanced_hide_related_videos" android:summaryOn="@string/revanced_hide_related_videos_summary_on" android:summaryOff="@string/revanced_hide_related_videos_summary_off" />
+                <ListPreference android:entries="@array/revanced_related_videos_offset_entries" android:title="@string/revanced_related_videos_offset_title" android:key="revanced_related_videos_offset" android:entryValues="@array/revanced_related_videos_offset_entry_values" />
+            </PreferenceCategory>
         </PreferenceScreen>
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_carousel_shelf_title" android:key="revanced_hide_carousel_shelf" android:summary="@string/revanced_hide_carousel_shelf_summary" />
