@@ -38,8 +38,10 @@ object SettingsPatch : BaseResourcePatch(
     private lateinit var customName: String
 
     lateinit var contexts: ResourceContext
+    internal var upward0627 = false
     internal var upward0636 = false
     internal var upward0642 = false
+    internal var upward0718 = false
 
     override fun execute(context: ResourceContext) {
 
