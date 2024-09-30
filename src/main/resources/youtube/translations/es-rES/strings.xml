@@ -22,6 +22,7 @@ Si se activa, las URL de vídeo se enviarán al servidor API y no se enviará ni
 
 Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL de la API de DeArrow no válida.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">La URL del punto final de la caché de miniaturas de DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punto final de la API de DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">No se muestra el mensaje si DeArrow no está disponible.</string>
@@ -89,8 +90,12 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
     <string name="revanced_change_start_page_entry_trending">Tendencias</string>
     <string name="revanced_change_start_page_entry_watch_later">Ver más tarde</string>
-    <string name="revanced_change_start_page_invalid_toast">Página de inicio no válida, restableciendo a la predeterminada.</string>
     <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
+    <string name="revanced_change_start_page_type_summary_off">La página de inicio solo cambia una vez.</string>
+    <string name="revanced_change_start_page_type_summary_on">"La página de inicio siempre cambia.
+
+Limitación: Es posible que el botón Atrás de la barra de herramientas no funcione."</string>
+    <string name="revanced_change_start_page_type_title">Cambiar tipo de página de inicio</string>
     <string name="revanced_change_youtube_header_summary_off">La cabecera genérica está activada.</string>
     <string name="revanced_change_youtube_header_summary_on">La cabecera Premium está activada.</string>
     <string name="revanced_change_youtube_header_title">Cambiar cabecera de YouTube</string>
@@ -187,6 +192,9 @@ Limitación: Es posible que este ajuste no se aplique a los vídeos que no inclu
     <string name="revanced_disable_rolling_number_animations_summary_off">Los números rodantes están animados.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Los números rodantes no están animados.</string>
     <string name="revanced_disable_rolling_number_animations_title">Desactivar animaciones de números rodantes</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">La animación de la fuente está activada sobre el botón de me gusta.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">La animación de la fuente está desactivada sobre el botón de me gusta.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Desactivar animación del botón de me gusta</string>
     <string name="revanced_disable_speed_overlay_summary">"Desactiva \"Reproducir a velocidad x2\" mientras mantienes pulsado.
 
 Nota:
@@ -306,6 +314,7 @@ Estos caracteres varían dependiendo de tu idioma.
     <string name="revanced_expand_video_description_summary_on">La descripción del vídeo se expande automáticamente.</string>
     <string name="revanced_expand_video_description_title">Expandir descripción de vídeo</string>
     <string name="revanced_extended_confirm_user_dialog_title">¿Quieres continuar?</string>
+    <string name="revanced_extended_reset_to_default_toast">Restablecer valores predeterminados.</string>
     <string name="revanced_extended_restart_first_run">Reiniciar para cargar el diseño normalmente</string>
     <string name="revanced_extended_restart_message">Actualizar y reiniciar</string>
     <string name="revanced_extended_settings_export_failed">Error al exportar los ajustes.</string>
@@ -572,6 +581,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_movie_shelf_summary_off">Los estantes de películas están visibles.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Los estantes de películas están ocultos.</string>
     <string name="revanced_hide_movie_shelf_title">Ocultar estantes de películas</string>
+    <string name="revanced_hide_navigation_bar_summary_off">La barra de navegación está visible.</string>
+    <string name="revanced_hide_navigation_bar_summary_on">La barra de navegación está oculta.</string>
+    <string name="revanced_hide_navigation_bar_title">Ocultar barra de navegación</string>
     <string name="revanced_hide_navigation_create_button_summary_off">El botón de crear está visible.</string>
     <string name="revanced_hide_navigation_create_button_summary_on">El botón de crear está oculto.</string>
     <string name="revanced_hide_navigation_create_button_title">Ocultar botón de crear</string>
@@ -734,6 +746,12 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_related_video_overlay_summary_off">La superposición de vídeo relacionado está visible.</string>
     <string name="revanced_hide_related_video_overlay_summary_on">La superposición de vídeo relacionado está oculta.</string>
     <string name="revanced_hide_related_video_overlay_title">Ocultar superposición de vídeo relacionado</string>
+    <string name="revanced_hide_related_videos_summary_off">Los vídeos relacionados están visibles.</string>
+    <string name="revanced_hide_related_videos_summary_on">Los vídeos relacionados están ocultos.</string>
+    <string name="revanced_hide_related_videos_title">Ocultar vídeos relacionados</string>
+    <string name="revanced_hide_related_videos_user_dialog_message">"Este ajuste limita el número máximo de diseños que se pueden cargar en la pantalla del reproductor. 
+
+Si el diseño de la pantalla del reproductor cambia debido a cambios en el servidor, es posible que se oculten diseños no deseados en la pantalla del reproductor."</string>
     <string name="revanced_hide_remix_button_summary_off">El botón de remix está visible.</string>
     <string name="revanced_hide_remix_button_summary_on">El botón de remix está oculto.</string>
     <string name="revanced_hide_remix_button_title">Ocultar botón de remix</string>
@@ -795,6 +813,9 @@ Subtítulos"</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">La etiqueta de enlace de vídeo está visible.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">La etiqueta de enlace de vídeo está oculta.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Ocultar etiqueta de enlace de vídeo completo</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_off">El botón de la pantalla verde está visible.</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_on">El botón de la pantalla verde está oculto.</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Ocultar botón de pantalla verde</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Los paneles de información están visibles.</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Los paneles de información están ocultos.</string>
     <string name="revanced_hide_shorts_info_panel_title">Ocultar paneles de información</string>
@@ -828,9 +849,9 @@ Subtítulos"</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">El botón de remix está visible.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">El botón de remix está oculto.</string>
     <string name="revanced_hide_shorts_remix_button_title">Ocultar botón de remix</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_off">El botón de guardar sonido está visible.</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón de guardar sonido está oculto.</string>
-    <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botón de guardar sonido</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_off">El botón de guardar música está visible.</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_on">El botón de guardar música está oculto.</string>
+    <string name="revanced_hide_shorts_save_music_button_title">Ocultar botón de guardar música</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_off">El botón de sugerencias de búsqueda está visible.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_on">El botón de sugerencias de búsqueda está oculto.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_title">Ocultar botón de sugerencias de búsqueda</string>
@@ -865,6 +886,9 @@ Limitación: las cabeceras oficiales en los resultados de búsqueda estarán ocu
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">La etiqueta de metadatos está visible.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">La etiqueta de metadatos está oculta.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Ocultar etiqueta de metadatos de sonido</string>
+    <string name="revanced_hide_shorts_stickers_summary_off">Los stickers están visibles.</string>
+    <string name="revanced_hide_shorts_stickers_summary_on">Los stickers están ocultos.</string>
+    <string name="revanced_hide_shorts_stickers_title">Ocultar stickers</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">El botón de suscribirse está visible.</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">El botón de suscribirse está oculto.</string>
     <string name="revanced_hide_shorts_subscribe_button_title">Ocultar botón de suscribirse</string>
@@ -937,15 +961,18 @@ La reproducción automática se puede cambiar en la configuración de YouTube:
     <string name="revanced_hide_transcript_section_summary_off">Las secciones de transcripción están visibles.</string>
     <string name="revanced_hide_transcript_section_summary_on">Las secciones de transcripción están ocultas.</string>
     <string name="revanced_hide_transcript_section_title">Ocultar secciones de transcripción</string>
+    <string name="revanced_hide_upcoming_video_summary">"Oculta vídeos con la etiqueta PRÓXIMAMENTE.
+
+Nota: Al activar esta opción también se oculta el botón de notificarme."</string>
+    <string name="revanced_hide_upcoming_video_title">Ocultar vídeo PRÓXIMO</string>
     <string name="revanced_hide_video_ads_summary_off">Los anuncios de vídeo están visibles.</string>
     <string name="revanced_hide_video_ads_summary_on">Los anuncios de vídeo están ocultos.</string>
     <string name="revanced_hide_video_ads_title">Ocultar anuncios de vídeo</string>
-    <string name="revanced_hide_video_by_duration_longer_than_summary">Los vídeos con una duración más larga que este número serán ocultados.</string>
-    <string name="revanced_hide_video_by_duration_longer_than_title">Duración más larga</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_summary">Los vídeos con una duración más corta que este número serán ocultados.</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_title">Duración más corta</string>
-    <string name="revanced_hide_video_by_duration_summary">Oculta vídeos con una duración inferior o superior a la establecida.\n\nProblema conocido: no ocultará los vídeos en los vídeos relacionados en el reproductor, en su lugar ocultará la marca de tiempo.</string>
-    <string name="revanced_hide_video_by_duration_title">Ocultar vídeos basados en la duración</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"El inicio / Las suscripciones / Los resultados de búsqueda se filtran para ocultar los vídeos con visualizaciones inferiores o superiores a un número determinado.
+
+Limitaciones:
+• Los Shorts no se pueden ocultar.
+• Los vídeos con 0 visualizaciones no se filtran."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">Acerca del filtrado del contador de visualizaciones</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">Los vídeos en el feed de inicio no están filtrados.</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_on">Los vídeos en el feed de inicio están filtrados.</string>
@@ -1049,13 +1076,18 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_override_video_download_button_summary_off">El botón nativo de descarga de vídeo abre el descargador nativo de la aplicación.</string>
     <string name="revanced_override_video_download_button_summary_on">El botón nativo de descarga de vídeo abre tu descargador externo.</string>
     <string name="revanced_override_video_download_button_title">Reemplazar botón de descarga de vídeo</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">Se requiere YouTube Music para reemplazar la acción del botón. Pulsa aquí para descargar YouTube Music.</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Requisito previo</string>
+    <string name="revanced_override_youtube_music_button_summary_off">El botón de Youtube Music abre la app nativa.</string>
+    <string name="revanced_override_youtube_music_button_summary_on">El botón de YouTube Music abre RVX Music.</string>
+    <string name="revanced_override_youtube_music_button_title">Reemplazar botón de YouTube Music</string>
     <string name="revanced_patches_excluded">Excluidos</string>
     <string name="revanced_patches_included">Incluidos</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Botones de acción</string>
     <string name="revanced_preference_category_additional_settings">Ajustes adicionales</string>
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
-    <string name="revanced_preference_category_duration_filter">Filtro de duración</string>
+    <string name="revanced_preference_category_download_button">Botón de descarga</string>
     <string name="revanced_preference_category_experimental_flag">Funciones experimentales</string>
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
@@ -1067,6 +1099,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_quick_actions">Acciones rápidas</string>
     <string name="revanced_preference_category_recommended_video">Vídeos recomendados</string>
     <string name="revanced_preference_category_shorts_shelf">Estantes de Shorts</string>
+    <string name="revanced_preference_category_suggested_actions">Acciones sugeridas</string>
     <string name="revanced_preference_category_tool_used">Herramientas utilizadas</string>
     <string name="revanced_preference_category_view_counts_filter">Filtro de contador de visualizaciones</string>
     <string name="revanced_preference_screen_account_menu_summary">Ocultar o mostrar elementos en el menú de la cuenta y la pestaña Tú.</string>
@@ -1097,13 +1130,15 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_screen_general_title">General</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Desactiva o activa la vibración.</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Vibración</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">Reemplaza la acción de clic de los botones dentro de la aplicación.</string>
+    <string name="revanced_preference_screen_hook_buttons_title">Botones de enganche</string>
     <string name="revanced_preference_screen_import_export_summary">Importar o exportar los ajustes.</string>
     <string name="revanced_preference_screen_import_export_title">Importar / Exportar ajustes</string>
     <string name="revanced_preference_screen_miniplayer_summary">Cambia el estilo del reproductor minimizado de la aplicación.</string>
     <string name="revanced_preference_screen_miniplayer_title">Minirreproductor</string>
     <string name="revanced_preference_screen_misc_title">Otros</string>
-    <string name="revanced_preference_screen_navigation_buttons_summary">Ocultar o mostrar los componentes de la sección de la barra de navegación.</string>
-    <string name="revanced_preference_screen_navigation_buttons_title">Botones de navegación</string>
+    <string name="revanced_preference_screen_navigation_bar_summary">Ocultar o mostrar los componentes de la sección de la barra de navegación.</string>
+    <string name="revanced_preference_screen_navigation_bar_title">Barra de navegación</string>
     <string name="revanced_preference_screen_patch_information_summary">Información sobre los parches aplicados.</string>
     <string name="revanced_preference_screen_patch_information_title">Información de parches</string>
     <string name="revanced_preference_screen_player_buttons_summary">Ocultar o mostrar botones en vídeos.</string>
@@ -1139,6 +1174,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
 Después de unos 20 segundos de búfer, cambia a un códec diferente."</string>
     <string name="revanced_reject_av1_codec_title">Rechazar respuesta del códec AV1 del software</string>
     <string name="revanced_reject_av1_codec_toast">El proceso de Fallback causa unos 20 segundos de búfer.</string>
+    <string name="revanced_related_videos_offset_title">Desplazamiento</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Los cambios de velocidad de reproducción solo se aplican al vídeo actual.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Los cambios de velocidad de reproducción se aplican a todos los vídeos.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Recordar cambios de velocidad de reproducción</string>
@@ -1401,6 +1437,9 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">El margen inferior del panel meta debe estar entre 0-64. Restablezca a los valores predeterminados.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configura el espaciado desde la barra de progreso al panel meta, entre 0-64.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Margen inferior del panel meta</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">El porcentaje de altura debe estar entre 0-100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configura el porcentaje de altura del espacio vacío izquierdo cuando la barra de navegación está oculta, entre 0 y 100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_title">Porcentaje de altura del espacio vacío</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Mantén pulsada la marca de tiempo para cambiar el estado de repetición de los Shorts.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Acción de pulsación larga en marca de tiempo</string>
     <string name="revanced_show_video_title_section_summary">"Muestra la sección de título de vídeo en pantalla completa.
@@ -1453,8 +1492,8 @@ Si se desactiva más tarde, se recomienda borrar los datos de la aplicación par
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar esto podría mejorar la duración de la batería y solucionar el problema de reproducción entrecortada.
 
 AVC (H.264) tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Falta el menú de la pista de audio.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Falta el menú de la pista de audio.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú de la pista de audio."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú de la pista de audio."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Las películas o vídeos de pago no pueden reproducirse."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• El vídeo no puede reproducirse.</string>
@@ -1501,6 +1540,10 @@ Además, los anuncios ya no se bloquearán en Shorts.
 
 Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_theme_default">Predeterminado</string>
+    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
+    <string name="revanced_third_party_youtube_music_package_name_summary">Nombre del paquete de RVX Music instalado.</string>
+    <string name="revanced_third_party_youtube_music_package_name_title">Nombre del paquete de RVX Music</string>
     <string name="revanced_watch_history_about_status_blocked">• El historial de reproducciones no funciona.</string>
     <string name="revanced_watch_history_about_status_original">"• Sigue la configuración del historial de reproducciones de la cuenta de Google.
 • Es posible que el historial de reproducciones no funcione debido a DNS o VPN."</string>

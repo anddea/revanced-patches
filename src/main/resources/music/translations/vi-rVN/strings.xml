@@ -28,10 +28,12 @@ Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và �
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại tốc độ phát về mặc định.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ. Đã khôi phục lại các giá trị mặc định.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh phải nhỏ hơn %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát hiện có.</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
+    <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube Music trong RVX Music, hãy bật \'Mở liên kết được hỗ trợ\' và kích hoạt các địa chỉ web được hỗ trợ.</string>
+    <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh Cairo khi ứng dụng khởi chạy.</string>
@@ -66,20 +68,25 @@ Hạn chế:
     <string name="revanced_enable_mini_player_next_button_title">Thêm nút tiếp theo vào trình phát thu nhỏ</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Thêm nút phát trước đó vào trình phát thu nhỏ</string>
-    <string name="revanced_enable_opus_codec_summary">"Áp dụng codec âm thanh Opus thay vì MP4A."</string>
-    <string name="revanced_enable_opus_codec_title">Codec Opus</string>
+    <string name="revanced_enable_opus_codec_summary">"Áp dụng bộ giải mã OPUS nếu phản hồi của trình phát bao gồm nó.
+
+Cụ thể:
+• Ứng dụng YouTube Music mới nhất đặt mặc định là bộ giải mãi OPUS.
+• Điều này chỉ áp dụng cho người dùng giả mạo với các phiên bản ứng dụng rất cũ."</string>
+    <string name="revanced_enable_opus_codec_title">Bộ giải mã OPUS</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Bật thao tác vuốt xuống để loại bỏ trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Bật thao tác vuốt để loại bỏ trình phát thu nhỏ</string>
-    <string name="revanced_enable_trim_silence_summary">"Thêm nút Bật/Tắt Cắt bỏ khoảng im lặng vào tuỳ chọn tốc độ phát.
+    <string name="revanced_enable_trim_silence_summary">"Thêm tính năng Cắt bỏ khoảng lặng vào mục tuỳ chọn tốc độ phát.
 
  Cụ thể:
- • Tính năng dành cho podcast.
- • Tính năng vẫn đang được phát triển nên có thể chưa ổn định."</string>
-    <string name="revanced_enable_trim_silence_title">Bật/Tắt Cắt bỏ khoảng im lặng</string>
+ • Tính năng này dành cho podcast.
+ • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
+    <string name="revanced_enable_trim_silence_title">Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Đồng thời bật chế độ tập trung cho podcast.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Bật Chế độ tập trung trong podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
+    <string name="revanced_extended_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
     <string name="revanced_extended_restart_message">Làm mới và khởi động lại</string>
     <string name="revanced_extended_settings_export_as_file">Xuất cài đặt dưới dạng tệp</string>
@@ -222,14 +229,14 @@ Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (c�
     <string name="revanced_hide_samples_shelf_summary">Ẩn thẻ Đoạn nhạc trong bảng feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ẩn thẻ Đoạn nhạc</string>
     <string name="revanced_hide_settings_menu_filter_strings_summary">Danh sách tên menu Cài đặt cần lọc, cách nhau từng dòng một.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Cài đặt bộ lọc menu</string>
-    <string name="revanced_hide_settings_menu_summary">"Ẩn các thành phần của menu Cài đặt.
-Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Ẩn menu cài đặt</string>
+    <string name="revanced_hide_settings_menu_filter_strings_title">Cài đặt bộ lọc</string>
+    <string name="revanced_hide_settings_menu_summary">"Ẩn các thành phần của mục Cài đặt.
+Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục Cài đặt ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Ẩn mục cài đặt</string>
     <string name="revanced_hide_sound_search_button_summary">Ẩn nút tìm kiếm âm thanh trên thanh tìm kiếm.</string>
     <string name="revanced_hide_sound_search_button_title">Ẩn nút tìm kiếm âm thanh</string>
     <string name="revanced_hide_tap_to_update_button_summary">Ẩn nút \'Chạm để nâng cấp\'.</string>
-    <string name="revanced_hide_tap_to_update_button_title">Ẩn nút \'Chạm để nâng cấp\'</string>
+    <string name="revanced_hide_tap_to_update_button_title">Ẩn nút Nhấn để cập nhật</string>
     <string name="revanced_hide_terms_container_summary">Ẩn các mục Chính sách quyền riêng tư và Điều khoản dịch vụ khỏi trình đơn Tài khoản.</string>
     <string name="revanced_hide_terms_container_title">Ẩn mục Bảo mật và Điều khoản</string>
     <string name="revanced_hide_voice_search_button_summary">Ẩn nút tìm kiếm bằng giọng nói trên thanh tìm kiếm.</string>
@@ -310,7 +317,7 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_sb_api_url_sum">Địa chỉ Url của Api SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.</string>
     <string name="revanced_sb_color_changed">Đã thay đổi màu phân đoạn.</string>
     <string name="revanced_sb_color_dot_label">Màu:</string>
-    <string name="revanced_sb_color_invalid">Mã màu không hợp lệ. Đã đặt lại màu về mặc định.</string>
+    <string name="revanced_sb_color_invalid">Mã màu không hợp lệ.</string>
     <string name="revanced_sb_color_reset">Đã đặt lại màu phân đoạn về mặc định.</string>
     <string name="revanced_sb_diff_segments">Thay đổi hành vi của phân đoạn</string>
     <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
