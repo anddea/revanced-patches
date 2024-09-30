@@ -5,17 +5,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.shorts.components.fingerprints.BottomBarContainerHeightFingerprint
-import app.revanced.patches.youtube.shorts.components.fingerprints.ReelWatchPagerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.utils.playertype.fingerprint.ReelWatchPagerFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomBarContainer
-import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelWatchPlayer
-import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.fingerprint.MultiMethodFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
-import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.MultiMethodBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -55,7 +52,7 @@ object ShortsNavigationBarPatch : MultiMethodBytecodePatch(
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$heightRegister}, $SHORTS_CLASS_DESCRIPTOR->overrideNavigationBarHeight(I)I
+                        invoke-static {v$heightRegister}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBarHeight(I)I
                         move-result v$heightRegister
                         """
                 )
@@ -63,19 +60,6 @@ object ShortsNavigationBarPatch : MultiMethodBytecodePatch(
         }
 
         NavigationBarHookPatch.addBottomBarContainerHook("$SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Landroid/view/View;)V")
-
-        // endregion.
-
-        // region patch for addOnAttachStateChangeListener.
-
-        val smaliInstruction = """
-                invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $SHORTS_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V
-                """
-
-        ReelWatchPagerFingerprint.injectLiteralInstructionViewCall(
-            ReelWatchPlayer,
-            smaliInstruction
-        )
 
         // endregion.
 
