@@ -1,3 +1,10 @@
+# [2.230.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.1...v2.230.0-dev.2) (2024-10-01)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Patch failed due to animation files when AFN is selected ([231a468](https://github.com/anddea/revanced-patches/commit/231a4686be7fe5b87690d9cf8c88fae5245971ef))
+
 # [2.230.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.229.0...v2.230.0-dev.1) (2024-09-30)
 
 
