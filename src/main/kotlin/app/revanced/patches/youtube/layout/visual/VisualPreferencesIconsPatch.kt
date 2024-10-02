@@ -32,6 +32,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "Gear" to "gear",
             "ReVanced" to "revanced",
             "ReVanced Colored" to "revanced_colored",
+            "YT Alt" to "yt_alt",
         ),
         title = "RVX settings menu icon",
         description = "The icon for the RVX settings menu.",
@@ -213,7 +214,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
         )
 
         // Copy resources with rename and update path data
-        context.copyResourcesWithRename("youtube/settings/icons", resourceMap)
+        context.copyResourcesWithRename("youtube/visual/icons", resourceMap)
 
         val validExtendedBrand = setOf(
             "revanced_extended_settings_key",
@@ -260,7 +261,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 // so it won't copy custom branding icon
                 // and will raise an error without fallback icon
                 context.copyResources(
-                    "youtube/settings/icons/extension",
+                    "youtube/visual/icons/extension",
                     ResourceGroup("drawable", "revanced_extended_settings_key_icon.xml")
                 )
             }
@@ -273,15 +274,15 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
                 val resourcePath = "youtube/branding/$appIconValue"
 
                 val iconPath = when {
-                    selectedIconType == "custom_branding_icon" -> "$resourcePath/settings"
-                    else -> "youtube/settings/icons/$selectedIconType"
+                    selectedIconType == "custom_branding_icon" -> "$resourcePath/visual"
+                    else -> "youtube/visual/icons/$selectedIconType"
                 }
 
                 copyResourcesWithFallback(iconPath)
             }
         }
 
-        resourcesToCopy.forEach { context.copyResources("youtube/settings/icons", it) }
+        resourcesToCopy.forEach { context.copyResources("youtube/visual/icons", it) }
 
         // Edit Preferences / add icon attribute
         val tagNames = listOf(
