@@ -1,3 +1,10 @@
+# [2.230.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.2...v2.230.0-dev.3) (2024-10-02)
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Add `YT Alt` icon for RVX setting ([8bd264e](https://github.com/anddea/revanced-patches/commit/8bd264e783a982fcc6e6270e579b98f033e58c77))
+
 # [2.230.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.1...v2.230.0-dev.2) (2024-10-01)
 
 
