@@ -243,7 +243,7 @@
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_hide_related_videos_title" android:key="revanced_hide_related_videos" android:summaryOn="@string/revanced_hide_related_videos_summary_on" android:summaryOff="@string/revanced_hide_related_videos_summary_off" />
-                <ListPreference android:entries="@array/revanced_related_videos_offset_entries" android:title="@string/revanced_related_videos_offset_title" android:key="revanced_related_videos_offset" android:entryValues="@array/revanced_related_videos_offset_entry_values" />
+                <ListPreference android:entries="@array/revanced_related_videos_offset_entries" android:title="@string/revanced_related_videos_offset_title" android:key="revanced_related_videos_offset" android:entryValues="@array/revanced_related_videos_offset_entry_values" android:dependency="revanced_hide_related_videos" />
             </PreferenceCategory>
         </PreferenceScreen>
         <SwitchPreference android:title="@string/revanced_hide_album_card_title" android:key="revanced_hide_album_card" android:summaryOn="@string/revanced_hide_album_card_summary_on" android:summaryOff="@string/revanced_hide_album_card_summary_off" />
@@ -649,6 +649,12 @@
     <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
         <SwitchPreference android:title="@string/revanced_sb_enable_sb" android:key="sb_enabled" android:summary="@string/revanced_sb_enable_sb_sum" />
 
+        <PreferenceCategory android:title="@string/revanced_sb_create_segment_category" android:layout="@layout/revanced_settings_preferences_category">
+            <SwitchPreference android:title="@string/revanced_sb_enable_create_segment" android:key="sb_create_new_segment" android:summaryOn="@string/revanced_sb_enable_create_segment_sum_on" android:summaryOff="@string/revanced_sb_enable_create_segment_sum_off" />
+            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_adjusting" android:key="sb_create_new_segment_step" android:summary="@string/revanced_sb_general_adjusting_sum" android:inputType="number" android:dependency="sb_create_new_segment" />
+            <Preference android:title="@string/revanced_sb_guidelines_preference_title" android:key="revanced_sb_guidelines_preference" android:summary="@string/revanced_sb_guidelines_preference_sum" android:dependency="sb_create_new_segment" />
+        </PreferenceCategory>
+
         <PreferenceCategory android:title="@string/revanced_sb_appearance_category" android:layout="@layout/revanced_settings_preferences_category">
             <SwitchPreference android:title="@string/revanced_sb_enable_voting" android:key="sb_voting_button" android:summaryOn="@string/revanced_sb_enable_voting_sum_on" android:summaryOff="@string/revanced_sb_enable_voting_sum_off" />
             <SwitchPreference android:title="@string/revanced_sb_enable_compact_skip_button" android:key="sb_compact_skip_button" android:summaryOn="@string/revanced_sb_enable_compact_skip_button_sum_on" android:summaryOff="@string/revanced_sb_enable_compact_skip_button_sum_off" />
@@ -667,12 +673,6 @@
             <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_preview" android:key="preview" android:summary="@string/revanced_sb_segments_preview_sum" />
             <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_filler" android:key="filler" android:summary="@string/revanced_sb_segments_filler_sum" />
             <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_nomusic" android:key="music_offtopic" android:summary="@string/revanced_sb_segments_nomusic_sum" />
-        </PreferenceCategory>
-
-        <PreferenceCategory android:title="@string/revanced_sb_create_segment_category" android:layout="@layout/revanced_settings_preferences_category">
-            <SwitchPreference android:title="@string/revanced_sb_enable_create_segment" android:key="sb_create_new_segment" android:summaryOn="@string/revanced_sb_enable_create_segment_sum_on" android:summaryOff="@string/revanced_sb_enable_create_segment_sum_off" />
-            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_adjusting" android:key="sb_create_new_segment_step" android:summary="@string/revanced_sb_general_adjusting_sum" android:inputType="number" />
-            <Preference android:title="@string/revanced_sb_guidelines_preference_title" android:key="revanced_sb_guidelines_preference" android:summary="@string/revanced_sb_guidelines_preference_sum" />
         </PreferenceCategory>
 
         <PreferenceCategory android:title="@string/revanced_sb_general" android:layout="@layout/revanced_settings_preferences_category">
