@@ -14,5 +14,5 @@ internal object BreakingNewsFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { HorizontalCardList }
+    literalSupplier = { HorizontalCardList },
 )

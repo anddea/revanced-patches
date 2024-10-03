@@ -11,7 +11,7 @@ import org.w3c.dom.Element
 @Suppress("Deprecation", "unused")
 object PlayerButtonBackgroundPatch : BaseResourcePatch(
     name = "Force player buttons background",
-    description = "Changes, at compile time, the dark background surrounding the video player controls.",
+    description = "Changes the dark background surrounding the video player controls at compile time.",
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
 ) {
