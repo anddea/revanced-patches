@@ -12,7 +12,7 @@ import app.revanced.patches.music.misc.backgroundplayback.fingerprints.PodCastCo
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -52,8 +52,8 @@ object BackgroundPlaybackPatch : BaseBytecodePatch(
         // don't play music video
         MusicBrowserServiceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val stringIndex = MusicBrowserServiceFingerprint.indexOfMBSInstruction(this)
-                val targetIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                val stringIndex = it.scanResult.stringsScanResult!!.matches.first().index
+                val targetIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             reference?.returnType == "Z" &&

@@ -56,8 +56,7 @@ object NavigationBarHookPatch : BytecodePatch(
     private lateinit var navigationTabCreatedCallback: MutableMethod
 
     private lateinit var bottomBarContainerMethod: MutableMethod
-    private var bottomBarContainerIndex = 0
-    private var bottomBarContainerRegister = 0
+    private var bottomBarContainerOffset = 0
 
     override fun execute(context: BytecodeContext) {
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
@@ -131,13 +130,8 @@ object NavigationBarHookPatch : BytecodePatch(
             "onBackPressed"
         )
 
-        InitializeBottomBarContainerFingerprint.resultOrThrow().mutableMethod.apply {
-            bottomBarContainerMethod = this
-            bottomBarContainerIndex =
-                InitializeBottomBarContainerFingerprint.indexOfLayoutChangeListenerInstruction(this)
-            bottomBarContainerRegister =
-                getInstruction<FiveRegisterInstruction>(bottomBarContainerIndex).registerC
-        }
+        bottomBarContainerMethod =
+            InitializeBottomBarContainerFingerprint.resultOrThrow().mutableMethod
     }
 
     val hookNavigationButtonCreated: (String) -> Unit by lazy {
@@ -152,11 +146,19 @@ object NavigationBarHookPatch : BytecodePatch(
         }
     }
 
-    fun addBottomBarContainerHook(descriptor: String) =
-        bottomBarContainerMethod.addInstruction(
-            bottomBarContainerIndex,
-            "invoke-static { v$bottomBarContainerRegister }, $descriptor"
-        )
+    fun addBottomBarContainerHook(descriptor: String) {
+        bottomBarContainerMethod.apply {
+            val layoutChangeListenerIndex =
+                InitializeBottomBarContainerFingerprint.indexOfLayoutChangeListenerInstruction(this)
+            val bottomBarContainerRegister =
+                getInstruction<FiveRegisterInstruction>(layoutChangeListenerIndex).registerC
+
+            addInstruction(
+                layoutChangeListenerIndex + bottomBarContainerOffset--,
+                "invoke-static { v$bottomBarContainerRegister }, $descriptor"
+            )
+        }
+    }
 
     private enum class Hook(val methodName: String, val parameters: String) {
         SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
