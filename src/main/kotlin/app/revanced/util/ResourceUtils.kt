@@ -304,7 +304,10 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
     return null
 }
 
-internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
+internal fun NodeList.findElementByAttributeValueOrThrow(
+    attributeName: String,
+    value: String
+): Element {
     return findElementByAttributeValue(attributeName, value)
         ?: throw PatchException("Could not find: $attributeName $value")
 }

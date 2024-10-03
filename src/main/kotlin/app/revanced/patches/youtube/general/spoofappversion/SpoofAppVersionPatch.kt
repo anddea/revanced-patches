@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.general.spoofappversion
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.settings.ResourceUtils.addEntryValues
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.appendAppVersion
 import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
@@ -17,12 +17,6 @@ object SpoofAppVersionPatch : BaseResourcePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
-    private const val ATTRIBUTE_NAME_ENTRIES =
-        "revanced_spoof_app_version_target_entries"
-
-    private const val ATTRIBUTE_NAME_ENTRY_VALUE =
-        "revanced_spoof_app_version_target_entry_values"
-
     override fun execute(context: ResourceContext) {
 
         if (SettingsPatch.upward1834) {
@@ -47,18 +41,5 @@ object SpoofAppVersionPatch : BaseResourcePatch(
         )
 
         SettingsPatch.updatePatchStatus(this)
-    }
-
-    private fun ResourceContext.appendAppVersion(appVersion: String) {
-        addEntryValues(
-            ATTRIBUTE_NAME_ENTRIES,
-            "@string/revanced_spoof_app_version_target_entry_" + appVersion.replace(".", "_"),
-            prepend = false
-        )
-        addEntryValues(
-            ATTRIBUTE_NAME_ENTRY_VALUE,
-            appVersion,
-            prepend = false
-        )
     }
 }
