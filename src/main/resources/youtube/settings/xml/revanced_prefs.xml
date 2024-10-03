@@ -649,40 +649,36 @@
     <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
         <SwitchPreference android:title="@string/revanced_sb_enable_sb" android:key="sb_enabled" android:summary="@string/revanced_sb_enable_sb_sum" />
 
-        <PreferenceCategory android:title="@string/revanced_sb_create_segment_category" android:layout="@layout/revanced_settings_preferences_category">
-            <SwitchPreference android:title="@string/revanced_sb_enable_create_segment" android:key="sb_create_new_segment" android:summaryOn="@string/revanced_sb_enable_create_segment_sum_on" android:summaryOff="@string/revanced_sb_enable_create_segment_sum_off" />
-            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_adjusting" android:key="sb_create_new_segment_step" android:summary="@string/revanced_sb_general_adjusting_sum" android:inputType="number" android:dependency="sb_create_new_segment" />
-            <Preference android:title="@string/revanced_sb_guidelines_preference_title" android:key="revanced_sb_guidelines_preference" android:summary="@string/revanced_sb_guidelines_preference_sum" android:dependency="sb_create_new_segment" />
-        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/revanced_sb_create_segment_category" android:layout="@layout/revanced_settings_preferences_category" />
+        <SwitchPreference android:title="@string/revanced_sb_enable_create_segment" android:key="sb_create_new_segment" android:summaryOn="@string/revanced_sb_enable_create_segment_sum_on" android:summaryOff="@string/revanced_sb_enable_create_segment_sum_off" />
+        <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_adjusting" android:key="sb_create_new_segment_step" android:summary="@string/revanced_sb_general_adjusting_sum" android:inputType="number" />
+        <Preference android:title="@string/revanced_sb_guidelines_preference_title" android:key="revanced_sb_guidelines_preference" android:summary="@string/revanced_sb_guidelines_preference_sum" />
 
-        <PreferenceCategory android:title="@string/revanced_sb_appearance_category" android:layout="@layout/revanced_settings_preferences_category">
-            <SwitchPreference android:title="@string/revanced_sb_enable_voting" android:key="sb_voting_button" android:summaryOn="@string/revanced_sb_enable_voting_sum_on" android:summaryOff="@string/revanced_sb_enable_voting_sum_off" />
-            <SwitchPreference android:title="@string/revanced_sb_enable_compact_skip_button" android:key="sb_compact_skip_button" android:summaryOn="@string/revanced_sb_enable_compact_skip_button_sum_on" android:summaryOff="@string/revanced_sb_enable_compact_skip_button_sum_off" />
-            <SwitchPreference android:title="@string/revanced_sb_enable_auto_hide_skip_segment_button" android:key="sb_auto_hide_skip_button" android:summaryOn="@string/revanced_sb_enable_auto_hide_skip_segment_button_sum_on" android:summaryOff="@string/revanced_sb_enable_auto_hide_skip_segment_button_sum_off" />
-            <SwitchPreference android:title="@string/revanced_sb_general_skiptoast" android:key="sb_toast_on_skip" android:summaryOn="@string/revanced_sb_general_skiptoast_sum_on" android:summaryOff="@string/revanced_sb_general_skiptoast_sum_off" />
-            <SwitchPreference android:title="@string/revanced_sb_general_time_without" android:key="sb_video_length_without_segments" android:summaryOn="@string/revanced_sb_general_time_without_sum_on" android:summaryOff="@string/revanced_sb_general_time_without_sum_off" />
-        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/revanced_sb_appearance_category" android:layout="@layout/revanced_settings_preferences_category" />
+        <SwitchPreference android:title="@string/revanced_sb_enable_voting" android:key="sb_voting_button" android:summaryOn="@string/revanced_sb_enable_voting_sum_on" android:summaryOff="@string/revanced_sb_enable_voting_sum_off" />
+        <SwitchPreference android:title="@string/revanced_sb_enable_compact_skip_button" android:key="sb_compact_skip_button" android:summaryOn="@string/revanced_sb_enable_compact_skip_button_sum_on" android:summaryOff="@string/revanced_sb_enable_compact_skip_button_sum_off" />
+        <SwitchPreference android:title="@string/revanced_sb_enable_auto_hide_skip_segment_button" android:key="sb_auto_hide_skip_button" android:summaryOn="@string/revanced_sb_enable_auto_hide_skip_segment_button_sum_on" android:summaryOff="@string/revanced_sb_enable_auto_hide_skip_segment_button_sum_off" />
+        <SwitchPreference android:title="@string/revanced_sb_general_skiptoast" android:key="sb_toast_on_skip" android:summaryOn="@string/revanced_sb_general_skiptoast_sum_on" android:summaryOff="@string/revanced_sb_general_skiptoast_sum_off" />
+        <SwitchPreference android:title="@string/revanced_sb_general_time_without" android:key="sb_video_length_without_segments" android:summaryOn="@string/revanced_sb_general_time_without_sum_on" android:summaryOff="@string/revanced_sb_general_time_without_sum_off" />
 
-        <PreferenceCategory android:title="@string/revanced_sb_diff_segments" android:layout="@layout/revanced_settings_preferences_category">
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_sponsor" android:key="sponsor" android:summary="@string/revanced_sb_segments_sponsor_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_selfpromo" android:key="selfpromo" android:summary="@string/revanced_sb_segments_selfpromo_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_interaction" android:key="interaction" android:summary="@string/revanced_sb_segments_interaction_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_highlight" android:key="poi_highlight" android:summary="@string/revanced_sb_segments_highlight_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_intro" android:key="intro" android:summary="@string/revanced_sb_segments_intro_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_outro" android:key="outro" android:summary="@string/revanced_sb_segments_outro_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_preview" android:key="preview" android:summary="@string/revanced_sb_segments_preview_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_filler" android:key="filler" android:summary="@string/revanced_sb_segments_filler_sum" />
-            <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_nomusic" android:key="music_offtopic" android:summary="@string/revanced_sb_segments_nomusic_sum" />
-        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/revanced_sb_diff_segments" android:layout="@layout/revanced_settings_preferences_category" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_sponsor" android:key="sponsor" android:summary="@string/revanced_sb_segments_sponsor_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_selfpromo" android:key="selfpromo" android:summary="@string/revanced_sb_segments_selfpromo_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_interaction" android:key="interaction" android:summary="@string/revanced_sb_segments_interaction_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_highlight" android:key="poi_highlight" android:summary="@string/revanced_sb_segments_highlight_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_intro" android:key="intro" android:summary="@string/revanced_sb_segments_intro_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_outro" android:key="outro" android:summary="@string/revanced_sb_segments_outro_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_preview" android:key="preview" android:summary="@string/revanced_sb_segments_preview_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_filler" android:key="filler" android:summary="@string/revanced_sb_segments_filler_sum" />
+        <app.revanced.integrations.youtube.settings.preference.SegmentCategoryListPreference android:title="@string/revanced_sb_segments_nomusic" android:key="music_offtopic" android:summary="@string/revanced_sb_segments_nomusic_sum" />
 
-        <PreferenceCategory android:title="@string/revanced_sb_general" android:layout="@layout/revanced_settings_preferences_category">
-            <SwitchPreference android:title="@string/revanced_sb_toast_on_connection_error_title" android:key="sb_toast_on_connection_error" android:summaryOn="@string/revanced_sb_toast_on_connection_error_summary_on" android:summaryOff="@string/revanced_sb_toast_on_connection_error_summary_off" />
-            <SwitchPreference android:title="@string/revanced_sb_general_skipcount" android:key="sb_track_skip_count" android:summaryOn="@string/revanced_sb_general_skipcount_sum_on" android:summaryOff="@string/revanced_sb_general_skipcount_sum_off" />
-            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_min_duration" android:key="sb_min_segment_duration" android:summary="@string/revanced_sb_general_min_duration_sum" android:inputType="numberDecimal" />
-            <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_uuid" android:key="sb_private_user_id_Do_Not_Share" android:summary="@string/revanced_sb_general_uuid_sum" android:inputType="textMultiLine" />
-            <Preference android:title="@string/revanced_sb_general_api_url" android:key="sb_api_url" android:summary="@string/revanced_sb_general_api_url_sum" android:dependency="sb_enabled" />
-            <app.revanced.integrations.youtube.settings.preference.SponsorBlockImportExportPreference android:title="@string/revanced_sb_settings_ie" android:summary="@string/revanced_sb_settings_ie_sum" android:inputType="textMultiLine" android:dependency="sb_enabled" />
-        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/revanced_sb_general" android:layout="@layout/revanced_settings_preferences_category" />
+        <SwitchPreference android:title="@string/revanced_sb_toast_on_connection_error_title" android:key="sb_toast_on_connection_error" android:summaryOn="@string/revanced_sb_toast_on_connection_error_summary_on" android:summaryOff="@string/revanced_sb_toast_on_connection_error_summary_off" />
+        <SwitchPreference android:title="@string/revanced_sb_general_skipcount" android:key="sb_track_skip_count" android:summaryOn="@string/revanced_sb_general_skipcount_sum_on" android:summaryOff="@string/revanced_sb_general_skipcount_sum_off" />
+        <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_min_duration" android:key="sb_min_segment_duration" android:summary="@string/revanced_sb_general_min_duration_sum" android:inputType="numberDecimal" />
+        <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_uuid" android:key="sb_private_user_id_Do_Not_Share" android:summary="@string/revanced_sb_general_uuid_sum" android:inputType="textMultiLine" />
+        <Preference android:title="@string/revanced_sb_general_api_url" android:key="sb_api_url" android:summary="@string/revanced_sb_general_api_url_sum" android:dependency="sb_enabled" />
+        <app.revanced.integrations.youtube.settings.preference.SponsorBlockImportExportPreference android:title="@string/revanced_sb_settings_ie" android:summary="@string/revanced_sb_settings_ie_sum" android:inputType="textMultiLine" android:dependency="sb_enabled" />
     </PreferenceScreen>PREFERENCE_SCREEN: SPONSOR_BLOCK -->
 
 
