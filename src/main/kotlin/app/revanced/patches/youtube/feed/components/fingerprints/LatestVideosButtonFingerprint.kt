@@ -16,5 +16,5 @@ internal object LatestVideosButtonFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { Bar }
+    literalSupplier = { Bar },
 )

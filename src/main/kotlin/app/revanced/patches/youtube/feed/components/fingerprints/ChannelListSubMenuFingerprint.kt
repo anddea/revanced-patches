@@ -11,5 +11,5 @@ internal object ChannelListSubMenuFingerprint : LiteralValueFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    literalSupplier = { ChannelListSubMenu }
+    literalSupplier = { ChannelListSubMenu },
 )

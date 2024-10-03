@@ -184,7 +184,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
         private const val CLONE_PACKAGE_NAME_YOUTUBE_MUSIC = "bill.youtube.music"
         private const val DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC = "anddea.youtube.music"
-        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music"
+        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC =
+            "com.google.android.apps.youtube.music"
 
         private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }
