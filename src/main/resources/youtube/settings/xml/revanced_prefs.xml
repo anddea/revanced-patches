@@ -135,8 +135,7 @@
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
         <!-- SETTINGS: LAYOUT_SWITCH
-        <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" />
-        <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" />SETTINGS: LAYOUT_SWITCH -->
+        <ListPreference android:entries="@array/revanced_change_layout_entries" android:title="@string/revanced_change_layout_title" android:key="revanced_change_layout" android:entryValues="@array/revanced_change_layout_entry_values" />SETTINGS: LAYOUT_SWITCH -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
