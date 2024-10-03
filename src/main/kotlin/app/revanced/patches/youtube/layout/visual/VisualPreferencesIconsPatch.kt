@@ -23,7 +23,7 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
 ) {
     private const val DEFAULT_ICON_KEY = "Extension"
 
-    private val ExtendedIcon by stringPatchOption(
+    private val ExtendedIcon = stringPatchOption(
         key = "ExtendedIcon",
         default = DEFAULT_ICON_KEY,
         values = mapOf(
@@ -32,6 +32,8 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
             "Gear" to "gear",
             "ReVanced" to "revanced",
             "ReVanced Colored" to "revanced_colored",
+            "RVX Letters" to "rvx_letters",
+            "RVX Letters Bold" to "rvx_letters_bold",
             "YT Alt" to "yt_alt",
         ),
         title = "RVX settings menu icon",
@@ -248,44 +250,43 @@ object VisualPreferencesIconsPatch : BaseResourcePatch(
 
         // Copy resources
         val emptyIcon = "empty_icon"
-        val resourcesToCopy = mutableListOf(
+        arrayOf(
             ResourceGroup("drawable-xxhdpi", "$emptyIcon.png"),
+        ).forEach { context.copyResources("youtube/visual/icons", it) }
+
+        // Check patch options first.
+        val selectedIconType = ExtendedIcon
+            .underBarOrThrow()
+
+        val customBrandingIconType = CustomBrandingIconPatch.AppIcon
+            .underBarOrThrow()
+
+        // region copy RVX settings menu icon.
+
+        val fallbackIconPath = "youtube/visual/icons/extension"
+        val iconPath = when (selectedIconType) {
+            "custom_branding_icon" -> "youtube/branding/$customBrandingIconType/settings"
+            else -> "youtube/visual/icons/$selectedIconType"
+        }
+        val resourceGroup = ResourceGroup(
+            "drawable",
+            "revanced_extended_settings_key_icon.xml"
         )
 
-        fun copyResourcesWithFallback(iconPath: String) {
-            try {
-                context.copyResources(iconPath, ResourceGroup("drawable", "revanced_extended_settings_key_icon.xml"))
-            } catch (_: Exception) {
-                // Ignore if resource copy fails
+        try {
+            context.copyResources(iconPath, resourceGroup)
+        } catch (_: Exception) {
+            // Ignore if resource copy fails
 
-                // Add a fallback extended icon
-                // It's needed if someone provides custom path to icon(s) folder
-                // but custom branding icons for Extended setting are predefined,
-                // so it won't copy custom branding icon
-                // and will raise an error without fallback icon
-                context.copyResources(
-                    "youtube/visual/icons/extension",
-                    ResourceGroup("drawable", "revanced_extended_settings_key_icon.xml")
-                )
-            }
+            // Add a fallback extended icon
+            // It's needed if someone provides custom path to icon(s) folder
+            // but custom branding icons for Extended setting are predefined,
+            // so it won't copy custom branding icon
+            // and will raise an error without fallback icon
+            context.copyResources(fallbackIconPath, resourceGroup)
         }
 
-        ExtendedIcon?.let { iconType ->
-            val selectedIconType = iconType.lowercase().replace(" ", "_")
-            CustomBrandingIconPatch.AppIcon.let { appIcon ->
-                val appIconValue = appIcon.underBarOrThrow()
-                val resourcePath = "youtube/branding/$appIconValue"
-
-                val iconPath = when {
-                    selectedIconType == "custom_branding_icon" -> "$resourcePath/visual"
-                    else -> "youtube/visual/icons/$selectedIconType"
-                }
-
-                copyResourcesWithFallback(iconPath)
-            }
-        }
-
-        resourcesToCopy.forEach { context.copyResources("youtube/visual/icons", it) }
+        // endregion.
 
         // Edit Preferences / add icon attribute
         val tagNames = listOf(
