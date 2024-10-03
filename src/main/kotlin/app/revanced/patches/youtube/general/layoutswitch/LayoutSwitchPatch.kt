@@ -2,19 +2,22 @@ package app.revanced.patches.youtube.general.layoutswitch
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.general.layoutswitch.fingerprints.GetFormFactorFingerprint
+import app.revanced.patches.shared.fingerprints.CreatePlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.youtube.general.layoutswitch.fingerprints.FormFactorEnumConstructorFingerprint
 import app.revanced.patches.youtube.general.layoutswitch.fingerprints.LayoutSwitchFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 object LayoutSwitchPatch : BaseBytecodePatch(
@@ -23,51 +26,50 @@ object LayoutSwitchPatch : BaseBytecodePatch(
     dependencies = setOf(SettingsPatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        GetFormFactorFingerprint,
+        CreatePlayerRequestBodyWithModelFingerprint,
+        FormFactorEnumConstructorFingerprint,
         LayoutSwitchFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$GENERAL_PATH/LayoutSwitchPatch;"
+
     override fun execute(context: BytecodeContext) {
 
-        // region patch for enable tablet layout
+        val formFactorEnumClass = FormFactorEnumConstructorFingerprint
+            .resultOrThrow()
+            .mutableMethod
+            .definingClass
 
-        GetFormFactorFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val jumpIndex = indexOfFirstInstructionReversedOrThrow(Opcode.SGET_OBJECT)
-
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static { }, $GENERAL_CLASS_DESCRIPTOR->enableTabletLayout()Z
-                        move-result v0 # Free register
-                        if-nez v0, :is_large_form_factor
-                        """,
-                    ExternalLabel(
-                        "is_large_form_factor",
-                        getInstruction(jumpIndex)
-                    )
-                )
+        CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().mutableMethod.apply {
+            val index = indexOfFirstInstructionOrThrow {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IGET &&
+                        reference?.definingClass == formFactorEnumClass &&
+                        reference.type == "I"
             }
+            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1, """
+                    invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->getFormFactor(I)I
+                    move-result v$register
+                    """
+            )
         }
-
-        // endregion
-
-        // region patch for enable phone layout
 
         LayoutSwitchFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.IF_NEZ)
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val index = indexOfFirstInstructionReversedOrThrow(Opcode.IF_NEZ)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->enablePhoneLayout(I)I
-                        move-result v$insertRegister
+                    index, """
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->getWidthDp(I)I
+                        move-result v$register
                         """
                 )
             }
         }
-
-        // endregion
 
         /**
          * Add settings
