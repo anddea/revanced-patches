@@ -35,7 +35,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Enable external browser` | Adds an option to always open links in your browser instead of in the in-app-browser. | 18.29.38 ~ 19.16.39 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 18.29.38 ~ 19.16.39 |
 | `Enable open links directly` | Adds an option to skip over redirection URLs in external links. | 18.29.38 ~ 19.16.39 |
-| `Force player buttons background` | Changes, at compile time, the dark background surrounding the video player controls. | 18.29.38 ~ 19.16.39 |
+| `Force player buttons background` | Changes the dark background surrounding the video player controls at compile time. | 18.29.38 ~ 19.16.39 |
 | `Force snackbar theme` | Force snackbar background color to match selected theme. | 18.29.38 ~ 19.16.39 |
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 18.29.38 ~ 19.16.39 |
 | `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 18.29.38 ~ 19.16.39 |
@@ -71,7 +71,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 18.29.38 ~ 19.16.39 |
 | `Theme` | Changes the app's theme to the values specified in options.json. | 18.29.38 ~ 19.16.39 |
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header. | 18.29.38 ~ 19.16.39 |
-| `Translations` | Add Crowdin translations for YouTube. | 18.29.38 ~ 19.16.39 |
+| `Translations for YouTube` | Add translations or remove string resources. | 18.29.38 ~ 19.16.39 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 18.29.38 ~ 19.16.39 |
 | `Visual preferences icons` | Adds icons to specific preferences in the settings. | 18.29.38 ~ 19.16.39 |
 </details>
@@ -114,7 +114,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 7.16.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 7.16.53 |
 | `Spoof app version` | Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics. | 6.20.51 ~ 7.16.53 |
-| `Translations` | Adds Crowdin translations for YouTube Music. | 6.20.51 ~ 7.16.53 |
+| `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 7.16.53 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 7.16.53 |
 | `Visual preferences icons` | Adds icons to specific preferences in the settings. | 6.20.51 ~ 7.16.53 |
 </details>

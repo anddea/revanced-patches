@@ -1,3 +1,17 @@
+# [2.230.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.3...v2.230.0-dev.4) (2024-10-04)
+
+
+### Bug Fixes
+
+* **YouTube - Hide feed components:** `Hide Latest videos button` setting does not support tablets ([85397f8](https://github.com/anddea/revanced-patches/commit/85397f85d14e86c598f5df95d79cf8de22dfa891))
+* **YouTube - Shorts components:** `Hide paused header` setting does not work ([6df82cf](https://github.com/anddea/revanced-patches/commit/6df82cfd72951867babd4e985f51098ff773f310))
+
+
+### Features
+
+* **YouTube - Visual preferences icons:** Add `RVX Letters` and `RVX Letters Bold` icons for RVX setting ([de30230](https://github.com/anddea/revanced-patches/commit/de30230265b90de1c6ff93c3ec80155381c26ad0))
+* **YouTube Music - Spoof app version:** Add target version `7.16.53` ([f8bf95c](https://github.com/anddea/revanced-patches/commit/f8bf95cc61d79da1241ef76443d5580f347a60f4))
+
 # [2.230.0-dev.3](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.2...v2.230.0-dev.3) (2024-10-02)
 
 
