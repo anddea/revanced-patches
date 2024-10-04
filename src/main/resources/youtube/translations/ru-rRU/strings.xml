@@ -65,6 +65,12 @@
 Включение может исправить недостающие изображения, в некоторых регионах.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Использовать для изображений host yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
+    <string name="revanced_change_layout_entry_1">Оригинал</string>
+    <string name="revanced_change_layout_entry_2">Телефон</string>
+    <string name="revanced_change_layout_entry_3">Телефон (Макс. 480 dip)</string>
+    <string name="revanced_change_layout_entry_4">Планшет</string>
+    <string name="revanced_change_layout_entry_5">Планшет (Мин. 600 dip)</string>
+    <string name="revanced_change_layout_title">Изменить макет</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Текущий переключатель - Визуальный.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Текущий переключатель - Текстовый.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Изменить тип переключателя</string>
@@ -195,6 +201,9 @@
     <string name="revanced_disable_rolling_number_animations_summary_off">Анимация прокручивания чисел включена.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Анимация прокручивания чисел отключена.</string>
     <string name="revanced_disable_rolling_number_animations_title">Анимация прокручивания чисел</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Анимация кнопки \"Лайк\" включена.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Анимация кнопки \"Лайк\" отключена.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Анимация кнопки \"Лайк\"</string>
     <string name="revanced_disable_speed_overlay_summary">"Отключить наложение скорости при нажатии и удержании.
 
 Примечание:
@@ -821,6 +830,9 @@ Shorts
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Метка видео ссылки отображена.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Метка видео ссылки скрыта.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Метка ссылки на полное видео</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка зеленого экрана отображена.</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка зеленого экрана скрыта.</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Кнопка зеленого экрана</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Информационные панели отображены.</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Информационные панели скрыты.</string>
     <string name="revanced_hide_shorts_info_panel_title">Информационные панели</string>
@@ -858,6 +870,9 @@ Shorts
     <string name="revanced_hide_shorts_remix_button_summary_off">Кнопка \"Ремикс\" отображена.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Кнопка \"Ремикс\" скрыта.</string>
     <string name="revanced_hide_shorts_remix_button_title">Кнопка \"Ремикс\"</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_off">Кнопка \"Сохранить музыку\" отображена.</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_on">Кнопка \"Сохранить музыку\" скрыта.</string>
+    <string name="revanced_hide_shorts_save_music_button_title">Кнопка \"Сохранить музыку\"</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Кнопка \"Подсказки поиска\" отображена.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Кнопка \"Подсказки поиска\" скрыта.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_title">Кнопка \"Подсказки поиска\"</string>
@@ -893,6 +908,9 @@ Shorts
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Метка метаданных отображена.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Метка метаданных скрыта.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Метка звуковых метаданных</string>
+    <string name="revanced_hide_shorts_stickers_summary_off">Стикеры отображены.</string>
+    <string name="revanced_hide_shorts_stickers_summary_on">Стикеры скрыты.</string>
+    <string name="revanced_hide_shorts_stickers_title">Стикеры</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Подписаться\" отображена.</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопка \"Подписаться\" скрыта.</string>
     <string name="revanced_hide_shorts_subscribe_button_title">Кнопка \"Подписаться\"</string>
@@ -1119,6 +1137,7 @@ Shorts
     <string name="revanced_preference_category_quick_actions">Быстрые действия</string>
     <string name="revanced_preference_category_recommended_video">Рекомендованное видео</string>
     <string name="revanced_preference_category_shorts_shelf">Настройки скрытия Shorts</string>
+    <string name="revanced_preference_category_suggested_actions">Предложенные действия</string>
     <string name="revanced_preference_category_tool_used">Используемые инструменты</string>
     <string name="revanced_preference_category_view_counts_filter">Фильтр по количеству просмотров</string>
     <string name="revanced_preference_screen_account_menu_summary">Настройка меню аккаунта и вкладки Вы.</string>
@@ -1193,6 +1212,7 @@ Shorts
 После примерно 20 секунд буферизации будет применён другой кодек."</string>
     <string name="revanced_reject_av1_codec_title">Отказ от программного кодека AV1</string>
     <string name="revanced_reject_av1_codec_toast">Буферизация из-за программного кодека AV1 (примерно 20 сек.)</string>
+    <string name="revanced_related_videos_offset_title">Оффсет - Алгоритм выдачи похожих видео</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Изменяется скорость воспроизведения у текущего видео.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Изменяется скорость воспроизведения у всех видео.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запомнить скорость воспроизведения</string>
