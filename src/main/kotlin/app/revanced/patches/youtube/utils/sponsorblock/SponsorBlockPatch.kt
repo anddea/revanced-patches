@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.*
-import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 

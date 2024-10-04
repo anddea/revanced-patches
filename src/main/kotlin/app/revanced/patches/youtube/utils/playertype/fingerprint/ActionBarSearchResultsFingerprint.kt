@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.playertype.fingerprint.ActionBarSearchResultsFingerprint.indexOfLayoutDirectionInstruction
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ActionBarSearchResultsViewMic
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -16,7 +16,7 @@ internal object ActionBarSearchResultsFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/view/View;",
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(ActionBarSearchResultsViewMic) &&
+        methodDef.containsWideLiteralInstructionValue(ActionBarSearchResultsViewMic) &&
                 indexOfLayoutDirectionInstruction(methodDef) >= 0
     }
 ) {

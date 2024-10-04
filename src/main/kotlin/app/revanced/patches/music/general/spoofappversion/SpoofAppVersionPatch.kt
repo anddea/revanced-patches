@@ -5,6 +5,7 @@ import app.revanced.patches.music.general.oldstylelibraryshelf.OldStyleLibrarySh
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
+import app.revanced.util.appendAppVersion
 import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
@@ -20,6 +21,10 @@ object SpoofAppVersionPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE
 ) {
     override fun execute(context: ResourceContext) {
+
+        if (SettingsPatch.upward0718) {
+            context.appendAppVersion("7.16.53")
+        }
 
         SettingsPatch.addSwitchPreference(
             CategoryType.GENERAL,

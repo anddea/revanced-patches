@@ -1,16 +1,11 @@
 package app.revanced.patches.youtube.utils.fix.cairo
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.utils.fix.cairo.fingerprints.CarioFragmentConfigFingerprint
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.util.injectLiteralInstructionBooleanCall
 
 @Patch(
     description = "Fixes issues where Cairo Fragment is applied."
@@ -31,19 +26,10 @@ object CairoSettingsPatch : BytecodePatch(
          * for screenshots of the Cairo Fragment.
          */
         CarioFragmentConfigFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val targetIndex =
-                    getTargetIndexOrThrow(
-                        getWideLiteralInstructionIndex(45532100),
-                        Opcode.MOVE_RESULT
-                    )
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                addInstruction(
-                    targetIndex + 1,
-                    "const/4 v$targetRegister, 0x0"
-                )
-            }
+            CarioFragmentConfigFingerprint.injectLiteralInstructionBooleanCall(
+                45532100,
+                "0x0"
+            )
         }
 
     }

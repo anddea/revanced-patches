@@ -20,16 +20,15 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceType
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -78,13 +77,15 @@ object ReturnYouTubeDislikePatch : BaseBytecodePatch(
 
             TextComponentContextFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val conversionContextFieldIndex =
-                        getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/Map;") - 1
+                    val conversionContextFieldIndex = indexOfFirstInstructionOrThrow {
+                        getReference<FieldReference>()?.type == "Ljava/util/Map;"
+                    } - 1
                     val conversionContextFieldReference =
                         getInstruction<ReferenceInstruction>(conversionContextFieldIndex).reference
 
-                    val charSequenceIndex1932 =
-                        getTargetIndexWithFieldReferenceType("Ljava/util/BitSet;") - 1
+                    val charSequenceIndex1932 = indexOfFirstInstruction {
+                        getReference<FieldReference>()?.type == "Ljava/util/BitSet;"
+                    } - 1
                     val charSequenceIndex1933 = indexOfFirstInstruction {
                         val reference = getReference<MethodReference>()
                         opcode == Opcode.INVOKE_VIRTUAL &&
@@ -108,7 +109,7 @@ object ReturnYouTubeDislikePatch : BaseBytecodePatch(
                     }
 
                     val freeRegister = getInstruction<TwoRegisterInstruction>(
-                        getTargetIndexOrThrow(insertIndex, Opcode.IGET_OBJECT)
+                        indexOfFirstInstructionOrThrow(insertIndex, Opcode.IGET_OBJECT)
                     ).registerA
 
                     addInstructions(

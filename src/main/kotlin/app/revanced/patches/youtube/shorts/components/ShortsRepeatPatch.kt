@@ -9,14 +9,18 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.shorts.components.fingerprints.ReelEnumConstructorFingerprint
 import app.revanced.patches.youtube.shorts.components.fingerprints.ReelEnumStaticFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
-import app.revanced.util.containsReferenceInstructionIndex
 import app.revanced.util.findMutableMethodOf
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 object ShortsRepeatPatch : BytecodePatch(
     setOf(ReelEnumConstructorFingerprint)
@@ -36,16 +40,15 @@ object ShortsRepeatPatch : BytecodePatch(
                 }
 
                 val endScreenStringIndex =
-                    getStringInstructionIndex("REEL_LOOP_BEHAVIOR_END_SCREEN")
+                    indexOfFirstStringInstructionOrThrow("REEL_LOOP_BEHAVIOR_END_SCREEN")
                 val endScreenReferenceIndex =
-                    getTargetIndexOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
+                    indexOfFirstInstructionOrThrow(endScreenStringIndex, Opcode.SPUT_OBJECT)
                 val endScreenReference =
                     getInstruction<ReferenceInstruction>(endScreenReferenceIndex).reference.toString()
 
-                val enumMethodName = ReelEnumStaticFingerprint.resultOrThrow().mutableMethod.name
-                val enumMethodCall = "$definingClass->$enumMethodName(I)$definingClass"
+                val enumMethod = ReelEnumStaticFingerprint.resultOrThrow().mutableMethod
 
-                context.injectHook(endScreenReference, enumMethodCall)
+                context.injectHook(endScreenReference, enumMethod)
             }
         }
     }
@@ -54,8 +57,8 @@ object ShortsRepeatPatch : BytecodePatch(
         enumName: String,
         fieldName: String
     ) {
-        val stringIndex = getStringInstructionIndex(enumName)
-        val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.SPUT_OBJECT)
+        val stringIndex = indexOfFirstStringInstructionOrThrow(enumName)
+        val insertIndex = indexOfFirstInstructionOrThrow(stringIndex, Opcode.SPUT_OBJECT)
         val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
         addInstruction(
@@ -66,35 +69,41 @@ object ShortsRepeatPatch : BytecodePatch(
 
     private fun BytecodeContext.injectHook(
         endScreenReference: String,
-        enumMethodCall: String
+        enumMethod: MutableMethod
     ) {
         classes.forEach { classDef ->
             classDef.methods.filter { method ->
                 method.parameters.size == 1
                         && method.parameters[0].startsWith("L")
                         && method.returnType == "V"
-                        && method.containsReferenceInstructionIndex(endScreenReference)
+                        && method.indexOfFirstInstruction {
+                    getReference<FieldReference>()?.toString() == endScreenReference
+                } >= 0
             }.forEach { targetMethod ->
                 proxy(classDef)
                     .mutableClass
                     .findMutableMethodOf(targetMethod)
                     .apply {
-                        for ((index, instruction) in implementation!!.instructions.withIndex()) {
-                            if (instruction.opcode != Opcode.INVOKE_STATIC)
-                                continue
-                            if ((instruction as ReferenceInstruction).reference.toString() != enumMethodCall)
-                                continue
+                        implementation!!.instructions
+                            .withIndex()
+                            .filter { (_, instruction) ->
+                                val reference = (instruction as? ReferenceInstruction)?.reference
+                                reference is MethodReference &&
+                                        MethodUtil.methodSignaturesMatch(enumMethod, reference)
+                            }
+                            .map { (index, _) -> index }
+                            .reversed()
+                            .forEach { index ->
+                                val register =
+                                    getInstruction<OneRegisterInstruction>(index + 1).registerA
 
-                            val register =
-                                getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                            addInstructions(
-                                index + 2, """
-                                    invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->changeShortsRepeatState(Ljava/lang/Enum;)Ljava/lang/Enum;
-                                    move-result-object v$register
-                                    """
-                            )
-                        }
+                                addInstructions(
+                                    index + 2, """
+                                        invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->changeShortsRepeatState(Ljava/lang/Enum;)Ljava/lang/Enum;
+                                        move-result-object v$register
+                                        """
+                                )
+                            }
                     }
             }
         }

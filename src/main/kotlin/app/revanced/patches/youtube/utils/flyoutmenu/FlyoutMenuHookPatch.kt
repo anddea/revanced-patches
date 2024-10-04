@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.utils.fingerprints.PlaybackRateBottomSheetBu
 import app.revanced.patches.youtube.utils.flyoutmenu.fingerprints.VideoQualityBottomSheetClassFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.addFieldAndInstructions
+import app.revanced.util.addStaticFieldToIntegration
 import app.revanced.util.resultOrThrow
 
 @Patch(
@@ -25,10 +25,6 @@ object FlyoutMenuHookPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        val videoUtilsMutableClass = context.findClass(
-            INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR
-        )!!.mutableClass
-
         PlaybackRateBottomSheetBuilderFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val smaliInstructions =
@@ -39,13 +35,12 @@ object FlyoutMenuHookPatch : BytecodePatch(
                         return-void
                     """
 
-                videoUtilsMutableClass.addFieldAndInstructions(
-                    context,
+                context.addStaticFieldToIntegration(
+                    INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR,
                     "showPlaybackSpeedFlyoutMenu",
                     "playbackRateBottomSheetClass",
                     definingClass,
-                    smaliInstructions,
-                    true
+                    smaliInstructions
                 )
             }
         }
@@ -61,13 +56,12 @@ object FlyoutMenuHookPatch : BytecodePatch(
                         return-void
                     """
 
-                videoUtilsMutableClass.addFieldAndInstructions(
-                    context,
+                context.addStaticFieldToIntegration(
+                    INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR,
                     "showVideoQualityFlyoutMenu",
                     "videoQualityBottomSheetClass",
                     definingClass,
-                    smaliInstructions,
-                    true
+                    smaliInstructions
                 )
             }
         }

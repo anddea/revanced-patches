@@ -6,7 +6,7 @@ import app.revanced.patches.youtube.general.loadingscreen.fingerprints.GradientL
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 
 @Suppress("unused")
@@ -29,7 +29,7 @@ object GradientLoadingScreenPatch : BaseBytecodePatch(
             GradientLoadingScreenPrimaryFingerprint to 45412406,
             GradientLoadingScreenSecondaryFingerprint to 45418917
         ).forEach { (fingerprint, literal) ->
-            fingerprint.literalInstructionBooleanHook(
+            fingerprint.injectLiteralInstructionBooleanCall(
                 literal,
                 "$GENERAL_CLASS_DESCRIPTOR->enableGradientLoadingScreen()Z"
             )

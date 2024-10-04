@@ -17,11 +17,10 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -139,13 +138,15 @@ object ChangeTogglePatch : BaseBytecodePatch(
                 }
                 val classRegister = getInstruction<TwoRegisterInstruction>(iGetIndex).registerB
 
-                val stringIndex = getStringInstructionIndex("menu_item_cinematic_lighting")
+                val stringIndex =
+                    indexOfFirstStringInstructionOrThrow("menu_item_cinematic_lighting")
 
-                val checkCastIndex = getTargetIndexReversedOrThrow(stringIndex, Opcode.CHECK_CAST)
+                val checkCastIndex =
+                    indexOfFirstInstructionReversedOrThrow(stringIndex, Opcode.CHECK_CAST)
                 val iGetObjectPrimaryIndex =
-                    getTargetIndexReversedOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstInstructionReversedOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
                 val iGetObjectSecondaryIndex =
-                    getTargetIndexOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstInstructionOrThrow(checkCastIndex, Opcode.IGET_OBJECT)
 
                 val checkCastReference =
                     getInstruction<ReferenceInstruction>(checkCastIndex).reference
@@ -154,14 +155,15 @@ object ChangeTogglePatch : BaseBytecodePatch(
                 val iGetObjectSecondaryReference =
                     getInstruction<ReferenceInstruction>(iGetObjectSecondaryIndex).reference
 
-                val invokeVirtualIndex = getTargetIndexOrThrow(stringIndex, Opcode.INVOKE_VIRTUAL)
+                val invokeVirtualIndex =
+                    indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_VIRTUAL)
                 val invokeVirtualInstruction =
                     getInstruction<FiveRegisterInstruction>(invokeVirtualIndex)
                 val freeRegisterC = invokeVirtualInstruction.registerC
                 val freeRegisterD = invokeVirtualInstruction.registerD
                 val freeRegisterE = invokeVirtualInstruction.registerE
 
-                val insertIndex = getTargetIndexOrThrow(stringIndex, Opcode.RETURN_VOID)
+                val insertIndex = indexOfFirstInstructionOrThrow(stringIndex, Opcode.RETURN_VOID)
 
                 addInstructionsWithLabels(
                     insertIndex, """

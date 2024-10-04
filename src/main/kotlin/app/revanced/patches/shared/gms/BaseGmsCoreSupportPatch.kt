@@ -18,14 +18,12 @@ import app.revanced.patches.shared.gms.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint
-import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint.GET_PACKAGE_NAME_METHOD_REFERENCE
 import app.revanced.patches.shared.gms.fingerprints.GmsCoreSupportFingerprint
 import app.revanced.patches.shared.gms.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.patches.shared.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.shared.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexWithReference
 import app.revanced.util.resultOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
@@ -178,7 +176,7 @@ abstract class BaseGmsCoreSupportPatch(
         CertificateFingerprint.result?.mutableClass?.methods?.forEach { mutableMethod ->
             mutableMethod.apply {
                 val getPackageNameIndex =
-                    getTargetIndexWithReference(GET_PACKAGE_NAME_METHOD_REFERENCE)
+                    CertificateFingerprint.indexOfGetPackageNameInstruction(this)
 
                 if (getPackageNameIndex > -1) {
                     val targetRegister =

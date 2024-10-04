@@ -31,6 +31,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var BadgeLabel = -1L
     var Bar = -1L
     var BarContainerHeight = -1L
+    var BottomBarContainer = -1L
     var BottomSheetFooterText = -1L
     var BottomSheetRecyclerView = -1L
     var BottomUiContainerStub = -1L
@@ -41,9 +42,11 @@ object SharedResourceIdPatch : ResourcePatch() {
     var CompactLink = -1L
     var CompactListItem = -1L
     var ComponentLongClickListener = -1L
+    var ContentPill = -1L
     var ControlsLayoutStub = -1L
     var DarkBackground = -1L
     var DarkSplashAnimation = -1L
+    var DesignBottomSheet = -1L
     var DonationCompanion = -1L
     var DrawerContentView = -1L
     var DrawerResults = -1L
@@ -94,6 +97,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ReelRightLikeIcon = -1L
     var ReelTimeBarPlayedColor = -1L
     var ReelVodTimeStampsContainer = -1L
+    var ReelWatchPlayer = -1L
     var RelatedChipCloudMargin = -1L
     var RightComment = -1L
     var ScrimOverlay = -1L
@@ -136,6 +140,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         BadgeLabel = getId(ID, "badge_label")
         Bar = getId(LAYOUT, "bar")
         BarContainerHeight = getId(DIMEN, "bar_container_height")
+        BottomBarContainer = getId(ID, "bottom_bar_container")
         BottomSheetFooterText = getId(ID, "bottom_sheet_footer_text")
         BottomSheetRecyclerView = getId(LAYOUT, "bottom_sheet_recycler_view")
         BottomUiContainerStub = getId(ID, "bottom_ui_container_stub")
@@ -146,9 +151,11 @@ object SharedResourceIdPatch : ResourcePatch() {
         CompactLink = getId(LAYOUT, "compact_link")
         CompactListItem = getId(LAYOUT, "compact_list_item")
         ComponentLongClickListener = getId(ID, "component_long_click_listener")
+        ContentPill = getId(LAYOUT, "content_pill")
         ControlsLayoutStub = getId(ID, "controls_layout_stub")
         DarkBackground = getId(ID, "dark_background")
         DarkSplashAnimation = getId(ID, "dark_splash_animation")
+        DesignBottomSheet = getId(ID, "design_bottom_sheet")
         DonationCompanion = getId(LAYOUT, "donation_companion")
         DrawerContentView = getId(ID, "drawer_content_view")
         DrawerResults = getId(ID, "drawer_results")
@@ -202,6 +209,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         ReelRightLikeIcon = getId(DRAWABLE, "reel_right_like_icon")
         ReelTimeBarPlayedColor = getId(COLOR, "reel_time_bar_played_color")
         ReelVodTimeStampsContainer = getId(ID, "reel_vod_timestamps_container")
+        ReelWatchPlayer = getId(ID, "reel_watch_player")
         RelatedChipCloudMargin = getId(LAYOUT, "related_chip_cloud_reduced_margins")
         RightComment = getId(DRAWABLE, "ic_right_comment_32c")
         ScrimOverlay = getId(ID, "scrim_overlay")

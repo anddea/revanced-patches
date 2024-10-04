@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.utils.pip.PiPStateHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
@@ -87,23 +88,22 @@ object DownloadActionsPatch : BaseBytecodePatch(
                     ?: throw PatchException("Could not find onClickListenerClass")
             }
 
-        context.findClass(onClickListenerClass)
-            ?.mutableClass
-            ?.methods
-            ?.first { method -> method.name == "onClick" }?.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC
-                            && getReference<MethodReference>()?.name == "isEmpty"
-                }
-                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+        context.findMethodOrThrow(onClickListenerClass) {
+            name == "onClick"
+        }.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_STATIC
+                        && getReference<MethodReference>()?.name == "isEmpty"
+            }
+            val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppPlaylistDownloadButtonOnClick(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$insertRegister
-                        """
-                )
-            } ?: throw PatchException("Could not find class $onClickListenerClass")
+            addInstructions(
+                insertIndex, """
+                    invoke-static {v$insertRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppPlaylistDownloadButtonOnClick(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$insertRegister
+                    """
+            )
+        }
 
         OfflinePlaylistEndpointFingerprint.resultOrThrow().mutableMethod.apply {
             val playlistIdParameter = parameterTypes.indexOf("Ljava/lang/String;") + 1
@@ -176,7 +176,7 @@ object DownloadActionsPatch : BaseBytecodePatch(
         SettingsPatch.addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
-                "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
+                "SETTINGS: HOOK_BUTTONS",
                 "SETTINGS: HOOK_DOWNLOAD_ACTIONS"
             )
         )

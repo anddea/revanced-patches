@@ -12,14 +12,18 @@ import app.revanced.patches.youtube.general.navigation.fingerprints.TranslucentN
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object NavigationBarComponentsPatch : BaseBytecodePatch(
@@ -27,6 +31,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to the navigation bar.",
     dependencies = setOf(
         SettingsPatch::class,
+        SharedResourceIdPatch::class,
         NavigationBarHookPatch::class
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
@@ -48,7 +53,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
         // region patch for enable translucent navigation bar
 
         if (SettingsPatch.upward1923) {
-            TranslucentNavigationBarFingerprint.literalInstructionBooleanHook(
+            TranslucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
                 45630927,
                 "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
             )
@@ -81,17 +86,23 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region patch for hide navigation bar
+
+        NavigationBarHookPatch.addBottomBarContainerHook("$GENERAL_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)V")
+
+        // endregion
+
         // region patch for hide navigation buttons
 
         AutoMotiveFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getStringInstructionIndex("Android Automotive") - 1
-                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val insertIndex = indexOfFirstStringInstructionOrThrow("Android Automotive") - 1
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->switchCreateWithNotificationButton(Z)Z
-                        move-result v$register
+                        invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->switchCreateWithNotificationButton(Z)Z
+                        move-result v$insertRegister
                         """
                 )
             }
@@ -103,7 +114,10 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
 
         PivotBarSetTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setText"
+                }
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
 
                 addInstruction(

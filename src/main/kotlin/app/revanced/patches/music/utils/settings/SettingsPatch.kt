@@ -3,7 +3,6 @@ package app.revanced.patches.music.utils.settings
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.fix.accessibility.AccessibilityNodeInfoPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceCategory
 import app.revanced.patches.music.utils.settings.ResourceUtils.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.ResourceUtils.addRVXSettingsPreference
@@ -22,10 +21,7 @@ import java.util.concurrent.TimeUnit
 object SettingsPatch : BaseResourcePatch(
     name = "Settings for YouTube Music",
     description = "Applies mandatory patches to implement ReVanced Extended settings into the application.",
-    dependencies = setOf(
-        AccessibilityNodeInfoPatch::class,
-        SettingsBytecodePatch::class
-    ),
+    dependencies = setOf(SettingsBytecodePatch::class),
     compatiblePackages = COMPATIBLE_PACKAGE,
     requiresIntegrations = true
 ), Closeable {
@@ -42,8 +38,12 @@ object SettingsPatch : BaseResourcePatch(
     private lateinit var customName: String
 
     lateinit var contexts: ResourceContext
+    internal var upward0627 = false
     internal var upward0636 = false
     internal var upward0642 = false
+    internal var upward0706 = false
+    internal var upward0718 = false
+    internal var upward0720 = false
 
     override fun execute(context: ResourceContext) {
 
@@ -136,8 +136,12 @@ object SettingsPatch : BaseResourcePatch(
 
                         val playServicesVersion = node.textContent.toInt()
 
+                        upward0627 = 234412000 <= playServicesVersion
                         upward0636 = 240399000 <= playServicesVersion
                         upward0642 = 240999000 <= playServicesVersion
+                        upward0706 = 242499000 <= playServicesVersion
+                        upward0718 = 243699000 <= playServicesVersion
+                        upward0720 = 243899000 <= playServicesVersion
 
                         break
                     }
@@ -153,42 +157,6 @@ object SettingsPatch : BaseResourcePatch(
     internal fun addSwitchPreference(
         category: CategoryType,
         key: String,
-        defaultValue: String,
-        setSummary: Boolean
-    ) = addSwitchPreference(category, key, defaultValue, "", setSummary, false)
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
-        defaultValue: String,
-        setSummary: Boolean,
-        setSummaryOnOff: Boolean
-    ) = addSwitchPreference(category, key, defaultValue, "", setSummary, setSummaryOnOff)
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
-        defaultValue: String,
-        dependencyKey: String,
-        setSummaryOnOff: Boolean
-    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, true, setSummaryOnOff)
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
-        defaultValue: String,
-        dependencyKey: String,
-        setSummary: Boolean,
-        setSummaryOnOff: Boolean = false
-    ) {
-        val categoryValue = category.value
-        contexts.addPreferenceCategory(categoryValue)
-        contexts.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary, setSummaryOnOff)
-    }
-
-    internal fun addSwitchPreference(
-        category: CategoryType,
-        key: String,
         defaultValue: String
     ) = addSwitchPreference(category, key, defaultValue, "")
 
@@ -196,8 +164,27 @@ object SettingsPatch : BaseResourcePatch(
         category: CategoryType,
         key: String,
         defaultValue: String,
+        setSummary: Boolean
+    ) = addSwitchPreference(category, key, defaultValue, "", setSummary)
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
+        defaultValue: String,
         dependencyKey: String
-    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, false)
+    ) = addSwitchPreference(category, key, defaultValue, dependencyKey, true)
+
+    internal fun addSwitchPreference(
+        category: CategoryType,
+        key: String,
+        defaultValue: String,
+        dependencyKey: String,
+        setSummary: Boolean
+    ) {
+        val categoryValue = category.value
+        contexts.addPreferenceCategory(categoryValue)
+        contexts.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
+    }
 
     internal fun addPreferenceWithIntent(
         category: CategoryType,
@@ -239,6 +226,14 @@ object SettingsPatch : BaseResourcePatch(
                 }
             }
         }
+
+        /**
+         * add open default app settings
+         */
+        addPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_default_app_settings"
+        )
 
         /**
          * add import export settings

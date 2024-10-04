@@ -67,6 +67,15 @@ object OverlayButtonsPatch : BaseResourcePatch(
         description = "The bottom margin for the overlay buttons and timestamp.",
         required = true
     )
+    
+    // Option to choose wider between-buttons space
+    private val WiderButtonsSpace by booleanPatchOption(
+        key = "WiderButtonsSpace",
+        default = false,
+        title = "Wider between-buttons space",
+        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        required = true
+    )
 
     // Option to change top buttons
     private val ChangeTopButtons by booleanPatchOption(
@@ -200,6 +209,12 @@ object OverlayButtonsPatch : BaseResourcePatch(
                             "@id/time_bar_chapter_title" to "16.0dip",
                             "@id/timestamps_container" to "14.0dip"
                         )
+                        
+                        val widerButtonsSpace = WiderButtonsSpace == true
+                        val layoutHeightWidth = if (widerButtonsSpace)
+                            "56.0dip"
+                        else
+                            "48.0dip"
 
                         if (isButton) {
                             node.setAttribute("android:layout_marginBottom", marginBottom)
@@ -207,12 +222,14 @@ object OverlayButtonsPatch : BaseResourcePatch(
                             node.setAttribute("android:paddingRight", "0.0dip")
                             node.setAttribute("android:paddingBottom", "22.0dip")
                             if (heightIsNotZero && widthIsNotZero) {
-                                node.setAttribute("android:layout_height", "48.0dip")
-                                node.setAttribute("android:layout_width", "48.0dip")
+                                node.setAttribute("android:layout_height", layoutHeightWidth)
+                                node.setAttribute("android:layout_width", layoutHeightWidth)
                             }
                         } else if (timBarItem.containsKey(id)) {
                             node.setAttribute("android:layout_marginBottom", marginBottom)
-                            node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
+                            if (!widerButtonsSpace) {
+                                node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
+                            }
                         }
                     }
                 }

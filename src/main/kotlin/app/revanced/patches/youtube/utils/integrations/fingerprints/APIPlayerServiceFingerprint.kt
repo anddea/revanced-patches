@@ -9,6 +9,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * It appears this hook may no longer be needed as one of the constructor parameters is the already hooked
  * [EmbeddedPlayerControlsOverlayFingerprint]
  */
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object APIPlayerServiceFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;" },

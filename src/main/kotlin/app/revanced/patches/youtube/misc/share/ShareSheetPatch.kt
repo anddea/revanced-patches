@@ -13,8 +13,8 @@ import app.revanced.patches.youtube.utils.integrations.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomSheetRecyclerView
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -46,8 +46,8 @@ object ShareSheetPatch : BaseBytecodePatch(
 
         // Detects that the Share sheet panel has been invoked.
         BottomSheetRecyclerViewFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(BottomSheetRecyclerView)
-            val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(BottomSheetRecyclerView)
+            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

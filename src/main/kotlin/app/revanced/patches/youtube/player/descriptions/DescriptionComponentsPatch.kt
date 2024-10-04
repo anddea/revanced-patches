@@ -20,10 +20,14 @@ import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.recyclerview.BottomSheetRecyclerViewPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.alsoResolve
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object DescriptionComponentsPatch : BaseBytecodePatch(
@@ -54,23 +58,23 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
         // In order to maintain compatibility with YouTube v18.48.39 or previous versions,
         // This patch is applied only to the version after YouTube v18.49.37.
         if (SettingsPatch.upward1849) {
-            RollingNumberTextViewAnimationUpdateFingerprint.resolve(
-                context,
-                RollingNumberTextViewFingerprint.resultOrThrow().classDef
-            )
-            RollingNumberTextViewAnimationUpdateFingerprint.resultOrThrow().let {
+            RollingNumberTextViewAnimationUpdateFingerprint.alsoResolve(
+                context, RollingNumberTextViewFingerprint
+            ).let {
                 it.mutableMethod.apply {
                     val freeRegister = implementation!!.registerCount - parameters.size - 2
                     val imageSpanIndex = it.scanResult.patternScanResult!!.startIndex
-                    val setTextIndex = getTargetIndexWithMethodReferenceNameOrThrow("setText")
-
+                    val setTextIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "setText"
+                    }
                     addInstruction(setTextIndex, "nop")
                     addInstructionsWithLabels(
                         imageSpanIndex, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableRollingNumberAnimations()Z
-                        move-result v$freeRegister
-                        if-nez v$freeRegister, :disable_animations
-                        """, ExternalLabel("disable_animations", getInstruction(setTextIndex))
+                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->disableRollingNumberAnimations()Z
+                            move-result v$freeRegister
+                            if-nez v$freeRegister, :disable_animations
+                            """, ExternalLabel("disable_animations", getInstruction(setTextIndex))
                     )
                 }
             }
@@ -106,13 +110,11 @@ object DescriptionComponentsPatch : BaseBytecodePatch(
                 }
             }
 
-            EngagementPanelTitleFingerprint.resolve(
-                context,
-                EngagementPanelTitleParentFingerprint.resultOrThrow().classDef
-            )
-            EngagementPanelTitleFingerprint.resultOrThrow().mutableMethod.apply {
-                val contentDescriptionIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("setContentDescription")
+            EngagementPanelTitleFingerprint.alsoResolve(
+                context, EngagementPanelTitleParentFingerprint
+            ).mutableMethod.apply {
+                val contentDescriptionIndex = EngagementPanelTitleFingerprint
+                    .indexOfContentDescriptionInstruction(this)
                 val contentDescriptionRegister =
                     getInstruction<FiveRegisterInstruction>(contentDescriptionIndex).registerD
 
