@@ -158,6 +158,12 @@ public final class app/revanced/patches/music/layout/playeroverlay/PlayerOverlay
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/music/layout/translations/TranslationsPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/layout/translations/TranslationsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/util/patch/BaseBytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -208,16 +214,6 @@ public final class app/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatc
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/tracking/SanitizeUrlQueryPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/music/misc/translations/TranslationsPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/translations/TranslationsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/music/misc/translations/TranslationsPatchKt {
-	public static final fun getLANGUAGES ()[Ljava/lang/String;
 }
 
 public final class app/revanced/patches/music/navigation/components/NavigationBarComponentsPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -460,11 +456,12 @@ public final class app/revanced/patches/music/utils/settings/ResourceUtils {
 	public final fun addPreferenceCategoryUnderPreferenceScreen (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addPreferenceWithIntent (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun addRVXSettingsPreference (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun addSwitchPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
+	public final fun addSwitchPreference (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 	public final fun getIconType ()Ljava/lang/String;
 	public final fun getMusicPackageName ()Ljava/lang/String;
 	public final fun setIconType (Ljava/lang/String;)V
 	public final fun setMusicPackageName (Ljava/lang/String;)V
+	public final fun setPreferenceScreenIcon (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public final fun sortPreferenceCategory (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public final fun updatePackageName (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 }
@@ -1110,6 +1107,12 @@ public final class app/revanced/patches/youtube/layout/theme/ThemePatch : app/re
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/youtube/layout/translations/TranslationsPatch : app/revanced/util/patch/BaseResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/translations/TranslationsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/layout/visual/VisualPreferencesIconsPatch : app/revanced/util/patch/BaseResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/visual/VisualPreferencesIconsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1182,16 +1185,6 @@ public final class app/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryPa
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/tracking/SanitizeUrlQueryPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/misc/translations/TranslationsPatch : app/revanced/util/patch/BaseResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/translations/TranslationsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/misc/translations/TranslationsPatchKt {
-	public static final fun getLANGUAGES ()[Ljava/lang/String;
 }
 
 public final class app/revanced/patches/youtube/misc/watchhistory/WatchHistoryPatch : app/revanced/util/patch/BaseBytecodePatch {
@@ -1534,6 +1527,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun getCompactLink ()J
 	public final fun getCompactListItem ()J
 	public final fun getComponentLongClickListener ()J
+	public final fun getContentPill ()J
 	public final fun getControlsLayoutStub ()J
 	public final fun getDarkBackground ()J
 	public final fun getDarkSplashAnimation ()J
@@ -1639,6 +1633,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public final fun setCompactLink (J)V
 	public final fun setCompactListItem (J)V
 	public final fun setComponentLongClickListener (J)V
+	public final fun setContentPill (J)V
 	public final fun setControlsLayoutStub (J)V
 	public final fun setDarkBackground (J)V
 	public final fun setDarkSplashAnimation (J)V
@@ -1743,8 +1738,6 @@ public final class app/revanced/patches/youtube/utils/settings/ResourceUtils {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/utils/settings/ResourceUtils;
 	public static final field TARGET_PREFERENCE_PATH Ljava/lang/String;
 	public static final field YOUTUBE_SETTINGS_PATH Ljava/lang/String;
-	public final fun addEntryValues (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-	public static synthetic fun addEntryValues$default (Lapp/revanced/patches/youtube/utils/settings/ResourceUtils;Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
 	public final fun addPreference (Lapp/revanced/patcher/data/ResourceContext;[Ljava/lang/String;)V
 	public final fun addPreferenceFragment (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun getIconType ()Ljava/lang/String;
@@ -1911,7 +1904,10 @@ public final class app/revanced/util/ResourceGroup {
 }
 
 public final class app/revanced/util/ResourceUtilsKt {
+	public static final fun addEntryValues (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public static synthetic fun addEntryValues$default (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
 	public static final fun adoptChild (Lorg/w3c/dom/Node;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static final fun appendAppVersion (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;)V
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun copyFile (Lapp/revanced/patcher/data/ResourceContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
 	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;Z)V
