@@ -41,6 +41,18 @@ fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
 fun MultiMethodFingerprint.resultOrThrow() = result.ifEmpty { throw exception }
 
+fun parametersEqual(
+    parameters1: Iterable<CharSequence>,
+    parameters2: Iterable<CharSequence>
+): Boolean {
+    if (parameters1.count() != parameters2.count()) return false
+    val iterator1 = parameters1.iterator()
+    parameters2.forEach {
+        if (!it.startsWith(iterator1.next())) return false
+    }
+    return true
+}
+
 /**
  * The [PatchException] of failing to resolve a [MethodFingerprint].
  *
