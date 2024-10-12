@@ -93,9 +93,9 @@ object MiniplayerPatch : BaseBytecodePatch(
 
         // Modern mini player is only present and functional in 19.15+.
         // Resource is not present in older versions. Using it to determine, if patching an old version.
-        val isPatchingOldVersion = !SettingsPatch.upward1912
+        val isPatchingOldVersion = !SettingsPatch.upward1915
 
-        // From 19.12 to 19.16 using mixed up drawables for tablet modern.
+        // From 19.15 to 19.16 using mixed up drawables for tablet modern.
         val shouldFixMixedUpDrawables = YtOutlineXWhite > 0 && YtOutlinePictureInPictureWhite > 0
 
         // region Enable tablet miniplayer.
