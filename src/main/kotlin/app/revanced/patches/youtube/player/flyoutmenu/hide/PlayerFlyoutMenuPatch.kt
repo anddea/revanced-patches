@@ -93,8 +93,10 @@ object PlayerFlyoutMenuPatch : BaseBytecodePatch(
         // region patch for hide '1080p Premium' label
 
         VideoQualityArrayFingerprint.resultOrThrow().mutableMethod.apply {
-            val qualityLabelIndex = VideoQualityArrayFingerprint.indexOfQualityLabelInstruction(this) + 1
-            val qualityLabelRegister = getInstruction<OneRegisterInstruction>(qualityLabelIndex).registerA
+            val qualityLabelIndex =
+                VideoQualityArrayFingerprint.indexOfQualityLabelInstruction(this) + 1
+            val qualityLabelRegister =
+                getInstruction<OneRegisterInstruction>(qualityLabelIndex).registerA
             val jumpIndex = indexOfFirstInstructionReversedOrThrow(qualityLabelIndex) {
                 opcode == Opcode.INVOKE_INTERFACE &&
                         getReference<MethodReference>()?.name == "hasNext"

@@ -68,7 +68,10 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
         }
 
         if (SettingsPatch.upward1834) {
-            TextComponentPatch.hookSpannableString(INTEGRATIONS_RYD_CLASS_DESCRIPTOR, "onCharSequenceLoaded")
+            TextComponentPatch.hookSpannableString(
+                INTEGRATIONS_RYD_CLASS_DESCRIPTOR,
+                "onCharSequenceLoaded"
+            )
         }
     }
 }

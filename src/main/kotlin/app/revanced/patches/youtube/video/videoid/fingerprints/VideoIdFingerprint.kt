@@ -32,7 +32,8 @@ internal object VideoIdFingerprint : MethodFingerprint(
             return@custom false
         }
 
-        val reference = (instructions.elementAt(instructionCount - 2) as? ReferenceInstruction)?.reference.toString()
+        val reference =
+            (instructions.elementAt(instructionCount - 2) as? ReferenceInstruction)?.reference.toString()
         if (reference != "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;") {
             return@custom false
         }

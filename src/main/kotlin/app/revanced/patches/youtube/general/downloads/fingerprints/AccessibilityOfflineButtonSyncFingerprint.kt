@@ -20,7 +20,7 @@ internal object AccessibilityOfflineButtonSyncFingerprint : MethodFingerprint(
             return@custom false
         }
 
-        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 3..< parameterSize)
+        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 3..<parameterSize)
         parametersEqual(ENDS_WITH_PARAMETER_LIST, endsWithMethodParameterList)
     }
 ) {

@@ -372,11 +372,13 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         // region patch for hide YouTube Doodles
 
         YoodlesImageViewFingerprint.resultOrThrow().mutableMethod.apply {
-            findOpcodeIndicesReversed{
+            findOpcodeIndicesReversed {
                 opcode == Opcode.INVOKE_VIRTUAL
                         && getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
-                val (viewRegister, drawableRegister) = getInstruction<FiveRegisterInstruction>(insertIndex).let {
+                val (viewRegister, drawableRegister) = getInstruction<FiveRegisterInstruction>(
+                    insertIndex
+                ).let {
                     Pair(it.registerC, it.registerD)
                 }
                 replaceInstruction(

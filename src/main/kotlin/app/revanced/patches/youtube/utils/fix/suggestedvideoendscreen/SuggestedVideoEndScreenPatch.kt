@@ -50,7 +50,7 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
                 val invokeIndex =
                     indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
-                                reference?.returnType == "Z" &&
+                        reference?.returnType == "Z" &&
                                 reference.parameterTypes.size == 0 &&
                                 reference.name == autoNavStatusMethodName
                     }
