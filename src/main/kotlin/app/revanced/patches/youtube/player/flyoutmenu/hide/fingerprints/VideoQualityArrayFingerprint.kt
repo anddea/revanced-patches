@@ -34,7 +34,7 @@ internal object VideoQualityArrayFingerprint : MethodFingerprint(
         }
 
         val startsWithMethodParameterList = parameterTypes.slice(0..0)
-        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 2..< parameterSize)
+        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 2..<parameterSize)
 
         parametersEqual(STARTS_WITH_PARAMETER_LIST, startsWithMethodParameterList) &&
                 parametersEqual(ENDS_WITH_PARAMETER_LIST, endsWithMethodParameterList) &&

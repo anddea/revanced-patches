@@ -48,7 +48,7 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         }
 
         val startsWithMethodParameterList = parameterTypes.slice(0..5)
-        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 7..< parameterSize)
+        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 7..<parameterSize)
 
         parametersEqual(STARTS_WITH_PARAMETER_LIST, startsWithMethodParameterList) &&
                 parametersEqual(ENDS_WITH_PARAMETER_LIST, endsWithMethodParameterList)

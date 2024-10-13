@@ -238,7 +238,7 @@ abstract class BaseGmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-            -> referencedString.replace("com.google", gmsCoreVendor)
+                -> referencedString.replace("com.google", gmsCoreVendor)
 
             // No vendor prefix for whatever reason...
             "subscribedfeeds" -> "$gmsCoreVendor.subscribedfeeds"
@@ -279,7 +279,7 @@ abstract class BaseGmsCoreSupportPatch(
         when (string) {
             "$fromPackageName.SuggestionsProvider",
             "$fromPackageName.fileprovider",
-            -> string.replace(fromPackageName, toPackageName)
+                -> string.replace(fromPackageName, toPackageName)
 
             else -> null
         }

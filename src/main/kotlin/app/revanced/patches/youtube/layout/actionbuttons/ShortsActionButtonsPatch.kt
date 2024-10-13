@@ -81,11 +81,6 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
             )
         }
 
-        if (iconType == DEFAULT_ICON) {
-            SettingsPatch.updatePatchStatus(this)
-            return
-        }
-
         context.copyResources(
             "youtube/shorts/actionbuttons/shared",
             ResourceGroup(
