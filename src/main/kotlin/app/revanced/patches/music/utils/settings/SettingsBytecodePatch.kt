@@ -44,8 +44,10 @@ object SettingsBytecodePatch : BytecodePatch(
         "$INTEGRATIONS_PATH/settings/preference/ReVancedPreferenceFragment;"
     private const val INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR =
         "$UTILS_PATH/InitializationPatch;"
+    lateinit var contexts: BytecodeContext
 
     override fun execute(context: BytecodeContext) {
+        contexts = context
 
         /**
          * Set SharedPrefCategory

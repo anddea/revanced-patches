@@ -1,11 +1,15 @@
 package app.revanced.patches.music.general.spoofappversion
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.music.general.oldstylelibraryshelf.OldStyleLibraryShelfPatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.settings.CategoryType
+import app.revanced.patches.music.utils.settings.SettingsBytecodePatch
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.appendAppVersion
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.patch.BaseResourcePatch
 
 @Suppress("unused")
@@ -24,6 +28,13 @@ object SpoofAppVersionPatch : BaseResourcePatch(
 
         if (SettingsPatch.upward0718) {
             context.appendAppVersion("7.16.53")
+
+            SettingsBytecodePatch.contexts.findMethodOrThrow(GENERAL_CLASS_DESCRIPTOR) {
+                name == "getSpoofAppVersionDefault"
+            }.replaceInstruction(
+                0,
+                "const-string v0, \"7.16.53\""
+            )
         }
 
         SettingsPatch.addSwitchPreference(
