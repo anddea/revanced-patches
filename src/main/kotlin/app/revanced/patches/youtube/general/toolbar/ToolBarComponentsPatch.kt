@@ -24,6 +24,7 @@ import app.revanced.patches.youtube.general.toolbar.fingerprints.SearchBarParent
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SearchResultFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SetActionBarRingoFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.SetWordMarkHeaderFingerprint
+import app.revanced.patches.youtube.general.toolbar.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.general.toolbar.fingerprints.YouActionBarFingerprint
 import app.revanced.patches.youtube.utils.castbutton.CastButtonPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -42,6 +43,7 @@ import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.alsoResolve
 import app.revanced.util.doRecursively
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -84,6 +86,7 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
         SetActionBarRingoFingerprint,
         SetWordMarkHeaderFingerprint,
         ImageSearchButtonConfigFingerprint,
+        YoodlesImageViewFingerprint,
     )
 ) {
     private const val TARGET_RESOURCE_PATH = "res/layout/action_bar_ringo_background.xml"
@@ -360,6 +363,26 @@ object ToolBarComponentsPatch : BaseBytecodePatch(
                 addInstruction(
                     setOnClickListenerIndex + 1,
                     "invoke-static {v$viewRegister}, $GENERAL_CLASS_DESCRIPTOR->hideVoiceSearchButton(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        // endregion
+
+        // region patch for hide YouTube Doodles
+
+        YoodlesImageViewFingerprint.resultOrThrow().mutableMethod.apply {
+            findOpcodeIndicesReversed{
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && getReference<MethodReference>()?.name == "setImageDrawable"
+            }.forEach { insertIndex ->
+                val (viewRegister, drawableRegister) = getInstruction<FiveRegisterInstruction>(insertIndex).let {
+                    Pair(it.registerC, it.registerD)
+                }
+                replaceInstruction(
+                    insertIndex,
+                    "invoke-static {v$viewRegister, v$drawableRegister}, " +
+                            "$GENERAL_CLASS_DESCRIPTOR->hideYouTubeDoodles(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
                 )
             }
         }
