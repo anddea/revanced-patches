@@ -666,6 +666,14 @@
     </PreferenceScreen>PREFERENCE_SCREEN: RETURN_YOUTUBE_DISLIKE -->
 
 
+    <!-- PREFERENCE_SCREEN: RETURN_YOUTUBE_USERNAME
+    <PreferenceScreen android:title="@string/revanced_preference_screen_return_youtube_username_title" android:key="revanced_preference_screen_return_youtube_username" >
+        <SwitchPreference android:title="@string/revanced_return_youtube_username_enabled_title" android:key="revanced_return_youtube_username_enabled" android:summaryOn="@string/revanced_return_youtube_username_enabled_summary_on" android:summaryOff="@string/revanced_return_youtube_username_enabled_summary_off" />
+        <app.revanced.integrations.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_return_youtube_username_youtube_data_api_v3_developer_key_title" android:key="revanced_return_youtube_username_youtube_data_api_v3_developer_key" android:summary="@string/revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary" android:dependency="revanced_return_youtube_username_enabled" />
+        <app.revanced.integrations.youtube.settings.preference.AboutYouTubeDataAPIPreference android:title="@string/revanced_return_youtube_username_youtube_data_api_v3_about_title" android:summary="@string/revanced_return_youtube_username_youtube_data_api_v3_about_summary" />
+    </PreferenceScreen>PREFERENCE_SCREEN: RETURN_YOUTUBE_USERNAME -->
+
+
     <!-- PREFERENCE_SCREEN: SPONSOR_BLOCK
     <PreferenceScreen android:title="@string/revanced_preference_screen_sb_title" android:key="revanced_preference_screen_sb" >
         <SwitchPreference android:title="@string/revanced_sb_enable_sb" android:key="sb_enabled" android:summary="@string/revanced_sb_enable_sb_sum" />
@@ -852,6 +860,7 @@
                 <Preference android:title="Icon" android:summary="@string/revanced_icon_default" android:selectable="false"/>
                 <Preference android:title="Label" android:summary="@string/revanced_label_default" android:selectable="false"/>
                 <Preference android:title="Return YouTube Dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Return YouTube Username" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="SponsorBlock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Theme" android:summary="@string/revanced_theme_default" android:selectable="false"/>
                 <Preference android:title="Translations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
