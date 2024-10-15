@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
@@ -13,6 +14,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint
+import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint.AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
 import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightFingerprint
 import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightParentFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSearchRenderedFingerprint
@@ -46,7 +48,6 @@ import app.revanced.patches.music.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DarkBackground
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
@@ -629,14 +630,25 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for hide audio video switch toggle
 
         AudioVideoSwitchToggleFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(AudioVideoSwitchToggle)
-            val viewIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
-            val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                    reference is MethodReference &&
+                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
+                    val instruction = getInstruction<FiveRegisterInstruction>(index)
 
-            addInstruction(
-                viewIndex + 1,
-                "invoke-static {v$viewRegister}, $PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;)V"
-            )
+                    replaceInstruction(
+                        index,
+                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
+                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
+                    )
+                }
         }
 
         SettingsPatch.addSwitchPreference(
