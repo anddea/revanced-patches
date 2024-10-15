@@ -151,6 +151,7 @@ object ResourceUtils {
                 }
                 .forEach {
                     it.adoptChild("Preference") {
+                        setAttribute("android:key", key)
                         setAttribute("android:title", "@string/$key" + "_title")
                         setAttribute("android:summary", "@string/$key" + "_summary")
                         this.adoptChild("intent") {
