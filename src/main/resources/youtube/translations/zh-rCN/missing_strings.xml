@@ -1,8 +1,69 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Chapters are enabled in the seekbar.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Chapters are disabled in the seekbar.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Disable seekbar chapters</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p Premium menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p Premium menu is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Hide 1080p Premium menu</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the timestamp are shown.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the timestamp are hidden.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Hide seekbar chapter labels</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">About menu is shown.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">About menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_about_title">Hide About menu</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">Accessibility menu is shown.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">Accessibility menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Hide Accessibility menu</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Billing and payments menu is shown.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Billing and payments menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Hide Billing and payments menu</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">Captions menu is shown.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">Captions menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Hide Captions menu</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Connected apps menu is shown.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Connected apps menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Hide Connected apps menu</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">Live chat menu is shown.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">Live chat menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Hide Live chat menu</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">Notifications menu is shown.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">Notifications menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Hide Notifications menu</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Try experimental new features menu is shown.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Try experimental new features menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Hide Try experimental new features menu</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Purchases and memberships menu is shown.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Purchases and memberships menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Hide Purchases and memberships menu</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles are shown.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles are hidden.</string>
+    <string name="revanced_hide_youtube_doodles_title">Hide YouTube Doodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles show up a few days each year.
+
+If a YouTube Doodle is currently showing in your region and this setting is on, the filter bar below the search bar will also be hidden."</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">Handle is used.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Username is used.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"A YouTube Data API v3 Developer Key is required to replace handles with usernames.
+
+The daily quota for API keys on the free plan is 10,000, and 1 quota is used to replace a handle with a username for 1 comment.
+
+Click to see how to issue a API key."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">About YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">The developer key for using the YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are hidden.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown.</string>
+    <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
 </resources>

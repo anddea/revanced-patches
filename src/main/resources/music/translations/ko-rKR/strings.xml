@@ -152,7 +152,7 @@
     <string name="revanced_hide_category_bar_title">카테고리 바 제거</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">댓글 섹션 상단에서 커뮤니티 가이드라인을 숨깁니다.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">커뮤니티 가이드라인 제거</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프와 이모지 버튼을 숨깁니다.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">댓글을 입력할 때, 타임스탬프 및 이모지 버튼을 숨깁니다.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">타임스탬프, 이모지 버튼 제거</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">두 번 눌러서 탐색할 때 표시되는 어두운 오버레이를 숨깁니다.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">두 번 누르기 오버레이 필터</string>
@@ -233,8 +233,16 @@
     <string name="revanced_hide_promotion_alert_banner_title">프로모션 알림 배너 제거</string>
     <string name="revanced_hide_samples_shelf_summary">피드에서 샘플 선반을 숨깁니다.</string>
     <string name="revanced_hide_samples_shelf_title">샘플 선반 제거</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">필터링할 설정 메뉴 이름을 줄바꿈으로 구분하여 설정합니다.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">설정 메뉴 필터</string>
+    <string name="revanced_hide_settings_menu_about_title">YouTube Music 정보 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">데이터 절약 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">오프라인 저장 및 저장용량 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_general_title">일반 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_notification_title">알림 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Music Premium 가입 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">가족 센터 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_playback_title">재생 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">개인 정보 보호 및 데이터 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">맞춤 콘텐츠 메뉴 숨기기</string>
     <string name="revanced_hide_settings_menu_summary">"설정 메뉴 구성요소를 숨깁니다.
 YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨집니다."</string>
     <string name="revanced_hide_settings_menu_title">설정 메뉴 제거</string>
@@ -256,6 +264,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_preference_screen_player_title">플레이어</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">설정 메뉴</string>
     <string name="revanced_preference_screen_video_title">동영상</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">재생 속도 값을 변경할 때마다 저장합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">재생 속도 저장 활성화</string>
@@ -294,7 +303,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_restore_old_player_layout_summary">"이전 플레이어 레이아웃으로 복원합니다.
 이전 플레이어 레이아웃에서 일부 기능이 제대로 작동하지 않을 수 있습니다."</string>
     <string name="revanced_restore_old_player_layout_title">이전 플레이어 레이아웃으로 복원</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험적인 기능)</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험 기능)</string>
     <string name="revanced_restore_old_style_library_shelf_title">이전 보관함 선반으로 복원</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
@@ -374,6 +383,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
 • 나중에 이 기능을 비활성화하면 앱 데이터를 지우기 전까지 이전 레이아웃이 유지될 수 있습니다."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - 캐나다 지역에서 뮤직 스테이션 모드를 비활성화합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - 실시간 가사를 비활성화합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 이전 액션바로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>

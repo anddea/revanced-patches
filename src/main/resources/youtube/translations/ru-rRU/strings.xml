@@ -263,8 +263,6 @@
     <string name="revanced_enable_open_links_directly_title">Перенаправление ссылок</string>
     <string name="revanced_enable_opus_codec_summary">Включить кодек OPUS, если содержимое в плеере подходит для кодека.</string>
     <string name="revanced_enable_opus_codec_title">Включить кодек OPUS</string>
-    <string name="revanced_enable_phone_layout_summary">Подмена DPI для телефонного интерфейса.</string>
-    <string name="revanced_enable_phone_layout_title">Телефонный интерфейс</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Не сохранять и не восстанавливать яркость при переключениях полного экрана.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Сохранять и восстанавливать яркость при переключениях полного экрана.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Сохранение и восстановление яркости</string>
@@ -294,8 +292,6 @@
     <string name="revanced_enable_swipe_volume_summary_off">Громкость жестом отключено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Громкость жестом включено.</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
-    <string name="revanced_enable_tablet_layout_summary">Подмена DPI для планшетного интерфейса.</string>
-    <string name="revanced_enable_tablet_layout_title">Планшетный интерфейс</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачная панель навигации</string>
@@ -762,9 +758,9 @@ Shorts
     <string name="revanced_hide_related_videos_summary_off">Похожие видео отображены.</string>
     <string name="revanced_hide_related_videos_summary_on">Похожие видео скрыты.</string>
     <string name="revanced_hide_related_videos_title">Похожие видео</string>
-    <string name="revanced_hide_related_videos_user_dialog_message">"Этот параметр ограничивает максимальное количество макетов, которые могут быть загружены на экране плеера.
+    <string name="revanced_hide_related_videos_user_dialog_message">"Этот параметр ограничивает количество контейнеров по умолчанию, которые влияют на отображение похожих видео.
 
-Если макет экрана проигрывателя меняется из-за изменений на стороне сервера, незапланированные макеты могут быть скрыты на экране плеера."</string>
+Если параметр изменен на стороне сервера, не запрошенные, контейнеры могут быть не доступны."</string>
     <string name="revanced_hide_remix_button_summary_off">Кнопка \"Ремикс\" отображена.</string>
     <string name="revanced_hide_remix_button_summary_on">Кнопка \"Ремикс\" скрыта.</string>
     <string name="revanced_hide_remix_button_title">Кнопка \"Ремикс\"</string>
@@ -783,9 +779,6 @@ Shorts
     <string name="revanced_hide_seek_undo_message_summary_off">Сообщение при отмотке назад отображено.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Сообщение при отмотке назад скрыто.</string>
     <string name="revanced_hide_seek_undo_message_title">Сообщение при отмотке назад</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">Главы в шкале воспроизведения отображены.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">Главы в шкале воспроизведения скрыты.</string>
-    <string name="revanced_hide_seekbar_chapters_title">Главы в шкале воспроизведения</string>
     <string name="revanced_hide_seekbar_summary_off">Шкала воспроизведения отображена.</string>
     <string name="revanced_hide_seekbar_summary_on">Шкала воспроизведения скрыта.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюры шкалы воспроизведения отображены.</string>
@@ -795,14 +788,68 @@ Shorts
     <string name="revanced_hide_self_sponsor_cards_summary_off">Карточки саморекламы отображены.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Карточки саморекламы скрыты.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Карточки саморекламы</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"Подсказка:
-Аккаунт
-Сохранение данных
-Субтитры"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Список меню настроек YouTube для скрытия.\nРазделять новой строкой.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Фильтр меню настроек YouTube</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">О приложении отображено.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">О приложении скрыто.</string>
+    <string name="revanced_hide_settings_menu_about_title">О приложении</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">Специальные возможности отображены.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">Специальные возможности скрыты.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Специальные возможности</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">Аккаунт отображен.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">Аккаунт скрыт.</string>
+    <string name="revanced_hide_settings_menu_account_title">Аккаунт</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">Автовоспроизведение отображено.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">Автовоспроизведение скрыто.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">Автовоспроизведение</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Счета и платежи отображены.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Счета и платежи скрыты.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Счета и платежи</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">Субтитры отображены.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">Субтитры скрыты.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Субтитры</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Связанные приложения отображены.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Связанные приложения скрыты.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Связанные приложения</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">Экономия трафика отображена.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">Экономия трафика скрыта.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Экономия трафика</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">Общее отображено.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">Общее скрыто.</string>
+    <string name="revanced_hide_settings_menu_general_title">Общее</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">Управлять историей просмотра отображено.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">Управлять историей просмотра скрыто.</string>
+    <string name="revanced_hide_settings_menu_history_title">Управлять историей просмотра</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">Чат отображен.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">Чат скрыт.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Чат</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">Уведомления отображены.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">Уведомления скрыты.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Уведомления</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">Фоновый и офлайн режим отображен.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">Фоновый и офлайн режим скрыт.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Фоновый и офлайн режим</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Просмотр на телевизоре отображен.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Просмотр на телевизоре скрыт.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Просмотр на телевизоре</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Семейный центр отображен.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Семейный центр скрыт.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Семейный центр</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Экспериментальные функции отображены.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Экспериментальные функции скрыты.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Экспериментальные функции</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">Конфиденциальность отображена.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">Конфиденциальность скрыта.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Конфиденциальность</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Покупки и платные подписки отображены.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Покупки и платные подписки скрыты.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Покупки и платные подписки</string>
     <string name="revanced_hide_settings_menu_summary">Скрытие элементов в меню настроек YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Меню настроек YouTube</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">Качество видео отображено.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">Качество видео скрыто.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Качество видео</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">Ваши данные на YouTube отображено.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">Ваши данные на YouTube скрыто.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Ваши данные на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Кнопка \"Поделиться\" отображена.</string>
     <string name="revanced_hide_share_button_summary_on">Кнопка \"Поделиться\" скрыта.</string>
     <string name="revanced_hide_share_button_title">Кнопка \"Поделиться\"</string>
@@ -1031,6 +1078,12 @@ Shorts
     <string name="revanced_hide_web_search_results_summary_off">Результаты веб поиска отображены.</string>
     <string name="revanced_hide_web_search_results_summary_on">Результаты веб поиска скрыты.</string>
     <string name="revanced_hide_web_search_results_title">Результаты веб поиска</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles отображены.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles скрыты.</string>
+    <string name="revanced_hide_youtube_doodles_title">YouTube Doodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles появляются несколько дней в году.
+
+Если YouTube Doodles отображаются в вашем регионе и они скрыты, то панель фильтров под строкой поиска будет также скрыта."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Увеличение наложения включено.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Увеличение наложения отключено.</string>
     <string name="revanced_hide_zoom_overlay_title">Увеличение наложения</string>
