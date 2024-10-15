@@ -44,6 +44,12 @@ object ReturnYouTubeDislikePatch : BaseResourcePatch(
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.RETURN_YOUTUBE_DISLIKE,
+            "revanced_ryd_estimated_like",
+            "false",
+            "revanced_ryd_enabled"
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.RETURN_YOUTUBE_DISLIKE,
             "revanced_ryd_toast_on_connection_error",
             "false",
             "revanced_ryd_enabled"
