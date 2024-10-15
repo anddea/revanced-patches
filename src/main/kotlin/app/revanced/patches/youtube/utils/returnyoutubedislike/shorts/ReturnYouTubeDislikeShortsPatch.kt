@@ -1,33 +1,29 @@
 package app.revanced.patches.youtube.utils.returnyoutubedislike.shorts
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.utils.fingerprints.TextComponentSpecFingerprint
+import app.revanced.patches.shared.textcomponent.TextComponentPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.returnyoutubedislike.shorts.fingerprints.ShortsTextViewFingerprint
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Patch(dependencies = [SettingsPatch::class])
+@Patch(
+    dependencies = [
+        SettingsPatch::class,
+        TextComponentPatch::class
+    ]
+)
 object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
-    setOf(
-        ShortsTextViewFingerprint,
-        TextComponentSpecFingerprint
-    )
+    setOf(ShortsTextViewFingerprint)
 ) {
     private const val INTEGRATIONS_RYD_CLASS_DESCRIPTOR =
         "$UTILS_PATH/ReturnYouTubeDislikePatch;"
@@ -71,31 +67,8 @@ object ReturnYouTubeDislikeShortsPatch : BytecodePatch(
             }
         }
 
-        if (!SettingsPatch.upward1834) {
-            return
-        }
-
-        TextComponentSpecFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    getReference<MethodReference>()?.toString() == "Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;"
-                }
-                val charSequenceRegister =
-                    getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-                val conversionContextRegister =
-                    getInstruction<TwoRegisterInstruction>(0).registerA
-                val replaceReference =
-                    getInstruction<ReferenceInstruction>(insertIndex).reference
-
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$conversionContextRegister, v$charSequenceRegister}, $INTEGRATIONS_RYD_CLASS_DESCRIPTOR->onCharSequenceLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                        invoke-static {v$charSequenceRegister}, $replaceReference
-                        """
-                )
-                removeInstruction(insertIndex)
-            }
+        if (SettingsPatch.upward1834) {
+            TextComponentPatch.hookSpannableString(INTEGRATIONS_RYD_CLASS_DESCRIPTOR, "onCharSequenceLoaded")
         }
     }
 }
