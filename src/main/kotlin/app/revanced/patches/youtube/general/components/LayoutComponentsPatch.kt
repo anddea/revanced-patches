@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.LithoFilterPatch
@@ -19,11 +20,13 @@ import app.revanced.patches.youtube.general.components.fingerprints.AppBlockingC
 import app.revanced.patches.youtube.general.components.fingerprints.BottomUiContainerFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.FloatingMicrophoneFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.PiPNotificationFingerprint
+import app.revanced.patches.youtube.general.components.fingerprints.PreferenceScreenFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.TooltipContentFullscreenFingerprint
 import app.revanced.patches.youtube.general.components.fingerprints.TooltipContentViewFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.AccountSwitcherAccessibility
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
@@ -60,10 +63,13 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         BottomUiContainerFingerprint,
         FloatingMicrophoneFingerprint,
         PiPNotificationFingerprint,
+        PreferenceScreenFingerprint,
         TooltipContentFullscreenFingerprint,
         TooltipContentViewFingerprint
     )
 ) {
+    private const val INTEGRATIONS_SETTINGS_MENU_DESCRIPTOR =
+        "$GENERAL_PATH/SettingsMenuPatch;"
     private const val CUSTOM_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/CustomFilter;"
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
@@ -189,6 +195,29 @@ object LayoutComponentsPatch : BaseBytecodePatch(
                         """
                 )
             }
+        }
+
+        // endregion
+
+        // region patch for hide setting menus
+
+        PreferenceScreenFingerprint.resultOrThrow().mutableMethod.apply {
+            val targetIndex =
+                PreferenceScreenFingerprint.indexOfPreferenceScreenInstruction(this)
+            val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerC
+            val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
+
+            val insertIndex = implementation!!.instructions.lastIndex
+
+            addInstructions(
+                insertIndex + 1, """
+                    invoke-virtual {v$targetRegister}, $targetReference
+                    move-result-object v$targetRegister
+                    invoke-static {v$targetRegister}, $INTEGRATIONS_SETTINGS_MENU_DESCRIPTOR->hideSettingsMenu(Landroidx/preference/PreferenceScreen;)V
+                    return-void
+                    """
+            )
+            removeInstruction(insertIndex)
         }
 
         // endregion

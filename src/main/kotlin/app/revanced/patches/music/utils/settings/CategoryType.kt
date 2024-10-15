@@ -8,6 +8,7 @@ enum class CategoryType(val value: String, var added: Boolean) {
     FLYOUT("flyout", false),
     NAVIGATION("navigation", false),
     PLAYER("player", false),
+    SETTINGS("settings", false),
     VIDEO("video", false),
     RETURN_YOUTUBE_DISLIKE("ryd", false),
     SPONSOR_BLOCK("sb", false),

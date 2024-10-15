@@ -2,7 +2,6 @@ package app.revanced.patches.music.ads.general
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patches.music.ads.general.MusicAdsPatch.hookLithoFullscreenAds
 import app.revanced.patches.music.ads.general.MusicAdsPatch.hookNonLithoFullscreenAds
@@ -10,8 +9,6 @@ import app.revanced.patches.music.ads.general.fingerprints.AccountMenuFooterFing
 import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.GetPremiumTextViewFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
-import app.revanced.patches.music.ads.general.fingerprints.MembershipSettingsFingerprint
-import app.revanced.patches.music.ads.general.fingerprints.MembershipSettingsParentFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.ShowDialogCommandFingerprint
 import app.revanced.patches.music.navigation.components.NavigationBarComponentsPatch
@@ -55,7 +52,6 @@ object AdsPatch : BaseBytecodePatch(
         FloatingLayoutFingerprint,
         GetPremiumTextViewFingerprint,
         InterstitialsContainerFingerprint,
-        MembershipSettingsParentFingerprint,
         NotifierShelfFingerprint,
         ShowDialogCommandFingerprint
     )
@@ -162,20 +158,6 @@ object AdsPatch : BaseBytecodePatch(
                 }
             }
         }
-
-        // premium membership menu in settings
-        MembershipSettingsFingerprint.resolve(
-            context,
-            MembershipSettingsParentFingerprint.resultOrThrow().classDef
-        )
-        MembershipSettingsFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0, """
-                const/4 v0, 0x0
-                return-object v0
-                """
-        )
-
-        // endregion
 
         LithoFilterPatch.addFilter(ADS_FILTER_CLASS_DESCRIPTOR)
 
