@@ -66,13 +66,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
     <string name="revanced_change_layout_entry_1">기기 기본값 사용</string>
     <string name="revanced_change_layout_entry_2">폰</string>
-    <string name="revanced_change_layout_entry_3">폰 (최대 너비: 480 dpi)</string>
+    <string name="revanced_change_layout_entry_3">폰 (최대 너비: 480 dp)</string>
     <string name="revanced_change_layout_entry_4">태블릿</string>
-    <string name="revanced_change_layout_entry_5">태블릿 (최소 너비: 600 dpi)</string>
+    <string name="revanced_change_layout_entry_5">태블릿 (최소 너비: 600 dp)</string>
     <string name="revanced_change_layout_title">레이아웃 변경하기</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">스위치 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">텍스트 토글으로 표시합니다.</string>
-    <string name="revanced_change_player_flyout_menu_toggle_title">토글 타입 변경하기</string>
+    <string name="revanced_change_player_flyout_menu_toggle_title">토글 유형 변경하기</string>
     <string name="revanced_change_share_sheet_summary_off">YouTube 기본 공유 시트를 사용합니다.</string>
     <string name="revanced_change_share_sheet_summary_on">Android 기본 공유 시트를 사용합니다.\n\n• 공유 버튼으로 바로 Android 기본 공유 메뉴를 실행할 수 있습니다.</string>
     <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
@@ -103,7 +103,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_start_page_type_summary_on">"앱 시작 페이지가 항상 변경됩니다.
 
 알려진 문제점: 툴바에서 '뒤로 가기' 버튼이 작동되지 않을 수 있습니다."</string>
-    <string name="revanced_change_start_page_type_title">앱 시작 페이지 타입 변경하기</string>
+    <string name="revanced_change_start_page_type_title">앱 시작 페이지 유형 변경하기</string>
     <string name="revanced_change_youtube_header_summary_off">일반 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_title">YouTube 헤더 변경하기</string>
@@ -115,7 +115,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 필터 값입니다: %s</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">이전 메뉴 구성요소를 활성화합니다.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">사용자 정의 다이얼로그를 활성화합니다.</string>
-    <string name="revanced_custom_playback_speed_menu_type_title">사용자 정의 동영상 재생 속도 메뉴 타입 설정</string>
+    <string name="revanced_custom_playback_speed_menu_type_title">사용자 정의 동영상 재생 속도 메뉴 유형 설정</string>
     <string name="revanced_custom_playback_speeds_invalid">사용자 정의 재생 속도는 %s 배속보다 작아야 합니다.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">잘못된 재생 속도 값입니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
@@ -200,6 +200,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다.\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
     <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">재생바에서 챕터를 활성화합니다.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">재생바에서 챕터를 비활성화합니다.</string>
+    <string name="revanced_disable_seekbar_chapters_title">재생바 챕터 비활성화하기</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">좋아요 버튼 상단에 표시되는 애니메이션을 활성화합니다.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">좋아요 버튼 상단에 표시되는 애니메이션을 비활성화합니다.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">좋아요 상단 애니메이션 비활성화하기</string>
@@ -262,8 +265,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_open_links_directly_title">리다이렉션 없이 링크 바로 열기</string>
     <string name="revanced_enable_opus_codec_summary">플레이어 응답에 OPUS 코덱이 포함된 경우에는 OPUS 코덱을 활성화합니다.</string>
     <string name="revanced_enable_opus_codec_title">OPUS 코덱 활성화하기</string>
-    <string name="revanced_enable_phone_layout_summary">dpi를 변경하여 일부 레이아웃을 휴대폰 레이아웃으로 활성화합니다.\n\n• \'태블릿 레이아웃으로 활성화하면 잠겨지는 RVX 설정\'이 태블릿 또는 폴더블 폰에서는 기본적으로 잠겨져 있으므로, 이 설정을 사용하고 싶으면 휴대폰 레이아웃으로 활성화해야 합니다.</string>
-    <string name="revanced_enable_phone_layout_title">휴대폰 레이아웃 활성화하기</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원하지 않습니다.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원합니다.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">화면 밝기 값 저장 및 복원 활성화하기</string>
@@ -295,19 +296,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-    <string name="revanced_enable_tablet_layout_summary">dpi를 변경하여 일부 레이아웃을 태블릿 레이아웃으로 활성화합니다.\n\n이 설정을 활성화하면 다음 RVX 설정이 잠겨질 수 있습니다:\n• 커뮤니티 게시물 숨기기\n• 믹스 재생목록 숨기기\n• 최신 동영상 버튼 숨기기\n• 관련 동영상 오버레이 숨기기</string>
-    <string name="revanced_enable_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">불투명 하단바를 활성화합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">반투명 하단바를 활성화합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">반투명 하단바 활성화하기</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환하지 않습니다.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환합니다.</string>
     <string name="revanced_enable_watch_panel_gestures_title">시청 패널 제스처 활성화하기</string>
-    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"이 설정을 활성화하면 나 탭의 설정 버튼이 비활성화됩니다.
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"이 설정을 활성화하면 내 페이지에서 설정 버튼이 비활성화됩니다.
 
 이 경우에 설정 메뉴를 보려면 다음 경로를 사용하세요:
-나 탭 → 채널 보기 → 메뉴 더보기 (툴바) → 설정"</string>
-    <string name="revanced_enable_wide_search_bar_in_you_tab_title">나 탭에서 넓은 검색창 활성화하기</string>
+내 페이지 → 채널 보기 → 메뉴 더보기 (툴바) → 설정"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_title">내 페이지에서 넓은 검색창 활성화하기</string>
     <string name="revanced_enable_wide_search_bar_summary_off">넓은 검색창을 비활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">넓은 검색창을 활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_title">넓은 검색창 활성화하기</string>
@@ -362,7 +361,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시하기</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">필터링할 계정 메뉴 이름을 줄바꿈으로 구분하여 설정합니다.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 메뉴 필터 편집하기</string>
-    <string name="revanced_hide_account_menu_summary">"계정 메뉴 및 나 탭에서 구성요소가 숨겨집니다.
+    <string name="revanced_hide_account_menu_summary">"계정 메뉴 및 내 페이지에서 구성요소가 숨겨집니다.
 일부 구성요소는 숨겨지지 않을 수 있습니다."</string>
     <string name="revanced_hide_account_menu_title">계정 메뉴 숨기기</string>
     <string name="revanced_hide_album_card_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다.</string>
@@ -447,9 +446,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_community_posts_channel_summary_off">채널에서 커뮤니티 게시물이 표시됩니다.</string>
     <string name="revanced_hide_community_posts_channel_summary_on">채널에서 커뮤니티 게시물이 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_channel_title">채널에서 커뮤니티 게시물 숨기기</string>
-    <string name="revanced_hide_community_posts_home_related_videos_summary_off">홈 피드와 관련 동영상에서 커뮤니티 게시물이 표시됩니다.</string>
-    <string name="revanced_hide_community_posts_home_related_videos_summary_on">홈 피드와 관련 동영상에서 커뮤니티 게시물이 숨겨집니다.</string>
-    <string name="revanced_hide_community_posts_home_related_videos_title">홈 피드와 관련 동영상에서 커뮤니티 게시물 숨기기</string>
+    <string name="revanced_hide_community_posts_home_related_videos_summary_off">홈 피드 및 관련 동영상에서 커뮤니티 게시물이 표시됩니다.</string>
+    <string name="revanced_hide_community_posts_home_related_videos_summary_on">홈 피드 및 관련 동영상에서 커뮤니티 게시물이 숨겨집니다.</string>
+    <string name="revanced_hide_community_posts_home_related_videos_title">홈 피드 및 관련 동영상에서 커뮤니티 게시물 숨기기</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">구독 피드에서 커뮤니티 게시물이 표시됩니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">구독 피드에서 커뮤니티 게시물이 숨겨집니다.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">구독 피드에서 커뮤니티 게시물 숨기기</string>
@@ -656,6 +655,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">자막 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">자막 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">자막 메뉴 숨기기</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p Premium 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p Premium 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">1080p Premium 메뉴 숨기기</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">고객센터 메뉴가 표시됩니다.</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">고객센터 메뉴가 숨겨집니다.</string>
     <string name="revanced_hide_player_flyout_menu_help_title">고객센터 메뉴 숨기기</string>
@@ -721,7 +723,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_preview_comment_title">댓글 미리보기 숨기기</string>
     <string name="revanced_hide_preview_comment_type_off">댓글 섹션의 크기가 변경되므로 댓글 섹션에서 실시간 채팅 다시보기를 열 수 없습니다.</string>
     <string name="revanced_hide_preview_comment_type_on">댓글 섹션의 크기가 변경되지 않으므로 댓글 섹션에서 실시간 채팅 다시보기를 열 수 있습니다.</string>
-    <string name="revanced_hide_preview_comment_type_title">댓글 미리보기 타입 숨기기</string>
+    <string name="revanced_hide_preview_comment_type_title">댓글 미리보기 유형 숨기기</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">프로모션 알림 배너가 표시됩니다.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">프로모션 알림 배너가 숨겨집니다.</string>
     <string name="revanced_hide_promotion_alert_banner_title">프로모션 알림 배너 숨기기</string>
@@ -786,9 +788,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_seek_undo_message_summary_off">탐색 취소 메시지가 표시됩니다.\n• \'손가락을 떼어 취소\'</string>
     <string name="revanced_hide_seek_undo_message_summary_on">탐색 취소 메시지가 숨겨집니다.\n• \'손가락을 떼어 취소\'</string>
     <string name="revanced_hide_seek_undo_message_title">탐색 취소 메시지 숨기기</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">재생바에서 챕터가 표시됩니다.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">재생바에서 챕터가 숨겨집니다.</string>
-    <string name="revanced_hide_seekbar_chapters_title">재생바 챕터 숨기기</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">타임스탬프 옆에 표시되는 챕터 라벨이 표시됩니다.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">타임스탬프 옆에 표시되는 챕터 라벨이 숨겨집니다.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">재생바 챕터 라벨 숨기기</string>
     <string name="revanced_hide_seekbar_summary_off">동영상 플레이어 재생바가 표시됩니다.</string>
     <string name="revanced_hide_seekbar_summary_on">동영상 플레이어 재생바가 숨겨집니다.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">썸네일 재생바가 표시됩니다.</string>
@@ -798,13 +800,68 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_self_sponsor_cards_summary_off">셀프 스폰서 카드가 표시됩니다.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">셀프 스폰서 카드가 숨겨집니다.</string>
     <string name="revanced_hide_self_sponsor_cards_title">셀프 스폰서 카드 숨기기</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"계정
-데이터 절약
-자막"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">필터링할 YouTube 설정 메뉴 이름을 줄바꿈으로 구분하여 설정합니다.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">YouTube 설정 메뉴 필터</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">정보 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">정보 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_about_title">정보 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">접근성 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">접근성 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">접근성 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">계정 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">계정 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_account_title">계정 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">자동재생 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">자동재생 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">자동재생 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">청구 및 결제 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">청구 및 결제 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">청구 및 결제 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">자막 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">자막 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_captions_title">자막 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">연결된 앱 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">연결된 앱 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">연결된 앱 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">데이터 절약 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">데이터 절약 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">데이터 절약 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">일반 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">일반 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_general_title">일반 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">전체 기록 관리 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">전체 기록 관리 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_history_title">전체 기록 관리 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">실시간 채팅 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">실시간 채팅 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">실시간 채팅 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">알림 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">알림 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_notification_title">알림 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">백그라운드 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">백그라운드 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_offline_title">백그라운드 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">\'TV로 시청하기\' 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">\'TV로 시청하기\' 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">\'TV로 시청하기\' 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">가족 센터 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">가족 센터 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">가족 센터 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">\'새 실험 기능 사용해 보기\' 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">\'새 실험 기능 사용해 보기\' 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">\'새 실험 기능 사용해 보기\' 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">공개 설정 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">공개 설정 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">공개 설정 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">구매 항목 및 멤버십 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">구매 항목 및 멤버십 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">구매 항목 및 멤버십 메뉴 숨기기</string>
     <string name="revanced_hide_settings_menu_summary">YouTube 설정 메뉴에서 구성요소를 숨깁니다.</string>
     <string name="revanced_hide_settings_menu_title">YouTube 설정 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">동영상 화질 환경설정 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">동영상 화질 환경설정 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">동영상 화질 환경설정 메뉴 숨기기</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">YouTube의 내 데이터 메뉴가 표시됩니다.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">YouTube의 내 데이터 메뉴가 숨겨집니다.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">YouTube의 내 데이터 메뉴 숨기기</string>
     <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다.</string>
     <string name="revanced_hide_share_button_summary_on">공유 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_share_button_title">공유 버튼 숨기기</string>
@@ -880,9 +937,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">시청 기록에서 Shorts 선반이 표시됩니다.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">시청 기록에서 Shorts 선반이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_shelf_history_title">시청 기록에서 Shorts 선반이 숨기기</string>
-    <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">홈 피드와 관련 동영상에서 Shorts 선반이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">홈 피드와 관련 동영상에서 Shorts 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_shorts_shelf_home_related_videos_title">홈 피드와 관련 동영상에서 Shorts 선반 숨기기</string>
+    <string name="revanced_hide_shorts_shelf_home_related_videos_summary_off">홈 피드 및 관련 동영상에서 Shorts 선반이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_shelf_home_related_videos_summary_on">홈 피드 및 관련 동영상에서 Shorts 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_shelf_home_related_videos_title">홈 피드 및 관련 동영상에서 Shorts 선반 숨기기</string>
     <string name="revanced_hide_shorts_shelf_search_summary_off">검색 결과에서 Shorts 선반이 표시됩니다.</string>
     <string name="revanced_hide_shorts_shelf_search_summary_on">검색 결과에서 Shorts 선반이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_shelf_search_title">검색 결과에서 Shorts 선반 숨기기</string>
@@ -1027,6 +1084,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다.</string>
     <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다.</string>
     <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles가 표시됩니다.\n• 이벤트성 YouTube 헤더</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles가 숨겨집니다.\n• 이벤트성 YouTube 헤더</string>
+    <string name="revanced_hide_youtube_doodles_title">YouTube Doodles 숨기기</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
+
+현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">줌 오버레이가 표시됩니다.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">줌 오버레이가 숨겨집니다.</string>
     <string name="revanced_hide_zoom_overlay_title">줌 오버레이 숨기기</string>
@@ -1076,7 +1139,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
     <string name="revanced_miniplayer_type_entry_5">최신 스타일 2</string>
     <string name="revanced_miniplayer_type_entry_6">최신 스타일 3</string>
-    <string name="revanced_miniplayer_type_title">미니 플레이어 타입 설정</string>
+    <string name="revanced_miniplayer_type_title">미니 플레이어 유형 설정</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_always_repeat_summary">"버튼을 눌러서 동영상 반복재생으로 전환할 수 있습니다.
 길게 누르면 동영상이 끝나면 일시 정지로 전환됩니다."</string>
@@ -1120,7 +1183,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_category_additional_settings">추가 설정</string>
     <string name="revanced_preference_category_animation_feedback">애니메이션 / 피드백</string>
     <string name="revanced_preference_category_download_button">오프라인 저장 버튼</string>
-    <string name="revanced_preference_category_experimental_flag">실험적인 기능</string>
+    <string name="revanced_preference_category_experimental_flag">실험 기능</string>
     <string name="revanced_preference_category_image_region_restrictions">이미지 표시 제한 국가</string>
     <string name="revanced_preference_category_import_export_as_file">파일로 가져오기 / 내보내기</string>
     <string name="revanced_preference_category_import_export_as_text">텍스트로 가져오기 / 내보내기</string>
@@ -1134,7 +1197,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_category_suggested_actions">추천 동작</string>
     <string name="revanced_preference_category_tool_used">사용된 도구</string>
     <string name="revanced_preference_category_view_counts_filter">조회수 필터</string>
-    <string name="revanced_preference_screen_account_menu_summary">계정 메뉴와 내 페이지 탭에서 구성요소를 숨기거나 표시할 수 있습니다.</string>
+    <string name="revanced_preference_screen_account_menu_summary">계정 메뉴 및 내 페이지에서 구성요소를 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_account_menu_title">계정 메뉴</string>
     <string name="revanced_preference_screen_action_buttons_summary">플레이어 하단에 있는 액션 버튼을 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_action_buttons_title">액션 버튼</string>
@@ -1150,7 +1213,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_channel_profile_title">채널 프로필</string>
     <string name="revanced_preference_screen_comments_summary">댓글 섹션에서 구성요소를 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_comments_title">댓글</string>
-    <string name="revanced_preference_screen_community_posts_summary">피드와 채널에서 커뮤니티 게시물을 숨기거나 표시할 수 있습니다.</string>
+    <string name="revanced_preference_screen_community_posts_summary">피드 및 채널에서 커뮤니티 게시물을 숨기거나 표시할 수 있습니다.</string>
     <string name="revanced_preference_screen_community_posts_title">커뮤니티 게시물</string>
     <string name="revanced_preference_screen_custom_filter_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다.</string>
     <string name="revanced_preference_screen_custom_filter_title">사용자 정의 필터</string>
@@ -1178,6 +1241,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">플레이어에서 메뉴 구성요소를 숨기거나 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">메뉴 구성요소</string>
     <string name="revanced_preference_screen_player_title">플레이어</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">재생바 구성요소를 사용자 정의할 수 있습니다.</string>
@@ -1246,6 +1310,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">이전 동영상 화질 설정을 비활성화합니다.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">이전 동영상 화질 설정 메뉴를 활성화합니다.</string>
     <string name="revanced_restore_old_video_quality_menu_title">이전 동영상 화질 설정 메뉴 활성화하기</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">핸들(@사용자 아이디)를 사용합니다.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">사용자 이름을 사용합니다.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Return YouTube Username 활성화하기</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API key에 대한 정보</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3가 사용된 개발자 키입니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1258,6 +1328,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다.</string>
     <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
+    <string name="revanced_ryd_estimated_like_summary_off">예상된 \'좋아요\'가 숨겨집니다.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">예상된 \'좋아요\'가 표시됩니다.</string>
+    <string name="revanced_ryd_estimated_like_title">예상된 \'좋아요\' 표시하기</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
@@ -1272,6 +1345,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
     <string name="revanced_sb_about">정보</string>
@@ -1511,6 +1585,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 이전 Shorts 액션바로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 이전 기본 동영상 화질 적용 방식을 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - \'조회수\' &amp; \'좋아요\'의 실시간 업데이트를 비활성화합니다.</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - 이전 롤링 넘버 애니메이션으로 복원합니다.</string>
     <string name="revanced_spoof_app_version_target_entry_title">변경할 앱 버전 설정</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 입력하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 편집하기</string>
@@ -1587,7 +1662,7 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
     <string name="revanced_watch_history_type_entry_1">기본값</string>
     <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
     <string name="revanced_watch_history_type_entry_3">시청 기록 차단</string>
-    <string name="revanced_watch_history_type_title">시청 기록 타입 설정</string>
+    <string name="revanced_watch_history_type_title">시청 기록 유형 설정</string>
     <string name="revanced_whitelist_add_failed">\'%1$s\' 채널을 %2$s 화이트리스트에 추가할 수 없습니다.</string>
     <string name="revanced_whitelist_added">\'%1$s\' 채널을 %2$s 화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_empty">화이트리스트 채널이 없습니다.</string>

@@ -54,8 +54,12 @@
     <string name="revanced_bypass_image_region_restrictions_summary_off">Оригиналният домейн се използва за зареждане на изображения\n\nАктивирането на тази настройка може да коригира зареждането на изображения, които са блокирани в някои региони.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Домейнът yt4.ggpht.com се използва за зареждане на изображения.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Прескочете забраната за зареждане на изображение</string>
+    <string name="revanced_change_layout_entry_1">Оригинал</string>
+    <string name="revanced_change_layout_entry_2">Телефон</string>
+    <string name="revanced_change_layout_entry_3">Телефон (Max 480 dip)</string>
     <string name="revanced_change_layout_entry_4">Таблет</string>
     <string name="revanced_change_layout_entry_5">Таблет (Мин 600 dip)</string>
+    <string name="revanced_change_layout_title">Промяна на резолюция</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Използват се бутони за превключване.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Използват се превключващи бутони с текст.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Промяна на типа превключване на настройките</string>
@@ -244,8 +248,6 @@
     <string name="revanced_enable_open_links_directly_title">Отваряне на връзки директно</string>
     <string name="revanced_enable_opus_codec_summary">Активирайте кодека OPUS, ако съдържанието в плейъра е подходящо за кодека.</string>
     <string name="revanced_enable_opus_codec_title">Активирайте кодека OPUS</string>
-    <string name="revanced_enable_phone_layout_summary">Подлъгване на dpi за оформление като на телефон.</string>
-    <string name="revanced_enable_phone_layout_title">Вкл. на оформление като на телефон</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Не се запазва или възстаовява яркостта при включване или изключване на цял екран.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Запазване и възстаовяване яркостта при включване или изключване на цял екран.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Вкл. запазване и възстановяване на яркост</string>
@@ -276,8 +278,6 @@
     <string name="revanced_enable_swipe_volume_summary_off">Настройването на звука чрез плъзгане е изключено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Настройването на звука чрез плъзгане е включено.</string>
     <string name="revanced_enable_swipe_volume_title">Настройване на звука чрез плъзгане</string>
-    <string name="revanced_enable_tablet_layout_summary">Подлъгване на dpi за оформление като на таблет.</string>
-    <string name="revanced_enable_tablet_layout_title">Вкл. на режим за таблет</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Навигационната лента е непрозрачна.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Навигационната лента е полупрозрачна.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачна лента за навигация</string>
@@ -760,9 +760,6 @@
     <string name="revanced_hide_seek_undo_message_summary_off">Съобщение при пренавиване се показва.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Съобщение при пренавиване е скрито.</string>
     <string name="revanced_hide_seek_undo_message_title">Съобщение при пренавиване</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">Главите се показват.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">Главите са скрити.</string>
-    <string name="revanced_hide_seekbar_chapters_title">Заглавие в лентата за напредък</string>
     <string name="revanced_hide_seekbar_summary_off">Лентата за време на плейъра се показва.</string>
     <string name="revanced_hide_seekbar_summary_on">Лентата за време на плейъра е скрита.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюрите се показват.</string>
@@ -772,11 +769,7 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">Самоспонсорираните карти се показват.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Самоспонсорираните карти са скрити.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Скриване на самоспонсорирани карти</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"Акаунт
-Спестяване на данни
-Субтитри"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Списък с заглавия на менюта с настройки на YouTube за филтриране, разделени с нов ред.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Филтър на менюто с настройки на YouTube</string>
+    <string name="revanced_hide_settings_menu_account_title">Скриване на менюто на акаунта</string>
     <string name="revanced_hide_settings_menu_summary">Скриване на елементи в менюто с настройки на YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Филтриране на менюто с настройки на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Бутона за споделяне се показва.</string>

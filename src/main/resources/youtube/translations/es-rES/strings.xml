@@ -198,6 +198,9 @@ Limitación: Es posible que este ajuste no se aplique a los vídeos que no inclu
     <string name="revanced_disable_rolling_number_animations_summary_off">Los números rodantes están animados.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Los números rodantes no están animados.</string>
     <string name="revanced_disable_rolling_number_animations_title">Desactivar animaciones de números rodantes</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Los capítulos están activados en la barra de progreso.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Los capítulos están desactivados en la barra de progreso.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Desactivar capítulos en barra de progreso</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">La animación de la fuente está activada sobre el botón de me gusta.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">La animación de la fuente está desactivada sobre el botón de me gusta.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Desactivar animación del botón de me gusta</string>
@@ -259,8 +262,6 @@ Efecto secundario: El tema Cairo también se aplica a los puntos de notificació
     <string name="revanced_enable_open_links_directly_title">Activar apertura de enlaces directamente</string>
     <string name="revanced_enable_opus_codec_summary">Activa el códec OPUS si la respuesta del reproductor incluye el códec OPUS.</string>
     <string name="revanced_enable_opus_codec_title">Activar códec OPUS</string>
-    <string name="revanced_enable_phone_layout_summary">Modifica los DPI para utilizar algunos diseños de teléfono.</string>
-    <string name="revanced_enable_phone_layout_title">Activar diseño de teléfono</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">No se guarda ni restaura el brillo al salir o entrar en pantalla completa.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Guarda y restaura el brillo al salir o entrar en pantalla completa.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Activar guardar y restaurar brillo</string>
@@ -292,8 +293,6 @@ Desliza hacia arriba / abajo para reproducir el vídeo siguiente / anterior.</st
     <string name="revanced_enable_swipe_volume_summary_off">El control del volumen al deslizar está desactivado.</string>
     <string name="revanced_enable_swipe_volume_summary_on">El control del volumen al deslizar está activado.</string>
     <string name="revanced_enable_swipe_volume_title">Activar gesto de volumen</string>
-    <string name="revanced_enable_tablet_layout_summary">Modifica los DPI para utilizar algunos diseños de tableta.</string>
-    <string name="revanced_enable_tablet_layout_title">Activar diseño de tableta</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra de navegación es opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra de navegación es translúcida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Activar barra de navegación translúcida</string>
@@ -644,6 +643,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">El menú de subtítulos está visible.</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">El menú de subtítulos está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">Ocultar menú de subtítulos</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">El menú premium 1080p está visible.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">El menú premium 1080p está oculto.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Ocultar menú premium 1080p</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">El menú de ayuda y comentarios está visible.</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">El menú de ayuda y comentarios está oculto.</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Ocultar menú de ayuda y comentarios</string>
@@ -776,9 +778,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_seek_undo_message_summary_off">El mensaje al deshacer desplazamiento está visible.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">El mensaje al deshacer desplazamiento está oculto.</string>
     <string name="revanced_hide_seek_undo_message_title">Ocultar mensaje al deshacer desplazamiento</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">Los capítulos en la barra de progreso están visibles.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">Los capítulos en la barra de progreso están ocultos.</string>
-    <string name="revanced_hide_seekbar_chapters_title">Ocultar capítulos en barra de progreso</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Las etiquetas de los capítulos junto a la marca de tiempo están visibles.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Las etiquetas de los capítulos junto a la marca de tiempo están ocultas.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Ocultar etiquetas de capítulos en barra de progreso</string>
     <string name="revanced_hide_seekbar_summary_off">La barra de progreso en el reproductor de vídeo está visible.</string>
     <string name="revanced_hide_seekbar_summary_on">La barra de progreso en el reproductor de vídeo está oculta.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">La barra de progreso en miniaturas está visible.</string>
@@ -788,13 +790,68 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_self_sponsor_cards_summary_off">Las tarjetas autopatrocinadas están visibles.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Las tarjetas autopatrocinadas están ocultas.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar tarjetas autopatrocinadas</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"Cuenta
-Ahorro de datos
-Subtítulos"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nombres del menú de configuración de YouTube a filtrar separados por una nueva línea.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Filtro de menú de configuración de YouTube</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">El menú de información está visible.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">El menú de información está oculto.</string>
+    <string name="revanced_hide_settings_menu_about_title">Ocultar menú de información</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">El menú de accesibilidad está visible.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">El menú de accesibilidad está oculto.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Ocultar menú de accesibilidad</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">El menú de cuenta está visible.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">El menú de cuenta está oculto.</string>
+    <string name="revanced_hide_settings_menu_account_title">Ocultar menú de cuenta</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">El menú de reproducción automática está visible.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">El menú de reproducción automática está oculto.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">Ocultar menú de reproducción automática</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú de facturación y pagos está visible.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú de facturación y pagos está oculto.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú de facturación y pagos</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">El menú de subtítulos está visible.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">El menú de subtítulos está oculto.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Ocultar menú de subtítulos</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">El menú de aplicaciones conectadas está visible.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">El menú de aplicaciones conectadas está oculto.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Ocultar menú de aplicaciones conectadas</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">El menú de ahorro de datos está visible.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">El menú de ahorro de datos está oculto.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menú de ahorro de datos</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">El menú de general está visible.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">El menú de general está oculto.</string>
+    <string name="revanced_hide_settings_menu_general_title">Ocultar menú de general</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">El menú de gestionar todo el historial está visible.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">El menú de gestionar todo el historial está oculto.</string>
+    <string name="revanced_hide_settings_menu_history_title">Ocultar menú de gestionar todo el historial</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">El menú de chat en directo está visible.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">El menú de chat en directo está oculto.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Ocultar menú de chat en directo</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">El menú de notificaciones está visible.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">El menú de notificaciones está oculto.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Ocultar menú de notificaciones</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">El menú de segundo plano está visible.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">El menú de segundo plano está oculto.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Ocultar menú de segundo plano</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">El menú de ver en la televisión está visible.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">El menú de ver en la televisión está oculto.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Ocultar menú de ver en la televisión</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">El menú de centro familiar está visible.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">El menú de centro familiar está oculto.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menú de centro familiar</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">El menú de prueba las nuevas funciones experimentales está visible.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">El menú de prueba las nuevas funciones experimentales está oculto.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Ocultar menú de prueba las nuevas funciones experimentales</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">El menú de privacidad está visible.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">El menú de privacidad está oculto.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Ocultar menú de privacidad</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">El menú de compras y suscripciones está visible.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">El menú de compras y suscripciones está oculto.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Ocultar menú de compras y suscripciones</string>
     <string name="revanced_hide_settings_menu_summary">Ocultar elementos del menú de configuración de YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Ocultar menú de configuración de YouTube</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">El menú de preferencias de calidad de vídeo está visible.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">El menú de preferencias de calidad de vídeo está oculto.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Ocultar menú de preferencias de calidad de vídeo</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">El menú de tus datos en YouTube está visible.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">El menú de tus datos en YouTube está oculto.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Ocultar menú de tus datos en YouTube</string>
     <string name="revanced_hide_share_button_summary_off">El botón de compartir está visible.</string>
     <string name="revanced_hide_share_button_summary_on">El botón de compartir está oculto.</string>
     <string name="revanced_hide_share_button_title">Ocultar botón de compartir</string>
@@ -1007,6 +1064,12 @@ Limitaciones:
     <string name="revanced_hide_web_search_results_summary_off">Los resultados de la búsqueda web están visibles.</string>
     <string name="revanced_hide_web_search_results_summary_on">Los resultados de la búsqueda web están ocultos.</string>
     <string name="revanced_hide_web_search_results_title">Ocultar resultados de búsqueda web</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">Los Doodles de YouTube están visibles.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">Los Doodles de YouTube están ocultos.</string>
+    <string name="revanced_hide_youtube_doodles_title">Ocultar Doodles de YouTube</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Los Doodles de YouTube aparecen unos pocos días al año.
+
+Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajuste de ocultar está activado, entonces la barra de filtros debajo de la barra de búsqueda también estará oculta."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">La superposición del zoom está visible.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">La superposición del zoom está oculta.</string>
     <string name="revanced_hide_zoom_overlay_title">Ocultar superposición del zoom</string>
@@ -1152,6 +1215,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_screen_player_flyout_menu_summary">Ocultar o cambiar el menú desplegable del reproductor de vídeo.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menú desplegable</string>
     <string name="revanced_preference_screen_player_title">Reproductor</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Devolver usuario de YouTube</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Personalizar los componentes de la barra de progreso.</string>
@@ -1221,6 +1285,19 @@ Mantén pulsado para abrir la configuración de YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">El antiguo menú de calidad de vídeo está oculto.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">El antiguo menú de calidad de vídeo está visible.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restaurar antiguo menú de calidad de vídeo</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">Se utiliza el identificador.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Se utiliza el nombre de usuario.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Activar devolver usuario de YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Se requiere la clave de desarrollador de la API v3 de datos de YouTube para reemplazar el identificador con el nombre de usuario.
+
+La cuota diaria para las claves de API en el plan gratuito es de 10,000, y se utiliza 1 cuota para reemplazar el identificador con el nombre de usuario en 1 comentario.
+
+Toca para ver cómo crear una clave de API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Acerca de la clave API de datos de YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La clave de desarrollador para utilizar la API v3 de datos de YouTube.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Clave de API de datos de YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Ve a &lt;a href=%1$s&gt;Crear un nuevo proyecto&lt;/a&gt;.&lt;br&gt;2. Pulsa en el botón &lt;b&gt;CREAR&lt;/b&gt;.&lt;br&gt;3. 3. Ve a &lt;a href=%2$s&gt;API v3 de datos de YouTube&lt;/a&gt;.&lt;br&gt;4. Pulsa en el botón &lt;b&gt;HABILITAR&lt;/b&gt;.&lt;br&gt;5. Pulsa en &lt;b&gt;CREAR&lt;/b&gt;. Pulsa en el botón &lt;b&gt;CREAR CREDENCIALES&lt;/b&gt;.&lt;br&gt;6. Selecciona la opción &lt;b&gt;Datos públicos&lt;/b&gt;.&lt;br&gt;7. Pulsa en el botón &lt;b&gt; SIGUIENTE&lt;/b&gt;.&lt;br&gt;8. Copia la clave API.&lt;br&gt;&lt;br&gt;※ La clave API nunca debe ser compartida con otros, por lo que no se incluye en los ajustes de Importar / Exportar.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Crear clave de desarrollador de API v3 de datos de YouTube</string>
     <string name="revanced_ryd_about">Información</string>
     <string name="revanced_ryd_attribution_summary">Los datos de no me gusta son proporcionados por la API de Return YouTube Dislike.
 Pulsa aquí para obtener más información.</string>
@@ -1234,6 +1311,9 @@ Pulsa aquí para obtener más información.</string>
     <string name="revanced_ryd_enable_summary_off">Los no me gusta están ocultos.</string>
     <string name="revanced_ryd_enable_summary_on">Los no me gusta están visibles.</string>
     <string name="revanced_ryd_enable_title">Activar Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Los me gusta estimados están ocultos.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Los me gusta estimados están visibles.</string>
+    <string name="revanced_ryd_estimated_like_title">Activar me gusta estimados</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Los no me gusta no están disponibles (se alcanzó el límite de la API del cliente).</string>
     <string name="revanced_ryd_failure_connection_status_code">Los no me gusta no están disponibles (estado %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Los no me gusta están temporalmente no disponibles (la API no responde).</string>
@@ -1248,6 +1328,7 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_ryd_toast_on_connection_error_summary_off">No se muestra el mensaje si Return YouTube Dislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Se muestra el mensaje si Return YouTube Dislike no está disponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostrar mensaje si la API no está disponible</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Elimina los parámetros de consulta de seguimiento de las URL al compartir enlaces.</string>
     <string name="revanced_sanitize_sharing_links_title">Desinfectar enlaces compartidos</string>
     <string name="revanced_sb_about">Información</string>
@@ -1481,6 +1562,7 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaura la antigua barra de acción de Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaura el antiguo comportamiento de la calidad predeterminada de vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Desactiva la actualización en tiempo real de las visualizaciones y los me gusta</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaura el antiguo estilo de las animaciones de números rodantes</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
     <string name="revanced_spoof_app_version_target_title">Editar versión falsa de la app</string>

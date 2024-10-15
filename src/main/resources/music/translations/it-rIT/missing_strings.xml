@@ -183,8 +183,16 @@ If it is disabled, fullscreen ads are blocked. (there may be side effects)"</str
     <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_samples_shelf_summary">Hides the Samples shelf in the feed.</string>
     <string name="revanced_hide_samples_shelf_title">Hide Samples shelf</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">List of settings menu names to filter, separated by new lines.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Settings menu filter</string>
+    <string name="revanced_hide_settings_menu_about_title">Hide About menu</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Hide Data saving menu</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Hide Downloads &amp; storage menu</string>
+    <string name="revanced_hide_settings_menu_general_title">Hide General menu</string>
+    <string name="revanced_hide_settings_menu_notification_title">Hide Notifications menu</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Hide Get Music premium menu</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Hide Family Center menu</string>
+    <string name="revanced_hide_settings_menu_playback_title">Hide Playback menu</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Hide Privacy &amp; data menu</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Hide Recommendations menu</string>
     <string name="revanced_hide_settings_menu_summary">"Hide elements of the settings menu.
 This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."</string>
     <string name="revanced_hide_settings_menu_title">Hide settings menu</string>
@@ -202,8 +210,10 @@ This hides not only the YT Music settings menu, but also the ReVanced Extended s
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
     <string name="revanced_preference_screen_navigation_title">Navigation Bar</string>
     <string name="revanced_preference_screen_player_title">Player</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Settings menu</string>
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Remembers the last playback speed selected.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
@@ -239,13 +249,28 @@ Some features may not work properly in the old player layout."</string>
     <string name="revanced_restore_old_player_layout_title">Restore old player layout</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Returns the Library tab to the old style. (Experimental)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Restore old style library shelf</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Replaces handles with usernames in comments.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"A YouTube Data API v3 Developer Key is required to replace handles with usernames.
+
+The daily quota for API keys on the free plan is 10,000, and 1 quota is used to replace a handle with a username for 1 comment.
+
+Click to see how to issue a API key."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">About YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">The developer key for using the YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_enabled_title">Enable Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Shows the estimated like count of videos.</string>
+    <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
     <string name="revanced_ryd_failure_connection_status_code">Dislikes are unavailable (status %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily unavailable (API timed out).</string>
     <string name="revanced_ryd_failure_generic">Dislikes are unavailable (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Shows a toast if the Return YouTube Dislike API is unavailable.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from URLs when sharing links.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
     <string name="revanced_sb_about">About</string>

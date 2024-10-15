@@ -58,9 +58,9 @@
     <string name="revanced_bypass_image_region_restrictions_title">Обхід регіональних обмежень зображень</string>
     <string name="revanced_change_layout_entry_1">Оригінал</string>
     <string name="revanced_change_layout_entry_2">Телефонний</string>
-    <string name="revanced_change_layout_entry_3">Телефонний (Макс 480 dip)</string>
+    <string name="revanced_change_layout_entry_3">Телефонний (Макс 480 dp)</string>
     <string name="revanced_change_layout_entry_4">Планшетний</string>
-    <string name="revanced_change_layout_entry_5">Планшетний (Мін 600 dip)</string>
+    <string name="revanced_change_layout_entry_5">Планшетний (Мін 600 dp)</string>
     <string name="revanced_change_layout_title">Змінити макет</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Використовується змінні перемикачі.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Використовується текстові перемикачі.</string>
@@ -192,6 +192,9 @@
     <string name="revanced_disable_rolling_number_animations_summary_off">Лічильники анімовані.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Лічильники не анімовані.</string>
     <string name="revanced_disable_rolling_number_animations_title">Вимкнути анімації лічильників</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Розділи ввімкнено у панелі прогресу.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Розділи вимкнено у панелі прогресу.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Вимкнути розділи панелі прогресу</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Фонтанну анімацію увімкнено над кнопкою Подобається.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Фонтанну анімацію вимкнено над кнопкою Подобається.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Вимкнути анімацію кнопки Подобається</string>
@@ -253,8 +256,6 @@
     <string name="revanced_enable_open_links_directly_title">Увімкнути безпосереднє відкриття посилань</string>
     <string name="revanced_enable_opus_codec_summary">Вмикає кодек OPUS, якщо відповідь плеєра включає кодек OPUS.</string>
     <string name="revanced_enable_opus_codec_title">Увімкнути кодек OPUS</string>
-    <string name="revanced_enable_phone_layout_summary">Підміняє DPI для використання інтерфейсу деяких телефонів</string>
-    <string name="revanced_enable_phone_layout_title">Увімкнути телефонний інтерфейс</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Не зберігається і не відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Зберігається та відновлюється яскравість при переході з/до повноекранного режиму.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Увімкнути збереження та відновлення яскравості</string>
@@ -286,8 +287,6 @@
     <string name="revanced_enable_swipe_volume_summary_off">Зміну гучності жестом вимкнено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Зміну гучності жестом увімкнено.</string>
     <string name="revanced_enable_swipe_volume_title">Увімкнути зміну гучності жестом</string>
-    <string name="revanced_enable_tablet_layout_summary">Підміняє DPI для використання інтерфейсу деяких планшетів</string>
-    <string name="revanced_enable_tablet_layout_title">Увімкнути Планшетний інтерфейс</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
@@ -645,6 +644,9 @@
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">Меню субтитрів показується.</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">Меню субтитрів приховано.</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">Приховати меню субтитрів</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">Меню Premium 1080p показується.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">Меню Premium 1080p приховано.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Приховати меню Premium 1080p</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">Меню допомоги та підтримки показується.</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">Меню допомоги та підтримки приховано.</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Приховати меню допомоги та підтримки</string>
@@ -776,9 +778,9 @@
     <string name="revanced_hide_seek_undo_message_summary_off">Сповіщення скасування перемотки показується.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Сповіщення скасування перемотки приховано.</string>
     <string name="revanced_hide_seek_undo_message_title">Приховати сповіщення скасування перемотки</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">Розділи показується у панелі прогресу.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">Розділи приховано у панелі прогресу.</string>
-    <string name="revanced_hide_seekbar_chapters_title">Приховати розділи панелі прогресу</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Мітки розділів біля мітки часу показується.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Мітки розділів біля мітки часу приховано.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Приховати мітки розділів панелі прогресу</string>
     <string name="revanced_hide_seekbar_summary_off">Панель прогресу у відеоплеєрі показується.</string>
     <string name="revanced_hide_seekbar_summary_on">Панель прогресу у відеоплеєрі приховано.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Мініатюру панелі прогресу показується.</string>
@@ -788,13 +790,68 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">Картки само спонсорства показується.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Картки само спонсорства приховано.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Приховати картки само спонсорства</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"Обліковий запис
-Заощадження трафіку
-Субтитри"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Список назв меню налаштувань YouTube для фільтрування, розділених новим рядком.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Фільтр меню налаштувань YouTube</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">Меню Про додаток показується.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">Меню Про додаток приховано.</string>
+    <string name="revanced_hide_settings_menu_about_title">Приховати меню Про додаток</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">Меню Доступність показується.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">Меню Доступність приховано.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Приховати меню Доступність</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">Меню Акаунт показується.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">Меню Акаунт приховано.</string>
+    <string name="revanced_hide_settings_menu_account_title">Приховати меню Акаунт</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">Меню Автоматичне відтворення показується.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">Меню Автоматичне відтворення приховано.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">Приховати меню Автоматичне відтворення</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Меню Платежі показується.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Меню Платежі приховано.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Приховати меню Платежі</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">Меню Субтитри показується.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">Меню Субтитри приховано.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Приховати меню Субтитри</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Меню Підключені додатки показується.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Меню Підключені додатки приховано.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Приховати меню Підключені додатки</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">Меню Заощадження трафіку показується.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">Меню Заощадження трафіку приховано.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Приховати меню Заощадження трафіку</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">Меню Загальні показується.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">Меню Загальні приховано.</string>
+    <string name="revanced_hide_settings_menu_general_title">Приховати меню Загальні</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">Меню Керувати всією історією пошуків показується.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">Меню Керувати всією історією пошуків приховано.</string>
+    <string name="revanced_hide_settings_menu_history_title">Приховати меню Керувати всією історією пошуків</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">Меню Чат показується.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">Меню Чат приховано.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Приховати меню Чат</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">Меню Сповіщення показується.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">Меню Сповіщення приховано.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Приховати меню Сповіщення</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">Меню Фоновий і офлайн-режим показується.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">Меню Фоновий і офлайн-режим приховано.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Приховати меню Фоновий і офлайн-режим</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Меню Дивитись на телевізорі показується.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Меню Дивитись на телевізорі приховано.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Приховати меню Дивитись на телевізорі</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Меню Сімейний Центр показується.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Меню Сімейний Центр приховано.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Приховати меню Сімейний Центр</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Меню Спробуйте нові експериментальні функції показується.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Меню Спробуйте нові експериментальні функції приховано.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Приховати меню Спробуйте нові експериментальні функції</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">Меню Конфіденційність показується.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">Меню Конфіденційність приховано.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Приховати меню Конфіденційність</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Меню Покупки й платні підписки показується.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Меню Покупки й платні підписки приховано.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Приховати меню Покупки й платні підписки</string>
     <string name="revanced_hide_settings_menu_summary">Приховати елементи в меню налаштувань YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Приховати меню налаштувань YouTube</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">Меню Параметри якості відео показується.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">Меню Параметри якості відео приховано.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Приховати меню Параметри якості відео</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">Меню Ваші дані на YouTube показується.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">Меню Ваші дані на YouTube приховано.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Приховати меню Ваші дані на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Кнопку Поділитися показується.</string>
     <string name="revanced_hide_share_button_summary_on">Кнопку Поділитися приховано.</string>
     <string name="revanced_hide_share_button_title">Приховати кнопку Поділитися</string>
@@ -1013,6 +1070,12 @@
     <string name="revanced_hide_web_search_results_summary_off">Результати вебпошуку показується.</string>
     <string name="revanced_hide_web_search_results_summary_on">Результати вебпошуку приховано.</string>
     <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">Yoodles показується.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">Yoodles приховано.</string>
+    <string name="revanced_hide_youtube_doodles_title">Приховати Yoodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Yoodles з'являються на декілька днів щороку.
+
+Якщо Yoodles наразі зображаються у вашому регіоні й це налаштування приховування увімкнено, то панель фільтрів під рядком пошуку також приховуватиметься."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Накладання при масштабуванні показується.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Накладання при масштабуванні приховано.</string>
     <string name="revanced_hide_zoom_overlay_title">Приховати накладання при масштабуванні</string>
@@ -1165,6 +1228,7 @@
     <string name="revanced_preference_screen_player_flyout_menu_summary">Приховати або змінити висувне меню у відеоплеєрі.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Висувне меню</string>
     <string name="revanced_preference_screen_player_title">Плеєр</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Повернення назви користувача YouTube</string>
     <string name="revanced_preference_screen_ryd_title">Повернення Дизлайків</string>
     <string name="revanced_preference_screen_sb_title">Спонсорблок</string>
     <string name="revanced_preference_screen_seekbar_summary">Налаштуйте компоненти панелі прогресу.</string>
@@ -1234,6 +1298,19 @@
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старе меню якості відео не показується.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старе меню якості відео показується.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">Використовується ідентифікатор.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Використовується назву користувача.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Ввімкнути Повернення назви користувача YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Ключ розробника YouTube Data API v3 потрібен для заміни Ідентифікатора на Назву користувача.
+
+Щоденна квота для ключів API на безкоштовному тарифі становить 10,000, і 1 квота використовується для заміни Ідентифікатора на Назву користувача для 1 коментаря.
+
+Натисніть щоб побачити як створити ключ API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Про ключ YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Ключ розробника для використання YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Ключ YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдіть до &lt;a href=%1$s&gt;Створення нового проекту&lt;/a&gt;.&lt;br&gt;2. Натисніть кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдіть до &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Натисніть кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Натисніть кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Виберіть опцію &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Натисніть кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопіюйте ключ API.&lt;br&gt;&lt;br&gt;※ Ключ API не можна поширювати, тому він не включений у Імпорт / Експорт налаштувань.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Створення ключа розробника YouTube Data API v3</string>
     <string name="revanced_ryd_about">Про Повернення дизлайків</string>
     <string name="revanced_ryd_attribution_summary">Дані про Дизлайки надаються за допомогою API Повернення дизлайків YouTube. Натисніть тут, щоб дізнатися більше.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1246,6 +1323,9 @@
     <string name="revanced_ryd_enable_summary_off">Дизлайки не показується.</string>
     <string name="revanced_ryd_enable_summary_on">Дизлайки показується.</string>
     <string name="revanced_ryd_enable_title">Ввімкнути повернення дизлайків YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Розрахункові лайки приховано.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Розрахункові лайки показується.</string>
+    <string name="revanced_ryd_estimated_like_title">Увімкнути розрахункові лайки</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
     <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (закінчився час API).</string>
@@ -1260,6 +1340,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Повернення дизлайків YouTube не доступне.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо не доступний API</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучає параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
     <string name="revanced_sb_about">Про Спонсорблок</string>
@@ -1499,6 +1580,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - відновлення старої панелі дій Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Відновлення старої поведінки типової якості відео</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Виключає \'переглянуті\' та \'вподобані\' з оновлення в режимі реального часу</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Відновлення старого стилю анімації лічильників</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
     <string name="revanced_spoof_app_version_target_title">Підробити цільову версію програми</string>
