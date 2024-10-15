@@ -2,7 +2,9 @@ package app.revanced.patches.youtube.video.information
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -38,6 +40,7 @@ import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHoo
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.addStaticFieldToIntegration
 import app.revanced.util.alsoResolve
+import app.revanced.util.cloneMutable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -119,6 +122,7 @@ object VideoInformationPatch : BytecodePatch(
     private var seekSourceEnumType = ""
     private var seekSourceMethodName = ""
     private var seekRelativeSourceMethodName = ""
+    private var cloneSeekRelativeSourceMethod = false
 
     private lateinit var context: BytecodeContext
 
@@ -134,6 +138,32 @@ object VideoInformationPatch : BytecodePatch(
     // Used by other patches.
     internal lateinit var speedSelectionInsertMethod: MutableMethod
     internal lateinit var videoEndMethod: MutableMethod
+
+    private fun cloneSeekRelativeSourceMethod(fingerprintResult: MethodFingerprintResult) {
+        if (!cloneSeekRelativeSourceMethod) return
+
+        val methods = fingerprintResult.mutableClass.methods
+
+        methods.find { method ->
+            method.name == seekRelativeSourceMethodName
+        }?.apply {
+            methods.add(
+                cloneMutable(
+                    returnType = "Z"
+                ).apply {
+                    val lastIndex = implementation!!.instructions.lastIndex
+
+                    removeInstruction(lastIndex)
+                    addInstructions(
+                        lastIndex, """
+                            move-result p1
+                            return p1
+                            """
+                    )
+                }
+            )
+        }
+    }
 
     private fun addSeekInterfaceMethods(
         result: MethodFingerprintResult,
@@ -203,12 +233,16 @@ object VideoInformationPatch : BytecodePatch(
                 // hook the player controller for use through integrations
                 onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
-                seekSourceEnumType = parameterTypes[1].toString()
-                seekSourceMethodName = name
-                seekRelativeSourceMethodName = SeekRelativeFingerprint.alsoResolve(
+                val seekRelativeMethod = SeekRelativeFingerprint.alsoResolve(
                     context,
                     VideoEndFingerprint
-                ).mutableMethod.name
+                ).mutableMethod
+
+                seekSourceEnumType = parameterTypes[1].toString()
+                seekSourceMethodName = name
+                seekRelativeSourceMethodName = seekRelativeMethod.name
+                cloneSeekRelativeSourceMethod = seekRelativeMethod.returnType == "V"
+                cloneSeekRelativeSourceMethod(it)
 
                 // Create integrations interface methods.
                 addSeekInterfaceMethods(
@@ -249,6 +283,8 @@ object VideoInformationPatch : BytecodePatch(
 
                 // hook the MDX director for use through integrations
                 onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
+
+                cloneSeekRelativeSourceMethod(it)
 
                 // Create integrations interface methods.
                 addSeekInterfaceMethods(

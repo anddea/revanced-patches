@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.playertype.fingerprint.ActionBarSearchResultsFingerprint
@@ -18,7 +17,6 @@ import app.revanced.patches.youtube.utils.playertype.fingerprint.VideoStateFinge
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelWatchPlayer
 import app.revanced.util.addStaticFieldToIntegration
-import app.revanced.util.alsoResolve
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -38,7 +36,7 @@ object PlayerTypeHookPatch : BytecodePatch(
         BrowseIdClassFingerprint,
         PlayerTypeFingerprint,
         ReelWatchPagerFingerprint,
-        YouTubeControlsOverlayFingerprint
+        VideoStateFingerprint,
     )
 ) {
     private const val INTEGRATIONS_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR =
@@ -79,11 +77,9 @@ object PlayerTypeHookPatch : BytecodePatch(
 
         // region patch for set video state
 
-        VideoStateFingerprint.alsoResolve(
-            context, YouTubeControlsOverlayFingerprint
-        ).let {
+        VideoStateFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
+                val endIndex = it.scanResult.patternScanResult!!.startIndex + 1
                 val videoStateFieldName =
                     getInstruction<ReferenceInstruction>(endIndex).reference
 
