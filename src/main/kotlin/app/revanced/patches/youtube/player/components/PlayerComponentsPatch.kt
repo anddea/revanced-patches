@@ -50,6 +50,7 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
@@ -147,13 +148,15 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     hookInitVideoPanel(1)
                 } else {
                     val syntheticIndex =
-                        indexOfFirstInstructionOrThrow(Opcode.NEW_INSTANCE)
-                    val syntheticReference =
-                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
+                        indexOfFirstInstruction(0, Opcode.NEW_INSTANCE)
+                    if (syntheticIndex >= 0) {
+                        val syntheticReference =
+                            getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
 
-                    context.findMethodOrThrow(syntheticReference) {
-                        name == "onClick"
-                    }.hookInitVideoPanel(0)
+                        context.findMethodOrThrow(syntheticReference) {
+                            name == "onClick"
+                        }.hookInitVideoPanel(0)
+                    }
                 }
             }
         }

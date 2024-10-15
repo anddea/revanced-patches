@@ -96,17 +96,20 @@ object LithoFilterPatch : BytecodePatch(
                     }
                     .map { (index, _) -> index }
                     .reversed()
-                    .forEach {
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(it + 1).registerA
-                        val insertIndex = it + 2
+                    .forEach { index ->
+                        val insertInstruction = getInstruction(index + 1)
+                        if (insertInstruction is OneRegisterInstruction) {
+                            val insertRegister =
+                                insertInstruction.registerA
+                            val insertIndex = index + 2
 
-                        addInstructionsWithLabels(
-                            insertIndex, """
+                            addInstructionsWithLabels(
+                                insertIndex, """
                                     if-nez v$insertRegister, :ignore
                                     """ + emptyComponentLabel,
-                            ExternalLabel("ignore", getInstruction(insertIndex))
-                        )
+                                ExternalLabel("ignore", getInstruction(insertIndex))
+                            )
+                        }
                     }
 
                 emptyComponentLabel = """

@@ -13,6 +13,9 @@ private typealias StringMatch = MethodFingerprintResult.MethodFingerprintScanRes
 private typealias StringsScanResult = MethodFingerprintResult.MethodFingerprintScanResult.StringsScanResult
 
 /**
+ * Taken from BiliRoamingX:
+ * https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/patcher/fingerprint/MultiMethodFingerprint.kt
+ *
  * Represents the [MethodFingerprint] for a method.
  * @param returnType The return type of the method.
  * @param accessFlags The access flags of the method.
