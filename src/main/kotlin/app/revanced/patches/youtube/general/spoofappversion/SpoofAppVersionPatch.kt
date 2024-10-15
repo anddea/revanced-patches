@@ -25,6 +25,9 @@ object SpoofAppVersionPatch : BaseResourcePatch(
                 context.appendAppVersion("18.38.45")
                 if (SettingsPatch.upward1849) {
                     context.appendAppVersion("18.48.39")
+                    if (SettingsPatch.upward1915) {
+                        context.appendAppVersion("19.13.37")
+                    }
                 }
             }
         }
