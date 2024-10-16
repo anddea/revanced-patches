@@ -1,3 +1,24 @@
+# [2.230.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.4...v2.230.0-dev.5) (2024-10-16)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Shorts action buttons:** Low icon quality for `Cairo` option on YouTube 18.29.38 ([819189e](https://github.com/anddea/revanced-patches/commit/819189ed9e66e039c540a78c81c84f9b6bf96682))
+* **YouTube Music - Player components:** `Hide Audio / Video toggle` setting not working in landscape mode ([e171e45](https://github.com/anddea/revanced-patches/commit/e171e452b1bc936079373afcaedeeb7f30394dec))
+* **YouTube Music - Player components:** Patches do not apply properly in certain versions ([db80b1d](https://github.com/anddea/revanced-patches/commit/db80b1d0dd30d0f19323541c9018ff5ab62dae2c))
+* **YouTube Music - Spoof app version:** ListPreference sometimes selects wrong values ([ca3dba2](https://github.com/anddea/revanced-patches/commit/ca3dba27402448c8a89c3fc3fabb080f8315c303))
+
+
+### Features
+
+* **YouTube - Hide player flyout menu:** Add `Hide 1080p Premium menu` setting ([3231f36](https://github.com/anddea/revanced-patches/commit/3231f3614da9a49ae3bdead139849992d6e85c95))
+* **YouTube - Seekbar components:** Add `Disable seekbar chapters` setting ([a297e58](https://github.com/anddea/revanced-patches/commit/a297e58896c6d1bd968d5a33e993c3395321a908))
+* **YouTube - Spoof app version:** Add target version `19.13.37 - Restores old style Rolling number animations` ([9d568e0](https://github.com/anddea/revanced-patches/commit/9d568e040bfe7c052e315179793c2f413bed08a7))
+* **YouTube - Toolbar components:** Add `Hide YouTube Doodles` setting ([00c6730](https://github.com/anddea/revanced-patches/commit/00c6730ed977274a70bf8cdd75b3d12af6b9f485))
+* **YouTube & YouTube Music - Hide settings menu:** Add switch preferences for each setting entry ([3c9e660](https://github.com/anddea/revanced-patches/commit/3c9e66083aebe89560ded83b36191cf0d73ffc09))
+* **YouTube & YouTube Music - Return YouTube Dislike:** Add `Show estimated likes` setting ([00793d8](https://github.com/anddea/revanced-patches/commit/00793d87e1082d0adbf40f38d5cbd7057c68d6c7))
+* **YouTube & YouTube Music:** Add `Return YouTube Username` patch ([3dbe9c4](https://github.com/anddea/revanced-patches/commit/3dbe9c49c984371bf89e8fc13a5acafa0ef83ce2))
+
 # [2.230.0-dev.4](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.3...v2.230.0-dev.4) (2024-10-04)
 
 
