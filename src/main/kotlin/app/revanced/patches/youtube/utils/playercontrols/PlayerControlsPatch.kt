@@ -16,8 +16,9 @@ import app.revanced.patches.youtube.utils.playercontrols.fingerprints.MotionEven
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityEntityModelFingerprint
 import app.revanced.patches.youtube.utils.playercontrols.fingerprints.PlayerControlsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -50,13 +51,11 @@ object PlayerControlsPatch : BytecodePatch(
 
         // region patch for hook visibility of play control buttons (e.g. pause, play button, etc)
 
-        PlayerButtonsVisibilityFingerprint.resolve(
-            context,
-            PlayerButtonsResourcesFingerprint.resultOrThrow().mutableClass
-        )
-        PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
+        PlayerButtonsVisibilityFingerprint.alsoResolve(
+            context, PlayerButtonsResourcesFingerprint
+        ).let {
             it.mutableMethod.apply {
-                val viewIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
+                val viewIndex = indexOfFirstInstructionOrThrow(opcode = Opcode.INVOKE_INTERFACE)
                 val viewRegister = getInstruction<FiveRegisterInstruction>(viewIndex).registerD
 
                 addInstruction(
@@ -70,11 +69,9 @@ object PlayerControlsPatch : BytecodePatch(
 
         // region patch for hook visibility of play controls layout
 
-        PlayerControlsVisibilityFingerprint.resolve(
-            context,
-            YouTubeControlsOverlayFingerprint.resultOrThrow().mutableClass
-        )
-        PlayerControlsVisibilityFingerprint.resultOrThrow().mutableMethod.addInstruction(
+        PlayerControlsVisibilityFingerprint.alsoResolve(
+            context, YouTubeControlsOverlayFingerprint
+        ).mutableMethod.addInstruction(
             0,
             "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeVisibility(Z)V"
         )
@@ -83,12 +80,10 @@ object PlayerControlsPatch : BytecodePatch(
 
         // region patch for detecting motion events in play controls layout
 
-        MotionEventFingerprint.resolve(
-            context,
-            YouTubeControlsOverlayFingerprint.resultOrThrow().mutableClass
-        )
-        MotionEventFingerprint.resultOrThrow().mutableMethod.apply {
-            val insertIndex = getTargetIndexWithMethodReferenceNameOrThrow("setTranslationY") + 1
+        MotionEventFingerprint.alsoResolve(
+            context, YouTubeControlsOverlayFingerprint
+        ).mutableMethod.apply {
+            val insertIndex = MotionEventFingerprint.indexOfTranslationInstruction(this) + 1
 
             addInstruction(
                 insertIndex,
@@ -121,28 +116,25 @@ object PlayerControlsPatch : BytecodePatch(
 
         // region set methods to inject into integration
 
-        val playerControlsMutableClass =
-            context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR)!!.mutableClass
-
         changeVisibilityMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "changeVisibility"
-                        && method.parameters == listOf("Z", "Z")
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "changeVisibility"
+                        && parameters == listOf("Z", "Z")
             }
 
         changeVisibilityNegatedImmediatelyMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "changeVisibilityNegatedImmediately"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "changeVisibilityNegatedImmediately"
             }
 
         initializeBottomControlButtonMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "initializeBottomControlButton"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "initializeBottomControlButton"
             }
 
         initializeTopControlButtonMethod =
-            playerControlsMutableClass.methods.single { method ->
-                method.name == "initializeTopControlButton"
+            context.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
+                name == "initializeTopControlButton"
             }
 
         // endregion

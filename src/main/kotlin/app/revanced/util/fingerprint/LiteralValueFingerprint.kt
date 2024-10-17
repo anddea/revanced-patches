@@ -1,7 +1,7 @@
 package app.revanced.util.fingerprint
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -21,7 +21,7 @@ abstract class LiteralValueFingerprint(
     opcodes: Iterable<Opcode>? = null,
     strings: Iterable<String>? = null,
     // Has to be a supplier because the fingerprint is created before patches can set literals.
-    literalSupplier: () -> Long
+    literalSupplier: () -> Long,
 ) : MethodFingerprint(
     returnType = returnType,
     accessFlags = accessFlags,
@@ -29,6 +29,6 @@ abstract class LiteralValueFingerprint(
     opcodes = opcodes,
     strings = strings,
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(literalSupplier())
+        methodDef.containsWideLiteralInstructionValue(literalSupplier())
     }
 )

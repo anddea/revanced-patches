@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.options.PatchOption
 import app.revanced.patcher.util.DomFileEditor
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import org.w3c.dom.NodeList
 import java.io.File
 import java.io.InputStream
 import java.nio.file.Files
@@ -67,6 +68,47 @@ fun List<String>.getResourceGroup(fileNames: Array<String>) = map { directory ->
     ResourceGroup(
         directory, *fileNames
     )
+}
+
+fun ResourceContext.appendAppVersion(appVersion: String) {
+    addEntryValues(
+        "revanced_spoof_app_version_target_entries",
+        "@string/revanced_spoof_app_version_target_entry_" + appVersion.replace(".", "_"),
+        prepend = false
+    )
+    addEntryValues(
+        "revanced_spoof_app_version_target_entry_values",
+        appVersion,
+        prepend = false
+    )
+}
+
+fun ResourceContext.addEntryValues(
+    attributeName: String,
+    attributeValue: String,
+    path: String = "res/values/arrays.xml",
+    prepend: Boolean = true,
+) {
+    xmlEditor[path].use {
+        with(it.file) {
+            val resourcesNode = getElementsByTagName("resources").item(0) as Element
+
+            val newElement: Element = createElement("item")
+            for (i in 0 until resourcesNode.childNodes.length) {
+                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+
+                if (node.getAttribute("name") == attributeName) {
+                    newElement.appendChild(createTextNode(attributeValue))
+
+                    if (prepend) {
+                        node.appendChild(newElement)
+                    } else {
+                        node.insertBefore(newElement, node.firstChild)
+                    }
+                }
+            }
+        }
+    }
 }
 
 fun ResourceContext.copyFile(
@@ -239,4 +281,33 @@ fun String.copyXmlNode(source: DomFileEditor, target: DomFileEditor): AutoClosea
         source.close()
         target.close()
     }
+}
+
+internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
+    for (i in 0 until length) {
+        val node = item(i)
+        if (node.nodeType == Node.ELEMENT_NODE) {
+            val element = node as Element
+
+            if (element.getAttribute(attributeName) == value) {
+                return element
+            }
+
+            // Recursively search.
+            val found = element.childNodes.findElementByAttributeValue(attributeName, value)
+            if (found != null) {
+                return found
+            }
+        }
+    }
+
+    return null
+}
+
+internal fun NodeList.findElementByAttributeValueOrThrow(
+    attributeName: String,
+    value: String
+): Element {
+    return findElementByAttributeValue(attributeName, value)
+        ?: throw PatchException("Could not find: $attributeName $value")
 }

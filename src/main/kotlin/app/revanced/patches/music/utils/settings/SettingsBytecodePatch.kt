@@ -17,7 +17,7 @@ import app.revanced.patches.music.utils.settings.fingerprints.PreferenceFingerpr
 import app.revanced.patches.music.utils.settings.fingerprints.SettingsHeadersFragmentFingerprint
 import app.revanced.patches.shared.fingerprints.SharedSettingFingerprint
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -44,15 +44,17 @@ object SettingsBytecodePatch : BytecodePatch(
         "$INTEGRATIONS_PATH/settings/preference/ReVancedPreferenceFragment;"
     private const val INTEGRATIONS_INITIALIZATION_CLASS_DESCRIPTOR =
         "$UTILS_PATH/InitializationPatch;"
+    lateinit var contexts: BytecodeContext
 
     override fun execute(context: BytecodeContext) {
+        contexts = context
 
         /**
          * Set SharedPrefCategory
          */
         SharedSettingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val stringIndex = getTargetIndexOrThrow(Opcode.CONST_STRING)
+                val stringIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
                 val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
 
                 replaceInstruction(

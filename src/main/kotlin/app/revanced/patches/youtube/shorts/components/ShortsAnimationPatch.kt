@@ -15,8 +15,8 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelF
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -38,7 +38,7 @@ object ShortsAnimationPatch : BytecodePatch(
                     ReelFeedbackPause to "setShortsPauseFeedback",
                     ReelFeedbackPlay to "setShortsPlayFeedback",
                 ).forEach { (literal, methodName) ->
-                    val literalIndex = getWideLiteralInstructionIndex(literal)
+                    val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
                     val viewIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                         opcode == Opcode.CHECK_CAST
                                 && (this as? ReferenceInstruction)?.reference?.toString() == LOTTIE_ANIMATION_VIEW_CLASS_DESCRIPTOR

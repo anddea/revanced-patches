@@ -103,6 +103,22 @@ object ResourceUtils {
                 }
         }
     }
+    
+    fun ResourceContext.setPreferenceScreenIcon(
+        category: String
+    ) {
+        this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
+            editor.file.doRecursively loop@{
+                if (it !is Element) return@loop
+
+                it.getAttributeNode("android:key")?.let { attribute ->
+                    if (attribute.textContent == "revanced_preference_screen_$category") {
+                        it.cloneNodes(it.parentNode)
+                    }
+                }
+            }
+        }
+    }
 
     fun ResourceContext.sortPreferenceCategory(
         category: String
@@ -156,8 +172,7 @@ object ResourceUtils {
         key: String,
         defaultValue: String,
         dependencyKey: String,
-        setSummary: Boolean,
-        setSummaryOnOff: Boolean
+        setSummary: Boolean
     ) {
         this.xmlEditor[SETTINGS_HEADER_PATH].use { editor ->
             val tags = editor.file.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
@@ -170,10 +185,6 @@ object ResourceUtils {
                         setAttribute("android:title", "@string/$key" + "_title")
                         if (setSummary) {
                             setAttribute("android:summary", "@string/$key" + "_summary")
-                        }
-                        if (setSummaryOnOff) {
-                            setAttribute("android:summaryOn", "@string/$key" + "_summary_on")
-                            setAttribute("android:summaryOff", "@string/$key" + "_summary_off")
                         }
                         setAttribute("android:key", key)
                         setAttribute("android:defaultValue", defaultValue)

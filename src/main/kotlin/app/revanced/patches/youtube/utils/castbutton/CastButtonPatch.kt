@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.castbutton.fingerprints.MenuItemInitializeFingerprint
@@ -17,11 +16,15 @@ import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CL
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(dependencies = [SharedResourceIdPatch::class])
 object CastButtonPatch : BytecodePatch(
@@ -39,32 +42,30 @@ object CastButtonPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        val toolbarMenuItemInitializeResult = MenuItemInitializeFingerprint.resultOrThrow()
-        MenuItemVisibilityFingerprint.resolve(context, toolbarMenuItemInitializeResult.classDef)
-
-        toolbarMenuItemInitializeMethod = toolbarMenuItemInitializeResult.mutableMethod
-        toolbarMenuItemVisibilityMethod =
-            MenuItemVisibilityFingerprint.resultOrThrow().mutableMethod
+        toolbarMenuItemInitializeMethod = MenuItemInitializeFingerprint.resultOrThrow()
+            .mutableMethod
+        toolbarMenuItemVisibilityMethod = MenuItemVisibilityFingerprint.alsoResolve(
+            context, MenuItemInitializeFingerprint
+        ).mutableMethod
 
         playerButtonMethod = PlayerButtonFingerprint.resultOrThrow().mutableMethod
 
-        val buttonClass = context.findClass("MediaRouteButton")
-            ?: throw PatchException("MediaRouteButton class not found.")
-
-        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.apply {
-            addInstructions(
-                0, """
-                    invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideCastButton(I)I
-                    move-result p1
-                    """
-            )
-        } ?: throw PatchException("setVisibility method not found.")
+        context.findMethodOrThrow("Landroidx/mediarouter/app/MediaRouteButton;") {
+            name == "setVisibility"
+        }.addInstructions(
+            0, """
+                invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideCastButton(I)I
+                move-result p1
+                """
+        )
 
     }
 
     internal fun hookPlayerButton(context: BytecodeContext) {
         playerButtonMethod.apply {
-            val index = getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+            val index = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "setVisibility"
+            }
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
             val visibilityRegister = instruction.registerD
@@ -84,8 +85,9 @@ object CastButtonPatch : BytecodePatch(
 
     internal fun hookToolBarButton(context: BytecodeContext) {
         toolbarMenuItemInitializeMethod.apply {
-            val index = getTargetIndexWithMethodReferenceNameOrThrow("setShowAsAction") + 1
-
+            val index = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "setShowAsAction"
+            } + 1
             addInstruction(
                 index,
                 "invoke-static {p1}, $GENERAL_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/MenuItem;)V"

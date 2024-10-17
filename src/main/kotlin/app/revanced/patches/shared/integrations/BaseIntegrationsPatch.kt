@@ -4,10 +4,11 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.integrations.BaseIntegrationsPatch.IntegrationsFingerprint.IRegisterResolver
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
-import app.revanced.util.resultOrThrow
+import app.revanced.util.exception
+import app.revanced.util.findMethodOrThrow
+import app.revanced.util.isDeprecated
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
@@ -17,11 +18,7 @@ abstract class BaseIntegrationsPatch(
 ) : BytecodePatch(hooks) {
 
     override fun execute(context: BytecodeContext) {
-        if (context.findClass(INTEGRATIONS_UTILS_CLASS_DESCRIPTOR) == null) {
-            throw PatchException(
-                "Integrations have not been merged yet. This patch can not succeed without merging the integrations.",
-            )
-        }
+        context.findMethodOrThrow(INTEGRATIONS_UTILS_CLASS_DESCRIPTOR)
 
         hooks.forEach { hook ->
             hook.invoke(INTEGRATIONS_UTILS_CLASS_DESCRIPTOR)
@@ -53,16 +50,21 @@ abstract class BaseIntegrationsPatch(
     ) {
 
         fun invoke(integrationsDescriptor: String) {
-            resultOrThrow().mutableMethod.let { method ->
-                val insertIndex = insertIndexResolver(method)
-                val contextRegister = contextRegisterResolver(method)
+            val method = result?.mutableMethod
+                ?: if (!isDeprecated()) {
+                    throw exception
+                } else {
+                    return
+                }
 
-                method.addInstruction(
-                    insertIndex,
-                    "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                            "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
-                )
-            }
+            val insertIndex = insertIndexResolver(method)
+            val contextRegister = contextRegisterResolver(method)
+
+            method.addInstruction(
+                insertIndex,
+                "invoke-static/range { $contextRegister .. $contextRegister }, " +
+                        "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
+            )
         }
 
         interface IHookInsertIndexResolver : (Method) -> Int {

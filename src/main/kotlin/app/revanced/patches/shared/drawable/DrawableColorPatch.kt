@@ -6,9 +6,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.drawable.fingerprints.DrawableFingerprint
-import app.revanced.util.getTargetIndexWithMethodReferenceNameReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 object DrawableColorPatch : BytecodePatch(
     setOf(DrawableFingerprint)
@@ -17,26 +19,26 @@ object DrawableColorPatch : BytecodePatch(
 
         DrawableFingerprint.resultOrThrow().mutableMethod.apply {
             insertMethod = this
-            insertIndex = getTargetIndexWithMethodReferenceNameReversedOrThrow("setColor")
+            insertIndex = indexOfFirstInstructionReversedOrThrow {
+                getReference<MethodReference>()?.name == "setColor"
+            }
             insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
         }
     }
 
-    private var offset = 0
-
+    private lateinit var insertMethod: MutableMethod
     private var insertIndex: Int = 0
     private var insertRegister: Int = 0
-    private lateinit var insertMethod: MutableMethod
-
+    private var offset = 0
 
     fun injectCall(
         methodDescriptor: String
     ) {
         insertMethod.addInstructions(
             insertIndex + offset, """
-                    invoke-static {v$insertRegister}, $methodDescriptor
-                    move-result v$insertRegister
-                    """
+                invoke-static {v$insertRegister}, $methodDescriptor
+                move-result v$insertRegister
+                """
         )
         offset += 2
     }
