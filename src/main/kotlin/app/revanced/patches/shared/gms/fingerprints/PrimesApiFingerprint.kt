@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal object PrimesApiFingerprint : MethodFingerprint(
     returnType = "V",
-    strings  = listOf("PrimesApiImpl.java"),
+    strings = listOf("PrimesApiImpl.java"),
     customFingerprint = { methodDef, _ ->
         MethodUtil.isConstructor(methodDef)
     }

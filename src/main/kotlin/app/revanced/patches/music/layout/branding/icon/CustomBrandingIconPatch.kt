@@ -25,8 +25,10 @@ object CustomBrandingIconPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,
 ) {
-    private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME = "adaptiveproduct_youtube_music_background_color_108"
-    private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME = "adaptiveproduct_youtube_music_foreground_color_108"
+    private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
+        "adaptiveproduct_youtube_music_background_color_108"
+    private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
+        "adaptiveproduct_youtube_music_foreground_color_108"
     private const val DEFAULT_ICON_KEY = "Xisr Yellow"
 
     private val availableIcon = mapOf(

@@ -250,11 +250,9 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
             }
         }
 
-        PlayerButtonsVisibilityFingerprint.resolve(
-            context,
-            PlayerButtonsResourcesFingerprint.resultOrThrow().mutableClass
-        )
-        PlayerButtonsVisibilityFingerprint.resultOrThrow().let {
+        PlayerButtonsVisibilityFingerprint.alsoResolve(
+            context, PlayerButtonsResourcesFingerprint
+        ).let {
             it.mutableMethod.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
                 val viewIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_INTERFACE)
