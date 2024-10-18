@@ -17,7 +17,8 @@ internal object PrimesLifecycleEventFingerprint : MethodFingerprint(
         methodDef.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
-                        ?.string.toString().startsWith("Primes did not observe lifecycle events in the expected order.")
+                        ?.string.toString()
+                        .startsWith("Primes did not observe lifecycle events in the expected order.")
         } >= 0
     }
 )

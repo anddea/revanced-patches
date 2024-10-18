@@ -39,6 +39,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Scrim
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlinePictureInPictureWhite
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.YtOutlineXWhite
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.fingerprint.LiteralValueFingerprint
 import app.revanced.util.getReference
@@ -100,11 +101,9 @@ object MiniplayerPatch : BaseBytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        MiniplayerOverrideNoContextFingerprint.resolve(
-            context,
-            MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
-        )
-        MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
+        MiniplayerOverrideNoContextFingerprint.alsoResolve(
+            context, MiniplayerDimensionsCalculatorParentFingerprint
+        ).mutableMethod.apply {
             findReturnIndicesReversed().forEach { index ->
                 insertLegacyTabletMiniplayerOverride(
                     index

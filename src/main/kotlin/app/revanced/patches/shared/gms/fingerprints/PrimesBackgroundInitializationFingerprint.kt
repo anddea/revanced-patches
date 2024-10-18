@@ -12,7 +12,8 @@ internal object PrimesBackgroundInitializationFingerprint : MethodFingerprint(
         methodDef.indexOfFirstInstruction {
             opcode == Opcode.CONST_STRING &&
                     getReference<StringReference>()
-                        ?.string.toString().startsWith("Primes init triggered from background in package:")
+                        ?.string.toString()
+                        .startsWith("Primes init triggered from background in package:")
         } >= 0
     }
 )
