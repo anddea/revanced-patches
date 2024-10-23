@@ -65,9 +65,15 @@ object SettingsPatch : BaseResourcePatch(
         setVersionInfo()
 
         /**
-         * copy strings
+         * copy arrays, colors and strings
          */
-        context.copyXmlNode("music/settings/host", "values/strings.xml", "resources")
+        arrayOf(
+            "arrays.xml",
+            "colors.xml",
+            "strings.xml"
+        ).forEach { xmlFile ->
+            context.copyXmlNode("music/settings/host", "values/$xmlFile", "resources")
+        }
 
         /**
          * hide divider
@@ -84,11 +90,6 @@ object SettingsPatch : BaseResourcePatch(
                     "allowDividerBelow\">false"
                 )
         )
-
-        /**
-         * Copy arrays
-         */
-        contexts.copyXmlNode("music/settings/host", "values/arrays.xml", "resources")
 
         /**
          * Copy colors
