@@ -1,7 +1,7 @@
-package app.revanced.patches.shared.textcomponent.fingerprints
+package app.revanced.patches.shared.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.shared.textcomponent.fingerprints.SpannableStringBuilderFingerprint.indexOfSpannableStringInstruction
+import app.revanced.patches.shared.fingerprints.SpannableStringBuilderFingerprint.indexOfSpannableStringInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
