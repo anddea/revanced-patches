@@ -11,6 +11,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.fingerprints.StartVideoInformerFingerprint
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.patches.shared.spans.InclusiveSpanPatch
 import app.revanced.patches.youtube.player.components.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.FilmStripOverlayConfigFingerprint
 import app.revanced.patches.youtube.player.components.fingerprints.FilmStripOverlayInteractionFingerprint
@@ -38,6 +39,7 @@ import app.revanced.patches.youtube.utils.fingerprints.YouTubeControlsOverlayFin
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.SuggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.DarkBackground
@@ -71,6 +73,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
     description = "Adds options to hide or change components related to the video player.",
     dependencies = setOf(
         ControlsOverlayConfigPatch::class,
+        InclusiveSpanPatch::class,
         LithoFilterPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
@@ -103,6 +106,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 ) {
     private const val PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/PlayerComponentsFilter;"
+    private const val SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR =
+        "$SPANS_PATH/SanitizeVideoSubtitleFilter;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -428,6 +433,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        InclusiveSpanPatch.addFilter(SANITIZE_VIDEO_SUBTITLE_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(PLAYER_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
 
         /**
