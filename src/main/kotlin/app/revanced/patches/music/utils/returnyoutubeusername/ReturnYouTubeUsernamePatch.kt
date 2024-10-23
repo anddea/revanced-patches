@@ -26,6 +26,11 @@ object ReturnYouTubeUsernamePatch : BaseBytecodePatch(
         )
         SettingsPatch.addPreferenceWithIntent(
             CategoryType.RETURN_YOUTUBE_USERNAME,
+            "revanced_return_youtube_username_display_format",
+            "revanced_return_youtube_username_enabled"
+        )
+        SettingsPatch.addPreferenceWithIntent(
+            CategoryType.RETURN_YOUTUBE_USERNAME,
             "revanced_return_youtube_username_youtube_data_api_v3_developer_key",
             "revanced_return_youtube_username_enabled"
         )
