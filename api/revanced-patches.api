@@ -299,6 +299,7 @@ public final class app/revanced/patches/music/utils/integrations/Constants {
 	public static final field NAVIGATION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field NAVIGATION_PATH Ljava/lang/String;
 	public static final field PATCHES_PATH Ljava/lang/String;
+	public static final field PATCH_STATUS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field PLAYER_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field PLAYER_PATH Ljava/lang/String;
 	public static final field SHARED_PATH Ljava/lang/String;
@@ -332,7 +333,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun getColorGrey ()J
 	public final fun getDarkBackground ()J
 	public final fun getDesignBottomSheetDialog ()J
-	public final fun getDialogSolid ()J
 	public final fun getEndButtonsContainer ()J
 	public final fun getFloatingLayout ()J
 	public final fun getHistoryMenuItem ()J
@@ -374,7 +374,6 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public final fun setColorGrey (J)V
 	public final fun setDarkBackground (J)V
 	public final fun setDesignBottomSheetDialog (J)V
-	public final fun setDialogSolid (J)V
 	public final fun setEndButtonsContainer (J)V
 	public final fun setFloatingLayout (J)V
 	public final fun setHistoryMenuItem (J)V
@@ -771,6 +770,7 @@ public final class app/revanced/patches/shared/integrations/Constants {
 	public static final field INTEGRATIONS_UTILS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field INTEGRATIONS_UTILS_PATH Ljava/lang/String;
 	public static final field PATCHES_PATH Ljava/lang/String;
+	public static final field SPANS_PATH Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/litho/LithoFilterPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
@@ -852,6 +852,13 @@ public final class app/revanced/patches/shared/returnyoutubeusername/BaseReturnY
 
 public final class app/revanced/patches/shared/settingmenu/SettingsMenuPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/shared/settingmenu/SettingsMenuPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/shared/spans/InclusiveSpanPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
+	public static final field INSTANCE Lapp/revanced/patches/shared/spans/InclusiveSpanPatch;
+	public fun close ()V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1460,6 +1467,7 @@ public final class app/revanced/patches/youtube/utils/integrations/Constants {
 	public static final field SHARED_PATH Ljava/lang/String;
 	public static final field SHORTS_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final field SHORTS_PATH Ljava/lang/String;
+	public static final field SPANS_PATH Ljava/lang/String;
 	public static final field SWIPE_PATH Ljava/lang/String;
 	public static final field UTILS_PATH Ljava/lang/String;
 	public static final field VIDEO_PATH Ljava/lang/String;
@@ -1888,6 +1896,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun findOpcodeIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
 	public static final fun getException (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/patch/PatchException;
 	public static final fun getException (Lapp/revanced/util/fingerprint/MultiMethodFingerprint;)Lapp/revanced/patcher/patch/PatchException;
+	public static final fun getFiveRegisters (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)Ljava/lang/String;
 	public static final fun getMethodCall (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Ljava/lang/String;
 	public static final fun getMethodCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)Ljava/lang/String;
 	public static final fun getWalkerMethod (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;I)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
