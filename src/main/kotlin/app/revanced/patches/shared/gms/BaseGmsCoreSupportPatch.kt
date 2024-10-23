@@ -93,6 +93,7 @@ abstract class BaseGmsCoreSupportPatch(
 
         var gmsCoreVendor = "app.revanced"
         var checkGmsCore = true
+        var disableGmsServiceBroker = false
         var packageNameYouTube = "com.google.android.youtube"
         var packageNameYouTubeMusic = "com.google.android.apps.youtube.music"
 
@@ -131,6 +132,7 @@ abstract class BaseGmsCoreSupportPatch(
     override fun execute(context: BytecodeContext) {
         gmsCoreVendor = getStringPatchOption("GmsCoreVendorGroupId")
         checkGmsCore = getBooleanPatchOption("CheckGmsCore")
+        disableGmsServiceBroker = getBooleanPatchOption("DisableGmsServiceBroker")
         packageNameYouTube = getStringPatchOption("PackageNameYouTube")
         packageNameYouTubeMusic = getStringPatchOption("PackageNameYouTubeMusic")
 
@@ -152,12 +154,15 @@ abstract class BaseGmsCoreSupportPatch(
         }
 
         // Return these methods early to prevent the app from crashing.
-        listOf(
+        val returnEarly = mutableListOf(
             CastContextFetchFingerprint,
-            GmsServiceBrokerFingerprint,
             GooglePlayUtilityFingerprint,
             ServiceCheckFingerprint
-        ).returnEarly()
+        )
+        if (disableGmsServiceBroker) {
+            returnEarly += GmsServiceBrokerFingerprint
+        }
+        returnEarly.returnEarly()
 
         transformPrimeMethod()
 
