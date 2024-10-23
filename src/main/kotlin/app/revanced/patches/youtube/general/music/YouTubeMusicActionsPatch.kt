@@ -8,6 +8,7 @@ import app.revanced.patches.youtube.general.music.fingerprints.AppDeepLinkFinger
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.gms.GmsCoreSupportResourcePatch.PackageNameYouTubeMusic
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_PATH
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsBytecodePatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.addEntryValues
@@ -91,8 +92,8 @@ object YouTubeMusicActionsPatch : BaseBytecodePatch(
                 musicPackageName
             )
 
-            SettingsBytecodePatch.contexts.findMethodOrThrow(INTEGRATIONS_CLASS_DESCRIPTOR) {
-                name == "getRVXMusicPackageName"
+            SettingsBytecodePatch.contexts.findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+                name == "RVXMusicPackageName"
             }.apply {
                 val replaceIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
                 val replaceRegister =
