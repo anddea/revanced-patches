@@ -509,6 +509,16 @@ fun MutableMethod.getWalkerMethod(context: BytecodeContext, offset: Int): Mutabl
     }
 }
 
+/**
+ * Taken from BiliRoamingX:
+ * https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/utils/Extenstions.kt#L151
+ */
+fun MutableMethod.getFiveRegisters(index: Int) =
+    with (getInstruction<FiveRegisterInstruction>(index)) {
+        arrayOf(registerC, registerD, registerE, registerF, registerG)
+            .take(registerCount).joinToString(",") { "v$it" }
+    }
+
 fun BytecodeContext.addStaticFieldToIntegration(
     className: String,
     methodName: String,

@@ -8,7 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.textcomponent.fingerprints.SpannableStringBuilderFingerprint
+import app.revanced.patches.shared.fingerprints.SpannableStringBuilderFingerprint
 import app.revanced.patches.shared.textcomponent.fingerprints.TextComponentConstructorFingerprint
 import app.revanced.patches.shared.textcomponent.fingerprints.TextComponentContextFingerprint
 import app.revanced.util.alsoResolve
@@ -33,7 +33,8 @@ object TextComponentPatch : BytecodePatch(
 
         SpannableStringBuilderFingerprint.resultOrThrow().mutableMethod.apply {
             spannedMethod = this
-            spannedIndex = SpannableStringBuilderFingerprint.indexOfSpannableStringInstruction(this)
+            spannedIndex =
+                SpannableStringBuilderFingerprint.indexOfSpannableStringInstruction(this)
             spannedRegister = getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
             spannedContextRegister =
                 getInstruction<TwoRegisterInstruction>(0).registerA
