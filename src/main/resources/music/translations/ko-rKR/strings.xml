@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">계속하기</string>
     <string name="gms_core_dialog_dismiss_text">다시 보지 않기</string>
@@ -262,6 +262,7 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_preference_screen_misc_title">기타</string>
     <string name="revanced_preference_screen_navigation_title">하단바</string>
     <string name="revanced_preference_screen_player_title">플레이어</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_settings_title">설정 메뉴</string>
@@ -305,6 +306,23 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_restore_old_player_layout_title">이전 플레이어 레이아웃으로 복원</string>
     <string name="revanced_restore_old_style_library_shelf_summary">이전 보관함 탭으로 복원합니다. (실험 기능)</string>
     <string name="revanced_restore_old_style_library_shelf_title">이전 보관함 선반으로 복원</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@핸들 (사용자 이름)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">사용자 이름 표시 형식을 선택하세요.</string>
+    <string name="revanced_return_youtube_username_display_format_title">표시 형식</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">사용자 이름 (@핸들)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">사용자 이름</string>
+    <string name="revanced_return_youtube_username_enabled_summary">댓글에서 핸들(@사용자 아이디)이 아닌 사용자 이름을 표시합니다.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Return YouTube Username 활성화</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"핸들을 사용자 이름으로 변경하려면 YouTube Data API v3 Developer Key가 필요합니다. 
+
+무료 요금제에서 API Key의 일일 할당량은 10,000개이며, 1개의 할당량은 댓글 1개에 대해 핸들을 사용자 이름으로 변경하는 데 사용됩니다. 
+
+API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API Key에 대한 정보</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3를 사용하기 위한 Developer Key입니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -314,12 +332,15 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시</string>
     <string name="revanced_ryd_enabled_summary">싫어요 수를 표시합니다.</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike 활성화</string>
+    <string name="revanced_ryd_estimated_like_summary">좋아요 수가 숨겨진 음악(동영상)에서 추정되는 좋아요 수를 표시합니다.</string>
+    <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다. (클라이언트 API 제한 도달)</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
     <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때 팝업 메시지 표시</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다.</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유</string>
     <string name="revanced_sb_about">정보</string>

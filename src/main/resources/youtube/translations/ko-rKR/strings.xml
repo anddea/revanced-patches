@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에 접근성 컨트롤을 표시하시겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 켜져있기 때문에 플레이어 컨트롤을 변경합니다.</string>
@@ -323,6 +323,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_extended_confirm_user_dialog_title">계속하시겠습니까?</string>
     <string name="revanced_extended_reset_to_default_toast">기본값으로 초기화합니다.</string>
     <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"일부 사용자에게 좋아요, 조회수 및 업로드 날짜와 같은 롤링 넘버 텍스트가 숨겨지는 YouTube 서버 측 문제가 있습니다.
+
+이 문제에 대한 임시 해결 방법은 앱 버전을 19.13.37로 변경하는 것입니다.
+
+앱을 다시 시작하기 전에 앱 버전을 변경하시겠습니까?"</string>
     <string name="revanced_extended_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보낼 수 없습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
@@ -428,6 +433,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Shorts 만들기 버튼이 표시됩니다.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Shorts 만들기 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Shorts 만들기 버튼 숨기기</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">강조 표시된 검색 링크가 표시됩니다.\n• 돋보기 마크가 있는 파란색 강조 글씨</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">강조 표시된 검색 링크가 숨겨집니다.\n• 돋보기 마크가 있는 파란색 강조 글씨</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">강조 표시된 검색 링크 숨기기</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Thanks 버튼이 표시됩니다.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Thanks 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_comment_thanks_button_title">Thanks 버튼 숨기기</string>
@@ -934,6 +942,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_share_button_summary_off">공유 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">공유 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_share_button_title">공유 버튼 숨기기</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">채널에서 표시됩니다.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"채널에서 숨겨집니다.
+
+알림:
+• 홈 탭에 있는 Shorts 헤더 선반만 숨겨집니다."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">채널에서 숨기기</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">시청 기록에서 Shorts 선반이 표시됩니다.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">시청 기록에서 Shorts 선반이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_shelf_history_title">시청 기록에서 Shorts 선반이 숨기기</string>
@@ -1044,10 +1058,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다.</string>
     <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다.</string>
     <string name="revanced_hide_transcript_section_title">스크립트 섹션 숨기기</string>
-    <string name="revanced_hide_upcoming_video_summary">"(게시) 예정 라벨이 있는 동영상이 숨겨집니다.
-
-알림: 이 설정을 활성화하면 '알림 받기' 버튼도 숨겨집니다."</string>
-    <string name="revanced_hide_upcoming_video_title">(게시) 예정 동영상 숨기기</string>
     <string name="revanced_hide_video_ads_summary_off">동영상 광고가 표시됩니다.</string>
     <string name="revanced_hide_video_ads_summary_on">동영상 광고가 숨겨집니다.</string>
     <string name="revanced_hide_video_ads_title">동영상 광고 숨기기</string>
@@ -1264,7 +1274,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_watch_history_summary">시청 기록과 관련된 설정을 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_watch_history_title">시청 기록</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">빠른 작업 상단 여백 값은 0-32 사이어야 합니다.</string>
-    <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 작업 컨테이너까지의 간격을 0-32 사이로 지정할 수 있습니다.</string>
+    <string name="revanced_quick_actions_top_margin_summary">재생바에서 빠른 작업 컨테이너까지의 간격을 0-32 사이에서 지정할 수 있습니다.</string>
     <string name="revanced_quick_actions_top_margin_title">빠른 작업 상단 여백</string>
     <string name="revanced_reject_av1_codec_summary">"AV1 코덱 응답을 강제로 거부합니다.
 약 20초정도의 버퍼링 후에 다른 코덱으로 전환됩니다."</string>
@@ -1310,12 +1320,23 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">이전 동영상 화질 설정을 비활성화합니다.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">이전 동영상 화질 설정 메뉴를 활성화합니다.</string>
     <string name="revanced_restore_old_video_quality_menu_title">이전 동영상 화질 설정 메뉴 활성화하기</string>
-    <string name="revanced_return_youtube_username_enabled_summary_off">핸들(@사용자 아이디)를 사용합니다.</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">핸들 (사용자 이름)</string>
+    <string name="revanced_return_youtube_username_display_format_title">표시 형식</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">사용자 이름 (핸들)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">사용자 이름</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">핸들(@사용자 아이디)을 사용합니다.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">사용자 이름을 사용합니다.</string>
     <string name="revanced_return_youtube_username_enabled_title">Return YouTube Username 활성화하기</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API key에 대한 정보</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3가 사용된 개발자 키입니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"핸들을 사용자 이름으로 변경하려면 YouTube Data API v3 Developer Key가 필요합니다.
+
+무료 요금제에서 API Key의 일일 할당량은 10,000개이며, 1개의 할당량은 댓글 1개에 대해 핸들을 사용자 이름으로 변경하는 데 사용됩니다.
+
+API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API Key에 대한 정보</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3를 사용하기 위한 Developer Key입니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급받기</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1328,9 +1349,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다.</string>
     <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다.</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike 활성화하기</string>
-    <string name="revanced_ryd_estimated_like_summary_off">예상된 \'좋아요\'가 숨겨집니다.</string>
-    <string name="revanced_ryd_estimated_like_summary_on">예상된 \'좋아요\'가 표시됩니다.</string>
-    <string name="revanced_ryd_estimated_like_title">예상된 \'좋아요\' 표시하기</string>
+    <string name="revanced_ryd_estimated_like_summary_off">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시하지 않습니다.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다.</string>
+    <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시하기</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달).</string>
     <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (응답 시간 초과).</string>
@@ -1348,6 +1369,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"동영상 자막에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 표시됩니다."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"동영상 자막에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 숨겨집니다."</string>
+    <string name="revanced_sanitize_video_subtitle_title">불필요한 동영상 자막 문구 숨기기</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
@@ -1545,10 +1569,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">숨겨짐</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">두 번 누르기 애니메이션</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">메타 패널 하단 여백은 0-64 사이여야 합니다.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_summary">재생바에서 메타 패널까지의 간격을 0-64 사이로 지정할 수 있습니다.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">재생바에서 메타 패널까지의 간격을 0-64 사이에서 지정할 수 있습니다.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">메타 패널 하단 여백</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">높이 비율은 0-100 사이어야 합니다 (백분율).</string>
-    <string name="revanced_shorts_navigation_bar_height_percentage_summary">하단바가 숨겨졌을 때, 남는 빈 공간의 높이 비율을 0에서 100사이로 지정할 수 있습니다 (백분율).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_summary">하단바가 숨겨졌을 때, 남는 빈 공간의 높이 비율을 0-100 사이에서 지정할 수 있습니다. (백분율)</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">빈 공간의 높이 비율</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">타임스탬프를 길게 눌러서 Shorts 반복 상태를 변경할 수 있습니다.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">타임스탬프 길게 누르기 동작</string>
@@ -1612,11 +1636,19 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android Embedded Player</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android TestSuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">밝기 스와이프 감도는 1-1000 사이어야 합니다. (퍼센트)</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">밝기 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (퍼센트)\n\n최소 거리가 짧을수록 밝기 레벨이 더 빠르게 변경됩니다.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">밝기 스와이프 감도</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">잠금 화면 모드에서 스와이프 제스처를 비활성화합니다.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면 모드에서 스와이프 제스처를 활성화합니다.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면 모드에서 스와이프 제스처 활성화하기</string>
@@ -1632,6 +1664,9 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
     <string name="revanced_swipe_overlay_text_size_title">오버레이 텍스트 크기</string>
     <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다. (밀리초)</string>
     <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 감도는 1-1000 사이어야 합니다. (퍼센트)</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (퍼센트)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빨리 변경됩니다.\n\n권장 볼륨 스와이프 감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 감도</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"기기 정보를 변경하여 만들기 버튼과 알림 버튼의 위치를 교환합니다.
 • 이 설정을 변경하더라도 기기를 다시 시작할 때까지 적용되지 않을 수 있습니다.
 • 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)가 로드됩니다.
@@ -1649,6 +1684,7 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
 이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요."</string>
     <string name="revanced_theme_default">YouTube</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">경고</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 이 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">이 기기에 설치된 RVX Music 앱 패키지명을 설정하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>

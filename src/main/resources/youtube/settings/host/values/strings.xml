@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Enable accessibility controls for the video player?</string>
     <string name="accessibility_settings_edu_opt_out_text">Your controls are modified because an accessibility service is on.</string>
@@ -322,6 +322,11 @@ The Expand video description option may not work if the entered string does not 
     <string name="revanced_extended_confirm_user_dialog_title">Do you wish to proceed?</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
+
+A temporary workaround for this issue is to spoof the app version to 19.13.37.
+
+Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_extended_restart_message">Refresh and restart</string>
     <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
@@ -424,6 +429,9 @@ Store"</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Create a Short button is shown.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Create a Short button is hidden.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Hide Create a Short button</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Thanks button is shown.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Thanks button is hidden.</string>
     <string name="revanced_hide_comment_thanks_button_title">Hide Thanks button</string>
@@ -931,6 +939,12 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_share_button_summary_off">Share button is shown.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Share button is hidden.</string>
     <string name="revanced_hide_shorts_share_button_title">Hide Share button</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Shown in channel.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Hidden in channel.
+
+Info:
+• Only shelves with the Shorts header on the home tab are hidden."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Hide in channel</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Shown in watch history.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">Hidden in watch history.</string>
     <string name="revanced_hide_shorts_shelf_history_title">Hide in watch history</string>
@@ -1037,10 +1051,6 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown.</string>
     <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden.</string>
     <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
-    <string name="revanced_hide_upcoming_video_summary">"Hide videos with UPCOMING label.
-
-Note: Enabling this also hides the Notify me button."</string>
-    <string name="revanced_hide_upcoming_video_title">Hide UPCOMING video</string>
     <string name="revanced_hide_video_ads_summary_off">Video ads are shown.</string>
     <string name="revanced_hide_video_ads_summary_on">Video ads are hidden.</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
@@ -1308,6 +1318,10 @@ Tap and hold to open YouTube settings."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Display format</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Username</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Handle is used.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">Username is used.</string>
     <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
@@ -1353,6 +1367,9 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
     <string name="revanced_sanitize_sharing_links_summary">Removes tracking query parameters from the URLs when sharing links.</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were shown from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_about">About</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.</string>
@@ -1627,11 +1644,19 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_summary_on">Streaming data is spoofed.</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android Embedded Player</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Swipe gestures are disabled in Lock screen mode.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Swipe gestures are enabled in Lock screen mode.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Swipe gestures in Lock screen mode</string>
@@ -1647,6 +1672,9 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_swipe_overlay_text_size_title">Swipe overlay text size</string>
     <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible.</string>
     <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Swaps the positions of the Create button with the Notifications button by spoofing device information.
 
 • The device may need to be rebooted for a change of this setting to take effect.
@@ -1664,6 +1692,7 @@ Also, ads will no longer be blocked in Shorts.
 If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Warning</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s is not installed. Please install it.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>

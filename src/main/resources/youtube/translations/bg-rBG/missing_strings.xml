@@ -7,10 +7,18 @@
     <string name="revanced_disable_seekbar_chapters_summary_off">Chapters are enabled in the seekbar.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Chapters are disabled in the seekbar.</string>
     <string name="revanced_disable_seekbar_chapters_title">Disable seekbar chapters</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
+
+A temporary workaround for this issue is to spoof the app version to 19.13.37.
+
+Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p Premium menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p Premium menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Hide 1080p Premium menu</string>
@@ -40,9 +48,6 @@
     <string name="revanced_hide_settings_menu_data_saving_summary_off">Data saving menu is shown.</string>
     <string name="revanced_hide_settings_menu_data_saving_summary_on">Data saving menu is hidden.</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Hide Data saving menu</string>
-    <string name="revanced_hide_settings_menu_general_summary_off">General menu is shown.</string>
-    <string name="revanced_hide_settings_menu_general_summary_on">General menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_general_title">Hide General menu</string>
     <string name="revanced_hide_settings_menu_history_summary_off">Manage all history menu is shown.</string>
     <string name="revanced_hide_settings_menu_history_summary_on">Manage all history menu is hidden.</string>
     <string name="revanced_hide_settings_menu_history_title">Hide Manage all history menu</string>
@@ -55,12 +60,6 @@
     <string name="revanced_hide_settings_menu_offline_summary_off">Background menu is shown.</string>
     <string name="revanced_hide_settings_menu_offline_summary_on">Background menu is hidden.</string>
     <string name="revanced_hide_settings_menu_offline_title">Hide Background menu</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Watch on TV menu is shown.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Watch on TV menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_pair_with_tv_title">Hide Watch on TV menu</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Family Center menu is shown.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Family Center menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Hide Family Center menu</string>
     <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Try experimental new features menu is shown.</string>
     <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Try experimental new features menu is hidden.</string>
     <string name="revanced_hide_settings_menu_premium_early_access_title">Hide Try experimental new features menu</string>
@@ -79,6 +78,12 @@
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Shown in channel.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Hidden in channel.
+
+Info:
+• Only shelves with the Shorts header on the home tab are hidden."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Hide in channel</string>
     <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles are shown.</string>
     <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles are hidden.</string>
     <string name="revanced_hide_youtube_doodles_title">Hide YouTube Doodles</string>
@@ -96,6 +101,10 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Display format</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Username</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Handle is used.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">Username is used.</string>
     <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
@@ -113,11 +122,19 @@ Click to see how to issue a API key."</string>
     <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown.</string>
     <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were shown from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
 </resources>

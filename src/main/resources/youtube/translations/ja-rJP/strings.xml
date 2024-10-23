@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスがオンになっているため、操作方法が変わります。</string>
@@ -199,6 +199,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_rolling_number_animations_summary_off">高評価数と視聴回数の回転アニメーションを無効にします。</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">高評価数と視聴回数の回転アニメーションを無効にします。</string>
     <string name="revanced_disable_rolling_number_animations_title">数字の回転アニメーションを無効化</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">シークバーからチャプターを非表示にします。</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">シークバーからチャプターを非表示にします。</string>
+    <string name="revanced_disable_seekbar_chapters_title">シークバーのチャプターを非表示</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">「高評価」ボタンの上部に表示されるアニメーションを無効化します。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">「高評価」ボタンの上部に表示されるアニメーションを無効化します。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">高評価ボタンのアニメーションを無効化</string>
@@ -321,6 +324,11 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_extended_confirm_user_dialog_title">続行しますか？</string>
     <string name="revanced_extended_reset_to_default_toast">デフォルト値にリセットしました。</string>
     <string name="revanced_extended_restart_first_run">再起動してレイアウトを正常に読み込みます</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"YouTube サーバー側のバグにより、高評価数、再生回数、アップロード日などの数字のテキストが一部のユーザーに対して非表示になります。
+
+この問題は、アプリのバージョンを 19.13.37 に偽装することで回避できます。(一時的な回避策)
+
+アプリを再起動する前にアプリのバージョンを偽装しますか？"</string>
     <string name="revanced_extended_restart_message">再起動して設定を適用します</string>
     <string name="revanced_extended_settings_export_failed">設定のエクスポートに失敗しました。</string>
     <string name="revanced_extended_settings_export_success">設定は正常にエクスポートされました。</string>
@@ -423,6 +431,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_comment_create_shorts_button_summary_off">「ショートの作成」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">「ショートの作成」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_create_shorts_button_title">ショートの作成ボタンを非表示</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">コメント欄のハイライト表示された検索リンク(虫眼鏡マークが付いている水色の文字)を非表示にします。</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">コメント欄のハイライト表示された検索リンク(虫眼鏡マークが付いている水色の文字)を非表示にします。</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">ハイライト表示された検索リンクを非表示</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_thanks_button_title">「Thanks」ボタンを非表示</string>
@@ -649,6 +660,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">「字幕」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">「字幕」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">「字幕」を非表示</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">画質設定メニューから「1080p Premium」を非表示にします。</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">画質設定メニューから「1080p Premium」を非表示にします。</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">1080p Premium メニューを非表示</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">「ヘルプとフィードバック」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">「ヘルプとフィードバック」メニューを非表示にします。</string>
     <string name="revanced_hide_player_flyout_menu_help_title">「ヘルプとフィードバック」を非表示</string>
@@ -781,6 +795,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_seek_undo_message_summary_off">シーク取り消しのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_undo_message_summary_on">シーク取り消しのメッセージを非表示にします。</string>
     <string name="revanced_hide_seek_undo_message_title">シーク取り消しメッセージを非表示</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">タイムスタンプの横に表示されるチャプターのラベルを非表示にします。</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">タイムスタンプの横に表示されるチャプターのラベルを非表示にします。</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">チャプターのラベルを非表示</string>
     <string name="revanced_hide_seekbar_summary_off">プレーヤーのシークバーを非表示にします。</string>
     <string name="revanced_hide_seekbar_summary_on">プレーヤーのシークバーを非表示にします。</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">動画のサムネイルのシークバーを非表示にします。</string>
@@ -924,6 +941,11 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_shorts_share_button_summary_off">「共有」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_share_button_summary_on">「共有」ボタンを非表示にします。</string>
     <string name="revanced_hide_shorts_share_button_title">「共有」ボタンを非表示</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">チャンネルページの「ホーム」からショート欄を非表示にします。\n\n注意: 「ショート」ヘッダーがあるショート欄のみが非表示になります。</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"チャンネルページの「ホーム」からショート欄を非表示にします。
+
+注意: 「ショート」ヘッダーがあるショート欄のみが非表示になります。"</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">チャンネルページから非表示</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">再生履歴から非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">再生履歴から非表示にします。</string>
     <string name="revanced_hide_shorts_shelf_history_title">再生履歴から非表示</string>
@@ -1024,14 +1046,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_transcript_section_summary_off">概要欄の文字起こしセクションを非表示にします。</string>
     <string name="revanced_hide_transcript_section_summary_on">概要欄の文字起こしセクションを非表示にします。</string>
     <string name="revanced_hide_transcript_section_title">文字起こし欄を非表示</string>
-    <string name="revanced_hide_upcoming_video_summary">"「プレミア公開」ラベルがついた動画を非表示にします。
-
-注意: これを有効にすると「通知する」ボタンも非表示になります。"</string>
-    <string name="revanced_hide_upcoming_video_title">プレミア公開動画を非表示</string>
     <string name="revanced_hide_video_ads_summary_off">プレーヤー内の広告を非表示にします。</string>
     <string name="revanced_hide_video_ads_summary_on">プレーヤー内の広告を非表示にします。</string>
     <string name="revanced_hide_video_ads_title">動画広告を非表示</string>
-    <string name="revanced_hide_video_by_view_counts_about_summary">"ホーム / 登録チャンネル / 検索結果はフィルタリングされ、設定した値よりも少ない視聴回数の動画を非表示にします。
+    <string name="revanced_hide_video_by_view_counts_about_summary">"ホーム / 登録チャンネル / 検索結果はフィルタリングされ、設定した値よりも少ない再生回数の動画を非表示にします。
 
 注意: 
 • ショート動画は非表示にできません。
@@ -1206,7 +1224,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_screen_general_title">全般</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">触覚フィードバックを無効化または有効化します。</string>
     <string name="revanced_preference_screen_haptic_feedback_title">触覚フィードバック</string>
-    <string name="revanced_preference_screen_hook_buttons_summary">YouTube 内の「YouTube Music」ボタンを置換します。</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">YouTube アプリ内の「YouTube Music」ボタンを置換します。</string>
     <string name="revanced_preference_screen_hook_buttons_title">ボタンをフック</string>
     <string name="revanced_preference_screen_import_export_summary">設定をインポートまたはエクスポートします。</string>
     <string name="revanced_preference_screen_import_export_title">設定のインポート/エクスポート</string>
@@ -1222,6 +1240,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_screen_player_flyout_menu_summary">プレーヤーのフライアウトメニューを非表示または変更します。</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">フライアウトメニュー</string>
     <string name="revanced_preference_screen_player_title">プレーヤー</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">シークバーのコンポーネントをカスタマイズします。</string>
@@ -1291,6 +1310,23 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_restore_old_video_quality_menu_summary_off">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_title">古いスタイルの画質メニューを復元</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@ハンドル名 + (ユーザー名)</string>
+    <string name="revanced_return_youtube_username_display_format_title">表示形式</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">ユーザー名 + (@ハンドル名)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">ユーザー名のみ</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">ユーザー名の表示を復活させます。</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">ユーザー名の表示を復活させます。</string>
+    <string name="revanced_return_youtube_username_enabled_title">Return YouTube Username を有効化</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"ハンドル名をユーザー名に置き換えるには、YouTube Data API v3 の開発者キーが必要です。
+
+無料プランの API キーの 1 日あたりの割り当ては 10,000 で、コメント 1 件につきハンドル名をユーザー名に置き換えるのに 1 つの割り当てが使用されます。
+
+API キーの発行方法については、ここをタップしてください。"</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API キーについて</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3 を使用するための開発者キーです。</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API キーを入力</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 「&lt;a href=%1$s&gt;新しいプロジェクトの作成&lt;/a&gt;」に移動します。&lt;br&gt;2. 「&lt;b&gt;作成&lt;/b&gt;」をタップします。&lt;br&gt;3. 「&lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;」に移動します。&lt;br&gt;4. 「&lt;b&gt;有効にする&lt;/b&gt;」をタップします。&lt;br&gt;5. 「&lt;b&gt;認証情報を作成&lt;/b&gt;」をタップします。&lt;br&gt;6. 「&lt;b&gt;一般公開データ&lt;/b&gt;」オプションを選択します。&lt;br&gt;7. 「&lt;b&gt;次へ&lt;/b&gt;」をタップします。&lt;br&gt;8.  API キーをコピーします。&lt;br&gt;&lt;br&gt;※API キーは他人と共有してはならないため、インポート/エクスポート設定には含まれません。</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 の開発者キーを発行</string>
     <string name="revanced_ryd_about">Return YouTube Dislike について</string>
     <string name="revanced_ryd_attribution_summary">低評価のデータは、Return YouTube Dislike API によって提供されています。詳細はここをタップしてください。</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1303,6 +1339,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_ryd_enable_summary_off">低評価数の表示を復活させます。\n\n注意: 正確な値ではありません。</string>
     <string name="revanced_ryd_enable_summary_on">低評価数の表示を復活させます。\n\n注意: 正確な値ではありません。</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike を有効化</string>
+    <string name="revanced_ryd_estimated_like_summary_off">高評価数が非公開の動画で高評価数を推定して表示します。</string>
+    <string name="revanced_ryd_estimated_like_summary_on">高評価数が非公開の動画で高評価数を推定して表示します。</string>
+    <string name="revanced_ryd_estimated_like_title">推定の高評価数を表示</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">低評価数は一時的に利用できません。 (クライアント API が制限に達しました)</string>
     <string name="revanced_ryd_failure_connection_status_code">低評価数は一時的に利用できません。(ステータス: %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">低評価数は一時的に利用できません。(API がタイムアウトしました)</string>
@@ -1317,8 +1356,12 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトーストを表示します。</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合にトーストを表示</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">非表示</string>
     <string name="revanced_sanitize_sharing_links_summary">リンクを共有する際に、URL からトラッキングクエリパラメーターを削除します。</string>
     <string name="revanced_sanitize_sharing_links_title">共有リンクのクリーンアップ</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"動画のタイトルの横にある「#」、「寄付」、「ショップ」、「商品」のようなサブタイトルを非表示にします。"</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"動画のタイトルの横にある「#」、「寄付」、「ショップ」、「商品」のようなサブタイトルを非表示にします。"</string>
+    <string name="revanced_sanitize_video_subtitle_title">動画のサブタイトルをサニタイズ</string>
     <string name="revanced_sb_about">SponsorBlock について</string>
     <string name="revanced_sb_about_api">spon.ajay.app</string>
     <string name="revanced_sb_about_api_sum">データは SponsorBlock API によって提供されています。他のプラットフォームのダウンロードや詳細については、ここをタップしてください。</string>
@@ -1551,11 +1594,12 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_spoof_app_version_summary_on">アプリのバージョンは偽装されています。</string>
     <string name="revanced_spoof_app_version_target_entry_17_33_42">17.33.42 - 古い UI レイアウトを復元</string>
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - 古い再生リスト欄を復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力ボックスを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - 古いコメント入力欄を復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - 古いプレーヤーフライアウトパネルを復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 古いショートのアクションバーを復元</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - ショートの古いアクションバーを復元</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 以前のデフォルトの画質の動作を復元</string>
-    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - リアルタイムで更新される「再生回数」と「高評価数」を無効化</string>
+    <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - リアルタイムで更新される再生回数と高評価数を無効化</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - 古いスタイルの数字の回転アニメーションを復元</string>
     <string name="revanced_spoof_app_version_target_entry_title">偽装するバージョン</string>
     <string name="revanced_spoof_app_version_target_summary">偽装するバージョンを入力してください。</string>
     <string name="revanced_spoof_app_version_target_title">偽装するアプリのバージョンを編集</string>
@@ -1591,11 +1635,19 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_spoof_streaming_data_summary_on">ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android 埋め込みプレーヤー</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">偽装するクライアントの種類</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">感度は1 ~ 1000 (%)の間でなければなりません。</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">スワイプして明るさを調整する際の感度を 1 ~ 1000 (%) の間で設定できます。</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">明るさのスワイプ感度</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">スワイプジェスチャーを「画面のロック」モードで有効化します。</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">スワイプジェスチャーを「画面のロック」モードで有効化します。</string>
     <string name="revanced_swipe_gestures_lock_mode_title">「画面のロック」時のスワイプジェスチャーを有効化</string>
@@ -1611,6 +1663,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_swipe_overlay_text_size_title">スワイプオーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">スワイプオーバーレイのタイムアウト</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">感度は1 ~ 1000 (%)の間でなければなりません。</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">スワイプして音量を調整する際の感度を 1 ~ 1000 (%) の間で設定できます。\n\n推奨される音量スワイプ感度は、15 音量ステップで 100%、150 音量ステップで 10% です。</string>
+    <string name="revanced_swipe_volume_sensitivity_title">音量のスワイプ感度</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
 • この設定を変更しても、デバイスを再起動するまで有効にならない場合があります。
 • この設定を無効にすると、サーバーからさらに多くの広告が読み込まれます。
@@ -1627,6 +1682,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
 この設定が有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
     <string name="revanced_theme_default">オリジナル</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">注意</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">インストールされている RVX Music のパッケージ名です。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music のパッケージ名</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poiché un servizio di accessibilità è attivato.</string>
@@ -204,6 +204,9 @@ Limitazione: Questa impostazione potrebbe non applicarsi ai video che non includ
     <string name="revanced_disable_rolling_number_animations_summary_off">Le animazioni degli aggiornamenti in tempo reale dei contatori sono attivate</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Le animazioni degli aggiornamenti in tempo reale dei contatori sono disattivate</string>
     <string name="revanced_disable_rolling_number_animations_title">Disattiva le animazioni degli aggiornamenti in tempo reale dei contatori</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">I capitoli sono abilitati nella barra di avanzamento.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">I capitoli sono disabilitati nella barra di avanzamento.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Disabilita i capitoli della barra di avanzamento</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">L\'animazione della fontana è abilitata sopra il pulsante mi piace.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">L\'animazione della fontana è disabilitata sopra il pulsante mi piace.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disabilita animazione pulsante Mi piace</string>
@@ -321,6 +324,11 @@ Scheda Tu → Visualizza canale → Menu → Impostazioni"</string>
     <string name="revanced_extended_confirm_user_dialog_title">Desideri procedere?</string>
     <string name="revanced_extended_reset_to_default_toast">Ripristina ai valori predefiniti.</string>
     <string name="revanced_extended_restart_first_run">Riavvia per caricare l\'interfaccia normalmente</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"C'è un bug sul lato server di YouTube che fa sì che il testo del numero rotante come mi piace, le viste e le date di caricamento siano nascosti per alcuni utenti.
+
+Una soluzione temporanea per questo problema è quello di camuffare la versione app a 19.13.37.
+
+Vuoi camuffare la versione dell'app prima di riavviare l'app?"</string>
     <string name="revanced_extended_restart_message">Aggiorna e riavvia</string>
     <string name="revanced_extended_settings_export_failed">Impossibile esportare le impostazioni</string>
     <string name="revanced_extended_settings_export_success">Impostazioni esportate con successo</string>
@@ -420,6 +428,9 @@ Negozio"</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Il pulsante Crea shorts è visibile.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Il pulsante Crea Shorts è nascosto.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Nascondi il pulsante Crea Short</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">I collegamenti di ricerca evidenziati sono mostrati.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">I collegamenti di ricerca evidenziati sono nascosti.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Nascondi collegamenti di ricerca evidenziati</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Il pulsante Grazie è visibile.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Il pulsante Grazie è nascosto.</string>
     <string name="revanced_hide_comment_thanks_button_title">Nascondi il pulsante Grazie</string>
@@ -644,6 +655,9 @@ Parole con lettere maiuscole all'interno devono essere inserite con il maiuscolo
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">Il menu Sottotitoli è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">Il menu Sottotitoli è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">Nascondi il menu Sottotitoli</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">Il menu Premium 1080p è mostrato.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">Il menu Premium 1080p è nascosto.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Nascondi il menu Premium 1080p</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">Il menu Guida &amp; feedback è visibile.</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">Il menu Guida &amp; feedback è nascosto.</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Nascondi menu Guida &amp; feedback</string>
@@ -775,6 +789,9 @@ Se il layout della schermata del player cambia a causa di modifiche lato server,
     <string name="revanced_hide_seek_undo_message_summary_off">Il messaggio di annullamento è visibile</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Il messaggio di annullamento è nascosto</string>
     <string name="revanced_hide_seek_undo_message_title">Nascondi il messaggio di annullamento</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Le etichette del capitolo accanto al timestamp sono nascoste.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Le etichette del capitolo accanto al timestamp sono nascoste.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Nascondi le etichette dei capitoli della barra di avanzamento</string>
     <string name="revanced_hide_seekbar_summary_off">La barra di avanzamento è visibile</string>
     <string name="revanced_hide_seekbar_summary_on">La barra di avanzamento è nascosta</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">La barra di avanzamento nel thumbnail dei video è visibile</string>
@@ -918,6 +935,12 @@ Se il layout della schermata del player cambia a causa di modifiche lato server,
     <string name="revanced_hide_shorts_share_button_summary_off">Il pulsante condividi è mostrato.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Il pulsante Condividi è nascosto.</string>
     <string name="revanced_hide_shorts_share_button_title">Nascondi il pulsante Condividi</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Mostrato nel canale.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Nascosto nel canale.
+
+Informazione:
+• Solo gli scaffali con l'intestazione Shorts nella scheda home sono nascosti."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Nascondi nel canale</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Mostrato nella cronologia delle visualizzazioni.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">Nascosto nella cronologia delle visualizzazioni.</string>
     <string name="revanced_hide_shorts_shelf_history_title">Nascondi nella cronologia delle visualizzazioni</string>
@@ -1022,10 +1045,6 @@ Impostazioni → Riproduzione automatica → Riproduzione automatica del video s
     <string name="revanced_hide_transcript_section_summary_off">La sezione Trascrizione è visibile</string>
     <string name="revanced_hide_transcript_section_summary_on">La sezione Trascrizione è nascosta</string>
     <string name="revanced_hide_transcript_section_title">Nascondi la sezione Trascrizione</string>
-    <string name="revanced_hide_upcoming_video_summary">"Nascondi i video con l'etichetta PROSSIMAMENTE.
-
-Nota: Abilitare questo nasconde anche il pulsante Notificami."</string>
-    <string name="revanced_hide_upcoming_video_title">Nascondi i video PROSSIMAMENTE</string>
     <string name="revanced_hide_video_ads_summary_off">Gli annunci video sono visibili.</string>
     <string name="revanced_hide_video_ads_summary_on">Gli annunci video sono nascosti.</string>
     <string name="revanced_hide_video_ads_title">Nascondi gli annunci video</string>
@@ -1223,6 +1242,7 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_screen_player_flyout_menu_summary">Nascondi o cambia i componenti del menu a comparsa nel riproduttore video.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menu a comparsa</string>
     <string name="revanced_preference_screen_player_title">Riproduttore</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Personalizza i componenti della barra di avanzamento.</string>
@@ -1292,6 +1312,23 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Il vecchio menu di qualità video non è mostrato.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Vecchio menu di qualità video è mostrato.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Ripristina il vecchio menu di qualità video</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@maniglia (Nome utente)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Formato di visualizzazione</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Nome utente (@maniglia)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Nome utente</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">La maniglia è usata.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Il Nome utente è usato.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Attiva Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"La chiave sviluppatore YouTube API v3 è necessaria per sostituire la Maniglia con il Nome utente.
+
+La quota giornaliera per le chiavi API sul piano gratuito è di 10.000, e 1 quota è utilizzata per sostituire la Maniglia con il Nome utente per 1 commento.
+
+Clicca per vedere come emettere una chiave API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Informazioni sulla chiave API dati di YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La chiave sviluppatore per l\'utilizzo dell\'API dati di YouTube v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Chiave API dati di YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vai su &lt;a href=%1$s&gt;Crea un nuovo progetto&lt;/a&gt;.&lt;br&gt;. Clicca il pulsante &lt;b&gt;CREA&lt;/b&gt;.&lt;br&gt;3. Vai su &lt;a href=%2$s&gt;dati YouTube API v3&lt;/a&gt;.&lt;br&gt;4. Fare clic sul pulsante &lt;b&gt;ABILITA&lt;/b&gt;.&lt;br&gt;5. Fare clic sul pulsante &lt;b&gt;CREA CREDENZIALI&lt;/b&gt;.&lt;br&gt;6. Selezionare l\'opzione &lt;b&gt;Dati pubblici&lt;/b&gt;.&lt;br&gt;7. Fare clic sul pulsante &lt;b&gt;PROSSIMO&lt;/b&gt;&lt;br&gt;8. Copia la chiave API.&lt;br&gt;&lt;br&gt;※ La chiave API non dovrebbe mai essere condivisa con gli altri, quindi non è inclusa nelle impostazioni di Importazione / Esportazione.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Inserimento chiave dati sviluppatore API di YouTube v3</string>
     <string name="revanced_ryd_about">Informazioni</string>
     <string name="revanced_ryd_attribution_summary">I dati relativi ai Non Mi Piace sono forniti dall\'API di Return YouTube Dislike. Tocca qui per saperne di più</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1304,6 +1341,9 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_ryd_enable_summary_off">I Non Mi Piace sono nascosti</string>
     <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
     <string name="revanced_ryd_enable_title">Attiva Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary_off">I Mi piace stimati sono nascosti.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">I Mi piace stimati sono mostrati.</string>
+    <string name="revanced_ryd_estimated_like_title">Mostra i Mi piace stimati</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Non Mi Piace non disponibili (è stato raggiunto il limite del client API)</string>
     <string name="revanced_ryd_failure_connection_status_code">Non Mi Piace non disponibili (stato: %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">Non Mi Piace temporaneamente non disponibili (API scaduto)</string>
@@ -1318,8 +1358,12 @@ Limitazione: Non mi piace possono non apparire se l'utente non è registrato o i
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Notifica toast nascosta se l\'API di ReturnYouTubeDislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Notifica toast visibile se l\'API di ReturnYouTubeDislike non è disponibile</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Mostra una notifica toast se l\'API non è disponibile</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
     <string name="revanced_sanitize_sharing_links_summary">Rimuove i parametri della query di tracciamento dagli URL durante la condivisione dei link</string>
     <string name="revanced_sanitize_sharing_links_title">Sanitizza i link di condivisione</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Frasi come '#', 'Raccolta fondi', 'Negozio' e 'Prodotti' sono state mostrate nei sottotitoli video."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Frasi come '#', 'Raccolta fondi', 'Negozio' e 'Prodotti' sono state nascoste nei sottotitoli video."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitizza sottotitoli video</string>
     <string name="revanced_sb_about">Informazioni</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme.</string>
@@ -1559,6 +1603,7 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra d\'azione degli Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disabilita l\'aggiornamento in tempo reale di visualizzazioni e dei Mi piace</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Ripristina le vecchie animazioni dei numeri in rotazione</string>
     <string name="revanced_spoof_app_version_target_entry_title">La versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da simulare</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione da camuffare dell\'app</string>
@@ -1588,11 +1633,19 @@ AVC (H. 264) ha una risoluzione massima di 1080p e la riproduzione video utilizz
     <string name="revanced_spoof_streaming_data_summary_on">I dati in streaming sono camuffati.</string>
     <string name="revanced_spoof_streaming_data_title">Camuffa data streaming</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Creatore Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Riproduttore Incorporato Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Suite di test Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilità dello scorrimento della luminosità deve essere compresa tra 1 e 1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configura la distanza minima per scorrere la luminosità tra 1 e 1000 (%).\nPiù breve è la distanza minima, più velocemente cambia il livello di luminosità.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Sensibilità dello scorrimento luminosità</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">I gesti di trascinamento in modalità Blocca Schermo sono disattivati</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">I gesti di trascinamento in modalità Blocca Schermo sono attivati</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Attiva i gesti di trascinamento in modalità Blocca Schermo</string>
@@ -1608,6 +1661,9 @@ AVC (H. 264) ha una risoluzione massima di 1080p e la riproduzione video utilizz
     <string name="revanced_swipe_overlay_text_size_title">La dimensione del testo del trascinamento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>
     <string name="revanced_swipe_overlay_timeout_title">La durata della sovrapposizione del trascinamento</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilità dello scorrimento del volume deve essere compresa tra 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configurare la distanza minima per scorrere il volume tra 1 e 1000 (%).\n\nPiù breve è la distanza minima, più il livello del volume cambia.\n\nLa sensibilità consigliata dello scorrimento del volume è 100% a livelli di 15 e 10% a livelli di 150 volumi.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Sensibilità scorrimento del volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Scambia le posizioni del pulsante Crea con il pulsante notifiche camuffando informazioni del dispositivo.
 
 • Potrebbe essere necessario riavviare il dispositivo per rendere effettiva la modifica di questa impostazione.
@@ -1625,6 +1681,7 @@ Inoltre, gli annunci non saranno più bloccati negli Shorts.
 Se questa impostazione non ha effetto, prova a passare alla modalità Incognito."</string>
     <string name="revanced_theme_default">Inventario</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attenzione</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s Non è installato. Per favore installalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nome del pacchetto di RVX Music installato.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nome pacchetto RVX Music</string>

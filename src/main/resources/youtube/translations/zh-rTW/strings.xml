@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_settings_edu_opt_in_text">要啟用影片播放器的無障礙控制嗎？</string>
+    <string name="accessibility_settings_edu_opt_in_text">是否啟用影片播放器的無障礙控制？</string>
     <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此您的控制項被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
@@ -126,7 +126,7 @@
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
     <string name="revanced_custom_seekbar_color_value_summary">輸入套用於搜尋欄的十六進制顏色代碼</string>
     <string name="revanced_custom_seekbar_color_value_title">自定義進度條顏色</string>
-    <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請開啟「開啟支援連結」並啟用支援的網址。</string>
+    <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_title">預設播放速度</string>
     <string name="revanced_default_video_quality_mobile_title">行動數據的預設影片畫質</string>
@@ -201,6 +201,9 @@
     <string name="revanced_disable_rolling_number_animations_summary_off">滾動動畫已啟用</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">滾動動畫已停用</string>
     <string name="revanced_disable_rolling_number_animations_title">停用滾動數字動畫</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">搜尋欄中的章節已啟用。</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">搜尋欄中的章節已停用。</string>
+    <string name="revanced_disable_seekbar_chapters_title">停用搜尋列章節</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">點讚按鈕上方的噴泉動畫已啟用。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">點讚按鈕上方的噴泉動畫已停用。</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">停用讚按鈕動畫</string>
@@ -315,6 +318,11 @@
     <string name="revanced_extended_confirm_user_dialog_title">你想繼續嗎？</string>
     <string name="revanced_extended_reset_to_default_toast">重設為預設值。</string>
     <string name="revanced_extended_restart_first_run">重新啟動以套用更改後的介面</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"YouTube 伺服器端存在一個錯誤，導致某些用戶隱藏滾動數位文字，例如按讚數、觀看次數和上傳日期。
+
+此問題的臨時解決方法是將應用程式版本欺騙為 19.13.37。
+
+您想在重新啟動應用程式之前偽裝應用程式版本嗎？"</string>
     <string name="revanced_extended_restart_message">重新啟動以重新整理介面</string>
     <string name="revanced_extended_settings_export_failed">導出配置失敗</string>
     <string name="revanced_extended_settings_export_success">導出配置成功</string>
@@ -415,6 +423,9 @@
     <string name="revanced_hide_comment_create_shorts_button_summary_off">創建短片按鈕已顯示</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">創建短片按鈕已隱藏</string>
     <string name="revanced_hide_comment_create_shorts_button_title">隱藏創建短片按鈕</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">被標記的搜尋連結已顯示</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">被標記的搜尋連結已隱藏</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">隱藏被標記的搜尋連結</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">感謝按鈕已顯示</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">感謝按鈕已隱藏</string>
     <string name="revanced_hide_comment_thanks_button_title">隱藏感謝按鈕</string>
@@ -639,6 +650,9 @@
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">字幕選單已顯示</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">字幕選單已隱藏</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">隱藏字幕選單</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p 進階選單已顯示。</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p 進階選單已隱藏。</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">隱藏 1080p 進階選單</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">幫助與反饋選單已顯示</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">幫助與反饋選單已隱藏</string>
     <string name="revanced_hide_player_flyout_menu_help_title">隱藏幫助與反饋選單</string>
@@ -770,6 +784,9 @@
     <string name="revanced_hide_seek_undo_message_summary_off">進度條跳轉撤銷訊息已顯示</string>
     <string name="revanced_hide_seek_undo_message_summary_on">進度條撤銷訊息已隱藏</string>
     <string name="revanced_hide_seek_undo_message_title">隱藏進度條跳轉撤銷訊息</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">時間戳旁邊的章節標籤已隱藏。</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">時間戳旁邊的章節標籤已隱藏。</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">隱藏搜尋列章節標籤</string>
     <string name="revanced_hide_seekbar_summary_off">影片播放器進度條已顯示</string>
     <string name="revanced_hide_seekbar_summary_on">影片播放器進度條已隱藏</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">進度條縮略圖預覽已顯示</string>
@@ -913,6 +930,12 @@
     <string name="revanced_hide_shorts_share_button_summary_off">分享按鈕已顯示</string>
     <string name="revanced_hide_shorts_share_button_summary_on">分享按鈕已隱藏</string>
     <string name="revanced_hide_shorts_share_button_title">隱藏分享按鈕</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">顯示在頻道中。</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"隱藏在頻道中。
+
+資訊:
+• 僅隱藏主頁標籤上有 Shorts 標題的書架。"</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">隱藏在頻道中</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">在觀看歷史中顯示</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">在觀看歷史中隱藏</string>
     <string name="revanced_hide_shorts_shelf_history_title">在觀看歷史中隱藏</string>
@@ -1019,10 +1042,6 @@ Note:
     <string name="revanced_hide_transcript_section_summary_off">轉寫文稿部分已顯示</string>
     <string name="revanced_hide_transcript_section_summary_on">轉寫文稿部分已隱藏</string>
     <string name="revanced_hide_transcript_section_title">隱藏轉寫文稿部分</string>
-    <string name="revanced_hide_upcoming_video_summary">"隱藏帶有即將推出的標籤的影片。
-
-注意：啟用此功能也會隱藏「通知我」按鈕。"</string>
-    <string name="revanced_hide_upcoming_video_title">隱藏即將發布的影片</string>
     <string name="revanced_hide_video_ads_summary_off">影片廣告已顯示</string>
     <string name="revanced_hide_video_ads_summary_on">影片廣告已隱藏</string>
     <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
@@ -1216,6 +1235,7 @@ Note:
     <string name="revanced_preference_screen_player_flyout_menu_summary">隱藏或更改影片播放器中的彈出選單</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">彈出選單</string>
     <string name="revanced_preference_screen_player_title">播放器</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">恢復 YouTube 使用者名稱</string>
     <string name="revanced_preference_screen_ryd_title">恢復 YouTube 倒讚</string>
     <string name="revanced_preference_screen_sb_title">贊助區塊阻擋（SponsorBlock）</string>
     <string name="revanced_preference_screen_seekbar_summary">自定義進度條組件</string>
@@ -1285,6 +1305,23 @@ Note:
     <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_title">恢復舊的影片畫質選單</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@使用者帳號 (使用者名稱)</string>
+    <string name="revanced_return_youtube_username_display_format_title">顯示的格式</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">使用者名稱 (@使用者帳號)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">使用者名稱</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">使用者名稱已使用</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">使用者名稱已被使用</string>
+    <string name="revanced_return_youtube_username_enabled_title">啟用恢復 YouTube 使用者名稱</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"需要 YouTube 資料 API v3 開發人員金鑰才能將名字替換為使用者名稱。
+
+免費方案的 API 金鑰每日配額為 10,000 個, 1個配額用於將名字替換為使用者名稱 以獲得1條留言。
+
+按一下查看如何取得 API 金鑰。"</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">關於 YouTube 資料 API 金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">使用 YouTube 資料 API v3 的開發人員金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube 資料 API 金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt;建立新專案&amp;p;.&lt;br&gt;2.點擊&lt;b&gt;創建&lt;/b&gt; 按鈕。&lt;br&gt;3.&lt;br&gt;轉到 &lt;a href=%2$s&gt;YouTube 資料 API v3&lt;/a&gt;.&lt;br&gt;4.點選&lt;b&gt;啟用&lt;/b&gt; 按鈕。&lt;br&gt;5.點選&lt;b&gt;建立憑證&lt;b&gt; 按鈕。 &lt;br&gt;6.選擇&lt;b&gt;公共資料&lt;/b&gt; 選項。&lt;br&gt;7.點選&lt;b&gt;下一步&lt;/b&gt; 按鈕。&lt;br&gt;8.複製 API 金鑰。&lt;br&gt;&lt;br&gt;※ API 金鑰不應與其他人共用，因此它不包含在匯入/匯出設定中。</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">取得 YouTube 資料 API v3 開發人員金鑰</string>
     <string name="revanced_ryd_about">關於</string>
     <string name="revanced_ryd_attribution_summary">倒讚資訊由 Return YouTube Dislike API 提供
 
@@ -1299,6 +1336,9 @@ Note:
     <string name="revanced_ryd_enable_summary_off">倒讚數已隱藏</string>
     <string name="revanced_ryd_enable_summary_on">倒讚數已顯示</string>
     <string name="revanced_ryd_enable_title">啟用恢復 YouTube 倒讚</string>
+    <string name="revanced_ryd_estimated_like_summary_off">估計喜歡的次數已隱藏。</string>
+    <string name="revanced_ryd_estimated_like_summary_on">估計喜歡的次數已顯示。</string>
+    <string name="revanced_ryd_estimated_like_title">顯示估計喜歡的次數</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">倒讚數不可用（已達到用戶端 API 限制）</string>
     <string name="revanced_ryd_failure_connection_status_code">倒讚數不可用（狀態 %d）</string>
     <string name="revanced_ryd_failure_connection_timeout">倒讚數暫時不可用（API 連接超時）</string>
@@ -1313,8 +1353,12 @@ Note:
     <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 恢復 YouTube 倒讚 無法使用，不顯示訊息</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 恢復 YouTube 倒讚 無法使用，則顯示提示訊息</string>
     <string name="revanced_ryd_toast_on_connection_error_title">如果 API 無法使用，顯示提示訊息</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_sanitize_sharing_links_summary">共享連結時，刪除 URL 中的跟蹤查詢參數</string>
     <string name="revanced_sanitize_sharing_links_title">清理共享連結</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"像這樣的短語 '#', 'Shop' 和 'N products' 被顯示在影片字幕中。"</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"像這樣的短語 '#', 'Shop' 和 'N products' 被隱藏在影片字幕中。"</string>
+    <string name="revanced_sanitize_video_subtitle_title">清理影片字幕</string>
     <string name="revanced_sb_about">關於</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">數據由 SponsorBlock API 提供
@@ -1476,10 +1520,10 @@ Note:
     <string name="revanced_sb_stats_self_saved_sum">那是 &lt;b&gt;%s&lt;/b&gt;。</string>
     <string name="revanced_sb_stats_submissions">你已經創建了 &lt;b&gt;%s&lt;/b&gt; 段影片</string>
     <string name="revanced_sb_stats_submissions_sum">點擊此處查看您的片段。</string>
-    <string name="revanced_sb_stats_username">你的用戶名：&lt;b&gt;%s&lt;/b&gt;</string>
-    <string name="revanced_sb_stats_username_change">點擊這裡更改你的用戶名</string>
-    <string name="revanced_sb_stats_username_change_unknown_error">無法更改用戶名：狀態：%1$d %2$s。</string>
-    <string name="revanced_sb_stats_username_changed">用戶名成功更改。</string>
+    <string name="revanced_sb_stats_username">你的使用者名稱：&lt;b&gt;%s&lt;/b&gt;</string>
+    <string name="revanced_sb_stats_username_change">點擊這裡變更你的使用者名稱</string>
+    <string name="revanced_sb_stats_username_change_unknown_error">無法更改使用者名稱：狀態：%1$d %2$s。</string>
+    <string name="revanced_sb_stats_username_changed">使用者名稱變更完成</string>
     <string name="revanced_sb_submit_failed_duplicate">無法提交該段影片。\n已存在。</string>
     <string name="revanced_sb_submit_failed_forbidden">無法提交片段：%s</string>
     <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
@@ -1551,6 +1595,7 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - 恢復舊的 Shorts 頁籤</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 恢復舊版預設影片畫質</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - 停用即時更新「觀看次數」和「喜歡次數」</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - 恢復舊式滾動數位動畫</string>
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
@@ -1580,11 +1625,19 @@ AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用�
     <string name="revanced_spoof_streaming_data_summary_on">串流資料已偽裝。</string>
     <string name="revanced_spoof_streaming_data_title">偽裝串流數據</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">安卓</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">安卓創作者</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android 嵌入式播放器</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android 測試套件</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android 電視</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">預設客戶端</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">滑動控制 (亮度) 靈敏度的值必須在 1-1000 (%) 之間</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">配置亮度滑動的最小距離，範圍為 1 到 1000 (%)。\n最小距離越短，亮度等級變化越快。</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">滑動控制 (亮度) 靈敏度</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在「鎖定螢幕」模式下停用滑動手勢</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在「鎖定螢幕」模式下啟用滑動手勢</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在「鎖定螢幕」模式下滑動手勢</string>
@@ -1600,6 +1653,9 @@ AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用�
     <string name="revanced_swipe_overlay_text_size_title">滑動疊加層上的檔案大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑動疊加層顯示的時長（毫秒）</string>
     <string name="revanced_swipe_overlay_timeout_title">滑動疊加層時長</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">滑動控制 (音量) 靈敏度的值必須在 1-1000 (%) 之間</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">將音量滑動的最小距離配置為1 到1000 (%) 之間。 \n\n最小距離越短，亮度等級變化越快。 \n\n建議的音量滑動靈敏度在 15 個音量步長時為 100%，在 150 個音量步長時為 10%。</string>
+    <string name="revanced_swipe_volume_sensitivity_title">滑動控制 (音量) 靈敏度</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"交換創作按鈕與通知按鈕的位置，透過偽裝裝置資訊來實現
 
 • 變更這項設定可能需要重新啟動裝置
@@ -1617,6 +1673,7 @@ AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用�
 若此設定未生效，請嘗試切換至無痕模式。"</string>
     <string name="revanced_theme_default">預設</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX 音樂</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 未安裝。 請安裝它。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">已安裝的 RVX 音樂 套件名稱。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX 音樂包名稱</string>
