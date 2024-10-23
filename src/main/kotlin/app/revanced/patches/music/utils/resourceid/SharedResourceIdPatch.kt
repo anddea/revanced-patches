@@ -23,7 +23,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ColorGrey = -1L
     var DarkBackground = -1L
     var DesignBottomSheetDialog = -1L
-    var DialogSolid = -1L
     var EndButtonsContainer = -1L
     var FloatingLayout = -1L
     var HistoryMenuItem = -1L
@@ -68,7 +67,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         ColorGrey = getId(COLOR, "ytm_color_grey_12")
         DarkBackground = getId(ID, "dark_background")
         DesignBottomSheetDialog = getId(LAYOUT, "design_bottom_sheet_dialog")
-        DialogSolid = getId(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         EndButtonsContainer = getId(ID, "end_buttons_container")
         FloatingLayout = getId(ID, "floating_layout")
         HistoryMenuItem = getId(ID, "history_menu_item")
