@@ -121,7 +121,6 @@ object SwipeControlsPatch : BaseBytecodePatch(
                     """, ExternalLabel("default", getInstruction(0))
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: DISABLE_HDR_BRIGHTNESS"
         }
 
@@ -137,7 +136,6 @@ object SwipeControlsPatch : BaseBytecodePatch(
                 "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: ENABLE_SWIPE_TO_SWITCH_VIDEO"
         }
 
@@ -153,7 +151,6 @@ object SwipeControlsPatch : BaseBytecodePatch(
                 "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableWatchPanelGestures()Z"
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
         }
 
