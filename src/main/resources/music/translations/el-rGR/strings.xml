@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να τρέχει στο παρασκήνιο.
@@ -257,6 +257,7 @@
     <string name="revanced_preference_screen_misc_title">Διάφορα</string>
     <string name="revanced_preference_screen_navigation_title">Γραμμή πλοήγησης</string>
     <string name="revanced_preference_screen_player_title">Οθόνη αναπαραγωγής</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_settings_title">Μενού ρυθμίσεων</string>
@@ -299,6 +300,23 @@
     <string name="revanced_restore_old_player_layout_title">Οθόνη αναπαραγωγής παλιού στυλ</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Επιστροφή της ενότητας βιβλιοθήκης στο παλιό στυλ. (Πειραματικό)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Ενότητα βιβλιοθήκης παλιού στυλ</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@ψευδώνυμο (Όνομα χρήστη)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Επιλογή της μορφής εμφάνισης ονόματος χρήστη.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Μορφή εμφάνισης</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Όνομα χρήστη (@ψευδώνυμο)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Όνομα χρήστη</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Εμφάνιση του ονόματος χρήστη αντί για το ψευδώνυμο στα σχόλια.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Επαναφορά ονομάτων χρήστη</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Για να γίνει αντικατάσταση του ψευδωνύμου με όνομα χρήστη, απαιτείται κλειδί προγραμματιστή YouTube Data API v3.
+
+Η ημερήσια ποσόστωση για τα κλειδιά API στο δωρεάν πακέτο είναι 10,000, και χρησιμοποιείται 1 ποσόστωση για την αντικατάσταση ψευδωνύμου με όνομα χρήστη για 1 σχόλιο.
+
+Πατήστε για να δείτε πώς να εκδώσετε ένα κλειδί API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Σχετικά με το κλειδί YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Το κλειδί προγραμματιστή για τη χρήση του YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Κλειδί YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το Return YouTube Dislike API. Πατήστε για να μάθετε περισσότερα.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -308,12 +326,15 @@
     <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση ως ποσοστό</string>
     <string name="revanced_ryd_enabled_summary">Εμφάνιση της ποσότητας των «Δεν μου αρέσει» των βίντεο.</string>
     <string name="revanced_ryd_enabled_title">Επιστρέψτε το «Δεν μου αρέσει» στο YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary">Εμφάνιση της εκτιμώμενης ποσότητας των «Μου αρέσει» των βίντεο.</string>
+    <string name="revanced_ryd_estimated_like_title">Εμφάνιση εκτιμώμενων likes</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (το όριο API έχει επιτευχθεί).</string>
     <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Δεδομένα dislike προσωρινά μη διαθέσιμα (καθυστέρηση API).</string>
     <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Μήνυμα αν το API δεν είναι διαθέσιμο</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένο</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων παρακολούθησης από τις διευθύνσεις URL κατά την κοινοποίηση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
     <string name="revanced_sb_about">Σχετικά με</string>

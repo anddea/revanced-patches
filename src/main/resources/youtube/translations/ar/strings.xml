@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">تمكين عناصر التحكم في إمكانية الوصول لمشغل الفيديو؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
@@ -320,6 +320,11 @@
     <string name="revanced_extended_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
     <string name="revanced_extended_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_extended_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل طبيعي</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"يوجد خطأ في خادم YouTube يتسبب في إخفاء نص الأرقام المتتالية مثل الإعجابات والمشاهدات وتواريخ التحميل لبعض المستخدمين.
+
+الحل المؤقت لهذه المشكلة هو تزييف إصدار التطبيق إلى 19.13.37.
+
+هل تريد تزييف إصدار التطبيق قبل إعادة تشغيل التطبيق؟"</string>
     <string name="revanced_extended_restart_message">تحديث وإعادة تشغيل</string>
     <string name="revanced_extended_settings_export_failed">فشل تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
@@ -418,6 +423,9 @@
     <string name="revanced_hide_comment_create_shorts_button_summary_off">يتم عرض زر إنشاء Short.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">تم إخفاء زر إنشاء Short.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">إخفاء زر إنشاء Short</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">يتم عرض روابط البحث المميزة.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">تم إخفاء روابط البحث المميزة.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">إخفاء روابط البحث المميزة</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">يتم عرض زر شكرًا.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">تم إخفاء زر شكرًا.</string>
     <string name="revanced_hide_comment_thanks_button_title">إخفاء زر شكرًا</string>
@@ -925,6 +933,12 @@
     <string name="revanced_hide_shorts_share_button_summary_off">يتم عرض زر مشاركة.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">تم إخفاء زر مشاركة.</string>
     <string name="revanced_hide_shorts_share_button_title">إخفاء زر مشاركة</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">يُعرض في القناة.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"مخفي في القناة.
+
+معلومة:
+• فقط الأرفف التي تحتوي على عنوان Shorts في علامة تبويب الصفحة الرئيسية تكون مخفية."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">إخفاء في القناة</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">يُعرض في سجل المشاهدة.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">مخفي في سجل المشاهدة.</string>
     <string name="revanced_hide_shorts_shelf_history_title">إخفاء في سجل المشاهدة</string>
@@ -1031,10 +1045,6 @@
     <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص.</string>
     <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص.</string>
     <string name="revanced_hide_transcript_section_title">إخفاء قسم النص</string>
-    <string name="revanced_hide_upcoming_video_summary">"إخفاء الفيديوهات التي تحمل علامة \"قادم\".
-
-ملاحظة: يؤدي تمكين هذا أيضًا إلى إخفاء زر \"تنبيهي\"."</string>
-    <string name="revanced_hide_upcoming_video_title">إخفاء الفيديو القادم</string>
     <string name="revanced_hide_video_ads_summary_off">يتم عرض إعلانات الفيديو.</string>
     <string name="revanced_hide_video_ads_summary_on">تم إخفاء إعلانات الفيديو.</string>
     <string name="revanced_hide_video_ads_title">إخفاء إعلانات الفيديو</string>
@@ -1077,7 +1087,7 @@
     <string name="revanced_hide_youtube_doodles_title">إخفاء رسومات YouTube</string>
     <string name="revanced_hide_youtube_doodles_user_dialog_message">"تظهر رسومات YouTube Doodles لعدة أيام كل عام.
 
-إذا كانت رسومات YouTube Doodles تظهر حاليًا في منطقتك وكان إعداد الإخفاء هذا قيد التشغيل، فسيتم أيضًا إخفاء شريط الفلتر الموجود أسفل شريط البحث."</string>
+إذا كانت رسومات YouTube Doodles تظهر حاليًا في منطقتك وكان إعداد الإخفاء هذا قيد التشغيل، فسيتم أيضًا إخفاء فلتر الشريط الموجود أسفل شريط البحث."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">تم إخفاء تراكب التكبير.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">يتم عرض تراكب التكبير.</string>
     <string name="revanced_hide_zoom_overlay_title">إخفاء تراكب التكبير</string>
@@ -1292,12 +1302,16 @@
     <string name="revanced_restore_old_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو القديمة.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو القديمة.</string>
     <string name="revanced_restore_old_video_quality_menu_title">استعادة قائمة جودة الفيديو القديمة</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">(اسم المستخدم) Handle@</string>
+    <string name="revanced_return_youtube_username_display_format_title">شكل العرض</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">اسم المستخدم (Handle@)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">اسم المستخدم</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">يتم استخدام الاسم المعرِّف.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">يتم استخدام اسم المستخدم.</string>
     <string name="revanced_return_youtube_username_enabled_title">تمكين إعادة اسم مستخدم YouTube</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"مطلوب مفتاح مطور بيانات YouTube API v3 لاستبدال الاسم المعرِّف بـ اسم المستخدم.
 
-الحصة اليومية لمفاتيح API في الخطة المجانية هي 10000، ويتم استخدام حصة واحدة لاستبدال الاسم المعرِّف بـ اسم المستخدم لتعليق واحد.
+الحصة اليومية لمفاتيح API في الخطة المجانية هي 10.000، ويتم استخدام حصة واحدة لاستبدال الاسم المعرِّف بـ اسم المستخدم لتعليق واحد.
 
 انقر لمعرفة كيفية إصدار مفتاح API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">لمحة عن مفتاح YouTube Data API</string>
@@ -1337,6 +1351,9 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي</string>
     <string name="revanced_sanitize_sharing_links_summary">يزيل معلمات استعلام التتبع من عناوين URL عند مشاركة الروابط.</string>
     <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"يتم عرض عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من خلال ترجمات الفيديو."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"تم إخفاء عبارات مثل '#'، 'جمع التبرعات'، 'المتجر' و 'المنتجات' من ترجمات الفيديو."</string>
+    <string name="revanced_sanitize_video_subtitle_title">تطهير ترجمة الفيديو</string>
     <string name="revanced_sb_about">لمحة</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. اضغط هنا لمعرفة المزيد والتنزيل لمنصات أخرى.</string>
@@ -1568,7 +1585,7 @@
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - استعادة شريط إجراءات Shorts القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - استعادة سلوك جودة الفيديو الافتراضي القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - تعطيل تحديث المشاهدات والإعجابات في الوقت الفعلي</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13-37 - استعادة حركات عدد المشاهدات والإعجابات القديمة</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13-37 - استعادة نمط الرسوم المتحركة القديم للأرقام المتكررة</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
     <string name="revanced_spoof_app_version_target_title">تعديل إصدار التطبيق الوهمي</string>
@@ -1604,11 +1621,19 @@
     <string name="revanced_spoof_streaming_data_summary_on">يتم تزييف بيانات البث.</string>
     <string name="revanced_spoof_streaming_data_title">Spoof Streaming Data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">مشغل Android المضمّن</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى السطوع بين 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">تكوين الحد الأدنى للمسافة لتمرير السطوع بين 1 و1000 (%).\nكلما كانت المسافة الدنيا أقصر، كلما تغيرت مستويات السطوع بشكل أسرع.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">حساسية تمرير مستوى السطوع</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">تم تعطيل إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">تم تمكين إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">إيماءات التمرير في وضع قفل الشاشة</string>
@@ -1632,6 +1657,9 @@
 
 الافتراضي:500</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة إيماءة التمرير</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى الصوت بين 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">تكوين الحد الأدنى للمسافة لتمرير مستوى الصوت بين 1 و1000 (%).\n\nكلما كانت المسافة الدنيا أقصر، كانت تغييرات مستوى الصوت أسرع.\n\nحساسية التمرير الموصى بها لمستوى الصوت هي 100% عند 15 خطوة لمستوى الصوت و10% عند 150 خطوة لمستوى الصوت.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"لتبديل مواضع زر الإنشاء و زر الإشعارات عن طريق إيهام معلومات الجهاز.
 
 • قد يحتاج الجهاز إلى إعادة التشغيل حتى يسري تغيير هذا الإعداد.
@@ -1649,6 +1677,7 @@
 إذا لم يتم تفعيل هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي."</string>
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_third_party_youtube_music_dialog_title">موسيقى RVX</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">تحذير</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">اسم الحزمة لموسيقى RVX المثبتة.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">اسم حزمة موسيقى RVX</string>

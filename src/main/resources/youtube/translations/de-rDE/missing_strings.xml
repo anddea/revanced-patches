@@ -46,6 +46,11 @@ Limitation: This setting may not apply to videos that do not include the 'Listen
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
+
+A temporary workaround for this issue is to spoof the app version to 19.13.37.
+
+Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">Package name of your installed external downloader app, such as YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Playlist downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
@@ -54,6 +59,9 @@ Limitation: This setting may not apply to videos that do not include the 'Listen
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
     <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
     <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
     <string name="revanced_hide_contents_section_title">Hide Contents section</string>
@@ -170,6 +178,12 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Search suggestions button is shown.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Search suggestions button is hidden.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_title">Hide search suggestions button</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Shown in channel.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Hidden in channel.
+
+Info:
+• Only shelves with the Shorts header on the home tab are hidden."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Hide in channel</string>
     <string name="revanced_hide_shorts_shopping_button_summary_off">Shopping button is shown.</string>
     <string name="revanced_hide_shorts_shopping_button_summary_on">Shopping button is hidden.</string>
     <string name="revanced_hide_shorts_shopping_button_title">Hide Shopping button</string>
@@ -185,10 +199,6 @@ If the layout of the player screen changes due to server-side changes, unintende
     <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Use this sound button is shown.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Use this sound button is hidden.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_title">Hide Use this sound button</string>
-    <string name="revanced_hide_upcoming_video_summary">"Hide videos with UPCOMING label.
-
-Note: Enabling this also hides the Notify me button."</string>
-    <string name="revanced_hide_upcoming_video_title">Hide UPCOMING video</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscription / Search results are filtered to hide videos with views less or greater than a specified number.
 
 Limitations: 
@@ -251,6 +261,10 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">A toast will not be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">A toast will be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Display format</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Username</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Handle is used.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">Username is used.</string>
     <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
@@ -268,6 +282,9 @@ Click to see how to issue a API key."</string>
     <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown.</string>
     <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were shown from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_general_min_duration_invalid">Invalid time duration.</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
@@ -310,6 +327,12 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
     <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button.</string>
     <string name="revanced_switch_create_with_notifications_button_summary_on">"Create button is switched with Notifications button.
 

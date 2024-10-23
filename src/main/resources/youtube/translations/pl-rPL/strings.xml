@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Włączyć gesty ułatwień dostępu dla odtwarzacza filmów?</string>
     <string name="accessibility_settings_edu_opt_out_text">Twoje ustawienia są zmienione, ponieważ serwis ułatwień dostępu jest włączony.</string>
@@ -320,6 +320,11 @@ Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znak�
     <string name="revanced_extended_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
     <string name="revanced_extended_reset_to_default_toast">Przywrócono domyślne wartości.</string>
     <string name="revanced_extended_restart_first_run">Uruchom ponownie, aby wczytać poprawnie układ aplikacji</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"Istnieje błąd po stronie serwera YouTube, który u niektórych użytkowników powoduje ukrywanie się tekstu liczb posiadających animację, takich jak polubienia, wyświetlenia, daty opublikowania filmów.
+
+Tymczasowym obejściem dla tego błędu jest oszukanie wersji aplikacji do 19.13.37.
+
+Czy chcesz oszukać wersję aplikacji przed ponownym uruchomieniem?"</string>
     <string name="revanced_extended_restart_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_extended_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
     <string name="revanced_extended_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
@@ -422,6 +427,9 @@ Sklep"</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Widoczny</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Ukryty</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Przycisk od tworzenia Shortsów</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Widoczne</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Ukryte</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Najciekawsze wyniki wyszukiwania (linki)</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Widoczny</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Ukryty</string>
     <string name="revanced_hide_comment_thanks_button_title">Przycisk od dziękowania</string>
@@ -651,7 +659,7 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_flyout_menu_captions_title">Menu od napisów</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">Ukryte</string>
-    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Menu 1080p Premium</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Menu jakości 1080p Premium</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Menu od pomocy i opinii</string>
@@ -929,6 +937,12 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_shorts_share_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_share_button_title">Przycisk od udostępniania</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Widoczne</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Ukryte
+
+Informacja:
+• Tylko półki z nagłówkiem Shorts będą ukryte na stronie głównej kanału"</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Na stronie kanału</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_shelf_history_title">W historii oglądania</string>
@@ -1032,10 +1046,6 @@ Autoodtwarzanie można zmienić w ustawieniach YouTube:
     <string name="revanced_hide_transcript_section_summary_off">Widoczne</string>
     <string name="revanced_hide_transcript_section_summary_on">Ukryte</string>
     <string name="revanced_hide_transcript_section_title">Transkrypcje</string>
-    <string name="revanced_hide_upcoming_video_summary">"Ukryj filmy z etykietą WKRÓTCE.
-
-Uwaga: Włączenie tego ustawienia ukryje też przycisk  'Powiadom mnie'."</string>
-    <string name="revanced_hide_upcoming_video_title">Ukryj zaplanowane filmy</string>
     <string name="revanced_hide_video_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_video_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_video_ads_title">Reklamy w filmach</string>
@@ -1304,9 +1314,13 @@ Stuknij i przytrzymaj, by otworzyć ustawienia YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Niewidoczne</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Widoczne</string>
     <string name="revanced_restore_old_video_quality_menu_title">Stare menu od jakości filmu</string>
-    <string name="revanced_return_youtube_username_enabled_summary_off">Po nicku</string>
-    <string name="revanced_return_youtube_username_enabled_summary_on">Po nazwie użytkownika</string>
-    <string name="revanced_return_youtube_username_enabled_title">Tryb wyświetlania nazw użytkowników</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@nick (Nazwa użytkownika)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Format wyświetlania</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Nazwa użytkownika (@nick)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Nazwa użytkownika</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">Wyłączone</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Włączone</string>
+    <string name="revanced_return_youtube_username_enabled_title">Return YouTube Username</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Klucz deweloperski YouTube Data API v3 jest wymagany do zastępowania nicków nazwami użytkownika.
 
 Dzienny limit kluczy API w planie darmowym wynosi 10 000, a 1 limit służy do zastąpienia nicku nazwą użytkownika dla 1 komentarza.
@@ -1315,20 +1329,23 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">O kluczu YouTube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Klucz deweloperski używany do korzystania z API YouTube Data V3.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Klucz YouTube Data API</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ POŚWIADCZENIE&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Publiczne dane&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;NASTĘPNE&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Przejdź do &lt;a href=%1$s&gt;Utwórz nowy projekt&lt;/a&gt;.&lt;br&gt;2. Kliknij przycisk &lt;b&gt;UTWÓRZ&lt;/b&gt;&lt;br&gt;3. Przejdź do &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Kliknij przycisk &lt;b&gt;WŁĄCZ&lt;/b&gt;&lt;br&gt;5. Kliknij przycisk &lt;b&gt;UTWÓRZ DANE LOGOWANIA&lt;/b&gt;&lt;br&gt;6. Wybierz opcję &lt;b&gt;Dane publiczne&lt;/b&gt;&lt;br&gt;7. Kliknij przycisk &lt;b&gt;DALEJ&lt;/b&gt;&lt;br&gt;8. Skopiuj klucz API&lt;br&gt;&lt;br&gt;※ Klucz API nie powinien być współdzielony z innymi, dlatego nie jest zawarty w ustawieniach importu/eksportu</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Zgłoś klucz deweloperski YouTube Data API</string>
     <string name="revanced_ryd_about">O integracji</string>
     <string name="revanced_ryd_attribution_summary">Dane o łapkach w dół są dostarczane przez API Return YouTube Dislike. Stuknij tutaj by dowiedzieć się więcej.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
     <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki w górę ładnie wygląda</string>
     <string name="revanced_ryd_compact_layout_summary_on">Przycisk łapki w górę zajmuje mało miejsca</string>
-    <string name="revanced_ryd_compact_layout_title">Przycisk łapki w górę jest kompaktowy</string>
+    <string name="revanced_ryd_compact_layout_title">Kompaktowy przycisk łapki w górę</string>
     <string name="revanced_ryd_dislike_percentage_summary_off">Liczba</string>
     <string name="revanced_ryd_dislike_percentage_summary_on">Tak</string>
     <string name="revanced_ryd_dislike_percentage_title">Łapki w dół wyświetlane jako procent</string>
     <string name="revanced_ryd_enable_summary_off">Łapki w dół są niewidoczne</string>
     <string name="revanced_ryd_enable_summary_on">Łapki w dół są widoczne</string>
     <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Ukryta</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Widoczna</string>
+    <string name="revanced_ryd_estimated_like_title">Szacowana ilość polubień</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Liczba łapek w dół nie jest dostępna (limit API użytkownika został osiągnięty).</string>
     <string name="revanced_ryd_failure_connection_status_code">Liczba łapek w dół nie jest dostępna (status %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są tymczasowo niedostępne (API nie reaguje).</string>
@@ -1343,8 +1360,12 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_ryd_toast_on_connection_error_summary_off">Ukryty</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Widoczny</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Komunikat, jeśli API jest niedostępne</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_sanitize_sharing_links_summary">Usuwa śledzące parametry z adresów URL podczas udostępniania linków</string>
     <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są widoczne"</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są ukryte"</string>
+    <string name="revanced_sanitize_video_subtitle_title">Oczyść napisy w filmach</string>
     <string name="revanced_sb_about">O integracji</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Stuknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy.</string>
@@ -1583,7 +1604,7 @@ Informacje:
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Przywraca stary pasek akcji Shortsów</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Przywraca stare zachowanie domyślnej jakości filmu</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Wyłącza aktualizowanie wyświetleń i łapek w górę w czasie rzeczywistym</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Przywróć stary styl animacji liczb</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Przywraca stary styl animacji liczb</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukiwana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukiwaną wersję aplikacji</string>
@@ -1619,11 +1640,19 @@ Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie fi
     <string name="revanced_spoof_streaming_data_summary_on">Włączone</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Wbudowany odtwarzacz Androida</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Klient Testowy Androida</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Przeglądarka</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Czułość przesuwania gestu jasności musi być pomiędzy 1 a 1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Skonfiguruj minimalną odległość dla przesuwania jasności, pomiędzy 1 a 1000 (%).\nIm mniejsza minimalna odległość, tym szybciej zmienia się poziom jasności.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Czułość przesuwania jasności</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Wyłączone</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Włączone</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Przesuwanie podczas trybu blokady ekranu</string>
@@ -1639,6 +1668,9 @@ Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie fi
     <string name="revanced_swipe_overlay_text_size_title">Rozmiar tekstu nakładki przesuwania</string>
     <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund, przez które nakładka jest widoczna</string>
     <string name="revanced_swipe_overlay_timeout_title">Limit czasu widoczności nakładki</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Czułość przesuwania gestu głośności musi być pomiędzy 1 a 1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Skonfiguruj minimalną odległość dla przesuwania głośności, pomiędzy 1 a 1000 (%).\n\nIm mniejsza minimalna odległość, tym szybciej zmienia się poziom głośności.\n\nZalecana czułość przesuwania głośności wynosi 100% przy 15 krokach głośności i 10% przy 150 krokach głośności.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Czułość przesuwania głośności</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Zamienia pozycję przycisku od przesyłania z przyciskiem do powiadomień oszukując informacje o urządzeniu.
 
 • Nawet jeśli zmienisz to ustawienie, może się nic nie zmienić dopóki nie zrestartujesz urządzenia.
@@ -1656,6 +1688,7 @@ Dodatkowo, reklamy nie będą już blokowane w Shortsach.
 Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito."</string>
     <string name="revanced_theme_default">Domyślny</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Ostrzeżenie</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s nie jest zainstalowany. Proszę go zainstalować.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nazwa pakietu zainstalowanego RVX Music</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nazwa pakietu RVX Music</string>
@@ -1683,8 +1716,4 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_ryd_estimated_like_summary_off">Ukryta</string>
-    <string name="revanced_ryd_estimated_like_summary_on">Widoczna</string>
-    <string name="revanced_ryd_estimated_like_title">Szacowana ilość polubień</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
 </resources>

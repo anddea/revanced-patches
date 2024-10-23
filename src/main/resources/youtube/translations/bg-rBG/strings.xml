@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Включване на контролите за достъпност на видеоплеaра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Вашите контроли са променени, защото е активирана услуга за достъпност.</string>
@@ -770,6 +770,15 @@
     <string name="revanced_hide_self_sponsor_cards_summary_on">Самоспонсорираните карти са скрити.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Скриване на самоспонсорирани карти</string>
     <string name="revanced_hide_settings_menu_account_title">Скриване на менюто на акаунта</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">Основни настройки се показват.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">Основни настройки са скрити.</string>
+    <string name="revanced_hide_settings_menu_general_title">Меню \"Основни настройки\"</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Менюто за гледане на ТВ се показва.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Менюто за гледане на ТВ е скрито.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Меню за гледане на Телевизор</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Меню \"Семеен център\" се показва.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Меню \"Семеен център\" е скрито.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Меню \"Семеен център\"</string>
     <string name="revanced_hide_settings_menu_summary">Скриване на елементи в менюто с настройки на YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Филтриране на менюто с настройки на YouTube</string>
     <string name="revanced_hide_share_button_summary_off">Бутона за споделяне се показва.</string>
@@ -947,10 +956,6 @@ Note:
     <string name="revanced_hide_transcript_section_summary_off">Разделът за транскрипция е показан.</string>
     <string name="revanced_hide_transcript_section_summary_on">Разделът за транскрипция е скрит.</string>
     <string name="revanced_hide_transcript_section_title">Скриване на раздела за транскрипция</string>
-    <string name="revanced_hide_upcoming_video_summary">"Скриване на видеоклипове с етикет ПРЕДСТОЯЩО.
-
-Забележка: Активирането на това също ще скрие бутона Уведоми ме."</string>
-    <string name="revanced_hide_upcoming_video_title">ПРЕДСТОЯЩО видео</string>
     <string name="revanced_hide_video_ads_summary_off">Видео рекламите се показват.</string>
     <string name="revanced_hide_video_ads_summary_on">Видео рекламите са скрити.</string>
     <string name="revanced_hide_video_ads_title">Скриване на видео рекламите</string>
@@ -1454,6 +1459,7 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Възстановяване на старата лентата с действия за Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Възстановяване на старото поведение на качеството на видеото по подразбиране</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Деактивира изгледите и харесванията да се актуализират в реално време</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Стар стил на анимация - въртящи се числа</string>
     <string name="revanced_spoof_app_version_target_entry_title">Версия за модификация на приложението</string>
     <string name="revanced_spoof_app_version_target_summary">Въведете версията на приложението, която да се приложи.</string>
     <string name="revanced_spoof_app_version_target_title">Редактирайте версията на приложението, която да бъде приложена</string>
@@ -1480,9 +1486,14 @@ AVC (H.264) има максимална разделителна способн�
     <string name="revanced_spoof_streaming_data_summary_on">Данните за поточно предаване са подправени.</string>
     <string name="revanced_spoof_streaming_data_title">Подправяне на поточни данни</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Андроид</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Създател на Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Вграден Android плейър</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Тестов пакет за Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по подразбиране</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането на видео.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жестовете за плъзгане са деактивирани в режим „Заключен екран“.</string>
@@ -1517,6 +1528,7 @@ AVC (H.264) има максимална разделителна способн�
 Ако деактивирането не влезе в сила, опитайте да превключите към режим „инкогнито“."</string>
     <string name="revanced_theme_default">По подразбиране</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Внимание</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s не е инсталирано. Моля инсталирайте го.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Името на пакета с инсталиран RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Име на пакета RVX Music</string>

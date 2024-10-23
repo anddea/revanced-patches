@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Увімкнути спеціальні можливості для відеоплеєра?</string>
     <string name="accessibility_settings_edu_opt_out_text">Керування змінено, оскільки служба спеціальних можливостей увімкнена.</string>
@@ -315,6 +315,11 @@
     <string name="revanced_extended_confirm_user_dialog_title">Бажаєте продовжити?</string>
     <string name="revanced_extended_reset_to_default_toast">Скинуто.</string>
     <string name="revanced_extended_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"Помилка зі сторони сервера YouTube спричиняє приховування тексту лічильників таких як вподобайки, перегляди, та дати завантаження для деяких користувачів.
+
+Тимчасовим вирішенням цієї проблеми є підміна версії програми на 19.13.37.
+
+Бажаєте підмінити версію програми перед перезапуском програми?"</string>
     <string name="revanced_extended_restart_message">Поновити й перезапустити</string>
     <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
     <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
@@ -417,6 +422,9 @@
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Кнопку створення Shorts показується.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Кнопку створення Shorts приховано.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Приховати кнопку створення Shorts</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Виділені пошукові посилання показується.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Виділені пошукові посилання приховано.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Приховати виділені пошукові посилання</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Кнопку подяки показується.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Кнопку подяки приховано.</string>
     <string name="revanced_hide_comment_thanks_button_title">Приховати кнопку подяки</string>
@@ -924,6 +932,12 @@
     <string name="revanced_hide_shorts_share_button_summary_off">Кнопку Поділитися показується.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Кнопку Поділитися приховано.</string>
     <string name="revanced_hide_shorts_share_button_title">Приховати кнопку Поділитися</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Показується в каналі.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Приховується в каналі.
+
+Інформація:
+• Лише полиці з заголовком Shorts на головній вкладці приховано."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Приховати у каналі</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Показується в історії перегляду.</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">Приховано в історії перегляду.</string>
     <string name="revanced_hide_shorts_shelf_history_title">Приховати в історії перегляду</string>
@@ -1030,10 +1044,6 @@
     <string name="revanced_hide_transcript_section_summary_off">Секції Текст відео показується.</string>
     <string name="revanced_hide_transcript_section_summary_on">Секції Текст відео приховано.</string>
     <string name="revanced_hide_transcript_section_title">Приховати секції Текст відео</string>
-    <string name="revanced_hide_upcoming_video_summary">"Приховати відео з міткою НЕЗАБАРОМ.
-
-Примітка: Увімкнення також приховає кнопку Сповістити."</string>
-    <string name="revanced_hide_upcoming_video_title">Приховати відео НЕЗАБАРОМ</string>
     <string name="revanced_hide_video_ads_summary_off">Відеорекламу показується.</string>
     <string name="revanced_hide_video_ads_summary_on">Відеорекламу приховано.</string>
     <string name="revanced_hide_video_ads_title">Приховати відеорекламу</string>
@@ -1301,6 +1311,10 @@
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старе меню якості відео не показується.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старе меню якості відео показується.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@ідентифікатор (Назва користувача)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Формат відображення</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Назва користувача (@ідентифікатор)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Назва користувача</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Використовується ідентифікатор.</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">Використовується назву користувача.</string>
     <string name="revanced_return_youtube_username_enabled_title">Ввімкнути Повернення назви користувача YouTube</string>
@@ -1328,7 +1342,7 @@
     <string name="revanced_ryd_enable_title">Ввімкнути повернення дизлайків YouTube</string>
     <string name="revanced_ryd_estimated_like_summary_off">Розрахункові лайки приховано.</string>
     <string name="revanced_ryd_estimated_like_summary_on">Розрахункові лайки показується.</string>
-    <string name="revanced_ryd_estimated_like_title">Увімкнути розрахункові лайки</string>
+    <string name="revanced_ryd_estimated_like_title">Показувати розрахункові лайки</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (досягнутий ліміт клієнта API)</string>
     <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (закінчився час API).</string>
@@ -1346,6 +1360,9 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
     <string name="revanced_sanitize_sharing_links_summary">Вилучає параметри запиту відстеження з посилань під час поширення посилань.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' показується в субтитрах відео."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Фрази типу '#', 'Збір коштів', 'Магазин' та 'товари' приховано з субтитрів відео."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Обробляти субтитри відео</string>
     <string name="revanced_sb_about">Про Спонсорблок</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Дані надаються Спонсорблок API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
@@ -1619,11 +1636,19 @@ AVC (H.264) має максимальну роздільну здатність 
     <string name="revanced_spoof_streaming_data_summary_on">Дані трансляції підроблено.</string>
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Розробник Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Вбудований плеєр Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Тестовий Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Основний клієнт</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чутливість жесту яскравості повинна бути в межах 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Налаштуйте мінімальну відстань жесту яскравості від 1 до 1000 (%).\nЧим менша мінімальна відстань, тим швидше змінюється рівень яскравості.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Чутливість жесту яскравості</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Жести переміщення вимкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Жести переміщення увімкнено в режимі \'Блокування екрана\'.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Жести переміщення в режимі \'Блокування екрана\'</string>
@@ -1639,6 +1664,9 @@ AVC (H.264) має максимальну роздільну здатність 
     <string name="revanced_swipe_overlay_text_size_title">Розмір шрифту панелі</string>
     <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд панель буде показуватися</string>
     <string name="revanced_swipe_overlay_timeout_title">Час показу панелі</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Налаштуйте мінімальну відстань жесту гучності від 1 до 1000 (%).\n\nЧим менша мінімальна відстань, тим швидше змінюється рівень гучності.\n\nРекомендована чутливість жесту гучності 100% при 15 поділках і 10% при 150 поділках.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Поміняти місцями кнопку створення та кнопку сповіщення підробленням інформації про пристрій.
 
 • Навіть якщо ви зміните це налаштування, воно може не набути чинності, доки ви не перезапустите пристрій.
@@ -1656,6 +1684,7 @@ AVC (H.264) має максимальну роздільну здатність 
 Якщо це налаштування не діє, спробуйте перемкнути Анонімний режим."</string>
     <string name="revanced_theme_default">Стандартна</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Зауваження</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s не встановлено. Будь ласка, встановіть.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Назва пакету встановленого RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Назва пакету RVX Music</string>
