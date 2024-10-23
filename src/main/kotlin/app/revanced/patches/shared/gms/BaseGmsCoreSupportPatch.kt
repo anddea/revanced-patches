@@ -2,9 +2,9 @@ package app.revanced.patches.shared.gms
 
 import app.revanced.patcher.PatchClass
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
@@ -15,22 +15,27 @@ import app.revanced.patches.shared.gms.BaseGmsCoreSupportPatch.Constants.PERMISS
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE
 import app.revanced.patches.shared.gms.BaseGmsCoreSupportResourcePatch.Companion.ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC
 import app.revanced.patches.shared.gms.fingerprints.CastContextFetchFingerprint
-import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleFingerprint
-import app.revanced.patches.shared.gms.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint
 import app.revanced.patches.shared.gms.fingerprints.GmsCoreSupportFingerprint
+import app.revanced.patches.shared.gms.fingerprints.GmsServiceBrokerFingerprint
 import app.revanced.patches.shared.gms.fingerprints.GooglePlayUtilityFingerprint
-import app.revanced.patches.shared.gms.fingerprints.PrimeMethodFingerprint
+import app.revanced.patches.shared.gms.fingerprints.PrimesApiFingerprint
+import app.revanced.patches.shared.gms.fingerprints.PrimesBackgroundInitializationFingerprint
+import app.revanced.patches.shared.gms.fingerprints.PrimesLifecycleEventFingerprint
 import app.revanced.patches.shared.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.shared.integrations.Constants.PATCHES_PATH
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -66,11 +71,12 @@ abstract class BaseGmsCoreSupportPatch(
     fingerprints = setOf(
         // Google Play Services.
         CastContextFetchFingerprint,
-        CastDynamiteModuleFingerprint,
-        CastDynamiteModuleV2Fingerprint,
         GmsCoreSupportFingerprint,
+        GmsServiceBrokerFingerprint,
         GooglePlayUtilityFingerprint,
-        PrimeMethodFingerprint,
+        PrimesApiFingerprint,
+        PrimesBackgroundInitializationFingerprint,
+        PrimesLifecycleEventFingerprint,
         ServiceCheckFingerprint,
 
         // Signature verification.
@@ -145,17 +151,15 @@ abstract class BaseGmsCoreSupportPatch(
             return@transform null
         }
 
-        // Specific method that needs to be patched.
-        transformPrimeMethod(packageName)
-
         // Return these methods early to prevent the app from crashing.
         listOf(
             CastContextFetchFingerprint,
-            CastDynamiteModuleFingerprint,
-            CastDynamiteModuleV2Fingerprint,
+            GmsServiceBrokerFingerprint,
             GooglePlayUtilityFingerprint,
             ServiceCheckFingerprint
         ).returnEarly()
+
+        transformPrimeMethod()
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         if (checkGmsCore) {
@@ -285,18 +289,42 @@ abstract class BaseGmsCoreSupportPatch(
         }
     }
 
-    private fun transformPrimeMethod(packageName: String) {
-        PrimeMethodFingerprint.resultOrThrow().mutableMethod.apply {
-            var register = 2
-
-            val index = getInstructions().indexOfFirst {
-                if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
-
-                register = (it as OneRegisterInstruction).registerA
-                return@indexOfFirst true
+    private fun transformPrimeMethod() {
+        listOf(
+            PrimesBackgroundInitializationFingerprint,
+            PrimesLifecycleEventFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.resultOrThrow().mutableMethod.apply {
+                val exceptionIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            (this as? ReferenceInstruction)?.reference?.toString() == "Ljava/lang/IllegalStateException;"
+                }
+                val index = indexOfFirstInstructionReversedOrThrow(exceptionIndex, Opcode.IF_EQZ)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                addInstruction(
+                    index,
+                    "const/4 v$register, 0x1"
+                )
             }
-
-            replaceInstruction(index, "const-string v$register, \"$packageName\"")
+        }
+        PrimesApiFingerprint.resultOrThrow().let {
+            it.mutableClass.methods.filter { method ->
+                method.name != "<clinit>" &&
+                        method.returnType == "V"
+            }.forEach { method ->
+                method.apply {
+                    val index = if (MethodUtil.isConstructor(method))
+                        indexOfFirstInstructionOrThrow {
+                            opcode == Opcode.INVOKE_DIRECT &&
+                                    getReference<MethodReference>()?.name == "<init>"
+                        } + 1
+                    else 0
+                    addInstruction(
+                        index,
+                        "return-void"
+                    )
+                }
+            }
         }
     }
 
@@ -396,6 +424,9 @@ abstract class BaseGmsCoreSupportPatch(
             "com.google.android.gms.googlehelp.service.GoogleHelpService.START",
             "com.google.android.gms.googlehelp.HELP",
             "com.google.android.gms.feedback.internal.IFeedbackService",
+
+            // cast
+            "com.google.android.gms.cast.service.BIND_CAST_DEVICE_CONTROLLER_SERVICE",
 
             // chimera
             "com.google.android.gms.chimera",
