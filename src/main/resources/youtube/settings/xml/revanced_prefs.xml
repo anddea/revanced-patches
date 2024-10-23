@@ -248,7 +248,6 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_recommended_video" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_hide_recommended_video_title" android:key="revanced_hide_recommended_video" android:summary="@string/revanced_hide_recommended_video_summary" />
                 <SwitchPreference android:title="@string/revanced_hide_low_views_video_title" android:key="revanced_hide_low_views_video" android:summary="@string/revanced_hide_low_views_video_summary" />
-                <SwitchPreference android:title="@string/revanced_hide_upcoming_video_title" android:key="revanced_hide_upcoming_video" android:summary="@string/revanced_hide_upcoming_video_summary" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/revanced_preference_category_view_counts_filter" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_hide_video_by_view_counts_home_title" android:key="revanced_hide_video_by_view_counts_home" android:summaryOn="@string/revanced_hide_video_by_view_counts_home_summary_on" android:summaryOff="@string/revanced_hide_video_by_view_counts_home_summary_off" />
