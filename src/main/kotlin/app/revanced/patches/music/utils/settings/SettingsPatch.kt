@@ -44,6 +44,7 @@ object SettingsPatch : BaseResourcePatch(
     internal var upward0706 = false
     internal var upward0718 = false
     internal var upward0720 = false
+    internal var upward0723 = false
 
     override fun execute(context: ResourceContext) {
 
@@ -142,6 +143,7 @@ object SettingsPatch : BaseResourcePatch(
                         upward0706 = 242499000 <= playServicesVersion
                         upward0718 = 243699000 <= playServicesVersion
                         upward0720 = 243899000 <= playServicesVersion
+                        upward0723 = 244199000 <= playServicesVersion
 
                         break
                     }

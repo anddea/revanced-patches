@@ -6,9 +6,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.flyoutmenu.components.fingerprints.DialogSolidFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.EndButtonsContainerFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.MenuItemFingerprint
+import app.revanced.patches.music.flyoutmenu.components.fingerprints.ScreenWidthFingerprint
+import app.revanced.patches.music.flyoutmenu.components.fingerprints.ScreenWidthParentFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.SleepTimerFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.TouchOutsideFingerprint
 import app.revanced.patches.music.flyoutmenu.components.fingerprints.TrimSilenceConfigFingerprint
@@ -25,6 +26,7 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
@@ -55,9 +57,9 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
-        DialogSolidFingerprint,
         EndButtonsContainerFingerprint,
         MenuItemFingerprint,
+        ScreenWidthParentFingerprint,
         SleepTimerFingerprint,
         TouchOutsideFingerprint,
         TrimSilenceConfigFingerprint,
@@ -72,15 +74,20 @@ object FlyoutMenuComponentsPatch : BaseBytecodePatch(
 
         // region patch for enable compact dialog
 
-        DialogSolidFingerprint.resultOrThrow().let {
-            val walkerMethod =
-                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
-            walkerMethod.addInstructions(
-                2, """
-                    invoke-static {p0}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
-                    move-result p0
-                    """
-            )
+        ScreenWidthFingerprint.alsoResolve(
+            context, ScreenWidthParentFingerprint
+        ).let {
+            it.mutableMethod.apply {
+                val index = it.scanResult.patternScanResult!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $FLYOUT_CLASS_DESCRIPTOR->enableCompactDialog(I)I
+                        move-result v$register
+                        """
+                )
+            }
         }
 
         // endregion
