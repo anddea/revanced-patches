@@ -1,3 +1,33 @@
+# [2.230.0-dev.6](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.5...v2.230.0-dev.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hook YouTube Music actions:** App crashes when first installed ([aee5a18](https://github.com/anddea/revanced-patches/commit/aee5a18b837c2f0d139a4a6f312d9df7f1b6de04))
+* **YouTube - SponsorBlock:** The new segment window never showed up with Bold icons selected due to the missing drag handle ([c736841](https://github.com/anddea/revanced-patches/commit/c736841774e3b527871d6afe4b6d311a2bc2e573))
+* **YouTube - Spoof streaming data:** Wrong register used ([ef1908f](https://github.com/anddea/revanced-patches/commit/ef1908ffd3554d787eb4dcc50995e2888a5f3fad))
+* **YouTube & YouTube Music - GmsCore support:** Unimplemented service in GmsCore causes memory leak ([cca866b](https://github.com/anddea/revanced-patches/commit/cca866b218749dd55c52b0616c1d015135a44511))
+* **YouTube Music - Custom branding icon:** Patch fails on certain versions ([1b8654a](https://github.com/anddea/revanced-patches/commit/1b8654a9779e0c1029da4b25430d6f0ef946f5e4))
+
+
+### Features
+
+* **YouTube - Hide comments components:** Add `Hide highlighted search links` setting ([39ae3b0](https://github.com/anddea/revanced-patches/commit/39ae3b0072b1e2a8716777d146ba0b45ec555c3e))
+* **YouTube - Hide feed components:** Remove `Hide UPCOMING video` setting ([55a6953](https://github.com/anddea/revanced-patches/commit/55a695395bff0903d34ca45593d3ff97609fe264))
+* **YouTube - Player components:** Add `Sanitize video subtitle` setting ([fc4e293](https://github.com/anddea/revanced-patches/commit/fc4e293afdfef4139ca8a1667c274efd7164ced1))
+* **YouTube - Shorts components:** Add `Hide in channel` setting (Hide the Shorts shelf on the channel home tab) ([428616e](https://github.com/anddea/revanced-patches/commit/428616e2f1426e8128afab8f2b684e35cea3f1cb))
+* **YouTube - Spoof app version:** Show the dialog when the app is first installed ([9fe964a](https://github.com/anddea/revanced-patches/commit/9fe964a5484b5e9b69b82a9d1128d6f43ed0052f))
+* **YouTube - Swipe controls:** Add `Swipe sensitivity` settings ([ef594d0](https://github.com/anddea/revanced-patches/commit/ef594d09621e26a0b4824b7236d8915e0fedf5cf))
+* **YouTube & YouTube Music - GmsCore support:** Add patch option `Disable GmsService Broker` ([b24a63c](https://github.com/anddea/revanced-patches/commit/b24a63c54d946150db3b8181102034d48ed36187))
+* **YouTube & YouTube Music - Return YouTube Username:** Add `Display format` setting ([aa617ea](https://github.com/anddea/revanced-patches/commit/aa617eaf1beddbabc9239e067027fa76e58378b3))
+* **YouTube Music - Navigation bar components:** Do not use hardcoded color, `Enable black navigation bar` setting is turned off ([2ba1bd5](https://github.com/anddea/revanced-patches/commit/2ba1bd5ee917f8145e207b9194daaa8acfaa839c))
+* **YouTube Music - Spoof app version:** App crashes when first installed ([1f36b4e](https://github.com/anddea/revanced-patches/commit/1f36b4e843510e74e52c404beeae193cd314db50))
+
+
+### Performance Improvements
+
+* **YouTube - GmsCore support:** Improve performance by using hashsets ([1094160](https://github.com/anddea/revanced-patches/commit/10941604fe812b9fa9c965a183426745ed8519f1))
+
 # [2.230.0-dev.5](https://github.com/anddea/revanced-patches/compare/v2.230.0-dev.4...v2.230.0-dev.5) (2024-10-16)
 
 
