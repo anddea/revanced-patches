@@ -51,6 +51,19 @@ abstract class BaseGmsCoreSupportResourcePatch(
             """.trimIndentMultiline(),
         required = true,
     )
+
+    private val DisableGmsServiceBroker by booleanPatchOption(
+        key = "DisableGmsServiceBroker",
+        default = false,
+        title = "Disable GmsService Broker",
+        description = """
+            Disabling GmsServiceBroker will somewhat improve crashes caused by unimplemented GmsCore services.
+            
+            For YouTube, the 'Spoof streaming data' setting is required.
+            """.trimIndentMultiline(),
+        required = true,
+    )
+
     internal val PackageNameYouTube = stringPatchOption(
         key = "PackageNameYouTube",
         default = DEFAULT_PACKAGE_NAME_YOUTUBE,
@@ -184,7 +197,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
 
         private const val CLONE_PACKAGE_NAME_YOUTUBE_MUSIC = "bill.youtube.music"
         private const val DEFAULT_PACKAGE_NAME_YOUTUBE_MUSIC = "anddea.youtube.music"
-        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music"
+        internal const val ORIGINAL_PACKAGE_NAME_YOUTUBE_MUSIC =
+            "com.google.android.apps.youtube.music"
 
         private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
     }

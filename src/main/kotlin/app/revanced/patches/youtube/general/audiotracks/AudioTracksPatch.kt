@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.general.audiotracks.fingerprints.StreamingMo
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object AudioTracksPatch : BaseBytecodePatch(
@@ -32,15 +33,14 @@ object AudioTracksPatch : BaseBytecodePatch(
                     opcode == Opcode.CHECK_CAST
                             && (this as ReferenceInstruction).reference.toString() == "Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"
                 }
-                val arrayListIndex = getTargetIndexWithReferenceOrThrow(
-                    formatStreamModelIndex,
-                    "Ljava/util/List;->add(Ljava/lang/Object;)Z"
-                )
-                val insertIndex =
-                    getTargetIndexWithReferenceOrThrow(
-                        arrayListIndex,
-                        "Ljava/util/List;->isEmpty()Z"
-                    ) + 2
+                val arrayListIndex = indexOfFirstInstructionOrThrow(formatStreamModelIndex) {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            getReference<MethodReference>()?.toString() == "Ljava/util/List;->add(Ljava/lang/Object;)Z"
+                }
+                val insertIndex = indexOfFirstInstructionOrThrow(arrayListIndex) {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            getReference<MethodReference>()?.toString() == "Ljava/util/List;->isEmpty()Z"
+                } + 2
 
                 val formatStreamModelRegister =
                     getInstruction<OneRegisterInstruction>(formatStreamModelIndex).registerA

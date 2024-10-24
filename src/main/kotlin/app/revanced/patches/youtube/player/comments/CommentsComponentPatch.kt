@@ -4,17 +4,20 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patches.shared.fingerprints.SpannableStringBuilderFingerprint
 import app.revanced.patches.shared.litho.LithoFilterPatch
+import app.revanced.patches.shared.spans.InclusiveSpanPatch
 import app.revanced.patches.youtube.player.comments.fingerprints.ShortsLiveStreamEmojiPickerOnClickListenerFingerprint
 import app.revanced.patches.youtube.player.comments.fingerprints.ShortsLiveStreamEmojiPickerOpacityFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -25,18 +28,22 @@ object CommentsComponentPatch : BaseBytecodePatch(
     name = "Hide comments components",
     description = "Adds options to hide components related to comments.",
     dependencies = setOf(
+        InclusiveSpanPatch::class,
         LithoFilterPatch::class,
         SettingsPatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         ShortsLiveStreamEmojiPickerOnClickListenerFingerprint,
-        ShortsLiveStreamEmojiPickerOpacityFingerprint
+        ShortsLiveStreamEmojiPickerOpacityFingerprint,
+        SpannableStringBuilderFingerprint,
     )
 ) {
-    private const val FILTER_CLASS_DESCRIPTOR =
+    private const val COMMENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/CommentsFilter;"
+    private const val SEARCH_LINKS_FILTER_CLASS_DESCRIPTOR =
+        "$SPANS_PATH/SearchLinksFilter;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -56,14 +63,15 @@ object CommentsComponentPatch : BaseBytecodePatch(
 
         ShortsLiveStreamEmojiPickerOnClickListenerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val emojiPickerEndpointIndex = getWideLiteralInstructionIndex(126326492)
+                val emojiPickerEndpointIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(126326492)
                 val emojiPickerOnClickListenerIndex =
-                    getTargetIndexOrThrow(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
+                    indexOfFirstInstructionOrThrow(emojiPickerEndpointIndex, Opcode.INVOKE_DIRECT)
                 val emojiPickerOnClickListenerMethod =
                     getWalkerMethod(context, emojiPickerOnClickListenerIndex)
 
                 emojiPickerOnClickListenerMethod.apply {
-                    val insertIndex = getTargetIndexOrThrow(Opcode.IF_EQZ)
+                    val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IF_EQZ)
                     val insertRegister =
                         getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -79,7 +87,8 @@ object CommentsComponentPatch : BaseBytecodePatch(
 
         // endregion
 
-        LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+        InclusiveSpanPatch.addFilter(SEARCH_LINKS_FILTER_CLASS_DESCRIPTOR)
+        LithoFilterPatch.addFilter(COMMENTS_FILTER_CLASS_DESCRIPTOR)
 
         /**
          * Add settings

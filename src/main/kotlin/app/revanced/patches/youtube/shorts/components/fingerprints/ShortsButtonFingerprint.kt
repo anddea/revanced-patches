@@ -6,15 +6,15 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelD
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightDislikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelRightLikeIcon
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.RightComment
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 
 internal object ShortsButtonFingerprint : MethodFingerprint(
     returnType = "V",
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(ReelDynRemix)
-                && methodDef.containsWideLiteralInstructionIndex(ReelDynShare)
-                && methodDef.containsWideLiteralInstructionIndex(ReelRightDislikeIcon)
-                && methodDef.containsWideLiteralInstructionIndex(ReelRightLikeIcon)
-                && methodDef.containsWideLiteralInstructionIndex(RightComment)
+        methodDef.containsWideLiteralInstructionValue(ReelDynRemix)
+                && methodDef.containsWideLiteralInstructionValue(ReelDynShare)
+                && methodDef.containsWideLiteralInstructionValue(ReelRightDislikeIcon)
+                && methodDef.containsWideLiteralInstructionValue(ReelRightLikeIcon)
+                && methodDef.containsWideLiteralInstructionValue(RightComment)
     },
 )

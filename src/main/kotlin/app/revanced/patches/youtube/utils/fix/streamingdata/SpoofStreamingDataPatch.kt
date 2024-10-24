@@ -180,7 +180,7 @@ object SpoofStreamingDataPatch : BaseBytecodePatch(
 
                         # Set streaming data.
                         iget-object v$freeRegister, v$freeRegister, $getStreamingDataField
-                        if-eqz v0, :disabled
+                        if-eqz v$freeRegister, :disabled
                         iput-object v$freeRegister, p0, $setStreamingDataField
 
                         """,

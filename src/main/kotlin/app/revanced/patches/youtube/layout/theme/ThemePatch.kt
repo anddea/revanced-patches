@@ -145,7 +145,7 @@ object ThemePatch : BaseResourcePatch(
                 node.textContent = when (node.getAttribute("name")) {
                     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
                     "yt_white2", "yt_white3", "yt_white4",
-                    -> lightThemeColor
+                        -> lightThemeColor
 
                     else -> continue
                 }

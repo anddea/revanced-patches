@@ -4,40 +4,137 @@
     <string name="revanced_bypass_image_region_restrictions_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Alternative domain</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
-    <string name="revanced_change_start_page_entry_playables">Playables</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Chapters are enabled in the seekbar.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Chapters are disabled in the seekbar.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Disable seekbar chapters</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
+
+A temporary workaround for this issue is to spoof the app version to 19.13.37.
+
+Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p Premium menu is shown.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p Premium menu is hidden.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Hide 1080p Premium menu</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the timestamp are shown.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the timestamp are hidden.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Hide seekbar chapter labels</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">About menu is shown.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">About menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_about_title">Hide About menu</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">Accessibility menu is shown.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">Accessibility menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Hide Accessibility menu</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">Account menu is shown.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">Account menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">Autoplay menu is shown.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">Autoplay menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">Hide Autoplay menu</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Billing and payments menu is shown.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Billing and payments menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Hide Billing and payments menu</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">Captions menu is shown.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">Captions menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Hide Captions menu</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Connected apps menu is shown.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Connected apps menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Hide Connected apps menu</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">Data saving menu is shown.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">Data saving menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Hide Data saving menu</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">Manage all history menu is shown.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">Manage all history menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_history_title">Hide Manage all history menu</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">Live chat menu is shown.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">Live chat menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Hide Live chat menu</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">Notifications menu is shown.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">Notifications menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Hide Notifications menu</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">Background menu is shown.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">Background menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Hide Background menu</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Try experimental new features menu is shown.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Try experimental new features menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Hide Try experimental new features menu</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">Privacy menu is shown.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">Privacy menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Hide Privacy menu</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Purchases and memberships menu is shown.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Purchases and memberships menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Hide Purchases and memberships menu</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">Video quality preferences menu is shown.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">Video quality preferences menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Hide Video quality preferences menu</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">Your data in YouTube menu is shown.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">Your data in YouTube menu is hidden.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Hide Your data in YouTube menu</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
-    <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscription / Search results are filtered to hide videos with views less or greater than a specified number.
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Shown in channel.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Hidden in channel.
 
-Limitations: 
-• Shorts cannot be hidden.
-• Videos with 0 views are not filtered."</string>
-    <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_off">Videos in home feed are not filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_home_summary_on">Videos in home feed are filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_home_title">Hide home videos by views</string>
-    <string name="revanced_hide_video_by_view_counts_search_summary_off">Search results are not filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_search_summary_on">Search results are filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_search_title">Hide search results by views</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Videos in subscriptions feed are not filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Videos in subscriptions feed are filtered.</string>
-    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Hide subscription videos by views</string>
+Info:
+• Only shelves with the Shorts header on the home tab are hidden."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Hide in channel</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">YouTube Doodles are shown.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">YouTube Doodles are hidden.</string>
+    <string name="revanced_hide_youtube_doodles_title">Hide YouTube Doodles</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"YouTube Doodles show up a few days each year.
+
+If a YouTube Doodle is currently showing in your region and this setting is on, the filter bar below the search bar will also be hidden."</string>
     <string name="revanced_icon_mmt_blue">MMT Blue</string>
     <string name="revanced_icon_mmt_green">MMT Green</string>
+    <string name="revanced_icon_mmt_orange">MMT Orange</string>
+    <string name="revanced_icon_mmt_pink">MMT Pink</string>
+    <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
     <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Display format</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Username</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">Handle is used.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Username is used.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"A YouTube Data API v3 Developer Key is required to replace handles with usernames.
+
+The daily quota for API keys on the free plan is 10,000, and 1 quota is used to replace a handle with a username for 1 comment.
+
+Click to see how to issue a API key."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">About YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">The developer key for using the YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are hidden.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown.</string>
+    <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were shown from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
 </resources>

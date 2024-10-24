@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
@@ -13,6 +14,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint
+import app.revanced.patches.music.player.components.fingerprints.AudioVideoSwitchToggleFingerprint.AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightFingerprint
+import app.revanced.patches.music.player.components.fingerprints.EngagementPanelHeightParentFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSearchRenderedFingerprint
 import app.revanced.patches.music.player.components.fingerprints.HandleSignInEventFingerprint
 import app.revanced.patches.music.player.components.fingerprints.InteractionLoggingEnumFingerprint
@@ -33,19 +37,17 @@ import app.revanced.patches.music.player.components.fingerprints.PlayerViewPager
 import app.revanced.patches.music.player.components.fingerprints.QuickSeekOverlayFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RemixGenericButtonFingerprint
 import app.revanced.patches.music.player.components.fingerprints.RepeatTrackFingerprint
-import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint
-import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfImageViewInstruction
-import app.revanced.patches.music.player.components.fingerprints.ShuffleClassReferenceFingerprint.indexOfOrdinalInstruction
+import app.revanced.patches.music.player.components.fingerprints.ShuffleOnClickFingerprint
 import app.revanced.patches.music.player.components.fingerprints.SwipeToCloseFingerprint
 import app.revanced.patches.music.player.components.fingerprints.SwitchToggleColorFingerprint
 import app.revanced.patches.music.player.components.fingerprints.ZenModeFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.fingerprints.PendingIntentReceiverFingerprint
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.music.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
-import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.AudioVideoSwitchToggle
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.DarkBackground
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MiniPlayerPlayPauseReplayButton
@@ -59,24 +61,23 @@ import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.utils.videotype.VideoTypeHookPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.addStaticFieldToIntegration
+import app.revanced.util.alsoResolve
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndex
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.literalInstructionBooleanHook
-import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
-import app.revanced.util.transformFields
+import app.revanced.util.transformMethods
 import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.MethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -87,7 +88,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import kotlin.properties.Delegates
 
 @Suppress("unused", "LocalVariableName")
@@ -100,11 +100,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         PlayerComponentsResourcePatch::class,
         SettingsPatch::class,
         SharedResourceIdPatch::class,
-        VideoTypeHookPatch::class
+        VideoTypeHookPatch::class,
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         AudioVideoSwitchToggleFingerprint,
+        EngagementPanelHeightParentFingerprint,
         HandleSearchRenderedFingerprint,
         InteractionLoggingEnumFingerprint,
         MinimizedPlayerFingerprint,
@@ -124,12 +125,15 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         QuickSeekOverlayFingerprint,
         RemixGenericButtonFingerprint,
         RepeatTrackFingerprint,
-        ShuffleClassReferenceFingerprint,
+        ShuffleOnClickFingerprint,
         SwipeToCloseFingerprint,
     )
 ) {
     private const val FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/PlayerComponentsFilter;"
+
+    private const val INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR =
+        "$INTEGRATIONS_PATH/utils/VideoUtils;"
 
     override fun execute(context: BytecodeContext) {
 
@@ -145,8 +149,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             PlayerViewPager to "disablePlayerGesture"
         ).forEach { (literal, methodName) ->
             val viewPagerReference = playerViewPagerConstructorMethod.let {
-                val constIndex = it.getWideLiteralInstructionIndex(literal)
-                val targetIndex = it.getTargetIndexOrThrow(constIndex, Opcode.IPUT_OBJECT)
+                val constIndex = it.indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+                val targetIndex = it.indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
 
                 it.getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
             }
@@ -156,7 +160,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                             && getReference<FieldReference>()?.toString() == viewPagerReference
                 }
                 val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                val jumpIndex = getTargetIndex(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
 
                 addInstructionsWithLabels(
                     insertIndex, """
@@ -198,8 +203,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
                     val relativeIndex = it.scanResult.patternScanResult!!.endIndex + 1
                     val invokeVirtualIndex =
-                        getTargetIndexOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
-                    val iGetIndex = getTargetIndexOrThrow(relativeIndex, Opcode.IGET)
+                        indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
+                    val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
 
                     colorMathPlayerInvokeVirtualReference =
                         getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference
@@ -207,11 +212,11 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         getInstruction<ReferenceInstruction>(iGetIndex).reference
 
                     // black player background
-                    val invokeDirectIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
                     val targetMethod = getWalkerMethod(context, invokeDirectIndex)
 
                     targetMethod.apply {
-                        val insertIndex = getTargetIndexOrThrow(0, Opcode.IF_NE)
+                        val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IF_NE)
 
                         addInstructions(
                             insertIndex, """
@@ -225,8 +230,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 }
 
                 parentResult.mutableMethod.apply {
-                    val colorGreyIndex = getWideLiteralInstructionIndex(ColorGrey)
-                    val iPutIndex = getTargetIndexOrThrow(colorGreyIndex, Opcode.IPUT)
+                    val colorGreyIndex = indexOfFirstWideLiteralInstructionValueOrThrow(ColorGrey)
+                    val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
 
                     colorMathPlayerIPutReference =
                         getInstruction<ReferenceInstruction>(iPutIndex).reference
@@ -240,7 +245,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                     mutableMethod.apply {
                         val freeRegister = implementation!!.registerCount - parameters.size - 3
 
-                        val invokeDirectIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_DIRECT)
+                        val invokeDirectIndex =
+                            indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                         val invokeDirectReference =
                             getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
 
@@ -401,9 +407,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             reversed: Boolean
         ): Reference {
             val targetIndex = if (reversed)
-                getTargetIndexReversedOrThrow(swipeToDismissWidgetIndex, opcode)
+                indexOfFirstInstructionReversedOrThrow(swipeToDismissWidgetIndex, opcode)
             else
-                getTargetIndexOrThrow(swipeToDismissWidgetIndex, opcode)
+                indexOfFirstInstructionOrThrow(swipeToDismissWidgetIndex, opcode)
 
             return getInstruction<ReferenceInstruction>(targetIndex).reference
         }
@@ -411,7 +417,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         if (!SettingsPatch.upward0642) {
             SwipeToCloseFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = implementation!!.instructions.size - 1
+                    val insertIndex = implementation!!.instructions.lastIndex
                     val targetRegister =
                         getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -430,8 +436,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             InteractionLoggingEnumFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val stringIndex =
-                        getStringInstructionIndex("INTERACTION_LOGGING_GESTURE_TYPE_SWIPE")
-                    val sPutObjectIndex = getTargetIndexOrThrow(stringIndex, Opcode.SPUT_OBJECT)
+                        indexOfFirstStringInstructionOrThrow("INTERACTION_LOGGING_GESTURE_TYPE_SWIPE")
+                    val sPutObjectIndex =
+                        indexOfFirstInstructionOrThrow(stringIndex, Opcode.SPUT_OBJECT)
 
                     swipeToDismissSGetObjectReference =
                         getInstruction<ReferenceInstruction>(sPutObjectIndex).reference
@@ -440,7 +447,8 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             MusicActivityWidgetFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    swipeToDismissWidgetIndex = getWideLiteralInstructionIndex(79500)
+                    swipeToDismissWidgetIndex =
+                        indexOfFirstWideLiteralInstructionValueOrThrow(79500)
 
                     swipeToDismissIGetObjectReference =
                         getSwipeToDismissReference(Opcode.IGET_OBJECT, true)
@@ -468,8 +476,9 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                         it.getWalkerMethod(context, it.scanResult.patternScanResult!!.startIndex)
 
                     dismissBehaviorMethod.apply {
-                        val insertIndex =
-                            getTargetIndexWithFieldReferenceTypeOrThrow("Ljava/util/concurrent/atomic/AtomicBoolean;")
+                        val insertIndex = indexOfFirstInstructionOrThrow {
+                            getReference<FieldReference>()?.type == "Ljava/util/concurrent/atomic/AtomicBoolean;"
+                        }
                         val primaryRegister =
                             getInstruction<TwoRegisterInstruction>(insertIndex).registerB
                         val secondaryRegister = primaryRegister + 1
@@ -528,15 +537,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
                 it.mutableClass.methods.find { method ->
                     method.parameters == listOf("Landroid/view/View;", "I")
                 }?.apply {
-                    val bottomSheetBehaviorIndex =
-                        implementation!!.instructions.indexOfFirst { instruction ->
-                            instruction.opcode == Opcode.INVOKE_VIRTUAL
-                                    && instruction.getReference<MethodReference>()?.definingClass == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;"
-                                    && instruction.getReference<MethodReference>()?.parameterTypes?.first() == "Z"
-                        }
-                    if (bottomSheetBehaviorIndex < 0)
-                        throw PatchException("Could not find bottomSheetBehaviorIndex")
-
+                    val bottomSheetBehaviorIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_VIRTUAL
+                                && reference?.definingClass == "Lcom/google/android/material/bottomsheet/BottomSheetBehavior;"
+                                && reference.parameterTypes.first() == "Z"
+                    }
                     val freeRegister =
                         getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
@@ -592,7 +598,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
             SwitchToggleColorFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val invokeDirectIndex = getTargetIndexOrThrow(Opcode.INVOKE_DIRECT)
+                    val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
                     val walkerMethod = getWalkerMethod(context, invokeDirectIndex)
 
                     walkerMethod.addInstructions(
@@ -624,14 +630,25 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for hide audio video switch toggle
 
         AudioVideoSwitchToggleFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(AudioVideoSwitchToggle)
-            val viewIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
-            val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference is MethodReference &&
+                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
+                    val instruction = getInstruction<FiveRegisterInstruction>(index)
 
-            addInstruction(
-                viewIndex + 1,
-                "invoke-static {v$viewRegister}, $PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;)V"
-            )
+                    replaceInstruction(
+                        index,
+                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
+                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
+                    )
+                }
         }
 
         SettingsPatch.addSwitchPreference(
@@ -667,7 +684,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
             DarkBackground,
             TapBloomView
         ).forEach { literal ->
-            QuickSeekOverlayFingerprint.literalInstructionViewHook(
+            QuickSeekOverlayFingerprint.injectLiteralInstructionViewCall(
                 literal,
                 smaliInstruction
             )
@@ -731,151 +748,87 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for remember shuffle state
 
-        val MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR =
-            "Lcom/google/android/apps/youtube/music/watchpage/MusicPlaybackControls;"
+        ShuffleOnClickFingerprint.resultOrThrow().mutableMethod.apply {
+            val accessibilityIndex =
+                ShuffleOnClickFingerprint.indexOfAccessibilityInstruction(this)
 
-        lateinit var rememberShuffleStateObjectClass: String
-        lateinit var rememberShuffleStateImageViewReference: Reference
-        lateinit var rememberShuffleStateShuffleStateLabel: String
+            // region set shuffle enum
 
-        ShuffleClassReferenceFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                rememberShuffleStateObjectClass = definingClass
-
-                val constIndex = getWideLiteralInstructionIndex(45468)
-                val iGetObjectIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
-                val checkCastIndex = getTargetIndexOrThrow(iGetObjectIndex, Opcode.CHECK_CAST)
-
-                val ordinalIndex = indexOfOrdinalInstruction(this)
-                val imageViewIndex = indexOfImageViewInstruction(this)
-
-                val iGetObjectReference =
-                    getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
-                val invokeInterfaceReference =
-                    getInstruction<ReferenceInstruction>(iGetObjectIndex + 1).reference
-                val checkCastReference =
-                    getInstruction<ReferenceInstruction>(checkCastIndex).reference
-                val getOrdinalClassReference =
-                    getInstruction<ReferenceInstruction>(checkCastIndex + 1).reference
-                val ordinalReference =
-                    getInstruction<ReferenceInstruction>(ordinalIndex).reference
-
-                rememberShuffleStateImageViewReference =
-                    getInstruction<ReferenceInstruction>(imageViewIndex).reference
-
-                rememberShuffleStateShuffleStateLabel = """
-                    iget-object v1, v0, $iGetObjectReference
-                    invoke-interface {v1}, $invokeInterfaceReference
-                    move-result-object v1
-                    check-cast v1, $checkCastReference
-                    """
-
-                rememberShuffleStateShuffleStateLabel += if (getInstruction(checkCastIndex + 1).opcode == Opcode.INVOKE_VIRTUAL) {
-                    // YouTube Music 7.16.52+
-                    """
-                        invoke-virtual {v1}, $getOrdinalClassReference
-                        move-result-object v1
-                        
-                        """.trimIndent()
-                } else {
-                    """
-                        iget-object v1, v1, $getOrdinalClassReference
-                        
-                        """.trimIndent()
-                }
-
-                rememberShuffleStateShuffleStateLabel += """
-                    invoke-virtual {v1}, $ordinalReference
-                    move-result v1
-                    
-                    """.trimIndent()
+            val enumIndex = indexOfFirstInstructionReversedOrThrow(accessibilityIndex) {
+                opcode == Opcode.INVOKE_DIRECT &&
+                        getReference<MethodReference>()?.returnType == "Ljava/lang/String;"
             }
+            val enumRegister = getInstruction<FiveRegisterInstruction>(enumIndex).registerD
+            val enumClass =
+                (getInstruction<ReferenceInstruction>(enumIndex).reference as MethodReference).parameterTypes.first()
 
-            val constructorMethod =
-                it.mutableClass.methods.first { method -> MethodUtil.isConstructor(method) }
-            val onClickMethod = it.mutableClass.methods.first { method -> method.name == "onClick" }
+            addInstruction(
+                enumIndex,
+                "invoke-static {v$enumRegister}, $PLAYER_CLASS_DESCRIPTOR->setShuffleState(Ljava/lang/Enum;)V"
+            )
 
-            constructorMethod.apply {
-                addInstruction(
-                    implementation!!.instructions.lastIndex,
-                    "sput-object p0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass"
-                )
-            }
+            // endregion
 
-            onClickMethod.apply {
-                addInstructions(
-                    0, """
-                        move-object v0, p0
-                        """ + rememberShuffleStateShuffleStateLabel + """
-                        invoke-static {v1}, $PLAYER_CLASS_DESCRIPTOR->setShuffleState(I)V
-                        """
-                )
-            }
+            // region set static field
 
-            context.traverseClassHierarchy(it.mutableClass) {
-                accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL
-                transformFields {
-                    ImmutableField(
+            val shuffleClassIndex =
+                indexOfFirstInstructionReversedOrThrow(accessibilityIndex, Opcode.CHECK_CAST)
+            val shuffleClass =
+                getInstruction<ReferenceInstruction>(shuffleClassIndex).reference.toString()
+            val shuffleMutableClass = context.findClass { classDef ->
+                classDef.type == shuffleClass
+            }!!.mutableClass
+
+            val shuffleMethod = shuffleMutableClass.methods.find { method ->
+                method.parameterTypes.firstOrNull() == enumClass &&
+                        method.parameterTypes.size == 1 &&
+                        method.returnType == "V"
+            } ?: throw PatchException("target not found")
+
+            val smaliInstructions =
+                """
+                    if-eqz v0, :ignore
+                    sget-object v1, $enumClass->b:$enumClass
+                    invoke-virtual {v0, v1}, $shuffleClass->${shuffleMethod.name}($enumClass)V
+                    :ignore
+                    return-void
+                """
+
+            context.addStaticFieldToIntegration(
+                INTEGRATIONS_VIDEO_UTILS_CLASS_DESCRIPTOR,
+                "shuffleTracks",
+                "shuffleClass",
+                shuffleClass,
+                smaliInstructions
+            )
+
+            // endregion
+
+            // region make all methods accessible
+
+            context.traverseClassHierarchy(shuffleMutableClass) {
+                transformMethods {
+                    ImmutableMethod(
                         definingClass,
                         name,
-                        type,
-                        AccessFlags.PUBLIC or AccessFlags.PUBLIC,
-                        null,
+                        parameters,
+                        returnType,
+                        AccessFlags.PUBLIC or AccessFlags.FINAL,
                         annotations,
-                        null
+                        hiddenApiRestrictions,
+                        implementation
                     ).toMutable()
                 }
             }
+
+            // endregion
+
         }
 
-        MusicPlaybackControlsFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-virtual {v0}, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->rememberShuffleState()V"
-                )
-
-                val shuffleField = ImmutableField(
-                    definingClass,
-                    "shuffleClass",
-                    rememberShuffleStateObjectClass,
-                    AccessFlags.PUBLIC or AccessFlags.STATIC,
-                    null,
-                    annotations,
-                    null
-                ).toMutable()
-
-                val shuffleMethod = ImmutableMethod(
-                    definingClass,
-                    "rememberShuffleState",
-                    emptyList(),
-                    "V",
-                    AccessFlags.PUBLIC or AccessFlags.FINAL,
-                    annotations, null,
-                    MutableMethodImplementation(5)
-                ).toMutable()
-
-                shuffleMethod.addInstructionsWithLabels(
-                    0, """
-                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->getShuffleState()I
-                            move-result v2
-                            if-nez v2, :dont_shuffle
-                            sget-object v0, $MUSIC_PLAYBACK_CONTROLS_CLASS_DESCRIPTOR->shuffleClass:$rememberShuffleStateObjectClass
-                            """ + rememberShuffleStateShuffleStateLabel + """
-                            iget-object v3, v0, $rememberShuffleStateImageViewReference
-                            if-eqz v3, :dont_shuffle
-                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
-                            if-eqz v1, :dont_shuffle
-                            invoke-virtual {v3}, Landroid/view/View;->callOnClick()Z
-                            :dont_shuffle
-                            return-void
-                            """
-                )
-
-                it.mutableClass.methods.add(shuffleMethod)
-                it.mutableClass.staticFields.add(shuffleField)
-            }
-        }
+        MusicPlaybackControlsFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->shuffleTracks()V"
+        )
 
         SettingsPatch.addSwitchPreference(
             CategoryType.PLAYER,
@@ -887,12 +840,84 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
         // region patch for restore old comments popup panels
 
-        OldEngagementPanelFingerprint.result?.let {
-            OldEngagementPanelFingerprint.literalInstructionBooleanHook(
+        var restoreOldCommentsPopupPanel = false
+
+        if (SettingsPatch.upward0627 && !SettingsPatch.upward0718) {
+            OldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
                 45427672,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
             )
+            restoreOldCommentsPopupPanel = true
+        } else if (SettingsPatch.upward0718) {
 
+            // region disable player from being pushed to the top when opening a comment
+
+            MppWatchWhileLayoutFingerprint.resultOrThrow().mutableMethod.apply {
+                val callableIndex =
+                    MppWatchWhileLayoutFingerprint.indexOfCallableInstruction(this)
+                val insertIndex =
+                    indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels()Z
+                        move-result v$insertRegister
+                        if-eqz v$insertRegister, :restore
+                        """, ExternalLabel("restore", getInstruction(callableIndex + 1))
+                )
+            }
+
+            // endregion
+
+            // region region limit the height of the engagement panel
+
+            EngagementPanelHeightFingerprint.alsoResolve(
+                context, EngagementPanelHeightParentFingerprint
+            ).let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                }
+            }
+
+            MiniPlayerDefaultViewVisibilityFingerprint.resultOrThrow().let {
+                it.mutableClass.methods.find { method ->
+                    method.parameters == listOf("Landroid/view/View;", "I")
+                }?.apply {
+                    val targetIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_INTERFACE
+                                && reference?.returnType == "Z"
+                                && reference.parameterTypes.size == 0
+                    } + 1
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                } ?: throw PatchException("Could not find targetMethod")
+
+            }
+
+            // endregion
+
+            restoreOldCommentsPopupPanel = true
+        }
+
+        if (restoreOldCommentsPopupPanel) {
             SettingsPatch.addSwitchPreference(
                 CategoryType.PLAYER,
                 "revanced_restore_old_comments_popup_panels",
@@ -905,7 +930,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for restore old player background
 
         OldPlayerBackgroundFingerprint.result?.let {
-            OldPlayerBackgroundFingerprint.literalInstructionBooleanHook(
+            OldPlayerBackgroundFingerprint.injectLiteralInstructionBooleanCall(
                 45415319,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerBackground(Z)Z"
             )
@@ -922,7 +947,7 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         // region patch for restore old player layout
 
         OldPlayerLayoutFingerprint.result?.let {
-            OldPlayerLayoutFingerprint.literalInstructionBooleanHook(
+            OldPlayerLayoutFingerprint.injectLiteralInstructionBooleanCall(
                 45399578,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerLayout(Z)Z"
             )
@@ -943,11 +968,14 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         viewId: Long
     ) {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val miniPlayerPlayPauseReplayButtonRegister =
             getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
         val findViewByIdIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_VIRTUAL)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_VIRTUAL
+            )
         val parentViewRegister =
             getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
 
@@ -966,11 +994,14 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         viewId: Long
     ) {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val constRegister =
             getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
         val findViewByIdIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_VIRTUAL)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_VIRTUAL
+            )
         val findViewByIdRegister =
             getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
 
@@ -986,9 +1017,12 @@ object PlayerComponentsPatch : BaseBytecodePatch(
 
     private fun MutableMethod.setViewArray() {
         val miniPlayerPlayPauseReplayButtonIndex =
-            getWideLiteralInstructionIndex(MiniPlayerPlayPauseReplayButton)
+            indexOfFirstWideLiteralInstructionValueOrThrow(MiniPlayerPlayPauseReplayButton)
         val invokeStaticIndex =
-            getTargetIndexOrThrow(miniPlayerPlayPauseReplayButtonIndex, Opcode.INVOKE_STATIC)
+            indexOfFirstInstructionOrThrow(
+                miniPlayerPlayPauseReplayButtonIndex,
+                Opcode.INVOKE_STATIC
+            )
         val viewArrayRegister = getInstruction<FiveRegisterInstruction>(invokeStaticIndex).registerC
 
         addInstructions(
@@ -1005,21 +1039,18 @@ object PlayerComponentsPatch : BaseBytecodePatch(
         methodName: String,
         fieldName: String
     ) {
-        val startIndex = getStringInstructionIndex(intentString)
-        val onClickIndex = getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
+        val startIndex = indexOfFirstStringInstructionOrThrow(intentString)
+        val onClickIndex = indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
         val onClickReference = getInstruction<ReferenceInstruction>(onClickIndex).reference
         val onClickReferenceDefiningClass = (onClickReference as MethodReference).definingClass
 
-        val onClickClass =
-            context.findClass(onClickReferenceDefiningClass)!!.mutableClass
-
-        onClickClass.methods.find { method -> method.name == "<init>" }
-            ?.apply {
+        context.findMethodOrThrow(onClickReferenceDefiningClass)
+            .apply {
                 addInstruction(
-                    implementation!!.instructions.size - 1,
+                    implementation!!.instructions.lastIndex,
                     "sput-object p0, $PLAYER_CLASS_DESCRIPTOR->$fieldName:$onClickReferenceDefiningClass"
                 )
-            } ?: throw PatchException("onClickClass not found!")
+            }
 
         PlayerPatchConstructorFingerprint.resultOrThrow().let {
             val mutableClass = it.mutableClass

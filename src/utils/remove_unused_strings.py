@@ -16,6 +16,7 @@ BLACKLISTED_STRINGS = (
 )
 PREFIX_TO_IGNORE = (
     "revanced_icon_",
+    "revanced_spoof_app_version_target_entry_",
     "revanced_spoof_streaming_data_side_effects_",
 )
 

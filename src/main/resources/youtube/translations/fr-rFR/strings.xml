@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Activer les contrôles d\'accessibilité pour le lecteur vidéo ?</string>
     <string name="accessibility_settings_edu_opt_out_text">Vos contrôles sont modifiés car un service d\'accessibilité est activé.</string>
@@ -22,6 +22,7 @@ Si activée, l'URL des vidéos seront envoyés sur le serveur API et aucune autr
 
 Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">URL de l\'API DeArrow invalide.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">L\'URL du point de connexion au cache des miniatures DeArrow.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">Point de connexion à l\'API DeArrow</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">N\'affiche pas de message si DeArrow est indisponible.</string>
@@ -62,6 +63,12 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Utilisation des images originales.\n\nActiver ceci peut corriger les images manquantes qui sont bloquées dans certaines régions.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Utilisation des images hébergées par yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Contourner les restrictions des images selon les régions</string>
+    <string name="revanced_change_layout_entry_1">Original</string>
+    <string name="revanced_change_layout_entry_2">Téléphone</string>
+    <string name="revanced_change_layout_entry_3">Téléphone (Max 480 dpi)</string>
+    <string name="revanced_change_layout_entry_4">Tablette</string>
+    <string name="revanced_change_layout_entry_5">Tablette (Min 600 dpi)</string>
+    <string name="revanced_change_layout_title">Modifier la mise en page</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Les boutons à bascule sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Les boutons à bascule avec textes sont utilisés.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Type de bouton à bascule</string>
@@ -89,8 +96,12 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
     <string name="revanced_change_start_page_entry_trending">Tendances</string>
     <string name="revanced_change_start_page_entry_watch_later">Regarder plus tard</string>
-    <string name="revanced_change_start_page_invalid_toast">Page de démarrage invalide, valeur réinitialisée par défaut.</string>
     <string name="revanced_change_start_page_title">Modifier la page de démarrage</string>
+    <string name="revanced_change_start_page_type_summary_off">La page de démarrage est modifiée une seule fois.</string>
+    <string name="revanced_change_start_page_type_summary_on">"La page de démarrage est toujours modifiée.
+
+Limitation : Le bouton Retour de la barre d'outils peut ne pas fonctionner."</string>
+    <string name="revanced_change_start_page_type_title">Type de modification de la page de démarrage</string>
     <string name="revanced_change_youtube_header_summary_off">L\'en-tête original est activé.</string>
     <string name="revanced_change_youtube_header_summary_on">L\'en-tête YouTube Premium est activé.</string>
     <string name="revanced_change_youtube_header_title">Changer l\'en-tête YouTube</string>
@@ -103,11 +114,11 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_off">L\'ancien style du menu déroulant est utilisé.</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Affichage de sélection de vitesse personnalisé.</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Personnaliser le menu \"Vitesse de lecture\"</string>
-    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx. Valeur réinitialisée par défaut.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture invalides. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Valeur des vitesses de lecture invalide.</string>
     <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture disponibles.</string>
     <string name="revanced_custom_playback_speeds_title">Saisir des vitesses de lecture personnalisées</string>
-    <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacité du voile du lecteur doit être entre 0-100. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacité du voile du lecteur doit être entre 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Valeur d\'opacité entre 0-100, 0 étant transparent.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Personnaliser l\'opacité du voile du lecteur</string>
     <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hexadécimal de la couleur de la barre de progression.</string>
@@ -186,7 +197,13 @@ Limitation : Ce paramètre peut ne pas s'appliquer aux vidéos qui n'incluent pa
     <string name="revanced_disable_resuming_shorts_player_title">Désac. \"Reprendre la lecture\" sur les Shorts</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Animation en temps réel des nombres est activé.</string>
     <string name="revanced_disable_rolling_number_animations_summary_on">Animation en temps réel des nombres est désactivé.</string>
-    <string name="revanced_disable_rolling_number_animations_title">Animation en temps réel des nombres</string>
+    <string name="revanced_disable_rolling_number_animations_title">Désactiver l\'animation en temps réel des nombres</string>
+    <string name="revanced_disable_seekbar_chapters_summary_off">Les chapitres sont activés sur la barre de progression.</string>
+    <string name="revanced_disable_seekbar_chapters_summary_on">Les chapitres sont désactivés sur la barre de progression.</string>
+    <string name="revanced_disable_seekbar_chapters_title">Désac. chapitres sur la barre de progression</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">L\'animation en fontaine est activé au-dessus du bouton j\'aime.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">L\'animation en fontaine est désactivé au-dessus du bouton j\'aime.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Désactiver l\'animation du bouton J\'aime</string>
     <string name="revanced_disable_speed_overlay_summary">"Désactive '2x&gt;&gt;' en appuyant longuement.
 
 Note :
@@ -206,7 +223,7 @@ Note :
 
 • La résolution maximale est en 1080p.
 • La lecture vidéo utilisera plus de données internet que le VP9.
-• Pour utiliser la lecture en HDR, les vidéos HDR utilisent toujours le codec VP9."</string>
+• Le codec VP9 est également utilisé pour les vidéos HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Désactiver le codec VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">La barre de progression Cairo est désactivé.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"La barre de progression Cairo est activé.
@@ -245,8 +262,6 @@ Effet secondaire : le thème Cairo peut également s'appliquer sur les points d
     <string name="revanced_enable_open_links_directly_title">Activer l\'ouverture des liens directement</string>
     <string name="revanced_enable_opus_codec_summary">Active le codec OPUS si la réponse du lecteur inclut le codec OPUS.</string>
     <string name="revanced_enable_opus_codec_title">Activer le Codec OPUS</string>
-    <string name="revanced_enable_phone_layout_summary">Falsifie le dpi pour activer l\'interface téléphone.</string>
-    <string name="revanced_enable_phone_layout_title">Activer l\'interface téléphone</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">N\'enregistre et ne restaure pas la luminosité en quittant ou en entrant en plein écran.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Enregistrer et restaurer la luminosité en quittant ou en entrant en plein écran.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Activer enregistr. et restaur. de la luminosité</string>
@@ -268,7 +283,7 @@ Limitations :
     <string name="revanced_enable_swipe_haptic_feedback_title">Activer la vibration</string>
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">La valeur la plus basse du geste de luminosité désactive la luminosité automatique.</string>
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_on">La valeur la plus basse du geste de luminosité active la luminosité automatique.</string>
-    <string name="revanced_enable_swipe_lowest_value_auto_brightness_title">Activer les gestes auto. de luminosité</string>
+    <string name="revanced_enable_swipe_lowest_value_auto_brightness_title">Activer les gestes de luminosité auto</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_off">Appuyez pour activer les gestes de commande.</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_on">Appuyez longuement pour activer les gestes de commande.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">Activer les gestes de commande</string>
@@ -278,8 +293,6 @@ Limitations :
     <string name="revanced_enable_swipe_volume_summary_off">Les gestes de volume sont désactivé.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Les gestes de volume sont activé.</string>
     <string name="revanced_enable_swipe_volume_title">Activer les gestes de volume</string>
-    <string name="revanced_enable_tablet_layout_summary">Falsifie le dpi pour activer l\'interface tablette.</string>
-    <string name="revanced_enable_tablet_layout_title">Activer l\'interface tablette</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barre de navigation est opaque.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barre de navigation est translucide.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Activer la barre de navigation translucide</string>
@@ -305,7 +318,13 @@ L'option \"Ouvrir la description automatiquement\" risque de ne pas fonctionner 
     <string name="revanced_expand_video_description_summary_on">La description s\'ouvre automatiquement.</string>
     <string name="revanced_expand_video_description_title">Ouvrir la description automatiquement</string>
     <string name="revanced_extended_confirm_user_dialog_title">Voulez-vous continuer ?</string>
+    <string name="revanced_extended_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
     <string name="revanced_extended_restart_first_run">Redémarrer pour charger l\'interface correctement</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"Il existe un bug côté serveur de YouTube qui empêche l'animation en temps réel des nombres, tels que les mentions \"J'aime\", les vues et les dates de mise en ligne pour certains utilisateurs.
+
+Un moyen de contourner temporairement ce problème est de falsifier la version de l'application en version 19.13.37.
+
+Voulez-vous falsifier la version de l'application et redémarrer ?"</string>
     <string name="revanced_extended_restart_message">Appliquer et redémarrer ?</string>
     <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres.</string>
     <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès.</string>
@@ -398,12 +417,15 @@ Boutique"</string>
     <string name="revanced_hide_chips_shelf_off">L\'étagère \"Vous pourriez aussi aimer\" est affichée.</string>
     <string name="revanced_hide_chips_shelf_on">L\'étagère \"Vous pourriez aussi aimer\" est masquée.</string>
     <string name="revanced_hide_chips_shelf_title">Masquer des étagères</string>
-    <string name="revanced_hide_clip_button_summary_off">Le bouton \"Clip\" est affiché.</string>
-    <string name="revanced_hide_clip_button_summary_on">Le bouton \"Clip\" est masqué.</string>
-    <string name="revanced_hide_clip_button_title">Masquer le bouton \"Clip\"</string>
+    <string name="revanced_hide_clip_button_summary_off">Le bouton \"Extrait\" est affiché.</string>
+    <string name="revanced_hide_clip_button_summary_on">Le bouton \"Extrait\" est masqué.</string>
+    <string name="revanced_hide_clip_button_title">Masquer le bouton \"Extrait\"</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Le bouton \"Créer un Short\" est affiché.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Le bouton \"Créer un Short\" est masqué.</string>
     <string name="revanced_hide_comment_create_shorts_button_title">Masquer le bouton \"Créer un Short\"</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_off">Les liens de recherche en surbrillance sont affichés.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_summary_on">Les liens de recherche en surbrillance sont masqués.</string>
+    <string name="revanced_hide_comment_highlighted_search_links_title">Marquer les liens de recherche en surbrillance</string>
     <string name="revanced_hide_comment_thanks_button_summary_off">Le bouton \"Merci\" est affiché.</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">Le bouton \"Merci\" est masqué.</string>
     <string name="revanced_hide_comment_thanks_button_title">Masquer le bouton \"Merci\"</string>
@@ -574,6 +596,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_movie_shelf_summary_off">Les étagères \"Vos films et séries\" sont affichés.</string>
     <string name="revanced_hide_movie_shelf_summary_on">Les étagères \"Vos films et séries\" sont masqués.</string>
     <string name="revanced_hide_movie_shelf_title">Masquer \"Vos films et séries\"</string>
+    <string name="revanced_hide_navigation_bar_summary_off">La barre de navigation est affichée.</string>
+    <string name="revanced_hide_navigation_bar_summary_on">La barre de navigation est masqué.</string>
+    <string name="revanced_hide_navigation_bar_title">Masquer la barre de navigation</string>
     <string name="revanced_hide_navigation_create_button_summary_off">Le bouton \"Créer\" est affiché.</string>
     <string name="revanced_hide_navigation_create_button_summary_on">Le bouton \"Créer\" est masqué.</string>
     <string name="revanced_hide_navigation_create_button_title">Masquer le bouton \"Créer\"</string>
@@ -628,6 +653,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_player_flyout_menu_captions_summary_off">Le menu \"Sous-titres\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_captions_summary_on">Le menu \"Sous-titres\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_captions_title">Masquer le menu \"Sous-titres\"</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">Le menu 1080p Premium est affiché.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">Le menu 1080p Premium est masqué.</string>
+    <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Masquer le menu 1080p Premium</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_off">Le menu \"Aide et commentaires\" est affiché.</string>
     <string name="revanced_hide_player_flyout_menu_help_summary_on">Le menu \"Aide et commentaires\" est masqué.</string>
     <string name="revanced_hide_player_flyout_menu_help_title">Masquer le menu \"Aide et commentaires\"</string>
@@ -735,6 +763,12 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_related_video_overlay_summary_off">La section \'Plus de vidéos\' dans l\'action rapide et les vidéos suggérés sont affichées.</string>
     <string name="revanced_hide_related_video_overlay_summary_on">La section \'Plus de vidéos\' dans l\'action rapide et la superposition de vidéos suggérés sont masquées.</string>
     <string name="revanced_hide_related_video_overlay_title">Masquer les vidéos associés</string>
+    <string name="revanced_hide_related_videos_summary_off">Les vidéos similaires sont affichés.</string>
+    <string name="revanced_hide_related_videos_summary_on">Les vidéos similaires sont masqués.</string>
+    <string name="revanced_hide_related_videos_title">Masquer les vidéos similaires</string>
+    <string name="revanced_hide_related_videos_user_dialog_message">"Ce paramètre limite le nombre maximum de mises en page pouvant être chargées sur l'écran du lecteur.
+
+Si la mise en page de l'écran du lecteur change en raison de modifications côté serveur, des mises en page non désirées risquent d'être masquées sur l'écran du lecteur."</string>
     <string name="revanced_hide_remix_button_summary_off">Le bouton \"Remixer\" est affiché.</string>
     <string name="revanced_hide_remix_button_summary_on">Le bouton \"Remixer\" est masqué.</string>
     <string name="revanced_hide_remix_button_title">Masquer le bouton \"Remixer\"</string>
@@ -753,9 +787,9 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_seek_undo_message_summary_off">Le bandeau \"Relâchez pour annuler\" est affiché.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Le bandeau \"Relâchez pour annuler\' est masqué.</string>
     <string name="revanced_hide_seek_undo_message_title">Masquer le bandeau \"Relâchez pour annuler\"</string>
-    <string name="revanced_hide_seekbar_chapters_summary_off">Les chapitres de la barre de progression sont affichés.</string>
-    <string name="revanced_hide_seekbar_chapters_summary_on">Les chapitres de la barre de progression sont masqués.</string>
-    <string name="revanced_hide_seekbar_chapters_title">Masq. chapitres de la barre de progression</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Les noms de chapitres situés à côté de l\'horodatage sont affichés.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Les noms de chapitres situés à côté de l\'horodatage sont masqués.</string>
+    <string name="revanced_hide_seekbar_chapter_label_title">Masq. noms des chapitres sur la barre de progression</string>
     <string name="revanced_hide_seekbar_summary_off">La barre de progression sur le lecteur est affiché.</string>
     <string name="revanced_hide_seekbar_summary_on">La barre de progression sur le lecteur est masqué.</string>
     <string name="revanced_hide_seekbar_thumbnail_summary_off">Les miniatures sur la barre de progression sont affichés.</string>
@@ -765,13 +799,68 @@ Les mots comportant des majuscules au milieu doivent être saisis de la même fa
     <string name="revanced_hide_self_sponsor_cards_summary_off">Les cartes autosponsorisées sont affichées.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Les cartes autosponsorisées sont masquées.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Masquer les cartes autosponsorisées</string>
-    <string name="revanced_hide_settings_menu_filter_strings_hint">"Compte
-Économie de données
-Sous-titres"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Liste des noms du menu paramètre YouTube à filtrer, séparés par un saut de ligne.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Filtre du menu paramètre YouTube</string>
+    <string name="revanced_hide_settings_menu_about_summary_off">Le menu \'À propos\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_about_summary_on">Le menu \'À propos\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_about_title">Masquer le menu \'À propos\'</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_off">Le menu \'Accessibilité\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_accessibility_summary_on">Le menu \'Accessibilité\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_accessibility_title">Masquer le menu \'Accessibilité\'</string>
+    <string name="revanced_hide_settings_menu_account_summary_off">Le menu \'Compte\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_account_summary_on">Le menu \'Compte\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_account_title">Masquer le menu \'Compte\'</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_off">Le menu \'Lecture automatique\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_auto_play_summary_on">Le menu \'Lecture automatique\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_auto_play_title">Masquer le menu \'Lecture automatique\'</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Le menu \'Facturations et paiements\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Le menu \'Facturations et paiements\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_billing_and_payment_title">Masquer le menu \'Facturations et paiements\'</string>
+    <string name="revanced_hide_settings_menu_captions_summary_off">Le menu \'Sous-titres\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_captions_summary_on">Le menu \'Sous-titres\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_captions_title">Masquer le menu \'Sous-titres\'</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Le menu \'Applications connectées\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Le menu \'Applications connectées\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_connected_accounts_title">Masquer le menu \'Applications connectées\'</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_off">Le menu \'Économie de données\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_data_saving_summary_on">Le menu \'Économie de données\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Masquer le menu \'Économie de données\'</string>
+    <string name="revanced_hide_settings_menu_general_summary_off">Le menu \"Paramètres généraux\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_general_summary_on">Le menu \"Paramètres généraux\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_general_title">Masquer le menu \'Paramètres généraux\'</string>
+    <string name="revanced_hide_settings_menu_history_summary_off">Le menu \'Gérer tout l\'historique\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_history_summary_on">Le menu \'Gérer tout l\'historique\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_history_title">Masquer le menu \'Gérer tout l\'historique\'</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_off">Le menu \'Chat en direct\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_live_chat_summary_on">Le menu \'Chat en direct\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_live_chat_title">Masquer le menu \'Chat en direct\'</string>
+    <string name="revanced_hide_settings_menu_notification_summary_off">Le menu \'Notifications\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_notification_summary_on">Le menu \'Notifications\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_notification_title">Masquer le menu \'Notifications\'</string>
+    <string name="revanced_hide_settings_menu_offline_summary_off">Le menu \'Arrière-plan\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_offline_summary_on">Le menu \'Arrière-plan\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_offline_title">Masquer le menu \'Arrière-plan\'</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">Le menu \'Regarder sur un téléviseur\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_on">Le menu \'Regarder sur un téléviseur\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_title">Masquer le menu \'Regarder sur un téléviseur\'</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_off">Le menu \'Centre pour la famille\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_summary_on">Le menu \'Centre pour la famille\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Masquer le menu \'Centre pour la famille\'</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_off">Le menu \'Testez de nouvelles fonctionnalités expérimentales\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_summary_on">Le menu \'Testez de nouvelles fonctionnalités expérimentales\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_premium_early_access_title">Masquer le menu \'Testez de nouvelles fonctionnalités expérimentales\'</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">Le menu \'Confidentialité\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_on">Le menu \'Confidentialité\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_privacy_title">Masquer le menu \'Confidentialité\'</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_off">Le menu \'Achats et abonnement\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_summary_on">Le menu \'Achats et abonnement\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_subscription_product_title">Masquer le menu \'Achats et abonnement\'</string>
     <string name="revanced_hide_settings_menu_summary">Masque des éléments dans le menu paramètres YouTube.</string>
     <string name="revanced_hide_settings_menu_title">Masquer des paramètres YouTube</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_off">Le menu \'Préférences de qualité vidéo\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_video_quality_summary_on">Le menu \'Préférences de qualité vidéo\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_video_quality_title">Masquer le menu \'Préférences de qualité vidéo\'</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_off">Le menu \'Vos données dans YouTube\' est affiché.</string>
+    <string name="revanced_hide_settings_menu_your_data_summary_on">Le menu \'Vos données dans YouTube\' est masqué.</string>
+    <string name="revanced_hide_settings_menu_your_data_title">Masquer le menu \'Vos données dans YouTube\'</string>
     <string name="revanced_hide_share_button_summary_off">Le bouton \"Partager\" est affiché.</string>
     <string name="revanced_hide_share_button_summary_on">Le bouton \"Partager\" est masqué.</string>
     <string name="revanced_hide_share_button_title">Masquer le bouton \"Partager\"</string>
@@ -796,6 +885,9 @@ Sous-titres"</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_off">Le lien vers la vidéo complète est affiché.</string>
     <string name="revanced_hide_shorts_full_video_link_label_summary_on">Le lien vers la vidéo complète est masqué.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Masquer le lien de la vidéo complète</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_off">Le bouton \'fond vert\' est affiché.</string>
+    <string name="revanced_hide_shorts_green_screen_button_summary_on">Le bouton \'fond vert\' est masqué.</string>
+    <string name="revanced_hide_shorts_green_screen_button_title">Masquer le bouton \'fond vert\'</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Les panneaux d\'information sont affichés.</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Les panneaux d\'information sont masqués.</string>
     <string name="revanced_hide_shorts_info_panel_title">Masquer les panneaux d\'information</string>
@@ -829,15 +921,21 @@ Sous-titres"</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Le bouton \"Remixer\" est affiché.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Le bouton \"Remixer\" est masqué.</string>
     <string name="revanced_hide_shorts_remix_button_title">Masquer le bouton \"Remixer\"</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_off">Le son d\'enregistrement dans la Playlist est affiché.</string>
-    <string name="revanced_hide_shorts_save_sound_button_summary_on">Le son d\'enregistrement dans la Playlist est masqué.</string>
-    <string name="revanced_hide_shorts_save_sound_button_title">Masquer le son du bouton \"Playlist\"</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_off">Le bouton \"Enregistrer la musique\" est affiché.</string>
+    <string name="revanced_hide_shorts_save_music_button_summary_on">Le bouton \"Enregistrer la musique\" est masqué.</string>
+    <string name="revanced_hide_shorts_save_music_button_title">Masquer le bouton \"Enregistrer la musique\"</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_off">Le bouton \"Suggestions de recherche\" est affiché.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_summary_on">Le bouton \"Suggestions de recherche\" est masqué.</string>
     <string name="revanced_hide_shorts_search_suggestions_button_title">Masquer le bouton \"Suggestions de recherche\"</string>
     <string name="revanced_hide_shorts_share_button_summary_off">Le bouton \"Partager\" est affiché.</string>
     <string name="revanced_hide_shorts_share_button_summary_on">Le bouton \"Partager\" est masqué.</string>
     <string name="revanced_hide_shorts_share_button_title">Masquer le bouton \"Partager\"</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_off">Affiché sur les chaînes.</string>
+    <string name="revanced_hide_shorts_shelf_channel_summary_on">"Masqué sur les chaînes.
+
+Information :
+• Seules les étagères dont l'en-tête est Shorts dans l'onglet d'accueil sont masquées."</string>
+    <string name="revanced_hide_shorts_shelf_channel_title">Masquer sur les chaînes</string>
     <string name="revanced_hide_shorts_shelf_history_summary_off">Affiché dans \"Historique\".</string>
     <string name="revanced_hide_shorts_shelf_history_summary_on">Masqué dans \"Historique\".</string>
     <string name="revanced_hide_shorts_shelf_history_title">Masquer dans \"Historique\"</string>
@@ -866,6 +964,9 @@ Effet secondaire : Les fiches officielles dans les résultats de recherche sont 
     <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Les métadonnées de la musique sont affichés.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Les métadonnées de la musique sont masqués.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Masquer les métadonnées de la musique</string>
+    <string name="revanced_hide_shorts_stickers_summary_off">Les stickers sont affichés.</string>
+    <string name="revanced_hide_shorts_stickers_summary_on">Les stickers sont masqués.</string>
+    <string name="revanced_hide_shorts_stickers_title">Masquer les stickers</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_off">Le bouton \"S\'abonner\" est affiché.</string>
     <string name="revanced_hide_shorts_subscribe_button_summary_on">Le bouton \"S\'abonner\" est masqué.</string>
     <string name="revanced_hide_shorts_subscribe_button_title">Masquer le bouton \"S\'abonner\"</string>
@@ -923,9 +1024,9 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
     <string name="revanced_hide_time_stamp_summary_off">L\'horodatage est affiché.</string>
     <string name="revanced_hide_time_stamp_summary_on">L\'horodatage est masqué.</string>
     <string name="revanced_hide_time_stamp_title">Masquer l\'horodatage</string>
-    <string name="revanced_hide_timed_reactions_summary_off">Les réactions dans le chat en direct sont affichés.</string>
-    <string name="revanced_hide_timed_reactions_summary_on">Les réactions dans le chat en direct sont masqués.</string>
-    <string name="revanced_hide_timed_reactions_title">Masquer les réactions dans le chat en direct</string>
+    <string name="revanced_hide_timed_reactions_summary_off">Les réactions en temps réel sont affichés.</string>
+    <string name="revanced_hide_timed_reactions_summary_on">Les réactions en temps réel sont masqués.</string>
+    <string name="revanced_hide_timed_reactions_title">Masquer les réactions en temps réel</string>
     <string name="revanced_hide_toolbar_cast_button_summary_off">Le bouton \"Caster\" est affiché.</string>
     <string name="revanced_hide_toolbar_cast_button_summary_on">Le bouton \"Caster\" est masqué.</string>
     <string name="revanced_hide_toolbar_cast_button_title">Masquer le bouton \"Caster\"</string>
@@ -941,12 +1042,21 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
     <string name="revanced_hide_video_ads_summary_off">Les publicités vidéos sont affichées.</string>
     <string name="revanced_hide_video_ads_summary_on">Les publicités vidéos sont masquées.</string>
     <string name="revanced_hide_video_ads_title">Masquer les publicités vidéo</string>
-    <string name="revanced_hide_video_by_duration_longer_than_summary">Les vidéos supérieures à cette durée sont masqués.</string>
-    <string name="revanced_hide_video_by_duration_longer_than_title">Supérieur à la durée</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_summary">Les vidéos inférieures à cette durée sont masqués.</string>
-    <string name="revanced_hide_video_by_duration_shorter_than_title">Inférieur à la durée</string>
-    <string name="revanced_hide_video_by_duration_summary">Masque les vidéos inférieure ou supérieure à la durée.\n\nProblème connu : cela ne masque pas les vidéos similaires du lecteur, mais l\'horodatage sera masqué.</string>
-    <string name="revanced_hide_video_by_duration_title">Masquer des vidéos selon la durée</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Les onglets Accueil / Abonnement et les résultats de la recherche sont filtrés pour masquer les vidéos dont le nombre de vues est inférieur ou supérieur à un nombre spécifié.
+
+Limitations : 
+- Les shorts ne peuvent pas être masqués.
+- Les vidéos avec 0 vue ne sont pas filtrées."</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">À propos du filtrage par nombre de vues</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Les vidéos de la page d\'accueil ne sont pas filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Les vidéos de la page d\'accueil sont filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Masquer les vidéos de la page d\'accueil par vues</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Les résultats de recherche ne sont pas filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">Les résultats de recherche sont filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">Masquer les résultats de recherche par vues</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Les vidéos dans l\'onglet Abonnement ne sont pas filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Les vidéos dans l\'onglet Abonnement sont filtrés.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Masquer les vidéos de l\'onglet Abonnement par vues</string>
     <string name="revanced_hide_video_by_view_counts_summary">Masque les vidéos recommandées ayant un nombre spécifié inférieur au nombre de vues.\n\nProblème connu : Les vidéos avec 0 vue ne sont pas filtrés.</string>
     <string name="revanced_hide_video_by_view_counts_title">Masquer les vidéos recommandées par vues</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Les vidéos supérieurs à ce nombre de vues sont masqués.</string>
@@ -965,6 +1075,12 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
     <string name="revanced_hide_web_search_results_summary_off">Les résultats web sont affichés.</string>
     <string name="revanced_hide_web_search_results_summary_on">Les résultats web sont masqués.</string>
     <string name="revanced_hide_web_search_results_title">Masquer les résultats web</string>
+    <string name="revanced_hide_youtube_doodles_summary_off">Les Doodles YouTube sont affichés.</string>
+    <string name="revanced_hide_youtube_doodles_summary_on">Les Doodles YouTube sont masqués.</string>
+    <string name="revanced_hide_youtube_doodles_title">Masquer les Doodles YouTube</string>
+    <string name="revanced_hide_youtube_doodles_user_dialog_message">"Les Doodles YouTube apparaissent quelques jours par an.
+
+Si un Doodle YouTube est actuellement diffusé dans votre région et que le paramètre est activé, les filtres situés à côté de la barre de recherche sera également masquée."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Le voile du zoom est affiché.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Le voile du zoom est masqué.</string>
     <string name="revanced_hide_zoom_overlay_title">Masquer le voile du zoom</string>
@@ -999,7 +1115,7 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
     <string name="revanced_miniplayer_hide_subtext_summary_off">Les sous-textes sont affichés.</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Les sous-textes sont masqués.</string>
     <string name="revanced_miniplayer_hide_subtext_title">Masquer les sous-textes</string>
-    <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité du minilecteur doit être compris entre 0-100. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité du minilecteur doit être compris entre 0-100.</string>
     <string name="revanced_miniplayer_opacity_summary">Valeur d\'opacité entre 0-100, 0 étant transparent.</string>
     <string name="revanced_miniplayer_opacity_title">Opacité du mini lecteur</string>
     <string name="revanced_miniplayer_type_entry_1">Original</string>
@@ -1040,13 +1156,18 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_override_video_download_button_summary_off">Le bouton \"Télécharger\" natif ouvre le téléchargeur de l\'appli.</string>
     <string name="revanced_override_video_download_button_summary_on">Le bouton \"Télécharger\" natif ouvre votre téléchargeur externe.</string>
     <string name="revanced_override_video_download_button_title">Remplacer le bouton de téléchargement de la vidéo</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_summary">YouTube Music est requis pour remplacer l\'action du bouton. Cliquez ici pour télécharger YouTube Music.</string>
+    <string name="revanced_override_youtube_music_button_about_prerequisite_title">Prérequis</string>
+    <string name="revanced_override_youtube_music_button_summary_off">Le bouton \"YouTube Music\" ouvre l\'appli natif.</string>
+    <string name="revanced_override_youtube_music_button_summary_on">Le bouton \"YouTube Music\" ouvre RVX Music.</string>
+    <string name="revanced_override_youtube_music_button_title">Remplacer le bouton \"YouTube Music\"</string>
     <string name="revanced_patches_excluded">Exclus</string>
     <string name="revanced_patches_included">Appliqué</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Boutons d\'action</string>
     <string name="revanced_preference_category_additional_settings">Paramètres supplémentaires</string>
     <string name="revanced_preference_category_animation_feedback">Animation / Retour d\'expérience</string>
-    <string name="revanced_preference_category_duration_filter">Filtre de durée</string>
+    <string name="revanced_preference_category_download_button">Bouton \"Télécharger\"</string>
     <string name="revanced_preference_category_experimental_flag">Options expérimentales</string>
     <string name="revanced_preference_category_image_region_restrictions">Restriction des images selon les régions</string>
     <string name="revanced_preference_category_import_export_as_file">Importer / Exporter sous forme de fichier</string>
@@ -1058,6 +1179,7 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_category_quick_actions">Actions rapides</string>
     <string name="revanced_preference_category_recommended_video">Vidéo recommandée</string>
     <string name="revanced_preference_category_shorts_shelf">Étagères Shorts</string>
+    <string name="revanced_preference_category_suggested_actions">Actions suggérées</string>
     <string name="revanced_preference_category_tool_used">Outil utilisé</string>
     <string name="revanced_preference_category_view_counts_filter">Filtre du compteur de vues</string>
     <string name="revanced_preference_screen_account_menu_summary">Masque ou affiche des éléments dans le menu du compte et dans l\'onglet \"Vous\".</string>
@@ -1088,13 +1210,15 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_general_title">Interface</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Désactive ou active la vibration.</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Vibration</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">Remplace l\'action des boutons in-app.</string>
+    <string name="revanced_preference_screen_hook_buttons_title">Boutons d\'action</string>
     <string name="revanced_preference_screen_import_export_summary">Importer ou exporter les paramètres.</string>
     <string name="revanced_preference_screen_import_export_title">Importer / Exporter les paramètres</string>
     <string name="revanced_preference_screen_miniplayer_summary">Change le style du lecteur minimisé de l\'application.</string>
     <string name="revanced_preference_screen_miniplayer_title">Minilecteur</string>
     <string name="revanced_preference_screen_misc_title">Paramètres avancés</string>
-    <string name="revanced_preference_screen_navigation_buttons_summary">Masque ou affiche les éléments de la barre de navigation.</string>
-    <string name="revanced_preference_screen_navigation_buttons_title">Barre de navigation</string>
+    <string name="revanced_preference_screen_navigation_bar_summary">Masque ou affiche les éléments de la barre de navigation.</string>
+    <string name="revanced_preference_screen_navigation_bar_title">Barre de navigation</string>
     <string name="revanced_preference_screen_patch_information_summary">Informations sur les patchs appliqués.</string>
     <string name="revanced_preference_screen_patch_information_title">Informations sur les patchs</string>
     <string name="revanced_preference_screen_player_buttons_summary">Masque ou affiche les boutons sur les vidéos.</string>
@@ -1102,6 +1226,7 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_player_flyout_menu_summary">Masque ou modifie des options du menu déroulant dans le lecteur vidéo.</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">Menu \"Paramètre\" déroulant</string>
     <string name="revanced_preference_screen_player_title">Lecteur</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">Personnaliser les éléments de la barre de progression.</string>
@@ -1123,13 +1248,14 @@ Appuyez longuement pour ouvrir les paramètres de la liste blanche.</string>
     <string name="revanced_preference_screen_video_title">Vitesses et qualités vidéo</string>
     <string name="revanced_preference_screen_watch_history_summary">Modifie les paramètres liés à l\'historique de visionnage.</string>
     <string name="revanced_preference_screen_watch_history_title">Historique de visionnage</string>
-    <string name="revanced_quick_actions_top_margin_invalid_toast">La hauteur de l\'action rapide doit être comprise entre 0 et 32. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_quick_actions_top_margin_invalid_toast">La hauteur de l\'action rapide doit être comprise entre 0 et 32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure l\'espacement entre la barre de progression et le conteneur d\'actions rapides, entre 0 et 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Hauteur de la barre de progression </string>
     <string name="revanced_reject_av1_codec_summary">"Force le rejet de la réponse du codec AV1.
 Un codec différent sera appliqué après environ 20 secondes de mise en mémoire tampon."</string>
     <string name="revanced_reject_av1_codec_title">Rejeter la réponse du codec AV1</string>
     <string name="revanced_reject_av1_codec_toast">Le processus de rejet entraîne une mise en mémoire tampon d\'environ 20 secondes.</string>
+    <string name="revanced_related_videos_offset_title">Décalage</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">La modification de la vitesse de lecture est appliqué pour la vidéo en cours.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">La modification de vitesse de lecture est appliqué pour toutes les vidéos.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Enreg. modif. de la vitesse de lecture</string>
@@ -1170,6 +1296,23 @@ Appuyez longuement pour ouvrir les paramètres YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Masque la nouvelle interface de qualité vidéo.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Affiche l\'ancienne interface de qualité vidéo.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restaur. ancien. interface de qualité vidéo</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@identifiant (Nom d\'utilisateur)</string>
+    <string name="revanced_return_youtube_username_display_format_title">Format d\'affichage</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Nom d\'utilisateur (@identifiant)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Nom d\'utilisateur</string>
+    <string name="revanced_return_youtube_username_enabled_summary_off">L\'identifiant est utilisé.</string>
+    <string name="revanced_return_youtube_username_enabled_summary_on">Nom d\'utilisateur utilisé.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Activer Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"La clé YouTube Data API v3 est nécessaire pour remplacer les identifiants par des noms d'utilisateurs.
+
+Le quota journalier pour les clés API sur le plan gratuit est de 10 000, et 1 quota est utilisé pour remplacer l'identifiant par un noms d'utilisateur pour 1 commentaire.
+
+Cliquez pour découvrir comment créer une clé API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">À propos de la clé YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La clé de développeur pour utiliser l\'API des données YouTube v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Clé API des données YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Allez sur &lt;a href=%1$s&gt;Nouveau projet&lt;/a&gt;.&lt;br&gt;2. Cliquez sur &lt;b&gt; le bouton&lt;/b&gt; Créer.&lt;br&gt;3. Allez sur &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; ACTIVER.&lt;br&gt;5. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; CRÉER DES IDENTIFIANTS.&lt;br&gt;6. Sélectionnez &lt;b&gt;l\'option&lt;/b&gt; Données Publiques.&lt;br&gt;7. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; SUIVANT.&lt;br&gt;8. copier la Clé API.&lt;br&gt;&lt;br&gt;※ La clé API ne doit jamais être partagé avec personne d\'autre, par conséquent, il n\'est pas inclus dans les paramètres Importer / Exporter.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Obtenir une clé développeur pour YouTube Data API v3</string>
     <string name="revanced_ryd_about">À propos</string>
     <string name="revanced_ryd_attribution_summary">Les données des \"Je n\'aime pas\" sont fournies par l\'API de Return YouTube Dislike. Appuyez ici pour en savoir plus.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -1182,6 +1325,9 @@ Appuyez longuement pour ouvrir les paramètres YouTube."</string>
     <string name="revanced_ryd_enable_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés.</string>
     <string name="revanced_ryd_enable_summary_on">Les \"Je n\'aime pas\" sont affichés.</string>
     <string name="revanced_ryd_enable_title">Activer Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary_off">Les \"J\'aime\" estimés sont masqués.</string>
+    <string name="revanced_ryd_estimated_like_summary_on">Les \"J\'aime\" estimés sont affichés.</string>
+    <string name="revanced_ryd_estimated_like_title">Afficher les \"J\'aime\" estimés</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Les \"Je n\'aime pas\" sont indisponibles (le client a atteint la limite de l\'API).</string>
     <string name="revanced_ryd_failure_connection_status_code">Les \"Je n\'aime pas\" sont indisponible (status %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Les \"Je n\'aime pas\" sont temporairement indisponible (API obsolète).</string>
@@ -1196,8 +1342,12 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_ryd_toast_on_connection_error_summary_off">N\'affiche pas de message si Return YouTube Dislike est indisponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">Affiche un message si Return YouTube Dislike est indisponible.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Affiche un message si l\'API est indisponible</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué</string>
     <string name="revanced_sanitize_sharing_links_summary">Supprime les paramètres de suivi (tracking) des URL lors du partage de liens.</string>
     <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens partagés</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront affichés sur les sous-titres vidéos."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Les phrases telles que '#', 'Financement' 'Magasin' et 'produits' seront masqués sur les sous-titres vidéos."</string>
+    <string name="revanced_sanitize_video_subtitle_title">Nettoyer les sous-titres vidéo</string>
     <string name="revanced_sb_about">À propos</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Cliquez ici pour en savoir plus et voir les téléchargements pour d\'autres plateformes.</string>
@@ -1388,9 +1538,12 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Cœur (Teinte)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Masqué</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Animation lors du double appui</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">La marge en bas du panneau méta doit être entre 0-64, Valeur réinitialisée par défaut.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Définir l\'espacement entre la barre de progression et le panneau méta, entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">La marge en bas du panneau méta doit être entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configurer l\'espace de la barre de progression au panneau méta, entre 0-64.</string>
     <string name="revanced_shorts_meta_panel_bottom_margin_title">Marge en bas du panneau Meta</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">La hauteur en pourcentage doit être entre 0-100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure la hauteur en pourcentage de l\'espace vide à gauche lorsque la barre de navigation est cachée, entre 0 et 100 (%).</string>
+    <string name="revanced_shorts_navigation_bar_height_percentage_title">Hauteur en pourcentage de l\'espace vide</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_summary">Appuyez longuement sur l\'horodatage pour modifier l\'état de répétition des Shorts.</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">Action de l\'horodatage appui long</string>
     <string name="revanced_show_video_title_section_summary">"Affiche la section du titre de la vidéo en plein écran.
@@ -1411,7 +1564,7 @@ Info :
     <string name="revanced_skip_preloaded_buffer_toast_title">Affic. message lors du passage</string>
     <string name="revanced_skip_preloaded_buffer_user_dialog_message">Activer ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_skipped_preloaded_buffer">Tampon préchargé passé.</string>
-    <string name="revanced_speed_overlay_value_invalid_toast">La valeur de la vitesse de lecture doit être comprise entre 0-8.0. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_speed_overlay_value_invalid_toast">La valeur de la vitesse de lecture doit être comprise entre 0-8.0.</string>
     <string name="revanced_speed_overlay_value_summary">La valeur de vitesse de lecture doit être comprise entre 0-8.0.</string>
     <string name="revanced_speed_overlay_value_title">Valeur de \"Vitesse de lecture\"</string>
     <string name="revanced_spoof_app_version_summary">"Falsification de l'ancienne version du client
@@ -1427,6 +1580,7 @@ Si elle est désactivée ultérieurement, l'ancienne interface utilisateur peut 
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaure l\'ancienne barre d\'action Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaure l\'ancien menu de qualité vidéo</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Désactive les \"vues\" et \"j\'aime\" en temps réel</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaure l\'ancienne animation en temps réel des nombres</string>
     <string name="revanced_spoof_app_version_target_entry_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_target_summary">Saisissez la version de l\'application à falsifier.</string>
     <string name="revanced_spoof_app_version_target_title">Saisir la version à falsifier</string>
@@ -1445,10 +1599,14 @@ Les hautes qualités peuvent être débloquées sur certaines vidéos qui requi�
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activer ce paramètre peut améliorer l'autonomie de la batterie et résoudre les problèmes de lecture.
 
 AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera plus de données internet que le VP9 ou le AV1."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">• Le menu \"Piste Audio\" est manquant.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">• Le menu \"Piste Audio\" est manquant.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Le menu \"Piste Audio\" est manquant.
+• Le volume stable n'es pas disponible."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Le menu \"Piste Audio\" est manquant.
+• Le volume stable n'es pas disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Les films ou les vidéos payantes peuvent ne pas être lus.
-• Les diffusions en direct commencent au début."</string>
+• Les diffusions en direct commencent au début.
+• Les vidéos peuvent se terminer une seconde avant.
+• Pas de codec audio opus."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effets inconnus de la falsification</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Les vidéos peuvent ne pas être lus.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client utilisé pour récupérer les données de lecture en direct est masqué dans \"Statistiques pour les nerds\".</string>
@@ -1458,11 +1616,19 @@ AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera 
     <string name="revanced_spoof_streaming_data_summary_on">Les données de lecture en direct sont falsifiées.</string>
     <string name="revanced_spoof_streaming_data_title">Falsifier les données de lecture en direct</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Lecteur intégré Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
+    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Client par défaut</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilité des gestes de luminosité doit être comprise entre 1-1000 (%).</string>
+    <string name="revanced_swipe_brightness_sensitivity_summary">Configurez la sensibilité minimale des gestes de luminosité entre 1 et 1000 (%).\nPlus la sensibilité minimale est courte, plus le niveau de luminosité change rapidement.</string>
+    <string name="revanced_swipe_brightness_sensitivity_title">Sensibilité des gestes de luminosité</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">Les contrôles par gestes sont désactivés en mode \"Écran verrouillé\".</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">Les contrôles par gestes sont activés en mode \"Écran verrouillé\".</string>
     <string name="revanced_swipe_gestures_lock_mode_title">Gestes en mode \"Écran verrouillé\"</string>
@@ -1471,13 +1637,16 @@ AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera 
     <string name="revanced_swipe_magnitude_threshold_title">Intensité des gestes</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l\'opacité du voile lors des gestes.</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Visibilité du voile lors des gestes</string>
-    <string name="revanced_swipe_overlay_rect_size_invalid_toast">La zone glissable ne peut pas être supérieure à 50. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_swipe_overlay_rect_size_invalid_toast">La zone glissable ne peut pas être supérieure à 50.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Pourcentage de la zone de l\'écran pouvant être glissée.\n\nNote : Cela affecte également la zone du double appui pour avancer/reculer dans la vidéo.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Taille de la zone de gestes</string>
     <string name="revanced_swipe_overlay_text_size_summary">La taille du texte pendant le voile lors du geste.</string>
     <string name="revanced_swipe_overlay_text_size_title">Taille du texte superposé</string>
-    <string name="revanced_swipe_overlay_timeout_summary">La quantité de millisecondes pendant laquelle la superposition est visible.</string>
+    <string name="revanced_swipe_overlay_timeout_summary">La durée en millisecondes pendant laquelle la superposition est visible.</string>
     <string name="revanced_swipe_overlay_timeout_title">Durée du voile lors des gestes</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilité des gestes de volume doit être comprise entre 1-1000 (%).</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configurer la sensibilité minimale des gestes de volume entre 1 et 1000 (%).\n\nPlus la sensibilité minimale est courte, plus le niveau du volume change rapidement.\n\nLa sensibilité recommandée des gestes de volume est de 100 % par paliers de 15 volumes et de 10 % par paliers de 150 volumes.</string>
+    <string name="revanced_swipe_volume_sensitivity_title">Sensibilité des gestes de volume</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"Échange la position des boutons \"Créer\" et \"Notifications\" en falsifiant les informations de l'appareil.
 
 • L'appareil peut nécessiter un redémarrage pour que ce paramètre prenne effet.
@@ -1494,6 +1663,11 @@ Note : Activer ceci masquera également les publicités vidéos."</string>
 
 Si ce paramètre ne fait pas effet, essayer de passer en mode Incognito."</string>
     <string name="revanced_theme_default">Officiel</string>
+    <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attention</string>
+    <string name="revanced_third_party_youtube_music_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
+    <string name="revanced_third_party_youtube_music_package_name_summary">Nom du paquet de RVX Music installé.</string>
+    <string name="revanced_third_party_youtube_music_package_name_title">Nom du paquet de RVX Music</string>
     <string name="revanced_watch_history_about_status_blocked">• L\'historique de visionnage est bloqué.</string>
     <string name="revanced_watch_history_about_status_original">"• Suit les paramètres de l'historique de visionnage du compte Google.
 • L'historique de visionnage peut ne pas fonctionner en raison d'un DNS ou d'un VPN."</string>

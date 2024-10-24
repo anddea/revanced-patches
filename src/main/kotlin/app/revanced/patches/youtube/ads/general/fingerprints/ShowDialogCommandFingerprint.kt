@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.ads.general.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SlidingDialogAnimation
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object ShowDialogCommandFingerprint : MethodFingerprint(
@@ -16,7 +16,7 @@ internal object ShowDialogCommandFingerprint : MethodFingerprint(
     // 18.43 and earlier has a different first parameter.
     // Since this fingerprint is somewhat weak, work around by checking for both method parameter signatures.
     customFingerprint = custom@{ methodDef, _ ->
-        if (!methodDef.containsWideLiteralInstructionIndex(SlidingDialogAnimation)) {
+        if (!methodDef.containsWideLiteralInstructionValue(SlidingDialogAnimation)) {
             return@custom false
         }
         // 18.43 and earlier parameters are: "L", "L"

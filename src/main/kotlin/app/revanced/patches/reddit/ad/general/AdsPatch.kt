@@ -12,12 +12,15 @@ import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACK
 import app.revanced.patches.reddit.utils.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexWithFieldReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 object AdsPatch : BaseBytecodePatch(
@@ -42,7 +45,9 @@ object AdsPatch : BaseBytecodePatch(
         // region Filter promoted ads (does not work in popular or latest feed)
         AdPostFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithFieldReferenceNameOrThrow("children")
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    getReference<FieldReference>()?.name == "children"
+                }
                 val targetRegister = getInstruction<TwoRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -59,7 +64,10 @@ object AdsPatch : BaseBytecodePatch(
         // By removing the appending instruction no ad posts gets appended to the feed.
         NewAdPostFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("add")
+                val targetIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL
+                            && getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
+                }
                 val targetInstruction = getInstruction<FiveRegisterInstruction>(targetIndex)
 
                 replaceInstruction(
