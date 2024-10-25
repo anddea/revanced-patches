@@ -1,7 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to livestreams that do not have seekbar thumbnails.
+
+Internet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.
+
+This feature works best with a very fast internet connection."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
     <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
 
 A temporary workaround for this issue is to spoof the app version to 19.13.37.
@@ -14,6 +22,12 @@ Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
     <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
+    <string name="revanced_hide_floating_button_summary_off">Floating button is shown.</string>
+    <string name="revanced_hide_floating_button_summary_on">Floating button is hidden.</string>
+    <string name="revanced_hide_floating_button_title">Hide floating button</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden.</string>
+    <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_off">Shown in channel.</string>
     <string name="revanced_hide_shorts_shelf_channel_summary_on">"Hidden in channel.
 
@@ -47,6 +61,6 @@ Info:
     <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Volume swipe sensitivity must be between 1-1000 (%).</string>
-    <string name="revanced_swipe_volume_sensitivity_summary">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
+    <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configure the minimum distance for volume swiping between 1 and 1000 (%).\n\nThe shorter the minimum distance, the faster the volume level changes.\n\nRecommended volume swipe sensitivity is 100% at 15-volume steps and 10% at 150-volume steps.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
 </resources>

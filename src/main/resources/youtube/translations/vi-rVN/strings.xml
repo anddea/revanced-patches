@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Bật các điều khiển trợ năng cho trình phát video?</string>
     <string name="accessibility_settings_edu_opt_out_text">Các điều khiển của bạn đã được sửa đổi vì dịch vụ trợ năng đang bật.</string>
@@ -13,7 +13,7 @@ Hãy làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài �
 Nhấn vào Tiếp tục và tắt tối ưu hóa pin."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Hành động cần thiết</string>
-    <string name="gms_core_settings_summary">Kích hoạt thông báo đám mây để nhận thông báo.</string>
+    <string name="gms_core_settings_summary">Kích hoạt Cloud Messaging để nhận thông báo đẩy và các cài đặt khác.</string>
     <string name="gms_core_settings_title">Mở GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow là một tiện ích được đóng góp bởi cồng đồng nhằm thay thế hình thu nhỏ mặc định của video YouTube bằng những hình thu nhỏ phù hợp hơn, giúp hạn chế clickbait.
@@ -218,13 +218,13 @@ Lưu ý:
  • Nhấn để cuộn.
  • Nhấn và giữ để chọn văn bản."</string>
     <string name="revanced_disable_video_description_interaction_title">Tắt tương tác mô tả video</string>
-    <string name="revanced_disable_vp9_codec_summary_off">Bộ giải mã VP9 đã được kích hoạt.</string>
-    <string name="revanced_disable_vp9_codec_summary_on">"Bộ giải mã VP9 đã bị vô hiệu hoá.
+    <string name="revanced_disable_vp9_codec_summary_off">Codec VP9 đã được kích hoạt.</string>
+    <string name="revanced_disable_vp9_codec_summary_on">"Codec VP9 đã bị vô hiệu hoá.
 
 • Độ phân giải tối đa là 1080p.
 • Việc phát video sẽ sử dụng nhiều dữ liệu di động hơn so với VP9.
-• Bộ giải mã VP9 vẫn được sử dụng cho video HDR."</string>
-    <string name="revanced_disable_vp9_codec_title">Vô hiệu hoá bộ giải mã VP9</string>
+• Codec VP9 vẫn được sử dụng cho video HDR."</string>
+    <string name="revanced_disable_vp9_codec_title">Vô hiệu hoá codec VP9</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Thanh tiến trình kiểu Cairo đã bị vô hiệu hoá.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Thanh tiến trình kiểu Cairo đã được kích hoạt.
 
@@ -260,8 +260,8 @@ Hạn chế: Chủ đề Cairo cũng sẽ áp dụng cho dấu chấm thông bá
     <string name="revanced_enable_open_links_directly_summary_off">Đang chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_enable_open_links_directly_summary_on">Đang bỏ qua chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_enable_open_links_directly_title">Mở liên kết trực tiếp</string>
-    <string name="revanced_enable_opus_codec_summary">Kích hoạt bộ giải mã OPUS nếu phản hồi của trình phát bao gồm bộ giải mã OPUS.</string>
-    <string name="revanced_enable_opus_codec_title">Kích hoạt bộ giải mã OPUS</string>
+    <string name="revanced_enable_opus_codec_summary">Kích hoạt codec OPUS nếu phản hồi của trình phát bao gồm codec OPUS.</string>
+    <string name="revanced_enable_opus_codec_title">Kích hoạt codec OPUS</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Không lưu độ sáng khi thoát ra hoặc vào chế độ toàn màn hình.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Lưu độ sáng khi thoát ra hoặc vào chế độ toàn màn hình.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Lưu độ sáng</string>
@@ -340,7 +340,7 @@ Bạn có muốn giả mạo phiên bản ứng dụng trước khi khởi độ
     <string name="revanced_extended_settings_import_summary">Nhập toàn bộ cài đặt của bạn từ tệp đã lưu trước đó.</string>
     <string name="revanced_extended_settings_import_title">Nhập cài đặt</string>
     <string name="revanced_extended_settings_reset">Đặt lại</string>
-    <string name="revanced_extended_settings_search_title">Tìm kiếm %s</string>
+    <string name="revanced_extended_settings_search_title">Tìm kiếm trong %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_dialog_title">Trình tải xuống bên thứ ba</string>
     <string name="revanced_external_downloader_not_installed">Chưa được cài đặt</string>
@@ -1256,10 +1256,10 @@ Nhấn giữ để mở hộp thoại cài đặt Danh sách trắng.</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Lề trên bảng nút thao tác nhanh phải nằm trong khoảng 0 - 32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Giá trị khoảng cách từ thanh tiến trình đến bảng nút thao tác nhanh trong khoảng từ 0 đến 32.</string>
     <string name="revanced_quick_actions_top_margin_title">Lề trên bảng nút thao tác nhanh</string>
-    <string name="revanced_reject_av1_codec_summary">"Buộc từ chối phản hồi của bộ giải mã phần mềm AV1.
-Một bộ giải mã khác sẽ được áp dụng sau khoảng 20 giây tải bộ đệm."</string>
-    <string name="revanced_reject_av1_codec_title">Từ chối phản hồi của bộ giải mã phần mềm AV1</string>
-    <string name="revanced_reject_av1_codec_toast">Quá trình dự phòng sẽ tạo ra khoảng 20 giây tải bộ đệm.</string>
+    <string name="revanced_reject_av1_codec_summary">"Buộc từ chối phản hồi của codec phần mềm AV1.
+Một codec khác sẽ được áp dụng sau khoảng 20 giây tải bộ đệm."</string>
+    <string name="revanced_reject_av1_codec_title">Từ chối phản hồi của codec phần mềm AV1</string>
+    <string name="revanced_reject_av1_codec_toast">Quá trình dự phòng khiến cho việc tải bộ đệm mất khoảng 20 giây trước khi bắt đầu.</string>
     <string name="revanced_related_videos_offset_title">Độ lệch</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Thay đổi tốc độ phát chỉ áp dụng cho video hiện tại.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Thay đổi tốc độ phát áp dụng cho tất cả video.</string>
@@ -1280,8 +1280,8 @@ Một bộ giải mã khác sẽ được áp dụng sau khoảng 20 giây tải
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Loại bỏ hộp thoại cảnh báo nội dung cần cân nhắc trước khi xem.
 Tuỳ chọn này chỉ tự động chấp nhận hộp thoại cảnh báo, chứ không thể bỏ qua giới hạn về độ tuổi."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Loại bỏ hộp thoại cảnh báo trước khi xem</string>
-    <string name="revanced_replace_av1_codec_summary">Thay thế bộ giải mã phần mềm AV1 bằng bộ giải mã VP9.</string>
-    <string name="revanced_replace_av1_codec_title">Thay thế bộ giải mã phần mềm AV1</string>
+    <string name="revanced_replace_av1_codec_summary">Thay thế codec phần mềm AV1 bằng codec VP9.</string>
+    <string name="revanced_replace_av1_codec_title">Thay thế codec phần mềm AV1</string>
     <string name="revanced_replace_channel_handle_summary_off">Đang áp dụng tên hiển thị của kênh (@handle).</string>
     <string name="revanced_replace_channel_handle_summary_on">Đang áp dụng tên kênh.</string>
     <string name="revanced_replace_channel_handle_title">Thay thế tên hiển thị của kênh</string>
@@ -1314,7 +1314,7 @@ Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí l�
 
 Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Giới thiệu về khoá YouTube Data API</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Khoá nhà phát triển để sử dụng YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Khoá phát triển để sử dụng YouTube Data API v3.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá Youtube Data API</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Tạo dự án mới &lt;a href=%1$s&gt;Nhấn vào đây&lt;/a&gt;.&lt;br&gt;2. Nhấn vào nút &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới YouTube Data API v3 &lt;a href=%2$s&gt;Nhấn vào đây&lt;/a&gt;.&lt;br&gt;4. Nhấn vào nút &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Nhấn vào nút &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Nhấn vào nút &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Khoá API không nên được chia sẻ với người khác, vì vậy nó cũng không xuất hiện trong cài đặt Nhập/Xuất.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Phát hành mã khoá</string>
@@ -1598,8 +1598,8 @@ Nếu muốn tắt tính năng này sau đó, bạn nên xóa dữ liệu ứng 
     <string name="revanced_spoof_device_dimensions_summary">"Giả lập kích thước thiết bị đến giá trị tối đa.
 Chất lượng cao có thể được mở khóa trên một số video yêu cầu kích thước thiết bị lớn, nhưng không phải tất cả các video."</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Bộ giải mã video trên iOS là AVC (H.264), VP9, hoặc là AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Bộ giải mã video trên iOS là AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Codec video trên iOS là AVC (H.264), VP9, hoặc là AV1.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Codec video trên iOS là AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Buộc iOS sử dụng AVC (H.264)</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Bật chức năng này có thể tăng cường thời lượng pin và khắc phục tình trạng giật lag khi phát video.
 
@@ -1611,7 +1611,7 @@ AVC (H.264) có độ phân giải tối đa 1080p, và phát video sẽ dùng n
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Phim hoặc video trả phí có thể không phát được.
 • Video phát trực tiếp sẽ khởi chạy từ đầu.
 • Video có thể kết thúc sớm 1 giây.
-• Không có bộ giải mã âm thanh opus."</string>
+• Không có codec âm thanh opus."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Hạn chế của việc giả mạo</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video có thể không phát được.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách được sử dụng để lấy dữ liệu phát trực tiếp sẽ bị ẩn trong Thống kê chi tiết.</string>
@@ -1621,14 +1621,9 @@ AVC (H.264) có độ phân giải tối đa 1080p, và phát video sẽ dùng n
     <string name="revanced_spoof_streaming_data_summary_on">Đã giả mạo dữ liệu phát trực tiếp.</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo dữ liệu phát trực tiếp</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Trình phát nhúng Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Thử nghiệm Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Trang Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Máy khách mặc định</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố khi phát video.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Độ nhạy khi vuốt để điều chỉnh độ sáng phải nằm trong khoảng từ 1-1000 (%).</string>
@@ -1669,7 +1664,6 @@ Ngoài ra, quảng cáo sẽ không còn bị chặn trong trình phát Shorts.
 Nếu cài đặt này không có hiệu lực, hãy thử chuyển sang chế độ Ẩn danh."</string>
     <string name="revanced_theme_default">Nguyên gốc</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Chú ý</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">Hiện %s chưa được cài đặt. Hãy cài đặt và thử lại.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Tên gói của RVX Music đã được cài đặt.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Tên gói của RVX Music</string>

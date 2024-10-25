@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールをオンにしますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスがオンになっているため、操作方法が変わります。</string>
@@ -324,7 +324,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_extended_confirm_user_dialog_title">続行しますか？</string>
     <string name="revanced_extended_reset_to_default_toast">デフォルト値にリセットしました。</string>
     <string name="revanced_extended_restart_first_run">再起動してレイアウトを正常に読み込みます</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"YouTube サーバー側のバグにより、高評価数、再生回数、アップロード日などの数字のテキストが一部のユーザーに対して非表示になります。
+    <string name="revanced_extended_restart_first_run_rolling_number">"YouTube サーバー側のバグにより、高評価数、再生回数、アップロード日などの数字の回転アニメーションが一部のユーザーに対して非表示になります。
 
 この問題は、アプリのバージョンを 19.13.37 に偽装することで回避できます。(一時的な回避策)
 
@@ -1635,17 +1635,12 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_streaming_data_summary_on">ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android 埋め込みプレーヤー</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">偽装するクライアントの種類</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
-    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">感度は1 ~ 1000 (%)の間でなければなりません。</string>
+    <string name="revanced_swipe_brightness_sensitivity_invalid_toast">感度は 1 ~ 1000 (%) の間でなければなりません。</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">スワイプして明るさを調整する際の感度を 1 ~ 1000 (%) の間で設定できます。</string>
     <string name="revanced_swipe_brightness_sensitivity_title">明るさのスワイプ感度</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_off">スワイプジェスチャーを「画面のロック」モードで有効化します。</string>
@@ -1663,7 +1658,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_swipe_overlay_text_size_title">スワイプオーバーレイのテキストサイズ</string>
     <string name="revanced_swipe_overlay_timeout_summary">スワイプオーバーレイが表示される時間 (単位: ミリ秒)</string>
     <string name="revanced_swipe_overlay_timeout_title">スワイプオーバーレイのタイムアウト</string>
-    <string name="revanced_swipe_volume_sensitivity_invalid_toast">感度は1 ~ 1000 (%)の間でなければなりません。</string>
+    <string name="revanced_swipe_volume_sensitivity_invalid_toast">感度は 1 ~ 1000 (%) の間でなければなりません。</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">スワイプして音量を調整する際の感度を 1 ~ 1000 (%) の間で設定できます。\n\n推奨される音量スワイプ感度は、15 音量ステップで 100%、150 音量ステップで 10% です。</string>
     <string name="revanced_swipe_volume_sensitivity_title">音量のスワイプ感度</string>
     <string name="revanced_switch_create_with_notifications_button_summary">"デバイスの情報を偽装して、作成ボタンと通知ボタンの位置を入れ替えます。
@@ -1682,7 +1677,6 @@ API キーの発行方法については、ここをタップしてください�
 この設定が有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
     <string name="revanced_theme_default">オリジナル</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">注意</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">インストールされている RVX Music のパッケージ名です。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music のパッケージ名</string>

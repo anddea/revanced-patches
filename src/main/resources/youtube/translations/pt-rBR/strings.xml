@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Ativar os controles de acessibilidade para o reprodutor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Seus controles foram modificados porque um serviço de acessibilidade está ativado.</string>
@@ -1346,8 +1346,8 @@ Limitação: Dislikes pode não aparecer no modo incógnito."</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão exibidos nas legendas do vídeo."</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' foram ocultadas das legendas do vídeo."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão exibidos na legenda do vídeo."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Frases como '#', 'Arrecadação de fundos', 'Loja' e 'produtos' serão ocultadas da legenda do vídeo."</string>
     <string name="revanced_sanitize_video_subtitle_title">Limpar legendas de vídeo</string>
     <string name="revanced_sb_about">Sobre</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -1611,14 +1611,9 @@ AVC (H. 64) tem uma resolução máxima de 1080p, e a reprodução de vídeo usa
     <string name="revanced_spoof_streaming_data_summary_on">Os dados de streaming são falsificados.</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Criador Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Reprodutor Incorporado Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Suite de teste Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">A sensibilidade de deslizamento de brilho deve estar entre 1-1000 (%).</string>
@@ -1659,7 +1654,6 @@ Além disso, os anúncios não serão mais bloqueados no Shorts.
 Se essa configuração não surtir efeito, tente alternar para o modo anônimo."</string>
     <string name="revanced_theme_default">Padrão</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Aviso</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nome do pacote do RVX Music instalado.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nome do pacote do RVX Music</string>
