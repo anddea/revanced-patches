@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Enable accessibility controls for the video player?</string>
     <string name="accessibility_settings_edu_opt_out_text">Your controls are modified because an accessibility service is on.</string>
@@ -270,6 +270,14 @@ Side effect: Cairo theme is also applied to notification dots."</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">Seekbar tapping is disabled.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Seekbar tapping is enabled.</string>
     <string name="revanced_enable_seekbar_tapping_title">Enable seekbar tapping</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to livestreams that do not have seekbar thumbnails.
+
+Internet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.
+
+This feature works best with a very fast internet connection."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Timestamp is disabled.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Timestamp is enabled.
 
@@ -494,6 +502,9 @@ Store"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Film strip overlay is shown.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Film strip overlay is hidden.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Hide film strip overlay</string>
+    <string name="revanced_hide_floating_button_summary_off">Floating button is shown.</string>
+    <string name="revanced_hide_floating_button_summary_on">Floating button is hidden.</string>
+    <string name="revanced_hide_floating_button_title">Hide floating button</string>
     <string name="revanced_hide_floating_microphone_summary_off">Floating microphone button is shown.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Floating microphone button is hidden.</string>
     <string name="revanced_hide_floating_microphone_title">Hide floating microphone button</string>
@@ -713,6 +724,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_player_previous_next_button_summary_off">Buttons are shown.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Buttons are hidden.</string>
     <string name="revanced_hide_player_previous_next_button_title">Hide Previous &amp; Next buttons</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden.</string>
+    <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Music button is shown.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Music button is hidden.</string>
     <string name="revanced_hide_player_youtube_music_button_title">Hide YouTube Music button</string>
@@ -1644,14 +1658,9 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_summary_on">Streaming data is spoofed.</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android Embedded Player</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
@@ -1692,7 +1701,6 @@ Also, ads will no longer be blocked in Shorts.
 If this setting do not take effect, try switching to Incognito mode."</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Warning</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s is not installed. Please install it.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Package name of installed RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music package name</string>
