@@ -1,3 +1,12 @@
+# [2.231.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.230.0...v2.231.0-dev.1) (2024-10-29)
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide player shopping shelf` setting ([320aa48](https://github.com/anddea/revanced-patches/commit/320aa485f917ef612e12b5bca27a307c2961a57c))
+* **YouTube - Hide feed components:** Add `Hide floating button` setting ([da4dd43](https://github.com/anddea/revanced-patches/commit/da4dd43bb1b3a493fb1f4480fca2f9471e431437))
+* **YouTube - Seekbar components:** Add `Enable high quality thumbnails` setting ([a0476b5](https://github.com/anddea/revanced-patches/commit/a0476b59b5c724cc1da232df0757ee9797edf505))
+
 # [2.230.0](https://github.com/anddea/revanced-patches/compare/v2.229.0...v2.230.0) (2024-10-29)
 
 
