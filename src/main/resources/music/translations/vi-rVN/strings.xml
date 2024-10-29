@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Tiếp tục</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore chưa được cấp quyền để chạy trong nền.
@@ -28,10 +28,12 @@ Làm theo hướng dẫn 'Don't kill my app!' cho thiết bị của bạn và �
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh không hợp lệ. Đã đặt lại tốc độ phát về mặc định.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ. Đã khôi phục lại các giá trị mặc định.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh phải nhỏ hơn %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát hiện có.</string>
     <string name="revanced_custom_playback_speeds_title">Chỉnh sửa tốc độ phát</string>
+    <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube Music trong RVX Music, hãy bật \'Mở liên kết được hỗ trợ\' và kích hoạt các địa chỉ web được hỗ trợ.</string>
+    <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_disable_auto_captions_summary">Tắt tự động hiển thị phụ đề khi phát video nhạc có phụ đề.</string>
     <string name="revanced_disable_auto_captions_title">Tắt tự động hiển thị phụ đề</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Vô hiệu hóa hoạt ảnh Cairo khi ứng dụng khởi chạy.</string>
@@ -66,20 +68,25 @@ Hạn chế:
     <string name="revanced_enable_mini_player_next_button_title">Thêm nút tiếp theo vào trình phát thu nhỏ</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Thêm nút bài hát trước đó vào trình phát thu nhỏ.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Thêm nút phát trước đó vào trình phát thu nhỏ</string>
-    <string name="revanced_enable_opus_codec_summary">"Áp dụng codec âm thanh Opus thay vì MP4A."</string>
-    <string name="revanced_enable_opus_codec_title">Codec Opus</string>
+    <string name="revanced_enable_opus_codec_summary">"Áp dụng bộ giải mã OPUS nếu phản hồi của trình phát bao gồm nó.
+
+Cụ thể:
+• Ứng dụng YouTube Music mới nhất đặt mặc định là bộ giải mãi OPUS.
+• Điều này chỉ áp dụng cho người dùng giả mạo với các phiên bản ứng dụng rất cũ."</string>
+    <string name="revanced_enable_opus_codec_title">Bộ giải mã OPUS</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Bật thao tác vuốt xuống để loại bỏ trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Bật thao tác vuốt để loại bỏ trình phát thu nhỏ</string>
-    <string name="revanced_enable_trim_silence_summary">"Thêm nút Bật/Tắt Cắt bỏ khoảng im lặng vào tuỳ chọn tốc độ phát.
+    <string name="revanced_enable_trim_silence_summary">"Thêm tính năng Cắt bỏ khoảng lặng vào mục tuỳ chọn tốc độ phát.
 
  Cụ thể:
- • Tính năng dành cho podcast.
- • Tính năng vẫn đang được phát triển nên có thể chưa ổn định."</string>
-    <string name="revanced_enable_trim_silence_title">Bật/Tắt Cắt bỏ khoảng im lặng</string>
+ • Tính năng này dành cho podcast.
+ • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
+    <string name="revanced_enable_trim_silence_title">Cắt bỏ khoảng lặng</string>
     <string name="revanced_enable_zen_mode_podcast_summary">Đồng thời bật chế độ tập trung cho podcast.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Bật Chế độ tập trung trong podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
+    <string name="revanced_extended_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
     <string name="revanced_extended_restart_message">Làm mới và khởi động lại</string>
     <string name="revanced_extended_settings_export_as_file">Xuất cài đặt dưới dạng tệp</string>
@@ -221,15 +228,23 @@ Nếu tính năng này tắt, quảng cáo toàn màn hình sẽ bị chặn (c�
     <string name="revanced_hide_promotion_alert_banner_title">Ẩn biểu ngữ thông báo khuyến mãi</string>
     <string name="revanced_hide_samples_shelf_summary">Ẩn thẻ Đoạn nhạc trong bảng feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ẩn thẻ Đoạn nhạc</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Danh sách tên menu Cài đặt cần lọc, cách nhau từng dòng một.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Cài đặt bộ lọc menu</string>
-    <string name="revanced_hide_settings_menu_summary">"Ẩn các thành phần của menu Cài đặt.
-Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt ReVanced Extended."</string>
-    <string name="revanced_hide_settings_menu_title">Ẩn menu cài đặt</string>
+    <string name="revanced_hide_settings_menu_about_title">Ẩn mục Giới thiệu về Youtube music</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Ẩn mục Chế độ tiết kiệm dữ liệu</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ẩn mục Nhạc tải xuống &amp; bộ nhớ</string>
+    <string name="revanced_hide_settings_menu_general_title">Ẩn mục Chung</string>
+    <string name="revanced_hide_settings_menu_notification_title">Ẩn mục Thông báo</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Ẩn mục Mua Music Premium</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Ẩn mục Trung tâm dành cho gia đình</string>
+    <string name="revanced_hide_settings_menu_playback_title">Ẩn mục Tính năng phát</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Ẩn mục Quyền riêng tư &amp; dữ liệu</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Ẩn mục Đề xuất</string>
+    <string name="revanced_hide_settings_menu_summary">"Ẩn các thành phần của mục Cài đặt.
+Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục Cài đặt ReVanced Extended."</string>
+    <string name="revanced_hide_settings_menu_title">Ẩn mục cài đặt</string>
     <string name="revanced_hide_sound_search_button_summary">Ẩn nút tìm kiếm âm thanh trên thanh tìm kiếm.</string>
     <string name="revanced_hide_sound_search_button_title">Ẩn nút tìm kiếm âm thanh</string>
     <string name="revanced_hide_tap_to_update_button_summary">Ẩn nút \'Chạm để nâng cấp\'.</string>
-    <string name="revanced_hide_tap_to_update_button_title">Ẩn nút \'Chạm để nâng cấp\'</string>
+    <string name="revanced_hide_tap_to_update_button_title">Ẩn nút Nhấn để cập nhật</string>
     <string name="revanced_hide_terms_container_summary">Ẩn các mục Chính sách quyền riêng tư và Điều khoản dịch vụ khỏi trình đơn Tài khoản.</string>
     <string name="revanced_hide_terms_container_title">Ẩn mục Bảo mật và Điều khoản</string>
     <string name="revanced_hide_voice_search_button_summary">Ẩn nút tìm kiếm bằng giọng nói trên thanh tìm kiếm.</string>
@@ -239,11 +254,13 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_preference_screen_ads_title">Quảng cáo</string>
     <string name="revanced_preference_screen_flyout_title">Trình đơn tuỳ chọn</string>
     <string name="revanced_preference_screen_general_title">Tổng quan</string>
-    <string name="revanced_preference_screen_misc_title">Khác</string>
+    <string name="revanced_preference_screen_misc_title">Cài đặt khác</string>
     <string name="revanced_preference_screen_navigation_title">Thanh điều hướng</string>
     <string name="revanced_preference_screen_player_title">Trình phát</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Trình đơn Cài đặt</string>
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Ghi nhớ giá trị tốc độ phát được chọn gần đây nhất.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Ghi nhớ thay đổi tốc độ phát</string>
@@ -283,6 +300,23 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_restore_old_player_layout_title">Khôi phục bố cục trình phát kiểu cũ</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Khôi phục lại thẻ Thư viện về kiểu cũ. (Thử nghiệm)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Khôi phục thẻ thư viện kiểu cũ</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Tên người dùng)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Chọn định dạng hiển thị tên người dùng.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Định dạng hiển thị</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Tên người dùng (@handle)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Tên người dùng</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Hiển thị tên người dùng thay vì tên hiển thị trong phần bình luận.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Kích hoạt Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Khoá nhà phát triển YouTube Data API v3 là một mã khoá cho phép các nhà phát triển thao tác lấy dữ liệu từ Youtube, và nó cũng cần thiết để thay thế \"Tên hiển thị\" thành \"Tên người dùng\".
+
+Giới hạn truy cập hàng ngày cho các khoá API trên gói miễn phí là 10000 lần, với mỗi lượt truy cập chỉ thay thế được 1 bình luận.
+
+Nhấp vào đây để xem các bước phát hành khóa API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Giới thiệu về khoá YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Khoá nhà phát triển để sử dụng YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Khoá Youtube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Tạo dự án mới &lt;a href=%1$s&gt;Nhấn vào đây&lt;/a&gt;.&lt;br&gt;2. Nhấn vào nút &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Đi tới YouTube Data API v3 &lt;a href=%2$s&gt;Nhấn vào đây&lt;/a&gt;.&lt;br&gt;4. Nhấn vào nút &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Nhấn vào nút &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Chọn &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Nhấn vào nút &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Sao chép mã khoá API.&lt;br&gt;&lt;br&gt;※ Khoá API không nên được chia sẻ với người khác, vì vậy nó cũng không xuất hiện trong cài đặt Nhập/Xuất.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Phát hành mã khoá</string>
     <string name="revanced_ryd_about">Giới thiệu</string>
     <string name="revanced_ryd_attribution_summary">Dữ liệu về số lượt không thích được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -292,12 +326,15 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_ryd_dislike_percentage_title">Hiện số lượt không thích theo phần trăm</string>
     <string name="revanced_ryd_enabled_summary">Hiển thị số lượt không thích của bài hát và video nhạc.</string>
     <string name="revanced_ryd_enabled_title">Kích hoạt Hiển thị số lượt không thích</string>
+    <string name="revanced_ryd_estimated_like_summary">Hiển thị số lượt thích được ước tính của video.</string>
+    <string name="revanced_ryd_estimated_like_title">Số lượt thích ước tính</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Số lượt không thích không khả dụng (đã đạt đến giới hạn API máy khách).</string>
     <string name="revanced_ryd_failure_connection_status_code">Số lượt không thích không khả dụng (trạng thái %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Số lượt không thích tạm thời không khả dụng (API đã hết thời gian chờ).</string>
     <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Hiển thị thông báo ngắn nếu API ReturnYouTubeDislike không khả dụng.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Thông báo ngắn nếu API không khả dụng</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
     <string name="revanced_sanitize_sharing_links_summary">Loại bỏ các tham số truy vấn theo dõi khỏi URL khi chia sẻ liên kết.</string>
     <string name="revanced_sanitize_sharing_links_title">Liên kết sạch khi chia sẻ</string>
     <string name="revanced_sb_about">Giới thiệu</string>
@@ -310,7 +347,7 @@ Khi bật không chỉ ẩn menu Cài đặt YT Music, mà cả menu Cài đặt
     <string name="revanced_sb_api_url_sum">Địa chỉ Url của Api SponsorBlock được dùng để thực hiện các kết nối đến máy chủ. Không thay đổi địa chỉ này trừ khi bạn biết mình đang làm gì.</string>
     <string name="revanced_sb_color_changed">Đã thay đổi màu phân đoạn.</string>
     <string name="revanced_sb_color_dot_label">Màu:</string>
-    <string name="revanced_sb_color_invalid">Mã màu không hợp lệ. Đã đặt lại màu về mặc định.</string>
+    <string name="revanced_sb_color_invalid">Mã màu không hợp lệ.</string>
     <string name="revanced_sb_color_reset">Đã đặt lại màu phân đoạn về mặc định.</string>
     <string name="revanced_sb_diff_segments">Thay đổi hành vi của phân đoạn</string>
     <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
@@ -361,6 +398,7 @@ Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhi
 - Nếu tắt tuỳ chọn này sau đó, giao diện cũ có thể vẫn tồn tại cho đến khi bạn xoá dữ liệu ứng dụng."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Tắt chế độ Đài phát ở một số vùng của Canada</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Tắt lời bài hát theo thời gian thực</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Khôi phục bảng nút thao tác cũ</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>

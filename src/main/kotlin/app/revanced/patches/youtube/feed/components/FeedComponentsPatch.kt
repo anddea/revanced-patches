@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.youtube.feed.components.fingerprints.BreakingNewsFingerprint
@@ -17,35 +18,51 @@ import app.revanced.patches.youtube.feed.components.fingerprints.ChannelListSubM
 import app.revanced.patches.youtube.feed.components.fingerprints.ChannelListSubMenuTabletSyntheticFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.ChannelTabBuilderFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.ChannelTabRendererFingerprint
+import app.revanced.patches.youtube.feed.components.fingerprints.ContentPillFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.ElementParserFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.ElementParserParentFingerprint
+import app.revanced.patches.youtube.feed.components.fingerprints.EngagementPanelUpdateFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.LatestVideosButtonFingerprint
+import app.revanced.patches.youtube.feed.components.fingerprints.LinearLayoutManagerItemCountsFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.RelatedChipCloudFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.SearchResultsChipBarFingerprint
 import app.revanced.patches.youtube.feed.components.fingerprints.ShowMoreButtonFingerprint
+import app.revanced.patches.youtube.utils.bottomsheet.BottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.fingerprints.EngagementPanelBuilderFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.ScrollTopParentFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.FEED_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.integrations.Constants.FEED_PATH
 import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.utils.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Bar
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.CaptionToggleContainer
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ChannelListSubMenu
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ContentPill
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.HorizontalCardList
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceName
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.alsoResolve
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
 object FeedComponentsPatch : BaseBytecodePatch(
@@ -56,7 +73,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         NavigationBarHookPatch::class,
         PlayerTypeHookPatch::class,
         SettingsPatch::class,
-        SharedResourceIdPatch::class
+        SharedResourceIdPatch::class,
+        BottomSheetHookPatch::class,
     ),
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
@@ -67,15 +85,20 @@ object FeedComponentsPatch : BaseBytecodePatch(
         ChannelListSubMenuTabletFingerprint,
         ChannelListSubMenuTabletSyntheticFingerprint,
         ChannelTabRendererFingerprint,
+        ContentPillFingerprint,
         ElementParserParentFingerprint,
+        EngagementPanelBuilderFingerprint,
         FilterBarHeightFingerprint,
         LatestVideosButtonFingerprint,
+        LinearLayoutManagerItemCountsFingerprint,
         RelatedChipCloudFingerprint,
         ScrollTopParentFingerprint,
         SearchResultsChipBarFingerprint,
-        ShowMoreButtonFingerprint
+        ShowMoreButtonFingerprint,
     )
 ) {
+    private const val CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR =
+        "$COMPONENTS_PATH/CarouselShelfFilter;"
     private const val FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/FeedComponentsFilter;"
     private const val FEED_VIDEO_FILTER_CLASS_DESCRIPTOR =
@@ -84,28 +107,42 @@ object FeedComponentsPatch : BaseBytecodePatch(
         "$COMPONENTS_PATH/FeedVideoViewsFilter;"
     private const val KEYWORD_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/KeywordContentFilter;"
+    private const val RELATED_VIDEO_CLASS_DESCRIPTOR =
+        "$FEED_PATH/RelatedVideoPatch;"
 
     override fun execute(context: BytecodeContext) {
 
         // region patch for hide carousel shelf, subscriptions channel section, latest videos button
 
-        mapOf(
-            BreakingNewsFingerprint to "hideBreakingNewsShelf",                 // carousel shelf, only used to tablet layout.
-            ChannelListSubMenuFingerprint to "hideSubscriptionsChannelSection", // subscriptions channel section
-            LatestVideosButtonFingerprint to "hideLatestVideosButton",          // latest videos button
-        ).forEach { (fingerprint, methodName) ->
-            fingerprint.resultOrThrow().let {
-                it.mutableMethod.apply {
-                    val targetIndex = it.scanResult.patternScanResult!!.endIndex
-                    val targetRegister =
-                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                    addInstruction(
-                        targetIndex + 1,
-                        "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
-                    )
-                }
-            }
+        listOf(
+            // carousel shelf, only used to tablet layout.
+            Triple(
+                BreakingNewsFingerprint,
+                "hideBreakingNewsShelf",
+                HorizontalCardList
+            ),
+            // subscriptions channel section.
+            Triple(
+                ChannelListSubMenuFingerprint,
+                "hideSubscriptionsChannelSection",
+                ChannelListSubMenu
+            ),
+            // latest videos button
+            Triple(
+                ContentPillFingerprint,
+                "hideLatestVideosButton",
+                ContentPill
+            ),
+            Triple(
+                LatestVideosButtonFingerprint,
+                "hideLatestVideosButton",
+                Bar
+            ),
+        ).forEach { (fingerprint, methodName, literal) ->
+            val smaliInstruction = """
+                    invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $FEED_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V
+                    """
+            fingerprint.injectLiteralInstructionViewCall(literal, smaliInstruction)
         }
 
         // endregion
@@ -113,8 +150,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
         // region patch for hide caption button
 
         CaptionsButtonFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(CaptionToggleContainer)
-            val insertIndex = getTargetIndexReversedOrThrow(constIndex, Opcode.IF_EQZ)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(CaptionToggleContainer)
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.IF_EQZ)
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
@@ -126,14 +163,70 @@ object FeedComponentsPatch : BaseBytecodePatch(
         }
 
         CaptionsButtonSyntheticFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(CaptionToggleContainer)
-            val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(CaptionToggleContainer)
+            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(
                 targetIndex + 1,
                 "invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideCaptionsButtonContainer(Landroid/view/View;)V"
             )
+        }
+
+        // endregion
+
+        // region patch for hide relative video
+
+        fun Method.indexOfEngagementPanelBuilderInstruction(targetMethod: MutableMethod) =
+            indexOfFirstInstruction {
+                opcode == Opcode.INVOKE_DIRECT &&
+                        MethodUtil.methodSignaturesMatch(
+                            targetMethod,
+                            getReference<MethodReference>()!!
+                        )
+            }
+
+        EngagementPanelBuilderFingerprint.resultOrThrow().let {
+            it.mutableClass.methods.filter { method ->
+                method.indexOfEngagementPanelBuilderInstruction(it.mutableMethod) >= 0
+            }.forEach { method ->
+                method.apply {
+                    val index = indexOfEngagementPanelBuilderInstruction(it.mutableMethod)
+                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                    addInstruction(
+                        index + 2,
+                        "invoke-static {v$register}, " +
+                                "$RELATED_VIDEO_CLASS_DESCRIPTOR->showEngagementPanel(Ljava/lang/Object;)V"
+                    )
+                }
+            }
+        }
+
+        EngagementPanelUpdateFingerprint.alsoResolve(
+            context, EngagementPanelBuilderFingerprint
+        ).mutableMethod.addInstruction(
+            0,
+            "invoke-static {}, $RELATED_VIDEO_CLASS_DESCRIPTOR->hideEngagementPanel()V"
+        )
+
+        // BytecodeUtils.getWalkerMethod must be used here
+        // Otherwise, MethodWalker finds the wrong class in YouTube 18.29.38:
+        // https://github.com/ReVanced/revanced-patcher/issues/309
+        LinearLayoutManagerItemCountsFingerprint.resultOrThrow().let {
+            val methodWalker =
+                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
+            methodWalker.apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1, """
+                        invoke-static {v$register}, $RELATED_VIDEO_CLASS_DESCRIPTOR->overrideItemCounts(I)I
+                        move-result v$register
+                        """
+                )
+            }
         }
 
         // endregion
@@ -198,7 +291,7 @@ object FeedComponentsPatch : BaseBytecodePatch(
                             && reference.returnType.startsWith("L")
                 }
 
-                val objectIndex = getTargetIndexOrThrow(Opcode.MOVE_OBJECT)
+                val objectIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT)
                 val objectRegister = getInstruction<TwoRegisterInstruction>(objectIndex).registerA
 
                 val jumpIndex = it.scanResult.patternScanResult!!.startIndex
@@ -253,7 +346,9 @@ object FeedComponentsPatch : BaseBytecodePatch(
 
         ChannelTabRendererFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val iteratorIndex = getTargetIndexWithMethodReferenceName("hasNext")
+                val iteratorIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "hasNext"
+                }
                 val iteratorRegister =
                     getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
 
@@ -265,7 +360,8 @@ object FeedComponentsPatch : BaseBytecodePatch(
                             && reference.parameterTypes == channelTabBuilderMethod.parameterTypes
                 }
 
-                val objectIndex = getTargetIndexReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
+                val objectIndex =
+                    indexOfFirstInstructionReversedOrThrow(targetIndex, Opcode.IGET_OBJECT)
                 val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
                 val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
 
@@ -285,6 +381,7 @@ object FeedComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        LithoFilterPatch.addFilter(CAROUSEL_SHELF_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_VIDEO_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(FEED_VIDEO_VIEWS_FILTER_CLASS_DESCRIPTOR)

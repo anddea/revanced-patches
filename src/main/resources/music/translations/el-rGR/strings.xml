@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Συνέχεια</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να τρέχει στο παρασκήνιο.
@@ -16,7 +16,7 @@
     <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν είναι εγκατεστημένο. Εγκαταστήστε το.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Αντικατάσταση του domain για την φόρτωση εικόνων όπου είναι μπλοκαρισμένες σε ορισμένες περιοχές ώστε να μπορούν να ληφθούν μικρογραφίες βίντεο, εικόνες δημοσιεύσεων, κλπ.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
-    <string name="revanced_change_share_sheet_summary">Αλλαγή του μενού κοινοποίησης σε αυτό του συστήματος σας αντί του YouTube.</string>
+    <string name="revanced_change_share_sheet_summary">Αλλαγή του μενού κοινοποίησης σε αυτό του συστήματος σας αντί του YouTube Music.</string>
     <string name="revanced_change_share_sheet_title">Αλλαγή μενού κοινοποίησης</string>
     <string name="revanced_change_start_page_entry_chart">Διαγράμματα</string>
     <string name="revanced_change_start_page_entry_explore">Εξερεύνηση</string>
@@ -30,10 +30,12 @@
     <string name="revanced_custom_filter_summary">Χρήση προσαρμοσμένου φίλτρου για απόκρυψη στοιχείων διεπαφής.</string>
     <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο φίλτρο: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx, επαναφέρθηκαν.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες ταχύτητες αναπαραγωγής, επαναφέρθηκαν.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες ταχύτητες αναπαραγωγής.</string>
     <string name="revanced_custom_playback_speeds_summary">Ρύθμιση των διαθέσιμων ταχυτήτων αναπαραγωγής.</string>
     <string name="revanced_custom_playback_speeds_title">Επεξεργασία ταχυτήτων αναπαραγωγής</string>
+    <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube Music στο RVX Music, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
+    <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
     <string name="revanced_disable_auto_captions_summary">Απενεργοποίηση της αυτόματης ενεργοποίησης υπότιτλων.</string>
     <string name="revanced_disable_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Απενεργοποίηση των εφέ θέματος Cairo κατά την εκκίνηση της εφαρμογής.</string>
@@ -84,6 +86,7 @@
     <string name="revanced_enable_zen_mode_podcast_title">Λειτουργία zen σε ηχητικές εκπομπές</string>
     <string name="revanced_enable_zen_mode_summary">Προσθήκη μιας γκρι απόχρωσης στο παρασκήνιο της οθόνης αναπαραγωγής για να μειωθεί η καταπόνηση των ματιών.</string>
     <string name="revanced_enable_zen_mode_title">Ενεργοποίηση λειτουργίας zen</string>
+    <string name="revanced_extended_reset_to_default_toast">Επαναφέρθηκε στην προεπιλεγμένη τιμή.</string>
     <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η εφαρμογή</string>
     <string name="revanced_extended_restart_message">Ανανέωση και επανεκκίνηση</string>
     <string name="revanced_extended_settings_export_as_file">Εξαγωγή ρυθμίσεων σε αρχείο</string>
@@ -225,8 +228,16 @@
     <string name="revanced_hide_promotion_alert_banner_title">Απόκρυψη ετικετών προειδοποίησης προώθησης</string>
     <string name="revanced_hide_samples_shelf_summary">Απόκρυψη της ενότητας «Δείγματα» στη ροή.</string>
     <string name="revanced_hide_samples_shelf_title">Απόκρυψη ενότητας «Δείγματα»</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού ρυθμίσεων για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Αλλαγή φίλτρου του μενού ρυθμίσεων</string>
+    <string name="revanced_hide_settings_menu_about_title">Απόκρυψη μενού «Πληροφορίες για το YouTube Music»</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Απόκρυψη μενού «Εξοικονόμηση δεδομένων»</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Απόκρυψη μενού «Λήψεις &amp; αποθηκευτικός χώρος»</string>
+    <string name="revanced_hide_settings_menu_general_title">Απόκρυψη μενού «Γενικά»</string>
+    <string name="revanced_hide_settings_menu_notification_title">Απόκρυψη μενού «Ειδοποιήσεις»</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Απόκρυψη μενού «Αποκτήστε το Music Premium»</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Απόκρυψη μενού «Οικογενειακό Κέντρο»</string>
+    <string name="revanced_hide_settings_menu_playback_title">Απόκρυψη μενού «Αναπαραγωγή»</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Απόκρυψη μενού «Απόρρητο &amp; δεδομένα»</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Απόκρυψη μενού «Προτάσεις»</string>
     <string name="revanced_hide_settings_menu_summary">"Απόκρυψη στοιχείων του μενού ρυθμίσεων YouTube.
 Αυτή η λειτουργία γίνεται να κρύψει και το μενού ρυθμίσεων ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Φιλτράρισμα του μενού ρυθμίσεων</string>
@@ -246,8 +257,10 @@
     <string name="revanced_preference_screen_misc_title">Διάφορα</string>
     <string name="revanced_preference_screen_navigation_title">Γραμμή πλοήγησης</string>
     <string name="revanced_preference_screen_player_title">Οθόνη αναπαραγωγής</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Μενού ρυθμίσεων</string>
     <string name="revanced_preference_screen_video_title">Βίντεο</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Απομνημόνευση της τελευταίας ταχύτητας αναπαραγωγής που επιλέχθηκε.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
@@ -287,6 +300,23 @@
     <string name="revanced_restore_old_player_layout_title">Οθόνη αναπαραγωγής παλιού στυλ</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Επιστροφή της ενότητας βιβλιοθήκης στο παλιό στυλ. (Πειραματικό)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Ενότητα βιβλιοθήκης παλιού στυλ</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@ψευδώνυμο (Όνομα χρήστη)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Επιλογή της μορφής εμφάνισης ονόματος χρήστη.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Μορφή εμφάνισης</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Όνομα χρήστη (@ψευδώνυμο)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Όνομα χρήστη</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Εμφάνιση του ονόματος χρήστη αντί για το ψευδώνυμο στα σχόλια.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Επαναφορά ονομάτων χρήστη</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Για να γίνει αντικατάσταση του ψευδωνύμου με όνομα χρήστη, απαιτείται κλειδί προγραμματιστή YouTube Data API v3.
+
+Η ημερήσια ποσόστωση για τα κλειδιά API στο δωρεάν πακέτο είναι 10,000, και χρησιμοποιείται 1 ποσόστωση για την αντικατάσταση ψευδωνύμου με όνομα χρήστη για 1 σχόλιο.
+
+Πατήστε για να δείτε πώς να εκδώσετε ένα κλειδί API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Σχετικά με το κλειδί YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Το κλειδί προγραμματιστή για τη χρήση του YouTube Data API v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Κλειδί YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Μεταβείτε στη &lt;a href=%1$s&gt;δημιουργία νέου project&lt;/a&gt;.&lt;br&gt;2. Πατήστε το κουμπί &lt;b&gt;CREATE&lt;/b&gt;. &lt;br&gt;3. Μεταβείτε στην επιλογή &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Πατήστε το κουμπί &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Πατήστε το κουμπί &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Επιλέξτε την επιλογή &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Πατήστε το κουμπί &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Αντιγράψτε το κλειδί API.&lt;br&gt;&lt;br&gt;※ Το κλειδί API δεν πρέπει να το μοιράζεστε ποτέ με άλλους, οπότε δεν περιλαμβάνεται κατά την Εισαγωγή / Εξαγωγή ρυθμίσεων.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Έκδοση κλειδιού προγραμματιστή YouTube Data API v3</string>
     <string name="revanced_ryd_about">Σχετικά με</string>
     <string name="revanced_ryd_attribution_summary">Τα δεδομένα Dislike παρέχονται από το Return YouTube Dislike API. Πατήστε για να μάθετε περισσότερα.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -296,12 +326,15 @@
     <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση ως ποσοστό</string>
     <string name="revanced_ryd_enabled_summary">Εμφάνιση της ποσότητας των «Δεν μου αρέσει» των βίντεο.</string>
     <string name="revanced_ryd_enabled_title">Επιστρέψτε το «Δεν μου αρέσει» στο YouTube</string>
+    <string name="revanced_ryd_estimated_like_summary">Εμφάνιση της εκτιμώμενης ποσότητας των «Μου αρέσει» των βίντεο.</string>
+    <string name="revanced_ryd_estimated_like_title">Εμφάνιση εκτιμώμενων likes</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Δεδομένα dislike μη διαθέσιμα (το όριο API έχει επιτευχθεί).</string>
     <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Δεδομένα dislike προσωρινά μη διαθέσιμα (καθυστέρηση API).</string>
     <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike API δεν είναι διαθέσιμο.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Μήνυμα αν το API δεν είναι διαθέσιμο</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένο</string>
     <string name="revanced_sanitize_sharing_links_summary">Αφαίρεση των παραμέτρων παρακολούθησης από τις διευθύνσεις URL κατά την κοινοποίηση συνδέσμων.</string>
     <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
     <string name="revanced_sb_about">Σχετικά με</string>
@@ -314,7 +347,7 @@
     <string name="revanced_sb_api_url_sum">Η διεύθυνση που χρησιμοποιείται για επικοινωνία με τον διακομιστή του SponsorBlock. Μη το αλλάξετε αν δεν ξέρετε τι κάνετε.</string>
     <string name="revanced_sb_color_changed">Το χρώμα άλλαξε.</string>
     <string name="revanced_sb_color_dot_label">Χρώμα:</string>
-    <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος, επαναφέρθηκε.</string>
+    <string name="revanced_sb_color_invalid">Μη έγκυρος κωδικός χρώματος.</string>
     <string name="revanced_sb_color_reset">Το χρώμα επαναφέρθηκε.</string>
     <string name="revanced_sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
     <string name="revanced_sb_enabled">Ενεργοποίηση του SponsorBlock</string>
@@ -365,6 +398,7 @@
 • Αν αργότερα γίνει απενεργοποίηση, η παλιά εμφάνιση μπορεί να παραμείνει μέχρι να διαγραφούν τα δεδομένα της εφαρμογής."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Απενεργοποίηση λειτουργίας ραδιοφώνου σε περιοχές του Καναδά</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Απενεργοποίηση στίχων σε πραγματικό χρόνο</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Επαναφορά παλιάς γραμμής ενεργειών</string>
     <string name="revanced_spoof_app_version_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί.</string>
     <string name="revanced_spoof_app_version_target_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
     <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>

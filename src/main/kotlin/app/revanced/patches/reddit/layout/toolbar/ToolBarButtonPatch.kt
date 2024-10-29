@@ -10,7 +10,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.ToolBarNavSearchCtaContainer
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -35,7 +35,7 @@ object ToolBarButtonPatch : BaseBytecodePatch(
         HomePagerScreenFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getWideLiteralInstructionIndex(ToolBarNavSearchCtaContainer) + 3
+                    indexOfFirstWideLiteralInstructionValueOrThrow(ToolBarNavSearchCtaContainer) + 3
                 val targetRegister =
                     getInstruction<OneRegisterInstruction>(targetIndex - 1).registerA
 

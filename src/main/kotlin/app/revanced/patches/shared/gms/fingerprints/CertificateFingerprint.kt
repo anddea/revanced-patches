@@ -1,20 +1,28 @@
 package app.revanced.patches.shared.gms.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint.GET_PACKAGE_NAME_METHOD_REFERENCE
-import app.revanced.util.fingerprint.ReferenceFingerprint
+import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patches.shared.gms.fingerprints.CertificateFingerprint.indexOfGetPackageNameInstruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 /**
  * Method which the package name is used to check the app signature.
  */
-internal object CertificateFingerprint : ReferenceFingerprint(
+internal object CertificateFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = emptyList(),
     strings = listOf("X.509", "user", "S"),
-    reference = { GET_PACKAGE_NAME_METHOD_REFERENCE }
+    customFingerprint = { methodDef, _ ->
+        indexOfGetPackageNameInstruction(methodDef) >= 0
+    }
 ) {
-    const val GET_PACKAGE_NAME_METHOD_REFERENCE =
-        "Landroid/content/Context;->getPackageName()Ljava/lang/String;"
+    fun indexOfGetPackageNameInstruction(methodDef: Method) =
+        methodDef.indexOfFirstInstruction {
+            getReference<MethodReference>()?.toString() == "Landroid/content/Context;->getPackageName()Ljava/lang/String;"
+        }
 }

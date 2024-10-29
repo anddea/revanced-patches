@@ -1,67 +1,67 @@
 package app.revanced.patches.youtube.shorts.components
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.youtube.shorts.components.fingerprints.BottomNavigationBarFingerprint
-import app.revanced.patches.youtube.shorts.components.fingerprints.RenderBottomNavigationBarFingerprint
-import app.revanced.patches.youtube.shorts.components.fingerprints.SetPivotBarFingerprint
-import app.revanced.patches.youtube.utils.fingerprints.InitializeButtonsFingerprint
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.shorts.components.fingerprints.BottomBarContainerHeightFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.SHORTS_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWalkerMethod
+import app.revanced.patches.youtube.utils.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.utils.playertype.fingerprint.ReelWatchPagerFingerprint
+import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.BottomBarContainer
+import app.revanced.util.fingerprint.MultiMethodFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.patch.MultiMethodBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-object ShortsNavigationBarPatch : BytecodePatch(
-    setOf(
-        BottomNavigationBarFingerprint,
-        InitializeButtonsFingerprint,
-        RenderBottomNavigationBarFingerprint
-    )
+/**
+ * Up to YouTube 19.28.42, there are two Methods with almost the same pattern.
+ *
+ * In certain YouTube versions, the hook should be done not on the first matching Method, but also on the last matching Method.
+ *
+ * 'Multiple fingerprint search' feature is not yet implemented in ReVanced Patcher,
+ * So I just implement it via [MultiMethodFingerprint].
+ *
+ * Related Issues:
+ * https://github.com/ReVanced/revanced-patcher/issues/74
+ * https://github.com/ReVanced/revanced-patcher/issues/308
+ */
+@Patch(dependencies = [NavigationBarHookPatch::class])
+object ShortsNavigationBarPatch : MultiMethodBytecodePatch(
+    fingerprints = setOf(ReelWatchPagerFingerprint),
+    multiFingerprints = setOf(BottomBarContainerHeightFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
+        super.execute(context)
 
-        InitializeButtonsFingerprint.resultOrThrow().let { parentResult ->
-            SetPivotBarFingerprint.also { it.resolve(context, parentResult.classDef) }
-                .resultOrThrow().let {
-                    it.mutableMethod.apply {
-                        val startIndex = it.scanResult.patternScanResult!!.startIndex
-                        val register = getInstruction<OneRegisterInstruction>(startIndex).registerA
+        // region patch for set navigation bar height.
 
-                        addInstruction(
-                            startIndex + 1,
-                            "invoke-static {v$register}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Ljava/lang/Object;)V"
-                        )
-                    }
-                }
-        }
-
-        RenderBottomNavigationBarFingerprint.resultOrThrow().let {
-            val walkerMethod =
-                it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
-
-            walkerMethod.addInstruction(
-                0,
-                "invoke-static {}, $SHORTS_CLASS_DESCRIPTOR->hideShortsNavigationBar()V"
-            )
-        }
-
-        BottomNavigationBarFingerprint.result?.let {
+        BottomBarContainerHeightFingerprint.resultOrThrow().forEach {
             it.mutableMethod.apply {
-                val targetIndex = getTargetIndexWithMethodReferenceNameOrThrow("findViewById") + 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val constIndex = indexOfFirstWideLiteralInstructionValue(BottomBarContainer)
+
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                    getReference<MethodReference>()?.name == "getHeight"
+                } + 1
+
+                val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
                     targetIndex + 1, """
-                        invoke-static {v$insertRegister}, $SHORTS_CLASS_DESCRIPTOR->hideShortsNavigationBar(Landroid/view/View;)Landroid/view/View;
-                        move-result-object v$insertRegister
+                        invoke-static {v$heightRegister}, $SHORTS_CLASS_DESCRIPTOR->setNavigationBarHeight(I)I
+                        move-result v$heightRegister
                         """
                 )
             }
         }
+
+        NavigationBarHookPatch.addBottomBarContainerHook("$SHORTS_CLASS_DESCRIPTOR->setNavigationBar(Landroid/view/View;)V")
+
+        // endregion.
 
     }
 }

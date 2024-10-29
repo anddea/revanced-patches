@@ -13,9 +13,9 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.MetaP
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ReelVodTimeStampsContainer
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
-import app.revanced.util.literalInstructionViewHook
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
+import app.revanced.util.injectLiteralInstructionViewCall
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -38,14 +38,14 @@ object ShortsTimeStampPatch : BytecodePatch(
             ShortsTimeStampPrimaryFingerprint to 45638282,
             ShortsTimeStampSecondaryFingerprint to 45638187
         ).forEach { (fingerprint, literal) ->
-            fingerprint.literalInstructionBooleanHook(
+            fingerprint.injectLiteralInstructionBooleanCall(
                 literal,
                 "$SHORTS_CLASS_DESCRIPTOR->enableShortsTimeStamp(Z)Z"
             )
         }
 
         ShortsTimeStampPrimaryFingerprint.resultOrThrow().mutableMethod.apply {
-            val literalIndex = getWideLiteralInstructionIndex(10002)
+            val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(10002)
             val literalRegister = getInstruction<OneRegisterInstruction>(literalIndex).registerA
 
             addInstructions(
@@ -81,7 +81,7 @@ object ShortsTimeStampPatch : BytecodePatch(
                 invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $SHORTS_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V
                 """
 
-            fingerprint.literalInstructionViewHook(literalValue, smaliInstruction)
+            fingerprint.injectLiteralInstructionViewCall(literalValue, smaliInstruction)
         }
 
         // endregion

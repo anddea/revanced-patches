@@ -90,7 +90,7 @@ object ChangePackageNamePatch : BaseResourcePatch(
                 node.textContent = when (node.getAttribute("name")) {
                     "provider_authority_appdata", "provider_authority_file",
                     "provider_authority_userdata", "provider_workmanager_init"
-                    -> node.textContent.replace(PACKAGE_NAME_REDDIT, redditPackageName)
+                        -> node.textContent.replace(PACKAGE_NAME_REDDIT, redditPackageName)
 
                     else -> continue
                 }

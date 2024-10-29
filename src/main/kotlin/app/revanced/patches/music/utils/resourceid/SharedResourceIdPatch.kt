@@ -16,7 +16,6 @@ import app.revanced.patches.shared.mapping.ResourceType.STYLE
 @Patch(dependencies = [ResourceMappingPatch::class])
 object SharedResourceIdPatch : ResourcePatch() {
     var AccountSwitcherAccessibility = -1L
-    var AudioVideoSwitchToggle = -1L
     var BottomSheetRecyclerView = -1L
     var ButtonContainer = -1L
     var ButtonIconPaddingMedium = -1L
@@ -24,7 +23,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     var ColorGrey = -1L
     var DarkBackground = -1L
     var DesignBottomSheetDialog = -1L
-    var DialogSolid = -1L
     var EndButtonsContainer = -1L
     var FloatingLayout = -1L
     var HistoryMenuItem = -1L
@@ -32,6 +30,7 @@ object SharedResourceIdPatch : ResourcePatch() {
     var InterstitialsContainer = -1L
     var IsTablet = -1L
     var LikeDislikeContainer = -1L
+    var MainActivityLaunchAnimation = -1L
     var MenuEntry = -1L
     var MiniPlayerDefaultText = -1L
     var MiniPlayerMdxPlaying = -1L
@@ -61,7 +60,6 @@ object SharedResourceIdPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
 
         AccountSwitcherAccessibility = getId(STRING, "account_switcher_accessibility_label")
-        AudioVideoSwitchToggle = getId(ID, "audio_video_switch_toggle")
         BottomSheetRecyclerView = getId(LAYOUT, "bottom_sheet_recycler_view")
         ButtonContainer = getId(ID, "button_container")
         ButtonIconPaddingMedium = getId(DIMEN, "button_icon_padding_medium")
@@ -69,7 +67,6 @@ object SharedResourceIdPatch : ResourcePatch() {
         ColorGrey = getId(COLOR, "ytm_color_grey_12")
         DarkBackground = getId(ID, "dark_background")
         DesignBottomSheetDialog = getId(LAYOUT, "design_bottom_sheet_dialog")
-        DialogSolid = getId(STYLE, "Theme.YouTubeMusic.Dialog.Solid")
         EndButtonsContainer = getId(ID, "end_buttons_container")
         FloatingLayout = getId(ID, "floating_layout")
         HistoryMenuItem = getId(ID, "history_menu_item")
@@ -77,6 +74,7 @@ object SharedResourceIdPatch : ResourcePatch() {
         InterstitialsContainer = getId(ID, "interstitials_container")
         IsTablet = getId(BOOL, "is_tablet")
         LikeDislikeContainer = getId(ID, "like_dislike_container")
+        MainActivityLaunchAnimation = getId(LAYOUT, "main_activity_launch_animation")
         MenuEntry = getId(LAYOUT, "menu_entry")
         MiniPlayerDefaultText = getId(STRING, "mini_player_default_text")
         MiniPlayerMdxPlaying = getId(STRING, "mini_player_mdx_playing")

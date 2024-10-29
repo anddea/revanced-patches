@@ -12,5 +12,17 @@ internal object StartVideoInformerFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID
     ),
-    strings = listOf("pc")
+    strings = listOf("pc"),
+    customFingerprint = custom@{ methodDef, _ ->
+        if (methodDef.implementation == null)
+            return@custom false
+
+        methodDef.implementation!!.instructions
+            .withIndex()
+            .filter { (_, instruction) ->
+                instruction.opcode == Opcode.CONST_STRING
+            }
+            .map { (index, _) -> index }
+            .size == 1
+    }
 )

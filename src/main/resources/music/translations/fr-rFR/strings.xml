@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continuer</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore n'a pas les permissions pour fonctionner en arrière-plan.
@@ -30,10 +30,12 @@ Cliquez sur le bouton Continuer et désactivez les optimisations de la batterie.
     <string name="revanced_custom_filter_summary">Active les filtres personnalisés pour masquer des éléments de l’interface.</string>
     <string name="revanced_custom_filter_title">Activer le filtre personnalisé</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx. Valeur réinitialisée par défaut.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture invalides. Valeur réinitialisée par défaut.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture invalides.</string>
     <string name="revanced_custom_playback_speeds_summary">Ajoute ou modifie les vitesses de lecture disponibles.</string>
     <string name="revanced_custom_playback_speeds_title">Éditez les vitesses de lecture personnalisées</string>
+    <string name="revanced_default_app_settings_summary">Pour ouvrir les liens YouTube Music dans RVX Music, activez \'Ouvrir les liens compatibles\' et activez les adresses web prises en charge.</string>
+    <string name="revanced_default_app_settings_title">Ouvrir les paramètres par défaut de l\'application</string>
     <string name="revanced_disable_auto_captions_summary">Désactive les sous-titres automatiquement activés.</string>
     <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres forcés</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Désactive l\'animation Cairo lors du démarrage de l\'application.</string>
@@ -86,6 +88,7 @@ Info :
     <string name="revanced_enable_zen_mode_podcast_title">Activer le mode \"Zen\" sur les Podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Change la couleur du lecteur par un voile gris pour réduire la fatigue oculaire.</string>
     <string name="revanced_enable_zen_mode_title">Activer le mode zen</string>
+    <string name="revanced_extended_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
     <string name="revanced_extended_restart_first_run">Redémarrer pour charger l\'interface correctement</string>
     <string name="revanced_extended_restart_message">Appliquer et redémarrer ?</string>
     <string name="revanced_extended_settings_export_as_file">Exporter les paramètres vers un fichier</string>
@@ -227,8 +230,16 @@ Si désactivé, Les publicités en plein écran seront bloquées. (peut avoir de
     <string name="revanced_hide_promotion_alert_banner_title">Masquer la bannière d\'alerte de promotion</string>
     <string name="revanced_hide_samples_shelf_summary">Masque l’étagère \"Samples\" dans les flux.</string>
     <string name="revanced_hide_samples_shelf_title">Masquer l’étagère \"Samples\"</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Liste des noms du menu paramètre à filtrer, séparé par des sauts de lignes.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Filtre du menu \'Paramètres\'</string>
+    <string name="revanced_hide_settings_menu_about_title">Masquer le menu \'À propos\'</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Masquer le menu \'Économie de données\'</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Masquer le menu \'Téléchargements et stockage\'</string>
+    <string name="revanced_hide_settings_menu_general_title">Masquer le menu \'Paramètres généraux\'</string>
+    <string name="revanced_hide_settings_menu_notification_title">Masquer le menu \'Notifications\'</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Masquer le menu \'Obtenir Music Premium\'</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Masquer le menu \'Centre pour la famille\'</string>
+    <string name="revanced_hide_settings_menu_playback_title">Masquer le menu \"Lecture\"</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Masquer le menu \'Confidentialité et données\'</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Masquer le menu \'Recommandations\'</string>
     <string name="revanced_hide_settings_menu_summary">"Masquer les éléments du menu Paramètre.
 Cela masque non seulement le menu paramètre de YT Music, mais également le menu paramètre de ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Masquer le menu \'Paramètres\'</string>
@@ -250,6 +261,7 @@ Cela masque non seulement le menu paramètre de YT Music, mais également le men
     <string name="revanced_preference_screen_player_title">Lecteur</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Menu Paramètres</string>
     <string name="revanced_preference_screen_video_title">Qualité et vitesse vidéo</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Enregistre la dernière vitesse de lecture sélectionnée.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Enregistrer la modification de la vitesse de lecture</string>
@@ -316,7 +328,7 @@ Certaines fonctions peuvent ne pas fonctionner sur l'ancienne mise en page."</st
     <string name="revanced_sb_api_url_sum">L\'adresse qu\'utilise SponsorBlock pour contacter le serveur. Ne le modifiez que si vous savez ce que vous faites.</string>
     <string name="revanced_sb_color_changed">Couleur modifiée.</string>
     <string name="revanced_sb_color_dot_label">Couleur (hex) :</string>
-    <string name="revanced_sb_color_invalid">Code couleur invalide. Couleur réinitialisée par défaut.</string>
+    <string name="revanced_sb_color_invalid">Code couleur invalide.</string>
     <string name="revanced_sb_color_reset">Couleur réinitialisée.</string>
     <string name="revanced_sb_diff_segments">Modifier le comportement des segments</string>
     <string name="revanced_sb_enabled">Activer Sponsorblock</string>
@@ -367,6 +379,7 @@ Certaines fonctions peuvent ne pas fonctionner sur l'ancienne mise en page."</st
 • Si désactivée ultérieurement, l'ancienne interface peut subsister jusqu'à la suppression des données de l'application."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Désactive le mode radio dans les régions canadiennes</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Désactive les paroles en temps réel</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurer l\'ancienne barre d\'action</string>
     <string name="revanced_spoof_app_version_target_summary">Sélectionner la version de l\'application à falsifier.</string>
     <string name="revanced_spoof_app_version_target_title">Choisir la version à falsifier</string>
     <string name="revanced_spoof_app_version_title">Falsifier la version de l\'app</string>

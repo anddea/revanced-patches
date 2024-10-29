@@ -15,10 +15,9 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.LikeDis
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.music.video.information.VideoInformationPatch
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -26,6 +25,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import kotlin.math.min
 
 @Suppress("unused")
@@ -48,7 +48,10 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
 
                 // hook download button
-                val addViewIndex = getTargetIndexWithMethodReferenceNameOrThrow("addView")
+                val addViewIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "addView"
+                }
                 val addViewRegister =
                     getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
 
@@ -83,10 +86,15 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
                 removeInstruction(replaceIndex)
 
                 // hide action button
-                val hasNextIndex = getTargetIndexWithMethodReferenceNameOrThrow("hasNext")
+                val hasNextIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            getReference<MethodReference>()?.name == "hasNext"
+                }
                 val freeRegister = min(implementation!!.registerCount - parameters.size - 2, 15)
 
-                val spannedIndex = getTargetIndexWithReferenceOrThrow(")Landroid/text/Spanned;")
+                val spannedIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.returnType == "Landroid/text/Spanned;"
+                }
                 val spannedRegister =
                     getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
                 val spannedReference = getInstruction<ReferenceInstruction>(spannedIndex).reference
@@ -124,7 +132,8 @@ object ActionBarComponentsPatch : BaseBytecodePatch(
 
         LikeDislikeContainerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getWideLiteralInstructionIndex(LikeDislikeContainer) + 2
+                val insertIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(LikeDislikeContainer) + 2
                 val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(

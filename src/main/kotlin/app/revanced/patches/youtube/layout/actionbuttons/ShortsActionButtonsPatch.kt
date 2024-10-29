@@ -23,6 +23,7 @@ object ShortsActionButtonsPatch : BaseResourcePatch(
         key = "IconType",
         default = DEFAULT_ICON,
         values = mapOf(
+            "Cairo" to DEFAULT_ICON,
             "Outline" to "outline",
             "OutlineCircle" to "outlinecircle",
             "Round" to DEFAULT_ICON,

@@ -22,12 +22,26 @@
         <item>MIDDLE</item>
         <item>END</item>
     </string-array>
+    <string-array name="revanced_change_layout_entries">
+        <item>@string/revanced_change_layout_entry_1</item>
+        <item>@string/revanced_change_layout_entry_2</item>
+        <item>@string/revanced_change_layout_entry_3</item>
+        <item>@string/revanced_change_layout_entry_4</item>
+        <item>@string/revanced_change_layout_entry_5</item>
+    </string-array>
+    <string-array name="revanced_change_layout_entry_values">
+        <item>ORIGINAL</item>
+        <item>SMALL_FORM_FACTOR</item>
+        <item>SMALL_FORM_FACTOR_WIDTH_DP</item>
+        <item>LARGE_FORM_FACTOR</item>
+        <item>LARGE_FORM_FACTOR_WIDTH_DP</item>
+    </string-array>
     <string-array name="revanced_change_start_page_entries">
         <item>@string/revanced_change_start_page_entry_default</item>
         <item>@string/revanced_change_start_page_entry_search</item>
+        <item>@string/revanced_change_start_page_entry_shorts</item>
         <item>@string/revanced_change_start_page_entry_subscriptions</item>
         <item>@string/revanced_change_start_page_entry_explore</item>
-        <item>@string/revanced_change_start_page_entry_shorts</item>
         <item>@string/revanced_change_start_page_entry_library</item>
         <item>@string/revanced_change_start_page_entry_liked_videos</item>
         <item>@string/revanced_change_start_page_entry_watch_later</item>
@@ -39,30 +53,28 @@
         <item>@string/revanced_change_start_page_entry_movies</item>
         <item>@string/revanced_change_start_page_entry_sports</item>
         <item>@string/revanced_change_start_page_entry_browse</item>
-        <item>@string/revanced_change_start_page_entry_playables</item>
         <item>@string/revanced_change_start_page_entry_courses</item>
     </string-array>
     <string-array name="revanced_change_start_page_entry_values">
-        <item></item>
-        <!-- YouTube Shortcuts -->
-        <item>open.search</item>
-        <item>open.subscriptions</item>
-        <item>open.explore</item>
-        <item>open.shorts</item>
-        <!-- YouTube Widgets -->
-        <item>www.youtube.com/feed/library</item>
-        <item>www.youtube.com/playlist?list=LL</item>
-        <item>www.youtube.com/playlist?list=WL</item>
-        <item>www.youtube.com/feed/history</item>
-        <item>www.youtube.com/feed/trending</item>
-        <item>www.youtube.com/gaming</item>
-        <item>www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig</item>
-        <item>www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ</item>
-        <item>www.youtube.com/feed/storefront?bp=ogUCKAI%3D</item>
-        <item>www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw</item>
-        <item>www.youtube.com/feed/guide_builder</item>
-        <item>www.youtube.com/playables</item>
-        <item>www.youtube.com/channel/UCtFRv9O2AHqOZjjynzrv-xg</item>
+        <item>ORIGINAL</item>
+        <!-- Intent Action -->
+        <item>SEARCH</item>
+        <item>SHORTS</item>
+        <!-- Browser Id -->
+        <item>SUBSCRIPTIONS</item>
+        <item>EXPLORE</item>
+        <item>LIBRARY</item>
+        <item>LIKED_VIDEO</item>
+        <item>WATCH_LATER</item>
+        <item>HISTORY</item>
+        <item>TRENDING</item>
+        <item>GAMING</item>
+        <item>LIVE</item>
+        <item>MUSIC</item>
+        <item>MOVIE</item>
+        <item>SPORTS</item>
+        <item>BROWSE</item>
+        <item>COURSES</item>
     </string-array>
     <string-array name="revanced_change_shorts_repeat_state_entries">
         <item>@string/revanced_change_shorts_repeat_state_entry_default</item>
@@ -169,6 +181,16 @@
         <item>PHONE</item>
         <item>TABLET</item>
     </string-array>
+    <string-array name="revanced_return_youtube_username_display_format_entries">
+        <item>@string/revanced_return_youtube_username_display_format_username_only</item>
+        <item>@string/revanced_return_youtube_username_display_format_username_handle</item>
+        <item>@string/revanced_return_youtube_username_display_format_handle_username</item>
+    </string-array>
+    <string-array name="revanced_return_youtube_username_display_format_entry_values">
+        <item>USERNAME_ONLY</item>
+        <item>USERNAME_HANDLE</item>
+        <item>HANDLE_USERNAME</item>
+    </string-array>
     <string-array name="revanced_shorts_double_tap_to_like_animation_entries">
         <item>@string/revanced_shorts_double_tap_to_like_animation_entry_1</item>
         <item>@string/revanced_shorts_double_tap_to_like_animation_entry_2</item>
@@ -206,6 +228,30 @@
         <item>18.05.40</item>
         <item>17.41.37</item>
         <item>17.33.42</item>
+    </string-array>
+    <string-array name="revanced_third_party_youtube_music_label">
+        <item>YouTube Music</item>
+    </string-array>
+    <string-array name="revanced_third_party_youtube_music_package_name">
+        <item>com.google.android.apps.youtube.music</item>
+    </string-array>
+    <string-array name="revanced_related_videos_offset_entries">
+        <item>-1</item>
+        <item>0</item>
+        <item>+1</item>
+        <item>+2</item>
+        <item>+3</item>
+        <item>+4</item>
+        <item>+5</item>
+    </string-array>
+    <string-array name="revanced_related_videos_offset_entry_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="revanced_watch_history_type_entries">
         <item>@string/revanced_watch_history_type_entry_1</item>

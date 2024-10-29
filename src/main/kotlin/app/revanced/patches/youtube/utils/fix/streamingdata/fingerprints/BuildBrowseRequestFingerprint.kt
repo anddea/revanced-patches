@@ -25,7 +25,7 @@ internal object BuildBrowseRequestFingerprint : MethodFingerprint(
     fun indexOfRequestFinishedListenerInstruction(methodDef: Method) =
         methodDef.indexOfFirstInstruction {
             opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>().toString() == "Lorg/chromium/net/ExperimentalUrlRequest${'$'}Builder;->setRequestFinishedListener(Lorg/chromium/net/RequestFinishedInfo${'$'}Listener;)Lorg/chromium/net/ExperimentalUrlRequest${'$'}Builder;"
+                    getReference<MethodReference>()?.name == "setRequestFinishedListener"
         }
 
     fun indexOfNewUrlRequestBuilderInstruction(methodDef: Method) =

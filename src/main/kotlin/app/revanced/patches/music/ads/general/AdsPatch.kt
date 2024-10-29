@@ -2,7 +2,6 @@ package app.revanced.patches.music.ads.general
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patches.music.ads.general.MusicAdsPatch.hookLithoFullscreenAds
 import app.revanced.patches.music.ads.general.MusicAdsPatch.hookNonLithoFullscreenAds
@@ -10,8 +9,6 @@ import app.revanced.patches.music.ads.general.fingerprints.AccountMenuFooterFing
 import app.revanced.patches.music.ads.general.fingerprints.FloatingLayoutFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.GetPremiumTextViewFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.InterstitialsContainerFingerprint
-import app.revanced.patches.music.ads.general.fingerprints.MembershipSettingsFingerprint
-import app.revanced.patches.music.ads.general.fingerprints.MembershipSettingsParentFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.NotifierShelfFingerprint
 import app.revanced.patches.music.ads.general.fingerprints.ShowDialogCommandFingerprint
 import app.revanced.patches.music.navigation.components.NavigationBarComponentsPatch
@@ -22,19 +19,21 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ButtonContainer
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.FloatingLayout
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.InterstitialsContainer
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PrivacyTosFooter
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 object AdsPatch : BaseBytecodePatch(
@@ -53,7 +52,6 @@ object AdsPatch : BaseBytecodePatch(
         FloatingLayoutFingerprint,
         GetPremiumTextViewFingerprint,
         InterstitialsContainerFingerprint,
-        MembershipSettingsParentFingerprint,
         NotifierShelfFingerprint,
         ShowDialogCommandFingerprint
     )
@@ -87,7 +85,7 @@ object AdsPatch : BaseBytecodePatch(
 
         FloatingLayoutFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val targetIndex = getWideLiteralInstructionIndex(FloatingLayout) + 2
+                val targetIndex = indexOfFirstWideLiteralInstructionValueOrThrow(FloatingLayout) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -103,7 +101,8 @@ object AdsPatch : BaseBytecodePatch(
 
         NotifierShelfFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val linearLayoutIndex = getWideLiteralInstructionIndex(ButtonContainer) + 3
+                val linearLayoutIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(ButtonContainer) + 3
                 val linearLayoutRegister =
                     getInstruction<OneRegisterInstruction>(linearLayoutIndex).registerA
 
@@ -135,16 +134,20 @@ object AdsPatch : BaseBytecodePatch(
         AccountMenuFooterFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val constIndex =
-                    getWideLiteralInstructionIndex(SharedResourceIdPatch.PrivacyTosFooter)
-                val walkerIndex = getTargetIndexOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL)
-                val viewIndex = getTargetIndexOrThrow(constIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstWideLiteralInstructionValueOrThrow(PrivacyTosFooter)
+                val walkerIndex =
+                    indexOfFirstInstructionOrThrow(constIndex + 2, Opcode.INVOKE_VIRTUAL)
+                val viewIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IGET_OBJECT)
                 val viewReference =
                     getInstruction<ReferenceInstruction>(viewIndex).reference.toString()
 
                 val walkerMethod = getWalkerMethod(context, walkerIndex)
                 walkerMethod.apply {
-                    val insertIndex = getTargetIndexWithReferenceOrThrow(viewReference)
-                    val nullCheckIndex = getTargetIndexOrThrow(insertIndex - 1, Opcode.IF_NEZ)
+                    val insertIndex = indexOfFirstInstructionOrThrow {
+                        getReference<FieldReference>()?.toString() == viewReference
+                    }
+                    val nullCheckIndex =
+                        indexOfFirstInstructionOrThrow(insertIndex - 1, Opcode.IF_NEZ)
                     val nullCheckRegister =
                         getInstruction<OneRegisterInstruction>(nullCheckIndex).registerA
 
@@ -155,20 +158,6 @@ object AdsPatch : BaseBytecodePatch(
                 }
             }
         }
-
-        // premium membership menu in settings
-        MembershipSettingsFingerprint.resolve(
-            context,
-            MembershipSettingsParentFingerprint.resultOrThrow().classDef
-        )
-        MembershipSettingsFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0, """
-                const/4 v0, 0x0
-                return-object v0
-                """
-        )
-
-        // endregion
 
         LithoFilterPatch.addFilter(ADS_FILTER_CLASS_DESCRIPTOR)
 

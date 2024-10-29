@@ -49,30 +49,6 @@ object ResourceUtils {
         )
     }
 
-    fun ResourceContext.addEntryValues(
-        path: String,
-        speedEntryValues: String,
-        attributeName: String
-    ) {
-        xmlEditor[path].use {
-            with(it.file) {
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
-
-                val newElement: Element = createElement("item")
-
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                    if (node.getAttribute("name") == attributeName) {
-                        newElement.appendChild(createTextNode(speedEntryValues))
-
-                        node.appendChild(newElement)
-                    }
-                }
-            }
-        }
-    }
-
     fun ResourceContext.addPreference(settingArray: Array<String>) {
         val prefs = this[TARGET_PREFERENCE_PATH]
 

@@ -9,13 +9,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.general.components.fingerprints.ChipCloudFingerprint
-import app.revanced.patches.music.general.components.fingerprints.ContentPillInFingerprint
+import app.revanced.patches.music.general.components.fingerprints.ContentPillFingerprint
 import app.revanced.patches.music.general.components.fingerprints.FloatingButtonFingerprint
 import app.revanced.patches.music.general.components.fingerprints.FloatingButtonParentFingerprint
 import app.revanced.patches.music.general.components.fingerprints.HistoryMenuItemFingerprint
 import app.revanced.patches.music.general.components.fingerprints.HistoryMenuItemOfflineTabFingerprint
 import app.revanced.patches.music.general.components.fingerprints.MediaRouteButtonFingerprint
+import app.revanced.patches.music.general.components.fingerprints.ParentToolMenuFingerprint
 import app.revanced.patches.music.general.components.fingerprints.PlayerOverlayChipFingerprint
+import app.revanced.patches.music.general.components.fingerprints.PreferenceScreenFingerprint
 import app.revanced.patches.music.general.components.fingerprints.SearchBarFingerprint
 import app.revanced.patches.music.general.components.fingerprints.SearchBarParentFingerprint
 import app.revanced.patches.music.general.components.fingerprints.SoundSearchFingerprint
@@ -26,16 +28,19 @@ import app.revanced.patches.music.general.components.fingerprints.TopBarMenuItem
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.music.utils.integrations.Constants.GENERAL_PATH
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.MusicTasteBuilderShelf
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.PlayerOverlayChip
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.TopBarMenuItemImageView
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
 import app.revanced.patches.shared.settingmenu.SettingsMenuPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.alsoResolve
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -55,12 +60,14 @@ object LayoutComponentsPatch : BaseBytecodePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     fingerprints = setOf(
         ChipCloudFingerprint,
-        ContentPillInFingerprint,
+        ContentPillFingerprint,
         FloatingButtonParentFingerprint,
         HistoryMenuItemFingerprint,
         HistoryMenuItemOfflineTabFingerprint,
         MediaRouteButtonFingerprint,
+        ParentToolMenuFingerprint,
         PlayerOverlayChipFingerprint,
+        PreferenceScreenFingerprint,
         SearchBarParentFingerprint,
         SoundSearchFingerprint,
         TasteBuilderConstructorFingerprint,
@@ -68,9 +75,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         TopBarMenuItemImageViewFingerprint
     )
 ) {
+    private const val INTEGRATIONS_SETTINGS_MENU_DESCRIPTOR =
+        "$GENERAL_PATH/SettingsMenuPatch;"
     private const val CUSTOM_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/CustomFilter;"
-
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "$COMPONENTS_PATH/LayoutComponentsFilter;"
 
@@ -99,7 +107,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
         PlayerOverlayChipFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val targetIndex =
-                    getWideLiteralInstructionIndex(SharedResourceIdPatch.PlayerOverlayChip) + 2
+                    indexOfFirstWideLiteralInstructionValueOrThrow(PlayerOverlayChip) + 2
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -176,8 +184,10 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         if (SettingsPatch.upward0642) {
             TopBarMenuItemImageViewFingerprint.resultOrThrow().mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(TopBarMenuItemImageView)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                val constIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(TopBarMenuItemImageView)
+                val targetIndex =
+                    indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -190,10 +200,39 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region patch for hide setting menus
+
+        PreferenceScreenFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructions(
+                implementation!!.instructions.lastIndex, """
+                    invoke-virtual/range {p0 .. p0}, Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+                    move-result-object v0
+                    invoke-static {v0}, $INTEGRATIONS_SETTINGS_MENU_DESCRIPTOR->hideSettingsMenu(Landroidx/preference/PreferenceScreen;)V
+                    """
+            )
+        }
+
+        // The lowest version supported by the patch does not have parent tool settings
+        ParentToolMenuFingerprint.result?.let {
+            it.mutableMethod.apply {
+                val index = it.scanResult.patternScanResult!!.startIndex + 1
+                val register = getInstruction<FiveRegisterInstruction>(index).registerD
+
+                addInstructions(
+                    index, """
+                        invoke-static {v$register}, $INTEGRATIONS_SETTINGS_MENU_DESCRIPTOR->hideParentToolsMenu(Z)Z
+                        move-result v$register
+                        """
+                )
+            }
+        }
+
+        // endregion
+
         // region patch for hide sound search button
 
         SoundSearchFingerprint.result?.let {
-            SoundSearchFingerprint.literalInstructionBooleanHook(
+            SoundSearchFingerprint.injectLiteralInstructionBooleanCall(
                 45625491,
                 "$GENERAL_CLASS_DESCRIPTOR->hideSoundSearchButton(Z)Z"
             )
@@ -204,7 +243,7 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide tap to update button
 
-        ContentPillInFingerprint.resultOrThrow().let {
+        ContentPillFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 addInstructionsWithLabels(
                     0,
@@ -227,8 +266,9 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
             parentResult.mutableMethod.apply {
                 val constIndex =
-                    getWideLiteralInstructionIndex(SharedResourceIdPatch.MusicTasteBuilderShelf)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+                    indexOfFirstWideLiteralInstructionValueOrThrow(MusicTasteBuilderShelf)
+                val targetIndex =
+                    indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
@@ -263,14 +303,11 @@ object LayoutComponentsPatch : BaseBytecodePatch(
 
         // region patch for hide voice search button
 
-        SearchBarFingerprint.resolve(
-            context,
-            SearchBarParentFingerprint.resultOrThrow().classDef
-        )
-        SearchBarFingerprint.resultOrThrow().let {
+        SearchBarFingerprint.alsoResolve(
+            context, SearchBarParentFingerprint
+        ).let {
             it.mutableMethod.apply {
-                val setVisibilityIndex =
-                    getTargetIndexWithMethodReferenceNameOrThrow("setVisibility")
+                val setVisibilityIndex = SearchBarFingerprint.indexOfVisibilityInstruction(this)
                 val setVisibilityInstruction =
                     getInstruction<FiveRegisterInstruction>(setVisibilityIndex)
 
@@ -296,16 +333,6 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             CategoryType.GENERAL,
             "revanced_custom_filter_strings",
             "revanced_custom_filter"
-        )
-        SettingsPatch.addSwitchPreference(
-            CategoryType.GENERAL,
-            "revanced_hide_settings_menu",
-            "false"
-        )
-        SettingsPatch.addPreferenceWithIntent(
-            CategoryType.GENERAL,
-            "revanced_hide_settings_menu_filter_strings",
-            "revanced_hide_settings_menu"
         )
         SettingsPatch.addSwitchPreference(
             CategoryType.GENERAL,
@@ -370,6 +397,67 @@ object LayoutComponentsPatch : BaseBytecodePatch(
             CategoryType.GENERAL,
             "revanced_hide_voice_search_button",
             "false"
+        )
+
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_parent_tools",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_general",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_playback",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_data_saving",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_downloads_and_storage",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_notification",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_privacy_and_location",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_recommendations",
+            "false",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_paid_memberships",
+            "true",
+            false
+        )
+        SettingsPatch.addSwitchPreference(
+            CategoryType.SETTINGS,
+            "revanced_hide_settings_menu_about",
+            "false",
+            false
         )
     }
 }

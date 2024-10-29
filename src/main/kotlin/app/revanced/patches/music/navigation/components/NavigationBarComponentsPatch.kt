@@ -11,13 +11,12 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.integrations.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.ColorGrey
+import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.Text1
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -50,7 +49,7 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
          * Enable black navigation bar
          */
         TabLayoutFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(ColorGrey)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(ColorGrey)
             val insertIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 opcode == Opcode.INVOKE_VIRTUAL
                         && getReference<MethodReference>()?.name == "setBackgroundColor"
@@ -70,8 +69,9 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
          */
         TabLayoutTextFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val constIndex = getWideLiteralInstructionIndex(SharedResourceIdPatch.Text1)
-                val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+                val constIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(Text1)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
                 val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -105,9 +105,12 @@ object NavigationBarComponentsPatch : BaseBytecodePatch(
             it.mutableMethod.apply {
                 val enumIndex = it.scanResult.patternScanResult!!.startIndex + 3
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
-                val insertEnumIndex = getTargetIndexOrThrow(Opcode.AND_INT_LIT8) - 2
+                val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
 
-                val pivotTabIndex = getTargetIndexWithMethodReferenceNameOrThrow("getVisibility")
+                val pivotTabIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "getVisibility"
+                }
                 val pivotTabRegister = getInstruction<Instruction35c>(pivotTabIndex).registerC
 
                 addInstruction(

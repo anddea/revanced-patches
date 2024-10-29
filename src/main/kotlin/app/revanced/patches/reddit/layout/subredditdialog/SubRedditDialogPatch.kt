@@ -12,7 +12,7 @@ import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.Cancel
 import app.revanced.patches.reddit.utils.resourceid.SharedResourceIdPatch.TextAppearanceRedditBaseOldButtonColored
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -39,7 +39,8 @@ object SubRedditDialogPatch : BaseBytecodePatch(
 
         FrequentUpdatesSheetScreenFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val cancelButtonViewIndex = getWideLiteralInstructionIndex(CancelButton) + 2
+                val cancelButtonViewIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(CancelButton) + 2
                 val cancelButtonViewRegister =
                     getInstruction<OneRegisterInstruction>(cancelButtonViewIndex).registerA
 
@@ -53,7 +54,9 @@ object SubRedditDialogPatch : BaseBytecodePatch(
         RedditAlertDialogsFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex =
-                    getWideLiteralInstructionIndex(TextAppearanceRedditBaseOldButtonColored) + 1
+                    indexOfFirstWideLiteralInstructionValueOrThrow(
+                        TextAppearanceRedditBaseOldButtonColored
+                    ) + 1
                 val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 addInstruction(

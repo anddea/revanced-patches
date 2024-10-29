@@ -7,6 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * For embedded playback.  Likely covers Google Play store and other Google products.
  */
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object RemoteEmbedFragmentFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     returnType = "V",
