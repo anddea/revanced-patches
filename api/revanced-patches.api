@@ -783,16 +783,19 @@ public final class app/revanced/patches/shared/litho/LithoFilterPatch : app/reva
 public abstract class app/revanced/patches/shared/mainactivity/BaseMainActivityResolvePatch : app/revanced/patcher/patch/BytecodePatch {
 	public field mainActivityMutableClass Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;
 	public field onConfigurationChangedMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public field onCreateMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public final fun getMainActivityMutableClass ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;
 	public final fun getOnConfigurationChangedMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public final fun getOnCreateMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public final fun injectConstructorMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun injectOnBackPressedMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun injectOnCreateMethodCall (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun setMainActivityMutableClass (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;)V
 	public final fun setOnConfigurationChangedMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
+	public final fun setOnCreateMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
 }
 
 public final class app/revanced/patches/shared/mapping/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
