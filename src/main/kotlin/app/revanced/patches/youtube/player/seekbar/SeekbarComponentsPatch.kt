@@ -12,6 +12,7 @@ import app.revanced.patches.shared.drawable.DrawableColorPatch
 import app.revanced.patches.youtube.player.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ControlsOverlayStyleFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.SeekbarTappingFingerprint
+import app.revanced.patches.youtube.player.seekbar.fingerprints.SeekbarThumbnailsQualityFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.ThumbnailPreviewConfigFingerprint
 import app.revanced.patches.youtube.player.seekbar.fingerprints.TimeCounterFingerprint
@@ -24,6 +25,7 @@ import app.revanced.patches.youtube.utils.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.fingerprints.TotalTimeFingerprint
 import app.revanced.patches.youtube.utils.flyoutmenu.FlyoutMenuHookPatch
+import app.revanced.patches.youtube.utils.integrations.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.InlineTimeBarColorizedBarPlayedColorDark
@@ -62,6 +64,7 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
         PlayerSeekbarColorFingerprint,
         SeekbarFingerprint,
         SeekbarTappingFingerprint,
+        SeekbarThumbnailsQualityFingerprint,
         ShortsSeekbarColorFingerprint,
         TimelineMarkerArrayFingerprint,
         ThumbnailPreviewConfigFingerprint,
@@ -233,6 +236,15 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         // endregion
 
+        // region patch for high quality thumbnails
+
+        SeekbarThumbnailsQualityFingerprint.injectLiteralInstructionBooleanCall(
+            45399684,
+            "$PLAYER_CLASS_DESCRIPTOR->enableHighQualityFullscreenThumbnails()Z"
+        )
+
+        // endregion
+
         // region patch for hide chapter
 
         TimelineMarkerArrayFingerprint.resultOrThrow().let {
@@ -320,6 +332,8 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
             )
 
             settingArray += "SETTINGS: RESTORE_OLD_SEEKBAR_THUMBNAILS"
+
+            context.updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
         }
             ?: println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
 
