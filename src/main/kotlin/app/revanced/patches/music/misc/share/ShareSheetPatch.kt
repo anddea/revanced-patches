@@ -12,8 +12,8 @@ import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.BottomS
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.patches.shared.litho.LithoFilterPatch
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -40,8 +40,8 @@ object ShareSheetPatch : BaseBytecodePatch(
     override fun execute(context: BytecodeContext) {
 
         BottomSheetRecyclerViewFingerprint.resultOrThrow().mutableMethod.apply {
-            val constIndex = getWideLiteralInstructionIndex(BottomSheetRecyclerView)
-            val targetIndex = getTargetIndexOrThrow(constIndex, Opcode.CHECK_CAST)
+            val constIndex = indexOfFirstWideLiteralInstructionValueOrThrow(BottomSheetRecyclerView)
+            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

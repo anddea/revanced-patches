@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.translations
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.util.inputStreamFromBundledResource
 import org.w3c.dom.Node
 import java.io.File
@@ -14,28 +15,78 @@ import javax.xml.transform.stream.StreamResult
 
 @Suppress("DEPRECATION")
 object TranslationsUtils {
+    internal fun ResourceContext.invoke(
+        customTranslation: String?,
+        selectedTranslations: String?,
+        selectedStringResources: String?,
+        translationsArray: Array<String>,
+        sourceDirectory: String
+    ) {
+        // Check if the custom translation path is valid.
+        customTranslation?.takeIf { it.isNotEmpty() }?.let { customLang ->
+            try {
+                val customLangFile = File(customLang)
+                if (!customLangFile.exists() || !customLangFile.isFile || customLangFile.name != "strings.xml") {
+                    throw PatchException("Invalid custom language file: $customLang")
+                }
+                val resourceDirectory = this["res"].resolve("values")
+                val destinationFile = resourceDirectory.resolve("strings.xml")
+
+                updateStringsXml(customLangFile, destinationFile)
+            } catch (e: Exception) {
+                // Exception is thrown if an invalid path is used in the patch option.
+                throw PatchException("Invalid custom translations path:  $customLang")
+            }
+        } ?: run {
+            // Process selected translations if no custom translation is set.
+            val selectedTranslationsArray =
+                selectedTranslations?.split(",")?.map { it.trim() }?.toTypedArray()
+                    ?: throw PatchException("Invalid selected languages.")
+            val filteredLanguages =
+                translationsArray.filter { it in selectedTranslationsArray }.toTypedArray()
+            copyXml(sourceDirectory, filteredLanguages)
+        }
+
+        // Process selected string resources.
+        val selectedStringResourcesArray =
+            selectedStringResources?.split(",")?.map { it.trim() }?.toTypedArray()
+                ?: throw PatchException("Invalid selected string resources.")
+        val filteredStringResources =
+            APP_LANGUAGES.filter { it in selectedStringResourcesArray }.toTypedArray()
+        val resourceDirectory = this["res"]
+
+        // Remove unselected app languages.
+        APP_LANGUAGES.filter { it !in filteredStringResources }.forEach { language ->
+            resourceDirectory.resolve("values-$language").takeIf { it.exists() && it.isDirectory }
+                ?.deleteRecursively()
+        }
+    }
+
     /**
      * Extension function to ResourceContext to copy XML translation files.
      *
      * @param sourceDirectory The source directory containing the translation files.
      * @param languageArray The array of language codes to process.
      */
-    internal fun ResourceContext.copyXml(
+    private fun ResourceContext.copyXml(
         sourceDirectory: String,
         languageArray: Array<String>
     ) {
         languageArray.forEach { language ->
-            val directory = "values-$language-v21"
-            this["res/$directory"].mkdir()
+            inputStreamFromBundledResource(
+                "$sourceDirectory/translations",
+                "$language/strings.xml"
+            )?.let { inputStream ->
+                val directory = "values-$language-v21"
+                val valuesV21Directory = this["res"].resolve(directory)
+                if (!valuesV21Directory.isDirectory) Files.createDirectories(valuesV21Directory.toPath())
 
-            Files.copy(
-                inputStreamFromBundledResource(
-                    "$sourceDirectory/translations",
-                    "$language/strings.xml"
-                )!!,
-                this["res"].resolve("$directory/strings.xml").toPath(),
-                StandardCopyOption.REPLACE_EXISTING
-            )
+                Files.copy(
+                    inputStream,
+                    this["res"].resolve("$directory/strings.xml").toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+                )
+            }
         }
     }
 
@@ -49,7 +100,7 @@ object TranslationsUtils {
      * @param sourceFile The source strings.xml file containing new string values.
      * @param destinationFile The destination strings.xml file to be updated with values from the source file.
      */
-    internal fun updateStringsXml(sourceFile: File, destinationFile: File) {
+    private fun updateStringsXml(sourceFile: File, destinationFile: File) {
         val documentBuilderFactory = DocumentBuilderFactory.newInstance()
         val documentBuilder = documentBuilderFactory.newDocumentBuilder()
 

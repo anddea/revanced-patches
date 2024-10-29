@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.Inset
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.ScrimOverlay
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch.SeekUndoEduOverlayStub
 import app.revanced.patches.youtube.utils.sponsorblock.SponsorBlockBytecodePatch
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -26,9 +26,9 @@ internal object YouTubeControlsOverlayFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = emptyList(),
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(FadeDurationFast)
-                && methodDef.containsWideLiteralInstructionIndex(InsetOverlayViewLayout)
-                && methodDef.containsWideLiteralInstructionIndex(ScrimOverlay)
-                && methodDef.containsWideLiteralInstructionIndex(SeekUndoEduOverlayStub)
+        methodDef.containsWideLiteralInstructionValue(FadeDurationFast)
+                && methodDef.containsWideLiteralInstructionValue(InsetOverlayViewLayout)
+                && methodDef.containsWideLiteralInstructionValue(ScrimOverlay)
+                && methodDef.containsWideLiteralInstructionValue(SeekUndoEduOverlayStub)
     }
 )

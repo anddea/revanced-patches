@@ -23,8 +23,8 @@ import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.patches.youtube.utils.settings.SettingsPatch.contexts
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.getWideLiteralInstructionIndex
-import app.revanced.util.literalInstructionBooleanHook
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import app.revanced.util.transformMethods
@@ -90,7 +90,8 @@ object SwipeControlsPatch : BaseBytecodePatch(
 
         FullScreenEngagementOverlayFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val viewIndex = getWideLiteralInstructionIndex(FullScreenEngagementOverlay) + 3
+                val viewIndex =
+                    indexOfFirstWideLiteralInstructionValueOrThrow(FullScreenEngagementOverlay) + 3
                 val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
 
                 addInstruction(
@@ -120,7 +121,6 @@ object SwipeControlsPatch : BaseBytecodePatch(
                     """, ExternalLabel("default", getInstruction(0))
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: DISABLE_HDR_BRIGHTNESS"
         }
 
@@ -131,12 +131,11 @@ object SwipeControlsPatch : BaseBytecodePatch(
         // Since it does not support all versions,
         // add settings only if the patch is successful.
         SwipeToSwitchVideoFingerprint.result?.let {
-            SwipeToSwitchVideoFingerprint.literalInstructionBooleanHook(
+            SwipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
                 45631116,
                 "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: ENABLE_SWIPE_TO_SWITCH_VIDEO"
         }
 
@@ -147,12 +146,11 @@ object SwipeControlsPatch : BaseBytecodePatch(
         // Since it does not support all versions,
         // add settings only if the patch is successful.
         WatchPanelGesturesFingerprint.result?.let {
-            WatchPanelGesturesFingerprint.literalInstructionBooleanHook(
+            WatchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
                 45372793,
                 "$INTEGRATIONS_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableWatchPanelGestures()Z"
             )
 
-            settingArray += "PREFERENCE_CATEGORY: SWIPE_CONTROLS_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
         }
 

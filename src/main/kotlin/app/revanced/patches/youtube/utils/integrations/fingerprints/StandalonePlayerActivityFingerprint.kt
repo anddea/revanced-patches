@@ -8,7 +8,10 @@ import app.revanced.patches.shared.integrations.BaseIntegrationsPatch.Integratio
  * In 2023 supported was ended and is no longer available,
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
+ *
+ * Deprecated in YouTube v19.38.xx+.
  */
+@Deprecated("Fingerprint is obsolete and will be deleted soon")
 internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;"

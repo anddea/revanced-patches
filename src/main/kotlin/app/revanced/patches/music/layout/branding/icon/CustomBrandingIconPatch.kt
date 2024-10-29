@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPat
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.settings.ResourceUtils.setIconType
+import app.revanced.patches.music.utils.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
@@ -15,6 +16,7 @@ import app.revanced.util.underBarOrThrow
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 
 @Suppress("DEPRECATION", "unused")
 object CustomBrandingIconPatch : BaseResourcePatch(
@@ -23,6 +25,10 @@ object CustomBrandingIconPatch : BaseResourcePatch(
     compatiblePackages = COMPATIBLE_PACKAGE,
     use = false,
 ) {
+    private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
+        "adaptiveproduct_youtube_music_background_color_108"
+    private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
+        "adaptiveproduct_youtube_music_foreground_color_108"
     private const val DEFAULT_ICON_KEY = "Xisr Yellow"
 
     private val availableIcon = mapOf(
@@ -31,6 +37,9 @@ object CustomBrandingIconPatch : BaseResourcePatch(
         "MMT" to "mmt",
         "MMT Blue" to "mmt_blue",
         "MMT Green" to "mmt_green",
+        "MMT Orange" to "mmt_orange",
+        "MMT Pink" to "mmt_pink",
+        "MMT Turquoise" to "mmt_turquoise",
         "MMT Yellow" to "mmt_yellow",
         "Revancify Blue" to "revancify_blue",
         "Revancify Red" to "revancify_red",
@@ -73,8 +82,8 @@ object CustomBrandingIconPatch : BaseResourcePatch(
     ).map { "$it.png" }.toTypedArray()
 
     private val launcherIconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_background_color_108",
-        "adaptiveproduct_youtube_music_foreground_color_108",
+        ADAPTIVE_ICON_BACKGROUND_FILE_NAME,
+        ADAPTIVE_ICON_FOREGROUND_FILE_NAME,
         "ic_launcher_release"
     ).map { "$it.png" }.toTypedArray()
 
@@ -257,5 +266,53 @@ object CustomBrandingIconPatch : BaseResourcePatch(
 
             setIconType(appIcon)
         }
+
+        // region fix app icon
+
+        if (!SettingsPatch.upward0723) {
+            return
+        }
+        if (appIcon == "youtube_music") {
+            return
+        }
+
+        fun getAdaptiveIconResourceFile(tag: String): String {
+            context.xmlEditor["res/mipmap-anydpi/ic_launcher_release.xml"].use { editor ->
+                val adaptiveIcon = editor
+                    .file
+                    .getElementsByTagName("adaptive-icon")
+                    .item(0) as Element
+
+                val childNodes = adaptiveIcon.childNodes
+                for (i in 0 until childNodes.length) {
+                    val node = childNodes.item(i)
+                    if (node is Element && node.tagName == tag && node.hasAttribute("android:drawable")) {
+                        return node.getAttribute("android:drawable").split("/")[1]
+                    }
+                }
+                throw PatchException("Element not found: $tag")
+            }
+        }
+
+        mapOf(
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("background"),
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("foreground")
+        ).forEach { (oldIconResourceFile, newIconResourceFile) ->
+            mipmapDirectories.forEach {
+                val mipmapDirectory = context["res"].resolve(it)
+                Files.move(
+                    mipmapDirectory
+                        .resolve("$oldIconResourceFile.png")
+                        .toPath(),
+                    mipmapDirectory
+                        .resolve("$newIconResourceFile.png")
+                        .toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+                )
+            }
+        }
+
+        // endregion
+
     }
 }

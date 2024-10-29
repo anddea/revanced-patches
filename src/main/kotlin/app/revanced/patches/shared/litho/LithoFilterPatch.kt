@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -15,10 +14,11 @@ import app.revanced.patches.shared.integrations.Constants.COMPONENTS_PATH
 import app.revanced.patches.shared.litho.fingerprints.ByteBufferFingerprint
 import app.revanced.patches.shared.litho.fingerprints.EmptyComponentsFingerprint
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
+import app.revanced.util.findMethodsOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.getStringInstructionIndex
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -96,17 +96,20 @@ object LithoFilterPatch : BytecodePatch(
                     }
                     .map { (index, _) -> index }
                     .reversed()
-                    .forEach {
-                        val insertRegister =
-                            getInstruction<OneRegisterInstruction>(it + 1).registerA
-                        val insertIndex = it + 2
+                    .forEach { index ->
+                        val insertInstruction = getInstruction(index + 1)
+                        if (insertInstruction is OneRegisterInstruction) {
+                            val insertRegister =
+                                insertInstruction.registerA
+                            val insertIndex = index + 2
 
-                        addInstructionsWithLabels(
-                            insertIndex, """
+                            addInstructionsWithLabels(
+                                insertIndex, """
                                     if-nez v$insertRegister, :ignore
                                     """ + emptyComponentLabel,
-                            ExternalLabel("ignore", getInstruction(insertIndex))
-                        )
+                                ExternalLabel("ignore", getInstruction(insertIndex))
+                            )
+                        }
                     }
 
                 emptyComponentLabel = """
@@ -127,7 +130,7 @@ object LithoFilterPatch : BytecodePatch(
                 val stringBuilderRegister =
                     getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
-                val emptyStringIndex = getStringInstructionIndex("")
+                val emptyStringIndex = indexOfFirstStringInstructionOrThrow("")
                 val identifierRegister = getInstruction<TwoRegisterInstruction>(
                     indexOfFirstInstructionReversedOrThrow(emptyStringIndex) {
                         opcode == Opcode.IPUT_OBJECT
@@ -156,10 +159,8 @@ object LithoFilterPatch : BytecodePatch(
         // Create a new method to get the filter array to avoid register conflicts.
         // This fixes an issue with Integrations compiled with Android Gradle Plugin 8.3.0+.
         // https://github.com/ReVanced/revanced-patches/issues/2818
-        val lithoFilterMethods = context.findClass(INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR)
-            ?.mutableClass
-            ?.methods
-            ?: throw PatchException("LithoFilterPatch class not found.")
+        val lithoFilterMethods =
+            context.findMethodsOrThrow(INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR)
 
         lithoFilterMethods
             .first { it.name == "<clinit>" }

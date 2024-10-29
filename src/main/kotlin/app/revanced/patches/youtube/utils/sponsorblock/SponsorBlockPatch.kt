@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatc
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.settings.SettingsPatch
 import app.revanced.util.*
-import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.patch.BaseResourcePatch
 import org.w3c.dom.Element
 
@@ -55,6 +54,7 @@ object SponsorBlockPatch : BaseResourcePatch(
             ),
             ResourceGroup(
                 "drawable",
+                "revanced_sb_drag_handle.xml",
                 "revanced_sb_new_segment_background.xml",
                 "revanced_sb_skip_sponsor_button_background.xml"
             )
@@ -73,7 +73,6 @@ object SponsorBlockPatch : BaseResourcePatch(
                     "revanced_sb_adjust.xml",
                     "revanced_sb_backward.xml",
                     "revanced_sb_compare.xml",
-                    "revanced_sb_drag_handle.xml",
                     "revanced_sb_edit.xml",
                     "revanced_sb_forward.xml",
                     "revanced_sb_logo.xml",
@@ -93,7 +92,6 @@ object SponsorBlockPatch : BaseResourcePatch(
                     "drawable",
                     "revanced_sb_adjust.xml",
                     "revanced_sb_compare.xml",
-                    "revanced_sb_drag_handle.xml",
                     "revanced_sb_edit.xml",
                     "revanced_sb_logo.xml",
                     "revanced_sb_publish.xml",

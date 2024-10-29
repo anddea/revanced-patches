@@ -3,7 +3,7 @@ package app.revanced.patches.music.general.components.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.HistoryMenuItem
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -16,7 +16,7 @@ internal object HistoryMenuItemFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, classDef ->
-        methodDef.containsWideLiteralInstructionIndex(HistoryMenuItem)
+        methodDef.containsWideLiteralInstructionValue(HistoryMenuItem)
                 && classDef.methods.count() == 5
     }
 )

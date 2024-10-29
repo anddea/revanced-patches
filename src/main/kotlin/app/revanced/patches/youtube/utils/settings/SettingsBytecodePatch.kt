@@ -8,8 +8,8 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_CLASS_DESCRIPTOR
+import app.revanced.patches.shared.integrations.Constants.INTEGRATIONS_UTILS_PATH
 import app.revanced.patches.shared.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.utils.integrations.Constants.INTEGRATIONS_PATH
 import app.revanced.patches.youtube.utils.integrations.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.mainactivity.MainActivityResolvePatch
 import app.revanced.patches.youtube.utils.resourceid.SharedResourceIdPatch
@@ -31,7 +31,7 @@ object SettingsBytecodePatch : BytecodePatch(
         "$UTILS_PATH/InitializationPatch;"
 
     private const val INTEGRATIONS_THEME_METHOD_DESCRIPTOR =
-        "$INTEGRATIONS_PATH/utils/ThemeUtils;->setTheme(Ljava/lang/Enum;)V"
+        "$INTEGRATIONS_UTILS_PATH/BaseThemeUtils;->setTheme(Ljava/lang/Enum;)V"
 
     internal lateinit var contexts: BytecodeContext
 

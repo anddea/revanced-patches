@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.HistoryMenuItem
 import app.revanced.patches.music.utils.resourceid.SharedResourceIdPatch.OfflineSettingsMenuItem
-import app.revanced.util.containsWideLiteralInstructionIndex
+import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -17,7 +17,7 @@ internal object HistoryMenuItemOfflineTabFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionIndex(HistoryMenuItem)
-                && methodDef.containsWideLiteralInstructionIndex(OfflineSettingsMenuItem)
+        methodDef.containsWideLiteralInstructionValue(HistoryMenuItem)
+                && methodDef.containsWideLiteralInstructionValue(OfflineSettingsMenuItem)
     }
 )

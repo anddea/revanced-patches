@@ -11,11 +11,11 @@ import app.revanced.patches.music.utils.fingerprints.PendingIntentReceiverFinger
 import app.revanced.patches.music.utils.integrations.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.SettingsPatch
-import app.revanced.util.getStringInstructionIndex
-import app.revanced.util.getTargetIndexReversedOrThrow
-import app.revanced.util.getTargetIndexWithReferenceOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -41,13 +41,14 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
 
         PendingIntentReceiverFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val startIndex = getStringInstructionIndex("YTM Dislike")
+                val startIndex = indexOfFirstStringInstructionOrThrow("YTM Dislike")
                 val onClickRelayIndex =
-                    getTargetIndexReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
+                    indexOfFirstInstructionReversedOrThrow(startIndex, Opcode.INVOKE_VIRTUAL)
                 val onClickRelayMethod = getWalkerMethod(context, onClickRelayIndex)
 
                 onClickRelayMethod.apply {
-                    val onClickMethodIndex = getTargetIndexReversedOrThrow(Opcode.INVOKE_DIRECT)
+                    val onClickMethodIndex =
+                        indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                     val onClickMethod = getWalkerMethod(context, onClickMethodIndex)
 
                     onClickMethod.apply {
@@ -70,7 +71,9 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
 
         DislikeButtonOnClickListenerFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val onClickIndex = getTargetIndexWithReferenceOrThrow(onClickReference.toString())
+                val onClickIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.toString() == onClickReference.toString()
+                }
                 injectCall(onClickIndex)
             }
         }
@@ -84,7 +87,7 @@ object DislikeRedirectionPatch : BaseBytecodePatch(
     }
 
     private fun MutableMethod.injectCall(onClickIndex: Int) {
-        val targetIndex = getTargetIndexReversedOrThrow(onClickIndex, Opcode.IF_EQZ)
+        val targetIndex = indexOfFirstInstructionReversedOrThrow(onClickIndex, Opcode.IF_EQZ)
         val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
         addInstructionsWithLabels(

@@ -8,14 +8,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedArrayGeneratorFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFallBackFingerprint
 import app.revanced.patches.shared.customspeed.fingerprints.SpeedLimiterFingerprint
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexWithFieldReferenceTypeOrThrow
-import app.revanced.util.getTargetIndexWithMethodReferenceNameOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 abstract class BaseCustomPlaybackSpeedPatch(
     private val descriptor: String,
@@ -39,7 +39,9 @@ abstract class BaseCustomPlaybackSpeedPatch(
                         """
                 )
 
-                val sizeIndex = getTargetIndexWithMethodReferenceNameOrThrow("size") + 1
+                val sizeIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "size"
+                } + 1
                 val sizeRegister = getInstruction<OneRegisterInstruction>(sizeIndex).registerA
 
                 addInstructions(
@@ -49,7 +51,9 @@ abstract class BaseCustomPlaybackSpeedPatch(
                         """
                 )
 
-                val arrayIndex = getTargetIndexWithFieldReferenceTypeOrThrow("[F")
+                val arrayIndex = indexOfFirstInstructionOrThrow {
+                    getReference<FieldReference>()?.type == "[F"
+                }
                 val arrayRegister = getInstruction<OneRegisterInstruction>(arrayIndex).registerA
 
                 addInstructions(
@@ -73,7 +77,7 @@ abstract class BaseCustomPlaybackSpeedPatch(
                 val limiterMinConstIndex =
                     indexOfFirstInstructionOrThrow { (this as? NarrowLiteralInstruction)?.narrowLiteral == 0.25f.toRawBits() }
                 val limiterMaxConstIndex =
-                    getTargetIndexOrThrow(limiterMinConstIndex + 1, Opcode.CONST_HIGH16)
+                    indexOfFirstInstructionOrThrow(limiterMinConstIndex + 1, Opcode.CONST_HIGH16)
 
                 val limiterMinConstDestination =
                     getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA

@@ -6,20 +6,28 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.fingerprints.AutoNavConstructorFingerprint
+import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.fingerprints.AutoNavStatusFingerprint
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.fingerprints.RemoveOnLayoutChangeListenerFingerprint
 import app.revanced.patches.youtube.utils.integrations.Constants.PLAYER_CLASS_DESCRIPTOR
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getTargetIndexReversedOrThrow
+import app.revanced.util.alsoResolve
+import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     description = "Fixes an issue where the suggested video end screen is always visible regardless of whether autoplay is set or not."
 )
 object SuggestedVideoEndScreenPatch : BytecodePatch(
-    setOf(RemoveOnLayoutChangeListenerFingerprint)
+    setOf(
+        AutoNavConstructorFingerprint,
+        RemoveOnLayoutChangeListenerFingerprint
+    )
 ) {
     override fun execute(context: BytecodeContext) {
 
@@ -36,14 +44,23 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
                 it.getWalkerMethod(context, it.scanResult.patternScanResult!!.endIndex)
 
             walkerIndex.apply {
-                val invokeInterfaceIndex = getTargetIndexOrThrow(Opcode.INVOKE_INTERFACE)
+                val autoNavStatusMethodName = AutoNavStatusFingerprint.alsoResolve(
+                    context, AutoNavConstructorFingerprint
+                ).mutableMethod.name
+                val invokeIndex =
+                    indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        reference?.returnType == "Z" &&
+                                reference.parameterTypes.size == 0 &&
+                                reference.name == autoNavStatusMethodName
+                    }
                 val iGetObjectIndex =
-                    getTargetIndexReversedOrThrow(invokeInterfaceIndex, Opcode.IGET_OBJECT)
+                    indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
 
-                val invokeInterfaceReference =
-                    getInstruction<ReferenceInstruction>(invokeInterfaceIndex).reference
+                val invokeReference = getInstruction<ReferenceInstruction>(invokeIndex).reference
                 val iGetObjectReference =
                     getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
+                val opcodeName = getInstruction(invokeIndex).opcode.name
 
                 addInstructionsWithLabels(
                     0,
@@ -55,7 +72,7 @@ object SuggestedVideoEndScreenPatch : BytecodePatch(
                         iget-object v0, p0, $iGetObjectReference
 
                         # This reference checks whether autoplay is turned on.
-                        invoke-interface {v0}, $invokeInterfaceReference
+                        $opcodeName {v0}, $invokeReference
                         move-result v0
 
                         # Hide suggested video end screen only when autoplay is turned off.

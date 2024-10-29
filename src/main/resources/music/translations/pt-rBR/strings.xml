@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continuar</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O GmsCore não tem permissão para executar em segundo plano.
@@ -30,10 +30,12 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="revanced_custom_filter_summary">Ativa o filtro personalizado para ocultar componentes do layout.</string>
     <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Velocidades personalizadas devem ser menores que %sx. Usando valores padrão.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Velocidade personalizada de reprodução inválida. Usando valores padrão.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Velocidades personalizadas devem ser menores que %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reprodução personalizadas inválidas.</string>
     <string name="revanced_custom_playback_speeds_summary">Adicionar ou alterar as velocidades de reprodução disponíveis.</string>
     <string name="revanced_custom_playback_speeds_title">Editar velocidades de reprodução personalizadas</string>
+    <string name="revanced_default_app_settings_summary">Para abrir os links de música do YouTube no RVX Music, ative \'Abrir links suportados\' e ative os endereços web suportados.</string>
+    <string name="revanced_default_app_settings_title">Abrir configurações padrão do aplicativo</string>
     <string name="revanced_disable_auto_captions_summary">Desativa as legendas de serem ativadas automaticamente.</string>
     <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Desabilita a animação inicial do Cairo quando o aplicativo é iniciado.</string>
@@ -86,6 +88,7 @@ Informações:
     <string name="revanced_enable_zen_mode_podcast_title">Ativar o modo Calmo em podcasts</string>
     <string name="revanced_enable_zen_mode_summary">Altera a cor de fundo do reprodutor para cinza claro para reduzir o cansaço visual.</string>
     <string name="revanced_enable_zen_mode_title">Ativar modo Calmo</string>
+    <string name="revanced_extended_reset_to_default_toast">Redefinir para os valores padrão.</string>
     <string name="revanced_extended_restart_first_run">Reinicie para carregar o layout normalmente</string>
     <string name="revanced_extended_restart_message">Atualizar e reiniciar</string>
     <string name="revanced_extended_settings_export_as_file">Exportar configurações para um arquivo</string>
@@ -227,8 +230,16 @@ Se estiver desativado, os anúncios em tela cheia serão bloqueados. (pode haver
     <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoção</string>
     <string name="revanced_hide_samples_shelf_summary">Oculta o painel Descobertas no feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ocultar painel Descobertas</string>
-    <string name="revanced_hide_settings_menu_filter_strings_summary">Lista de nomes do menu de configurações para filtrar, separados por novas linhas.</string>
-    <string name="revanced_hide_settings_menu_filter_strings_title">Filtro do menu configurações</string>
+    <string name="revanced_hide_settings_menu_about_title">Ocultar menu Sobre o YouTube Music</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menu Economia de dados</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ocultar menu Downloads e armazenamento</string>
+    <string name="revanced_hide_settings_menu_general_title">Ocultar menu Geral</string>
+    <string name="revanced_hide_settings_menu_notification_title">Ocultar Menu Notificações</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Ocultar menu Conheça o Music Premium</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Ocultar menu Central da família</string>
+    <string name="revanced_hide_settings_menu_playback_title">Ocultar menu Reprodução</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Ocultar menu Privacidade e dados</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Ocultar menu Recomendações</string>
     <string name="revanced_hide_settings_menu_summary">"Oculte elementos do menu de configurações.
 Isso oculta não apenas o menu de configurações do YT Music, mas também o menu de configurações do ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Ocultar menu de configurações</string>
@@ -248,8 +259,10 @@ Isso oculta não apenas o menu de configurações do YT Music, mas também o men
     <string name="revanced_preference_screen_misc_title">Diversos</string>
     <string name="revanced_preference_screen_navigation_title">Barra de Navegação</string>
     <string name="revanced_preference_screen_player_title">Reprodutor</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Menu de configurações</string>
     <string name="revanced_preference_screen_video_title">Vídeo</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Lembra a última velocidade de reprodução selecionada.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Lembrar mudança na velocidade de reprodução</string>
@@ -289,6 +302,23 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
     <string name="revanced_restore_old_player_layout_title">Restaurar antigo layout do reprodutor</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Retorna a aba da Biblioteca para o estilo antigo. (Experimental)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Restaurar antigo estilo do painel da biblioteca</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@identificador (Nome de usuário)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Selecione o formato de exibição do nome de usuário.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Formato de exibição</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Nome de usuário (@identificador)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Nome de usuário</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Substitui identificadores por nomes de usuários em comentários.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Ativar Return YouTube Username</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Uma Chave de desenvolvedor da API de Dados do YouTube v3 é necessária para substituir identificadores por nomes de usuários.
+
+A cota diária para chaves de API no plano gratuito é de 10.000, e 1 cota é usada para substituir um identificador por um nome de usuário para 1 comentário.
+
+Clique para ver como emitir uma chave de API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">Sobre a chave API de dados do YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">A chave de desenvolvedor para usar a API de Dados do YouTube v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Chave API dos Dados do YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Vá para &lt;a href=%1$s&gt;Criar um novo projeto&lt;/a&gt;.&lt;br&gt;2. Clique no botão &lt;b&gt;CRIAR&lt;/b&gt;.&lt;br&gt;3. Vá para &lt;a href=%2$s&gt;API de dados do YouTube v3&lt;/a&gt;.&lt;br&gt;4. Clique no botão &lt;b&gt;ATIVAR&lt;/b&gt;.&lt;br&gt;5. Clique no botão &lt;b&gt;CRIAR CREDENCIAIS&lt;/b&gt;.&lt;br&gt;6. Selecione a opção &lt;b&gt;Dados públicos&lt;/b&gt;.&lt;br&gt;7. Clique no botão &lt;b&gt;PRÓXIMO&lt;/b&gt;.&lt;br&gt;8. Copie a chave da API.&lt;br&gt;&lt;br&gt;※ A chave da API nunca deve ser compartilhada com outras pessoas, portanto, ela não é incluída nas configurações de Importação/Exportação.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Emitir chave de desenvolvedor da API de dados do YouTube v3</string>
     <string name="revanced_ryd_about">Sobre</string>
     <string name="revanced_ryd_attribution_summary">Os dados são fornecidos pela API do Return YouTube Dislike. Toque aqui para saber mais.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -298,12 +328,15 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
     <string name="revanced_ryd_dislike_percentage_title">Dislikes como porcentagem</string>
     <string name="revanced_ryd_enabled_summary">Mostra a contagem de deslike dos vídeos.</string>
     <string name="revanced_ryd_enabled_title">Ativar Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Mostra a contagem estimada de curtidas dos vídeos.</string>
+    <string name="revanced_ryd_estimated_like_title">Exibir curtidas estimadas</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes indisponível (limite de API do cliente atingido).</string>
     <string name="revanced_ryd_failure_connection_status_code">Deslikes indisponível (status %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Dislikes temporariamente indisponível (API expirou).</string>
     <string name="revanced_ryd_failure_generic">Deslikes indisponível (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Notificação flutuante exibida se o Return YouTube Dislike não está disponível.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
     <string name="revanced_sanitize_sharing_links_summary">Remove os parâmetros de consulta de rastreamento das URLs ao compartilhar os links.</string>
     <string name="revanced_sanitize_sharing_links_title">Limpar links compartilhados</string>
     <string name="revanced_sb_about">Sobre</string>
@@ -316,7 +349,7 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
     <string name="revanced_sb_api_url_sum">O endereço que o SponsorBlock usa para fazer chamadas para o servidor. Não mude isso a menos que você saiba o que está fazendo.</string>
     <string name="revanced_sb_color_changed">Cor alterada.</string>
     <string name="revanced_sb_color_dot_label">Cor:</string>
-    <string name="revanced_sb_color_invalid">Código de cor inválido. Redefinir cor para o padrão.</string>
+    <string name="revanced_sb_color_invalid">Código de cor inválido.</string>
     <string name="revanced_sb_color_reset">Redefinir cor.</string>
     <string name="revanced_sb_diff_segments">Alterar comportamento do segmento</string>
     <string name="revanced_sb_enabled">Ativar SponsorBlock</string>
@@ -367,6 +400,7 @@ Alguns recursos podem não funcionar corretamente no layout antigo do reprodutor
 • Se for desativada posteriormente, a interface do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de Rádio em regiões Canadenses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar barra de ação antiga</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>

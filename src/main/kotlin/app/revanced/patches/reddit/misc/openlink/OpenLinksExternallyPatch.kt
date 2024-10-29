@@ -9,7 +9,7 @@ import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACK
 import app.revanced.patches.reddit.utils.integrations.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.settings.SettingsBytecodePatch.updateSettingsStatus
 import app.revanced.patches.reddit.utils.settings.SettingsPatch
-import app.revanced.util.getStringInstructionIndex
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.patch.BaseBytecodePatch
 import app.revanced.util.resultOrThrow
 
@@ -27,7 +27,7 @@ object OpenLinksExternallyPatch : BaseBytecodePatch(
     override fun execute(context: BytecodeContext) {
         ScreenNavigatorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val insertIndex = getStringInstructionIndex("uri") + 2
+                val insertIndex = indexOfFirstStringInstructionOrThrow("uri") + 2
 
                 addInstructionsWithLabels(
                     insertIndex, """

@@ -15,8 +15,8 @@ import app.revanced.patches.reddit.utils.settings.fingerprints.AcknowledgementsL
 import app.revanced.patches.reddit.utils.settings.fingerprints.OssLicensesMenuActivityOnCreateFingerprint
 import app.revanced.patches.reddit.utils.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.patches.shared.fingerprints.SharedSettingFingerprint
-import app.revanced.util.getTargetIndexOrThrow
-import app.revanced.util.getWideLiteralInstructionIndex
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -39,7 +39,7 @@ object SettingsBytecodePatch : BytecodePatch(
     internal fun updateSettingsLabel(label: String) =
         acknowledgementsLabelBuilderMethod.apply {
             val insertIndex =
-                getWideLiteralInstructionIndex(LabelAcknowledgements) + 3
+                indexOfFirstWideLiteralInstructionValueOrThrow(LabelAcknowledgements) + 3
             val insertRegister =
                 getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
@@ -62,7 +62,7 @@ object SettingsBytecodePatch : BytecodePatch(
          */
         SharedSettingFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val stringIndex = getTargetIndexOrThrow(Opcode.CONST_STRING)
+                val stringIndex = indexOfFirstInstructionOrThrow(Opcode.CONST_STRING)
                 val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
 
                 replaceInstruction(

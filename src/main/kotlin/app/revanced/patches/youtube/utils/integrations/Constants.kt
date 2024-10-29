@@ -15,6 +15,7 @@ object Constants {
     const val OVERLAY_BUTTONS_PATH = "$PATCHES_PATH/overlaybutton"
     const val PLAYER_PATH = "$PATCHES_PATH/player"
     const val SHORTS_PATH = "$PATCHES_PATH/shorts"
+    const val SPANS_PATH = "$PATCHES_PATH/spans"
     const val SWIPE_PATH = "$PATCHES_PATH/swipe"
     const val UTILS_PATH = "$PATCHES_PATH/utils"
     const val VIDEO_PATH = "$PATCHES_PATH/video"
