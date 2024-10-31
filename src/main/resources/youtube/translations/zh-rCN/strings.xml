@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">开启视频播放器的访问控制？</string>
     <string name="accessibility_settings_edu_opt_out_text">由于无障碍服务已启用，您的控制被修改</string>
@@ -183,8 +183,8 @@
     <string name="revanced_disable_hdr_auto_brightness_summary_off">HDR 视频自动亮度已启用</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">HDR 视频自动亮度已禁用</string>
     <string name="revanced_disable_hdr_auto_brightness_title">禁用 HDR 视频自动亮度</string>
-    <string name="revanced_disable_hdr_video_summary_off">HDR 视频已禁用</string>
-    <string name="revanced_disable_hdr_video_summary_on">HDR 视频已启用</string>
+    <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
+    <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
     <string name="revanced_disable_hdr_video_title">HDR 视频</string>
     <string name="revanced_disable_landscape_mode_summary_off">全屏时的横屏模式已启用</string>
     <string name="revanced_disable_landscape_mode_summary_on">全屏时的横屏模式已禁用</string>
@@ -1239,8 +1239,8 @@ Note:
     <string name="revanced_preference_screen_player_flyout_menu_summary">隐藏或更改视频播放器中的弹出菜单</string>
     <string name="revanced_preference_screen_player_flyout_menu_title">弹出菜单</string>
     <string name="revanced_preference_screen_player_title">播放器</string>
-    <string name="revanced_preference_screen_return_youtube_username_title">返回 YouTube 用户名</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">恢复 YouTube 用户名</string>
+    <string name="revanced_preference_screen_ryd_title">恢复 YouTube 点踩</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
     <string name="revanced_preference_screen_seekbar_summary">自定义进度条组件</string>
     <string name="revanced_preference_screen_seekbar_title">进度条</string>
@@ -1312,7 +1312,7 @@ Note:
     <string name="revanced_return_youtube_username_display_format_username_only">用户名</string>
     <string name="revanced_return_youtube_username_enabled_summary_off">Handle 已使用</string>
     <string name="revanced_return_youtube_username_enabled_summary_on">用户名已使用</string>
-    <string name="revanced_return_youtube_username_enabled_title">启用返回 YouTube 用户名</string>
+    <string name="revanced_return_youtube_username_enabled_title">启用恢复 YouTube 用户名</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"需要 YouTube Data API v3 开发者密钥才能将 handle 替换为用户名
 
 免费计划下的 API 密钥每日配额为 10,000，其中每替换 1 条评论的 handle 为用户名会消耗 1 个配额
@@ -1334,7 +1334,7 @@ Note:
     <string name="revanced_ryd_dislike_percentage_title">点踩百分比</string>
     <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
     <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
-    <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+    <string name="revanced_ryd_enable_title">恢复 YouTube 点踩</string>
     <string name="revanced_ryd_estimated_like_summary_off">预估点赞数已隐藏</string>
     <string name="revanced_ryd_estimated_like_summary_on">预估点赞数已显示</string>
     <string name="revanced_ryd_estimated_like_title">显示预估点赞数</string>
@@ -1342,15 +1342,15 @@ Note:
     <string name="revanced_ryd_failure_connection_status_code">点踩数不可用(状态 %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">点踩数暂时不可用(API 连接超时)</string>
     <string name="revanced_ryd_failure_generic">点踩数不可用(%s)</string>
-    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频以使用 Return YouTube Dislike进行投票</string>
+    <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频以使用 Return YouTube Dislike 进行投票</string>
     <string name="revanced_ryd_shorts_summary_off">点踩数已在 Shorts 中隐藏</string>
     <string name="revanced_ryd_shorts_summary_on">点踩数已在 Shorts 中显示</string>
     <string name="revanced_ryd_shorts_summary_on_disclaimer">"在 Shorts 中显示点踩数
 
 限制：在无痕模式下，点踩数可能不会显示"</string>
     <string name="revanced_ryd_shorts_title">在 Shorts 中显示点踩数</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 YouTube Dislike 不可用，不会显示 Toast</string>
-    <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 YouTube Dislike 不可用，会显示 Toast</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_off">如果恢复 YouTube 点踩不可用，不显示 Toast</string>
+    <string name="revanced_ryd_toast_on_connection_error_summary_on">如果恢复 YouTube 点踩不可用，则显示 Toast</string>
     <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，显示 Toast</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隐藏</string>
     <string name="revanced_sanitize_sharing_links_summary">共享链接时，删除 URL 中的跟踪查询参数</string>
@@ -1360,7 +1360,7 @@ Note:
     <string name="revanced_sanitize_video_subtitle_title">清理视频字幕</string>
     <string name="revanced_sb_about">关于</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">数据由SponsorBlock API提供点击此处了解更多信息并查看其他平台的下载</string>
+    <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供，点击此处了解更多信息并查看其他平台的下载</string>
     <string name="revanced_sb_api_url_changed">API URL 已更改</string>
     <string name="revanced_sb_api_url_invalid">API URL 无效</string>
     <string name="revanced_sb_api_url_reset">API URL 已重置</string>
@@ -1459,7 +1459,7 @@ Note:
     <string name="revanced_sb_settings_copy">复制</string>
     <string name="revanced_sb_settings_export_failed">导出失败：%s</string>
     <string name="revanced_sb_settings_ie">导入 / 导出设置</string>
-    <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 配置，可导入 / 导出到 ReVanced Extended 和其他 SponsorBlock平台</string>
+    <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 配置，可导入 / 导出到 ReVanced Extended 和其他 SponsorBlock 平台</string>
     <string name="revanced_sb_settings_ie_sum_warning">您的 SponsorBlock JSON 配置，可导入 / 导出到 ReVanced Extended 和其他 SponsorBlock 平台包含您的私人用户 ID，请谨慎分享</string>
     <string name="revanced_sb_settings_import_failed">导入失败：%s</string>
     <string name="revanced_sb_settings_import_successful">配置文件成功导入</string>
@@ -1518,15 +1518,15 @@ Note:
     <string name="revanced_sb_stats_saved_zero">SponsorBlock 排行榜</string>
     <string name="revanced_sb_stats_sb_disabled">SponsorBlock 已禁用</string>
     <string name="revanced_sb_stats_self_saved">你已经跳过了 &lt;b&gt;%s&lt;/b&gt; 段视频</string>
-    <string name="revanced_sb_stats_self_saved_reset_title">重置跳过的段视频计数器？</string>
-    <string name="revanced_sb_stats_self_saved_sum">那是 &lt;b&gt;%s&lt;/b&gt;。</string>
+    <string name="revanced_sb_stats_self_saved_reset_title">重置跳过的视频片段计数器？</string>
+    <string name="revanced_sb_stats_self_saved_sum">一共 &lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_submissions">你已经创建了 &lt;b&gt;%s&lt;/b&gt; 段视频</string>
     <string name="revanced_sb_stats_submissions_sum">点击此处查看您的片段</string>
     <string name="revanced_sb_stats_username">你的用户名：&lt;b&gt;%s&lt;/b&gt;</string>
     <string name="revanced_sb_stats_username_change">点击这里更改你的用户名</string>
     <string name="revanced_sb_stats_username_change_unknown_error">无法更改用户名：状态：%1$d %2$s。</string>
     <string name="revanced_sb_stats_username_changed">用户名成功更改。</string>
-    <string name="revanced_sb_submit_failed_duplicate">无法提交该段视频。\n已存在。</string>
+    <string name="revanced_sb_submit_failed_duplicate">无法提交该视频片段\n已存在</string>
     <string name="revanced_sb_submit_failed_forbidden">无法提交片段：%s</string>
     <string name="revanced_sb_submit_failed_invalid">无法提交片段：%s</string>
     <string name="revanced_sb_submit_failed_rate_limit">无法提交片段\n频率受限(来自同一用户或 IP 次数过多)</string>
@@ -1625,14 +1625,9 @@ AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV
     <string name="revanced_spoof_streaming_data_summary_on">流媒体数据已伪装</string>
     <string name="revanced_spoof_streaming_data_title">伪装流媒体数据</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android 创建者</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android 嵌入式播放器</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android 测试套件</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">网址</string>
     <string name="revanced_spoof_streaming_data_type_title">默认客户端</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">关闭此选项可能会导致视频不能正常播放</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">亮度滑动灵敏度必须介于 1-1000 之间 (%)</string>
@@ -1673,7 +1668,6 @@ AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV
 如果此设置未生效，请尝试切换到隐身模式"</string>
     <string name="revanced_theme_default">Stock</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">警告</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 未安装，请先安装</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">已安装的 RVX Music 包名</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 包名</string>

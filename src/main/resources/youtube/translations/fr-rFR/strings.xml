@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Activer les contrôles d\'accessibilité pour le lecteur vidéo ?</string>
     <string name="accessibility_settings_edu_opt_out_text">Vos contrôles sont modifiés car un service d\'accessibilité est activé.</string>
@@ -1305,13 +1305,13 @@ Appuyez longuement pour ouvrir les paramètres YouTube."</string>
     <string name="revanced_return_youtube_username_enabled_title">Activer Return YouTube Username</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"La clé YouTube Data API v3 est nécessaire pour remplacer les identifiants par des noms d'utilisateurs.
 
-Le quota journalier pour les clés API sur le plan gratuit est de 10 000, et 1 quota est utilisé pour remplacer l'identifiant par un noms d'utilisateur pour 1 commentaire.
+Le quota journalier pour les clés API sur le plan gratuit est de 10 000, 1 quota est utilisé pour remplacer l'identifiant par un nom d'utilisateur pour 1 commentaire.
 
-Cliquez pour découvrir comment créer une clé API."</string>
+Cliquez ici pour découvrir comment créer une clé API."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">À propos de la clé YouTube Data API</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La clé de développeur pour utiliser l\'API des données YouTube v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">La clé de développeur pour utiliser YouTube Data API v3.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Clé API des données YouTube</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Allez sur &lt;a href=%1$s&gt;Nouveau projet&lt;/a&gt;.&lt;br&gt;2. Cliquez sur &lt;b&gt; le bouton&lt;/b&gt; Créer.&lt;br&gt;3. Allez sur &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; ACTIVER.&lt;br&gt;5. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; CRÉER DES IDENTIFIANTS.&lt;br&gt;6. Sélectionnez &lt;b&gt;l\'option&lt;/b&gt; Données Publiques.&lt;br&gt;7. Cliquez sur &lt;b&gt;le bouton&lt;/b&gt; SUIVANT.&lt;br&gt;8. copier la Clé API.&lt;br&gt;&lt;br&gt;※ La clé API ne doit jamais être partagé avec personne d\'autre, par conséquent, il n\'est pas inclus dans les paramètres Importer / Exporter.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Allez sur &lt;a href=%1$s&gt;Nouveau projet&lt;/a&gt;.&lt;br&gt;2. Cliquez sur le bouton &lt;b&gt; Créer&lt;/b&gt;.&lt;br&gt;3. Allez sur &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Cliquez sur le bouton &lt;b&gt;ACTIVER&lt;/b&gt;.&lt;br&gt;5. Cliquez sur le bouton &lt;b&gt;CRÉER DES IDENTIFIANTS&lt;/b&gt;.&lt;br&gt;6. Sélectionnez l\'option &lt;b&gt;Données Publiques&lt;/b&gt;.&lt;br&gt;7. Cliquez sur le bouton &lt;b&gt;SUIVANT&lt;/b&gt;.&lt;br&gt;8. Copiez la clé API.&lt;br&gt;&lt;br&gt;※ La clé API ne doit jamais être partagée avec d\'autres personnes, par conséquent, elle n\'est pas incluse dans les paramètres Importer / Exporter.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Obtenir une clé développeur pour YouTube Data API v3</string>
     <string name="revanced_ryd_about">À propos</string>
     <string name="revanced_ryd_attribution_summary">Les données des \"Je n\'aime pas\" sont fournies par l\'API de Return YouTube Dislike. Appuyez ici pour en savoir plus.</string>
@@ -1616,14 +1616,9 @@ AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera 
     <string name="revanced_spoof_streaming_data_summary_on">Les données de lecture en direct sont falsifiées.</string>
     <string name="revanced_spoof_streaming_data_title">Falsifier les données de lecture en direct</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Lecteur intégré Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Client par défaut</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilité des gestes de luminosité doit être comprise entre 1-1000 (%).</string>
@@ -1664,7 +1659,6 @@ Note : Activer ceci masquera également les publicités vidéos."</string>
 Si ce paramètre ne fait pas effet, essayer de passer en mode Incognito."</string>
     <string name="revanced_theme_default">Officiel</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attention</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s n\'est pas installé. Veuillez l’installer.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nom du paquet de RVX Music installé.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nom du paquet de RVX Music</string>

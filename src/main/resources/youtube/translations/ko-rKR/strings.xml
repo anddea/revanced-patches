@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에 접근성 컨트롤을 표시하시겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 켜져있기 때문에 플레이어 컨트롤을 변경합니다.</string>
@@ -271,6 +271,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다.</string>
     <string name="revanced_enable_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다.
+
+인터넷 데이터가 더 많이 사용될 수 있으며, 재생바 썸네일이 표시되기 전에 약간의 지연이 발생합니다.
+
+이 설정은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">재생바 썸네일이 일반화질입니다,</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">재생바 썸네일이 고화질입니다.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">고화질 썸네일 활성화하기</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">타임스탬프를 비활성화합니다.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"타임스탬프를 활성화합니다.
 
@@ -499,6 +507,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 세밀하게 보면서 탐색 제스처</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">필름 스트립 오버레이가 숨겨집니다.\n• 세밀하게 보면서 탐색 제스처</string>
     <string name="revanced_hide_filmstrip_overlay_title">필름 스트립 오버레이 숨기기</string>
+    <string name="revanced_hide_floating_button_summary_off">플로팅 버튼이 표시됩니다.</string>
+    <string name="revanced_hide_floating_button_summary_on">플로팅 버튼이 숨겨집니다.</string>
+    <string name="revanced_hide_floating_button_title">플로팅 버튼 숨기기</string>
     <string name="revanced_hide_floating_microphone_summary_off">검색할 때, 오른쪽 하단에서 플로팅 마이크 버튼이 표시됩니다.</string>
     <string name="revanced_hide_floating_microphone_summary_on">검색할 때, 오른쪽 하단에서 플로팅 마이크 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_floating_microphone_title">플로팅 마이크 버튼 숨기기</string>
@@ -597,9 +608,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_medical_panel_summary_off">보건 정보 패널이 표시됩니다.</string>
     <string name="revanced_hide_medical_panel_summary_on">보건 정보 패널이 숨겨집니다.</string>
     <string name="revanced_hide_medical_panel_title">보건 정보 패널 숨기기</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">태그된 제품 선반이 표시됩니다.</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">태그된 제품 선반이 숨겨집니다.</string>
-    <string name="revanced_hide_merchandise_shelf_title">태그된 제품 선반 숨기기</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">매장 쇼핑 선반이 표시됩니다.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">매장 쇼핑 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_merchandise_shelf_title">매장 쇼핑 선반 숨기기</string>
     <string name="revanced_hide_mix_playlists_summary_off">믹스 재생목록이 표시됩니다.</string>
     <string name="revanced_hide_mix_playlists_summary_on">믹스 재생목록이 숨겨집니다.</string>
     <string name="revanced_hide_mix_playlists_title">믹스 재생목록 숨기기</string>
@@ -717,6 +728,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_player_previous_next_button_summary_off">버튼이 표시됩니다.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">버튼이 숨겨집니다.</string>
     <string name="revanced_hide_player_previous_next_button_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">판매자 쇼핑 선반이 숨겨집니다.</string>
+    <string name="revanced_hide_player_store_shelf_title">판매자 쇼핑 선반 숨기기</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Music 버튼이 표시됩니다.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Music 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_player_youtube_music_button_title">YouTube Music 버튼 숨기기</string>
@@ -1626,7 +1640,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 데이터가 사용됩니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다.\n• 동영상이 1초 일찍 종료될 수 있습니다.\n• OPUS 오디오 코덱이 지원되지 않습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다.\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다.\n• 동영상이 1초 일찍 종료될 수 있습니다.\n• OPUS 오디오 코덱이 지원되지 않습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.</string>
@@ -1636,14 +1650,9 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Android Embedded Player</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android TestSuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">밝기 스와이프 감도는 1-1000 사이어야 합니다. (퍼센트)</string>
@@ -1684,7 +1693,6 @@ AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 �
 이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요."</string>
     <string name="revanced_theme_default">YouTube</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">경고</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 이 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">이 기기에 설치된 RVX Music 앱 패키지명을 설정하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">تمكين عناصر التحكم في إمكانية الوصول لمشغل الفيديو؟</string>
     <string name="accessibility_settings_edu_opt_out_text">تم تعديل عناصر التحكم الخاصة بك لأن خدمة إمكانية الوصول قيد التشغيل.</string>
@@ -268,6 +268,14 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">تم تعطيل النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">تم تمكين النقر على شريط الوقت (شريط تقدم الفيديو).</string>
     <string name="revanced_enable_seekbar_tapping_title">تمكين النقر على شريط التقدم</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"سيؤدي هذا إلى استعادة المصغرات للبث المباشر الذي لا يحتوي على مصغرات لشريط التقدم.
+
+قد يكون استخدام بيانات الإنترنت أعلى، وقد يحدث تأخير طفيف في عرض المصغرات لشريط التقدم.
+
+تعمل هذه الميزة بشكل أفضل مع اتصال إنترنت سريع للغاية."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">مصغرات شريط التقدم متوسطة الجودة.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">مصغرات شريط التقدم عالية الجودة.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">تمكين المصغرات عالية الجودة</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">تم تعطيل الطابع الزمني.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"تم تمكين الطابع الزمني.
 
@@ -488,6 +496,9 @@
     <string name="revanced_hide_filmstrip_overlay_summary_off">يتم عرض تراكب شريط الفيلم.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">تم إخفاء تراكب شريط الفيلم.</string>
     <string name="revanced_hide_filmstrip_overlay_title">إخفاء واجهة شريط الفيلم</string>
+    <string name="revanced_hide_floating_button_summary_off">يتم عرض الزر العائم.</string>
+    <string name="revanced_hide_floating_button_summary_on">تم إخفاء الزر العائم.</string>
+    <string name="revanced_hide_floating_button_title">إخفاء الزر العائم</string>
     <string name="revanced_hide_floating_microphone_summary_off">يتم عرض زر الميكروفون العائم.</string>
     <string name="revanced_hide_floating_microphone_summary_on">تم إخفاء زر الميكروفون العائم.</string>
     <string name="revanced_hide_floating_microphone_title">إخفاء زر الميكروفون العائم</string>
@@ -707,6 +718,9 @@
     <string name="revanced_hide_player_previous_next_button_summary_off">يتم عرض الأزرار.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">تم إخفاء الأزرار.</string>
     <string name="revanced_hide_player_previous_next_button_title">إخفاء أزرار السابق &amp; التالي</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">يتم عرض رف التسوق.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">تم إخفاء رف التسوق.</string>
+    <string name="revanced_hide_player_store_shelf_title">إخفاء رف مشغل التسوق</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">يتم عرض زر موسيقى YouTube.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">تم إخفاء زر موسيقى YouTube.</string>
     <string name="revanced_hide_player_youtube_music_button_title">إخفاء زر موسيقى YouTube</string>
@@ -1621,14 +1635,9 @@
     <string name="revanced_spoof_streaming_data_summary_on">يتم تزييف بيانات البث.</string>
     <string name="revanced_spoof_streaming_data_title">Spoof Streaming Data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">مشغل Android المضمّن</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى السطوع بين 1-1000 (%).</string>
@@ -1677,7 +1686,6 @@
 إذا لم يتم تفعيل هذا الإعداد، فحاول التبديل إلى وضع التصفح المتخفي."</string>
     <string name="revanced_theme_default">الإفتراضي</string>
     <string name="revanced_third_party_youtube_music_dialog_title">موسيقى RVX</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">تحذير</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s لم يتم تثبيته. الرجاء تثبيته.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">اسم الحزمة لموسيقى RVX المثبتة.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">اسم حزمة موسيقى RVX</string>

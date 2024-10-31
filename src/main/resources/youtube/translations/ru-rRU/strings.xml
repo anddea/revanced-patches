@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Включить специальные возможности в плеере?</string>
     <string name="accessibility_settings_edu_opt_out_text">Служба специальных возможностей включена. Управление изменено.</string>
@@ -322,6 +322,11 @@
     <string name="revanced_extended_confirm_user_dialog_title">Подтверждаете действие?</string>
     <string name="revanced_extended_reset_to_default_toast">К значениям по умолчанию.</string>
     <string name="revanced_extended_restart_first_run">Перезапустить для правильной загрузки интерфейса?</string>
+    <string name="revanced_extended_restart_first_run_rolling_number">"Существует ошибка на стороне YouTube, которую вызывает анимация прокручивания чисел - лайки, просмотры и даты загрузок будут скрыты для некоторых пользователей.
+
+Временный обход для этой проблемы - использовать версию приложения до 19.13.37.
+
+Вы хотите подменить версию приложения перед перезагрузкой?"</string>
     <string name="revanced_extended_restart_message">Перезапустить для применения?</string>
     <string name="revanced_extended_settings_export_failed">Не удалось экспортировать настройки.</string>
     <string name="revanced_extended_settings_export_success">Настройки успешно экспортированы.</string>
@@ -373,7 +378,7 @@
     <string name="revanced_hide_browse_store_button_summary_off">Кнопка \"Магазин\" отображена.</string>
     <string name="revanced_hide_browse_store_button_summary_on">Кнопка \"Магазин\" скрыта.</string>
     <string name="revanced_hide_browse_store_button_title">Кнопка \"Магазин\"</string>
-    <string name="revanced_hide_carousel_shelf_summary">"Скрывает следующие секции:
+    <string name="revanced_hide_carousel_shelf_summary">"Скрывает следующие полки:
 • Срочные новости
 • Продолжить просмотр
 • Больше каналов
@@ -587,9 +592,9 @@ Shorts
     <string name="revanced_hide_medical_panel_summary_off">Медицинские панели отображены.</string>
     <string name="revanced_hide_medical_panel_summary_on">Медицинские панели скрыты.</string>
     <string name="revanced_hide_medical_panel_title">Медицинские панели</string>
-    <string name="revanced_hide_merchandise_shelf_summary_off">Секции товаров отображены.</string>
-    <string name="revanced_hide_merchandise_shelf_summary_on">Секции товаров скрыты.</string>
-    <string name="revanced_hide_merchandise_shelf_title">Секции товаров</string>
+    <string name="revanced_hide_merchandise_shelf_summary_off">Полки товаров отображены.</string>
+    <string name="revanced_hide_merchandise_shelf_summary_on">Полки товаров скрыты.</string>
+    <string name="revanced_hide_merchandise_shelf_title">Полки товаров</string>
     <string name="revanced_hide_mix_playlists_summary_off">Плейлист \"Джем\" отображен.</string>
     <string name="revanced_hide_mix_playlists_summary_on">Плейлист \"Джем\" скрыт.</string>
     <string name="revanced_hide_mix_playlists_title">Плейлист \"Джем\"</string>
@@ -1609,7 +1614,7 @@ Shorts
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Восстановление старой панели действий Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Восстановление старого поведения качества видео по умолчанию</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Отключение обновления \"просмотров\" и \"лайков\" в реальном времени</string>
-    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Старый стиль анимаций - вращающиеся цифры</string>
+    <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Старый стиль анимаций - прокручивание чисел</string>
     <string name="revanced_spoof_app_version_target_entry_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_target_summary">Введите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия подмены</string>
@@ -1640,14 +1645,9 @@ AVC (H.264) имеет максимальное разрешение 1080p, и �
     <string name="revanced_spoof_streaming_data_summary_on">Подмена потоковых данных включена.</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Создатель</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Встроенный Android плеер</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Тестовый набор</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Веб</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Значение должно быть от 1 до 1000 (%).</string>
@@ -1690,7 +1690,6 @@ AVC (H.264) имеет максимальное разрешение 1080p, и �
 Если эта настройка не вступила в силу, попробуйте перейти в режим инкогнито."</string>
     <string name="revanced_theme_default">По умолчанию</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Предупреждение</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s не установлен. Установите его.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Название пакета установленной RVX Music.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Имя пакета RVX Music</string>

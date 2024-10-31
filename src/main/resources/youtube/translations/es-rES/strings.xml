@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">¿Activar controles de accesibilidad para el reproductor de vídeo?</string>
     <string name="accessibility_settings_edu_opt_out_text">Tus controles se modifican porque un servicio de accesibilidad está activado.</string>
@@ -268,6 +268,14 @@ Efecto secundario: El tema Cairo también se aplica a los puntos de notificació
     <string name="revanced_enable_seekbar_tapping_summary_off">La pulsación en la barra de progreso está desactivada.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">La pulsación en la barra de progreso está activada.</string>
     <string name="revanced_enable_seekbar_tapping_title">Activar pulsación en barra de progreso</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Esto restaurará las miniaturas de las transmisiones en directo que no tengan miniaturas en la barra de progreso.
+
+El uso de datos de Internet puede ser mayor, y las miniaturas en la barra de progreso tendrán una ligera demora antes de mostrarse.
+
+Esta función funciona mejor con una conexión a Internet muy rápida."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Las miniaturas en la barra de progreso son de calidad media.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Las miniaturas en la barra de progreso son de alta calidad.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Activar miniaturas de alta calidad</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">La marca de tiempo está desactivada.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"La marca de tiempo está activada.
 
@@ -489,6 +497,9 @@ Tienda"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">La superposición de la tira de película está visible.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">La superposición de la tira de película está oculta.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Ocultar superposición de tira de película</string>
+    <string name="revanced_hide_floating_button_summary_off">El botón flotante está visible.</string>
+    <string name="revanced_hide_floating_button_summary_on">El botón flotante está oculto.</string>
+    <string name="revanced_hide_floating_button_title">Ocultar botón flotante</string>
     <string name="revanced_hide_floating_microphone_summary_off">El botón flotante del micrófono está visible.</string>
     <string name="revanced_hide_floating_microphone_summary_on">El botón flotante del micrófono está oculto.</string>
     <string name="revanced_hide_floating_microphone_title">Ocultar botón flotante del micrófono</string>
@@ -705,6 +716,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_player_previous_next_button_summary_off">Los botones están visibles.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Los botones están ocultos.</string>
     <string name="revanced_hide_player_previous_next_button_title">Ocultar botones de anterior y siguiente</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">El estante de compras está visible.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">El estante de compras está oculto.</string>
+    <string name="revanced_hide_player_store_shelf_title">Ocultar estante de compras del reproductor</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">El botón de YouTube Music está visible.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">El botón de YouTube Music está oculto.</string>
     <string name="revanced_hide_player_youtube_music_button_title">Ocultar botón de YouTube Music</string>
@@ -1611,14 +1625,9 @@ AVC (H.264) tiene una resolución máxima de 1080p, y la reproducción de vídeo
     <string name="revanced_spoof_streaming_data_summary_on">Los datos de transmisión están falsificados.</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Creador de Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_embedded_player">Reproductor integrado de Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_testsuite">Android Testsuite</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_tvhtml5_simply_embedded_player">TV HTML5</string>
-    <string name="revanced_spoof_streaming_data_type_entry_web">Web</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilidad de deslizamiento del brillo debe estar entre 1-1000 (%).</string>
@@ -1659,7 +1668,6 @@ Además, los anuncios ya no se bloquearán en Shorts.
 Si este ajuste no surte efecto, prueba a cambiar al modo incógnito."</string>
     <string name="revanced_theme_default">Predeterminado</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
-    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Advertencia</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s no está instalado. Por favor, instálalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Nombre del paquete de RVX Music instalado.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nombre del paquete de RVX Music</string>
