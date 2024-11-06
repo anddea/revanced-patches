@@ -1,3 +1,16 @@
+# [2.231.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.231.0-dev.1...v2.231.0-dev.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Support A/B player layout ([a58c3df](https://github.com/anddea/revanced-patches/commit/a58c3dfbc6573adc56d7ea600bf66f5cb885ac73))
+* **YouTube - Spoof app version:** Remove obsolete `17.33.42` spoof target ([1220449](https://github.com/anddea/revanced-patches/commit/1220449f2ac46f2dd5319441f82cc7de56e1efb6))
+
+
+### Features
+
+* **YouTube - Description components:** Add `Hide AI-generated video summary section` setting ([fef16e8](https://github.com/anddea/revanced-patches/commit/fef16e84d05be391b301e09d7958d685d4d9df38))
+
 # [2.231.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.230.0...v2.231.0-dev.1) (2024-10-29)
 
 
