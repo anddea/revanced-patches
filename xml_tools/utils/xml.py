@@ -41,6 +41,9 @@ class XMLProcessor:
         Note:
             Only elements with 'name' attributes are included in the returned dictionary.
         """
+        if not path.exists() or path.stat().st_size < 2:
+            return None, None, {}
+
         try:
             tree = ET.parse(path)
             root = tree.getroot()
