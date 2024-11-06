@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.fix.bottomui
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.ExploderControlsFingerprint
 import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonPositionFingerprint
 import app.revanced.patches.youtube.utils.fix.bottomui.fingerprints.FullscreenButtonViewStubFingerprint
 import app.revanced.util.injectLiteralInstructionBooleanCall
@@ -12,6 +13,7 @@ import app.revanced.util.injectLiteralInstructionBooleanCall
 )
 object CfBottomUIPatch : BytecodePatch(
     setOf(
+        ExploderControlsFingerprint,
         FullscreenButtonPositionFingerprint,
         FullscreenButtonViewStubFingerprint
     )
@@ -23,6 +25,7 @@ object CfBottomUIPatch : BytecodePatch(
          * Therefore, this patch only applies to versions that can resolve this fingerprint.
          */
         mapOf(
+            ExploderControlsFingerprint to 45643739,
             FullscreenButtonViewStubFingerprint to 45617294,
             FullscreenButtonPositionFingerprint to 45627640
         ).forEach { (fingerprint, literalValue) ->
