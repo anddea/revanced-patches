@@ -238,10 +238,11 @@ object SeekbarComponentsPatch : BaseBytecodePatch(
 
         // region patch for high quality thumbnails
 
-        SeekbarThumbnailsQualityFingerprint.injectLiteralInstructionBooleanCall(
-            45399684,
-            "$PLAYER_CLASS_DESCRIPTOR->enableHighQualityFullscreenThumbnails()Z"
-        )
+        // TODO: This will be added when support for newer YouTube versions is added.
+        // SeekbarThumbnailsQualityFingerprint.injectLiteralInstructionBooleanCall(
+        //     45399684,
+        //     "$PLAYER_CLASS_DESCRIPTOR->enableHighQualityFullscreenThumbnails()Z"
+        // )
 
         // endregion
 
