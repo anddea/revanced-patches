@@ -21,9 +21,7 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
         # Parse source and destination files
         _, _, source_strings = XMLProcessor.parse_file(source_path)
         _, _, dest_strings = XMLProcessor.parse_file(dest_path)
-        _, _, missing_path_strings = (
-            XMLProcessor.parse_file(missing_path) if missing_path.exists() else (None, None, {})
-        )
+        _, _, missing_path_strings = XMLProcessor.parse_file(missing_path)
 
         # Find missing strings
         missing_strings = {}
