@@ -34,6 +34,8 @@
     <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения. Используются значения по умолчанию.</string>
     <string name="revanced_custom_playback_speeds_summary">Настройте доступные скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speeds_title">Изменить скорости</string>
+    <string name="revanced_default_app_settings_summary">Чтобы открыть ссылку на YouTube Music в RVX Music, включите \"Открывать поддерживаемые ссылки\" и включите поддерживаемые веб-адреса.</string>
+    <string name="revanced_default_app_settings_title">Открыть настройки по умолчанию</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
     <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Отключает анимацию Кайро при запуске приложения.</string>
@@ -86,6 +88,7 @@
     <string name="revanced_enable_zen_mode_podcast_title">Включить режим \"Дзен\" в подкастах</string>
     <string name="revanced_enable_zen_mode_summary">Меняет оттенок фона проигрывателя видео на светло-серый, чтобы уменьшить нагрузку на глаза.</string>
     <string name="revanced_enable_zen_mode_title">Режим \"Дзен\"</string>
+    <string name="revanced_extended_reset_to_default_toast">Сброшены до значений по умолчанию.</string>
     <string name="revanced_extended_restart_first_run">Перезапустите для правильной загрузки интерфейса</string>
     <string name="revanced_extended_restart_message">Обновите и перезапустите</string>
     <string name="revanced_extended_settings_export_as_file">Извлечь настройки в файл</string>
@@ -227,6 +230,16 @@
     <string name="revanced_hide_promotion_alert_banner_title">Скрыть баннер с уведомлением о промо акции</string>
     <string name="revanced_hide_samples_shelf_summary">Скрывает полку \"Семплы\" в ленте.</string>
     <string name="revanced_hide_samples_shelf_title">Скрыть полку \"Семплы\"</string>
+    <string name="revanced_hide_settings_menu_about_title">Скрыть \"О YouTube Music\"</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Скрыть \"Экономия трафика\"</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Скрыть \"Скачивание и хранение\"</string>
+    <string name="revanced_hide_settings_menu_general_title">Скрыть \"Общие\"</string>
+    <string name="revanced_hide_settings_menu_notification_title">Скрыть \"Уведомления\"</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Скрыть \"Оформить подписку Music Premium\"</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Скрыть \"Семейный центр\"</string>
+    <string name="revanced_hide_settings_menu_playback_title">Скрыть \"Воспроизведение\"</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Скрыть \"Конфиденциальность и данные\"</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Скрыть \"Рекомендации\"</string>
     <string name="revanced_hide_settings_menu_summary">"Скрывает элементы меню настроек.
 При этом скрывается не только меню настроек YT Music, но и меню настроек ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Скрыть меню настроек</string>
@@ -246,8 +259,10 @@
     <string name="revanced_preference_screen_misc_title">Разное</string>
     <string name="revanced_preference_screen_navigation_title">Панель навигации</string>
     <string name="revanced_preference_screen_player_title">Плеер</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Вернуть имя пользователя YouTube</string>
+    <string name="revanced_preference_screen_ryd_title">Вернуть YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Меню настроек</string>
     <string name="revanced_preference_screen_video_title">Видео</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Запоминает последнюю выбранную скорость воспроизведения.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Запоминать изменения скорости</string>
@@ -287,6 +302,23 @@
     <string name="revanced_restore_old_player_layout_title">Восстановить старый интерфейс проигрывателя</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Возвращает вкладку \"Библиотека\" к старому стилю. (Экспериментальная опция)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Восстановить старый стиль вкладки \"Библиотека\"</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@псевдоним (Имя пользователя)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Выбор формата отображения имени пользователя.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Формат отображения</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Имя пользователя (@псевдоним)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Имя пользователя</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Заменяет псевдонимы имена пользователей в комментариях.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Включить возврат имени пользователя YouTube</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Чтобы заменить псевдонимы на имена пользователей, необходим ключ разработчика YouTube Data API v3.
+
+Ежедневная квота для ключей API в бесплатном тарифе составляет 10 000 и 1 квота используется для замены псевдонима на имя пользователя для 1 комментария.
+
+Нажмите, чтобы узнать, как создать ключ API."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">О ключе YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">Ключ разработчика для использования API YouTube Data v3.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">Ключ YouTube Data API</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Перейдите в раздел &lt;a href=%1$s&gt;Создать New Project&lt;/a&gt;.&lt;br&gt;2. Нажмите кнопку &lt;b&gt;CREATE&lt;/b&gt;.&lt;br&gt;3. Перейдите в &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Нажмите кнопку &lt;b&gt;ENABLE&lt;/b&gt;.&lt;br&gt;5. Нажмите кнопку &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt;.&lt;br&gt;6. Выберите &lt;b&gt;Public data&lt;/b&gt;.&lt;br&gt;7. Нажмите кнопку &lt;b&gt;NEXT&lt;/b&gt;.&lt;br&gt;8. Скопируйте ключ API. &lt;br&gt;&lt;br&gt;※ Ключ API нельзя предоставлять другим, поэтому он не включен в Импорт/Экспорт настроек.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Создание ключа разработчика YouTube Data API v3</string>
     <string name="revanced_ryd_about">Об интеграции</string>
     <string name="revanced_ryd_attribution_summary">Данные предоставлены Return YouTube Dislike API. Нажмите здесь, чтобы узнать больше.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -296,12 +328,15 @@
     <string name="revanced_ryd_dislike_percentage_title">Кол-во отметок \"Не нравится\" в процентах</string>
     <string name="revanced_ryd_enabled_summary">Отображает количество отметок \"Не нравится\" в видео.</string>
     <string name="revanced_ryd_enabled_title">Включить Return YouTube Dislike</string>
+    <string name="revanced_ryd_estimated_like_summary">Показывает примерное количество лайков видео.</string>
+    <string name="revanced_ryd_estimated_like_title">Показать приблизительное количество лайков</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Отметки \"Не нравится\" недоступны (достигнут лимит клиентов сервера API).</string>
     <string name="revanced_ryd_failure_connection_status_code">Отметки \"Не нравится\" недоступны (состояние %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Отметки \"Не нравится\" недоступны (время API истекло).</string>
     <string name="revanced_ryd_failure_generic">Отметки \"Не нравится\" недоступны (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Отображает всплывающее уведомление, когда API Return YouTube Dislike недоступен.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Уведомлять, когда API недоступен</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто</string>
     <string name="revanced_sanitize_sharing_links_summary">Убирает параметры отслеживания запросов из адресов при отправке ссылки.</string>
     <string name="revanced_sanitize_sharing_links_title">Подчищать ссылки</string>
     <string name="revanced_sb_about">Об интеграции</string>
@@ -365,6 +400,7 @@
 • Если отключить данную опцию после её активации, старый интерфейс может оставаться до тех пор, пока данные приложения не будут очищены."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Отключить режим радиостанции в канадских регионах</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Отключить динамические текста</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Восстановить старую панель действий</string>
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
