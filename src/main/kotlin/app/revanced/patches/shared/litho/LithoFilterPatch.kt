@@ -11,14 +11,17 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.integrations.Constants.COMPONENTS_PATH
+import app.revanced.patches.shared.litho.fingerprints.BufferUpbFeatureFlagFingerprint
 import app.revanced.patches.shared.litho.fingerprints.ByteBufferFingerprint
 import app.revanced.patches.shared.litho.fingerprints.EmptyComponentsFingerprint
 import app.revanced.patches.shared.litho.fingerprints.PathBuilderFingerprint
+import app.revanced.patches.shared.litho.fingerprints.PathUpbFeatureFlagFingerprint
 import app.revanced.util.findMethodsOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import app.revanced.util.injectLiteralInstructionBooleanCall
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -38,6 +41,8 @@ object LithoFilterPatch : BytecodePatch(
     setOf(
         ByteBufferFingerprint,
         EmptyComponentsFingerprint,
+        BufferUpbFeatureFlagFingerprint,
+        PathUpbFeatureFlagFingerprint,
     )
 ), Closeable {
     private const val INTEGRATIONS_LITHO_FILER_CLASS_DESCRIPTOR =
@@ -155,6 +160,28 @@ object LithoFilterPatch : BytecodePatch(
                 )
             }
         }
+
+        // region A/B test of new Litho native code.
+
+        // Turn off native code that handles litho component names.  If this feature is on then nearly
+        // all litho components have a null name and identifier/path filtering is completely broken.
+
+        if (BufferUpbFeatureFlagFingerprint.result != null &&
+            PathUpbFeatureFlagFingerprint.result != null) {
+            mapOf(
+                BufferUpbFeatureFlagFingerprint to 45419603,
+                PathUpbFeatureFlagFingerprint to 45631264,
+            ).forEach { (fingerprint, literalValue) ->
+                fingerprint.result?.let {
+                    fingerprint.injectLiteralInstructionBooleanCall(
+                        literalValue,
+                        "0x0"
+                    )
+                }
+            }
+        }
+
+        // endregion
 
         // Create a new method to get the filter array to avoid register conflicts.
         // This fixes an issue with Integrations compiled with Android Gradle Plugin 8.3.0+.
