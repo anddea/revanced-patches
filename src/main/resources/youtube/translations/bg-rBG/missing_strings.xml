@@ -15,21 +15,18 @@ This feature works best with a very fast internet connection."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
-
-A temporary workaround for this issue is to spoof the app version to 19.13.37.
-
-Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_off">Highlighted search links are shown.</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_on">Highlighted search links are hidden.</string>
     <string name="revanced_hide_comment_highlighted_search_links_title">Hide highlighted search links</string>
     <string name="revanced_hide_floating_button_summary_off">Floating button is shown.</string>
     <string name="revanced_hide_floating_button_summary_on">Floating button is hidden.</string>
-    <string name="revanced_hide_floating_button_title">Hide floating button</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_off">1080p Premium menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_summary_on">1080p Premium menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_enhanced_bitrate_title">Hide 1080p Premium menu</string>
@@ -54,8 +51,6 @@ Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Billing and payments menu is hidden.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_title">Hide Billing and payments menu</string>
     <string name="revanced_hide_settings_menu_captions_summary_off">Captions menu is shown.</string>
-    <string name="revanced_hide_settings_menu_captions_summary_on">Captions menu is hidden.</string>
-    <string name="revanced_hide_settings_menu_captions_title">Hide Captions menu</string>
     <string name="revanced_hide_settings_menu_connected_accounts_summary_off">Connected apps menu is shown.</string>
     <string name="revanced_hide_settings_menu_connected_accounts_summary_on">Connected apps menu is hidden.</string>
     <string name="revanced_hide_settings_menu_connected_accounts_title">Hide Connected apps menu</string>
@@ -145,6 +140,11 @@ Click to see how to issue a API key."</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Always spoofed as iOS client.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Only spoofed as iOS client if it is not a movie, paid video, or livestream.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">iOS Compatibility mode</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
+• OPUS audio codec may not be supported."</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>

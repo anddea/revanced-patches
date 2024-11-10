@@ -333,11 +333,6 @@ The Expand video description option may not work if the entered string does not 
     <string name="revanced_extended_confirm_user_dialog_title">Do you wish to proceed?</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_restart_first_run">Restart to load the layout normally</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"There is a YouTube server-side bug that causes rolling number text such as likes, views, and upload dates to be hidden for some users.
-
-A temporary workaround for this issue is to spoof the app version to 19.13.37.
-
-Do you want to spoof the app version before restarting the app?"</string>
     <string name="revanced_extended_restart_message">Refresh and restart</string>
     <string name="revanced_extended_settings_export_failed">Failed to export settings.</string>
     <string name="revanced_extended_settings_export_success">Settings were successfully exported.</string>
@@ -1641,6 +1636,9 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
 High quality may be unlocked on some videos that require high device dimensions, but not all videos."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Always spoofed as iOS client.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Only spoofed as iOS client if it is not a movie, paid video, or livestream.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">iOS Compatibility mode</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS video codec is AVC (H.264), VP9, or AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS video codec is AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -1654,7 +1652,9 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Movies or paid videos may not play.
 • Livestreams start from the beginning.
 • Videos may end 1 second early.
-• No opus audio codec."</string>
+• OPUS audio codec may not be supported."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
+• OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>

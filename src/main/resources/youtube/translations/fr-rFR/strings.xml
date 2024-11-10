@@ -50,7 +50,10 @@ Cliquez ici pour en savoir plus sur DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Quelle partie de la vidéo utiliser pour la capture</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Onglet \"Abonnements\"</string>
     <string name="revanced_append_time_stamp_information_summary_off">L\'information n\'est pas ajoutée à côté de l\'horodatage (durée de la vidéo).</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"L'information est ajoutée à côté de l'horodatage (durée de la vidéo)."</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"L'information est ajoutée à côté de l'horodatage. (durée de la vidéo).
+
+Appuyez pour configurer la qualité vidéo ou la vitesse de lecture.
+Appuyez longuement pour modifier le type d'information ajouté."</string>
     <string name="revanced_append_time_stamp_information_title">Ajouter info. à côté de la durée</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Ajoute la vitesse de lecture.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Ajoute la qualité vidéo.</string>
@@ -328,11 +331,6 @@ L'option \"Ouvrir la description automatiquement\" risque de ne pas fonctionner 
     <string name="revanced_extended_confirm_user_dialog_title">Voulez-vous continuer ?</string>
     <string name="revanced_extended_reset_to_default_toast">Réinitialiser les valeurs par défaut.</string>
     <string name="revanced_extended_restart_first_run">Redémarrer pour charger l\'interface correctement</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Il existe un bug côté serveur de YouTube qui empêche l'animation en temps réel des nombres, tels que les mentions \"J'aime\", les vues et les dates de mise en ligne pour certains utilisateurs.
-
-Un moyen de contourner temporairement ce problème est de falsifier la version de l'application en version 19.13.37.
-
-Voulez-vous falsifier la version de l'application et redémarrer ?"</string>
     <string name="revanced_extended_restart_message">Appliquer et redémarrer ?</string>
     <string name="revanced_extended_settings_export_failed">Échec de l\'exportation des paramètres.</string>
     <string name="revanced_extended_settings_export_success">Les paramètres ont été exportés avec succès.</string>
@@ -370,6 +368,9 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_hide_account_menu_summary">"Masque les éléments du menu du compte et de l'onglet \"Vous\".
 Certains composants peuvent ne pas être masqués."</string>
     <string name="revanced_hide_account_menu_title">Masquer le menu du compte</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section \"Résumé de la vidéo générée par l\'IA\" est affichée.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section \"Résumé de la vidéo générée par l\'IA\" est masquée.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer la section \"Résumé vidéo générée par IA\"</string>
     <string name="revanced_hide_album_card_summary_off">Les fiches d\'album sont affichées.</string>
     <string name="revanced_hide_album_card_summary_on">Les fiches d\'album sont masquées.</string>
     <string name="revanced_hide_album_card_title">Masquer les fiches d\'album</string>
@@ -481,18 +482,18 @@ Boutique"</string>
     <string name="revanced_hide_expandable_shelf_title">Masquer les étagères coulissantes</string>
     <string name="revanced_hide_feed_captions_button_off">Le bouton \"Sous-titres\" est affiché.</string>
     <string name="revanced_hide_feed_captions_button_on">Le bouton \"Sous-titres\" est masqué.</string>
-    <string name="revanced_hide_feed_captions_button_title">Masquer les \"Sous-titres\" dans les flux</string>
+    <string name="revanced_hide_feed_captions_button_title">Masquer le bouton \"Sous-titres\"</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Liste de menus déroulant à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtre du menu déroulant</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Le filtre du menu déroulant est désactivé.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Le filtre du menu déroulant est activé.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Activer le filtre du menu déroulant</string>
-    <string name="revanced_hide_feed_search_bar_summary_off">La barre de recherche dans les flux sont affichés.</string>
-    <string name="revanced_hide_feed_search_bar_summary_on">La barre de recherche dans les flux sont masqués.</string>
-    <string name="revanced_hide_feed_search_bar_title">Masquer barre de recherche dans les flux</string>
-    <string name="revanced_hide_feed_survey_summary_off">Les sondages dans les flux sont affichés.</string>
-    <string name="revanced_hide_feed_survey_summary_on">Les sondages dans les flux sont masqués.</string>
-    <string name="revanced_hide_feed_survey_title">Masquer les sondages dans les flux</string>
+    <string name="revanced_hide_feed_search_bar_summary_off">La barre de recherche est affiché.</string>
+    <string name="revanced_hide_feed_search_bar_summary_on">La barre de recherche est masqué.</string>
+    <string name="revanced_hide_feed_search_bar_title">Masquer barre de recherche</string>
+    <string name="revanced_hide_feed_survey_summary_off">Les sondages sont affichés.</string>
+    <string name="revanced_hide_feed_survey_summary_on">Les sondages sont masqués.</string>
+    <string name="revanced_hide_feed_survey_title">Masquer les sondages</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">La bande de film est affichée.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">La bande de film est masquée.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Masquer la bande de film</string>
@@ -1552,9 +1553,9 @@ Limitation : les \"Je n'aime pas\" ne seront pas affichées si vous n'êtes pas 
     <string name="revanced_shorts_double_tap_to_like_animation_entry_5">Cœur (Teinte)</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_6">Masqué</string>
     <string name="revanced_shorts_double_tap_to_like_animation_title">Animation lors du double appui</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">La marge en bas du panneau méta doit être entre 0-64.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configurer l\'espace de la barre de progression au panneau méta, entre 0-64.</string>
-    <string name="revanced_shorts_meta_panel_bottom_margin_title">Marge en bas du panneau Meta</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_invalid_toast">La marge en bas du panneau meta doit être entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_summary">Configurer l\'espace de la barre de progression au panneau meta, entre 0-64.</string>
+    <string name="revanced_shorts_meta_panel_bottom_margin_title">Marge en bas du panneau meta</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_invalid_toast">La hauteur en pourcentage doit être entre 0-100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure la hauteur en pourcentage de l\'espace vide à gauche lorsque la barre de navigation est cachée, entre 0 et 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Hauteur en pourcentage de l\'espace vide</string>
