@@ -333,11 +333,6 @@
     <string name="revanced_extended_confirm_user_dialog_title">Θέλετε να συνεχίσετε;</string>
     <string name="revanced_extended_reset_to_default_toast">Έγινε επαναφορά στις προεπιλεγμένες τιμές.</string>
     <string name="revanced_extended_restart_first_run">Επανεκκίνηση ώστε να φορτωθεί σωστά η διάταξη</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Υπάρχει ένα σφάλμα από πλευράς διακομιστή του YouTube το οποίο προκαλεί να μην εμφανίζονται κάποιοι αριθμοί όπως τα like, οι προβολές, και οι ημερομηνίες μεταμόρφωσης για κάποιους χρήστες.
-
-Μια προσωρινή λύση για αυτό το θέμα είναι να γίνει παραποίηση της έκδοσης εφαρμογής σε 19.13.37.
-
-Θέλετε να γίνει παραποίηση της έκδοσης εφαρμογής πριν γίνει επανεκκίνηση εφαρμογής;"</string>
     <string name="revanced_extended_restart_message">Ανανέωση και επανεκκίνηση</string>
     <string name="revanced_extended_settings_export_failed">Αποτυχία εξαγωγής ρυθμίσεων.</string>
     <string name="revanced_extended_settings_export_success">Οι ρυθμίσεις εξήχθησαν με επιτυχία.</string>
@@ -1645,6 +1640,9 @@ Playlists
     <string name="revanced_spoof_device_dimensions_summary">"Παραποίηση διαστάσεων συσκευής στη μέγιστη τιμή.
 Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες σε κάποια βίντεο που απαιτούν υψηλές διαστάσεις συσκευής, αλλά όχι σε όλα τα βίντεο."</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Το πρόγραμμα πελάτη παραποιείται πάντα ως iOS.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Το πρόγραμμα πελάτη παραποιείται ως iOS μόνο όταν αν το βίντεο δεν πρόκειται για ταινία, βίντεο επί πληρωμή ή ζωντανή μετάδοση.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">Λειτουργία συμβατότητας iOS</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο iOS είναι ο AVC (H.264), ο VP9 ή ο AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο iOS είναι ο AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
@@ -1658,7 +1656,9 @@ Playlists
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται.
 • Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή κατά την αναπαραγωγή.
 • Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.
-• Ο κωδικοποιητής ήχου opus δεν είναι διαθέσιμος."</string>
+• Ο κωδικοποιητής ήχου opus ενδέχεται να μην υποστηρίζεται."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.
+• Ο κωδικοποιητής ήχου Opus ενδέχεται να μην υποστηρίζεται."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Παρενέργειες παραποίησης</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Τα βίντεο ενδέχεται να μην αναπαράγονται.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>

@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown.</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
-    <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Always spoofed as iOS client.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Only spoofed as iOS client if it is not a movie, paid video, or livestream.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">iOS Compatibility mode</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
+• OPUS audio codec may not be supported."</string>
 </resources>

@@ -50,12 +50,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">동영상의 끝 부분 이미지</string>
     <string name="revanced_alt_thumbnail_stills_time_title">스틸 컷 썸네일에서 표시되는 이미지</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">구독 탭</string>
-    <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에서 정보를 표시하지 않습니다.\n• 정보: 동영상 화질, 동영상 재생 속도</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"타임스탬프에서 정보를 표시합니다.\n• 정보: 동영상 화질, 동영상 재생 속도"</string>
-    <string name="revanced_append_time_stamp_information_title">타임스탬프에서 정보 표시하기</string>
-    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도 값을 표시합니다.\n\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
-    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질 값을 표시합니다.\n\n동영상을 재생하는 동안에 타임스탬프 정보를 길게 누르면 다른 정보로 빠르게 전환할 수 있습니다.</string>
-    <string name="revanced_append_time_stamp_information_type_title">타임스탬프에서 표시할 정보 설정</string>
+    <string name="revanced_append_time_stamp_information_summary_off">타임스탬프에 정보를 추가하지 않습니다.</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"타임스탬프에 정보를 추가합니다.
+
+정보를 눌러서 동영상 화질 또는 동영상 재생 속도를 설정할 수 있습니다.
+길게 누르면 추가되는 정보 유형을 전환할 수 있습니다."</string>
+    <string name="revanced_append_time_stamp_information_title">타임스탬프에 정보 추가하기</string>
+    <string name="revanced_append_time_stamp_information_type_summary_off">현재 동영상 재생 속도 값을 추가합니다.</string>
+    <string name="revanced_append_time_stamp_information_type_summary_on">현재 동영상 화질 값을 추가합니다.</string>
+    <string name="revanced_append_time_stamp_information_type_title">추가되는 정보 유형 설정</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_off">배터리 절전 모드에서 앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_summary_on">배터리 절전 모드에서 앰비언트 모드를 활성화합니다.</string>
     <string name="revanced_bypass_ambient_mode_restrictions_title">앰비언트 모드 제한 우회하기</string>
@@ -331,11 +334,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_extended_confirm_user_dialog_title">계속하시겠습니까?</string>
     <string name="revanced_extended_reset_to_default_toast">기본값으로 초기화합니다.</string>
     <string name="revanced_extended_restart_first_run">레이아웃을 정상적으로 불러오기 위해 다시 시작합니다.</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"일부 사용자에게 좋아요, 조회수 및 업로드 날짜와 같은 롤링 넘버 텍스트가 숨겨지는 YouTube 서버 측 문제가 있습니다.
-
-이 문제에 대한 임시 해결 방법은 앱 버전을 19.13.37로 변경하는 것입니다.
-
-앱을 다시 시작하기 전에 앱 버전을 변경하시겠습니까?"</string>
     <string name="revanced_extended_restart_message">새로고침 및 다시 시작</string>
     <string name="revanced_extended_settings_export_failed">설정을 내보낼 수 없습니다.</string>
     <string name="revanced_extended_settings_export_success">설정을 성공적으로 내보냈습니다.</string>
@@ -1320,7 +1318,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 화질을 설정할 수 없습니다.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"시청 경고 다이얼로그를 제거합니다.\n\n• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"시청 경고 다이얼로그를 제거합니다.\n• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다.\n• '당신은 혼자가 아닙니다' 페이지에서 '확인하기' 버튼이 표시되지 않는다면 이 설정이 아닌 플레이어 설정에서 '정보 패널 숨기기'를 비활성화해야 합니다."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
     <string name="revanced_replace_av1_codec_summary">AV1 코덱을 VP9 코덱으로 변경합니다.</string>
     <string name="revanced_replace_av1_codec_title">AV1 코덱 변경하기</string>
@@ -1392,9 +1390,9 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
     <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
     <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"동영상 자막에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 표시됩니다."</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"동영상 자막에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 숨겨집니다."</string>
-    <string name="revanced_sanitize_video_subtitle_title">불필요한 동영상 자막 문구 숨기기</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"동영상 부제목에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 표시됩니다."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"동영상 부제목에서 '#', '모금 행사', '쇼핑', '제품'과 같은 문구가 숨겨집니다."</string>
+    <string name="revanced_sanitize_video_subtitle_title">동영상 부제목 제거하기</string>
     <string name="revanced_sb_about">정보</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
     <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>
@@ -1641,6 +1639,9 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_device_dimensions_summary">"기기 크기 정보를 최대값으로 변경합니다.
 높은 기기 크기 정보가 필요한 일부 동영상에서는 고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">항상 iOS 클라이언트로 변경됩니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">영화, 회원 전용 동영상과 같은 유료 동영상 또는 실시간 스트림이 아닌 경우에만 iOS 클라이언트로 변경됩니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">iOS 호환성 모드</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC (H.264), VP9 또는 AV1으로 활성화합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들이 제거되어 360p와 1080p(Premium 기능)만 선택할 수 있거나 화질 메뉴를 선택할 수 없을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC (H.264)로 활성화합니다.\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값들이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
@@ -1649,7 +1650,9 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 AVC (H.264)의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다.\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다.\n• 동영상이 1초 일찍 종료될 수 있습니다.\n• OPUS 오디오 코덱이 지원되지 않습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다.\n• 일부 실시간 스트림이 처음부터 재생될 수 있습니다.\n• 동영상이 1초 일찍 종료될 수 있습니다.\n• OPUS 코덱이 지원되지 않을 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
+• OPUS 코덱이 지원되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.</string>

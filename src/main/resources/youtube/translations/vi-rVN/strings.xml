@@ -50,7 +50,10 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Thời điểm để lấy ảnh tĩnh từ video</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Thẻ Kênh đăng ký</string>
     <string name="revanced_append_time_stamp_information_summary_off">Thông tin không còn được thêm vào dấu thời gian.</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"Thông tin được thêm vào dấu thời gian."</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"Thông tin đã được thêm vào dấu thời gian.
+
+Nhấn vào để thiếp lập Chất lượng video hoặc Tốc độ phát.
+Nhấn giữ để chuyển loại thông tin cần thêm vào."</string>
     <string name="revanced_append_time_stamp_information_title">Thêm thông tin vào dấu thời gian</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Thêm Tốc độ phát.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Thêm Chất lượng video.</string>
@@ -198,8 +201,8 @@ Hạn chế: Cài đặt này có thể sẽ không áp dụng cho các video kh
     <string name="revanced_disable_resuming_shorts_player_summary_on">Trinh phát Shorts sẽ không tiếp tục khi ứng dụng khởi chạy.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Tắt tính năng tiếp tục phát video Shorts</string>
     <string name="revanced_disable_rolling_number_animations_summary_off">Đã kích hoạt hoạt ảnh Số cuộn.</string>
-    <string name="revanced_disable_rolling_number_animations_summary_on">Đã vô hiệu hoá hoạt ảnh Số cuộn.</string>
-    <string name="revanced_disable_rolling_number_animations_title">Vô hiệu hoá hoạt ảnh Số cuộn</string>
+    <string name="revanced_disable_rolling_number_animations_summary_on">Hoạt ảnh của các văn bản dạng Số cuộn đã bị vô hiệu hoá.</string>
+    <string name="revanced_disable_rolling_number_animations_title">Vô hiệu hoá hoạt ảnh của các văn bản dạng Số cuộn</string>
     <string name="revanced_disable_seekbar_chapters_summary_off">Các phân cảnh đã được hiển thị trên thanh tiến trình.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Các phân cảnh đã bị ẩn trên thanh tiến trình.</string>
     <string name="revanced_disable_seekbar_chapters_title">Ẩn các phân cảnh trên thanh tiến trình</string>
@@ -213,8 +216,8 @@ Lưu ý:
 • Tắt tùy chọn này cũng không ép buộc tính năng nhấn và giữ để tua nhanh 2x được bật trở lại. Hãy xoá dữ liệu ứng dụng."</string>
     <string name="revanced_disable_speed_overlay_title">Tắt nhấn và giữ để phát 2x&gt;&gt;</string>
     <string name="revanced_disable_splash_animation_summary_off">Đã kích hoạt hoạt ảnh khởi động.</string>
-    <string name="revanced_disable_splash_animation_summary_on">Đã vô hiệu hoá hoạt ảnh khởi động.</string>
-    <string name="revanced_disable_splash_animation_title">Vô hiệu hoá hoạt ảnh khởi động</string>
+    <string name="revanced_disable_splash_animation_summary_on">Hoạt ảnh khi ứng dụng khởi chạy đã bị vô hiệu hoá.</string>
+    <string name="revanced_disable_splash_animation_title">Vô hiệu hoá hoạt ảnh khi ứng dụng khởi chạy</string>
     <string name="revanced_disable_video_description_interaction_summary">"Tắt các tương tác sau khi mô tả video được mở rộng:
 
  • Nhấn để cuộn.
@@ -270,13 +273,13 @@ Hạn chế: Chủ đề Cairo cũng sẽ áp dụng cho dấu chấm thông bá
     <string name="revanced_enable_seekbar_tapping_summary_off">Chạm thanh tiến trình video để tua đã tắt.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Chạm thanh tiến trình video để tua đã bật.</string>
     <string name="revanced_enable_seekbar_tapping_title">Chạm thanh tiến trình để tua</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Tính năng này sẽ khôi phục hình thu nhỏ cho các video phát trực tiếp không có hình thu nhỏ trên thanh tiến trình.
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Tính năng này sẽ khôi phục hình thu nhỏ cho các video phát trực tiếp không có hình thu nhỏ khi tua trên thanh tiến trình.
 
-Nhưng điều này cũng sẽ làm tiêu tốn nhiều dữ liệu di động hơn, và hình thu nhỏ trên thanh tiến trình sẽ được hiển thị với một độ trễ nhất định.
+Nhưng điều này cũng sẽ làm tiêu tốn nhiều dữ liệu di động hơn, và hình thu nhỏ trên thanh tiến trình sẽ được hiển thị sau một độ trễ nhất định.
 
 Vì vậy bạn nên bật tính năng này khi có kết nối mạng ổn định."</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Hình thu nhỏ trên thanh tiến trình có chất lượng trung bình.</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Hình thu nhỏ trên thanh tiến trình có chất lượng cao.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Hình thu nhỏ khi tua có chất lượng trung bình.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Hình thu nhỏ khi tua có chất lượng cao.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Hình thu nhỏ chất lượng cao</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Dấu thời gian đã bị tắt.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Dấu thời gian đã được bật.
@@ -330,11 +333,6 @@ Mở rộng mô tả video có thể không hoạt động nếu bạn nhập n�
     <string name="revanced_extended_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
     <string name="revanced_extended_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng trong lần đầu khởi chạy để các tính năng hoạt động bình thường</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Hiện có một lỗi phía máy chủ YouTube khiến các văn bản dạng số cuộn như số lượt thích, số lượt xem và ngày tải lên bị ẩn đối với một số người dùng.
-
-Giải pháp tạm thời cho sự cố này là giả mạo phiên bản ứng dụng thành 19.13.37.
-
-Bạn có muốn giả mạo phiên bản ứng dụng trước khi khởi động lại ứng dụng không?"</string>
     <string name="revanced_extended_restart_message">Làm mới và khởi động lại</string>
     <string name="revanced_extended_settings_export_failed">Xuất cài đặt thất bại.</string>
     <string name="revanced_extended_settings_export_success">Cài đặt đã được xuất thành công.</string>
@@ -372,6 +370,9 @@ Bạn có muốn giả mạo phiên bản ứng dụng trước khi khởi độ
     <string name="revanced_hide_account_menu_summary">"Ẩn các thành phần của trình đơn Tài khoản và thẻ Bạn.
 Một số thành phần có thể không bị ẩn."</string>
     <string name="revanced_hide_account_menu_title">Bộ lọc trình đơn Tài khoản</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần Bản tóm tắt video do AI tạo đã được hiển thị.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần Bản tóm tắt video do AI tạo đã bị ẩn.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn phần Bản tóm tắt video do AI tạo</string>
     <string name="revanced_hide_album_card_summary_off">Đĩa nhạc được hiển thị trong kết quả tìm kiếm.</string>
     <string name="revanced_hide_album_card_summary_on">Đĩa nhạc đã ẩn khỏi kết quả tìm kiếm.</string>
     <string name="revanced_hide_album_card_title">Ẩn thẻ album</string>
@@ -461,8 +462,8 @@ Cửa hàng"</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_off">Bài đăng cộng đồng được hiển thị trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_summary_on">Bài đăng cộng đồng đã ẩn trên thẻ Kênh đăng ký.</string>
     <string name="revanced_hide_community_posts_subscriptions_title">Ẩn trên thẻ Kênh đăng ký</string>
-    <string name="revanced_hide_contents_section_summary_off">Phần \"Cách tạo Nội dung này\" đã được hiển thị.</string>
-    <string name="revanced_hide_contents_section_summary_on">Phần \"Cách tạo Nội dung này\" đã bị ẩn.</string>
+    <string name="revanced_hide_contents_section_summary_off">Phần Cách nội dung này được tạo ra đã được hiển thị.</string>
+    <string name="revanced_hide_contents_section_summary_on">Phần Cách nội dung này được tạo ra đã bị ẩn.</string>
     <string name="revanced_hide_contents_section_title">Ẩn phần Nội dung</string>
     <string name="revanced_hide_crowdfunding_box_summary_off">Chiến dịch gây quỹ được hiển thị.</string>
     <string name="revanced_hide_crowdfunding_box_summary_on">Chiến dịch gây quỹ đã ẩn.</string>
@@ -1614,6 +1615,9 @@ Nếu muốn tắt tính năng này sau đó, bạn nên xóa dữ liệu ứng 
     <string name="revanced_spoof_device_dimensions_summary">"Giả lập kích thước thiết bị đến giá trị tối đa.
 Chất lượng cao có thể được mở khóa trên một số video yêu cầu kích thước thiết bị lớn, nhưng không phải tất cả các video."</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Luôn giả mạo máy khách sang iOS.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Chỉ giả mạo máy khách sang iOS nếu đó không phải là phim, video trả phí hoặc phát trực tiếp.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">Chế độ tương thích iOS</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Codec video trên iOS là AVC (H.264), VP9, hoặc là AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Codec video trên iOS là AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Buộc iOS sử dụng AVC (H.264)</string>
@@ -1627,11 +1631,13 @@ AVC (H.264) có độ phân giải tối đa 1080p, và phát video sẽ dùng n
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Phim hoặc video trả phí có thể không phát được.
 • Video phát trực tiếp sẽ khởi chạy từ đầu.
 • Video có thể kết thúc sớm 1 giây.
-• Không có codec âm thanh opus."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_title">Hạn chế của việc giả mạo</string>
+• Codec âm thanh opus có thể không được hỗ trợ."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Video có thể kết thúc sớm 1 giây.
+• Codec âm thanh opus có thể không được hỗ trợ."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_title">Những hạn chế khi giả mạo</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video có thể không phát được.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách được sử dụng để lấy dữ liệu phát trực tiếp sẽ bị ẩn trong Thống kê chi tiết.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Máy khách được sử dụng để lấy dữ liệu truyền trực tuyến sẽ được hiển thị trong Thống kê chi tiết.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Máy khách được sử dụng để lấy dữ liệu phát trực tiếp sẽ được hiển thị trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Chưa giả mạo dữ liệu phát trực tiếp. Phát video có thể không hoạt động bình thường."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Đã giả mạo dữ liệu phát trực tiếp.</string>
