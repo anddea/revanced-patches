@@ -1,3 +1,11 @@
+# [2.232.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.231.0...v2.232.0-dev.1) (2024-11-10)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Remove obsolete `19.13.37` spoof target ([743999e](https://github.com/anddea/revanced-patches/commit/743999e864892f33ee4153950339edc8ffae2578))
+* **YouTube - Spoof streaming data:** Add `iOS Compatibility mode` setting ([48b26eb](https://github.com/anddea/revanced-patches/commit/48b26eb9d2b5076248af96c2342fdcd7f29b8a51))
+
 # [2.231.0](https://github.com/anddea/revanced-patches/compare/v2.230.0...v2.231.0) (2024-11-07)
 
 
