@@ -322,11 +322,6 @@ A 'Videoleírások kibővítése' nem működik, ha a beírt sztring nem egyezik
     <string name="revanced_extended_confirm_user_dialog_title">Szeretnéd folytatni?</string>
     <string name="revanced_extended_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_extended_restart_first_run">Indítsa újra a rendszert a normál elrendezés betöltéséhez</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Van egy YouTube szerveroldali hiba, ami miatt a gördülő számokat tartalmazó szövegek, például a tetszésnyilvánítások, a megtekintések és a feltöltési dátumok el vannak rejtve egyes felhasználók számára.
-
-A probléma ideiglenes megoldása az alkalmazás verziójának 19.13.37-re való hamisítása.
-
-Szeretné hamisítani az alkalmazás verzióját az alkalmazás újraindítása előtt?"</string>
     <string name="revanced_extended_restart_message">Frissítés és újraindítás</string>
     <string name="revanced_extended_settings_export_failed">A beállítások exportálása sikertelen.</string>
     <string name="revanced_extended_settings_export_success">A beállítások exportálása sikeres.</string>
@@ -364,6 +359,9 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_account_menu_summary">"Fiókmenü és az Ön lap elemeinek elrejtése.
 Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_account_menu_title">Fiókmenü elrejtése</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Az AI generált videó összefoglaló rész látható.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Az AI generált videó összefoglaló rész el van rejtve.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">AI generált videó összefoglaló rész elrejtése</string>
     <string name="revanced_hide_album_card_summary_off">Az album kártyák láthatóak.</string>
     <string name="revanced_hide_album_card_summary_on">Az album kártyák el vannak rejtve.</string>
     <string name="revanced_hide_album_card_title">Album kártyák elrejtése</string>
@@ -461,9 +459,9 @@ Lejátszási listák
     <string name="revanced_hide_double_tap_overlay_filter_summary_off">A dupla koppintásos átfedés szűrő látható.</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary_on">A dupla koppintásos átfedés szűrő elrejtve.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Dupla koppintás átfedés szűrő elrejtése</string>
-    <string name="revanced_hide_download_button_summary_off">A letöltés gomb látható</string>
-    <string name="revanced_hide_download_button_summary_on">A letöltés gomb el van rejtve</string>
-    <string name="revanced_hide_download_button_title">Letöltés elrejtése</string>
+    <string name="revanced_hide_download_button_summary_off">A letöltés gomb látható.</string>
+    <string name="revanced_hide_download_button_summary_on">A letöltés gomb el van rejtve.</string>
+    <string name="revanced_hide_download_button_title">Letöltés gomb elrejtése</string>
     <string name="revanced_hide_end_screen_cards_summary_off">A záróképernyő kártyák láthatóak.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">A záróképernyő kártyák el vannak rejtve.</string>
     <string name="revanced_hide_end_screen_cards_title">Záróképernyő kártyák elrejtése</string>
@@ -574,9 +572,9 @@ Korlátozások:
     <string name="revanced_hide_latest_videos_button_summary_off">A \'Legújabb videók\' gomb megjelenik.</string>
     <string name="revanced_hide_latest_videos_button_summary_on">A \'Legújabb videók\' gomb el van rejtve.</string>
     <string name="revanced_hide_latest_videos_button_title">Rejtse el a \'Legújabb videók\' gombot</string>
-    <string name="revanced_hide_like_dislike_button_summary_off">A tetszik és nem tetszik gombok láthatóak</string>
-    <string name="revanced_hide_like_dislike_button_summary_on">A tetszik és nem tetszik gombok rejtve vannak</string>
-    <string name="revanced_hide_like_dislike_button_title">Tetszik és nem tetszik elrejtése</string>
+    <string name="revanced_hide_like_dislike_button_summary_off">A tetszik és nem tetszik gombok láthatók.</string>
+    <string name="revanced_hide_like_dislike_button_summary_on">A tetszik és nem tetszik gombok el vannak rejtve.</string>
+    <string name="revanced_hide_like_dislike_button_title">Tetszik és nem tetszik gombok elrejtése</string>
     <string name="revanced_hide_live_chat_messages_summary_off">Az élő csevegés üzenetei megjelennek.\n\nEz a beállítás a Shorts élő videókra is vonatkozik.</string>
     <string name="revanced_hide_live_chat_messages_summary_on">Az élő csevegés üzenetei el vannak rejtve.\n\nEz a beállítás a Shorts élő videókra is vonatkozik.</string>
     <string name="revanced_hide_live_chat_messages_title">Élő csevegés üzeneteinek elrejtése</string>
@@ -714,9 +712,9 @@ Korlátozások:
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Music gomb megjelenik.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Music gomb rejtve van.</string>
     <string name="revanced_hide_player_youtube_music_button_title">YouTube Zene gomb elrejtése</string>
-    <string name="revanced_hide_playlist_button_summary_off">A mentés gomb látható</string>
-    <string name="revanced_hide_playlist_button_summary_on">A mentés gomb el van rejtve</string>
-    <string name="revanced_hide_playlist_button_title">Mentés elrejtése</string>
+    <string name="revanced_hide_playlist_button_summary_off">A lejátszási listához mentés gomb látható.</string>
+    <string name="revanced_hide_playlist_button_summary_on">A lejátszási listához mentés gomb el van rejtve.</string>
+    <string name="revanced_hide_playlist_button_title">Lejátszási listához mentés gomb elrejtése</string>
     <string name="revanced_hide_podcast_section_summary_off">A podcast szakasz látható</string>
     <string name="revanced_hide_podcast_section_summary_on">A podcast szakasz rejtve van</string>
     <string name="revanced_hide_podcast_section_title">Podcast szakasz elrejtése</string>
@@ -773,12 +771,12 @@ Korlátozások:
     <string name="revanced_hide_related_videos_user_dialog_message">"Ez a beállítás korlátozza a lejátszó képernyőjére betölthető elrendezések maximális számát.
 
 Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások miatt megváltozik, akkor esetleg a nem kívánt elrendezések elrejthetők a lejátszó képernyőjén."</string>
-    <string name="revanced_hide_remix_button_summary_off">A remix gomb megjelenik</string>
-    <string name="revanced_hide_remix_button_summary_on">A remix gomb el van rejtve</string>
-    <string name="revanced_hide_remix_button_title">Remix elrejtése</string>
-    <string name="revanced_hide_report_button_summary_off">A bejelentés gomb látható</string>
+    <string name="revanced_hide_remix_button_summary_off">A remix gomb látható.</string>
+    <string name="revanced_hide_remix_button_summary_on">A remix gomb el van rejtve.</string>
+    <string name="revanced_hide_remix_button_title">Remix gomb elrejtése</string>
+    <string name="revanced_hide_report_button_summary_off">A jelentés gomb látható.</string>
     <string name="revanced_hide_report_button_summary_on">A bejelentés gomb el van rejtve.</string>
-    <string name="revanced_hide_report_button_title">Bejelentés elrejtése</string>
+    <string name="revanced_hide_report_button_title">Jelentés gomb elrejtése</string>
     <string name="revanced_hide_rewards_button_summary_off">A jutalmak gomb látható.</string>
     <string name="revanced_hide_rewards_button_summary_on">A jutalmak gomb el van rejtve.</string>
     <string name="revanced_hide_rewards_button_title">Jutalmak gomb elrejtése</string>
@@ -865,12 +863,12 @@ Ha a lejátszó képernyőjének elrendezése a szerveroldali változtatások mi
     <string name="revanced_hide_settings_menu_your_data_summary_off">Az adataid a YouTube-on menü látható.</string>
     <string name="revanced_hide_settings_menu_your_data_summary_on">Az adataid a YouTube-on menü el van rejtve.</string>
     <string name="revanced_hide_settings_menu_your_data_title">Adataid a YouTube-on menü elrejtése</string>
-    <string name="revanced_hide_share_button_summary_off">A megosztás gomb látható</string>
-    <string name="revanced_hide_share_button_summary_on">A megosztás gomb el van rejtve</string>
-    <string name="revanced_hide_share_button_title">Megosztás elrejtése</string>
+    <string name="revanced_hide_share_button_summary_off">A megosztás gomb látható.</string>
+    <string name="revanced_hide_share_button_summary_on">A megosztás gomb el van rejtve.</string>
+    <string name="revanced_hide_share_button_title">Megosztás gomb elrejtése</string>
     <string name="revanced_hide_shop_button_summary_off">A vásárlás gomb látható.</string>
-    <string name="revanced_hide_shop_button_summary_on">A Vásárlás gomb el van rejtve.</string>
-    <string name="revanced_hide_shop_button_title">Üzlet gomb elrejtése</string>
+    <string name="revanced_hide_shop_button_summary_on">A vásárlás gomb el van rejtve.</string>
+    <string name="revanced_hide_shop_button_title">Vásárlás gomb elrejtése</string>
     <string name="revanced_hide_shopping_links_summary_off">A vásárlási linkek láthatóak</string>
     <string name="revanced_hide_shopping_links_summary_on">A vásárlási linkek rejtve vannak</string>
     <string name="revanced_hide_shopping_links_title">Vásárlási linkek elrejtése a videó leírásában</string>

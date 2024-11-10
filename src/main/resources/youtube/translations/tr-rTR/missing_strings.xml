@@ -271,6 +271,9 @@ Click to see how to issue a API key."</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_summary">Configure the height percentage of the empty space left when the navigation bar is hidden, between 0 and 100 (%).</string>
     <string name="revanced_shorts_navigation_bar_height_percentage_title">Height percentage of empty space</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Always spoofed as iOS client.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Only spoofed as iOS client if it is not a movie, paid video, or livestream.</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">iOS Compatibility mode</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS video codec is AVC (H.264), VP9, or AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS video codec is AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
@@ -284,7 +287,9 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Movies or paid videos may not play.
 • Livestreams start from the beginning.
 • Videos may end 1 second early.
-• No opus audio codec."</string>
+• OPUS audio codec may not be supported."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
+• OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>

@@ -50,7 +50,10 @@
     <string name="revanced_alt_thumbnail_stills_time_title">وقت الفيديو لأخذ اللقطات الثابتة منه</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">علامة تبويب الاشتراكات</string>
     <string name="revanced_append_time_stamp_information_summary_off">لا يتم إضافة المعلومات بطابع الوقت.</string>
-    <string name="revanced_append_time_stamp_information_summary_on">"يتم إضافة المعلومات بطابع الوقت."</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"تتم إضافة المعلومات إلى طابع الوقت.
+
+انقر لتكوين جودة الفيديو أو سرعة التشغيل.
+انقر مع الاستمرار لتبديل نوع المعلومات المضافة."</string>
     <string name="revanced_append_time_stamp_information_title">إضافة معلومات طابع الوقت</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">إضافة سرعة التشغيل.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">إضافة جودة الفيديو.</string>
@@ -328,11 +331,6 @@
     <string name="revanced_extended_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
     <string name="revanced_extended_reset_to_default_toast">إعادة التعيين إلى القيم الافتراضية.</string>
     <string name="revanced_extended_restart_first_run">إعادة التشغيل لتحميل التخطيط بشكل طبيعي</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"يوجد خطأ في خادم YouTube يتسبب في إخفاء نص الأرقام المتتالية مثل الإعجابات والمشاهدات وتواريخ التحميل لبعض المستخدمين.
-
-الحل المؤقت لهذه المشكلة هو تزييف إصدار التطبيق إلى 19.13.37.
-
-هل تريد تزييف إصدار التطبيق قبل إعادة تشغيل التطبيق؟"</string>
     <string name="revanced_extended_restart_message">تحديث وإعادة تشغيل</string>
     <string name="revanced_extended_settings_export_failed">فشل تصدير الإعدادات.</string>
     <string name="revanced_extended_settings_export_success">تم تصدير الإعدادات بنجاح.</string>
@@ -370,6 +368,9 @@
     <string name="revanced_hide_account_menu_summary">"إخفاء عناصر قائمة الحساب وعلامة التبويب أنت.
 قد لا يتم إخفاء بعض المكونات."</string>
     <string name="revanced_hide_account_menu_title">إخفاء قائمة الحساب</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">يتم عرض قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">تم إخفاء قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">إخفاء قسم ملخص الفيديو المنشئ بواسطة الذكاء الاصطناعي</string>
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_title">إخفاء بطاقات الألبوم</string>
@@ -481,18 +482,18 @@
     <string name="revanced_hide_expandable_shelf_title">إخفاء الرفوف القابلة للتوسع</string>
     <string name="revanced_hide_feed_captions_button_off">يتم عرض زر التَرْجَمَة.</string>
     <string name="revanced_hide_feed_captions_button_on">تم إخفاء زر التَرْجَمَة.</string>
-    <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة في الموجز</string>
+    <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">قائمة بأسماء القائمة المنبثقة المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">تصفية القائمة المنبثقة بالموجز</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">تم تعطيل فلتر القائمة المنبثقة بالموجز.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">تم تمكين فلتر القائمة المنبثقة بالموجز.</string>
     <string name="revanced_hide_feed_flyout_menu_title">تمكين فلتر القائمة المنبثقة بالموجز</string>
-    <string name="revanced_hide_feed_search_bar_summary_off">يتم عرض موجز شريط البحث.</string>
-    <string name="revanced_hide_feed_search_bar_summary_on">تم إخفاء موجز شريط البحث.</string>
-    <string name="revanced_hide_feed_search_bar_title">إخفاء موجز شريط البحث</string>
-    <string name="revanced_hide_feed_survey_summary_off">يتم عرض الاستبيانات في الموجز.</string>
-    <string name="revanced_hide_feed_survey_summary_on">تم إخفاء الاستبيانات في الموجز.</string>
-    <string name="revanced_hide_feed_survey_title">إخفاء الاستبيانات في الموجز</string>
+    <string name="revanced_hide_feed_search_bar_summary_off">يتم عرض شريط البحث.</string>
+    <string name="revanced_hide_feed_search_bar_summary_on">تم إخفاء شريط البحث.</string>
+    <string name="revanced_hide_feed_search_bar_title">إخفاء شريط البحث</string>
+    <string name="revanced_hide_feed_survey_summary_off">يتم عرض الاستبيانات الموجز.</string>
+    <string name="revanced_hide_feed_survey_summary_on">تم إخفاء الاستبيانات.</string>
+    <string name="revanced_hide_feed_survey_title">إخفاء الاستبيانات</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">يتم عرض تراكب شريط الفيلم.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">تم إخفاء تراكب شريط الفيلم.</string>
     <string name="revanced_hide_filmstrip_overlay_title">إخفاء واجهة شريط الفيلم</string>
