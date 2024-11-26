@@ -1,11 +1,47 @@
+
 # [2.231.0-dev.1](https://github.com/TDAD68/revanced-patches/compare/v2.230.0...v2.231.0-dev.1) (2024-11-26)
+=======
+# [2.232.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.231.0...v2.232.0-dev.1) (2024-11-10)
 
 
 ### Features
 
+
 * **YouTube - Hide ads:** Add `Hide player shopping shelf` setting ([320aa48](https://github.com/TDAD68/revanced-patches/commit/320aa485f917ef612e12b5bca27a307c2961a57c))
 * **YouTube - Hide feed components:** Add `Hide floating button` setting ([da4dd43](https://github.com/TDAD68/revanced-patches/commit/da4dd43bb1b3a493fb1f4480fca2f9471e431437))
 * **YouTube - Seekbar components:** Add `Enable high quality thumbnails` setting ([a0476b5](https://github.com/TDAD68/revanced-patches/commit/a0476b59b5c724cc1da232df0757ee9797edf505))
+=======
+* **YouTube - Spoof app version:** Remove obsolete `19.13.37` spoof target ([743999e](https://github.com/anddea/revanced-patches/commit/743999e864892f33ee4153950339edc8ffae2578))
+* **YouTube - Spoof streaming data:** Add `iOS Compatibility mode` setting ([48b26eb](https://github.com/anddea/revanced-patches/commit/48b26eb9d2b5076248af96c2342fdcd7f29b8a51))
+
+# [2.231.0](https://github.com/anddea/revanced-patches/compare/v2.230.0...v2.231.0) (2024-11-07)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Support A/B player layout ([a58c3df](https://github.com/anddea/revanced-patches/commit/a58c3dfbc6573adc56d7ea600bf66f5cb885ac73))
+* **YouTube - Spoof app version:** Remove obsolete `17.33.42` spoof target ([1220449](https://github.com/anddea/revanced-patches/commit/1220449f2ac46f2dd5319441f82cc7de56e1efb6))
+
+
+### Features
+
+* **YouTube - Description components:** Add `Hide AI-generated video summary section` setting ([fef16e8](https://github.com/anddea/revanced-patches/commit/fef16e84d05be391b301e09d7958d685d4d9df38))
+* **YouTube - Hide ads:** Add `Hide player shopping shelf` setting ([320aa48](https://github.com/anddea/revanced-patches/commit/320aa485f917ef612e12b5bca27a307c2961a57c))
+* **YouTube - Hide feed components:** Add `Hide floating button` setting ([da4dd43](https://github.com/anddea/revanced-patches/commit/da4dd43bb1b3a493fb1f4480fca2f9471e431437))
+* **YouTube - Seekbar components:** Add `Enable high quality thumbnails` setting ([a0476b5](https://github.com/anddea/revanced-patches/commit/a0476b59b5c724cc1da232df0757ee9797edf505))
+
+# [2.231.0-dev.2](https://github.com/anddea/revanced-patches/compare/v2.231.0-dev.1...v2.231.0-dev.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Support A/B player layout ([a58c3df](https://github.com/anddea/revanced-patches/commit/a58c3dfbc6573adc56d7ea600bf66f5cb885ac73))
+* **YouTube - Spoof app version:** Remove obsolete `17.33.42` spoof target ([1220449](https://github.com/anddea/revanced-patches/commit/1220449f2ac46f2dd5319441f82cc7de56e1efb6))
+
+
+### Features
+
+* **YouTube - Description components:** Add `Hide AI-generated video summary section` setting ([fef16e8](https://github.com/anddea/revanced-patches/commit/fef16e84d05be391b301e09d7958d685d4d9df38))
 
 # [2.231.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.230.0...v2.231.0-dev.1) (2024-10-29)
 

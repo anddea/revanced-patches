@@ -42,8 +42,11 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Вкладка Підписки</string>
-    <string name="revanced_append_time_stamp_information_summary_off">Додавання інформації біля мітки часу вимкнено.</string>
-    <string name="revanced_append_time_stamp_information_summary_on">Додавання інформації біля мітки часу увімкнено.</string>
+    <string name="revanced_append_time_stamp_information_summary_off">Інформацію не додається до мітки часу.</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"Інформацію додається до мітки часу.
+
+Натисніть, щоб налаштувати якість відео або швидкість відтворення.
+Натисніть і утримуйте для перемикання типу доданої інформації."</string>
     <string name="revanced_append_time_stamp_information_title">Додавати інформацію біля мітки часу</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Додається швидкість відтворення.</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Додається якість відео.</string>
@@ -262,6 +265,14 @@
     <string name="revanced_enable_seekbar_tapping_summary_off">Натискання на смугу прогресу вимкнено.</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Натискання на смугу прогресу увімкнено.</string>
     <string name="revanced_enable_seekbar_tapping_title">Увімкнути натискання на смугу прогресу</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Це відновить мініатюри для прямих трансляцій, але не мініатюри панелі прогресу.
+
+Інтернет даних може використовуватися більше, та мініатюри панелі прогресу матимуть невелику затримку перед показом.
+
+Ця функція працює найкраще з дуже швидким інтернетом."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі прогресу середньої якості.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Мініатюри панелі прогресу високої якості.</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Увімкнути високоякісні мініатюри</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Мітку часу вимкнено.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Мітку часу увімкнено.
 
@@ -315,11 +326,6 @@
     <string name="revanced_extended_confirm_user_dialog_title">Бажаєте продовжити?</string>
     <string name="revanced_extended_reset_to_default_toast">Скинуто.</string>
     <string name="revanced_extended_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Помилка зі сторони сервера YouTube спричиняє приховування тексту лічильників таких як вподобайки, перегляди, та дати завантаження для деяких користувачів.
-
-Тимчасовим вирішенням цієї проблеми є підміна версії програми на 19.13.37.
-
-Бажаєте підмінити версію програми перед перезапуском програми?"</string>
     <string name="revanced_extended_restart_message">Поновити й перезапустити</string>
     <string name="revanced_extended_settings_export_failed">Не вдалося експортувати налаштування.</string>
     <string name="revanced_extended_settings_export_success">Налаштування було вдало експортовано.</string>
@@ -361,6 +367,9 @@
     <string name="revanced_hide_account_menu_summary">"Приховуються елементи меню облікового запису і вкладки Ви.
 Деякі компоненти не можуть бути приховані."</string>
     <string name="revanced_hide_account_menu_title">Приховати меню акаунту</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секцію короткого змісту відео, згенерованого ШІ показується.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію короткого змісту відео, згенерованого ШІ приховано.</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Приховати секцію короткого змісту відео, згенерованого ШІ</string>
     <string name="revanced_hide_album_card_summary_off">Картки альбому показується.</string>
     <string name="revanced_hide_album_card_summary_on">Картки альбомів приховано.</string>
     <string name="revanced_hide_album_card_title">Приховати картки альбому</string>
@@ -472,21 +481,24 @@
     <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
     <string name="revanced_hide_feed_captions_button_off">Кнопку субтитрів показується.</string>
     <string name="revanced_hide_feed_captions_button_on">Кнопку субтитрів приховано.</string>
-    <string name="revanced_hide_feed_captions_button_title">Приховати кнопку субтитрів в стрічці</string>
+    <string name="revanced_hide_feed_captions_button_title">Приховати кнопку Субтитри</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Список назв висувного меню для фільтрування, розділених новим рядком.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Фільтр висувного меню у стрічці</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Фільтр висувного меню у стрічці вимкнено.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Фільтр висувного меню у стрічці увімкнено.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Увімкнути фільтр висувного меню у стрічці</string>
-    <string name="revanced_hide_feed_search_bar_summary_off">Панель пошуку в стрічці показується.</string>
-    <string name="revanced_hide_feed_search_bar_summary_on">Панель пошуку в стрічці приховано.</string>
-    <string name="revanced_hide_feed_search_bar_title">Приховати панель пошуку в стрічці</string>
-    <string name="revanced_hide_feed_survey_summary_off">Опитування в стрічці показується.</string>
-    <string name="revanced_hide_feed_survey_summary_on">Опитування в стрічці приховано.</string>
-    <string name="revanced_hide_feed_survey_title">Приховати опитування в стрічці</string>
+    <string name="revanced_hide_feed_search_bar_summary_off">Панель пошуку показується.</string>
+    <string name="revanced_hide_feed_search_bar_summary_on">Панель пошуку приховано.</string>
+    <string name="revanced_hide_feed_search_bar_title">Приховати панель пошуку</string>
+    <string name="revanced_hide_feed_survey_summary_off">Опитування показується.</string>
+    <string name="revanced_hide_feed_survey_summary_on">Опитування приховано.</string>
+    <string name="revanced_hide_feed_survey_title">Приховати опитування</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Покадрову перемотку показується.</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Покадрову перемотку приховано.</string>
     <string name="revanced_hide_filmstrip_overlay_title">Приховати покадрову перемотку</string>
+    <string name="revanced_hide_floating_button_summary_off">Плавучу кнопку показується.</string>
+    <string name="revanced_hide_floating_button_summary_on">Плавучу кнопку приховано.</string>
+    <string name="revanced_hide_floating_button_title">Приховати плавучу кнопку</string>
     <string name="revanced_hide_floating_microphone_summary_off">Плавучу кнопку мікрофону показується.</string>
     <string name="revanced_hide_floating_microphone_summary_on">Плавучу кнопку мікрофону приховано.</string>
     <string name="revanced_hide_floating_microphone_title">Приховати плавучу кнопку мікрофону</string>
@@ -706,6 +718,9 @@
     <string name="revanced_hide_player_previous_next_button_summary_off">Кнопки показується.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Кнопки приховано.</string>
     <string name="revanced_hide_player_previous_next_button_title">Приховати кнопки Попереднє та Наступне</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">Полицю покупок показується.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">Полицю покупок приховано.</string>
+    <string name="revanced_hide_player_store_shelf_title">Приховати полицю покупок в плеєрі</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">Кнопку YouTube Music показується.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">Кнопку YouTube Music приховано.</string>
     <string name="revanced_hide_player_youtube_music_button_title">Приховати кнопку Youtube Music</string>

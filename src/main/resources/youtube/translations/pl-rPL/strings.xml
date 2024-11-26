@@ -49,7 +49,10 @@ Stuknij tutaj, aby dowiedzieć się więcej o DeArrow."</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Czas, z którego ma być przechwycona miniaturka z filmu</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Na stronie subskrypcji</string>
     <string name="revanced_append_time_stamp_information_summary_off">Niewidoczna</string>
-    <string name="revanced_append_time_stamp_information_summary_on">Widoczna</string>
+    <string name="revanced_append_time_stamp_information_summary_on">"Widoczna
+
+Stuknij, by skonfigurować jakość filmu lub prędkość odtwarzania.
+Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej informacji."</string>
     <string name="revanced_append_time_stamp_information_title">Dodatkowa informacja obok czasu</string>
     <string name="revanced_append_time_stamp_information_type_summary_off">Prędkość odtwarzania</string>
     <string name="revanced_append_time_stamp_information_type_summary_on">Jakość filmu</string>
@@ -268,6 +271,14 @@ Efekt uboczny: motyw Cairo powiązany m.in. z paskiem postępu filmu, nakłada s
     <string name="revanced_enable_seekbar_tapping_summary_off">Wyłączone</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">Włączone</string>
     <string name="revanced_enable_seekbar_tapping_title">Stukanie w pasek postępu filmu</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Przywróci to miniaturki w transmisjach na żywo, które ich nie mają.
+
+Zużycie danych internetowych może być większe, a miniaturki w pasku postępu filmu mogą mieć drobne opóźnienie przed wyświetleniem.
+
+Funkcja działa najlepiej przy bardzo szybkim połączeniu internetowym."</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Średnia</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Wysoka</string>
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Rozdzielczość miniaturek</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Wyłączony</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Włączony
 
@@ -320,11 +331,6 @@ Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znak�
     <string name="revanced_extended_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
     <string name="revanced_extended_reset_to_default_toast">Przywrócono domyślne wartości.</string>
     <string name="revanced_extended_restart_first_run">Uruchom ponownie, aby wczytać poprawnie układ aplikacji</string>
-    <string name="revanced_extended_restart_first_run_rolling_number">"Istnieje błąd po stronie serwera YouTube, który u niektórych użytkowników powoduje ukrywanie się tekstu liczb posiadających animację, takich jak polubienia, wyświetlenia, daty opublikowania filmów.
-
-Tymczasowym obejściem dla tego błędu jest oszukanie wersji aplikacji do 19.13.37.
-
-Czy chcesz oszukać wersję aplikacji przed ponownym uruchomieniem?"</string>
     <string name="revanced_extended_restart_message">Odśwież i uruchom ponownie</string>
     <string name="revanced_extended_settings_export_failed">Nie udało się wyeksportować ustawień.</string>
     <string name="revanced_extended_settings_export_success">Ustawienia zostały pomyślnie wyeksportowane.</string>
@@ -366,6 +372,9 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_hide_account_menu_summary">"Ukrywa elementy menu konta i zakładki Ty.
 Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_account_menu_title">Menu konta</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Widoczne</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Ukryte</string>
+    <string name="revanced_hide_ai_generated_video_summary_section_title">Podsumowanie filmów wygenerowane przez AI</string>
     <string name="revanced_hide_album_card_summary_off">Widoczne</string>
     <string name="revanced_hide_album_card_summary_on">Ukryte</string>
     <string name="revanced_hide_album_card_title">Karty albumów</string>
@@ -491,7 +500,10 @@ Sklep"</string>
     <string name="revanced_hide_feed_survey_title">Ankiety na stronie głównej</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Włączone</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Wyłączone</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Przewijanie w trybie taśmy filmowej</string>
+    <string name="revanced_hide_filmstrip_overlay_title">Precyzyjne przewijanie</string>
+    <string name="revanced_hide_floating_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_floating_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_floating_button_title">Pływający przycisk</string>
     <string name="revanced_hide_floating_microphone_summary_off">Widoczny</string>
     <string name="revanced_hide_floating_microphone_summary_on">Ukryty</string>
     <string name="revanced_hide_floating_microphone_title">Dolny przycisk od mikrofonu</string>
@@ -711,6 +723,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_player_previous_next_button_summary_off">Widoczne</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Ukryte</string>
     <string name="revanced_hide_player_previous_next_button_title">Przyciski do poprzedniego i następnego filmu</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_store_shelf_title">Półki sklepowe w odtwarzaczu</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">Widoczny</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">Ukryty</string>
     <string name="revanced_hide_player_youtube_music_button_title">Przycisk od odtwarzania w YouTube Music</string>
@@ -1617,6 +1632,9 @@ Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych a
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Zawsze</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Z wyjątkiem filmów kinowych, płatnych i transmisji na żywo</string>
+    <string name="revanced_spoof_streaming_data_ios_compatibility_title">Tryb kompatybilności iOS</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Wyłączone</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Włączone</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek iOS AVC (H.264)</string>
@@ -1630,7 +1648,9 @@ Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie fi
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Filmy kinowe lub płatne filmy mogą się nie odtwarzać
 • Transmisje na żywo rozpoczynają się od początku
 • Filmy mogą kończyć się o 1 sekundę wcześniej
-• Kodek opus jest niedostępny"</string>
+• Kodek audio opus może nie być wspierany"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
+• Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
@@ -1710,19 +1730,4 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-<resources>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"Przywróci to miniaturki w transmisjach na żywo, które ich nie mają.
-
-Zużycie danych internetowych może być większe, a miniaturki w pasku postępu filmu mogą mieć drobne opóźnienie przed wyświetleniem.
-
-Funkcja działa najlepiej przy bardzo szybkim połączeniu internetowym."</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Średnia</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Wysoka</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Rozdzielczość miniaturek</string>
-    <string name="revanced_hide_floating_button_summary_off">Widoczny</string>
-    <string name="revanced_hide_floating_button_summary_on">Ukryty</string>
-    <string name="revanced_hide_floating_button_title">Pływający przycisk</string>
-    <string name="revanced_hide_player_store_shelf_summary_off">Widoczne</string>
-    <string name="revanced_hide_player_store_shelf_summary_on">Ukryte</string>
-    <string name="revanced_hide_player_store_shelf_title">Półki sklepowe</string>
 </resources>
