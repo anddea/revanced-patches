@@ -107,8 +107,8 @@ object OverlayButtonsPatch : BaseResourcePatch(
             "CopyVideoUrlTimestamp;",
             "MuteVolume;",
             "ExternalDownload;",
+            "PlayAll;",
             "SpeedDialog;",
-            "TimeOrderedPlaylist;",
             "Whitelists;"
         ).forEach { className ->
             PlayerControlsPatch.hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
@@ -143,13 +143,13 @@ object OverlayButtonsPatch : BaseResourcePatch(
                     "quantum_ic_fullscreen_exit_white_24.png",
                     "quantum_ic_fullscreen_grey600_24.png",
                     "quantum_ic_fullscreen_white_24.png",
-                    "revanced_time_ordered_playlist_button.png",
                     "revanced_copy_button.png",
                     "revanced_copy_timestamp_button.png",
                     "revanced_download_button.png",
+                    "revanced_play_all_button.png",
+                    "revanced_speed_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
-                    "revanced_speed_button.png",
                     "revanced_whitelist_button.png",
                     "yt_fill_arrow_repeat_white_24.png",
                     "yt_outline_arrow_repeat_1_white_24.png",
