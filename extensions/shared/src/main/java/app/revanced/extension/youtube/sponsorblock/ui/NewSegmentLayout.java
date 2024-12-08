@@ -139,12 +139,13 @@ public final class NewSegmentLayout extends FrameLayout {
      */
     private void initializeButton(final Context context, final String resourceIdentifierName,
                                   final ButtonOnClickHandlerFunction handler, final String debugMessage) {
-        final ImageButton button = findViewById(getIdentifier(resourceIdentifierName, ResourceUtils.ResourceType.ID, context));
+        ImageButton button = findViewById(getIdentifier(resourceIdentifierName, ResourceUtils.ResourceType.ID, context));
 
-        // Add ripple effect
         button.setBackgroundResource(rippleEffectId);
-        RippleDrawable rippleDrawable = (RippleDrawable) button.getBackground();
-        rippleDrawable.setColor(rippleColorStateList);
+        RippleDrawable rippleDrawable = new RippleDrawable(
+                rippleColorStateList, null, null
+        );
+        button.setBackground(rippleDrawable);
 
         button.setOnClickListener((v) -> {
             handler.apply();
@@ -153,7 +154,7 @@ public final class NewSegmentLayout extends FrameLayout {
     }
 
     @FunctionalInterface
-    public interface ButtonOnClickHandlerFunction {
+    private interface ButtonOnClickHandlerFunction {
         void apply();
     }
 }
