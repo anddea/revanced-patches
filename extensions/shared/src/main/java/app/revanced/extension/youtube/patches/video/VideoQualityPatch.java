@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.utils.StringRef.str;
 import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.settings.IntegerSetting;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -58,11 +59,11 @@ public class VideoQualityPatch {
         if (defaultQuality == DEFAULT_YOUTUBE_VIDEO_QUALITY)
             return;
 
-        Utils.runOnMainThreadDelayed(() ->
-                        VideoInformation.overrideVideoQuality(
-                                VideoInformation.getAvailableVideoQuality(defaultQuality)
-                        ),
-                delayMillis
+        Utils.runOnMainThreadDelayed(() -> {
+                    final int qualityToUseFinal = VideoInformation.getAvailableVideoQuality(defaultQuality);
+                    Logger.printDebug(() -> "Changing video quality to: " + qualityToUseFinal);
+                    VideoInformation.overrideVideoQuality(qualityToUseFinal);
+                }, delayMillis
         );
     }
 
