@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.utils.playertype
 
-import app.revanced.patches.youtube.utils.resourceid.actionBarSearchResultsViewMic
 import app.revanced.patches.youtube.utils.resourceid.reelWatchPlayer
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
@@ -10,16 +9,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val actionBarSearchResultsFingerprint = legacyFingerprint(
-    name = "actionBarSearchResultsFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Landroid/view/View;",
-    literals = listOf(actionBarSearchResultsViewMic),
-    customFingerprint = { method, _ ->
-        indexOfLayoutDirectionInstruction(method) >= 0
-    }
-)
 
 internal fun indexOfLayoutDirectionInstruction(method: Method) =
     method.indexOfFirstInstruction {
@@ -54,6 +43,20 @@ internal val reelWatchPagerFingerprint = legacyFingerprint(
     returnType = "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(reelWatchPlayer),
+)
+
+internal val searchQueryClassFingerprint = legacyFingerprint(
+    name = "searchQueryClassFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "Ljava/util/Map;"),
+    opcodes = listOf(
+        Opcode.CHECK_CAST,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+    ),
+    strings = listOf("force_enable_sticky_browsy_bars"),
 )
 
 internal val videoStateFingerprint = legacyFingerprint(

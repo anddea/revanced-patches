@@ -22,7 +22,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -136,18 +135,33 @@ val playerTypeHookPatch = bytecodePatch(
 
         // region patch for hook search bar
 
-        //two different layouts are used at the hooked code.
-        //insert before the firstviewGroup method call after inflating,
-        // so this works regardless which layout is used.
-        actionBarSearchResultsFingerprint.methodOrThrow().apply {
-            val instructionIndex = indexOfLayoutDirectionInstruction(this)
-            val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
+        searchQueryClassFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val searchQueryIndex = it.patternMatch!!.startIndex + 1
+                val searchQueryFieldReference = getInstruction<ReferenceInstruction>(searchQueryIndex).reference
+                val searchQueryClass = (searchQueryFieldReference as FieldReference).definingClass
 
-            addInstruction(
-                instructionIndex,
-                "invoke-static { v$viewRegister }, " +
-                        "$EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
-            )
+                findMethodOrThrow(searchQueryClass).apply {
+                    val smaliInstructions =
+                        """
+                            if-eqz v0, :ignore
+                            iget-object v0, v0, $searchQueryFieldReference
+                            if-eqz v0, :ignore
+                            return-object v0
+                            :ignore
+                            const-string v0, ""
+                            return-object v0
+                            """
+
+                    addStaticFieldToExtension(
+                        EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR,
+                        "getSearchQuery",
+                        "searchQueryClass",
+                        definingClass,
+                        smaliInstructions
+                    )
+                }
+            }
         }
 
         // endregion

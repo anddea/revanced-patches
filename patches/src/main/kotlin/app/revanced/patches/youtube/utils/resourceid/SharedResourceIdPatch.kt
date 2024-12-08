@@ -20,8 +20,6 @@ var actionBarRingo = -1L
     private set
 var actionBarRingoBackground = -1L
     private set
-var actionBarSearchResultsViewMic = -1L
-    private set
 var adAttribution = -1L
     private set
 var appearance = -1L
@@ -245,10 +243,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         actionBarRingoBackground = resourceMappings[
             LAYOUT,
             "action_bar_ringo_background"
-        ]
-        actionBarSearchResultsViewMic = resourceMappings[
-            LAYOUT,
-            "action_bar_search_results_view_mic"
         ]
         adAttribution = resourceMappings[
             ID,
