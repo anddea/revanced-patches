@@ -71,6 +71,8 @@ public final class VideoInformation {
     @Nullable
     private static List<Integer> videoQualities;
 
+    private static boolean qualityNeedsUpdating;
+
     /**
      * Injection point.
      */
@@ -415,16 +417,18 @@ public final class VideoInformation {
      * @return available video quality.
      */
     public static int getAvailableVideoQuality(int preferredQuality) {
-        if (videoQualities != null) {
-            int qualityToUse = videoQualities.get(0); // first element is automatic mode
-            for (Integer quality : videoQualities) {
-                if (quality <= preferredQuality && qualityToUse < quality) {
-                    qualityToUse = quality;
-                }
-            }
-            preferredQuality = qualityToUse;
+        if (!qualityNeedsUpdating || videoQualities == null) {
+            return preferredQuality;
         }
-        return preferredQuality;
+        qualityNeedsUpdating = false;
+
+        int qualityToUse = videoQualities.get(0); // first element is automatic mode
+        for (Integer quality : videoQualities) {
+            if (quality <= preferredQuality && qualityToUse < quality) {
+                qualityToUse = quality;
+            }
+        }
+        return qualityToUse;
     }
 
     /**
@@ -444,6 +448,7 @@ public final class VideoInformation {
                         }
                     }
                 }
+                qualityNeedsUpdating = true;
                 Logger.printDebug(() -> "videoQualities: " + videoQualities);
             }
         } catch (Exception ex) {
