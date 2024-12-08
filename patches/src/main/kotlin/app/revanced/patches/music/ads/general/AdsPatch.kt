@@ -151,7 +151,7 @@ val adsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads",
-            "true"
+            "false"
         )
         addSwitchPreference(
             CategoryType.ADS,
