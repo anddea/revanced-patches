@@ -6,6 +6,7 @@ import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.shared.patches.components.StringFilterGroupList;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -26,7 +27,7 @@ public final class FeedComponentsFilter extends Filter {
 
     private static final ByteArrayFilterGroup mixPlaylists =
             new ByteArrayFilterGroup(
-                    Settings.HIDE_MIX_PLAYLISTS,
+                    null,
                     "&list="
             );
     private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions =
@@ -229,11 +230,20 @@ public final class FeedComponentsFilter extends Filter {
      * <p>
      * Called from a different place then the other filters.
      */
-    public static boolean filterMixPlaylists(final Object conversionContext, final byte[] bytes) {
-        return bytes != null
-                && mixPlaylists.check(bytes).isFiltered()
-                && !mixPlaylistsBufferExceptions.check(bytes).isFiltered()
-                && !mixPlaylistsContextExceptions.matches(conversionContext.toString());
+    public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
+        try {
+            if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
+                return false;
+            }
+            return bytes != null
+                    && mixPlaylists.check(bytes).isFiltered()
+                    && !mixPlaylistsBufferExceptions.check(bytes).isFiltered()
+                    && !mixPlaylistsContextExceptions.matches(conversionContext.toString());
+        } catch (Exception ex) {
+            Logger.printException(() -> "filterMixPlaylists failure", ex);
+        }
+
+        return false;
     }
 
     @Override
