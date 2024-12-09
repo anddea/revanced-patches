@@ -78,8 +78,8 @@ public class FeedPatch {
         );
     }
 
-    public static boolean hideFloatingButton() {
-        return Settings.HIDE_FLOATING_BUTTON.get();
+    public static String hideFloatingButton(String fab) {
+        return Settings.HIDE_FLOATING_BUTTON.get() ? null : fab;
     }
 
     public static void hideLatestVideosButton(View view) {

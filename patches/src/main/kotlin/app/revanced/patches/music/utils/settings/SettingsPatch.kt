@@ -114,10 +114,6 @@ private val settingsBytecodePatch = bytecodePatch(
 
         injectOnCreateMethodCall(
             EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
-            "setDeviceInformation"
-        )
-        injectOnCreateMethodCall(
-            EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR,
             "onCreate"
         )
         injectConstructorMethodCall(

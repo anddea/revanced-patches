@@ -10,12 +10,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal fun indexOfLayoutDirectionInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>().toString() == "Landroid/view/View;->setLayoutDirection(I)V"
-    }
-
 internal val browseIdClassFingerprint = legacyFingerprint(
     name = "browseIdClassFingerprint",
     returnType = "Ljava/lang/Object;",
@@ -45,18 +39,26 @@ internal val reelWatchPagerFingerprint = legacyFingerprint(
     literals = listOf(reelWatchPlayer),
 )
 
+internal fun indexOfStringIsEmptyInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Ljava/lang/String;->isEmpty()Z"
+    }
+
 internal val searchQueryClassFingerprint = legacyFingerprint(
     name = "searchQueryClassFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "Ljava/util/Map;"),
     opcodes = listOf(
-        Opcode.CHECK_CAST,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     ),
     strings = listOf("force_enable_sticky_browsy_bars"),
+    customFingerprint = { method, _ ->
+        indexOfStringIsEmptyInstruction(method) >= 0
+    }
 )
 
 internal val videoStateFingerprint = legacyFingerprint(

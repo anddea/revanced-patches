@@ -147,18 +147,22 @@ val feedComponentsPatch = bytecodePatch(
         // region patch for hide floating button
 
         onCreateMethod.apply {
-            val fabIndex = indexOfFirstInstructionOrThrow {
+            val stringIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.CONST_STRING &&
                         getReference<StringReference>()?.string == "fab"
             }
-            val fabRegister = getInstruction<OneRegisterInstruction>(fabIndex).registerA
-            val jumpIndex = indexOfFirstInstructionOrThrow(fabIndex + 1, Opcode.CONST_STRING)
+            val stringRegister = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+            val insertIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                opcode == Opcode.INVOKE_DIRECT &&
+                        getReference<MethodReference>()?.name == "<init>"
+            }
+            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_STRING)
 
             addInstructionsWithLabels(
-                fabIndex, """
-                    invoke-static {}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton()Z
-                    move-result v$fabRegister
-                    if-nez v$fabRegister, :hide
+                insertIndex, """
+                    invoke-static {v$stringRegister}, $FEED_CLASS_DESCRIPTOR->hideFloatingButton(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$stringRegister
+                    if-eqz v$stringRegister, :hide
                     """, ExternalLabel("hide", getInstruction(jumpIndex))
             )
         }

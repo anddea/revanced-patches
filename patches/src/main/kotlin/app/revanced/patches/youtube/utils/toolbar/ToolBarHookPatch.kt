@@ -6,12 +6,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/ToolBarPatch;"
@@ -24,30 +30,35 @@ val toolBarHookPatch = bytecodePatch(
     dependsOn(sharedResourceIdPatch)
 
     execute {
-        toolBarButtonFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val replaceIndex = it.patternMatch!!.startIndex
-                val freeIndex = it.patternMatch!!.endIndex - 1
-
-                val replaceReference = getInstruction<ReferenceInstruction>(replaceIndex).reference
-                val replaceRegister =
-                    getInstruction<FiveRegisterInstruction>(replaceIndex).registerC
-                val enumRegister = getInstruction<FiveRegisterInstruction>(replaceIndex).registerD
-                val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
-
-                val imageViewIndex = replaceIndex + 2
-                val imageViewReference =
-                    getInstruction<ReferenceInstruction>(imageViewIndex).reference
-
-                addInstructions(
-                    replaceIndex + 1, """
-                        iget-object v$freeRegister, p0, $imageViewReference
-                        invoke-static {v$enumRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->hookToolBar(Ljava/lang/Enum;Landroid/widget/ImageView;)V
-                        invoke-interface {v$replaceRegister, v$enumRegister}, $replaceReference
-                        """
-                )
-                removeInstruction(replaceIndex)
+        toolBarButtonFingerprint.methodOrThrow().apply {
+            val getDrawableIndex = indexOfGetDrawableInstruction(this)
+            val enumOrdinalIndex = indexOfFirstInstructionReversedOrThrow(getDrawableIndex) {
+                opcode == Opcode.INVOKE_INTERFACE &&
+                        getReference<MethodReference>()?.returnType == "I"
             }
+            val freeIndex = getDrawableIndex - 1
+
+            val replaceReference = getInstruction<ReferenceInstruction>(enumOrdinalIndex).reference
+            val replaceRegister =
+                getInstruction<FiveRegisterInstruction>(enumOrdinalIndex).registerC
+            val enumRegister = getInstruction<FiveRegisterInstruction>(enumOrdinalIndex).registerD
+            val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
+
+            val imageViewIndex = indexOfFirstInstructionReversedOrThrow(enumOrdinalIndex) {
+                opcode == Opcode.IGET_OBJECT &&
+                        getReference<FieldReference>()?.type == "Landroid/widget/ImageView;"
+            }
+            val imageViewReference =
+                getInstruction<ReferenceInstruction>(imageViewIndex).reference
+
+            addInstructions(
+                enumOrdinalIndex + 1, """
+                    iget-object v$freeRegister, p0, $imageViewReference
+                    invoke-static {v$enumRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->hookToolBar(Ljava/lang/Enum;Landroid/widget/ImageView;)V
+                    invoke-interface {v$replaceRegister, v$enumRegister}, $replaceReference
+                    """
+            )
+            removeInstruction(enumOrdinalIndex)
         }
 
         toolbarMethod = toolBarPatchFingerprint.methodOrThrow()

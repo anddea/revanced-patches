@@ -8,16 +8,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class PackageUtils extends Utils {
-    private static String applicationLabel = "";
-    private static int smallestScreenWidthDp = 0;
-    private static String versionName = "";
 
-    public static String getApplicationLabel() {
-        return applicationLabel;
+    public static String getAppLabel() {
+        final PackageInfo packageInfo = getPackageInfo();
+        if (packageInfo != null) {
+            final ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+            if (applicationInfo != null && applicationInfo.loadLabel(getPackageManager()) instanceof String applicationLabel) {
+                return applicationLabel;
+            }
+        }
+        return "";
     }
 
-    public static String getVersionName() {
-        return versionName;
+    public static String getAppVersionName() {
+        final PackageInfo packageInfo = getPackageInfo();
+        if (packageInfo != null) {
+            return packageInfo.versionName;
+        } else {
+            return "";
+        }
     }
 
     public static boolean isPackageEnabled(@NonNull String packageName) {
@@ -30,32 +39,11 @@ public class PackageUtils extends Utils {
     }
 
     public static boolean isTablet() {
-        return smallestScreenWidthDp >= 600;
-    }
-
-    public static void setApplicationLabel() {
-        final PackageInfo packageInfo = getPackageInfo();
-        if (packageInfo != null) {
-            final ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            if (applicationInfo != null) {
-                applicationLabel = (String) applicationInfo.loadLabel(getPackageManager());
-            }
-        }
-    }
-
-    public static void setSmallestScreenWidthDp() {
-        smallestScreenWidthDp = context.getResources().getConfiguration().smallestScreenWidthDp;
-    }
-
-    public static void setVersionName() {
-        final PackageInfo packageInfo = getPackageInfo();
-        if (packageInfo != null) {
-            versionName = packageInfo.versionName;
-        }
+        return getSmallestScreenWidthDp() >= 600;
     }
 
     public static int getSmallestScreenWidthDp() {
-        return smallestScreenWidthDp;
+        return context.getResources().getConfiguration().smallestScreenWidthDp;
     }
 
     // utils

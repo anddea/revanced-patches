@@ -1,15 +1,17 @@
 package app.revanced.extension.youtube.patches.general;
 
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_2;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.ORIGINAL;
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.*;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREATER;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -17,9 +19,10 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public final class MiniplayerPatch {
 
     /**
@@ -27,14 +30,28 @@ public final class MiniplayerPatch {
      */
     public enum MiniplayerType {
         /**
-         * Unmodified type, and same as un-patched.
+         * Disabled. When swiped down the miniplayer is immediately closed.
+         * Only available with 19.43+
          */
+        DISABLED(false, null),
+        /** Unmodified type, and same as un-patched. */
         ORIGINAL(null, null),
+        /**
+         * Exactly the same as MINIMAL and only here for migration of user settings.
+         * Eventually this should be deleted.
+         */
+        @Deprecated
         PHONE(false, null),
+        MINIMAL(false, null),
         TABLET(true, null),
         MODERN_1(null, 1),
         MODERN_2(null, 2),
-        MODERN_3(null, 3);
+        MODERN_3(null, 3),
+        /**
+         * Half broken miniplayer, that might be work in progress or left over abandoned code.
+         * Can force this type by editing the import/export settings.
+         */
+        MODERN_4(null, 4);
 
         /**
          * Legacy tablet hook value.
@@ -58,6 +75,44 @@ public final class MiniplayerPatch {
         }
     }
 
+    private static final int MINIPLAYER_SIZE;
+
+    static {
+        // YT appears to use the device screen dip width, plus an unknown fixed horizontal padding size.
+        DisplayMetrics displayMetrics = Utils.getContext().getResources().getDisplayMetrics();
+        final int deviceDipWidth = (int) (displayMetrics.widthPixels / displayMetrics.density);
+
+        // YT seems to use a minimum height to calculate the minimum miniplayer width based on the video.
+        // 170 seems to be the smallest that can be used and using less makes no difference.
+        final int WIDTH_DIP_MIN = 170; // Seems to be the smallest that works.
+        final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
+        // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
+        final int WIDTH_DIP_MAX = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
+        Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
+
+        int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
+
+        if (dipWidth < WIDTH_DIP_MIN || dipWidth > WIDTH_DIP_MAX) {
+            Utils.showToastLong(str("revanced_miniplayer_width_dip_invalid_toast",
+                    WIDTH_DIP_MIN, WIDTH_DIP_MAX));
+
+            // Instead of resetting, clamp the size at the bounds.
+            dipWidth = Math.max(WIDTH_DIP_MIN, Math.min(dipWidth, WIDTH_DIP_MAX));
+            Settings.MINIPLAYER_WIDTH_DIP.save(dipWidth);
+        }
+
+        MINIPLAYER_SIZE = dipWidth;
+
+        final int opacity = validateValue(
+                Settings.MINIPLAYER_OPACITY,
+                0,
+                100,
+                "revanced_miniplayer_opacity_invalid_toast"
+        );
+
+        OPACITY_LEVEL = (opacity * 255) / 100;
+    }
+
     /**
      * Modern subtitle overlay for {@link MiniplayerType#MODERN_2}.
      * Resource is not present in older targets, and this field will be zero.
@@ -67,19 +122,21 @@ public final class MiniplayerPatch {
 
     private static final MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
 
+    /**
+     * Cannot turn off double tap with modern 2 or 3 with later targets,
+     * as forcing it off breakings tapping the miniplayer.
+     */
     private static final boolean DOUBLE_TAP_ACTION_ENABLED =
-            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_2 || CURRENT_TYPE == MODERN_3) && Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get();
+            // 19.29+ is very broken if double tap is not enabled.
+            IS_19_29_OR_GREATER ||
+                    (CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get());
 
     private static final boolean DRAG_AND_DROP_ENABLED =
-            CURRENT_TYPE == MODERN_1 && Settings.MINIPLAYER_DRAG_AND_DROP.get();
-
-    private static final boolean HIDE_EXPAND_CLOSE_AVAILABLE =
-            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) &&
-                    !DOUBLE_TAP_ACTION_ENABLED &&
-                    !DRAG_AND_DROP_ENABLED;
+            CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
 
     private static final boolean HIDE_EXPAND_CLOSE_ENABLED =
-            HIDE_EXPAND_CLOSE_AVAILABLE && Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.get();
+            Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.get()
+                    && Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.isAvailable();
 
     private static final boolean HIDE_SUBTEXT_ENABLED =
             (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
@@ -87,17 +144,49 @@ public final class MiniplayerPatch {
     private static final boolean HIDE_REWIND_FORWARD_ENABLED =
             CURRENT_TYPE == MODERN_1 && Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get();
 
+    private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
+            Settings.MINIPLAYER_ROUNDED_CORNERS.get();
+
+    private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
+            DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
+
+    /**
+     * Remove a broken and always present subtitle text that is only
+     * present with {@link MiniplayerType#MODERN_2}. Bug was fixed in 19.21.
+     */
+    private static final boolean HIDE_BROKEN_MODERN_2_SUBTITLE =
+            CURRENT_TYPE == MODERN_2 && !IS_19_21_OR_GREATER;
+
     private static final int OPACITY_LEVEL;
 
-    static {
-        final int opacity = validateValue(
-                Settings.MINIPLAYER_OPACITY,
-                0,
-                100,
-                "revanced_miniplayer_opacity_invalid_toast"
-        );
+    public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
+        }
+    }
 
-        OPACITY_LEVEL = (opacity * 255) / 100;
+    public static final class MiniplayerHideExpandCloseAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
+                    || (!IS_19_26_OR_GREATER && type == MODERN_1
+                    && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
+                    || (IS_19_29_OR_GREATER && type == MODERN_3);
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Enables a handler that immediately closes the miniplayer when the video is minimized,
+     * effectively disabling the miniplayer.
+     */
+    public static boolean getMiniplayerOnCloseHandler(boolean original) {
+        return CURRENT_TYPE == ORIGINAL
+                ? original
+                : CURRENT_TYPE == DISABLED;
     }
 
     /**
@@ -141,15 +230,69 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDoubleTapAction() {
+    public static boolean getModernFeatureFlagsActiveOverride(boolean original) {
+        if (CURRENT_TYPE == ORIGINAL) {
+            return original;
+        }
+
+        return CURRENT_TYPE.isModern();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean enableMiniplayerDoubleTapAction(boolean original) {
+        if (CURRENT_TYPE == ORIGINAL) {
+            return original;
+        }
+
         return DOUBLE_TAP_ACTION_ENABLED;
     }
 
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDragAndDrop() {
+    public static boolean enableMiniplayerDragAndDrop(boolean original) {
+        if (CURRENT_TYPE == ORIGINAL) {
+            return original;
+        }
+
         return DRAG_AND_DROP_ENABLED;
+    }
+
+
+    /**
+     * Injection point.
+     */
+    public static boolean setRoundedCorners(boolean original) {
+        if (CURRENT_TYPE.isModern()) {
+            return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int setMiniplayerDefaultSize(int original) {
+        if (CURRENT_TYPE.isModern()) {
+            return MINIPLAYER_SIZE;
+        }
+
+        return original;
+    }
+
+
+    /**
+     * Injection point.
+     */
+    public static boolean setHorizontalDrag(boolean original) {
+        if (CURRENT_TYPE.isModern()) {
+            return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
+        }
+
+        return original;
     }
 
     /**
@@ -169,29 +312,36 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean hideMiniplayerSubTexts(View view) {
-        // Different subviews are passed in, but only TextView and layouts are of interest here.
-        final boolean hideView = HIDE_SUBTEXT_ENABLED && (view instanceof TextView || view instanceof LinearLayout);
-        Utils.hideViewByRemovingFromParentUnderCondition(hideView, view);
-        return hideView || view == null;
+    public static void hideMiniplayerSubTexts(View view) {
+        try {
+            // Different subviews are passed in, but only TextView is of interest here.
+            if (HIDE_SUBTEXT_ENABLED && view instanceof TextView) {
+                Logger.printDebug(() -> "Hiding subtext view");
+                Utils.hideViewByRemovingFromParentUnderCondition(true, view);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideMiniplayerSubTexts failure", ex);
+        }
     }
 
     /**
      * Injection point.
      */
     public static void playerOverlayGroupCreated(View group) {
-        // Modern 2 has an half broken subtitle that is always present.
-        // Always hide it to make the miniplayer mostly usable.
-        if (CURRENT_TYPE == MODERN_2 && MODERN_OVERLAY_SUBTITLE_TEXT != 0) {
-            if (group instanceof ViewGroup viewGroup) {
-                View subtitleText = Utils.getChildView(viewGroup, true,
-                        view -> view.getId() == MODERN_OVERLAY_SUBTITLE_TEXT);
+        try {
+            if (HIDE_BROKEN_MODERN_2_SUBTITLE && MODERN_OVERLAY_SUBTITLE_TEXT != 0) {
+                if (group instanceof ViewGroup) {
+                    View subtitleText = Utils.getChildView((ViewGroup) group, true,
+                            view -> view.getId() == MODERN_OVERLAY_SUBTITLE_TEXT);
 
-                if (subtitleText != null) {
-                    subtitleText.setVisibility(View.GONE);
-                    Logger.printDebug(() -> "Modern overlay subtitle view set to hidden");
+                    if (subtitleText != null) {
+                        subtitleText.setVisibility(View.GONE);
+                        Logger.printDebug(() -> "Modern overlay subtitle view set to hidden");
+                    }
                 }
             }
+        } catch (Exception ex) {
+            Logger.printException(() -> "playerOverlayGroupCreated failure", ex);
         }
     }
 }

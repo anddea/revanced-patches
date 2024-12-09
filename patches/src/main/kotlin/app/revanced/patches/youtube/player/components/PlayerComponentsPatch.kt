@@ -386,6 +386,8 @@ val playerComponentsPatch = bytecodePatch(
                         findMethodOrThrow(syntheticReference) {
                             name == "onClick"
                         }.hookInitVideoPanel(0)
+                    } else {
+                        println("WARNING: target Opcode not found in ${fingerprint.first}")
                     }
                 }
             }

@@ -297,6 +297,7 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        /*
         // region patch for hide voice search button
 
         if (is_19_28_or_greater) {
@@ -311,6 +312,7 @@ val toolBarComponentsPatch = bytecodePatch(
         }
 
         // endregion
+         */
 
         // region patch for hide voice search button
 

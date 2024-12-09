@@ -135,32 +135,30 @@ val playerTypeHookPatch = bytecodePatch(
 
         // region patch for hook search bar
 
-        searchQueryClassFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val searchQueryIndex = it.patternMatch!!.startIndex + 1
-                val searchQueryFieldReference = getInstruction<ReferenceInstruction>(searchQueryIndex).reference
-                val searchQueryClass = (searchQueryFieldReference as FieldReference).definingClass
+        searchQueryClassFingerprint.methodOrThrow().apply {
+            val searchQueryIndex = indexOfStringIsEmptyInstruction(this) - 1
+            val searchQueryFieldReference = getInstruction<ReferenceInstruction>(searchQueryIndex).reference
+            val searchQueryClass = (searchQueryFieldReference as FieldReference).definingClass
 
-                findMethodOrThrow(searchQueryClass).apply {
-                    val smaliInstructions =
+            findMethodOrThrow(searchQueryClass).apply {
+                val smaliInstructions =
+                    """
+                        if-eqz v0, :ignore
+                        iget-object v0, v0, $searchQueryFieldReference
+                        if-eqz v0, :ignore
+                        return-object v0
+                        :ignore
+                        const-string v0, ""
+                        return-object v0
                         """
-                            if-eqz v0, :ignore
-                            iget-object v0, v0, $searchQueryFieldReference
-                            if-eqz v0, :ignore
-                            return-object v0
-                            :ignore
-                            const-string v0, ""
-                            return-object v0
-                            """
 
-                    addStaticFieldToExtension(
-                        EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR,
-                        "getSearchQuery",
-                        "searchQueryClass",
-                        definingClass,
-                        smaliInstructions
-                    )
-                }
+                addStaticFieldToExtension(
+                    EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR,
+                    "getSearchQuery",
+                    "searchQueryClass",
+                    definingClass,
+                    smaliInstructions
+                )
             }
         }
 

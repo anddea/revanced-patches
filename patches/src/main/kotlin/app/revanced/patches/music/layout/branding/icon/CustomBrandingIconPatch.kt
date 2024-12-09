@@ -14,6 +14,7 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
 import org.w3c.dom.Element
@@ -258,38 +259,23 @@ val customBrandingIconPatch = resourcePatch(
             return@execute
         }
 
-        fun getAdaptiveIconResourceFile(tag: String): String {
-            document("res/mipmap-anydpi/ic_launcher_release.xml").use { document ->
-                val adaptiveIcon = document
-                    .getElementsByTagName("adaptive-icon")
-                    .item(0) as Element
-
-                val childNodes = adaptiveIcon.childNodes
-                for (i in 0 until childNodes.length) {
-                    val node = childNodes.item(i)
-                    if (node is Element && node.tagName == tag && node.hasAttribute("android:drawable")) {
-                        return node.getAttribute("android:drawable").split("/")[1]
-                    }
-                }
-                throw PatchException("Element not found: $tag")
-            }
-        }
-
         mapOf(
-            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("background"),
-            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("foreground")
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher_release.xml", "background"),
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher_release.xml", "foreground")
         ).forEach { (oldIconResourceFile, newIconResourceFile) ->
-            mipmapDirectories.forEach {
-                val mipmapDirectory = resourceDirectory.resolve(it)
-                Files.move(
-                    mipmapDirectory
-                        .resolve("$oldIconResourceFile.png")
-                        .toPath(),
-                    mipmapDirectory
-                        .resolve("$newIconResourceFile.png")
-                        .toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-                )
+            if (oldIconResourceFile != newIconResourceFile) {
+                mipmapDirectories.forEach {
+                    val mipmapDirectory = resourceDirectory.resolve(it)
+                    Files.move(
+                        mipmapDirectory
+                            .resolve("$oldIconResourceFile.png")
+                            .toPath(),
+                        mipmapDirectory
+                            .resolve("$newIconResourceFile.png")
+                            .toPath(),
+                        StandardCopyOption.REPLACE_EXISTING
+                    )
+                }
             }
         }
 

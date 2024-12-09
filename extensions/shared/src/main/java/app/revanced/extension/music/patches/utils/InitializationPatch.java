@@ -26,9 +26,4 @@ public class InitializationPatch {
         showRestartDialog(mActivity, "revanced_extended_restart_first_run", 3000);
         Utils.runOnMainThreadDelayed(() -> BaseSettings.SETTINGS_INITIALIZED.save(true), 3000);
     }
-
-    public static void setDeviceInformation(@NonNull Activity mActivity) {
-        ExtendedUtils.setApplicationLabel();
-        ExtendedUtils.setVersionName();
-    }
 }

@@ -5,6 +5,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
@@ -12,9 +14,16 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
+import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 
+private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
+    "adaptiveproduct_youtube_background_color_108"
+private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
+    "adaptiveproduct_youtube_foreground_color_108"
 private const val DEFAULT_ICON = "xisr_yellow"
 
 private val availableIcon = mapOf(
@@ -48,8 +57,8 @@ private val drawableDirectories = sizeArray.map { "drawable-$it" }
 private val mipmapDirectories = sizeArray.map { "mipmap-$it" }
 
 private val launcherIconResourceFileNames = arrayOf(
-    "adaptiveproduct_youtube_background_color_108",
-    "adaptiveproduct_youtube_foreground_color_108",
+    ADAPTIVE_ICON_BACKGROUND_FILE_NAME,
+    ADAPTIVE_ICON_FOREGROUND_FILE_NAME,
     "ic_launcher",
     "ic_launcher_round"
 ).map { "$it.png" }.toTypedArray()
@@ -93,7 +102,10 @@ val customBrandingIconPatch = resourcePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch,
+    )
 
 
     val appIconOption = stringOption(
@@ -190,6 +202,33 @@ val customBrandingIconPatch = resourcePatch(
             }
 
             updatePatchStatusIcon(appIcon)
+        }
+
+        if (!is_19_34_or_greater) {
+            return@execute
+        }
+        if (appIcon == "youtube") {
+            return@execute
+        }
+
+        mapOf(
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "background"),
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "foreground")
+        ).forEach { (oldIconResourceFile, newIconResourceFile) ->
+            if (oldIconResourceFile != newIconResourceFile) {
+                mipmapDirectories.forEach {
+                    val mipmapDirectory = get("res").resolve(it)
+                    Files.copy(
+                        mipmapDirectory
+                            .resolve("$oldIconResourceFile.png")
+                            .toPath(),
+                        mipmapDirectory
+                            .resolve("$newIconResourceFile.png")
+                            .toPath(),
+                        StandardCopyOption.REPLACE_EXISTING
+                    )
+                }
+            }
         }
     }
 }

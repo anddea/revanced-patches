@@ -31,9 +31,6 @@ public class InitializationPatch {
     }
 
     public static void setExtendedUtils(@NonNull Activity mActivity) {
-        ExtendedUtils.setApplicationLabel();
-        ExtendedUtils.setSmallestScreenWidthDp();
-        ExtendedUtils.setVersionName();
         ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
     }
 }

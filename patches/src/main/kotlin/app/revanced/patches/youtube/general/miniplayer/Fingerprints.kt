@@ -2,20 +2,18 @@
 
 package app.revanced.patches.youtube.general.miniplayer
 
-import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.resourceid.floatyBarTopMargin
+import app.revanced.patches.youtube.utils.resourceid.miniplayerMaxSize
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerExpand
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerForwardButton
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerRewindButton
 import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
 import app.revanced.patches.youtube.utils.resourceid.ytOutlinePictureInPictureWhite
-import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal val miniplayerDimensionsCalculatorParentFingerprint = legacyFingerprint(
     name = "miniplayerDimensionsCalculatorParentFingerprint",
@@ -25,6 +23,9 @@ internal val miniplayerDimensionsCalculatorParentFingerprint = legacyFingerprint
     literals = listOf(floatyBarTopMargin),
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernAddViewListenerFingerprint = legacyFingerprint(
     name = "miniplayerModernAddViewListenerFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
@@ -32,6 +33,9 @@ internal val miniplayerModernAddViewListenerFingerprint = legacyFingerprint(
     parameters = listOf("Landroid/view/View;")
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernCloseButtonFingerprint = legacyFingerprint(
     name = "miniplayerModernCloseButtonFingerprint",
     returnType = "Landroid/widget/ImageView;",
@@ -40,41 +44,33 @@ internal val miniplayerModernCloseButtonFingerprint = legacyFingerprint(
     literals = listOf(modernMiniPlayerClose),
 )
 
-private var constructorMethodCount = 0
-
-internal fun isMultiConstructorMethod() = constructorMethodCount > 1
+internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
+// In later targets this feature flag does nothing and is dead code.
+internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
+internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L
+internal const val MINIPLAYER_DRAG_DROP_FEATURE_KEY = 45628752L
+internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
+internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
+internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
+internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 
 internal val miniplayerModernConstructorFingerprint = legacyFingerprint(
     name = "miniplayerModernConstructorFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L"),
     literals = listOf(45623000L),
-    customFingerprint = custom@{ method, classDef ->
-        classDef.methods.forEach {
-            if (MethodUtil.isConstructor(it)) constructorMethodCount += 1
-        }
-
-        if (!is_19_25_or_greater)
-            return@custom true
-
-        // Double tap action (Used in YouTube 19.25.39+).
-        method.containsLiteralInstruction(45628823L)
-                && method.containsLiteralInstruction(45630429L)
-    }
 )
 
-internal val miniplayerModernDragAndDropFingerprint = legacyFingerprint(
-    name = "miniplayerModernDragAndDropFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("L"),
-    literals = listOf(45628752L),
+internal val miniplayerOnCloseHandlerFingerprint = legacyFingerprint(
+    name = "miniplayerOnCloseHandlerFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    literals = listOf(MINIPLAYER_DISABLED_FEATURE_KEY),
 )
 
-internal val miniplayerModernEnabledFingerprint = legacyFingerprint(
-    name = "miniplayerModernEnabledFingerprint",
-    literals = listOf(45622882L),
-)
-
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernExpandButtonFingerprint = legacyFingerprint(
     name = "miniplayerModernExpandButtonFingerprint",
     returnType = "Landroid/widget/ImageView;",
@@ -83,6 +79,9 @@ internal val miniplayerModernExpandButtonFingerprint = legacyFingerprint(
     literals = listOf(modernMiniPlayerExpand),
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernExpandCloseDrawablesFingerprint = legacyFingerprint(
     name = "miniplayerModernExpandCloseDrawablesFingerprint",
     returnType = "V",
@@ -91,6 +90,9 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint = legacyFingerprint
     literals = listOf(ytOutlinePictureInPictureWhite),
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernForwardButtonFingerprint = legacyFingerprint(
     name = "miniplayerModernForwardButtonFingerprint",
     returnType = "Landroid/widget/ImageView;",
@@ -99,6 +101,9 @@ internal val miniplayerModernForwardButtonFingerprint = legacyFingerprint(
     literals = listOf(modernMiniPlayerForwardButton),
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernOverlayViewFingerprint = legacyFingerprint(
     name = "miniplayerModernOverlayViewFingerprint",
     returnType = "V",
@@ -107,6 +112,9 @@ internal val miniplayerModernOverlayViewFingerprint = legacyFingerprint(
     literals = listOf(scrimOverlay),
 )
 
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
 internal val miniplayerModernRewindButtonFingerprint = legacyFingerprint(
     name = "miniplayerModernRewindButtonFingerprint",
     returnType = "Landroid/widget/ImageView;",
@@ -123,11 +131,16 @@ internal val miniplayerModernViewParentFingerprint = legacyFingerprint(
     strings = listOf("player_overlay_modern_mini_player_controls")
 )
 
+internal val miniplayerMinimumSizeFingerprint = legacyFingerprint(
+    name = "miniplayerMinimumSizeFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    literals = listOf(192L, 128L, miniplayerMaxSize),
+)
+
 internal val miniplayerOverrideFingerprint = legacyFingerprint(
     name = "miniplayerOverrideFingerprint",
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
     strings = listOf("appName")
 )
 
@@ -144,6 +157,7 @@ internal val miniplayerResponseModelSizeCheckFingerprint = legacyFingerprint(
     returnType = "L",
     parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
     opcodes = listOf(
+        Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_STATIC,
@@ -152,12 +166,12 @@ internal val miniplayerResponseModelSizeCheckFingerprint = legacyFingerprint(
     )
 )
 
+internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
+    "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
+
 internal val youTubePlayerOverlaysLayoutFingerprint = legacyFingerprint(
     name = "youTubePlayerOverlaysLayoutFingerprint",
     customFingerprint = { _, classDef ->
         classDef.type == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
     }
 )
-
-internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
-    "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
