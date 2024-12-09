@@ -5,6 +5,7 @@ import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
 import app.revanced.patches.youtube.utils.resourceid.insetOverlayViewLayout
+import app.revanced.patches.youtube.utils.resourceid.menuItemView
 import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
 import app.revanced.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
 import app.revanced.patches.youtube.utils.resourceid.totalTime
@@ -12,9 +13,13 @@ import app.revanced.patches.youtube.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val engagementPanelBuilderFingerprint = legacyFingerprint(
     name = "engagementPanelBuilderFingerprint",
@@ -162,6 +167,23 @@ internal val seekbarFingerprint = legacyFingerprint(
 internal val seekbarOnDrawFingerprint = legacyFingerprint(
     name = "seekbarOnDrawFingerprint",
     customFingerprint = { method, _ -> method.name == "onDraw" }
+)
+
+internal fun indexOfGetDrawableInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
+    }
+
+internal val toolBarButtonFingerprint = legacyFingerprint(
+    name = "toolBarButtonFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Landroid/view/MenuItem;"),
+    literals = listOf(menuItemView),
+    customFingerprint = { method, _ ->
+        indexOfGetDrawableInstruction(method) >= 0
+    }
 )
 
 internal val totalTimeFingerprint = legacyFingerprint(

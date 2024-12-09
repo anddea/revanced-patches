@@ -593,8 +593,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private void exportActivity() {
         @SuppressLint("SimpleDateFormat") final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        final String appName = ExtendedUtils.getApplicationLabel();
-        final String versionName = ExtendedUtils.getVersionName();
+        final String appName = ExtendedUtils.getAppLabel();
+        final String versionName = ExtendedUtils.getAppVersionName();
         final String formatDate = dateFormat.format(new Date(System.currentTimeMillis()));
         final String fileName = String.format("%s_v%s_%s.txt", appName, versionName, formatDate);
 

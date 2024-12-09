@@ -120,6 +120,8 @@ var menuItemView = -1L
     private set
 var metaPanel = -1L
     private set
+var miniplayerMaxSize = -1L
+    private set
 var modernMiniPlayerClose = -1L
     private set
 var modernMiniPlayerExpand = -1L
@@ -443,6 +445,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         metaPanel = resourceMappings[
             ID,
             "metapanel"
+        ]
+        miniplayerMaxSize = resourceMappings[
+            DIMEN,
+            "miniplayer_max_size",
         ]
         modernMiniPlayerClose = resourceMappings[
             ID,

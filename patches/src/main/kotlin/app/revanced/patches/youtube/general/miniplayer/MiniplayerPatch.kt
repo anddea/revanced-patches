@@ -1,22 +1,22 @@
 package app.revanced.patches.youtube.general.miniplayer
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.MINIPLAYER
 import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_26_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_29_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerClose
 import app.revanced.patches.youtube.utils.resourceid.modernMiniPlayerExpand
@@ -28,6 +28,7 @@ import app.revanced.patches.youtube.utils.resourceid.ytOutlinePictureInPictureWh
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineXWhite
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -41,14 +42,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/MiniplayerPatch;"
@@ -83,7 +83,7 @@ val miniplayerPatch = bytecodePatch(
                 """
                 invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
                 move-result v$register
-            """
+                """
             )
         }
 
@@ -105,39 +105,34 @@ val miniplayerPatch = bytecodePatch(
          * Adds an override to specify which modern miniplayer is used.
          */
         fun MutableMethod.insertModernMiniplayerTypeOverride(iPutIndex: Int) {
-            val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
-            val targetReference = (targetInstruction as ReferenceInstruction).reference
+            val register = getInstruction<TwoRegisterInstruction>(iPutIndex).registerA
 
-            addInstructions(
-                iPutIndex + 1, """
-                invoke-static { v${targetInstruction.registerA} }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
-                move-result v${targetInstruction.registerA}
-                # Original instruction
-                iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference 
-            """
+            addInstructionsAtControlFlowLabel(
+                iPutIndex,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
+                    move-result v$register
+                """,
             )
-            removeInstruction(iPutIndex)
         }
 
-        fun Pair<String, Fingerprint>.hookInflatedView(
+        fun MutableMethod.hookInflatedView(
             literalValue: Long,
             hookedClassType: String,
             extensionMethodName: String,
         ) {
-            methodOrThrow(miniplayerModernViewParentFingerprint).apply {
-                val imageViewIndex = indexOfFirstInstructionOrThrow(
-                    indexOfFirstLiteralInstructionOrThrow(literalValue)
-                ) {
-                    opcode == Opcode.CHECK_CAST &&
-                            getReference<TypeReference>()?.type == hookedClassType
-                }
-
-                val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-                addInstruction(
-                    imageViewIndex + 1,
-                    "invoke-static { v$register }, $extensionMethodName"
-                )
+            val imageViewIndex = indexOfFirstInstructionOrThrow(
+                indexOfFirstLiteralInstructionOrThrow(literalValue)
+            ) {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type == hookedClassType
             }
+
+            val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
+            addInstruction(
+                imageViewIndex + 1,
+                "invoke-static { v$register }, $extensionMethodName"
+            )
         }
 
         // Modern mini player is only present and functional in 19.15+.
@@ -184,7 +179,7 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (isPatchingOldVersion) {
-            settingArray += "SETTINGS: MINIPLAYER_TYPE_LEGACY"
+            settingArray += "SETTINGS: MINIPLAYER_TYPE_19_14"
             addPreference(settingArray, MINIPLAYER)
 
             // Return here, as patch below is only intended for new versions of the app.
@@ -197,14 +192,14 @@ val miniplayerPatch = bytecodePatch(
 
         miniplayerModernConstructorFingerprint.mutableClassOrThrow().methods.forEach {
             it.apply {
-                if (MethodUtil.isConstructor(it)) {
+                if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
-                        opcode == Opcode.IPUT &&
-                                getReference<FieldReference>()?.type == "I"
+                        this.opcode == Opcode.IPUT &&
+                                this.getReference<FieldReference>()?.type == "I"
                     }
 
                     insertModernMiniplayerTypeOverride(iPutIndex)
-                } else if (isMultiConstructorMethod()) {
+                } else {
                     findReturnIndicesReversed().forEach { index ->
                         insertModernMiniplayerOverride(
                             index
@@ -214,27 +209,96 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        if (is_19_25_or_greater) {
-            miniplayerModernEnabledFingerprint.injectLiteralInstructionBooleanCall(
-                45622882L,
-                "$EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
+        if (is_19_23_or_greater) {
+            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_DRAG_DROP_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->enableMiniplayerDragAndDrop(Z)Z"
             )
+            settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
         }
 
-        // endregion
-
-        // region Enable double tap action.
-
         if (is_19_25_or_greater) {
             miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                45628823L,
-                "$EXTENSION_CLASS_DESCRIPTOR->enableMiniplayerDoubleTapAction()Z"
-            )
-            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
-                45630429L,
+                MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "$EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverride(Z)Z"
             )
-            settingArray += "SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION"
+
+            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_MODERN_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->getModernFeatureFlagsActiveOverride(Z)Z"
+            )
+
+            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->enableMiniplayerDoubleTapAction(Z)Z"
+            )
+
+            if (!is_19_29_or_greater) {
+                settingArray += "SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION"
+            }
+        }
+
+        if (is_19_26_or_greater) {
+            miniplayerModernConstructorFingerprint.methodOrThrow().apply {
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(
+                    MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
+                )
+                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
+
+                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
+                        move-result v$register
+                        """,
+                )
+            }
+
+            // Override a minimum size constant.
+            miniplayerMinimumSizeFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CONST_16 &&
+                            (this as NarrowLiteralInstruction).narrowLiteral == 192
+                }
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                // but 170 is already half the horizontal space and smaller does not seem useful.
+                replaceInstruction(index, "const/16 v$register, 170")
+            }
+
+            settingArray += "SETTINGS: MINIPLAYER_WIDTH_DIP"
+        } else {
+            settingArray += "SETTINGS: MINIPLAYER_REWIND_FORWARD"
+        }
+
+        if (is_19_36_or_greater) {
+            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->setRoundedCorners(Z)Z"
+            )
+
+            settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CONERS"
+        }
+
+        if (is_19_43_or_greater) {
+            miniplayerOnCloseHandlerFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_DISABLED_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->getMiniplayerOnCloseHandler(Z)Z"
+            )
+
+            miniplayerModernConstructorFingerprint.injectLiteralInstructionBooleanCall(
+                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
+                "$EXTENSION_CLASS_DESCRIPTOR->setHorizontalDrag(Z)Z"
+            )
+
+            settingArray += "SETTINGS: MINIPLAYER_HORIZONTAL_DRAG"
+            settingArray += "SETTINGS: MINIPLAYER_TYPE_19_43"
+        } else {
+            settingArray += "SETTINGS: MINIPLAYER_TYPE_19_16"
         }
 
         // endregion
@@ -291,7 +355,7 @@ val miniplayerPatch = bytecodePatch(
                 "adjustMiniplayerOpacity"
             )
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.hookInflatedView(
+            fingerprint.methodOrThrow(miniplayerModernViewParentFingerprint).hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V"
@@ -300,23 +364,19 @@ val miniplayerPatch = bytecodePatch(
 
         miniplayerModernAddViewListenerFingerprint.methodOrThrow(
             miniplayerModernViewParentFingerprint
-        ).apply {
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideMiniplayerSubTexts(Landroid/view/View;)Z
-                    move-result v0
-                    if-nez v0, :hidden
-                    """,
-                ExternalLabel("hidden", getInstruction(implementation!!.instructions.lastIndex))
-            )
-        }
-
+        ).addInstruction(
+            0,
+            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                    "hideMiniplayerSubTexts(Landroid/view/View;)V",
+        )
 
         // Modern 2 has a broken overlay subtitle view that is always present.
         // Modern 2 uses the same overlay controls as the regular video player,
         // and the overlay views are added at runtime.
         // Add a hook to the overlay class, and pass the added views to extension.
+        //
+        // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
+        // This patch code could be used to hide other player overlays that do not use Litho.
         youTubePlayerOverlaysLayoutFingerprint.matchOrThrow().let {
             it.method.apply {
                 it.classDef.methods.add(
@@ -348,18 +408,6 @@ val miniplayerPatch = bytecodePatch(
                     }
                 )
             }
-        }
-
-        // endregion
-
-        // region Enable drag and drop.
-
-        if (is_19_23_or_greater) {
-            miniplayerModernDragAndDropFingerprint.injectLiteralInstructionBooleanCall(
-                45628752L,
-                "$EXTENSION_CLASS_DESCRIPTOR->enableMiniplayerDragAndDrop()Z"
-            )
-            settingArray += "SETTINGS: MINIPLAYER_DRAG_AND_DROP"
         }
 
         // endregion

@@ -134,8 +134,8 @@ private val playerControlsBytecodePatch = bytecodePatch(
 
         changeVisibilityMethod =
             findMethodOrThrow(EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR) {
-                name == "changeVisibility"
-                        && parameters == listOf("Z", "Z")
+                name == "changeVisibility" &&
+                        parameters == listOf("Z", "Z")
             }
 
         changeVisibilityNegatedImmediatelyMethod =

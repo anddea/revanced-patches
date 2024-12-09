@@ -248,8 +248,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-        var appName = ExtendedUtils.getApplicationLabel();
-        var versionName = ExtendedUtils.getVersionName();
+        var appName = ExtendedUtils.getAppLabel();
+        var versionName = ExtendedUtils.getAppVersionName();
         var formatDate = dateFormat.format(new Date(System.currentTimeMillis()));
         var fileName = String.format("%s_v%s_%s.txt", appName, versionName, formatDate);
 
