@@ -507,11 +507,6 @@ Tienda"</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Los anuncios en pantalla completa están visibles.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Los anuncios en pantalla completa están ocultos.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Los anuncios en pantalla completa están bloqueados.
-
-Limitación: la imagen de la publicación de la comunidad en pantalla completa puede estar bloqueada."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Los anuncios en pantalla completa se cierran mediante el botón de cerrar.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Cerrar anuncios en pantalla completa</string>
     <string name="revanced_hide_general_ads_summary_off">Los anuncios generales están visibles.</string>
     <string name="revanced_hide_general_ads_summary_on">Los anuncios generales están ocultos.</string>
     <string name="revanced_hide_general_ads_title">Ocultar anuncios generales</string>
@@ -1151,13 +1146,30 @@ Mantén pulsado para copiar la marca de tiempo del vídeo."</string>
     <string name="revanced_overlay_button_mute_volume_summary">Pulsa para silenciar el volumen del vídeo actual. Pulsa de nuevo para reactivar el sonido.</string>
     <string name="revanced_overlay_button_mute_volume_title">Mostrar botón de silenciar volumen</string>
     <string name="revanced_overlay_button_not_allowed_warning">Mantén pulsado para cambiar el estado del botón.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">No se ha podido generar la lista de reproducción debido a que el identificador del canal no coincide.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Toca para generar una lista de reproducción de todos los vídeos del canal.
+Toca y mantén para deshacer.
+
+Información:
+• Puede que no funcione en transmisiones."</string>
+    <string name="revanced_overlay_button_play_all_title">Mostrar botón de reproducir todo</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Todos los contenidos (Ordenar por tiempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Vídeos solo para miembros</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Shorts solo para miembros</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Directos solo para miembros</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Todos los contenidos (Ordenar por popular)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Solo vídeos (Ordenar por tiempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Solo vídeos (Ordenar por popular)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Solo Shorts (Ordenar por tiempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Solo Shorts (Ordenar por popular)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Solo vídeos transmitidos (Ordenar por tiempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Solo vídeos transmitidos (Ordenar por popular)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Todos los contenidos solo para miembros</string>
+    <string name="revanced_overlay_button_play_all_type_title">Generar modo de lista</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocidad de reproducción restablecida (1.0x).</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Pulsa para abrir el diálogo de velocidad.
 Mantén pulsado para establecer la velocidad de reproducción en 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostrar botón de diálogo de velocidad</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Pulse para generar una lista de reproducción de todos los vídeos del canal desde el más antiguo hasta el más nuevo.
-Toca y mantén para deshacer."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Mostrar botón de lista de reproducción ordenada</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Toque para abrir el diálogo de la lista blanca.
 Toque y mantenga presionado para abrir el diálogo de configuración de la lista blanca.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostrar botón de lista blanca</string>
@@ -1609,11 +1621,15 @@ Si se desactiva más tarde, se recomienda borrar los datos de la aplicación par
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar esto podría mejorar la duración de la batería y solucionar el problema de reproducción entrecortada.
 
 AVC (H.264) tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">El cliente iOS se utiliza para la reproducción de directos.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">El cliente iOS no se utiliza para la reproducción de directos.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Omitir reproducción de directos en iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Las películas o vídeos de pago no pueden reproducirse."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• El vídeo no puede reproducirse.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>

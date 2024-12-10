@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="gms_core_dialog_continue_text">Continue</string>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
@@ -68,11 +68,6 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Hide Stats for nerds menu</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary">"If it is enabled, fullscreen ads are closed through the Close button.
-If it is disabled, fullscreen ads are blocked. (there may be side effects)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">Fullscreen ads are blocked. (there may be side effects)</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Fullscreen ads are closed through the Close button.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Close fullscreen ads</string>
     <string name="revanced_hide_notification_button_summary">Hides the Notifications button in the toolbar.</string>
     <string name="revanced_hide_notification_button_title">Hide Notifications button</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Hides the playlist card shelf in the feed.</string>
@@ -212,4 +207,11 @@ Click to see how to issue a API key."</string>
     <string name="revanced_sb_toast_on_skip">Show a toast when skipping automatically</string>
     <string name="revanced_sb_toast_on_skip_sum">Shows a toast when a segment is automatically skipped.</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
+    <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
+
+Limitations:
+• OPUS audio codec may not be supported.
+• Seekbar thumbnail may not be present.
+• Watch history does not work with a brand account.</string>
+    <string name="revanced_spoof_client_title">Spoof client</string>
 </resources>

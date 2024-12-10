@@ -511,12 +511,6 @@ Shorts
     <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама отображена.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама скрыта.</string>
     <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Реклама в полном экране заблокирована.
-
-Ограничение:
-Посты сообщества, в полном экране, могут быть заблокированы."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Реклама в полном экране закрыта кнопкой.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Способ закрытия рекламы в полном экране</string>
     <string name="revanced_hide_general_ads_summary_off">Реклама общего формата отображена.</string>
     <string name="revanced_hide_general_ads_summary_on">Реклама общего формата скрыта.</string>
     <string name="revanced_hide_general_ads_title">Реклама общего формата</string>
@@ -1182,13 +1176,30 @@ Shorts
     <string name="revanced_overlay_button_mute_volume_summary">Нажатия кнопки, отключает/включает звук текущего видео.</string>
     <string name="revanced_overlay_button_mute_volume_title">Кнопка отключения звука</string>
     <string name="revanced_overlay_button_not_allowed_warning">Нажать и удерживать - изменить состояние кнопки.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Не удалось создать плейлист из-за несоответствия id канала.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Коснитесь, чтобы создать список воспроизведения всех видео из канала.
+Коснитесь и удерживайте, для отмены.
+
+Инфо:
+• Может не работать в трансляциях."</string>
+    <string name="revanced_overlay_button_play_all_title">Кнопка воспроизвести все</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Все (по времени)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Только видео участников</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Только Shorts участников</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Только потоковые видео участников</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Все (по популярности)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Только видео (по времени)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Только видео (по популярности)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Только Shorts (по времени)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Только Shorts (по популярности)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Только потоковое видео (по времени)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Только потоковое видео (по популярности)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Только содержимое всех участников</string>
+    <string name="revanced_overlay_button_play_all_type_title">Сортировка создаваемого списка</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Скорость сброшена на: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Нажать - открытие окна скорости.
 Нажать и удерживать - скорость воспроизведения в 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Кнопка скорости воспроизведения</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Нажмите, чтобы создать плейлист всех видео канала.
-Нажмите и удерживайте, чтобы отменить действие."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Кнопка создания плейлиста канала</string>
     <string name="revanced_overlay_button_whitelist_summary">Нажать - Открыть \"Белый список\".
 Нажать и удерживать - Открыть настройки \"Белый список\".</string>
     <string name="revanced_overlay_button_whitelist_title">Кнопка \"Белый список\"</string>
@@ -1644,9 +1655,13 @@ Shorts
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Включение - может улучшить время работы батареи и исправить задержки воспроизведения.
 
 AVC (H.264) имеет максимальное разрешение 1080p, и будет использовать больше интернет данных, чем VP9 или AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Пропуск трансляции отключен.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Пропуск трансляции включен.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Пропустить трансляцию при подмене клиента как iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню \"Звуковая дорожка\" не доступно."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню \"Звуковая дорожка\" VR не доступно."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Фильмы или платные видео могут не проигрываться."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Видео может закончиться 1 секунду ранее.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видео может не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиент, используемый для получения данных потока, скрыт в Статистике для сисадминов.</string>

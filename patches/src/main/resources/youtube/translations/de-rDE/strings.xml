@@ -22,6 +22,7 @@ Wenn aktiviert, werden Video-URLs an den API-Server gesendet und es werden keine
 
 Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_alt_thumbnail_dearrow_about_title">Über DeArrow</string>
+    <string name="revanced_alt_thumbnail_dearrow_api_url_invalid_toast">Ungültige DeArrow API URL.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Die URL des Endpunkts der DeArrow-Thumbnail-Cache. Ändern Sie dies nicht, wenn Sie nicht wissen, was Sie machen.</string>
     <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API Endpunkt</string>
     <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Keine Benachrichtigung wird angezeigt, wenn DeArrow nicht erreichbar ist.</string>
@@ -33,8 +34,8 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_alt_thumbnail_library_title">Mein YouTube</string>
     <string name="revanced_alt_thumbnail_options_entry_1">Originale Vorschaubilder</string>
     <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; originale Vorschaubilder</string>
-    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; still captures</string>
-    <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
+    <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; erfasst immer noch</string>
+    <string name="revanced_alt_thumbnail_options_entry_4">Erfasst immer noch</string>
     <string name="revanced_alt_thumbnail_player_title">Playlisten, Vorschläge</string>
     <string name="revanced_alt_thumbnail_search_title">Suchresultate</string>
     <string name="revanced_alt_thumbnail_stills">Zeige noch Videoaufnahmen</string>
@@ -62,6 +63,12 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Verwendung des Originalbild-Hosts.\n\nAktivieren kann fehlende Bilder beheben, die in einigen Regionen blockiert sind.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Verwenden von Image Host yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bildregion-Beschränkungen umgehen</string>
+    <string name="revanced_change_layout_entry_1">Original</string>
+    <string name="revanced_change_layout_entry_2">Telefon</string>
+    <string name="revanced_change_layout_entry_3">Telefon (max. 480 dp)</string>
+    <string name="revanced_change_layout_entry_4">Tablet</string>
+    <string name="revanced_change_layout_entry_5">Tablet (min. 600 dp)</string>
+    <string name="revanced_change_layout_title">Layout ändern</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Switch Toggles</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Text Toggles</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Toggle Typ ändern</string>
@@ -87,6 +94,11 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_change_start_page_entry_trending">Beliebt</string>
     <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
     <string name="revanced_change_start_page_title">Startseite ändern</string>
+    <string name="revanced_change_start_page_type_summary_off">Startseite ändert sich nur einmal.</string>
+    <string name="revanced_change_start_page_type_summary_on">"Startseite ändert sich immer.
+
+Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise nicht."</string>
+    <string name="revanced_change_start_page_type_title">Startseitentyp ändern</string>
     <string name="revanced_change_youtube_header_summary_off">Standard Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium Header wird verwendet.</string>
     <string name="revanced_change_youtube_header_title">YouTube Header ändern</string>
@@ -273,6 +285,7 @@ Die Option \"Videobeschreibung\" kann nicht funktionieren, wenn die eingegebene 
     <string name="revanced_expand_video_description_summary_on">Videobeschreibungen werden automatisch erweitert.</string>
     <string name="revanced_expand_video_description_title">Videobeschreibungen erweitern</string>
     <string name="revanced_extended_confirm_user_dialog_title">Möchtest Du fortfahren?</string>
+    <string name="revanced_extended_reset_to_default_toast">Auf Standardwerte zurücksetzen.</string>
     <string name="revanced_extended_restart_first_run">Neustarten um das Layout zu laden</string>
     <string name="revanced_extended_restart_message">Aktualisieren und Neustarten</string>
     <string name="revanced_extended_settings_export_failed">Fehler beim Exportieren der Einstellungen.</string>
@@ -423,6 +436,9 @@ Store"</string>
     <string name="revanced_hide_filmstrip_overlay_summary_off">Filmstreifen-Overlay wird angezeigt</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">Filmstreifen-Overlay ist versteckt</string>
     <string name="revanced_hide_filmstrip_overlay_title">Verstecke Filmstreifen-Overlay</string>
+    <string name="revanced_hide_floating_button_summary_off">Schwebende Taste wird angezeigt.</string>
+    <string name="revanced_hide_floating_button_summary_on">Schwebende Taste ist ausgeblendet.</string>
+    <string name="revanced_hide_floating_button_title">Schwebende Taste ausblenden</string>
     <string name="revanced_hide_floating_microphone_summary_off">Die schwebende Schaltfläche „Mikrofon“ wird angezeigt</string>
     <string name="revanced_hide_floating_microphone_summary_on">Die schwebende Schaltfläche „Mikrofon“ ist ausgeblendet</string>
     <string name="revanced_hide_floating_microphone_title">Die schwebende Schaltfläche „Mikrofon“ ausblenden</string>
@@ -432,11 +448,6 @@ Store"</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Vollbildwerbung wird angezeigt.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Vollbildwerbung wird versteckt.</string>
     <string name="revanced_hide_fullscreen_ads_title">Vollbildwerbung verstecken</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Vollbildwerbung ist blockiert.
-
-Nebeneffekt: Community-Beitragsbilder können im Vollbildmodus blockiert werden."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Vollbildanzeigen werden über die Schaltfläche „Schließen“ geschlossen.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Vollbildanzeige schließen</string>
     <string name="revanced_hide_general_ads_summary_off">Allgemeine Werbung wird angezeigt.</string>
     <string name="revanced_hide_general_ads_summary_on">Allgemeine Werbung ist ausgeblendet.</string>
     <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
@@ -477,6 +488,8 @@ Einschränkungen:
 • Einige UI-Komponenten können nicht ausgeblendet werden.
 • Die Suche nach einem Schlüsselwort kann keine Ergebnisse zeigen."</string>
     <string name="revanced_hide_keyword_content_about_title">Über Schlüsselwortfilter</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_summary">Durch das Umschließen eines Keywords/Satzes mit doppelten Anführungszeichen wird verhindert, dass Teile von Videotitel und Kanalnamen betroffen sind.&lt;br&gt;&lt;br&gt;Zum Beispiel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; wird folgendes Video ausblenden: &lt;b&gt;Wie funktioniert AI?&lt;/b&gt;&lt;br&gt;aber es versteckt nicht: &lt;b&gt;Was bedeutet fair use?&lt;/b&gt;</string>
+    <string name="revanced_hide_keyword_content_about_whole_words_title">Ganze Wörter zuordnen</string>
     <string name="revanced_hide_keyword_content_comments_summary_off">Kommentare werden nicht gefiltert.</string>
     <string name="revanced_hide_keyword_content_comments_summary_on">Kommentare werden gefiltert.</string>
     <string name="revanced_hide_keyword_content_comments_title">Verstecke Kommentare nach Schlüsselwörtern</string>
@@ -494,6 +507,9 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_keyword_content_subscriptions_title">Abonnementvideos mit Schlüsselwörtern ausblenden</string>
     <string name="revanced_hide_keyword_toast_invalid_broad">Schlüsselwort \'%1$s\' wird alle Videos ausblenden.</string>
     <string name="revanced_hide_keyword_toast_invalid_common">Ungültiges Schlüsselwort. Kann \'%s\' nicht als Filter verwenden</string>
+    <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Anführungszeichen hinzufügen, um Keyword zu verwenden: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword hat widersprüchliche Deklarationen: %s.</string>
+    <string name="revanced_hide_keyword_toast_invalid_length">Keyword ist zu kurz und erfordert Anführungszeichen: %s.</string>
     <string name="revanced_hide_latest_posts_summary_off">Neueste Beiträge werden angezeigt</string>
     <string name="revanced_hide_latest_posts_summary_on">Neueste Beiträge sind versteckt</string>
     <string name="revanced_hide_latest_posts_title">Neueste Beiträge ausblenden</string>
@@ -622,6 +638,9 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_player_previous_next_button_summary_off">Buttons are shown.</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">Buttons are hidden.</string>
     <string name="revanced_hide_player_previous_next_button_title">Hide previous &amp; next button</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">Shopping-Banner wird angezeigt.</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">Shopping-Banner ist ausgeblendet.</string>
+    <string name="revanced_hide_player_store_shelf_title">Player Shopping-Banner ausblenden</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Musik Button wird angezeigt.</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Musik Button ist ausgeblendet.</string>
     <string name="revanced_hide_player_youtube_music_button_title">YouTube Musik Button ausblenden</string>
@@ -637,6 +656,9 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_preview_comment_type_off">This changes the size of the comment section, so it is impossible to open a live chat replay in the comment section.</string>
     <string name="revanced_hide_preview_comment_type_on">This does not change the size of the comment section, so it is possible to open the live chat replay in the comment section.</string>
     <string name="revanced_hide_preview_comment_type_title">Hide preview comment type</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">Werbe-Warnbanner wird angezeigt.</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">Werbe-Warnbanner ist ausgeblendet.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Werbe-Warnbanner ausblenden</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">Kommentar Button wird angezeigt.</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">Kommentar Button wird versteckt.</string>
     <string name="revanced_hide_quick_actions_comment_button_title">Verstecke Kommentar Button</string>
@@ -675,6 +697,12 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_related_video_overlay_summary_off">Im Schnellaktionscontainer werden weitere Videos angezeigt sowie die zugehörige Videoüberlagerung.</string>
     <string name="revanced_hide_related_video_overlay_summary_on">Related video overlay is hidden.</string>
     <string name="revanced_hide_related_video_overlay_title">Hide related video overlay</string>
+    <string name="revanced_hide_related_videos_summary_off">Ähnliche Videos werden angezeigt.</string>
+    <string name="revanced_hide_related_videos_summary_on">Ähnliche Videos sind ausgeblendet.</string>
+    <string name="revanced_hide_related_videos_title">Ähnliche Videos ausblenden</string>
+    <string name="revanced_hide_related_videos_user_dialog_message">"Diese Einstellung begrenzt die maximale Anzahl von Layouts, die auf dem Wiedergabebildschirm geladen werden können.
+
+Wenn sich das Layout des Wiedergabebildschirms aufgrund serverseitiger Änderungen ändert, können unbeabsichtigte Layouts auf dem Wiedergabebildschirm ausgeblendet werden."</string>
     <string name="revanced_hide_remix_button_summary_off">Remix button is shown.</string>
     <string name="revanced_hide_remix_button_summary_on">Remix button is hidden.</string>
     <string name="revanced_hide_remix_button_title">Hide remix button</string>
@@ -702,6 +730,9 @@ Wörter mit Großbuchstaben in der Mitte müssen im Gehäuse eingegeben werden (
     <string name="revanced_hide_self_sponsor_cards_summary_off">Selbstgesponserte Karten werden angezeigt.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Selbstgesponserte Karten sind versteckt.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Verstecke selbstgesponserte Karten</string>
+    <string name="revanced_hide_settings_menu_pair_with_tv_summary_off">\"Im TV anschauen\"-Menü wird angezeigt.</string>
+    <string name="revanced_hide_settings_menu_privacy_summary_off">Privatsphäre-Menü wird angezeigt.</string>
+    <string name="revanced_hide_settings_menu_privacy_title"></string>
     <string name="revanced_hide_settings_menu_summary">Elemente im YouTube-Einstellungsmenü verstecken</string>
     <string name="revanced_hide_settings_menu_title">YouTube Einstellungsmenü verstecken</string>
     <string name="revanced_hide_share_button_summary_off">Share button is shown.</string>
@@ -849,6 +880,21 @@ Einstellungen → Autoplay → Nächstes Video automatisch abspielen"</string>
     <string name="revanced_hide_video_ads_summary_off">Videowerbung wird angezeigt.</string>
     <string name="revanced_hide_video_ads_summary_on">Videowerbung ist versteckt.</string>
     <string name="revanced_hide_video_ads_title">Verstecke Videowerbung</string>
+    <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Abonnement / Suchergebnisse werden gefiltert, um Videos mit Aufrufen zu verstecken, die kleiner oder größer als eine angegebene Zahl sind.
+
+Beschränkungen: 
+• Shorts können nicht ausgeblendet werden.
+• Videos mit 0 Ansichten werden nicht gefiltert."</string>
+    <string name="revanced_hide_video_by_view_counts_about_title">Über Aufrufzahl-Filterung</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_off">Videos auf der Startseite werden nicht gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_home_summary_on">Videos auf der Startseite werden gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_home_title">Videos auf der Startseite nach Aufrufen ausblenden</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_off">Suchergebnisse werden nicht gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_search_summary_on">Suchergebnisse werden gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_search_title">Suchergebnisse nach Aufrufen ausblenden</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_off">Videos im Abofeed werden nicht gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_summary_on">Videos im Abofeed werden gefiltert.</string>
+    <string name="revanced_hide_video_by_view_counts_subscriptions_title">Abovideos nach Aufrufen ausblenden</string>
     <string name="revanced_hide_video_by_view_counts_summary">Empfohlene Videos mit weniger als einer bestimmten Anzahl von Ansichten ausblenden.\n\nBekanntes Problem: Videos mit 0 Ansichten werden nicht gefiltert.</string>
     <string name="revanced_hide_video_by_view_counts_title">Empfohlene Videos nach Ansichten ausblenden.</string>
     <string name="revanced_hide_video_view_counts_greater_than_summary">Videos mit Ansichten, die größer als diese Zahl sind, werden ausgeblendet.</string>
@@ -928,9 +974,6 @@ Tap and hold to copy video timestamp."</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tippen um den Geschwindigkeitsdialog zu öffnen.
 Tippen und halten um die Wiedergabegeschwindigkeit auf 1.0x zurückzusetzen. Halten Sie erneut gedrückt, um die Standardgeschwindigkeit wiederherzustellen."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Zeige Geschwindigkeitsdialog Taste</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tippen, um eine Playlist aller Videos vom Kanal von ältestem bis neuestem zu erstellen.
-Tippen und gedrückt halten, um rückgängig zu machen."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Zeitgeordnete Wiedergabelistenschaltfläche anzeigen</string>
     <string name="revanced_overlay_button_whitelist_summary">\"Tippen, um den Whitelist-Dialog zu öffnen.
 Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.</string>
     <string name="revanced_overlay_button_whitelist_title">Zeige Whitelist-Button</string>
@@ -981,6 +1024,8 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_preference_screen_general_title">Allgemein</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">Haptisches Feedback aktivieren oder deaktivieren</string>
     <string name="revanced_preference_screen_haptic_feedback_title">Haptisches Feedback</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">Überschreibt die Klick-Aktion von In-App-Tasten.</string>
+    <string name="revanced_preference_screen_hook_buttons_title">Hook Buttons</string>
     <string name="revanced_preference_screen_import_export_summary">Einstellungen importieren / exportieren</string>
     <string name="revanced_preference_screen_import_export_title">Einstellungen importieren / exportieren</string>
     <string name="revanced_preference_screen_miniplayer_summary">Ändern Sie den Stil des in App minimierten Players.</string>

@@ -84,6 +84,7 @@ Információ:
     <string name="revanced_enable_zen_mode_podcast_title">Zen mód engedélyezése podcastekben</string>
     <string name="revanced_enable_zen_mode_summary">Megváltoztatja a lejátszó hátterét világos szürkére a szem megóvására.</string>
     <string name="revanced_enable_zen_mode_title">Zen mód bekapcsolása</string>
+    <string name="revanced_extended_reset_to_default_toast">Visszaállítás az alapértelmezett értékekre.</string>
     <string name="revanced_extended_restart_first_run">Indítsd újra az elrendezés normál betöltéséhez</string>
     <string name="revanced_extended_restart_message">Frissítés és újraindítás</string>
     <string name="revanced_extended_settings_export_as_file">Beállítások exportálása egy fájlba</string>
@@ -178,15 +179,8 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Statisztikák kockáknak menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Feliratkozás / Leiratkozás menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Teljes képernyős hirdetések elrejtése.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése."</string>
     <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary">"Ha engedélyezve van, akkor a teljes képernyő hírdetéseket a bezárás gombbal lehet eltüntetni.
-Ha tiltva van, akkor blokkolja a t. k. hírdetéseket. (lehetnek mellékhatások)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Ha engedélyezve van, akkor a teljes képernyő hírdetéseket a bezárás gombbal lehet eltüntetni.
-Ha tiltva van, akkor blokkolja a t. k. hírdetéseket. (lehetnek mellékhatások)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">"Ha engedélyezve van, akkor a teljes képernyő hírdetéseket a bezárás gombbal lehet eltüntetni.
-Ha tiltva van, akkor blokkolja a t. k. hírdetéseket. (lehetnek mellékhatások)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Teljes képernyős hirdetések bezárása</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Elrejti a megosztás gombot a teljes képernyős lejátszóban.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Teljes képernyős megosztás gomb elrejtése</string>
     <string name="revanced_hide_general_ads_summary">Elrejti az általános hirdetéseket.</string>
@@ -225,6 +219,12 @@ Ha tiltva van, akkor blokkolja a t. k. hírdetéseket. (lehetnek mellékhatások
     <string name="revanced_hide_promotion_alert_banner_title">Promóciós figyelmeztető banner elrejtése</string>
     <string name="revanced_hide_samples_shelf_summary">Elrejti a minták polcot a főoldalon.</string>
     <string name="revanced_hide_samples_shelf_title">Minták polc elrejtése</string>
+    <string name="revanced_hide_settings_menu_about_title">Névjegy menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Adatmegtakarító menü elejtése</string>
+    <string name="revanced_hide_settings_menu_general_title">Általános menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_notification_title">Értesítések menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Családi központ menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_playback_title">Következő lejátszása menü elrejtése</string>
     <string name="revanced_hide_settings_menu_summary">"A beállítások menü elemeinek elrejtése.
 Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beállítások menüjét is elrejti."</string>
     <string name="revanced_hide_settings_menu_title">Beállítások menü elrejtése</string>
@@ -246,9 +246,11 @@ Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beál
     <string name="revanced_preference_screen_player_title">Lejátszó</string>
     <string name="revanced_preference_screen_ryd_title">YouTube nem tetszések visszaállítása</string>
     <string name="revanced_preference_screen_sb_title">Szponzor Blokk</string>
+    <string name="revanced_preference_screen_settings_title">Beállítások menü</string>
     <string name="revanced_preference_screen_video_title">Videó</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Megjegyzi az utoljára kiválasztott lejátszási sebességet.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Mutass egy felugró értesítést</string>
     <string name="revanced_remember_playback_speed_toast">Megváltoztatva az alap sebességet %s-re.</string>
     <string name="revanced_remember_repeat_state_summary">Emlékezik az ismétlés állapotára.</string>
     <string name="revanced_remember_repeat_state_title">Isméltés állapotának megjegyzése</string>
@@ -256,6 +258,7 @@ Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beál
     <string name="revanced_remember_shuffle_state_title">Keverés állapotának megjegyzése</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Megjegyezi a legutolsó videó minőséget, amit kiválasztottál.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Videó minőség megjegyzése</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Mutass egy felugró értesítést</string>
     <string name="revanced_remember_video_quality_mobile">Az alapértelmezett mobiladat minőség módosítása a következőre %s.</string>
     <string name="revanced_remember_video_quality_none">Nem sikerült beállítani a minőséget.</string>
     <string name="revanced_remember_video_quality_wifi">Az alapértelmezett Wi-Fi-minőség módosítása a következőre: %s.</string>
@@ -281,6 +284,12 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
     <string name="revanced_restore_old_player_layout_title">Régi lejátszó kinézet visszaállítása</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Visszaállítja a régi megjelenését a könyvtár oldalnak. (Kísérleti)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Visszaállítja a régi stílusú könyvtár polcot</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@kezelő (felhasználónév)</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Felhasználónév (@kezelő)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Felhasználónév</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">A YouTube Data API-kulcsról</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">A fejlesztői kulcs a YouTube Data API v3 használatához.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube adat API kulcs</string>
     <string name="revanced_ryd_about">Névjegy</string>
     <string name="revanced_ryd_attribution_summary">Az adatokat a YouTube nem tetszések visszaállítása API biztosítja. További információért nyomj ide.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -296,6 +305,7 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
     <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Megjelenik egy üzenet, ha a YouTube nem tetszések visszaállítása API nem érhető el.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Köszöntő megjelenítése, ha az API nem elérhető</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Rejtett</string>
     <string name="revanced_sanitize_sharing_links_summary">Linkek megosztásakor eltávolítja a nyomkövetési paramétereket az URL-ekből.</string>
     <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
     <string name="revanced_sb_about">Névjegy</string>

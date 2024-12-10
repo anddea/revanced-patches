@@ -513,11 +513,6 @@ Sklep"</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_fullscreen_ads_title">Pełnoekranowe reklamy</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Blokowane
-
-Ograniczenie: obrazy postów społeczności w trybie pełnoekranowym mogą być zablokowane"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Zamykane poprzez przycisk zamknięcia</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Pełnoekranowe reklamy</string>
     <string name="revanced_hide_general_ads_summary_off">Widoczne</string>
     <string name="revanced_hide_general_ads_summary_on">Ukryte</string>
     <string name="revanced_hide_general_ads_title">Ogólne reklamy</string>
@@ -1172,13 +1167,27 @@ Stuknij i przytrzymaj, by skopiować czas filmu."</string>
     <string name="revanced_overlay_button_mute_volume_summary">Stuknij, by wyciszyć bieżący film. Stuknij ponownie, by odciszyć film.</string>
     <string name="revanced_overlay_button_mute_volume_title">Przycisk od wyciszania</string>
     <string name="revanced_overlay_button_not_allowed_warning">Stuknij i przytrzymaj, by zmienić działanie przycisku</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Nie można wygenerować playlisty z powodu niedopasowania ID kanału.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Stuknij, by wygenerować playlistę ze wszystkimi filmikami z kanału.
+Stuknij i przytrzymaj, by to cofnąć."</string>
+    <string name="revanced_overlay_button_play_all_title">Przycisk od odtwarzania wszystkiego</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Cała zawartość (sortowanie po czasie)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Tylko filmy dla wspierających</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Tylko shortsy dla wspierających</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Tylko transmisje na żywo dla wspierających</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Cała zawartość (sortowanie po popularności)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Tylko filmy (sortowanie po czasie)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Tylko filmy (sortowanie po popularności)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Tylko Shortsy (sortowanie po czasie)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Tylko Shortsy (sortowanie po popularności)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Tylko streamowane filmy (sortowanie po czasie)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Tylko streamowane filmy (sortowanie po popularności)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Cała zawartość dla wspierających</string>
+    <string name="revanced_overlay_button_play_all_type_title">Tryb generowania playlisty</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Prędkość odtwarzania została zresetowana: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Stuknij, by zmienić prędkość odtwarzania.
 Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x. Stuknij i przytrzymaj ponownie, by zresetować do domyślnej prędkości."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Przycisk od prędkości</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Stuknij, by wygenerować playlistę ze wszystkimi filmami z kanału od najstarszego do najnowszego.
-Stuknij i przytrzymaj, by cofnąć generowanie playlisty."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Przycisk od czasowo uporządkowanych playlist</string>
     <string name="revanced_overlay_button_whitelist_summary">Stuknij, by otworzyć okno białej listy.
 Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_button_whitelist_title">Przycisk od białej listy</string>
@@ -1632,25 +1641,24 @@ Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych a
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Zawsze</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Z wyjątkiem filmów kinowych, płatnych i transmisji na żywo</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_title">Tryb kompatybilności iOS</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Wyłączone</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Włączone</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek iOS AVC (H.264)</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Włączenie tego ustawienia może poprawić żywotność baterii i naprawić zacinanie się filmów.
 
 Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9 i AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Wyłączone</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Włączone</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Pomiń iOS dla odtwarzania transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Filmy kinowe lub płatne filmy mogą się nie odtwarzać
-• Transmisje na żywo rozpoczynają się od początku
-• Filmy mogą kończyć się o 1 sekundę wcześniej
-• Kodek audio opus może nie być wspierany"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Transmisje na żywo rozpoczynają się od początku
+• Filmy mogą kończyć się o 1 sekundę wcześniej"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
 • Kodek audio opus może nie być wspierany"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
