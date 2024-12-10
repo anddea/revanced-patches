@@ -87,6 +87,7 @@ public final class app/revanced/patches/music/layout/translations/TranslationsPa
 }
 
 public final class app/revanced/patches/music/layout/visual/VisualPreferencesIconsPatchKt {
+	public static final fun getIntentIcon ()Ljava/util/Map;
 	public static final fun getVisualPreferencesIconsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
@@ -140,6 +141,14 @@ public final class app/revanced/patches/music/utils/extension/SharedExtensionPat
 
 public final class app/revanced/patches/music/utils/fix/androidauto/AndroidAutoCertificatePatchKt {
 	public static final fun getAndroidAutoCertificatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/utils/fix/client/FingerprintsKt {
+	public static final fun indexOfBuildInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
+public final class app/revanced/patches/music/utils/fix/client/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatchKt {
@@ -827,8 +836,14 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_15_or_greater ()Z
 	public static final fun is_19_23_or_greater ()Z
 	public static final fun is_19_25_or_greater ()Z
+	public static final fun is_19_26_or_greater ()Z
 	public static final fun is_19_28_or_greater ()Z
+	public static final fun is_19_29_or_greater ()Z
 	public static final fun is_19_32_or_greater ()Z
+	public static final fun is_19_34_or_greater ()Z
+	public static final fun is_19_36_or_greater ()Z
+	public static final fun is_19_41_or_greater ()Z
+	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_44_or_greater ()Z
 }
 
@@ -841,7 +856,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getAccountSwitcherAccessibility ()J
 	public static final fun getActionBarRingo ()J
 	public static final fun getActionBarRingoBackground ()J
-	public static final fun getActionBarSearchResultsViewMic ()J
 	public static final fun getAdAttribution ()J
 	public static final fun getAppRelatedEndScreenResults ()J
 	public static final fun getAppearance ()J
@@ -892,6 +906,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getInterstitialsContainer ()J
 	public static final fun getMenuItemView ()J
 	public static final fun getMetaPanel ()J
+	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getModernMiniPlayerClose ()J
 	public static final fun getModernMiniPlayerExpand ()J
 	public static final fun getModernMiniPlayerForwardButton ()J
@@ -1091,8 +1106,6 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static synthetic fun addEntryValues$default (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
 	public static final fun adoptChild (Lorg/w3c/dom/Node;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun appendAppVersion (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;)V
-	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
-	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun copyFile (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
 	public static final fun copyResources (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;Z)V
@@ -1101,17 +1114,14 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyXmlNode (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
-	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun getAdaptiveIconResourceFile (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 	public static final fun getResourceGroup (Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
 	public static final fun getStringOptionValue (Lapp/revanced/patcher/patch/Patch;Ljava/lang/String;)Lapp/revanced/patcher/patch/Option;
-	public static final fun insertFirst (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
-	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun lowerCaseOrThrow (Lapp/revanced/patcher/patch/Option;)Ljava/lang/String;
 	public static final fun removeOverlayBackground (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;[Ljava/lang/String;)V
 	public static final fun removeStringsElements (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;)V
 	public static final fun removeStringsElements (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;[Ljava/lang/String;)V
-	public static final fun startsWithAny (Ljava/lang/String;[Ljava/lang/String;)Z
 	public static final fun underBarOrThrow (Lapp/revanced/patcher/patch/Option;)Ljava/lang/String;
 	public static final fun updatePathData (Lorg/w3c/dom/Document;Ljava/lang/String;)V
 	public static final fun valueOrThrow (Lapp/revanced/patcher/patch/Option;)I
