@@ -157,7 +157,7 @@ public class AppClient {
          * Device manufacturer.
          */
         @Nullable
-        public final String make;
+        public final String deviceMake;
 
         /**
          * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
@@ -197,7 +197,7 @@ public class AppClient {
         public final boolean canLogin;
 
         ClientType(int id,
-                   @Nullable String make,
+                   @Nullable String deviceMake,
                    String deviceModel,
                    String clientVersion,
                    @Nullable String osName,
@@ -208,7 +208,7 @@ public class AppClient {
         ) {
             this.friendlyName = str("revanced_spoof_streaming_data_type_entry_" + name().toLowerCase());
             this.id = id;
-            this.make = make;
+            this.deviceMake = deviceMake;
             this.deviceModel = deviceModel;
             this.clientVersion = clientVersion;
             this.osName = osName;

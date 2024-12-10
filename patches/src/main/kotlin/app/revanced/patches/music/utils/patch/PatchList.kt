@@ -141,6 +141,10 @@ internal enum class PatchList(
         "Spoof app version",
         "Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics."
     ),
+    SPOOF_CLIENT(
+        "Spoof client",
+        "Adds options to spoof the client to allow track playback."
+    ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",
         "Add translations or remove string resources."

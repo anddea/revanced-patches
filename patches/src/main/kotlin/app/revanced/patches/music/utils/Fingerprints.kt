@@ -14,6 +14,14 @@ internal val pendingIntentReceiverFingerprint = legacyFingerprint(
     }
 )
 
+internal val playbackSpeedBottomSheetFingerprint = legacyFingerprint(
+    name = "playbackSpeedBottomSheetFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
+)
+
 internal val playbackSpeedFingerprint = legacyFingerprint(
     name = "playbackSpeedFingerprint",
     returnType = "V",

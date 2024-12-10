@@ -56,8 +56,8 @@ public final class PlayerRoutes {
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
             client.put("osVersion", clientType.osVersion);
-            if (clientType.make != null) {
-                client.put("deviceMake", clientType.make);
+            if (clientType.deviceMake != null) {
+                client.put("deviceMake", clientType.deviceMake);
             }
             if (clientType.osName != null) {
                 client.put("osName", clientType.osName);
