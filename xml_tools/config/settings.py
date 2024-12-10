@@ -38,7 +38,7 @@ class Settings:
         self.BASE_DIR = self.XML_TOOLS_DIR.parent
 
         # Define all other paths as absolute paths
-        self.SRC_DIR = (self.BASE_DIR / "src").resolve()
+        self.SRC_DIR = (self.BASE_DIR / "patches/src").resolve()
         self.RESOURCES_DIR = (self.SRC_DIR / "main" / "resources").resolve()
 
     # XML file settings

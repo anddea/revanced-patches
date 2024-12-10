@@ -107,7 +107,7 @@ def process_all(app: str, base_dir: Path, logger: Logger) -> None:
 
 @click.group(invoke_without_command=True)
 @click.option("--log-file", type=str, help="Path to log file")
-@click.option("--rvx-base-dir", type=str, help="Base directory of RVX patches operations", envvar="RVX_BASE_DIR")
+@click.option("--rvx-base-dir", type=str, help="Path to RVX 'patches' directory", envvar="RVX_BASE_DIR")
 @click.option("-a", "--all", "run_all", is_flag=True, help="Run all commands in order")
 @click.option("-m", "--missing", is_flag=True, help="Run missing strings check")
 @click.option("-r", "--replace", is_flag=True, help="Run replace strings operation")

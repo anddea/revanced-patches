@@ -25,13 +25,20 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
       - name: Cache Gradle
         uses: burrunan/gradle-cache-action@v1
 
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew generateMeta generatePatchesFiles clean
+        # To update `README.md` and `patches.json`, the command `./gradlew generatePatchesFiles clean` should be used instead of the command `./gradlew build clean`
+        run: ./gradlew generatePatchesFiles clean
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

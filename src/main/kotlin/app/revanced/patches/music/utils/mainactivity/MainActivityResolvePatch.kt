@@ -1,6 +1,0 @@
-package app.revanced.patches.music.utils.mainactivity
-
-import app.revanced.patches.music.utils.mainactivity.fingerprints.MainActivityFingerprint
-import app.revanced.patches.shared.mainactivity.BaseMainActivityResolvePatch
-
-object MainActivityResolvePatch : BaseMainActivityResolvePatch(MainActivityFingerprint)
