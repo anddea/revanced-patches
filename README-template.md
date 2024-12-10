@@ -28,7 +28,6 @@ Example:
       }
     ],
     "use":true,
-    "requiresIntegrations":false,
     "options": []
   },
   {
@@ -41,7 +40,6 @@ Example:
       }
     ],
     "use":true,
-    "requiresIntegrations":false,
     "options": []
   },
   {
@@ -54,7 +52,6 @@ Example:
       }
     ],
     "use":true,
-    "requiresIntegrations":true,
     "options": []
   }
 ]

@@ -31,8 +31,7 @@ settings_instance = Settings()
 
 SCRIPT_DIR = settings_instance.BASE_DIR
 SEARCH_DIRECTORIES = [
-    str(SCRIPT_DIR.parent / "revanced-patches"),
-    str(SCRIPT_DIR.parent / "revanced-integrations")
+    str(SCRIPT_DIR.parent / "revanced-patches")
 ]
 ALLOWED_EXTENSIONS = (".kt", ".java", ".xml")
 

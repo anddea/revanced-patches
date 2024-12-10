@@ -24,8 +24,9 @@
           "README.md",
           "CHANGELOG.md",
           "gradle.properties",
-          "patches.json"
-        ]
+          "patches.json",
+        ],
+        "message": "chore: Release v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
     [
@@ -33,11 +34,11 @@
       {
         "assets": [
           {
-            "path": "build/libs/revanced-patches*"
+            "path": "patches/build/libs/patches-!(*sources*|*javadoc*).rvp?(.asc)"
           },
           {
             "path": "patches.json"
-          }
+          },
         ],
         successComment: false
       }
