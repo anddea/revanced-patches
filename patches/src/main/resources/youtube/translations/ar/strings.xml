@@ -509,11 +509,6 @@
     <string name="revanced_hide_fullscreen_ads_summary_off">يتم عرض إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">تم إخفاء إعلانات ملء الشاشة.</string>
     <string name="revanced_hide_fullscreen_ads_title">إخفاء إعلانات ملء الشاشة</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"يتم حظر الإعلانات بملء الشاشة.
-
-التأثير الجانبي: قد يتم حظر صور منشورات المجتمع في وضع ملء الشاشة."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">يتم إغلاق الإعلانات بملء الشاشة من خلال زر الإغلاق.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">إغلاق الإعلانات بملء الشاشة</string>
     <string name="revanced_hide_general_ads_summary_off">يتم عرض الإعلانات العامة.</string>
     <string name="revanced_hide_general_ads_summary_on">تم إخفاء الإعلانات العامة.</string>
     <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
@@ -1162,13 +1157,30 @@
     <string name="revanced_overlay_button_mute_volume_summary">انقر لكتم صوت الفيديو الحالي. انقر مرة أخرى لإلغاء الكتم.</string>
     <string name="revanced_overlay_button_mute_volume_title">عرض زر كتم الصوت</string>
     <string name="revanced_overlay_button_not_allowed_warning">انقر مع الاستمرار لتغيير حالة الزر.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">غير قادر على إنشاء قائمة التشغيل بسبب عدم تطابق معرف القناة.</string>
+    <string name="revanced_overlay_button_play_all_summary">"انقر لإنشاء قائمة تشغيل لجميع الفيديوهات من القناة.
+انقر مع الاستمرار للتراجع.
+
+معلومة:
+• قد لا يعمل في البث المباشر."</string>
+    <string name="revanced_overlay_button_play_all_title">عرض زر تشغيل الكل</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">كل المحتويات (مرتبة حسب الوقت)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">فيديوهات للأعضاء فقط</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">فيديوهات Shorts للأعضاء فقط</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">البث المباشر للأعضاء فقط</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">كل المحتويات (مرتبة حسب الشعبية)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">الفيديوهات فقط (مرتبة حسب الوقت)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">الفيديوهات فقط (مرتبة حسب الشعبية)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">فيديوهات Shorts فقط (مرتبة حسب الوقت)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">فيديوهات Shorts فقط (مرتبة حسب الشعبية)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">فيديوهات البث فقط (مرتبة حسب الوقت)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">فيديوهات البث فقط (مرتبة حسب الشعبية)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">كل محتويات الأعضاء فقط</string>
+    <string name="revanced_overlay_button_play_all_type_title">إنشاء وضع قائمة التشغيل</string>
     <string name="revanced_overlay_button_speed_dialog_reset">إعادة تعيين سرعة التشغيل: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"انقر لفتح مربع حوار السرعة.
 انقر مع الاستمرار لضبط سرعة التشغيل على 1.0x. انقر مع الاستمرار مرة أخرى لإعادة ضبط السرعة الافتراضية."</string>
     <string name="revanced_overlay_button_speed_dialog_title">عرض مربع زر حوار السرعة</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"انقر لإنشاء قائمة تشغيل بجميع فيديوهات القناة من الأقدم إلى الأحدث.
-انقر مع الاستمرار للتراجع."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">عرض زر قائمة التشغيل مرتبة حسب الوقت</string>
     <string name="revanced_overlay_button_whitelist_summary">\"انقر لفتح مربع حوار القائمة البيضاء.
 انقر مع الاستمرار لفتح مربع حوار إعداد القائمة البيضاء.</string>
     <string name="revanced_overlay_button_whitelist_title">عرض زر القائمة البيضاء</string>
@@ -1619,14 +1631,16 @@
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.
 
 يتمتع تنسيق AVC (H.264) بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو بيانات إنترنت اكثر من VP9 أو AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">يتم استخدام عميل iOS لتشغيل البث المباشر.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">لا يتم استخدام عميل iOS لتشغيل البث المباشر.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">تخطي تشغيل البث المباشر iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
-• يبدأ البث المباشر من البداية.
-• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة.
-• لا يوجد ترميز الصوت Opus."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• يبدأ البث المباشر من البداية.
+• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• قد لا يتم تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>

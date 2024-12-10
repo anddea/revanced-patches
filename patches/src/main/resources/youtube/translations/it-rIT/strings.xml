@@ -160,7 +160,7 @@ Impostazioni → Riproduzione automatica → Telefono cellulare/tablet"</string>
     <string name="revanced_disable_default_playback_speed_music_off">La velocità di riproduzione predefinita per la musica è attivata.</string>
     <string name="revanced_disable_default_playback_speed_music_on">"La velocità di riproduzione predefinita è disattivata per la musica.
 
-Nota: potrebbe non funzionare con i video che non hanno il banner \"Ascolta su YouTube Music\"."</string>
+Nota: potrebbe non funzionare con i video che non hanno il banner Ascolta su YouTube Music."</string>
     <string name="revanced_disable_default_playback_speed_music_title">Disattiva la velocità di riproduzione predefinita per la musica</string>
     <string name="revanced_disable_engagement_panel_summary_off">Il pannello di coinvolgimento è attivato.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Il pannello di coinvolgimento è disattivato.</string>
@@ -510,11 +510,6 @@ Negozio"</string>
     <string name="revanced_hide_fullscreen_ads_summary_off">Gli annunci a schermo intero sono visibili.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Gli annunci a schermo intero sono nascosti.</string>
     <string name="revanced_hide_fullscreen_ads_title">Nascondi gli annunci a schermo intero</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Gli annunci a schermo intero sono bloccati.
-
-Limitazione: Le immagini dei post della community a schermo intero potrebbero essere bloccate."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Gli annunci a schermo intero sono chiusi tramite il pulsante Chiudi.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Chiudi gli annunci a schermo intero</string>
     <string name="revanced_hide_general_ads_summary_off">Gli annunci generali sono visibili.</string>
     <string name="revanced_hide_general_ads_summary_on">Gli annunci generali sono nascosti.</string>
     <string name="revanced_hide_general_ads_title">Nascondi gli annunci generali</string>
@@ -639,9 +634,9 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile.</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta.</string>
     <string name="revanced_hide_paid_promotion_label_title">Nascondi l\'etichetta della promozione a pagamento</string>
-    <string name="revanced_hide_playables_summary_off">Lo scaffale Giochi Interattivi è visibile.</string>
-    <string name="revanced_hide_playables_summary_on">Lo scaffale Giochi Interattivi è nascosto.</string>
-    <string name="revanced_hide_playables_title">Nascondi lo scaffale Giochi Interattivi</string>
+    <string name="revanced_hide_playables_summary_off">Lo scaffale Sala Giochi è visibile.</string>
+    <string name="revanced_hide_playables_summary_on">Lo scaffale Sala Giochi è nascosto.</string>
+    <string name="revanced_hide_playables_title">Nascondi lo scaffale Sala Giochi</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">Il pulsante Riproduzione Automatica è visibile.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">Il pulsante Riproduzione Automatica è nascosto.</string>
     <string name="revanced_hide_player_autoplay_button_title">Nascondi il pulsante Riproduzione Automatica</string>
@@ -1166,14 +1161,31 @@ Tocca e tieni premuto per copiare il timestamp del video."</string>
 Tocca di nuovo per riattivare l\'audio.</string>
     <string name="revanced_overlay_button_mute_volume_title">Mostra il pulsante Muto</string>
     <string name="revanced_overlay_button_not_allowed_warning">Tocca e tieni premuto per cambiare lo stato del pulsante.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Impossibile generare la playlist a causa della mancata corrispondenza dell\'ID del canale</string>
+    <string name="revanced_overlay_button_play_all_summary">"Tocca per generare una playlist di tutti i video del canale.
+Tocca e tieni premuto per annullare.
+
+Nota:
+• Potrebbe non funzionare con i video live."</string>
+    <string name="revanced_overlay_button_play_all_title">Mostra il pulsante Riproduci Tutto</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Tutti i contenuti (ordinato per tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Video riservato solo ai membri</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Shorts riservato solo ai membri</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Video live riservato solo ai membri</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Tutti i contenuti (ordinato per popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Solo video (ordinato per tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Solo video (ordinato per popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Solo Shorts (ordinato per tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Solo Shorts (ordinato per popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Solo video live (ordinato per tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Solo video live (ordinato per popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Tutti i contenuti riservati solo ai membri</string>
+    <string name="revanced_overlay_button_play_all_type_title">Genera la modalità playlist</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (%sx)</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Tocca per aprire la finestra della velocità di riproduzione
 Tocca e tieni premuto per impostare la velocità di riproduzione a 1x.
 Tocca e tieni premuto di nuovo per ripristinare la velocità predefinita."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Mostra il pulsante Velocità di Riproduzione</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Tocca per generare una playlist di tutti i video del canale dal più vecchio al più recente.
-Tocca e tieni premuto per annullare."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Mostra il pulsante Playlist Ordinato-per-Data</string>
     <string name="revanced_overlay_button_whitelist_summary">Tocca per aprire la finestra della whitelist.
 Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.</string>
     <string name="revanced_overlay_button_whitelist_title">Mostra il pulsante Whitelist</string>
@@ -1627,25 +1639,24 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
     <string name="revanced_spoof_device_dimensions_summary">"Camuffa le dimensioni del dispositivo portandole al valore massimo.
 Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tutti, che richiedono dimensioni del dispositivo elevate."</string>
     <string name="revanced_spoof_device_dimensions_title">Camuffa le dimensioni del dispositivo</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_off">Sempre camuffato come client iOS.</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_summary_on">Camuffato come client iOS solo se non è un film, un video a pagamento o live.</string>
-    <string name="revanced_spoof_streaming_data_ios_compatibility_title">Modalità di compatibilità iOS</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Il codec video è AVC (H.264), VP9 o AV1.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Il codec video è AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forza iOS AVC (H.264)</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"L'attivazione di questa impostazione potrebbe migliorare la durata della batteria e risolvere il problema della riproduzione a scatti.
 
 Nota: AVC (H.264) ha una risoluzione massima di 1080p e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Il client iOS è usato per la riproduzione dei video live.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Il client iOS non è usato per la riproduzione dei video live.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Salta la riproduzione dei video live con il client iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• I film o i video a pagamento potrebbero non essere riprodotti.
-• I video live iniziano dall'inizio.
-• I video potrebbero terminare 1 secondo prima.
-• Il codec audio Opus potrebbe non funzionare."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• I video live iniziano dall'inizio.
+• I video potrebbero terminare 1 secondo prima."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
 • Il codec audio Opus potrebbe non funzionare."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client usato per recuperare i dati in streaming è nascosto nelle statistiche per nerd.</string>

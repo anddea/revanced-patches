@@ -508,11 +508,6 @@
     <string name="revanced_hide_fullscreen_ads_summary_off">Повноекранну рекламу показується.</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">Повноекранну рекламу приховано.</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Повноекранну рекламу блокується.
-
-Застереження: Зображення публікації спільноти в повноекранному режимі може бути блоковано."</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">Повноекранну рекламу закривається за допомогою кнопки Закрити.</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Закривати повноекранну рекламу</string>
     <string name="revanced_hide_general_ads_summary_off">Загальну рекламу показується.</string>
     <string name="revanced_hide_general_ads_summary_on">Загальну рекламу приховано.</string>
     <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
@@ -1170,13 +1165,30 @@
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Не вдалося згенерувати список відтворення через невідповідність ідентифікатора каналу.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Натисніть, щоб згенерувати список відтворення з усіх відео з каналу.
+Натисніть і отримуйте, щоб відмінити.
+
+Інформація:
+• Може не працювати на прямих трансляціях."</string>
+    <string name="revanced_overlay_button_play_all_title">Показувати кнопку Відтворити все</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Весь контент (Сортування за часом)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Відео тільки спонсорів</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">YouTube Shots тільки спонсорів</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Прямі трансляції тільки спонсорів</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Весь контент (Сортування за популярністю)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Лише відео (Сортування за часом)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Лише відео (Сортування за популярністю)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Лише YouTube Shorts (Сортування за часом)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Лише YouTube Shorts (Сортування за популярністю)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Лише відео Наживо (Сортування за часом)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Лише відео Наживо (Сортування за популярністю)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Контент тільки всіх спонсорів</string>
+    <string name="revanced_overlay_button_play_all_type_title">Режим генерування списку відтворення</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Швидкість відтворення скинуто: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Натисніть, щоб відкрити діалог швидкості.
 Натисніть і утримуйте, щоб скинути швидкість відтворення до 1.0x. Натисніть і утримуйте ще раз, щоб скинути швидкість назад до типової."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Показувати кнопку Діалог швидкості</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"Натисніть, щоб згенерувати список відтворення з усіх відео з каналу від найстарішого до найновішого.
-Натисніть і утримуйте, щоб скасувати."</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">Показувати кнопку впорядкованого за часом списку відтворення</string>
     <string name="revanced_overlay_button_whitelist_summary">Натисніть, щоб відкрити діалог білого списку.
 Натисніть і утримуйте, щоб відкрити діалог налаштування білого списку.</string>
     <string name="revanced_overlay_button_whitelist_title">Показувати кнопку Білого списку</string>
@@ -1634,14 +1646,16 @@
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Увімкнення може зменшити споживання акумулятора та усунути затинання при відтворенні.
 
 AVC (H.264) має максимальну роздільну здатність 1080p, а для відтворення відео використовується більше інтернет-даних, ніж VP9 або AV1."</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Клієнт iOS використовується для відтворення прямих трансляцій.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Клієнт iOS не використовується для відтворення прямих трансляцій.</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Пропускати відтворення прямих трансляцій iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Фільми чи платні відео можуть не відтворюватися.
-• Прямі трансляції починаються з початку.
-• Відео можуть закінчуватися на 1 секунду раніше.
-• Немає аудіокодека opus."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Прямі трансляції починаються з початку.
+• Відео можуть закінчуватися на 1 секунду раніше."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Відео можуть закінчуватися на 1 секунду раніше.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>

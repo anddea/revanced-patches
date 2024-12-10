@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">是否啟用影片播放器的無障礙控制？</string>
-    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此您的控制項被修改。</string>
+    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此您的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有後台運行的權限
@@ -342,7 +342,7 @@
     <string name="revanced_extended_settings_import_title">導入配置</string>
     <string name="revanced_extended_settings_reset">重置</string>
     <string name="revanced_extended_settings_search_title">搜尋設定</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">ReVanced 擴充功能</string>
     <string name="revanced_external_downloader_dialog_title">外部下載器</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝
@@ -421,8 +421,8 @@
     <string name="revanced_hide_chapters_section_summary_on">章節部份已隱藏</string>
     <string name="revanced_hide_chapters_section_title">隱藏章節部份</string>
     <string name="revanced_hide_chips_shelf_off">剪輯已顯示</string>
-    <string name="revanced_hide_chips_shelf_on">Chips 影片欄已隱藏</string>
-    <string name="revanced_hide_chips_shelf_title">隱藏 Chips 影片欄</string>
+    <string name="revanced_hide_chips_shelf_on">剪輯已隱藏</string>
+    <string name="revanced_hide_chips_shelf_title">隱藏剪輯</string>
     <string name="revanced_hide_clip_button_summary_off">剪輯按鈕已顯示</string>
     <string name="revanced_hide_clip_button_summary_on">剪輯按鈕已隱藏</string>
     <string name="revanced_hide_clip_button_title">隱藏剪輯按鈕</string>
@@ -506,11 +506,6 @@
     <string name="revanced_hide_fullscreen_ads_summary_off">全螢幕廣告已顯示</string>
     <string name="revanced_hide_fullscreen_ads_summary_on">全螢幕廣告已隱藏</string>
     <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"全螢幕廣告已攔截。
-
-限制：全螢幕上的社群貼文圖片可能會被攔截。"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">全螢幕廣告可透過關閉按鈕隱藏。</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">隱藏全螢幕廣告</string>
     <string name="revanced_hide_general_ads_summary_off">一般廣告已顯示</string>
     <string name="revanced_hide_general_ads_summary_on">一般廣告已隱藏</string>
     <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
@@ -1161,13 +1156,30 @@ Note:
     <string name="revanced_overlay_button_mute_volume_summary">點選可將目前影片靜音。 再次點擊即可取消靜音。</string>
     <string name="revanced_overlay_button_mute_volume_title">顯示靜音按鈕</string>
     <string name="revanced_overlay_button_not_allowed_warning">長按以更改按鈕狀態</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">由於頻道ID不匹配 因此無法產生播放清單。</string>
+    <string name="revanced_overlay_button_play_all_summary">"點選可產生頻道中所有影片的播放清單。
+點選並按住可撤銷。
+
+資訊:
+• 可能不適用於直播。"</string>
+    <string name="revanced_overlay_button_play_all_title">顯示全部播放按鈕</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">所有內容 (按時間排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">會員專屬影片</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">會員專屬短影片</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">會員專屬直播</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">所有內容 (按熱門排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">僅限影片 (按時間排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">僅限影片 (按熱門排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">僅限短影片 (按時間排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">僅限短影片 (按流行排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">僅限串流媒體影片 (按時間排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">僅限串流媒體影片 (按熱門排序)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">所有會員專屬內容</string>
+    <string name="revanced_overlay_button_play_all_type_title">產生播放清單模式</string>
     <string name="revanced_overlay_button_speed_dialog_reset">播放速度重置：%sx。</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"點擊選擇影片播放速度
 長按設定預設播放速度（1.0x）"</string>
     <string name="revanced_overlay_button_speed_dialog_title">播放速度按鈕</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_summary">"點擊可產生頻道中從最舊到最新的所有影片的播放清單。
- 點選並按住可撤銷。"</string>
-    <string name="revanced_overlay_button_time_ordered_playlist_title">顯示按時間排序的播放清單按鈕</string>
     <string name="revanced_overlay_button_whitelist_summary">點選可開啟白名單對話框。
  點選並按住可開啟白名單設定對話框。</string>
     <string name="revanced_overlay_button_whitelist_title">顯示白名單按鈕</string>
@@ -1225,7 +1237,7 @@ Note:
     <string name="revanced_preference_screen_custom_filter_title">自訂篩選器</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">隱藏或顯示首頁中的彈出式選單</string>
     <string name="revanced_preference_screen_feed_flyout_menu_title">彈出式選單</string>
-    <string name="revanced_preference_screen_feed_title">首頁</string>
+    <string name="revanced_preference_screen_feed_title">探索</string>
     <string name="revanced_preference_screen_fullscreen_summary">隱藏或更改與全螢幕相關的組件</string>
     <string name="revanced_preference_screen_fullscreen_title">全螢幕</string>
     <string name="revanced_preference_screen_general_title">一般設定</string>
@@ -1625,9 +1637,13 @@ Note:
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"啟用此功能可能會延長電池壽命並修復播放卡頓問題。
 
 AVC (H.264) 的最大解析度為 1080p，影片播放將比 VP9 或 AV1 使用更多的網路資料。"</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">iOS用戶端用於直播回放。</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">iOS用戶端不用於直播回放。</string>
+    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">跳過iOS直播播放</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• 電影或付費影片可能無法播放。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 影片可能會提前 1 秒結束。</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">偽裝副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 影片可能無法播放。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用於獲取串流資料的用戶端隱藏在統計資料中。</string>

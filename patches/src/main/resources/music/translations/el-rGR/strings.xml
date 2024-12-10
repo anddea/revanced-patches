@@ -150,7 +150,7 @@
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Απόκρυψη των κουμπιών χρονοσήμανσης και επιλογής emoji κατά την πληκτρολόγηση σχολίου.</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Απόκρυψη κουμπιών χρονοσήμανσης &amp; emoji</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Απόκρυψη του σκοτεινού φόντου που εμφανίζεται στην οθόνη αναπαραγωγής όταν γίνεται διπλό πάτημα για αναζήτηση.</string>
-    <string name="revanced_hide_double_tap_overlay_filter_title">Φόντο διπλού πατήματος της οθόνης αναπαραγωγής</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">Απόκρυψη φόντου διπλού πατήματος της οθόνης αναπαραγωγής</string>
     <string name="revanced_hide_floating_button_summary">Απόκρυψη του αιωρούμενου κουμπιού στην καρτέλα βιβλιοθήκης.</string>
     <string name="revanced_hide_floating_button_title">Απόκρυψη αιωρούμενου κουμπιού</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">Απόκρυψη στοιχείου 3 στηλών</string>
@@ -181,15 +181,11 @@
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Απόκρυψη μενού «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Απόκρυψη των «Εγγραφή» / «Απεγγραφή»</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Απόκρυψη μενού «Προβολή συντελεστών τραγουδιού»</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Απόκρυψη των ενδιάμεσων διαφημίσεων πλήρους οθόνης.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Απόκρυψη των ενδιάμεσων διαφημίσεων πλήρους οθόνης.
+
+Περιορισμοί:
+• Ενδέχεται μερικές φορές να φαίνεται μια κενή μαύρη οθόνη αντί για την αρχική ροή."</string>
     <string name="revanced_hide_fullscreen_ads_title">Απόκρυψη διαφημίσεων πλήρους οθόνης</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary">"Αν είναι ενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης κλείνουν μέσω του κουμπιού κλεισίματος.
-Αν είναι απενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης είναι αυτόματα αποκλεισμένες. (μπορεί να υπάρχουν παρενέργειες)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_off">"Αν είναι ενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης κλείνουν μέσω του κουμπιού κλεισίματος.
-Αν είναι απενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης είναι αυτόματα αποκλεισμένες. (μπορεί να υπάρχουν παρενέργειες)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_summary_on">"Αν είναι ενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης κλείνουν μέσω του κουμπιού κλεισίματος.
-Αν είναι απενεργοποιημένο, οι διαφημίσεις πλήρους οθόνης είναι αυτόματα αποκλεισμένες. (μπορεί να υπάρχουν παρενέργειες)"</string>
-    <string name="revanced_hide_fullscreen_ads_type_title">Κλείσιμο διαφημίσεων πλήρους οθόνης</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Απόκρυψη του κουμπιού κοινοποίησης στην οθόνη αναπαραγωγής πλήρους οθόνης.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Απόκρυψη κουμπιού κοινοποίησης στη λειτουργία πλήρους οθόνης</string>
     <string name="revanced_hide_general_ads_summary">Απόκρυψη των γενικών διαφημίσεων.</string>
@@ -402,4 +398,11 @@
     <string name="revanced_spoof_app_version_target_summary">Επιλέξτε την έκδοση εφαρμογής που θα χρησιμοποιηθεί.</string>
     <string name="revanced_spoof_app_version_target_title">Έκδοση της εφαρμογής που θα χρησιμοποιηθεί</string>
     <string name="revanced_spoof_app_version_title">Παραποίηση έκδοσης εφαρμογής</string>
+    <string name="revanced_spoof_client_summary">Παραποίηση του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής.
+
+Περιορισμοί:
+• Ο κωδικοποιητής ήχου OPUS ενδέχεται να μην υποστηρίζεται.
+• Οι μικρογραφίες προεπισκόπησης στη γραμμή προόδου ενδέχεται να μην υπάρχουν.
+• Το ιστορικό παρακολούθησης δεν λειτουργεί σε λογαριασμούς επωνυμίας (brand).</string>
+    <string name="revanced_spoof_client_title">Παραποίηση προγράμματος πελάτη</string>
 </resources>
