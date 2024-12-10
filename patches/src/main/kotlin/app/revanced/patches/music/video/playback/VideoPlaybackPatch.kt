@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.patch.PatchList.VIDEO_PLAYBACK
+import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.utils.playbackSpeedFingerprint
 import app.revanced.patches.music.utils.playbackSpeedParentFingerprint
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -54,8 +55,9 @@ val videoPlaybackPatch = bytecodePatch(
         playbackSpeedBottomSheetFingerprint.mutableClassOrThrow().let {
             val onItemClickMethod =
                 it.methods.find { method -> method.name == "onItemClick" }
+                    ?: throw PatchException("Failed to find onItemClick method")
 
-            onItemClickMethod?.apply {
+            onItemClickMethod.apply {
                 val targetIndex = indexOfFirstInstructionOrThrow(Opcode.IGET)
                 val targetRegister =
                     getInstruction<TwoRegisterInstruction>(targetIndex).registerA
@@ -64,7 +66,7 @@ val videoPlaybackPatch = bytecodePatch(
                     targetIndex + 1,
                     "invoke-static {v$targetRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->userSelectedPlaybackSpeed(F)V"
                 )
-            } ?: throw PatchException("Failed to find onItemClick method")
+            }
         }
 
         playbackSpeedFingerprint.matchOrThrow(playbackSpeedParentFingerprint).let {
