@@ -809,7 +809,6 @@
         <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
             <PreferenceCategory android:title="@string/revanced_preference_category_tool_used" android:layout="@layout/revanced_settings_preferences_category" >
                 <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="" />
-                <Preference android:title="ReVanced Integrations" android:selectable="false" android:summary="" />
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_ads_title" android:layout="@layout/revanced_settings_preferences_category">
@@ -860,7 +859,6 @@
             <PreferenceCategory android:title="@string/revanced_preference_screen_shorts_title" >
                 <Preference android:title="Disable resuming Shorts on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Shorts components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Shorts outline button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_swipe_controls_title" android:layout="@layout/revanced_settings_preferences_category">
@@ -887,6 +885,7 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_others" android:layout="@layout/revanced_settings_preferences_category">
                 <Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Custom Shorts action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Force snackbar theme" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="GmsCore support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide Shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide shortcuts" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
