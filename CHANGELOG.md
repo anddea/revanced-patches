@@ -1,3 +1,34 @@
+# [3.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.232.0-dev.1...v3.0.0-dev.1) (2024-12-11)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Show Shorts dislikes with new A/B button icons ([ad0d15e](https://github.com/anddea/revanced-patches/commit/ad0d15e832c0a51997c35780d880f1bcb2a8b495))
+* **YouTube - Shorts components:** Do not hide Shorts action buttons on app first launch ([f5cd017](https://github.com/anddea/revanced-patches/commit/f5cd0173a845352da7d4d5d13f5d545eaf8217b1))
+* **YouTube - SponsorBlock:** Fix create new segment crash on tablet custom roms ([58b5fbf](https://github.com/anddea/revanced-patches/commit/58b5fbfcc77d46831f61a3099fbf37c01ae2b2ba))
+* **YouTube - Spoof streaming data:** Fix memory leak in `ByteArrayOutputStream` ([42d7bbe](https://github.com/anddea/revanced-patches/commit/42d7bbe8da244c73802e37cab646ccad590d7bdb))
+* **YouTube - Video playback:** Correctly set default quality when changing from a low quality video ([8cbe976](https://github.com/anddea/revanced-patches/commit/8cbe9766a4f26aeee909a799b834c4c85efd7e9d))
+
+
+### Code Refactoring
+
+* Bump ReVanced Patcher & merge integrations ([7dde697](https://github.com/anddea/revanced-patches/commit/7dde697995b3fa02749eff52cf50d1f903fc54ef))
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Replace `Time-ordered playlist` button with `Play all` button ([5a15809](https://github.com/anddea/revanced-patches/commit/5a15809c96c4d6e988b196be8d0a85a828fe1d1b))
+* **YouTube - Spoof streaming data:** Rename the `iOS Compatibility mode` setting to `Skip iOS livestream playback` ([efbc77d](https://github.com/anddea/revanced-patches/commit/efbc77d6a0090cc15bec935aa993155cbf8bdd0c))
+* **YouTube - Theme:** Add `Pale Blue`, `Pale Green`, `Pale Orange` light colors ([1bed931](https://github.com/anddea/revanced-patches/commit/1bed9310b7343f1d860c4738b512fce91ffc3895))
+* **YouTube Music - Hide ads:** Changed the default value of `Hide fullscreen ads` setting to off and added a warning to the setting ([d337d21](https://github.com/anddea/revanced-patches/commit/d337d2115ef78fd1b2c8d2fd2e528d913b7978e9))
+* **YouTube Music:** Add `Spoof client` patch ([09c7967](https://github.com/anddea/revanced-patches/commit/09c796784cbd70fde471773d2ecb5f2123855b73))
+* **YouTube:** Support version `19.34.42` ([2018306](https://github.com/anddea/revanced-patches/commit/2018306d5f578ac9915f0a6001391999896fdacc))
+
+
+### BREAKING CHANGES
+
+* Patches and Integrations are now merged
+
 # [2.232.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.231.0...v2.232.0-dev.1) (2024-11-10)
 
 
