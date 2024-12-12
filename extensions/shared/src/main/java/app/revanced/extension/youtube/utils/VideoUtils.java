@@ -158,7 +158,7 @@ public class VideoUtils extends IntentUtils {
                 return;
             }
             if (prefixId.equals("UL")) {
-                videoScheme += "&list=" + prefixId + channelId.substring(0, 11);
+                videoScheme += "&list=" + prefixId + VideoInformation.getVideoId();
             }
             else {
                 videoScheme += "&list=" + prefixId + channelId.substring(2);
