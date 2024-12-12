@@ -1,3 +1,10 @@
+# [3.0.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.3...v3.0.0-dev.4) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube Music - Visual preferences icons:** Custom branding icons did not work ([45fa7fd](https://github.com/anddea/revanced-patches/commit/45fa7fd9169218bd0cee46b8413aee7611212b0b))
+
 # [3.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.2...v3.0.0-dev.3) (2024-12-12)
 
 
