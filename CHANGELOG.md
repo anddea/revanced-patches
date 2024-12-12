@@ -1,3 +1,11 @@
+# [3.0.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.2...v3.0.0-dev.3) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Play all button did not work for all videos when using all content by time ascending ([e4e51f5](https://github.com/anddea/revanced-patches/commit/e4e51f583ebbf2986a1077860503e3e94c3a3f05))
+* **YouTube - Seekbr components:** Reverse start and end colors for Cairo seekbar ([e9bd106](https://github.com/anddea/revanced-patches/commit/e9bd106114c1669426d10830b544d7936a0728a1))
+
 # [3.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.1...v3.0.0-dev.2) (2024-12-12)
 
 
