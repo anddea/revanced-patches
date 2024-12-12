@@ -225,10 +225,10 @@ val seekbarComponentsPatch = bytecodePatch(
         getContext().document("res/values/colors.xml").use { document ->
             document.doRecursively loop@{ node ->
                 if (node is Element && node.tagName == "color") {
-                    if (node.getAttribute("name") == "yt_youtube_magenta") {
+                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
                         node.textContent = cairoStartColor
                     }
-                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
+                    if (node.getAttribute("name") == "yt_youtube_magenta") {
                         node.textContent = cairoEndColor
                     }
                 }
