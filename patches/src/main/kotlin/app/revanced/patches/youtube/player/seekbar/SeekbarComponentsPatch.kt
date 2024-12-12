@@ -62,14 +62,14 @@ val seekbarComponentsPatch = bytecodePatch(
 
     val cairoStartColor by stringOption(
         key = "cairoStartColor",
-        default = "#ffff2791",
+        default = "#FFFF2791",
         title = "Cairo start color",
         description = "Set Cairo start color for the seekbar."
     )
 
     val cairoEndColor by stringOption(
         key = "cairoEndColor",
-        default = "#ffff0033",
+        default = "#FFFF0033",
         title = "Cairo end color",
         description = "Set Cairo end color for the seekbar."
     )
