@@ -1,3 +1,10 @@
+# [3.0.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.1...v3.0.0-dev.2) (2024-12-12)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Add missing icons in the Manager ([a9b443a](https://github.com/anddea/revanced-patches/commit/a9b443a738ca6f94a98ee32d9cd7ad0837ce66a8))
+
 # [3.0.0-dev.1](https://github.com/anddea/revanced-patches/compare/v2.232.0-dev.1...v3.0.0-dev.1) (2024-12-11)
 
 
