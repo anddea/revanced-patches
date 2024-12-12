@@ -39,6 +39,8 @@ val visualPreferencesIconsPatch = resourcePatch(
             "YT alt" to "yt_alt",
             "ReVanced" to "revanced",
             "ReVanced Colored" to "revanced_colored",
+            "RVX Letters" to "rvx_letters",
+            "RVX Letters Bold" to "rvx_letters_bold",
         ),
         title = "RVX settings menu icon",
         description = "The icon for the RVX settings menu.",
