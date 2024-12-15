@@ -1,10 +1,41 @@
 package app.revanced.patches.youtube.player.seekbar
 
 import app.revanced.patches.youtube.utils.resourceid.reelTimeBarPlayedColor
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
+
+internal val playerSeekbarGradientConfigFingerprint = legacyFingerprint(
+    name = "playerSeekbarGradientConfigFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG),
+)
+
+internal val lithoLinearGradientFingerprint = legacyFingerprint(
+    name = "lithoLinearGradientFingerprint",
+    accessFlags = AccessFlags.STATIC.value,
+    returnType = "Landroid/graphics/LinearGradient;",
+    parameters = listOf("F", "F", "F", "F", "[I", "[F")
+)
+internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
+
+internal val launchScreenLayoutTypeFingerprint = legacyFingerprint(
+    name = "launchScreenLayoutTypeFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        val firstParameter = method.parameterTypes.firstOrNull()
+        // 19.25 - 19.45
+        (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+                || firstParameter == "Landroid/app/Activity;") // 19.46+
+                && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
+    }
+)
 
 internal val controlsOverlayStyleFingerprint = legacyFingerprint(
     name = "controlsOverlayStyleFingerprint",

@@ -7,7 +7,6 @@ import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
@@ -597,11 +596,25 @@ public class PlayerPatch {
         return !Settings.HIDE_PLAYER_FLYOUT_MENU_PIP.get();
     }
 
+    /**
+     * Overriding this values is possible only after the litho component has been loaded.
+     * Otherwise, crash will occur.
+     * See {@link InitializationPatch#onCreate}.
+     *
+     * @param original original value.
+     * @return whether to enable Sleep timer Mode in the player flyout menu.
+     */
+    public static boolean hideDeprecatedSleepTimerMenu(boolean original) {
+        if (!BaseSettings.SETTINGS_INITIALIZED.get()) {
+            return original;
+        }
+
+        return !Settings.HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER.get();
+    }
+
     // endregion
 
     // region [Seekbar components] patch
-
-    public static final int ORIGINAL_SEEKBAR_COLOR = 0xFFFF0000;
 
     public static String appendTimeStampInformation(String original) {
         if (!Settings.APPEND_TIME_STAMP_INFORMATION.get()) return original;
@@ -639,48 +652,6 @@ public class PlayerPatch {
         if (Settings.REPLACE_TIME_STAMP_ACTION.get()) {
             containerView.setOnClickListener(timeStampContainerView -> VideoUtils.showFlyoutMenu());
         }
-    }
-
-    public static int getSeekbarClickedColorValue(final int colorValue) {
-        return colorValue == ORIGINAL_SEEKBAR_COLOR
-                ? overrideSeekbarColor(colorValue)
-                : colorValue;
-    }
-
-    public static int resumedProgressBarColor(final int colorValue) {
-        return Settings.ENABLE_CUSTOM_SEEKBAR_COLOR.get()
-                ? getSeekbarClickedColorValue(colorValue)
-                : colorValue;
-    }
-
-    /**
-     * Overrides all drawable color that use the YouTube seekbar color.
-     * Used only for the video thumbnails seekbar.
-     * <p>
-     * If {@link Settings#HIDE_SEEKBAR_THUMBNAIL} is enabled, this returns a fully transparent color.
-     */
-    public static int getColor(int colorValue) {
-        if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
-            if (Settings.HIDE_SEEKBAR_THUMBNAIL.get()) {
-                return 0x00000000;
-            }
-            return overrideSeekbarColor(ORIGINAL_SEEKBAR_COLOR);
-        }
-        return colorValue;
-    }
-
-    /**
-     * Points where errors occur when playing videos on the PlayStore (ROOT Build)
-     */
-    public static int overrideSeekbarColor(final int colorValue) {
-        try {
-            return Settings.ENABLE_CUSTOM_SEEKBAR_COLOR.get()
-                    ? Color.parseColor(Settings.ENABLE_CUSTOM_SEEKBAR_COLOR_VALUE.get())
-                    : colorValue;
-        } catch (Exception ignored) {
-            Settings.ENABLE_CUSTOM_SEEKBAR_COLOR_VALUE.resetToDefault();
-        }
-        return colorValue;
     }
 
     public static boolean enableSeekbarTapping() {

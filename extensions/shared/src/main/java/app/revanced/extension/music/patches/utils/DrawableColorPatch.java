@@ -6,7 +6,7 @@ public class DrawableColorPatch {
             -14606047 // comments box background
     };
 
-    public static int getColor(int originalValue) {
+    public static int getLithoColor(int originalValue) {
         if (anyEquals(originalValue, DARK_VALUES))
             return -16777215;
 

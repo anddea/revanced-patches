@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.player.seekbar
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,14 +11,19 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.addDrawableColorHook
 import app.revanced.patches.shared.drawable.drawableColorHookPatch
+import app.revanced.patches.shared.mainactivity.onCreateMethod
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
+import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playerSeekbarColorFingerprint
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -31,10 +37,12 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
+import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
+import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -42,6 +50,45 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
+import java.io.ByteArrayInputStream
+
+internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
+
+/**
+ * Generate a style xml with all combinations of 9-bit colors.
+ */
+private fun create9BitSeekbarColorStyles(): String = StringBuilder().apply {
+    append("<?xml version=\"1.0\" encoding=\"utf-8\"?>")
+    append("<resources>\n")
+
+    for (red in 0..7) {
+        for (green in 0..7) {
+            for (blue in 0..7) {
+                val name = "${red}_${green}_${blue}"
+
+                fun roundTo3BitHex(channel8Bits: Int) =
+                    (channel8Bits * 255 / 7).toString(16).padStart(2, '0')
+                val r = roundTo3BitHex(red)
+                val g = roundTo3BitHex(green)
+                val b = roundTo3BitHex(blue)
+                val color = "#ff$r$g$b"
+
+                append(
+                    """
+                        <style name="splash_seekbar_color_style_$name">
+                            <item name="$splashSeekbarColorAttributeName">$color</item>
+                        </style>
+                    """
+                )
+            }
+        }
+    }
+
+    append("</resources>")
+}.toString()
+
+private const val EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR =
+    "$PLAYER_PATH/SeekbarColorPatch;"
 
 @Suppress("unused")
 val seekbarComponentsPatch = bytecodePatch(
@@ -53,6 +100,7 @@ val seekbarComponentsPatch = bytecodePatch(
     dependsOn(
         drawableColorHookPatch,
         flyoutMenuHookPatch,
+        mainActivityResolvePatch,
         sharedResourceIdPatch,
         settingsPatch,
         videoInformationPatch,
@@ -167,26 +215,25 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for seekbar color
 
-        fun MutableMethod.hookSeekbarColor(literal: Long) {
+        fun MutableMethod.addColorChangeInstructions(literal: Long) {
             val insertIndex = indexOfFirstLiteralInstructionOrThrow(literal) + 2
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
                 insertIndex + 1, """
-                    invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->overrideSeekbarColor(I)I
+                    invoke-static {v$insertRegister}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
                     move-result v$insertRegister
                     """
             )
         }
 
-
         playerSeekbarColorFingerprint.methodOrThrow().apply {
-            hookSeekbarColor(inlineTimeBarColorizedBarPlayedColorDark)
-            hookSeekbarColor(inlineTimeBarPlayedNotHighlightedColor)
+            addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDark)
+            addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColor)
         }
 
         shortsSeekbarColorFingerprint.methodOrThrow().apply {
-            hookSeekbarColor(reelTimeBarPlayedColor)
+            addColorChangeInstructions(reelTimeBarPlayedColor)
         }
 
         controlsOverlayStyleFingerprint.matchOrThrow().let {
@@ -197,16 +244,68 @@ val seekbarComponentsPatch = bytecodePatch(
 
                 addInstructions(
                     0, """
-                        invoke-static {v$colorRegister}, $PLAYER_CLASS_DESCRIPTOR->getSeekbarClickedColorValue(I)I
+                        invoke-static {v$colorRegister}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getVideoPlayerSeekbarClickedColor(I)I
                         move-result v$colorRegister
                         """
                 )
             }
         }
 
-        addDrawableColorHook("$PLAYER_CLASS_DESCRIPTOR->getColor(I)I")
+        addDrawableColorHook("$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
-        getContext().document("res/drawable/resume_playback_progressbar_drawable.xml")
+        if (is_19_25_or_greater) {
+            playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
+                "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
+            )
+
+            lithoLinearGradientFingerprint.methodOrThrow().addInstruction(
+                0,
+                "invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
+            )
+
+            // Don't use the lotte splash screen layout if using custom seekbar.
+            arrayOf(
+                launchScreenLayoutTypeFingerprint.methodOrThrow(),
+                onCreateMethod
+            ).forEach { method ->
+                method.apply {
+                    val literalIndex = indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
+                    val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                    val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+                    addInstructions(
+                        resultIndex + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
+                            move-result v$register
+                            """
+                    )
+                }
+            }
+
+            // Hook the splash animation drawable to set the a seekbar color theme.
+            onCreateMethod.apply {
+                val drawableIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.definingClass == "Landroid/widget/ImageView;" &&
+                            reference.name == "getDrawable"
+                }
+                val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
+                val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                addInstruction(
+                    checkCastIndex + 1,
+                    "invoke-static { v$drawableRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->" +
+                            "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
+                )
+            }
+
+        }
+
+        val context = getContext()
+
+        context.document("res/drawable/resume_playback_progressbar_drawable.xml")
             .use { document ->
                 val layerList = document.getElementsByTagName("layer-list").item(0) as Element
                 val progressNode = layerList.getElementsByTagName("item").item(1) as Element
@@ -221,7 +320,7 @@ val seekbarComponentsPatch = bytecodePatch(
                 scaleNode.replaceChild(replacementNode, shapeNode)
             }
 
-        getContext().document("res/values/colors.xml").use { document ->
+        context.document("res/values/colors.xml").use { document ->
             document.doRecursively loop@{ node ->
                 if (node is Element && node.tagName == "color") {
                     if (node.getAttribute("name") == "yt_youtube_red_cairo") {
@@ -231,6 +330,63 @@ val seekbarComponentsPatch = bytecodePatch(
                         node.textContent = cairoEndColor
                     }
                 }
+            }
+        }
+
+        if (is_19_25_or_greater) {
+            // Add attribute and styles for splash screen custom color.
+            // Using a style is the only way to selectively change just the seekbar fill color.
+            //
+            // Because the style colors must be hard coded for all color possibilities,
+            // instead of allowing 24 bit color the style is restricted to 9-bit (3 bits per color channel)
+            // and the style color closest to the users custom color is used for the splash screen.
+            arrayOf(
+                inputStreamFromBundledResource("youtube/seekbar/values", "attrs.xml")!! to "res/values/attrs.xml",
+                ByteArrayInputStream(create9BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
+            ).forEach { (source, destination) ->
+                "resources".copyXmlNode(
+                    context.document(source),
+                    context.document(destination),
+                ).close()
+            }
+
+            fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, vararg resourceNames: String) {
+                xmlFileNames.forEach { xmlFileName ->
+                    context.document(xmlFileName).use { document ->
+                        resourceNames.forEach { elementId ->
+                            val element = document.childNodes.findElementByAttributeValueOrThrow(
+                                "android:name",
+                                elementId
+                            )
+
+                            val attribute = "android:fillColor"
+                            if (!element.hasAttribute(attribute)) {
+                                throw PatchException("Could not find $attribute for $elementId")
+                            }
+
+                            element.setAttribute(attribute, "?attr/$splashSeekbarColorAttributeName")
+                        }
+                    }
+                }
+            }
+
+            setSplashDrawablePathFillColor(
+                listOf(
+                    "res/drawable/\$startup_animation_light__0.xml",
+                    "res/drawable/\$startup_animation_dark__0.xml"
+                ),
+                "_R_G_L_10_G_D_0_P_0"
+            )
+
+            if (!is_19_46_or_greater) {
+                // Resources removed in 19.46+
+                setSplashDrawablePathFillColor(
+                    listOf(
+                        "res/drawable/\$buenos_aires_animation_light__0.xml",
+                        "res/drawable/\$buenos_aires_animation_dark__0.xml"
+                    ),
+                    "_R_G_L_8_G_D_0_P_0"
+                )
             }
         }
 

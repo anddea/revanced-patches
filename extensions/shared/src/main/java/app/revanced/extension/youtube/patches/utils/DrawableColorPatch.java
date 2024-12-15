@@ -22,7 +22,7 @@ public class DrawableColorPatch {
     private static int whiteColor = 0;
     private static int blackColor = 0;
 
-    public static int getColor(int originalValue) {
+    public static int getLithoColor(int originalValue) {
         if (anyEquals(originalValue, DARK_VALUES)) {
             return getBlackColor();
         } else if (anyEquals(originalValue, WHITE_VALUES)) {

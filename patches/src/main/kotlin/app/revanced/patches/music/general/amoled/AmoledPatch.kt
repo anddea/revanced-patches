@@ -23,7 +23,7 @@ val amoledPatch = resourcePatch(
     )
 
     execute {
-        addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getColor(I)I")
+        addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getLithoColor(I)I")
 
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element

@@ -24,7 +24,7 @@ val sharedThemePatch = resourcePatch(
     )
 
     execute {
-        addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getColor(I)I")
+        addDrawableColorHook("$UTILS_PATH/DrawableColorPatch;->getLithoColor(I)I")
 
         // edit the resource files to change the splash screen color
         val attrsResourceFile = "res/values/attrs.xml"
