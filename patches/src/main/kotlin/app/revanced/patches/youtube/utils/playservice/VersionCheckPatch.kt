@@ -43,6 +43,8 @@ var is_19_43_or_greater = false
     private set
 var is_19_44_or_greater = false
     private set
+var is_19_46_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "versionCheckPatch",
@@ -77,5 +79,6 @@ val versionCheckPatch = resourcePatch(
         is_19_41_or_greater = 244305000 <= playStoreServicesVersion
         is_19_43_or_greater = 244405000 <= playStoreServicesVersion
         is_19_44_or_greater = 244505000 <= playStoreServicesVersion
+        is_19_46_or_greater = 244705000 <= playStoreServicesVersion
     }
 }
