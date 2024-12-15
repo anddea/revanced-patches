@@ -14,9 +14,13 @@ import app.revanced.patches.youtube.utils.resourceid.reelRightLikeIcon
 import app.revanced.patches.youtube.utils.resourceid.reelVodTimeStampsContainer
 import app.revanced.patches.youtube.utils.resourceid.rightComment
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val bottomSheetMenuListBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuListBuilderFingerprint",
@@ -31,6 +35,22 @@ internal val bottomSheetMenuListBuilderFingerprint = legacyFingerprint(
     ),
     strings = listOf("Bottom Sheet Menu is empty. No menu items were supported."),
 )
+
+internal val liveHeaderElementsContainerFingerprint = legacyFingerprint(
+    name = "liveHeaderElementsContainerFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Landroid/view/ViewGroup;", "L"),
+    strings = listOf("Header container is null, header cannot be presented."),
+    customFingerprint = { method, _ ->
+        indexOfAddLiveHeaderElementsContainerInstruction(method) >= 0
+    },
+)
+
+fun indexOfAddLiveHeaderElementsContainerInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<MethodReference>()?.name == "addView"
+    }
 
 internal val reelEnumConstructorFingerprint = legacyFingerprint(
     name = "reelEnumConstructorFingerprint",

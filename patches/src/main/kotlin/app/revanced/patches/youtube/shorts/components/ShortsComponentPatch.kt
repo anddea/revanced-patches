@@ -29,7 +29,9 @@ import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SHORTS_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_02_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -53,6 +55,8 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.utils.toolbar.hookToolBar
+import app.revanced.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.revanced.patches.youtube.video.information.hookShortsVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
@@ -81,6 +85,7 @@ import app.revanced.util.or
 import app.revanced.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
@@ -153,15 +158,49 @@ private val shortsCustomActionsPatch = bytecodePatch(
         bottomSheetRecyclerViewPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
+        toolBarHookPatch,
         videoIdPatch,
         videoInformationPatch,
         versionCheckPatch,
     )
 
     execute {
-        if (!is_18_49_or_greater) {
+        if (!is_18_34_or_greater) {
             return@execute
         }
+
+        // region hook toolbar more button
+
+        hookToolBar("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setToolbarMenu")
+
+        // toolbar in Shorts livestream
+        liveHeaderElementsContainerFingerprint.methodOrThrow().apply {
+            val addViewIndex = indexOfAddLiveHeaderElementsContainerInstruction(this)
+            val viewRegister = getInstruction<FiveRegisterInstruction>(addViewIndex).registerD
+
+            addInstruction(
+                addViewIndex + 1,
+                "invoke-static {v$viewRegister}, " +
+                        "$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onLiveHeaderElementsContainerCreate(Landroid/view/View;)V"
+            )
+        }
+
+        // endregion
+
+        // region add litho filter
+
+        hookPlayerResponseVideoId("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
+        hookShortsVideoInformation("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newShortsVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+
+        addLithoFilter(SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR)
+
+        // endregion
+
+        if (!is_19_02_or_greater) {
+            return@execute
+        }
+
+        // region hook flyout menu
 
         bottomSheetMenuListBuilderFingerprint.matchOrThrow().let {
             it.method.apply {
@@ -280,10 +319,7 @@ private val shortsCustomActionsPatch = bytecodePatch(
 
         bottomSheetRecyclerViewHook("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
 
-        hookPlayerResponseVideoId("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
-        hookShortsVideoInformation("$SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR->newShortsVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-
-        addLithoFilter(SHORTS_PLAYER_FLYOUT_MENU_FILTER_CLASS_DESCRIPTOR)
+        // endregion
 
     }
 }
@@ -571,8 +607,13 @@ val shortsComponentPatch = bytecodePatch(
             settingArray += "SETTINGS: SHORTS_TIME_STAMP"
         }
 
-        if (is_18_49_or_greater) {
-            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS"
+        if (is_18_34_or_greater) {
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_SHARED"
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_TOOLBAR"
+        }
+
+        if (is_19_02_or_greater) {
+            settingArray += "SETTINGS: SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU"
         }
 
         // region patch for hide comments button (non-litho)

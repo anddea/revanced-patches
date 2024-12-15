@@ -4,15 +4,19 @@ import static app.revanced.extension.shared.utils.ResourceUtils.getString;
 import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.LinkedHashMap;
@@ -34,11 +38,82 @@ public final class CustomActionsPatch {
             isSpoofingToLessThan("19.00.00");
     private static final boolean SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED =
             !IS_SPOOFING_TO_YOUTUBE_2023 && Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get();
+    private static final boolean SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED =
+            Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR.get();
 
     private static final int arrSize = CustomAction.values().length;
     private static final Map<CustomAction, Object> flyoutMenuMap = new LinkedHashMap<>(arrSize);
     private static WeakReference<Context> contextRef = new WeakReference<>(null);
     private static WeakReference<RecyclerView> recyclerViewRef = new WeakReference<>(null);
+
+
+    /**
+     * Injection point.
+     */
+    public static void setToolbarMenu(String enumString, View toolbarView) {
+        if (!SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED) {
+            return;
+        }
+        if (ShortsPlayerState.getCurrent().isClosed()) {
+            return;
+        }
+        if (!isMoreButton(enumString)) {
+            return;
+        }
+        setToolbarMenuOnLongClickListener((ViewGroup) toolbarView);
+    }
+
+    private static void setToolbarMenuOnLongClickListener(ViewGroup parentView) {
+        ImageView imageView = Utils.getChildView(parentView, v -> v instanceof ImageView);
+        if (imageView == null) {
+            return;
+        }
+        Context context = imageView.getContext();
+        contextRef = new WeakReference<>(context);
+
+        // Overriding is possible only after OnClickListener is assigned to the more button.
+        Utils.runOnMainThreadDelayed(() -> imageView.setOnLongClickListener(button -> {
+            showMoreButtonDialog(context);
+            return true;
+        }), 0);
+    }
+
+    private static void showMoreButtonDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(getString("revanced_shorts_custom_actions_toolbar_dialog_title"));
+
+        Map<String, Runnable> toolbarMap = new LinkedHashMap<>(arrSize);
+
+        for (CustomAction customAction : CustomAction.values()) {
+            if (customAction.settings.get()) {
+                toolbarMap.putIfAbsent(customAction.getLabel(), customAction.getOnClickAction());
+            }
+        }
+
+        String[] titles = toolbarMap.keySet().toArray(new String[0]);
+        Runnable[] actions = toolbarMap.values().toArray(new Runnable[0]);
+        builder.setItems(titles, (dialog, which) -> {
+            String selectedOption = titles[which];
+            Runnable action = actions[which];
+            if (action != null) {
+                action.run();
+            } else {
+                Logger.printDebug(() -> "No action found for " + selectedOption);
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private static boolean isMoreButton(String enumString) {
+        return StringUtils.equalsAny(
+                enumString,
+                "MORE_VERT",
+                "MORE_VERT_BOLD"
+        );
+    }
 
     /**
      * Injection point.
@@ -123,6 +198,24 @@ public final class CustomActionsPatch {
                     }
                 }
                 isShortsFlyoutMenuVisible = false;
+            } catch (Exception ex) {
+                Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
+            }
+        });
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void onLiveHeaderElementsContainerCreate(final View view) {
+        if (!SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED) {
+            return;
+        }
+        view.getViewTreeObserver().addOnDrawListener(() -> {
+            try {
+                if (view instanceof ViewGroup viewGroup) {
+                    setToolbarMenuOnLongClickListener(viewGroup);
+                }
             } catch (Exception ex) {
                 Logger.printException(() -> "onFlyoutMenuCreate failure", ex);
             }
