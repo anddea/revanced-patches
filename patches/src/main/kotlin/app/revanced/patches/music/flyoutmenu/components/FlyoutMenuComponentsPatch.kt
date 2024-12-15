@@ -337,6 +337,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_menu_pin_to_speed_dial",
+            "false",
+            false
+        )
+        addSwitchPreference(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_play_next",
             "false",
             false
@@ -416,6 +422,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_subscribe",
+            "false",
+            false
+        )
+        addSwitchPreference(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_menu_unpin_from_speed_dial",
             "false",
             false
         )
