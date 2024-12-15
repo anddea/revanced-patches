@@ -56,14 +56,18 @@ internal val kidsBackgroundPlaybackPolicyControllerParentFingerprint = legacyFin
     }
 )
 
-internal val pipControllerFingerprint = legacyFingerprint(
-    name = "pipControllerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IF_NEZ,
-        Opcode.INVOKE_DIRECT
-    ),
+internal val backgroundPlaybackManagerShortsFingerprint = legacyFingerprint(
+    name = "backgroundPlaybackManagerShortsFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    returnType = "Z",
+    parameters = listOf("L"),
     literals = listOf(151635310L),
+)
+
+internal val shortsBackgroundPlaybackFeatureFlagFingerprint = legacyFingerprint(
+    name = "shortsBackgroundPlaybackFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(45415425L),
 )
