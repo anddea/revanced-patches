@@ -6,13 +6,6 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val cairoSeekbarConfigFingerprint = legacyFingerprint(
-    name = "cairoSeekbarConfigFingerprint",
-    returnType = "Z",
-    parameters = emptyList(),
-    literals = listOf(45617850L),
-)
-
 internal val controlsOverlayStyleFingerprint = legacyFingerprint(
     name = "controlsOverlayStyleFingerprint",
     opcodes = listOf(Opcode.CONST_HIGH16),
