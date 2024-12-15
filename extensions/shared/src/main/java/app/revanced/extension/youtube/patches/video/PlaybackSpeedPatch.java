@@ -9,8 +9,8 @@ import org.apache.commons.lang3.BooleanUtils;
 
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.misc.requests.PlaylistRequest;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
+import app.revanced.extension.youtube.patches.video.requests.PlaylistRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.whitelist.Whitelist;

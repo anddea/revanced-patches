@@ -46,6 +46,7 @@ private const val CLIENT_INFO_CLASS_DESCRIPTOR =
 val spoofClientPatch = bytecodePatch(
     SPOOF_CLIENT.title,
     SPOOF_CLIENT.summary,
+    false,
 ) {
     dependsOn(settingsPatch)
 

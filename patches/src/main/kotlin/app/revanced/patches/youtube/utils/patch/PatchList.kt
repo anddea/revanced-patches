@@ -227,7 +227,7 @@ internal enum class PatchList(
     ),
     SPOOF_STREAMING_DATA(
         "Spoof streaming data",
-        "Adds options to spoof the streaming data to allow video playback."
+        "Adds options to spoof the streaming data to allow playback."
     ),
     SWIPE_CONTROLS(
         "Swipe controls",

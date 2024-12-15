@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.utils.fix.streamingdata
+package app.revanced.patches.shared.spoof.streamingdata
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
@@ -9,38 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val buildBrowseRequestFingerprint = legacyFingerprint(
-    name = "buildBrowseRequestFingerprint",
-    customFingerprint = { method, _ ->
-        method.implementation != null &&
-                indexOfRequestFinishedListenerInstruction(method) >= 0 &&
-                !method.definingClass.startsWith("Lorg/") &&
-                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
-                // YouTube 17.34.36 ~ YouTube 18.35.36
-                (indexOfEntrySetInstruction(method) >= 0 ||
-                        // YouTube 18.36.39 ~
-                        method.parameters[1].type == "Ljava/util/Map;")
-    }
-)
-
-internal fun indexOfRequestFinishedListenerInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "setRequestFinishedListener"
-    }
-
-internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>().toString() == "Lorg/chromium/net/CronetEngine;->newUrlRequestBuilder(Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;Ljava/util/concurrent/Executor;)Lorg/chromium/net/UrlRequest${'$'}Builder;"
-    }
-
-internal fun indexOfEntrySetInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_INTERFACE &&
-                getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
-    }
 
 internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
     name = "buildInitPlaybackRequestFingerprint",
@@ -91,6 +59,38 @@ internal fun indexOfToStringInstruction(method: Method) =
                 getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
     }
 
+internal val buildRequestFingerprint = legacyFingerprint(
+    name = "buildRequestFingerprint",
+    customFingerprint = { method, _ ->
+        method.implementation != null &&
+                indexOfRequestFinishedListenerInstruction(method) >= 0 &&
+                !method.definingClass.startsWith("Lorg/") &&
+                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
+                // Earlier targets
+                (indexOfEntrySetInstruction(method) >= 0 ||
+                        // Later targets
+                        method.parameters[1].type == "Ljava/util/Map;")
+    }
+)
+
+internal fun indexOfRequestFinishedListenerInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "setRequestFinishedListener"
+    }
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Lorg/chromium/net/CronetEngine;->newUrlRequestBuilder(Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;Ljava/util/concurrent/Executor;)Lorg/chromium/net/UrlRequest${'$'}Builder;"
+    }
+
+internal fun indexOfEntrySetInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
+    }
+
 internal val createStreamingDataFingerprint = legacyFingerprint(
     name = "createStreamingDataFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
@@ -103,19 +103,21 @@ internal val createStreamingDataFingerprint = legacyFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.SGET_OBJECT &&
-                    getReference<FieldReference>()?.name == "playerThreedRenderer"
-        } >= 0
-    },
+)
+
+internal val createStreamingDataParentFingerprint = legacyFingerprint(
+    name = "createStreamingDataParentFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "L",
+    parameters = emptyList(),
+    strings = listOf("Invalid playback type; streaming data is not playable"),
 )
 
 internal val nerdsStatsVideoFormatBuilderFingerprint = legacyFingerprint(
     name = "nerdsStatsVideoFormatBuilderFingerprint",
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;"),
+    parameters = listOf("L"),
     strings = listOf("codecs=\""),
 )
 

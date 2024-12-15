@@ -1,6 +1,6 @@
-package app.revanced.extension.youtube.patches.misc.requests;
+package app.revanced.extension.youtube.patches.video.requests;
 
-import static app.revanced.extension.youtube.patches.misc.requests.PlayerRoutes.GET_PLAYLIST_PAGE;
+import static app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.GET_PLAYLIST_PAGE;
 
 import android.annotation.SuppressLint;
 
@@ -16,6 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
@@ -23,10 +24,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import app.revanced.extension.shared.patches.client.AppClient.ClientType;
+import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.youtube.shared.VideoInformation;
 
 public class PlaylistRequest {
@@ -82,8 +84,9 @@ public class PlaylistRequest {
         try {
             HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(GET_PLAYLIST_PAGE, clientType);
 
-            String innerTubeBody = PlayerRoutes.createInnertubeBody(
-                    clientType,
+            String innerTubeBody = String.format(
+                    Locale.ENGLISH,
+                    PlayerRoutes.createInnertubeBody(clientType, true),
                     videoId,
                     "RD" + videoId
             );

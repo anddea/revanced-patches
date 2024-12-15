@@ -56,12 +56,24 @@ internal fun Pair<String, Fingerprint>.matchOrNull(parentFingerprint: Pair<Strin
     }
 
 context(BytecodePatchContext)
+internal fun Pair<String, Fingerprint>.methodOrNull(): MutableMethod? =
+    matchOrNull()?.method
+
+context(BytecodePatchContext)
 internal fun Pair<String, Fingerprint>.methodOrThrow(): MutableMethod =
     second.methodOrNull ?: throw first.exception
 
 context(BytecodePatchContext)
 internal fun Pair<String, Fingerprint>.methodOrThrow(parentFingerprint: Pair<String, Fingerprint>): MutableMethod =
     matchOrThrow(parentFingerprint).method
+
+context(BytecodePatchContext)
+internal fun Pair<String, Fingerprint>.originalMethodOrThrow(): Method =
+    second.originalMethodOrNull ?: throw first.exception
+
+context(BytecodePatchContext)
+internal fun Pair<String, Fingerprint>.originalMethodOrThrow(parentFingerprint: Pair<String, Fingerprint>): Method =
+    matchOrThrow(parentFingerprint).originalMethod
 
 context(BytecodePatchContext)
 internal fun Pair<String, Fingerprint>.mutableClassOrThrow(): MutableClass =
