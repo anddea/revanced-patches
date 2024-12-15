@@ -69,6 +69,11 @@ public final class PlayerComponentsFilter extends Filter {
                 "medical_panel"
         );
 
+        final StringFilterGroup seekMessage = new StringFilterGroup(
+                Settings.HIDE_SEEK_MESSAGE,
+                "seek_edu_overlay"
+        );
+
         suggestedActions = new StringFilterGroup(
                 Settings.HIDE_SUGGESTED_ACTION,
                 "|suggested_action.eml|"
@@ -88,6 +93,7 @@ public final class PlayerComponentsFilter extends Filter {
                 infoPanel,
                 liveChat,
                 medicalPanel,
+                seekMessage,
                 suggestedActions,
                 timedReactions
         );
