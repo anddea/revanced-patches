@@ -714,10 +714,6 @@ public class PlayerPatch {
         return !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
     }
 
-    public static boolean enableCairoSeekbar() {
-        return Settings.ENABLE_CAIRO_SEEKBAR.get();
-    }
-
     // endregion
 
     public static int getQuickActionsTopMargin() {
