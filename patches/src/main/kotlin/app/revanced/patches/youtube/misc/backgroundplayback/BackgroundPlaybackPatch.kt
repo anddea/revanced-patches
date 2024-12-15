@@ -1,9 +1,7 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.MISC_PATH
@@ -11,15 +9,18 @@ import app.revanced.patches.youtube.utils.patch.PatchList.REMOVE_BACKGROUND_PLAY
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getWalkerMethod
+import app.revanced.util.fingerprint.originalMethodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "$MISC_PATH/BackgroundPlaybackPatch;"
 
 @Suppress("unused")
 val backgroundPlaybackPatch = bytecodePatch(
@@ -35,69 +36,54 @@ val backgroundPlaybackPatch = bytecodePatch(
 
     execute {
 
-        backgroundPlaybackManagerFingerprint.methodOrThrow().apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        arrayOf(
+            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
+        ).forEach { (fingerprint, integrationsMethod) ->
+            fingerprint.methodOrThrow().apply {
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Replace to preserve control flow label.
-                replaceInstruction(
-                    index,
-                    "invoke-static { v$register }, $MISC_PATH/BackgroundPlaybackPatch;->allowBackgroundPlayback(Z)Z"
-                )
-
-                addInstructions(
-                    index + 1,
-                    """
-                        move-result v$register
-                        return v$register
+                    addInstructionsAtControlFlowLabel(
+                        index,
                         """
-                )
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$integrationsMethod(Z)Z
+                            move-result v$register 
+                        """,
+                    )
+                }
             }
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsFingerprint.methodOrThrow().apply {
-            val booleanCalls = implementation!!.instructions.withIndex()
-                .filter { instruction ->
-                    ((instruction.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z"
-                }
+        backgroundPlaybackSettingsFingerprint.originalMethodOrThrow().apply {
+            val booleanCalls = instructions.withIndex().filter {
+                it.value.getReference<MethodReference>()?.returnType == "Z"
+            }
 
-            val booleanIndex = booleanCalls.elementAt(1).index
-            val booleanMethod = getWalkerMethod(booleanIndex)
+            val settingsBooleanIndex = booleanCalls.elementAt(1).index
+            val settingsBooleanMethod by navigate(this).to(settingsBooleanIndex)
 
-            booleanMethod.addInstructions(
-                0, """
-                    const/4 v0, 0x1
-                    return v0
-                    """
-            )
+            settingsBooleanMethod.returnEarly(true)
         }
+
+        // Force allowing background play for Shorts.
+        shortsBackgroundPlaybackFeatureFlagFingerprint.methodOrThrow().returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
         kidsBackgroundPlaybackPolicyControllerFingerprint.methodOrThrow(
             kidsBackgroundPlaybackPolicyControllerParentFingerprint
-        ).addInstruction(
-            0,
-            "return-void"
-        )
-
-        pipControllerFingerprint.matchOrThrow().let {
-            val targetMethod =
-                it.getWalkerMethod(it.patternMatch!!.endIndex)
-
-            targetMethod.apply {
-                val targetRegister = getInstruction<TwoRegisterInstruction>(0).registerA
-
-                addInstruction(
-                    1,
-                    "const/4 v$targetRegister, 0x1"
-                )
-            }
-        }
+        ).returnEarly()
 
         // region add settings
 
-        addPreference(REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS)
+        addPreference(
+            arrayOf(
+                "PREFERENCE_SCREEN: SHORTS",
+                "SETTINGS: DISABLE_SHORTS_BACKGROUND_PLAYBACK"
+            ),
+            REMOVE_BACKGROUND_PLAYBACK_RESTRICTIONS
+        )
 
         // endregion
 
