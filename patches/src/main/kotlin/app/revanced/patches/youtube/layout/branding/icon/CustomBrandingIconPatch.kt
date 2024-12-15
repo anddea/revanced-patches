@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
@@ -139,7 +140,7 @@ val customBrandingIconPatch = resourcePatch(
         key = "restoreOldSplashAnimation",
         default = true,
         title = "Restore old splash animation",
-        description = "Restore the old style splash animation.",
+        description = "Restore the old style splash animation. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         required = true,
     )
 
@@ -188,17 +189,21 @@ val customBrandingIconPatch = resourcePatch(
 
             // Change splash screen.
             if (restoreOldSplashAnimationOption == true) {
-                oldSplashAnimationResourceGroups.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        copyResources("$appIconResourcePath/splash", it)
+                if (!is_19_17_or_greater) {
+                    oldSplashAnimationResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            copyResources("$appIconResourcePath/splash", it)
+                        }
                     }
-                }
 
-                copyXmlNode(
-                    "$appIconResourcePath/splash",
-                    "values-v31/styles.xml",
-                    "resources"
-                )
+                    copyXmlNode(
+                        "$appIconResourcePath/splash",
+                        "values-v31/styles.xml",
+                        "resources"
+                    )
+                } else {
+                    println("WARNING: Restore old splash animation is not supported in this version. Use YouTube 19.16.39 or earlier.")
+                }
             }
 
             updatePatchStatusIcon(appIcon)
