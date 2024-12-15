@@ -37,9 +37,7 @@ import app.revanced.extension.youtube.patches.general.ChangeStartPagePatch.Start
 import app.revanced.extension.youtube.patches.general.LayoutSwitchPatch.FormFactor;
 import app.revanced.extension.youtube.patches.general.MiniplayerPatch;
 import app.revanced.extension.youtube.patches.general.YouTubeMusicActionsPatch;
-import app.revanced.extension.youtube.patches.misc.SpoofStreamingDataPatch;
 import app.revanced.extension.youtube.patches.misc.WatchHistoryPatch.WatchHistoryType;
-import app.revanced.extension.youtube.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.shared.PlaylistIdPrefix;
@@ -565,11 +563,6 @@ public class Settings extends BaseSettings {
     public static final EnumSetting<WatchHistoryType> WATCH_HISTORY_TYPE = new EnumSetting<>("revanced_watch_history_type", WatchHistoryType.REPLACE);
 
     // PreferenceScreen: Miscellaneous - Spoof streaming data
-    // The order of the settings should not be changed otherwise the app may crash
-    public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
-    public static final BooleanSetting SPOOF_STREAMING_DATA_IOS_SKIP_LIVESTREAM_PLAYBACK = new BooleanSetting("revanced_spoof_streaming_data_ios_skip_livestream_playback", TRUE, true, new SpoofStreamingDataPatch.iOSAvailability());
-    public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", ClientType.IOS, true, parent(SPOOF_STREAMING_DATA));
-    public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE, parent(SPOOF_STREAMING_DATA));
 
     // PreferenceScreen: Return YouTube Dislike
     public static final BooleanSetting RYD_ENABLED = new BooleanSetting("ryd_enabled", TRUE);

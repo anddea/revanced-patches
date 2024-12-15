@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.misc;
+package app.revanced.extension.shared.patches.spoof;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -7,19 +7,15 @@ import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.Map;
-import java.util.Objects;
 
-import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.misc.client.AppClient.ClientType;
-import app.revanced.extension.youtube.patches.misc.requests.StreamingDataRequest;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch {
-    private static final boolean SPOOF_STREAMING_DATA = Settings.SPOOF_STREAMING_DATA.get();
-
+    private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_STREAMING_DATA.get();
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
@@ -90,10 +86,19 @@ public class SpoofStreamingDataPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+
                 // 'heartbeat' has no video id and appears to be only after playback has started.
-                if (path != null && path.contains("player") && !path.contains("heartbeat")) {
-                    String videoId = Objects.requireNonNull(uri.getQueryParameter("id"));
-                    StreamingDataRequest.fetchRequest(videoId, requestHeaders);
+                // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
+                if (path != null && path.contains("player") && !path.contains("heartbeat")
+                        && !path.contains("refresh")) {
+                    String id = uri.getQueryParameter("id");
+                    if (id == null) {
+                        Logger.printException(() -> "Ignoring request that has no video id." +
+                                " Url: " + url + " headers: " + requestHeaders);
+                        return;
+                    }
+
+                    StreamingDataRequest.fetchRequest(id, requestHeaders);
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "buildRequest failure", ex);
@@ -104,7 +109,7 @@ public class SpoofStreamingDataPatch {
     /**
      * Injection point.
      * Fix playback by replace the streaming data.
-     * Called after {@link #fetchStreams(String, Map)} .
+     * Called after {@link #fetchStreams(String, Map)}.
      */
     @Nullable
     public static ByteBuffer getStreamingData(String videoId) {
@@ -117,9 +122,10 @@ public class SpoofStreamingDataPatch {
                     // This is not a concern, since the fetch will always be finished
                     // and never block the main thread.
                     // But if debugging, then still verify this is the situation.
-                    if (Settings.ENABLE_DEBUG_LOGGING.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
+                    if (BaseSettings.ENABLE_DEBUG_LOGGING.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
                         Logger.printException(() -> "Error: Blocking main thread");
                     }
+
                     var stream = request.getStream();
                     if (stream != null) {
                         Logger.printDebug(() -> "Overriding video stream: " + videoId);
@@ -164,7 +170,7 @@ public class SpoofStreamingDataPatch {
      */
     public static String appendSpoofedClient(String videoFormat) {
         try {
-            if (SPOOF_STREAMING_DATA && Settings.SPOOF_STREAMING_DATA_STATS_FOR_NERDS.get()
+            if (SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_STATS_FOR_NERDS.get()
                     && !TextUtils.isEmpty(videoFormat)) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
                 return "\u202D" + videoFormat + String.format("\u2009(%s)", StreamingDataRequest.getLastSpoofedClientName()); // u202D = left to right override
@@ -174,12 +180,5 @@ public class SpoofStreamingDataPatch {
         }
 
         return videoFormat;
-    }
-
-    public static final class iOSAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return Settings.SPOOF_STREAMING_DATA.get() && Settings.SPOOF_STREAMING_DATA_TYPE.get() == ClientType.IOS;
-        }
     }
 }

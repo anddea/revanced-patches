@@ -11,9 +11,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import app.revanced.extension.shared.utils.PackageUtils;
+
 @SuppressWarnings("unused")
 public class Requester {
-    public Requester() {
+    private Requester() {
     }
 
     public static HttpURLConnection getConnectionFromRoute(String apiUrl, Route route, String... params) throws IOException {
@@ -27,7 +29,9 @@ public class Requester {
         // The calling code must set a length if using a request body.
         connection.setFixedLengthStreamingMode(0);
         connection.setRequestMethod(route.getMethod().name());
-        connection.setRequestProperty("User-Agent", System.getProperty("http.agent") + ";");
+        String agentString = System.getProperty("http.agent")
+                + "; RVX/" + PackageUtils.getAppVersionName();
+        connection.setRequestProperty("User-Agent", agentString);
 
         return connection;
     }
