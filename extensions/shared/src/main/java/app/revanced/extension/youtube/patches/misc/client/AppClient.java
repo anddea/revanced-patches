@@ -24,7 +24,6 @@ public class AppClient {
     private static final String CLIENT_VERSION_IOS = "19.47.7";
     private static final String DEVICE_MAKE_IOS = "Apple";
     /**
-     * The device machine id for the iPhone XS Max (iPhone11,4), used to get 60fps.
      * The device machine id for the iPhone 16 Pro Max (iPhone17,2), used to get HDR with AV1 hardware decoding.
      *
      * <p>
@@ -32,20 +31,11 @@ public class AppClient {
      * information.
      * </p>
      */
-    private static final String DEVICE_MODEL_IOS = DeviceHardwareSupport.allowAV1()
-            ? "iPhone17,2"
-            : "iPhone11,4";
+    private static final String DEVICE_MODEL_IOS = "iPhone17,2"
     private static final String OS_NAME_IOS = "iOS";
-    /**
-     * The minimum supported OS version for the iOS YouTube client is iOS 14.0.
-     * Using an invalid OS version will use the AVC codec.
-     */
-    private static final String OS_VERSION_IOS = DeviceHardwareSupport.allowVP9()
-            ? "18.1.1.22B91"
-            : "13.7.17H35";
-    private static final String USER_AGENT_VERSION_IOS = DeviceHardwareSupport.allowVP9()
-            ? "18_1_1"
-            : "13_7";
+    private static final String OS_VERSION_IOS = "18.1.1.22B91"
+    private static final String USER_AGENT_VERSION_IOS = "18_1_1"
+
     private static final String USER_AGENT_IOS = "com.google.ios.youtube/" +
             CLIENT_VERSION_IOS +
             "(" +

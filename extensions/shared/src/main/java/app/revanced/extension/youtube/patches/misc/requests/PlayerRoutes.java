@@ -92,6 +92,8 @@ public final class PlayerRoutes {
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);
+        connection.setRequestProperty("X-YouTube-Client-Name", clientType.id);
+        connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);
 
         connection.setUseCaches(false);
         connection.setDoOutput(true);
