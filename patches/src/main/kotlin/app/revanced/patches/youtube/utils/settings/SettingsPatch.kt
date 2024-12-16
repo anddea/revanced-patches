@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.utils.settings
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -139,6 +140,14 @@ val settingsPatch = resourcePatch(
         required = true,
     )
 
+    val settingsSummaries by booleanOption(
+        key = "settingsSummaries",
+        default = true,
+        title = "RVX settings summaries",
+        description = "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        required = true,
+    )
+
     execute {
         /**
          * check patch options
@@ -263,6 +272,49 @@ val settingsPatch = resourcePatch(
                         .appendChild(stringElement)
                 }
             }
+        }
+
+        /**
+         * remove summaries from RVX settings
+         */
+        if (settingsSummaries == false) {
+            document("res/xml/revanced_prefs.xml").use { document ->
+                with(document) {
+                    // Get the root node of the XML document (in this case, "PreferenceScreen")
+                    val rootElement = getElementsByTagName("PreferenceScreen").item(0) as Element
+
+                    // List of attributes to remove
+                    val attributesToRemove = listOf("android:summary", "android:summaryOn", "android:summaryOff")
+
+                    // Define a recursive function to process each element
+                    fun processElement(element: Element) {
+                        // Skip elements with the HtmlPreference attribute to avoid errors
+                        if (element.tagName == "app.revanced.extension.shared.settings.preference.HtmlPreference") {
+                            return
+                        }
+
+                        // Remove specified attributes if they exist
+                        attributesToRemove.forEach { attribute ->
+                            if (element.hasAttribute(attribute)) {
+                                element.removeAttribute(attribute)
+                            }
+                        }
+
+                        // Process all child elements recursively
+                        for (i in 0 until element.childNodes.length) {
+                            val childNode = element.childNodes.item(i)
+
+                            if (childNode is Element) {
+                                processElement(childNode)
+                            }
+                        }
+                    }
+
+                    // Start processing from the root element
+                    processElement(rootElement)
+                }
+            }
+
         }
     }
 }
