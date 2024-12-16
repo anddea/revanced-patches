@@ -57,10 +57,15 @@ public final class PlayerComponentsFilter extends Filter {
                 "single_item_information_panel"
         );
 
-        final StringFilterGroup liveChat = new StringFilterGroup(
+        final StringFilterGroup liveChatMessages = new StringFilterGroup(
                 Settings.HIDE_LIVE_CHAT_MESSAGES,
                 "live_chat_text_message",
                 "viewer_engagement_message" // message about poll, not poll itself
+        );
+
+        final StringFilterGroup liveChatSummary = new StringFilterGroup(
+                Settings.HIDE_LIVE_CHAT_SUMMARY,
+                "live_chat_summary_banner"
         );
 
         final StringFilterGroup medicalPanel = new StringFilterGroup(
@@ -91,7 +96,8 @@ public final class PlayerComponentsFilter extends Filter {
                 channelWaterMark,
                 infoCards,
                 infoPanel,
-                liveChat,
+                liveChatMessages,
+                liveChatSummary,
                 medicalPanel,
                 seekMessage,
                 suggestedActions,
