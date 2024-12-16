@@ -170,8 +170,14 @@ public final class ShortsShelfFilter extends Filter {
             return false;
         }
 
+        // Unknown tab, treat the same as home.
         if (selectedNavButton == null) {
-            return hideHomeAndRelatedVideos; // Unknown tab, treat the same as home.
+            return hideHomeAndRelatedVideos;
+        }
+
+        // Fixes a very rare bug in home.
+        if (selectedNavButton == NavigationButton.HOME && browseId.equals(BROWSE_ID_NOTIFICATION_INBOX)) {
+            return true;
         }
 
         switch (browseId) {
