@@ -39,6 +39,7 @@ public final class AdsFilter extends Filter {
         final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 // "brand_video_shelf.eml"
+                // "brand_video_singleton.eml"
                 "brand_video",
 
                 // "carousel_footered_layout.eml"
