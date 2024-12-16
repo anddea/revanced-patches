@@ -134,3 +134,12 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     ),
     customFingerprint = { method, _ -> method.name == "parseFrom" },
 )
+
+internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
+
+internal val hlsCurrentTimeFingerprint = legacyFingerprint(
+    name = "hlsCurrentTimeFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Z", "L"),
+    literals = listOf(HLS_CURRENT_TIME_FEATURE_FLAG),
+)

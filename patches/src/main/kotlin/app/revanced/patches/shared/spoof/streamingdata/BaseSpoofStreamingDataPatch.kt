@@ -12,6 +12,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -206,6 +207,15 @@ fun baseSpoofStreamingDataPatch(
                 )
             }
         }
+
+        // endregion
+
+        // region Fix iOS livestream current time.
+
+        hlsCurrentTimeFingerprint.injectLiteralInstructionBooleanCall(
+            HLS_CURRENT_TIME_FEATURE_FLAG,
+            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+        )
 
         // endregion
 
