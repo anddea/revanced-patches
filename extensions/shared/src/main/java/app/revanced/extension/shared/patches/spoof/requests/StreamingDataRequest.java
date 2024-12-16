@@ -19,7 +19,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.client.AppClient.ClientType;
 
 import app.revanced.extension.shared.utils.Logger;
@@ -44,12 +43,6 @@ public class StreamingDataRequest {
             "X-GOOG-API-FORMAT-VERSION",
             "X-Goog-Visitor-Id"
     };
-    private static final ByteArrayFilterGroup liveStreams =
-            new ByteArrayFilterGroup(
-                    BaseSettings.SPOOF_STREAMING_DATA_IOS_SKIP_LIVESTREAM_PLAYBACK,
-                    "yt_live_broadcast",
-                    "yt_premiere_broadcast"
-            );
     private static ClientType lastSpoofedClientType;
 
 
@@ -193,14 +186,10 @@ public class StreamingDataRequest {
                         try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
                              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 
-                            byte[] buffer = new byte[4096];
+                            byte[] buffer = new byte[2048];
                             int bytesRead;
                             while ((bytesRead = inputStream.read(buffer)) >= 0) {
                                 baos.write(buffer, 0, bytesRead);
-                            }
-                            if (clientType == ClientType.IOS && liveStreams.check(buffer).isFiltered()) {
-                                Logger.printDebug(() -> "Ignore IOS spoofing as it is a livestream (video: " + videoId + ")");
-                                continue;
                             }
                             lastSpoofedClientType = clientType;
 
