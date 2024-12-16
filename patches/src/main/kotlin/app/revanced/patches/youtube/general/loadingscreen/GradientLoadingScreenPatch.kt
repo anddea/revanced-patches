@@ -19,15 +19,10 @@ val gradientLoadingScreenPatch = bytecodePatch(
 
     execute {
 
-        mapOf(
-            gradientLoadingScreenPrimaryFingerprint to 45412406L,
-            gradientLoadingScreenSecondaryFingerprint to 45418917L
-        ).forEach { (fingerprint, literal) ->
-            fingerprint.injectLiteralInstructionBooleanCall(
-                literal,
-                "$GENERAL_CLASS_DESCRIPTOR->enableGradientLoadingScreen()Z"
-            )
-        }
+        useGradientLoadingScreenFingerprint.injectLiteralInstructionBooleanCall(
+            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
+            "$GENERAL_CLASS_DESCRIPTOR->enableGradientLoadingScreen()Z"
+        )
 
         // region add settings
 

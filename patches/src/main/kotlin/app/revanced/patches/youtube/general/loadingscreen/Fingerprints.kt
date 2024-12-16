@@ -2,12 +2,9 @@ package app.revanced.patches.youtube.general.loadingscreen
 
 import app.revanced.util.fingerprint.legacyFingerprint
 
-internal val gradientLoadingScreenPrimaryFingerprint = legacyFingerprint(
-    name = "gradientLoadingScreenPrimaryFingerprint",
-    literals = listOf(45412406L),
-)
+internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
-internal val gradientLoadingScreenSecondaryFingerprint = legacyFingerprint(
-    name = "gradientLoadingScreenSecondaryFingerprint",
-    literals = listOf(45418917L),
+internal val useGradientLoadingScreenFingerprint = legacyFingerprint(
+    name = "gradientLoadingScreenPrimaryFingerprint",
+    literals = listOf(GRADIENT_LOADING_SCREEN_AB_CONSTANT),
 )
