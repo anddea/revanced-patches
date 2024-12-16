@@ -204,7 +204,9 @@ internal object ResourceUtils {
                 .forEach {
                     it.adoptChild("Preference") {
                         setAttribute("android:title", "@string/$key" + "_title")
-                        setAttribute("android:summary", "@string/$key" + "_summary")
+                        if (isSettingsSummariesEnabled == true) {
+                            setAttribute("android:summary", "@string/$key" + "_summary")
+                        }
                         setAttribute("android:key", key)
                         if (dependencyKey != "") {
                             setAttribute("android:dependency", dependencyKey)

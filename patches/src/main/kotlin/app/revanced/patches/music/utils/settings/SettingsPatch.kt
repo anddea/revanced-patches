@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -127,6 +128,8 @@ private val settingsBytecodePatch = bytecodePatch(
 private const val DEFAULT_LABEL = "ReVanced Extended"
 private lateinit var customName: String
 
+var isSettingsSummariesEnabled: Boolean? = true
+
 val settingsPatch = resourcePatch(
     SETTINGS_FOR_YOUTUBE_MUSIC.title,
     SETTINGS_FOR_YOUTUBE_MUSIC.summary,
@@ -145,12 +148,22 @@ val settingsPatch = resourcePatch(
         required = true,
     )
 
+    val settingsSummaries by booleanOption(
+        key = "settingsSummaries",
+        default = true,
+        title = "RVX settings summaries",
+        description = "Shows the summary / description of each RVX setting. If set to false, no descriptions will be provided.",
+        required = true,
+    )
+
     execute {
         /**
          * check patch options
          */
         customName = settingsLabel
             .valueOrThrow()
+
+        isSettingsSummariesEnabled = settingsSummaries
 
         /**
          * copy arrays, colors and strings
@@ -282,7 +295,13 @@ internal fun addSwitchPreference(
 ) {
     val categoryValue = category.value
     ResourceUtils.addPreferenceCategory(categoryValue)
-    ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
+
+    // Check the exported value of isSettingsSummariesEnabled
+    if (isSettingsSummariesEnabled == true) {
+        ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, setSummary)
+    } else {
+        ResourceUtils.addSwitchPreference(categoryValue, key, defaultValue, dependencyKey, false)
+    }
 }
 
 internal fun addPreferenceWithIntent(
