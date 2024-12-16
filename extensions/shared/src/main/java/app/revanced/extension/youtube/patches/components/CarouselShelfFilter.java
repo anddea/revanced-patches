@@ -68,6 +68,10 @@ public final class CarouselShelfFilter extends Filter {
         if (selectedNavButton == null) {
             return true;
         }
+        // Fixes a very rare bug in home.
+        if (selectedNavButton == NavigationButton.HOME && browseId.equals(BROWSE_ID_NOTIFICATION_INBOX)) {
+            return true;
+        }
         return knownBrowseId.get().anyMatch(browseId::equals) || whitelistBrowseId.get().noneMatch(browseId::equals);
     }
 
