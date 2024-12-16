@@ -81,6 +81,16 @@ public class SpoofStreamingDataPatch {
     /**
      * Injection point.
      */
+    public static boolean fixHLSCurrentTime(boolean original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+        return false;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
         if (SPOOF_STREAMING_DATA) {
             try {

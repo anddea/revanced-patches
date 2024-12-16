@@ -64,13 +64,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
 
     private void updateUI() {
         final ClientType clientType = Settings.SPOOF_STREAMING_DATA_TYPE.get();
-
-        final String summaryTextKey;
-        if (clientType == ClientType.IOS && Settings.SPOOF_STREAMING_DATA_IOS_SKIP_LIVESTREAM_PLAYBACK.get()) {
-            summaryTextKey = "revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback";
-        } else {
-            summaryTextKey = "revanced_spoof_streaming_data_side_effects_" + clientType.name().toLowerCase();
-        }
+        final String summaryTextKey = "revanced_spoof_streaming_data_side_effects_" + clientType.name().toLowerCase();
 
         setSummary(str(summaryTextKey));
         setEnabled(Settings.SPOOF_STREAMING_DATA.get());
