@@ -32,7 +32,8 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 public class VideoUtils extends IntentUtils {
     private static final String PLAYLIST_URL = "https://www.youtube.com/playlist?list=";
     private static final String VIDEO_URL = "https://youtu.be/";
-    private static final String VIDEO_SCHEME_FORMAT = "vnd.youtube://%s?start=%d";
+    private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
+    private static final String VIDEO_SCHEME_LINK_FORMAT = "https://youtu.be/%s?t=%d";
     private static final AtomicBoolean isExternalDownloaderLaunched = new AtomicBoolean(false);
 
     private static String getPlaylistUrl(String playlistId) {
@@ -47,7 +48,7 @@ public class VideoUtils extends IntentUtils {
         return getVideoUrl(VideoInformation.getVideoId(), withTimestamp);
     }
 
-    private static String getVideoUrl(String videoId, boolean withTimestamp) {
+    public static String getVideoUrl(String videoId, boolean withTimestamp) {
         StringBuilder builder = new StringBuilder(VIDEO_URL);
         builder.append(videoId);
         final long currentVideoTimeInSeconds = VideoInformation.getVideoTimeInSeconds();
@@ -59,15 +60,24 @@ public class VideoUtils extends IntentUtils {
     }
 
     private static String getVideoScheme() {
-        return getVideoScheme(VideoInformation.getVideoId());
+        return getVideoScheme(VideoInformation.getVideoId(), false);
     }
 
-    private static String getVideoScheme(String videoId) {
-        return String.format(Locale.ENGLISH, VIDEO_SCHEME_FORMAT, videoId, VideoInformation.getVideoTimeInSeconds());
+    private static String getVideoScheme(String videoId, boolean isShorts) {
+        return String.format(
+                Locale.ENGLISH,
+                isShorts ? VIDEO_SCHEME_INTENT_FORMAT : VIDEO_SCHEME_LINK_FORMAT,
+                videoId,
+                VideoInformation.getVideoTimeInSeconds()
+        );
     }
 
     public static void copyUrl(boolean withTimestamp) {
-        setClipboard(getVideoUrl(withTimestamp), withTimestamp
+        copyUrl(getVideoUrl(withTimestamp), withTimestamp);
+    }
+
+    public static void copyUrl(String videoUrl, boolean withTimestamp) {
+        setClipboard(videoUrl, withTimestamp
                 ? str("revanced_share_copy_url_timestamp_success")
                 : str("revanced_share_copy_url_success")
         );
@@ -139,7 +149,11 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void openVideo(@NonNull String videoId) {
-        openVideo(getVideoScheme(videoId), "");
+        openVideo(getVideoScheme(videoId, false), "");
+    }
+
+    public static void openVideo(@NonNull String videoId, boolean isShorts) {
+        openVideo(getVideoScheme(videoId, isShorts), "");
     }
 
     public static void openVideo(@NonNull PlaylistIdPrefix prefixId) {

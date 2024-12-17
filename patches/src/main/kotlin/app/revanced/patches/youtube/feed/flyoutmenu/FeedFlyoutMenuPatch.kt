@@ -5,16 +5,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.youtube.utils.bottomSheetMenuItemBuilderFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.indexOfSpannedCharSequenceInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_FEED_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.fingerprint.matchOrNull
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -33,27 +34,16 @@ val feedFlyoutMenuPatch = bytecodePatch(
 
         // region patch for phone
 
-        val bottomSheetMenuItemBuilderMatch =
-            bottomSheetMenuItemBuilderLegacyFingerprint.matchOrNull()
-                ?: bottomSheetMenuItemBuilderFingerprint.matchOrThrow()
+        bottomSheetMenuItemBuilderFingerprint.methodOrThrow().apply {
+            val insertIndex = indexOfSpannedCharSequenceInstruction(this) + 2
+            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
-        bottomSheetMenuItemBuilderMatch.let {
-            it.method.apply {
-                val targetIndex = it.patternMatch!!.endIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                val targetParameter =
-                    getInstruction<ReferenceInstruction>(targetIndex - 1).reference
-                if (!targetParameter.toString().endsWith("Ljava/lang/CharSequence;"))
-                    throw PatchException("Method signature parameter did not match: $targetParameter")
-
-                addInstructions(
-                    targetIndex + 1, """
-                        invoke-static {v$targetRegister}, $FEED_CLASS_DESCRIPTOR->hideFlyoutMenu(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$targetRegister
-                        """
-                )
-            }
+            addInstructions(
+                insertIndex, """
+                    invoke-static {v$insertRegister}, $FEED_CLASS_DESCRIPTOR->hideFlyoutMenu(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-result-object v$insertRegister
+                    """
+            )
         }
 
         // endregion
