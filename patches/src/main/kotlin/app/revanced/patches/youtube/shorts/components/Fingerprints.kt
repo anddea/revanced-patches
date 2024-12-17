@@ -56,6 +56,7 @@ internal val reelEnumConstructorFingerprint = legacyFingerprint(
     name = "reelEnumConstructorFingerprint",
     returnType = "V",
     strings = listOf(
+        "REEL_LOOP_BEHAVIOR_UNKNOWN",
         "REEL_LOOP_BEHAVIOR_SINGLE_PLAY",
         "REEL_LOOP_BEHAVIOR_REPEAT",
         "REEL_LOOP_BEHAVIOR_END_SCREEN"
