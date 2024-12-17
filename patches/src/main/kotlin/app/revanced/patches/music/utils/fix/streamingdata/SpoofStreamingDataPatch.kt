@@ -7,6 +7,7 @@ import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PA
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_STREAMING_DATA
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
+import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
@@ -19,6 +20,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val DEFAULT_CLIENT_TYPE = "ANDROID_VR"
 
+@Suppress("unused")
 val spoofStreamingDataPatch = baseSpoofStreamingDataPatch(
     {
         compatibleWith(COMPATIBLE_PACKAGE)
@@ -44,6 +46,11 @@ val spoofStreamingDataPatch = baseSpoofStreamingDataPatch(
             CategoryType.MISC,
             "revanced_spoof_streaming_data",
             "true"
+        )
+        addPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_spoof_streaming_data_type",
+            "revanced_spoof_streaming_data"
         )
         addSwitchPreference(
             CategoryType.MISC,

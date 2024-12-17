@@ -17,6 +17,7 @@ import static app.revanced.extension.music.utils.ExtendedUtils.getLayoutParams;
 import static app.revanced.extension.music.utils.RestartUtils.showRestartDialog;
 import static app.revanced.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT;
 import static app.revanced.extension.shared.settings.BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY;
+import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.Setting.getSettingFromPath;
 import static app.revanced.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.revanced.extension.shared.utils.StringRef.str;
@@ -158,7 +159,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
             } else if (settings instanceof EnumSetting<?> enumSetting) {
-                if (settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)) {
+                if (settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
+                        || settings.equals(SPOOF_STREAMING_DATA_TYPE)) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
                 }
             }

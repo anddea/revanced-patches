@@ -41,19 +41,19 @@ public class AppClient {
             USER_AGENT_VERSION_IOS +
             " like Mac OS X)";
 
-    // IOS_MUSIC
+    // IOS MUSIC
     /**
      * The hardcoded client version of the iOS app used for InnerTube requests with this client.
      *
      * <p>
      * It can be extracted by getting the latest release version of the app on
      * <a href="https://apps.apple.com/us/app/youtube-music/id1017492454/">the App
-     * Store page of the YouTube app</a>, in the {@code What’s New} section.
+     * Store page of the YouTube Music app</a>, in the {@code What’s New} section.
      * </p>
      */
     private static final String CLIENT_VERSION_IOS_MUSIC = "7.31.2";
     private static final String USER_AGENT_IOS_MUSIC = "com.google.ios.youtubemusic/" +
-            CLIENT_VERSION_IOS +
+            CLIENT_VERSION_IOS_MUSIC +
             "(" +
             DEVICE_MODEL_IOS +
             "; U; CPU iOS " +
