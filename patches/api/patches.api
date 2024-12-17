@@ -107,6 +107,10 @@ public final class app/revanced/patches/music/misc/debugging/DebuggingPatchKt {
 	public static final fun getDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/music/misc/drc/DrcAudioPatchKt {
+	public static final fun getDrcAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/share/ShareSheetPatchKt {
 	public static final fun getShareSheetPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -155,6 +159,10 @@ public final class app/revanced/patches/music/utils/fix/fileprovider/FileProvide
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
+	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/utils/flyoutmenu/FlyoutMenuHookPatchKt {
 	public static final fun getFlyoutMenuHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -177,9 +185,12 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_6_36_or_greater ()Z
 	public static final fun is_6_42_or_greater ()Z
 	public static final fun is_7_06_or_greater ()Z
+	public static final fun is_7_13_or_greater ()Z
+	public static final fun is_7_17_or_greater ()Z
 	public static final fun is_7_18_or_greater ()Z
 	public static final fun is_7_20_or_greater ()Z
 	public static final fun is_7_23_or_greater ()Z
+	public static final fun is_7_25_or_greater ()Z
 }
 
 public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdPatchKt {
@@ -246,6 +257,8 @@ public final class app/revanced/patches/music/utils/returnyoutubeusername/Return
 
 public final class app/revanced/patches/music/utils/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun isSettingsSummariesEnabled ()Ljava/lang/Boolean;
+	public static final fun setSettingsSummariesEnabled (Ljava/lang/Boolean;)V
 }
 
 public final class app/revanced/patches/music/utils/sponsorblock/SponsorBlockPatchKt {
@@ -341,6 +354,11 @@ public final class app/revanced/patches/shared/FingerprintsKt {
 
 public final class app/revanced/patches/shared/ads/BaseAdsPatchKt {
 	public static final fun baseAdsPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/blockrequest/BlockRequestPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/captions/BaseAutoCaptionsPatchKt {
@@ -455,6 +473,13 @@ public final class app/revanced/patches/shared/spans/InclusiveSpanPatchKt {
 
 public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVersionPatchKt {
 	public static final fun baseSpoofAppVersionPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/spoof/streamingdata/BaseSpoofStreamingDataPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
+	public static final fun baseSpoofStreamingDataPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun baseSpoofStreamingDataPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgentPatchKt {
@@ -711,6 +736,10 @@ public final class app/revanced/patches/youtube/player/seekbar/SeekbarComponents
 	public static final fun getSeekbarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/shorts/components/FingerprintsKt {
+	public static final fun indexOfAddLiveHeaderElementsContainerInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
 public final class app/revanced/patches/youtube/shorts/components/ShortsComponentPatchKt {
 	public static final fun getShortsComponentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -725,6 +754,7 @@ public final class app/revanced/patches/youtube/swipe/controls/SwipeControlsPatc
 
 public final class app/revanced/patches/youtube/utils/FingerprintsKt {
 	public static final field PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR Ljava/lang/String;
+	public static final fun indexOfSpannedCharSequenceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/youtube/utils/bottomsheet/BottomSheetHookPatchKt {
@@ -834,17 +864,20 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_18_49_or_greater ()Z
 	public static final fun is_19_02_or_greater ()Z
 	public static final fun is_19_15_or_greater ()Z
+	public static final fun is_19_17_or_greater ()Z
 	public static final fun is_19_23_or_greater ()Z
 	public static final fun is_19_25_or_greater ()Z
 	public static final fun is_19_26_or_greater ()Z
 	public static final fun is_19_28_or_greater ()Z
 	public static final fun is_19_29_or_greater ()Z
+	public static final fun is_19_30_or_greater ()Z
 	public static final fun is_19_32_or_greater ()Z
 	public static final fun is_19_34_or_greater ()Z
 	public static final fun is_19_36_or_greater ()Z
 	public static final fun is_19_41_or_greater ()Z
 	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_44_or_greater ()Z
+	public static final fun is_19_46_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/BottomSheetRecyclerViewPatchKt {
@@ -954,6 +987,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getVoiceSearch ()J
 	public static final fun getYouTubeControlsOverlaySubtitleButton ()J
 	public static final fun getYouTubeLogo ()J
+	public static final fun getYtFillBell ()J
 	public static final fun getYtOutlinePictureInPictureWhite ()J
 	public static final fun getYtOutlineVideoCamera ()J
 	public static final fun getYtOutlineXWhite ()J
