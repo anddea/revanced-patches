@@ -48,7 +48,7 @@ val themePatch = resourcePatch(
         "Light Red" to "#FFFFD6D6",
         "Pale Blue" to "#FFD4FFF8",
         "Pale Green" to "#FFD1FFCC",
-        "Pale Orange" to "#FFFFE9AA",
+        "Pale Yellow" to "#FFFFE9AA",
     )
 
     val darkThemeBackgroundColor = stringOption(
