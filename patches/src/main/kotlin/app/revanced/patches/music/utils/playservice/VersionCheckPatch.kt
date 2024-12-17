@@ -13,6 +13,8 @@ var is_6_42_or_greater = false
     private set
 var is_7_06_or_greater = false
     private set
+var is_7_13_or_greater = false
+    private set
 var is_7_18_or_greater = false
     private set
 var is_7_20_or_greater = false
@@ -38,6 +40,7 @@ val versionCheckPatch = resourcePatch(
         is_6_36_or_greater = 240399000 <= playStoreServicesVersion
         is_6_42_or_greater = 240999000 <= playStoreServicesVersion
         is_7_06_or_greater = 242499000 <= playStoreServicesVersion
+        is_7_13_or_greater = 243199000 <= playStoreServicesVersion
         is_7_18_or_greater = 243699000 <= playStoreServicesVersion
         is_7_20_or_greater = 243899000 <= playStoreServicesVersion
         is_7_23_or_greater = 244199000 <= playStoreServicesVersion
