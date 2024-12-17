@@ -21,6 +21,31 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
+    name = "bottomSheetMenuItemBuilderFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "L",
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT
+    ),
+    strings = listOf("Text missing for BottomSheetMenuItem."),
+    customFingerprint = { method, _ ->
+        indexOfSpannedCharSequenceInstruction(method) >= 0
+    }
+)
+
+fun indexOfSpannedCharSequenceInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_STATIC &&
+                reference?.parameterTypes?.size == 1 &&
+                reference.returnType == "Ljava/lang/CharSequence;"
+    }
+
 internal val engagementPanelBuilderFingerprint = legacyFingerprint(
     name = "engagementPanelBuilderFingerprint",
     returnType = "L",
