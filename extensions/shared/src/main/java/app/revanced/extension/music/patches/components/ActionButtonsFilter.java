@@ -2,11 +2,11 @@ package app.revanced.extension.music.patches.components;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
-import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class ActionButtonsFilter extends Filter {

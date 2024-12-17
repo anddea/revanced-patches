@@ -42,11 +42,11 @@ val descriptionComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         bottomSheetRecyclerViewPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         versionCheckPatch,
     )
 

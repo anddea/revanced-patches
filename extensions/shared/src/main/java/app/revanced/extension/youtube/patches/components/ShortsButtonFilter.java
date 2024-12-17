@@ -18,8 +18,8 @@ public final class ShortsButtonFilter extends Filter {
     // probably unstable.
     // If comment button does not have number of comments, then it is disabled or with label "0".
     private static final Pattern REEL_COMMENTS_DISABLED_PATTERN = Pattern.compile("reel_comment_button.+\\d\\s?\\p{L}.+4");
-    private final static String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
-    private final static String REEL_LIVE_HEADER_PATH = "immersive_live_header.eml";
+    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
+    private static final String REEL_LIVE_HEADER_PATH = "immersive_live_header.eml";
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */

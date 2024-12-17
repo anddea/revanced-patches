@@ -231,10 +231,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         returnYouTubeDislikeRollingNumberPatch,
         returnYouTubeDislikeShortsPatch,
         lithoFilterPatch,
-        settingsPatch,
         videoInformationPatch,
     )
 

@@ -31,7 +31,7 @@ public abstract class Filter {
     protected final List<StringFilterGroup> callbacks = new ArrayList<>();
 
     /**
-     * Adds callbacks to {@link #skip(String, SpannableString , Object, int, int, int, boolean, SpanType, StringFilterGroup)}
+     * Adds callbacks to {@link #skip(String, SpannableString, Object, int, int, int, boolean, SpanType, StringFilterGroup)}
      * if any of the groups are found.
      */
     protected final void addCallbacks(StringFilterGroup... groups) {

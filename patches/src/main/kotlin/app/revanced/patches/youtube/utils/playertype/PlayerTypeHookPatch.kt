@@ -137,7 +137,8 @@ val playerTypeHookPatch = bytecodePatch(
 
         searchQueryClassFingerprint.methodOrThrow().apply {
             val searchQueryIndex = indexOfStringIsEmptyInstruction(this) - 1
-            val searchQueryFieldReference = getInstruction<ReferenceInstruction>(searchQueryIndex).reference
+            val searchQueryFieldReference =
+                getInstruction<ReferenceInstruction>(searchQueryIndex).reference
             val searchQueryClass = (searchQueryFieldReference as FieldReference).definingClass
 
             findMethodOrThrow(searchQueryClass).apply {

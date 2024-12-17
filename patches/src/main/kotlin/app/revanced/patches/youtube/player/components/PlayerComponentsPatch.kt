@@ -268,12 +268,12 @@ val playerComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         controlsOverlayConfigPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         speedOverlayPatch,
         suggestedVideoEndScreenPatch,
         videoInformationPatch,

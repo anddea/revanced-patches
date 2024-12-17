@@ -36,10 +36,10 @@ val commentsComponentPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         inclusiveSpanPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
-        settingsPatch,
     )
 
     execute {

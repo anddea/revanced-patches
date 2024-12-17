@@ -22,7 +22,8 @@ import app.revanced.extension.shared.utils.StringTrieSearch;
 /**
  * Placeholder for actual filters.
  */
-final class DummyFilter extends Filter { }
+final class DummyFilter extends Filter {
+}
 
 @SuppressWarnings("unused")
 public final class InclusiveSpanPatch {
@@ -107,7 +108,7 @@ public final class InclusiveSpanPatch {
                 : spanType.type;
     }
 
-    private static final Filter[] filters = new Filter[] {
+    private static final Filter[] filters = new Filter[]{
             new DummyFilter() // Replaced by patch.
     };
 
@@ -185,12 +186,12 @@ public final class InclusiveSpanPatch {
     /**
      * Injection point.
      *
-     * @param spannableString   Original SpannableString.
-     * @param span              Span such as {@link ClickableSpan}, {@link ForegroundColorSpan},
-     *                          {@link AbsoluteSizeSpan}, {@link TypefaceSpan}, {@link ImageSpan}.
-     * @param start             Start index of {@link Spannable#setSpan(Object, int, int, int)}.
-     * @param end               End index of {@link Spannable#setSpan(Object, int, int, int)}.
-     * @param flags             Flags of {@link Spannable#setSpan(Object, int, int, int)}.
+     * @param spannableString Original SpannableString.
+     * @param span            Span such as {@link ClickableSpan}, {@link ForegroundColorSpan},
+     *                        {@link AbsoluteSizeSpan}, {@link TypefaceSpan}, {@link ImageSpan}.
+     * @param start           Start index of {@link Spannable#setSpan(Object, int, int, int)}.
+     * @param end             End index of {@link Spannable#setSpan(Object, int, int, int)}.
+     * @param flags           Flags of {@link Spannable#setSpan(Object, int, int, int)}.
      */
     public static void setSpan(SpannableString spannableString, Object span, int start, int end, int flags) {
         if (returnEarly(spannableString, span, start, end, flags)) {

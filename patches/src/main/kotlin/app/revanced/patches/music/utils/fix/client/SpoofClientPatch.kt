@@ -80,10 +80,11 @@ val spoofClientPatch = bytecodePatch(
                     val clientInfoVersionIndex = result.stringMatches!!.first().index
                     val clientInfoVersionRegister =
                         getInstruction<OneRegisterInstruction>(clientInfoVersionIndex).registerA
-                    val clientInfoClientVersionFieldIndex = indexOfFirstInstructionOrThrow(clientInfoVersionIndex) {
-                        opcode == Opcode.IPUT_OBJECT &&
-                                (this as TwoRegisterInstruction).registerA == clientInfoVersionRegister
-                    }
+                    val clientInfoClientVersionFieldIndex =
+                        indexOfFirstInstructionOrThrow(clientInfoVersionIndex) {
+                            opcode == Opcode.IPUT_OBJECT &&
+                                    (this as TwoRegisterInstruction).registerA == clientInfoVersionRegister
+                        }
 
                     // Client info object's client version field.
                     val clientInfoClientVersionField =
@@ -95,27 +96,30 @@ val spoofClientPatch = bytecodePatch(
                 }
             }
 
-        val clientInfoClientModelField = with (createPlayerRequestBodyWithModelFingerprint.methodOrThrow()) {
-            // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-            val clientInfoClientModelIndex = indexOfFirstInstructionOrThrow(indexOfModelInstruction(this)) {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IPUT_OBJECT &&
-                        reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
-                        reference.type == "Ljava/lang/String;"
+        val clientInfoClientModelField =
+            with(createPlayerRequestBodyWithModelFingerprint.methodOrThrow()) {
+                // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
+                val clientInfoClientModelIndex =
+                    indexOfFirstInstructionOrThrow(indexOfModelInstruction(this)) {
+                        val reference = getReference<FieldReference>()
+                        opcode == Opcode.IPUT_OBJECT &&
+                                reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
+                                reference.type == "Ljava/lang/String;"
+                    }
+                getInstruction<ReferenceInstruction>(clientInfoClientModelIndex).reference
             }
-            getInstruction<ReferenceInstruction>(clientInfoClientModelIndex).reference
-        }
 
-        val clientInfoOsVersionField = with (createPlayerRequestBodyWithVersionReleaseFingerprint.methodOrThrow()) {
-            val buildIndex = indexOfBuildInstruction(this)
-            val clientInfoOsVersionIndex = indexOfFirstInstructionOrThrow(buildIndex - 5) {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IPUT_OBJECT &&
-                        reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
-                        reference.type == "Ljava/lang/String;"
+        val clientInfoOsVersionField =
+            with(createPlayerRequestBodyWithVersionReleaseFingerprint.methodOrThrow()) {
+                val buildIndex = indexOfBuildInstruction(this)
+                val clientInfoOsVersionIndex = indexOfFirstInstructionOrThrow(buildIndex - 5) {
+                    val reference = getReference<FieldReference>()
+                    opcode == Opcode.IPUT_OBJECT &&
+                            reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
+                            reference.type == "Ljava/lang/String;"
+                }
+                getInstruction<ReferenceInstruction>(clientInfoOsVersionIndex).reference
             }
-            getInstruction<ReferenceInstruction>(clientInfoOsVersionIndex).reference
-        }
 
         // endregion
 
@@ -229,7 +233,8 @@ val spoofClientPatch = bytecodePatch(
                             reference?.returnType == "V" &&
                             reference.parameterTypes.firstOrNull()?.startsWith("[L") == true
                 }
-                val createPlaybackSpeedMenuItemMethod = getWalkerMethod(createPlaybackSpeedMenuItemIndex)
+                val createPlaybackSpeedMenuItemMethod =
+                    getWalkerMethod(createPlaybackSpeedMenuItemIndex)
                 createPlaybackSpeedMenuItemMethod.apply {
                     val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
@@ -237,7 +242,8 @@ val spoofClientPatch = bytecodePatch(
                                 reference?.returnType == "Z" &&
                                 reference.parameterTypes.isEmpty()
                     } + 2
-                    val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex - 1).registerA
+                    val shouldCreateMenuRegister =
+                        getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex - 1).registerA
 
                     addInstructions(
                         shouldCreateMenuIndex,

@@ -77,11 +77,11 @@ val flyoutMenuComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         flyoutMenuComponentsResourcePatch,
         flyoutMenuHookPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         versionCheckPatch,
         videoInformationPatch,
         videoTypeHookPatch,

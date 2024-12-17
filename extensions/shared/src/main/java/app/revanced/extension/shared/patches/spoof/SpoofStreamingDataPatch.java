@@ -15,10 +15,10 @@ import java.util.Map;
 
 import app.revanced.extension.shared.patches.BlockRequestPatch;
 import app.revanced.extension.shared.patches.client.AppClient.ClientType;
+import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch extends BlockRequestPatch {
@@ -101,7 +101,7 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
      * Fix playback by replace the streaming data.
      * Called after {@link #fetchStreams(String, Map)}.
      *
-     * @param originalStreamingData  Original StreamingData.
+     * @param originalStreamingData Original StreamingData.
      */
     @Nullable
     public static ByteBuffer getStreamingData(String videoId, StreamingDataOuterClass$StreamingData originalStreamingData) {
@@ -149,7 +149,7 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
      * <p>
      * Called after {@link #getStreamingData(String, StreamingDataOuterClass$StreamingData)}.
      *
-     * @param spoofedStreamingData  Spoofed StreamingData.
+     * @param spoofedStreamingData Spoofed StreamingData.
      */
     public static StreamingDataOuterClass$StreamingData getOriginalStreamingData(String videoId, StreamingDataOuterClass$StreamingData spoofedStreamingData) {
         if (SPOOF_STREAMING_DATA) {

@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -44,7 +45,7 @@ val toolBarHookPatch = bytecodePatch(
             val enumRegister = getInstruction<FiveRegisterInstruction>(enumOrdinalIndex).registerD
             val freeRegister = getInstruction<TwoRegisterInstruction>(freeIndex).registerA
 
-            val imageViewIndex = indexOfFirstInstructionReversedOrThrow(enumOrdinalIndex) {
+            val imageViewIndex = indexOfFirstInstructionOrThrow(enumOrdinalIndex) {
                 opcode == Opcode.IGET_OBJECT &&
                         getReference<FieldReference>()?.type == "Landroid/widget/ImageView;"
             }

@@ -20,8 +20,8 @@ val actionButtonsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
-        lithoFilterPatch,
         settingsPatch,
+        lithoFilterPatch,
     )
 
     execute {

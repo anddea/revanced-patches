@@ -12,7 +12,9 @@ internal val dislikeButtonOnClickListenerFingerprint = legacyFingerprint(
     parameters = listOf("Landroid/view/View;"),
     customFingerprint = { method, _ ->
         method.name == "onClick" &&
-                (method.containsLiteralInstruction(53465L) || method.containsLiteralInstruction(98173L))
+                (method.containsLiteralInstruction(53465L) || method.containsLiteralInstruction(
+                    98173L
+                ))
     }
 )
 

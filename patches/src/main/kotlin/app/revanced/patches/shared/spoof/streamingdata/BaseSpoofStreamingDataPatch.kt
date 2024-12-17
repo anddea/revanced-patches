@@ -81,50 +81,59 @@ fun baseSpoofStreamingDataPatch(
 
         // region Replace the streaming data.
 
-        createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint).let { result ->
-            result.method.apply {
-                val setStreamDataMethodName = "patch_setStreamingData"
-                val resultMethodType = result.classDef.type
-                val setStreamingDataIndex = result.patternMatch!!.startIndex
-                val setStreamingDataField =
-                    getInstruction(setStreamingDataIndex).getReference<FieldReference>().toString()
+        createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint)
+            .let { result ->
+                result.method.apply {
+                    val setStreamDataMethodName = "patch_setStreamingData"
+                    val resultMethodType = result.classDef.type
+                    val setStreamingDataIndex = result.patternMatch!!.startIndex
+                    val setStreamingDataField =
+                        getInstruction(setStreamingDataIndex).getReference<FieldReference>()
+                            .toString()
 
-                val playerProtoClass =
-                    getInstruction(setStreamingDataIndex + 1).getReference<FieldReference>()!!.definingClass
-                val protobufClass =
-                    protobufClassParseByteBufferFingerprint.definingClassOrThrow()
+                    val playerProtoClass =
+                        getInstruction(setStreamingDataIndex + 1).getReference<FieldReference>()!!.definingClass
+                    val protobufClass =
+                        protobufClassParseByteBufferFingerprint.definingClassOrThrow()
 
-                val getStreamingDataField = instructions.find { instruction ->
-                    instruction.opcode == Opcode.IGET_OBJECT &&
-                            instruction.getReference<FieldReference>()?.definingClass == playerProtoClass
-                }?.getReference<FieldReference>()
-                    ?: throw PatchException("Could not find getStreamingDataField")
+                    val getStreamingDataField = instructions.find { instruction ->
+                        instruction.opcode == Opcode.IGET_OBJECT &&
+                                instruction.getReference<FieldReference>()?.definingClass == playerProtoClass
+                    }?.getReference<FieldReference>()
+                        ?: throw PatchException("Could not find getStreamingDataField")
 
-                val videoDetailsIndex = result.patternMatch!!.endIndex
-                val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
-                val videoDetailsClass =
-                    getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+                    val videoDetailsIndex = result.patternMatch!!.endIndex
+                    val videoDetailsRegister =
+                        getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
+                    val videoDetailsClass =
+                        getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
-                addInstruction(
-                    videoDetailsIndex + 1,
-                    "invoke-direct { p0, v$videoDetailsRegister }, " +
-                            "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
-                )
+                    addInstruction(
+                        videoDetailsIndex + 1,
+                        "invoke-direct { p0, v$videoDetailsRegister }, " +
+                                "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                    )
 
-                result.classDef.methods.add(
-                    ImmutableMethod(
-                        resultMethodType,
-                        setStreamDataMethodName,
-                        listOf(ImmutableMethodParameter(videoDetailsClass, annotations, "videoDetails")),
-                        "V",
-                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
-                        annotations,
-                        null,
-                        MutableMethodImplementation(9),
-                    ).toMutable().apply {
-                        addInstructionsWithLabels(
-                            0,
-                            """
+                    result.classDef.methods.add(
+                        ImmutableMethod(
+                            resultMethodType,
+                            setStreamDataMethodName,
+                            listOf(
+                                ImmutableMethodParameter(
+                                    videoDetailsClass,
+                                    annotations,
+                                    "videoDetails"
+                                )
+                            ),
+                            "V",
+                            AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                            annotations,
+                            null,
+                            MutableMethodImplementation(9),
+                        ).toMutable().apply {
+                            addInstructionsWithLabels(
+                                0,
+                                """
                                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
                                 move-result v0
                                 if-eqz v0, :disabled
@@ -153,44 +162,52 @@ fun baseSpoofStreamingDataPatch(
                                 :disabled
                                 return-void
                                 """,
-                        )
-                    },
+                            )
+                        },
+                    )
+                }
+            }
+
+        videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint)
+            .apply {
+                val formatStreamModelInitIndex = indexOfFormatStreamModelInitInstruction(this)
+                val getVideoIdIndex =
+                    indexOfFirstInstructionReversedOrThrow(formatStreamModelInitIndex) {
+                        val reference = getReference<FieldReference>()
+                        opcode == Opcode.IGET_OBJECT &&
+                                reference?.type == "Ljava/lang/String;" &&
+                                reference.definingClass == definingClass
+                    }
+                val getVideoIdReference =
+                    getInstruction<ReferenceInstruction>(getVideoIdIndex).reference
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(getVideoIdIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.definingClass == STREAMING_DATA_INTERFACE
+                }
+
+                val (freeRegister, streamingDataRegister) = with(
+                    getInstruction<TwoRegisterInstruction>(
+                        insertIndex
+                    )
+                ) {
+                    Pair(registerA, registerB)
+                }
+                val definingClassRegister =
+                    getInstruction<TwoRegisterInstruction>(getVideoIdIndex).registerB
+                val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+
+                replaceInstruction(
+                    insertIndex,
+                    "iget-object v$freeRegister, v$freeRegister, $insertReference"
                 )
-            }
-        }
-
-        videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint).apply {
-            val formatStreamModelInitIndex = indexOfFormatStreamModelInitInstruction(this)
-            val getVideoIdIndex = indexOfFirstInstructionReversedOrThrow(formatStreamModelInitIndex) {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IGET_OBJECT &&
-                        reference?.type == "Ljava/lang/String;" &&
-                        reference.definingClass == definingClass
-            }
-            val getVideoIdReference = getInstruction<ReferenceInstruction>(getVideoIdIndex).reference
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(getVideoIdIndex) {
-                opcode == Opcode.IGET_OBJECT &&
-                        getReference<FieldReference>()?.definingClass == STREAMING_DATA_INTERFACE
-            }
-
-            val (freeRegister, streamingDataRegister) = with(getInstruction<TwoRegisterInstruction>(insertIndex)) {
-                Pair(registerA, registerB)
-            }
-            val definingClassRegister = getInstruction<TwoRegisterInstruction>(getVideoIdIndex).registerB
-            val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
-
-            replaceInstruction(
-                insertIndex,
-                "iget-object v$freeRegister, v$freeRegister, $insertReference"
-            )
-            addInstructions(
-                insertIndex, """
+                addInstructions(
+                    insertIndex, """
                     iget-object v$freeRegister, v$definingClassRegister, $getVideoIdReference
                     invoke-static { v$freeRegister, v$streamingDataRegister }, $EXTENSION_CLASS_DESCRIPTOR->getOriginalStreamingData(Ljava/lang/String;$STREAMING_DATA_INTERFACE)$STREAMING_DATA_INTERFACE
                     move-result-object v$freeRegister
                     """
-            )
-        }
+                )
+            }
 
         // endregion
 

@@ -79,6 +79,7 @@ val videoPlaybackPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         bottomSheetRecyclerViewPatch,
         customPlaybackSpeedPatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
@@ -87,7 +88,6 @@ val videoPlaybackPatch = bytecodePatch(
         flyoutMenuHookPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
-        settingsPatch,
         shortsPlaybackPatch,
         videoIdPatch,
         videoInformationPatch,

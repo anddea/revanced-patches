@@ -43,11 +43,11 @@ val adsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         baseAdsPatch(ADS_CLASS_DESCRIPTOR, "hideVideoAds"),
         doubleBackToClosePatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         swipeRefreshPatch,
     )
 

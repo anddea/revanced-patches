@@ -42,6 +42,7 @@ public class PlayerTypeHookPatch {
             public void onViewAttachedToWindow(@Nullable View v) {
                 ShortsPlayerState.set(ShortsPlayerState.OPEN);
             }
+
             @Override
             public void onViewDetachedFromWindow(@Nullable View v) {
                 ShortsPlayerState.set(ShortsPlayerState.CLOSED);

@@ -8,15 +8,11 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-
 import java.util.Arrays;
-import java.util.Objects;
 
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoType;
 import app.revanced.extension.music.utils.VideoUtils;
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused"})

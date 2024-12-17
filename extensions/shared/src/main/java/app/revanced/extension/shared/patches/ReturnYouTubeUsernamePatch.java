@@ -39,14 +39,14 @@ public class ReturnYouTubeUsernamePatch {
      */
     @NonNull
     public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
-                                         @NonNull CharSequence original) {
+                                                 @NonNull CharSequence original) {
         return onLithoTextLoaded(conversionContext, original, false);
     }
 
     @NonNull
     private static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
-                                                 @NonNull CharSequence original,
-                                                 boolean fetchNeeded) {
+                                                  @NonNull CharSequence original,
+                                                  boolean fetchNeeded) {
         try {
             if (!RETURN_YOUTUBE_USERNAME_ENABLED) {
                 return original;

@@ -3,9 +3,9 @@ package app.revanced.extension.shared.patches;
 import android.net.Uri;
 
 import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.PackageUtils;
-import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings("unused")
 public class BlockRequestPatch {
