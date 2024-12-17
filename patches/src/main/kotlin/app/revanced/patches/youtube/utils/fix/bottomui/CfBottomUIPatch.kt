@@ -7,15 +7,16 @@ import app.revanced.util.fingerprint.resolvable
 val cfBottomUIPatch = bytecodePatch(
     description = "cfBottomUIPatch"
 ) {
+
     execute {
         /**
          * This issue only affects some versions of YouTube.
          * Therefore, this patch only applies to versions that can resolve this fingerprint.
          */
         mapOf(
-            exploderControlsFingerprint to 45643739L,
-            fullscreenButtonViewStubFingerprint to 45617294L,
-            fullscreenButtonPositionFingerprint to 45627640L
+            fullscreenButtonPositionFingerprint to FULLSCREEN_BUTTON_POSITION_FEATURE_FLAG,
+            fullscreenButtonViewStubFingerprint to FULLSCREEN_BUTTON_VIEW_STUB_FEATURE_FLAG,
+            playerBottomControlsExploderFeatureFlagFingerprint to PLAYER_BOTTOM_CONTROLS_EXPLODER_FEATURE_FLAG,
         ).forEach { (fingerprint, literalValue) ->
             if (fingerprint.resolvable()) {
                 fingerprint.injectLiteralInstructionBooleanCall(
@@ -24,5 +25,7 @@ val cfBottomUIPatch = bytecodePatch(
                 )
             }
         }
+
+
     }
 }

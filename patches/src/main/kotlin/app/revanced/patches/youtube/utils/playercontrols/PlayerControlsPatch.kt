@@ -8,8 +8,11 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.util.copyXmlNode
@@ -40,7 +43,9 @@ private val playerControlsBytecodePatch = bytecodePatch(
     description = "playerControlsBytecodePatch"
 ) {
     dependsOn(
-        sharedResourceIdPatch
+        sharedExtensionPatch,
+        sharedResourceIdPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -154,6 +159,21 @@ private val playerControlsBytecodePatch = bytecodePatch(
             }
 
         // endregion
+
+        if (is_19_25_or_greater) {
+            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                        """,
+                )
+            }
+        }
     }
 }
 

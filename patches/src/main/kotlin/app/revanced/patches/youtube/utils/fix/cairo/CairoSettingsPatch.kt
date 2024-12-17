@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.utils.fix.cairo
 
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.youtube.misc.backgroundplayback.backgroundPlaybackPatch
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.resolvable
 
