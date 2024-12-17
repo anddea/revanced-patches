@@ -103,6 +103,34 @@ internal val protobufClassParseByteBufferFingerprint = legacyFingerprint(
     customFingerprint = { method, _ -> method.name == "parseFrom" },
 )
 
+internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
+    name = "videoStreamingDataConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfFormatStreamModelInitInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfFormatStreamModelInitInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_DIRECT &&
+                reference?.name == "<init>" &&
+                reference.parameterTypes.size > 1
+    }
+
+internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
+    name = "videoStreamingDataToStringFingerprint",
+    returnType = "Ljava/lang/String;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    strings = listOf("VideoStreamingData(itags="),
+    customFingerprint = { method, _ ->
+        method.name == "toString"
+    },
+)
+
 internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
 
 internal val hlsCurrentTimeFingerprint = legacyFingerprint(
