@@ -50,9 +50,9 @@ val layoutComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         settingsMenuPatch,
         viewGroupMarginLayoutParamsHookPatch,
     )

@@ -68,6 +68,7 @@ private fun create9BitSeekbarColorStyles(): String = StringBuilder().apply {
 
                 fun roundTo3BitHex(channel8Bits: Int) =
                     (channel8Bits * 255 / 7).toString(16).padStart(2, '0')
+
                 val r = roundTo3BitHex(red)
                 val g = roundTo3BitHex(green)
                 val b = roundTo3BitHex(blue)
@@ -270,8 +271,10 @@ val seekbarComponentsPatch = bytecodePatch(
                 onCreateMethod
             ).forEach { method ->
                 method.apply {
-                    val literalIndex = indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
-                    val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                    val literalIndex =
+                        indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
+                    val resultIndex =
+                        indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                     val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
                     addInstructions(
@@ -291,8 +294,10 @@ val seekbarComponentsPatch = bytecodePatch(
                     reference?.definingClass == "Landroid/widget/ImageView;" &&
                             reference.name == "getDrawable"
                 }
-                val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
-                val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                val checkCastIndex =
+                    indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
+                val drawableRegister =
+                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
                     checkCastIndex + 1,
@@ -341,7 +346,10 @@ val seekbarComponentsPatch = bytecodePatch(
             // instead of allowing 24 bit color the style is restricted to 9-bit (3 bits per color channel)
             // and the style color closest to the users custom color is used for the splash screen.
             arrayOf(
-                inputStreamFromBundledResource("youtube/seekbar/values", "attrs.xml")!! to "res/values/attrs.xml",
+                inputStreamFromBundledResource(
+                    "youtube/seekbar/values",
+                    "attrs.xml"
+                )!! to "res/values/attrs.xml",
                 ByteArrayInputStream(create9BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
             ).forEach { (source, destination) ->
                 "resources".copyXmlNode(
@@ -350,7 +358,10 @@ val seekbarComponentsPatch = bytecodePatch(
                 ).close()
             }
 
-            fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, vararg resourceNames: String) {
+            fun setSplashDrawablePathFillColor(
+                xmlFileNames: Iterable<String>,
+                vararg resourceNames: String
+            ) {
                 xmlFileNames.forEach { xmlFileName ->
                     context.document(xmlFileName).use { document ->
                         resourceNames.forEach { elementId ->
@@ -364,7 +375,10 @@ val seekbarComponentsPatch = bytecodePatch(
                                 throw PatchException("Could not find $attribute for $elementId")
                             }
 
-                            element.setAttribute(attribute, "?attr/$splashSeekbarColorAttributeName")
+                            element.setAttribute(
+                                attribute,
+                                "?attr/$splashSeekbarColorAttributeName"
+                            )
                         }
                     }
                 }

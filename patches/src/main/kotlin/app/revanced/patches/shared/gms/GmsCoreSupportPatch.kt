@@ -84,9 +84,9 @@ fun gmsCoreSupportPatch(
         key = "gmsCoreVendorGroupId",
         default = "app.revanced",
         values =
-            mapOf(
-                "ReVanced" to "app.revanced",
-            ),
+        mapOf(
+            "ReVanced" to "app.revanced",
+        ),
         title = "GmsCore vendor group ID",
         description = "The vendor's group ID for GmsCore.",
         required = true,

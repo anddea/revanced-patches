@@ -173,13 +173,15 @@ val navigationBarComponentsPatch = bytecodePatch(
          * It was not too hard to fix, so it was implemented as a patch.
          */
         if (is_19_28_or_greater) {
-            val cairoNotificationEnumReference = with (imageEnumConstructorFingerprint.methodOrThrow()) {
-                val stringIndex = indexOfFirstStringInstructionOrThrow(TAB_ACTIVITY_CAIRO_STRING)
-                val cairoNotificationEnumIndex = indexOfFirstInstructionOrThrow(stringIndex) {
-                    opcode == Opcode.SPUT_OBJECT
+            val cairoNotificationEnumReference =
+                with(imageEnumConstructorFingerprint.methodOrThrow()) {
+                    val stringIndex =
+                        indexOfFirstStringInstructionOrThrow(TAB_ACTIVITY_CAIRO_STRING)
+                    val cairoNotificationEnumIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                        opcode == Opcode.SPUT_OBJECT
+                    }
+                    getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
                 }
-                getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
-            }
 
             setEnumMapFingerprint.methodOrThrow().apply {
                 val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
@@ -189,7 +191,9 @@ val navigationBarComponentsPatch = bytecodePatch(
                             reference.name == "put" &&
                             reference.parameterTypes.firstOrNull() == "Ljava/lang/Enum;"
                 }
-                val (enumMapRegister, enumRegister) = getInstruction<FiveRegisterInstruction>(enumMapIndex).let {
+                val (enumMapRegister, enumRegister) = getInstruction<FiveRegisterInstruction>(
+                    enumMapIndex
+                ).let {
                     Pair(it.registerC, it.registerD)
                 }
 

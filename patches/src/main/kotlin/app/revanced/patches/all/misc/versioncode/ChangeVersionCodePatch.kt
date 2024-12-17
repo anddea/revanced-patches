@@ -49,6 +49,7 @@ val changeVersionCodePatch = resourcePatch(
                 "Invalid versionCode: $versionCodeString, " +
                         "Version code should be larger than 1 and smaller than $MAX_VALUE."
             )
+
         val versionCodeString = versionCodeOption.valueOrThrow()
         val versionCode: Int
 

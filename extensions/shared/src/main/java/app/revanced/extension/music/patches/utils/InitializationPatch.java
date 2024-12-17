@@ -6,7 +6,6 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import app.revanced.extension.music.utils.ExtendedUtils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Utils;
 

@@ -6,13 +6,13 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.AnimatedVectorDrawable;
 
+import java.util.Arrays;
+import java.util.Locale;
+
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
-
-import java.util.Arrays;
-import java.util.Locale;
 
 @SuppressWarnings("unused")
 public class SeekbarColorPatch {
@@ -29,12 +29,12 @@ public class SeekbarColorPatch {
     /**
      * Default colors of the gradient seekbar.
      */
-    private static final int[] ORIGINAL_SEEKBAR_GRADIENT_COLORS = { 0xFFFF0033, 0xFFFF2791 };
+    private static final int[] ORIGINAL_SEEKBAR_GRADIENT_COLORS = {0xFFFF0033, 0xFFFF2791};
 
     /**
      * Default positions of the gradient seekbar.
      */
-    private static final float[] ORIGINAL_SEEKBAR_GRADIENT_POSITIONS = { 0.8f, 1.0f };
+    private static final float[] ORIGINAL_SEEKBAR_GRADIENT_POSITIONS = {0.8f, 1.0f};
 
     /**
      * Default YouTube seekbar color brightness.
@@ -240,7 +240,7 @@ public class SeekbarColorPatch {
             final int replacementAlpha = clamp(Color.alpha(seekbarColor) + alphaDifference, 0, 255);
             final int replacementColor = Color.HSVToColor(replacementAlpha, hsv);
             Logger.printDebug(() -> String.format("Original color: #%08X  replacement color: #%08X",
-                            originalColor, replacementColor));
+                    originalColor, replacementColor));
             return replacementColor;
         } catch (Exception ex) {
             Logger.printException(() -> "getSeekbarColorValue failure", ex);
@@ -248,12 +248,16 @@ public class SeekbarColorPatch {
         }
     }
 
-    /** @noinspection SameParameterValue */
+    /**
+     * @noinspection SameParameterValue
+     */
     private static int clamp(int value, int lower, int upper) {
         return Math.max(lower, Math.min(value, upper));
     }
 
-    /** @noinspection SameParameterValue */
+    /**
+     * @noinspection SameParameterValue
+     */
     private static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
     }

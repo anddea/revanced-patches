@@ -217,7 +217,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.returnType == "Ljava/lang/Object;"
                 }
-                val getObjectReference = getInstruction<ReferenceInstruction>(getObjectIndex).reference as MethodReference
+                val getObjectReference =
+                    getInstruction<ReferenceInstruction>(getObjectIndex).reference as MethodReference
 
                 val bottomSheetMenuInitializeIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
@@ -225,17 +226,22 @@ private val shortsCustomActionsPatch = bytecodePatch(
                             reference?.returnType == "V" &&
                             reference.parameterTypes[1] == "Ljava/lang/Object;"
                 }
-                val bottomSheetMenuObjectRegister = getInstruction<RegisterRangeInstruction>(bottomSheetMenuInitializeIndex).startRegister
-                val bottomSheetMenuObject = (getInstruction<ReferenceInstruction>(bottomSheetMenuInitializeIndex).reference as MethodReference).parameterTypes[0]!!
+                val bottomSheetMenuObjectRegister =
+                    getInstruction<RegisterRangeInstruction>(bottomSheetMenuInitializeIndex).startRegister
+                val bottomSheetMenuObject =
+                    (getInstruction<ReferenceInstruction>(bottomSheetMenuInitializeIndex).reference as MethodReference).parameterTypes[0]!!
 
                 val bottomSheetMenuListIndex = it.patternMatch!!.startIndex
-                val bottomSheetMenuListField = (getInstruction<ReferenceInstruction>(bottomSheetMenuListIndex).reference as FieldReference)
+                val bottomSheetMenuListField =
+                    (getInstruction<ReferenceInstruction>(bottomSheetMenuListIndex).reference as FieldReference)
 
                 val bottomSheetMenuClass = bottomSheetMenuListField.definingClass
                 val bottomSheetMenuList = bottomSheetMenuListField.type
 
-                val bottomSheetMenuClassRegister = getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerB
-                val bottomSheetMenuListRegister = getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerA
+                val bottomSheetMenuClassRegister =
+                    getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerB
+                val bottomSheetMenuListRegister =
+                    getInstruction<TwoRegisterInstruction>(bottomSheetMenuListIndex).registerA
 
                 addInstruction(
                     bottomSheetMenuListIndex + 1,
@@ -249,10 +255,11 @@ private val shortsCustomActionsPatch = bytecodePatch(
                             "$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->setFlyoutMenuObject(Ljava/lang/Object;)V"
                 )
 
-                val addFlyoutMenuMethod = findMethodOrThrow(EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR) {
-                    name == "addFlyoutMenu" &&
-                            accessFlags == AccessFlags.PRIVATE or AccessFlags.STATIC
-                }
+                val addFlyoutMenuMethod =
+                    findMethodOrThrow(EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR) {
+                        name == "addFlyoutMenu" &&
+                                accessFlags == AccessFlags.PRIVATE or AccessFlags.STATIC
+                    }
 
                 val customActionClass = with(addFlyoutMenuMethod) {
                     val thirdParameter = parameters[2]
@@ -277,7 +284,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
                 val bottomSheetMenuItemBuilderMethod = bottomSheetMenuItemBuilderFingerprint
                     .methodOrThrow()
 
-                val newParameter = bottomSheetMenuItemBuilderMethod.parameters + listOf(customActionClass)
+                val newParameter =
+                    bottomSheetMenuItemBuilderMethod.parameters + listOf(customActionClass)
 
                 it.classDef.methods.add(
                     bottomSheetMenuItemBuilderMethod
@@ -291,7 +299,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
                                 opcode == Opcode.INVOKE_DIRECT &&
                                         getReference<MethodReference>()?.returnType == "Landroid/graphics/drawable/Drawable;"
                             }
-                            val drawableRegister = getInstruction<OneRegisterInstruction>(drawableIndex + 1).registerA
+                            val drawableRegister =
+                                getInstruction<OneRegisterInstruction>(drawableIndex + 1).registerA
 
                             addInstructions(
                                 drawableIndex + 2, """
@@ -301,11 +310,14 @@ private val shortsCustomActionsPatch = bytecodePatch(
                             )
 
                             val charSequenceIndex = indexOfSpannedCharSequenceInstruction(this)
-                            val charSequenceRegister = getInstruction<OneRegisterInstruction>(charSequenceIndex + 1).registerA
+                            val charSequenceRegister =
+                                getInstruction<OneRegisterInstruction>(charSequenceIndex + 1).registerA
 
                             val insertIndex = charSequenceIndex + 2
 
-                            if (getInstruction<ReferenceInstruction>(insertIndex).reference.toString().startsWith("Lapp/revanced")) {
+                            if (getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
+                                    .startsWith("Lapp/revanced")
+                            ) {
                                 removeInstructions(insertIndex, 2)
                             }
 
@@ -549,6 +561,8 @@ val shortsComponentPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
+
         shortsAnimationPatch,
         shortsCustomActionsPatch,
         shortsNavigationBarPatch,
@@ -559,7 +573,6 @@ val shortsComponentPatch = bytecodePatch(
         lithoFilterPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
-        settingsPatch,
         textComponentPatch,
         versionCheckPatch,
         videoInformationPatch,

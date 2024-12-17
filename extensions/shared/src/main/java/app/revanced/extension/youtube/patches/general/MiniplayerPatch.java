@@ -1,7 +1,11 @@
 package app.revanced.extension.youtube.patches.general;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.*;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DISABLED;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_2;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.ORIGINAL;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
@@ -16,10 +20,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
@@ -34,7 +38,9 @@ public final class MiniplayerPatch {
          * Only available with 19.43+
          */
         DISABLED(false, null),
-        /** Unmodified type, and same as un-patched. */
+        /**
+         * Unmodified type, and same as un-patched.
+         */
         ORIGINAL(null, null),
         /**
          * Exactly the same as MINIMAL and only here for migration of user settings.

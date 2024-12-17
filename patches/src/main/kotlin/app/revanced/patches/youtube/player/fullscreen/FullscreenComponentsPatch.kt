@@ -55,10 +55,10 @@ val fullscreenComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         lithoFilterPatch,
         mainActivityResolvePatch,
         sharedResourceIdPatch,
-        settingsPatch,
         versionCheckPatch,
     )
 

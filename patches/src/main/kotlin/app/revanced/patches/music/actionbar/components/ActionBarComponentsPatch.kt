@@ -116,7 +116,8 @@ val actionBarComponentsPatch = bytecodePatch(
                                     .endsWith("Lcom/google/android/libraries/youtube/common/ui/YouTubeButton;-><init>(Landroid/content/Context;)V")
                     } - 2
                     val replaceInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
-                    val replaceReference = getInstruction<ReferenceInstruction>(replaceIndex).reference
+                    val replaceReference =
+                        getInstruction<ReferenceInstruction>(replaceIndex).reference
 
                     addInstructionsWithLabels(
                         replaceIndex + 1, """
@@ -140,7 +141,8 @@ val actionBarComponentsPatch = bytecodePatch(
                     }
                     val spannedRegister =
                         getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
-                    val spannedReference = getInstruction<ReferenceInstruction>(spannedIndex).reference
+                    val spannedReference =
+                        getInstruction<ReferenceInstruction>(spannedIndex).reference
 
                     addInstructionsWithLabels(
                         spannedIndex + 1, """

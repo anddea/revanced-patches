@@ -187,7 +187,10 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(returnType: String, fromString: Boolean? = null): String {
+        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(
+            returnType: String,
+            fromString: Boolean? = null
+        ): String {
             methodOrThrow().apply {
                 val startIndex = if (fromString == true)
                     matchOrThrow().stringMatches!!.first().index

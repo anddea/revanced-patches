@@ -40,7 +40,8 @@ val DrcAudioPatch = bytecodePatch(
         fingerprint.matchOrThrow(formatStreamModelConstructorFingerprint).let {
             it.method.apply {
                 val insertIndex = it.patternMatch!!.endIndex
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex - 1).registerA
+                val insertRegister =
+                    getInstruction<TwoRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstructions(
                     insertIndex,

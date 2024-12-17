@@ -51,11 +51,11 @@ val adsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        settingsPatch,
         baseAdsPatch("$ADS_PATH/MusicAdsPatch;", "hideMusicAds"),
         lithoFilterPatch,
         navigationBarComponentsPatch, // for 'Hide upgrade button' setting
         sharedResourceIdPatch,
-        settingsPatch,
     )
 
     execute {

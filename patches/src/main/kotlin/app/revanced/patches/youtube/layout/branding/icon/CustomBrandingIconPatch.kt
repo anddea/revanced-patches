@@ -219,8 +219,14 @@ val customBrandingIconPatch = resourcePatch(
         }
 
         mapOf(
-            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "background"),
-            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile("res/mipmap-anydpi/ic_launcher.xml", "foreground")
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile(
+                "res/mipmap-anydpi/ic_launcher.xml",
+                "background"
+            ),
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile(
+                "res/mipmap-anydpi/ic_launcher.xml",
+                "foreground"
+            )
         ).forEach { (oldIconResourceFile, newIconResourceFile) ->
             if (oldIconResourceFile != newIconResourceFile) {
                 mipmapDirectories.forEach {

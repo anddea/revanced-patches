@@ -35,8 +35,8 @@ val shareSheetPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
-        lithoFilterPatch,
         settingsPatch,
+        lithoFilterPatch,
         sharedResourceIdPatch
     )
 
