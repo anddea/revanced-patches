@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCR
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_39_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_30_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.qualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
@@ -121,6 +122,25 @@ val playerFlyoutMenuPatch = bytecodePatch(
                 "$PLAYER_CLASS_DESCRIPTOR->hidePiPModeMenu(Z)Z"
             )
             settingArray += "SETTINGS: HIDE_PIP_MODE_MENU"
+        }
+
+        // endregion
+
+        // region patch for hide sleep timer menu
+
+        if (is_19_30_or_greater) {
+            // Sleep timer menu in Additional settings (deprecated)
+            // TODO: A patch will be implemented to assign this deprecated menu to another action.
+            // mapOf(
+            //     sleepTimerConstructorFingerprint to SLEEP_TIMER_CONSTRUCTOR_FEATURE_FLAG,
+            //     sleepTimerFingerprint to SLEEP_TIMER_FEATURE_FLAG
+            // ).forEach { (fingerprint, literal) ->
+            //     fingerprint.injectLiteralInstructionBooleanCall(
+            //         literal,
+            //         "$PLAYER_CLASS_DESCRIPTOR->hideDeprecatedSleepTimerMenu(Z)Z"
+            //     )
+            // }
+            settingArray += "SETTINGS: HIDE_SLEEP_TIMER_MENU"
         }
 
         // endregion

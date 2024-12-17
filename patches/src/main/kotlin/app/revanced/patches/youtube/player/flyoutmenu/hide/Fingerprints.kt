@@ -61,6 +61,23 @@ internal val pipModeConfigFingerprint = legacyFingerprint(
     literals = listOf(45427407L),
 )
 
+internal const val SLEEP_TIMER_CONSTRUCTOR_FEATURE_FLAG = 45640654L
+
+internal val sleepTimerConstructorFingerprint = legacyFingerprint(
+    name = "sleepTimerConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    literals = listOf(SLEEP_TIMER_CONSTRUCTOR_FEATURE_FLAG),
+)
+
+internal const val SLEEP_TIMER_FEATURE_FLAG = 45630421L
+
+internal val sleepTimerFingerprint = legacyFingerprint(
+    name = "sleepTimerConstructorFingerprint",
+    returnType = "Z",
+    literals = listOf(SLEEP_TIMER_FEATURE_FLAG),
+)
+
 internal val videoQualityArrayFingerprint = legacyFingerprint(
     name = "videoQualityArrayFingerprint",
     returnType = "[Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;",
