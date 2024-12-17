@@ -15,6 +15,7 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.patches.shared.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.util.fingerprint.matchOrThrow
@@ -48,7 +49,10 @@ val spoofClientPatch = bytecodePatch(
     SPOOF_CLIENT.summary,
     false,
 ) {
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        blockRequestPatch
+    )
 
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -211,6 +215,8 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
+        // region fix for playback speed menu is not available in Podcasts
+
         playbackSpeedBottomSheetFingerprint.mutableClassOrThrow().let {
             val onItemClickMethod =
                 it.methods.find { method -> method.name == "onItemClick" }
@@ -243,6 +249,8 @@ val spoofClientPatch = bytecodePatch(
                 }
             }
         }
+
+        // endregion
 
         addSwitchPreference(
             CategoryType.MISC,
