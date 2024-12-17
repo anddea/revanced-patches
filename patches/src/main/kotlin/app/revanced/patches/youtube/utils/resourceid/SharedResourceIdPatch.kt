@@ -216,6 +216,8 @@ var youTubeControlsOverlaySubtitleButton = -1L
     private set
 var youTubeLogo = -1L
     private set
+var ytFillBell = -1L
+    private set
 var ytOutlinePictureInPictureWhite = -1L
     private set
 var ytOutlineVideoCamera = -1L
@@ -637,6 +639,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         youTubeLogo = resourceMappings[
             ID,
             "youtube_logo"
+        ]
+        ytFillBell = resourceMappings[
+            DRAWABLE,
+            "yt_fill_bell_black_24"
         ]
         ytOutlinePictureInPictureWhite = resourceMappings[
             DRAWABLE,
