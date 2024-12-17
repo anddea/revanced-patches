@@ -1,14 +1,16 @@
 package app.revanced.patches.shared.spoof.streamingdata
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -17,14 +19,24 @@ import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/SpoofStreamingDataPatch;"
+
+// In YouTube 17.34.36, this class is obfuscated.
+const val STREAMING_DATA_INTERFACE =
+    "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
 
 fun baseSpoofStreamingDataPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
@@ -71,6 +83,8 @@ fun baseSpoofStreamingDataPatch(
 
         createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint).let { result ->
             result.method.apply {
+                val setStreamDataMethodName = "patch_setStreamingData"
+                val resultMethodType = result.classDef.type
                 val setStreamingDataIndex = result.patternMatch!!.startIndex
                 val setStreamingDataField =
                     getInstruction(setStreamingDataIndex).getReference<FieldReference>().toString()
@@ -87,48 +101,95 @@ fun baseSpoofStreamingDataPatch(
                     ?: throw PatchException("Could not find getStreamingDataField")
 
                 val videoDetailsIndex = result.patternMatch!!.endIndex
+                val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
                 val videoDetailsClass =
                     getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
-                val insertIndex = videoDetailsIndex + 1
-                val videoDetailsRegister =
-                    getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
+                addInstruction(
+                    videoDetailsIndex + 1,
+                    "invoke-direct { p0, v$videoDetailsRegister }, " +
+                            "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                )
 
-                val overrideRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                val freeRegister = implementation!!.registerCount - parameters.size - 2
-
-                addInstructionsWithLabels(
-                    insertIndex,
-                    """
-                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :disabled
-
-                        # Get video id.
-                        # From YouTube 17.34.36 to YouTube 19.16.39, the field names and field types are the same.
-                        iget-object v$freeRegister, v$videoDetailsRegister, $videoDetailsClass->c:Ljava/lang/String;
-                        if-eqz v$freeRegister, :disabled
-
-                        # Get streaming data.
-                        invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)Ljava/nio/ByteBuffer;
-                        move-result-object v$freeRegister
-                        if-eqz v$freeRegister, :disabled
-
-                        # Parse streaming data.
-                        sget-object v$overrideRegister, $playerProtoClass->a:$playerProtoClass
-                        invoke-static { v$overrideRegister, v$freeRegister }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
-                        move-result-object v$freeRegister
-                        check-cast v$freeRegister, $playerProtoClass
-
-                        # Set streaming data.
-                        iget-object v$freeRegister, v$freeRegister, $getStreamingDataField
-                        if-eqz v$freeRegister, :disabled
-                        iput-object v$freeRegister, p0, $setStreamingDataField
-
-                        """,
-                    ExternalLabel("disabled", getInstruction(insertIndex))
+                result.classDef.methods.add(
+                    ImmutableMethod(
+                        resultMethodType,
+                        setStreamDataMethodName,
+                        listOf(ImmutableMethodParameter(videoDetailsClass, annotations, "videoDetails")),
+                        "V",
+                        AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                        annotations,
+                        null,
+                        MutableMethodImplementation(9),
+                    ).toMutable().apply {
+                        addInstructionsWithLabels(
+                            0,
+                            """
+                                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
+                                move-result v0
+                                if-eqz v0, :disabled
+                                
+                                # Get video id.
+                                iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
+                                if-eqz v2, :disabled
+                                
+                                # Get streaming data.
+                                iget-object v6, p0, $setStreamingDataField
+                                invoke-static { v2, v6 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;$STREAMING_DATA_INTERFACE)Ljava/nio/ByteBuffer;
+                                move-result-object v3
+                                if-eqz v3, :disabled
+                                
+                                # Parse streaming data.
+                                sget-object v4, $playerProtoClass->a:$playerProtoClass
+                                invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
+                                move-result-object v5
+                                check-cast v5, $playerProtoClass
+                                
+                                # Set streaming data.
+                                iget-object v6, v5, $getStreamingDataField
+                                if-eqz v6, :disabled
+                                iput-object v6, p0, $setStreamingDataField
+                                
+                                :disabled
+                                return-void
+                                """,
+                        )
+                    },
                 )
             }
+        }
+
+        videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint).apply {
+            val formatStreamModelInitIndex = indexOfFormatStreamModelInitInstruction(this)
+            val getVideoIdIndex = indexOfFirstInstructionReversedOrThrow(formatStreamModelInitIndex) {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IGET_OBJECT &&
+                        reference?.type == "Ljava/lang/String;" &&
+                        reference.definingClass == definingClass
+            }
+            val getVideoIdReference = getInstruction<ReferenceInstruction>(getVideoIdIndex).reference
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(getVideoIdIndex) {
+                opcode == Opcode.IGET_OBJECT &&
+                        getReference<FieldReference>()?.definingClass == STREAMING_DATA_INTERFACE
+            }
+
+            val (freeRegister, streamingDataRegister) = with(getInstruction<TwoRegisterInstruction>(insertIndex)) {
+                Pair(registerA, registerB)
+            }
+            val definingClassRegister = getInstruction<TwoRegisterInstruction>(getVideoIdIndex).registerB
+            val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+
+            replaceInstruction(
+                insertIndex,
+                "iget-object v$freeRegister, v$freeRegister, $insertReference"
+            )
+            addInstructions(
+                insertIndex, """
+                    iget-object v$freeRegister, v$definingClassRegister, $getVideoIdReference
+                    invoke-static { v$freeRegister, v$streamingDataRegister }, $EXTENSION_CLASS_DESCRIPTOR->getOriginalStreamingData(Ljava/lang/String;$STREAMING_DATA_INTERFACE)$STREAMING_DATA_INTERFACE
+                    move-result-object v$freeRegister
+                    """
+            )
         }
 
         // endregion

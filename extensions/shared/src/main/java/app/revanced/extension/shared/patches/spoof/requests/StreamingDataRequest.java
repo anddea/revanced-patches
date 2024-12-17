@@ -2,6 +2,8 @@ package app.revanced.extension.shared.patches.spoof.requests;
 
 import static app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
 
+import android.util.Pair;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -93,7 +95,7 @@ public class StreamingDataRequest {
     }
 
     private final String videoId;
-    private final Future<ByteBuffer> future;
+    private final Future<Pair<ByteBuffer, ClientType>> future;
 
     private StreamingDataRequest(String videoId, Map<String, String> playerHeaders) {
         Objects.requireNonNull(playerHeaders);
@@ -170,7 +172,7 @@ public class StreamingDataRequest {
         return null;
     }
 
-    private static ByteBuffer fetch(String videoId, Map<String, String> playerHeaders) {
+    private static Pair<ByteBuffer, ClientType> fetch(String videoId, Map<String, String> playerHeaders) {
         lastSpoofedClientType = null;
 
         // Retry with different client if empty response body is received.
@@ -193,7 +195,7 @@ public class StreamingDataRequest {
                             }
                             lastSpoofedClientType = clientType;
 
-                            return ByteBuffer.wrap(baos.toByteArray());
+                            return new Pair<>(ByteBuffer.wrap(baos.toByteArray()), clientType);
                         }
                     }
                 } catch (IOException ex) {
@@ -211,7 +213,7 @@ public class StreamingDataRequest {
     }
 
     @Nullable
-    public ByteBuffer getStream() {
+    public Pair<ByteBuffer, ClientType> getStream() {
         try {
             return future.get(MAX_MILLISECONDS_TO_WAIT_FOR_FETCH, TimeUnit.MILLISECONDS);
         } catch (TimeoutException ex) {
