@@ -11,7 +11,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-
 internal val bottomControlsInflateFingerprint = legacyFingerprint(
     name = "bottomControlsInflateFingerprint",
     returnType = "Ljava/lang/Object;",
@@ -69,4 +68,12 @@ internal val playerControlsVisibilityFingerprint = legacyFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("Z", "Z")
+)
+
+internal const val PLAYER_TOP_CONTROLS_EXPERIMENTAL_LAYOUT_FEATURE_FLAG = 45629424L
+
+internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = legacyFingerprint(
+    name = "playerTopControlsExperimentalLayoutFeatureFlagFingerprint",
+    returnType = "I",
+    literals = listOf(PLAYER_TOP_CONTROLS_EXPERIMENTAL_LAYOUT_FEATURE_FLAG),
 )

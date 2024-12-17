@@ -119,4 +119,11 @@ public class PlayerControlsPatch {
         // CreateSegmentButtonController.changeVisibilityNegatedImmediate();
         // VotingButtonController.changeVisibilityNegatedImmediate();
     }
+
+    /**
+     * Injection point.
+     */
+    public static String getPlayerTopControlsLayoutResourceName(String original) {
+        return "default";
+    }
 }

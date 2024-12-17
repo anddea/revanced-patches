@@ -93,8 +93,9 @@ public final class MiniplayerPatch {
         int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
 
         if (dipWidth < WIDTH_DIP_MIN || dipWidth > WIDTH_DIP_MAX) {
-            Utils.showToastLong(str("revanced_miniplayer_width_dip_invalid_toast",
+            Utils.showToastShort(str("revanced_miniplayer_width_dip_invalid_toast",
                     WIDTH_DIP_MIN, WIDTH_DIP_MAX));
+            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
 
             // Instead of resetting, clamp the size at the bounds.
             dipWidth = Math.max(WIDTH_DIP_MIN, Math.min(dipWidth, WIDTH_DIP_MAX));

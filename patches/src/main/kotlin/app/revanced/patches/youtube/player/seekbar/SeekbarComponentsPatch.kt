@@ -476,7 +476,7 @@ val seekbarComponentsPatch = bytecodePatch(
 
             updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
         } else {
-            println("WARNING: Restore old seekbar thumbnails setting is not supported in this version. Use YouTube 19.16.39 or earlier.")
+            println("WARNING: \"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
         }
 
         // endregion
