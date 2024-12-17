@@ -197,6 +197,8 @@ public class GeneralPatch {
 
     // region [Hide navigation bar components] patch
 
+    private static final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
+
     private static final Map<NavigationButton, Boolean> shouldHideMap = new EnumMap<>(NavigationButton.class) {
         {
             put(NavigationButton.HOME, Settings.HIDE_NAVIGATION_HOME_BUTTON.get());
@@ -214,6 +216,18 @@ public class GeneralPatch {
 
     public static boolean enableTranslucentNavigationBar() {
         return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
+        if (fillBellCairoBlack != 0) {
+            // It's very unlikely, but Google might fix this issue someday.
+            // If so, [fillBellCairoBlack] might already be in enumMap.
+            // That's why 'EnumMap.putIfAbsent()' is used instead of 'EnumMap.put()'.
+            enumMap.putIfAbsent(tabActivityCairo, Integer.valueOf(fillBellCairoBlack));
+        }
     }
 
     public static boolean switchCreateWithNotificationButton(boolean original) {
