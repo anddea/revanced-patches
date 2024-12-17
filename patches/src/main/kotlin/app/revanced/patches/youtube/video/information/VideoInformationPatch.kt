@@ -187,10 +187,14 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(returnType: String): String {
+        fun Pair<String, Fingerprint>.getPlayerResponseInstruction(returnType: String, fromString: Boolean? = null): String {
             methodOrThrow().apply {
+                val startIndex = if (fromString == true)
+                    matchOrThrow().stringMatches!!.first().index
+                else
+                    0
                 val targetReference = getInstruction<ReferenceInstruction>(
-                    indexOfFirstInstructionOrThrow {
+                    indexOfFirstInstructionOrThrow(startIndex) {
                         val reference = getReference<MethodReference>()
                         (opcode == Opcode.INVOKE_INTERFACE_RANGE || opcode == Opcode.INVOKE_INTERFACE) &&
                                 reference?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR &&
@@ -289,7 +293,7 @@ val videoInformationPatch = bytecodePatch(
         channelIdMethodCall =
             channelIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
         channelNameMethodCall =
-            channelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
+            channelNameFingerprint.getPlayerResponseInstruction("Ljava/lang/String;", true)
         videoIdMethodCall = videoIdFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
         videoTitleMethodCall =
             videoTitleFingerprint.getPlayerResponseInstruction("Ljava/lang/String;")
