@@ -8,11 +8,16 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
+import java.util.Objects;
 
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoType;
 import app.revanced.extension.music.utils.VideoUtils;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused"})
 public class PlayerPatch {
@@ -150,9 +155,22 @@ public class PlayerPatch {
     }
 
     public static void shuffleTracks() {
+        shuffleTracks(false);
+    }
+
+    public static void shuffleTracksWithDelay() {
+        shuffleTracks(true);
+    }
+
+    private static void shuffleTracks(boolean needDelay) {
         if (!Settings.ALWAYS_SHUFFLE.get())
             return;
-        VideoUtils.shuffleTracks();
+
+        if (needDelay) {
+            Utils.runOnMainThreadDelayed(VideoUtils::shuffleTracks, 1000);
+        } else {
+            VideoUtils.shuffleTracks();
+        }
     }
 
     public static boolean rememberRepeatState(boolean original) {

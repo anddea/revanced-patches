@@ -7,6 +7,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.patch.PatchList.RETURN_YOUTUBE_DISLIKE
+import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.PREFERENCE_CATEGORY_TAG_NAME
@@ -20,6 +22,8 @@ import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.dislikeFingerprint
 import app.revanced.patches.shared.likeFingerprint
 import app.revanced.patches.shared.removeLikeFingerprint
+import app.revanced.patches.shared.textcomponent.hookSpannableString
+import app.revanced.patches.shared.textcomponent.textComponentPatch
 import app.revanced.util.adoptChild
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -37,7 +41,8 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         sharedResourceIdPatch,
-        videoInformationPatch
+        videoInformationPatch,
+        textComponentPatch,
     )
 
     execute {
@@ -56,25 +61,31 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
             )
         }
 
+        if (!is_7_25_or_greater) {
+            textComponentFingerprint.methodOrThrow().apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_STATIC
+                            && (this as ReferenceInstruction).reference.toString()
+                        .endsWith("Ljava/lang/CharSequence;")
+                } + 2
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
-        textComponentFingerprint.methodOrThrow().apply {
-            val insertIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_STATIC
-                        && (this as ReferenceInstruction).reference.toString()
-                    .endsWith("Ljava/lang/CharSequence;")
-            } + 2
-            val insertRegister =
-                getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->onSpannedCreated(Landroid/text/Spanned;)Landroid/text/Spanned;
+                        move-result-object v$insertRegister
+                        """
+                )
+            }
+        }
 
-            addInstructions(
-                insertIndex, """
-                    invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->onSpannedCreated(Landroid/text/Spanned;)Landroid/text/Spanned;
-                    move-result-object v$insertRegister
-                    """
-            )
+        if (is_7_17_or_greater) {
+            hookSpannableString(EXTENSION_CLASS_DESCRIPTOR, "onLithoTextLoaded")
         }
 
         videoIdHook("$EXTENSION_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
+
     }
 }
 

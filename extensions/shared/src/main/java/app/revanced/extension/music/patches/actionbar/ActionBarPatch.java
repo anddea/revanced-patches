@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import java.util.Map;
+
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.utils.VideoUtils;
 
@@ -38,6 +40,32 @@ public class ActionBarPatch {
                 enabled,
                 view
         );
+    }
+
+    private static final String senderView = "com.google.android.libraries.youtube.rendering.elements.sender_view";
+
+    public static boolean inAppDownloadButtonOnClick(Map mMap) {
+        if (!Settings.EXTERNAL_DOWNLOADER_ACTION_BUTTON.get()) {
+            return false;
+        }
+        if (mMap == null || mMap.isEmpty()) {
+            return false;
+        }
+        if (!mMap.containsKey(senderView)) {
+            return false;
+        }
+        if (!(getLithoViewFromMap(mMap, senderView, View.class) instanceof View view)) {
+            return false;
+        }
+        VideoUtils.launchExternalDownloader();
+        return true;
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
+    private static Object getLithoViewFromMap(Map mMap, Object mObject, Class<?> mClass) {
+        return null;
     }
 
     public static void inAppDownloadButtonOnClick(View view) {
