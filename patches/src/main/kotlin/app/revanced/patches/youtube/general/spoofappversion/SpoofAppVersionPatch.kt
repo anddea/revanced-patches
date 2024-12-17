@@ -13,7 +13,10 @@ import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_18_39_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -81,18 +84,6 @@ val spoofAppVersionPatch = resourcePatch(
 
     execute {
 
-        if (is_18_34_or_greater) {
-            appendAppVersion("18.33.40")
-            if (is_18_39_or_greater) {
-                appendAppVersion("18.38.45")
-                if (is_18_49_or_greater) {
-                    appendAppVersion("18.48.39")
-                }
-            }
-        }
-
-        // region add settings
-
         addPreference(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
@@ -102,7 +93,35 @@ val spoofAppVersionPatch = resourcePatch(
             SPOOF_APP_VERSION
         )
 
-        // endregion
+        if (!is_19_17_or_greater) {
+            appendAppVersion("17.41.37")
+            appendAppVersion("18.05.40")
+            appendAppVersion("18.17.43")
+            if (!is_18_34_or_greater) {
+                return@execute
+            }
+            appendAppVersion("18.33.40")
+        }
+
+        if (!is_18_39_or_greater) {
+            return@execute
+        }
+        appendAppVersion("18.38.45")
+
+        if (!is_18_49_or_greater) {
+            return@execute
+        }
+        appendAppVersion("18.48.39")
+
+        if (!is_19_28_or_greater) {
+            return@execute
+        }
+        appendAppVersion("19.26.42")
+
+        if (!is_19_34_or_greater) {
+            return@execute
+        }
+        appendAppVersion("19.33.37")
 
     }
 }
