@@ -21,7 +21,6 @@ internal val musicPlaybackControlsTimeBarOnMeasureFingerprint = legacyFingerprin
     name = "musicPlaybackControlsTimeBarOnMeasureFingerprint",
     returnType = "V",
     opcodes = listOf(
-        Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID

@@ -111,7 +111,10 @@ private val sponsorBlockBytecodePatch = bytecodePatch(
         rectangleFieldName =
             musicPlaybackControlsTimeBarOnMeasureFingerprint.matchOrThrow().let {
                 with(it.method) {
-                    val rectangleIndex = it.patternMatch!!.startIndex
+                    val rectangleIndex = indexOfFirstInstructionReversedOrThrow(it.patternMatch!!.endIndex) {
+                        opcode == Opcode.IGET_OBJECT &&
+                                getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+                    }
                     val rectangleReference =
                         getInstruction<ReferenceInstruction>(rectangleIndex).reference
                     (rectangleReference as FieldReference).name

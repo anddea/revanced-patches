@@ -23,6 +23,7 @@ import app.revanced.patches.music.utils.pendingIntentReceiverFingerprint
 import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.darkBackground
@@ -821,8 +822,8 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for remember repeat state
 
-        repeatTrackFingerprint.matchOrThrow().let {
-            it.method.apply {
+        val (repeatTrackMethod, repeatTrackIndex) = repeatTrackFingerprint.matchOrThrow().let {
+            with (it.method) {
                 val targetIndex = it.patternMatch!!.endIndex
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -832,6 +833,7 @@ val playerComponentsPatch = bytecodePatch(
                         move-result v$targetRegister
                         """
                 )
+                Pair(this, targetIndex)
             }
         }
 
@@ -918,6 +920,13 @@ val playerComponentsPatch = bytecodePatch(
             0,
             "invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->shuffleTracks()V"
         )
+
+        if (is_7_25_or_greater) {
+            repeatTrackMethod.addInstruction(
+                repeatTrackIndex,
+                "invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->shuffleTracksWithDelay()V"
+            )
+        }
 
         addSwitchPreference(
             CategoryType.PLAYER,

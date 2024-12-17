@@ -2,8 +2,10 @@ package app.revanced.extension.music.patches.utils;
 
 import static app.revanced.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
+import android.text.SpannableString;
 import android.text.Spanned;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.music.returnyoutubedislike.ReturnYouTubeDislike;
@@ -18,6 +20,45 @@ import app.revanced.extension.shared.utils.Logger;
  */
 @SuppressWarnings("unused")
 public class ReturnYouTubeDislikePatch {
+
+    /**
+     * Injection point.
+     * <p>
+     * Called when a litho text component is initially created,
+     * and also when a Span is later reused again (such as scrolling off/on screen).
+     * <p>
+     * This method is sometimes called on the main thread, but it usually is called _off_ the main thread.
+     * This method can be called multiple times for the same UI element (including after dislikes was added).
+     *
+     * @param original        Original char sequence was created or reused by Litho.
+     * @return The original char sequence (if nothing should change), or a replacement char sequence that contains dislikes.
+     */
+    public static CharSequence onLithoTextLoaded(@NonNull Object conversionContext,
+                                                 @NonNull CharSequence original) {
+        try {
+            if (!Settings.RYD_ENABLED.get()) {
+                return original;
+            }
+
+            String conversionContextString = conversionContext.toString();
+
+            if (!conversionContextString.contains("segmented_like_dislike_button.eml")) {
+                return original;
+            }
+            ReturnYouTubeDislike videoData = currentVideoData;
+            if (videoData == null) {
+                return original; // User enabled RYD while a video was on screen.
+            }
+            if (!(original instanceof Spanned)) {
+                original = new SpannableString(original);
+            }
+            return videoData.getDislikesSpan((Spanned) original, true);
+        } catch (Exception ex) {
+            Logger.printException(() -> "onLithoTextLoaded failure", ex);
+        }
+        return original;
+    }
+
     /**
      * RYD data for the current video on screen.
      */
@@ -49,7 +90,7 @@ public class ReturnYouTubeDislikePatch {
             if (videoData == null) {
                 return original; // User enabled RYD while a video was on screen.
             }
-            return videoData.getDislikesSpan(original);
+            return videoData.getDislikesSpan(original, false);
         } catch (Exception ex) {
             Logger.printException(() -> "onSpannedCreated failure", ex);
         }

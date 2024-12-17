@@ -4,11 +4,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.general.oldstylelibraryshelf.oldStyleLibraryShelfPatch
-import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION
-import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -30,7 +31,10 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
     )
 
     execute {
-        if (is_7_18_or_greater) {
+        if (is_7_25_or_greater) {
+            return@execute
+        }
+        if (is_7_17_or_greater) {
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultString"
             }.replaceInstruction(
@@ -54,7 +58,16 @@ val spoofAppVersionPatch = resourcePatch(
     SPOOF_APP_VERSION.title,
     SPOOF_APP_VERSION.summary,
 ) {
-    compatibleWith(COMPATIBLE_PACKAGE)
+    compatibleWith(
+        YOUTUBE_MUSIC_PACKAGE_NAME(
+            "6.20.51",
+            "6.29.59",
+            "6.42.55",
+            "6.51.53",
+            "7.06.54",
+            "7.16.53",
+        ),
+    )
 
     dependsOn(
         spoofAppVersionBytecodePatch,
@@ -64,7 +77,11 @@ val spoofAppVersionPatch = resourcePatch(
     )
 
     execute {
-        if (is_7_18_or_greater) {
+        if (is_7_25_or_greater) {
+            println("WARNING: \"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
+            return@execute
+        }
+        if (is_7_17_or_greater) {
             appendAppVersion("7.16.53")
         }
 
