@@ -39,6 +39,7 @@ import app.revanced.extension.youtube.patches.general.MiniplayerPatch;
 import app.revanced.extension.youtube.patches.general.YouTubeMusicActionsPatch;
 import app.revanced.extension.youtube.patches.misc.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
+import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.shared.PlaylistIdPrefix;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
@@ -427,7 +428,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_SHELF_SUBSCRIPTIONS = new BooleanSetting("revanced_hide_shorts_shelf_subscriptions", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SHELF_SEARCH = new BooleanSetting("revanced_hide_shorts_shelf_search", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SHELF_HISTORY = new BooleanSetting("revanced_hide_shorts_shelf_history", FALSE);
-    public static final IntegerSetting CHANGE_SHORTS_REPEAT_STATE = new IntegerSetting("revanced_change_shorts_repeat_state", 0);
+    public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_repeat_state", ShortsLoopBehavior.UNKNOWN);
+    public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_BACKGROUND_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_background_repeat_state", ShortsLoopBehavior.UNKNOWN);
 
     // PreferenceScreen: Shorts - Shorts player components
     public static final BooleanSetting HIDE_SHORTS_JOIN_BUTTON = new BooleanSetting("revanced_hide_shorts_join_button", TRUE);

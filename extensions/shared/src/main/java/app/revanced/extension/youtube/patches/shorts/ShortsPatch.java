@@ -56,20 +56,6 @@ public class ShortsPatch {
         NAVIGATION_BAR_HEIGHT_PERCENTAGE = heightPercentage / 100d;
     }
 
-    public static Enum<?> repeat;
-    public static Enum<?> singlePlay;
-    public static Enum<?> endScreen;
-
-    public static Enum<?> changeShortsRepeatState(Enum<?> currentState) {
-        switch (Settings.CHANGE_SHORTS_REPEAT_STATE.get()) {
-            case 1 -> currentState = repeat;
-            case 2 -> currentState = singlePlay;
-            case 3 -> currentState = endScreen;
-        }
-
-        return currentState;
-    }
-
     public static boolean disableResumingStartupShortsPlayer() {
         return Settings.DISABLE_RESUMING_SHORTS_PLAYER.get();
     }

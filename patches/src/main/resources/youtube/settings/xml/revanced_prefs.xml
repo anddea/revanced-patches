@@ -636,6 +636,9 @@
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
         <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_COMPONENTS -->
 
+        <!-- SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND
+        <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_background_repeat_state_title" android:key="revanced_change_shorts_background_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND -->
+
     <!-- PREFERENCE_SCREEN: SHORTS
     </PreferenceScreen>PREFERENCE_SCREEN: SHORTS -->
 
