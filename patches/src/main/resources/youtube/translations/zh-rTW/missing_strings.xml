@@ -1,46 +1,59 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+    <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Custom actions are disabled in flyout menu.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Custom actions are enabled in flyout menu.
+
+Limitations:
+• Does not work if app version is spoofed to 18.49.37 or earlier.
+• Does not work with livestream."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Enable custom actions in flyout menu</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Custom actions are disabled in toolbar.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Custom actions are enabled in toolbar.
+
+Press and hold the More button to show the Custom actions dialog."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Chat summary is shown.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Chat summary is hidden.</string>
+    <string name="revanced_hide_live_chat_summary_title">Hide Chat summary in live chat</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
-
-• Double tap to increase miniplayer size.
-• Double tap again to restore original size."</string>
-    <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled.</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop is enabled.
-
-Miniplayer can be dragged to any corner of the screen."</string>
-    <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Buttons are hidden.
-
-Swipe to expand or close."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
-    <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled.</string>
-    <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled.
-
-Miniplayer can be dragged off screen to the left or right."</string>
-    <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture.</string>
-    <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square.</string>
-    <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded.</string>
-    <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
-    <string name="revanced_miniplayer_type_entry_0">Disabled</string>
-    <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s.</string>
-    <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels.</string>
-    <string name="revanced_miniplayer_width_dip_title">Initial size</string>
-    <string name="revanced_overlay_button_play_all_type_entry_0">All content (Sort by time, Ascending)</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
+    <string name="revanced_preference_category_custom_actions">Custom actions</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
+
+Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>
+    <string name="revanced_shorts_custom_actions_about_title">About Custom actions</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Copy video URL menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Copy video URL menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Copy timestamp URL menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Copy timestamp URL menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Show copy timestamp URL menu</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Show copy video URL menu</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">External downloader menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">External downloader menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Show external downloader menu</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Show open video menu</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Repeat state menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Repeat state menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Show repeat state menu</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Custom actions</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
 </resources>

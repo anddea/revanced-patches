@@ -76,6 +76,7 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_change_share_sheet_summary_off">Nativo</string>
     <string name="revanced_change_share_sheet_summary_on">Sistema</string>
     <string name="revanced_change_share_sheet_title">Cambia la schermata di condivisione</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">Cambia lo stato di ripetizione in background</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Riproduzione automatica</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Predefinito</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pausa</string>
@@ -123,6 +124,7 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacità della sovrapposizione del riproduttore deve essere tra 0 e 100</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è tra 0 e 100, dove 0 è trasparente.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Opacità personalizzata della sovrapposizione del riproduttore</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Valore del colore della barra di avanzamento non valido</string>
     <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore.</string>
     <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX da un\'applicazione esterna, abilita \"Apri collegamenti supportati\" e gli indirizzi web supportati.</string>
@@ -153,7 +155,7 @@ La riproduzione automatica può essere modificata seguendo questo percorso:
 Impostazioni → Riproduzione automatica → Telefono cellulare/tablet"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Il cambio automatico alle playlist miste è disattivato.</string>
     <string name="revanced_disable_auto_switch_mix_playlists_title">Disattiva il cambio automatico alle playlist miste</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">L\'attivazione di questa impostazione disattiva il cambio automatico alle playlist miste durante la riproduzione di musica con la riproduzione automatica attiva.</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">L\'attivazione di questa impostazione disattiverà il cambio automatico alle playlist miste durante la riproduzione di musica con la riproduzione automatica attiva.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">La velocità di riproduzione predefinita nei video live è attivata.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video live è disattivata.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video live</string>
@@ -203,6 +205,9 @@ Nota: potrebbe non funzionare con i video che non hanno il banner Ascolta su You
     <string name="revanced_disable_seekbar_chapters_summary_off">I capitoli sono visibili.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">I capitoli sono nascosti.</string>
     <string name="revanced_disable_seekbar_chapters_title">Nascondi i capitoli</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">La riproduzione in background degli Shorts è attivata.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">La riproduzione in background degli Shorts è disattivata.</string>
+    <string name="revanced_disable_shorts_background_playback_title">Disattiva la riproduzione in background degli Shorts</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Le animazioni sopra il pulsante Mi Piace sono attivate.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Le animazioni sopra il pulsante Mi Piace sono disattivate.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disattiva le animazioni sopra il pulsante Mi Piace</string>
@@ -226,11 +231,6 @@ Note:
 • La riproduzione userà più dati internet di VP9.
 • VP9 è usato per la riproduzione HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Disattiva il codec VP9</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">La barra di avanzamento Cairo è disattivata.</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"La barra di avanzamento Cairo è attivata.
-
-Nota: il tema Cairo viene applicato anche ai punti di notifica."</string>
-    <string name="revanced_enable_cairo_seekbar_title">Attiva la barra di avanzamento Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">I controlli compatti sono disattivati.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">I controlli compatti sono attivati.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Attiva i controlli compatti</string>
@@ -277,12 +277,24 @@ Questa impostazione funziona meglio con una connessione internet molto veloce."<
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">I thumbnails di alta qualità sono disattivati.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">I thumbnails di alta qualità sono attivati.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Attiva i thumbnails di alta qualità</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Le azioni personalizzate nei menù a comparsa sono disattivate.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Le azioni personalizzate nei menù a comparsa sono attivate.
+
+Note:
+• Non funziona se la versione dell'app è camuffata alla versione 18.49.37 o precedente.
+• Non funziona con i video live."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Attiva le azioni personalizzate nei menù a comparsa</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Le azioni personalizzate nella barra degli strumenti sono disattivate.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Le azioni personalizzate nella barra degli strumenti sono attivate.
+
+Tocca e tieni premuto il pulsante Altro per visualizzare la finestra delle azioni personalizzate."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Attiva le azioni personalizzate nella barra degli strumenti</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Il timestamp è nascosto.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Il timestamp è mostrato.
 
 Note:
 • È anche possibile nascondere l'interfaccia toccando lo sfondo del riproduttore.
-• Poichè è ancora in fase di sviluppo da parte di Google, l'interfaccia potrebbe non funzionare correttamente."</string>
+• Poichè questa impostazione è ancora in fase di sviluppo da parte di Google, l'interfaccia potrebbe non funzionare correttamente."</string>
     <string name="revanced_enable_shorts_time_stamp_title">Mostra il timestamp</string>
     <string name="revanced_enable_swipe_brightness_summary_off">Il gesto della luminosità è disattivato.</string>
     <string name="revanced_enable_swipe_brightness_summary_on">Il gesto della luminosità è attivato.</string>
@@ -375,8 +387,8 @@ Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_album_card_summary_off">Gli album sono visibili.</string>
     <string name="revanced_hide_album_card_summary_on">Gli album sono nascosti.</string>
     <string name="revanced_hide_album_card_title">Nascondi gli album</string>
-    <string name="revanced_hide_attributes_section_summary_off">Le sezioni Musica, Giochi e Luoghi in Primo Piano sono visibili.</string>
-    <string name="revanced_hide_attributes_section_summary_on">Le sezioni Musica, Giochi e Luoghi in Primo Piano sono nascosti.</string>
+    <string name="revanced_hide_attributes_section_summary_off">Le sezioni Musica, Giochi, Persone e Luoghi in Primo Piano sono visibili.</string>
+    <string name="revanced_hide_attributes_section_summary_on">Le sezioni Musica, Giochi, Persone e Luoghi in Primo Piano sono nascosti.</string>
     <string name="revanced_hide_attributes_section_title">Nascondi le sezioni Musica, Giochi e Luoghi in Primo Piano</string>
     <string name="revanced_hide_autoplay_preview_summary_off">L\'anteprima della riproduzione automatica è visibile.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">L\'anteprima della riproduzione automatica è nascosta.</string>
@@ -590,6 +602,9 @@ Le parole con lettere maiuscole all'interno devono essere inserite con il maiusc
     <string name="revanced_hide_live_chat_replay_button_summary_off">Il pulsante Replay Chat Live è visibile.\n\nNota: il pulsante appare a schermo intero quando si chiude la chat live.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Il pulsante Replay Chat Live è nascosto.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Nascondi il pulsante Replay Chat Live</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">La sezione Riepilogo della Chat nella chat live è visibile.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">La sezione Riepilogo della Chat nella chat live è nascosta.</string>
+    <string name="revanced_hide_live_chat_summary_title">Nascondi la sezione Riepilogo della Chat nella chat live</string>
     <string name="revanced_hide_low_views_video_summary">Nascondi i video con meno di 1.000 visualizzazioni dalla scheda Home che sono stati caricati dai canali a cui non sei iscritto.</string>
     <string name="revanced_hide_low_views_video_title">Nascondi i video con poche visualizzazioni</string>
     <string name="revanced_hide_medical_panel_summary_off">I pannelli medici sono visibili.</string>
@@ -1117,6 +1132,18 @@ Se nella tua regione è attualmente visibile un Doodle, anche la barra dei filtr
     <string name="revanced_keep_landscape_mode_timeout_title">Durata della modalità orizzontale forzata</string>
     <string name="revanced_keep_landscape_mode_title">Mantieni la modalità orizzontale</string>
     <string name="revanced_label_default">Predefinita</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">Il gesto Doppio Tocco e Pizzico per ridimensionare è disattivato.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"Il gesto Doppio Tocco e Pizzico per ridimensionare è attivato.
+
+Note:
+• Tocca due volte per aumentare la dimesione del riproduttore minimizzato.
+• Tocca di nuovo due volte per ripristinare la dimensione originale."</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Attiva il gesto Doppio Tocco e Pizzico per ridimensionare</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_off">Il gesto Trascina e Rilascia è disattivato.</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_on">"Il gesto Trascina e Rilascia è attivato.
+
+Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello schermo."</string>
+    <string name="revanced_miniplayer_drag_and_drop_title">Attiva il gesto Trascina e Rilascia</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Il gesto Doppio Tocco è disattivato.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Il gesto Doppio Tocco è attivato.
 
@@ -1126,25 +1153,42 @@ Se nella tua regione è attualmente visibile un Doodle, anche la barra dei filtr
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Il gesto Trascina-e-Rilascia è disattivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Il gesto Trascina-e-Rilascia è attivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Attiva il gesto Trascina-e-Rilascia</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">I pulsanti Espandi e Chiudi sono nascosti.\n(Trascina il riproduttore minimizzato per espandere o chiudere)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Nascondi i pulsanti Espandi e Chiudi</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"I pulsanti Espandi e Chiudi sono nascosti.
+
+Trascina il riproduttore minimizzato per espandere o chiudere."</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è visibile.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante Chiudi è nascosto.</string>
+    <string name="revanced_miniplayer_hide_expand_close_title">Nascondi il pulsante Chiudi</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">I pulsanti Salta Avanti e Salta Indietro sono visibili.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">I pulsanti Salta Avanti e Salta Indietro sono nascosti.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Nascondi i pulsanti Salta Avanti e Salta Indietro</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">I sottotesti sono visibili.</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">I sottotesti sono nascosti.</string>
     <string name="revanced_miniplayer_hide_subtext_title">Nascondi i sottotesti</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_off">Il gesto Trascina Orizzontalmente è disattivato.</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_on">"Il gesto Trascina Orizzontalmente è attivato.
+
+Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra."</string>
+    <string name="revanced_miniplayer_horizontal_drag_title">Attiva il gesto Trascina Orizzontalmente</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacità della sovrapposizione del riproduttore minimizzato deve essere tra 0 e 100</string>
     <string name="revanced_miniplayer_opacity_summary">Il valore dell\'opacità è tra 0 e 100, dove 0 è trasparente.</string>
     <string name="revanced_miniplayer_opacity_title">Opacità della sovrapposizione</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_off">Gli angoli sono quadrati.</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati.</string>
+    <string name="revanced_miniplayer_rounded_corners_title">Attiva gli angoli arrotondati</string>
+    <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
     <string name="revanced_miniplayer_type_entry_1">Originale</string>
-    <string name="revanced_miniplayer_type_entry_2">Telefono</string>
+    <string name="revanced_miniplayer_type_entry_2">Minimale</string>
     <string name="revanced_miniplayer_type_entry_3">Tablet</string>
     <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
     <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
     <string name="revanced_miniplayer_type_title">Cambia lo stile del riproduttore minimizzato</string>
+    <string name="revanced_miniplayer_width_dip_invalid_toast">La dimensione in pixel deve essere tra %1$s e %2$s</string>
+    <string name="revanced_miniplayer_width_dip_summary">La dimensione iniziale sullo schermo in pixel.</string>
+    <string name="revanced_miniplayer_width_dip_title">Dimensione iniziale</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video.
 Tocca e tieni premuto per attivare la pausa dopo le ripetizione."</string>
@@ -1168,17 +1212,18 @@ Tocca e tieni premuto per annullare.
 Nota:
 • Potrebbe non funzionare con i video live."</string>
     <string name="revanced_overlay_button_play_all_title">Mostra il pulsante Riproduci Tutto</string>
-    <string name="revanced_overlay_button_play_all_type_entry_1">Tutti i contenuti (ordinato per tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">Tutti i contenuti (in ordine crescente di tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Tutti i contenuti (in ordine decrescente di tempo)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Video riservato solo ai membri</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">Shorts riservato solo ai membri</string>
     <string name="revanced_overlay_button_play_all_type_entry_12">Video live riservato solo ai membri</string>
-    <string name="revanced_overlay_button_play_all_type_entry_2">Tutti i contenuti (ordinato per popolarità)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_3">Solo video (ordinato per tempo)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_4">Solo video (ordinato per popolarità)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_5">Solo Shorts (ordinato per tempo)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_6">Solo Shorts (ordinato per popolarità)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_7">Solo video live (ordinato per tempo)</string>
-    <string name="revanced_overlay_button_play_all_type_entry_8">Solo video live (ordinato per popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Tutti i contenuti (in ordine di popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Solo video (in ordine di tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Solo video (in ordine di popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Solo Shorts (in ordine di tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Solo Shorts (in ordine di popolarità)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Solo video live (in ordine di tempo)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Solo video live (in ordine di popolarità)</string>
     <string name="revanced_overlay_button_play_all_type_entry_9">Tutti i contenuti riservati solo ai membri</string>
     <string name="revanced_overlay_button_play_all_type_title">Genera la modalità playlist</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Velocità di riproduzione ripristinata (%sx)</string>
@@ -1206,6 +1251,7 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_category_action_buttons">Pulsanti di azione</string>
     <string name="revanced_preference_category_additional_settings">Impostazioni aggiuntive</string>
     <string name="revanced_preference_category_animation_feedback">Animazione e feedback</string>
+    <string name="revanced_preference_category_custom_actions">Azioni personalizzate</string>
     <string name="revanced_preference_category_download_button">Pulsanti Scarica</string>
     <string name="revanced_preference_category_experimental_flag">Opzioni sperimentali</string>
     <string name="revanced_preference_category_image_region_restrictions">Restrizioni regionali delle immagini</string>
@@ -1576,6 +1622,26 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
     <string name="revanced_share_copy_timestamp_success">Timestamp copiato negli appunti (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato negli appunti</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"Questa impostazione è ancora sperimentale, quindi non c'è garanzia che funzionerà perfettamente.
+
+La maggior parte dei bug non può essere risolta a causa di limitazioni lato client, quindi usala solo per scopi di test."</string>
+    <string name="revanced_shorts_custom_actions_about_title">Informazioni sulle azioni personalizzate</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Il menù URL del Video Copiato è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Il menù URL del Video Copiato è visibile.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Il menù URL del Video con Timestamp Copiato è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Il menù URL del Video con Timestamp Copiato è visibile.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Mostra il menù URL del Video con Timestamp Copiato</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Mostra il menù URL del Video Copiato</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Il menù Downloader Esterno è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Il menù Downloader Esterno è visibile.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Mostra il menù Downloader Esterno</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">Il menù Apri il Video è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">Il menù Apri il Video è visibile.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Mostra il menù Apri il Video</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Il menù Stato di Ripetizione è visibile.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Il menù Stato di Ripetizione è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Mostra il menù Stato di Ripetizione</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Azioni personalizzate</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Originale</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pollice in su</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Pollice in su (Cairo)</string>
@@ -1623,10 +1689,12 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_17_41_37">17.41.37 - Ripristina il vecchio scaffale delle playlist</string>
     <string name="revanced_spoof_app_version_target_entry_18_05_40">18.05.40 - Ripristina la vecchia casella di inserimento dei commenti</string>
     <string name="revanced_spoof_app_version_target_entry_18_17_43">18.17.43 - Ripristina il vecchio pannello a comparsa del riproduttore</string>
-    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra di azione degli Shorts</string>
+    <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Ripristina la vecchia barra delle azioni degli Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Ripristina il comportamento della vecchia qualità video predefinita</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disattiva l\'aggiornamento in tempo reale delle visualizzazioni e dei mi piace</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Ripristina il vecchio effetto contatore dei numeri</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disattiva l\'icona Cairo nella navigazione e nella barra degli strumenti</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Ripristina il vecchio pannello della velocità di riproduzione</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versione dell\'app da camuffare</string>
     <string name="revanced_spoof_app_version_target_summary">Digita la versione dell\'app da camuffare.</string>
     <string name="revanced_spoof_app_version_target_title">Modifica la versione dell\'app da camuffare</string>
@@ -1639,15 +1707,6 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
     <string name="revanced_spoof_device_dimensions_summary">"Camuffa le dimensioni del dispositivo portandole al valore massimo.
 Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tutti, che richiedono dimensioni del dispositivo elevate."</string>
     <string name="revanced_spoof_device_dimensions_title">Camuffa le dimensioni del dispositivo</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Il codec video è AVC (H.264), VP9 o AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Il codec video è AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forza iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"L'attivazione di questa impostazione potrebbe migliorare la durata della batteria e risolvere il problema della riproduzione a scatti.
-
-Nota: AVC (H.264) ha una risoluzione massima di 1080p e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Il client iOS è usato per la riproduzione dei video live.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Il client iOS non è usato per la riproduzione dei video live.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Salta la riproduzione dei video live con il client iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
@@ -1669,6 +1728,7 @@ Nota: AVC (H.264) ha una risoluzione massima di 1080p e la riproduzione userà p
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilità del gesto della luminosità deve essere tra 1 e 1000 (%)</string>

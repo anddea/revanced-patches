@@ -104,7 +104,7 @@
     <string name="revanced_extended_settings_import_reset">Настройки сброшены до начальных.</string>
     <string name="revanced_extended_settings_import_success">Восстановлено %d настройки(ек).</string>
     <string name="revanced_extended_settings_reset">Сбросить</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">Настройки ReVanced Extended</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Скачать\" открывает внешний загрузчик.
 
 • Переопределяет только кнопку загрузки в плеере.
@@ -118,8 +118,8 @@
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Скрывает пустой пункт в меню аккаунта.</string>
-    <string name="revanced_hide_account_menu_empty_component_title">Скрыть пустой пункт</string>
-    <string name="revanced_hide_account_menu_filter_strings_summary">Список имен меню учетной записи для фильтрации, разделяемых новой строкой.</string>
+    <string name="revanced_hide_account_menu_empty_component_title">Скрыть пустые пункты</string>
+    <string name="revanced_hide_account_menu_filter_strings_summary">Список имен меню аккаунта для фильтрации, разделяемых новой строкой.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">Скрывает элементы меню аккаунта в пользовательском фильтре.</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
@@ -397,4 +397,11 @@
     <string name="revanced_spoof_app_version_target_summary">Выберите целевую версию приложения для подмены.</string>
     <string name="revanced_spoof_app_version_target_title">Целевая версия приложения при подмене</string>
     <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
+    <string name="revanced_spoof_client_summary">"Подмена клиента для предотвращения проблем с воспроизведением.
+
+Ограничения:
+• Кодек OPUS может не работать.
+• Превью во время перемотки может отсутствовать.
+• История просмотра не работает при использовании аккаунта компании."</string>
+    <string name="revanced_spoof_client_title">Подмена клиента</string>
 </resources>

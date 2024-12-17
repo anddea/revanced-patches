@@ -42,6 +42,8 @@ Kontynuuj i wyłącz optymalizację baterii."</string>
     <string name="revanced_disable_cairo_splash_animation_title">Wyłącz animację uruchamiania aplikacji</string>
     <string name="revanced_disable_dislike_redirection_summary">Wyłącza przenoszenie do następnego utworu po kliknięciu łapki w dół.</string>
     <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
+    <string name="revanced_disable_drc_audio_summary">Wyłącza DRC (Dynamic Range Compression) stosowane w utworach.</string>
+    <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
     <string name="revanced_disable_mini_player_gesture_title">Wyłącz gest w miniodtwarzaczu</string>
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
@@ -168,6 +170,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ukryj menu od przechodzenia do podcastu</string>
     <string name="revanced_hide_flyout_menu_help_title">Ukryj menu do pomocy i opinii</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ukryj przypinanie do menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ukryj menu od odtwarzania jako następny</string>
     <string name="revanced_hide_flyout_menu_quality_title">Ukryj menu od jakości</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ukryj menu od usuwania z biblioteki</string>
@@ -182,6 +185,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Ukryj menu do radia</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ukryj menu od statystyk dla nerdów</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / odsubskrybowywania</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ukryj odpinanie z menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu do autorów utworu</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Ukrywa reklamy pełnoekranowe.
 
@@ -400,11 +404,26 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
-    <string name="revanced_spoof_client_summary">Oszukuj klienta, by zapobiec problemom z odtwarzaniem
+    <string name="revanced_spoof_client_summary">"Oszukuj klienta, by zapobiec problemom z odtwarzaniem.
 
 Ograniczenia:
 • Kodek audio OPUS może nie być wspierany
 • Miniaturki podczas przewijania mogą nie być dostępne
-• Historia oglądania nie działa na kontach firmowych</string>
+• Historia oglądania nie działa na kontach firmowych
+
+※ Używane równolegle z opcją 'Oszukuj strumień danych', może powodować problemy z odtwarzaniem
+"</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
+    <string name="revanced_spoof_streaming_data_summary">"Oszukuj strumień danych, by zapobiec problemom z odtwarzaniem.
+
+※ Używane równolegle z opcją 'Oszukuj klienta', może powodować problemy z odtwarzaniem"</string>
+    <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Denifiuje domyślnego klienta, z którego będzie przechwytywany strumień danych.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
 </resources>

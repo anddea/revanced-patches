@@ -227,11 +227,6 @@
 • 视频播放将使用比 VP9 更多的网络数据
 要获取 HDR 播放，HDR 视频仍使用VP9 编解码器"</string>
     <string name="revanced_disable_vp9_codec_title">禁用 VP9 编解码器</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo 搜索栏已禁用</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo 搜索栏已启用
-
-副作用：Cairo 主题也应用于通知点"</string>
-    <string name="revanced_enable_cairo_seekbar_title">启用 Cairo 搜索栏</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">紧凑的播放器布局已禁用</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">紧凑的播放器布局已启用</string>
     <string name="revanced_enable_compact_controls_overlay_title">启用紧凑的播放器布局叠加层</string>
@@ -1611,12 +1606,6 @@ Note:
 如果稍后关闭，建议清除应用数据以防止UI错误"</string>
     <string name="revanced_spoof_device_dimensions_summary">"伪装设备尺寸，以解锁设备可能无法提供的更高视频质量"</string>
     <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS 视频编解码器是 AVC (H.264), VP9, 或 AV1</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS 视频编解码器是 AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">强制使用 iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"启用此功能可能会改善耗电并修复播放卡顿问题
-
-AVC (H.264) 的最大解析度为 1080p，且视频播放将使用比 VP9 或 AV1 更多的网路数据"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音轨菜单缺失"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音轨菜单缺失"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• 电影或付费视频可能无法播放"</string>

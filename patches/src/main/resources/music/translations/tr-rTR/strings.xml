@@ -16,6 +16,8 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="gms_core_toast_not_installed_message">GmsCore yüklü değil. Yükleyin.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bazı bölgelerde engellenen alan adını değiştirerek oynatma listesi küçük resimlerinin, kanal avatarlarının vb. alınabilmesini sağlar.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
+    <string name="revanced_change_share_sheet_summary">Uygulama içi paylaşım sayfasını sistem paylaşım sayfasıyla değiştirin.</string>
+    <string name="revanced_change_share_sheet_title">Paylaşım sayfasını değiştir</string>
     <string name="revanced_change_start_page_entry_chart">Listeler</string>
     <string name="revanced_change_start_page_entry_explore">Keşfet</string>
     <string name="revanced_change_start_page_entry_home">Ana Sayfa</string>
@@ -28,12 +30,16 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir.</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Geçersiz özel oynatma hızları. Hızlar varsayılana sıfırlandı.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları. Varsayılanlar seçildi.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %sx\'den küçük olmalıdır.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları.</string>
     <string name="revanced_custom_playback_speeds_summary">Mevcut oynatma hızlarını değiştirin.</string>
     <string name="revanced_custom_playback_speeds_title">Özel oynatma hızlarını düzenle</string>
+    <string name="revanced_default_app_settings_summary">YouTube Müzik bağlantılarını RVX Music\'te açmak için \'Desteklenen bağlantıları aç\'ı etkinleştirin ve desteklenen web adreslerini etkinleştirin.</string>
+    <string name="revanced_default_app_settings_title">Varsayılan uygulama ayarlarını aç</string>
     <string name="revanced_disable_auto_captions_summary">Altyazıların kendiliğinden açılmasını devre dışı bırakır.</string>
     <string name="revanced_disable_auto_captions_title">Altyazıların kendiliğinden açılmasını kapat</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Uygulama açılışındaki Kahire açılış animasyonunu devre dışı bırakır.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Kahire açılış animasyonunu devre dışı bırak</string>
     <string name="revanced_disable_dislike_redirection_summary">Beğenmedim düğmesine tıklandığında sonraki parçaya yönlendirmeyi devre dışı bırakır.</string>
     <string name="revanced_disable_dislike_redirection_title">Beğenmeme yönlendirmesini devre dışı bırak</string>
     <string name="revanced_disable_mini_player_gesture_summary">Mini oynatıcıdaki parçaları değiştirmek için kaydırmayı devre dışı bırakın.</string>
@@ -82,6 +88,7 @@ Bilgi:
     <string name="revanced_enable_zen_mode_podcast_title">Podcastlerde zen modunu aç/kapa</string>
     <string name="revanced_enable_zen_mode_summary">Video oynatıcıya açık gri bir ton ekleyerek göz yorgunluğunu azaltır.</string>
     <string name="revanced_enable_zen_mode_title">Zen modunu aç/kapa</string>
+    <string name="revanced_extended_reset_to_default_toast">Varsayılan değerlere sıfırlayın.</string>
     <string name="revanced_extended_restart_first_run">Düzeni normal şekilde yüklemek için yeniden başlatın</string>
     <string name="revanced_extended_restart_message">Yenile ve yeniden başlat</string>
     <string name="revanced_extended_settings_export_as_file">Ayarları bir dosyaya dışa aktar</string>
@@ -176,7 +183,10 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">\"Meraklısı için istatikler\" menüsü</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Abone ol / Abonelikten çık menüsünü gizle</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Şarkı kredileri menüsünü görüntüle</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamlarını gizler."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Tam ekran reklamları gizle. 
+
+Sınırlamalar:
+• Bazen ana akış yerine boş siyah bir ekran görebilirsiniz."</string>
     <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizle</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Tam ekran oynatıcısındaki paylaş butonunu gizler.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Tam ekran\'daki paylaş butonunu gizle</string>
@@ -212,8 +222,20 @@ Lütfen web sitesinden %2$s dosyasını indirin."</string>
     <string name="revanced_hide_premium_promotion_title">Premium promosyonu açılır penceresini gizler</string>
     <string name="revanced_hide_premium_renewal_summary">Premium yenileme başlığını gizler.</string>
     <string name="revanced_hide_premium_renewal_title">Premium yenileme başlığını gizle</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">Promosyon uyarı başlığını gizler.</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Promosyon uyarı başlığını gizle</string>
     <string name="revanced_hide_samples_shelf_summary">Feed\'deki örnek rafını gizler.</string>
     <string name="revanced_hide_samples_shelf_title">Örnek rafını gizle</string>
+    <string name="revanced_hide_settings_menu_about_title">Hakkında menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">Veri tasarrufu menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">İndirmeleri gizle &amp; depolama menüsü</string>
+    <string name="revanced_hide_settings_menu_general_title">Genel menüyü gizle</string>
+    <string name="revanced_hide_settings_menu_notification_title">Bildirimler menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">YT Müzik Premium Edinin menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">Aile Merkezi menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_playback_title">Oynatma menüsünü gizle</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Gizliliği gizle &amp; veri menüsü</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Öneriler menüsünü gizle</string>
     <string name="revanced_hide_settings_menu_summary">"Ayarlar menüsünün öğelerini gizleyin.
 Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extended ayarlar menüsünü de gizler."</string>
     <string name="revanced_hide_settings_menu_title">Ayarlar menüsünü gizle</string>
@@ -233,11 +255,15 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_preference_screen_misc_title">Diğer ayarlar</string>
     <string name="revanced_preference_screen_navigation_title">Gezinti çubuğu</string>
     <string name="revanced_preference_screen_player_title">Oynatıcı</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">YouTube Kullanıcı Adına geri dönüş</string>
     <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
     <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
+    <string name="revanced_preference_screen_settings_title">Ayarlar menüsü</string>
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Oynatma hızını değiştirdiğinizde en son seçili oynatma hızı değerini hatırlar.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişimlerini hatırla</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Varsayılan oynatma hızını değiştirirken bir tost bildirimi göster.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">Tost göster</string>
     <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak değiştiriliyor.</string>
     <string name="revanced_remember_repeat_state_summary">Tekrarın durumunu hatırlar.</string>
     <string name="revanced_remember_repeat_state_title">Tekrarın durumunu hatırlar</string>
@@ -245,6 +271,8 @@ Bu, yalnızca YT Music ayarlar menüsünü değil aynı zamanda ReVanced Extende
     <string name="revanced_remember_shuffle_state_title">Karıştır durumunu hatırlar</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Seçili video kalitesini hatırlar.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişimlerini hatırla</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Varsayılan video kalitesini değiştirirken bir tost bildirimi göster.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">Bir Tost bildirimi göster</string>
     <string name="revanced_remember_video_quality_mobile">Mobil ağda varsayılan video kalitesi %s olarak değiştiriliyor.</string>
     <string name="revanced_remember_video_quality_none">Kalite ayarlanamadı.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi\'da varsayılan video kalitesi %s olarak değiştiriliyor.</string>
@@ -270,6 +298,30 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Kütüphane rafını eski stile döndürün.
 (Deneysel)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Eski stil kitaplık rafını geri getir</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@HerkeseAçıkKullanıcıAdı (Kullanıcı Adı)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Kullanıcı adı görüntüleme biçimini seçin.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Ekran formatı</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Kullanıcı Adı (@HerkeseAçıkKullanıcıAdı)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">Kullanıcı Adı</string>
+    <string name="revanced_return_youtube_username_enabled_summary">Yorumlardaki kullanıcı adlarını herkese açık kullanıcı adlarıyla (YT Handles ile) değiştirir.</string>
+    <string name="revanced_return_youtube_username_enabled_title">YouTube Kullanıcı Adına dönmeyi etkinleştir</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"Herkese açık kullanıcı adlarını (YouTube Handles) kullanıcı adlarıyla değiştirmek için bir YouTube Data API v3 Geliştirici Anahtarı gereklidir. 
+
+Ücretsiz planda APl anahtarları için günlük kota 10.000'dir ve 1 yorum için bir tanıtıcıyı bir kullanıcı adıyla değiştirmek için 1 kota kullanılır. 
+
+APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Verileri API anahtarı hakkında</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3\'ü kullanmak için geliştirici anahtarı.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Verileri API anahtarı</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;Yeni proje oluştur&lt;/a&gt;.&lt;br&gt; \'a git.
+2. &lt;b&gt;OLUŞTUR&lt;/b&gt; butonuna tıklayın.&lt;br&gt;
+3. &lt;a href=%2$s&gt;YouTube Verileri API v3&lt;/a&gt;.&lt;br&gt; \'e gidin.
+4. &lt;b&gt;ETKİNLEŞTİR&lt;/b&gt; butonuna tıklayın.&lt;br&gt;
+5. &lt;b&gt;KİMLİK BİLGİLERİ OLUŞTUR&lt;/b&gt; butonuna tıklayın.&lt;br&gt;
+6. &lt;b&gt;Herkese açık veriler&lt;/b&gt; seçeneğini seçin.&lt;br&gt;
+7. &lt;b&gt;SONRAKİ&lt;/b&gt; butonuna tıklayın.&lt;br&gt;
+8. API anahtarını kopyalayın.&lt;br&gt;&lt;br&gt;※ API anahtarı asla başkalarıyla paylaşılmamalıdır, bu nedenle İçe/Dışa Aktarma ayarlarına dahil değildir.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 geliştirici anahtarı sorunu</string>
     <string name="revanced_ryd_about">Hakkında</string>
     <string name="revanced_ryd_attribution_summary">Veriler True RYD Worker API tarafından sağlanır. Daha fazlasını öğrenmek için buraya dokunun.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -279,12 +331,15 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_ryd_dislike_percentage_title">Yüzde olarak beğenmemeler</string>
     <string name="revanced_ryd_enabled_summary">Videoların beğenmeme sayısını gösterir.</string>
     <string name="revanced_ryd_enabled_title">Return YouTube Dislike\'ı etkinleştir</string>
+    <string name="revanced_ryd_estimated_like_summary">Videoların tahmini beğeni sayısını gösterir.</string>
+    <string name="revanced_ryd_estimated_like_title">Tahmini beğenileri göster</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayısı mevcut değil (istemci API sınırına ulaşıldı).</string>
     <string name="revanced_ryd_failure_connection_status_code">Beğenmemeler mevcut değil (durum %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Beğenmemeler geçici olarak kullanılamıyor (API zaman aşımına uğradı).</string>
     <string name="revanced_ryd_failure_generic">Beğenmemeler mevcut değil (%s).</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">Return YouTube Dislike API mevcut değilse uyarı gösterir.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API mevcut değilse bir uyarı göster</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Gizlendi</string>
     <string name="revanced_sanitize_sharing_links_summary">Bağlantıları paylaşırken, tracking query parametrelerini URL\'lerden kaldırır.</string>
     <string name="revanced_sanitize_sharing_links_title">Paylaşılan bağlantıları sterilize edin</string>
     <string name="revanced_sb_about">Hakkında</string>
@@ -297,7 +352,7 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock\'un sunucuya çağrı yapmak için kullandığı adres. Ne yaptığınızı bilmiyorsanız bunu değiştirmeyin.</string>
     <string name="revanced_sb_color_changed">Renk değiştirildi.</string>
     <string name="revanced_sb_color_dot_label">Renk:</string>
-    <string name="revanced_sb_color_invalid">Renk kodu geçersiz. Renk varsayılan\'a sıfırlandı.</string>
+    <string name="revanced_sb_color_invalid">Renk kodu geçersiz.</string>
     <string name="revanced_sb_color_reset">Renk sıfırlandı.</string>
     <string name="revanced_sb_diff_segments">Segment davranışını değiştir</string>
     <string name="revanced_sb_enabled">SponsorBlock\'u etkinleştir</string>
@@ -348,7 +403,15 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Kanada bölgelerinde radyo modunu devre dışı bırakın</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Gerçek zamanlı şarkı sözlerini devre dışı bırak</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Eski eylem çubuğunu geri yükle</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
     <string name="revanced_spoof_app_version_target_title">Uygulama hedef sürümünü kandırma hedefi</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
+    <string name="revanced_spoof_client_summary">"\"Oynatma sorunlarını önlemek için istemciyi taklit edin.
+
+Sınırlamalar:
+• OPUS ses kodeği desteklenmiyor olabilir.
+• Arama çubuğu küçük resmi mevcut olmayabilir.
+• İzleme geçmişi marka hesabında çalışmaz."</string>
+    <string name="revanced_spoof_client_title">Sahte istemci</string>
 </resources>

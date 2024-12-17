@@ -24,6 +24,8 @@ Tap on the continue button and disable battery optimizations."</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
+    <string name="revanced_disable_drc_audio_summary">Disables DRC (Dynamic Range Compression) applied to audio.</string>
+    <string name="revanced_disable_drc_audio_title">Disable DRC audio</string>
     <string name="revanced_disable_mini_player_gesture_summary">Disable swipe to change tracks in the miniplayer.</string>
     <string name="revanced_disable_mini_player_gesture_title">Disable miniplayer gesture</string>
     <string name="revanced_disable_player_gesture_summary">Disable swipe to change tracks in the player.</string>
@@ -67,6 +69,8 @@ Info:
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Hides dark overlay that appears when double-tapping to seek.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Hide double-tap overlay filter</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
     <string name="revanced_hide_navigation_label_summary">Hides labels below the navigation buttons.</string>
@@ -209,6 +213,20 @@ Click to see how to issue a API key."</string>
 Limitations:
 • OPUS audio codec may not be supported.
 • Seekbar thumbnail may not be present.
-• Watch history does not work with a brand account.</string>
+• Watch history does not work with a brand account.
+
+※ When used with 'Spoofing streaming data', playback issues may occur."</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
+    <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
+
+※ When used with 'Spoof client', playback issues may occur."</string>
+    <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Default client</string>
 </resources>
