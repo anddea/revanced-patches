@@ -79,6 +79,7 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_change_share_sheet_summary_off">In-app share sheet is used.</string>
     <string name="revanced_change_share_sheet_summary_on">System share sheet is used.</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Autoplay</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Default</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pause</string>
@@ -126,6 +127,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Invalid seekbar color value.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Type the hex code of the seekbar color.</string>
     <string name="revanced_custom_seekbar_color_value_title">Custom seekbar color value</string>
     <string name="revanced_default_app_settings_summary">To open YouTube links in RVX, enable \'Open supported links\' and enable the supported web addresses.</string>
@@ -206,6 +208,9 @@ Limitation: This setting may not apply to videos that do not include the 'Listen
     <string name="revanced_disable_seekbar_chapters_summary_off">Chapters are enabled in the seekbar.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Chapters are disabled in the seekbar.</string>
     <string name="revanced_disable_seekbar_chapters_title">Disable seekbar chapters</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
+    <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation is enabled above the Like button.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation is disabled above the Like button.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button animation</string>
@@ -230,11 +235,6 @@ Note:
 • Video playback will use more internet data than VP9.
 • VP9 codec is still used for HDR video."</string>
     <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo seekbar is disabled.</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo seekbar is enabled.
-
-Side effect: Cairo theme is also applied to notification dots."</string>
-    <string name="revanced_enable_cairo_seekbar_title">Enable Cairo seekbar</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Controls overlay fills the fullscreen.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Controls overlay does not fill the fullscreen.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Enable compact controls overlay</string>
@@ -281,6 +281,18 @@ This feature works best with a very fast internet connection."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Custom actions are disabled in flyout menu.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Custom actions are enabled in flyout menu.
+
+Limitations:
+• Does not work if app version is spoofed to 18.49.37 or earlier.
+• Does not work with livestream."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Enable custom actions in flyout menu</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Custom actions are disabled in toolbar.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Custom actions are enabled in toolbar.
+
+Press and hold the More button to show the Custom actions dialog."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Timestamp is disabled.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Timestamp is enabled.
 
@@ -380,8 +392,8 @@ Some components may not be hidden."</string>
     <string name="revanced_hide_album_card_summary_off">Album cards are shown.</string>
     <string name="revanced_hide_album_card_summary_on">Album cards are hidden.</string>
     <string name="revanced_hide_album_card_title">Hide album cards</string>
-    <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, and Music sections are shown.</string>
-    <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, and Music sections are hidden.</string>
+    <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music and People mentioned sections are shown.</string>
+    <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music and People mentioned sections are hidden.</string>
     <string name="revanced_hide_attributes_section_title">Hide Attributes section</string>
     <string name="revanced_hide_autoplay_preview_summary_off">Autoplay preview container is shown.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Autoplay preview container is hidden.</string>
@@ -595,6 +607,9 @@ Words with uppercase letters in the middle must be entered with the casing (ie: 
     <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button is shown.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button is hidden.\n\nIt appears in fullscreen when closing live chat.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Hide live chat replay button</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Chat summary is shown.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Chat summary is hidden.</string>
+    <string name="revanced_hide_live_chat_summary_title">Hide Chat summary in live chat</string>
     <string name="revanced_hide_low_views_video_summary">Hide videos with less than 1,000 views from home feeds that have been uploaded from unsubscribed channels.</string>
     <string name="revanced_hide_low_views_video_title">Hide low views video</string>
     <string name="revanced_hide_medical_panel_summary_off">Medical panels are shown.</string>
@@ -1124,6 +1139,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">The amount of milliseconds the landscape mode is forced after the screen in turned on.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Keep landscape mode timeout</string>
@@ -1187,7 +1203,7 @@ Tap and hold to copy video timestamp."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
     <string name="revanced_overlay_button_copy_video_url_title">Show copy video URL button</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tap to launch external downloader.</string>
-    <string name="revanced_overlay_button_external_downloader_title">Show external download button</string>
+    <string name="revanced_overlay_button_external_downloader_title">Show external downloader button</string>
     <string name="revanced_overlay_button_mute_volume_summary">Tap to mute volume of the current video. Tap again to unmute.</string>
     <string name="revanced_overlay_button_mute_volume_title">Show mute volume button</string>
     <string name="revanced_overlay_button_not_allowed_warning">Tap and hold to change button state.</string>
@@ -1198,7 +1214,7 @@ Tap and hold to undo.
 Info:
 • May not work on livestreams."</string>
     <string name="revanced_overlay_button_play_all_title">Show play all button</string>
-    <string name="revanced_overlay_button_play_all_type_entry_0">All content (Sort by time, Ascending)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">All contents (Sort by time)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Members only videos</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">Members only shorts</string>
@@ -1236,6 +1252,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_category_action_buttons">Action buttons</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
     <string name="revanced_preference_category_animation_feedback">Animation / Feedback</string>
+    <string name="revanced_preference_category_custom_actions">Custom actions</string>
     <string name="revanced_preference_category_download_button">Download button</string>
     <string name="revanced_preference_category_experimental_flag">Experimental Flags</string>
     <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
@@ -1606,6 +1623,26 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied to clipboard.</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
+
+Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>
+    <string name="revanced_shorts_custom_actions_about_title">About Custom actions</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Copy video URL menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Copy video URL menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Copy timestamp URL menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Copy timestamp URL menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Show copy timestamp URL menu</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Show copy video URL menu</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">External downloader menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">External downloader menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Show external downloader menu</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Show open video menu</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Repeat state menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Repeat state menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Show repeat state menu</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Custom actions</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Thumbs up</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Thumbs up (Cairo)</string>
@@ -1656,6 +1693,8 @@ Info:
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restore old default video quality behavior</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Disable views and likes from being updated in real time</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
     <string name="revanced_spoof_app_version_target_entry_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_target_summary">Type the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Edit spoof app version</string>
@@ -1668,21 +1707,11 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
 High quality may be unlocked on some videos that require high device dimensions, but not all videos."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS video codec is AVC (H.264), VP9, or AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS video codec is AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
-
-AVC (H.264) has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1."</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">iOS client is used for livestream playback.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">iOS client is not used for livestream playback.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Skip iOS livestream playback</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Audio track menu is missing.
 • Stable volume is not available."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Livestreams start from the beginning.
-• Videos may end 1 second early."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Not yet found.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
@@ -1698,6 +1727,7 @@ AVC (H.264) has a maximum resolution of 1080p, and video playback will use more 
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>

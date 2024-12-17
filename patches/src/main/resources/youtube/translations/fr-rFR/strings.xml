@@ -124,6 +124,7 @@ Limitation : Le bouton Retour de la barre d'outils peut ne pas fonctionner."</st
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacité du voile du lecteur doit être entre 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Valeur d\'opacité entre 0-100, 0 étant transparent.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Personnaliser l\'opacité du voile du lecteur</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Valeur de la couleur de la barre de progression invalide.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Saisissez le code hexadécimal de la couleur de la barre de progression.</string>
     <string name="revanced_custom_seekbar_color_value_title">Couleur perso. barre de progression</string>
     <string name="revanced_default_app_settings_summary">Pour ouvrir les liens YouTube sur RVX, activez l\'option \'Ouvrir les liens compatibles\' et activez les liens Web compatibles.</string>
@@ -204,6 +205,9 @@ Limitation : Ce paramètre peut ne pas s'appliquer aux vidéos qui n'incluent pa
     <string name="revanced_disable_seekbar_chapters_summary_off">Les chapitres sont activés sur la barre de progression.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Les chapitres sont désactivés sur la barre de progression.</string>
     <string name="revanced_disable_seekbar_chapters_title">Désac. chapitres sur la barre de progression</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">La lecture en arrière-plan des Shorts est activée.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">La lecture en arrière-plan des Shorts est désactivée.</string>
+    <string name="revanced_disable_shorts_background_playback_title">Désactiver la lecture en arrière-plan des Shorts</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">L\'animation en fontaine est activé au-dessus du bouton j\'aime.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">L\'animation en fontaine est désactivé au-dessus du bouton j\'aime.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Désactiver l\'animation du bouton J\'aime</string>
@@ -228,11 +232,6 @@ Note :
 • La lecture vidéo utilisera plus de données internet que le VP9.
 • Le codec VP9 est également utilisé pour les vidéos HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Désactiver le codec VP9</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">La barre de progression Cairo est désactivé.</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"La barre de progression Cairo est activé.
-
-Effet secondaire : le thème Cairo peut également s'appliquer sur les points de notification."</string>
-    <string name="revanced_enable_cairo_seekbar_title">Activer la barre de progression Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La voile des contrôles remplit le plein écran.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La voile des contrôles ne remplit pas le plein écran.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Activer le fond des contrôles compacts</string>
@@ -374,8 +373,8 @@ Certains composants peuvent ne pas être masqués."</string>
     <string name="revanced_hide_album_card_summary_off">Les fiches d\'album sont affichées.</string>
     <string name="revanced_hide_album_card_summary_on">Les fiches d\'album sont masquées.</string>
     <string name="revanced_hide_album_card_title">Masquer les fiches d\'album</string>
-    <string name="revanced_hide_attributes_section_summary_off">Les sections \"Lieux Populaires\", \"Jeux\" et \"Musique\" présent sous la description sont affichés.</string>
-    <string name="revanced_hide_attributes_section_summary_on">Les sections \"Lieux Populaires\", \"Jeux\" et \"Musique\" présent sous la description sont masquées.</string>
+    <string name="revanced_hide_attributes_section_summary_off">Les sections \'Lieux Populaires\', \'Jeux\' et \'Musique\' présent sous la description sont affichés.</string>
+    <string name="revanced_hide_attributes_section_summary_on">Les sections \'Lieux Populaires\', \'Jeux\' et \'Musique\' présent sous la description sont masquées.</string>
     <string name="revanced_hide_attributes_section_title">Masquer la section \"Mentions\"</string>
     <string name="revanced_hide_autoplay_preview_summary_off">La prévisualisation automatique des vidéos est affiché.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">La prévisualisation automatique des vidéos est masqué.</string>
@@ -1107,6 +1106,12 @@ Si un Doodle YouTube est actuellement diffusé dans votre région et que ce para
     <string name="revanced_keep_landscape_mode_timeout_title">Durée du maintien du mode paysage</string>
     <string name="revanced_keep_landscape_mode_title">Maintenir le mode paysage</string>
     <string name="revanced_label_default">Officiel</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">L\'action de double appui et de pincement pour redimensionner est désactivée.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"L'action de double appui et de pincement pour redimensionner est activée.
+
+• Double-cliquez pour augmenter la taille du minilecteur
+• Double-cliquez à nouveau pour rétablir la taille d'origine."</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Activer le double-appui et pincement pour redimensionnement</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">L\'action du double appui est désactivé.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"L'action du double appui est activé.
 
@@ -1116,6 +1121,11 @@ Si un Doodle YouTube est actuellement diffusé dans votre région et que ce para
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Le glisser-déposer est désactivé.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Le glisser-déposer est activé.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Activer le glisser-déposer</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Les boutons agrandir et fermer sont affichés.</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Les boutons sont masqués.
+
+Glissez le minilecteur pour agrandir ou fermer."</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Masquer les boutons agrandir et fermer</string>
     <string name="revanced_miniplayer_hide_expand_close_summary_off">Les boutons agrandir et fermer sont affichés.</string>
     <string name="revanced_miniplayer_hide_expand_close_summary_on">Les boutons sont masqués.\n(glissez le minilecteur pour agrandir ou fermer)</string>
     <string name="revanced_miniplayer_hide_expand_close_title">Masquer les boutons agrandir et fermer</string>
@@ -1128,6 +1138,10 @@ Si un Doodle YouTube est actuellement diffusé dans votre région et que ce para
     <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité du minilecteur doit être compris entre 0-100.</string>
     <string name="revanced_miniplayer_opacity_summary">Valeur d\'opacité entre 0-100, 0 étant transparent.</string>
     <string name="revanced_miniplayer_opacity_title">Opacité du mini lecteur</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_off">Les coins sont carrés.</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_on">Les coins sont arrondis.</string>
+    <string name="revanced_miniplayer_rounded_corners_title">Activer les coins arrondis</string>
+    <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
     <string name="revanced_miniplayer_type_entry_1">Original</string>
     <string name="revanced_miniplayer_type_entry_2">Téléphone</string>
     <string name="revanced_miniplayer_type_entry_3">Tablette</string>
@@ -1135,6 +1149,9 @@ Si un Doodle YouTube est actuellement diffusé dans votre région et que ce para
     <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
     <string name="revanced_miniplayer_type_title">Style du minilecteur</string>
+    <string name="revanced_miniplayer_width_dip_invalid_toast">La taille du pixel doit être comprise entre %1$s et %2$s.</string>
+    <string name="revanced_miniplayer_width_dip_summary">Initial à la taille de l\'écran, en pixels.</string>
+    <string name="revanced_miniplayer_width_dip_title">Taille initiale</string>
     <string name="revanced_overlay_button">Ajouts de boutons</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Appuyez pour basculer entre les états de répétition.
 Appuyez longuement pour activer la pause après les états de répétition."</string>
@@ -1150,6 +1167,26 @@ Appuyez longuement pour copier la vidéo horodatée."</string>
     <string name="revanced_overlay_button_mute_volume_summary">Appuyez pour couper le son de la vidéo en cours. Appuyez à nouveau pour rétablir le son.</string>
     <string name="revanced_overlay_button_mute_volume_title">Afficher un bouton \"Sourdine\"</string>
     <string name="revanced_overlay_button_not_allowed_warning">Appuyez longuement pour modifier l\'état du bouton.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Impossible de générer une playlist en raison d\'une erreur d\'id de la chaîne.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Appuyez pour générer une playlist de toutes les vidéos de la chaîne.
+Touchez et maintenez enfoncé pour annuler.
+
+Info :
+• Peut ne pas fonctionner sur les diffusions en direct."</string>
+    <string name="revanced_overlay_button_play_all_title">Afficher bouton \'Lire tout\'</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Tout le contenu (triés par ordre chrono.)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Vidéos réservés aux membres uniquement</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Shorts réservés aux membres uniquement</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Diffusion en direct réservé aux membres uniquement</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Tout le contenu (triés par popularité)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Vidéos uniquement (triées par ordre chrono.)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Vidéos uniquement (triées par popularité)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Shorts uniquement (triés par ordre chrono.)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Shorts uniquement (triés par popularité)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Vidéos diffusées en direct uniquement (triés par ordre chrono.)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Vidéos diffusées en direct uniquement (triés par popularité)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Contenu réservé aux membres uniquement</string>
+    <string name="revanced_overlay_button_play_all_type_title">Mode de génération de playlist</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Vitesse de lecture réinitialisée : %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Appuyez pour ouvrir des paramètres de vitesse
 Appuyez longuement pour revenir à la vitesse de lecture à 1.0x. Appuyez longuement à nouveau rétablir les vitesses par défaut."</string>
@@ -1600,12 +1637,6 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil a la valeur maximale.
 Les hautes qualités peuvent être débloquées sur certaines vidéos qui requièrent des appareils ayant des dimensions élevées, mais pas sur toutes les vidéos."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Les codecs vidéos d\'iOS sont AVC (H.264), VP9, ou AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Le codec vidéo d\'iOS est AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forcer iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activer ce paramètre peut améliorer l'autonomie de la batterie et résoudre les problèmes de lecture.
-
-AVC (H.264) a une résolution maximale de 1080p, et la lecture vidéo utilisera plus de données internet que le VP9 ou le AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Le menu \"Piste Audio\" est manquant.
 • Le volume stable n'es pas disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Le menu \"Piste Audio\" est manquant.

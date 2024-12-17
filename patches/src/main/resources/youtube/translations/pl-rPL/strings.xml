@@ -77,6 +77,7 @@ Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_change_share_sheet_summary_off">Aplikacji</string>
     <string name="revanced_change_share_sheet_summary_on">Systemowy</string>
     <string name="revanced_change_share_sheet_title">Wygląd panelu udostępniania</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">Zmień stan powtarzania w tle Shortsów</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Automatyczne odtwarzanie</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Domyślny</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Wstrzymywanie</string>
@@ -124,6 +125,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi wynosić między 0 a 100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
     <string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Nieprawidłowa wartość koloru paska postępu.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Wpisz kod hex koloru paska postępu filmu</string>
     <string name="revanced_custom_seekbar_color_value_title">Niestandardowy kolor paska postępu filmu</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube w RVX, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX.</string>
@@ -204,6 +206,9 @@ Ograniczenie: To ustawienie może nie działać dla filmów bez baneru 'Słuchaj
     <string name="revanced_disable_seekbar_chapters_summary_off">Włączone</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Wyłączone</string>
     <string name="revanced_disable_seekbar_chapters_title">Rozdziały w pasku postępu filmu</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">Włączone</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">Wyłączone</string>
+    <string name="revanced_disable_shorts_background_playback_title">Odtwarzanie Shortsów w tle</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Włączona</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Wyłączona</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Animacja przycisku polubienia</string>
@@ -228,11 +233,6 @@ Notki:
 • Odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9
 • Kodek VP9 jest używany do filmów z HDR"</string>
     <string name="revanced_disable_vp9_codec_title">Wyłącz kodek VP9</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">Wyłączony</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"Włączony
-
-Efekt uboczny: motyw Cairo powiązany m.in. z paskiem postępu filmu, nakłada się również na kropki przy powiadomieniach"</string>
-    <string name="revanced_enable_cairo_seekbar_title">Motyw Cairo paska postępu filmu</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Przyciski w odtwarzaczu zajmują cały ekran</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Przyciski w odtwarzaczu nie zajmują całego ekranu</string>
     <string name="revanced_enable_compact_controls_overlay_title">Przyciski w odtwarzaczu bliżej środka</string>
@@ -279,6 +279,18 @@ Funkcja działa najlepiej przy bardzo szybkim połączeniu internetowym."</strin
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Średnia</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Wysoka</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Rozdzielczość miniaturek</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Wyłączone</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Włączone
+
+Ograniczenia:
+• Nie działają, jeśli wersja aplikacji jest oszukana do 18.49.37, bądź wcześniejszej
+• Nie działają na transmisjach na żywo"</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Własne akcje w menu ustawień Shortsa</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Wyłączone</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Włączone
+
+Kliknij i przytrzymaj przycisk 'Więcej', by wyświetlić okno z własnymi akcjami."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Własne akcje w pasku narzędzi</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Wyłączony</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Włączony
 
@@ -378,8 +390,8 @@ Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_album_card_summary_off">Widoczne</string>
     <string name="revanced_hide_album_card_summary_on">Ukryte</string>
     <string name="revanced_hide_album_card_title">Karty albumów</string>
-    <string name="revanced_hide_attributes_section_summary_off">Sekcje wyróżnionych miejsc, gier i muzyki są widoczne</string>
-    <string name="revanced_hide_attributes_section_summary_on">Sekcje wyróżnionych miejsc, gier i muzyki są ukryte</string>
+    <string name="revanced_hide_attributes_section_summary_off">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są widoczne</string>
+    <string name="revanced_hide_attributes_section_summary_on">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są ukryte</string>
     <string name="revanced_hide_attributes_section_title">Sekcja atrybutów</string>
     <string name="revanced_hide_autoplay_preview_summary_off">Widoczne</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Ukryte</string>
@@ -593,6 +605,9 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_live_chat_replay_button_summary_off">Widoczny\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Ukryty\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Przycisk od ponownego odtwarzania czatu na żywo</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Widoczne</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Ukryte</string>
+    <string name="revanced_hide_live_chat_summary_title">Podsumowanie czatu w transmisjach na żywo</string>
     <string name="revanced_hide_low_views_video_summary">Ukrywa filmy poniżej 1000 wyświetleń ze strony głównej, które zostały przesłane z niesubskrybowanych kanałów.</string>
     <string name="revanced_hide_low_views_video_title">Ukryj filmy z małą ilością wyświetleń</string>
     <string name="revanced_hide_medical_panel_summary_off">Widoczne</string>
@@ -1124,6 +1139,17 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_keep_landscape_mode_timeout_title">Limit czasu zachowania trybu poziomego</string>
     <string name="revanced_keep_landscape_mode_title">Zachowaj tryb poziomy</string>
     <string name="revanced_label_default">Domyślne</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączony</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"Włączony
+
+• Kliknij podwójnie, by zwiększyć rozmiar miniodtwarzacza
+• Ponownie kliknij podwójnie, by przywrócić oryginalny rozmiar"</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Gest zmiany rozmiaru miniodtwarzacza</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_off">Wyłączony</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_on">"Włączony
+
+Miniodtwarzacz można przeciągnąć do dowolnego rogu ekranu."</string>
+    <string name="revanced_miniplayer_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Wyłączone</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Włączone
 
@@ -1133,25 +1159,40 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Wyłączony</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Włączony</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Widoczne</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Ukryte\n(przesuń miniodtwarzacz, aby rozwinąć lub zamknąć)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Przyciski rozwijania i zamykania</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Widoczne</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Ukryte. Przesuń, aby rozwinąć lub zamknąć."</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Przyciski rozwijania i zamykania</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">Widoczny</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">Ukryty</string>
+    <string name="revanced_miniplayer_hide_expand_close_title">Przycisk zamykania</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Widoczne</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ukryte</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Przyciski przewijania do przodu i wstecz</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">Widoczne</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Ukryte</string>
     <string name="revanced_miniplayer_hide_subtext_title">Podteksty</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_off">Wyłączony</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_on">"Włączony
+
+Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo."</string>
+    <string name="revanced_miniplayer_horizontal_drag_title">Gest przeciągania w poziomie</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki miniodtwarzacza musi wynosić między 0 a 100.</string>
     <string name="revanced_miniplayer_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
     <string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_off">Wyłączone (boki są kwadratowe)</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_on">Włączone</string>
+    <string name="revanced_miniplayer_rounded_corners_title">Zaokrąglone boki</string>
+    <string name="revanced_miniplayer_type_entry_0">Wyłączony</string>
     <string name="revanced_miniplayer_type_entry_1">Oryginalny</string>
-    <string name="revanced_miniplayer_type_entry_2">Telefonowy</string>
+    <string name="revanced_miniplayer_type_entry_2">Minimalistyczny</string>
     <string name="revanced_miniplayer_type_entry_3">Tabletowy</string>
     <string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
     <string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
     <string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
     <string name="revanced_miniplayer_type_title">Typ miniodtwarzacza</string>
+    <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar w pikselach musi znajdować się w przedziale od %1$s do %2$s.</string>
+    <string name="revanced_miniplayer_width_dip_summary">Początkowy rozmiar ekranu, w pikselach.</string>
+    <string name="revanced_miniplayer_width_dip_title">Rozmiar początkowy</string>
     <string name="revanced_overlay_button">Przyciski w odtwarzaczu</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Stuknij, by zmienić stan pętli.
 Stuknij i przytrzymaj, by zmienić stan pętli z pauzą."</string>
@@ -1171,6 +1212,7 @@ Stuknij i przytrzymaj, by skopiować czas filmu."</string>
     <string name="revanced_overlay_button_play_all_summary">"Stuknij, by wygenerować playlistę ze wszystkimi filmikami z kanału.
 Stuknij i przytrzymaj, by to cofnąć."</string>
     <string name="revanced_overlay_button_play_all_title">Przycisk od odtwarzania wszystkiego</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">Cała zawartość (sortowanie po czasie, rosnąco)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">Cała zawartość (sortowanie po czasie)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Tylko filmy dla wspierających</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">Tylko shortsy dla wspierających</string>
@@ -1209,6 +1251,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_category_action_buttons">Przyciski akcji</string>
     <string name="revanced_preference_category_additional_settings">Dodatkowe ustawienia</string>
     <string name="revanced_preference_category_animation_feedback">Animacje / Przesyłanie opinii</string>
+    <string name="revanced_preference_category_custom_actions">Własne akcje</string>
     <string name="revanced_preference_category_download_button">Przycisk od pobierania</string>
     <string name="revanced_preference_category_experimental_flag">Ustawienia Eksperymentalne</string>
     <string name="revanced_preference_category_image_region_restrictions">Ograniczenia regionu dla obrazów</string>
@@ -1579,6 +1622,26 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_share_copy_timestamp_success">Skopiowano czas do schowka. (%s)</string>
     <string name="revanced_share_copy_url_success">Skopiowano URL do schowka.</string>
     <string name="revanced_share_copy_url_timestamp_success">Skopiowano URL z czasem do schowka.</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"Funkcja ta jest nadal eksperymentalna, więc nie ma gwarancji, że będzie działać perfekcyjnie.
+
+Większość błędów nie może być naprawiona w skutek ograniczeń po stronie klienta, więc używaj tej funkcji jedynie do celów testowych."</string>
+    <string name="revanced_shorts_custom_actions_about_title">O własnych akcjach</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Menu od kopiowania adresu filmu z czasem</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Menu od kopiowania adresu filmu</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Menu od zewnętrznej aplikacji do pobierania</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Menu od otwierania filmu</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Menu od stanu powtarzania Shortsów</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Własne akcje</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Oryginalna</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Łapka w górę</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Łapka w górę (Cairo)</string>
@@ -1629,6 +1692,8 @@ Informacje:
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Przywraca stare zachowanie domyślnej jakości filmu</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Wyłącza aktualizowanie wyświetleń i łapek w górę w czasie rzeczywistym</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Przywraca stary styl animacji liczb</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Wyłącza ikony Cairo w pasku nawigacji oraz narzędzi</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Przywraca stare menu szybkości odtwarzania</string>
     <string name="revanced_spoof_app_version_target_entry_title">Oszukiwana wersja aplikacji</string>
     <string name="revanced_spoof_app_version_target_summary">Wpisz wersję, którą chcesz oszukiwać</string>
     <string name="revanced_spoof_app_version_target_title">Zmień oszukiwaną wersję aplikacji</string>
@@ -1641,15 +1706,6 @@ Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych a
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Wyłączone</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Włączone</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Włączenie tego ustawienia może poprawić żywotność baterii i naprawić zacinanie się filmów.
-
-Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9 i AV1."</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">Wyłączone</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">Włączone</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">Pomiń iOS dla odtwarzania transmisji na żywo</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Brakuje menu od ścieżki dźwiękowej
@@ -1671,6 +1727,7 @@ Kodek AVC (H.264) obsługuje maksymalnie rozdzielczość 1080p, a odtwarzanie fi
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Czułość przesuwania gestu jasności musi być pomiędzy 1 a 1000 (%).</string>
@@ -1738,31 +1795,4 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączony</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_on">Włączony
-
-• Kliknij podwójnie, by zwiększyć rozmiar miniodtwarzacza
-• Ponownie kliknij podwójnie, by przywrócić oryginalny rozmiar</string>
-    <string name="revanced_miniplayer_double_tap_action_title">Gest zmiany rozmiaru miniodtwarzacza</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_off">Wyłączony</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_on">Włączony
-
-Miniodtwarzacz można przeciągnąć do dowolnego rogu ekranu.</string>
-    <string name="revanced_miniplayer_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Widoczne</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Ukryte. Przesuń, aby rozwinąć lub zamknąć.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Przyciski rozwijania i zamykania</string>
-    <string name="revanced_miniplayer_horizontal_drag_summary_off">Wyłączony</string>
-    <string name="revanced_miniplayer_horizontal_drag_summary_on">Włączony
-
-Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo.</string>
-    <string name="revanced_miniplayer_horizontal_drag_title">Gest przeciągania w poziomie</string>
-    <string name="revanced_miniplayer_rounded_corners_summary_off">Wyłączone (boki są kwadratowe)</string>
-    <string name="revanced_miniplayer_rounded_corners_summary_on">Włączone</string>
-    <string name="revanced_miniplayer_rounded_corners_title">Zaokrąglone boki</string>
-    <string name="revanced_miniplayer_type_entry_0">Wyłączony</string>
-    <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar w pikselach musi znajdować się w przedziale od %1$s do %2$s.</string>
-    <string name="revanced_miniplayer_width_dip_summary">Początkowy rozmiar ekranu, w pikselach.</string>
-    <string name="revanced_miniplayer_width_dip_title">Rozmiar początkowy</string>
-    <string name="revanced_overlay_button_play_all_type_entry_0">Cała zawartość (sortowanie po czasie, rosnąco)</string>
 </resources>

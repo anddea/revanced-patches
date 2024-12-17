@@ -42,6 +42,8 @@ Toque no botão continuar e desative as otimizações da bateria."</string>
     <string name="revanced_disable_cairo_splash_animation_title">Desativar a animação inicial do Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Desativa o redirecionamento para a próxima faixa ao clicar no botão de Dislike.</string>
     <string name="revanced_disable_dislike_redirection_title">Desativar redirecionamento de dislike</string>
+    <string name="revanced_disable_drc_audio_summary">Desativa o DRC (Compressão de faixa dinâmica) aplicada ao áudio.</string>
+    <string name="revanced_disable_drc_audio_title">Desativar áudio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Desativar deslize para alterar faixas no mini reprodutor.</string>
     <string name="revanced_disable_mini_player_gesture_title">Desativar gesto do mini reprodutor</string>
     <string name="revanced_disable_player_gesture_summary">Desativar deslize para alterar faixas no reprodutor.</string>
@@ -168,6 +170,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ocultar menu Acessar podcast</string>
     <string name="revanced_hide_flyout_menu_help_title">Ocultar menu Ajuda &amp; feedback</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ocultar botões de Like e Deslike</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ocultar Fixar no menu de discagem rápida</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ocultar menu Tocar a seguir</string>
     <string name="revanced_hide_flyout_menu_quality_title">Ocultar menu Qualidade</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ocultar menu Remover da biblioteca</string>
@@ -182,6 +185,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Ocultar menu Iniciar rádio</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ocultar menu Estatísticas para nerds</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menu de Inscrição / Cancelar inscrição</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ocultar Desafixar do menu de discagem rápida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menu Mostrar créditos da música</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Oculta anúncios de tela cheia.
 
@@ -400,11 +404,25 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_client_summary">\"Falsificar o cliente para evitar problemas de reprodução.
+    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
 
 Limitações:
 • O codec de áudio OPUS pode não ser suportado.
 • Miniatura na barra de busca pode não estar presente.
-• Histórico de exibição não funciona com uma conta de marca.</string>
+• Histórico de exibição não funciona com uma conta de marca.
+
+※ Quando usado com 'Dados de streaming falsos', podem ocorrer problemas de reprodução."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
+    <string name="revanced_spoof_streaming_data_summary">"Falsifique os dados de streaming para evitar problemas de reprodução.
+
+※ Quando usado com 'Falsificar cliente', podem ocorrer problemas de reprodução."</string>
+    <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Define um cliente padrão que busca dados de streaming.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
 </resources>

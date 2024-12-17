@@ -42,6 +42,8 @@ Nhấn vào nút Tiếp tục và tắt tối ưu hóa pin."</string>
     <string name="revanced_disable_cairo_splash_animation_title">Vô hiệu hóa hoạt ảnh kiểu Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Không chuyển đến bài hát tiếp theo khi nhấn vào nút Không thích.</string>
     <string name="revanced_disable_dislike_redirection_title">Tắt chuyển hướng khi nhấn nút Không thích</string>
+    <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải âm thanh động.</string>
+    <string name="revanced_disable_drc_audio_title">Vô hiệu hoá audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
     <string name="revanced_disable_mini_player_gesture_title">Tắt cử chỉ trình phát thu nhỏ</string>
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
@@ -168,6 +170,7 @@ Cụ thể:
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ẩn mục Chuyển đến podcast</string>
     <string name="revanced_hide_flyout_menu_help_title">Ẩn mục Trợ giúp &amp; phản hồi</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ẩn các nút Thích và Không thích</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ẩn mục Ghim vào kệ Phát nhanh</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ẩn mục Phát video tiếp theo</string>
     <string name="revanced_hide_flyout_menu_quality_title">Ẩn mục Chất lượng</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ẩn mục Xoá khỏi thư viện</string>
@@ -182,6 +185,7 @@ Cụ thể:
     <string name="revanced_hide_flyout_menu_start_radio_title">Ẩn mục Bắt đầu đài phát</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ẩn mục Thống kê chi tiết</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ẩn mục Đăng ký/Huỷ đăng ký</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ẩn mục Bỏ ghim khỏi kệ Phát nhanh</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ẩn mục Xem thông tin ghi công của bài hát</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Ẩn quảng cáo toàn màn hình.
 
@@ -400,11 +404,25 @@ Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhi
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
-    <string name="revanced_spoof_client_summary">Giả mạo ứng dụng khách để khắc phục sự cố phát.
+    <string name="revanced_spoof_client_summary">"Giả mạo ứng dụng khách nhằm khắc phục sự cố phát.
 
-\n\nHạn chế:
-\n• Codec âm thanh OPUS có thể không được hỗ trợ.
-\n• Hình thu nhỏ trên thanh tiến trình có thể không hiện hữu.
-\n• Nhật ký xem không hoạt động đối với tài khoản thương hiệu.</string>
+Hạn chế:
+• Codec âm thanh OPUS có thể không được hỗ trợ.
+• Hình thu nhỏ trên thanh tiến trình có thể không hiện hữu.
+• Nhật ký xem không hoạt động đối với tài khoản thương hiệu.
+
+※ Khi được sử dụng cùng với \"Giả mạo luồng dữ liệu trực tuyến\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_client_title">Giả mạo ứng dụng khách</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
+    <string name="revanced_spoof_streaming_data_summary">"Giả mạo luồng dữ liệu trực tuyến nhằm khắc phục sự cố phát.
+
+※ Khi được sử dụng cùng với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
+    <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">Music iOS</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Xác định một ứng dụng khách mặc định để nạp luồng dữ liệu trực tuyến.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Ứng dụng khách mặc định</string>
 </resources>

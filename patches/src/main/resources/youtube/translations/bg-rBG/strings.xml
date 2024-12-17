@@ -112,6 +112,7 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Непрозрачността на наслагването на плейъра трябва да бъде между 0-100. Нулирайте стойностите по подразбиране.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Прозрачност на на плейъра</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Невалидна стойност за цвят на лентата на прогреса.</string>
     <string name="revanced_custom_seekbar_color_value_summary">Въведете кода за цвят на лентата за време.</string>
     <string name="revanced_custom_seekbar_color_value_title">Стойност по избор за цвят на лентата за време</string>
     <string name="revanced_default_app_settings_summary">За да отваряте връзки към YouTube с помощта на RVX, конфигурирайте „Отваряне на поддържани връзки“ и активирайте поддържаните уеб адреси, които искате.</string>
@@ -191,6 +192,9 @@
     <string name="revanced_disable_seekbar_chapters_summary_off">Главите се показват.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">Главите са скрити.</string>
     <string name="revanced_disable_seekbar_chapters_title">Деактивиране глави за лентата на напредъка</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">Фоновото възпроизвеждане на Shorts е активирано.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">Фоновото възпроизвеждане на Shorts е деактивирано.</string>
+    <string name="revanced_disable_shorts_background_playback_title">Възпроизвеждане на Shorts в фонов режим</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Анимацията на фонтан е активирана над бутона „Харесва ми“.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Анимацията на фонтан е деактивирана над бутона „Харесва ми“.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Деактивиране анимацията на бутона „Харесва ми“</string>
@@ -214,11 +218,6 @@
 • Възпроизвеждането на видео ще използва повече интернет данни от VP9.
 • За да получите възпроизвеждане на HDR, HDR видеото все още използва кодека VP9."</string>
     <string name="revanced_disable_vp9_codec_title">Деактивирайте кодека VP9</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">Темата Кайро в лентата за напредък е деактивирана.</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"Лентата за прогрес на тема Кайро е активирана. 
-Страничен ефект: 
-Темата Кайро се прилага и към точките за известия."</string>
-    <string name="revanced_enable_cairo_seekbar_title">Лента за прогрес на тема Кайро</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">По-малките стилови контроли са деактивирани.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">По-малките стилови контроли са активирани.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Вкл. компактни контроли</string>
@@ -1089,6 +1088,16 @@ Note:
     <string name="revanced_keep_landscape_mode_timeout_title">Запазване на времето за изчакване в пейзажен режим</string>
     <string name="revanced_keep_landscape_mode_title">Запазете пейзажен режим</string>
     <string name="revanced_label_default">По подразбиране</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"Действието с двойно докосване и щипване за преоразмеряване е активирано.
+• Докоснете двукратно, за да увеличите размера на миниплейъра.
+• Докоснете два пъти отново, за да възстановите оригиналния размер."</string>
+    <string name="revanced_miniplayer_double_tap_action_title">Активирайте двойното докосване и щипване за преоразмеряване</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_off">Плъзгането и преместването е деактивирано.</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_on">"Плъзгане и местенето е активирано.
+
+Миниплейърът може да се плъзга до всеки ъгъл на екрана."</string>
+    <string name="revanced_miniplayer_drag_and_drop_title">Разрешете плъзгане и местене</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Действието с двойно докосване е деактивирано.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Действието с двойно докосване е активирано.
 
@@ -1098,6 +1107,11 @@ Note:
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Деактивирано минимизирано плъзгане и пускане на екрана.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Активирано е минимизирано плъзгане и пускане на екрана.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Разрешете плъзгане и местене на мини-плеера</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими.</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Бутоните са скрити. 
+
+Плъзнете, за да разширите или затворите."</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Бутони за разширяване и свиване на екрана</string>
     <string name="revanced_miniplayer_hide_expand_close_summary_off">Бутони за разширяване и свиване на екрана са видими.</string>
     <string name="revanced_miniplayer_hide_expand_close_summary_on">Бутоните са скрити.\n(плъзнете миниплейъра, за да разширите или затворите)</string>
     <string name="revanced_miniplayer_hide_expand_close_title">Бутони за разширяване и свиване на екрана</string>
@@ -1107,9 +1121,18 @@ Note:
     <string name="revanced_miniplayer_hide_subtext_summary_off">Подтекстовете се показват.</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">Подтекстовете са скрити.</string>
     <string name="revanced_miniplayer_hide_subtext_title">Възпроизвеждане на екранни текстове, етикети</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_off">Хоризонтално плъзгане е деактивиран.</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_on">"Хоризонталното плъзгане е активиран.
+
+Миниплейърът може да се плъзга извън екрана наляво или надясно."</string>
+    <string name="revanced_miniplayer_horizontal_drag_title">Активиране на хоризонтално плъзгане.</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">Прозрачността на менюто на плейъра трябва да бъде между 0-100. Нулирайте стойностите по подразбирне.</string>
     <string name="revanced_miniplayer_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно.</string>
     <string name="revanced_miniplayer_opacity_title">Прозрачност на менютата</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_off">Ъглите са нормални.</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_on">Ъглите са заоблени.</string>
+    <string name="revanced_miniplayer_rounded_corners_title">Активирайте заоблени ъгли</string>
+    <string name="revanced_miniplayer_type_entry_0">Изключено</string>
     <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
     <string name="revanced_miniplayer_type_entry_2">Телефон</string>
     <string name="revanced_miniplayer_type_entry_3">Таблет</string>
@@ -1117,6 +1140,9 @@ Note:
     <string name="revanced_miniplayer_type_entry_5">Модерен 2</string>
     <string name="revanced_miniplayer_type_entry_6">Модерен 3</string>
     <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
+    <string name="revanced_miniplayer_width_dip_invalid_toast">Размерът на пиксела трябва да бъде между %1$s и %2$s.</string>
+    <string name="revanced_miniplayer_width_dip_summary">Първоначален размер на екрана, в пиксели.</string>
+    <string name="revanced_miniplayer_width_dip_title">Първоначален размер</string>
     <string name="revanced_overlay_button">Бутони в плеъра</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Докоснете, за да превключите повторение
 Докоснете и задръжте, за да превключите на пауза след повтарвне."</string>
@@ -1132,6 +1158,26 @@ Note:
     <string name="revanced_overlay_button_mute_volume_summary">Натискането на бутона изключва/включва звука на текущото видео.</string>
     <string name="revanced_overlay_button_mute_volume_title">Бутон за изключване на звука</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натиснете продължително, за да промените състоянието на бутона.</string>
+    <string name="revanced_overlay_button_play_all_not_available_toast">Не може да се генерира плейлист поради несъответствие на Id на канала.</string>
+    <string name="revanced_overlay_button_play_all_summary">"Докоснете, за да генерирате плейлист с всички видеоклипове от канала.
+ Докоснете и задръжте, за да отмените. 
+
+Информация:
+• Може да не работи при потоци на живо."</string>
+    <string name="revanced_overlay_button_play_all_title">Бутона за възпроизвеждане на всички</string>
+    <string name="revanced_overlay_button_play_all_type_entry_1">Цялото съдържание (Сортиране по дата)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_10">Видеоклипове само за членове</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11"> Shorts само за членове</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Само за членове, стрийминг на видео</string>
+    <string name="revanced_overlay_button_play_all_type_entry_2">Цялото съдържание (Сортиране по популярност)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_3">Само видеоклипове (Сортиране по дата)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_4">Само видеоклипове (Сортиране по популярхост)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_5">Само Shorts (Подреждане по дата)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_6">Само Shorts (Подреждане по популярност)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_7">Само стрийминг видео (по дата)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_8">Само стрийминг видео (по популярност)</string>
+    <string name="revanced_overlay_button_play_all_type_entry_9">Съдържание само за членове</string>
+    <string name="revanced_overlay_button_play_all_type_title">Режим на генериране на плейлист</string>
     <string name="revanced_overlay_button_speed_dialog_reset">Нулиране на скоростта на възпроизвеждане: %sx.</string>
     <string name="revanced_overlay_button_speed_dialog_summary">"Бутон за регулиране на скоростта на възпроизвеждане. Натиснете, за да отворите прозореца за промяна на скоростта на възпроизвеждане 1.0x."</string>
     <string name="revanced_overlay_button_speed_dialog_title">Показване бутон за скорост</string>
@@ -1576,12 +1622,6 @@ Note:
 Това ще промени външния вид и функциите на приложението, но ако по-късно се деактивира, се препоръчва да изчистите данните на приложението, за да избегнете грешки в потребителския интерфейс."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Преоразмерява вашето устройство, за да покже видеоклипове с по-високо качество, които може да не са налични на вашето устройство."</string>
     <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">видео кодекът на iOS е AVC (H.264), VP9, or AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">видео кодекът на iOS е AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Принудително AVC (H.264) за iOS</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.
-
-AVC (H.264) има максимална разделителна способност при 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Липсва менюто за избор на аудио."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Липсва менюто за избор на аудио."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• Филми или платени видеоклипове може да не се възпроизвеждат."</string>

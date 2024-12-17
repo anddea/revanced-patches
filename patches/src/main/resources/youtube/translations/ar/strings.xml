@@ -78,6 +78,7 @@
     <string name="revanced_change_share_sheet_summary_off">يتم استخدام لوح مشاركة داخل التطبيق.</string>
     <string name="revanced_change_share_sheet_summary_on">يتم استخدام لوح مشاركة النظام.</string>
     <string name="revanced_change_share_sheet_title">تغيير لوح مشاركة</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">تغيير حالة تكرار فيديوهات Shorts في الخلفية</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">التشغيل التلقائي</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">الافتراضي</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">إيقاف</string>
@@ -124,6 +125,7 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">يجب أن تكون شفافية واجهة المشغل بين 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">قيمة التعتيم بين 0-100، حيث 0 شفافة.</string>
     <string name="revanced_custom_player_overlay_opacity_title">شفافية واجهة المشغل المخصصة</string>
+    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">قيمة لون شريط التقدم غير صالحة.</string>
     <string name="revanced_custom_seekbar_color_value_summary">اكتب رمز اللون للون شريط تقدم الفيديو.</string>
     <string name="revanced_custom_seekbar_color_value_title">قيمة لون شريط تقدم الفيديو المخصصة</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube في RVX، قم بتمكين \'فتح الروابط المدعومة\' وتمكين عناوين الويب المدعومة.</string>
@@ -204,13 +206,16 @@
     <string name="revanced_disable_seekbar_chapters_summary_off">تم تمكين الفصول في شريط التقدم.</string>
     <string name="revanced_disable_seekbar_chapters_summary_on">تم تعطيل الفصول في شريط التقدم.</string>
     <string name="revanced_disable_seekbar_chapters_title">تعطيل فصول شريط التقدم</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">تم تمكين تشغيل Shorts في الخلفية.</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">تم تعطيل تشغيل Shorts في الخلفية.</string>
+    <string name="revanced_disable_shorts_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">تم تمكين الرسوم المتحركة الفوّارة فوق زر أعجبني.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">تم تعطيل الرسوم المتحركة الفوّارة فوق زر أعجبني.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">تعطيل الرسوم المتحركة لزر أعجبني</string>
     <string name="revanced_disable_speed_overlay_summary">"تعطيل '2x&gt;&gt;' أثناء الضغط باستمرار.
 
 ملحوظة:
-• يؤدي تعطيل تراكب السرعة إلى استعادة سلوك \"Slide to seek\" للتخطيط القديم.
+• يؤدي تعطيل تراكب السرعة إلى استعادة سلوك \"التمرير للتقديم أو الترجيع\" للتخطيط القديم.
  • لا يؤدي تعطيل هذا الإعداد إلى فرض تمكين تراكب السرعة بالقوة."</string>
     <string name="revanced_disable_speed_overlay_title">تعطيل تراكب السرعة</string>
     <string name="revanced_disable_splash_animation_summary_off">تم تمكين تأثيرات الحركة.</string>
@@ -228,11 +233,6 @@
 • سيستهلك تشغيل الفيديو بيانات إنترنت أكثر من VP9.
 • لا يزال برنامج ترميز VP9 مستخدمًا لفيديو HDR."</string>
     <string name="revanced_disable_vp9_codec_title">تعطيل ترميز VP9</string>
-    <string name="revanced_enable_cairo_seekbar_summary_off">تم تعطيل شريط تقدم Cairo.</string>
-    <string name="revanced_enable_cairo_seekbar_summary_on">"تم تمكين شريط تقدم Cairo.
-
-التأثير الجانبي: يتم تطبيق سمة Cairo أيضًا على نقاط الإشعارات."</string>
-    <string name="revanced_enable_cairo_seekbar_title">تمكين شريط تقدم Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">يملأ تراكب عناصر التحكم الشاشة الكاملة.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">لا يملأ تراكب عناصر التحكم الشاشة الكاملة.</string>
     <string name="revanced_enable_compact_controls_overlay_title">تمكين تراكب التحكم المدمج</string>
@@ -279,6 +279,18 @@
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">مصغرات شريط التقدم متوسطة الجودة.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">مصغرات شريط التقدم عالية الجودة.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">تمكين المصغرات عالية الجودة</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">تم تعطيل الإجراءات المخصصة في القائمة المنبثقة.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"تم تمكين الإجراءات المخصصة في القائمة المنبثقة.
+
+القيود:
+• لا يعمل إذا تم تغيير إصدار التطبيق إلى 18.49.37 أو إصدار أقدم.
+• لا يعمل مع البث المباشر."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">تمكين الإجراءات المخصصة في القائمة المنبثقة</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">تم تعطيل الإجراءات المخصصة في شريط الأدوات.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"تم تمكين الإجراءات المخصصة في شريط الأدوات.
+
+اضغط مع الاستمرار على زر المزيد لإظهار مربع حوار الإجراءات المخصصة."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">تمكين الإجراءات المخصصة في شريط الأدوات</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">تم تعطيل الطابع الزمني.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"تم تمكين الطابع الزمني.
 
@@ -374,8 +386,8 @@
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_title">إخفاء بطاقات الألبوم</string>
-    <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، والموسيقى.</string>
-    <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، والموسيقى.</string>
+    <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون.</string>
+    <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_title">إخفاء قسم الصفات</string>
     <string name="revanced_hide_autoplay_preview_summary_off">يتم عرض حاوية عرض التشغيل التلقائي.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">تم إخفاء حاوية عرض التشغيل التلقائي.</string>
@@ -589,6 +601,9 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">يتم عرض زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">تم إخفاء زر إعادة تشغيل المحادثات المباشرة.\n\nيظهر في وضع ملء الشاشة عند إغلاق المحادثات المباشرة.</string>
     <string name="revanced_hide_live_chat_replay_button_title">إخفاء زر إعادة عرض المحادثات المباشرة</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">يتم عرض ملخص المحادثات.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">تم إخفاء ملخص المحادثات.</string>
+    <string name="revanced_hide_live_chat_summary_title">إخفاء ملخص المحادثات في المحادثات المباشرة</string>
     <string name="revanced_hide_low_views_video_summary">إخفاء مقاطع الفيديو التي حصلت على أقل من 1000 مشاهدة من موجز الصفحة الرئيسية التي تم تحميلها من القنوات غير المشترك بها.</string>
     <string name="revanced_hide_low_views_video_title">إخفاء فيديو المشاهدات المنخفضة</string>
     <string name="revanced_hide_medical_panel_summary_off">يتم عرض اللوحات الطبية.</string>
@@ -1114,6 +1129,17 @@
     <string name="revanced_keep_landscape_mode_timeout_title">مهلة إبقاء الوضع الأفقي</string>
     <string name="revanced_keep_landscape_mode_title">الإبقاء على الوضع الأفقي</string>
     <string name="revanced_label_default">الإفتراضي</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">تم تعطيل خاصية النقر المزدوج والضغط لتغيير الحجم.</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين خاصية النقر المزدوج والضغط لتغيير الحجم.
+
+• انقر مرتين لزيادة حجم المشغل المصغر.
+• انقر مرتين مرة أخرى لاستعادة الحجم الأصلي."</string>
+    <string name="revanced_miniplayer_double_tap_action_title">تمكين النقر المزدوج والضغط لتغيير الحجم</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_off">تم تعطيل السحب والإفلات.</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_on">"تم تمكين السحب والإفلات.
+
+يمكن سحب المشغل المصغر إلى أي زاوية من الشاشة."</string>
+    <string name="revanced_miniplayer_drag_and_drop_title">تمكين السحب والإفلات</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_off">تم تعطيل إجراء النقر المزدوج.</string>
     <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"تم تمكين إجراء النقر المزدوج.
 
@@ -1123,25 +1149,42 @@
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">تم تعطيل السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">تم تمكين السحب والإفلات.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">تمكين السحب والإفلات</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض أزرار التوسيع والإغلاق.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">تم إخفاء الأزرار.\n(مرر المشغل المصغر للتوسع أو الإغلاق)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">إخفاء أزرار التوسيع والإغلاق</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">يتم عرض أزرار التوسيع والإغلاق.</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"تم إخفاء الأزرار.
+
+مرر للتوسيع أو الإغلاق."</string>
+    <string name="revanced_miniplayer_hide_expand_close_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض زر الإغلاق.</string>
+    <string name="revanced_miniplayer_hide_expand_close_summary_on">تم إخفاء زر الإغلاق.</string>
+    <string name="revanced_miniplayer_hide_expand_close_title">إخفاء زر الإغلاق</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">يتم عرض التخطي للأمام والخلف.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">تم إخفاء التخطي للأمام والخلف.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">إخفاء أزرار التخطي للأمام والخلف</string>
     <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية.</string>
     <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية.</string>
     <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية.</string>
+    <string name="revanced_miniplayer_horizontal_drag_summary_on">"تم تمكين إيماءة السحب الأفقية.
+
+يمكن سحب المشغل المصغر خارج الشاشة إلى اليمين أو اليسار."</string>
+    <string name="revanced_miniplayer_horizontal_drag_title">تمكين إيماءة السحب الأفقية</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">يجب أن تكون نسبة شفافية واجهة المشغل المصغر بين 0-100.</string>
     <string name="revanced_miniplayer_opacity_summary">قيمة الشفافية بين 0-100، حيث يكون 0 شفاف.</string>
     <string name="revanced_miniplayer_opacity_title">شفافية الواجهة</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة.</string>
+    <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة.</string>
+    <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
+    <string name="revanced_miniplayer_type_entry_0">معطَّل</string>
     <string name="revanced_miniplayer_type_entry_1">الأصلي</string>
-    <string name="revanced_miniplayer_type_entry_2">الجوّال</string>
+    <string name="revanced_miniplayer_type_entry_2">الحد الأدنى</string>
     <string name="revanced_miniplayer_type_entry_3">الجهاز اللوحي</string>
     <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
     <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
     <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
     <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
+    <string name="revanced_miniplayer_width_dip_invalid_toast">حجم البكسل يجب أن يكون بين %1$s و %2$s.</string>
+    <string name="revanced_miniplayer_width_dip_summary">تهيئة الحجم على الشاشة، بالبكسل.</string>
+    <string name="revanced_miniplayer_width_dip_title">تهيئة الحجم</string>
     <string name="revanced_overlay_button">زر الواجهة</string>
     <string name="revanced_overlay_button_always_repeat_summary">"اضغط التبديل لتكرار العرض دائمًا
 اضغط مع الاستمرار على التبديل لإيقاف تكرار العرض."</string>
@@ -1164,6 +1207,7 @@
 معلومة:
 • قد لا يعمل في البث المباشر."</string>
     <string name="revanced_overlay_button_play_all_title">عرض زر تشغيل الكل</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">كل المحتويات (مرتبة حسب الوقت، تصاعدي)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">كل المحتويات (مرتبة حسب الوقت)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">فيديوهات للأعضاء فقط</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">فيديوهات Shorts للأعضاء فقط</string>
@@ -1201,6 +1245,7 @@
     <string name="revanced_preference_category_action_buttons">أزرار الإجراء</string>
     <string name="revanced_preference_category_additional_settings">إعدادات إضافية</string>
     <string name="revanced_preference_category_animation_feedback">تأثير الحركة / رد الفعل</string>
+    <string name="revanced_preference_category_custom_actions">الإجراءات المخصصة</string>
     <string name="revanced_preference_category_download_button">زر التنزيل</string>
     <string name="revanced_preference_category_experimental_flag">تعديلات تجريبية</string>
     <string name="revanced_preference_category_image_region_restrictions">قيود منطقة الصورة</string>
@@ -1564,6 +1609,26 @@
     <string name="revanced_share_copy_timestamp_success">تم نسخ الطابع الزمني إلى الحافظة. (%s)</string>
     <string name="revanced_share_copy_url_success">تم نسخ الرابط إلى الحافظة.</string>
     <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني إلى الحافظة.</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"لا تزال هذه الميزة تجريبية، لذا لا يوجد ضمان بأنها ستعمل بشكل مثالي.
+
+لا يمكن إصلاح معظم الأخطاء بسبب القيود المفروضة على جانب العميل، لذا استخدمها لأغراض الاختبار فقط."</string>
+    <string name="revanced_shorts_custom_actions_about_title">لمحة عن الإجراءات المخصصة</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">تم إخفاء قائمة نسخ الفيديو.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">يتم عرض قائمة نسخ الفيديو.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">تم إخفاء قائمة نسخ URL مع الطابع الزمني.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">يتم عرض قائمة نسخ URL مع الطابع الزمني.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">عرض قائمة نسخ URL مع الطابع الزمني</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">عرض قائمة نسخ رابط الفيديو</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">تم إخفاء قائمة التنزيل الخارجي.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">يتم عرض قائمة التنزيل الخارجي.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">عرض قائمة التنزيل الخارجي</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">تم إخفاء قائمة فتح الفيديو.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">يتم عرض قائمة فتح الفيديو.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">عرض قائمة فتح الفيديو</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">تم إخفاء قائمة حالة التكرار.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">يتم عرض قائمة حالة التكرار.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">عرض قائمة حالة التكرار</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">الإجراءات المخصصة</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">الأصلي</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">أعجبني</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">أعجبني (Cairo)</string>
@@ -1613,6 +1678,8 @@
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - استعادة سلوك جودة الفيديو الافتراضي القديم</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - تعطيل تحديث المشاهدات والإعجابات في الوقت الفعلي</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13-37 - استعادة نمط الرسوم المتحركة القديم للأرقام المتكررة</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - تعطيل أيقونة Cairo في شريط التنقل وشريط الأدوات</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - استعادة لوحة التحكم القديمة لسرعة التشغيل</string>
     <string name="revanced_spoof_app_version_target_entry_title">الهدف من خِداع إصدار التطبيق</string>
     <string name="revanced_spoof_app_version_target_summary">اكتب هدف إصدار التطبيق الوهمي.</string>
     <string name="revanced_spoof_app_version_target_title">تعديل إصدار التطبيق الوهمي</string>
@@ -1625,15 +1692,6 @@
     <string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.
 قد يتم توفير الجودة العالية في بعض مقاطع الفيديو التي تتطلب أبعادًا عالية للجهاز، ولكن ليس كل مقاطع الفيديو."</string>
     <string name="revanced_spoof_device_dimensions_title">إيهام أبعاد الجهاز</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">ترميز فيديو iOS هو AVC (H.264) أو VP9 أو AV1.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">ترميز فيديو iOS هو AVC (H.264).</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_title">فرض iOS AVC (H.264)</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.
-
-يتمتع تنسيق AVC (H.264) بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو بيانات إنترنت اكثر من VP9 أو AV1."</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_off">يتم استخدام عميل iOS لتشغيل البث المباشر.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_summary_on">لا يتم استخدام عميل iOS لتشغيل البث المباشر.</string>
-    <string name="revanced_spoof_streaming_data_ios_skip_livestream_playback_title">تخطي تشغيل البث المباشر iOS</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• قائمة المقطع الصوتي مفقودة.
@@ -1653,6 +1711,7 @@
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">موسيقى iOS</string>
     <string name="revanced_spoof_streaming_data_type_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى السطوع بين 1-1000 (%).</string>

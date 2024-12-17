@@ -5,8 +5,12 @@
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
+    <string name="revanced_disable_drc_audio_summary">Disables DRC (Dynamic Range Compression) applied to audio.</string>
+    <string name="revanced_disable_drc_audio_title">Disable DRC audio</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Hide Downloads &amp; storage menu</string>
     <string name="revanced_hide_settings_menu_paid_memberships_title">Hide Get Music premium menu</string>
     <string name="revanced_hide_settings_menu_privacy_and_location_title">Hide Privacy &amp; data menu</string>
@@ -33,6 +37,20 @@ Click to see how to issue a API key."</string>
 Limitations:
 • OPUS audio codec may not be supported.
 • Seekbar thumbnail may not be present.
-• Watch history does not work with a brand account.</string>
+• Watch history does not work with a brand account.
+
+※ When used with 'Spoofing streaming data', playback issues may occur."</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
+    <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
+
+※ When used with 'Spoof client', playback issues may occur."</string>
+    <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Default client</string>
 </resources>
