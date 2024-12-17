@@ -14,6 +14,7 @@ import app.revanced.util.copyFile
 import app.revanced.util.copyResources
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.resolvable
+import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
 
 private const val DEFAULT_HEADER_KEY = "Custom branding icon"
@@ -145,15 +146,17 @@ val changeHeaderPatch = resourcePatch(
 
     execute {
         // Check patch options first.
-        val customHeader = customHeaderOption
-            .valueOrThrow()
+        var customHeader = customHeaderOption
+            .underBarOrThrow()
 
+        val isPath = customHeader != DEFAULT_HEADER_VALUE
         val customBrandingIconType = getIconType()
         val customBrandingIconIncluded = customBrandingIconType != "default"
+        customHeader = customHeaderOption.valueOrThrow()
 
         val warnings = "WARNING: Invalid header path: $customHeader. Does not apply patches."
 
-        if (customHeader != DEFAULT_HEADER_VALUE) {
+        if (isPath) {
             copyFile(
                 headerIconResourceGroups,
                 customHeader,

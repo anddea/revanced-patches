@@ -17,6 +17,7 @@ import app.revanced.util.copyResources
 import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
+import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
@@ -146,7 +147,7 @@ val customBrandingIconPatch = resourcePatch(
 
     execute {
         // Check patch options first.
-        val appIcon = appIconOption.underBarOrThrow()
+        var appIcon = appIconOption.underBarOrThrow()
 
         val appIconResourcePath = "music/branding/$appIcon"
         val youtubeMusicIconResourcePath = "music/branding/youtube_music"
@@ -155,6 +156,7 @@ val customBrandingIconPatch = resourcePatch(
 
         // Check if a custom path is used in the patch options.
         if (!availableIcon.containsValue(appIcon)) {
+            appIcon = appIconOption.valueOrThrow()
             launcherIconResourceGroups.let { resourceGroups ->
                 try {
                     val path = File(appIcon)

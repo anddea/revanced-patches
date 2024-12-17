@@ -11,6 +11,7 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
 import app.revanced.util.underBarOrThrow
+import app.revanced.util.valueOrThrow
 import java.io.File
 import java.nio.file.Files
 import kotlin.io.path.copyTo
@@ -115,16 +116,18 @@ val changeHeaderPatch = resourcePatch(
 
     execute {
         // Check patch options first.
-        val customHeader = customHeaderOption
+        var customHeader = customHeaderOption
             .underBarOrThrow()
 
+        val isPath = customHeader != DEFAULT_HEADER_VALUE
         val customBrandingIconType = getIconType()
         val customBrandingIconIncluded =
             customBrandingIconType != "default" && customBrandingIconType != "custom"
+        customHeader = customHeaderOption.valueOrThrow()
 
         val warnings = "WARNING: Invalid header path: $customHeader. Does not apply patches."
 
-        if (customHeader != DEFAULT_HEADER_VALUE) {
+        if (isPath) {
             copyFile(
                 headerIconResourceGroups,
                 customHeader,
