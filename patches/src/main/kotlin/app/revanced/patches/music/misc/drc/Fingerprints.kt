@@ -6,17 +6,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
- * On YouTube Music, class names are obfuscated.
- */
-internal val formatStreamModelConstructorFingerprint = legacyFingerprint(
-    name = "formatStreamModelConstructorFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(45374643L),
-)
-
-/**
  * YouTube Music 7.13.52 ~
  */
 internal val compressionRatioFingerprint = legacyFingerprint(

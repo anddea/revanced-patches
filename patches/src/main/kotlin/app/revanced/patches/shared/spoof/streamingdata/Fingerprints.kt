@@ -108,7 +108,8 @@ internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     returnType = "V",
     customFingerprint = { method, _ ->
-        indexOfFormatStreamModelInitInstruction(method) >= 0
+        indexOfFormatStreamModelInitInstruction(method) >= 0 &&
+                indexOfToMillisInstruction(method) >= 0
     },
 )
 
@@ -120,6 +121,17 @@ internal fun indexOfFormatStreamModelInitInstruction(method: Method) =
                 reference.parameterTypes.size > 1
     }
 
+internal fun indexOfToMillisInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference?.name == "toMillis"
+    }
+
+/**
+ * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/VideoStreamingData;'
+ * On YouTube Music, class names are obfuscated.
+ */
 internal val videoStreamingDataToStringFingerprint = legacyFingerprint(
     name = "videoStreamingDataToStringFingerprint",
     returnType = "Ljava/lang/String;",
@@ -135,7 +147,6 @@ internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
 
 internal val hlsCurrentTimeFingerprint = legacyFingerprint(
     name = "hlsCurrentTimeFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Z", "L"),
     literals = listOf(HLS_CURRENT_TIME_FEATURE_FLAG),
 )
