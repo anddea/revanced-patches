@@ -33,10 +33,6 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
             # Create new root with missing strings
             root = ET.Element("resources")
             for name, data in sorted(missing_strings.items()):
-                # If the string is already in the file and the count of strings is the same, then skip.
-                if name in missing_path_strings and len(missing_strings.keys()) == len(missing_path_strings.keys()):
-                    logger.info(f"Up to date: {missing_path}")
-                    return
                 string_elem = ET.Element("string", **data["attributes"])
                 string_elem.text = data["text"]
                 root.append(string_elem)
