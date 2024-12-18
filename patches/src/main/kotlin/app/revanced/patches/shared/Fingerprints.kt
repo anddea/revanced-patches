@@ -35,6 +35,21 @@ private fun Method.indexOfFieldReference(string: String) = indexOfFirstInstructi
     reference.toString() == string
 }
 
+/**
+ * On YouTube, this class is 'Lcom/google/android/libraries/youtube/innertube/model/media/FormatStreamModel;'
+ * On YouTube Music, class names are obfuscated.
+ */
+internal val formatStreamModelConstructorFingerprint = legacyFingerprint(
+    name = "formatStreamModelConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    opcodes = listOf(
+        Opcode.IGET_WIDE,
+        Opcode.IPUT_WIDE,
+    ),
+    literals = listOf(45374643L),
+)
+
 internal val mdxPlayerDirectorSetVideoStageFingerprint = legacyFingerprint(
     name = "mdxPlayerDirectorSetVideoStageFingerprint",
     strings = listOf("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")

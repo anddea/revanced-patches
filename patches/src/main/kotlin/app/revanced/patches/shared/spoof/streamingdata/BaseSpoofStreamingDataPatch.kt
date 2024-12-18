@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
@@ -13,6 +12,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
+import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -81,6 +81,13 @@ fun baseSpoofStreamingDataPatch(
 
         // region Replace the streaming data.
 
+        val approxDurationMsFieldName = formatStreamModelConstructorFingerprint.matchOrThrow().let {
+            with (it.method) {
+                val approxDurationMsFieldIndex = it.patternMatch!!.startIndex
+                (getInstruction<ReferenceInstruction>(approxDurationMsFieldIndex).reference as FieldReference).name
+            }
+        }
+
         createStreamingDataFingerprint.matchOrThrow(createStreamingDataParentFingerprint)
             .let { result ->
                 result.method.apply {
@@ -134,34 +141,42 @@ fun baseSpoofStreamingDataPatch(
                             addInstructionsWithLabels(
                                 0,
                                 """
-                                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
-                                move-result v0
-                                if-eqz v0, :disabled
-                                
-                                # Get video id.
-                                iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
-                                if-eqz v2, :disabled
-                                
-                                # Get streaming data.
-                                iget-object v6, p0, $setStreamingDataField
-                                invoke-static { v2, v6 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;$STREAMING_DATA_INTERFACE)Ljava/nio/ByteBuffer;
-                                move-result-object v3
-                                if-eqz v3, :disabled
-                                
-                                # Parse streaming data.
-                                sget-object v4, $playerProtoClass->a:$playerProtoClass
-                                invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
-                                move-result-object v5
-                                check-cast v5, $playerProtoClass
-                                
-                                # Set streaming data.
-                                iget-object v6, v5, $getStreamingDataField
-                                if-eqz v6, :disabled
-                                iput-object v6, p0, $setStreamingDataField
-                                
-                                :disabled
-                                return-void
-                                """,
+                                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
+                                    move-result v0
+                                    if-eqz v0, :disabled
+                                    
+                                    # Get video id.
+                                    iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
+                                    if-eqz v2, :disabled
+                                    
+                                    # Get streaming data.
+                                    invoke-static { v2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)Ljava/nio/ByteBuffer;
+                                    move-result-object v3
+                                    
+                                    if-eqz v3, :disabled
+                                    
+                                    # Parse streaming data.
+                                    sget-object v4, $playerProtoClass->a:$playerProtoClass
+                                    invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
+                                    move-result-object v5
+                                    check-cast v5, $playerProtoClass
+                                    
+                                    iget-object v6, v5, $getStreamingDataField
+                                    if-eqz v6, :disabled
+                                    
+                                    # Get original streaming data.
+                                    iget-object v0, p0, $setStreamingDataField
+                                    
+                                    # Set spoofed streaming data.
+                                    iput-object v6, p0, $setStreamingDataField
+                                    
+                                    # Get video length from original streaming data and save to extension.
+                                    const-string v5, "$approxDurationMsFieldName"
+                                    invoke-static { v2, v5, v0, v6 }, $EXTENSION_CLASS_DESCRIPTOR->setApproxDurationMs(Ljava/lang/String;Ljava/lang/String;$STREAMING_DATA_INTERFACE$STREAMING_DATA_INTERFACE)V
+                                    
+                                    :disabled
+                                    return-void
+                                    """,
                             )
                         },
                     )
@@ -171,41 +186,33 @@ fun baseSpoofStreamingDataPatch(
         videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint)
             .apply {
                 val formatStreamModelInitIndex = indexOfFormatStreamModelInitInstruction(this)
-                val getVideoIdIndex =
+                val videoIdIndex =
                     indexOfFirstInstructionReversedOrThrow(formatStreamModelInitIndex) {
                         val reference = getReference<FieldReference>()
                         opcode == Opcode.IGET_OBJECT &&
                                 reference?.type == "Ljava/lang/String;" &&
                                 reference.definingClass == definingClass
                     }
-                val getVideoIdReference =
-                    getInstruction<ReferenceInstruction>(getVideoIdIndex).reference
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(getVideoIdIndex) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.definingClass == STREAMING_DATA_INTERFACE
-                }
-
-                val (freeRegister, streamingDataRegister) = with(
-                    getInstruction<TwoRegisterInstruction>(
-                        insertIndex
-                    )
-                ) {
-                    Pair(registerA, registerB)
-                }
                 val definingClassRegister =
-                    getInstruction<TwoRegisterInstruction>(getVideoIdIndex).registerB
-                val insertReference = getInstruction<ReferenceInstruction>(insertIndex).reference
+                    getInstruction<TwoRegisterInstruction>(videoIdIndex).registerB
+                val videoIdReference =
+                    getInstruction<ReferenceInstruction>(videoIdIndex).reference
 
-                replaceInstruction(
-                    insertIndex,
-                    "iget-object v$freeRegister, v$freeRegister, $insertReference"
-                )
+                val toMillisIndex = indexOfToMillisInstruction(this)
+                val freeRegister =
+                    getInstruction<FiveRegisterInstruction>(toMillisIndex).registerC
+                val lengthMillisecondsRegister =
+                    getInstruction<OneRegisterInstruction>(toMillisIndex + 1).registerA
+
                 addInstructions(
-                    insertIndex, """
-                    iget-object v$freeRegister, v$definingClassRegister, $getVideoIdReference
-                    invoke-static { v$freeRegister, v$streamingDataRegister }, $EXTENSION_CLASS_DESCRIPTOR->getOriginalStreamingData(Ljava/lang/String;$STREAMING_DATA_INTERFACE)$STREAMING_DATA_INTERFACE
-                    move-result-object v$freeRegister
-                    """
+                    toMillisIndex + 2, """
+                        # Get video id.
+                        iget-object v$freeRegister, v$definingClassRegister, $videoIdReference
+                        
+                        # Override streaming data formats.
+                        invoke-static { v$freeRegister, v$lengthMillisecondsRegister, v${lengthMillisecondsRegister + 1} }, $EXTENSION_CLASS_DESCRIPTOR->getApproxDurationMsFromOriginalResponse(Ljava/lang/String;J)J
+                        move-result-wide v$lengthMillisecondsRegister
+                        """
                 )
             }
 

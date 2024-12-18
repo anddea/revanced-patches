@@ -17,22 +17,18 @@ public class AppClient {
      * Store page of the YouTube app</a>, in the {@code What’s New} section.
      * </p>
      */
-    private static final String CLIENT_VERSION_IOS = "19.49.5";
+    private static final String CLIENT_VERSION_IOS = "19.29.1";
     /**
-     * The device machine id for the iPhone 16 Pro Max (iPhone17,2), used to get HDR with AV1 hardware decoding.
+     * The device machine id for the iPhone 15 Pro Max (iPhone16,2), used to get HDR with AV1 hardware decoding.
      *
      * <p>
      * See <a href="https://gist.github.com/adamawolf/3048717">this GitHub Gist</a> for more
      * information.
      * </p>
      */
-    private static final String DEVICE_MODEL_IOS = "iPhone17,2";
-    /**
-     * The minimum supported OS version for the iOS YouTube client is iOS 14.0.
-     * Using an invalid OS version will use the AVC codec.
-     */
-    private static final String OS_VERSION_IOS = "18.1.1.22B91";
-    private static final String USER_AGENT_VERSION_IOS = "18_1_1";
+    private static final String DEVICE_MODEL_IOS = "iPhone16,2";
+    private static final String OS_VERSION_IOS = "17.7.2.21H221";
+    private static final String USER_AGENT_VERSION_IOS = "17_7_2";
     private static final String USER_AGENT_IOS = "com.google.ios.youtube/" +
             CLIENT_VERSION_IOS +
             "(" +
