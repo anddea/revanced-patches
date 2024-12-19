@@ -20,10 +20,6 @@ public class ExtendedUtils extends PackageUtils {
         return isVersionToLessThan(Settings.SPOOF_APP_VERSION_TARGET.get(), versionName);
     }
 
-    private static int dpToPx(float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
-    }
-
     @SuppressWarnings("deprecation")
     public static AlertDialog.Builder getDialogBuilder(@NonNull Context context) {
         return new AlertDialog.Builder(context, isSDKAbove(22)

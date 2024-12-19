@@ -22,9 +22,12 @@ import app.revanced.extension.youtube.settings.Settings;
 public final class ShortsCustomActionsFilter extends Filter {
     private static final boolean IS_SPOOFING_TO_YOUTUBE_2023 =
             isSpoofingToLessThan("19.00.00");
+    private static final boolean SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED =
+            !IS_SPOOFING_TO_YOUTUBE_2023 && Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get();
+    private static final boolean SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED =
+            Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR.get();
     private static final boolean SHORTS_CUSTOM_ACTIONS_ENABLED =
-            !IS_SPOOFING_TO_YOUTUBE_2023 &&
-                    Settings.ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU.get();
+            SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED || SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED;
 
     /**
      * Last unique video id's loaded.  Value is ignored and Map is treated as a Set.
