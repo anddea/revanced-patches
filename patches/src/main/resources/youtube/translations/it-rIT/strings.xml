@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">Vuoi attivare i controlli di accessibilità del riproduttore?</string>
     <string name="accessibility_settings_edu_opt_out_text">I tuoi controlli sono diversi poiché un servizio di accessibilità è attivato.</string>
@@ -1626,18 +1626,23 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
 
 La maggior parte dei bug non può essere risolta a causa di limitazioni lato client, quindi usala solo per scopi di test."</string>
     <string name="revanced_shorts_custom_actions_about_title">Informazioni sulle azioni personalizzate</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">Copia l\'URL del video</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Il menù URL del Video Copiato è nascosto.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Il menù URL del Video Copiato è visibile.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Copia l\'URL del video con timestamp</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Il menù URL del Video con Timestamp Copiato è nascosto.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Il menù URL del Video con Timestamp Copiato è visibile.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Mostra il menù URL del Video con Timestamp Copiato</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_title">Mostra il menù URL del Video Copiato</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">Downloader esterno</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Il menù Downloader Esterno è nascosto.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Il menù Downloader Esterno è visibile.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Mostra il menù Downloader Esterno</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">Apri il video</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Il menù Apri il Video è nascosto.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Il menù Apri il Video è visibile.</string>
     <string name="revanced_shorts_custom_actions_open_video_title">Mostra il menù Apri il Video</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">Stato di ripetizione</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Il menù Stato di Ripetizione è visibile.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Il menù Stato di Ripetizione è nascosto.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">Mostra il menù Stato di Ripetizione</string>
@@ -1769,6 +1774,7 @@ Inoltre, gli annunci degli Shorts non saranno più bloccati.
 Se questa impostazione non ha effetto, prova a passare alla navigazione in incognito."</string>
     <string name="revanced_theme_default">Predefinito</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">Attenzione</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s non è installato. Per favore installalo.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">Il nome del pacchetto dell\'app RVX Music installata.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">Nome del pacchetto dell\'app RVX Music</string>
