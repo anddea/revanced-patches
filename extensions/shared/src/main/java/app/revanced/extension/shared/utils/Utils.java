@@ -17,6 +17,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -466,6 +467,14 @@ public class Utils {
      */
     public static boolean isSDKAbove(int sdk) {
         return Build.VERSION.SDK_INT >= sdk;
+    }
+
+    public static int dpToPx(float dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 
     /**

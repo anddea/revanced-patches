@@ -53,6 +53,13 @@ public class ThemeUtils extends BaseThemeUtils {
         return getColor(colorName);
     }
 
+    public static int getPressedElementColor() {
+        String colorHex = isDarkTheme()
+                ? lightenColor(getBackgroundColorHexString(), 15)
+                : darkenColor(getBackgroundColorHexString(), 15);
+        return Color.parseColor(colorHex);
+    }
+
     public static GradientDrawable getSearchViewShape() {
         GradientDrawable shape = new GradientDrawable();
 
