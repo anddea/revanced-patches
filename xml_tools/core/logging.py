@@ -1,6 +1,13 @@
+"""Core package for application logging."""
+
+from __future__ import annotations
+
 import logging
-from pathlib import Path
-from typing import Optional
+import sys
+from typing import TYPE_CHECKING, ClassVar
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 # ANSI escape codes for colors
 BLUE: str = "\033[94m"
@@ -13,13 +20,14 @@ RESET: str = "\033[0m"
 
 
 class ColorFormatter(logging.Formatter):
-    """
-    Custom formatter to add colors based on log level and special message formatting.
+    """Custom formatter to add colors based on log level and special message formatting.
 
     Attributes:
         level_colors (dict): Mapping of log levels to their corresponding colors.
+
     """
-    level_colors = {
+
+    level_colors: ClassVar[dict[str, str]] = {
         "DEBUG": BLUE,
         "INFO": GREEN,
         "WARNING": YELLOW,
@@ -28,8 +36,7 @@ class ColorFormatter(logging.Formatter):
     }
 
     def format(self, record: logging.LogRecord) -> str:
-        """
-        Format the log record with colors and special message handling.
+        """Format the log record with colors and special message handling.
 
         Args:
             record (logging.LogRecord): The log record to format.
@@ -41,6 +48,7 @@ class ColorFormatter(logging.Formatter):
             - Preserves original record attributes by saving and restoring them
             - Applies special coloring to "Starting process:" messages
             - Colors log levels according to severity
+
         """
         # Save original values
         original_levelname = record.levelname
@@ -64,9 +72,22 @@ class ColorFormatter(logging.Formatter):
         return formatted_message
 
 
-def setup_logging(log_file: Optional[Path] = None, debug: bool = True) -> logging.Logger:
-    """
-    Configure logging with colored level names for console output and optional file logging.
+class ExitOnErrorHandler(logging.Handler):
+    """Custom handler to exit the program on ERROR or CRITICAL log levels."""
+
+    def emit(self, record: logging.LogRecord) -> None:
+        """Check the log level and exit if it's ERROR or CRITICAL.
+
+        Args:
+            record (logging.LogRecord): The log record to evaluate.
+
+        """
+        if record.levelno >= logging.ERROR:
+            sys.exit(1)
+
+
+def setup_logging(log_file: Path | None = None, *, debug: bool = True) -> logging.Logger:
+    """Configure logging with colored level names for console output and optional file logging.
 
     Args:
         log_file (Optional[Path]): Path to the log file. If None, only console logging is configured.
@@ -75,11 +96,6 @@ def setup_logging(log_file: Optional[Path] = None, debug: bool = True) -> loggin
     Returns:
         logging.Logger: Configured logger instance.
 
-    Note:
-        - Console output uses colors for better readability
-        - File output (if enabled) uses plain text without colors
-        - DEBUG messages are enabled by default
-        - Clears any existing handlers before configuration
     """
     # Create logger
     logger = logging.getLogger("xml_tools")
@@ -94,9 +110,7 @@ def setup_logging(log_file: Optional[Path] = None, debug: bool = True) -> loggin
     # Console handler with colors
     console_handler = logging.StreamHandler()
     console_handler.setLevel(base_level)  # Use same level as logger
-    console_formatter = ColorFormatter(
-        "%(asctime)s - %(levelname)s - %(message)s"
-    )
+    console_formatter = ColorFormatter("%(asctime)s - %(levelname)s - %(message)s")
     console_handler.setFormatter(console_formatter)
     logger.addHandler(console_handler)
 
@@ -104,23 +118,24 @@ def setup_logging(log_file: Optional[Path] = None, debug: bool = True) -> loggin
     if log_file:
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(base_level)  # Use same level as logger
-        file_formatter = logging.Formatter(
-            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-        )
+        file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
         file_handler.setFormatter(file_formatter)
         logger.addHandler(file_handler)
+
+    # Add the ExitOnErrorHandler
+    exit_handler = ExitOnErrorHandler()
+    logger.addHandler(exit_handler)
 
     # Log initial setup
     logger.debug("Logging system initialized")
     if log_file:
-        logger.debug(f"Log file created at: {log_file}")
+        logger.debug("Log file created at: %s", log_file)
 
     return logger
 
 
 def log_process(logger: logging.Logger, process_name: str) -> None:
-    """
-    Log the start of a process with special formatting.
+    """Log the start of a process with special formatting.
 
     Args:
         logger (logging.Logger): The logger instance to use.
@@ -128,5 +143,6 @@ def log_process(logger: logging.Logger, process_name: str) -> None:
 
     Note:
         Uses special color formatting for "Starting process:" messages.
+
     """
-    logger.info(f"Starting process: {process_name}")
+    logger.info("Starting process: %s", process_name)

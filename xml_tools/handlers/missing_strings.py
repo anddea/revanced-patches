@@ -1,9 +1,11 @@
-from pathlib import Path
+"""Find missing strings and create the file with them."""
+
 import logging
-from lxml import etree as ET
+from pathlib import Path
+
+from lxml import etree as et
 
 from config.settings import Settings
-from core.exceptions import XMLProcessingError
 from utils.xml import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
@@ -16,6 +18,7 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
         source_path: Path to source XML file
         dest_path: Path to destination XML file
         missing_path: Path to missing strings file
+
     """
     try:
         # Parse source and destination files
@@ -25,32 +28,25 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
 
         # Find missing strings
         missing_strings = {}
-        for name, data in source_strings.items():
-            if name not in dest_strings:
-                missing_strings[name] = data
+        missing_strings = {name: data for name, data in source_strings.items() if name not in dest_strings}
 
         if missing_strings:
             # Create new root with missing strings
-            root = ET.Element("resources")
-            for name, data in sorted(missing_strings.items()):
-                # If the string is already in the file and the count of strings is the same, then skip.
-                if name in missing_path_strings and len(missing_strings.keys()) == len(missing_path_strings.keys()):
-                    logger.info(f"Up to date: {missing_path}")
-                    return
-                string_elem = ET.Element("string", **data["attributes"])
+            root = et.Element("resources")
+            for _name, data in sorted(missing_strings.items()):
+                string_elem = et.Element("string", **data["attributes"])
                 string_elem.text = data["text"]
                 root.append(string_elem)
 
             # Write missing strings file
             XMLProcessor.write_file(missing_path, root)
-            logger.info(f"Modified missing strings file: {missing_path}")
+            logger.info("Modified missing strings file: %s", missing_path)
         elif missing_path.exists():
             missing_path.unlink()
-            logger.info(f"Removed empty missing strings file: {missing_path}")
+            logger.info("Removed empty missing strings file: %s", missing_path)
 
-    except Exception as e:
-        logger.error(f"Failed to process missing strings: {e}")
-        raise XMLProcessingError(str(e))
+    except Exception:
+        logger.exception("Failed to process missing strings: ")
 
 
 def process(app: str) -> None:
@@ -58,6 +54,7 @@ def process(app: str) -> None:
 
     Args:
         app: Application name (youtube/music)
+
     """
     settings = Settings()
     source_path = settings.get_resource_path(app, "settings") / "host/values/strings.xml"
@@ -70,6 +67,5 @@ def process(app: str) -> None:
                 missing_path = lang_dir / "missing_strings.xml"
                 compare_and_update(source_path, dest_path, missing_path)
 
-    except Exception as e:
-        logger.error(f"Failed to process {app} translations: {e}")
-        raise XMLProcessingError(str(e))
+    except Exception:
+        logger.exception("Failed to process %s translations: ", app)

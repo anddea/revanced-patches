@@ -1,0 +1,31 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="vector"
+    android:width="48.0dp"
+    android:height="48.0dp"
+    android:viewportWidth="192.0"
+    android:viewportHeight="192.0">
+    <group
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:pivotX="60"
+        android:pivotY="96">
+        <path
+            android:name="red_circle"
+            android:pathData="M 177.216 96 C 177.216 140.854 140.854 177.216 96 177.216 C 51.146 177.216 14.784 140.854 14.784 96 C 14.784 51.146 51.146 14.784 96 14.784 C 140.854 14.784 177.216 51.146 177.216 96 Z"
+            android:fillColor="#ff0000"
+            android:strokeColor="#00000000"
+            android:strokeWidth="1"/>
+        <path
+            android:name="white_circle"
+            android:pathData="M 145.863 96 C 145.863 123.539 123.539 145.863 96 145.863 C 68.461 145.863 46.137 123.539 46.137 96 C 46.137 68.461 68.461 46.137 96 46.137 C 123.539 46.137 145.863 68.461 145.863 96 Z"
+            android:fillColor="#00000000"
+            android:strokeColor="#ffffff"
+            android:strokeWidth="5"/>
+        <path
+            android:name="triangle"
+            android:pathData="M 82.986 100.056 C 82.984 104.411 82.987 113.362 82.986 117.747 L 119.859 95.055 L 82.986 74.254 L 82.986 100.056 Z"
+            android:fillColor="#ffffff"
+            android:strokeWidth="1"/>
+    </group>
+</vector>
