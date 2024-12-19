@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">플레이어에 접근성 컨트롤을 표시하시겠습니까?</string>
     <string name="accessibility_settings_edu_opt_out_text">접근성 서비스가 켜져있기 때문에 플레이어 컨트롤을 변경합니다.</string>
@@ -1641,18 +1641,23 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 
 대부분의 버그는 클라이언트 측의 제한으로 인해 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
     <string name="revanced_shorts_custom_actions_about_title">사용자 정의 동작 정보</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">동영상 URL 복사하기</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">\'동영상 URL 복사하기\' 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">\'동영상 URL 복사하기\' 메뉴가 표시됩니다.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">타임스탬프 URL 복사하기</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">\'타임스탬프 URL 복사하기\' 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">\'타임스탬프 URL 복사하기\' 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">\'타임스탬프 URL 복사하기\' 메뉴 표시하기</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_title">\'동영상 URL 복사하기\' 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">외부 다운로더</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">\'외부 다운로더\' 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">\'외부 다운로더\' 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">\'외부 다운로더\' 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">동영상 열기</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">\'동영상 열기\' 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">\'동영상 열기\' 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_open_video_title">\'동영상 열기\' 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">반복 상태</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">\'반복 상태\' 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">\'반복 상태\' 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">\'반복 상태\' 메뉴 표시하기</string>
@@ -1775,6 +1780,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 이 설정이 적용되지 않는 경우에는 시크릿 모드로 전환해 보세요."</string>
     <string name="revanced_theme_default">YouTube</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">경고</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s 이 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">이 기기에 설치된 RVX Music 앱 패키지명을 설정하세요.</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music 앱 패키지명</string>
