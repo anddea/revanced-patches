@@ -76,6 +76,7 @@
     <string name="revanced_change_share_sheet_summary_off">使用應用程式內分享擴展。</string>
     <string name="revanced_change_share_sheet_summary_on">使用系統分享擴展。</string>
     <string name="revanced_change_share_sheet_title">更改分享擴展</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">更改 Shorts 背景重複狀態</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">自動播放</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">預設</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">暫停</string>
@@ -278,6 +279,18 @@
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">搜尋欄縮圖品質中等。</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">搜尋欄縮圖品質很高。</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">啟用高品質縮圖</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">自訂操作在快顯選單中已被禁用。</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"自訂操作在快顯選單中已啟用。
+
+限制條件：
+• 如果應用程式版本被偽裝成 18.49.37 或更早版本，則無法運作。
+• 無法與直播一起使用。"</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">啟用快顯選單中的自訂操作</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">工具列中的自訂操作已被禁用</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"工具列中的自訂操作已啟用。
+
+按住「更多」按鈕以顯示自訂操作對話框。"</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">啟用工具列中的自訂操作</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">時間戳已停用。</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"已知問題：由於這是 Google 開發階段的功能，因此佈局可能會被破壞。"</string>
     <string name="revanced_enable_shorts_time_stamp_title">啟用時間戳</string>
@@ -351,6 +364,8 @@
     <string name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">長按時使用的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">長按時的影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_force_fullscreen_summary">"影片將在以下情況下切換到全螢幕模式：
@@ -583,6 +598,9 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">顯示即時聊天重播按鈕。\n\n關閉即時聊天時它會以全螢幕顯示。</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">即時聊天重播按鈕已隱藏。\n\n關閉即時聊天時它會以全螢幕顯示。</string>
     <string name="revanced_hide_live_chat_replay_button_title">隱藏即時聊天重播按鈕</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">聊天摘要已顯示。</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">聊天摘要已隱藏。</string>
+    <string name="revanced_hide_live_chat_summary_title">隱藏直播聊天摘要</string>
     <string name="revanced_hide_low_views_video_summary">在首頁隱藏來自未訂閱頻道的、觀看次數少於 1,000 次的影片。</string>
     <string name="revanced_hide_low_views_video_title">隱藏低觀看次數的影片</string>
     <string name="revanced_hide_medical_panel_summary_off">醫療面板已顯示</string>
@@ -1101,13 +1119,18 @@ Note:
     <string name="revanced_icon_mmt">MMT</string>
     <string name="revanced_icon_mmt_blue">MMT 藍</string>
     <string name="revanced_icon_mmt_green">MMT 綠</string>
+    <string name="revanced_icon_mmt_orange">MMT 橘</string>
+    <string name="revanced_icon_mmt_pink">MMT 粉紅</string>
+    <string name="revanced_icon_mmt_turquoise">MMT 青綠</string>
     <string name="revanced_icon_mmt_yellow">MMT 黃</string>
     <string name="revanced_icon_revancify_blue">復興藍</string>
     <string name="revanced_icon_revancify_red">復興紅</string>
     <string name="revanced_icon_revancify_yellow">復興黃</string>
+    <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube 黑</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
@@ -1191,6 +1214,7 @@ Note:
 資訊:
 • 可能不適用於直播。"</string>
     <string name="revanced_overlay_button_play_all_title">顯示全部播放按鈕</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">所有內容 (按時間升序)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">所有內容 (按時間排序)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">會員專屬影片</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">會員專屬短影片</string>
@@ -1228,6 +1252,7 @@ Note:
     <string name="revanced_preference_category_action_buttons">操作按鈕</string>
     <string name="revanced_preference_category_additional_settings">其他設定</string>
     <string name="revanced_preference_category_animation_feedback">動畫 / 回饋</string>
+    <string name="revanced_preference_category_custom_actions">自訂操作</string>
     <string name="revanced_preference_category_download_button">下載按鈕</string>
     <string name="revanced_preference_category_experimental_flag">實驗性功能</string>
     <string name="revanced_preference_category_image_region_restrictions">影像區域限制</string>
@@ -1466,7 +1491,9 @@ Note:
     <string name="revanced_sb_guidelines_popup_title">遵循指南</string>
     <string name="revanced_sb_guidelines_preference_sum">指南包含創建新片段的規則和技巧</string>
     <string name="revanced_sb_guidelines_preference_title">查看指南</string>
+    <string name="revanced_sb_new_segment_adjust">調整：標記片段的開始和結束時間</string>    
     <string name="revanced_sb_new_segment_choose_category">選擇片段類別</string>
+    <string name="revanced_sb_new_segment_compare">驗證片段</string>
     <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">段落從\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
@@ -1474,12 +1501,15 @@ Note:
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手動編輯片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段時間</string>
+    <string name="revanced_sb_new_segment_forward">依指定時間往前跳轉（預設：150 毫秒）</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記兩個位置</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
     <string name="revanced_sb_new_segment_now">立即</string>
     <string name="revanced_sb_new_segment_preview_segment_first">預覽片段，並確保跳過順暢</string>
+    <string name="revanced_sb_new_segment_publish">發佈創建的片段</string>
+    <string name="revanced_sb_new_segment_rewind">依指定時間往後跳轉（預設：150 毫秒）</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始時間必須早於結束時間</string>
     <string name="revanced_sb_new_segment_time_end">片段結束時間</string>
     <string name="revanced_sb_new_segment_time_start">片段開始時間</string>
@@ -1598,6 +1628,31 @@ Note:
     <string name="revanced_share_copy_timestamp_success">時間戳記已複製到剪貼簿。（%s）</string>
     <string name="revanced_share_copy_url_success">URL 已複製到剪貼簿。</string>
     <string name="revanced_share_copy_url_timestamp_success">帶時間戳記的 URL 已複製到剪貼簿。</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"此功能仍在實驗階段，因此無法保證完美運作。
+
+由於用戶端限制，大多數錯誤無法修復，因此僅供測試目的使用。"</string>
+    <string name="revanced_shorts_custom_actions_about_title">關於自訂操作</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">複製影片網址</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">複製影片網址選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">複製影片網址選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">複製時間戳記網址</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">複製時間戳記網址選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">複製時間戳記網址選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">顯示複製時間戳記網址選單</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">顯示複製影片網址選單</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">外部下載器</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">外部下載器選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">外部下載器選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">顯示外部下載器選單</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">開啟影片</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">開啟影片選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">開啟影片選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">顯示開啟影片選單</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">循環播放狀態</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">循環播放狀態選單已隱藏。</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">循環播放狀態選單已顯示。</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">顯示循環播放狀態選單</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">自訂操作</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">原始</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">比讚</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Cairo</string>
@@ -1648,6 +1703,8 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - 恢復舊版預設影片畫質</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - 停用即時更新「觀看次數」和「喜歡次數」</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - 恢復舊式滾動數位動畫</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - 停用導覽列和工具列中的 Cairo 圖示</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - 恢復舊版播放速度彈出面板</string>
     <string name="revanced_spoof_app_version_target_entry_title">欺騙應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_summary">輸入欺騙的應用程式版本目標</string>
     <string name="revanced_spoof_app_version_target_title">編輯欺騙應用程式版本</string>
@@ -1662,6 +1719,8 @@ Note:
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">"• 電影或付費影片可能無法播放。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 影片可能會提前1秒結束。
+• 可能不支援 OPUS 音訊編解碼器。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 影片可能會提前 1 秒結束。</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">偽裝副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 影片可能無法播放。</string>
@@ -1675,6 +1734,7 @@ Note:
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android 電視</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS 音樂</string>
     <string name="revanced_spoof_streaming_data_type_title">預設客戶端</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">滑動控制 (亮度) 靈敏度的值必須在 1-1000 (%) 之間</string>
