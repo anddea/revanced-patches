@@ -1,9 +1,11 @@
-from pathlib import Path
-from lxml import etree as ET
+"""Check strings in destination."""
+
 import logging
+from pathlib import Path
+
+from lxml import etree as et
 
 from config.settings import Settings
-from core.exceptions import XMLProcessingError
 from utils.xml import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
@@ -14,24 +16,24 @@ def sort_file(path: Path) -> None:
 
     Args:
         path: Path to XML file to sort
+
     """
     try:
         _, root, strings = XMLProcessor.parse_file(path)
 
         # Create new root with sorted strings
-        new_root = ET.Element("resources")
+        new_root = et.Element("resources")
         for name in sorted(strings.keys()):
             data = strings[name]
-            string_elem = ET.Element("string", **data["attributes"])
+            string_elem = et.Element("string", **data["attributes"])
             string_elem.text = data["text"]
             new_root.append(string_elem)
 
         XMLProcessor.write_file(path, new_root)
-        logger.info(f"Sorted strings in {path}")
+        logger.info("Sorted strings in %s", path)
 
-    except Exception as e:
-        logger.error(f"Failed to sort {path}: {e}")
-        raise XMLProcessingError(f"Failed to sort {path}: {e}")
+    except Exception:
+        logger.exception("Failed to sort %s: ", path)
 
 
 def process(app: str) -> None:
@@ -39,6 +41,7 @@ def process(app: str) -> None:
 
     Args:
         app: Application name (youtube/music)
+
     """
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")

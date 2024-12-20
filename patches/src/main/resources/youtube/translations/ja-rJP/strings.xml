@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールを有効化しますか？</string>
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスがオンになっているため、操作方法が変わります。</string>
@@ -1625,18 +1625,23 @@ API キーの発行方法については、ここをタップしてください�
 
 ほとんどのバグはクライアント側の制限により、修正できないため、テスト目的でのみ使用してください。"</string>
     <string name="revanced_shorts_custom_actions_about_title">カスタムアクションについて</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">動画の URL をコピー</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">動画の URL をコピーするメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">動画の URL をコピーするメニューを表示します。</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">タイムスタンプの URL をコピー</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">タイムスタンプの URL をコピーするメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">タイムスタンプの URL をコピーするメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">タイムスタンプの URL をコピーするメニューを表示</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_title">動画の URL をコピーするメニューを表示</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">外部ダウンローダー</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">外部ダウンローダーのメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">外部ダウンローダーのメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">外部ダウンローダーのメニューを表示</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">動画を開く</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">動画を開くメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">動画を開くメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_open_video_title">動画を開くメニューを表示</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">リピート状態</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">リピート状態のメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">リピート状態のメニューを表示します。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">リピート状態のメニューを表示</string>
@@ -1766,6 +1771,7 @@ API キーの発行方法については、ここをタップしてください�
 この設定が有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
     <string name="revanced_theme_default">オリジナル</string>
     <string name="revanced_third_party_youtube_music_dialog_title">RVX Music</string>
+    <string name="revanced_third_party_youtube_music_not_installed_dialog_title">注意</string>
     <string name="revanced_third_party_youtube_music_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
     <string name="revanced_third_party_youtube_music_package_name_summary">インストールされている RVX Music のパッケージ名です。</string>
     <string name="revanced_third_party_youtube_music_package_name_title">RVX Music のパッケージ名</string>

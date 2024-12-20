@@ -1,90 +1,102 @@
-from pathlib import Path
-import click
+"""CLI tool to run xml commands."""
+
+from __future__ import annotations
+
 import os
 import sys
-from typing import Optional, List, Tuple, Callable
-from logging import Logger
+from dataclasses import dataclass
+from pathlib import Path
+from typing import TYPE_CHECKING, Callable
 
-from config.settings import Settings
-from core.exceptions import ConfigError
-from core.logging import setup_logging, log_process
-from utils.git import GitClient
-from handlers import missing_prefs, missing_strings, remove_unused_strings, replace_strings, sort_strings
+import click
+
+from config import Settings
+from core import log_process, setup_logging
+from handlers import (
+    check_prefs,
+    check_strings,
+    missing_strings,
+    remove_unused_strings,
+    replace_strings,
+    sort_strings,
+)
+from utils import GitClient
+
+if TYPE_CHECKING:
+    from logging import Logger
+
 
 settings = Settings()
 
 
-def get_rvx_base_dir() -> Path:
-    """Get RVX base directory from environment variable.
+@dataclass
+class CLIConfig:
+    """Configuration for CLI commands."""
 
-    Returns:
-        Path: The path to the RVX base directory.
+    log_file: str | None
+    rvx_base_dir: Path | None
+    app: str
+    logger: Logger
 
-    Raises:
-        ConfigError: If RVX_BASE_DIR environment variable is not set.
 
-    Note:
-        This function checks for the RVX_BASE_DIR environment variable
-        which must be set before running the application.
-    """
+def get_rvx_base_dir(logger: Logger) -> Path:
+    """Get the RVX base directory from the environment."""
     rvx_dir = os.getenv("RVX_BASE_DIR")
     if not rvx_dir:
-        raise ConfigError("RVX_BASE_DIR environment variable must be set")
+        logger.error("RVX_BASE_DIR must be provided for replace operation.")
+        sys.exit(1)
     return Path(rvx_dir)
 
 
-def validate_rvx_base_dir(ctx: click.Context, base_dir: Optional[str] = None) -> Path:
-    """Validate and return the RVX base directory path.
-
-    Args:
-        ctx (click.Context): The Click context object containing shared resources.
-        base_dir (Optional[str], optional): The base directory path string. Defaults to None.
-
-    Returns:
-        Path: A validated Path object for the RVX base directory.
-
-    Raises:
-        SystemExit: If the base directory validation fails.
-
-    Note:
-        If base_dir is not provided, the function attempts to get it from
-        the RVX_BASE_DIR environment variable.
-    """
-    if not base_dir:
-        try:
-            base_dir = str(get_rvx_base_dir())
-        except ConfigError as e:
-            ctx.obj['logger'].error(str(e))
-            sys.exit(1)
-    return Path(base_dir)
+def is_rvx_dir_needed(options: dict) -> bool:
+    """Determine if rvx_base_dir validation is needed based on options."""
+    return options.get("run_all") or options.get("replace") or options.get("prefs") or options.get("check")
 
 
-def process_all(app: str, base_dir: Path, logger: Logger) -> None:
-    """Run all processing steps in sequence for the specified application.
+@click.group(invoke_without_command=True)
+@click.option("--log-file", type=str, help="Path to log file")
+@click.option("--rvx-base-dir", type=str, envvar="RVX_BASE_DIR", help="Path to RVX 'patches' directory")
+@click.option("-a", "--all", "run_all", is_flag=True, help="Run all commands in order")
+@click.option("-m", "--missing", is_flag=True, help="Run missing strings check")
+@click.option("-r", "--replace", is_flag=True, help="Run replace strings operation")
+@click.option("--remove", is_flag=True, help="Remove unused strings")
+@click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
+@click.option("-c", "--check", is_flag=True, help="Run missing strings check")
+@click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
+@click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
+@click.pass_context
+def cli(ctx: click.Context, **kwargs: dict[str, bool | str | None]) -> None:
+    """CLI tool for processing XML commands."""
+    log_file = kwargs.get("log_file")
+    app = "youtube" if kwargs.get("youtube") else "music"
 
-    Args:
-        app (str): The application to process ('youtube' or 'music').
-        base_dir (Path): The base directory path for RVX operations.
-        logger (Logger): The logger instance for recording operations.
+    logger = setup_logging(Path(log_file) if log_file else None)
 
-    Raises:
-        SystemExit: If any processing step fails or Git sync fails.
-        Exception: If any handler encounters an error during execution.
+    rvx_base_dir = kwargs.get("rvx_base_dir") or get_rvx_base_dir(logger) if is_rvx_dir_needed(kwargs) else None
 
-    Note:
-        This function executes the following steps in order:
-        1. Syncs the Git repository
-        2. Replaces strings for YouTube and YouTube Music
-        3. Removes unused strings
-        4. Sorts strings
-        5. Checks for missing strings
-        6. Checks for missing preferences
-    """
+    ctx.obj = CLIConfig(
+        log_file=log_file,
+        rvx_base_dir=Path(rvx_base_dir) if rvx_base_dir else None,
+        app=app,
+        logger=logger,
+    )
+
+    if kwargs.get("run_all"):
+        process_all(ctx.obj)
+
+    handle_individual_operations(ctx.obj, kwargs)
+
+
+def process_all(config: CLIConfig) -> None:
+    """Run all operations in sequence."""
+    logger = config.logger
+    base_dir = config.rvx_base_dir
+
     git = GitClient(base_dir)
     if not git.sync_repository():
         sys.exit(1)
 
-    handlers: List[Tuple[str, Callable, List[str]]] = [
+    handlers: list[tuple[str, Callable, list[str]]] = [
         ("Replace Strings (YouTube)", replace_strings.process, ["youtube", base_dir]),
         ("Replace Strings (YouTube Music)", replace_strings.process, ["music", base_dir]),
         ("Remove Unused Strings (YouTube)", remove_unused_strings.process, ["youtube"]),
@@ -93,114 +105,50 @@ def process_all(app: str, base_dir: Path, logger: Logger) -> None:
         ("Sort Strings (YouTube Music)", sort_strings.process, ["music"]),
         ("Missing Strings Check (YouTube)", missing_strings.process, ["youtube"]),
         ("Missing Strings Check (YouTube Music)", missing_strings.process, ["music"]),
-        ("Missing Prefs Check", missing_prefs.process, ["youtube", base_dir]),
+        ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),
+        ("Missing Strings Check", check_strings.process, ["youtube", base_dir]),
     ]
 
-    for process_name, handler, args in handlers:
-        try:
-            log_process(logger, process_name)
-            handler(*args)
-        except Exception as e:
-            logger.error(f"Handler {process_name} failed: {e}")
-            sys.exit(1)
+    for name, handler, args in handlers:
+        log_process(logger, name)
+        handler(*args)
 
 
-@click.group(invoke_without_command=True)
-@click.option("--log-file", type=str, help="Path to log file")
-@click.option("--rvx-base-dir", type=str, help="Path to RVX 'patches' directory", envvar="RVX_BASE_DIR")
-@click.option("-a", "--all", "run_all", is_flag=True, help="Run all commands in order")
-@click.option("-m", "--missing", is_flag=True, help="Run missing strings check")
-@click.option("-r", "--replace", is_flag=True, help="Run replace strings operation")
-@click.option("--remove", is_flag=True, help="Remove unused strings")
-@click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
-@click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
-@click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
-@click.pass_context
-def cli(ctx: click.Context,
-        log_file: Optional[str],
-        rvx_base_dir: Optional[str],
-        run_all: bool,
-        missing: bool,
-        replace: bool,
-        remove: bool,
-        sort: bool,
-        prefs: bool,
-        youtube: bool) -> None:
-    """XML processing tools for RVX patches with backwards compatibility.
+def handle_individual_operations(config: CLIConfig, options: dict) -> None:
+    """Handle individual operations based on user flags."""
+    logger = config.logger
+    base_dir = config.rvx_base_dir
+    app = config.app
 
-    Args:
-        ctx (click.Context): Click context object for sharing resources between commands.
-        log_file (Optional[str]): Path to the log file. If None, logs to stdout.
-        rvx_base_dir (Optional[str]): Base directory for RVX operations. Can be set via RVX_BASE_DIR env var.
-        run_all (bool): Flag to run all processing steps in sequence.
-        missing (bool): Flag to run missing strings check.
-        replace (bool): Flag to run string replacement operation.
-        remove (bool): Flag to remove unused strings.
-        sort (bool): Flag to sort strings in XML files.
-        prefs (bool): Flag to run missing preferences check.
-        youtube (bool): Flag to process YouTube (--youtube) or Music (--music) strings.
-
-    Raises:
-        SystemExit: If any processing step fails.
-        Exception: If any operation encounters an error.
-
-    Note:
-        - The function initializes logging and validates the RVX base directory when required.
-        - Operations are executed in the order specified by command line flags.
-        - The --youtube/--music flag determines which application's strings to process.
-        - When --all is specified, all operations are run in a predefined sequence.
-    """
-    # Initialize the logger
-    logger = setup_logging(Path(log_file) if log_file else None)
-
-    app = "youtube" if youtube else "music"
-
-    # Store common context
-    ctx.obj = {
-        "app": app,
-        "logger": logger
-    }
-
-    # Only validate RVX_BASE_DIR for commands that need it
-    needs_rvx_dir = run_all or replace or prefs
-    if needs_rvx_dir:
-        base_dir = validate_rvx_base_dir(ctx, rvx_base_dir)
-
-    # Handle all operations if --all is specified
-    if run_all:
-        try:
-            process_all(app, base_dir, logger)
-            return
-        except Exception as e:
-            logger.error(f"Error during processing: {e}")
-            sys.exit(1)
-
-    # Handle individual operations
     try:
-        if missing:
+        if options.get("missing"):
             log_process(logger, "Missing Strings Check")
             missing_strings.process(app)
 
-        if prefs:
-            log_process(logger, "Missing Preferences Check")
-            missing_prefs.process(app, base_dir)
-
-        if remove:
+        if options.get("remove"):
             log_process(logger, "Remove Unused Strings")
             remove_unused_strings.process(app)
 
-        if replace:
+        if options.get("replace"):
             git = GitClient(base_dir)
             if git.sync_repository():
                 log_process(logger, "Replace Strings")
                 replace_strings.process(app, base_dir)
 
-        if sort:
+        if options.get("sort"):
             log_process(logger, "Sort Strings")
             sort_strings.process(app)
 
-    except Exception as e:
-        logger.error(f"Error during processing: {e}")
+        if options.get("check"):
+            log_process(logger, "Check Strings")
+            check_strings.process(app, base_dir)
+
+        if options.get("prefs"):
+            log_process(logger, "Check Preferences")
+            check_prefs.process(app, base_dir)
+
+    except Exception:
+        logger.exception("Error during processing: ")
         sys.exit(1)
 
 

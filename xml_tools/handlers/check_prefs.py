@@ -1,40 +1,38 @@
-from pathlib import Path
-from typing import Set
-import re
+"""Check missing prefs keys."""
+
 import logging
+import re
+from pathlib import Path
 
 from config.settings import Settings
-from core.exceptions import XMLProcessingError
 
 logger = logging.getLogger("xml_tools")
 
 
-def extract_keys(path: Path) -> Set[str]:
+def extract_keys(path: Path) -> set[str]:
     """Extract keys from XML file.
 
     Args:
         path: Path to XML file
 
     Returns:
-        Set of extracted keys
+        set of extracted keys
 
-    Raises:
-        XMLProcessingError: If parsing fails
     """
     try:
         key_pattern = re.compile(r'android:key="(\w+)"')  # Compile the regex pattern to match keys
         keys_found = set()  # Use a set to store unique keys
 
         # Open the XML file and search for the keys
-        with open(path, "r", encoding="utf-8") as file:
+        with path.open(encoding="utf-8") as file:
             for line in file:
                 matches = key_pattern.findall(line)  # Find all keys in the line
                 keys_found.update(matches)  # Add found keys to the set
 
+    except FileNotFoundError:
+        logger.exception("Failed to extract keys from %s: ", path)
+    else:
         return keys_found
-    except Exception as e:
-        logger.error(f"Failed to extract keys from {path}: {e}")
-        raise XMLProcessingError(f"Failed to extract keys from {path}: {e}")
 
 
 def process(app: str, base_dir: Path) -> None:
@@ -43,6 +41,7 @@ def process(app: str, base_dir: Path) -> None:
     Args:
         app: Application name (youtube/music)
         base_dir: Base directory of RVX patches operations
+
     """
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")
@@ -67,6 +66,5 @@ def process(app: str, base_dir: Path) -> None:
         else:
             logger.info("No missing keys found")
 
-    except XMLProcessingError as e:
-        logger.error(f"Failed to process preference files: {e}")
-        raise
+    except Exception:
+        logger.exception("Failed to process preference files: ")

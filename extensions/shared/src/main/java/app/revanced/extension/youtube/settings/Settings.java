@@ -475,15 +475,15 @@ public class Settings extends BaseSettings {
     // PreferenceScreen: Shorts - Shorts player components - Custom actions
     public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU = new BooleanSetting("revanced_enable_shorts_custom_actions_flyout_menu", FALSE, true);
     public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR = new BooleanSetting("revanced_enable_shorts_custom_actions_toolbar", FALSE, true);
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL = new BooleanSetting("revanced_shorts_custom_actions_copy_video_url", FALSE, true,
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL = new BooleanSetting("revanced_shorts_custom_actions_copy_video_url", TRUE, true,
             parentsAny(ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU, ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR));
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_shorts_custom_actions_copy_video_url_timestamp", FALSE, true,
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_shorts_custom_actions_copy_video_url_timestamp", TRUE, true,
             parentsAny(ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU, ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR));
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_shorts_custom_actions_external_downloader", FALSE, true,
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_shorts_custom_actions_external_downloader", TRUE, true,
             parentsAny(ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU, ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR));
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO = new BooleanSetting("revanced_shorts_custom_actions_open_video", FALSE, true,
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO = new BooleanSetting("revanced_shorts_custom_actions_open_video", TRUE, true,
             parentsAny(ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU, ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR));
-    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", FALSE, true,
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", TRUE, true,
             parentsAny(ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU, ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR));
 
     // Experimental Flags
