@@ -1,9 +1,11 @@
 package app.revanced.generator
 
-import app.revanced.patcher.patch.Package
 import app.revanced.patcher.patch.Patch
 import com.google.gson.GsonBuilder
 import java.io.File
+
+typealias PackageName = String
+typealias VersionName = String
 
 internal class JsonPatchesFileGenerator : PatchesFileGenerator {
     override fun generate(patches: Set<Patch<*>>) {
@@ -12,8 +14,8 @@ internal class JsonPatchesFileGenerator : PatchesFileGenerator {
             JsonPatch(
                 it.name!!,
                 it.description,
-                it.compatiblePackages,
                 it.use,
+                it.compatiblePackages?.associate { (packageName, versions) -> packageName to versions },
                 it.options.values.map { option ->
                     JsonPatch.Option(
                         option.key,
@@ -26,27 +28,16 @@ internal class JsonPatchesFileGenerator : PatchesFileGenerator {
                 },
             )
         }.let {
-            patchesJson.writeText(GsonBuilder().serializeNulls().create().toJson(it))
+            patchesJson.writeText(GsonBuilder().setPrettyPrinting().create().toJson(it))
         }
-
-        patchesJson.writeText(
-            patchesJson.readText()
-                .replace(
-                    "\"first\":",
-                    "\"name\":"
-                ).replace(
-                    "\"second\":",
-                    "\"versions\":"
-                )
-        )
     }
 
     @Suppress("unused")
     private class JsonPatch(
         val name: String? = null,
         val description: String? = null,
-        val compatiblePackages: Set<Package>? = null,
         val use: Boolean = true,
+        val compatiblePackages: Map<PackageName, Set<VersionName>?>? = null,
         val options: List<Option>,
     ) {
         class Option(

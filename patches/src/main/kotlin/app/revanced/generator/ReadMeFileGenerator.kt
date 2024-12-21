@@ -53,9 +53,9 @@ internal class ReadMeFileGenerator : PatchesFileGenerator {
                     } else {
                         versions
                             ?.toString()
-                            ?.replace("[", "[\n          \"")
-                            ?.replace("]", "\"\n        ]")
-                            ?.replace(", ", "\",\n          \"")
+                            ?.replace("[", "[\n        \"")
+                            ?.replace("]", "\"\n      ]")
+                            ?.replace(", ", "\",\n        \"")
                             ?: "\"ALL\""
                     }
 
