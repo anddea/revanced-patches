@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.utils.fix.shortsplayback
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.resolvable
 
 val shortsPlaybackPatch = bytecodePatch(
     description = "shortsPlaybackPatch"
@@ -15,9 +14,12 @@ val shortsPlaybackPatch = bytecodePatch(
          *
          * RVX applies default video quality to Shorts as well, so this patch is required.
          */
-        if (shortsPlaybackFingerprint.resolvable()) {
-            shortsPlaybackFingerprint.injectLiteralInstructionBooleanCall(
-                45387052L,
+        mapOf(
+            shortsPlaybackPrimaryFingerprint to SHORTS_PLAYBACK_PRIMARY_FEATURE_FLAG,
+            shortsPlaybackSecondaryFingerprint to SHORTS_PLAYBACK_SECONDARY_FEATURE_FLAG
+        ).forEach { (fingerprint, literal) ->
+            fingerprint.injectLiteralInstructionBooleanCall(
+                literal,
                 "0x0"
             )
         }
