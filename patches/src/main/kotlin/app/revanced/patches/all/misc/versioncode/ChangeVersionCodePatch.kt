@@ -1,7 +1,6 @@
 package app.revanced.patches.all.misc.versioncode
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.getNode
@@ -19,14 +18,6 @@ val changeVersionCodePatch = resourcePatch(
             "By default, the highest version code is set.",
     use = false,
 ) {
-    val changeVersionCode by booleanOption(
-        key = "changeVersionCode",
-        default = false,
-        title = "Change version code",
-        description = "Changes the version code of the app.",
-        required = true
-    )
-
     val versionCodeOption = stringOption(
         key = "versionCode",
         default = MAX_VALUE,
@@ -40,10 +31,6 @@ val changeVersionCodePatch = resourcePatch(
     )
 
     execute {
-        if (changeVersionCode == false) {
-            println("INFO: Version code will remain unchanged as 'ChangeVersionCode' is false.")
-            return@execute
-        }
         fun throwVersionCodeException(versionCodeString: String): PatchException =
             PatchException(
                 "Invalid versionCode: $versionCodeString, " +
