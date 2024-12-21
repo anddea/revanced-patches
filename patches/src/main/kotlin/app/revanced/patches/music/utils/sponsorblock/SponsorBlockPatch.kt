@@ -3,7 +3,6 @@ package app.revanced.patches.music.utils.sponsorblock
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -170,6 +169,134 @@ val sponsorBlockPatch = resourcePatch(
     )
 
     execute {
+        fun addSwitchPreference(
+            category: String,
+            key: String,
+            defaultValue: String,
+            dependencyKey: String
+        ) {
+            document(SETTINGS_HEADER_PATH).use { document ->
+                val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+                List(tags.length) { tags.item(it) as Element }
+                    .filter {
+                        it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                    }
+                    .forEach {
+                        it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
+                            setAttribute("android:title", "@string/revanced_$key")
+                            setAttribute("android:summary", "@string/revanced_$key" + "_sum")
+                            setAttribute("android:key", key)
+                            setAttribute("android:defaultValue", defaultValue)
+                            if (dependencyKey != "") {
+                                setAttribute("android:dependency", dependencyKey)
+                            }
+                        }
+                    }
+            }
+        }
+
+        fun addSwitchPreference(
+            category: String,
+            key: String,
+            defaultValue: String
+        ) = addSwitchPreference(category, key, defaultValue, "")
+
+        fun addPreferenceWithIntent(
+            category: String,
+            key: String,
+            dependencyKey: String
+        ) {
+            document(SETTINGS_HEADER_PATH).use { document ->
+                val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+                List(tags.length) { tags.item(it) as Element }
+                    .filter {
+                        it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                    }
+                    .forEach {
+                        it.adoptChild("Preference") {
+                            setAttribute("android:title", "@string/revanced_$key")
+                            setAttribute("android:summary", "@string/revanced_$key" + "_sum")
+                            setAttribute("android:key", key)
+                            setAttribute("android:dependency", dependencyKey)
+                            this.adoptChild("intent") {
+                                setAttribute("android:targetPackage", musicPackageName)
+                                setAttribute("android:data", key)
+                                setAttribute(
+                                    "android:targetClass",
+                                    ACTIVITY_HOOK_TARGET_CLASS
+                                )
+                            }
+                        }
+                    }
+            }
+        }
+
+        fun addPreferenceCategoryUnderPreferenceScreen(
+            preferenceScreenKey: String,
+            category: String
+        ) {
+            document(SETTINGS_HEADER_PATH).use { document ->
+                val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
+                List(tags.length) { tags.item(it) as Element }
+                    .filter { it.getAttribute("android:key").contains(preferenceScreenKey) }
+                    .forEach {
+                        it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
+                            setAttribute("android:title", "@string/revanced_$category")
+                            setAttribute("android:key", category)
+                        }
+                    }
+            }
+        }
+
+        fun addSegmentsPreference(
+            key: String,
+            dependencyKey: String
+        ) {
+            document(SETTINGS_HEADER_PATH).use { document ->
+                val tags = document.getElementsByTagName(PREFERENCE_CATEGORY_TAG_NAME)
+                List(tags.length) { tags.item(it) as Element }
+                    .filter { it.getAttribute("android:key") == SEGMENTS_CATEGORY_KEY }
+                    .forEach {
+                        it.adoptChild("Preference") {
+                            setAttribute("android:title", "@string/revanced_$key")
+                            setAttribute("android:summary", "@string/revanced_$key" + "_sum")
+                            setAttribute("android:key", key)
+                            setAttribute("android:dependency", dependencyKey)
+                            this.adoptChild("intent") {
+                                setAttribute("android:targetPackage", musicPackageName)
+                                setAttribute("android:data", key)
+                                setAttribute(
+                                    "android:targetClass",
+                                    ACTIVITY_HOOK_TARGET_CLASS
+                                )
+                            }
+                        }
+                    }
+            }
+        }
+
+        fun addAboutPreference(
+            key: String,
+            data: String
+        ) {
+            document(SETTINGS_HEADER_PATH).use { document ->
+                val tags = document.getElementsByTagName(PREFERENCE_CATEGORY_TAG_NAME)
+                List(tags.length) { tags.item(it) as Element }
+                    .filter { it.getAttribute("android:key") == ABOUT_CATEGORY_KEY }
+                    .forEach {
+                        it.adoptChild("Preference") {
+                            setAttribute("android:title", "@string/revanced_$key")
+                            setAttribute("android:summary", "@string/revanced_$key" + "_sum")
+                            setAttribute("android:key", key)
+                            this.adoptChild("intent") {
+                                setAttribute("android:action", "android.intent.action.VIEW")
+                                setAttribute("android:data", data)
+                            }
+                        }
+                    }
+            }
+        }
+
         addPreferenceCategory(SPONSOR_BLOCK_CATEGORY)
 
         addSwitchPreference(
@@ -201,42 +328,34 @@ val sponsorBlockPatch = resourcePatch(
         )
 
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_sponsor",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_selfpromo",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_interaction",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_intro",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_outro",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_preview",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_filler",
             "sb_enabled"
         )
         addSegmentsPreference(
-            SEGMENTS_CATEGORY_KEY,
             "sb_segments_nomusic",
             "sb_enabled"
         )
@@ -247,7 +366,6 @@ val sponsorBlockPatch = resourcePatch(
         )
 
         addAboutPreference(
-            ABOUT_CATEGORY_KEY,
             "sb_about_api",
             "https://sponsor.ajay.app"
         )
@@ -264,136 +382,6 @@ val sponsorBlockPatch = resourcePatch(
 
         updatePatchStatus(SPONSORBLOCK)
 
-    }
-}
-
-private fun ResourcePatchContext.addSwitchPreference(
-    category: String,
-    key: String,
-    defaultValue: String
-) = addSwitchPreference(category, key, defaultValue, "")
-
-private fun ResourcePatchContext.addSwitchPreference(
-    category: String,
-    key: String,
-    defaultValue: String,
-    dependencyKey: String
-) {
-    document(SETTINGS_HEADER_PATH).use { document ->
-        val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-        List(tags.length) { tags.item(it) as Element }
-            .filter {
-                it.getAttribute("android:key").contains("revanced_preference_screen_$category")
-            }
-            .forEach {
-                it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
-                    setAttribute("android:title", "@string/revanced_$key")
-                    setAttribute("android:summary", "@string/revanced_$key" + "_sum")
-                    setAttribute("android:key", key)
-                    setAttribute("android:defaultValue", defaultValue)
-                    if (dependencyKey != "") {
-                        setAttribute("android:dependency", dependencyKey)
-                    }
-                }
-            }
-    }
-}
-
-private fun ResourcePatchContext.addPreferenceWithIntent(
-    category: String,
-    key: String,
-    dependencyKey: String
-) {
-    document(SETTINGS_HEADER_PATH).use { document ->
-        val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-        List(tags.length) { tags.item(it) as Element }
-            .filter {
-                it.getAttribute("android:key").contains("revanced_preference_screen_$category")
-            }
-            .forEach {
-                it.adoptChild("Preference") {
-                    setAttribute("android:title", "@string/revanced_$key")
-                    setAttribute("android:summary", "@string/revanced_$key" + "_sum")
-                    setAttribute("android:key", key)
-                    setAttribute("android:dependency", dependencyKey)
-                    this.adoptChild("intent") {
-                        setAttribute("android:targetPackage", musicPackageName)
-                        setAttribute("android:data", key)
-                        setAttribute(
-                            "android:targetClass",
-                            ACTIVITY_HOOK_TARGET_CLASS
-                        )
-                    }
-                }
-            }
-    }
-}
-
-private fun ResourcePatchContext.addPreferenceCategoryUnderPreferenceScreen(
-    preferenceScreenKey: String,
-    category: String
-) {
-    document(SETTINGS_HEADER_PATH).use { document ->
-        val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-        List(tags.length) { tags.item(it) as Element }
-            .filter { it.getAttribute("android:key").contains(preferenceScreenKey) }
-            .forEach {
-                it.adoptChild(PREFERENCE_CATEGORY_TAG_NAME) {
-                    setAttribute("android:title", "@string/revanced_$category")
-                    setAttribute("android:key", category)
-                }
-            }
-    }
-}
-
-private fun ResourcePatchContext.addSegmentsPreference(
-    preferenceCategoryKey: String,
-    key: String,
-    dependencyKey: String
-) {
-    document(SETTINGS_HEADER_PATH).use { document ->
-        val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-        List(tags.length) { tags.item(it) as Element }
-            .filter { it.getAttribute("android:key").contains(preferenceCategoryKey) }
-            .forEach {
-                it.adoptChild("Preference") {
-                    setAttribute("android:title", "@string/revanced_$key")
-                    setAttribute("android:summary", "@string/revanced_$key" + "_sum")
-                    setAttribute("android:key", key)
-                    setAttribute("android:dependency", dependencyKey)
-                    this.adoptChild("intent") {
-                        setAttribute("android:targetPackage", musicPackageName)
-                        setAttribute("android:data", key)
-                        setAttribute(
-                            "android:targetClass",
-                            ACTIVITY_HOOK_TARGET_CLASS
-                        )
-                    }
-                }
-            }
-    }
-}
-
-private fun ResourcePatchContext.addAboutPreference(
-    preferenceCategoryKey: String,
-    key: String,
-    data: String
-) {
-    document(SETTINGS_HEADER_PATH).use { document ->
-        val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
-        List(tags.length) { tags.item(it) as Element }
-            .filter { it.getAttribute("android:key").contains(preferenceCategoryKey) }
-            .forEach {
-                it.adoptChild("Preference") {
-                    setAttribute("android:title", "@string/revanced_$key")
-                    setAttribute("android:summary", "@string/revanced_$key" + "_sum")
-                    setAttribute("android:key", key)
-                    this.adoptChild("intent") {
-                        setAttribute("android:action", "android.intent.action.VIEW")
-                        setAttribute("android:data", data)
-                    }
-                }
-            }
     }
 }
 
