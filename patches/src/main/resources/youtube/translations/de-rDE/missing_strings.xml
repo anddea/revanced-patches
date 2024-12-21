@@ -28,6 +28,18 @@ Limitation: This setting may not apply to videos that do not include the 'Listen
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation is enabled above the Like button.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation is disabled above the Like button.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button animation</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down will play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down will not play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
     <string name="revanced_disable_vp9_codec_summary_off">VP9 codec is enabled.</string>
     <string name="revanced_disable_vp9_codec_summary_on">"VP9 codec is disabled.
 
@@ -35,6 +47,9 @@ Limitation: This setting may not apply to videos that do not include the 'Listen
 • Video playback will use more internet data than VP9.
 • VP9 codec is still used for HDR video."</string>
     <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is enabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is disabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Disable watch panel gestures</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
@@ -291,6 +306,10 @@ Info:
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">A toast will not be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">A toast will be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
+No margins on top and bottom of player."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restore old player layout</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
     <string name="revanced_return_youtube_username_display_format_title">Display format</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
@@ -364,6 +383,7 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
@@ -371,6 +391,11 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Streaming data is not spoofed. Video playback may not work."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Streaming data is spoofed.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
+Video length may be a rounded value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
+Video length is exact value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

@@ -6,9 +6,11 @@
 Дотримуйтесь посібника \"Don't kill my app\" для вашого пристрою і застосуйте інструкції для встановлення GmsCore.
 
 Це необхідно для того, щоб програма працювала."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимізацію акумулятора GmsCore слід вимкнути, щоб запобігти виникненню проблем.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG GmsCore, щоб запобігти проблемам.
 
-Натисніть кнопку продовжити й вимкніть оптимізацію акумулятора."</string>
+Вимкнення оптимізації енергії для MicroG не вплине негативно на час автономної роботи.
+
+Натисніть кнопку \"Продовжити\" та вимкніть оптимізацію."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
     <string name="gms_core_settings_summary">Увімкніть \"Хмарні повідомлення\", щоб отримувати сповіщення.</string>
@@ -42,6 +44,8 @@
     <string name="revanced_disable_cairo_splash_animation_title">Вимкнути сплеш анімацію Каїр</string>
     <string name="revanced_disable_dislike_redirection_summary">Вимикає перенаправлення на наступний трек при натисканні на кнопку \"Не подобається\".</string>
     <string name="revanced_disable_dislike_redirection_title">Вимкнути перенаправлення при \"Не подобається\"</string>
+    <string name="revanced_disable_drc_audio_summary">Вимикає DRC (стиснення динамічного діапазону), застосованого до аудіо.</string>
+    <string name="revanced_disable_drc_audio_title">Вимкнути DRC аудіо</string>
     <string name="revanced_disable_mini_player_gesture_summary">Вимикає жести перемикання треків у мініплеєрі.</string>
     <string name="revanced_disable_mini_player_gesture_title">Вимкнути жести мініплеєра</string>
     <string name="revanced_disable_player_gesture_summary">Вимикає жести перемикання треків у плеєрі.</string>
@@ -168,6 +172,7 @@
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Приховати \"Перейти до подкасту\"</string>
     <string name="revanced_hide_flyout_menu_help_title">Приховати \"Довідка й відгуки\"</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Приховати \"Подобається\" і \"Не подобається\"</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Приховати \"Закріпити у швидкому виборі\"</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Приховати \"Відтворити наступним\"</string>
     <string name="revanced_hide_flyout_menu_quality_title">Приховати \"Якість\"</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Приховати \"Вилучити з бібліотеки\"</string>
@@ -182,6 +187,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">Приховати \"Увімкнути Радіо\"</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Приховати \"Статистика для досвідчених користувачів\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Приховати \"Підписатися / Скасувати підписку\"</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Приховати \"Відкріпити зі швидкого вибору\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати \"Переглянути авторів пісні\"</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Приховує повноекранну рекламу.
 
@@ -405,6 +411,20 @@
 Обмеження:
 • Аудіокодек OPUS може не підтримуватися.
 • Мініатюри перемотки можуть бути відсутніми.
-• Історія переглядів не працює з обліковим записом бренду."</string>
+• Історія переглядів не працює з обліковим записом бренду.
+
+※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_client_title">Підміна клієнта</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
+    <string name="revanced_spoof_streaming_data_summary">"Підробити потокові дані, щоб запобігти проблемам із відтворенням.
+
+※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
+    <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Визначає клієнт за замовчуванням, який отримує потокові дані.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Клієнт за замовчуванням</string>
 </resources>

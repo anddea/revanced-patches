@@ -11,7 +11,9 @@ Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i
 Jest to wymagane do działania aplikacji."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optymalizacja baterii GmsCore musi być wyłączona, aby zapobiec problemom.
 
-Kontynuuj i wyłącz optymalizację baterii."</string>
+Wyłączenie optymalizacji baterii dla GmsCore nie wpłynie negatywnie na zużycie baterii.
+
+Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
     <string name="gms_core_dialog_title">Wymagana akcja</string>
     <string name="gms_core_settings_summary">Włącz cloud messaging, by otrzymywać powiadomienia.</string>
@@ -221,6 +223,17 @@ Notki:
     <string name="revanced_disable_splash_animation_summary_off">Włączona</string>
     <string name="revanced_disable_splash_animation_summary_on">Wyłączona</string>
     <string name="revanced_disable_splash_animation_title">Animacja uruchamiania aplikacji</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Włączony</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Wyłączony</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Włączona</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Wyłączona</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Półprzezroczystość paska nawigacji na ciemnym motywie</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Włączona</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Wyłączona</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Półprzezroczystość paska nawigacji na jasnym motywie</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Włączona</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Wyłączona</string>
+    <string name="revanced_disable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
     <string name="revanced_disable_video_description_interaction_summary">"Wyłącza następujące interakcje, gdy opis filmu jest otworzony:
 
 • Stuknij, by przewijać
@@ -233,6 +246,9 @@ Notki:
 • Odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9
 • Kodek VP9 jest używany do filmów z HDR"</string>
     <string name="revanced_disable_vp9_codec_title">Wyłącz kodek VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesunięciem w dół poniżej odtwarzacza filmu jest włączone</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesunięciem w dół poniżej odtwarzacza filmu jest wyłączone</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Pełny ekran gestem przesunięcia</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Przyciski w odtwarzaczu zajmują cały ekran</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Przyciski w odtwarzaczu nie zajmują całego ekranu</string>
     <string name="revanced_enable_compact_controls_overlay_title">Przyciski w odtwarzaczu bliżej środka</string>
@@ -316,9 +332,6 @@ Ograniczenia:
     <string name="revanced_enable_swipe_volume_summary_off">Wyłączone</string>
     <string name="revanced_enable_swipe_volume_summary_on">Włączone</string>
     <string name="revanced_enable_swipe_volume_title">Zmienianie głośności przesuwaniem</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Nieprzezroczysty</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Półprzezroczysty</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Wygląd paska nawigacji</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest wyłączone</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest włączone</string>
     <string name="revanced_enable_watch_panel_gestures_title">Pełny ekran przesuwaniem</string>
@@ -1627,19 +1640,19 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
 
 Większość błędów nie może być naprawiona w skutek ograniczeń po stronie klienta, więc używaj tej funkcji jedynie do celów testowych."</string>
     <string name="revanced_shorts_custom_actions_about_title">O własnych akcjach</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_label">Kopiowanie adresu filmu</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">Kopiuj adresu filmu</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Widoczne</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Kopiowanie adresu z czasem</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Kopiuj adresu z czasem</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Widoczne</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Menu od kopiowania adresu filmu z czasem</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_title">Menu od kopiowania adresu filmu</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_label">Zewnętrzna aplikacja od pobierania</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">Pobierz film (zewnętrzna aplikacja)</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Widoczne</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Menu od zewnętrznej aplikacji do pobierania</string>
-    <string name="revanced_shorts_custom_actions_open_video_label">Otwieranie filmów</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">Otwórz film</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Widoczne</string>
     <string name="revanced_shorts_custom_actions_open_video_title">Menu od otwierania filmu</string>
@@ -1716,11 +1729,11 @@ Wysoka jakość może być odblokowana na niektórych filmach, które wymagają 
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Transmisje na żywo rozpoczynają się od początku
-• Filmy mogą kończyć się o 1 sekundę wcześniej"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Jeszcze nie znaleziono</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
 • Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Filmy mogą kończyć się o sekundę wcześniej</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
@@ -1728,6 +1741,9 @@ Wysoka jakość może być odblokowana na niektórych filmach, które wymagają 
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Wyłączone. Odtwarzanie filmów może nie działać"</string>
     <string name="revanced_spoof_streaming_data_summary_on">Włączone</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Wyłączone"</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Włączone"</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Synchronizuj długość filmu przez odtworzeniem</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

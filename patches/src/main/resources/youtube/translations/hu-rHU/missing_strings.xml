@@ -2,6 +2,12 @@
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down will play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down will not play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is enabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is disabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Disable watch panel gestures</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
@@ -17,6 +23,10 @@
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
+No margins on top and bottom of player."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restore old player layout</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
@@ -26,4 +36,10 @@
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
+Video length may be a rounded value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
+Video length is exact value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
 </resources>

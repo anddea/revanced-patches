@@ -10,7 +10,9 @@ Hãy làm theo hướng dẫn của 'Don't kill my app!' và tiến hành cài �
 Để ứng dụng hoạt động hiệu quả nhất."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Vui lòng tắt tối ưu hoá pin cho GmsCore để tránh phát sinh lỗi.
 
-Nhấn vào Tiếp tục và tắt tối ưu hóa pin."</string>
+Tắt tối ưu hoá pin cho GmsCore sẽ không làm ảnh hưởng đáng kể tới thời lượng sử dụng pin.
+
+Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá pin."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Hành động cần thiết</string>
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và bật Cloud Messaging để nhận thông báo đẩy.</string>
@@ -221,6 +223,18 @@ Lưu ý:
     <string name="revanced_disable_splash_animation_summary_off">Hoạt ảnh khi ứng dụng khởi chạy được bật.</string>
     <string name="revanced_disable_splash_animation_summary_on">Hoạt ảnh khi ứng dụng khởi chạy đã tắt.</string>
     <string name="revanced_disable_splash_animation_title">Tắt hoạt ảnh khi ứng dụng khởi chạy</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Vuốt lên/xuống sẽ phát video tiếp theo hoặc trước đó.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Vuốt lên/xuống sẽ không phát video tiếp theo hoặc trước đó.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Vuốt để chuyển video</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở giao diện tối có thể trong suốt hoặc không.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Thanh điều hướng ở giao diện tối không còn trong suốt.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Vô hiệu hoá thanh trong suốt ở giao diện tối</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Thanh điều hướng ở giao diện sáng có thể trong suốt hoặc không.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Thanh điều hướng ở giao diện sáng không còn trong suốt.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Vô hiệu hoá thanh trong suốt ở giao diện sáng</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Thanh trạng thái có thể trong suốt hoặc không.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Thanh trạng thái không còn trong suốt.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Vô hiệu hoá thanh trạng thái trong suốt</string>
     <string name="revanced_disable_video_description_interaction_summary">"Tắt các tương tác sau khi mô tả video được mở rộng:
 
  • Nhấn để cuộn.
@@ -233,6 +247,9 @@ Lưu ý:
 • Phát video sẽ sử dụng nhiều dữ liệu di động hơn so với VP9.
 • Codec VP9 vẫn được sử dụng cho video HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Vô hiệu hoá codec VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc được bật.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã tắt.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Tắt cử chỉ bên dưới trình phát</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Lớp phủ điều khiển trình phát thu gọn đã tắt.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Lớp phủ điều khiển trình phát thu gọn đã bật.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Lớp phủ điều khiển trình phát thu gọn</string>
@@ -316,9 +333,6 @@ Hạn chế:
     <string name="revanced_enable_swipe_volume_summary_off">Cử chỉ vuốt điều chỉnh âm lượng đã tắt.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Cử chỉ vuốt điều chỉnh âm lượng đã bật.</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt điều chỉnh âm lượng</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Thanh điều hướng mặc định đang được áp dụng.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Thanh điều hướng trong suốt đang được áp dụng.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Thanh điều hướng trong suốt</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã tắt.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Cử chỉ khi vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã bật.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Cử chỉ bên dưới trình phát</string>
@@ -1373,6 +1387,10 @@ Nhấn và giữ để mở cài đặt YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Mục chất lượng video kiểu cũ không được hiển thị.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Mục chất lượng video kiểu cũ được hiển thị.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Khôi phục mục chất lượng video kiểu cũ</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Bố cục trình phát kiểu cũ không được sử dụng.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Bố cục trình phát kiểu cũ được sử dụng.
+Không còn lề trên và dưới trong trình phát."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Khôi phục bố cục trình phát kiểu cũ</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Tên người dùng)</string>
     <string name="revanced_return_youtube_username_display_format_title">Định dạng hiển thị</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Tên người dùng (@handle)</string>
@@ -1705,6 +1723,7 @@ Chất lượng cao có thể được mở khóa trên một số video yêu c�
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Video có thể kết thúc sớm 1 giây.
 • Codec âm thanh opus có thể không được hỗ trợ."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Video có thể kết thúc sớm hơn 1 giây.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Video có thể kết thúc sớm hơn 1 giây.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Hạn chế</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video có thể không phát được.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ứng dụng khách sử dụng để nạp luồng dữ liệu trực tuyến đã ẩn trong Thống kê chi tiết.</string>
@@ -1712,6 +1731,11 @@ Chất lượng cao có thể được mở khóa trên một số video yêu c�
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Luồng dữ liệu trực tuyến chưa được giả mạo. Khi phát video có thể gặp sự cố đứng hình."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Luồng dữ liệu trực tuyến được giả mạo.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Thời lượng video không được đồng bộ trước khi phát.
+Lúc này thời lượng video có thể đã được làm tròn."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Thời lượng video được đồng bộ trước khi phát.
+Lúc này thời lượng video là giá trị chính xác."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Đồng bộ thời lượng video trước khi phát</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

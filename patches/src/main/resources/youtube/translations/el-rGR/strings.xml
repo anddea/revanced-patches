@@ -8,9 +8,11 @@
 Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
 
 Αυτό απαιτείται για να λειτουργήσει η εφαρμογή."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας στο MicroG GmsCore πρέπει να απενεργοποιηθούν για την αποφυγή προβλημάτων.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
 
-Πατήστε το κουμπί «Συνέχεια» και απενεργοποιήστε τις βελτιστοποιήσεις μπαταρίας για το MicroG."</string>
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
+
+Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
     <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
     <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
     <string name="gms_core_settings_summary">Ενεργοποιήστε τις ρυθμίσεις cloud messaging για να λαμβάνετε ειδοποιήσεις.</string>
@@ -221,6 +223,18 @@
     <string name="revanced_disable_splash_animation_summary_off">Το εφέ εκκίνησης της εφαρμογής είναι ενεργοποιημένο.</string>
     <string name="revanced_disable_splash_animation_summary_on">Το εφέ εκκίνησης της εφαρμογής είναι απενεργοποιημένο.</string>
     <string name="revanced_disable_splash_animation_title">Απενεργοποίηση εφέ εκκίνησης εφαρμογής</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Η σάρωση προς τα πάνω / κάτω θα αναπαράγει το επόμενο / προηγούμενο βίντεο.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Η σάρωση προς τα πάνω / κάτω δε θα αναπαράγει το επόμενο / προηγούμενο βίντεο.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Απενεργοποίηση χειρονομίας σάρωσης για αλλαγή βίντεο</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα δεν είναι διαφανής.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση διαφανούς γραμμής στο σκούρο θέμα</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
     <string name="revanced_disable_video_description_interaction_summary">"Απενεργοποίηση των ακόλουθων αλληλεπιδράσεων όταν ανοίγεται η περιγραφή του βίντεο:
 
 • Πάτημα για κύλιση.
@@ -233,6 +247,9 @@
 • Η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα Internet από τον VP9.
 • Για την αναπαραγωγή βίντεο τύπου HDR, ο κωδικοποιητής VP9 εξακολουθεί να χρησιμοποιείται."</string>
     <string name="revanced_disable_vp9_codec_title">Απενεργοποίηση κωδικοποιητή VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης με σάρωση στην περιοχή κάτω από την οθόνη αναπαραγωγής είναι ενεργοποιημένη.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης με σάρωση στην περιοχή κάτω από την οθόνη αναπαραγωγής είναι απενεργοποιημένη.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Απενεργοποίηση χειρονομίας εναλλαγής σε πλήρη οθόνη</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Τα στοιχεία ελέγχου μικρότερου στυλ είναι απενεργοποιημένα.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Τα στοιχεία ελέγχου μικρότερου στυλ είναι ενεργοποιημένα.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Στοιχεία ελέγχου μικρότερου στυλ</string>
@@ -275,7 +292,7 @@
 
 Η χρήση δεδομένων internet ενδέχεται να είναι υψηλότερη, και οι μικρογραφίες της γραμμής προόδου θα έχουν μια μικρή καθυστέρηση πριν εμφανιστούν.
 
-Αυτή η ρύθμιση λειτουργεί καλύτερα με πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
+Αυτή η ρύθμιση λειτουργεί καλύτερα με μια πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Οι μικρογραφίες της γραμμής προόδου είναι υψηλής ποιότητας.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Μικρογραφίες υψηλής ποιότητας</string>
@@ -318,9 +335,6 @@
     <string name="revanced_enable_swipe_volume_summary_off">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης στη δεξιά πλευρά της οθόνης είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης στη δεξιά πλευρά της οθόνης είναι ενεργοποιημένη.</string>
     <string name="revanced_enable_swipe_volume_title">Έλεγχος σάρωσης για Ένταση Ήχου</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Η γραμμή πλοήγησης δεν είναι διαφανής.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Η γραμμή πλοήγησης είναι διαφανής.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Διαφανή γραμμή πλοήγησης</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την περιοχή κάτω από την οθόνη αναπαραγωγής είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την περιοχή κάτω από την οθόνη αναπαραγωγής είναι ενεργοποιημένη.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Χειρονομία εναλλαγής σε πλήρη οθόνη</string>
@@ -1401,6 +1415,10 @@ Playlists
     <string name="revanced_restore_old_video_quality_menu_summary_off">Εμφανίζεται το μενού αλλαγής ποιότητας βίντεο νέου στυλ.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Εμφανίζεται το μενού αλλαγής ποιότητας βίντεο παλιού στυλ.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Μενού ποιότητας βίντεο παλιού στυλ</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι απενεργοποιημένη.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Η παλιά εμφάνιση της οθόνης αναπαραγωγής είναι ενεργοποιημένη.
+Δεν υπάρχουν περιθώρια στο πάνω και στο κάτω μέρος της οθόνης αναπαραγωγής."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Επαναφορά παλιάς εμφάνισης της οθόνης αναπαραγωγής</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@ψευδώνυμο (Όνομα χρήστη)</string>
     <string name="revanced_return_youtube_username_display_format_title">Μορφή εμφάνισης</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Όνομα χρήστη (@ψευδώνυμο)</string>
@@ -1728,11 +1746,11 @@ Playlists
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή κατά την αναπαραγωγή.
-• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Δεν ανακαλύφθηκαν ακόμη.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.
 • Ο κωδικοποιητής ήχου Opus ενδέχεται να μην υποστηρίζεται."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Παρενέργειες παραποίησης</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Τα βίντεο ενδέχεται να μην αναπαράγονται.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
@@ -1740,6 +1758,11 @@ Playlists
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Τα δεδομένα ροής δεν παραποιούνται. Η αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί σωστά."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Τα δεδομένα ροής παραποιούνται.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Το μήκος του βίντεο δεν συγχρονίζεται πριν την αναπαραγωγή.
+Το μήκος του βίντεο μπορεί να είναι στρογγυλεμένη τιμή."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Το μήκος του βίντεο συγχρονίζεται πριν την αναπαραγωγή.
+Το μήκος του βίντεο είναι ακριβής."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Συγχρονισμός μήκους βίντεο πριν την αναπαραγωγή</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

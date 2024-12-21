@@ -9,7 +9,9 @@ Follow the 'Don't kill my app!' guide for your device, and apply the instruction
 This is required for the app to work."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore battery optimizations must be disabled to prevent issues.
 
-Tap on the continue button and disable battery optimizations."</string>
+Disabling battery optimizations for GmsCore will not negatively affect battery usage.
+
+Tap the continue button and allow optimization changes."</string>
     <string name="gms_core_dialog_open_website_text">Open website</string>
     <string name="gms_core_dialog_title">Action needed</string>
     <string name="gms_core_settings_summary">Enable cloud messaging to receive notifications.</string>
@@ -407,15 +409,18 @@ Click to see how to issue a API key."</string>
     <string name="revanced_spoof_app_version_target_summary">Select the spoof app version target.</string>
     <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
     <string name="revanced_spoof_app_version_title">Spoof app version</string>
-    <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
+    <string name="revanced_spoof_client_legacy_summary">"Spoofing with version 4.27.53.
 
-Limitations:
-• OPUS audio codec may not be supported.
-• Seekbar thumbnail may not be present.
-• Watch history does not work with a brand account.
+OPUS codec may not work."</string>
+    <string name="revanced_spoof_client_legacy_title">Use old client</string>
+    <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
 
 ※ When used with 'Spoofing streaming data', playback issues may occur."</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
+    <string name="revanced_spoof_client_type_entry_android_music">Android Music</string>
+    <string name="revanced_spoof_client_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_client_type_summary">Defines a default client to spoofing.</string>
+    <string name="revanced_spoof_client_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.

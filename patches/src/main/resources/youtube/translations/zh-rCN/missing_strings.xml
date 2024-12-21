@@ -5,6 +5,21 @@
     <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
     <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down will play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down will not play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is enabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is disabled.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Disable watch panel gestures</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Custom actions are disabled in flyout menu.</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Custom actions are enabled in flyout menu.
 
@@ -76,6 +91,10 @@ Info:
     <string name="revanced_overlay_button_play_all_type_entry_9">All Members only contents</string>
     <string name="revanced_overlay_button_play_all_type_title">Generate playlist mode</string>
     <string name="revanced_preference_category_custom_actions">Custom actions</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
+No margins on top and bottom of player."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restore old player layout</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
 
 Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>
@@ -106,5 +125,11 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
+Video length may be a rounded value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
+Video length is exact value."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
 </resources>

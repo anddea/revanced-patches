@@ -6,9 +6,11 @@
 Siga o guia Não mate o meu aplicativo para o seu telefone e aplique as instruções para a sua instalação do MicroG.
 
 Isto é necessário para o aplicativo funcionar."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"As otimizações da bateria GmsCore devem ser desativadas para evitar problemas.
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"As otimizações de bateria do GmsCore devem ser desativadas para evitar problemas.
 
-Toque no botão continuar e desative as otimizações da bateria."</string>
+Desativar as otimizações de bateria do GmsCore não afetará negativamente o uso da bateria.
+
+Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="gms_core_dialog_open_website_text">Abrir site</string>
     <string name="gms_core_dialog_title">Ação necessária</string>
     <string name="gms_core_settings_summary">Ative as mensagens na nuvem para receber notificações.</string>
@@ -404,15 +406,18 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
+    <string name="revanced_spoof_client_legacy_summary">"Falsificando com a versão 4.27.53.
 
-Limitações:
-• O codec de áudio OPUS pode não ser suportado.
-• Miniatura na barra de busca pode não estar presente.
-• Histórico de exibição não funciona com uma conta de marca.
+O codec OPUS pode não funcionar."</string>
+    <string name="revanced_spoof_client_legacy_title">Usar o cliente antigo</string>
+    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
 
 ※ Quando usado com 'Dados de streaming falsos', podem ocorrer problemas de reprodução."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
+    <string name="revanced_spoof_client_type_entry_android_music">Android Music</string>
+    <string name="revanced_spoof_client_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_client_type_summary">Define um cliente padrão para falsificar.</string>
+    <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifique os dados de streaming para evitar problemas de reprodução.

@@ -9,7 +9,9 @@
 Segui la guida \"Don't kill my app!\" per il tuo dispositivo e applica le istruzioni all'installazione di GmsCore, poichè è necessaria per il funzionamento dell'app."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"L'ottimizzazione della batteria di GmsCore deve essere disattivata per evitare problemi.
 
-Tocca il pulsante Continua e disattiva l'ottimizzazioni della batteria."</string>
+La disattivazione non influirà negativamente sul consumo della batteria.
+
+Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
     <string name="gms_core_dialog_open_website_text">Apri il sito</string>
     <string name="gms_core_dialog_title">Azione necessaria</string>
     <string name="gms_core_settings_summary">Abilitare la messaggistica cloud per ricevere notifiche.</string>
@@ -220,6 +222,18 @@ Note:
     <string name="revanced_disable_splash_animation_summary_off">L\'animazione di avvio è attivata.</string>
     <string name="revanced_disable_splash_animation_summary_on">L\'animazione di avvio è disattivata.</string>
     <string name="revanced_disable_splash_animation_title">Disattiva l\'animazione di avvio</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Trascinando verso l\'alto o il basso verrà riprodotto il video successivo o precedente.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Trascinando verso l\'alto o il basso non verrà riprodotto il video successivo o precedente.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Disattiva il gesto per cambiare video</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione con tema scuro è opaca o traslucida.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione con tema scuro è opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Disattiva la barra di navigazione traslucida con tema scuro</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione con tema chiaro è opaca o traslucida.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra di navigazione con tema chiaro è opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Disattiva la barra di navigazione traslucida con tema chiaro</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o traslucida.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">La barra di stato è opaca.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Disattiva la barra di stato traslucida</string>
     <string name="revanced_disable_video_description_interaction_summary">"Disattiva le seguenti interazioni quando la descrizione dei video viene espansa:
 • Tocca per scorrere.
 • Tocca e tieni premuto per selezionare il testo."</string>
@@ -231,6 +245,9 @@ Note:
 • La riproduzione userà più dati internet di VP9.
 • VP9 è usato per la riproduzione HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Disattiva il codec VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Disattiva il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">I controlli compatti sono disattivati.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">I controlli compatti sono attivati.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Attiva i controlli compatti</string>
@@ -314,9 +331,6 @@ Note:
     <string name="revanced_enable_swipe_volume_summary_off">Il gesto del volume è disattivato.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Il gesto del volume è attivato.</string>
     <string name="revanced_enable_swipe_volume_title">Attiva il gesto del volume</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione traslucida è disattivata.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione traslucida è attivata.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Attiva i gesti del pannello di controllo</string>
@@ -1381,6 +1395,10 @@ Tocca e tieni premuto per aprire le impostazioni di YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Il vecchio menù Qualità è disattivato.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Il vecchio menù Qualità è attivato.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Attiva il vecchio menù Qualità</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">La vecchia interfaccia è disattivata.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"La vecchia interfaccia è attivata.
+(Nessun margine in alto e in basso del riproduttore.)"</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Ripristina la vecchia interfaccia</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Nome utente)</string>
     <string name="revanced_return_youtube_username_display_format_title">Cambia il formato di visualizzazione</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Nome utente (@handle)</string>
@@ -1627,13 +1645,13 @@ Nota: i non mi piace potrebbero non apparire se l'utente non ha effettuato l'acc
 La maggior parte dei bug non può essere risolta a causa di limitazioni lato client, quindi usala solo per scopi di test."</string>
     <string name="revanced_shorts_custom_actions_about_title">Informazioni sulle azioni personalizzate</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">Copia l\'URL del video</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Il menù URL del Video Copiato è nascosto.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Il menù URL del Video Copiato è visibile.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Il menù Copia l\'URL del Video è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Il menù Copia l\'URL del Video è visibile.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Copia l\'URL del video con timestamp</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Il menù URL del Video con Timestamp Copiato è nascosto.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Il menù URL del Video con Timestamp Copiato è visibile.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Mostra il menù URL del Video con Timestamp Copiato</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_title">Mostra il menù URL del Video Copiato</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Il menù Copia l\'URL del Video con Timestamp è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Il menù Copia l\'URL del Video con Timestamp è visibile.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Mostra il menù Copia l\'URL del Video con Timestamp</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Mostra il menù Copia l\'URL del Video</string>
     <string name="revanced_shorts_custom_actions_external_downloader_label">Downloader esterno</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Il menù Downloader Esterno è nascosto.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Il menù Downloader Esterno è visibile.</string>
@@ -1716,11 +1734,11 @@ Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tu
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• I video live iniziano dall'inizio.
-• I video potrebbero terminare 1 secondo prima."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Nessuno ancora trovato.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
 • Il codec audio Opus potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• I video potrebbero terminare 1 secondo prima.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client usato per recuperare i dati in streaming è nascosto nelle statistiche per nerd.</string>
@@ -1728,6 +1746,11 @@ Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tu
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
     <string name="revanced_spoof_streaming_data_summary_off">"I dati in streaming non sono camuffati. La riproduzione potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_summary_on">I dati in streaming sono camuffati.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"La lunghezza del video non è sincronizzata prima della riproduzione. 
+La lunghezza del video potrebbe essere un valore arrotondato."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"La lunghezza del video è sincronizzata prima della riproduzione.
+La lunghezza del video è il valore esatto."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sincronizza la lunghezza del video prima della riproduzione</string>
     <string name="revanced_spoof_streaming_data_title">Camuffa i dati in streaming</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
