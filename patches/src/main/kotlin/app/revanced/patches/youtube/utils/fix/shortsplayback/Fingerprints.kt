@@ -1,12 +1,19 @@
 package app.revanced.patches.youtube.utils.fix.shortsplayback
 
 import app.revanced.util.fingerprint.legacyFingerprint
-import app.revanced.util.or
-import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val shortsPlaybackFingerprint = legacyFingerprint(
-    name = "shortsPlaybackFingerprint",
+internal const val SHORTS_PLAYBACK_PRIMARY_FEATURE_FLAG = 45387052L
+
+internal val shortsPlaybackPrimaryFingerprint = legacyFingerprint(
+    name = "shortsPlaybackPrimaryFingerprint",
     returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(45387052L),
+    literals = listOf(SHORTS_PLAYBACK_PRIMARY_FEATURE_FLAG),
+)
+
+internal const val SHORTS_PLAYBACK_SECONDARY_FEATURE_FLAG = 45378771L
+
+internal val shortsPlaybackSecondaryFingerprint = legacyFingerprint(
+    name = "shortsPlaybackSecondaryFingerprint",
+    returnType = "L",
+    literals = listOf(SHORTS_PLAYBACK_SECONDARY_FEATURE_FLAG),
 )
