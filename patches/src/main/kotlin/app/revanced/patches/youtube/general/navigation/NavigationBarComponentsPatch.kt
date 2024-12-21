@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.revanced.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
-import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -84,11 +84,24 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         // region patch for enable translucent navigation bar
 
-        if (is_19_23_or_greater) {
-            translucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
-                45630927L,
-                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
-            )
+        if (is_19_25_or_greater) {
+            arrayOf(
+                Triple(
+                    translucentNavigationButtonsFeatureFlagFingerprint,
+                    TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
+                    "useTranslucentNavigationButtons"
+                ),
+                Triple(
+                    translucentNavigationButtonsSystemFeatureFlagFingerprint,
+                    TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
+                    "useTranslucentNavigationButtons"
+                )
+            ).forEach {
+                it.first.injectLiteralInstructionBooleanCall(
+                    it.second,
+                    "$GENERAL_CLASS_DESCRIPTOR->${it.third}(Z)Z"
+                )
+            }
 
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
         }
