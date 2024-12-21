@@ -14,22 +14,27 @@ import app.revanced.patches.youtube.utils.fix.bottomui.cfBottomUIPatch
 import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.autoNavToggle
 import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
 import app.revanced.patches.youtube.utils.resourceid.playerCollapseButton
+import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.resourceid.titleAnchor
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val HAS_NEXT = 5
 private const val HAS_PREVIOUS = 6
@@ -162,21 +167,40 @@ val playerButtonsPatch = bytecodePatch(
 
         // region patch for hide previous and next button
 
-        playerControlsVisibilityModelFingerprint.methodOrThrow().apply {
-            val callIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT_RANGE)
-            val callInstruction = getInstruction<RegisterRangeInstruction>(callIndex)
+        if (is_19_34_or_greater) {
+            layoutConstructorFingerprint.methodOrThrow().apply {
+                val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
-            val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT
-            val hasPreviousParameterRegister = callInstruction.startRegister + HAS_PREVIOUS
+                val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
+                    opcode == Opcode.INVOKE_STATIC &&
+                            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Landroid/view/View;"
+                }
 
-            addInstructions(
-                callIndex, """
-                    invoke-static { v$hasNextParameterRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePreviousNextButton(Z)Z
-                    move-result v$hasNextParameterRegister
-                    invoke-static { v$hasPreviousParameterRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePreviousNextButton(Z)Z
-                    move-result v$hasPreviousParameterRegister
-                    """
-            )
+                val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, $PLAYER_CLASS_DESCRIPTOR" +
+                            "->hidePreviousNextButtons(Landroid/view/View;)V",
+                )
+            }
+        } else {
+            playerControlsVisibilityModelFingerprint.methodOrThrow().apply {
+                val callIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT_RANGE)
+                val callInstruction = getInstruction<RegisterRangeInstruction>(callIndex)
+
+                val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT
+                val hasPreviousParameterRegister = callInstruction.startRegister + HAS_PREVIOUS
+
+                addInstructions(
+                    callIndex, """
+                        invoke-static { v$hasNextParameterRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePreviousNextButton(Z)Z
+                        move-result v$hasNextParameterRegister
+                        invoke-static { v$hasPreviousParameterRegister }, $PLAYER_CLASS_DESCRIPTOR->hidePreviousNextButton(Z)Z
+                        move-result v$hasPreviousParameterRegister
+                        """
+                )
+            }
         }
 
         // endregion

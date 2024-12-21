@@ -4,10 +4,12 @@ import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 
+internal const val AMBIENT_MODE_IN_FULLSCREEN_FEATURE_FLAG = 45389368L
+
 internal val ambientModeInFullscreenFingerprint = legacyFingerprint(
     name = "ambientModeInFullscreenFingerprint",
     returnType = "V",
-    literals = listOf(45389368L),
+    literals = listOf(AMBIENT_MODE_IN_FULLSCREEN_FEATURE_FLAG),
 )
 
 internal val powerSaveModeBroadcastReceiverFingerprint = legacyFingerprint(
@@ -30,4 +32,15 @@ internal val powerSaveModeSyntheticFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Ljava/lang/Object;"),
     strings = listOf("android.os.action.POWER_SAVE_MODE_CHANGED")
+)
+
+internal val setFullScreenBackgroundColorFingerprint = legacyFingerprint(
+    name = "setFullScreenBackgroundColorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    parameters = listOf("Z", "I", "I", "I", "I"),
+    customFingerprint = { method, classDef ->
+        classDef.type.endsWith("/YouTubePlayerViewNotForReflection;")
+                && method.name == "onLayout"
+    },
 )

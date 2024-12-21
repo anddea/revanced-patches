@@ -1,5 +1,10 @@
 package app.revanced.extension.youtube.patches.shorts;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getString;
+import static app.revanced.extension.shared.utils.Utils.dpToPx;
+import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.ColorFilter;
@@ -10,13 +15,26 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.RecyclerView;
-import android.view.*;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.lang.ref.WeakReference;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
@@ -26,17 +44,6 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 import app.revanced.extension.youtube.utils.VideoUtils;
-import org.apache.commons.lang3.StringUtils;
-
-import java.lang.ref.WeakReference;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
-
-import static app.revanced.extension.shared.utils.ResourceUtils.getString;
-import static app.revanced.extension.shared.utils.Utils.dpToPx;
-import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
-import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 @SuppressWarnings("unused")
 public final class CustomActionsPatch {

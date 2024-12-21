@@ -37,8 +37,8 @@ import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewHook
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.resourceid.bottomBarContainer
 import app.revanced.patches.youtube.utils.resourceid.metaPanel
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
@@ -158,9 +158,9 @@ private val shortsCustomActionsPatch = bytecodePatch(
     description = "shortsCustomActionsPatch"
 ) {
     dependsOn(
-        bottomSheetRecyclerViewPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
+        recyclerViewTreeObserverPatch,
         toolBarHookPatch,
         videoIdPatch,
         videoInformationPatch,
@@ -332,7 +332,7 @@ private val shortsCustomActionsPatch = bytecodePatch(
             }
         }
 
-        bottomSheetRecyclerViewHook("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+        recyclerViewTreeObserverHook("$EXTENSION_CUSTOM_ACTIONS_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
 
         // endregion
 

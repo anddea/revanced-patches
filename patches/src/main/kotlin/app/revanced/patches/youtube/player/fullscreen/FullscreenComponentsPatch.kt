@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.FULLSCREEN_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_18_42_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.autoNavPreviewStub
 import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementPanel
@@ -293,7 +294,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for keep landscape mode
 
-        if (is_18_42_or_greater) {
+        if (is_18_42_or_greater && !is_19_41_or_greater) {
             landScapeModeConfigFingerprint.methodOrThrow().apply {
                 val insertIndex = implementation!!.instructions.lastIndex
                 val insertRegister =
@@ -319,6 +320,8 @@ val fullscreenComponentsPatch = bytecodePatch(
             }
 
             settingArray += "SETTINGS: KEEP_LANDSCAPE_MODE"
+        } else {
+            println("WARNING: \"Keep landscape mode\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
         }
 
         // endregion

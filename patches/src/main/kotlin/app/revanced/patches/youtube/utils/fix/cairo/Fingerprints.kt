@@ -10,9 +10,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * When this value is TRUE, Cairo Fragment is used.
  * In this case, some of patches may be broken, so set this value to FALSE.
  */
+internal const val CAIRO_FRAGMENT_FEATURE_FLAG = 45532100L
+
 internal val carioFragmentConfigFingerprint = legacyFingerprint(
     name = "carioFragmentConfigFingerprint",
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    literals = listOf(45532100L),
+    literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
 )

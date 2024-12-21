@@ -369,29 +369,31 @@ val playerComponentsPatch = bytecodePatch(
 
         arrayOf(
             lithoComponentOnClickListenerFingerprint,
-            noticeOnClickListenerFingerprint,
             offlineActionsOnClickListenerFingerprint,
-            startVideoInformerFingerprint,
         ).forEach { fingerprint ->
             fingerprint.methodOrThrow().apply {
-                if (fingerprint == startVideoInformerFingerprint) {
-                    hookInitVideoPanel(1)
-                } else {
-                    val syntheticIndex =
-                        indexOfFirstInstruction(Opcode.NEW_INSTANCE)
-                    if (syntheticIndex >= 0) {
-                        val syntheticReference =
-                            getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
+                val syntheticIndex =
+                    indexOfFirstInstruction(Opcode.NEW_INSTANCE)
+                if (syntheticIndex >= 0) {
+                    val syntheticReference =
+                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
 
-                        findMethodOrThrow(syntheticReference) {
-                            name == "onClick"
-                        }.hookInitVideoPanel(0)
-                    } else {
-                        println("WARNING: target Opcode not found in ${fingerprint.first}")
-                    }
+                    findMethodOrThrow(syntheticReference) {
+                        name == "onClick"
+                    }.hookInitVideoPanel(0)
+                } else {
+                    println("WARNING: target Opcode not found in ${fingerprint.first}")
                 }
             }
         }
+
+        findMethodOrThrow(
+            engagementPanelPlaylistSyntheticFingerprint.methodOrThrow().definingClass
+        ) {
+            name == "onClick"
+        }.hookInitVideoPanel(0)
+
+        startVideoInformerFingerprint.methodOrThrow().hookInitVideoPanel(1)
 
         engagementPanelBuilderFingerprint.methodOrThrow().apply {
             addInstructionsWithLabels(

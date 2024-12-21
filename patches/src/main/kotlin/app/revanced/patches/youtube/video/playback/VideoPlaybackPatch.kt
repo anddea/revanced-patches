@@ -19,8 +19,8 @@ import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.qualityMenuViewInflateFingerprint
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewHook
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -80,7 +80,6 @@ val videoPlaybackPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        bottomSheetRecyclerViewPatch,
         customPlaybackSpeedPatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
             8.0f
@@ -88,6 +87,7 @@ val videoPlaybackPatch = bytecodePatch(
         flyoutMenuHookPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
+        recyclerViewTreeObserverPatch,
         shortsPlaybackPatch,
         videoIdPatch,
         videoInformationPatch,
@@ -102,7 +102,7 @@ val videoPlaybackPatch = bytecodePatch(
 
         // region patch for custom playback speed
 
-        bottomSheetRecyclerViewHook("$EXTENSION_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+        recyclerViewTreeObserverHook("$EXTENSION_CUSTOM_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
         addLithoFilter(PLAYBACK_SPEED_MENU_FILTER_CLASS_DESCRIPTOR)
 
         // endregion
@@ -249,7 +249,7 @@ val videoPlaybackPatch = bytecodePatch(
             } ?: throw PatchException("Failed to find onItemClick method")
         }
 
-        bottomSheetRecyclerViewHook("$EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
+        recyclerViewTreeObserverHook("$EXTENSION_RESTORE_OLD_VIDEO_QUALITY_MENU_CLASS_DESCRIPTOR->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V")
         addLithoFilter(VIDEO_QUALITY_MENU_FILTER_CLASS_DESCRIPTOR)
 
         // endregion
