@@ -20,15 +20,15 @@ public class SwipeControlsPatch {
     /**
      * Injection point.
      */
-    public static boolean enableSwipeToSwitchVideo() {
-        return Settings.ENABLE_SWIPE_TO_SWITCH_VIDEO.get();
+    public static boolean disableSwipeToSwitchVideo() {
+        return !Settings.DISABLE_SWIPE_TO_SWITCH_VIDEO.get();
     }
 
     /**
      * Injection point.
      */
-    public static boolean enableWatchPanelGestures() {
-        return Settings.ENABLE_WATCH_PANEL_GESTURES.get();
+    public static boolean disableWatchPanelGestures() {
+        return !Settings.DISABLE_WATCH_PANEL_GESTURES.get();
     }
 
     /**

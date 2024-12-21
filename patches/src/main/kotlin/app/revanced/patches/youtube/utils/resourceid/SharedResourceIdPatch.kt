@@ -28,6 +28,8 @@ var appRelatedEndScreenResults = -1L
     private set
 var autoNavPreviewStub = -1L
     private set
+var autoNavScrollCancelPadding = -1L
+    private set
 var autoNavToggle = -1L
     private set
 var backgroundCategory = -1L
@@ -263,6 +265,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         autoNavPreviewStub = resourceMappings[
             ID,
             "autonav_preview_stub"
+        ]
+        autoNavScrollCancelPadding = resourceMappings[
+            DIMEN,
+            "autonav_scroll_cancel_padding"
         ]
         autoNavToggle = resourceMappings[
             ID,
