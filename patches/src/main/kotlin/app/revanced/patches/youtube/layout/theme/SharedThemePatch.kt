@@ -65,7 +65,8 @@ val sharedThemePatch = resourcePatch(
                                     }
 
                                     1 -> when (nodeAttributeName) {
-                                        "Base.Theme.YouTube.Launcher" -> SPLASH_SCREEN_COLOR_ATTRIBUTE
+                                        "Base.Theme.YouTube.Launcher",
+                                        "Base.Theme.YouTube.Launcher.Cairo" -> SPLASH_SCREEN_COLOR_ATTRIBUTE
                                         else -> "null"
                                     }
 
@@ -81,25 +82,54 @@ val sharedThemePatch = resourcePatch(
             }
         }
 
-        setOf(
-            "res/drawable/quantum_launchscreen_youtube.xml",
-            "res/drawable-sw600dp/quantum_launchscreen_youtube.xml"
-        ).forEach editSplashScreen@{ resourceFile ->
-            document(resourceFile).use { document ->
-                val layerList = document.getElementsByTagName("layer-list").item(0) as Element
+        var launchScreenArray = emptyArray<String>()
 
-                val childNodes = layerList.childNodes
-                for (i in 0 until childNodes.length) {
-                    val node = childNodes.item(i)
-                    if (node is Element && node.hasAttribute("android:drawable")) {
-                        node.setAttribute("android:drawable", SPLASH_SCREEN_COLOR_ATTRIBUTE)
-                        return@editSplashScreen
+        document("res/values/styles.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+            val childNodes = resourcesNode.childNodes
+
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
+                val nodeAttributeName = node.getAttribute("name")
+                if (nodeAttributeName.startsWith("Base.Theme.YouTube.Launcher")) {
+                    val itemNodes = node.childNodes
+
+                    for (j in 0 until itemNodes.length) {
+                        val item = itemNodes.item(j) as? Element ?: continue
+
+                        val itemAttributeName = item.getAttribute("name")
+                        if (itemAttributeName == "android:windowBackground" && item.textContent != null) {
+                            launchScreenArray += item.textContent.split("/")[1]
+                        }
                     }
                 }
-
-                throw PatchException("Failed to modify launch screen")
             }
         }
+
+        launchScreenArray
+            .distinct()
+            .forEach { fileName ->
+                arrayOf("drawable", "drawable-sw600dp").forEach editSplashScreen@{ drawable ->
+                    val targetXmlPath = get("res").resolve(drawable).resolve("$fileName.xml")
+                    if (!targetXmlPath.exists()) {
+                        return@editSplashScreen
+                    }
+                    document("res/$drawable/$fileName.xml").use { document ->
+                        val layerList = document.getElementsByTagName("layer-list").item(0) as Element
+
+                        val childNodes = layerList.childNodes
+                        for (i in 0 until childNodes.length) {
+                            val node = childNodes.item(i)
+                            if (node is Element && node.hasAttribute("android:drawable")) {
+                                node.setAttribute("android:drawable", SPLASH_SCREEN_COLOR_ATTRIBUTE)
+                                return@editSplashScreen
+                            }
+                        }
+
+                        throw PatchException("Failed to modify launch screen")
+                    }
+                }
+            }
 
     }
 }
