@@ -236,7 +236,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     .setView(container)
                     .setNegativeButton(android.R.string.cancel, null)
                     .setNeutralButton(str("revanced_extended_settings_import_copy"), (dialog, which) -> Utils.setClipboard(textView.getText().toString(), str("revanced_share_copy_settings_success")))
-                    .setPositiveButton(str("revanced_extended_settings_import"), (dialog, which) -> importSettings(textView.getText().toString()))
+                    .setPositiveButton(str("revanced_extended_settings_import"), (dialog, which) -> importSettings(activity, textView.getText().toString()))
                     .show();
         } catch (Exception ex) {
             Logger.printException(() -> "importExportEditTextDialogBuilder failure", ex);
@@ -326,7 +326,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             bufferedReader.close();
             fileReader.close();
 
-            final boolean restartNeeded = Setting.importFromJSON(sb.toString(), false);
+            final boolean restartNeeded = Setting.importFromJSON(context, sb.toString());
             if (restartNeeded) {
                 ReVancedPreferenceFragment.showRebootDialog();
             }
@@ -336,13 +336,13 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
-    private void importSettings(String replacementSettings) {
+    private void importSettings(Activity mActivity, String replacementSettings) {
         try {
             existingSettings = Setting.exportToJson(null);
             if (replacementSettings.equals(existingSettings)) {
                 return;
             }
-            final boolean restartNeeded = Setting.importFromJSON(replacementSettings, false);
+            final boolean restartNeeded = Setting.importFromJSON(mActivity, replacementSettings);
             if (restartNeeded) {
                 ReVancedPreferenceFragment.showRebootDialog();
             }
