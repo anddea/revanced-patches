@@ -2,7 +2,6 @@ package app.revanced.extension.music.utils;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 

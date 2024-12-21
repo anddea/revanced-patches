@@ -15,7 +15,7 @@ internal object Constants {
             "18.48.39", // This is the last version that do not use Rolling Number.
             "19.05.36", // This is the last version with the least YouTube experimental flag.
             "19.16.39", // This is the last version where the 'Restore old seekbar thumbnails' setting works.
-            "19.38.41", // This is the latest version supported by the RVX patch.
+            "19.44.39", // This is the latest version supported by the RVX patch.
         )
     )
 }

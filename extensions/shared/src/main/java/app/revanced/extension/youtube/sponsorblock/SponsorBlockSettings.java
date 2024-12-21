@@ -34,6 +34,7 @@ public class SponsorBlockSettings {
             SegmentCategory.loadAllCategoriesFromSettings();
             SponsorBlockSettingsPreference.updateSegmentCategories();
         }
+
         @Override
         public void settingsExported(@Nullable Context context) {
             showExportWarningIfNeeded(context);

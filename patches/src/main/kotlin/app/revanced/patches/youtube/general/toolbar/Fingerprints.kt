@@ -22,11 +22,11 @@ internal val actionBarRingoBackgroundFingerprint = legacyFingerprint(
     returnType = "Landroid/view/View;",
     literals = listOf(actionBarRingoBackground),
     customFingerprint = { method, _ ->
-        indexOfStaticInstruction(method) >= 0
+        indexOfActionBarRingoBackgroundTabletInstruction(method) >= 0
     }
 )
 
-internal fun indexOfStaticInstruction(method: Method) =
+internal fun indexOfActionBarRingoBackgroundTabletInstruction(method: Method) =
     method.indexOfFirstInstruction {
         val reference = getReference<MethodReference>()
         opcode == Opcode.INVOKE_STATIC &&
@@ -54,7 +54,7 @@ internal val actionBarRingoTextFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     customFingerprint = { method, _ ->
         indexOfStartDelayInstruction(method) >= 0 &&
-                indexOfStaticInstructions(method) >= 0
+                indexOfActionBarRingoTextTabletInstructions(method) >= 0
     }
 )
 
@@ -64,7 +64,7 @@ internal fun indexOfStartDelayInstruction(method: Method) =
                 getReference<MethodReference>()?.name == "setStartDelay"
     }
 
-internal fun indexOfStaticInstructions(method: Method) =
+internal fun indexOfActionBarRingoTextTabletInstructions(method: Method) =
     method.indexOfFirstInstructionReversed(indexOfStartDelayInstruction(method)) {
         val reference = getReference<MethodReference>()
         opcode == Opcode.INVOKE_STATIC &&
@@ -173,24 +173,6 @@ internal val setActionBarRingoFingerprint = legacyFingerprint(
         Opcode.INVOKE_STATIC
     ),
     literals = listOf(actionBarRingo),
-)
-
-internal val setWordMarkHeaderFingerprint = legacyFingerprint(
-    name = "setWordMarkHeaderFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("Landroid/widget/ImageView;"),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.CONST,
-        Opcode.INVOKE_STATIC,
-    )
 )
 
 @Suppress("SpellCheckingInspection")

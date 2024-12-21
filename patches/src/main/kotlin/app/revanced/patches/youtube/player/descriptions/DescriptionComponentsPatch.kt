@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_02_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewHook
-import app.revanced.patches.youtube.utils.recyclerview.bottomSheetRecyclerViewPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.rollingNumberTextViewFingerprint
@@ -43,9 +43,9 @@ val descriptionComponentsPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        bottomSheetRecyclerViewPatch,
         lithoFilterPatch,
         playerTypeHookPatch,
+        recyclerViewTreeObserverPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
     )
@@ -117,7 +117,7 @@ val descriptionComponentsPatch = bytecodePatch(
                     )
                 }
 
-            bottomSheetRecyclerViewHook("$PLAYER_CLASS_DESCRIPTOR->onVideoDescriptionCreate(Landroid/support/v7/widget/RecyclerView;)V")
+            recyclerViewTreeObserverHook("$PLAYER_CLASS_DESCRIPTOR->onVideoDescriptionCreate(Landroid/support/v7/widget/RecyclerView;)V")
 
             settingArray += "SETTINGS: DESCRIPTION_INTERACTION"
         }

@@ -6,15 +6,20 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.AMBIENT_MODE_CONTROL
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_41_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -26,7 +31,10 @@ val ambientModeSwitchPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch,
+    )
 
     execute {
         // region patch for bypass ambient mode restrictions
@@ -83,10 +91,29 @@ val ambientModeSwitchPatch = bytecodePatch(
 
         // region patch for disable ambient mode in fullscreen
 
-        ambientModeInFullscreenFingerprint.injectLiteralInstructionBooleanCall(
-            45389368L,
-            "$PLAYER_CLASS_DESCRIPTOR->disableAmbientModeInFullscreen()Z"
-        )
+        if (!is_19_41_or_greater) {
+            ambientModeInFullscreenFingerprint.injectLiteralInstructionBooleanCall(
+                AMBIENT_MODE_IN_FULLSCREEN_FEATURE_FLAG,
+                "$PLAYER_CLASS_DESCRIPTOR->disableAmbientModeInFullscreen()Z"
+            )
+        }
+
+        if (is_19_34_or_greater) {
+            setFullScreenBackgroundColorFingerprint.methodOrThrow().apply {
+                val insertIndex = indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "setBackgroundColor"
+                }
+                val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static { v$register }, $PLAYER_CLASS_DESCRIPTOR->getFullScreenBackgroundColor(I)I
+                        move-result v$register
+                        """,
+                )
+            }
+        }
 
         // endregion
 

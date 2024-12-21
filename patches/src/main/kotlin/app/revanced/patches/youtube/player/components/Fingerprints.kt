@@ -9,7 +9,6 @@ import app.revanced.patches.youtube.utils.resourceid.easySeekEduContainer
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutCircle
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutIcon
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutVideo
-import app.revanced.patches.youtube.utils.resourceid.notice
 import app.revanced.patches.youtube.utils.resourceid.offlineActionsVideoDeletedUndoSnackbarText
 import app.revanced.patches.youtube.utils.resourceid.scrubbing
 import app.revanced.patches.youtube.utils.resourceid.seekEasyHorizontalTouchOffsetToStartScrubbing
@@ -207,11 +206,12 @@ internal val lithoComponentOnClickListenerFingerprint = legacyFingerprint(
     literals = listOf(componentLongClickListener),
 )
 
-internal val noticeOnClickListenerFingerprint = legacyFingerprint(
-    name = "noticeOnClickListenerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(notice),
+internal val engagementPanelPlaylistSyntheticFingerprint = legacyFingerprint(
+    name = "engagementPanelPlaylistSyntheticFingerprint",
+    strings = listOf("engagement-panel-playlist"),
+    customFingerprint = { _, classDef ->
+        classDef.interfaces.contains("Landroid/view/View${'$'}OnClickListener;")
+    }
 )
 
 internal val offlineActionsOnClickListenerFingerprint = legacyFingerprint(

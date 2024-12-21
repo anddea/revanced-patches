@@ -18,6 +18,7 @@ public class SponsorBlockSettings {
         public void settingsImported(@Nullable Context context) {
             SegmentCategory.loadAllCategoriesFromSettings();
         }
+
         @Override
         public void settingsExported(@Nullable Context context) {
         }

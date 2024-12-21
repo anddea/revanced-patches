@@ -74,12 +74,25 @@ public class PlayerPatch {
 
     // region [Ambient mode control] patch
 
+    /**
+     * Constant found in: androidx.window.embedding.DividerAttributes
+     */
+    private static final int DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT = -16777216;
+
     public static boolean bypassAmbientModeRestrictions(boolean original) {
         return (!Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS.get() && original) || Settings.DISABLE_AMBIENT_MODE.get();
     }
 
     public static boolean disableAmbientModeInFullscreen() {
         return !Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN.get();
+    }
+
+    public static int getFullScreenBackgroundColor(int originalColor) {
+        if (Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN.get()) {
+            return DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT;
+        }
+
+        return originalColor;
     }
 
     // endregion
@@ -422,6 +435,35 @@ public class PlayerPatch {
 
     public static boolean hidePreviousNextButton(boolean previousOrNextButtonVisible) {
         return !Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get() && previousOrNextButtonVisible;
+    }
+
+    private static final int playerControlPreviousButtonTouchAreaId =
+            ResourceUtils.getIdIdentifier("player_control_previous_button_touch_area");
+    private static final int playerControlNextButtonTouchAreaId =
+            ResourceUtils.getIdIdentifier("player_control_next_button_touch_area");
+
+    public static void hidePreviousNextButtons(View parentView) {
+        if (!Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTON.get()) {
+            return;
+        }
+
+        // Must use a deferred call to main thread to hide the button.
+        // Otherwise the layout crashes if set to hidden now.
+        Utils.runOnMainThread(() -> {
+            hideView(parentView, playerControlPreviousButtonTouchAreaId);
+            hideView(parentView, playerControlNextButtonTouchAreaId);
+        });
+    }
+
+    private static void hideView(View parentView, int resourceId) {
+        View nextPreviousButton = parentView.findViewById(resourceId);
+
+        if (nextPreviousButton == null) {
+            Logger.printException(() -> "Could not find player previous / next button");
+            return;
+        }
+
+        Utils.hideViewByRemovingFromParentUnderCondition(true, nextPreviousButton);
     }
 
     public static boolean hideMusicButton() {
