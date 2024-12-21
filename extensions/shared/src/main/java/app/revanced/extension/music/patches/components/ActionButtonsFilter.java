@@ -14,9 +14,7 @@ public final class ActionButtonsFilter extends Filter {
 
     private final StringFilterGroup actionBarRule;
     private final StringFilterGroup bufferFilterPathRule;
-    private final StringFilterGroup likeDislikeContainer;
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
-    private final ByteArrayFilterGroup downloadButton;
 
     public ActionButtonsFilter() {
         actionBarRule = new StringFilterGroup(
@@ -29,12 +27,17 @@ public final class ActionButtonsFilter extends Filter {
                 null,
                 "|ContainerType|button.eml|"
         );
-        likeDislikeContainer = new StringFilterGroup(
+        final StringFilterGroup downloadButton = new StringFilterGroup(
+                Settings.HIDE_ACTION_BUTTON_DOWNLOAD,
+                "music_download_button.eml"
+        );
+        final StringFilterGroup likeDislikeContainer = new StringFilterGroup(
                 Settings.HIDE_ACTION_BUTTON_LIKE_DISLIKE,
                 "segmented_like_dislike_button.eml"
         );
         addPathCallbacks(
                 bufferFilterPathRule,
+                downloadButton,
                 likeDislikeContainer
         );
 
@@ -56,10 +59,6 @@ public final class ActionButtonsFilter extends Filter {
                         "yt_outline_youtube_mix"
                 )
         );
-        downloadButton = new ByteArrayFilterGroup(
-                Settings.HIDE_ACTION_BUTTON_DOWNLOAD,
-                "music_download_button"
-        );
     }
 
     private boolean isEveryFilterGroupEnabled() {
@@ -69,7 +68,7 @@ public final class ActionButtonsFilter extends Filter {
         for (ByteArrayFilterGroup group : bufferButtonsGroupList)
             if (!group.isEnabled()) return false;
 
-        return downloadButton.isEnabled();
+        return true;
     }
 
     @Override
@@ -81,16 +80,8 @@ public final class ActionButtonsFilter extends Filter {
         if (matchedGroup == actionBarRule && !isEveryFilterGroupEnabled()) {
             return false;
         }
-        if (contentType == FilterContentType.PATH) {
-            if (matchedGroup == bufferFilterPathRule) {
-                if (!bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) {
-                    return false;
-                }
-            } else if (matchedGroup != likeDislikeContainer) {
-                if (!downloadButton.check(protobufBufferArray).isFiltered()) {
-                    return false;
-                }
-            }
+        if (matchedGroup == bufferFilterPathRule && !bufferButtonsGroupList.check(protobufBufferArray).isFiltered()) {
+            return false;
         }
 
         return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
