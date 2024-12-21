@@ -189,7 +189,8 @@ val customBrandingIconPatch = resourcePatch(
                 }
 
                 document("res/values/styles.xml").use { document ->
-                    val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+                    val resourcesNode =
+                        document.getElementsByTagName("resources").item(0) as Element
                     val childNodes = resourcesNode.childNodes
 
                     for (i in 0 until childNodes.length) {
@@ -216,7 +217,8 @@ val customBrandingIconPatch = resourcePatch(
                 }
 
                 val styleMap = mutableMapOf<String, String>()
-                styleMap["Base.Theme.YouTube.Launcher"] = "@style/Theme.AppCompat.DayNight.NoActionBar"
+                styleMap["Base.Theme.YouTube.Launcher"] =
+                    "@style/Theme.AppCompat.DayNight.NoActionBar"
 
                 if (is_19_32_or_greater) {
                     styleMap["Theme.YouTube.Home"] = "@style/Base.V27.Theme.YouTube.Home"
@@ -224,7 +226,8 @@ val customBrandingIconPatch = resourcePatch(
 
                 styleMap.forEach { (nodeAttributeName, nodeAttributeParent) ->
                     document("res/values-v31/styles.xml").use { document ->
-                        val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+                        val resourcesNode =
+                            document.getElementsByTagName("resources").item(0) as Element
 
                         val style = document.createElement("style")
                         style.setAttribute("name", nodeAttributeName)
@@ -234,7 +237,10 @@ val customBrandingIconPatch = resourcePatch(
                         primaryItem.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
                         primaryItem.textContent = "@drawable/avd_anim"
                         val secondaryItem = document.createElement("item")
-                        secondaryItem.setAttribute("name", "android:windowSplashScreenAnimationDuration")
+                        secondaryItem.setAttribute(
+                            "name",
+                            "android:windowSplashScreenAnimationDuration"
+                        )
                         secondaryItem.textContent = if (appIcon.startsWith("revancify"))
                             "1500"
                         else

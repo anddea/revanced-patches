@@ -165,10 +165,22 @@ val swipeControlsPatch = bytecodePatch(
                             reference.parameterTypes.size == 0
                 }
                 if (getInstruction(targetIndex - 1).opcode != Opcode.IGET_OBJECT) {
-                    throw PatchException("Previous Opcode pattern does not match: ${getInstruction(targetIndex - 1).opcode}")
+                    throw PatchException(
+                        "Previous Opcode pattern does not match: ${
+                            getInstruction(
+                                targetIndex - 1
+                            ).opcode
+                        }"
+                    )
                 }
                 if (getInstruction(targetIndex + 1).opcode != Opcode.IF_EQZ) {
-                    throw PatchException("Next Opcode pattern does not match: ${getInstruction(targetIndex + 1).opcode}")
+                    throw PatchException(
+                        "Next Opcode pattern does not match: ${
+                            getInstruction(
+                                targetIndex + 1
+                            ).opcode
+                        }"
+                    )
                 }
                 val fieldReference = getInstruction<ReferenceInstruction>(targetIndex - 1).reference
                 val fieldInstruction = getInstruction<TwoRegisterInstruction>(targetIndex - 1)

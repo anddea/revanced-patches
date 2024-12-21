@@ -85,7 +85,7 @@ fun baseSpoofStreamingDataPatch(
         // region Replace the streaming data.
 
         val approxDurationMsFieldName = formatStreamModelConstructorFingerprint.matchOrThrow().let {
-            with (it.method) {
+            with(it.method) {
                 val approxDurationMsFieldIndex = it.patternMatch!!.startIndex
                 (getInstruction<ReferenceInstruction>(approxDurationMsFieldIndex).reference as FieldReference).name
             }

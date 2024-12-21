@@ -45,7 +45,8 @@ val playbackSpeedWhilePlayingPatch = bytecodePatch(
         playbackSpeedInFeedsFingerprint.methodOrThrow().apply {
             val freeRegister = implementation!!.registerCount - parameters.size - 2
             val playbackSpeedIndex = indexOfGetPlaybackSpeedInstruction(this)
-            val playbackSpeedRegister = getInstruction<TwoRegisterInstruction>(playbackSpeedIndex).registerA
+            val playbackSpeedRegister =
+                getInstruction<TwoRegisterInstruction>(playbackSpeedIndex).registerA
             val jumpIndex = indexOfFirstInstructionOrThrow(playbackSpeedIndex, Opcode.RETURN_VOID)
 
             addInstructionsWithLabels(

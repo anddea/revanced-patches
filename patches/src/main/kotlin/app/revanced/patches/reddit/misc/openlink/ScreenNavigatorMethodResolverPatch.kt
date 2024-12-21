@@ -12,10 +12,10 @@ val screenNavigatorMethodResolverPatch = bytecodePatch(
 ) {
     execute {
         screenNavigatorMethod =
-            // ~ Reddit 2024.25.3
+                // ~ Reddit 2024.25.3
             screenNavigatorFingerprint.second.methodOrNull
-                // Reddit 2024.26.1 ~
-                ?: with (customReportsFingerprint.methodOrThrow()) {
+                    // Reddit 2024.26.1 ~
+                ?: with(customReportsFingerprint.methodOrThrow()) {
                     getWalkerMethod(indexOfScreenNavigatorInstruction(this))
                 }
     }

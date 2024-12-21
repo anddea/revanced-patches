@@ -179,7 +179,8 @@ val sponsorBlockPatch = resourcePatch(
                 val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
                 List(tags.length) { tags.item(it) as Element }
                     .filter {
-                        it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                        it.getAttribute("android:key")
+                            .contains("revanced_preference_screen_$category")
                     }
                     .forEach {
                         it.adoptChild(SWITCH_PREFERENCE_TAG_NAME) {
@@ -210,7 +211,8 @@ val sponsorBlockPatch = resourcePatch(
                 val tags = document.getElementsByTagName(PREFERENCE_SCREEN_TAG_NAME)
                 List(tags.length) { tags.item(it) as Element }
                     .filter {
-                        it.getAttribute("android:key").contains("revanced_preference_screen_$category")
+                        it.getAttribute("android:key")
+                            .contains("revanced_preference_screen_$category")
                     }
                     .forEach {
                         it.adoptChild("Preference") {

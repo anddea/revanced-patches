@@ -114,7 +114,8 @@ val adsPatch = bytecodePatch(
         // AdElementConverter is conveniently responsible for inserting all feed ads.
         // By removing the appending instruction no ad posts gets appended to the feed.
         newAdPostFingerprint.methodOrThrow().apply {
-            val stringIndex = indexOfFirstStringInstructionOrThrow("android_feed_freeform_render_variant")
+            val stringIndex =
+                indexOfFirstStringInstructionOrThrow("android_feed_freeform_render_variant")
             val targetIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                 opcode == Opcode.INVOKE_VIRTUAL
                         && getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"

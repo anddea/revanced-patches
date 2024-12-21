@@ -5,7 +5,6 @@ import app.revanced.patches.youtube.misc.backgroundplayback.backgroundPlaybackPa
 import app.revanced.patches.youtube.utils.playservice.is_19_04_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.resolvable
 
 val cairoSettingsPatch = bytecodePatch(
     description = "cairoSettingsPatch"

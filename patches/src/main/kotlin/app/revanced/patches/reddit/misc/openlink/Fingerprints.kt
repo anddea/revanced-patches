@@ -19,7 +19,8 @@ internal val customReportsFingerprint = legacyFingerprint(
 
 fun indexOfScreenNavigatorInstruction(method: Method) =
     method.indexOfFirstInstruction {
-        (this as? ReferenceInstruction)?.reference?.toString()?.contains("Landroid/app/Activity;Landroid/net/Uri;") == true
+        (this as? ReferenceInstruction)?.reference?.toString()
+            ?.contains("Landroid/app/Activity;Landroid/net/Uri;") == true
     }
 
 internal val screenNavigatorFingerprint = legacyFingerprint(
