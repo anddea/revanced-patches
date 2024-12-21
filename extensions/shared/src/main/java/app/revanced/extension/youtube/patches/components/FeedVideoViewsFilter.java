@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.RootView;
@@ -16,10 +17,14 @@ import app.revanced.extension.youtube.shared.RootView;
 @SuppressWarnings("all")
 public final class FeedVideoViewsFilter extends Filter {
 
+    private static final String ARROW = " -> ";
+    private static final String VIEWS = "views";
     private final StringFilterGroup feedVideoFilter = new StringFilterGroup(
             null,
             "video_lockup_with_attachment.eml"
     );
+    private final String[] parts = Settings.HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER.get().split("\\n");
+    private Pattern viewCountPattern = null;
 
     public FeedVideoViewsFilter() {
         addPathCallbacks(feedVideoFilter);
@@ -62,18 +67,11 @@ public final class FeedVideoViewsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (hideFeedVideoViewsSettingIsActive() &&
-                filterByViews(protobufBufferArray)) {
+        if (hideFeedVideoViewsSettingIsActive() && filterByViews(protobufBufferArray)) {
             return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
         }
-
         return false;
     }
-
-    private final String ARROW = " -> ";
-    private final String VIEWS = "views";
-    private final String[] parts = Settings.HIDE_VIDEO_VIEW_COUNTS_MULTIPLIER.get().split("\\n");
-    private Pattern[] viewCountPatterns = null;
 
     /**
      * Hide videos based on views count
@@ -83,21 +81,30 @@ public final class FeedVideoViewsFilter extends Filter {
         final long lessThan = Settings.HIDE_VIDEO_VIEW_COUNTS_LESS_THAN.get();
         final long greaterThan = Settings.HIDE_VIDEO_VIEW_COUNTS_GREATER_THAN.get();
 
-        if (viewCountPatterns == null) {
-            viewCountPatterns = getViewCountPatterns(parts);
+        if (viewCountPattern == null) {
+            viewCountPattern = getViewCountPattern(parts);
         }
 
-        for (Pattern pattern : viewCountPatterns) {
-            final Matcher matcher = pattern.matcher(protobufString);
-            if (matcher.find()) {
-                String numString = Objects.requireNonNull(matcher.group(1));
-                double num = parseNumber(numString);
-                String multiplierKey = matcher.group(2);
-                long multiplierValue = getMultiplierValue(parts, multiplierKey);
-                return num * multiplierValue < lessThan || num * multiplierValue > greaterThan;
-            }
-        }
+        final Matcher matcher = viewCountPattern.matcher(protobufString);
+        if (matcher.find()) {
+            String numString = Objects.requireNonNull(matcher.group(1));
+            double num = parseNumber(numString);
+            String multiplierKey = matcher.group(2);
+            long multiplierValue = getMultiplierValue(parts, multiplierKey);
+            boolean shouldFilter = num * multiplierValue < lessThan || num * multiplierValue > greaterThan;
 
+            final boolean finalShouldFilter = shouldFilter;
+            Logger.printDebug(() -> {
+                StringBuilder builder = new StringBuilder();
+                builder.append("FeedVideoViewsFilter: Should Filter: ").append(finalShouldFilter);
+                builder.append("\n").append(num * multiplierValue).append(" < ").append(lessThan);
+                builder.append(" || ").append(num * multiplierValue).append(" > ").append(greaterThan);
+                builder.append("\nRegex pattern: ").append(viewCountPattern.pattern());
+                builder.append("\nText: ").append(matcher.group(0));
+                return builder.toString();
+            });
+            return shouldFilter;
+        }
         return false;
     }
 
@@ -120,61 +127,69 @@ public final class FeedVideoViewsFilter extends Filter {
         if (numString.matches("\\d+\\.\\d{3,}")) {
             numString = numString.replace(".", "");
         }
-
         return Double.parseDouble(numString);
     }
 
-    private synchronized Pattern[] getViewCountPatterns(String[] parts) {
-        StringBuilder prefixPatternBuilder = new StringBuilder("(\\d+(?:[.,]\\d+)?)\\s?("); // LTR layout
-        StringBuilder secondPatternBuilder = new StringBuilder(); // RTL layout
-        StringBuilder suffixBuilder = getSuffixBuilder(parts, prefixPatternBuilder, secondPatternBuilder);
+    private synchronized Pattern getViewCountPattern(String[] parts) {
+        // Regex: (\d+[.,]?\d*)\s?(K|M|B)?(\u200F\u202C)?\s*views
+        StringBuilder prefixPatternBuilder = new StringBuilder("(\\d+[.,]?\\d*)\\s?(");
+        StringBuilder suffixBuilder = getSuffixBuilder(parts, prefixPatternBuilder);
 
         prefixPatternBuilder.deleteCharAt(prefixPatternBuilder.length() - 1); // Remove the trailing |
-        prefixPatternBuilder.append(")?\\s*");
-        prefixPatternBuilder.append(suffixBuilder.length() > 0 ? suffixBuilder.toString() : VIEWS);
+        prefixPatternBuilder.append(")?(\\u200F\\u202C)?\\s*");
+        prefixPatternBuilder.append(suffixBuilder.toString());
 
-        secondPatternBuilder.deleteCharAt(secondPatternBuilder.length() - 1); // Remove the trailing |
-        secondPatternBuilder.append(")?");
-
-        final Pattern[] patterns = new Pattern[2];
-        patterns[0] = Pattern.compile(prefixPatternBuilder.toString());
-        patterns[1] = Pattern.compile(secondPatternBuilder.toString());
-
-        return patterns;
+        Pattern pattern = Pattern.compile(prefixPatternBuilder.toString());
+        Logger.printDebug(() -> "FeedVideoViewsFilter: pattern: " + pattern.pattern());
+        return pattern;
     }
 
+
     @NonNull
-    private synchronized StringBuilder getSuffixBuilder(String[] parts, StringBuilder prefixPatternBuilder, StringBuilder secondPatternBuilder) {
+    private synchronized StringBuilder getSuffixBuilder(String[] parts, StringBuilder prefixPatternBuilder) {
         StringBuilder suffixBuilder = new StringBuilder();
 
         for (String part : parts) {
             final String[] pair = part.split(ARROW);
+            if (pair.length != 2) {
+                Logger.printDebug(() -> "FeedVideoViewsFilter: Invalid multiplier setting: " + part);
+                continue; // Skip invalid entries
+            }
             final String pair0 = pair[0].trim();
             final String pair1 = pair[1].trim();
 
-            if (pair.length == 2 && !pair1.equals(VIEWS)) {
+            if (!pair1.equals(VIEWS)) {
                 prefixPatternBuilder.append(pair0).append("|");
-            }
-
-            if (pair.length == 2 && pair1.equals(VIEWS)) {
+            } else {
                 suffixBuilder.append(pair0);
-                secondPatternBuilder.append(pair0).append("\\s*").append(prefixPatternBuilder);
             }
         }
         return suffixBuilder;
     }
 
     private synchronized long getMultiplierValue(String[] parts, String multiplier) {
+        if (multiplier == null || multiplier.isEmpty()) {
+            return 1L;
+        }
         for (String part : parts) {
             final String[] pair = part.split(ARROW);
+            if (pair.length != 2) {
+                Logger.printDebug(() -> "FeedVideoViewsFilter: Invalid multiplier setting: " + part);
+                continue; // Skip invalid entries
+            }
             final String pair0 = pair[0].trim();
             final String pair1 = pair[1].trim();
 
-            if (pair.length == 2 && pair0.equals(multiplier) && !pair1.equals(VIEWS)) {
-                return Long.parseLong(pair[1].replaceAll("[^\\d]", ""));
+
+            if (pair0.equals(multiplier) && !pair1.equals(VIEWS)) {
+                try {
+                    return Long.parseLong(pair1.replaceAll("[^\\d]", ""));
+                } catch (NumberFormatException e) {
+                    Logger.printException(() -> "Error parsing multiplier value for " + multiplier + ": " + pair1, e);
+                    return 1L; // Default value on error
+                }
             }
         }
-
         return 1L; // Default value if not found
     }
 }
