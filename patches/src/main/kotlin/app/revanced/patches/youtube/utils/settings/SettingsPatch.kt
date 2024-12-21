@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.cairo.cairoSettingsPatch
+import app.revanced.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -121,6 +122,7 @@ val settingsPatch = resourcePatch(
     dependsOn(
         settingsBytecodePatch,
         cairoSettingsPatch,
+        darkModeSplashScreenPatch,
     )
 
     val insertPosition = stringOption(
