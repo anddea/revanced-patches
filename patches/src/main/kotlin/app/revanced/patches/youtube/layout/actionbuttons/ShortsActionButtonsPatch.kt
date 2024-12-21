@@ -80,8 +80,10 @@ val shortsActionButtonsPatch = resourcePatch(
                     val fromPath = res.resolve(fromFile).toPath()
                     val toFile = "$drawableDirectory/$toFileName.webp"
                     val toPath = res.resolve(toFile).toPath()
-                    val inputStreamForLegacy = inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
-                    val inputStreamForNew = inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
+                    val inputStreamForLegacy =
+                        inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
+                    val inputStreamForNew =
+                        inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
 
                     Files.copy(inputStreamForLegacy, fromPath, StandardCopyOption.REPLACE_EXISTING)
 

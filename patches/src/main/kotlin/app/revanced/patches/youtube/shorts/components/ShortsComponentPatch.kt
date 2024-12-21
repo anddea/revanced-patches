@@ -37,8 +37,8 @@ import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.resourceid.bottomBarContainer
 import app.revanced.patches.youtube.utils.resourceid.metaPanel
 import app.revanced.patches.youtube.utils.resourceid.reelDynRemix

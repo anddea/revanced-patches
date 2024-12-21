@@ -31,15 +31,18 @@ val recentlyVisitedShelfPatch = bytecodePatch(
 
     execute {
 
-        val recentlyVisitedReference = with (communityDrawerPresenterConstructorFingerprint.methodOrThrow()) {
-            val recentlyVisitedFieldIndex = indexOfHeaderItemInstruction(this)
-            val recentlyVisitedObjectIndex =
-                indexOfFirstInstructionOrThrow(recentlyVisitedFieldIndex, Opcode.IPUT_OBJECT)
+        val recentlyVisitedReference =
+            with(communityDrawerPresenterConstructorFingerprint.methodOrThrow()) {
+                val recentlyVisitedFieldIndex = indexOfHeaderItemInstruction(this)
+                val recentlyVisitedObjectIndex =
+                    indexOfFirstInstructionOrThrow(recentlyVisitedFieldIndex, Opcode.IPUT_OBJECT)
 
-            getInstruction<ReferenceInstruction>(recentlyVisitedObjectIndex).reference.toString()
-        }
+                getInstruction<ReferenceInstruction>(recentlyVisitedObjectIndex).reference.toString()
+            }
 
-        communityDrawerPresenterFingerprint.methodOrThrow(communityDrawerPresenterConstructorFingerprint).apply {
+        communityDrawerPresenterFingerprint.methodOrThrow(
+            communityDrawerPresenterConstructorFingerprint
+        ).apply {
             val recentlyVisitedObjectIndex =
                 indexOfFirstInstructionOrThrow {
                     (this as? ReferenceInstruction)?.reference?.toString() == recentlyVisitedReference

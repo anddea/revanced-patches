@@ -123,7 +123,8 @@ fun ResourcePatchContext.copyAdaptiveIcon(
     }
 
     if (adaptiveIconMonoChromeFileName != null &&
-        adaptiveIconMonoChromeFileName != getAdaptiveIconMonoChromeResourceFile()) {
+        adaptiveIconMonoChromeFileName != getAdaptiveIconMonoChromeResourceFile()
+    ) {
         val drawableDirectory = get("res").resolve("drawable")
         Files.copy(
             drawableDirectory

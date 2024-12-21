@@ -67,7 +67,12 @@ internal val layoutConstructorFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
     strings = listOf("1.0x"),
-    literals = listOf(autoNavToggle, autoNavPreviewStub, playerControlPreviousButtonTouchArea, playerControlNextButtonTouchArea),
+    literals = listOf(
+        autoNavToggle,
+        autoNavPreviewStub,
+        playerControlPreviousButtonTouchArea,
+        playerControlNextButtonTouchArea
+    ),
 )
 
 internal val playbackRateBottomSheetBuilderFingerprint = legacyFingerprint(

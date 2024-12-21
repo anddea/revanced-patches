@@ -39,28 +39,30 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         if (bottomNavScreenFingerprint.resolvable()) {
-            val bottomNavScreenMutableClass = with (bottomNavScreenFingerprint.methodOrThrow()) {
+            val bottomNavScreenMutableClass = with(bottomNavScreenFingerprint.methodOrThrow()) {
                 val startIndex = indexOfGetDimensionPixelSizeInstruction(this)
                 val targetIndex = indexOfFirstInstructionOrThrow(startIndex, Opcode.NEW_INSTANCE)
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+                val targetReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
 
                 classBy { it.type == targetReference }
                     ?.mutableClass
                     ?: throw ClassNotFoundException("Failed to find class $targetReference")
             }
 
-            bottomNavScreenOnGlobalLayoutFingerprint.second.matchOrNull(bottomNavScreenMutableClass)?.let {
-                it.method.apply {
-                    val startIndex = it.patternMatch!!.startIndex
-                    val targetRegister =
-                        getInstruction<FiveRegisterInstruction>(startIndex).registerC
+            bottomNavScreenOnGlobalLayoutFingerprint.second.matchOrNull(bottomNavScreenMutableClass)
+                ?.let {
+                    it.method.apply {
+                        val startIndex = it.patternMatch!!.startIndex
+                        val targetRegister =
+                            getInstruction<FiveRegisterInstruction>(startIndex).registerC
 
-                    addInstruction(
-                        startIndex + 1,
-                        "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtons(Landroid/view/ViewGroup;)V"
-                    )
+                        addInstruction(
+                            startIndex + 1,
+                            "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtons(Landroid/view/ViewGroup;)V"
+                        )
+                    }
                 }
-            }
         } else {
             // Legacy method.
             bottomNavScreenHandlerFingerprint.methodOrThrow().apply {

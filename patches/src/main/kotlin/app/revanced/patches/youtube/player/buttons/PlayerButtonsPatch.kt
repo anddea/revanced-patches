@@ -169,7 +169,8 @@ val playerButtonsPatch = bytecodePatch(
 
         if (is_19_34_or_greater) {
             layoutConstructorFingerprint.methodOrThrow().apply {
-                val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
+                val resourceIndex =
+                    indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
                 val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
                     opcode == Opcode.INVOKE_STATIC &&

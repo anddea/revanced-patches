@@ -16,8 +16,8 @@ import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_02_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
+import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.utils.rollingNumberTextViewFingerprint

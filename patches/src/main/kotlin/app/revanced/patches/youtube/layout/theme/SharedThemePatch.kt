@@ -67,6 +67,7 @@ val sharedThemePatch = resourcePatch(
                                     1 -> when (nodeAttributeName) {
                                         "Base.Theme.YouTube.Launcher",
                                         "Base.Theme.YouTube.Launcher.Cairo" -> SPLASH_SCREEN_COLOR_ATTRIBUTE
+
                                         else -> "null"
                                     }
 
@@ -115,7 +116,8 @@ val sharedThemePatch = resourcePatch(
                         return@editSplashScreen
                     }
                     document("res/$drawable/$fileName.xml").use { document ->
-                        val layerList = document.getElementsByTagName("layer-list").item(0) as Element
+                        val layerList =
+                            document.getElementsByTagName("layer-list").item(0) as Element
 
                         val childNodes = layerList.childNodes
                         for (i in 0 until childNodes.length) {

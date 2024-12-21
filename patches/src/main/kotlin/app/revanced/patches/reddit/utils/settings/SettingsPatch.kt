@@ -51,7 +51,9 @@ private val settingsBytecodePatch = bytecodePatch(
                         && (this as? BuilderInstruction21c)?.reference.toString().startsWith("202")
             }
 
-            val versionNumber = getInstruction<BuilderInstruction21c>(versionIndex).reference.toString().replace(".", "").toInt()
+            val versionNumber =
+                getInstruction<BuilderInstruction21c>(versionIndex).reference.toString()
+                    .replace(".", "").toInt()
 
             is_2024_18_or_greater = 2024180 <= versionNumber
         }

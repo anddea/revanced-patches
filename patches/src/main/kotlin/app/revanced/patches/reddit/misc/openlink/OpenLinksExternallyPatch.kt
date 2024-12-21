@@ -9,7 +9,6 @@ import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.OPEN_LINKS_EXTERNALLY
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
-import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 
 private const val EXTENSION_METHOD_DESCRIPTOR =
