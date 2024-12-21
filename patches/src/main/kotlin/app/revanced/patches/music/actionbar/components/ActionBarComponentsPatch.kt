@@ -1,7 +1,6 @@
 package app.revanced.patches.music.actionbar.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -24,7 +23,6 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -58,32 +56,6 @@ val actionBarComponentsPatch = bytecodePatch(
 
     execute {
         if (is_7_17_or_greater) {
-            browseSectionListReloadEndpointFingerprint.methodOrThrow().apply {
-                val targetIndex = indexOfGetLithoViewFromMapInstruction(this)
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference
-
-                findMethodOrThrow(ACTIONBAR_CLASS_DESCRIPTOR) {
-                    name == "getLithoViewFromMap"
-                }.addInstructions(
-                    0, """
-                    invoke-static {p0, p1, p2}, $targetReference
-                    move-result-object p1
-                    return-object p1
-                    """
-                )
-            }
-
-            offlineVideoEndpointFingerprint.methodOrThrow().apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {p2}, $ACTIONBAR_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/util/Map;)Z
-                        move-result v0
-                        if-eqz v0, :ignore
-                        return-void
-                        """, ExternalLabel("ignore", getInstruction(0))
-                )
-            }
-
             addLithoFilter(FILTER_CLASS_DESCRIPTOR)
         }
 
@@ -223,17 +195,17 @@ val actionBarComponentsPatch = bytecodePatch(
                 "revanced_hide_action_button_label",
                 "false"
             )
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_external_downloader_action",
+                "false"
+            )
+            addPreferenceWithIntent(
+                CategoryType.ACTION_BAR,
+                "revanced_external_downloader_package_name",
+                "revanced_external_downloader_action"
+            )
         }
-        addSwitchPreference(
-            CategoryType.ACTION_BAR,
-            "revanced_external_downloader_action",
-            "false"
-        )
-        addPreferenceWithIntent(
-            CategoryType.ACTION_BAR,
-            "revanced_external_downloader_package_name",
-            "revanced_external_downloader_action"
-        )
 
         updatePatchStatus(HIDE_ACTION_BAR_COMPONENTS)
 
