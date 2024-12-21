@@ -13,15 +13,14 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.copyAdaptiveIcon
 import app.revanced.util.copyResources
-import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.File
 import java.nio.file.Files
-import java.nio.file.StandardCopyOption
 
 private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
     "adaptiveproduct_youtube_music_background_color_108"
@@ -261,31 +260,11 @@ val customBrandingIconPatch = resourcePatch(
             return@execute
         }
 
-        mapOf(
-            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile(
-                "res/mipmap-anydpi/ic_launcher_release.xml",
-                "background"
-            ),
-            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile(
-                "res/mipmap-anydpi/ic_launcher_release.xml",
-                "foreground"
-            )
-        ).forEach { (oldIconResourceFile, newIconResourceFile) ->
-            if (oldIconResourceFile != newIconResourceFile) {
-                mipmapDirectories.forEach {
-                    val mipmapDirectory = resourceDirectory.resolve(it)
-                    Files.move(
-                        mipmapDirectory
-                            .resolve("$oldIconResourceFile.png")
-                            .toPath(),
-                        mipmapDirectory
-                            .resolve("$newIconResourceFile.png")
-                            .toPath(),
-                        StandardCopyOption.REPLACE_EXISTING
-                    )
-                }
-            }
-        }
+        copyAdaptiveIcon(
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME,
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME,
+            mipmapDirectories
+        )
 
         // endregion
     }
