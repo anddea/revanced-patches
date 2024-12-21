@@ -2,8 +2,7 @@
 
 import logging
 from pathlib import Path
-
-from lxml import etree as et
+from xml.etree import ElementTree as ET
 
 from config.settings import Settings
 from utils.xml import XMLProcessor
@@ -35,7 +34,7 @@ def update_strings(target_path: Path, source_path: Path) -> None:
 
         # Add new strings
         for _name, data in sorted(source_strings.items()):
-            string_elem = et.Element("string", **data["attributes"])
+            string_elem = ET.Element("string", **data["attributes"])
             string_elem.text = data["text"]
             target_root.append(string_elem)
 

@@ -47,7 +47,7 @@ def process(app: str, base_dir: Path) -> None:
     base_path = settings.get_resource_path(app, "settings")
 
     # Define file paths using base_dir
-    prefs_path_1 = base_dir / "src/main/resources/youtube/settings/host/values/strings.xml"
+    prefs_path_1 = base_dir / "src/main/resources" / app / "settings/host/values/strings.xml"
     prefs_path_2 = base_path / "host/values/strings.xml"
 
     try:
