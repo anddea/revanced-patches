@@ -1,3 +1,30 @@
+# [3.0.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.5...v3.0.0-dev.6) (2024-12-21)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Patch option `restoreOldSplashAnimation` not working in YouTube 19.32.39+ ([b81d32e](https://github.com/anddea/revanced-patches/commit/b81d32eea4ca5ba26c6294d9467f6823d2088ca0))
+* **YouTube - Hide feed components:** `Hide carousel shelf` hiding in library in certain situations ([10e4667](https://github.com/anddea/revanced-patches/commit/10e466737ac09f4ab328d520c211a9b1a8e413ab))
+* **YouTube - Miniplayer:** Use estimated maximum on screen size for devices with low density screens ([efeb5fb](https://github.com/anddea/revanced-patches/commit/efeb5fba02d660bfd3f19b59fc1ef21ba11ea062))
+* **YouTube - Theme:** Splash background color not applied in latest YouTube client ([a8c4462](https://github.com/anddea/revanced-patches/commit/a8c446222b9a75e0c74af78dfe029334d8f3dfa0))
+* **YouTube - Video playback:** Applying default video quality to Shorts causes the beginning of the shorts to get stuck in a loop ([9c4c56e](https://github.com/anddea/revanced-patches/commit/9c4c56eefa65b1c3f61e23cf78375272b33e679f))
+* **YouTube Music - Hide action bar components:** `Hide Download button` setting not working in YouTube Music 7.25.52 ([85dfb09](https://github.com/anddea/revanced-patches/commit/85dfb09521cff167e9029b25d48c9d84a33ed57b))
+* **YouTube Music - SponsorBlock:** `Change segment behavior` and `About` sections are hidden in the settings ([176adb8](https://github.com/anddea/revanced-patches/commit/176adb89102f96c22e8a437d019c688df933e2dd))
+* **YouTube:** Splash screen background color does not change in dark mode if `Theme` patch is excluded ([28df1b4](https://github.com/anddea/revanced-patches/commit/28df1b4172262719fcc86b038e4a617bce0dc6e9))
+* **YouTube:** When clicking on timestamps in comments, playback speed sometimes changes to 1.0x (unpatched YouTube bug) ([93c4bf8](https://github.com/anddea/revanced-patches/commit/93c4bf8fb63fe7f06f3908bc6e755c568f86667f))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Disable translucent status bar` setting ([fe09dbc](https://github.com/anddea/revanced-patches/commit/fe09dbcece9324f224950cd784caabf2db64bf6c))
+* **YouTube - Navigation bar components:** Separate `Enable translucent navigation bar` setting into `Disable light translucent bar` and `Disable dark translucent bar` settings ([602de6e](https://github.com/anddea/revanced-patches/commit/602de6e9692c1af4ab892726305ce2e6d4a04f08))
+* **YouTube - Shorts components:** Add `Restore old player layout` setting (YouTube 18.29.38 ~ 19.16.39) ([bf8afdd](https://github.com/anddea/revanced-patches/commit/bf8afddae275b9ef7568fb68398749d2b3f47941))
+* **YouTube - Shorts components:** Add styles to custom actions dialog ([e95b064](https://github.com/anddea/revanced-patches/commit/e95b0643131bfe20ded2747734c34c603838812c))
+* **YouTube - Swipe controls:** Change the setting name `Enable watch panel gestures` to `Disable watch panel gestures`, and change the setting name `Enable swipe to change video` to `Disable swipe to change video` ([375cf3a](https://github.com/anddea/revanced-patches/commit/375cf3ad331c3823ee17cbea450f8e87510e58b0))
+* **YouTube Music - Hide action bar components:** Limit the available versions of the `Override Download action button` setting to 7.16.53 ([16ead35](https://github.com/anddea/revanced-patches/commit/16ead35768678e7ac4a3327635a2f6f3ecf6bce2))
+* **YouTube Music - Spoof client:** Add `Use old client` and `Default client` settings ([bb3bd2a](https://github.com/anddea/revanced-patches/commit/bb3bd2a9d799c0177ad39c8d59b0884c510b5864))
+* **YouTube:** Support version `19.44.39` ([22419fd](https://github.com/anddea/revanced-patches/commit/22419fd9d53bd2234283423a8e9fec30b1fff3fc))
+
 # [3.0.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.4...v3.0.0-dev.5) (2024-12-17)
 
 
