@@ -7,7 +7,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.DISABLE_SCREENSHOT_POPUP
-import app.revanced.patches.reddit.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.util.fingerprint.methodOrThrow
@@ -22,10 +21,7 @@ val screenshotPopupPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        sharedResourceIdPatch,
-        settingsPatch
-    )
+    dependsOn(settingsPatch)
 
     execute {
         screenshotTakenBannerFingerprint.methodOrThrow().apply {

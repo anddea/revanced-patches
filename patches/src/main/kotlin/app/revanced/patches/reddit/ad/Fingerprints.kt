@@ -1,9 +1,12 @@
 package app.revanced.patches.reddit.ad
 
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val commentAdsFingerprint = legacyFingerprint(
     name = "commentAdsFingerprint",
@@ -35,9 +38,7 @@ internal val adPostFingerprint = legacyFingerprint(
         "uxExperiences"
     ),
     customFingerprint = { method, classDef ->
-        method.definingClass.endsWith("/Listing;") &&
-                method.name == "<init>" &&
-                classDef.sourceFile == "Listing.kt"
+        classDef.type.endsWith("/Listing;")
     },
 )
 
@@ -45,10 +46,14 @@ internal val newAdPostFingerprint = legacyFingerprint(
     name = "newAdPostFingerprint",
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(Opcode.INVOKE_VIRTUAL),
     strings = listOf(
-        "chain",
-        "feedElement"
+        "feedElement",
+        "android_feed_freeform_render_variant",
     ),
-    customFingerprint = { _, classDef -> classDef.sourceFile == "AdElementConverter.kt" },
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
+        } >= 0
+    },
 )
+

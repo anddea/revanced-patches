@@ -6,15 +6,16 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
-import app.revanced.patches.reddit.utils.resourceid.cancelButton
-import app.revanced.patches.reddit.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.reddit.utils.resourceid.textAppearanceRedditBaseOldButtonColored
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PATCHES_PATH/RemoveSubRedditDialogPatch;"
@@ -26,29 +27,29 @@ val subRedditDialogPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(
-        sharedResourceIdPatch,
-        settingsPatch
-    )
+    dependsOn(settingsPatch)
 
     execute {
-        frequentUpdatesSheetScreenFingerprint.methodOrThrow().apply {
-            val cancelButtonViewIndex =
-                indexOfFirstLiteralInstructionOrThrow(cancelButton) + 2
-            val cancelButtonViewRegister =
-                getInstruction<OneRegisterInstruction>(cancelButtonViewIndex).registerA
+        frequentUpdatesSheetScreenFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val cancelButtonViewIndex = it.patternMatch!!.startIndex + 2
+                val cancelButtonViewRegister =
+                    getInstruction<OneRegisterInstruction>(cancelButtonViewIndex).registerA
 
-            addInstruction(
-                cancelButtonViewIndex + 1,
-                "invoke-static {v$cancelButtonViewRegister}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialog(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    cancelButtonViewIndex + 1,
+                    "invoke-static {v$cancelButtonViewRegister}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialog(Landroid/view/View;)V"
+                )
+            }
         }
 
         redditAlertDialogsFingerprint.methodOrThrow().apply {
+            val backgroundTintIndex = indexOfSetBackgroundTintListInstruction(this)
             val insertIndex =
-                indexOfFirstLiteralInstructionOrThrow(
-                    textAppearanceRedditBaseOldButtonColored
-                ) + 1
+                indexOfFirstInstructionOrThrow(backgroundTintIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setTextAppearance"
+                }
             val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             addInstruction(

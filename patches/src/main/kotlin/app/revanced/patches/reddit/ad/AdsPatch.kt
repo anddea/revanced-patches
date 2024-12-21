@@ -17,6 +17,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -113,9 +114,10 @@ val adsPatch = bytecodePatch(
         // AdElementConverter is conveniently responsible for inserting all feed ads.
         // By removing the appending instruction no ad posts gets appended to the feed.
         newAdPostFingerprint.methodOrThrow().apply {
-            val targetIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
+            val stringIndex = indexOfFirstStringInstructionOrThrow("android_feed_freeform_render_variant")
+            val targetIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
             }
             val targetInstruction = getInstruction<FiveRegisterInstruction>(targetIndex)
 

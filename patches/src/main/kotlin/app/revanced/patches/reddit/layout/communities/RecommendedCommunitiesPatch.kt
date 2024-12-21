@@ -24,7 +24,7 @@ val recommendedCommunitiesPatch = bytecodePatch(
     dependsOn(settingsPatch)
 
     execute {
-        communityRecommendationSectionFingerprint.methodOrThrow().apply {
+        communityRecommendationSectionFingerprint.methodOrThrow(communityRecommendationSectionParentFingerprint).apply {
             addInstructionsWithLabels(
                 0,
                 """
