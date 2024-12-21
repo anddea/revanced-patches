@@ -293,12 +293,22 @@ public final class app/revanced/patches/reddit/layout/communities/RecommendedCom
 	public static final fun getRecommendedCommunitiesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/layout/navigation/FingerprintsKt {
+	public static final fun indexOfGetDimensionPixelSizeInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfGetItemsInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfSetSelectedItemTypeInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
 public final class app/revanced/patches/reddit/layout/navigation/NavigationButtonsPatchKt {
 	public static final fun getNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/reddit/layout/premiumicon/PremiumIconPatchKt {
 	public static final fun getPremiumIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/reddit/layout/recentlyvisited/FingerprintsKt {
+	public static final fun indexOfHeaderItemInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/reddit/layout/recentlyvisited/RecentlyVisitedShelfPatchKt {
@@ -309,12 +319,20 @@ public final class app/revanced/patches/reddit/layout/screenshotpopup/Screenshot
 	public static final fun getScreenshotPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
+	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
 public final class app/revanced/patches/reddit/layout/subredditdialog/SubRedditDialogPatchKt {
 	public static final fun getSubRedditDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/reddit/layout/toolbar/ToolBarButtonPatchKt {
 	public static final fun getToolBarButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/reddit/misc/openlink/FingerprintsKt {
+	public static final fun indexOfScreenNavigatorInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/reddit/misc/openlink/OpenLinksDirectlyPatchKt {
@@ -325,6 +343,17 @@ public final class app/revanced/patches/reddit/misc/openlink/OpenLinksExternally
 	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/misc/openlink/ScreenNavigatorMethodResolverPatchKt {
+	public static field screenNavigatorMethod Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun getScreenNavigatorMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun getScreenNavigatorMethodResolverPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun setScreenNavigatorMethod (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
+}
+
+public final class app/revanced/patches/reddit/misc/tracking/url/FingerprintsKt {
+	public static final fun indexOfClearQueryInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
 public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatchKt {
 	public static final fun getSanitizeUrlQueryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -333,16 +362,9 @@ public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPa
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/utils/resourceid/SharedResourceIdPatchKt {
-	public static final fun getCancelButton ()J
-	public static final fun getLabelAcknowledgements ()J
-	public static final fun getScreenShotShareBanner ()J
-	public static final fun getTextAppearanceRedditBaseOldButtonColored ()J
-	public static final fun getToolBarNavSearchCtaContainer ()J
-}
-
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun is_2024_18_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {
@@ -785,8 +807,20 @@ public final class app/revanced/patches/youtube/utils/fix/doublebacktoclose/Doub
 	public static final fun getDoubleBackToClosePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/playbackspeed/FingerprintsKt {
+	public static final fun indexOfGetPlaybackSpeedInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
+public final class app/revanced/patches/youtube/utils/fix/playbackspeed/PlaybackSpeedWhilePlayingPatchKt {
+	public static final fun getPlaybackSpeedWhilePlayingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/shortsplayback/ShortsPlaybackPatchKt {
 	public static final fun getShortsPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/fix/splash/DarkModeSplashScreenPatchKt {
+	public static final fun getDarkModeSplashScreenPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
@@ -863,6 +897,8 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_18_42_or_greater ()Z
 	public static final fun is_18_49_or_greater ()Z
 	public static final fun is_19_02_or_greater ()Z
+	public static final fun is_19_04_or_greater ()Z
+	public static final fun is_19_09_or_greater ()Z
 	public static final fun is_19_15_or_greater ()Z
 	public static final fun is_19_17_or_greater ()Z
 	public static final fun is_19_23_or_greater ()Z
@@ -880,9 +916,9 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_46_or_greater ()Z
 }
 
-public final class app/revanced/patches/youtube/utils/recyclerview/BottomSheetRecyclerViewPatchKt {
-	public static final fun bottomSheetRecyclerViewHook (Ljava/lang/String;)V
-	public static final fun getBottomSheetRecyclerViewPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
+	public static final fun getRecyclerViewTreeObserverPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun recyclerViewTreeObserverHook (Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceIdPatchKt {
@@ -893,6 +929,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getAppRelatedEndScreenResults ()J
 	public static final fun getAppearance ()J
 	public static final fun getAutoNavPreviewStub ()J
+	public static final fun getAutoNavScrollCancelPadding ()J
 	public static final fun getAutoNavToggle ()J
 	public static final fun getBackgroundCategory ()J
 	public static final fun getBadgeLabel ()J
@@ -945,10 +982,11 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getModernMiniPlayerForwardButton ()J
 	public static final fun getModernMiniPlayerRewindButton ()J
 	public static final fun getMusicAppDeeplinkButtonView ()J
-	public static final fun getNotice ()J
 	public static final fun getNotificationBigPictureIconWidth ()J
 	public static final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public static final fun getPlayerCollapseButton ()J
+	public static final fun getPlayerControlNextButtonTouchArea ()J
+	public static final fun getPlayerControlPreviousButtonTouchArea ()J
 	public static final fun getPlayerVideoTitleView ()J
 	public static final fun getPosterArtWidthDefault ()J
 	public static final fun getQualityAuto ()J
@@ -1141,6 +1179,8 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun adoptChild (Lorg/w3c/dom/Node;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static final fun appendAppVersion (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;)V
 	public static final fun cloneNodes (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
+	public static final fun copyAdaptiveIcon (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+	public static synthetic fun copyAdaptiveIcon$default (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)V
 	public static final fun copyFile (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
 	public static final fun copyResources (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;Z)V
 	public static synthetic fun copyResources$default (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;ZILjava/lang/Object;)V
@@ -1148,7 +1188,6 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyXmlNode (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
-	public static final fun getAdaptiveIconResourceFile (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 	public static final fun getResourceGroup (Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
 	public static final fun getStringOptionValue (Lapp/revanced/patcher/patch/Patch;Ljava/lang/String;)Lapp/revanced/patcher/patch/Option;
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
