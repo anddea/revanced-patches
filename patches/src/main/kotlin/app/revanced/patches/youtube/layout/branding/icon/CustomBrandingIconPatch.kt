@@ -5,27 +5,27 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
-import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.copyAdaptiveIcon
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
-import app.revanced.util.getAdaptiveIconResourceFile
 import app.revanced.util.getResourceGroup
 import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
+import org.w3c.dom.Element
 
 private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
     "adaptiveproduct_youtube_background_color_108"
 private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
     "adaptiveproduct_youtube_foreground_color_108"
+private const val ADAPTIVE_ICON_MONOCHROME_FILE_NAME =
+    "adaptive_monochrome_ic_youtube_launcher"
 private const val DEFAULT_ICON = "xisr_yellow"
 
 private val availableIcon = mapOf(
@@ -110,7 +110,6 @@ val customBrandingIconPatch = resourcePatch(
         versionCheckPatch,
     )
 
-
     val appIconOption = stringOption(
         key = "appIcon",
         default = DEFAULT_ICON,
@@ -142,7 +141,7 @@ val customBrandingIconPatch = resourcePatch(
         key = "restoreOldSplashAnimation",
         default = true,
         title = "Restore old splash animation",
-        description = "Restore the old style splash animation. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        description = "Restore the old style splash animation.",
         required = true,
     )
 
@@ -175,7 +174,7 @@ val customBrandingIconPatch = resourcePatch(
             arrayOf(
                 ResourceGroup(
                     "drawable",
-                    "adaptive_monochrome_ic_youtube_launcher.xml"
+                    "$ADAPTIVE_ICON_MONOCHROME_FILE_NAME.xml"
                 )
             ).forEach { resourceGroup ->
                 copyResources("$appIconResourcePath/monochrome", resourceGroup)
@@ -188,29 +187,71 @@ val customBrandingIconPatch = resourcePatch(
                         copyResources("$appIconResourcePath/splash", it)
                     }
                 }
+
+                document("res/values/styles.xml").use { document ->
+                    val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+                    val childNodes = resourcesNode.childNodes
+
+                    for (i in 0 until childNodes.length) {
+                        val node = childNodes.item(i) as? Element ?: continue
+                        val nodeAttributeName = node.getAttribute("name")
+                        if (nodeAttributeName.startsWith("Theme.YouTube.Launcher")) {
+                            val style = document.createElement("style")
+                            style.setAttribute("name", nodeAttributeName)
+                            style.setAttribute("parent", "@style/Base.Theme.YouTube.Launcher")
+
+                            resourcesNode.removeChild(node)
+                            resourcesNode.appendChild(style)
+                        }
+                    }
+                }
             }
 
             // Change splash screen.
             if (restoreOldSplashAnimationOption == true) {
-                if (!is_19_17_or_greater) {
-                    oldSplashAnimationResourceGroups.let { resourceGroups ->
-                        resourceGroups.forEach {
-                            copyResources("$appIconResourcePath/splash", it)
-                        }
+                oldSplashAnimationResourceGroups.let { resourceGroups ->
+                    resourceGroups.forEach {
+                        copyResources("$appIconResourcePath/splash", it)
                     }
+                }
 
-                    copyXmlNode(
-                        "$appIconResourcePath/splash",
-                        "values-v31/styles.xml",
-                        "resources"
-                    )
-                } else {
-                    println("WARNING: \"Restore old splash animation\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+                val styleMap = mutableMapOf<String, String>()
+                styleMap["Base.Theme.YouTube.Launcher"] = "@style/Theme.AppCompat.DayNight.NoActionBar"
+
+                if (is_19_32_or_greater) {
+                    styleMap["Theme.YouTube.Home"] = "@style/Base.V27.Theme.YouTube.Home"
+                }
+
+                styleMap.forEach { (nodeAttributeName, nodeAttributeParent) ->
+                    document("res/values-v31/styles.xml").use { document ->
+                        val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+
+                        val style = document.createElement("style")
+                        style.setAttribute("name", nodeAttributeName)
+                        style.setAttribute("parent", nodeAttributeParent)
+
+                        val primaryItem = document.createElement("item")
+                        primaryItem.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
+                        primaryItem.textContent = "@drawable/avd_anim"
+                        val secondaryItem = document.createElement("item")
+                        secondaryItem.setAttribute("name", "android:windowSplashScreenAnimationDuration")
+                        secondaryItem.textContent = if (appIcon.startsWith("revancify"))
+                            "1500"
+                        else
+                            "1000"
+
+                        style.appendChild(primaryItem)
+                        style.appendChild(secondaryItem)
+
+                        resourcesNode.appendChild(style)
+                    }
                 }
             }
 
             updatePatchStatusIcon(appIcon)
         }
+
+        // region fix app icon
 
         if (!is_19_34_or_greater) {
             return@execute
@@ -219,30 +260,14 @@ val customBrandingIconPatch = resourcePatch(
             return@execute
         }
 
-        mapOf(
-            ADAPTIVE_ICON_BACKGROUND_FILE_NAME to getAdaptiveIconResourceFile(
-                "res/mipmap-anydpi/ic_launcher.xml",
-                "background"
-            ),
-            ADAPTIVE_ICON_FOREGROUND_FILE_NAME to getAdaptiveIconResourceFile(
-                "res/mipmap-anydpi/ic_launcher.xml",
-                "foreground"
-            )
-        ).forEach { (oldIconResourceFile, newIconResourceFile) ->
-            if (oldIconResourceFile != newIconResourceFile) {
-                mipmapDirectories.forEach {
-                    val mipmapDirectory = get("res").resolve(it)
-                    Files.copy(
-                        mipmapDirectory
-                            .resolve("$oldIconResourceFile.png")
-                            .toPath(),
-                        mipmapDirectory
-                            .resolve("$newIconResourceFile.png")
-                            .toPath(),
-                        StandardCopyOption.REPLACE_EXISTING
-                    )
-                }
-            }
-        }
+        copyAdaptiveIcon(
+            ADAPTIVE_ICON_BACKGROUND_FILE_NAME,
+            ADAPTIVE_ICON_FOREGROUND_FILE_NAME,
+            mipmapDirectories,
+            ADAPTIVE_ICON_MONOCHROME_FILE_NAME
+        )
+
+        // endregion
+
     }
 }

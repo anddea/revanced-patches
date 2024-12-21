@@ -59,7 +59,18 @@ fun List<String>.getResourceGroup(fileNames: Array<String>) = map { directory ->
     )
 }
 
-fun ResourcePatchContext.getAdaptiveIconResourceFile(path: String, tag: String): String {
+private fun ResourcePatchContext.getMipMapPath(): String {
+    var path: String
+    document("AndroidManifest.xml").use { document ->
+        val manifestElement = document.getNode("application") as Element
+        val mipmapResourceFile = manifestElement.getAttribute("android:icon").split("/")[1]
+        path = "res/mipmap-anydpi/$mipmapResourceFile.xml"
+    }
+    return path
+}
+
+private fun ResourcePatchContext.getAdaptiveIconResourceFile(tag: String): String {
+    val path = getMipMapPath()
     document(path).use { document ->
         val adaptiveIcon = document
             .getElementsByTagName("adaptive-icon")
@@ -73,6 +84,56 @@ fun ResourcePatchContext.getAdaptiveIconResourceFile(path: String, tag: String):
             }
         }
         throw PatchException("Element not found: $tag")
+    }
+}
+
+private fun ResourcePatchContext.getAdaptiveIconBackgroundResourceFile() =
+    getAdaptiveIconResourceFile("background")
+
+private fun ResourcePatchContext.getAdaptiveIconForegroundResourceFile() =
+    getAdaptiveIconResourceFile("foreground")
+
+private fun ResourcePatchContext.getAdaptiveIconMonoChromeResourceFile() =
+    getAdaptiveIconResourceFile("monochrome")
+
+fun ResourcePatchContext.copyAdaptiveIcon(
+    adaptiveIconBackgroundFileName: String,
+    adaptiveIconForegroundFileName: String,
+    mipmapDirectories: List<String>,
+    adaptiveIconMonoChromeFileName: String? = null,
+) {
+    mapOf(
+        adaptiveIconBackgroundFileName to getAdaptiveIconBackgroundResourceFile(),
+        adaptiveIconForegroundFileName to getAdaptiveIconForegroundResourceFile()
+    ).forEach { (oldIconResourceFile, newIconResourceFile) ->
+        if (oldIconResourceFile != newIconResourceFile) {
+            mipmapDirectories.forEach {
+                val mipmapDirectory = get("res").resolve(it)
+                Files.copy(
+                    mipmapDirectory
+                        .resolve("$oldIconResourceFile.png")
+                        .toPath(),
+                    mipmapDirectory
+                        .resolve("$newIconResourceFile.png")
+                        .toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+                )
+            }
+        }
+    }
+
+    if (adaptiveIconMonoChromeFileName != null &&
+        adaptiveIconMonoChromeFileName != getAdaptiveIconMonoChromeResourceFile()) {
+        val drawableDirectory = get("res").resolve("drawable")
+        Files.copy(
+            drawableDirectory
+                .resolve("$adaptiveIconMonoChromeFileName.xml")
+                .toPath(),
+            drawableDirectory
+                .resolve("${getAdaptiveIconMonoChromeResourceFile()}.xml")
+                .toPath(),
+            StandardCopyOption.REPLACE_EXISTING
+        )
     }
 }
 
