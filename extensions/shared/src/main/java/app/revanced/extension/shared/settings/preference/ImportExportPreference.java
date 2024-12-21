@@ -77,20 +77,20 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
                             Utils.setClipboard(getEditText().getText().toString())
             ).setPositiveButton(
                     str("revanced_extended_settings_import"), (dialog, which) ->
-                            importSettings(getEditText().getText().toString())
+                            importSettings(builder.getContext(), getEditText().getText().toString())
             );
         } catch (Exception ex) {
             Logger.printException(() -> "onPrepareDialogBuilder failure", ex);
         }
     }
 
-    private void importSettings(String replacementSettings) {
+    private void importSettings(Context context, String replacementSettings) {
         try {
             if (replacementSettings.equals(existingSettings)) {
                 return;
             }
             AbstractPreferenceFragment.settingImportInProgress = true;
-            final boolean rebootNeeded = Setting.importFromJSON(replacementSettings);
+            final boolean rebootNeeded = Setting.importFromJSON(context, replacementSettings);
             if (rebootNeeded) {
                 AbstractPreferenceFragment.showRestartDialog(getContext());
             }

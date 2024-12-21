@@ -675,7 +675,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             bufferedReader.close();
             fileReader.close();
 
-            final boolean restartNeeded = Setting.importFromJSON(sb.toString(), true);
+            final boolean restartNeeded = Setting.importFromJSON(context, sb.toString());
             if (restartNeeded) {
                 showRestartDialog(getActivity());
             }

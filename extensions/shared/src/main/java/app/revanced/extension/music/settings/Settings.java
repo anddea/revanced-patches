@@ -7,11 +7,13 @@ import static app.revanced.extension.music.sponsorblock.objects.CategoryBehaviou
 import androidx.annotation.NonNull;
 
 import app.revanced.extension.music.patches.utils.PatchStatus;
+import app.revanced.extension.music.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.shared.settings.LongSetting;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -217,6 +219,14 @@ public class Settings extends BaseSettings {
 
     // SB settings not exported
     public static final LongSetting SB_LAST_VIP_CHECK = new LongSetting("sb_last_vip_check", 0L, false, false);
+
+    static {
+        // region SB import/export callbacks
+
+        Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
+
+        // endregion
+    }
 
     public static final String OPEN_DEFAULT_APP_SETTINGS = "revanced_default_app_settings";
 

@@ -338,7 +338,7 @@ public class SponsorBlockSettingsPreference extends ReVancedPreferenceFragment {
                                 Utils.showToastLong(str("revanced_sb_stats_username_changed"));
                             } else {
                                 preference.setText(userName); // revert to previous
-                                Utils.showToastLong(errorMessage);
+                                SponsorBlockUtils.showErrorDialog(errorMessage);
                             }
                         });
                     });

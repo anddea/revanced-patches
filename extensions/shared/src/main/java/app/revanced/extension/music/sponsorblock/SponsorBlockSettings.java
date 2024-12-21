@@ -1,6 +1,9 @@
 package app.revanced.extension.music.sponsorblock;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.UUID;
 
@@ -9,6 +12,17 @@ import app.revanced.extension.music.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.shared.settings.Setting;
 
 public class SponsorBlockSettings {
+
+    public static final Setting.ImportExportCallback SB_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
+        @Override
+        public void settingsImported(@Nullable Context context) {
+            SegmentCategory.loadAllCategoriesFromSettings();
+        }
+        @Override
+        public void settingsExported(@Nullable Context context) {
+        }
+    };
+
     private static boolean initialized;
 
     /**
@@ -41,12 +55,5 @@ public class SponsorBlockSettings {
         initialized = true;
 
         SegmentCategory.updateEnabledCategories();
-    }
-
-    /**
-     * Updates internal data based on {@link Setting} values.
-     */
-    public static void updateFromImportedSettings() {
-        SegmentCategory.loadAllCategoriesFromSettings();
     }
 }

@@ -8,7 +8,6 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -72,6 +71,30 @@ public abstract class Setting<T> {
             }
             return false;
         };
+    }
+
+    /**
+     * Callback for importing/exporting settings.
+     */
+    public interface ImportExportCallback {
+        /**
+         * Called after all settings have been imported.
+         */
+        void settingsImported(@Nullable Context context);
+
+        /**
+         * Called after all settings have been exported.
+         */
+        void settingsExported(@Nullable Context context);
+    }
+
+    private static final List<ImportExportCallback> importExportCallbacks = new ArrayList<>();
+
+    /**
+     * Adds a callback for {@link #importFromJSON(Context, String)} and {@link #exportToJson(Context)}.
+     */
+    public static void addImportExportCallback(@NonNull ImportExportCallback callback) {
+        importExportCallbacks.add(Objects.requireNonNull(callback));
     }
 
     /**
@@ -232,6 +255,10 @@ public abstract class Setting<T> {
      * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
      */
     public static <T> void migrateOldSettingToNew(@NonNull Setting<T> oldSetting, @NonNull Setting<T> newSetting) {
+        if (oldSetting == newSetting) {
+            throw new IllegalArgumentException();
+        }
+
         if (!oldSetting.isSetToDefault()) {
             Logger.printInfo(() -> "Migrating old setting value: " + oldSetting + " into replacement setting: " + newSetting);
             newSetting.save(oldSetting.value);
@@ -335,7 +362,7 @@ public abstract class Setting<T> {
         return value.equals(defaultValue);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String toString() {
         return key + "=" + get();
@@ -393,8 +420,9 @@ public abstract class Setting<T> {
                     setting.writeToJSON(json, importExportKey);
                 }
             }
-            if (alertDialogContext != null) {
-                app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings.showExportWarningIfNeeded(alertDialogContext);
+
+            for (ImportExportCallback callback : importExportCallbacks) {
+                callback.settingsExported(alertDialogContext);
             }
 
             if (json.length() == 0) {
@@ -412,14 +440,10 @@ public abstract class Setting<T> {
         }
     }
 
-    public static boolean importFromJSON(@NonNull String settingsJsonString) {
-        return importFromJSON(settingsJsonString, true);
-    }
-
     /**
      * @return if any settings that require a reboot were changed.
      */
-    public static boolean importFromJSON(@NonNull String settingsJsonString, boolean isYouTube) {
+    public static boolean importFromJSON(@NonNull Context alertDialogContext, @NonNull String settingsJsonString) {
         try {
             if (!settingsJsonString.matches("[\\s\\S]*\\{")) {
                 settingsJsonString = '{' + settingsJsonString + '}'; // Restore outer JSON braces
@@ -445,15 +469,8 @@ public abstract class Setting<T> {
                 }
             }
 
-            // SB Enum categories are saved using StringSettings.
-            // Which means they need to reload again if changed by other code (such as here).
-            // This call could be removed by creating a custom Setting class that manages the
-            // "String <-> Enum" logic or by adding an event hook of when settings are imported.
-            // But for now this is simple and works.
-            if (isYouTube) {
-                app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings.updateFromImportedSettings();
-            } else {
-                app.revanced.extension.music.sponsorblock.SponsorBlockSettings.updateFromImportedSettings();
+            for (ImportExportCallback callback : importExportCallbacks) {
+                callback.settingsImported(alertDialogContext);
             }
 
             Utils.showToastLong(numberOfSettingsImported == 0

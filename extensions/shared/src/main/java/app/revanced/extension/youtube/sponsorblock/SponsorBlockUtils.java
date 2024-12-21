@@ -360,6 +360,16 @@ public class SponsorBlockUtils {
         }
     }
 
+    public static void showErrorDialog(String dialogMessage) {
+        Utils.runOnMainThreadNowOrLater(() ->
+                new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
+                        .setMessage(dialogMessage)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .setCancelable(false)
+                        .show()
+        );
+    }
+
     public static void onEditByHandClicked() {
         try {
             Utils.verifyOnMainThread();

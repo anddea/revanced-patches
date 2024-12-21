@@ -43,6 +43,7 @@ public class BaseSettings {
 
     public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", SpoofStreamingDataDefaultClient(), true);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH = new BooleanSetting("revanced_spoof_streaming_data_sync_video_length", TRUE, true);
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE);
 
     /**

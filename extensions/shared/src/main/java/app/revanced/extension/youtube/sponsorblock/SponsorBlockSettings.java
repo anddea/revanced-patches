@@ -28,6 +28,18 @@ public class SponsorBlockSettings {
      */
     private static final int SB_PRIVATE_USER_ID_MINIMUM_LENGTH = 30;
 
+    public static final Setting.ImportExportCallback SB_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
+        @Override
+        public void settingsImported(@Nullable Context context) {
+            SegmentCategory.loadAllCategoriesFromSettings();
+            SponsorBlockSettingsPreference.updateSegmentCategories();
+        }
+        @Override
+        public void settingsExported(@Nullable Context context) {
+            showExportWarningIfNeeded(context);
+        }
+    };
+
     public static void importDesktopSettings(@NonNull String json) {
         Utils.verifyOnMainThread();
         try {
@@ -162,7 +174,7 @@ public class SponsorBlockSettings {
     /**
      * Export the categories using flatten json (no embedded dictionaries or arrays).
      */
-    public static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
+    private static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
         Utils.verifyOnMainThread();
         initialize();
 
@@ -193,6 +205,7 @@ public class SponsorBlockSettings {
         // Verify url is only the server address and does not contain a path such as: "https://sponsor.ajay.app/api/"
         // Could use Patterns.compile, but this is simpler
         final int lastDotIndex = serverAddress.lastIndexOf('.');
+        //noinspection RedundantIfStatement
         if (lastDotIndex != -1 && serverAddress.substring(lastDotIndex).contains("/")) {
             return false;
         }
@@ -234,13 +247,5 @@ public class SponsorBlockSettings {
         initialized = true;
 
         SegmentCategory.updateEnabledCategories();
-    }
-
-    /**
-     * Updates internal data based on {@link Setting} values.
-     */
-    public static void updateFromImportedSettings() {
-        SegmentCategory.loadAllCategoriesFromSettings();
-        SponsorBlockSettingsPreference.updateSegmentCategories();
     }
 }
