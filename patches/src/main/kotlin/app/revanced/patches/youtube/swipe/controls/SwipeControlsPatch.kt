@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.swipe.controls
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -13,6 +15,11 @@ import app.revanced.patches.youtube.utils.lockmodestate.lockModeStateHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SWIPE_CONTROLS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.utils.playservice.is_19_09_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementOverlay
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -23,12 +30,18 @@ import app.revanced.util.copyResources
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.fingerprint.resolvable
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.transformMethods
 import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 private const val EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR =
@@ -47,6 +60,7 @@ val swipeControlsPatch = bytecodePatch(
         playerTypeHookPatch,
         sharedResourceIdPatch,
         settingsPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -91,14 +105,15 @@ val swipeControlsPatch = bytecodePatch(
         // endregion
 
         var settingArray = arrayOf(
-            "PREFERENCE_SCREEN: SWIPE_CONTROLS"
+            "PREFERENCE_SCREEN: SWIPE_CONTROLS",
+            "SETTINGS: DISABLE_WATCH_PANEL_GESTURES"
         )
 
         // region patch for disable HDR auto brightness
 
         // Since it does not support all versions,
         // add settings only if the patch is successful.
-        if (hdrBrightnessFingerprint.resolvable()) {
+        if (!is_19_09_or_greater) {
             hdrBrightnessFingerprint.methodOrThrow().apply {
                 addInstructionsWithLabels(
                     0, """
@@ -114,33 +129,60 @@ val swipeControlsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for enable swipe to switch video
+        // region patch for disable swipe to switch video
 
-        // Since it does not support all versions,
-        // add settings only if the patch is successful.
-
-        if (swipeToSwitchVideoFingerprint.resolvable()) {
+        if (is_19_23_or_greater) {
             swipeToSwitchVideoFingerprint.injectLiteralInstructionBooleanCall(
-                45631116L,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableSwipeToSwitchVideo()Z"
+                SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToSwitchVideo()Z"
             )
 
-            settingArray += "SETTINGS: ENABLE_SWIPE_TO_SWITCH_VIDEO"
+            settingArray += "SETTINGS: DISABLE_SWIPE_TO_SWITCH_VIDEO"
         }
 
         // endregion
 
-        // region patch for enable watch panel gestures
+        // region patch for disable watch panel gestures
 
-        // Since it does not support all versions,
-        // add settings only if the patch is successful.
-        if (watchPanelGesturesFingerprint.resolvable()) {
+        if (!is_19_36_or_greater) {
             watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
-                45372793L,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->enableWatchPanelGestures()Z"
+                WATCH_PANEL_GESTURES_FEATURE_FLAG,
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z"
             )
+        } else {
+            watchPanelGesturesAlternativeFingerprint.methodOrThrow().apply {
+                val literalIndex = indexOfFirstLiteralInstruction(autoNavScrollCancelPadding)
+                val middleIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes.size == 0
+                }
+                val targetIndex = indexOfFirstInstructionOrThrow(middleIndex + 1) {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" &&
+                            reference.parameterTypes.size == 0
+                }
+                if (getInstruction(targetIndex - 1).opcode != Opcode.IGET_OBJECT) {
+                    throw PatchException("Previous Opcode pattern does not match: ${getInstruction(targetIndex - 1).opcode}")
+                }
+                if (getInstruction(targetIndex + 1).opcode != Opcode.IF_EQZ) {
+                    throw PatchException("Next Opcode pattern does not match: ${getInstruction(targetIndex + 1).opcode}")
+                }
+                val fieldReference = getInstruction<ReferenceInstruction>(targetIndex - 1).reference
+                val fieldInstruction = getInstruction<TwoRegisterInstruction>(targetIndex - 1)
 
-            settingArray += "SETTINGS: ENABLE_WATCH_PANEL_GESTURES"
+                addInstructionsWithLabels(
+                    targetIndex, """
+                        invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z
+                        move-result v${fieldInstruction.registerA}
+                        if-eqz v${fieldInstruction.registerA}, :disable
+                        iget-object v${fieldInstruction.registerA}, v${fieldInstruction.registerB}, $fieldReference
+                        """, ExternalLabel("disable", getInstruction(targetIndex + 1))
+                )
+                removeInstruction(targetIndex - 1)
+            }
         }
 
         // endregion
