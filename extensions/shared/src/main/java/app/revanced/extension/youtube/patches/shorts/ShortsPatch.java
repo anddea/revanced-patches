@@ -207,4 +207,8 @@ public class ShortsPatch {
         );
     }
 
+    public static boolean restoreShortsOldPlayerLayout() {
+        return !Settings.RESTORE_SHORTS_OLD_PLAYER_LAYOUT.get();
+    }
+
 }
