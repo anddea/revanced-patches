@@ -103,10 +103,11 @@ def process_all(config: CLIConfig) -> None:
         ("Remove Unused Strings (YouTube Music)", remove_unused_strings.process, ["music"]),
         ("Sort Strings (YouTube)", sort_strings.process, ["youtube"]),
         ("Sort Strings (YouTube Music)", sort_strings.process, ["music"]),
-        ("Missing Strings Check (YouTube)", missing_strings.process, ["youtube"]),
-        ("Missing Strings Check (YouTube Music)", missing_strings.process, ["music"]),
+        ("Missing Strings Creation (YouTube)", missing_strings.process, ["youtube"]),
+        ("Missing Strings Creation (YouTube Music)", missing_strings.process, ["music"]),
         ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),
-        ("Missing Strings Check", check_strings.process, ["youtube", base_dir]),
+        ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
+        ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
     ]
 
     for name, handler, args in handlers:
