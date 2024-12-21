@@ -54,8 +54,24 @@ public class Logger {
      * so the performance cost of building strings is paid only if {@link BaseSettings#ENABLE_DEBUG_LOGGING} is enabled.
      */
     public static void printDebug(@NonNull LogMessage message) {
+        printDebug(message, null);
+    }
+
+    /**
+     * Logs debug messages under the outer class name of the code calling this method.
+     * Whenever possible, the log string should be constructed entirely inside {@link LogMessage#buildMessageString()}
+     * so the performance cost of building strings is paid only if {@link BaseSettings#ENABLE_DEBUG_LOGGING} is enabled.
+     */
+    public static void printDebug(@NonNull LogMessage message, @Nullable Exception ex) {
         if (ENABLE_DEBUG_LOGGING.get()) {
-            Log.d(REVANCED_LOG_PREFIX + message.findOuterClassSimpleName(), message.buildMessageString());
+            String logTag = REVANCED_LOG_PREFIX + message.findOuterClassSimpleName();
+            String logMessage = message.buildMessageString();
+
+            if (ex == null) {
+                Log.d(logTag, logMessage);
+            } else {
+                Log.d(logTag, logMessage, ex);
+            }
         }
     }
 
