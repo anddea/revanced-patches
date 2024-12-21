@@ -1,11 +1,12 @@
 package app.revanced.extension.shared.patches;
 
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofClient;
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingData;
+
 import android.net.Uri;
 
-import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.PackageUtils;
 
 @SuppressWarnings("unused")
 public class BlockRequestPatch {
@@ -18,14 +19,9 @@ public class BlockRequestPatch {
      * Used in YouTube Music.
      * Disabled by default.
      */
-    public static final boolean SPOOF_CLIENT = Settings.SPOOF_CLIENT.get();
+    public static final boolean SPOOF_CLIENT = BaseSettings.SPOOF_CLIENT.get();
 
-    /**
-     * Used in YouTube Music.
-     */
-    public static final boolean IS_7_17_OR_GREATER = PackageUtils.getAppVersionName().compareTo("7.17.00") >= 0;
-
-    private static final boolean BLOCK_REQUEST = SPOOF_STREAMING_DATA || (SPOOF_CLIENT && IS_7_17_OR_GREATER);
+    private static final boolean BLOCK_REQUEST = (SpoofStreamingData() && SPOOF_STREAMING_DATA) || (SpoofClient() && SPOOF_CLIENT);
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.

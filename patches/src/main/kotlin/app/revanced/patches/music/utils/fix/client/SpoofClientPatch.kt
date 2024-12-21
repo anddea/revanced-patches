@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -13,11 +14,14 @@ import app.revanced.patches.music.utils.patch.PatchList.SPOOF_CLIENT
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
+import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.indexOfModelInstruction
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -258,10 +262,28 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "SpoofClient"
+        }.replaceInstruction(
+            0,
+            "const/4 v0, 0x1"
+        )
+
         addSwitchPreference(
             CategoryType.MISC,
             "revanced_spoof_client",
             "false"
+        )
+        addSwitchPreference(
+            CategoryType.MISC,
+            "revanced_spoof_client_legacy",
+            "false",
+            "revanced_spoof_client"
+        )
+        addPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_spoof_client_type",
+            "revanced_spoof_client",
         )
 
         updatePatchStatus(SPOOF_CLIENT)
