@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
+import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
@@ -214,10 +215,6 @@ public class GeneralPatch {
         return Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get() || original;
     }
 
-    public static boolean enableTranslucentNavigationBar() {
-        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
-    }
-
     /**
      * @noinspection ALL
      */
@@ -246,6 +243,31 @@ public class GeneralPatch {
 
     public static void hideNavigationBar(View view) {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_BAR.get(), view);
+    }
+
+    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
+
+    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
+
+    public static boolean useTranslucentNavigationButtons(boolean original) {
+        // Feature requires Android 13+
+        if (!isSDKAbove(33)) {
+            return original;
+        }
+
+        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
+            return original;
+        }
+
+        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
+            return false;
+        }
+
+        return Utils.isDarkModeEnabled()
+                ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+                : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
     }
 
     // endregion

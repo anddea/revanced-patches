@@ -74,7 +74,23 @@ internal val setEnumMapFingerprint = legacyFingerprint(
     literals = listOf(ytFillBell),
 )
 
-internal val translucentNavigationBarFingerprint = legacyFingerprint(
-    name = "translucentNavigationBarFingerprint",
-    literals = listOf(45630927L),
+internal const val TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG = 45630927L
+
+internal val translucentNavigationButtonsFeatureFlagFingerprint = legacyFingerprint(
+    name = "translucentNavigationButtonsFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG)
+)
+
+/**
+ * The device on screen back/home/recent buttons.
+ */
+internal const val TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG = 45632194L
+
+internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = legacyFingerprint(
+    name = "translucentNavigationButtonsSystemFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG)
 )

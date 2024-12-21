@@ -462,6 +462,16 @@ public class Utils {
         return false;
     }
 
+    public static boolean isDarkModeEnabled() {
+        return isDarkModeEnabled(context);
+    }
+
+    public static boolean isDarkModeEnabled(Context context) {
+        Configuration config = context.getResources().getConfiguration();
+        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+    }
+
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
