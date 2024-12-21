@@ -218,6 +218,18 @@ Nota:
     <string name="revanced_disable_splash_animation_summary_off">A animação do inicial está ativada.</string>
     <string name="revanced_disable_splash_animation_summary_on">A animação inicial está desativada.</string>
     <string name="revanced_disable_splash_animation_title">Desativar animação inicial</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Deslizar para cima / baixo reproduzirá o vídeo seguinte / anterior.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Deslizar para cima / baixo não reproduzirá o vídeo seguinte / anterior.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Desativar deslizar para alterar o vídeo</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A barra de navegação no modo escuro está opaca ou transparente.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">A barra de navegação no modo escuro está opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Desativar barra transparente no modo escuro</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação no modo claro está opaca ou transparente.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro está opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Desativar barra transparente no modo claro</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status está opaca ou transparente.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status está opaca.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Desativar barra de status transparente</string>
     <string name="revanced_disable_video_description_interaction_summary">"Desabilita as seguintes interações quando a descrição do vídeo é expandida:
 
 • Toque para rolar.
@@ -230,6 +242,9 @@ Nota:
 • A reprodução de vídeos usará mais dados na internet do que VP9.
 • Para fazer com que o HDR reproduza, o vídeo HDR ainda usa o codec VP9."</string>
     <string name="revanced_disable_vp9_codec_title">Desativar codec VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está ativado.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está desativado.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Desativar gestos do painel de observação</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">A sobreposição de controles preenche a tela inteira.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">A sobreposição de controles não preenche a tela inteira.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Ativar sobreposição de controles compactos</string>
@@ -311,9 +326,6 @@ Problema conhecido: como se trata de um recurso em fase de desenvolvimento pelo 
     <string name="revanced_enable_swipe_volume_summary_off">O gesto de volume está desativado.</string>
     <string name="revanced_enable_swipe_volume_summary_on">O gesto de volume está ativado.</string>
     <string name="revanced_enable_swipe_volume_title">Ativar gesto de volume</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">A barra de navegação está opaca.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">A barra de navegação está transparente.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Ativar barra de navegação transparente</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está desativado.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está ativado.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Ativar gestos no painel de exibição</string>
@@ -588,9 +600,9 @@ Palavras com letras maiúsculas no meio devem ser inseridas com maiúsculas (ou 
     <string name="revanced_hide_like_dislike_button_summary_off">Os botões de like e deslike serão exibidos.</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Os botões de like e deslike estão ocultos.</string>
     <string name="revanced_hide_like_dislike_button_title">Ocultar botões de like e deslike</string>
-    <string name="revanced_hide_live_chat_messages_summary_off">As mensagens de bate-papo ao vivo serão exibidas.\n\nEssa configuração se aplica a vídeos do Shorts também.</string>
-    <string name="revanced_hide_live_chat_messages_summary_on">As mensagens de bate-papo ao vivo estão ocultas.\n\nEssa configuração se aplica a vídeos do Shorts também.</string>
-    <string name="revanced_hide_live_chat_messages_title">Ocultar mensagens de bate-papo ao vivo</string>
+    <string name="revanced_hide_live_chat_messages_summary_off">As mensagens do chat ao vivo serão exibidas.\n\nEssa configuração se aplica a vídeos do Shorts também.</string>
+    <string name="revanced_hide_live_chat_messages_summary_on">As mensagens do chat ao vivo estão ocultas.\n\nEssa configuração se aplica a vídeos do Shorts também.</string>
+    <string name="revanced_hide_live_chat_messages_title">Ocultar mensagens do chat ao vivo</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">O botão de repetição do chat ao vivo será exbido.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">O botão de repetição do chat ao vivo está oculto.\n\nEle aparece em tela cheia ao fechar o chat ao vivo.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Ocultar botão de repetição do chat ao vivo</string>
@@ -1366,6 +1378,10 @@ Toque e segure para abrir as Configurações do YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">O menu antigo de qualidade de vídeo não está sendo exibido.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">O menu antigo de qualidade de vídeo está sendo exibido.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restaurar menu antigo de qualidade de vídeo</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">O layout antigo do reprodutor não é utilizado.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"O layout antigo do reprodutor é utilizado.
+Sem margens na parte superior e inferior do reprodutor."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restaurar layout antigo do reprodutor</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@identificador (Nome de usuário)</string>
     <string name="revanced_return_youtube_username_display_format_title">Formato de exibição</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Nome de usuário (@identificador)</string>
@@ -1613,18 +1629,18 @@ A maioria dos bugs não podem ser corrigidos devido a limitações no lado do cl
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">O menu Copiar URL com marcação de tempo será exibido.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Exibir menu copiar URL com marcação de tempo</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_title">Exibir menu copiar URL do vídeo</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_label">Download externo</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">Download</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">O menu Download externo está oculto.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">O menu Download externo será exibido.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Exibir menu de download externo</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Abrir vídeo</string>
-    <string name="revanced_shorts_custom_actions_open_video_summary_off">O menu Abrir vídeo está oculto.</string>
-    <string name="revanced_shorts_custom_actions_open_video_summary_on">O menu Abrir vídeo será exibido.</string>
-    <string name="revanced_shorts_custom_actions_open_video_title">Exibir menu Abrir vídeo</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">O menu abrir vídeo está oculto.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">O menu abrir vídeo será exibido.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Exibir menu abrir vídeo</string>
     <string name="revanced_shorts_custom_actions_repeat_state_label">Estado de repetição</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">O menu Estado de repetição está oculto.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">O menu Estado de repetição será exibido.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_title">Exibir menu Estado de repetição</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">O menu estado de repetição está oculto.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">O menu estado de repetição será exibido.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Exibir menu estado de repetição</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Ações personalizadas</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Gostei</string>
@@ -1691,8 +1707,9 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• O menu de faixa de áudio está faltando."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• O menu de faixa de áudio está faltando."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Filmes ou vídeos pagos podem não reproduzir."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Ainda não encontrado.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Os vídeos podem acabar 1 segundo antes.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Os vídeos podem acabar 1 segundo antes.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
@@ -1700,6 +1717,11 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Os dados de streaming não são falsificados. A reprodução de vídeo pode não funcionar."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Os dados de streaming são falsificados.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"A duração do vídeo não é sincronizada antes da reprodução.
+A duração do vídeo pode ser um valor arredondado."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"A duração do vídeo é sincronizada antes da reprodução.
+A duração do vídeo é o valor exato."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sincronizar duração do vídeo antes da reprodução</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

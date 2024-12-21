@@ -9,9 +9,11 @@
 あなたの端末の \"Don't kill my app\"のガイドに従って、MicroG のインストールに適用してください。
 
 これはアプリが動作するために必要です。"</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐために GmsCore のバッテリーの最適化を無効にする必要があります。
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためには、GmsCore の電池の最適化を無効にする必要があります。
 
-「続行」をタップし、バッテリーの最適化を無効にします。"</string>
+GmsCore の電池の最適化を無効にしても、バッテリーの使用に悪影響を及ぼすことはありません。
+
+[続行] をタップして [電池の最適化] を無効にしてください。"</string>
     <string name="gms_core_dialog_open_website_text">Web サイトを開く</string>
     <string name="gms_core_dialog_title">アクションが必要です</string>
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
@@ -221,6 +223,18 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_splash_animation_summary_off">YouTube 起動時のスプラッシュアニメーションを無効にします。</string>
     <string name="revanced_disable_splash_animation_summary_on">YouTube 起動時のスプラッシュアニメーションを無効にします。</string>
     <string name="revanced_disable_splash_animation_title">スプラッシュアニメーションを無効化</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">スワイプして動画を切り替えるのを無効化</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモードで半透明なナビゲーションバーを無効化します。</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードで半透明なナビゲーションバーを無効化します。</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">暗い半透明なナビゲーションバーを無効化</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモードで半透明なナビゲーションバーを無効化します。</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードで半透明なナビゲーションバーを無効化します。</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">明るい半透明なナビゲーションバーを無効化</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーを不透明にします。</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーを不透明にします。</string>
+    <string name="revanced_disable_translucent_status_bar_title">半透明なステータスバーを無効化</string>
     <string name="revanced_disable_video_description_interaction_summary">"概要欄が展開されている場合、以下のインタラクションを無効にします:
 
 • タップしてスクロールする。
@@ -235,6 +249,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
 • 動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。
 • HDR 再生を可能にするために、HDR 動画では引き続き VP9 コーデックが使用されます。"</string>
     <string name="revanced_disable_vp9_codec_title">VP9 コーデックを無効化</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">動画のタイトルより下の領域を下にスワイプすると全画面表示に切り替える機能を無効化します。</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">動画のタイトルより下の領域を下にスワイプすると全画面表示に切り替える機能を無効化します。</string>
+    <string name="revanced_disable_watch_panel_gestures_title">全画面表示ジェスチャーを無効化</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">コントロールのオーバーレイを全画面に表示せず、コンパクトに表示します。</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">コントロールのオーバーレイを全画面に表示せず、コンパクトに表示します。</string>
     <string name="revanced_enable_compact_controls_overlay_title">コンパクトなコントロールオーバーレイを有効化</string>
@@ -319,9 +336,6 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_volume_title">音量ジェスチャーを有効化</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
     <string name="revanced_enable_watch_panel_gestures_title">スワイプして全画面に切り替えを有効化</string>
@@ -393,9 +407,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_album_card_summary_off">アーティストの概要欄の下部に表示されるアルバムカードを非表示にします。</string>
     <string name="revanced_hide_album_card_summary_on">アーティストの概要欄の下部に表示されるアルバムカードを非表示にします。</string>
     <string name="revanced_hide_album_card_title">アルバムカードを非表示</string>
-    <string name="revanced_hide_attributes_section_summary_off">注目の場所、ゲーム、音楽セクションを非表示にします。</string>
-    <string name="revanced_hide_attributes_section_summary_on">注目の場所、ゲーム、音楽セクションを非表示にします。</string>
-    <string name="revanced_hide_attributes_section_title">提案セクションを非表示</string>
+    <string name="revanced_hide_attributes_section_summary_off">注目の場所、ゲーム、音楽、人物セクションを非表示にします。</string>
+    <string name="revanced_hide_attributes_section_summary_on">注目の場所、ゲーム、音楽、人物セクションを非表示にします。</string>
+    <string name="revanced_hide_attributes_section_title">アトリビュートセクションを非表示</string>
     <string name="revanced_hide_autoplay_preview_summary_off">「次の動画」コンテナーを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_summary_on">「次の動画」コンテナーを非表示にします。</string>
     <string name="revanced_hide_autoplay_preview_title">自動再生プレビューコンテナーを非表示</string>
@@ -608,6 +622,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_live_chat_replay_button_summary_off">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_title">チャットのリプレイボタンを非表示</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">ライブのチャットから AI による要約欄を非表示にします。</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">ライブのチャットから AI による要約欄を非表示にします。</string>
+    <string name="revanced_hide_live_chat_summary_title">ライブチャットから AI による要約欄を非表示</string>
     <string name="revanced_hide_low_views_video_summary">登録していないチャンネルからアップロードされた、再生回数が 1,000 回未満の動画をホームフィードから非表示にします。</string>
     <string name="revanced_hide_low_views_video_title">再生回数が少ない動画を非表示</string>
     <string name="revanced_hide_medical_panel_summary_off">医療情報パネルを非表示にします。</string>
@@ -1133,11 +1150,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_keep_landscape_mode_timeout_title">横画面モードのタイムアウトを維持</string>
     <string name="revanced_keep_landscape_mode_title">横画面モードを維持</string>
     <string name="revanced_label_default">オリジナル</string>
-    <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。\n\n・ダブルタップでミニプレーヤーのサイズを大きくします。
-・再度ダブルタップすると元のサイズに戻ります。</string>
+    <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。\n\n・ダブルタップするとミニプレーヤーのサイズを拡大できます。\n・再度ダブルタップすると元のサイズに戻ります。</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチ(画面を 2 本指でつまむようにして拡大や縮小する操作)でサイズを変更できるようにします。
 
-・ダブルタップでミニプレーヤーのサイズを大きくします。
+・ダブルタップするとミニプレーヤーのサイズを拡大できます。
 ・再度ダブルタップすると元のサイズに戻ります。"</string>
     <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチでサイズを変更</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ&amp;ドロップを有効化します。\n\nミニプレーヤーは画面のどの隅にもドラッグできます。</string>
@@ -1191,26 +1207,25 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_miniplayer_width_dip_summary">ミニプレーヤーの初期の画面サイズを設定します。(単位: ピクセル)</string>
     <string name="revanced_miniplayer_width_dip_title">初期の画面サイズ</string>
     <string name="revanced_overlay_button">オーバーレイボタン</string>
-    <string name="revanced_overlay_button_always_repeat_summary">"タップして常にリピート
-長押ししてリピート後に一時停止"</string>
+    <string name="revanced_overlay_button_always_repeat_summary">"タップすると「常にリピート」の設定を変更できます。
+長押しするとリピート後に一時停止します。"</string>
     <string name="revanced_overlay_button_always_repeat_title">自動リピートボタンを表示</string>
-    <string name="revanced_overlay_button_copy_video_url_summary">"タップして動画 URL をコピー
-長押ししてタイムスタンプ付き URL をコピー"</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"タップしてタイムスタンプ付き URL をコピー
-長押ししてタイムスタンプをコピー"</string>
+    <string name="revanced_overlay_button_copy_video_url_summary">"タップすると動画 URL をコピーします。
+長押しするとタイムスタンプ付きの URL をコピーします。"</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"タップするとタイムスタンプ付きの URL をコピーします。
+長押しするとタイムスタンプをコピーします。"</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">タイムスタンプ付き URL のコピーボタンを表示</string>
     <string name="revanced_overlay_button_copy_video_url_title">動画 URL のコピーボタンを表示</string>
-    <string name="revanced_overlay_button_external_downloader_summary">タップして外部の動画ダウンローダーを起動します。</string>
+    <string name="revanced_overlay_button_external_downloader_summary">タップすると外部ダウンローダーが起動します。</string>
     <string name="revanced_overlay_button_external_downloader_title">外部ダウンローダーボタンを表示</string>
-    <string name="revanced_overlay_button_mute_volume_summary">現在の動画の音声をミュートするには、タップします。 ミュートを解除するには、もう一度タップします。</string>
+    <string name="revanced_overlay_button_mute_volume_summary">タップすると現在の動画の音声をミュートにします。もう一度タップするとミュートを解除します。</string>
     <string name="revanced_overlay_button_mute_volume_title">音声ミュートボタンを表示</string>
     <string name="revanced_overlay_button_not_allowed_warning">ボタンの状態を変更するには、長押ししてください。</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">チャンネル ID が一致しないため、再生リストを生成できません。</string>
     <string name="revanced_overlay_button_play_all_summary">"1 回タップすると、チャンネルに投稿されているすべての動画の再生リストを生成します。
 タップして長押しすると、元に戻ります。
 
-注意:
-・ライブでは動作しない可能性があります。"</string>
+注意: ライブでは動作しない可能性があります。"</string>
     <string name="revanced_overlay_button_play_all_title">「すべて再生」ボタンを表示</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">すべてのコンテンツ (時間順、昇順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">すべてのコンテンツ (時間順)</string>
@@ -1227,8 +1242,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_overlay_button_play_all_type_entry_9">全員が閲覧可能なコンテンツのみ</string>
     <string name="revanced_overlay_button_play_all_type_title">再生リストの生成モード</string>
     <string name="revanced_overlay_button_speed_dialog_reset">再生速度を %s 倍速にリセットしました。</string>
-    <string name="revanced_overlay_button_speed_dialog_summary">"タップして再生速度ダイアログをを開きます。
-長押しして再生速度を 1.0 倍速にします。"</string>
+    <string name="revanced_overlay_button_speed_dialog_summary">"タップすると再生速度のダイアログが開きます。
+長押しすると再生速度を 1.0 倍にリセットします。もう一度長押しするとデフォルトの再生速度に戻ります。"</string>
     <string name="revanced_overlay_button_speed_dialog_title">再生速度のダイアログボタンを表示</string>
     <string name="revanced_overlay_button_whitelist_summary">タップするとホワイトリストのダイアログが開きます。
 長押しするとホワイトリストの設定のダイアログが開きます。</string>
@@ -1380,6 +1395,11 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_restore_old_video_quality_menu_summary_off">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_title">古いスタイルの画質メニューを復元</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">古いプレーヤーレイアウトを復元します。
+プレーヤーの上部と下部に余白はありません。</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"古いプレーヤーレイアウトを復元します。
+プレーヤーの上部と下部に余白はありません。"</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">古いプレーヤーレイアウトを復元</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@ハンドル名 + (ユーザー名)</string>
     <string name="revanced_return_youtube_username_display_format_title">表示形式</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">ユーザー名 + (@ハンドル名)</string>
@@ -1623,7 +1643,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL をクリップボードにコピーしました。</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"この機能はまだ実験段階であるため、完璧に動作するという保証はありません。
 
-ほとんどのバグはクライアント側の制限により、修正できないため、テスト目的でのみ使用してください。"</string>
+ほとんどのバグはクライアント側の制限により修正できないため、テスト目的でのみ使用してください。"</string>
     <string name="revanced_shorts_custom_actions_about_title">カスタムアクションについて</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">動画の URL をコピー</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">動画の URL をコピーするメニューを表示します。</string>
@@ -1714,11 +1734,11 @@ API キーの発行方法については、ここをタップしてください�
 ・「一定音量」は使用できません。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"・「音声トラック」メニューは表示されません。
 ・「一定音量」は使用できません。"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"・ライブは最初から再生されます。
-・動画が 1 秒早く終了する可能性があります。"</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">・まだ見つかっていません。</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"・動画が 1 秒早く終了する可能性があります。
 ・Opus オーディオコーデックはサポートされていない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">・動画が 1 秒早く終了する可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">・動画が 1 秒早く終了する可能性があります。</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">ストリーミングデータを偽装することによる副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 動画が再生できない可能性があります。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に偽装したストリーミングデータを表示します。</string>
@@ -1726,6 +1746,11 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に偽装したクライアントを表示</string>
     <string name="revanced_spoof_streaming_data_summary_off">"ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_summary_on">ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"再生前に動画の長さを同期します。
+動画の長さは正確な値です。"</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"再生前に動画の長さを同期します。
+動画の長さは正確な値です。"</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">再生前に動画の長さを同期</string>
     <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

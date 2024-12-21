@@ -5,7 +5,11 @@
     <string name="gms_core_dialog_continue_text">Продовжити</string>
     <string name="gms_core_dialog_dismiss_text">Не показувати знову</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore не дозволено працювати у фоні.\n\nДотримуйтесь посібника \"Don't kill my app\" для вашого телефону і застосуйте інструкції для встановлення GmsCore.\n\nЦе необхідно для того, щоб програма працювала."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимізацію акумулятора GmsCore слід вимкнути, щоб запобігти виникненню проблем.\n\nНатисніть кнопку продовжити й вимкніть оптимізацію акумулятора."</string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимізацію акумулятора GmsCore слід вимкнути, щоб запобігти виникненню проблем.
+
+Вимкнення оптимізації акумулятора для GmsCore не матиме негативного впливу на використання акумулятора
+
+Натисніть кнопку продовжити й дозвольте змінити оптимізацію."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
     <string name="gms_core_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення.</string>
@@ -215,6 +219,17 @@
     <string name="revanced_disable_splash_animation_summary_off">Сплеш анімацію увімкнено.</string>
     <string name="revanced_disable_splash_animation_summary_on">Сплеш анімацію вимкнено.</string>
     <string name="revanced_disable_splash_animation_title">Вимкнути сплеш анімацію</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Проведення вгору / вниз відтворюватиме наступне / попереднє відео.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Проведення вгору / вниз не відтворюватиме наступне / попереднє відео.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації у темному режимі непрозора чи напівпрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панель навігації у темному режимі непрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути напівпрозорість темної панелі</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навігації у світлому режимі непрозора чи напівпрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навігації у світлому режимі непрозора.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Вимкнути напівпрозорість світлої панелі</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий чи напівпрозорий.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
     <string name="revanced_disable_video_description_interaction_summary">"Вимикається такі взаємодії під час розгортання опису відео:
 
 • Натисніть, щоб прокрутити.
@@ -227,6 +242,9 @@
 • Відтворення відео використовуватиме більше інтернет даних ніж VP9.
 • Кодек VP9 все ще використовується для HDR відео."</string>
     <string name="revanced_disable_vp9_codec_title">Вимкнути кодек VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Вимкнути жести панелі перегляду</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Компактне керування заповнює весь екран.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Компактне керування не заповнює весь екран.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Увімкнути компактне керування</string>
@@ -310,9 +328,6 @@
     <string name="revanced_enable_swipe_volume_summary_off">Зміну гучності жестом вимкнено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Зміну гучності жестом увімкнено.</string>
     <string name="revanced_enable_swipe_volume_title">Увімкнути зміну гучності жестом</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Увімкнути жести панелі перегляду</string>
@@ -1716,9 +1731,9 @@
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Прямі трансляції починаються з початку.
-• Відео можуть закінчуватися на 1 секунду раніше."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Ще не знайдено.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Відео можуть закінчуватися на 1 секунду раніше.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Відео можуть закінчуватися на 1 секунду раніше.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
@@ -1726,6 +1741,11 @@
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Дані трансляції не підроблено. Відтворення відео може не працювати."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Дані трансляції підроблено.</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Довжину відео не синхронізується перед відтворенням.
+Тривалість відео може бути округленим значенням."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Довжину відео синхронізується перед відтворенням.
+Тривалість відео є точним значенням."</string>
+    <string name="revanced_spoof_streaming_data_sync_video_length_title">Синхронізувати тривалість відео перед відтворенням</string>
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
