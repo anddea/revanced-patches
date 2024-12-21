@@ -79,37 +79,41 @@ public class PlaybackSpeedPatch {
      * @param playbackSpeed The playback speed the user selected
      */
     public static void userSelectedPlaybackSpeed(float playbackSpeed) {
-        if (PatchStatus.RememberPlaybackSpeed() &&
-                Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
-            // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
-            // then the menu will allow increasing without bounds but the max speed is
-            // still capped to under 8.0x.
-            playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM - 0.05f);
+        try {
+            if (PatchStatus.RememberPlaybackSpeed() &&
+                    Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
+                // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
+                // then the menu will allow increasing without bounds but the max speed is
+                // still capped to under 8.0x.
+                playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.PLAYBACK_SPEED_MAXIMUM - 0.05f);
 
-            // Prevent toast spamming if using the 0.05x adjustments.
-            // Show exactly one toast after the user stops interacting with the speed menu.
-            final long now = System.currentTimeMillis();
-            lastTimeSpeedChanged = now;
+                // Prevent toast spamming if using the 0.05x adjustments.
+                // Show exactly one toast after the user stops interacting with the speed menu.
+                final long now = System.currentTimeMillis();
+                lastTimeSpeedChanged = now;
 
-            final float finalPlaybackSpeed = playbackSpeed;
-            Utils.runOnMainThreadDelayed(() -> {
-                if (lastTimeSpeedChanged != now) {
-                    // The user made additional speed adjustments and this call is outdated.
-                    return;
-                }
+                final float finalPlaybackSpeed = playbackSpeed;
+                Utils.runOnMainThreadDelayed(() -> {
+                    if (lastTimeSpeedChanged != now) {
+                        // The user made additional speed adjustments and this call is outdated.
+                        return;
+                    }
 
-                if (Settings.DEFAULT_PLAYBACK_SPEED.get() == finalPlaybackSpeed) {
-                    // User changed to a different speed and immediately changed back.
-                    // Or the user is going past 8.0x in the glitched out 0.05x menu.
-                    return;
-                }
-                Settings.DEFAULT_PLAYBACK_SPEED.save(finalPlaybackSpeed);
+                    if (Settings.DEFAULT_PLAYBACK_SPEED.get() == finalPlaybackSpeed) {
+                        // User changed to a different speed and immediately changed back.
+                        // Or the user is going past 8.0x in the glitched out 0.05x menu.
+                        return;
+                    }
+                    Settings.DEFAULT_PLAYBACK_SPEED.save(finalPlaybackSpeed);
 
-                if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get()) {
-                    return;
-                }
-                Utils.showToastShort(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
-            }, TOAST_DELAY_MILLISECONDS);
+                    if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get()) {
+                        return;
+                    }
+                    Utils.showToastShort(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
+                }, TOAST_DELAY_MILLISECONDS);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "userSelectedPlaybackSpeed failure", ex);
         }
     }
 

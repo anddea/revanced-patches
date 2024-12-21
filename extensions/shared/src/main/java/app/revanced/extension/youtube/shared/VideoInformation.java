@@ -369,7 +369,10 @@ public final class VideoInformation {
      * @param newlyLoadedPlaybackSpeed The current playback speed.
      */
     public static void setPlaybackSpeed(float newlyLoadedPlaybackSpeed) {
-        playbackSpeed = newlyLoadedPlaybackSpeed;
+        if (playbackSpeed != newlyLoadedPlaybackSpeed) {
+            Logger.printDebug(() -> "Video speed changed: " + newlyLoadedPlaybackSpeed);
+            playbackSpeed = newlyLoadedPlaybackSpeed;
+        }
     }
 
     /**
