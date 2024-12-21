@@ -864,6 +864,18 @@ val shortsComponentPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for restore shorts old player layout
+
+        if (!is_19_25_or_greater) {
+            shortsFullscreenFeatureFingerprint.injectLiteralInstructionBooleanCall(
+                FULLSCREEN_FEATURE_FLAG,
+                "$SHORTS_CLASS_DESCRIPTOR->restoreShortsOldPlayerLayout()Z"
+            )
+            settingArray += "SETTINGS: RESTORE_SHORTS_OLD_PLAYER_LAYOUT"
+        }
+
+        // endregion
+
         addLithoFilter(BUTTON_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(SHELF_FILTER_CLASS_DESCRIPTOR)
         addLithoFilter(RETURN_YOUTUBE_CHANNEL_NAME_FILTER_CLASS_DESCRIPTOR)

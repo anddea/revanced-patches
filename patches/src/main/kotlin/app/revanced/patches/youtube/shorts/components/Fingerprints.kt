@@ -177,3 +177,13 @@ internal val shortsToolBarFingerprint = legacyFingerprint(
         method.parameterTypes.firstOrNull() == "Z"
     }
 )
+
+internal const val FULLSCREEN_FEATURE_FLAG = 45398938L
+
+internal val shortsFullscreenFeatureFingerprint = legacyFingerprint(
+    name = "shortsFullscreenFeatureFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(FULLSCREEN_FEATURE_FLAG),
+)
+
