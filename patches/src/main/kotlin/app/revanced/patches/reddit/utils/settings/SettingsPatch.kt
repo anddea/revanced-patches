@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -14,15 +13,18 @@ import app.revanced.patches.reddit.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.reddit.utils.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.utils.patch.PatchList
 import app.revanced.patches.reddit.utils.patch.PatchList.SETTINGS_FOR_REDDIT
-import app.revanced.patches.reddit.utils.resourceid.labelAcknowledgements
 import app.revanced.patches.shared.sharedSettingFingerprint
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import kotlin.io.path.exists
 
 private const val EXTENSION_METHOD_DESCRIPTOR =
@@ -31,11 +33,29 @@ private const val EXTENSION_METHOD_DESCRIPTOR =
 private lateinit var acknowledgementsLabelBuilderMethod: MutableMethod
 private lateinit var settingsStatusLoadMethod: MutableMethod
 
+var is_2024_18_or_greater = false
+    private set
+
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
 ) {
 
     execute {
+
+        /**
+         * Set version info
+         */
+        redditInternalFeaturesFingerprint.methodOrThrow().apply {
+            val versionIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.CONST_STRING
+                        && (this as? BuilderInstruction21c)?.reference.toString().startsWith("202")
+            }
+
+            val versionNumber = getInstruction<BuilderInstruction21c>(versionIndex).reference.toString().replace(".", "").toInt()
+
+            is_2024_18_or_greater = 2024180 <= versionNumber
+        }
+
         /**
          * Set SharedPrefCategory
          */
@@ -52,8 +72,8 @@ private val settingsBytecodePatch = bytecodePatch(
         /**
          * Replace settings label
          */
-        acknowledgementsLabelBuilderMethod = acknowledgementsLabelBuilderFingerprint
-            .methodOrThrow()
+        acknowledgementsLabelBuilderMethod =
+            acknowledgementsLabelBuilderFingerprint.methodOrThrow()
 
         /**
          * Initialize settings activity
@@ -77,8 +97,11 @@ private val settingsBytecodePatch = bytecodePatch(
 
 internal fun updateSettingsLabel(label: String) =
     acknowledgementsLabelBuilderMethod.apply {
-        val insertIndex =
-            indexOfFirstLiteralInstructionOrThrow(labelAcknowledgements) + 3
+        val stringIndex = indexOfFirstStringInstructionOrThrow("onboardingAnalytics")
+        val insertIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+            opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.name == "getString"
+        } + 2
         val insertRegister =
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
@@ -134,22 +157,25 @@ val settingsPatch = resourcePatch(
         val settingsLabel = settingsLabelOption
             .valueOrThrow()
 
-        arrayOf("preferences.xml", "preferences_logged_in.xml").forEach { targetXML ->
+        arrayOf(
+            "preferences.xml",
+            "preferences_logged_in.xml",
+            "preferences_logged_in_old.xml",
+        ).forEach { targetXML ->
             val resDirectory = get("res")
             val targetXml = resDirectory.resolve("xml").resolve(targetXML).toPath()
 
-            if (!targetXml.exists())
-                throw PatchException("The preferences can not be found.")
+            if (targetXml.exists()) {
+                val preference = get("res/xml/$targetXML")
 
-            val preference = get("res/xml/$targetXML")
-
-            preference.writeText(
-                preference.readText()
-                    .replace(
-                        "\"@drawable/icon_text_post\" android:title=\"@string/label_acknowledgements\"",
-                        "\"@drawable/icon_beta_planet\" android:title=\"$settingsLabel\""
-                    )
-            )
+                preference.writeText(
+                    preference.readText()
+                        .replace(
+                            "\"@drawable/icon_text_post\" android:title=\"@string/label_acknowledgements\"",
+                            "\"@drawable/icon_beta_planet\" android:title=\"$settingsLabel\""
+                        )
+                )
+            }
         }
 
         updateSettingsLabel(settingsLabel)

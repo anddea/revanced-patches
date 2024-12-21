@@ -24,10 +24,13 @@ val openLinksExternallyPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        screenNavigatorMethodResolverPatch
+    )
 
     execute {
-        screenNavigatorFingerprint.methodOrThrow().apply {
+        screenNavigatorMethod.apply {
             val insertIndex = indexOfFirstStringInstructionOrThrow("uri") + 2
 
             addInstructionsWithLabels(

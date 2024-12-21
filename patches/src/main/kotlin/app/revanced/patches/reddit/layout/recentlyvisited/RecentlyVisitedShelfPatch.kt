@@ -8,15 +8,12 @@ import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.HIDE_RECENTLY_VISITED_SHELF
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_METHOD_DESCRIPTOR =
     "$PATCHES_PATH/RecentlyVisitedShelfPatch;" +
@@ -33,23 +30,21 @@ val recentlyVisitedShelfPatch = bytecodePatch(
     dependsOn(settingsPatch)
 
     execute {
-        val communityDrawerPresenterMethod = communityDrawerPresenterFingerprint.methodOrThrow()
-        val constructorMethod = findMethodOrThrow(communityDrawerPresenterMethod.definingClass)
-        val recentlyVisitedReference = with(constructorMethod) {
-            val recentlyVisitedFieldIndex = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>()?.name == "RECENTLY_VISITED"
-            }
+
+        val recentlyVisitedReference = with (communityDrawerPresenterConstructorFingerprint.methodOrThrow()) {
+            val recentlyVisitedFieldIndex = indexOfHeaderItemInstruction(this)
             val recentlyVisitedObjectIndex =
-                indexOfFirstInstructionOrThrow(
-                    recentlyVisitedFieldIndex,
-                    Opcode.IPUT_OBJECT
-                )
-            getInstruction<ReferenceInstruction>(recentlyVisitedObjectIndex).reference
+                indexOfFirstInstructionOrThrow(recentlyVisitedFieldIndex, Opcode.IPUT_OBJECT)
+
+            getInstruction<ReferenceInstruction>(recentlyVisitedObjectIndex).reference.toString()
         }
-        communityDrawerPresenterMethod.apply {
-            val recentlyVisitedObjectIndex = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>()?.toString() == recentlyVisitedReference.toString()
-            }
+
+        communityDrawerPresenterFingerprint.methodOrThrow(communityDrawerPresenterConstructorFingerprint).apply {
+            val recentlyVisitedObjectIndex =
+                indexOfFirstInstructionOrThrow {
+                    (this as? ReferenceInstruction)?.reference?.toString() == recentlyVisitedReference
+                }
+
             arrayOf(
                 indexOfFirstInstructionOrThrow(
                     recentlyVisitedObjectIndex,
@@ -65,9 +60,9 @@ val recentlyVisitedShelfPatch = bytecodePatch(
 
                 addInstructions(
                     staticIndex + 2, """
-                            invoke-static {v$insertRegister}, $EXTENSION_METHOD_DESCRIPTOR
-                            move-result-object v$insertRegister
-                            """
+                        invoke-static {v$insertRegister}, $EXTENSION_METHOD_DESCRIPTOR
+                        move-result-object v$insertRegister
+                        """
                 )
             }
         }

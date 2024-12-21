@@ -5,9 +5,8 @@ import app.revanced.util.fingerprint.legacyFingerprint
 internal val premiumIconFingerprint = legacyFingerprint(
     name = "premiumIconFingerprint",
     returnType = "Z",
-    customFingerprint = { method, classDef ->
-        method.definingClass.endsWith("/MyAccount;") &&
-                method.name == "isPremiumSubscriber" &&
-                classDef.sourceFile == "MyAccount.kt"
+    customFingerprint = { method, _ ->
+        method.definingClass == "Lcom/reddit/domain/model/MyAccount;" &&
+                method.name == "isPremiumSubscriber"
     }
 )
