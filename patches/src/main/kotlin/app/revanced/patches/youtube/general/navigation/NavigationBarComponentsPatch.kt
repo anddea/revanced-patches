@@ -87,6 +87,11 @@ val navigationBarComponentsPatch = bytecodePatch(
         if (is_19_25_or_greater) {
             arrayOf(
                 Triple(
+                    translucentNavigationStatusBarFeatureFlagFingerprint,
+                    TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
+                    "useTranslucentNavigationStatusBar"
+                ),
+                Triple(
                     translucentNavigationButtonsFeatureFlagFingerprint,
                     TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
                     "useTranslucentNavigationButtons"
@@ -103,6 +108,7 @@ val navigationBarComponentsPatch = bytecodePatch(
                 )
             }
 
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
         }
 

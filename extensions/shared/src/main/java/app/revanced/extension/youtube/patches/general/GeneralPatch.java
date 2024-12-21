@@ -245,6 +245,14 @@ public class GeneralPatch {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_BAR.get(), view);
     }
 
+    public static boolean useTranslucentNavigationStatusBar(boolean original) {
+        if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
+            return false;
+        }
+
+        return original;
+    }
+
     private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
 
