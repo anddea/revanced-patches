@@ -28,6 +28,7 @@ import app.revanced.patches.youtube.utils.lottie.lottieAnimationViewHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_FEED_FLYOUT_MENU
 import app.revanced.patches.youtube.utils.patch.PatchList.SHORTS_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
@@ -315,11 +316,8 @@ private val shortsCustomActionsPatch = bytecodePatch(
 
                             val insertIndex = charSequenceIndex + 2
 
-                            if (getInstruction<ReferenceInstruction>(insertIndex).reference.toString()
-                                    .startsWith("Lapp/revanced")
-                            ) {
+                            if (HIDE_FEED_FLYOUT_MENU.included == true)
                                 removeInstructions(insertIndex, 2)
-                            }
 
                             addInstructions(
                                 insertIndex, """
