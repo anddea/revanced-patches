@@ -2,11 +2,11 @@ package app.revanced.extension.music.patches.misc;
 
 import app.revanced.extension.music.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.music.settings.Settings;
-import app.revanced.extension.shared.patches.BlockRequestPatch;
 
 @SuppressWarnings("unused")
-public class SpoofClientPatch extends BlockRequestPatch {
+public class SpoofClientPatch {
     private static final ClientType CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
+    public static final boolean SPOOF_CLIENT = Settings.SPOOF_CLIENT.get();
 
     /**
      * Injection point.

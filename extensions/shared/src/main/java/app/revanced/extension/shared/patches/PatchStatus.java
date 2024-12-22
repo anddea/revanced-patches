@@ -12,11 +12,6 @@ public class PatchStatus {
         return ClientType.IOS;
     }
 
-    public static boolean SpoofClient() {
-        // Replace this with true If the Spoof client patch succeeds
-        return false;
-    }
-
     public static boolean SpoofStreamingData() {
         // Replace this with true If the Spoof streaming data patch succeeds
         return false;
