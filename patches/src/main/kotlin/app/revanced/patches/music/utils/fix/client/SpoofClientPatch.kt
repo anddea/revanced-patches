@@ -4,24 +4,23 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.compatibility.Constants
 import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_CLIENT
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
+import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.shared.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
-import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.indexOfModelInstruction
-import app.revanced.util.findMethodOrThrow
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -53,14 +52,26 @@ val spoofClientPatch = bytecodePatch(
     SPOOF_CLIENT.summary,
     false,
 ) {
-    dependsOn(
-        settingsPatch,
-        blockRequestPatch
+    compatibleWith(
+        Constants.YOUTUBE_MUSIC_PACKAGE_NAME(
+            "6.20.51",
+            "6.29.59",
+            "6.42.55",
+            "6.51.53",
+            "7.16.53",
+        ),
     )
 
-    compatibleWith(COMPATIBLE_PACKAGE)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch,
+    )
 
     execute {
+        if (is_7_25_or_greater) {
+            printWarn("\"${SPOOF_CLIENT.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
+            return@execute
+        }
 
         // region Get field references to be used below.
 
@@ -262,23 +273,10 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofClient"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
-
         addSwitchPreference(
             CategoryType.MISC,
             "revanced_spoof_client",
             "false"
-        )
-        addSwitchPreference(
-            CategoryType.MISC,
-            "revanced_spoof_client_legacy",
-            "false",
-            "revanced_spoof_client"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,

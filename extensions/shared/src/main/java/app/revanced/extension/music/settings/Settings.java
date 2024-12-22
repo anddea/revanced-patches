@@ -180,8 +180,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("revanced_disable_drc_audio", FALSE, true);
     public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", FALSE, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
-    public static final BooleanSetting SPOOF_CLIENT_LEGACY = new BooleanSetting("revanced_spoof_client_legacy", FALSE, true);
-    public static final EnumSetting<ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", ClientType.ANDROID_MUSIC, true);
+    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", FALSE, true);
+    public static final EnumSetting<ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", ClientType.IOS_MUSIC_6_21, true);
 
 
     // PreferenceScreen: Return YouTube Dislike
