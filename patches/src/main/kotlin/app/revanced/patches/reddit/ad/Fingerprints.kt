@@ -6,6 +6,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val commentAdsFingerprint = legacyFingerprint(
@@ -37,7 +38,7 @@ internal val adPostFingerprint = legacyFingerprint(
         "children",
         "uxExperiences"
     ),
-    customFingerprint = { method, classDef ->
+    customFingerprint = { _, classDef ->
         classDef.type.endsWith("/Listing;")
     },
 )
@@ -51,9 +52,27 @@ internal val newAdPostFingerprint = legacyFingerprint(
         "android_feed_freeform_render_variant",
     ),
     customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
-        } >= 0
+        indexOfAddArrayListInstruction(method) >= 0
     },
 )
+
+internal val newAdPostLegacyFingerprint = legacyFingerprint(
+    name = "newAdPostLegacyFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.INVOKE_VIRTUAL),
+    strings = listOf(
+        "chain",
+        "feedElement"
+    ),
+    customFingerprint = { method, classDef ->
+        classDef.sourceFile == "AdElementConverter.kt" &&
+                indexOfAddArrayListInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfAddArrayListInstruction(method: Method, index: Int = 0) =
+    method.indexOfFirstInstruction(index) {
+        getReference<MethodReference>()?.toString() == "Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z"
+    }
 
