@@ -7,6 +7,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_HEADER_FOR_YOUT
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.getIconType
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
@@ -125,7 +126,7 @@ val changeHeaderPatch = resourcePatch(
             customBrandingIconType != "default" && customBrandingIconType != "custom"
         customHeader = customHeaderOption.valueOrThrow()
 
-        val warnings = "WARNING: Invalid header path: $customHeader. Does not apply patches."
+        val warnings = "Invalid header path: $customHeader. Does not apply patches."
 
         if (isPath) {
             copyFile(
@@ -140,7 +141,7 @@ val changeHeaderPatch = resourcePatch(
                 }
             }
         } else {
-            println(warnings)
+            printWarn(warnings)
             return@execute
         }
 

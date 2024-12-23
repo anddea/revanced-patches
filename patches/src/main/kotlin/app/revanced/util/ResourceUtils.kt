@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.util.Document
+import app.revanced.util.Utils.printWarn
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
@@ -202,7 +203,7 @@ fun ResourcePatchContext.copyFile(
 
             return true
         } catch (_: Exception) {
-            println(warning)
+            printWarn(warning)
         }
     }
     return false

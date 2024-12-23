@@ -20,6 +20,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.shared.mapping.get
 import app.revanced.patches.shared.mapping.resourceMappingPatch
 import app.revanced.patches.shared.mapping.resourceMappings
+import app.revanced.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -135,7 +136,7 @@ internal fun MutableMethod.addInstructionsAtControlFlowLabel(
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
     val resourceId = resourceMappings["id", resourceName]
     if (resourceId == -1L) {
-        println("WARNING: Could not find resource type: id name: $name")
+        printWarn("Could not find resource type: id name: $name")
         return -1
     }
     return indexOfFirstLiteralInstruction(resourceId)

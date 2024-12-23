@@ -9,6 +9,7 @@ import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printInfo
 import app.revanced.util.copyResources
 import app.revanced.util.inputStreamFromBundledResourceOrThrow
 import app.revanced.util.lowerCaseOrThrow
@@ -63,7 +64,7 @@ val shortsActionButtonsPatch = resourcePatch(
             .lowerCaseOrThrow()
 
         if (iconType == YOUTUBE_ICON) {
-            println("INFO: Shorts action buttons will remain unchanged as it matches the original.")
+            printInfo("Shorts action buttons will remain unchanged as it matches the original.")
             addPreference(CUSTOM_SHORTS_ACTION_BUTTONS)
             return@execute
         }

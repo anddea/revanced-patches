@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.patch.PatchList.CUSTOM_BRANDING_NAME_FOR_REDDIT
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.Utils.printInfo
 import app.revanced.util.valueOrThrow
 import java.io.FileWriter
 import java.nio.file.Files
@@ -37,7 +38,7 @@ val customBrandingNamePatch = resourcePatch(
             .valueOrThrow()
 
         if (appName == ORIGINAL_APP_NAME) {
-            println("INFO: App name will remain unchanged as it matches the original.")
+            printInfo("App name will remain unchanged as it matches the original.")
             return@execute
         }
 

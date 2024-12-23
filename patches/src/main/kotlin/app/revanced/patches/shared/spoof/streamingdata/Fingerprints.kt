@@ -7,7 +7,44 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+// In YouTube 17.34.36, this class is obfuscated.
+const val STREAMING_DATA_INTERFACE =
+    "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
+
+internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
+    name = "buildInitPlaybackRequestFingerprint",
+    returnType = "Lorg/chromium/net/UrlRequest\$Builder;",
+    opcodes = listOf(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
+    ),
+    strings = listOf(
+        "Content-Type",
+        "Range",
+    ),
+)
+
+internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
+    name = "buildPlayerRequestURIFingerprint",
+    returnType = "Ljava/lang/String;",
+    strings = listOf(
+        "key",
+        "asig",
+    ),
+    customFingerprint = { method, _ ->
+        indexOfToStringInstruction(method) >= 0
+    },
+)
+
+internal fun indexOfToStringInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
+    }
 
 internal val buildMediaDataSourceFingerprint = legacyFingerprint(
     name = "buildMediaDataSourceFingerprint",
@@ -108,10 +145,27 @@ internal val videoStreamingDataConstructorFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     returnType = "V",
     customFingerprint = { method, _ ->
-        indexOfFormatStreamModelInitInstruction(method) >= 0 &&
-                indexOfToMillisInstruction(method) >= 0
+        indexOfGetFormatsFieldInstruction(method) >= 0 &&
+                indexOfLongMaxValueInstruction(method) >= 0 &&
+                indexOfFormatStreamModelInitInstruction(method) >= 0
     },
 )
+
+internal fun indexOfGetFormatsFieldInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<FieldReference>()
+        opcode == Opcode.IGET_OBJECT &&
+                reference?.definingClass == STREAMING_DATA_INTERFACE &&
+                // Field e: 'formats'.
+                // Field name is always 'e', regardless of the client version.
+                reference.name == "e" &&
+                reference.type.startsWith("L")
+    }
+
+internal fun indexOfLongMaxValueInstruction(method: Method, index: Int = 0) =
+    method.indexOfFirstInstruction(index) {
+        (this as? WideLiteralInstruction)?.wideLiteral == Long.MAX_VALUE
+    }
 
 internal fun indexOfFormatStreamModelInitInstruction(method: Method) =
     method.indexOfFirstInstruction {
@@ -119,13 +173,6 @@ internal fun indexOfFormatStreamModelInitInstruction(method: Method) =
         opcode == Opcode.INVOKE_DIRECT &&
                 reference?.name == "<init>" &&
                 reference.parameterTypes.size > 1
-    }
-
-internal fun indexOfToMillisInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.name == "toMillis"
     }
 
 /**

@@ -158,7 +158,7 @@ val customBrandingIconPatch = resourcePatch(
             val copiedFiles = copyFile(
                 launcherIconResourceGroups,
                 appIcon,
-                "WARNING: Invalid app icon path: $appIcon. Does not apply patches."
+                "Invalid app icon path: $appIcon. Does not apply patches."
             )
             if (copiedFiles)
                 updatePatchStatusIcon("custom")

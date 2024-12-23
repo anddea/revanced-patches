@@ -8,7 +8,6 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
-import app.revanced.extension.shared.patches.client.AppClient.ClientType;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -63,11 +62,14 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
     }
 
     private void updateUI() {
-        final ClientType clientType = Settings.SPOOF_STREAMING_DATA_TYPE.get();
-        final String summaryTextKey = clientType == ClientType.IOS &&
-                !Settings.SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH.get()
-                ? "revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length"
-                : "revanced_spoof_streaming_data_side_effects_" + clientType.name().toLowerCase();
+        final String clientName = Settings.SPOOF_STREAMING_DATA_TYPE.get().name().toLowerCase();
+        String summaryTextKey = "revanced_spoof_streaming_data_side_effects_";
+
+        if (Settings.SPOOF_STREAMING_DATA_ANDROID_ONLY.get()) {
+            summaryTextKey += "android";
+        } else {
+            summaryTextKey += clientName;
+        }
 
         setSummary(str(summaryTextKey));
         setEnabled(Settings.SPOOF_STREAMING_DATA.get());
