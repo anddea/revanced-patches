@@ -37,6 +37,13 @@ internal val launchScreenLayoutTypeFingerprint = legacyFingerprint(
     }
 )
 
+internal val cairoSeekbarConfigFingerprint = legacyFingerprint(
+    name = "cairoSeekbarConfigFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(45617850L),
+)
+
 internal val controlsOverlayStyleFingerprint = legacyFingerprint(
     name = "controlsOverlayStyleFingerprint",
     opcodes = listOf(Opcode.CONST_HIGH16),
