@@ -155,6 +155,27 @@ internal val searchBarParentFingerprint = legacyFingerprint(
     literals = listOf(voiceSearch),
 )
 
+internal val voiceInputControllerParentFingerprint = legacyFingerprint(
+    name = "voiceInputControllerParentFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("[B", "Z"),
+    strings = listOf("VoiceInputController"),
+)
+
+internal val voiceInputControllerFingerprint = legacyFingerprint(
+    name = "voiceInputControllerFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.name == "resolveActivity"
+        } >= 0
+    },
+)
+
 internal val searchResultFingerprint = legacyFingerprint(
     name = "searchResultFingerprint",
     returnType = "Landroid/view/View;",
