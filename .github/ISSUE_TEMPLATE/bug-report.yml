@@ -6,11 +6,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        # ReVanced Extended Patches bug report
+        # ReVanced Extended bug report
 
         Before creating a new bug report, please keep the following in mind:
 
-        - **Do not submit a duplicate bug report**: You can review existing bug reports [here](https://github.com/YT-Advanced/ReX-patches/labels/Bug%20report).
+        - If your bug is not related to [unique features](https://github.com/anddea/revanced-patches/wiki/Unique-features), open your bug report in [ReVanced](https://github.com/ReVanced/revanced-patches/issues) and [RVX](https://github.com/inotia00/ReVanced_Extended/issues) first.
+        - **Do not submit a duplicate bug report**: You can review existing bug reports [here](https://github.com/anddea/revanced-patches/labels/Bug%20report).
         - **Check if this issue reproduces in unpatched apps as well**: Most bugs can also be reproduced in unpatched apps.
   - type: dropdown
     attributes:
@@ -36,7 +37,7 @@ body:
     attributes:
       label: Application
       description: Write down the application and version where the issue occurs.
-      placeholder: e.g. YouTube v19.02.39
+      placeholder: e.g. YouTube v19.16.39
     validations:
       required: true
   - type: textarea
@@ -48,7 +49,7 @@ body:
         - Add images and videos if possible
         - List used patches if applicable
     validations:
-        required: true
+      required: true
   - type: textarea
     attributes:
       label: Error logs
@@ -73,9 +74,13 @@ body:
       label: Acknowledgements
       description: Your bug report will be closed if you don't follow the checklist below.
       options:
-        - label: This issue does not reproduce on unpatched YouTube or YT Music.
+        - label: This issue does not reproduce on unpatched apps.
           required: true
         - label: This issue is not a duplicate of an existing bug report.
+          required: true
+        - label: I did not use any settings marked as `Experimental Flags`.
+          required: true
+        - label: I have patched the APK according to the [documentation](https://github.com/inotia00/revanced-documentation#readme).
           required: true
         - label: I have chosen an appropriate title.
           required: true
