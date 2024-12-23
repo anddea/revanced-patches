@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.music.utils.VideoUtils;
 
 @SuppressWarnings("unused")
 public class ActionBarPatch {
@@ -37,6 +38,15 @@ public class ActionBarPatch {
                 enabled,
                 view
         );
+    }
+
+    public static void inAppDownloadButtonOnClick(View view) {
+        if (!Settings.EXTERNAL_DOWNLOADER_ACTION_BUTTON.get()) {
+            return;
+        }
+
+        if (buttonType.equals(ActionButton.DOWNLOAD.name))
+            view.setOnClickListener(imageView -> VideoUtils.launchExternalDownloader());
     }
 
     public static void setButtonType(@NonNull Object obj) {
