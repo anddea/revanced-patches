@@ -257,6 +257,10 @@ public class GeneralPatch {
         return original;
     }
 
+    public static boolean enableTranslucentNavigationBar() {
+        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    }
+
     private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
 
