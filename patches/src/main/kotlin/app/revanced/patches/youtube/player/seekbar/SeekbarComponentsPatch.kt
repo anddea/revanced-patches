@@ -37,6 +37,7 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -490,7 +491,7 @@ val seekbarComponentsPatch = bytecodePatch(
 
             updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
         } else {
-            println("WARNING: \"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+            printWarn("\"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
         }
 
         // endregion

@@ -52,6 +52,10 @@ public final class PlayerRoutes {
             client.put("osVersion", clientType.osVersion);
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
+                client.put("osName", "Android");
+            } else {
+                client.put("deviceMake", "Apple");
+                client.put("osName", "iOS");
             }
             client.put("hl", LOCALE_LANGUAGE);
 

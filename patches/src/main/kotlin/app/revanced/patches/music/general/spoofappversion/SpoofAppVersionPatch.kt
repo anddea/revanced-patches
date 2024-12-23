@@ -17,6 +17,7 @@ import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.appendAppVersion
 import app.revanced.util.findMethodOrThrow
 
@@ -64,7 +65,6 @@ val spoofAppVersionPatch = resourcePatch(
             "6.29.59",
             "6.42.55",
             "6.51.53",
-            "7.06.54",
             "7.16.53",
         ),
     )
@@ -78,7 +78,7 @@ val spoofAppVersionPatch = resourcePatch(
 
     execute {
         if (is_7_25_or_greater) {
-            println("WARNING: \"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
             return@execute
         }
         if (is_7_17_or_greater) {

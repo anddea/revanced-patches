@@ -35,6 +35,7 @@ import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
@@ -382,7 +383,7 @@ val playerComponentsPatch = bytecodePatch(
                         name == "onClick"
                     }.hookInitVideoPanel(0)
                 } else {
-                    println("WARNING: target Opcode not found in ${fingerprint.first}")
+                    printWarn("target Opcode not found in ${fingerprint.first}")
                 }
             }
         }

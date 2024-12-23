@@ -10,6 +10,7 @@ import app.revanced.patches.reddit.utils.patch.PatchList.HIDE_NAVIGATION_BUTTONS
 import app.revanced.patches.reddit.utils.settings.is_2024_18_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -34,7 +35,7 @@ val navigationButtonsPatch = bytecodePatch(
     execute {
 
         if (is_2024_18_or_greater) {
-            println("WARNING: \"Hide navigation buttons\" patch is not supported in this version. Use Reddit 2024.17.0 or earlier.")
+            printWarn("\"Hide navigation buttons\" patch is not supported in this version. Use Reddit 2024.17.0 or earlier.")
             return@execute
         }
 

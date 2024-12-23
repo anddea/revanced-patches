@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.patch.PatchList.CHANGE_PACKAGE_NAME
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.Utils.printInfo
 import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 
@@ -71,7 +72,7 @@ val changePackageNamePatch = resourcePatch(
             .valueOrThrow()
 
         if (redditPackageName == PACKAGE_NAME_REDDIT) {
-            println("INFO: Package name will remain unchanged as it matches the original.")
+            printInfo("Package name will remain unchanged as it matches the original.")
             return@execute
         }
 

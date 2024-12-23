@@ -35,16 +35,14 @@ class ExtensionHook internal constructor(
 ) {
     context(BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        if (System.getenv("GITHUB_REPOSITORY") == null) {
-            val insertIndex = insertIndexResolver(fingerprint.method)
-            val contextRegister = contextRegisterResolver(fingerprint.method)
+        val insertIndex = insertIndexResolver(fingerprint.method)
+        val contextRegister = contextRegisterResolver(fingerprint.method)
 
-            fingerprint.method.addInstruction(
-                insertIndex,
-                "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                        "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
-            )
-        }
+        fingerprint.method.addInstruction(
+            insertIndex,
+            "invoke-static/range { $contextRegister .. $contextRegister }, " +
+                    "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
+        )
     }
 }
 

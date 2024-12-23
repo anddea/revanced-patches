@@ -1,33 +1,31 @@
 package app.revanced.extension.shared.patches.spoof;
 
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingData;
+
 import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
-import com.google.protos.youtube.api.innertube.StreamingDataOuterClass$StreamingData;
-
-import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-import app.revanced.extension.shared.patches.BlockRequestPatch;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
-public class SpoofStreamingDataPatch extends BlockRequestPatch {
+public class SpoofStreamingDataPatch {
+    public static final boolean SPOOF_STREAMING_DATA = SpoofStreamingData() && BaseSettings.SPOOF_STREAMING_DATA.get();
+
     /**
-     * Even if the default client is not iOS, videos that cannot be played on Android VR or Android TV will fall back to iOS.
-     * Do not add a dependency that checks whether the default client is iOS or not.
+     * Any unreachable ip address.  Used to intentionally fail requests.
      */
-    private static final boolean SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH =
-            SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH.get();
+    private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
+    private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
 
     /**
      * Key: video id
@@ -42,6 +40,55 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
                     return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
                 }
             });
+
+    /**
+     * Injection point.
+     * Blocks /get_watch requests by returning an unreachable URI.
+     *
+     * @param playerRequestUri The URI of the player request.
+     * @return An unreachable URI if the request is a /get_watch request, otherwise the original URI.
+     */
+    public static Uri blockGetWatchRequest(Uri playerRequestUri) {
+        if (SPOOF_STREAMING_DATA) {
+            try {
+                String path = playerRequestUri.getPath();
+
+                if (path != null && path.contains("get_watch")) {
+                    Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
+
+                    return UNREACHABLE_HOST_URI;
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "blockGetWatchRequest failure", ex);
+            }
+        }
+
+        return playerRequestUri;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Blocks /initplayback requests.
+     */
+    public static String blockInitPlaybackRequest(String originalUrlString) {
+        if (SPOOF_STREAMING_DATA) {
+            try {
+                var originalUri = Uri.parse(originalUrlString);
+                String path = originalUri.getPath();
+
+                if (path != null && path.contains("initplayback")) {
+                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
+
+                    return originalUri.buildUpon().clearQuery().build().toString();
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
+            }
+        }
+
+        return originalUrlString;
+    }
 
     /**
      * Injection point.
@@ -133,28 +180,12 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
      * <p>
      * Called after {@link #getStreamingData(String)}.
      */
-    public static void setApproxDurationMs(String videoId, String approxDurationMsFieldName,
-                                           StreamingDataOuterClass$StreamingData originalStreamingData, StreamingDataOuterClass$StreamingData spoofedStreamingData) {
-        if (SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH) {
-            if (formatsIsEmpty(spoofedStreamingData)) {
-                List<?> originalFormats = getFormatsFromStreamingData(originalStreamingData);
-                Long approxDurationMs = getApproxDurationMs(originalFormats, approxDurationMsFieldName);
-                if (approxDurationMs != null) {
-                    approxDurationMsMap.put(videoId, approxDurationMs);
-                    Logger.printDebug(() -> "New approxDurationMs loaded, video id: " + videoId + ", video length: " + approxDurationMs);
-                } else {
-                    Logger.printDebug(() -> "Ignoring as original approxDurationMs is not found, video id: " + videoId);
-                }
-            } else {
-                Logger.printDebug(() -> "Ignoring as spoofed formats is not empty, video id: " + videoId);
-            }
+    public static void setApproxDurationMs(String videoId, long approxDurationMs) {
+        if (approxDurationMs != Long.MAX_VALUE) {
+            approxDurationMsMap.put(videoId, approxDurationMs);
+            Logger.printDebug(() -> "New approxDurationMs loaded, video id: " + videoId + ", video length: " + approxDurationMs);
         }
     }
-
-    /**
-     * Looks like the initial value for the videoId field.
-     */
-    private static final String MASKED_VIDEO_ID = "zzzzzzzzzzz";
 
     /**
      * Injection point.
@@ -171,22 +202,16 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
      * <p>
      * Called after {@link #getStreamingData(String)}.
      */
-    public static long getApproxDurationMsFromOriginalResponse(String videoId, long lengthMilliseconds) {
-        if (SPOOF_STREAMING_DATA_SYNC_VIDEO_LENGTH) {
-            try {
-                if (videoId != null && !videoId.equals(MASKED_VIDEO_ID)) {
-                    Long approxDurationMs = approxDurationMsMap.get(videoId);
-                    if (approxDurationMs != null) {
-                        Logger.printDebug(() -> "Replacing video length from " + lengthMilliseconds + " to " + approxDurationMs + " , videoId: " + videoId);
-                        approxDurationMsMap.remove(videoId);
-                        return approxDurationMs;
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "getOriginalFormats failure", ex);
+    public static long getApproxDurationMs(String videoId) {
+        if (SPOOF_STREAMING_DATA && videoId != null) {
+            final Long approxDurationMs = approxDurationMsMap.get(videoId);
+            if (approxDurationMs != null) {
+                Logger.printDebug(() -> "Replacing video length: " + approxDurationMs + " for videoId: " + videoId);
+                approxDurationMsMap.remove(videoId);
+                return approxDurationMs;
             }
         }
-        return lengthMilliseconds;
+        return Long.MAX_VALUE;
     }
 
     /**
@@ -227,48 +252,5 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
         }
 
         return videoFormat;
-    }
-
-    // Utils
-
-    private static boolean formatsIsEmpty(StreamingDataOuterClass$StreamingData streamingData) {
-        List<?> formats = getFormatsFromStreamingData(streamingData);
-        return formats == null || formats.size() == 0;
-    }
-
-    private static List<?> getFormatsFromStreamingData(StreamingDataOuterClass$StreamingData streamingData) {
-        try {
-            // Field e: 'formats'.
-            // Field name is always 'e', regardless of the client version.
-            Field field = streamingData.getClass().getDeclaredField("e");
-            field.setAccessible(true);
-            if (field.get(streamingData) instanceof List<?> list) {
-                return list;
-            }
-        } catch (NoSuchFieldException | IllegalAccessException ex) {
-            Logger.printException(() -> "Reflection error accessing formats", ex);
-        }
-        return null;
-    }
-
-    private static Long getApproxDurationMs(List<?> list, String approxDurationMsFieldName) {
-        try {
-            if (list != null) {
-                var iterator = list.listIterator();
-                if (iterator.hasNext()) {
-                    var formats = iterator.next();
-                    Field field = formats.getClass().getDeclaredField(approxDurationMsFieldName);
-                    field.setAccessible(true);
-                    if (field.get(formats) instanceof Long approxDurationMs) {
-                        return approxDurationMs;
-                    } else {
-                        Logger.printDebug(() -> "Field type is null: " + approxDurationMsFieldName);
-                    }
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException ex) {
-            Logger.printException(() -> "Reflection error accessing field: " + approxDurationMsFieldName, ex);
-        }
-        return null;
     }
 }

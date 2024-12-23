@@ -16,6 +16,7 @@ import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -38,7 +39,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
         YOUTUBE_MUSIC_PACKAGE_NAME(
             "7.06.54",
             "7.16.53",
-            "7.25.52",
+            "7.25.53",
         ),
     )
 
@@ -50,7 +51,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
 
     execute {
         if (!is_7_06_or_greater) {
-            println("WARNING: \"${DISABLE_CAIRO_SPLASH_ANIMATION.title}\" is not supported in this version. Use YouTube Music 7.06.54 or later.")
+            printWarn("\"${DISABLE_CAIRO_SPLASH_ANIMATION.title}\" is not supported in this version. Use YouTube Music 7.06.54 or later.")
             return@execute
         } else if (!is_7_20_or_greater) {
             cairoSplashAnimationConfigFingerprint.injectLiteralInstructionBooleanCall(

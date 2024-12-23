@@ -378,11 +378,6 @@ public final class app/revanced/patches/shared/ads/BaseAdsPatchKt {
 	public static final fun baseAdsPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/blockrequest/BlockRequestPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
-	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/shared/captions/BaseAutoCaptionsPatchKt {
 	public static final fun getBaseAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -499,9 +494,12 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 
 public final class app/revanced/patches/shared/spoof/streamingdata/BaseSpoofStreamingDataPatchKt {
 	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
-	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
 	public static final fun baseSpoofStreamingDataPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static synthetic fun baseSpoofStreamingDataPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/spoof/streamingdata/FingerprintsKt {
+	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgentPatchKt {

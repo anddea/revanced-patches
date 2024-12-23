@@ -9,6 +9,7 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.getIconType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
@@ -154,7 +155,7 @@ val changeHeaderPatch = resourcePatch(
         val customBrandingIconIncluded = customBrandingIconType != "default"
         customHeader = customHeaderOption.valueOrThrow()
 
-        val warnings = "WARNING: Invalid header path: $customHeader. Does not apply patches."
+        val warnings = "Invalid header path: $customHeader. Does not apply patches."
 
         if (isPath) {
             copyFile(
@@ -169,7 +170,7 @@ val changeHeaderPatch = resourcePatch(
                 }
             }
         } else {
-            println(warnings)
+            printWarn(warnings)
         }
 
         updatePatchStatus(CUSTOM_HEADER_FOR_YOUTUBE_MUSIC)

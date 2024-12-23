@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.patches.spoof.requests;
 
+import static app.revanced.extension.shared.patches.client.AppClient.getAvailableClientTypes;
 import static app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -80,16 +82,20 @@ public class StreamingDataRequest {
     }
 
     static {
-        ClientType[] allClientTypes = ClientType.values();
+        ClientType[] allClientTypes = getAvailableClientTypes();
         ClientType preferredClient = BaseSettings.SPOOF_STREAMING_DATA_TYPE.get();
 
-        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
-        CLIENT_ORDER_TO_USE[0] = preferredClient;
+        if (Arrays.stream(allClientTypes).noneMatch(preferredClient::equals)) {
+            CLIENT_ORDER_TO_USE = allClientTypes;
+        } else {
+            CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
+            CLIENT_ORDER_TO_USE[0] = preferredClient;
 
-        int i = 1;
-        for (ClientType c : allClientTypes) {
-            if (c != preferredClient) {
-                CLIENT_ORDER_TO_USE[i++] = c;
+            int i = 1;
+            for (ClientType c : allClientTypes) {
+                if (c != preferredClient) {
+                    CLIENT_ORDER_TO_USE[i++] = c;
+                }
             }
         }
     }

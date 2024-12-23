@@ -30,6 +30,7 @@ import app.revanced.util.removeStringsElements
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
+import java.nio.file.Files
 import java.util.jar.Manifest
 
 private const val EXTENSION_INITIALIZATION_CLASS_DESCRIPTOR =
@@ -190,6 +191,18 @@ val settingsPatch = resourcePatch(
         ).forEach { xmlFile ->
             copyXmlNode("youtube/settings/host", "values/$xmlFile", "resources")
         }
+
+        val valuesV21Directory = get("res").resolve("values-v21")
+        if (!valuesV21Directory.isDirectory)
+            Files.createDirectories(valuesV21Directory.toPath())
+
+        copyResources(
+            "youtube/settings",
+            ResourceGroup(
+                "values-v21",
+                "strings.xml"
+            )
+        )
 
         arrayOf(
             ResourceGroup(
