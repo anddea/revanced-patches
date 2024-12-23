@@ -1,3 +1,10 @@
+# [3.0.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.7...v3.0.0-dev.8) (2024-12-23)
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Add `Enable translucent status bar` setting (for YouTube 19.25+) ([2cf269b](https://github.com/anddea/revanced-patches/commit/2cf269bcda307b6546d7ab82d5fcd33bc8c0b329))
+
 # [3.0.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.6...v3.0.0-dev.7) (2024-12-23)
 
 
