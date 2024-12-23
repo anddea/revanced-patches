@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.voiceSearch
 import app.revanced.patches.youtube.utils.resourceid.ytOutlineVideoCamera
 import app.revanced.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
 import app.revanced.patches.youtube.utils.resourceid.ytWordMarkHeader
@@ -32,6 +31,7 @@ import app.revanced.util.doRecursively
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
@@ -332,8 +332,17 @@ val toolBarComponentsPatch = bytecodePatch(
 
         searchResultFingerprint.matchOrThrow().let {
             it.method.apply {
-                val startIndex = indexOfFirstLiteralInstructionOrThrow(voiceSearch)
-                val setOnClickListenerIndex = indexOfFirstInstructionOrThrow(startIndex) {
+                val voiceInputControllerActivityMethodCall =
+                    voiceInputControllerFingerprint
+                        .methodOrThrow(voiceInputControllerParentFingerprint)
+                        .methodCall()
+
+                val voiceInputControllerActivityIndex =
+                    indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.toString() == voiceInputControllerActivityMethodCall
+                    }
+                val setOnClickListenerIndex = indexOfFirstInstructionOrThrow(voiceInputControllerActivityIndex) {
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.name == "setOnClickListener"
                 }
