@@ -245,6 +245,11 @@ Nota:
     <string name="revanced_disable_watch_panel_gestures_summary_off">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está ativado.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está desativado.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Desativar gestos do painel de observação</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">A barra de busca do Cairo está desativada.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"A barra de busca do Cairo está ativada.
+
+Efeito colateral: o tema Cairo também é aplicado aos pontos de notificação."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Ativar barra de busca do Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">A sobreposição de controles preenche a tela inteira.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">A sobreposição de controles não preenche a tela inteira.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Ativar sobreposição de controles compactos</string>
@@ -326,6 +331,9 @@ Problema conhecido: como se trata de um recurso em fase de desenvolvimento pelo 
     <string name="revanced_enable_swipe_volume_summary_off">O gesto de volume está desativado.</string>
     <string name="revanced_enable_swipe_volume_summary_on">O gesto de volume está ativado.</string>
     <string name="revanced_enable_swipe_volume_title">Ativar gesto de volume</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">A barra de navegação está opaca.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">A barra de navegação está transparente.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Ativar barra de navegação transparente</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está desativado.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está ativado.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Ativar gestos no painel de exibição</string>
@@ -1709,7 +1717,6 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• O menu de faixa de áudio está faltando."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ainda não encontrado.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Os vídeos podem acabar 1 segundo antes.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Os vídeos podem acabar 1 segundo antes.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
@@ -1717,11 +1724,6 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Os dados de streaming não são falsificados. A reprodução de vídeo pode não funcionar."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Os dados de streaming são falsificados.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"A duração do vídeo não é sincronizada antes da reprodução.
-A duração do vídeo pode ser um valor arredondado."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"A duração do vídeo é sincronizada antes da reprodução.
-A duração do vídeo é o valor exato."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sincronizar duração do vídeo antes da reprodução</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>

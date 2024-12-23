@@ -223,6 +223,7 @@
     <string name="revanced_disable_splash_animation_title">Анимированная заставка</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Переключение видео жестами включены.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Переключение видео жестами отключены.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Переключение видео жестом</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Включена.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Отключена.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_title">Темная полупрозрачная панель навигации</string>
@@ -247,6 +248,12 @@
     <string name="revanced_disable_watch_panel_gestures_summary_off">Полноэкранный режим жестом вниз включен.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Полноэкранный режим жестом вниз отключен.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Жесты панели просмотра</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Тема Каир прогресса отключена.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Тема Каир прогресса включена.
+
+Дополнительно:
+Тема также применяется к точкам уведомлений."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Тема Каир прогресса</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Наложение элементов управления полноэкранное.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Наложение элементов управления не полноэкранное.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Компактные элементы управления</string>
@@ -328,6 +335,9 @@
     <string name="revanced_enable_swipe_volume_summary_off">Громкость жестом отключено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Громкость жестом включено.</string>
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачная панель навигации</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Переход в полноэкранный режим жестом вниз в нижней части плеера отключен.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Переход в полноэкранный режим жестом вниз в нижней части плеера включен.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Жест под плеером</string>
@@ -1403,6 +1413,10 @@ Shorts
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старое меню качества скрыто.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старое меню качества отображено.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Старое меню качества</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Старый интерфейс проигрывателя отключен.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старый интерфейс проигрывателя включен.
+Без отступов сверху и снизу плеера."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Старый интерфейс проигрывателя</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@псевдоним (Имя пользователя)</string>
     <string name="revanced_return_youtube_username_display_format_title">Вид отображения</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Имя пользователя (@псевдоним)</string>
@@ -1731,12 +1745,17 @@ Shorts
 При отключении подмены, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Подменяет размеры устройства, для разблокировки более высокого качества видео, которое может быть недоступно на вашем устройстве."</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена размеров устройства</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android и iOS клиенты используются для получения потоковых данных.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android клиенты используются для получения потоковых данных.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Использовать только клиенты Android</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудио дорожки отсутствует.
+• Стабильная громкость недоступна.
+• Отключить принудительные автозвуковые дорожки недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню \"Звуковая дорожка\" не доступно."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню \"Звуковая дорожка\" отсутствует.
-• Меню \"Постоянный уровень громкости\" недоступно."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню \"Звуковая дорожка\" VR не доступно."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Еще не найдено.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Видео может закончиться 1 секунду ранее.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Видео может закончиться 1 сек ранее. При подмене как iOS.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Платные видео и фильмы могут не проигрываться.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видео может не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиент потоковых данных скрыт в Статистике для сисадминов.</string>
@@ -1745,17 +1764,14 @@ Shorts
     <string name="revanced_spoof_streaming_data_summary_off">"Подмена потоковых данных отключена.
 Воспроизведение видео может не работать."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Подмена потоковых данных включена.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Синхронизация видео перед воспроизведением отключена.
-Округленная продолжительность видео."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Синхронизация видео перед воспроизведением включена.
-Точная продолжительность видео."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Синхронизация видео перед воспроизведением</string>
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Редактор Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">Музыка iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Значение должно быть от 1 до 1000 (%).</string>

@@ -221,6 +221,9 @@
     <string name="revanced_disable_splash_animation_summary_off">啟動動畫已啟用</string>
     <string name="revanced_disable_splash_animation_summary_on">啟動動畫已停用</string>
     <string name="revanced_disable_splash_animation_title">停用啟動動畫</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">向上/向下滑動將播放下一個/上一個影片。</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">向上/向下滑動將不會播放下一個/上一個影片。</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">停用滑動切換影片功能</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導覽列不透明或半透明。</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列不透明。</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明欄</string>
@@ -242,6 +245,13 @@
 • 影片播放將使用比 VP9 更多的網路數據。
 • 若要獲得 HDR 播放，HDR 影片仍會使用 VP9 編解碼器。"</string>
     <string name="revanced_disable_vp9_codec_title">停用 VP9 編解碼器</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">透過滑動播放器底部區域切換到全螢幕功能已啟用。</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">透過滑動播放器底部區域切換到全螢幕功能已停用。</string>
+    <string name="revanced_disable_watch_panel_gestures_title">停用觀看面板手勢</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">開羅搜尋欄已停用。</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"開羅搜尋欄已啟用。
+副作用：開羅主題也適用於通知點。"</string>
+    <string name="revanced_enable_cairo_seekbar_title">啟用開羅搜尋欄</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">緊湊的播放器佈局已停用</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">精簡控制選單已啟用</string>
     <string name="revanced_enable_compact_controls_overlay_title">啟用緊湊的播放器佈局疊加層</string>
@@ -321,6 +331,9 @@
     <string name="revanced_enable_swipe_volume_summary_off">滑動控制音量已停用</string>
     <string name="revanced_enable_swipe_volume_summary_on">滑動控制音量已啟用</string>
     <string name="revanced_enable_swipe_volume_title">音量手勢</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">導覽列不透明。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">導覽列是半透明的。</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">啟用半透明導覽列</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">當在影片播放器下方向下滑動時，停用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">當在影片播放器下方向下滑動時，啟用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_title">啟用觀看面板手勢</string>
@@ -370,8 +383,6 @@
     <string name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
-    <string name="revanced_external_downloader_package_name_video_long_press_summary">長按時使用的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
-    <string name="revanced_external_downloader_package_name_video_long_press_title">長按時的影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_force_fullscreen_summary">"影片將在以下情況下切換到全螢幕模式：
@@ -1125,18 +1136,13 @@ Note:
     <string name="revanced_icon_mmt">MMT</string>
     <string name="revanced_icon_mmt_blue">MMT 藍</string>
     <string name="revanced_icon_mmt_green">MMT 綠</string>
-    <string name="revanced_icon_mmt_orange">MMT 橘</string>
-    <string name="revanced_icon_mmt_pink">MMT 粉紅</string>
-    <string name="revanced_icon_mmt_turquoise">MMT 青綠</string>
     <string name="revanced_icon_mmt_yellow">MMT 黃</string>
     <string name="revanced_icon_revancify_blue">復興藍</string>
     <string name="revanced_icon_revancify_red">復興紅</string>
     <string name="revanced_icon_revancify_yellow">復興黃</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
-    <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
-    <string name="revanced_icon_youtube_black">YouTube 黑</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">已強制橫向模式的毫秒數。</string>
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
@@ -1388,6 +1394,10 @@ Note:
     <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">顯示舊的影片畫質選單</string>
     <string name="revanced_restore_old_video_quality_menu_title">恢復舊的影片畫質選單</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">未使用舊版播放器介面。</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"正在使用舊版播放器介面。
+播放器的上下邊緣無間距。"</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">恢復舊版播放器介面</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@使用者帳號 (使用者名稱)</string>
     <string name="revanced_return_youtube_username_display_format_title">顯示的格式</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">使用者名稱 (@使用者帳號)</string>
@@ -1497,9 +1507,7 @@ Note:
     <string name="revanced_sb_guidelines_popup_title">遵循指南</string>
     <string name="revanced_sb_guidelines_preference_sum">指南包含創建新片段的規則和技巧</string>
     <string name="revanced_sb_guidelines_preference_title">查看指南</string>
-    <string name="revanced_sb_new_segment_adjust">調整：標記片段的開始和結束時間</string>
     <string name="revanced_sb_new_segment_choose_category">選擇片段類別</string>
-    <string name="revanced_sb_new_segment_compare">驗證片段</string>
     <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
     <string name="revanced_sb_new_segment_confirm_contents">段落從\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
@@ -1507,15 +1515,12 @@ Note:
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手動編輯片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段時間</string>
-    <string name="revanced_sb_new_segment_forward">依指定時間往前跳轉（預設：150 毫秒）</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記兩個位置</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
     <string name="revanced_sb_new_segment_now">立即</string>
     <string name="revanced_sb_new_segment_preview_segment_first">預覽片段，並確保跳過順暢</string>
-    <string name="revanced_sb_new_segment_publish">發佈創建的片段</string>
-    <string name="revanced_sb_new_segment_rewind">依指定時間往後跳轉（預設：150 毫秒）</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始時間必須早於結束時間</string>
     <string name="revanced_sb_new_segment_time_end">片段結束時間</string>
     <string name="revanced_sb_new_segment_time_start">片段開始時間</string>
@@ -1722,12 +1727,14 @@ Note:
 如果稍後關閉，建議清除應用程式資料以防止 UI 錯誤。"</string>
     <string name="revanced_spoof_device_dimensions_summary">"變更裝置尺寸設定，以便解鎖在您目前的裝置上原本不支援的較高影片品質。"</string>
     <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• 音軌選單缺失。
+• 穩定音量不可用。
+• 停用強制自動音軌不可用。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 尚未找到。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 影片可能會提前1秒結束。
-• 可能不支援 OPUS 音訊編解碼器。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 影片可能會提前 1 秒結束。</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• 電影或付費影片可能無法播放。</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">偽裝副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 影片可能無法播放。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">用於獲取串流資料的用戶端隱藏在統計資料中。</string>
@@ -1737,10 +1744,12 @@ Note:
     <string name="revanced_spoof_streaming_data_summary_on">串流資料已偽裝。</string>
     <string name="revanced_spoof_streaming_data_title">偽裝串流數據</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">安卓</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android 創作者</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android 電視</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS 音樂</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">預設客戶端</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">關閉此設定可能會導致影片播放問題。</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">滑動控制 (亮度) 靈敏度的值必須在 1-1000 (%) 之間</string>

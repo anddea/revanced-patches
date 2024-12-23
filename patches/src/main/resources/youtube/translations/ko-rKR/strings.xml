@@ -145,11 +145,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_ambient_mode_summary_off">앰비언트 모드를 활성화합니다.</string>
     <string name="revanced_disable_ambient_mode_summary_on">앰비언트 모드를 비활성화합니다.</string>
     <string name="revanced_disable_ambient_mode_title">앱비언트 모드 비활성화하기</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">오디오 트랙 사용이 강제된 동영상에서 오디오 트랙을 활성화합니다.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">오디오 트랙 사용이 강제된 동영상에서 오디오 트랙을 비활성화합니다.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">자동 오디오 트랙을 활성화합니다.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">자동 오디오 트랙을 비활성화합니다.</string>
     <string name="revanced_disable_auto_audio_tracks_title">자동 오디오 트랙 비활성화하기</string>
-    <string name="revanced_disable_auto_captions_summary_off">자막 사용이 강제된 동영상에서 자막을 활성화합니다.</string>
-    <string name="revanced_disable_auto_captions_summary_on">자막 사용이 강제된 동영상에서 자막을 비활성화합니다.</string>
+    <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다.</string>
+    <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다.</string>
     <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_off">자동 플레이어 팝업 패널을 활성화합니다.\n• 재생목록, 실시간 채팅, 제품 패널 ...</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">자동 플레이어 팝업 패널을 비활성화합니다.\n• 재생목록, 실시간 채팅, 제품 패널 ...</string>
@@ -251,6 +251,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_watch_panel_gestures_summary_off">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환합니다.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환하지 않습니다.</string>
     <string name="revanced_disable_watch_panel_gestures_title">시청 패널 제스처 비활성화하기</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Cairo 재생바를 비활성화합니다.\n• 그라데이션 색상 재생바</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo 재생바를 활성화합니다.
+• 그라데이션 색상 재생바
+
+알려진 문제점: 
+• Cairo 테마가 알림 표시 점에도 적용됩니다."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Cairo 재생바 활성화하기</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 컨트롤 오버레이를 작게 표시하지 않습니다.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 컨트롤 오버레이를 작게 표시합니다.</string>
     <string name="revanced_enable_compact_controls_overlay_title">컴팩트 컨트롤 오버레이 활성화하기</string>
@@ -334,6 +341,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">불투명 하단바를 활성화합니다.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">반투명 하단바를 활성화합니다.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">반투명 하단바 활성화하기</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환하지 않습니다.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">동영상 플레이어 하단에서 아래로 스와이프하여 전체 화면으로 전환합니다.</string>
     <string name="revanced_enable_watch_panel_gestures_title">시청 패널 제스처 활성화하기</string>
@@ -1210,7 +1220,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다.</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다.</string>
     <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
-    <string name="revanced_miniplayer_type_entry_0">비활성화됨</string>
+    <string name="revanced_miniplayer_type_entry_0">사용하지 않음</string>
     <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
     <string name="revanced_miniplayer_type_entry_2">최소화</string>
     <string name="revanced_miniplayer_type_entry_3">태블릿</string>
@@ -1739,13 +1749,19 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 • 높은 기기 크기 정보가 필요한 일부 동영상에서는 고화질 동영상 값이 잠금 해제될 수 있지만 모든 동영상에는 적용되지 않습니다.
 • 일부 스마트폰에서 이 설정을 활성화하면, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 문제점도 발생할 수 있습니다."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android 와 iOS 클라이언트를 스트리밍 데이터를 가져오는 데 사용합니다.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android 클라이언트를 스트리밍 데이터를 가져오는 데 사용합니다.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Android 클라이언트만 사용하기</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• 오디오 트랙 메뉴가 표시되지 않습니다.
+• 안정적인 볼륨을 사용할 수 없습니다.
+• 자동 오디오 트랙을 비활성화할 수 없습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 아직 발견되지 않았습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 동영상이 1초 일찍 종료될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• 동영상이 1초 일찍 종료될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.</string>
@@ -1753,17 +1769,14 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
     <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"동영상 길이를 재생 전에 동기화하지 않습니다.
-동영상 길이는 반올림된 값일 수 있습니다."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"동영상 길이를 재생 전에 동기화합니다.
-동영상 길이는 정확한 값입니다."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">재생 전 동영상 길이 동기화하기</string>
     <string name="revanced_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">밝기 스와이프 감도는 1-1000 사이어야 합니다. (퍼센트)</string>
