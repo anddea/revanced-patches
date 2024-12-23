@@ -205,6 +205,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         );
         enableDisablePreferences(
                 !isSDKAbove(33),
+                Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR,
                 Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT,
                 Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
         );
