@@ -87,7 +87,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         if (is_19_23_or_greater) {
             translucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
-                45630927L,
+                TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
                 "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
             )
 
@@ -117,6 +117,16 @@ val navigationBarComponentsPatch = bytecodePatch(
                     "$GENERAL_CLASS_DESCRIPTOR->${it.third}(Z)Z"
                 )
             }
+
+            translucentStatusBarFingerprint.injectLiteralInstructionBooleanCall(
+                TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentStatusBar()Z"
+            )
+
+            translucentNavigationBarSystemFingerprint.injectLiteralInstructionBooleanCall(
+                TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
+            )
 
             settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
