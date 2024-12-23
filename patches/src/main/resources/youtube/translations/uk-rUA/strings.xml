@@ -221,6 +221,7 @@
     <string name="revanced_disable_splash_animation_title">Вимкнути сплеш анімацію</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Проведення вгору / вниз відтворюватиме наступне / попереднє відео.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Проведення вгору / вниз не відтворюватиме наступне / попереднє відео.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Вимкнути зміну відео проведенням</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації у темному режимі непрозора чи напівпрозора.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панель навігації у темному режимі непрозора.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути напівпрозорість темної панелі</string>
@@ -245,6 +246,11 @@
     <string name="revanced_disable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Вимкнути жести панелі перегляду</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Смугу прогресу Каїр вимкнено.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Смугу прогресу Каїр увімкнено.
+
+Побічний ефект: Тема Каїр також застосовується до цяток сповіщення."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Увімкнути смугу прогресу Каїр</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Компактне керування заповнює весь екран.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Компактне керування не заповнює весь екран.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Увімкнути компактне керування</string>
@@ -328,6 +334,9 @@
     <string name="revanced_enable_swipe_volume_summary_off">Зміну гучності жестом вимкнено.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Зміну гучності жестом увімкнено.</string>
     <string name="revanced_enable_swipe_volume_title">Увімкнути зміну гучності жестом</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Увімкнути жести панелі перегляду</string>
@@ -1398,6 +1407,10 @@
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старе меню якості відео не показується.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старе меню якості відео показується.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Старий макет плеєра не використовується.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старий макет плеєра використовується.
+Немає полів зверху та знизу плеєра."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Відновити старий макет плеєра</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@ідентифікатор (Назва користувача)</string>
     <string name="revanced_return_youtube_username_display_format_title">Формат відображення</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Назва користувача (@ідентифікатор)</string>
@@ -1727,13 +1740,19 @@
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
 Високу якість може бути розблоковано для деяких відео, які вимагають великих розмірів пристрою, але не для всіх відео."</string>
     <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Використовується клієнти Android та iOS для отримання потокових даних.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Використовується клієнти Android для отримання потокових даних.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Використовувати лише клієнти Android</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню звукової доріжки відсутнє.
+• Стабілізація гучності недоступна.
+• Вимикання примусових звукових доріжок недоступне."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ще не знайдено.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Відео можуть закінчуватися на 1 секунду раніше.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Відео можуть закінчуватися на 1 секунду раніше.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Фільми чи платні відео можуть не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
@@ -1741,17 +1760,14 @@
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати в Статистика для сисадмінів</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Дані трансляції не підроблено. Відтворення відео може не працювати."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Дані трансляції підроблено.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Довжину відео не синхронізується перед відтворенням.
-Тривалість відео може бути округленим значенням."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Довжину відео синхронізується перед відтворенням.
-Тривалість відео є точним значенням."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Синхронізувати тривалість відео перед відтворенням</string>
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Розробник Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">Музика iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Основний клієнт</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чутливість жесту яскравості повинна бути в межах 1-1000 (%).</string>

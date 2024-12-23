@@ -142,9 +142,9 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_disable_ambient_mode_summary_off">La modalità Ambient è attivata.</string>
     <string name="revanced_disable_ambient_mode_summary_on">La modalità Ambient è disattivata.</string>
     <string name="revanced_disable_ambient_mode_title">Disattiva la modalità Ambient</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_off">Le tracce audio automatiche forzate sono attivate.</string>
-    <string name="revanced_disable_auto_audio_tracks_summary_on">Le tracce audio automatiche forzate sono disattivate.</string>
-    <string name="revanced_disable_auto_audio_tracks_title">Disattiva le tracce audio automatiche forzate</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_off">La traccia audio automatica forzata è attivata.</string>
+    <string name="revanced_disable_auto_audio_tracks_summary_on">La traccia audio automatica forzata è disattivata.</string>
+    <string name="revanced_disable_auto_audio_tracks_title">Disattiva la traccia audio automatica forzata</string>
     <string name="revanced_disable_auto_captions_summary_off">I sottotitoli automatici forzati sono attivati.</string>
     <string name="revanced_disable_auto_captions_summary_on">I sottotitoli automatici forzati sono disattivati.</string>
     <string name="revanced_disable_auto_captions_title">Disattiva i sottotitoli automatici forzati</string>
@@ -248,6 +248,11 @@ Note:
     <string name="revanced_disable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Disattiva il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">La barra di avanzamento Cairo è disattivata.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"La barra di avanzamento Cairo è attivata.
+
+Nota: il tema Cairo viene applicato anche ai punti di notifica."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Attiva la barra di avanzamento Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">I controlli compatti sono disattivati.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">I controlli compatti sono attivati.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Attiva i controlli compatti</string>
@@ -331,6 +336,9 @@ Note:
     <string name="revanced_enable_swipe_volume_summary_off">Il gesto del volume è disattivato.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Il gesto del volume è attivato.</string>
     <string name="revanced_enable_swipe_volume_title">Attiva il gesto del volume</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione traslucida è disattivata.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione traslucida è attivata.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Attiva i gesti del pannello di controllo</string>
@@ -1661,8 +1669,8 @@ La maggior parte dei bug non può essere risolta a causa di limitazioni lato cli
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Il menù Apri il Video è visibile.</string>
     <string name="revanced_shorts_custom_actions_open_video_title">Mostra il menù Apri il Video</string>
     <string name="revanced_shorts_custom_actions_repeat_state_label">Stato di ripetizione</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Il menù Stato di Ripetizione è visibile.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Il menù Stato di Ripetizione è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Il menù Stato di Ripetizione è nascosto.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Il menù Stato di Ripetizione è visibile.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">Mostra il menù Stato di Ripetizione</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Azioni personalizzate</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Originale</string>
@@ -1730,6 +1738,13 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
     <string name="revanced_spoof_device_dimensions_summary">"Camuffa le dimensioni del dispositivo portandole al valore massimo.
 Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tutti, che richiedono dimensioni del dispositivo elevate."</string>
     <string name="revanced_spoof_device_dimensions_title">Camuffa le dimensioni del dispositivo</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">I client Android e iOS sono usati per recuperare i dati in streaming.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Il client Android è usato per recuperare i dati in streaming.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Usa solo il client Android</string>
+    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Il menù Traccia Audio è mancante.
+• Il menù Volume Stabile è mancante.
+• La disattivazione della traccia audio automatica forzata non funziona."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
@@ -1738,7 +1753,7 @@ Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tu
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
 • Il codec audio Opus potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• I video potrebbero terminare 1 secondo prima.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• I film o i video a pagamento potrebbero non essere riprodotti.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client usato per recuperare i dati in streaming è nascosto nelle statistiche per nerd.</string>
@@ -1746,17 +1761,14 @@ Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tu
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
     <string name="revanced_spoof_streaming_data_summary_off">"I dati in streaming non sono camuffati. La riproduzione potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_summary_on">I dati in streaming sono camuffati.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"La lunghezza del video non è sincronizzata prima della riproduzione. 
-La lunghezza del video potrebbe essere un valore arrotondato."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"La lunghezza del video è sincronizzata prima della riproduzione.
-La lunghezza del video è il valore esatto."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sincronizza la lunghezza del video prima della riproduzione</string>
     <string name="revanced_spoof_streaming_data_title">Camuffa i dati in streaming</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilità del gesto della luminosità deve essere tra 1 e 1000 (%)</string>

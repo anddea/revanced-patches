@@ -225,6 +225,7 @@ Note :
     <string name="revanced_disable_splash_animation_title">Désact. l\'animation de démarrage</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Glisser vers le haut / bas pour lire la vidéo suivante / précédente.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Glisser vers le haut / bas ne lira pas la vidéo suivante / précédente.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Désactiver les gestes pour changer de vidéo</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barre translucide en mode sombre est opaque ou translucide.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barre translucide en mode sombre est opaque.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_title">Désactiver la barre translucide en mode sombre</string>
@@ -249,6 +250,11 @@ Note :
     <string name="revanced_disable_watch_panel_gestures_summary_off">Le passage plein écran en faisant glisser vers le bas sous le lecteur vidéo est activé.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Le passage plein écran en faisant glisser vers le bas sous le lecteur vidéo est désactivé.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Désactiver les gestes inférieurs du lecteur</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">La barre de progression Cairo est désactivé.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"La barre de progression Cairo est activé.
+
+Effet secondaire : le thème Cairo peut également s'appliquer sur les points de notification."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Activer la barre de progression Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La voile des contrôles remplit le plein écran.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La voile des contrôles ne remplit pas le plein écran.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Activer le fond des contrôles compacts</string>
@@ -332,6 +338,9 @@ Limitations :
     <string name="revanced_enable_swipe_volume_summary_off">Les gestes de volume sont désactivé.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Les gestes de volume sont activé.</string>
     <string name="revanced_enable_swipe_volume_title">Activer les gestes de volume</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barre de navigation est opaque.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barre de navigation est translucide.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Activer la barre de navigation translucide</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Le passage plein écran en faisant glisser vers le bas sous le lecteur vidéo est désactivé.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Le passage plein écran en faisant glisser vers le bas sous le lecteur vidéo est activé.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Activer les gestes inférieurs du lecteur</string>
@@ -1381,6 +1390,10 @@ Appuyez longuement pour ouvrir les paramètres YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">Masque la nouvelle interface de qualité vidéo.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Affiche l\'ancienne interface de qualité vidéo.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restaur. ancien. interface de qualité vidéo</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">L\'ancienne mise en page du lecteur n\'est pas utilisée.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"L'ancienne mise en page du lecteur est utilisée.
+Pas de marges en haut et en bas du lecteur."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restaurer l\'ancienne interface du lecteur</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@identifiant (Nom d\'utilisateur)</string>
     <string name="revanced_return_youtube_username_display_format_title">Format d\'affichage</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Nom d\'utilisateur (@identifiant)</string>
@@ -1705,12 +1718,13 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil a la valeur maximale.
 Les hautes qualités peuvent être débloquées sur certaines vidéos qui requièrent des appareils ayant des dimensions élevées, mais pas sur toutes les vidéos."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Le menu 'Piste Audio' est manquant.
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Le menu \"Piste Audio\" est manquant.
 • Le volume stable n'es pas disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Le menu 'Piste Audio' est manquant.
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Le menu \"Piste Audio\" est manquant.
 • Le volume stable n'es pas disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Pas encore trouvé.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Les vidéos peuvent se terminer avec 1 seconde d\'avance.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Les vidéos privées conçues pour enfants peuvent ne pas être lues.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Les vidéos privées conçues pour enfants peuvent ne pas être lues.
+• Les films ou vidéos payantes peuvent ne pas être lues.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effets inconnus de la falsification</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Les vidéos peuvent ne pas être lus.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client utilisé pour récupérer les données de lecture en direct est masqué dans \'Statistiques pour les nerds\'.</string>
@@ -1718,17 +1732,13 @@ Les hautes qualités peuvent être débloquées sur certaines vidéos qui requi�
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans \'Statistiques pour les nerds\'</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Les données de lecture en direct ne sont pas falsifiées. La lecture vidéo peut ne pas fonctionner."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Les données de lecture en direct sont falsifiées.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"La durée de la vidéo n'est pas synchronisée avant la lecture.
-La durée peut avoir une valeur arrondie."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"La durée de la vidéo est synchronisée avant la lecture.
-La durée a une valeur exacte."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Synchroniser la durée de la vidéo avant la lecture</string>
     <string name="revanced_spoof_streaming_data_title">Falsifier les données de lecture en direct</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">Musique iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">TV iOS</string>
     <string name="revanced_spoof_streaming_data_type_title">Client par défaut</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilité des gestes de luminosité doit être comprise entre 1-1000 (%).</string>

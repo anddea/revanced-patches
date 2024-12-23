@@ -8,7 +8,9 @@ Kövesd a telefonodra vonatkozó 'Don't kill my app!' útmutatót és alkalmazd 
 Ez szükséges az app működéséhez."</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"A GmsCore akkumulátor-optimalizálásokat le kell tiltani a problémák megelőzése érdekében.
 
-Nyomd meg a folytatás gombot, és tiltsd le az akkumulátor-optimalizálásokat."</string>
+A GmsCore akkumulátor-optimalizálás letiltása nem fogyasztja jobban az akkumulátort.
+
+Nyomj a folytatás gombra, és engedélyezd az optimalizálási módosításokat."</string>
     <string name="gms_core_dialog_open_website_text">Weboldal megnyitása</string>
     <string name="gms_core_dialog_title">Művelet szükséges</string>
     <string name="gms_core_settings_summary">Értesítések fogadásához engedélyezd a felhő alapú üzenetküldést.</string>
@@ -30,14 +32,20 @@ Nyomd meg a folytatás gombot, és tiltsd le az akkumulátor-optimalizálásokat
     <string name="revanced_custom_filter_summary">Engedélyezi, hogy saját menüket is elrejts.</string>
     <string name="revanced_custom_filter_title">Egyéni szűrők engedélyezése</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyéni szűrő: %s.</string>
-    <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességnek kisebbnek kell lennie, mint %sx. Alapértelmezett értékek használata.</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyedi lejátszási sebesség. Használd az alap értékeket.</string>
+    <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességnek kisebbnek kell lennie, mint %sx.</string>
+    <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyedi lejátszási sebesség.</string>
     <string name="revanced_custom_playback_speeds_summary">Az elérhető lejátszási sebességek módosítása vagy hozzáadása.</string>
     <string name="revanced_custom_playback_speeds_title">Egyéni lejátszási sebességek szerkesztése</string>
+    <string name="revanced_default_app_settings_summary">A YouTube Music linkek megnyitásához az RVX Musicban engedélyezze a \'Támogatott linkek megnyitása\' opciót, és engedélyezze a támogatott webcímeket.</string>
+    <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
     <string name="revanced_disable_auto_captions_summary">Letiltja a feliratokat, hogy ne jelenjenek meg automatikusan.</string>
     <string name="revanced_disable_auto_captions_title">Kényszerített automatikus feliratok letiltása</string>
+    <string name="revanced_disable_cairo_splash_animation_summary">Letiltja a betöltési animációt amikor az app indul.</string>
+    <string name="revanced_disable_cairo_splash_animation_title">Betöltési animáció kikapcsolása</string>
     <string name="revanced_disable_dislike_redirection_summary">Letiltja az átirányítást a következő számra, amikor rányomsz a nem tetszik gombra.</string>
     <string name="revanced_disable_dislike_redirection_title">Nem tetszik átirányítás letiltása</string>
+    <string name="revanced_disable_drc_audio_summary">Letiltja a hangra alkalmazott DRC-t (dinamikatartomány-kompresszió).</string>
+    <string name="revanced_disable_drc_audio_title">DRC hang letiltása</string>
     <string name="revanced_disable_mini_player_gesture_summary">Kikapcsolja a zeneszámok váltását a minialejátszóban.</string>
     <string name="revanced_disable_mini_player_gesture_title">Minilejátszó gesztus letiltása</string>
     <string name="revanced_disable_player_gesture_summary">Kikapcsolja a zeneszámok váltását a lejátszóban.</string>
@@ -164,6 +172,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Podcast menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_help_title">Súgó &amp; visszajelzés menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">A tetszik és nem tetszik gombok elrejtése</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Fül elrejtése a Gyors elérés menüben</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Következő lejátszása menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_quality_title">Minőség menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Eltávolítás a könyvtárból menü elrejtése</string>
@@ -178,6 +187,7 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Rádió indítás menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Statisztikák kockáknak menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Feliratkozás / Leiratkozás menü elrejtése</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Kitűzés a Gyorshívóba menü elrejtése</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Dalkredit menü elrejtése</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Teljes képernyős hirdetések elrejtése."</string>
     <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
@@ -219,12 +229,16 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_hide_promotion_alert_banner_title">Promóciós figyelmeztető banner elrejtése</string>
     <string name="revanced_hide_samples_shelf_summary">Elrejti a minták polcot a főoldalon.</string>
     <string name="revanced_hide_samples_shelf_title">Minták polc elrejtése</string>
-    <string name="revanced_hide_settings_menu_about_title">Névjegy menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_about_title">A Youtube Music névjegye menü elrejtése</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Adatmegtakarító menü elejtése</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Letöltések és tárhely menü elrejtése</string>
     <string name="revanced_hide_settings_menu_general_title">Általános menü elrejtése</string>
     <string name="revanced_hide_settings_menu_notification_title">Értesítések menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">Music Premium-tagság vásárlása menü elrejtése</string>
     <string name="revanced_hide_settings_menu_parent_tools_title">Családi központ menü elrejtése</string>
     <string name="revanced_hide_settings_menu_playback_title">Következő lejátszása menü elrejtése</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">Adatvédelem és adatok elrejtése</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">Ajánlott elrejtése</string>
     <string name="revanced_hide_settings_menu_summary">"A beállítások menü elemeinek elrejtése.
 Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beállítások menüjét is elrejti."</string>
     <string name="revanced_hide_settings_menu_title">Beállítások menü elrejtése</string>
@@ -244,12 +258,14 @@ Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beál
     <string name="revanced_preference_screen_misc_title">Egyéb</string>
     <string name="revanced_preference_screen_navigation_title">Navigációs sor</string>
     <string name="revanced_preference_screen_player_title">Lejátszó</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">Youtube felhasználónév visszaállítása</string>
     <string name="revanced_preference_screen_ryd_title">YouTube nem tetszések visszaállítása</string>
     <string name="revanced_preference_screen_sb_title">Szponzor Blokk</string>
     <string name="revanced_preference_screen_settings_title">Beállítások menü</string>
     <string name="revanced_preference_screen_video_title">Videó</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Megjegyzi az utoljára kiválasztott lejátszási sebességet.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Értesíts, ha változik a lejátszás sebessége.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">Mutass egy felugró értesítést</string>
     <string name="revanced_remember_playback_speed_toast">Megváltoztatva az alap sebességet %s-re.</string>
     <string name="revanced_remember_repeat_state_summary">Emlékezik az ismétlés állapotára.</string>
@@ -258,6 +274,7 @@ Ez nemcsak az YT Music beállítások menüjét, hanem a ReVanced Extended beál
     <string name="revanced_remember_shuffle_state_title">Keverés állapotának megjegyzése</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Megjegyezi a legutolsó videó minőséget, amit kiválasztottál.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Videó minőség megjegyzése</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Értesíts ha meg változik a lejátszás minőségének beállítása.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Mutass egy felugró értesítést</string>
     <string name="revanced_remember_video_quality_mobile">Az alapértelmezett mobiladat minőség módosítása a következőre %s.</string>
     <string name="revanced_remember_video_quality_none">Nem sikerült beállítani a minőséget.</string>
@@ -284,12 +301,23 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
     <string name="revanced_restore_old_player_layout_title">Régi lejátszó kinézet visszaállítása</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Visszaállítja a régi megjelenését a könyvtár oldalnak. (Kísérleti)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Visszaállítja a régi stílusú könyvtár polcot</string>
-    <string name="revanced_return_youtube_username_display_format_handle_username">\@kezelő (felhasználónév)</string>
-    <string name="revanced_return_youtube_username_display_format_username_handle">Felhasználónév (@kezelő)</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@azonosító (felhasználónév)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">Válaszd ki a felhasználónév megjelenítési formátumát.</string>
+    <string name="revanced_return_youtube_username_display_format_title">Megjelenítési formátum</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">Felhasználónév (@azonosító)</string>
     <string name="revanced_return_youtube_username_display_format_username_only">Felhasználónév</string>
+    <string name="revanced_return_youtube_username_enabled_summary">A hozzászólásokban az azonosítót lecseréli a felhasználónevekre.</string>
+    <string name="revanced_return_youtube_username_enabled_title">Youtube felhasználónév visszaállítása</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"YouTube Data API v3 fejlesztői kulcsra van szükség az azonosítók felhasználónevekre való cseréjéhez. 
+
+Az ingyenes csomagban az API-kulcsok napi kvótája 10 000, és 1 kvótával 1 megjegyzéshez egy azonosító felhasználónévre cserélhető.
+
+Kattints ide az API-kulcs megszerzéséhez."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">A YouTube Data API-kulcsról</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">A fejlesztői kulcs a YouTube Data API v3 használatához.</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube adat API kulcs</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API kulcs</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Nyisd meg az &lt;a href=%1$s&gt;Új projekt létrehozását&lt;/a&gt;.&lt;br&gt;2. Kattints a &lt;b&gt;LÉTREHOZÁS&lt;/b&gt; gombra.&lt;br&gt;3. Lépj a &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; oldalára.&lt;br&gt;4. Kattints az &lt;b&gt;Engedélyezés&lt;/b&gt; gombra.&lt;br&gt;5. Kattints a &lt;b&gt;HITELEZÉSI ADATOK LÉTREHOZÁSA&lt;/b&gt; gombot.&lt;br&gt;6. Válaszd ki a &lt;b&gt;Nyilvános adatok&lt;/b&gt; lehetőség.&lt;br&gt;7. Kattints a &lt;b&gt;KÖVETKEZŐ&lt;/b&gt; gombra.&lt;br&gt;8. Másold ki az API-kulcsot.&lt;br&gt;&lt;br&gt;※ Az API-kulcsot soha nem szabad megosztani másokkal, így az nem szerepel az importálási/exportálási beállításokban.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 fejlesztői kulcs megszerzése</string>
     <string name="revanced_ryd_about">Névjegy</string>
     <string name="revanced_ryd_attribution_summary">Az adatokat a YouTube nem tetszések visszaállítása API biztosítja. További információért nyomj ide.</string>
     <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
@@ -299,6 +327,8 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
     <string name="revanced_ryd_dislike_percentage_title">Nem tetszések megjelenítése százalékban</string>
     <string name="revanced_ryd_enabled_summary">Megjeleníti a videók nem tetszésének számát.</string>
     <string name="revanced_ryd_enabled_title">YouTube nem tetszések visszaállításának engedélyezése</string>
+    <string name="revanced_ryd_estimated_like_summary">Megjeleníti a becsült kedvelések számát a videóknál.</string>
+    <string name="revanced_ryd_estimated_like_title">Mutassa a becsült kedveléseket</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">Nem tetszések nem érhetőek el (kliens API limit elérve).</string>
     <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d).</string>
     <string name="revanced_ryd_failure_connection_timeout">Nem tetszések átmenetileg nem érhetőek el (API időkorlát lejárt).</string>
@@ -318,7 +348,7 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
     <string name="revanced_sb_api_url_sum">A cím, amelyet a SponsorBlock a szerverhez történő kommunikációhoz használ. Ne változtasso ezen, ha nem tudod, hogy mit csinálsz.</string>
     <string name="revanced_sb_color_changed">Szín módosítva.</string>
     <string name="revanced_sb_color_dot_label">Szín:</string>
-    <string name="revanced_sb_color_invalid">Érvénytelen színkód. Visszaállítva alapra.</string>
+    <string name="revanced_sb_color_invalid">Érvénytelen színkód.</string>
     <string name="revanced_sb_color_reset">Szín visszaállítva.</string>
     <string name="revanced_sb_diff_segments">Szakasz viselkedésének megváltoztatása</string>
     <string name="revanced_sb_enabled">SzponsorBlokk engedélyezése</string>
@@ -369,7 +399,31 @@ Előfordulhat, hogy egyes funkciók nem működnek megfelelően a régi lejátsz
 • Ha később kikapcsolod, a régi felhasználói felület megmaradhat, amíg az alkalmazás adatait nem törlöd."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Letiltja a rádió módot Kanada területén</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Letiltja a valós idejű dalszövegeket</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Régi menüsor visszaállítása</string>
     <string name="revanced_spoof_app_version_target_summary">Válaszd ki, hogy melyik alkalmazásverziót akarod használni.</string>
     <string name="revanced_spoof_app_version_target_title">Cél alkalmazásverzió</string>
     <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
+    <string name="revanced_spoof_client_summary">"A kliens hamisítása a lejátszási problémák elkerülése érdekében.
+
+※ Az 'Adatfolyam meghamisítása' használata esetén lejátszási problémák léphetnek fel."</string>
+    <string name="revanced_spoof_client_title">Kliens hamisítása</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Meghatározza az alapértelmezett klienst a hamisításhoz.
+
+※ Az Android kliens használata esetén ajánlott a 'Alkalmazás verziójának meghamisítása' használni."</string>
+    <string name="revanced_spoof_client_type_title">Alapértelmezett kliens</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Megmutatja a streaming adatok lekérdezésére használt klienst a Statisztikák kockáknakban.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenik a statisztikák kockáknakban</string>
+    <string name="revanced_spoof_streaming_data_summary">"A lejátszási problémák megelőzése érdekében hamisítja a streaming-adatokat.
+
+※ A 'Kliens hamisítása' használata esetén lejátszási problémák léphetnek fel."</string>
+    <string name="revanced_spoof_streaming_data_title">Adatfolyam meghamisítása</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Meghatároz egy alapértelmezett klienst, amely streaming adatokat hív le.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Alapértelmezett kliens</string>
 </resources>

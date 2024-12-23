@@ -226,7 +226,6 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
-    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
 
@@ -375,6 +374,13 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restore old style Rolling number animations</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
+    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
+• Stable volume is not available.
+• Disable forced auto audio tracks is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Audio track menu is missing.
@@ -383,7 +389,7 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
@@ -391,17 +397,14 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Streaming data is not spoofed. Video playback may not work."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Streaming data is spoofed.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
-Video length may be a rounded value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
-Video length is exact value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>

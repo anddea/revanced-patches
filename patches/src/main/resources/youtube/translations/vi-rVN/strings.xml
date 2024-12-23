@@ -250,6 +250,11 @@ Lưu ý:
     <string name="revanced_disable_watch_panel_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc được bật.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã tắt.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Tắt cử chỉ bên dưới trình phát</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Thanh tiến trình kiểu Cairo đã tắt.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Thanh tiến trình kiểu Cairo được bật.
+
+Hạn chế: Chủ đề Cairo cũng sẽ áp dụng cho dấu chấm thông báo của ứng dụng."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Thanh tiến trình kiểu Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Lớp phủ điều khiển trình phát thu gọn đã tắt.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Lớp phủ điều khiển trình phát thu gọn đã bật.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Lớp phủ điều khiển trình phát thu gọn</string>
@@ -333,8 +338,11 @@ Hạn chế:
     <string name="revanced_enable_swipe_volume_summary_off">Cử chỉ vuốt điều chỉnh âm lượng đã tắt.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Cử chỉ vuốt điều chỉnh âm lượng đã bật.</string>
     <string name="revanced_enable_swipe_volume_title">Vuốt điều chỉnh âm lượng</string>
-    <string name="revanced_enable_watch_panel_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã tắt.</string>
-    <string name="revanced_enable_watch_panel_gestures_summary_on">Cử chỉ khi vuốt xuống từ khu vực bên dưới trình phát để xem video ở chế độ toàn màn hình dọc đã bật.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">Thanh điều hướng mặc định đang được áp dụng.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">Thanh điều hướng trong suốt đang được áp dụng.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Thanh điều hướng trong suốt</string>
+    <string name="revanced_enable_watch_panel_gestures_summary_off">Cử chỉ vuốt xuống từ khu vực bên dưới trình phát đã tắt để xem ở chế độ toàn màn hình dọc.</string>
+    <string name="revanced_enable_watch_panel_gestures_summary_on">Cử chỉ khi vuốt xuống từ khu vực bên dưới trình phát đã bật để xem ở chế độ toàn màn hình dọc.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Cử chỉ bên dưới trình phát</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Bật cài đặt này sẽ làm ẩn nút Cài đặt trong thẻ Bạn.
 
@@ -1208,7 +1216,7 @@ Nhấn và giữ để sao chép dấu thời gian."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Nút Sao chép URL video với dấu thời gian</string>
     <string name="revanced_overlay_button_copy_video_url_title">Nút Sao chép URL video</string>
     <string name="revanced_overlay_button_external_downloader_summary">Nhấn để khởi chạy trình tải xuống bên ngoài.</string>
-    <string name="revanced_overlay_button_external_downloader_title">Nút trình tải xuống bên ngoài</string>
+    <string name="revanced_overlay_button_external_downloader_title">Nút Trình tải xuống bên ngoài</string>
     <string name="revanced_overlay_button_mute_volume_summary">Nhấn để tắt tiếng của video hiện tại. Nhấn lần nữa để bật trở lại.</string>
     <string name="revanced_overlay_button_mute_volume_title">Nút Tắt tiếng</string>
     <string name="revanced_overlay_button_not_allowed_warning">Nhấn và giữ để thay đổi trạng thái nút.</string>
@@ -1465,7 +1473,7 @@ Hạn chế: Số lượt không thích có thể không hiển thị nếu ngư
     <string name="revanced_sb_enable_create_segment">Nút tạo phân đoạn mới</string>
     <string name="revanced_sb_enable_create_segment_sum_off">Nút tạo phân đoạn mới không được hiển thị.</string>
     <string name="revanced_sb_enable_create_segment_sum_on">Nút tạo phân đoạn mới được hiển thị.</string>
-    <string name="revanced_sb_enable_sb">Kích hoạt SponsorBlock</string>
+    <string name="revanced_sb_enable_sb">SponsorBlock</string>
     <string name="revanced_sb_enable_sb_sum">SponsorBlock là một tiện ích được đóng góp bởi cộng đồng giúp bỏ qua các phần gây khó chịu trong video trên YouTube.</string>
     <string name="revanced_sb_enable_voting">Nút Bình chọn phân đoạn</string>
     <string name="revanced_sb_enable_voting_sum_off">Nút Bình chọn phân đoạn không được hiển thị.</string>
@@ -1715,6 +1723,12 @@ Nếu muốn tắt tính năng này sau đó, bạn nên xóa dữ liệu ứng 
     <string name="revanced_spoof_device_dimensions_summary">"Giả lập kích thước thiết bị đến giá trị tối đa.
 Chất lượng cao có thể được mở khóa trên một số video yêu cầu kích thước thiết bị lớn, nhưng không phải tất cả các video."</string>
     <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Ứng dụng khách Android và iOS được sử dụng để nạp luồng dữ liệu trực tuyến.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Ứng dụng khách Android được sử dụng để nạp luồng dữ liệu trực tuyến.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Chỉ sử dụng ứng dụng khách Android</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Mục Bản âm thanh bị thiếu.
+• Âm lượng ổn định không khả dụng.
+• Tắt buộc bản âm thanh tự động không khả dụng."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Mục Bản âm thanh bị thiếu.
 • Âm lượng ổn định không khả dụng."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Mục Bản âm thanh bị thiếu.
@@ -1723,7 +1737,7 @@ Chất lượng cao có thể được mở khóa trên một số video yêu c�
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Video có thể kết thúc sớm 1 giây.
 • Codec âm thanh opus có thể không được hỗ trợ."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Video có thể kết thúc sớm hơn 1 giây.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Video có thể kết thúc sớm hơn 1 giây.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Phim hoặc video trả phí có thể không phát được.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Hạn chế</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video có thể không phát được.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ứng dụng khách sử dụng để nạp luồng dữ liệu trực tuyến đã ẩn trong Thống kê chi tiết.</string>
@@ -1731,17 +1745,14 @@ Chất lượng cao có thể được mở khóa trên một số video yêu c�
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Luồng dữ liệu trực tuyến chưa được giả mạo. Khi phát video có thể gặp sự cố đứng hình."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Luồng dữ liệu trực tuyến được giả mạo.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Thời lượng video không được đồng bộ trước khi phát.
-Lúc này thời lượng video có thể đã được làm tròn."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Thời lượng video được đồng bộ trước khi phát.
-Lúc này thời lượng video là giá trị chính xác."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Đồng bộ thời lượng video trước khi phát</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">Music iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">TV iOS</string>
     <string name="revanced_spoof_streaming_data_type_title">Ứng dụng khách mặc định</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Tắt cài đặt này có thể gây ra sự cố phát video.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Độ nhạy khi vuốt để điều chỉnh độ sáng phải nằm trong khoảng từ 1-1000 (%).</string>

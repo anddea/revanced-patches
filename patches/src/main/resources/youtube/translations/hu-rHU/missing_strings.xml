@@ -22,7 +22,6 @@
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
-    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
 No margins on top and bottom of player."</string>
@@ -33,13 +32,17 @@ No margins on top and bottom of player."</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
+    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
+• Stable volume is not available.
+• Disable forced auto audio tracks is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
-Video length may be a rounded value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
-Video length is exact value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
 </resources>

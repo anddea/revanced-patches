@@ -75,6 +75,7 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_change_share_sheet_summary_off">Se utiliza la hoja de compartir incorporada.</string>
     <string name="revanced_change_share_sheet_summary_on">Se utiliza la hoja de compartir del sistema.</string>
     <string name="revanced_change_share_sheet_title">Cambiar hoja de compartir</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">Cambiar estado de repetición de fondo de Shorts</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Reproducción automática</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">Predeterminada</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pausar</string>
@@ -217,7 +218,18 @@ Nota:
     <string name="revanced_disable_splash_animation_summary_off">La animación de bienvenida está activada.</string>
     <string name="revanced_disable_splash_animation_summary_on">La animación de bienvenida está desactivada.</string>
     <string name="revanced_disable_splash_animation_title">Desactivar animación de bienvenida</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Deslizar hacia arriba / abajo reproducirá el vídeo siguiente / anterior.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Deslizar hacia arriba / abajo no reproducirá el vídeo siguiente / anterior.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Desactivar deslizar para cambiar el vídeo</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra de navegación en modo oscuro es opaca o translúcida.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra de navegación en modo oscuro es opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_dark_title">Desactivar barra translúcida oscura</string>
     <string name="revanced_disable_translucent_navigation_bar_light_summary_off">.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegación en modo claro es opaca.</string>
+    <string name="revanced_disable_translucent_navigation_bar_light_title">Desactivar barra translúcida luminosa</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">La barra de estado es opaca o translúcida.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">La barra de estado es opaca.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Desactivar barra de estado translúcida</string>
     <string name="revanced_disable_video_description_interaction_summary">"Desactiva las siguientes interacciones cuando se expande la descripción del vídeo:
 
 • Pulsar para desplazarse.
@@ -230,6 +242,14 @@ Nota:
 • La reproducción de vídeo utilizará más datos de Internet que VP9.
 • Para obtener reproducción HDR, el vídeo HDR sigue utilizando el códec VP9."</string>
     <string name="revanced_disable_vp9_codec_title">Desactivar códec VP9</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_off">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está activado.</string>
+    <string name="revanced_disable_watch_panel_gestures_summary_on">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está desactivado.</string>
+    <string name="revanced_disable_watch_panel_gestures_title">Desactivar gestos del panel de visualización</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">La barra de progreso Cairo está desactivada.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"La barra de progreso Cairo está activada.
+
+Efecto secundario: El tema Cairo también se aplica a los puntos de notificación."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Activar barra de progreso Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">La superposición de controles ocupa la pantalla completa.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">La superposición de controles no ocupa la pantalla completa.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Activar superposición compacta de controles</string>
@@ -276,6 +296,18 @@ Esta función funciona mejor con una conexión a Internet muy rápida."</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Las miniaturas en la barra de progreso son de calidad media.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Las miniaturas en la barra de progreso son de alta calidad.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Activar miniaturas de alta calidad</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Las acciones personalizadas están desactivadas en el menú desplegable.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Las acciones personalizadas están activadas en el menú desplegable.
+
+Limitaciones:
+• No funciona si la versión falsificada de la aplicación es 18.49.37 o anterior.
+• No funciona con transmisiones en directo."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Activar acciones personalizadas en menú desplegable</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Las acciones personalizadas están desactivadas en la barra de herramientas.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Las acciones personalizadas están activadas en la barra de herramientas.
+
+Mantén pulsado el botón Más para mostrar el cuadro de diálogo Acciones personalizadas."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Activar acciones personalizadas en barra de herramientas</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">La marca de tiempo está desactivada.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"La marca de tiempo está activada.
 
@@ -301,6 +333,9 @@ Desliza hacia arriba / abajo para reproducir el vídeo siguiente / anterior.</st
     <string name="revanced_enable_swipe_volume_summary_off">El control del volumen al deslizar está desactivado.</string>
     <string name="revanced_enable_swipe_volume_summary_on">El control del volumen al deslizar está activado.</string>
     <string name="revanced_enable_swipe_volume_title">Activar gesto de volumen</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra de navegación es opaca.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra de navegación es translúcida.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Activar barra de navegación translúcida</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está desactivado.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está activado.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Activar gestos del panel de visualización</string>
@@ -341,7 +376,7 @@ Estos caracteres varían dependiendo de tu idioma.
     <string name="revanced_extended_settings_import_summary">Importa los ajustes desde un archivo guardado.</string>
     <string name="revanced_extended_settings_import_title">Importar ajustes</string>
     <string name="revanced_extended_settings_reset">Restablecer</string>
-    <string name="revanced_extended_settings_search_title">Buscar %s</string>
+    <string name="revanced_extended_settings_search_title">Buscar en %s</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
@@ -581,6 +616,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_live_chat_replay_button_summary_off">Se muestra el botón de repetición del Live Chat.\n\nAparece en pantalla completa al cerrar el Live Chat.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">El botón de repetición de Live Chat está oculto.\n\nAparece en pantalla completa al cerrar el Live Chat.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Ocultar botón de repetición de chat en directo</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">El resumen del chat está visible.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">El resumen del chat está oculto.</string>
+    <string name="revanced_hide_live_chat_summary_title">Ocultar resumen del chat en chat en directo</string>
     <string name="revanced_hide_low_views_video_summary">Oculta los vídeos con menos de 1.000 visualizaciones de los feeds de inicio que hayan sido subidos desde canales a los que no estás suscrito.</string>
     <string name="revanced_hide_low_views_video_title">Ocultar vídeos con pocas visualizaciones</string>
     <string name="revanced_hide_medical_panel_summary_off">Los paneles médicos están visibles.</string>
@@ -1178,6 +1216,7 @@ Toca y mantén para deshacer.
 Información:
 • Puede que no funcione en transmisiones."</string>
     <string name="revanced_overlay_button_play_all_title">Mostrar botón de reproducir todo</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">Todos los contenidos (Ordenar por tiempo, ascendente)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">Todos los contenidos (Ordenar por tiempo)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Vídeos solo para miembros</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">Shorts solo para miembros</string>
@@ -1215,6 +1254,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_action_buttons">Botones de acción</string>
     <string name="revanced_preference_category_additional_settings">Ajustes adicionales</string>
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
+    <string name="revanced_preference_category_custom_actions">Acciones personalizadas</string>
     <string name="revanced_preference_category_download_button">Botón de descarga</string>
     <string name="revanced_preference_category_experimental_flag">Funciones Experimentales</string>
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
@@ -1344,6 +1384,10 @@ Mantén pulsado para abrir la configuración de YouTube."</string>
     <string name="revanced_restore_old_video_quality_menu_summary_off">El antiguo menú de calidad de vídeo está oculto.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">El antiguo menú de calidad de vídeo está visible.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Restaurar antiguo menú de calidad de vídeo</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">No se utiliza el antiguo diseño del reproductor.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Se utiliza el antiguo diseño del reproductor.
+No hay márgenes en la parte superior e inferior del reproductor."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Restaurar antiguo diseño del reproductor</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@identificador (Nombre de usuario)</string>
     <string name="revanced_return_youtube_username_display_format_title">Formato de visualización</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Nombre de usuario (@identificador)</string>
@@ -1580,6 +1624,31 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_share_copy_timestamp_success">Marca de tiempo copiada en el portapapeles. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copiada en el portapapeles.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL con marca de tiempo copiada en el portapapeles.</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"Esta función es aún experimental, por lo que no hay garantía de que funcione perfectamente.
+
+La mayoría de los errores no pueden solucionarse debido a las limitaciones del lado del cliente, así que utilízala solo con fines de prueba."</string>
+    <string name="revanced_shorts_custom_actions_about_title">Acerca de las acciones personalizadas</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_label">Copiar URL del vídeo</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">El menú de copiar URL del vídeo está oculto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">El menú de copiar URL del vídeo está visible.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Copiar URL con marca de tiempo</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">El menú de copiar URL con marca de tiempo está oculto.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">El menú de copiar URL con marca de tiempo está visible.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Mostrar menú de copiar URL con marca de tiempo</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Mostrar menú de copiar URL del vídeo</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_label">Descargador externo</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">El menú del descargador externo está oculto.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">El menú del descargador externo está visible.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Mostrar menú de descargador externo</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">Abrir vídeo</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">El menú de abrir vídeo está oculto.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">El menú de abrir vídeo está visible.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Mostrar menú de abrir vídeo</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">Estado de repetición</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">El menú del estado de repetición está oculto.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">El menú del estado de repetición está visible.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Mostrar menú de estado de repetición</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Acciones personalizadas</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Pulgares arriba</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Cairo</string>
@@ -1629,6 +1698,8 @@ Limitación: el título de vídeo desaparece cuando se pulsa."</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaura el antiguo comportamiento de la calidad predeterminada de vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Desactiva la actualización en tiempo real de las visualizaciones y los me gusta</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaura el antiguo estilo de las animaciones de números rodantes</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Desactivar icono de Cairo en la barra de navegación y herramientas</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaurar el antiguo panel desplegable de velocidad de reproducción</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versión a falsificar de la app</string>
     <string name="revanced_spoof_app_version_target_summary">Escribe la versión a falsificar de la app.</string>
     <string name="revanced_spoof_app_version_target_title">Editar versión falsa de la app</string>
@@ -1640,12 +1711,19 @@ Esto cambiará la apariencia y las características de la aplicación, pero pued
 Si se desactiva más tarde, se recomienda borrar los datos de la aplicación para evitar errores en la interfaz de usuario."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Falsifica las dimensiones del dispositivo para desbloquear calidades de vídeo superiores que pueden no estar disponibles en tu dispositivo."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensiones del dispositivo</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Los clientes Android e iOS se utilizan para obtener datos de streaming.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Los clientes Android se utilizan para obtener datos de streaming.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Utilizar solo clientes Android</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Falta el menú de pista de audio.
+• El volumen estable no está disponible.
+• Desactivar pistas de audio automáticas forzadas no está disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Falta el menú \"Pista de audio\".
 • \"Regular volumen\" no está disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Las películas o vídeos de pago no pueden reproducirse."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Aún no encontrado.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Los vídeos pueden terminar 1 segundo antes.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Las películas o vídeos de pago no pueden reproducirse.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• El vídeo no puede reproducirse.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>
@@ -1655,9 +1733,12 @@ Si se desactiva más tarde, se recomienda borrar los datos de la aplicación par
     <string name="revanced_spoof_streaming_data_summary_on">Los datos de transmisión están falsificados.</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Creador de Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_music">Música iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilidad de deslizamiento del brillo debe estar entre 1-1000 (%).</string>

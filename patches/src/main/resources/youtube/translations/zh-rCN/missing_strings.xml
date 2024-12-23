@@ -40,7 +40,6 @@ Press and hold the More button to show the Custom actions dialog."</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
-    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
 
@@ -122,14 +121,18 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Custom actions</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
+    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
+• Stable volume is not available.
+• Disable forced auto audio tracks is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Video length is not synced before playback.
-Video length may be a rounded value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Video length is synced before playback.
-Video length is exact value."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Sync video length before playback</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
 </resources>

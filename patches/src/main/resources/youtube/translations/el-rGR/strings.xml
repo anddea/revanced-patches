@@ -250,6 +250,11 @@
     <string name="revanced_disable_watch_panel_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης με σάρωση στην περιοχή κάτω από την οθόνη αναπαραγωγής είναι ενεργοποιημένη.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης με σάρωση στην περιοχή κάτω από την οθόνη αναπαραγωγής είναι απενεργοποιημένη.</string>
     <string name="revanced_disable_watch_panel_gestures_title">Απενεργοποίηση χειρονομίας εναλλαγής σε πλήρη οθόνη</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">Η γραμμή προόδου του θέματος Cairo είναι απενεργοποιημένη.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"Η γραμμή προόδου του θέματος Cairo είναι ενεργοποιημένη.
+
+Παρενέργεια: Το θέμα Cairo εφαρμόζεται επίσης στις τελείες ειδοποιήσεων."</string>
+    <string name="revanced_enable_cairo_seekbar_title">Γραμμή προόδου θέματος Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">Τα στοιχεία ελέγχου μικρότερου στυλ είναι απενεργοποιημένα.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">Τα στοιχεία ελέγχου μικρότερου στυλ είναι ενεργοποιημένα.</string>
     <string name="revanced_enable_compact_controls_overlay_title">Στοιχεία ελέγχου μικρότερου στυλ</string>
@@ -335,6 +340,9 @@
     <string name="revanced_enable_swipe_volume_summary_off">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης στη δεξιά πλευρά της οθόνης είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Η αλλαγή έντασης ήχου με χειρονομία σάρωσης στη δεξιά πλευρά της οθόνης είναι ενεργοποιημένη.</string>
     <string name="revanced_enable_swipe_volume_title">Έλεγχος σάρωσης για Ένταση Ήχου</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">Η γραμμή πλοήγησης είναι αδιαφανής.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">Η γραμμή πλοήγησης είναι ημιδιαφανής.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Ημιδιαφανή γραμμή πλοήγησης</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την περιοχή κάτω από την οθόνη αναπαραγωγής είναι απενεργοποιημένη.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Η εναλλαγή σε λειτουργία πλήρους οθόνης σύροντας την περιοχή κάτω από την οθόνη αναπαραγωγής είναι ενεργοποιημένη.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Χειρονομία εναλλαγής σε πλήρη οθόνη</string>
@@ -1742,6 +1750,12 @@ Playlists
     <string name="revanced_spoof_device_dimensions_summary">"Παραποίηση διαστάσεων συσκευής στη μέγιστη τιμή.
 Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες σε κάποια βίντεο που απαιτούν υψηλές διαστάσεις συσκευής, αλλά όχι σε όλα τα βίντεο."</string>
     <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">Τα προγράμματα πελάτη Android και iOS χρησιμοποιούνται τη λήψη δεδομένων ροής.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">Τα προγράμματα πελάτη Android χρησιμοποιούνται τη λήψη δεδομένων ροής.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">Χρήση των προγραμμάτων πελάτη Android μόνο</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Το μενού «Κομμάτι ήχου» λείπει.
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη.
+• Η λειτουργία «Απενεργοποίηση υποχρεωτικών κομματιών ήχου» δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Το μενού «Κομμάτι ήχου» λείπει.
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Το μενού «Κομμάτι ήχου» λείπει.
@@ -1750,7 +1764,7 @@ Playlists
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.
 • Ο κωδικοποιητής ήχου Opus ενδέχεται να μην υποστηρίζεται."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Οι ταινίες ή τα βίντεο επί πληρωμή ενδέχεται να μην αναπαράγονται.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Παρενέργειες παραποίησης</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Τα βίντεο ενδέχεται να μην αναπαράγονται.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
@@ -1758,17 +1772,14 @@ Playlists
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
     <string name="revanced_spoof_streaming_data_summary_off">"Τα δεδομένα ροής δεν παραποιούνται. Η αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί σωστά."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Τα δεδομένα ροής παραποιούνται.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"Το μήκος του βίντεο δεν συγχρονίζεται πριν την αναπαραγωγή.
-Το μήκος του βίντεο μπορεί να είναι στρογγυλεμένη τιμή."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"Το μήκος του βίντεο συγχρονίζεται πριν την αναπαραγωγή.
-Το μήκος του βίντεο είναι ακριβής."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">Συγχρονισμός μήκους βίντεο πριν την αναπαραγωγή</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">Προεπιλογή</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Η ευαισθησία σάρωσης πρέπει να ναι μεταξύ 1-1000 (%).</string>

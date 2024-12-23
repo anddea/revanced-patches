@@ -250,6 +250,11 @@
     <string name="revanced_disable_watch_panel_gestures_summary_off">تم تمكين الدخول إلى وضع ملء الشاشة عند التمرير لأسفل أسفل مشغل الفيديو.</string>
     <string name="revanced_disable_watch_panel_gestures_summary_on">تم تعطيل الدخول إلى وضع ملء الشاشة عند التمرير لأسفل أسفل مشغل الفيديو.</string>
     <string name="revanced_disable_watch_panel_gestures_title">تعطيل إيماءات لوح المشاهدة</string>
+    <string name="revanced_enable_cairo_seekbar_summary_off">تم تعطيل شريط تقدم Cairo.</string>
+    <string name="revanced_enable_cairo_seekbar_summary_on">"تم تمكين شريط تقدم Cairo.
+
+التأثير الجانبي: يتم تطبيق سمة Cairo أيضًا على نقاط الإشعارات."</string>
+    <string name="revanced_enable_cairo_seekbar_title">تمكين شريط تقدم Cairo</string>
     <string name="revanced_enable_compact_controls_overlay_summary_off">يملأ تراكب عناصر التحكم الشاشة الكاملة.</string>
     <string name="revanced_enable_compact_controls_overlay_summary_on">لا يملأ تراكب عناصر التحكم الشاشة الكاملة.</string>
     <string name="revanced_enable_compact_controls_overlay_title">تمكين تراكب التحكم المدمج</string>
@@ -333,6 +338,9 @@
     <string name="revanced_enable_swipe_volume_summary_off">تم تعطيل التحكم بمستوى الصوت عن طريق الإيماءة.</string>
     <string name="revanced_enable_swipe_volume_summary_on">تم تمكين التحكم بمستوى الصوت عن طريق الإيماءة.</string>
     <string name="revanced_enable_swipe_volume_title">تمكين التحكم بالصوت عن طريق إيماءة التمرير</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">شريط التنقل غير شفاف.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">شريط التنقل شفاف.</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">تمكين شريط التنقل الشفاف</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">تم تعطيل الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">تم تمكين الدخول إلى وضع ملء الشاشة عن طريق تمرير المنطقة السفلية لمشغل الفيديو.</string>
     <string name="revanced_enable_watch_panel_gestures_title">تمكين إيماءات لوح المشاهدة</string>
@@ -1715,13 +1723,19 @@
     <string name="revanced_spoof_device_dimensions_summary">"يوهم أبعاد الجهاز من أجل فتح جودة فيديو أعلى قد لا تكون متوفرة على جهازك.
 قد يتم توفير الجودة العالية في بعض مقاطع الفيديو التي تتطلب أبعادًا عالية للجهاز، ولكن ليس كل مقاطع الفيديو."</string>
     <string name="revanced_spoof_device_dimensions_title">إيهام أبعاد الجهاز</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_off">يتم استخدام عملاء Android و iOS لجلب البيانات المتدفقة.</string>
+    <string name="revanced_spoof_streaming_data_android_only_summary_on">يتم استخدام عملاء Android لجلب البيانات المتدفقة.</string>
+    <string name="revanced_spoof_streaming_data_android_only_title">استخدام عملاء Android فقط</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• قائمة المقطع الصوتي مفقودة.
+• مستوى الصوت الثابت غير متاح.
+• تعطيل مقاطع الصوت التلقائية المفروضة غير متاح."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• قائمة المقطع الصوتي مفقودة.
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• لم يتم العثور عليه بعد.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_skip_sync_video_length">• قد تنتهي الفيديوهات قبل النهاية بـ 1 ثانية.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• قد لا يتم تشغيل الفيديو.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>
@@ -1729,17 +1743,14 @@
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
     <string name="revanced_spoof_streaming_data_summary_off">"لا يتم تزييف بيانات البث. قد لا يعمل تشغيل الفيديو."</string>
     <string name="revanced_spoof_streaming_data_summary_on">يتم تزييف بيانات البث.</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_off">"لا تتم مزامنة مدة الفيديو قبل التشغيل.
-قد تكون مدة الفيديو قيمة تقريبية."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_summary_on">"تتم مزامنة مدة الفيديو قبل التشغيل.
-مدة الفيديو هي القيمة الدقيقة."</string>
-    <string name="revanced_spoof_streaming_data_sync_video_length_title">مزامنة مدة الفيديو قبل التشغيل</string>
     <string name="revanced_spoof_streaming_data_title">Spoof Streaming Data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_music">موسيقى iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">العميل الافتراضي</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى السطوع بين 1-1000 (%).</string>
