@@ -1,3 +1,20 @@
+# [3.0.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.6...v3.0.0-dev.7) (2024-12-23)
+
+
+### Bug Fixes
+
+* **Reddit - Hide ads:** `Hide ads` patch fails on `2024.17.0` ([8426f74](https://github.com/anddea/revanced-patches/commit/8426f7471e1a54963cb56131f3e1362068375d1b))
+* **YouTube - Shorts components:** Patch failing during building with certain patch selection ([a442ff3](https://github.com/anddea/revanced-patches/commit/a442ff38ca1a4ee9372fb4bf1bbdc8f8c67a1c20))
+* **YouTube - Toolbar components:** `Hide voice search button` setting does not work ([cb6868a](https://github.com/anddea/revanced-patches/commit/cb6868a8eb46b75f4741ea58adb684aa9c37b4d3))
+* **YouTube Music:** App crashes when including `Hide action bar components` patch ([e7646e2](https://github.com/anddea/revanced-patches/commit/e7646e2410e6e622207ddf8b89011d3507f1ea30))
+
+
+### Features
+
+* **YouTube - Navigation bar components:** Bring back`Enable translucent navigation bar` setting ([158f8da](https://github.com/anddea/revanced-patches/commit/158f8da6c7432c9df07a3b91d7c25f87ec14aaef))
+* **YouTube - Seekbar components:** Bring back `Enable Cairo seekbar` setting (for YouTube 19.23.40-19.32.36) ([fed8915](https://github.com/anddea/revanced-patches/commit/fed89158dd9dd63552362c580d4eebfd57715d68))
+* **YouTube Music - Spoof client:** Limit support version to 7.16.53 and change default client preset ([20beb64](https://github.com/anddea/revanced-patches/commit/20beb648ae675e313ff099da4dbdf6d6b91e9285))
+
 # [3.0.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.0.0-dev.5...v3.0.0-dev.6) (2024-12-21)
 
 
