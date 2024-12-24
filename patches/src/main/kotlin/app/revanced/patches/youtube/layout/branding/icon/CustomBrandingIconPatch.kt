@@ -43,6 +43,7 @@ private val availableIcon = mapOf(
     "Vanced Black" to "vanced_black",
     "Vanced Light" to "vanced_light",
     "Xisr Yellow" to DEFAULT_ICON,
+    "Xisr Special" to "xisr_special",
     "YouTube" to "youtube",
     "YouTube Black" to "youtube_black",
 )
