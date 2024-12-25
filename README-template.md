@@ -21,40 +21,28 @@ Example:
   {
     "name": "Alternative thumbnails",
     "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
-    "compatiblePackages":[
-      {
-        "name": "com.google.android.youtube",
-        "versions": "COMPATIBLE_PACKAGE_YOUTUBE"
-      }
-    ],
     "use":true,
-    "requiresIntegrations":false,
+    "compatiblePackages": {
+      "com.google.android.youtube": "COMPATIBLE_PACKAGE_YOUTUBE"
+    },
     "options": []
   },
   {
     "name": "Bitrate default value",
     "description": "Sets the audio quality to 'Always High' when you first install the app.",
-    "compatiblePackages": [
-      {
-        "name": "com.google.android.apps.youtube.music",
-        "versions": "COMPATIBLE_PACKAGE_MUSIC"
-      }
-    ],
     "use":true,
-    "requiresIntegrations":false,
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": "COMPATIBLE_PACKAGE_MUSIC"
+    },
     "options": []
   },
   {
     "name": "Hide ads",
     "description": "Adds options to hide ads.",
-    "compatiblePackages": [
-      {
-        "name": "com.reddit.frontpage",
-        "versions": "COMPATIBLE_PACKAGE_REDDIT"
-      }
-    ],
     "use":true,
-    "requiresIntegrations":true,
+    "compatiblePackages": {
+      "com.reddit.frontpage": "COMPATIBLE_PACKAGE_REDDIT"
+    },
     "options": []
   }
 ]

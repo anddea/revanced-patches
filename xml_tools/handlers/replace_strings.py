@@ -1,9 +1,10 @@
-from pathlib import Path
+"""Get strings from provided source and replace strings in destination."""
+
 import logging
-from lxml import etree as ET
+from pathlib import Path
+from xml.etree import ElementTree as ET
 
 from config.settings import Settings
-from core.exceptions import XMLProcessingError
 from utils.xml import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
@@ -15,6 +16,7 @@ def update_strings(target_path: Path, source_path: Path) -> None:
     Args:
         target_path: Path to target XML file
         source_path: Path to source XML file
+
     """
     try:
         # Parse source and target files
@@ -31,18 +33,17 @@ def update_strings(target_path: Path, source_path: Path) -> None:
                 del source_strings[name]
 
         # Add new strings
-        for name, data in sorted(source_strings.items()):
+        for _name, data in sorted(source_strings.items()):
             string_elem = ET.Element("string", **data["attributes"])
             string_elem.text = data["text"]
             target_root.append(string_elem)
 
         # Write updated file
         XMLProcessor.write_file(target_path, target_root)
-        logger.info(f"Updated strings in {target_path}")
+        logger.info("Updated strings in %s", target_path)
 
-    except Exception as e:
-        logger.error(f"Failed to update strings in {target_path}: {e}")
-        raise XMLProcessingError(str(e))
+    except Exception:
+        logger.exception("Failed to update strings in %s: ", target_path)
 
 
 def process(app: str, base_dir: Path) -> None:
@@ -51,6 +52,7 @@ def process(app: str, base_dir: Path) -> None:
     Args:
         app: Application name (youtube/music)
         base_dir: Base directory of RVX patches operations
+
     """
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")
@@ -73,6 +75,5 @@ def process(app: str, base_dir: Path) -> None:
                 if rvx_lang_path.exists():
                     update_strings(target_path, rvx_lang_path)
 
-    except Exception as e:
-        logger.error(f"Failed to process {app} translations: {e}")
-        raise XMLProcessingError(str(e))
+    except Exception:
+        logger.exception("Failed to process %s translations: ", app)
