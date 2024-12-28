@@ -351,7 +351,7 @@
         "description": "The icon to apply to the app.\n\nIf a path to a folder is provided, the folder must contain the following folders:\n\n- mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\nEach of these folders must contain the following files:\n\n- adaptiveproduct_youtube_background_color_108.png\n- adaptiveproduct_youtube_foreground_color_108.png\n- ic_launcher.png\n- ic_launcher_round.png",
         "required": true,
         "type": "kotlin.String",
-        "default": "xisr_yellow",
+        "default": "xisr_holiday",
         "values": {
           "AFN Blue": "afn_blue",
           "AFN Red": "afn_red",
@@ -367,6 +367,7 @@
           "Vanced Black": "vanced_black",
           "Vanced Light": "vanced_light",
           "Xisr Yellow": "xisr_yellow",
+          "Xisr Holiday": "xisr_holiday",
           "YouTube": "youtube",
           "YouTube Black": "youtube_black"
         }

@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyAdaptiveIcon
 import app.revanced.util.copyFile
@@ -26,7 +27,7 @@ private const val ADAPTIVE_ICON_FOREGROUND_FILE_NAME =
     "adaptiveproduct_youtube_foreground_color_108"
 private const val ADAPTIVE_ICON_MONOCHROME_FILE_NAME =
     "adaptive_monochrome_ic_youtube_launcher"
-private const val DEFAULT_ICON = "xisr_yellow"
+private const val DEFAULT_ICON = "xisr_holiday"
 
 private val availableIcon = mapOf(
     "AFN Blue" to "afn_blue",
@@ -42,7 +43,8 @@ private val availableIcon = mapOf(
     "Revancify Red" to "revancify_red",
     "Vanced Black" to "vanced_black",
     "Vanced Light" to "vanced_light",
-    "Xisr Yellow" to DEFAULT_ICON,
+    "Xisr Yellow" to "xisr_yellow",
+    "Xisr Holiday" to DEFAULT_ICON,
     "YouTube" to "youtube",
     "YouTube Black" to "youtube_black",
 )
@@ -216,41 +218,46 @@ val customBrandingIconPatch = resourcePatch(
                     }
                 }
 
-                val styleMap = mutableMapOf<String, String>()
-                styleMap["Base.Theme.YouTube.Launcher"] =
-                    "@style/Theme.AppCompat.DayNight.NoActionBar"
+                val avdAnimPath = get("res").resolve("drawable").resolve("avd_anim.xml")
+                if (avdAnimPath.exists()) {
+                    val styleMap = mutableMapOf<String, String>()
+                    styleMap["Base.Theme.YouTube.Launcher"] =
+                        "@style/Theme.AppCompat.DayNight.NoActionBar"
 
-                if (is_19_32_or_greater) {
-                    styleMap["Theme.YouTube.Home"] = "@style/Base.V27.Theme.YouTube.Home"
-                }
-
-                styleMap.forEach { (nodeAttributeName, nodeAttributeParent) ->
-                    document("res/values-v31/styles.xml").use { document ->
-                        val resourcesNode =
-                            document.getElementsByTagName("resources").item(0) as Element
-
-                        val style = document.createElement("style")
-                        style.setAttribute("name", nodeAttributeName)
-                        style.setAttribute("parent", nodeAttributeParent)
-
-                        val primaryItem = document.createElement("item")
-                        primaryItem.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
-                        primaryItem.textContent = "@drawable/avd_anim"
-                        val secondaryItem = document.createElement("item")
-                        secondaryItem.setAttribute(
-                            "name",
-                            "android:windowSplashScreenAnimationDuration"
-                        )
-                        secondaryItem.textContent = if (appIcon.startsWith("revancify"))
-                            "1500"
-                        else
-                            "1000"
-
-                        style.appendChild(primaryItem)
-                        style.appendChild(secondaryItem)
-
-                        resourcesNode.appendChild(style)
+                    if (is_19_32_or_greater) {
+                        styleMap["Theme.YouTube.Home"] = "@style/Base.V27.Theme.YouTube.Home"
                     }
+
+                    styleMap.forEach { (nodeAttributeName, nodeAttributeParent) ->
+                        document("res/values-v31/styles.xml").use { document ->
+                            val resourcesNode =
+                                document.getElementsByTagName("resources").item(0) as Element
+
+                            val style = document.createElement("style")
+                            style.setAttribute("name", nodeAttributeName)
+                            style.setAttribute("parent", nodeAttributeParent)
+
+                            val primaryItem = document.createElement("item")
+                            primaryItem.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
+                            primaryItem.textContent = "@drawable/avd_anim"
+                            val secondaryItem = document.createElement("item")
+                            secondaryItem.setAttribute(
+                                "name",
+                                "android:windowSplashScreenAnimationDuration"
+                            )
+                            secondaryItem.textContent = if (appIcon.startsWith("revancify"))
+                                "1500"
+                            else
+                                "1000"
+
+                            style.appendChild(primaryItem)
+                            style.appendChild(secondaryItem)
+
+                            resourcesNode.appendChild(style)
+                        }
+                    }
+                } else {
+                    printWarn("Splash animation is not available for \"$appIcon\".")
                 }
             }
 
