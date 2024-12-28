@@ -1,3 +1,15 @@
+# [3.1.0](https://github.com/anddea/revanced-patches/compare/v3.0.0...v3.1.0) (2024-12-28)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Missing string for `Xisr Holiday` ([f18649f](https://github.com/anddea/revanced-patches/commit/f18649f8e594e1ecb5744ffc101749065fc3f29c))
+
+
+### Features
+
+* **YouTube - Custom branding icon:** Add `Xisr Holiday` icon ([7ca94a6](https://github.com/anddea/revanced-patches/commit/7ca94a664457980346aba83e41a41375a9557bf0))
+
 # [3.1.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.1.0-dev.1...v3.1.0-dev.2) (2024-12-27)
 
 
