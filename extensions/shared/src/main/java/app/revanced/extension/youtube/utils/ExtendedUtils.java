@@ -16,6 +16,7 @@ public class ExtendedUtils extends PackageUtils {
     public static final boolean IS_19_20_OR_GREATER = getAppVersionName().compareTo("19.20.00") >= 0;
     public static final boolean IS_19_21_OR_GREATER = getAppVersionName().compareTo("19.21.00") >= 0;
     public static final boolean IS_19_26_OR_GREATER = getAppVersionName().compareTo("19.26.00") >= 0;
+    public static final boolean IS_19_28_OR_GREATER = getAppVersionName().compareTo("19.28.00") >= 0;
     public static final boolean IS_19_29_OR_GREATER = getAppVersionName().compareTo("19.29.00") >= 0;
     public static final boolean IS_19_34_OR_GREATER = getAppVersionName().compareTo("19.34.00") >= 0;
 

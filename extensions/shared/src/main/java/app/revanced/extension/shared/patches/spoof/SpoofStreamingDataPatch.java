@@ -4,7 +4,9 @@ import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDa
 
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
@@ -19,13 +21,20 @@ import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch {
-    public static final boolean SPOOF_STREAMING_DATA = SpoofStreamingData() && BaseSettings.SPOOF_STREAMING_DATA.get();
+    private static final boolean SPOOF_STREAMING_DATA = SpoofStreamingData() && BaseSettings.SPOOF_STREAMING_DATA.get();
+    private static final String PO_TOKEN =
+            BaseSettings.SPOOF_STREAMING_DATA_PO_TOKEN.get();
+    private static final String VISITOR_DATA =
+            BaseSettings.SPOOF_STREAMING_DATA_VISITOR_DATA.get();
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
     private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
+
+    @NonNull
+    private static volatile String droidGuardPoToken = "";
 
     /**
      * Key: video id
@@ -116,20 +125,26 @@ public class SpoofStreamingDataPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+                if (path == null || !path.contains("player")) {
+                    return;
+                }
 
+                // 'get_drm_license' has no video id and appears to happen when waiting for a paid video to start.
                 // 'heartbeat' has no video id and appears to be only after playback has started.
                 // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
-                if (path != null && path.contains("player") && !path.contains("heartbeat")
-                        && !path.contains("refresh")) {
-                    String id = uri.getQueryParameter("id");
-                    if (id == null) {
-                        Logger.printException(() -> "Ignoring request that has no video id." +
-                                " Url: " + url + " headers: " + requestHeaders);
-                        return;
-                    }
-
-                    StreamingDataRequest.fetchRequest(id, requestHeaders);
+                // 'ad_break' has no video id.
+                if (path.contains("get_drm_license") || path.contains("heartbeat") || path.contains("refresh") || path.contains("ad_break")) {
+                    Logger.printDebug(() -> "Ignoring path: " + path);
+                    return;
                 }
+
+                String id = uri.getQueryParameter("id");
+                if (id == null) {
+                    Logger.printException(() -> "Ignoring request with no id. Url: " + url);
+                    return;
+                }
+
+                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
             } catch (Exception ex) {
                 Logger.printException(() -> "buildRequest failure", ex);
             }
@@ -207,7 +222,6 @@ public class SpoofStreamingDataPatch {
             final Long approxDurationMs = approxDurationMsMap.get(videoId);
             if (approxDurationMs != null) {
                 Logger.printDebug(() -> "Replacing video length: " + approxDurationMs + " for videoId: " + videoId);
-                approxDurationMsMap.remove(videoId);
                 return approxDurationMs;
             }
         }
@@ -252,5 +266,18 @@ public class SpoofStreamingDataPatch {
         }
 
         return videoFormat;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setDroidGuardPoToken(byte[] bytes) {
+        if (SPOOF_STREAMING_DATA && bytes.length > 20) {
+            final String poToken = Base64.encodeToString(bytes, Base64.URL_SAFE);
+            if (!droidGuardPoToken.equals(poToken)) {
+                Logger.printDebug(() -> "New droidGuardPoToken loaded:\n" + poToken);
+                droidGuardPoToken = poToken;
+            }
+        }
     }
 }

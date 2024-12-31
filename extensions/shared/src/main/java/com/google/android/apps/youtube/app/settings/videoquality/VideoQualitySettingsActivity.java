@@ -88,17 +88,21 @@ public class VideoQualitySettingsActivity extends Activity {
         fragment.filterPreferences(query);
     }
 
+    private static ViewGroup.LayoutParams lp;
+
+    public static void setToolbarLayoutParams(Toolbar toolbar) {
+        if (lp != null) {
+            toolbar.setLayoutParams(lp);
+        }
+    }
+
     private void setToolbar() {
-        if (!(findViewById(ResourceUtils.getIdIdentifier("revanced_toolbar_parent")) instanceof ViewGroup toolBarParent))
-            return;
+        ViewGroup toolBarParent = findViewById(ResourceUtils.getIdIdentifier("revanced_toolbar_parent"));
 
         // Remove dummy toolbar.
-        for (int i = 0; i < toolBarParent.getChildCount(); i++) {
-            View view = toolBarParent.getChildAt(i);
-            if (view != null) {
-                toolBarParent.removeView(view);
-            }
-        }
+        ViewGroup dummyToolbar = toolBarParent.findViewById(ResourceUtils.getIdIdentifier("revanced_toolbar"));
+        lp = dummyToolbar.getLayoutParams();
+        toolBarParent.removeView(dummyToolbar);
 
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(ThemeUtils.getToolbarBackgroundColor());
@@ -112,6 +116,7 @@ public class VideoQualitySettingsActivity extends Activity {
         if (toolbarTextView != null) {
             toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
         }
+        setToolbarLayoutParams(toolbar);
         toolBarParent.addView(toolbar, 0);
     }
 

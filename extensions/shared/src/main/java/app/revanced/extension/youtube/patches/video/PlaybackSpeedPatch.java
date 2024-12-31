@@ -10,13 +10,15 @@ import org.apache.commons.lang3.BooleanUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
-import app.revanced.extension.youtube.patches.video.requests.PlaylistRequest;
+import app.revanced.extension.youtube.patches.video.requests.MusicRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.whitelist.Whitelist;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
+    private static final boolean DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC =
+            Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC.get();
     private static final long TOAST_DELAY_MILLISECONDS = 750;
     private static long lastTimeSpeedChanged;
     private static boolean isLiveStream;
@@ -39,8 +41,8 @@ public class PlaybackSpeedPatch {
     /**
      * Injection point.
      */
-    public static void fetchPlaylistData(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
-        if (Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC.get()) {
+    public static void fetchMusicRequest(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
+        if (DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC) {
             try {
                 final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
                 // Shorts shelf in home and subscription feed causes player response hook to be called,
@@ -50,9 +52,12 @@ public class PlaybackSpeedPatch {
                     return;
                 }
 
-                PlaylistRequest.fetchRequestIfNeeded(videoId);
+                MusicRequest.fetchRequestIfNeeded(
+                        videoId,
+                        Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE.get()
+                );
             } catch (Exception ex) {
-                Logger.printException(() -> "fetchPlaylistData failure", ex);
+                Logger.printException(() -> "fetchMusicRequest failure", ex);
             }
         }
     }
@@ -61,15 +66,16 @@ public class PlaybackSpeedPatch {
      * Injection point.
      */
     public static float getPlaybackSpeedInShorts(final float playbackSpeed) {
-        if (!VideoInformation.lastPlayerResponseIsShort())
-            return playbackSpeed;
-        if (!Settings.ENABLE_DEFAULT_PLAYBACK_SPEED_SHORTS.get())
-            return playbackSpeed;
+        if (VideoInformation.lastPlayerResponseIsShort() &&
+                Settings.ENABLE_DEFAULT_PLAYBACK_SPEED_SHORTS.get()
+        ) {
+            float defaultPlaybackSpeed = getDefaultPlaybackSpeed(VideoInformation.getChannelId(), null);
+            Logger.printDebug(() -> "overridePlaybackSpeed in Shorts: " + defaultPlaybackSpeed);
 
-        float defaultPlaybackSpeed = getDefaultPlaybackSpeed(VideoInformation.getChannelId(), null);
-        Logger.printDebug(() -> "overridePlaybackSpeed in Shorts: " + defaultPlaybackSpeed);
+            return defaultPlaybackSpeed;
+        }
 
-        return defaultPlaybackSpeed;
+        return playbackSpeed;
     }
 
     /**
@@ -118,23 +124,21 @@ public class PlaybackSpeedPatch {
     }
 
     private static float getDefaultPlaybackSpeed(@NonNull String channelId, @Nullable String videoId) {
-        return (Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_LIVE.get() && isLiveStream) ||
-                Whitelist.isChannelWhitelistedPlaybackSpeed(channelId) ||
-                getPlaylistData(videoId)
+        return (isLiveStream || Whitelist.isChannelWhitelistedPlaybackSpeed(channelId) || isMusic(videoId))
                 ? 1.0f
                 : Settings.DEFAULT_PLAYBACK_SPEED.get();
     }
 
-    private static boolean getPlaylistData(@Nullable String videoId) {
-        if (Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC.get() && videoId != null) {
+    private static boolean isMusic(@Nullable String videoId) {
+        if (DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC && videoId != null) {
             try {
-                PlaylistRequest request = PlaylistRequest.getRequestForVideoId(videoId);
-                final boolean isPlaylist = request != null && BooleanUtils.toBoolean(request.getStream());
-                Logger.printDebug(() -> "isPlaylist: " + isPlaylist);
+                MusicRequest request = MusicRequest.getRequestForVideoId(videoId);
+                final boolean isMusic = request != null && BooleanUtils.toBoolean(request.getStream());
+                Logger.printDebug(() -> "videoId: " + videoId + ", isMusic: " + isMusic);
 
-                return isPlaylist;
+                return isMusic;
             } catch (Exception ex) {
-                Logger.printException(() -> "getPlaylistData failure", ex);
+                Logger.printException(() -> "getMusicRequest failure", ex);
             }
         }
 

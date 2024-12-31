@@ -43,6 +43,9 @@ public class BaseSettings {
     // Client type must be last spoof setting due to cyclic references.
     public static final EnumSetting<ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", ClientType.ANDROID_VR, true);
 
+    public static final StringSetting SPOOF_STREAMING_DATA_PO_TOKEN = new StringSetting("revanced_spoof_streaming_data_po_token", "", true);
+    public static final StringSetting SPOOF_STREAMING_DATA_VISITOR_DATA = new StringSetting("revanced_spoof_streaming_data_visitor_data", "", true);
+
     /**
      * @noinspection DeprecatedIsStillUsed
      */

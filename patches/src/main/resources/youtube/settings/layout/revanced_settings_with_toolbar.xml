@@ -16,10 +16,10 @@
             android:background="@color/yt_white1"
             android:elevation="0dp">
 
-            <android.widget.Toolbar
+            <android.support.v7.widget.Toolbar
                 android:id="@+id/revanced_toolbar"
-                android:layout_width="0.0dip"
-                android:layout_height="0.0dip"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 android:background="?attr/ytBrandBackgroundSolid"
                 app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
                 app:title="@string/revanced_extended_settings_title" />

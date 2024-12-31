@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Animation;
@@ -16,12 +17,25 @@ public class ResourceUtils extends Utils {
     } // utility class
 
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType) {
-        return getIdentifier(str, resourceType, getContext());
+        Activity mActivity = getActivity();
+        Context mContext = mActivity != null
+                ? mActivity
+                : getContext();
+        if (mContext == null) {
+            handleException(str, resourceType);
+            return 0;
+        }
+        return getIdentifier(str, resourceType, mContext);
     }
 
     public static int getIdentifier(@NonNull String str, @NonNull ResourceType resourceType,
                                     @NonNull Context context) {
-        return getResources().getIdentifier(str, resourceType.getType(), context.getPackageName());
+        try {
+            return context.getResources().getIdentifier(str, resourceType.getType(), context.getPackageName());
+        } catch (Exception ex) {
+            handleException(str, resourceType);
+        }
+        return 0;
     }
 
     public static int getAnimIdentifier(@NonNull String str) {

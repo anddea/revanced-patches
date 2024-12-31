@@ -31,7 +31,7 @@ enum class BottomSheetState {
                 onChange(currentBottomSheetState)
             }
 
-        @Volatile // value is read/write from different threads
+        @Volatile // Read/write from different threads.
         private var currentBottomSheetState = CLOSED
 
         /**

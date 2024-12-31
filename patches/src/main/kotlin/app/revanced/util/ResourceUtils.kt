@@ -20,6 +20,10 @@ private val classLoader = object {}.javaClass.classLoader
 fun Patch<*>.getStringOptionValue(key: String) =
     options[key] as Option<String>
 
+@Suppress("UNCHECKED_CAST")
+fun Patch<*>.getBooleanOptionValue(key: String) =
+    options[key] as Option<Boolean>
+
 fun Option<String>.valueOrThrow() = value
     ?: throw PatchException("Invalid patch option: $title.")
 

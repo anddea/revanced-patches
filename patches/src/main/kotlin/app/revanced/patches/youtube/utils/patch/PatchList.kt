@@ -23,7 +23,7 @@ internal enum class PatchList(
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
@@ -151,7 +151,7 @@ internal enum class PatchList(
     ),
     HIDE_SHORTCUTS(
         "Hide shortcuts",
-        "Remove, at compile time, the app shortcuts that appears when app icon is long pressed."
+        "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
     HOOK_YOUTUBE_MUSIC_ACTIONS(
         "Hook YouTube Music actions",
@@ -239,7 +239,7 @@ internal enum class PatchList(
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",
-        "Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header."
+        "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons."
     ),
     TRANSLATIONS_FOR_YOUTUBE(
         "Translations for YouTube",

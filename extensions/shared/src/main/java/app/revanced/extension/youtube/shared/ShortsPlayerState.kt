@@ -31,7 +31,7 @@ enum class ShortsPlayerState {
                 onChange(value)
             }
 
-        @Volatile // value is read/write from different threads
+        @Volatile // Read/write from different threads.
         private var currentShortsPlayerState = CLOSED
 
         /**

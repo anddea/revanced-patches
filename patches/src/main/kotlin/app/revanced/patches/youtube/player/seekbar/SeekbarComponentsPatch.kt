@@ -12,12 +12,14 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.addDrawableColorHook
 import app.revanced.patches.shared.drawable.drawableColorHookPatch
 import app.revanced.patches.shared.mainactivity.onCreateMethod
+import app.revanced.patches.youtube.layout.branding.icon.customBrandingIconPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
+import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
@@ -125,6 +127,9 @@ val seekbarComponentsPatch = bytecodePatch(
     )
 
     execute {
+
+        val restoreOldSplashAnimationIncluded = CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included == true &&
+                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimationOption").value == true
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: PLAYER",
@@ -267,25 +272,27 @@ val seekbarComponentsPatch = bytecodePatch(
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
             )
 
-            // Don't use the lotte splash screen layout if using custom seekbar.
-            arrayOf(
-                launchScreenLayoutTypeFingerprint.methodOrThrow(),
-                onCreateMethod
-            ).forEach { method ->
-                method.apply {
-                    val literalIndex =
-                        indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
-                    val resultIndex =
-                        indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                    val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+            if (!restoreOldSplashAnimationIncluded) {
+                // Don't use the lotte splash screen layout if using custom seekbar.
+                arrayOf(
+                    launchScreenLayoutTypeFingerprint.methodOrThrow(),
+                    onCreateMethod
+                ).forEach { method ->
+                    method.apply {
+                        val literalIndex =
+                            indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
+                        val resultIndex =
+                            indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                        val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
-                    addInstructions(
-                        resultIndex + 1,
-                        """
+                        addInstructions(
+                            resultIndex + 1,
+                            """
                             invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
                             move-result v$register
                             """
-                    )
+                        )
+                    }
                 }
             }
 
@@ -340,7 +347,7 @@ val seekbarComponentsPatch = bytecodePatch(
             }
         }
 
-        if (is_19_25_or_greater) {
+        if (is_19_25_or_greater && !restoreOldSplashAnimationIncluded) {
             // Add attribute and styles for splash screen custom color.
             // Using a style is the only way to selectively change just the seekbar fill color.
             //

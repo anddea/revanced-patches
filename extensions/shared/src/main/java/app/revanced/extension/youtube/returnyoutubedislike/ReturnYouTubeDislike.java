@@ -118,7 +118,6 @@ public class ReturnYouTubeDislike {
      */
     public static final int leftSeparatorShapePaddingPixels;
     private static final ShapeDrawable leftSeparatorShape;
-    public static final Locale locale;
 
     static {
         final Resources resources = Utils.getResources();
@@ -135,7 +134,6 @@ public class ReturnYouTubeDislike {
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);
-        locale = resources.getConfiguration().getLocales().get(0);
 
         ReturnYouTubeDislikeApi.toastOnConnectionError = Settings.RYD_TOAST_ON_CONNECTION_ERROR.get();
     }

@@ -74,47 +74,9 @@ internal val setEnumMapFingerprint = legacyFingerprint(
     literals = listOf(ytFillBell),
 )
 
-internal const val TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG = 45400535L
-
-internal val translucentStatusBarFingerprint = legacyFingerprint(
-    name = "translucentStatusBarFingerprint",
-    literals = listOf(TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG),
-)
-
-internal val translucentNavigationStatusBarFeatureFlagFingerprint = legacyFingerprint(
-    name = "translucentNavigationStatusBarFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Z",
-    literals = listOf(TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG)
-)
-
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG = 45630927L
+internal const val TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG = 45630927L
 
 internal val translucentNavigationBarFingerprint = legacyFingerprint(
     name = "translucentNavigationBarFingerprint",
-    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG),
-)
-
-internal val translucentNavigationButtonsFeatureFlagFingerprint = legacyFingerprint(
-    name = "translucentNavigationButtonsFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG)
-)
-
-/**
- * The device on screen back/home/recent buttons.
- */
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG = 45632194L
-
-internal val translucentNavigationBarSystemFingerprint = legacyFingerprint(
-    name = "translucentNavigationBarSystemFingerprint",
-    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG),
-)
-
-internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = legacyFingerprint(
-    name = "translucentNavigationButtonsSystemFeatureFlagFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Z",
-    literals = listOf(TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG)
+    literals = listOf(TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG),
 )

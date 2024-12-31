@@ -40,7 +40,7 @@ enum class LockModeState {
                 onChange(value)
             }
 
-        @Volatile // value is read/write from different threads
+        @Volatile // Read/write from different threads.
         private var currentLockModeState = LOCK_MODE_STATE_ENUM_UNKNOWN
 
         /**

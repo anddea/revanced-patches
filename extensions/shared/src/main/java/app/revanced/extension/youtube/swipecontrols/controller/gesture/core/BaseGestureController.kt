@@ -87,8 +87,10 @@ abstract class BaseGestureController(
         distanceX: Float,
         distanceY: Float,
     ): Boolean {
+        if (from == null) return false
+
         // submit to swipe detector
-        submitForSwipe(from!!, to, distanceX, distanceY)
+        submitForSwipe(from, to, distanceX, distanceY)
 
         // call swipe callback if in a swipe
         return if (currentSwipe != SwipeDetector.SwipeDirection.NONE) {
