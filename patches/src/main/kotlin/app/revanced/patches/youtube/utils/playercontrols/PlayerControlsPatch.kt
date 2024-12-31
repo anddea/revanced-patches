@@ -9,8 +9,11 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.utils.fullscreen.enterFullscreenMethod
+import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
+import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -46,6 +49,7 @@ private val playerControlsBytecodePatch = bytecodePatch(
         sharedExtensionPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
+        fullscreenButtonHookPatch,
     )
 
     execute {
@@ -109,6 +113,18 @@ private val playerControlsBytecodePatch = bytecodePatch(
             addInstruction(
                 insertIndex,
                 "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate()V"
+            )
+        }
+
+        // endregion
+
+        // region patch for fix buttons do not hide immediately when fullscreen button is clicked
+
+        // Reproduced only in RVX
+        if (is_19_23_or_greater) {
+            enterFullscreenMethod.addInstruction(
+                0,
+                "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediately()V"
             )
         }
 

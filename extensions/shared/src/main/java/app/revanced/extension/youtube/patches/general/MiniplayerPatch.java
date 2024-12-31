@@ -12,6 +12,8 @@ import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GRE
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,49 +84,56 @@ public final class MiniplayerPatch {
         }
     }
 
-    private static final int MINIPLAYER_SIZE;
+    private static int MINIPLAYER_SIZE = 0;
 
     static {
-        // YT appears to use the device screen dip width, plus an unknown fixed horizontal padding size.
-        DisplayMetrics displayMetrics = Utils.getContext().getResources().getDisplayMetrics();
-        final int deviceDipWidth = (int) (displayMetrics.widthPixels / displayMetrics.density);
+        setMiniPlayerSize();
+    }
 
-        // YT seems to use a minimum height to calculate the minimum miniplayer width based on the video.
-        // 170 seems to be the smallest that can be used and using less makes no difference.
-        final int WIDTH_DIP_MIN = 170; // Seems to be the smallest that works.
-        final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
-        // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
-        final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
-        // On some ultra low end devices the pixel width and density are the same number,
-        // which causes the estimate to always give a value of 1.
-        // Fix this by using a fixed size of double the min width.
-        final int WIDTH_DIP_MAX = estimatedWidthDipMax <= WIDTH_DIP_MIN
-                ? 2 * WIDTH_DIP_MIN
-                : estimatedWidthDipMax;
-        Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
+    private static void setMiniPlayerSize() {
+        try {
+            Context context = Utils.getContext();
+            if (context == null) {
+                return;
+            }
+            Resources resources = context.getResources();
+            if (resources == null) {
+                return;
+            }
+            // YT appears to use the device screen dip width, plus an unknown fixed horizontal padding size.
+            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+            final int deviceDipWidth = (int) (displayMetrics.widthPixels / displayMetrics.density);
 
-        int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
+            // YT seems to use a minimum height to calculate the minimum miniplayer width based on the video.
+            // 170 seems to be the smallest that can be used and using less makes no difference.
+            final int WIDTH_DIP_MIN = 170; // Seems to be the smallest that works.
+            final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
+            // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
+            final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
+            // On some ultra low end devices the pixel width and density are the same number,
+            // which causes the estimate to always give a value of 1.
+            // Fix this by using a fixed size of double the min width.
+            final int WIDTH_DIP_MAX = estimatedWidthDipMax <= WIDTH_DIP_MIN
+                    ? 2 * WIDTH_DIP_MIN
+                    : estimatedWidthDipMax;
+            Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
 
-        if (dipWidth < WIDTH_DIP_MIN || dipWidth > WIDTH_DIP_MAX) {
-            Utils.showToastShort(str("revanced_miniplayer_width_dip_invalid_toast",
-                    WIDTH_DIP_MIN, WIDTH_DIP_MAX));
-            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
 
-            // Instead of resetting, clamp the size at the bounds.
-            dipWidth = Math.max(WIDTH_DIP_MIN, Math.min(dipWidth, WIDTH_DIP_MAX));
-            Settings.MINIPLAYER_WIDTH_DIP.save(dipWidth);
+            if (dipWidth < WIDTH_DIP_MIN || dipWidth > WIDTH_DIP_MAX) {
+                Utils.showToastShort(str("revanced_miniplayer_width_dip_invalid_toast",
+                        WIDTH_DIP_MIN, WIDTH_DIP_MAX));
+                Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+
+                // Instead of resetting, clamp the size at the bounds.
+                dipWidth = Math.max(WIDTH_DIP_MIN, Math.min(dipWidth, WIDTH_DIP_MAX));
+                Settings.MINIPLAYER_WIDTH_DIP.save(dipWidth);
+            }
+
+            MINIPLAYER_SIZE = dipWidth;
+        } catch (Exception ex) {
+            Logger.printException(() -> "setMiniPlayerSize failure", ex);
         }
-
-        MINIPLAYER_SIZE = dipWidth;
-
-        final int opacity = validateValue(
-                Settings.MINIPLAYER_OPACITY,
-                0,
-                100,
-                "revanced_miniplayer_opacity_invalid_toast"
-        );
-
-        OPACITY_LEVEL = (opacity * 255) / 100;
     }
 
     /**
@@ -174,6 +183,17 @@ public final class MiniplayerPatch {
             CURRENT_TYPE == MODERN_2 && !IS_19_21_OR_GREATER;
 
     private static final int OPACITY_LEVEL;
+
+    static {
+        final int opacity = validateValue(
+                Settings.MINIPLAYER_OPACITY,
+                0,
+                100,
+                "revanced_miniplayer_opacity_invalid_toast"
+        );
+
+        OPACITY_LEVEL = (opacity * 255) / 100;
+    }
 
     public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
         @Override
@@ -293,7 +313,12 @@ public final class MiniplayerPatch {
      */
     public static int setMiniplayerDefaultSize(int original) {
         if (CURRENT_TYPE.isModern()) {
-            return MINIPLAYER_SIZE;
+            if (MINIPLAYER_SIZE == 0) {
+                setMiniPlayerSize();
+            }
+            if (MINIPLAYER_SIZE != 0) {
+                return MINIPLAYER_SIZE;
+            }
         }
 
         return original;

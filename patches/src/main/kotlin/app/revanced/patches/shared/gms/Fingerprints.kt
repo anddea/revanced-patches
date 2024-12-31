@@ -25,15 +25,6 @@ internal val castContextFetchFingerprint = legacyFingerprint(
     strings = listOf("Error fetching CastContext.")
 )
 
-internal val castDynamiteModuleFingerprint = legacyFingerprint(
-    name = "castDynamiteModuleFingerprint",
-    strings = listOf("com.google.android.gms.cast.framework.internal.CastDynamiteModuleImpl")
-)
-internal val castDynamiteModuleV2Fingerprint = legacyFingerprint(
-    name = "castDynamiteModuleV2Fingerprint",
-    strings = listOf("Failed to load module via V2: ")
-)
-
 internal val googlePlayUtilityFingerprint = legacyFingerprint(
     name = "castContextFetchFingerprint",
     returnType = "I",
@@ -53,42 +44,9 @@ internal val serviceCheckFingerprint = legacyFingerprint(
     strings = listOf("Google Play Services not available")
 )
 
-internal val primesApiFingerprint = legacyFingerprint(
-    name = "primesApiFingerprint",
-    returnType = "V",
-    strings = listOf("PrimesApiImpl.java"),
-    customFingerprint = { method, _ ->
-        MethodUtil.isConstructor(method)
-    }
-)
-
-internal val primesBackgroundInitializationFingerprint = legacyFingerprint(
-    name = "primesBackgroundInitializationFingerprint",
-    opcodes = listOf(Opcode.NEW_INSTANCE),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.CONST_STRING &&
-                    getReference<StringReference>()
-                        ?.string.toString()
-                        .startsWith("Primes init triggered from background in package:")
-        } >= 0
-    }
-)
-
-internal val primesLifecycleEventFingerprint = legacyFingerprint(
-    name = "primesLifecycleEventFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = emptyList(),
-    opcodes = listOf(Opcode.NEW_INSTANCE),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.CONST_STRING &&
-                    getReference<StringReference>()
-                        ?.string.toString()
-                        .startsWith("Primes did not observe lifecycle events in the expected order.")
-        } >= 0
-    }
+internal val primeMethodFingerprint = legacyFingerprint(
+    name = "primeMethodFingerprint",
+    strings = listOf("com.google.android.GoogleCamera", "com.android.vending")
 )
 
 internal val certificateFingerprint = legacyFingerprint(

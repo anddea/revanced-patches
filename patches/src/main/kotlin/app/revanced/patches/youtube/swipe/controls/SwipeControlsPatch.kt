@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SWIPE_CONTROLS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_19_09_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_36_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -146,7 +147,7 @@ val swipeControlsPatch = bytecodePatch(
 
         if (!is_19_36_or_greater) {
             watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
-                WATCH_PANEL_GESTURES_FEATURE_FLAG,
+                WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG,
                 "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z"
             )
         } else {
@@ -195,6 +196,13 @@ val swipeControlsPatch = bytecodePatch(
                 )
                 removeInstruction(targetIndex - 1)
             }
+        }
+
+        if (is_19_15_or_greater) {
+            watchPanelGesturesChannelBarFingerprint.injectLiteralInstructionBooleanCall(
+                WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG,
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z"
+            )
         }
 
         // endregion

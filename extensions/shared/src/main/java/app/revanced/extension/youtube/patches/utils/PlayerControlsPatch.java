@@ -106,7 +106,7 @@ public class PlayerControlsPatch {
         }
     }
 
-    private static void changeVisibilityNegatedImmediately() {
+    public static void changeVisibilityNegatedImmediately() {
         // AlwaysRepeat.changeVisibilityNegatedImmediate();
         // CopyVideoUrl.changeVisibilityNegatedImmediate();
         // CopyVideoUrlTimestamp.changeVisibilityNegatedImmediate();

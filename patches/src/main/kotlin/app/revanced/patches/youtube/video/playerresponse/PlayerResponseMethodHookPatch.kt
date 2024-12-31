@@ -70,7 +70,7 @@ val playerResponseMethodHookPatch = bytecodePatch(
                 """
                     invoke-static {$registerVideoId, $registerPlayerParameter, $registerPlaylistId, $registerIsShortAndOpeningOrPlaying}, $hook
                     move-result-object $registerPlayerParameter
-            """,
+                    """,
             )
             numberOfInstructionsAdded += 2
         }

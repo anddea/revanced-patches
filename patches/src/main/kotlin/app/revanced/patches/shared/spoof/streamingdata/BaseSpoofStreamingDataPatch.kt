@@ -21,6 +21,7 @@ import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -359,6 +360,24 @@ fun baseSpoofStreamingDataPatch(
             HLS_CURRENT_TIME_FEATURE_FLAG,
             "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
         )
+
+        // endregion
+
+        // region Set DroidGuard poToken.
+
+        poTokenToStringFingerprint.mutableClassOrThrow().let {
+            val poTokenClass = it.fields.find { field ->
+                field.accessFlags == AccessFlags.PRIVATE.value && field.type.startsWith("L")
+            }!!.type
+
+            findMethodOrThrow(poTokenClass) {
+                name == "<init>" &&
+                        parameters == listOf("[B")
+            }.addInstruction(
+                1,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setDroidGuardPoToken([B)V"
+            )
+        }
 
         // endregion
 

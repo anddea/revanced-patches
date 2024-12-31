@@ -23,7 +23,7 @@ internal enum class PatchList(
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
