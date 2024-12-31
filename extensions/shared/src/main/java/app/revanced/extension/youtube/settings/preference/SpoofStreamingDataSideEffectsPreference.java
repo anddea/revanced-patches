@@ -63,13 +63,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
 
     private void updateUI() {
         final String clientName = Settings.SPOOF_STREAMING_DATA_TYPE.get().name().toLowerCase();
-        String summaryTextKey = "revanced_spoof_streaming_data_side_effects_";
-
-        if (Settings.SPOOF_STREAMING_DATA_ANDROID_ONLY.get()) {
-            summaryTextKey += "android";
-        } else {
-            summaryTextKey += clientName;
-        }
+        final String summaryTextKey = "revanced_spoof_streaming_data_side_effects_" + clientName;
 
         setSummary(str(summaryTextKey));
         setEnabled(Settings.SPOOF_STREAMING_DATA.get());

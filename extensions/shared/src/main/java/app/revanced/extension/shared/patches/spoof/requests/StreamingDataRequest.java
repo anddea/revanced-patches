@@ -6,6 +6,9 @@ import static app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,7 +17,6 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -78,14 +80,14 @@ public class StreamingDataRequest {
     public static String getLastSpoofedClientName() {
         return lastSpoofedClientType == null
                 ? "Unknown"
-                : lastSpoofedClientType.getFriendlyName();
+                : lastSpoofedClientType.friendlyName;
     }
 
     static {
         ClientType[] allClientTypes = getAvailableClientTypes();
         ClientType preferredClient = BaseSettings.SPOOF_STREAMING_DATA_TYPE.get();
 
-        if (Arrays.stream(allClientTypes).noneMatch(preferredClient::equals)) {
+        if (ArrayUtils.indexOf(allClientTypes, preferredClient) < 0) {
             CLIENT_ORDER_TO_USE = allClientTypes;
         } else {
             CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];

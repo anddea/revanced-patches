@@ -1,6 +1,6 @@
 package app.revanced.extension.shared.patches.client;
 
-import static app.revanced.extension.shared.utils.ResourceUtils.getString;
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataMusic;
 
 import android.os.Build;
 
@@ -24,7 +24,9 @@ public class AppClient {
      * Store page of the YouTube app</a>, in the {@code What’s New} section.
      * </p>
      */
-    private static final String CLIENT_VERSION_IOS = "19.29.1";
+    private static final String CLIENT_VERSION_IOS = forceAVC()
+            ? "17.40.5"
+            : "19.29.1";
     /**
      * The device machine id for the iPhone 15 Pro Max (iPhone16,2), used to get HDR with AV1 hardware decoding.
      *
@@ -33,9 +35,15 @@ public class AppClient {
      * information.
      * </p>
      */
-    private static final String DEVICE_MODEL_IOS = "iPhone16,2";
-    private static final String OS_VERSION_IOS = "17.7.2.21H221";
-    private static final String USER_AGENT_VERSION_IOS = "17_7_2";
+    private static final String DEVICE_MODEL_IOS = forceAVC()
+            ? "iPhone12,5"  // 11 Pro Max. (last device with iOS 13)
+            : "iPhone16,2"; // 15 Pro Max.
+    private static final String OS_VERSION_IOS = forceAVC()
+            ? "13.7.17H35" // Last release of iOS 13.
+            : "17.7.2.21H221";
+    private static final String USER_AGENT_VERSION_IOS = forceAVC()
+            ? "13_7"
+            : "17_7_2";
     private static final String USER_AGENT_IOS =
             iOSUserAgent(PACKAGE_NAME_IOS, CLIENT_VERSION_IOS);
 
@@ -55,7 +63,9 @@ public class AppClient {
      * Store page of the YouTube TV app</a>, in the {@code What’s New} section.
      * </p>
      */
-    private static final String CLIENT_VERSION_IOS_UNPLUGGED = "8.33";
+    private static final String CLIENT_VERSION_IOS_UNPLUGGED = forceAVC()
+            ? "6.45"
+            : "8.33";
     private static final String USER_AGENT_IOS_UNPLUGGED =
             iOSUserAgent(PACKAGE_NAME_IOS_UNPLUGGED, CLIENT_VERSION_IOS_UNPLUGGED);
 
@@ -140,20 +150,6 @@ public class AppClient {
             androidUserAgent(PACKAGE_NAME_ANDROID_UNPLUGGED, CLIENT_VERSION_ANDROID_UNPLUGGED, OS_VERSION_ANDROID_UNPLUGGED);
 
 
-    // ANDROID CREATOR
-    /**
-     * Video not playable: Livestream
-     * Note: Audio track is not available
-     */
-    private static final String PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator";
-    private static final String CLIENT_VERSION_ANDROID_CREATOR = "24.14.101";
-    private static final String DEVICE_MODEL_ANDROID_CREATOR = Build.MODEL;
-    private static final String OS_VERSION_ANDROID_CREATOR = Build.VERSION.RELEASE;
-    private static final String ANDROID_SDK_VERSION_ANDROID_CREATOR = String.valueOf(Build.VERSION.SDK_INT);
-    private static final String USER_AGENT_ANDROID_CREATOR =
-            androidUserAgent(PACKAGE_NAME_ANDROID_CREATOR, CLIENT_VERSION_ANDROID_CREATOR, OS_VERSION_ANDROID_CREATOR);
-
-
     private AppClient() {
     }
 
@@ -178,21 +174,14 @@ public class AppClient {
     }
 
     public enum ClientType {
-        IOS(5,
-                DEVICE_MODEL_IOS,
-                OS_VERSION_IOS,
-                USER_AGENT_IOS,
-                null,
-                CLIENT_VERSION_IOS,
-                false
-        ),
         ANDROID_VR(28,
                 DEVICE_MODEL_ANDROID_VR,
                 OS_VERSION_ANDROID_VR,
                 USER_AGENT_ANDROID_VR,
                 ANDROID_SDK_VERSION_ANDROID_VR,
                 CLIENT_VERSION_ANDROID_VR,
-                true
+                true,
+                "Android VR"
         ),
         ANDROID_UNPLUGGED(29,
                 DEVICE_MODEL_ANDROID_UNPLUGGED,
@@ -200,15 +189,8 @@ public class AppClient {
                 USER_AGENT_ANDROID_UNPLUGGED,
                 ANDROID_SDK_VERSION_ANDROID_UNPLUGGED,
                 CLIENT_VERSION_ANDROID_UNPLUGGED,
-                true
-        ),
-        ANDROID_CREATOR(14,
-                DEVICE_MODEL_ANDROID_CREATOR,
-                OS_VERSION_ANDROID_CREATOR,
-                USER_AGENT_ANDROID_CREATOR,
-                ANDROID_SDK_VERSION_ANDROID_CREATOR,
-                CLIENT_VERSION_ANDROID_CREATOR,
-                true
+                true,
+                "Android TV"
         ),
         IOS_UNPLUGGED(33,
                 DEVICE_MODEL_IOS,
@@ -216,7 +198,21 @@ public class AppClient {
                 USER_AGENT_IOS_UNPLUGGED,
                 null,
                 CLIENT_VERSION_IOS_UNPLUGGED,
-                true
+                true,
+                forceAVC()
+                        ? "iOS TV Force AVC"
+                        : "iOS TV"
+        ),
+        IOS(5,
+                DEVICE_MODEL_IOS,
+                OS_VERSION_IOS,
+                USER_AGENT_IOS,
+                null,
+                CLIENT_VERSION_IOS,
+                false,
+                forceAVC()
+                        ? "iOS Force AVC"
+                        : "iOS"
         ),
         IOS_MUSIC(
                 26,
@@ -225,7 +221,8 @@ public class AppClient {
                 USER_AGENT_IOS_MUSIC,
                 null,
                 CLIENT_VERSION_IOS_MUSIC,
-                true
+                true,
+                "iOS Music"
         );
 
         /**
@@ -268,13 +265,19 @@ public class AppClient {
          */
         public final boolean canLogin;
 
+        /**
+         * Friendly name displayed in stats for nerds.
+         */
+        public final String friendlyName;
+
         ClientType(int id,
                    String deviceModel,
                    String osVersion,
                    String userAgent,
                    @Nullable String androidSdkVersion,
                    String clientVersion,
-                   boolean canLogin
+                   boolean canLogin,
+                   String friendlyName
         ) {
             this.id = id;
             this.clientName = name();
@@ -284,30 +287,29 @@ public class AppClient {
             this.androidSdkVersion = androidSdkVersion;
             this.userAgent = userAgent;
             this.canLogin = canLogin;
+            this.friendlyName = friendlyName;
         }
 
-        private static final ClientType[] CLIENT_ORDER_TO_USE_ANDROID = {
-                ANDROID_VR,
-                ANDROID_UNPLUGGED,
-                ANDROID_CREATOR,
-        };
-
-        private static final ClientType[] CLIENT_ORDER_TO_USE_DEFAULT = {
-                IOS,
+        private static final ClientType[] CLIENT_ORDER_TO_USE_YOUTUBE = {
                 ANDROID_VR,
                 ANDROID_UNPLUGGED,
                 IOS_UNPLUGGED,
-                IOS_MUSIC,
+                IOS,
         };
 
-        public final String getFriendlyName() {
-            return getString("revanced_spoof_streaming_data_type_entry_" + name().toLowerCase());
-        }
+        private static final ClientType[] CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC = {
+                ANDROID_VR,
+                IOS_MUSIC,
+        };
+    }
+
+    private static boolean forceAVC() {
+        return BaseSettings.SPOOF_STREAMING_DATA_IOS_FORCE_AVC.get();
     }
 
     public static ClientType[] getAvailableClientTypes() {
-        return BaseSettings.SPOOF_STREAMING_DATA_ANDROID_ONLY.get()
-                ? ClientType.CLIENT_ORDER_TO_USE_ANDROID
-                : ClientType.CLIENT_ORDER_TO_USE_DEFAULT;
+        return SpoofStreamingDataMusic()
+                ? ClientType.CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC
+                : ClientType.CLIENT_ORDER_TO_USE_YOUTUBE;
     }
 }
