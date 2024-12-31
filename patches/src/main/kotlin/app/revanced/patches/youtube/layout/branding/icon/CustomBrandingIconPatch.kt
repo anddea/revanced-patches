@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -136,7 +137,7 @@ val customBrandingIconPatch = resourcePatch(
         key = "changeSplashIcon",
         default = true,
         title = "Change splash icons",
-        description = "Apply the custom branding icon to the splash screen.",
+        description = "Apply the custom branding icon to the splash screen. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         required = true
     )
 
@@ -185,29 +186,33 @@ val customBrandingIconPatch = resourcePatch(
 
             // Change splash icon.
             if (changeSplashIconOption == true) {
-                splashIconResourceGroups.let { resourceGroups ->
-                    resourceGroups.forEach {
-                        copyResources("$appIconResourcePath/splash", it)
-                    }
-                }
-
-                document("res/values/styles.xml").use { document ->
-                    val resourcesNode =
-                        document.getElementsByTagName("resources").item(0) as Element
-                    val childNodes = resourcesNode.childNodes
-
-                    for (i in 0 until childNodes.length) {
-                        val node = childNodes.item(i) as? Element ?: continue
-                        val nodeAttributeName = node.getAttribute("name")
-                        if (nodeAttributeName.startsWith("Theme.YouTube.Launcher")) {
-                            val style = document.createElement("style")
-                            style.setAttribute("name", nodeAttributeName)
-                            style.setAttribute("parent", "@style/Base.Theme.YouTube.Launcher")
-
-                            resourcesNode.removeChild(node)
-                            resourcesNode.appendChild(style)
+                if (!is_19_17_or_greater) {
+                    splashIconResourceGroups.let { resourceGroups ->
+                        resourceGroups.forEach {
+                            copyResources("$appIconResourcePath/splash", it)
                         }
                     }
+
+                    document("res/values/styles.xml").use { document ->
+                        val resourcesNode =
+                            document.getElementsByTagName("resources").item(0) as Element
+                        val childNodes = resourcesNode.childNodes
+
+                        for (i in 0 until childNodes.length) {
+                            val node = childNodes.item(i) as? Element ?: continue
+                            val nodeAttributeName = node.getAttribute("name")
+                            if (nodeAttributeName.startsWith("Theme.YouTube.Launcher")) {
+                                val style = document.createElement("style")
+                                style.setAttribute("name", nodeAttributeName)
+                                style.setAttribute("parent", "@style/Base.Theme.YouTube.Launcher")
+
+                                resourcesNode.removeChild(node)
+                                resourcesNode.appendChild(style)
+                            }
+                        }
+                    }
+                } else {
+                    printWarn("\"Change splash icons\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
                 }
             }
 
