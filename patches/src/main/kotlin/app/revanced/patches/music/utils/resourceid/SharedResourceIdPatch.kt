@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.shared.mapping.ResourceType.BOOL
 import app.revanced.patches.shared.mapping.ResourceType.COLOR
 import app.revanced.patches.shared.mapping.ResourceType.DIMEN
+import app.revanced.patches.shared.mapping.ResourceType.DRAWABLE
 import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING
@@ -13,6 +14,10 @@ import app.revanced.patches.shared.mapping.resourceMappingPatch
 import app.revanced.patches.shared.mapping.resourceMappings
 
 var accountSwitcherAccessibility = -1L
+    private set
+var actionBarLogo = -1L
+    private set
+var actionBarLogoRingo2 = -1L
     private set
 var bottomSheetRecyclerView = -1L
     private set
@@ -94,6 +99,10 @@ var trimSilenceSwitch = -1L
     private set
 var varispeedUnavailableTitle = -1L
     private set
+var ytmLogo = -1L
+    private set
+var ytmLogoRingo2 = -1L
+    private set
 
 internal val sharedResourceIdPatch = resourcePatch(
     description = "sharedResourceIdPatch"
@@ -104,6 +113,14 @@ internal val sharedResourceIdPatch = resourcePatch(
         accountSwitcherAccessibility = resourceMappings[
             STRING,
             "account_switcher_accessibility_label",
+        ]
+        actionBarLogo = resourceMappings[
+            DRAWABLE,
+            "action_bar_logo",
+        ]
+        actionBarLogoRingo2 = resourceMappings[
+            DRAWABLE,
+            "action_bar_logo_ringo2",
         ]
         bottomSheetRecyclerView = resourceMappings[
             LAYOUT,
@@ -264,6 +281,14 @@ internal val sharedResourceIdPatch = resourcePatch(
         varispeedUnavailableTitle = resourceMappings[
             STRING,
             "varispeed_unavailable_title"
+        ]
+        ytmLogo = resourceMappings[
+            DRAWABLE,
+            "ytm_logo",
+        ]
+        ytmLogoRingo2 = resourceMappings[
+            DRAWABLE,
+            "ytm_logo_ringo2",
         ]
     }
 }
