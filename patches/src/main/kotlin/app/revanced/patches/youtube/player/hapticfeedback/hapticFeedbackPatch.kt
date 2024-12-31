@@ -10,10 +10,12 @@ import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCR
 import app.revanced.patches.youtube.utils.patch.PatchList.DISABLE_HAPTIC_FEEDBACK
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val hapticFeedbackPatch = bytecodePatch(
@@ -26,23 +28,29 @@ val hapticFeedbackPatch = bytecodePatch(
 
     execute {
         fun Pair<String, Fingerprint>.hookHapticFeedback(methodName: String) =
-            methodOrThrow().apply {
-                var index = 0
-                var register = 0
+            matchOrThrow().let {
+                it.method.apply {
+                    var index = 0
+                    var register = 0
 
-                if (name == "run") {
-                    index = indexOfFirstInstructionOrThrow(Opcode.SGET)
-                    register = getInstruction<OneRegisterInstruction>(index).registerA
-                }
+                    if (name == "run") {
+                        val stringIndex = it.stringMatches!!.first().index
+                        index = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                            opcode == Opcode.SGET &&
+                                    getReference<FieldReference>()?.toString() == "Landroid/os/Build${'$'}VERSION;->SDK_INT:I"
+                        }
+                        register = getInstruction<OneRegisterInstruction>(index).registerA
+                    }
 
-                addInstructionsWithLabels(
-                    index, """
+                    addInstructionsWithLabels(
+                        index, """
                         invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
                         move-result v$register
                         if-eqz v$register, :vibrate
                         return-void
                         """, ExternalLabel("vibrate", getInstruction(index))
-                )
+                    )
+                }
             }
 
         arrayOf(
