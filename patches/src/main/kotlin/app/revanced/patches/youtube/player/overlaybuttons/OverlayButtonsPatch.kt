@@ -15,12 +15,15 @@ import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.doRecursively
@@ -75,6 +78,7 @@ val overlayButtonsPatch = resourcePatch(
         playerControlsPatch,
         sharedResourceIdPatch,
         settingsPatch,
+        versionCheckPatch,
     )
 
     val iconTypeOption = stringOption(
@@ -99,7 +103,7 @@ val overlayButtonsPatch = resourcePatch(
             "Wider" to MARGIN_WIDER,
         ),
         title = "Bottom margin",
-        description = "The bottom margin for the overlay buttons and timestamp.",
+        description = "The bottom margin for the overlay buttons and timestamp. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         required = true
     )
 
@@ -107,7 +111,7 @@ val overlayButtonsPatch = resourcePatch(
         key = "widerButtonsSpace",
         default = false,
         title = "Wider between-buttons space",
-        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         required = true
     )
 
@@ -125,8 +129,18 @@ val overlayButtonsPatch = resourcePatch(
         val iconType = iconTypeOption
             .lowerCaseOrThrow()
 
-        val marginBottom = bottomMarginOption
+        var marginBottom = bottomMarginOption
             .lowerCaseOrThrow()
+
+        if (marginBottom != MARGIN_DEFAULT && is_19_17_or_greater) {
+            printWarn("\"Bottom margin\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+            marginBottom = MARGIN_DEFAULT
+        }
+
+        if (widerButtonsSpace == true && is_19_17_or_greater) {
+            printWarn("\"Wider between-buttons space\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+        }
+        val useWiderButtonsSpace = widerButtonsSpace == true && !is_19_17_or_greater
 
         // Inject hooks for overlay buttons.
         setOf(
@@ -201,59 +215,76 @@ val overlayButtonsPatch = resourcePatch(
             "android.support.constraint.ConstraintLayout"
         )
 
-        // Note: Do not modify fullscreen button and multiview button
-        document("res/layout/youtube_controls_bottom_ui_container.xml").use { document ->
-            document.doRecursively loop@{ node ->
-                if (node !is Element) return@loop
+        var xmlFiles = arrayOf(
+            "youtube_controls_bottom_ui_container.xml"
+        )
+        if (!is_19_17_or_greater) {
+            xmlFiles += "youtube_controls_fullscreen_button.xml"
+            xmlFiles += "youtube_controls_cf_fullscreen_button.xml"
+        }
 
-                // Change the relationship between buttons
-                node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
-                    ?.let { attribute ->
-                        if (attribute.textContent == "@id/fullscreen_button") {
-                            attribute.textContent = "@+id/speed_dialog_button"
+        xmlFiles.forEach { xmlFile ->
+            val targetXml = get("res").resolve("layout").resolve(xmlFile)
+            if (targetXml.exists()) {
+                document("res/layout/$xmlFile").use { document ->
+                    document.doRecursively loop@{ node ->
+                        if (node !is Element) return@loop
+
+                        // Change the relationship between buttons
+                        node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
+                            ?.let { attribute ->
+                                if (attribute.textContent == "@id/fullscreen_button") {
+                                    attribute.textContent = "@+id/speed_dialog_button"
+                                }
+                            }
+
+                        val (id, height, width) = Triple(
+                            node.getAttribute("android:id"),
+                            node.getAttribute("android:layout_height"),
+                            node.getAttribute("android:layout_width")
+                        )
+                        val (heightIsNotZero, widthIsNotZero) = Pair(
+                            height != "0.0dip",
+                            width != "0.0dip",
+                        )
+
+                        val isButton = if (is_19_17_or_greater)
+                            // Note: Do not modify fullscreen button and multiview button
+                            id.endsWith("_button") && id != "@id/multiview_button"
+                        else
+                            id.endsWith("_button") || id == "@id/youtube_controls_fullscreen_button_stub"
+
+                        // Adjust TimeBar and Chapter bottom padding
+                        val timBarItem = mutableMapOf(
+                            "@id/time_bar_chapter_title" to "16.0dip",
+                            "@id/timestamps_container" to "14.0dip"
+                        )
+
+                        val layoutHeightWidth = if (useWiderButtonsSpace)
+                            "56.0dip"
+                        else
+                            "48.0dip"
+
+                        if (isButton) {
+                            node.setAttribute("android:layout_marginBottom", marginBottom)
+                            node.setAttribute("android:paddingLeft", "0.0dip")
+                            node.setAttribute("android:paddingRight", "0.0dip")
+                            node.setAttribute("android:paddingBottom", "22.0dip")
+                            if (heightIsNotZero && widthIsNotZero) {
+                                node.setAttribute("android:layout_height", layoutHeightWidth)
+                                node.setAttribute("android:layout_width", layoutHeightWidth)
+                            }
+                        } else if (timBarItem.containsKey(id)) {
+                            node.setAttribute("android:layout_marginBottom", marginBottom)
+                            if (!useWiderButtonsSpace) {
+                                node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
+                            }
+                        }
+
+                        if (!is_19_17_or_greater && id.equals("@id/youtube_controls_fullscreen_button_stub")) {
+                            node.setAttribute("android:layout_width", layoutHeightWidth)
                         }
                     }
-
-                val (id, height, width) = Triple(
-                    node.getAttribute("android:id"),
-                    node.getAttribute("android:layout_height"),
-                    node.getAttribute("android:layout_width")
-                )
-                val (heightIsNotZero, widthIsNotZero, isButton) = Triple(
-                    height != "0.0dip",
-                    width != "0.0dip",
-                    id.endsWith("_button") && id != "@id/multiview_button"
-                )
-
-                // Adjust TimeBar and Chapter bottom padding
-                val timBarItem = mutableMapOf(
-                    "@id/time_bar_chapter_title" to "16.0dip",
-                    "@id/timestamps_container" to "14.0dip"
-                )
-
-                val layoutHeightWidth = if (widerButtonsSpace == true)
-                    "56.0dip"
-                else
-                    "48.0dip"
-
-                if (isButton) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
-                    node.setAttribute("android:paddingLeft", "0.0dip")
-                    node.setAttribute("android:paddingRight", "0.0dip")
-                    node.setAttribute("android:paddingBottom", "22.0dip")
-                    if (heightIsNotZero && widthIsNotZero) {
-                        node.setAttribute("android:layout_height", layoutHeightWidth)
-                        node.setAttribute("android:layout_width", layoutHeightWidth)
-                    }
-                } else if (timBarItem.containsKey(id)) {
-                    node.setAttribute("android:layout_marginBottom", marginBottom)
-                    if (widerButtonsSpace != true) {
-                        node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
-                    }
-                }
-
-                if (id.equals("@id/youtube_controls_fullscreen_button_stub")) {
-                    node.setAttribute("android:layout_width", layoutHeightWidth)
                 }
             }
         }
