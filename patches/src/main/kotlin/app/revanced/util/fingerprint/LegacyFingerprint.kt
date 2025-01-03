@@ -134,16 +134,17 @@ fun Pair<String, Fingerprint>.injectLiteralInstructionViewCall(
 
 internal fun legacyFingerprint(
     name: String,
+    fuzzyPatternScanThreshold: Int = 0,
     accessFlags: Int? = null,
     returnType: String? = null,
     parameters: List<String>? = null,
     opcodes: List<Opcode?>? = null,
     strings: List<String>? = null,
     literals: List<Long>? = null,
-    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null
+    customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
 ) = Pair(
     name,
-    fingerprint {
+    fingerprint(fuzzyPatternScanThreshold = fuzzyPatternScanThreshold) {
         if (accessFlags != null) {
             accessFlags(accessFlags)
         }

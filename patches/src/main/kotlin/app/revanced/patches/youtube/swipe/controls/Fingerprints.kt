@@ -5,8 +5,12 @@ import app.revanced.patches.youtube.utils.resourceid.autoNavScrollCancelPadding
 import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementOverlay
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val fullScreenEngagementOverlayFingerprint = legacyFingerprint(
     name = "fullScreenEngagementOverlayFingerprint",
@@ -72,4 +76,48 @@ internal val watchPanelGesturesChannelBarFingerprint = legacyFingerprint(
                 method.name == "onInterceptTouchEvent" &&
                 method.containsLiteralInstruction(WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG)
     }
+)
+
+/**
+ * fuzzyPatternScanThreshold is required to maintain compatibility with YouTube v18.29.38 ~ v18.32.39.
+ *
+ * TODO: Remove fuzzyPatternScanThreshold if support for YouTube v18.29.38 to v18.32.39 is dropped.
+ */
+internal val playerGestureConfigSyntheticFingerprint = legacyFingerprint(
+    name = "playerGestureConfigSyntheticFingerprint",
+    fuzzyPatternScanThreshold = 5,
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Ljava/lang/Object;"),
+    opcodes = listOf(
+        Opcode.SGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQZ,
+        Opcode.IF_EQZ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,      // playerGestureConfig.downAndOutLandscapeAllowed
+        Opcode.MOVE_RESULT,
+        Opcode.CHECK_CAST,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,      // playerGestureConfig.downAndOutPortraitAllowed
+        Opcode.MOVE_RESULT,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.RETURN_VOID,
+    ),
+    customFingerprint = { method, classDef ->
+        // This method is always called "a" because this kind of class always has a single method.
+        method.name == "a" &&
+                classDef.methods.count() == 2 &&
+                method.indexOfFirstInstruction {
+                    val reference = getReference<MethodReference>()
+                    reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;" &&
+                            reference.parameterTypes.isEmpty() &&
+                            reference.returnType == "Z"
+                } >= 0
+    },
 )
