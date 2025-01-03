@@ -23,19 +23,6 @@ internal val broadcastReceiverFingerprint = legacyFingerprint(
     }
 )
 
-internal val clientSettingEndpointFingerprint = legacyFingerprint(
-    name = "clientSettingEndpointFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "Ljava/util/Map;"),
-    strings = listOf(
-        "OVERRIDE_EXIT_FULLSCREEN_TO_MAXIMIZED",
-        "force_fullscreen",
-        "start_watch_minimized",
-        "watch"
-    )
-)
-
 internal val engagementPanelFingerprint = legacyFingerprint(
     name = "engagementPanelFingerprint",
     returnType = "L",
@@ -72,10 +59,3 @@ internal val relatedEndScreenResultsFingerprint = legacyFingerprint(
     literals = listOf(appRelatedEndScreenResults),
 )
 
-internal val videoPortraitParentFingerprint = legacyFingerprint(
-    name = "videoPortraitParentFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "Ljava/util/Map;"),
-    strings = listOf("Acquiring NetLatencyActionLogger failed. taskId=")
-)
