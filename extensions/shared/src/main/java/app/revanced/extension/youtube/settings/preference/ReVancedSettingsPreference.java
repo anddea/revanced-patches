@@ -49,7 +49,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         ChangeHeaderPreferenceLinks();
         ExternalDownloaderPreferenceLinks();
         FullScreenPanelPreferenceLinks();
-        LayoutOverrideLinks();
         MiniPlayerPreferenceLinks();
         NavigationPreferenceLinks();
         RYDPreferenceLinks();
@@ -94,16 +93,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
     }
 
     /**
-     * Enable/Disable Layout Override Preference
-     */
-    private static void LayoutOverrideLinks() {
-        enableDisablePreferences(
-                ExtendedUtils.isTablet(),
-                Settings.FORCE_FULLSCREEN
-        );
-    }
-
-    /**
      * Enable/Disable Preferences not working in tablet layout
      */
     private static void TabletLayoutLinks() {
@@ -139,17 +128,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.HIDE_QUICK_ACTIONS_SAVE_TO_PLAYLIST_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_SHARE_BUTTON
         );
-
-        enableDisablePreferences(
-                Settings.DISABLE_LANDSCAPE_MODE.get(),
-                Settings.FORCE_FULLSCREEN
-        );
-
-        enableDisablePreferences(
-                Settings.FORCE_FULLSCREEN.get(),
-                Settings.DISABLE_LANDSCAPE_MODE
-        );
-
     }
 
     /**

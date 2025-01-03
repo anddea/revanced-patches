@@ -266,6 +266,20 @@ public class VideoUtils extends IntentUtils {
     /**
      * Rest of the implementation added by patch.
      */
+    public static void enterFullscreenMode() {
+        Logger.printDebug(() -> "Enter fullscreen mode");
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
+    public static void exitFullscreenMode() {
+        Logger.printDebug(() -> "Exit fullscreen mode");
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
     public static void showPlaybackSpeedFlyoutMenu() {
         Logger.printDebug(() -> "Playback speed flyout menu opened");
     }

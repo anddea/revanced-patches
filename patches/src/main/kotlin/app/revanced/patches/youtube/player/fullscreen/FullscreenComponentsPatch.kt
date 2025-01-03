@@ -11,13 +11,18 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.mainactivity.onConfigurationChangedMethod
+import app.revanced.patches.shared.mainactivity.onStartMethod
+import app.revanced.patches.shared.mainactivity.onStopMethod
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
+import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
 import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.FULLSCREEN_COMPONENTS
+import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_42_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -28,7 +33,11 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
+import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
+import app.revanced.patches.youtube.video.information.videoEndMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.Utils.printWarn
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -42,12 +51,17 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/QuickActionFilter;"
+
+private const val EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR =
+    "$PLAYER_PATH/EnterFullscreenPatch;"
+
+private const val EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR =
+    "$PLAYER_PATH/ExitFullscreenPatch;"
 
 @Suppress("unused")
 val fullscreenComponentsPatch = bytecodePatch(
@@ -58,8 +72,11 @@ val fullscreenComponentsPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        playerTypeHookPatch,
         lithoFilterPatch,
         mainActivityResolvePatch,
+        fullscreenButtonHookPatch,
+        videoInformationPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
     )
@@ -102,6 +119,33 @@ val fullscreenComponentsPatch = bytecodePatch(
                 insertIndex,
                 "invoke-static { v${insertInstruction.registerC}, v${insertInstruction.registerD} }, " +
                         "$PLAYER_CLASS_DESCRIPTOR->showVideoTitleSection(Landroid/widget/FrameLayout;Landroid/view/View;)V"
+            )
+        }
+
+        // endregion
+
+        // region patch for enter fullscreen
+
+        mapOf(
+            onStartMethod to "onAppForegrounded",
+            onStopMethod to "onAppBackgrounded"
+        ).forEach { (method, name) ->
+            method.addInstruction(
+                0,
+                "invoke-static {}, $EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->$name()V"
+            )
+        }
+
+        hookBackgroundPlayVideoInformation("$EXTENSION_ENTER_FULLSCREEN_CLASS_DESCRIPTOR->enterFullscreen(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+
+        // endregion
+
+        // region patch for exit fullscreen
+
+        videoEndMethod.apply {
+            addInstructionsAtControlFlowLabel(
+                implementation!!.instructions.lastIndex,
+                "invoke-static {}, $EXTENSION_EXIT_FULLSCREEN_CLASS_DESCRIPTOR->endOfVideoReached()V",
             )
         }
 
@@ -194,60 +238,6 @@ val fullscreenComponentsPatch = bytecodePatch(
                         """
                 )
             }
-        }
-
-        // endregion
-
-        // region patch for force fullscreen
-
-        clientSettingEndpointFingerprint.methodOrThrow().apply {
-            val getActivityIndex = indexOfFirstStringInstructionOrThrow("watch") + 2
-            val getActivityReference =
-                getInstruction<ReferenceInstruction>(getActivityIndex).reference
-            val classRegister =
-                getInstruction<TwoRegisterInstruction>(getActivityIndex).registerB
-
-            val watchDescriptorMethodIndex =
-                indexOfFirstStringInstructionOrThrow("start_watch_minimized") - 1
-            val watchDescriptorRegister =
-                getInstruction<FiveRegisterInstruction>(watchDescriptorMethodIndex).registerD
-
-            addInstructions(
-                watchDescriptorMethodIndex, """
-                    invoke-static {v$watchDescriptorRegister}, $PLAYER_CLASS_DESCRIPTOR->forceFullscreen(Z)Z
-                    move-result v$watchDescriptorRegister
-                    """
-            )
-
-            // hooks Activity.
-            val insertIndex = indexOfFirstStringInstructionOrThrow("force_fullscreen")
-            val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-            addInstructions(
-                insertIndex, """
-                    iget-object v$freeRegister, v$classRegister, $getActivityReference
-                    check-cast v$freeRegister, Landroid/app/Activity;
-                    invoke-static {v$freeRegister}, $PLAYER_CLASS_DESCRIPTOR->setWatchDescriptorActivity(Landroid/app/Activity;)V
-                    """
-            )
-        }
-
-        videoPortraitParentFingerprint.methodOrThrow().apply {
-            val stringIndex =
-                indexOfFirstStringInstructionOrThrow("Acquiring NetLatencyActionLogger failed. taskId=")
-            val invokeIndex =
-                indexOfFirstInstructionOrThrow(stringIndex, Opcode.INVOKE_INTERFACE)
-            val targetIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.CHECK_CAST)
-            val targetClass =
-                getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
-
-            // add an instruction to check the vertical video
-            findMethodOrThrow(targetClass) {
-                parameters == listOf("I", "I", "Z")
-            }.addInstruction(
-                1,
-                "invoke-static {p1, p2}, $PLAYER_CLASS_DESCRIPTOR->setVideoPortrait(II)V"
-            )
         }
 
         // endregion
