@@ -74,6 +74,13 @@ public class VideoUtils extends IntentUtils {
     /**
      * Rest of the implementation added by patch.
      */
+    public static void dismissQueue() {
+        Log.d("Extended: VideoUtils", "Queue dismissed");
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
     public static void shuffleTracks() {
         Log.d("Extended: VideoUtils", "Tracks are shuffled");
     }

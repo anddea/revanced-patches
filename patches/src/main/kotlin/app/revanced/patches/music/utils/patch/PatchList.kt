@@ -57,6 +57,10 @@ internal enum class PatchList(
         "Disable dislike redirection",
         "Adds an option to disable redirection to the next track when clicking the Dislike button."
     ),
+    DISABLE_MUSIC_VIDEO_IN_ALBUM(
+        "Disable music video in album",
+        "Adds option to redirect music videos from albums."
+    ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
         "Adds an options to enable the OPUS audio codec if the player response includes."
