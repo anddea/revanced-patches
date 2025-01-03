@@ -1,6 +1,6 @@
 package app.revanced.extension.shared.patches.spoof;
 
-import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingData;
+import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDataMusic;
 
 import android.net.Uri;
 import android.text.TextUtils;
@@ -21,7 +21,9 @@ import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class SpoofStreamingDataPatch {
-    private static final boolean SPOOF_STREAMING_DATA = SpoofStreamingData() && BaseSettings.SPOOF_STREAMING_DATA.get();
+    private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_STREAMING_DATA.get();
+    private static final boolean SPOOF_STREAMING_DATA_YOUTUBE = SPOOF_STREAMING_DATA && !SpoofStreamingDataMusic();
+    private static final boolean SPOOF_STREAMING_DATA_MUSIC = SPOOF_STREAMING_DATA && SpoofStreamingDataMusic();
     private static final String PO_TOKEN =
             BaseSettings.SPOOF_STREAMING_DATA_PO_TOKEN.get();
     private static final String VISITOR_DATA =
@@ -59,16 +61,19 @@ public class SpoofStreamingDataPatch {
      */
     public static Uri blockGetWatchRequest(Uri playerRequestUri) {
         if (SPOOF_STREAMING_DATA) {
-            try {
-                String path = playerRequestUri.getPath();
+            // An exception may be thrown when the /get_watch request is blocked when connected to Wi-Fi in YouTube Music.
+            if (SPOOF_STREAMING_DATA_YOUTUBE || Utils.getNetworkType() == Utils.NetworkType.MOBILE) {
+                try {
+                    String path = playerRequestUri.getPath();
 
-                if (path != null && path.contains("get_watch")) {
-                    Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
+                    if (path != null && path.contains("get_watch")) {
+                        Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
 
-                    return UNREACHABLE_HOST_URI;
+                        return UNREACHABLE_HOST_URI;
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "blockGetWatchRequest failure", ex);
                 }
-            } catch (Exception ex) {
-                Logger.printException(() -> "blockGetWatchRequest failure", ex);
             }
         }
 
@@ -117,10 +122,72 @@ public class SpoofStreamingDataPatch {
         return false;
     }
 
+    private static volatile String auth = "";
+    private static volatile Map<String, String> requestHeader;
+
+    private static final String AUTHORIZATION_HEADER = "Authorization";
+
+    private static final String[] REQUEST_HEADER_KEYS = {
+            AUTHORIZATION_HEADER,
+            "X-GOOG-API-FORMAT-VERSION",
+            "X-Goog-Visitor-Id"
+    };
+
+    /**
+     * If the /get_watch request is not blocked,
+     * fetchRequest will not be invoked at the point where the video starts.
+     * <p>
+     * An additional method is used to invoke fetchRequest in YouTube Music:
+     * 1. Save the requestHeader in a field.
+     * 2. Invoke fetchRequest with the videoId used in PlaybackStartDescriptor.
+     * <p>
+     * @param requestHeaders    Save the request Headers used for login to a field.
+     *                          Only used in YouTube Music where login is required.
+     */
+    private static void setRequestHeaders(Map<String, String> requestHeaders) {
+        if (SPOOF_STREAMING_DATA_MUSIC) {
+            try {
+                // Save requestHeaders whenever an account is switched.
+                String authorization = requestHeaders.get(AUTHORIZATION_HEADER);
+                if (authorization == null || auth.equals(authorization)) {
+                    return;
+                }
+                for (String key : REQUEST_HEADER_KEYS) {
+                    if (requestHeaders.get(key) == null) {
+                        return;
+                    }
+                }
+                auth = authorization;
+                requestHeader = requestHeaders;
+            } catch (Exception ex) {
+                Logger.printException(() -> "setRequestHeaders failure", ex);
+            }
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void fetchStreams(@NonNull String videoId) {
+        if (SPOOF_STREAMING_DATA_MUSIC) {
+            try {
+                if (requestHeader != null) {
+                    StreamingDataRequest.fetchRequest(videoId, requestHeader, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
+                } else {
+                    Logger.printDebug(() -> "Ignoring request with no header.");
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "fetchStreams failure", ex);
+            }
+        }
+    }
+
     /**
      * Injection point.
      */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
+        setRequestHeaders(requestHeaders);
+
         if (SPOOF_STREAMING_DATA) {
             try {
                 Uri uri = Uri.parse(url);
@@ -146,7 +213,7 @@ public class SpoofStreamingDataPatch {
 
                 StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
             } catch (Exception ex) {
-                Logger.printException(() -> "buildRequest failure", ex);
+                Logger.printException(() -> "fetchStreams failure", ex);
             }
         }
     }
@@ -196,7 +263,7 @@ public class SpoofStreamingDataPatch {
      * Called after {@link #getStreamingData(String)}.
      */
     public static void setApproxDurationMs(String videoId, long approxDurationMs) {
-        if (approxDurationMs != Long.MAX_VALUE) {
+        if (SPOOF_STREAMING_DATA_YOUTUBE && approxDurationMs != Long.MAX_VALUE) {
             approxDurationMsMap.put(videoId, approxDurationMs);
             Logger.printDebug(() -> "New approxDurationMs loaded, video id: " + videoId + ", video length: " + approxDurationMs);
         }
@@ -218,7 +285,7 @@ public class SpoofStreamingDataPatch {
      * Called after {@link #getStreamingData(String)}.
      */
     public static long getApproxDurationMs(String videoId) {
-        if (SPOOF_STREAMING_DATA && videoId != null) {
+        if (SPOOF_STREAMING_DATA_YOUTUBE && videoId != null) {
             final Long approxDurationMs = approxDurationMsMap.get(videoId);
             if (approxDurationMs != null) {
                 Logger.printDebug(() -> "Replacing video length: " + approxDurationMs + " for videoId: " + videoId);

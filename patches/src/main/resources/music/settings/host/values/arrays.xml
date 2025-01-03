@@ -14,6 +14,22 @@
         <item>FEmusic_library_landing</item>
         <item>FEmusic_library_corpus_artists</item>
     </string-array>
+    <string-array name="revanced_disable_music_video_in_album_redirect_type_entries">
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_redirect_dismiss</item>
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_redirect</item>
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_on_click_dismiss</item>
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_on_click</item>
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_on_long_click_dismiss</item>
+        <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_on_long_click</item>
+    </string-array>
+    <string-array name="revanced_disable_music_video_in_album_redirect_type_entry_values">
+        <item>REDIRECT_DISMISS</item>
+        <item>REDIRECT</item>
+        <item>ON_CLICK_DISMISS</item>
+        <item>ON_CLICK</item>
+        <item>ON_LONG_CLICK_DISMISS</item>
+        <item>ON_LONG_CLICK</item>
+    </string-array>
     <string-array name="revanced_extended_settings_import_export_entries">
         <item>@string/revanced_extended_settings_export_as_file</item>
         <item>@string/revanced_extended_settings_import_as_file</item>
