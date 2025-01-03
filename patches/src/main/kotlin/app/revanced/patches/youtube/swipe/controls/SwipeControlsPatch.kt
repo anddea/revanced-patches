@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.swipe.controls
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -29,9 +30,11 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
+import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -107,7 +110,7 @@ val swipeControlsPatch = bytecodePatch(
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: SWIPE_CONTROLS",
-            "SETTINGS: DISABLE_WATCH_PANEL_GESTURES"
+            "SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER"
         )
 
         // region patch for disable HDR auto brightness
@@ -143,12 +146,12 @@ val swipeControlsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for disable watch panel gestures
+        // region patch for disable swipe to enter fullscreen mode (below the player)
 
         if (!is_19_36_or_greater) {
             watchPanelGesturesFingerprint.injectLiteralInstructionBooleanCall(
                 WATCH_PANEL_GESTURES_PRIMARY_FEATURE_FLAG,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z"
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
             )
         } else {
             watchPanelGesturesAlternativeFingerprint.methodOrThrow().apply {
@@ -188,7 +191,7 @@ val swipeControlsPatch = bytecodePatch(
 
                 addInstructionsWithLabels(
                     targetIndex, """
-                        invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z
+                        invoke-static {}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z
                         move-result v${fieldInstruction.registerA}
                         if-eqz v${fieldInstruction.registerA}, :disable
                         iget-object v${fieldInstruction.registerA}, v${fieldInstruction.registerB}, $fieldReference
@@ -201,8 +204,34 @@ val swipeControlsPatch = bytecodePatch(
         if (is_19_15_or_greater) {
             watchPanelGesturesChannelBarFingerprint.injectLiteralInstructionBooleanCall(
                 WATCH_PANEL_GESTURES_SECONDARY_FEATURE_FLAG,
-                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableWatchPanelGestures()Z"
+                "$EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->disableSwipeToEnterFullscreenModeBelowThePlayer()Z"
             )
+        }
+
+        // endregion
+
+        // region patch for disable swipe to enter fullscreen mode (in the player) and disable swipe to exit fullscreen mode
+
+        playerGestureConfigSyntheticFingerprint.matchOrThrow().let {
+            val endIndex = it.patternMatch!!.endIndex
+
+            mapOf(
+                3 to "disableSwipeToEnterFullscreenModeInThePlayer",
+                9 to "disableSwipeToExitFullscreenMode"
+            ).forEach { (offSet, methodName) ->
+                it.getWalkerMethod(endIndex - offSet).apply {
+                    val index = implementation!!.instructions.lastIndex
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index,
+                        """
+                            invoke-static {v$register}, $EXTENSION_SWIPE_CONTROLS_PATCH_CLASS_DESCRIPTOR->$methodName(Z)Z
+                            move-result v$register
+                            """
+                    )
+                }
+            }
         }
 
         // endregion

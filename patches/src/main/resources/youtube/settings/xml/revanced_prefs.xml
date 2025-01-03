@@ -684,10 +684,12 @@
         <!-- SETTINGS: DISABLE_SWIPE_TO_SWITCH_VIDEO
         <SwitchPreference android:title="@string/revanced_disable_swipe_to_switch_video_title" android:key="revanced_disable_swipe_to_switch_video" android:summaryOn="@string/revanced_disable_swipe_to_switch_video_summary_on" android:summaryOff="@string/revanced_disable_swipe_to_switch_video_summary_off" />SETTINGS: DISABLE_SWIPE_TO_SWITCH_VIDEO -->
 
-        <!-- SETTINGS: DISABLE_WATCH_PANEL_GESTURES
-        <SwitchPreference android:title="@string/revanced_disable_watch_panel_gestures_title" android:key="revanced_disable_watch_panel_gestures" android:summaryOn="@string/revanced_disable_watch_panel_gestures_summary_on" android:summaryOff="@string/revanced_disable_watch_panel_gestures_summary_off" />SETTINGS: DISABLE_WATCH_PANEL_GESTURES -->
+        <!-- SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER
+        <SwitchPreference android:title="@string/revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title" android:key="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player" android:summaryOn="@string/revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on" android:summaryOff="@string/revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off" />SETTINGS: DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER -->
 
-    <!-- PREFERENCE_SCREEN: SWIPE_CONTROLS
+        <!-- PREFERENCE_SCREEN: SWIPE_CONTROLS
+        <SwitchPreference android:title="@string/revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title" android:key="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player" android:summaryOn="@string/revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on" android:summaryOff="@string/revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off" />
+        <SwitchPreference android:title="@string/revanced_disable_swipe_to_exit_fullscreen_mode_title" android:key="revanced_disable_swipe_to_exit_fullscreen_mode" android:summaryOn="@string/revanced_disable_swipe_to_exit_fullscreen_mode_summary_on" android:summaryOff="@string/revanced_disable_swipe_to_exit_fullscreen_mode_summary_off" />
     </PreferenceScreen>PREFERENCE_SCREEN: SWIPE_CONTROLS -->
 
 
