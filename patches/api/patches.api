@@ -91,6 +91,10 @@ public final class app/revanced/patches/music/layout/visual/VisualPreferencesIco
 	public static final fun getVisualPreferencesIconsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/music/misc/album/AlbumMusicVideoPatchKt {
+	public static final fun getAlbumMusicVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -139,6 +143,10 @@ public final class app/revanced/patches/music/player/components/PlayerComponents
 	public static final fun getPlayerComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/utils/dismiss/DismissQueueHookPatchKt {
+	public static final fun getDismissQueueHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/utils/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -160,6 +168,7 @@ public final class app/revanced/patches/music/utils/fix/fileprovider/FileProvide
 }
 
 public final class app/revanced/patches/music/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -184,6 +193,7 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_6_27_or_greater ()Z
 	public static final fun is_6_36_or_greater ()Z
 	public static final fun is_6_42_or_greater ()Z
+	public static final fun is_7_03_or_greater ()Z
 	public static final fun is_7_06_or_greater ()Z
 	public static final fun is_7_13_or_greater ()Z
 	public static final fun is_7_17_or_greater ()Z
@@ -195,6 +205,8 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 
 public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdPatchKt {
 	public static final fun getAccountSwitcherAccessibility ()J
+	public static final fun getActionBarLogo ()J
+	public static final fun getActionBarLogoRingo2 ()J
 	public static final fun getBottomSheetRecyclerView ()J
 	public static final fun getButtonContainer ()J
 	public static final fun getButtonIconPaddingMedium ()J
@@ -234,6 +246,8 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getTouchOutside ()J
 	public static final fun getTrimSilenceSwitch ()J
 	public static final fun getVarispeedUnavailableTitle ()J
+	public static final fun getYtmLogo ()J
+	public static final fun getYtmLogoRingo2 ()J
 	public static final fun isTablet ()J
 }
 
@@ -275,6 +289,12 @@ public final class app/revanced/patches/music/video/information/VideoInformation
 
 public final class app/revanced/patches/music/video/playback/VideoPlaybackPatchKt {
 	public static final fun getVideoPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/video/playerresponse/PlayerResponseMethodHookPatchKt {
+	public static final fun getPlayerResponseMethodHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun hookPlayerResponse (Ljava/lang/String;Z)V
+	public static synthetic fun hookPlayerResponse$default (Ljava/lang/String;ZILjava/lang/Object;)V
 }
 
 public final class app/revanced/patches/reddit/ad/AdsPatchKt {
@@ -431,6 +451,8 @@ public final class app/revanced/patches/shared/mainactivity/BaseMainActivityReso
 	public static final fun getMainActivityMutableClass ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;
 	public static final fun getOnConfigurationChangedMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun getOnCreateMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun getOnStartMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun getOnStopMethod ()Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 }
 
 public final class app/revanced/patches/shared/mapping/ResourceElement {
@@ -837,6 +859,10 @@ public final class app/revanced/patches/youtube/utils/flyoutmenu/FlyoutMenuHookP
 	public static final fun getFlyoutMenuHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fullscreen/FullscreenButtonHookPatchKt {
+	public static final fun getFullscreenButtonHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1157,6 +1183,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;I)I
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;Lcom/android/tools/smali/dexlib2/AccessFlags;)I
 	public static final fun parametersEqual (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JJ)V
 	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JLjava/lang/String;)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
 	public static synthetic fun returnEarly$default (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ZILjava/lang/Object;)V
@@ -1186,6 +1213,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyXmlNode (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun getBooleanOptionValue (Lapp/revanced/patcher/patch/Patch;Ljava/lang/String;)Lapp/revanced/patcher/patch/Option;
 	public static final fun getResourceGroup (Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
 	public static final fun getStringOptionValue (Lapp/revanced/patcher/patch/Patch;Ljava/lang/String;)Lapp/revanced/patcher/patch/Option;
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
