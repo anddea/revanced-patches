@@ -13,7 +13,7 @@ Tắt tối ưu hoá pin cho GmsCore sẽ không làm ảnh hưởng đáng kể
 Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá pin."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Hành động cần thiết</string>
-    <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
+    <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt MicroG và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Thay thế miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
@@ -48,6 +48,12 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_disable_drc_audio_title">Vô hiệu hoá audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
     <string name="revanced_disable_mini_player_gesture_title">Tắt cử chỉ trình phát thu nhỏ</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Khi người dùng không mua gói Premium, đôi khi nghe nhạc có trong đĩa nhạc, video âm nhạc được phát thay vì bài hát chính thức.
+
+Nếu trường hợp đó xẩy ra, ứng dụng sẽ chuyển hướng đến bài hát chính thức.
+
+Phiên bản Piped được sử dụng và API có thể không khả dụng ở một số khu vực."</string>
+    <string name="revanced_disable_music_video_in_album_title">Tắt video âm nhạc trong đĩa nhạc</string>
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
     <string name="revanced_enable_black_navigation_bar_summary">Đặt màu thanh điều hướng phía dưới cùng thành màu đen.</string>
@@ -109,7 +115,7 @@ Cụ thể:
     <string name="revanced_extended_settings_import_success">Đã nhập %d cài đặt.</string>
     <string name="revanced_extended_settings_reset">Đặt lại</string>
     <string name="revanced_extended_settings_title">ReVanced Extended</string>
-    <string name="revanced_external_downloader_action_summary">"Nút tải xuống sẽ mở trình tải xuống bên ngoài của bạn.
+    <string name="revanced_external_downloader_action_summary">"Khi thao tác với nút tải xuống sẽ mở trình tải xuống bên ngoài của bạn.
 
 • Chỉ ghi đè lên nút Tải xuống trong trình phát.
 • Không ghi đè lên nút Tải xuống trong Trình đơn tuỳ chọn hoặc trong thẻ Thư viện."</string>
@@ -408,25 +414,25 @@ Lưu ý:\n- Tuỳ chọn này sẽ thay đổi giao diện ứng dụng, tuy nhi
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
     <string name="revanced_spoof_client_summary">"Giả mạo ứng dụng khách nhằm khắc phục sự cố phát.
 
-※ Khi được sử dụng đồng thời với \"Giả mạo luồng dữ liệu trực tuyến\", có thể gây ra sự cố phát."</string>
+• Khi được sử dụng đồng thời với \"Giả mạo luồng dữ liệu trực tuyến\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_client_title">Giả mạo ứng dụng khách</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Music Android 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Music Android 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">Music iOS 6.21</string>
     <string name="revanced_spoof_client_type_summary">"Xác định ứng dụng khách mặc định để giả mạo.
 
-※ Khi sử dụng ứng dụng khách Android, tính năng này nên được sử dụng đồng thời với \"Giả mạo phiên bản ứng dụng\"."</string>
+• Khi sử dụng ứng dụng khách Android, tính năng này nên được sử dụng đồng thời với \"Giả mạo phiên bản ứng dụng\"."</string>
     <string name="revanced_spoof_client_type_title">Ứng dụng khách mặc định</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary">"Giả mạo luồng dữ liệu trực tuyến nhằm khắc phục sự cố phát.
 
-※ Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
+• Khi được sử dụng đồng thời với \"Giả mạo ứng dụng khách\", có thể gây ra sự cố phát."</string>
     <string name="revanced_spoof_streaming_data_title">Giả mạo luồng dữ liệu trực tuyến</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">Music iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">Xác định một ứng dụng khách mặc định để nạp luồng dữ liệu trực tuyến.</string>
     <string name="revanced_spoof_streaming_data_type_title">Ứng dụng khách mặc định</string>
 </resources>

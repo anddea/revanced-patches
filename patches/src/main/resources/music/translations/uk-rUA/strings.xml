@@ -48,6 +48,12 @@
     <string name="revanced_disable_drc_audio_title">Вимкнути DRC аудіо</string>
     <string name="revanced_disable_mini_player_gesture_summary">Вимикає жести перемикання треків у мініплеєрі.</string>
     <string name="revanced_disable_mini_player_gesture_title">Вимкнути жести мініплеєра</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Коли користувач без преміуму відтворює пісню з альбому, іноді замість офіційної пісні відтворюється музичне відео.
+
+Якщо буде виявлено відтворення музичного відео, буде перенаправлено на офіційну пісню.
+
+Використовується \"piped instance\", але API може бути недоступним у деяких регіонах."</string>
+    <string name="revanced_disable_music_video_in_album_title">Вимкнути музичні відео в альбомі</string>
     <string name="revanced_disable_player_gesture_summary">Вимикає жести перемикання треків у плеєрі.</string>
     <string name="revanced_disable_player_gesture_title">Вимкнути жести плеєра</string>
     <string name="revanced_enable_black_navigation_bar_summary">Встановлює чорний колір для панелі навігації.</string>
@@ -408,23 +414,25 @@
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
     <string name="revanced_spoof_client_summary">"Підробити клієнт, щоб запобігти проблемам із відтворенням.
 
-Обмеження:
-• Аудіокодек OPUS може не підтримуватися.
-• Мініатюри перемотки можуть бути відсутніми.
-• Історія переглядів не працює з обліковим записом бренду.
-
-※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
+※ Під час використання разом з \"Підробка потокових даних\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_client_title">Підміна клієнта</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки. 
+
+※ Під час використання клієнта Android рекомендується використовувати його разом з \"Підробити версію програми\"."</string>
+    <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Підробити потокові дані, щоб запобігти проблемам із відтворенням.
 
 ※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Визначає клієнт за замовчуванням, який отримує потокові дані.</string>
     <string name="revanced_spoof_streaming_data_type_title">Клієнт за замовчуванням</string>
 </resources>

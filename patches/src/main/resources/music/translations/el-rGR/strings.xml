@@ -48,6 +48,12 @@
     <string name="revanced_disable_drc_audio_title">Απενεργοποίηση ήχου DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Απενεργοποίηση της χειρονομίας σάρωσης για αλλαγή κομματιού στην ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
     <string name="revanced_disable_mini_player_gesture_title">Απενεργοποίηση χειρονομίας ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Όταν ένας μη-premium χρήστης παίζει ένα τραγούδι που περιλαμβάνεται σε ένα άλμπουμ, μερικές φορές αναπαράγεται το μουσικό βίντεο αντί για το επίσημο τραγούδι.
+
+Αν ανιχνεύεται αναπαραγωγή ενός μουσικού βίντεο που περιλαμβάνεται σε άλμπουμ, ανακατευθύνεται στο επίσημο τραγούδι.
+
+Χρησιμοποιείται το Piped API, και ενδέχεται να μην είναι διαθέσιμο σε ορισμένες περιοχές."</string>
+    <string name="revanced_disable_music_video_in_album_title">Απενεργοποίηση μουσικών βίντεο στα άλμπουμ</string>
     <string name="revanced_disable_player_gesture_summary">Απενεργοποίηση της χειρονομίας σάρωσης για αλλαγή κομματιού στην οθόνη αναπαραγωγής.</string>
     <string name="revanced_disable_player_gesture_title">Απενεργοποίηση χειρονομίας οθόνης αναπαραγωγής</string>
     <string name="revanced_enable_black_navigation_bar_summary">Ορισμός του χρώματος της γραμμής πλοήγησης σε μαύρο.</string>
@@ -413,7 +419,7 @@
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_summary">"Καθορισμός ενός προεπιλεγμένου πρόγραμμα πελάτη για παραποίηση.
 
-※ Όταν ορίζεται πρόγραμμα πελάτη τύπου Android, συνιστάται να το χρησιμοποιήσετε μαζί με την λειτουργία «Παραποίηση έκδοσης εφαρμογής»."</string>
+※ Όταν ορίζεται πρόγραμμα πελάτη Android, συνιστάται να το χρησιμοποιήσετε μαζί με την λειτουργία «Παραποίηση έκδοσης εφαρμογής»."</string>
     <string name="revanced_spoof_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Εμφάνιση του προγράμματος πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>
@@ -421,10 +427,10 @@
 
 ※ Αν ενεργοποιηθεί παράλληλα με τη λειτουργία «Παραποίηση προγράμματος πελάτη», ενδέχεται να εμφανιστούν προβλήματα αναπαραγωγής."</string>
     <string name="revanced_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Καθορισμός ενός προεπιλεγμένου προγράμματος-πελάτη για την λήψη δεδομένων ροής.</string>
     <string name="revanced_spoof_streaming_data_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
 </resources>

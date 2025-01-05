@@ -1,10 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Default playback speed is disabled for videos playable on YouTube Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Default playback speed is disabled if the video category is Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Validate using categories</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Swiping up in the player will enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Swiping up in the player will not enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Disable swipe to enter fullscreen mode (in the player)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Swiping down in fullscreen will exit fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Swiping down in fullscreen will not exit fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Disable swipe to exit fullscreen mode</string>
     <string name="revanced_enable_translucent_status_bar_summary_off">Status bar is opaque.</string>
     <string name="revanced_enable_translucent_status_bar_summary_on">Status bar is translucent.</string>
     <string name="revanced_enable_translucent_status_bar_title">Enable translucent status bar</string>
+    <string name="revanced_enter_fullscreen_summary_off">Do not enter fullscreen mode when the video starts.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Enter fullscreen mode when the video starts.
+
+Limitation: Does not work if the player is minimized, in PiP mode, or in the background.</string>
+    <string name="revanced_enter_fullscreen_title">Enter fullscreen mode when video starts</string>
+    <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
+    <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
+    <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
+    <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
+    <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
@@ -16,8 +37,10 @@
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
     <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
@@ -26,16 +49,15 @@
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
-    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
 • Stable volume is not available.
-• Disable forced auto audio tracks is not available."</string>
+• Disable forced auto audio tracks is not available.
+• Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Movies or paid videos may not play.
+• Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
 </resources>

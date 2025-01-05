@@ -3,31 +3,45 @@
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="revanced_disable_drc_audio_summary">Disables DRC (Dynamic Range Compression) applied to audio.</string>
     <string name="revanced_disable_drc_audio_title">Disable DRC audio</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Tap Audio / Video toggle</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click_dismiss">Tap Audio / Video toggle (Dismiss queue)</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Tap and hold Audio / Video toggle</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click_dismiss">Tap and hold Audio / Video toggle (Dismiss queue)</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirect</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect_dismiss">Redirect (Dismiss queue)</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Specifies how to redirect to official song.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Redirection type</string>
+    <string name="revanced_disable_music_video_in_album_summary">"When a non-premium user plays a song included in an album, the music video is sometimes played instead of the official song.
+
+Find the official song if a music video is detected playing from an album.
+
+• Powered by Piped Instance API."</string>
+    <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
 
-※ When used with 'Spoofing streaming data', playback issues may occur."</string>
+• When used with 'Spoofing streaming data', playback issues may occur."</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_summary">"Defines a default client to spoofing.
+    <string name="revanced_spoof_client_type_summary">"Defines a default client for spoofing.
 
-※ When using the Android client, it is recommended to use it with 'Spoof app version'."</string>
+• When using the Android client, it is recommended to also use 'Spoof app version'."</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
 
-※ When used with 'Spoof client', playback issues may occur."</string>
+• When used with 'Spoof client', playback issues may occur."</string>
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
 </resources>

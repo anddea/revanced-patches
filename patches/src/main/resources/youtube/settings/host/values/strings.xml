@@ -98,12 +98,14 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
     <string name="revanced_change_start_page_entry_movies">Movies</string>
     <string name="revanced_change_start_page_entry_music">Music</string>
+    <string name="revanced_change_start_page_entry_notifications">Notifications</string>
     <string name="revanced_change_start_page_entry_search">Search</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sports</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_entry_trending">Trending</string>
     <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+    <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
     <string name="revanced_change_start_page_title">Change start page</string>
     <string name="revanced_change_start_page_type_summary_off">Start page changes only once.</string>
     <string name="revanced_change_start_page_type_summary_on">"Start page always changes.
@@ -165,10 +167,11 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Default playback speed is disabled for live streams.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disable playback speed for live streams</string>
     <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Default playback speed is disabled for music.
-
-Limitation: This setting may not apply to videos that do not include the 'Listen on YouTube Music' banner."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Default playback speed is disabled for music.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Disable playback speed for music</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Default playback speed is disabled for videos playable on YouTube Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Default playback speed is disabled if the video category is Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Validate using categories</string>
     <string name="revanced_disable_engagement_panel_summary_off">Engagement panel is enabled.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Engagement panel is disabled.</string>
     <string name="revanced_disable_engagement_panel_title">Disable engagement panel</string>
@@ -225,8 +228,17 @@ Note:
     <string name="revanced_disable_splash_animation_summary_off">Splash animation is enabled.</string>
     <string name="revanced_disable_splash_animation_summary_on">Splash animation is disabled.</string>
     <string name="revanced_disable_splash_animation_title">Disable splash animation</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down will play the next / previous video.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down will not play the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Swiping up in the player will enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Swiping up in the player will not enter fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Disable swipe to enter fullscreen mode (in the player)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Swiping down in fullscreen will exit fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Swiping down in fullscreen will not exit fullscreen mode.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Disable swipe to exit fullscreen mode</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will not change to the next / previous video.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque.</string>
@@ -249,9 +261,6 @@ Note:
 • Video playback will use more internet data than VP9.
 • VP9 codec is still used for HDR video."</string>
     <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is enabled.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is disabled.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Disable watch panel gestures</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo seekbar is disabled.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo seekbar is enabled.
 
@@ -360,6 +369,16 @@ You tab → View channel → Menu → Settings"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Wide search bar hides the YouTube header.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Wide search bar does not hide the YouTube header.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Enable wide search bar with header</string>
+    <string name="revanced_enter_fullscreen_summary_off">Do not enter fullscreen mode when the video starts.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Enter fullscreen mode when the video starts.
+
+Limitation: Does not work if the player is minimized, in PiP mode, or in the background.</string>
+    <string name="revanced_enter_fullscreen_title">Enter fullscreen mode when video starts</string>
+    <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
+    <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
+    <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
+    <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
+    <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
     <string name="revanced_expand_video_description_strings_default_value">Description</string>
     <string name="revanced_expand_video_description_strings_summary">"Enter the title of the video description panel in your language.
 The Expand video description option may not work if the entered string does not match the video description panel title."</string>
@@ -399,11 +418,6 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
-    <string name="revanced_force_fullscreen_summary">"Videos will be switched to fullscreen in the following situations:
-
-• When a video is started.
-• When a timestamp in the comments is clicked on."</string>
-    <string name="revanced_force_fullscreen_title">Force fullscreen</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
@@ -1163,8 +1177,8 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
-    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
+    <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_keep_landscape_mode_summary">Keeps landscape mode when turning the screen off and on in fullscreen.</string>
@@ -1289,6 +1303,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_category_others">Others</string>
     <string name="revanced_preference_category_overlay_buttons">Overlay buttons</string>
     <string name="revanced_preference_category_patch_information">Patch information</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Quick actions</string>
     <string name="revanced_preference_category_recommended_video">Recommended video</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts shelves</string>
@@ -1743,22 +1758,34 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
     <string name="revanced_spoof_device_dimensions_summary">"Spoofs the device dimensions to the maximum value.
 High quality may be unlocked on some videos that require high device dimensions, but not all videos."</string>
     <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
-    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is determined automatically.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Video codec is forced to AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
+
+AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken issued by BotGuard in a trusted browser.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken to use</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Some clients require PoToken and VisitorData to get a valid streaming data response.
+
+If you are trying to use iOS as the default client, you may need these values.
+
+Click to see more information."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">About PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
 • Stable volume is not available.
-• Disable forced auto audio tracks is not available."</string>
+• Disable forced auto audio tracks is not available.
+• Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Audio track menu is missing.
 • Stable volume is not available."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Audio track menu is missing.
 • Stable volume is not available."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Not yet found.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• There may be playback issues (PoToken required).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Movies or paid videos may not play.
+• Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
@@ -1769,13 +1796,17 @@ High quality may be unlocked on some videos that require high device dimensions,
     <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Default client</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData issued by BotGuard in a trusted browser.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData to use</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Brightness swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Configure the minimum distance for brightness swiping between 1 and 1000 (%).\nThe shorter the minimum distance, the faster the brightness level changes.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Brightness swipe sensitivity</string>

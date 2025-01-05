@@ -92,12 +92,14 @@
     <string name="revanced_change_start_page_entry_live">Наживо</string>
     <string name="revanced_change_start_page_entry_movies">Фільми</string>
     <string name="revanced_change_start_page_entry_music">Музика</string>
+    <string name="revanced_change_start_page_entry_notifications">Сповіщення</string>
     <string name="revanced_change_start_page_entry_search">Пошук</string>
     <string name="revanced_change_start_page_entry_shorts">YouTube Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
     <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
     <string name="revanced_change_start_page_entry_trending">Тенденції</string>
     <string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
+    <string name="revanced_change_start_page_entry_your_clips">Ваші кліпи</string>
     <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
     <string name="revanced_change_start_page_type_summary_off">Початкова сторінка змінюється лише один раз.</string>
     <string name="revanced_change_start_page_type_summary_on">"Початкова сторінка змінюється завжди.
@@ -159,10 +161,11 @@
     <string name="revanced_disable_default_playback_speed_live_summary_on">Типову швидкість відтворення вимкнено в прямих трансляціях.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Вимкнути швидкість відтворення в прямих трансляціях</string>
     <string name="revanced_disable_default_playback_speed_music_off">Типову швидкість відтворення увімкнено для музики.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Типову швидкість відтворення вимкнено для музики.
-
-Застереження: Це налаштування може не застосовуватись до відео, які не містять напис 'Слухати через YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Типову швидкість відтворення вимкнено для музики.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Вимкнути швидкість відтворення для музики</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Типову швидкість відтворення вимкнено для відтворення відео на YouTube Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Типову швидкість відтворення вимкнено якщо категорія відео Музика.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Перевіряти за допомогою категорій</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панель залучення увімкнено.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель залучення вимкнено.</string>
     <string name="revanced_disable_engagement_panel_title">Вимкнути панель залучення</string>
@@ -219,8 +222,17 @@
     <string name="revanced_disable_splash_animation_summary_off">Сплеш анімацію увімкнено.</string>
     <string name="revanced_disable_splash_animation_summary_on">Сплеш анімацію вимкнено.</string>
     <string name="revanced_disable_splash_animation_title">Вимкнути сплеш анімацію</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Проведення вгору / вниз відтворюватиме наступне / попереднє відео.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Проведення вгору / вниз не відтворюватиме наступне / попереднє відео.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Проведенням униз переходитиметься у повноекранний режим.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Проведенням униз не переходитиметься у повноекранний режим.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Вимкнути проведення для переходу у повноекранний режим (знизу плеєра)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Проведенням угору переходитиметься у повноекранний режим.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Проведенням угору не переходитиметься у повноекранний режим.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Вимкнути проведення для переходу у повноекранний режим (у плеєрі)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Проведенням вниз виходитиметься з повноекранного режиму.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Проведенням вниз не виходитиметься з повноекранного режиму.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Вимкнути проведення для виходу з повноекранного режиму</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Проведення вгору / вниз у повноекранному режимі змінюватиме на наступне / попереднє відео.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Проведення вгору / вниз у повноекранному режимі не змінюватиме на наступне / попереднє відео.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Вимкнути зміну відео проведенням</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації у темному режимі непрозора чи напівпрозора.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панель навігації у темному режимі непрозора.</string>
@@ -243,9 +255,6 @@
 • Відтворення відео використовуватиме більше інтернет даних ніж VP9.
 • Кодек VP9 все ще використовується для HDR відео."</string>
     <string name="revanced_disable_vp9_codec_title">Вимкнути кодек VP9</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Вимкнути жести панелі перегляду</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Смугу прогресу Каїр вимкнено.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Смугу прогресу Каїр увімкнено.
 
@@ -351,6 +360,16 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широка панель пошуку не включає заголовок YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Широка панель пошуку включає заголовок YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Увімкнути широку панель пошуку з заголовком</string>
+    <string name="revanced_enter_fullscreen_summary_off">Не переходиться у повноекранний режим при запуску відео.</string>
+    <string name="revanced_enter_fullscreen_summary_on">Переходиться у повноекранний режим при запуску відео.
+
+Застереження: Не працюватиме якщо плеєр мінімізовано, у режимі PiP, чи у фоні.</string>
+    <string name="revanced_enter_fullscreen_title">Переходити у повноекранний режим при запуску відео</string>
+    <string name="revanced_exit_fullscreen_entry_1">Вимкнено</string>
+    <string name="revanced_exit_fullscreen_entry_2">Портретна</string>
+    <string name="revanced_exit_fullscreen_entry_3">Ландшафтна</string>
+    <string name="revanced_exit_fullscreen_entry_4">Портретна та ландшафтна</string>
+    <string name="revanced_exit_fullscreen_title">Виходити з повноекранного режиму в кінці відео</string>
     <string name="revanced_expand_video_description_strings_default_value">Опис</string>
     <string name="revanced_expand_video_description_strings_summary">"Введіть назву в панелі опису відео.
 Ці символи варіюються залежно від вашої мови.
@@ -391,11 +410,6 @@
     <string name="revanced_external_downloader_package_name_video_long_press_title">Ім\'я пакета завантажувача відео при довгому натисканні</string>
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
-    <string name="revanced_force_fullscreen_summary">"Відео перемикатиметься на повний екран в таких ситуаціях:
-
-• Натиснуто на мітку часу у коментарях.
-• Відео розпочалося."</string>
-    <string name="revanced_force_fullscreen_title">Примусово на повний екран</string>
     <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для GMSCore при кожному запуску програми.</string>
     <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список назв меню облікового запису для фільтрування, розділених новим рядком.</string>
@@ -1287,6 +1301,7 @@
     <string name="revanced_preference_category_others">Інше</string>
     <string name="revanced_preference_category_overlay_buttons">Накладання кнопок</string>
     <string name="revanced_preference_category_patch_information">Інформація про патчі</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Швидкі дії</string>
     <string name="revanced_preference_category_recommended_video">Рекомендовані відео</string>
     <string name="revanced_preference_category_shorts_shelf">Полиця Shorts</string>
@@ -1740,19 +1755,32 @@
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
 Високу якість може бути розблоковано для деяких відео, які вимагають великих розмірів пристрою, але не для всіх відео."</string>
     <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Використовується клієнти Android та iOS для отримання потокових даних.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Використовується клієнти Android для отримання потокових даних.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Використовувати лише клієнти Android</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Відеокодек визначається автоматично.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Примусово увімкнено відеокодек AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Примусово AVC (H.264) iOS</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Увімкнення може зменшити споживання акумулятора та виправити затинання відтворення.
+
+AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken виданий BotGuard в довіреному браузері.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken для використання</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Деякі клієнти вимагають PoToken і VisitorData для отримання коректної відповіді даних трансляції.
+
+Якщо намагаєтеся використовувати клієнт iOS, можуть знадобитися ці значення.
+
+Натисніть, щоб переглянути більше інформації."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Про PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна.
-• Вимикання примусових звукових доріжок недоступне."</string>
+• Вимкнення примусових авто звукових доріжок недоступне.
+• Відео для дітей можуть не відтворюватися коли вийшли з системи або в анонімному режимі."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Ще не знайдено.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Можуть бути проблеми з відтворенням (Потрібен PoToken).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Відео можуть закінчуватися на 1 секунду раніше.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Фільми чи платні відео можуть не відтворюватися.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Фільми та платні відео можуть не відтворюватися.
+• Відео для дітей можуть не відтворюватися коли вийшли з системи або в анонімному режимі."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Побічні ефекти імітування</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Відео може не відтворюватися.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт, що використовується для отримання даних трансляції приховано у Статистика для сисадмінів.</string>
@@ -1763,13 +1791,17 @@
     <string name="revanced_spoof_streaming_data_title">Підробити дані трансляції</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Розробник Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">Музика iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Основний клієнт</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData виданий BotGuard в довіреному браузері.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData для використання</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чутливість жесту яскравості повинна бути в межах 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Налаштуйте мінімальну відстань жесту яскравості від 1 до 1000 (%).\nЧим менша мінімальна відстань, тим швидше змінюється рівень яскравості.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Чутливість жесту яскравості</string>

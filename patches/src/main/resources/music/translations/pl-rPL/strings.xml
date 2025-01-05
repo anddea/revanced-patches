@@ -48,6 +48,12 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
     <string name="revanced_disable_mini_player_gesture_title">Wyłącz gest w miniodtwarzaczu</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Gdy użytkownik non-premium odtwarza utwór zawarty w albumie, czasami zamiast oficjalnego utworu, odtwarzany jest teledysk.
+
+W przypadku wykrycia odtwarzania teledysku zawartego w albumie, następuje przekierowanie do oficjalnego utworu.
+
+Używana jest instancja Piped, a interfejs API może nie być dostępny w niektórych regionach."</string>
+    <string name="revanced_disable_music_video_in_album_title">Wyłącz teledyski w albumach</string>
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
     <string name="revanced_enable_black_navigation_bar_summary">Ustawia kolor paska nawigacji na czarny.</string>
@@ -424,10 +430,10 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
 
 ※ Używane równolegle z opcją 'Oszukuj klienta', może powodować problemy z odtwarzaniem"</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Denifiuje domyślnego klienta, z którego będzie przechwytywany strumień danych.</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
 </resources>

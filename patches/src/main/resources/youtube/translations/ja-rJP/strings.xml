@@ -43,7 +43,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_alt_thumbnail_stills_about_summary">静止画サムネイルは、各動画の最初/中間/最後の部分から取得されます。これらの画像は YouTube に直接組み込まれており、外部 API は使用されません。</string>
     <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイルについて</string>
     <string name="revanced_alt_thumbnail_stills_fast_summary_off">現在の設定: 高画質の静止画サムネイルを使用します。</string>
-    <string name="revanced_alt_thumbnail_stills_fast_summary_on">現在の設定: 中画質の静止画サムネイルを使用します。\n\n注意: 読み込みは速くなりますが、ライブ、公開予定、非常に古い動画は、サムネイルが空白になることがあります。</string>
+    <string name="revanced_alt_thumbnail_stills_fast_summary_on">現在の設定: 中画質の静止画サムネイルを使用します。\n\n注意: 読み込みは速くなりますが、ライブ配信、公開予定、非常に古い動画は、サムネイルが空白になることがあります。</string>
     <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイル</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_1">動画の最初</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_2">動画の中間</string>
@@ -85,7 +85,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_change_shorts_repeat_state_entry_repeat">リピート再生</string>
     <string name="revanced_change_shorts_repeat_state_title">リピート状態を変更</string>
     <string name="revanced_change_start_page_entry_browse">チャンネルを探す</string>
-    <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
+    <string name="revanced_change_start_page_entry_courses">コース / 教育</string>
     <string name="revanced_change_start_page_entry_default">デフォルト</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
@@ -95,12 +95,14 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_change_start_page_entry_live">ライブ</string>
     <string name="revanced_change_start_page_entry_movies">映画</string>
     <string name="revanced_change_start_page_entry_music">音楽</string>
+    <string name="revanced_change_start_page_entry_notifications">通知</string>
     <string name="revanced_change_start_page_entry_search">検索</string>
     <string name="revanced_change_start_page_entry_shorts">ショート</string>
     <string name="revanced_change_start_page_entry_sports">スポーツ</string>
     <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
     <string name="revanced_change_start_page_entry_trending">トレンド</string>
     <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
+    <string name="revanced_change_start_page_entry_your_clips">クリップ</string>
     <string name="revanced_change_start_page_title">起動時のページを変更</string>
     <string name="revanced_change_start_page_type_summary_off">現在の設定: 起動時のページを一度のみ変更します。</string>
     <string name="revanced_change_start_page_type_summary_on">"現在の設定: 起動時のページを常に変更します。
@@ -223,6 +225,15 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_splash_animation_summary_off">YouTube 起動時のスプラッシュアニメーションを無効にします。</string>
     <string name="revanced_disable_splash_animation_summary_on">YouTube 起動時のスプラッシュアニメーションを無効にします。</string>
     <string name="revanced_disable_splash_animation_title">スプラッシュアニメーションを無効化</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">動画のタイトルより下をスワイプしても全画面表示に切り替えないようにします。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">動画のタイトルより下をスワイプしても全画面表示に切り替えないようにします。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">スワイプして全画面表示に切り替えるのを無効化(動画のタイトルより下を下にスワイプした時)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">プレーヤーを下にスワイプしても全画面表示に切り替えないようにします。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">プレーヤーを下にスワイプしても全画面表示に切り替えないようにします。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">スワイプして全画面表示に切り替えるのを無効化(プレーヤーを下にスワイプした時)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">プレーヤーを下にスワイプしても全画面表示を終了しないようにします。</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">プレーヤーを下にスワイプしても全画面表示を終了しないようにします。</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">スワイプして全画面表示を終了するのを無効化</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">全画面表示時に、上/下にスワイプして次の動画/前の動画に切り替えられるようにします。</string>
     <string name="revanced_disable_swipe_to_switch_video_title">スワイプして動画を切り替えるのを無効化</string>
@@ -249,9 +260,6 @@ DeArrow の詳細については、ここをタップしてください。"</str
 • 動画を再生する際には VP9 コーデックよりも多くの通信量を消費します。
 • HDR 再生を可能にするために、HDR 動画では引き続き VP9 コーデックが使用されます。"</string>
     <string name="revanced_disable_vp9_codec_title">VP9 コーデックを無効化</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">動画のタイトルより下の領域を下にスワイプすると全画面表示に切り替える機能を無効化します。</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">動画のタイトルより下の領域を下にスワイプすると全画面表示に切り替える機能を無効化します。</string>
-    <string name="revanced_disable_watch_panel_gestures_title">全画面表示ジェスチャーを無効化</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Cairo シークバー (シークバーの色が動画に応じて変更される機能) を有効化します。\n\n注意: 通知ドットにも Cairo テーマが適用されるという副作用があります。</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Cairo シークバー (シークバーの色が動画に応じて変更される機能) を有効化します。
 
@@ -295,7 +303,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_seekbar_tapping_summary_off">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_summary_on">シークバーのタップを有効化します。</string>
     <string name="revanced_enable_seekbar_tapping_title">シークバーのタップを有効化</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"この機能を有効化することにより、シークバーサムネイルがないライブのアーカイブにサムネイルが復元されます。
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"これを有効化すると、シークバーサムネイルがないライブ配信のアーカイブにサムネイルが復元されます。
 
 注意: 
 ・通信量が増える可能性があります。
@@ -303,12 +311,12 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">シークバーサムネイルを高画質化します。</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">シークバーサムネイルを高画質化します。</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">高画質のサムネイルを有効化</string>
-    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">フライアウトメニューでカスタムアクションを使用できるようにします。\n\n注意: \n・YouTube のバージョンが 18.49.37 以前に偽装されている場合は機能しません。\n・ライブでは機能しません。</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">フライアウトメニューでカスタムアクションを使用できるようにします。\n\n注意: \n・YouTube のバージョンが 18.49.37 以前に偽装されている場合は機能しません。\n・ライブ配信では機能しません。</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"フライアウトメニューでカスタムアクションを使用できるようにします。
 
 注意: 
 ・YouTube のバージョンが 18.49.37 以前に偽装されている場合は機能しません。
-・ライブでは機能しません。"</string>
+・ライブ配信では機能しません。"</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">フライアウトメニューのカスタムアクションを有効化</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">ツールバーでカスタムアクションを使用できるようにします。\n\n「さらに表示」ボタンを長押しするとカスタムアクションダイアログが表示されます。</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"ツールバーでカスタムアクションを使用できるようにします。
@@ -341,8 +349,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_swipe_volume_summary_off">音量のスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_volume_summary_on">音量のスワイプコントロールを有効化します。</string>
     <string name="revanced_enable_swipe_volume_title">音量ジェスチャーを有効化</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー(ホーム、登録チャンネルなどのボタン)を半透明にします。\n\n注意: この機能は  Android 12 以降のみ利用可能です。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー (ホーム、登録チャンネルなどのボタン) を半透明にします。</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー (ホーム、登録チャンネルなどのボタン) を半透明にします。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
@@ -397,11 +405,6 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_external_downloader_package_name_video_long_press_title">長押し時の外部ダウンローダのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_video_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_video_title">外部ダウンローダーのパッケージ名</string>
-    <string name="revanced_force_fullscreen_summary">"以下の状況で全画面に切り替わります: 
-
-・動画開始時
-・コメントのタイムスタンプをタップしたとき"</string>
-    <string name="revanced_force_fullscreen_title">強制的に全画面表示</string>
     <string name="revanced_gms_show_dialog_summary">アプリの起動時に、GMSCore の最適化ダイアログを表示します。</string>
     <string name="revanced_gms_show_dialog_title">GMSCore の最適化ダイアログを表示</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">フィルタリングするアカウントメニュー名のリスト。（改行区切り）</string>
@@ -627,8 +630,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_live_chat_messages_summary_off">ライブチャットのコメントを非表示にします。\n\nこの設定は縦型のライブ配信にも適用されます。</string>
     <string name="revanced_hide_live_chat_messages_summary_on">ライブチャットのコメントを非表示にします。\n\nこの設定は縦型のライブ配信にも適用されます。</string>
     <string name="revanced_hide_live_chat_messages_title">ライブチャットのコメントを非表示</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_off">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_on">ライブで全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">ライブ配信で全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">ライブ配信で全画面表示時に右下に表示される「チャットのリプレイ」ボタンを非表示にします。\n\nライブチャットを終了すると全画面表示になります。</string>
     <string name="revanced_hide_live_chat_replay_button_title">チャットのリプレイボタンを非表示</string>
     <string name="revanced_hide_live_chat_summary_summary_off">ライブのチャットから AI による要約欄を非表示にします。</string>
     <string name="revanced_hide_live_chat_summary_summary_on">ライブのチャットから AI による要約欄を非表示にします。</string>
@@ -1230,16 +1233,16 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_overlay_button_mute_volume_title">音声ミュートボタンを表示</string>
     <string name="revanced_overlay_button_not_allowed_warning">ボタンの状態を変更するには、長押ししてください。</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">チャンネル ID が一致しないため、再生リストを生成できません。</string>
-    <string name="revanced_overlay_button_play_all_summary">"1 回タップすると、チャンネルに投稿されているすべての動画の再生リストを生成します。
+    <string name="revanced_overlay_button_play_all_summary">"タップすると、チャンネルに投稿されているすべての動画の再生リストを生成します。
 タップして長押しすると、元に戻ります。
 
-注意: ライブでは動作しない可能性があります。"</string>
+注意: ライブ配信では動作しない可能性があります。"</string>
     <string name="revanced_overlay_button_play_all_title">「すべて再生」ボタンを表示</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">すべてのコンテンツ (時間順、昇順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">すべてのコンテンツ (時間順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">「メンバーのみ」の動画</string>
     <string name="revanced_overlay_button_play_all_type_entry_11">「メンバーのみ」のショート</string>
-    <string name="revanced_overlay_button_play_all_type_entry_12">「メンバーのみ」のライブ</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">「メンバーのみ」のライブ配信</string>
     <string name="revanced_overlay_button_play_all_type_entry_2">すべてのコンテンツ (人気順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_3">動画のみ (時間順)</string>
     <string name="revanced_overlay_button_play_all_type_entry_4">動画のみ (人気順)</string>
@@ -1283,6 +1286,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_category_others">その他</string>
     <string name="revanced_preference_category_overlay_buttons">オーバーレイボタン</string>
     <string name="revanced_preference_category_patch_information">パッチ情報</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">クイック操作</string>
     <string name="revanced_preference_category_recommended_video">おすすめ動画</string>
     <string name="revanced_preference_category_shorts_shelf">ショート欄</string>
@@ -1403,10 +1407,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_restore_old_video_quality_menu_summary_off">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">古いスタイルの画質設定メニューを復活させます。</string>
     <string name="revanced_restore_old_video_quality_menu_title">古いスタイルの画質メニューを復元</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_off">古いプレーヤーレイアウトを復元します。
-プレーヤーの上部と下部に余白はありません。</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">古いプレーヤーレイアウトを復元します。\nこれによりプレーヤーの上部と下部から余白が削除されます。</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"古いプレーヤーレイアウトを復元します。
-プレーヤーの上部と下部に余白はありません。"</string>
+これによりプレーヤーの上部と下部から余白が削除されます。"</string>
     <string name="revanced_restore_shorts_old_player_layout_title">古いプレーヤーレイアウトを復元</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@ハンドル名 + (ユーザー名)</string>
     <string name="revanced_return_youtube_username_display_format_title">表示形式</string>
@@ -1738,7 +1741,23 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_device_dimensions_summary">"デバイスの解像度を最大値に偽装します。
 高画質は、高いデバイスの解像度を必要とする一部の動画でアンロックされる可能性がありますが、すべての動画でアンロックされるわけではありません。"</string>
     <string name="revanced_spoof_device_dimensions_title">デバイスの解像度を偽装</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Android クライアントのみを使用</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">iOS クライアントで AVC (H.264) を強制します。</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します。</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"これを有効にすると、バッテリーの持ちが改善され、再生時のカクつきが修正される可能性があります。
+
+注意:
+・AVC (H.264) の最大解像度は 1080p です。
+・Opus オーディオコーデックは使用できません。
+・動画の再生時には VP9 や AV1 よりも多くの通信量を消費します。"</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">信頼できるブラウザで BotGuard によって発行された PoToken です。</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">使用する PoToken を入力</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"一部のクライアントでは、有効なストリーミングデータ応答を取得するために PoToken と VisitorData が必要です。
+
+iOS クライアント選択する場合は、これらの値が必要になる場合があります。
+
+詳細についてはここをタップしてください。"</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken / VisitorData について</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"・「音声トラック」メニューは表示されません。
 ・「一定音量」は使用できません。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"•「音声トラック」メニューは表示されません。
@@ -1751,8 +1770,8 @@ API キーの発行方法については、ここをタップしてください�
 ・映画や有料動画は再生できない可能性があります。</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">ストリーミングデータを偽装することによる副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 動画が再生できない可能性があります。</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に偽装したストリーミングデータを表示します。</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に偽装したストリーミングデータを表示します。</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に偽装したクライアントを表示します。</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に偽装したクライアントを表示します。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に偽装したクライアントを表示</string>
     <string name="revanced_spoof_streaming_data_summary_off">"ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_summary_on">ストリーミングデータを偽装していない場合、動画の再生ができない可能性があります。</string>
@@ -1762,10 +1781,11 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
     <string name="revanced_spoof_streaming_data_type_title">偽装するクライアントの種類</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">信頼できるブラウザで BotGuard によって発行された VisitorData です。</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">使用する VisitorData を入力</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">感度は 1 ~ 1000 (%) の間でなければなりません。</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">スワイプして明るさを調整する際の感度を 1 ~ 1000 (%) の間で設定できます。</string>
     <string name="revanced_swipe_brightness_sensitivity_title">明るさのスワイプ感度</string>

@@ -42,8 +42,16 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_disable_cairo_splash_animation_title">Desactiva la animación Cairo</string>
     <string name="revanced_disable_dislike_redirection_summary">Deshabilita la redirección a la siguiente pista al hacer clic en el botón No me Gusta.</string>
     <string name="revanced_disable_dislike_redirection_title">Desactivar redirección de No me Gusta</string>
+    <string name="revanced_disable_drc_audio_summary">Deshabilita DRC (Dynamic Range Compression) aplicado al audio.</string>
+    <string name="revanced_disable_drc_audio_title">Desactivar audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Desactivar el gesto de deslizar para cambiar de pista en el minireproductor.</string>
     <string name="revanced_disable_mini_player_gesture_title">Desactivar gesto de minireproductor</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Cuando un usuario no premium escoge una canción incluida en un álbum, un vídeo musical a veces se muestra en lugar de la canción original.
+
+Si este video se detecta durante la reproducción, será redireccionado a la canción original.
+
+Se usa una instancia redireccionada, pero la API puede no estar disponible en algunas regiones."</string>
+    <string name="revanced_disable_music_video_in_album_title">Desactivar vídeo de música en el álbum</string>
     <string name="revanced_disable_player_gesture_summary">Desactivar el gesto de deslizar para cambiar de pista en el reproductor.</string>
     <string name="revanced_disable_player_gesture_title">Desactivar gesto del reproductor</string>
     <string name="revanced_enable_black_navigation_bar_summary">Establece el color de la barra de navegación en negro.</string>
@@ -55,7 +63,7 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_enable_compact_dialog_summary">"Activa el diálogo compacto en el teléfono.
 
 Problemas conocidos:
-- La carátula del álbum en la estantería de la biblioteca también se hace más pequeña.
+- Las carátulas de los álbumes en la página de biblioteca se hacen pequeñas cuando se organizan por cuadrícula.
 - El diseño del temporizador puede parecer inusual."</string>
     <string name="revanced_enable_compact_dialog_title">Activar diálogo compacto</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Incluye el búfer en el registro de depuración.</string>
@@ -164,6 +172,7 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ocultar menú de ir al podcast</string>
     <string name="revanced_hide_flyout_menu_help_title">Ocultar menú Ayuda &amp; Comentarios</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ocultar botones Me gusta y No me gusta</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ocultar el pin al menú de marcación rápida</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ocultar menú de reproducción siguiente</string>
     <string name="revanced_hide_flyout_menu_quality_title">Ocultar menú de calidad</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Ocultar menú de eliminar de la biblioteca</string>
@@ -178,6 +187,7 @@ Descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_flyout_menu_start_radio_title">Ocultar menú de Iniciar radio</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Ocultar menú Estadísticas para Nerds</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ocultar menú Suscribirse / Desuscribirse</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ocultar Desfijar del menú de marcación rápida</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ocultar menú de vista de créditos de canción</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Oculta anuncios en pantalla completa."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anuncios en pantalla completa</string>
@@ -400,4 +410,21 @@ Limitaciones:
 • La miniatura de la barra de Seekbar puede no estar presente.
 • El historial de la vista no funciona con una cuenta de marca."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Define un cliente predeterminado a falsear.
+
+※ Al usar el cliente Android, se recomienda usarlo con 'Versión de aplicación Spoof'."</string>
+    <string name="revanced_spoof_client_type_title">Cliente por defecto</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Muestra el cliente utilizado para obtener datos de streaming en Estadísticas para nerds.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
+    <string name="revanced_spoof_streaming_data_summary">"Falsificar los datos de streaming para evitar problemas de reproducción.
+
+※ Cuando se utiliza con 'Cliente de spoof', problemas de reproducción pueden producirse."</string>
+    <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_summary">Define un cliente por defecto que obtiene datos de streaming.</string>
+    <string name="revanced_spoof_streaming_data_type_title">Cliente por defecto</string>
 </resources>
