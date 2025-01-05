@@ -82,6 +82,7 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Repetir</string>
     <string name="revanced_change_shorts_repeat_state_title">Alterar estado de repetição do shorts</string>
     <string name="revanced_change_start_page_entry_browse">Explorar canais</string>
+    <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizagem</string>
     <string name="revanced_change_start_page_entry_default">Padrão</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
     <string name="revanced_change_start_page_entry_gaming">Jogos</string>
@@ -91,12 +92,14 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_change_start_page_entry_live">Ao Vivo</string>
     <string name="revanced_change_start_page_entry_movies">Filmes</string>
     <string name="revanced_change_start_page_entry_music">Música</string>
+    <string name="revanced_change_start_page_entry_notifications">Notificações</string>
     <string name="revanced_change_start_page_entry_search">Buscar</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Esportes</string>
     <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
     <string name="revanced_change_start_page_entry_trending">Em alta</string>
     <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
+    <string name="revanced_change_start_page_entry_your_clips">Seus clipes</string>
     <string name="revanced_change_start_page_title">Alterar a página inicial</string>
     <string name="revanced_change_start_page_type_summary_off">A página inicial muda apenas uma vez.</string>
     <string name="revanced_change_start_page_type_summary_on">"Página inicial sempre muda.
@@ -242,9 +245,6 @@ Nota:
 • A reprodução de vídeos usará mais dados na internet do que VP9.
 • Para fazer com que o HDR reproduza, o vídeo HDR ainda usa o codec VP9."</string>
     <string name="revanced_disable_vp9_codec_title">Desativar codec VP9</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está ativado.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Entrar em tela cheia ao deslizar para baixo no reprodutor de vídeo está desativado.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Desativar gestos do painel de observação</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">A barra de busca do Cairo está desativada.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"A barra de busca do Cairo está ativada.
 
@@ -386,11 +386,6 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome do pacote do aplicativo de download de playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome do pacote do aplicativo de download de vídeo</string>
-    <string name="revanced_force_fullscreen_summary">"O vídeo será alternado para tela cheia nas seguintes situações:
-
-• Quando uma marcação de tempo nos comentários é clicada.
-• Quando um vídeo é iniciado."</string>
-    <string name="revanced_force_fullscreen_title">Forçar tela cheia</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de conta a serem filtrados separados por uma nova linha.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro do menu da conta</string>
     <string name="revanced_hide_account_menu_summary">"Ocultar elementos do menu de contas e aba Você
@@ -1266,6 +1261,7 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_category_others">Outros</string>
     <string name="revanced_preference_category_overlay_buttons">Botões de ação rápida</string>
     <string name="revanced_preference_category_patch_information">Informações do patch</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Ações rápidas</string>
     <string name="revanced_preference_category_recommended_video">Vídeo recomendado</string>
     <string name="revanced_preference_category_shorts_shelf">Painel de shorts</string>
@@ -1713,6 +1709,20 @@ Se for desativado posteriormente, é recomendável limpar os dados do aplicativo
     <string name="revanced_spoof_device_dimensions_summary">"Falsifica as dimensões do dispositivo para o valor máximo.
 A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões elevadas do dispositivo, mas não em todos os vídeos."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsificar dimensões do dispositivo</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">O codec de vídeo é determinado automaticamente.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">O codec de vídeo é forçado para AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forçar iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Ativar isso pode melhorar a duração da bateria e corrigir travamentos na reprodução.
+
+O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível e a reprodução de vídeo usará mais dados da internet do que VP9 ou AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken emitido pelo BotGuard em um navegador confiável.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken a ser utilizado</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Alguns clientes exigem PoToken e VisitorData para obter uma resposta de dados de streaming válida.
+
+Se você estiver tentando usar o iOS como cliente padrão, pode precisar desses valores.
+
+Clique para ver mais informações."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Sobre o PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• O menu de faixa de áudio está faltando."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• O menu de faixa de áudio está faltando."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Ainda não encontrado.</string>
@@ -1729,9 +1739,10 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">Dados de visitante emitido pelo BotGuard em um navegador confiável.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">Dados de visitante a ser utilizado</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">A sensibilidade de deslizamento de brilho deve estar entre 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Configure a sensibilidade do deslize para o brilho entre 1 e 1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Sensibilidade de deslizar brilho</string>

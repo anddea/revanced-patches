@@ -85,7 +85,7 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Ripeti</string>
     <string name="revanced_change_shorts_repeat_state_title">Cambia lo stato di ripetizione</string>
     <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
-    <string name="revanced_change_start_page_entry_courses">Corsi / Istruzione</string>
+    <string name="revanced_change_start_page_entry_courses">Apprendimento</string>
     <string name="revanced_change_start_page_entry_default">Predefinita (Home)</string>
     <string name="revanced_change_start_page_entry_explore">Esplora</string>
     <string name="revanced_change_start_page_entry_gaming">Giochi</string>
@@ -95,12 +95,14 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_change_start_page_entry_live">Live</string>
     <string name="revanced_change_start_page_entry_movies">Film e TV</string>
     <string name="revanced_change_start_page_entry_music">Musica</string>
+    <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_trending">Tendenze</string>
     <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
+    <string name="revanced_change_start_page_entry_your_clips">I tuoi clip</string>
     <string name="revanced_change_start_page_title">Cambia la scheda iniziale</string>
     <string name="revanced_change_start_page_type_summary_off">La pagina iniziale cambia solo una volta.</string>
     <string name="revanced_change_start_page_type_summary_on">"La pagina iniziale cambia sempre.
@@ -162,10 +164,11 @@ Impostazioni → Riproduzione automatica → Telefono cellulare/tablet"</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">La velocità di riproduzione predefinita nei video live è disattivata.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Disattiva la velocità di riproduzione predefinita nei video live</string>
     <string name="revanced_disable_default_playback_speed_music_off">La velocità di riproduzione predefinita per la musica è attivata.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"La velocità di riproduzione predefinita è disattivata per la musica.
-
-Nota: potrebbe non funzionare con i video che non hanno il banner Ascolta su YouTube Music."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">La velocità di riproduzione predefinita per la musica è disattivata.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Disattiva la velocità di riproduzione predefinita per la musica</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">La velocità di riproduzione predefinita è attivata se la categoria video è Musica.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">La velocità di riproduzione predefinita è disattivata se la categoria video è Musica.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Convalida usando le categorie</string>
     <string name="revanced_disable_engagement_panel_summary_off">Il pannello di coinvolgimento è attivato.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Il pannello di coinvolgimento è disattivato.</string>
     <string name="revanced_disable_engagement_panel_title">Disattiva il pannello di coinvolgimento</string>
@@ -222,8 +225,17 @@ Note:
     <string name="revanced_disable_splash_animation_summary_off">L\'animazione di avvio è attivata.</string>
     <string name="revanced_disable_splash_animation_summary_on">L\'animazione di avvio è disattivata.</string>
     <string name="revanced_disable_splash_animation_title">Disattiva l\'animazione di avvio</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Trascinando verso l\'alto o il basso verrà riprodotto il video successivo o precedente.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Trascinando verso l\'alto o il basso non verrà riprodotto il video successivo o precedente.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Il gesto per passare a schermo intero trascinando verso il basso da sotto il riproduttore è attivato.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Il gesto per passare a schermo intero trascinando verso il basso da sotto il riproduttore è disattivato.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disattiva il gesto per passare a schermo intero trascinando verso il basso da sotto il riproduttore</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Il gesto per passare a schermo intero trascinando verso l\'alto toccando il riproduttore è attivato.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Il gesto per passare a schermo intero trascinando verso l\'alto toccando il riproduttore è disattivato.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Disattiva il gesto per passare a schermo intero trascinando verso l\'alto toccando il riproduttore</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Il gesto per uscire dallo schermo intero trascinando verso il basso è attivato.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Il gesto per uscire dallo schermo intero trascinando verso il basso è disattivato.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Disattiva il gesto per uscire dallo schermo intero trascinando verso il basso</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Trascinando verso l\'alto o il basso a schermo intero verrà riprodotto il video successivo o precedente.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Trascinando verso l\'alto o il basso a schermo intero non verrà riprodotto il video successivo o precedente.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Disattiva il gesto per cambiare video</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione con tema scuro è opaca o traslucida.</string>
     <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione con tema scuro è opaca.</string>
@@ -245,9 +257,6 @@ Note:
 • La riproduzione userà più dati internet di VP9.
 • VP9 è usato per la riproduzione HDR."</string>
     <string name="revanced_disable_vp9_codec_title">Disattiva il codec VP9</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Disattiva il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">La barra di avanzamento Cairo è disattivata.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"La barra di avanzamento Cairo è attivata.
 
@@ -336,8 +345,8 @@ Note:
     <string name="revanced_enable_swipe_volume_summary_off">Il gesto del volume è disattivato.</string>
     <string name="revanced_enable_swipe_volume_summary_on">Il gesto del volume è attivato.</string>
     <string name="revanced_enable_swipe_volume_title">Attiva il gesto del volume</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione traslucida è disattivata.</string>
-    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione traslucida è attivata.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
+    <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
@@ -354,6 +363,16 @@ In questo caso, seguire questi percorsi per accedere alle impostazioni:
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">La barra di ricerca estesa con l\'intestazione è disattivata.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">La barra di ricerca estesa con l\'intestazione è attivata.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Attiva la barra di ricerca estesa con l\'intestazione</string>
+    <string name="revanced_enter_fullscreen_summary_off">Non passa a schermo intero all\'avvio dei video.</string>
+    <string name="revanced_enter_fullscreen_summary_on">Passa a schermo intero all\'avvio dei video.
+
+Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in background.</string>
+    <string name="revanced_enter_fullscreen_title">Passa a schermo intero all\'avvio dei video</string>
+    <string name="revanced_exit_fullscreen_entry_1">Disattivato</string>
+    <string name="revanced_exit_fullscreen_entry_2">Verticale</string>
+    <string name="revanced_exit_fullscreen_entry_3">Orizzontale</string>
+    <string name="revanced_exit_fullscreen_entry_4">Verticale e orizzontale</string>
+    <string name="revanced_exit_fullscreen_title">Esci da schermo intero alla fine dei video</string>
     <string name="revanced_expand_video_description_strings_default_value">Descrizione</string>
     <string name="revanced_expand_video_description_strings_summary">"Inserisci il titolo del pannello della descrizione nella tua lingua.
 
@@ -392,10 +411,6 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto del downloader esterno delle playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
-    <string name="revanced_force_fullscreen_summary">"I video passeranno automaticamente a schermo intero nelle seguenti situazioni:
-• Appena un video inizia.
-• Toccando su un timestamp nei commenti."</string>
-    <string name="revanced_force_fullscreen_title">Forza lo schermo intero</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
@@ -409,8 +424,8 @@ Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_album_card_summary_off">Gli album sono visibili.</string>
     <string name="revanced_hide_album_card_summary_on">Gli album sono nascosti.</string>
     <string name="revanced_hide_album_card_title">Nascondi gli album</string>
-    <string name="revanced_hide_attributes_section_summary_off">Le sezioni Musica, Giochi, Persone e Luoghi in Primo Piano sono visibili.</string>
-    <string name="revanced_hide_attributes_section_summary_on">Le sezioni Musica, Giochi, Persone e Luoghi in Primo Piano sono nascosti.</string>
+    <string name="revanced_hide_attributes_section_summary_off">Le sezioni Musica, Giochi, Persone Menzionate e Luoghi in Primo Piano sono visibili.</string>
+    <string name="revanced_hide_attributes_section_summary_on">Le sezioni Musica, Giochi, Persone Menzionate e Luoghi in Primo Piano sono nascoste.</string>
     <string name="revanced_hide_attributes_section_title">Nascondi le sezioni Musica, Giochi e Luoghi in Primo Piano</string>
     <string name="revanced_hide_autoplay_preview_summary_off">L\'anteprima della riproduzione automatica è visibile.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">L\'anteprima della riproduzione automatica è nascosta.</string>
@@ -1283,6 +1298,7 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_category_others">Altri</string>
     <string name="revanced_preference_category_overlay_buttons">Pulsanti in sovrapposizione</string>
     <string name="revanced_preference_category_patch_information">Informazioni patch</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Azioni rapide</string>
     <string name="revanced_preference_category_recommended_video">Video consigliati</string>
     <string name="revanced_preference_category_shorts_shelf">Scaffali</string>
@@ -1738,22 +1754,34 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
     <string name="revanced_spoof_device_dimensions_summary">"Camuffa le dimensioni del dispositivo portandole al valore massimo.
 Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tutti, che richiedono dimensioni del dispositivo elevate."</string>
     <string name="revanced_spoof_device_dimensions_title">Camuffa le dimensioni del dispositivo</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">I client Android e iOS sono usati per recuperare i dati in streaming.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Il client Android è usato per recuperare i dati in streaming.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Usa solo il client Android</string>
-    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android">"• Il menù Traccia Audio è mancante.
-• Il menù Volume Stabile è mancante.
-• La disattivazione della traccia audio automatica forzata non funziona."</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Il codec video è determinato automaticamente.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Forza iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"L'attivazione di questa impostazione potrebbe migliorare la durata della batteria e risolvere il problema della riproduzione a scatti.
+
+Nota: AVC ha una risoluzione massima di 1080p, il codec Opus non è disponibile e la riproduzione userà più dati internet rispetto a VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken emesso da BotGuard in un browser affidabile.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken da usare</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Alcuni client richiedono PoToken e VisitorData per ottenere una risposta valida per i dati in streaming.
+
+Se stai cercando di utilizzare iOS come client predefinito, potresti aver bisogno di questi valori.
+
+Tocca per vedere maggiori informazioni."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Informazioni su PoToken e VisitorData</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Il menù Traccia Audio è nascosto.
+• Il volume stabile non funziona.
+• La disattivazione delle tracce audio automatiche forzate non funziona.
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Il menù Traccia Audio è mancante.
 • Il menù Volume Stabile è mancante."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Nessuno ancora trovato.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Ci potrebbero essere problemi di riproduzione (PoToken richiesto).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
 • Il codec audio Opus potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• I film o i video a pagamento potrebbero non essere riprodotti.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• I film o i video a pagamento potrebbero non essere riproducibili.
+• I video per bambini potrebbero non essere riprodotti se si è disconnessi o in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client usato per recuperare i dati in streaming è nascosto nelle statistiche per nerd.</string>
@@ -1764,13 +1792,17 @@ Nota: la qualità alta potrebbe essere sbloccata per alcuni video, ma non per tu
     <string name="revanced_spoof_streaming_data_title">Camuffa i dati in streaming</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Client predefinito</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData emesso da BotGuard in un browser affidabile.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData da usare</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">La sensibilità del gesto della luminosità deve essere tra 1 e 1000 (%)</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Configura la distanza minima per scorrere la luminosità tra 1 e 1000 (%).\nPiù breve è la distanza minima, più velocemente cambia la luminosità.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">La sensibilità del gesto della luminosità</string>

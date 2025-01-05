@@ -86,7 +86,7 @@ Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Powtarzanie</string>
     <string name="revanced_change_shorts_repeat_state_title">Zmień stan powtarzania Shortsów</string>
     <string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
-    <string name="revanced_change_start_page_entry_courses">Kursy / Nauka</string>
+    <string name="revanced_change_start_page_entry_courses">Nauka</string>
     <string name="revanced_change_start_page_entry_default">Domyślna</string>
     <string name="revanced_change_start_page_entry_explore">Odkrywanie</string>
     <string name="revanced_change_start_page_entry_gaming">Gry</string>
@@ -96,12 +96,14 @@ Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_change_start_page_entry_live">Na żywo</string>
     <string name="revanced_change_start_page_entry_movies">Filmy</string>
     <string name="revanced_change_start_page_entry_music">Muzyka</string>
+    <string name="revanced_change_start_page_entry_notifications">Powiadomienia</string>
     <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
     <string name="revanced_change_start_page_entry_shorts">Shortsy</string>
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
     <string name="revanced_change_start_page_entry_trending">Na czasie</string>
     <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
+    <string name="revanced_change_start_page_entry_your_clips">Twoje klipy</string>
     <string name="revanced_change_start_page_title">Strona startowa</string>
     <string name="revanced_change_start_page_type_summary_off">Strona główna zmienia się tylko raz</string>
     <string name="revanced_change_start_page_type_summary_on">"Strona główna zawsze się zmienia
@@ -163,10 +165,11 @@ Ustawienia → Autoodtwarzanie → Autoodtwarzanie następnego filmu"</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Wyłączona</string>
     <string name="revanced_disable_default_playback_speed_live_title">Domyślna prędkość odtwarzania podczas transmisji na żywo</string>
     <string name="revanced_disable_default_playback_speed_music_off">Włączona</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Wyłączona
-
-Ograniczenie: To ustawienie może nie działać dla filmów bez baneru 'Słuchaj w YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Wyłączona</string>
     <string name="revanced_disable_default_playback_speed_music_title">Domyślna prędkość odtwarzania dla muzyki</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Wyłączone dla filmów odtwarzalnych w YouTube Music</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Wyłączone dla filmów z kategorią muzyki</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Sprawdzaj przy użyciu kategorii</string>
     <string name="revanced_disable_engagement_panel_summary_off">Widoczny</string>
     <string name="revanced_disable_engagement_panel_summary_on">Ukryty</string>
     <string name="revanced_disable_engagement_panel_title">Panel zaangażowania</string>
@@ -223,6 +226,15 @@ Notki:
     <string name="revanced_disable_splash_animation_summary_off">Włączona</string>
     <string name="revanced_disable_splash_animation_summary_on">Wyłączona</string>
     <string name="revanced_disable_splash_animation_title">Animacja uruchamiania aplikacji</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Włączony</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Wyłączony</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Gest wejścia w tryb pełnoekranowy przesunięciem pod odtwarzaczem</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Włączony</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Wyłączony</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Gest wejścia w tryb pełnoekranowy przesunięciem w odtwarzaczu</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Włączony</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Wyłączony</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Gest wyjścia z trybu pełnoekranowego przesunięciem</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Włączony</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Wyłączony</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Gest zmiany filmu przesunięciem w górę lub dół </string>
@@ -235,9 +247,6 @@ Notki:
     <string name="revanced_disable_translucent_status_bar_summary_off">Włączona</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Wyłączona</string>
     <string name="revanced_disable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
-    <string name="revanced_enable_translucent_status_bar_summary_off">Wyłączona</string>
-    <string name="revanced_enable_translucent_status_bar_summary_on">Włączona</string>
-    <string name="revanced_enable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
     <string name="revanced_disable_video_description_interaction_summary">"Wyłącza następujące interakcje, gdy opis filmu jest otworzony:
 
 • Stuknij, by przewijać
@@ -250,9 +259,6 @@ Notki:
 • Odtwarzanie filmów wykorzystuje więcej danych internetowych niż VP9
 • Kodek VP9 jest używany do filmów z HDR"</string>
     <string name="revanced_disable_vp9_codec_title">Wyłącz kodek VP9</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesunięciem w dół poniżej odtwarzacza filmu jest włączone</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesunięciem w dół poniżej odtwarzacza filmu jest wyłączone</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Pełny ekran gestem przesunięcia</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Wyłączony</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Włączony
 
@@ -344,6 +350,9 @@ Ograniczenia:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Nieprzezroczysty</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Półprzezroczysty</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Wygląd paska nawigacji</string>
+    <string name="revanced_enable_translucent_status_bar_summary_off">Wyłączona</string>
+    <string name="revanced_enable_translucent_status_bar_summary_on">Włączona</string>
+    <string name="revanced_enable_translucent_status_bar_title">Półprzezroczystość paska statusu</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest wyłączone</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest włączone</string>
     <string name="revanced_enable_watch_panel_gestures_title">Pełny ekran przesuwaniem</string>
@@ -358,6 +367,16 @@ Zakładka Ty → Zobacz kanał → Menu → Ustawienia"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Wyłączony</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Włączony</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Szeroki pasek wyszukiwania z nagłówkiem YouTube</string>
+    <string name="revanced_enter_fullscreen_summary_off">Wyłączony</string>
+    <string name="revanced_enter_fullscreen_summary_on">Włączony
+
+Ograniczenie: nie działa jeśli odtwarzacz jest zminimalizowany, w trybie PiP lub w tle</string>
+    <string name="revanced_enter_fullscreen_title">Pełny ekran po rozpoczęciu filmu</string>
+    <string name="revanced_exit_fullscreen_entry_1">Wyłączone</string>
+    <string name="revanced_exit_fullscreen_entry_2">Tryb pionowy</string>
+    <string name="revanced_exit_fullscreen_entry_3">Tryb poziomy</string>
+    <string name="revanced_exit_fullscreen_entry_4">Tryb pionowy i poziomy</string>
+    <string name="revanced_exit_fullscreen_title">Wyjście z pełnego ekranu po zakończeniu filmu</string>
     <string name="revanced_expand_video_description_strings_default_value">Opis</string>
     <string name="revanced_expand_video_description_strings_summary">"Wprowadź tytuł panelu opisu filmu w twoim języku.
 Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znaków nie zgadza się z tytułem panelu opisu filmu."</string>
@@ -397,11 +416,6 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Nazwa pakietu aplikacji od pobierania (filmy) przy długim przytrzymaniu</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
-    <string name="revanced_force_fullscreen_summary">"Filmy zostaną przełączone w tryb pełnoekranowy w następujących sytuacjach:
-
-• Po rozpoczęciu filmu
-• Po stuknięciu w czas filmu w komentarzach"</string>
-    <string name="revanced_force_fullscreen_title">Wymuś tryb pełnoekranowy</string>
     <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
     <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
@@ -1157,8 +1171,8 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_icon_revancify_yellow">Żółta Revancify</string>
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
-    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_xisr_holiday">Wakacyjna Xisr</string>
+    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">Czarna YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Zachowuje tryb poziomy, gdy wyłączysz i włączysz ekran w trybie pełnoekranowym.</string>
@@ -1288,6 +1302,7 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_category_others">Inne</string>
     <string name="revanced_preference_category_overlay_buttons">Przyciski w odtwarzaczu</string>
     <string name="revanced_preference_category_patch_information">Informacje o łatkach</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Pod paskiem postępu filmu</string>
     <string name="revanced_preference_category_recommended_video">Rekomendowane filmy</string>
     <string name="revanced_preference_category_shorts_shelf">Półki z Shortsami</string>
@@ -1741,22 +1756,34 @@ Jeśli później zostanie to wyłączone, rekomendowane jest usunięcie danych a
     <string name="revanced_spoof_device_dimensions_summary">"Oszukuje rozdzielczość urządzenia do maksymalnej wartości.
 Wysoka jakość może być odblokowana na niektórych filmach, które wymagają wysokiej rozdzielczości urządzenia, lecz nie na wszystkich."</string>
     <string name="revanced_spoof_device_dimensions_title">Oszukaj rozdzielczość urządzenia</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Nie</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Tak</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Używaj wyłącznie klientów Androida</string>
-    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem filmów.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Określany automatycznie</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Wymuszony</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Wymuś kodek iOS AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Włączenie tego może poprawić czas pracy baterii i naprawić zacinanie się odtwarzacza.
+
+AVC obsługuje maksymalnie rozdzielczość 1080p, kodek audio OPUS nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken wydany przez BotGuard w zaufanej przeglądarce.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken do użycia</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Niektóre klienty wymagają PoTokena lub VisitorData, by otrzymać prawidłową odpowiedź na strumień danych.
+
+Jeśli próbujesz użyć iOS jako domyślnego klienta, będziesz potrzebować tych wartości.
+
+Kliknij, by zobaczyć więcej informacji."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">O PoTokenie / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność nie jest dostępna
-• Wyłączenie automatycznego wymuszania ścieżki dźwiękowej nie jest dostępne"</string>
+• Automatyczne wymuszenie ścieżki dźwiękowej nie jest dostępne
+• Filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Brakuje menu od ścieżki dźwiękowej
 • Stabilna głośność jest niedostępna"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Jeszcze nie znaleziono</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Mogą wystąpić problemy z odtwarzaniem (wymagany PoToken)</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
 • Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Filmy kinowe lub płatne filmy mogą się nie odtwarzać</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Filmy kinowe lub płatne mogą się nie odtwarzać
+• Filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
@@ -1767,13 +1794,17 @@ Wysoka jakość może być odblokowana na niektórych filmach, które wymagają 
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Kreator Androida</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData wydany przez BotGuard w zaufanej przeglądarce.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData do użycia</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Czułość przesuwania gestu jasności musi być pomiędzy 1 a 1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Skonfiguruj minimalną odległość dla przesuwania jasności, pomiędzy 1 a 1000 (%).\nIm mniejsza minimalna odległość, tym szybciej zmienia się poziom jasności.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Czułość przesuwania jasności</string>
