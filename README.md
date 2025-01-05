@@ -17,7 +17,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Ambient mode control` | Adds options to disable Ambient mode and to bypass Ambient mode restrictions. | 18.29.38 ~ 19.44.39 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 18.29.38 ~ 19.44.39 |
 | `Change player flyout menu toggles` | Adds an option to use text toggles instead of switch toggles within the additional settings menu. | 18.29.38 ~ 19.44.39 |
-| `Change share sheet` | Add option to change from in-app share sheet to system share sheet. | 18.29.38 ~ 19.44.39 |
+| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 18.29.38 ~ 19.44.39 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 18.29.38 ~ 19.44.39 |
 | `Custom Shorts action buttons` | Changes, at compile time, the icon of the action buttons of the Shorts player. | 18.29.38 ~ 19.44.39 |
 | `Custom branding icon for YouTube` | Changes the YouTube app icon to the icon specified in patch options. | 18.29.38 ~ 19.44.39 |
@@ -49,7 +49,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Hide layout components` | Adds options to hide general layout components. | 18.29.38 ~ 19.44.39 |
 | `Hide player buttons` | Adds options to hide buttons in the video player. | 18.29.38 ~ 19.44.39 |
 | `Hide player flyout menu` | Adds options to hide player flyout menu components. | 18.29.38 ~ 19.44.39 |
-| `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when app icon is long pressed. | 18.29.38 ~ 19.44.39 |
+| `Hide shortcuts` | Remove, at compile time, the app shortcuts that appears when the app icon is long pressed. | 18.29.38 ~ 19.44.39 |
 | `Hook YouTube Music actions` | Adds support for opening music in RVX Music using the in-app YouTube Music button. | 18.29.38 ~ 19.44.39 |
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 18.29.38 ~ 19.44.39 |
 | `Layout switch` | Adds an option to spoof the dpi in order to use a tablet or phone layout. | 18.29.38 ~ 19.44.39 |
@@ -72,7 +72,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 18.29.38 ~ 19.44.39 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 18.29.38 ~ 19.44.39 |
 | `Theme` | Changes the app's theme to the values specified in patch options. | 18.29.38 ~ 19.44.39 |
-| `Toolbar components` | Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header. | 18.29.38 ~ 19.44.39 |
+| `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 18.29.38 ~ 19.44.39 |
 | `Translations for YouTube` | Add translations or remove string resources. | 18.29.38 ~ 19.44.39 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 18.29.38 ~ 19.44.39 |
 | `Visual preferences icons for YouTube` | Adds icons to specific preferences in the settings. | 18.29.38 ~ 19.44.39 |
@@ -87,7 +87,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 6.20.51 ~ 7.25.53 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 6.20.51 ~ 7.25.53 |
 | `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 6.20.51 ~ 7.25.53 |
-| `Change share sheet` | Add option to change from in-app share sheet to system share sheet. | 6.20.51 ~ 7.25.53 |
+| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 6.20.51 ~ 7.25.53 |
 | `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 6.20.51 ~ 7.25.53 |
 | `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 6.20.51 ~ 7.25.53 |
 | `Custom branding name for YouTube Music` | Renames the YouTube Music app to the name specified in patch options. | 6.20.51 ~ 7.25.53 |
@@ -96,6 +96,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 7.25.53 |
 | `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 7.25.53 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 7.25.53 |
+| `Disable music video in album` | Adds option to redirect music videos from albums. | 6.20.51 ~ 7.25.53 |
 | `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes. | 6.20.51 ~ 7.25.53 |
 | `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 7.25.53 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 7.25.53 |

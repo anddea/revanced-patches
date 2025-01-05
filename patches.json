@@ -186,7 +186,7 @@
   },
   {
     "name": "Change share sheet",
-    "description": "Add option to change from in-app share sheet to system share sheet.",
+    "description": "Adds an option to change the in-app share sheet to the system share sheet.",
     "use": true,
     "dependencies": [
       "Settings for YouTube",
@@ -208,7 +208,7 @@
   },
   {
     "name": "Change share sheet",
-    "description": "Add option to change from in-app share sheet to system share sheet.",
+    "description": "Adds an option to change the in-app share sheet to the system share sheet.",
     "use": true,
     "dependencies": [
       "Settings for YouTube Music",
@@ -364,6 +364,7 @@
           "MMT Yellow": "mmt_yellow",
           "Revancify Blue": "revancify_blue",
           "Revancify Red": "revancify_red",
+          "Squid Game": "squid_game",
           "Vanced Black": "vanced_black",
           "Vanced Light": "vanced_light",
           "Xisr Yellow": "xisr_yellow",
@@ -375,7 +376,7 @@
       {
         "key": "changeSplashIcon",
         "title": "Change splash icons",
-        "description": "Apply the custom branding icon to the splash screen.",
+        "description": "Apply the custom branding icon to the splash screen. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": true,
@@ -840,6 +841,28 @@
     "options": []
   },
   {
+    "name": "Disable music video in album",
+    "description": "Adds option to redirect music videos from albums.",
+    "use": false,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Disable resuming Shorts on startup",
     "description": "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
     "use": true,
@@ -1183,6 +1206,9 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -1568,7 +1594,8 @@
       "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch",
-      "BytecodePatch"
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1717,7 +1744,7 @@
   },
   {
     "name": "Hide shortcuts",
-    "description": "Remove, at compile time, the app shortcuts that appears when app icon is long pressed.",
+    "description": "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed.",
     "use": false,
     "dependencies": [
       "Settings for YouTube",
@@ -1959,7 +1986,8 @@
       "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch",
-      "Settings for YouTube"
+      "Settings for YouTube",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1989,7 +2017,7 @@
       {
         "key": "bottomMargin",
         "title": "Bottom margin",
-        "description": "The bottom margin for the overlay buttons and timestamp.",
+        "description": "The bottom margin for the overlay buttons and timestamp. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         "required": true,
         "type": "kotlin.String",
         "default": "2.5dip",
@@ -2002,7 +2030,7 @@
       {
         "key": "widerButtonsSpace",
         "title": "Wider between-buttons space",
-        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": false,
@@ -2698,7 +2726,8 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Settings for YouTube Music"
+      "Settings for YouTube Music",
+      "BytecodePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
@@ -2822,7 +2851,7 @@
   },
   {
     "name": "Toolbar components",
-    "description": "Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header.",
+    "description": "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons.",
     "use": true,
     "dependencies": [
       "BytecodePatch",

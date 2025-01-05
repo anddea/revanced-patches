@@ -1,3 +1,23 @@
+# [3.2.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.1.0...v3.2.0-dev.1) (2025-01-05)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:**  Restrict `Change splash icons` patch option to YouTube 19.16.39 and below ([65f8dae](https://github.com/anddea/revanced-patches/commit/65f8daeb2b69b916dbd358fd70315385f95550a6))
+* **YouTube - Disable haptic feedback:** `Disable seek haptic feedback` doesn't work ([9039b45](https://github.com/anddea/revanced-patches/commit/9039b45f1f557128b9eb17a8030819e9c507255b))
+* **YouTube - Overlay buttons:** Restrict `Bottom margin` and `Wider between-buttons space` patch options to YouTube 19.16.39 and below ([93250cc](https://github.com/anddea/revanced-patches/commit/93250cc3cecdfab84468a8a4860d3fb13e94b75f))
+* **YouTube Music - Custom header:** Not working on YouTube Music 7.25.53 ([a7c7d36](https://github.com/anddea/revanced-patches/commit/a7c7d364628bf917cfe5a3f4ce8fe98f987b48be))
+
+
+### Features
+
+* **YouTube - Change start page:** Add more start page options ([34070ef](https://github.com/anddea/revanced-patches/commit/34070efae41ec13bb0a435ad22011238998d1261))
+* **YouTube - Custom branding icon:** Add `Squid Game` icon ([e943124](https://github.com/anddea/revanced-patches/commit/e9431241c762bee6127cc26abcbbe24f82088304))
+* **YouTube - Fullscreen components:** Remove `Force fullscreen` setting, add `Enter fullscreen mode` and `Exit fullscreen mode` settings ([155f223](https://github.com/anddea/revanced-patches/commit/155f2233222cc92a9d1315c9a3e036ecc613c12c))
+* **YouTube - Spoof streaming data:** Remove `Use Android clients only` setting, restore `Force iOS AVC` setting ([23b886c](https://github.com/anddea/revanced-patches/commit/23b886c3345fe87527b02fbdca5d774ee5d476f0))
+* **YouTube - Swipe controls:** Add `Disable swipe to enter fullscreen mode` & `Disable swipe to exit fullscreen mode` settings ([5b164e1](https://github.com/anddea/revanced-patches/commit/5b164e113d405f547f6767d5df84c192a1c55838))
+* **YouTube Music:** Add `Disable music video in album` patch ([4cfe879](https://github.com/anddea/revanced-patches/commit/4cfe87913338620873a01010a6c03f9e0af2c86c))
+
 # [3.1.0](https://github.com/anddea/revanced-patches/compare/v3.0.0...v3.1.0) (2024-12-28)
 
 
