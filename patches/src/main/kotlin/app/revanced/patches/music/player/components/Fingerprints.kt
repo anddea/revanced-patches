@@ -11,6 +11,7 @@ import app.revanced.patches.music.utils.resourceid.miniPlayerViewPager
 import app.revanced.patches.music.utils.resourceid.playerViewPager
 import app.revanced.patches.music.utils.resourceid.remixGenericButtonSize
 import app.revanced.patches.music.utils.resourceid.tapBloomView
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -50,10 +51,11 @@ internal val engagementPanelHeightFingerprint = legacyFingerprint(
     ),
     parameters = emptyList(),
     customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "booleanValue"
-        } >= 0
+        method.containsLiteralInstruction(1) &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "booleanValue"
+                } >= 0
     }
 )
 
