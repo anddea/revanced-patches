@@ -31,18 +31,21 @@ val fullscreenButtonHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val (referenceClass, fullscreenActionClass) = with (nextGenWatchLayoutFullscreenModeFingerprint.methodOrThrow()) {
+        val (referenceClass, fullscreenActionClass) = with(
+            nextGenWatchLayoutFullscreenModeFingerprint.methodOrThrow()
+        ) {
             val targetIndex = indexOfFirstInstructionReversedOrThrow {
                 opcode == Opcode.INVOKE_DIRECT &&
                         getReference<MethodReference>()?.parameterTypes?.size == 2
             }
-            val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
+            val targetReference =
+                getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
 
             Pair(targetReference.definingClass, targetReference.parameterTypes[1].toString())
         }
 
         val (enterFullscreenReference, exitFullscreenReference, opcodeName) =
-            with (findMethodOrThrow(referenceClass) { parameters == listOf("I") }) {
+            with(findMethodOrThrow(referenceClass) { parameters == listOf("I") }) {
                 val enterFullscreenIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
                     reference?.returnType == "V" &&
@@ -62,7 +65,8 @@ val fullscreenButtonHookPatch = bytecodePatch(
                     getInstruction<ReferenceInstruction>(exitFullscreenIndex).reference
                 val opcode = getInstruction(enterFullscreenIndex).opcode
 
-                val enterFullscreenClass = (enterFullscreenReference as MethodReference).definingClass
+                val enterFullscreenClass =
+                    (enterFullscreenReference as MethodReference).definingClass
 
                 enterFullscreenMethod = if (opcode == Opcode.INVOKE_INTERFACE) {
                     classes.find { classDef -> classDef.interfaces.contains(enterFullscreenClass) }

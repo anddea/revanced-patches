@@ -121,21 +121,27 @@ public class ReturnYouTubeDislikeApi {
     public static long getFetchCallResponseTimeLast() {
         return fetchCallResponseTimeLast;
     }
+
     public static long getFetchCallResponseTimeMin() {
         return fetchCallResponseTimeMin;
     }
+
     public static long getFetchCallResponseTimeMax() {
         return fetchCallResponseTimeMax;
     }
+
     public static long getFetchCallResponseTimeAverage() {
         return fetchCallCount == 0 ? 0 : (fetchCallResponseTimeTotal / fetchCallCount);
     }
+
     public static int getFetchCallCount() {
         return fetchCallCount;
     }
+
     public static int getFetchCallNumberOfFailures() {
         return fetchCallNumberOfFailures;
     }
+
     public static int getNumberOfRateLimitRequestsEncountered() {
         return numberOfRateLimitRequestsEncountered;
     }

@@ -264,7 +264,9 @@ val seekbarComponentsPatch = bytecodePatch(
                 ).forEach { method ->
                     method.apply {
                         val literalIndex =
-                            indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
+                            indexOfFirstLiteralInstructionOrThrow(
+                                launchScreenLayoutTypeLotteFeatureFlag
+                            )
                         val resultIndex =
                             indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                         val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA

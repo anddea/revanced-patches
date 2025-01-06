@@ -130,17 +130,35 @@ object PlayerRoutes {
     }
 
     @JvmStatic
-    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, clientType: AppClient.ClientType): HttpURLConnection {
-        return getPlayerResponseConnectionFromRoute(route, clientType.userAgent, clientType.id.toString())
+    fun getPlayerResponseConnectionFromRoute(
+        route: CompiledRoute,
+        clientType: AppClient.ClientType
+    ): HttpURLConnection {
+        return getPlayerResponseConnectionFromRoute(
+            route,
+            clientType.userAgent,
+            clientType.id.toString()
+        )
     }
 
     @JvmStatic
-    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, clientType: WebClient.ClientType): HttpURLConnection {
-        return getPlayerResponseConnectionFromRoute(route, clientType.userAgent, clientType.id.toString())
+    fun getPlayerResponseConnectionFromRoute(
+        route: CompiledRoute,
+        clientType: WebClient.ClientType
+    ): HttpURLConnection {
+        return getPlayerResponseConnectionFromRoute(
+            route,
+            clientType.userAgent,
+            clientType.id.toString()
+        )
     }
 
     @Throws(IOException::class)
-    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, userAgent: String, clientVersion: String): HttpURLConnection {
+    fun getPlayerResponseConnectionFromRoute(
+        route: CompiledRoute,
+        userAgent: String,
+        clientVersion: String
+    ): HttpURLConnection {
         val connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route)
 
         connection.setRequestProperty("Content-Type", "application/json")

@@ -75,7 +75,8 @@ val albumMusicVideoPatch = bytecodePatch(
 
         audioVideoSwitchToggleConstructorFingerprint.methodOrThrow().apply {
             val onClickListenerIndex = indexOfAudioVideoSwitchSetOnClickListenerInstruction(this)
-            val viewRegister = getInstruction<FiveRegisterInstruction>(onClickListenerIndex).registerC
+            val viewRegister =
+                getInstruction<FiveRegisterInstruction>(onClickListenerIndex).registerC
 
             addInstruction(
                 onClickListenerIndex + 1,
@@ -83,11 +84,13 @@ val albumMusicVideoPatch = bytecodePatch(
                         "$EXTENSION_CLASS_DESCRIPTOR->setAudioVideoSwitchToggleOnLongClickListener(Landroid/view/View;)V"
             )
 
-            val onClickListenerSyntheticIndex = indexOfFirstInstructionReversedOrThrow(onClickListenerIndex) {
-                opcode == Opcode.INVOKE_DIRECT &&
-                        getReference<MethodReference>()?.name == "<init>"
-            }
-            val onClickListenerSyntheticClass = (getInstruction<ReferenceInstruction>(onClickListenerSyntheticIndex).reference as MethodReference).definingClass
+            val onClickListenerSyntheticIndex =
+                indexOfFirstInstructionReversedOrThrow(onClickListenerIndex) {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.name == "<init>"
+                }
+            val onClickListenerSyntheticClass =
+                (getInstruction<ReferenceInstruction>(onClickListenerSyntheticIndex).reference as MethodReference).definingClass
 
             findMethodOrThrow(onClickListenerSyntheticClass) {
                 name == "onClick"

@@ -141,8 +141,9 @@ public class SpoofStreamingDataPatch {
      * 1. Save the requestHeader in a field.
      * 2. Invoke fetchRequest with the videoId used in PlaybackStartDescriptor.
      * <p>
-     * @param requestHeaders    Save the request Headers used for login to a field.
-     *                          Only used in YouTube Music where login is required.
+     *
+     * @param requestHeaders Save the request Headers used for login to a field.
+     *                       Only used in YouTube Music where login is required.
      */
     private static void setRequestHeaders(Map<String, String> requestHeaders) {
         if (SPOOF_STREAMING_DATA_MUSIC) {

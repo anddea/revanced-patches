@@ -30,6 +30,7 @@ object AppClient {
 
     private const val DEVICE_MAKE_IOS = "Apple"
     private const val OS_NAME_IOS = "iOS"
+
     /**
      * The device machine id for the iPhone 15 Pro Max (iPhone16,2),
      * used to get HDR with AV1 hardware decoding.
@@ -240,7 +241,6 @@ object AppClient {
         val userAgent: String,
         /**
          * Android SDK version, equivalent to [Build.VERSION.SDK] (System property: ro.build.version.sdk)
-         * Field is null if not applicable.
          */
         val androidSdkVersion: String = Build.VERSION.SDK,
         /**

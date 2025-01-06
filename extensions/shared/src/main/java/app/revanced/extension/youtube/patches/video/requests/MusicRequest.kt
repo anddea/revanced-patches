@@ -19,7 +19,10 @@ import java.util.concurrent.Future
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
-class MusicRequest private constructor(private val videoId: String, private val checkCategory: Boolean) {
+class MusicRequest private constructor(
+    private val videoId: String,
+    private val checkCategory: Boolean
+) {
     /**
      * Time this instance and the fetch future was created.
      */
@@ -121,7 +124,10 @@ class MusicRequest private constructor(private val videoId: String, private val 
             Logger.printDebug { "Fetching playlist request for: $videoId using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(PlayerRoutes.GET_PLAYLIST_PAGE, clientType)
+                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
+                    PlayerRoutes.GET_PLAYLIST_PAGE,
+                    clientType
+                )
                 val requestBody =
                     PlayerRoutes.createApplicationRequestBody(clientType, videoId, "RD$videoId")
 
@@ -158,7 +164,10 @@ class MusicRequest private constructor(private val videoId: String, private val 
             Logger.printDebug { "Fetching playability request for: $videoId using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(PlayerRoutes.GET_CATEGORY, clientType)
+                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
+                    PlayerRoutes.GET_CATEGORY,
+                    clientType
+                )
                 val requestBody =
                     PlayerRoutes.createWebInnertubeBody(clientType, videoId)
 

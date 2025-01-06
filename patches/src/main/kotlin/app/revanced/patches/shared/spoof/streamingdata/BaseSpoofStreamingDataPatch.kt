@@ -116,15 +116,20 @@ fun baseSpoofStreamingDataPatch(
         // region Replace the streaming data.
 
         val approxDurationMsReference = formatStreamModelConstructorFingerprint.matchOrThrow().let {
-            with (it.method) {
+            with(it.method) {
                 getInstruction<ReferenceInstruction>(it.patternMatch!!.startIndex).reference
             }
         }
 
-        val streamingDataFormatsReference = with(videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint)) {
+        val streamingDataFormatsReference = with(
+            videoStreamingDataConstructorFingerprint.methodOrThrow(
+                videoStreamingDataToStringFingerprint
+            )
+        ) {
             val getFormatsFieldIndex = indexOfGetFormatsFieldInstruction(this)
             val longMaxValueIndex = indexOfLongMaxValueInstruction(this, getFormatsFieldIndex)
-            val longMaxValueRegister = getInstruction<OneRegisterInstruction>(longMaxValueIndex).registerA
+            val longMaxValueRegister =
+                getInstruction<OneRegisterInstruction>(longMaxValueIndex).registerA
             val videoIdIndex =
                 indexOfFirstInstructionOrThrow(longMaxValueIndex) {
                     val reference = getReference<FieldReference>()
