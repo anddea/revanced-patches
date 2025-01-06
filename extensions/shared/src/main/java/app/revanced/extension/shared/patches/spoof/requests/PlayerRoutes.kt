@@ -20,14 +20,16 @@ object PlayerRoutes {
     val GET_CATEGORY: CompiledRoute = Route(
         Route.Method.POST,
         "player" +
-                "?fields=microformat.playerMicroformatRenderer.category"
+                "?prettyPrint=false" +
+                "&fields=microformat.playerMicroformatRenderer.category"
     ).compile()
 
     @JvmField
     val GET_PLAYLIST_PAGE: CompiledRoute = Route(
         Route.Method.POST,
         "next" +
-                "?fields=contents.singleColumnWatchNextResults.playlist.playlist"
+                "?prettyPrint=false" +
+                "&fields=contents.singleColumnWatchNextResults.playlist.playlist"
     ).compile()
 
     @JvmField
