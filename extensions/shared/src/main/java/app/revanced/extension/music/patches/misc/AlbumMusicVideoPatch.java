@@ -19,18 +19,9 @@ import app.revanced.extension.shared.utils.Logger;
 public class AlbumMusicVideoPatch {
 
     public enum RedirectType {
-        REDIRECT_DISMISS(true),
-        REDIRECT(false),
-        ON_CLICK_DISMISS(true),
-        ON_CLICK(false),
-        ON_LONG_CLICK_DISMISS(true),
-        ON_LONG_CLICK(false);
-
-        public final boolean dismissQueue;
-
-        RedirectType(boolean dismissQueue) {
-            this.dismissQueue = dismissQueue;
-        }
+        REDIRECT,
+        ON_CLICK,
+        ON_LONG_CLICK
     }
 
     private static final RedirectType REDIRECT_TYPE =
@@ -39,17 +30,11 @@ public class AlbumMusicVideoPatch {
     private static final boolean DISABLE_MUSIC_VIDEO_IN_ALBUM =
             Settings.DISABLE_MUSIC_VIDEO_IN_ALBUM.get();
 
-    private static final boolean DISMISS_QUEUE =
-            DISABLE_MUSIC_VIDEO_IN_ALBUM && REDIRECT_TYPE.dismissQueue;
+    private static final boolean REDIRECT = REDIRECT_TYPE == RedirectType.REDIRECT;
 
-    private static final boolean REDIRECT =
-            REDIRECT_TYPE == RedirectType.REDIRECT || REDIRECT_TYPE == RedirectType.REDIRECT_DISMISS;
+    private static final boolean ON_CLICK = REDIRECT_TYPE == RedirectType.ON_CLICK;
 
-    private static final boolean ON_CLICK =
-            REDIRECT_TYPE == RedirectType.ON_CLICK || REDIRECT_TYPE == RedirectType.ON_CLICK_DISMISS;
-
-    private static final boolean ON_LONG_CLICK =
-            REDIRECT_TYPE == RedirectType.ON_LONG_CLICK || REDIRECT_TYPE == RedirectType.ON_LONG_CLICK_DISMISS;
+    private static final boolean ON_LONG_CLICK = REDIRECT_TYPE == RedirectType.ON_LONG_CLICK;
 
     private static final String YOUTUBE_MUSIC_ALBUM_PREFIX = "OLAK";
 
@@ -63,7 +48,7 @@ public class AlbumMusicVideoPatch {
 
     @GuardedBy("itself")
     private static final Map<String, String> lastVideoIds = new LinkedHashMap<>() {
-        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 5;
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 10;
 
         @Override
         protected boolean removeEldestEntry(Map.Entry eldest) {
@@ -153,10 +138,6 @@ public class AlbumMusicVideoPatch {
 
     private static void openMusic(@NonNull String songId) {
         try {
-            if (DISMISS_QUEUE) {
-                VideoUtils.dismissQueue();
-            }
-
             isVideoLaunched.compareAndSet(false, true);
 
             // The newly opened video is not a music video.

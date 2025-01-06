@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.dismiss.dismissQueueHookPatch
 import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.DISABLE_MUSIC_VIDEO_IN_ALBUM
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -39,7 +38,6 @@ val albumMusicVideoPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        dismissQueueHookPatch,
         videoInformationPatch,
         playerResponseMethodHookPatch,
     )
