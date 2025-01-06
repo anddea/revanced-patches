@@ -33,6 +33,8 @@ var darkBackground = -1L
     private set
 var designBottomSheetDialog = -1L
     private set
+var elementsContainer = -1L
+    private set
 var endButtonsContainer = -1L
     private set
 var floatingLayout = -1L
@@ -149,6 +151,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         designBottomSheetDialog = resourceMappings[
             LAYOUT,
             "design_bottom_sheet_dialog"
+        ]
+        elementsContainer = resourceMappings[
+            ID,
+            "elements_container"
         ]
         endButtonsContainer = resourceMappings[
             ID,
