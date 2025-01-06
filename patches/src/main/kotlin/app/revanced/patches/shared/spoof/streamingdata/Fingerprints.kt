@@ -209,6 +209,10 @@ internal val poTokenToStringFingerprint = legacyFingerprint(
                 classDef.fields.find { it.type == "[B" } != null &&
                 // In YouTube, this field's type is 'Lcom/google/android/gms/potokens/PoToken;'.
                 // In YouTube Music, this class name is obfuscated.
-                classDef.fields.find { it.accessFlags == AccessFlags.PRIVATE.value && it.type.startsWith("L") } != null
+                classDef.fields.find {
+                    it.accessFlags == AccessFlags.PRIVATE.value && it.type.startsWith(
+                        "L"
+                    )
+                } != null
     },
 )

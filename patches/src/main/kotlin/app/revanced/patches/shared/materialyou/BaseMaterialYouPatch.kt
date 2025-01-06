@@ -1,19 +1,8 @@
 package app.revanced.patches.shared.materialyou
 
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
-import app.revanced.util.copyXmlNode
-import app.revanced.util.inputStreamFromBundledResource
 import org.w3c.dom.Element
-import org.w3c.dom.Node
-import java.io.File
 import java.nio.file.Files
-import java.nio.file.StandardCopyOption
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.transform.OutputKeys
-import javax.xml.transform.TransformerFactory
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.stream.StreamResult
 
 private fun ResourcePatchContext.patchXmlFile(
     fromDir: String,

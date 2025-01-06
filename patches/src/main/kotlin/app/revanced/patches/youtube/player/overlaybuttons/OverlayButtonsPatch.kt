@@ -249,7 +249,7 @@ val overlayButtonsPatch = resourcePatch(
                         )
 
                         val isButton = if (is_19_17_or_greater)
-                            // Note: Do not modify fullscreen button and multiview button
+                        // Note: Do not modify fullscreen button and multiview button
                             id.endsWith("_button") && id != "@id/multiview_button"
                         else
                             id.endsWith("_button") || id == "@id/youtube_controls_fullscreen_button_stub"

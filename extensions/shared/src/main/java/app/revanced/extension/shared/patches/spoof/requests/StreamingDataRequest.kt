@@ -9,7 +9,6 @@ import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.getPlay
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
-import org.apache.commons.lang3.ArrayUtils
 import org.apache.commons.lang3.StringUtils
 import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
@@ -111,6 +110,7 @@ class StreamingDataRequest private constructor(
          * Any arbitrarily large value, but must be at least twice [.HTTP_TIMEOUT_MILLISECONDS]
          */
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
+
         @GuardedBy("itself")
         val cache: MutableMap<String, StreamingDataRequest> = Collections.synchronizedMap(
             object : LinkedHashMap<String, StreamingDataRequest>(100) {
@@ -171,11 +171,13 @@ class StreamingDataRequest private constructor(
             Logger.printDebug { "Fetching video streams for: $videoId using client: $clientType" }
 
             try {
-                val connection = getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType)
+                val connection =
+                    getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType)
                 connection.connectTimeout = HTTP_TIMEOUT_MILLISECONDS
                 connection.readTimeout = HTTP_TIMEOUT_MILLISECONDS
 
-                val usePoToken = clientType.requirePoToken && !StringUtils.isAnyEmpty(botGuardPoToken, visitorId)
+                val usePoToken =
+                    clientType.requirePoToken && !StringUtils.isAnyEmpty(botGuardPoToken, visitorId)
 
                 for (key in REQUEST_HEADER_KEYS) {
                     var value = playerHeaders[key]
@@ -248,7 +250,8 @@ class StreamingDataRequest private constructor(
             // Retry with different client if empty response body is received.
             for (clientType in CLIENT_ORDER_TO_USE) {
                 if (clientType.requireAuth &&
-                    playerHeaders[AUTHORIZATION_HEADER] == null) {
+                    playerHeaders[AUTHORIZATION_HEADER] == null
+                ) {
                     Logger.printDebug { "Skipped login-required client (incognito mode or not logged in)\nClient: $clientType\nVideo: $videoId" }
                     continue
                 }
@@ -270,7 +273,9 @@ class StreamingDataRequest private constructor(
                                 ByteArrayOutputStream().use { stream ->
                                     val buffer = ByteArray(2048)
                                     var bytesRead: Int
-                                    while ((inputStream.read(buffer).also { bytesRead = it }) >= 0) {
+                                    while ((inputStream.read(buffer)
+                                            .also { bytesRead = it }) >= 0
+                                    ) {
                                         stream.write(buffer, 0, bytesRead)
                                     }
                                     lastSpoofedClientType = clientType

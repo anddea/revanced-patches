@@ -17,8 +17,9 @@ internal val mainActivityBaseContextHook = extensionHook(
         attachBaseContextIndex + 1
     },
     contextRegisterResolver = { method ->
-        val overrideInstruction = method.implementation!!.instructions.elementAt(attachBaseContextIndex)
-                as FiveRegisterInstruction
+        val overrideInstruction =
+            method.implementation!!.instructions.elementAt(attachBaseContextIndex)
+                    as FiveRegisterInstruction
         "v${overrideInstruction.registerD}"
     },
 ) {

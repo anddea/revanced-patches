@@ -46,7 +46,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         enableDisablePreferences();
 
         AmbientModePreferenceLinks();
-        ChangeHeaderPreferenceLinks();
         ExternalDownloaderPreferenceLinks();
         FullScreenPanelPreferenceLinks();
         MiniPlayerPreferenceLinks();
@@ -67,16 +66,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.DISABLE_AMBIENT_MODE.get(),
                 Settings.BYPASS_AMBIENT_MODE_RESTRICTIONS,
                 Settings.DISABLE_AMBIENT_MODE_IN_FULLSCREEN
-        );
-    }
-
-    /**
-     * Enable/Disable Preference related to Change header
-     */
-    private static void ChangeHeaderPreferenceLinks() {
-        enableDisablePreferences(
-                PatchStatus.MinimalHeader(),
-                Settings.CHANGE_YOUTUBE_HEADER
         );
     }
 
