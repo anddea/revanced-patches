@@ -3,6 +3,7 @@ package app.revanced.extension.shared.patches.client
 import android.os.Build
 import app.revanced.extension.shared.patches.PatchStatus
 import app.revanced.extension.shared.settings.BaseSettings
+import org.apache.commons.lang3.ArrayUtils
 
 /**
  * Used to fetch streaming data.
@@ -27,6 +28,8 @@ object AppClient {
     else
         "19.29.1"
 
+    private const val DEVICE_MAKE_IOS = "Apple"
+    private const val OS_NAME_IOS = "iOS"
     /**
      * The device machine id for the iPhone 15 Pro Max (iPhone16,2),
      * used to get HDR with AV1 hardware decoding.
@@ -94,6 +97,7 @@ object AppClient {
      * See [this GitLab](https://dumps.tadiphone.dev/dumps/oculus/eureka) for more information.
      */
     private const val DEVICE_MODEL_ANDROID_VR = "Quest 3"
+    private const val DEVICE_MAKE_ANDROID_VR = "Oculus"
     private const val OS_VERSION_ANDROID_VR = "12"
 
     /**
@@ -118,12 +122,27 @@ object AppClient {
      * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/kirkwood) for more information.
      */
     private const val DEVICE_MODEL_ANDROID_UNPLUGGED = "Google TV Streamer"
+    private const val DEVICE_MAKE_ANDROID_UNPLUGGED = "Google"
     private const val OS_VERSION_ANDROID_UNPLUGGED = "14"
     private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
     private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
         PACKAGE_NAME_ANDROID_UNPLUGGED,
         CLIENT_VERSION_ANDROID_UNPLUGGED,
         OS_VERSION_ANDROID_UNPLUGGED
+    )
+
+
+    // ANDROID CREATOR
+    /**
+     * Video not playable: Livestream / HDR
+     * Note: Audio track is not available
+     */
+    private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
+    private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101"
+
+    private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
+        PACKAGE_NAME_ANDROID_CREATOR,
+        CLIENT_VERSION_ANDROID_CREATOR
     )
 
 
@@ -138,7 +157,6 @@ object AppClient {
      * It is not the default client yet, as it requires sufficient testing.
      */
     private const val CLIENT_VERSION_ANDROID_MUSIC = "4.27.53"
-    private val ANDROID_SDK_VERSION_ANDROID_MUSIC = Build.VERSION.SDK_INT.toString()
     private val USER_AGENT_ANDROID_MUSIC = androidUserAgent(
         PACKAGE_NAME_ANDROID_MUSIC,
         CLIENT_VERSION_ANDROID_MUSIC
@@ -173,21 +191,45 @@ object AppClient {
         return BaseSettings.SPOOF_STREAMING_DATA_IOS_FORCE_AVC.get()
     }
 
-    val availableClientTypes: Array<ClientType>
-        get() = if (PatchStatus.SpoofStreamingDataMusic())
+    fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
+        val availableClientTypes = if (PatchStatus.SpoofStreamingDataMusic())
             ClientType.CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC
         else
             ClientType.CLIENT_ORDER_TO_USE_YOUTUBE
 
+        if (ArrayUtils.contains(availableClientTypes, preferredClient)) {
+            val clientToUse: Array<ClientType?> = arrayOfNulls(availableClientTypes.size)
+            clientToUse[0] = preferredClient
+            var i = 1
+            for (c in availableClientTypes) {
+                if (c != preferredClient) {
+                    clientToUse[i++] = c
+                }
+            }
+            return clientToUse.filterNotNull().toTypedArray()
+        } else {
+            return availableClientTypes
+        }
+    }
+
+    @Suppress("DEPRECATION")
     enum class ClientType(
         /**
          * [YouTube client type](https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients)
          */
         val id: Int,
         /**
+         * Device model, equivalent to [Build.MANUFACTURER] (System property: ro.product.vendor.manufacturer)
+         */
+        val deviceMake: String = Build.MANUFACTURER,
+        /**
          * Device model, equivalent to [Build.MODEL] (System property: ro.product.model)
          */
         val deviceModel: String = Build.MODEL,
+        /**
+         * Device OS name.
+         */
+        val osName: String = "Android",
         /**
          * Device OS version, equivalent to [Build.VERSION.RELEASE] (System property: ro.system.build.version.release)
          */
@@ -200,7 +242,7 @@ object AppClient {
          * Android SDK version, equivalent to [Build.VERSION.SDK] (System property: ro.build.version.sdk)
          * Field is null if not applicable.
          */
-        val androidSdkVersion: String? = null,
+        val androidSdkVersion: String = Build.VERSION.SDK,
         /**
          * App version.
          */
@@ -226,6 +268,7 @@ object AppClient {
     ) {
         ANDROID_VR(
             id = 28,
+            deviceMake = DEVICE_MAKE_ANDROID_VR,
             deviceModel = DEVICE_MODEL_ANDROID_VR,
             osVersion = OS_VERSION_ANDROID_VR,
             userAgent = USER_AGENT_ANDROID_VR,
@@ -235,6 +278,7 @@ object AppClient {
         ),
         ANDROID_UNPLUGGED(
             id = 29,
+            deviceMake = DEVICE_MAKE_ANDROID_UNPLUGGED,
             deviceModel = DEVICE_MODEL_ANDROID_UNPLUGGED,
             osVersion = OS_VERSION_ANDROID_UNPLUGGED,
             userAgent = USER_AGENT_ANDROID_UNPLUGGED,
@@ -243,9 +287,18 @@ object AppClient {
             requireAuth = true,
             friendlyName = "Android TV"
         ),
+        ANDROID_CREATOR(
+            id = 14,
+            userAgent = USER_AGENT_ANDROID_CREATOR,
+            clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
+            requireAuth = true,
+            friendlyName = "Android Studio"
+        ),
         IOS_UNPLUGGED(
             id = 33,
+            deviceMake = DEVICE_MAKE_IOS,
             deviceModel = DEVICE_MODEL_IOS,
+            osName = OS_NAME_IOS,
             osVersion = OS_VERSION_IOS,
             userAgent = USER_AGENT_IOS_UNPLUGGED,
             clientVersion = CLIENT_VERSION_IOS_UNPLUGGED,
@@ -257,7 +310,9 @@ object AppClient {
         ),
         IOS(
             id = 5,
+            deviceMake = DEVICE_MAKE_IOS,
             deviceModel = DEVICE_MODEL_IOS,
+            osName = OS_NAME_IOS,
             osVersion = OS_VERSION_IOS,
             userAgent = USER_AGENT_IOS,
             clientVersion = CLIENT_VERSION_IOS,
@@ -271,7 +326,6 @@ object AppClient {
         ANDROID_MUSIC(
             id = 21,
             userAgent = USER_AGENT_ANDROID_MUSIC,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_MUSIC,
             clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
             requireAuth = true,
             friendlyName = "Android Music"
@@ -284,6 +338,7 @@ object AppClient {
                 ANDROID_VR,
                 ANDROID_UNPLUGGED,
                 IOS_UNPLUGGED,
+                ANDROID_CREATOR,
                 IOS,
             )
 

@@ -62,14 +62,12 @@ object PlayerRoutes {
             val client = JSONObject()
             client.put("clientName", clientType.clientName)
             client.put("clientVersion", clientType.clientVersion)
+            client.put("deviceMake", clientType.deviceMake)
             client.put("deviceModel", clientType.deviceModel)
+            client.put("osName", clientType.osName)
             client.put("osVersion", clientType.osVersion)
-            if (clientType.androidSdkVersion != null) {
+            if (clientType.osName == "Android") {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
-                client.put("osName", "Android")
-            } else {
-                client.put("deviceMake", "Apple")
-                client.put("osName", "iOS")
             }
             if (!clientType.supportsCookies) {
                 client.put("hl", LOCALE_LANGUAGE)
@@ -130,12 +128,22 @@ object PlayerRoutes {
     }
 
     @JvmStatic
+    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, clientType: AppClient.ClientType): HttpURLConnection {
+        return getPlayerResponseConnectionFromRoute(route, clientType.userAgent, clientType.id.toString())
+    }
+
+    @JvmStatic
+    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, clientType: WebClient.ClientType): HttpURLConnection {
+        return getPlayerResponseConnectionFromRoute(route, clientType.userAgent, clientType.id.toString())
+    }
+
     @Throws(IOException::class)
-    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, userAgent: String): HttpURLConnection {
+    fun getPlayerResponseConnectionFromRoute(route: CompiledRoute, userAgent: String, clientVersion: String): HttpURLConnection {
         val connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route)
 
         connection.setRequestProperty("Content-Type", "application/json")
         connection.setRequestProperty("User-Agent", userAgent)
+        connection.setRequestProperty("X-YouTube-Client-Version", clientVersion)
 
         connection.useCaches = false
         connection.doOutput = true
@@ -144,4 +152,5 @@ object PlayerRoutes {
         connection.readTimeout = CONNECTION_TIMEOUT_MILLISECONDS
         return connection
     }
+
 }

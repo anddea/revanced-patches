@@ -207,7 +207,7 @@ public class SpoofStreamingDataPatch {
 
                 String id = uri.getQueryParameter("id");
                 if (id == null) {
-                    Logger.printException(() -> "Ignoring request with no id. Url: " + url);
+                    Logger.printException(() -> "Ignoring request with no id: " + url);
                     return;
                 }
 
