@@ -88,7 +88,6 @@ class StreamingDataRequest private constructor(
     }
 
     companion object {
-        private var CLIENT_ORDER_TO_USE: Array<AppClient.ClientType>
         private const val AUTHORIZATION_HEADER = "Authorization"
         private const val VISITOR_ID_HEADER = "X-Goog-Visitor-Id"
         private val REQUEST_HEADER_KEYS = arrayOf(
@@ -96,6 +95,10 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
+
+        private val CLIENT_ORDER_TO_USE: Array<AppClient.ClientType> =
+            availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_TYPE.get())
+
         private var lastSpoofedClientType: AppClient.ClientType? = null
 
 
@@ -130,22 +133,6 @@ class StreamingDataRequest private constructor(
             get() = lastSpoofedClientType
                 ?.friendlyName
                 ?: "Unknown"
-
-        init {
-            val allClientTypes: Array<AppClient.ClientType> = availableClientTypes
-            val preferredClient = BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
-
-            CLIENT_ORDER_TO_USE = allClientTypes
-            if (ArrayUtils.indexOf(allClientTypes, preferredClient) >= 0) {
-                CLIENT_ORDER_TO_USE[0] = preferredClient
-                var i = 1
-                for (c in allClientTypes) {
-                    if (c != preferredClient) {
-                        CLIENT_ORDER_TO_USE[i++] = c
-                    }
-                }
-            }
-        }
 
         @JvmStatic
         fun fetchRequest(
@@ -184,7 +171,7 @@ class StreamingDataRequest private constructor(
             Logger.printDebug { "Fetching video streams for: $videoId using client: $clientType" }
 
             try {
-                val connection = getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType.userAgent)
+                val connection = getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType)
                 connection.connectTimeout = HTTP_TIMEOUT_MILLISECONDS
                 connection.readTimeout = HTTP_TIMEOUT_MILLISECONDS
 

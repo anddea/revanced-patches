@@ -34,7 +34,7 @@ object WebClient {
         ),
         WEB_REMIX(
             id = 29,
-            clientVersion = "1.20241127.01.00",
+            clientVersion = "1.20241218.01.00",
         );
 
         @JvmField
