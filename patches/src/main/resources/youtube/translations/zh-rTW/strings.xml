@@ -343,6 +343,9 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">導覽列不透明。</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">導覽列是半透明的。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">啟用半透明導覽列</string>
+    <string name="revanced_enable_translucent_status_bar_summary_off">狀態列不透明。</string>
+    <string name="revanced_enable_translucent_status_bar_summary_on">狀態列是半透明的。</string>
+    <string name="revanced_enable_translucent_status_bar_title">啟用狀態列半透明</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">當在影片播放器下方向下滑動時，停用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">當在影片播放器下方向下滑動時，啟用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_title">啟用觀看面板手勢</string>
@@ -402,6 +405,8 @@
     <string name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_summary">您安裝的外部下載器應用程式套件名稱，例如 NewPipe 或 YTDLnis，長按時顯示。</string>
+    <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_gms_show_dialog_summary">在每次應用程式啟動時，顯示 GMSCore 的優化對話框。</string>
@@ -1150,12 +1155,18 @@ Note:
     <string name="revanced_icon_mmt">MMT</string>
     <string name="revanced_icon_mmt_blue">MMT 藍</string>
     <string name="revanced_icon_mmt_green">MMT 綠</string>
+    <string name="revanced_icon_mmt_orange">MMT 橘</string>
+    <string name="revanced_icon_mmt_pink">MMT 粉紅</string>
+    <string name="revanced_icon_mmt_turquoise">MMT 綠松</string>
     <string name="revanced_icon_mmt_yellow">MMT 黃</string>
     <string name="revanced_icon_revancify_blue">復興藍</string>
     <string name="revanced_icon_revancify_red">復興紅</string>
     <string name="revanced_icon_revancify_yellow">復興黃</string>
+    <string name="revanced_icon_squid_game">魷魚遊戲</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_holiday">Xisr 假期</string>
+    <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
@@ -1523,20 +1534,26 @@ Note:
     <string name="revanced_sb_guidelines_popup_title">遵循指南</string>
     <string name="revanced_sb_guidelines_preference_sum">指南包含創建新片段的規則和技巧</string>
     <string name="revanced_sb_guidelines_preference_title">查看指南</string>
+    <string name="revanced_sb_new_segment_adjust">調整：標記片段的開始和結束時間</string>
     <string name="revanced_sb_new_segment_choose_category">選擇片段類別</string>
-    <string name="revanced_sb_new_segment_confirm_content">The segment lasts from %1$02d:%2$02d to %3$02d:%4$02d (%5$d minutes %6$02d seconds)\nIs it ready to submit?</string>
+    <string name="revanced_sb_new_segment_compare">預覽片段</string>
+    <string name="revanced_sb_new_segment_confirm_content">該片段從 %1$02d:%2$02d 到 %3$02d:%4$02d（共 %5$d 分 %6$02d 秒）\n是否確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_contents">段落從\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
     <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
     <string name="revanced_sb_new_segment_disabled_category">類別在設定中被停用請啟用類別以提交</string>
+    <string name="revanced_sb_new_segment_edit">編輯片段</string>
     <string name="revanced_sb_new_segment_edit_by_hand_content">是否要手動編輯片段的開始或結束時間？</string>
     <string name="revanced_sb_new_segment_edit_by_hand_parse_error">提供的時間無效</string>
     <string name="revanced_sb_new_segment_edit_by_hand_title">手動編輯片段時間</string>
+    <string name="revanced_sb_new_segment_forward">按指定時間向前跳轉（預設：150毫秒）</string>
     <string name="revanced_sb_new_segment_mark_current_time_as_question">將 %s 設定為新片段的開頭或結尾？</string>
     <string name="revanced_sb_new_segment_mark_end">結束</string>
     <string name="revanced_sb_new_segment_mark_locations_first">首先在時間軸上標記兩個位置</string>
     <string name="revanced_sb_new_segment_mark_start">開始</string>
     <string name="revanced_sb_new_segment_now">立即</string>
     <string name="revanced_sb_new_segment_preview_segment_first">預覽片段，並確保跳過順暢</string>
+    <string name="revanced_sb_new_segment_publish">發佈建立的片段</string>
+    <string name="revanced_sb_new_segment_rewind">按指定時間倒轉 (預設：150毫秒)</string>
     <string name="revanced_sb_new_segment_start_is_before_end">開始時間必須早於結束時間</string>
     <string name="revanced_sb_new_segment_time_end">片段結束時間</string>
     <string name="revanced_sb_new_segment_time_start">片段開始時間</string>
@@ -1764,6 +1781,8 @@ AVC 的最大解析度為 1080p，Opus 音訊編解碼器不可用，影片播�
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 音軌選單遺失。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 可能有播放問題 (需要PoToken)。</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 影片可能會提前1秒結束。
+• OPUS 音訊編解碼器可能無法支援。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 影片可能會提前 1 秒結束。</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 電影或付費影片可能無法播放。
 • 登出或處於隱身模式時可能無法播放兒童影片。"</string>
