@@ -368,6 +368,33 @@ fun updatePathData(document: org.w3c.dom.Document, pathData: String) {
     }
 }
 
+/**
+ * Delete resources from the resource directory.
+ *
+ * @param resources The resources to delete.
+ */
+fun ResourcePatchContext.removeResources(
+    vararg resources: ResourceGroup,
+    createDirectoryIfNotExist: Boolean = false,
+) {
+    val resourceDirectory = get("res")
+
+    for (resourceGroup in resources) {
+        resourceGroup.resources.forEach { resource ->
+            val resourceDirectoryName = resourceGroup.resourceDirectoryName
+            if (createDirectoryIfNotExist) {
+                val targetDirectory = resourceDirectory.resolve(resourceDirectoryName)
+                if (!targetDirectory.isDirectory) Files.createDirectories(targetDirectory.toPath())
+            }
+            val resourceFile = "$resourceDirectoryName/$resource"
+            val targetFile = resourceDirectory.resolve(resourceFile)
+            if(targetFile.exists()) {
+                Files.delete(targetFile.toPath())
+            }
+        }
+    }
+}
+
 internal fun inputStreamFromBundledResourceOrThrow(
     sourceResourceDirectory: String,
     resourceFile: String,
