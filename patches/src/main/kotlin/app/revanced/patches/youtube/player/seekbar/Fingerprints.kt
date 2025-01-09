@@ -24,6 +24,43 @@ internal val lithoLinearGradientFingerprint = legacyFingerprint(
 )
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
 
+internal val setBoundsFingerprint = legacyFingerprint(
+    name = "setBoundsFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("I", "I", "I", "I"),
+    opcodes = listOf(
+        Opcode.NEW_ARRAY,
+        Opcode.FILL_ARRAY_DATA
+    )
+)
+
+internal val gradientSeekbarConstructorFingerprint = legacyFingerprint(
+    name = "gradientSeekbarConstructorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;"),
+    opcodes = listOf(
+        Opcode.MOVE_RESULT,
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IPUT_OBJECT
+    )
+)
+
+internal val seekbarThumbFingerprint = legacyFingerprint(
+    name = "seekbarThumbFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    returnType = "V",
+    parameters = listOf("Landroid/content/Context;"),
+    opcodes = listOf(
+        Opcode.CONST,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.INVOKE_VIRTUAL
+    )
+)
+
 internal val launchScreenLayoutTypeFingerprint = legacyFingerprint(
     name = "launchScreenLayoutTypeFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

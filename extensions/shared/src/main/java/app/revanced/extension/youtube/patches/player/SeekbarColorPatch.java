@@ -44,7 +44,7 @@ public class SeekbarColorPatch {
     /**
      * If {@link Settings#ENABLE_CUSTOM_SEEKBAR_COLOR} is enabled,
      * this is the color value of {@link Settings#ENABLE_CUSTOM_SEEKBAR_COLOR_VALUE}.
-     * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
+     * Otherwise, this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
     private static int seekbarColor = ORIGINAL_SEEKBAR_COLOR;
 
@@ -184,6 +184,71 @@ public class SeekbarColorPatch {
 
             Logger.printDebug(() -> "Ignoring gradient colors: " + Arrays.toString(colors)
                     + " positions: " + Arrays.toString(positions));
+        }
+    }
+
+    /**
+     * Injection point
+     * <p>
+     * Overrides default colors for gradient seekbar
+     */
+    public static void setSeekbarGradientColors(int[] colors) {
+        try {
+            String[] colorStrings = Settings.GRADIENT_SEEKBAR_COLORS.get().split(",");
+            if (colorStrings.length != 2) {
+                throw new Exception("Invalid color format. Need two colors separated by a comma.");
+            }
+            int[] newColors = new int[2];
+
+            for (int i = 0; i < 2; i++) {
+                try {
+                    // Parse hex color string to int
+                    newColors[i] = Color.parseColor(colorStrings[i].trim());
+                } catch (IllegalArgumentException ex) {
+                    Utils.showToastShort(str("revanced_custom_seekbar_color_value_invalid_invalid_toast"));
+                    Settings.GRADIENT_SEEKBAR_COLORS.resetToDefault();
+                    return;
+                }
+            }
+
+            System.arraycopy(newColors, 0, colors, 0, colors.length);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setSeekbarGradientPositions failure", ex);
+        }
+    }
+
+    // Set seekbar thumb color
+    // The seekbar thumb was initially set to the gradient seekbar's starting color.
+    // But we will switch to using the end color.
+    public static int setSeekbarThumbColor() {
+        String[] colorStrings = Settings.GRADIENT_SEEKBAR_COLORS.get().split(",");
+        return Color.parseColor(colorStrings[1].trim());
+    }
+
+    /**
+     * Injection point
+     * <p>
+     * Overrides default positions for gradient seekbar
+     */
+    public static void setSeekbarGradientPositions(float[] positions) {
+        try {
+            String[] positionStrings = Settings.GRADIENT_SEEKBAR_POSITIONS.get().split(",");
+            float[] newPositions = new float[positions.length];
+
+            for (int i = 0; i < positions.length; i++) {
+                float position = Float.parseFloat(positionStrings[i].trim());
+                // Verify if position is within valid range
+                if (position < 0.0f || position > 1.0f) {
+                    Utils.showToastShort(str("revanced_gradient_seekbar_positions_reset"));
+                    Settings.GRADIENT_SEEKBAR_POSITIONS.resetToDefault();
+                    return;
+                }
+                newPositions[i] = position;
+            }
+
+            System.arraycopy(newPositions, 0, positions, 0, positions.length);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setSeekbarGradientPositions failure", ex);
         }
     }
 
