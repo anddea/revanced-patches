@@ -393,13 +393,17 @@ val seekbarComponentsPatch = bytecodePatch(
                 }
             }
 
-            setSplashDrawablePathFillColor(
-                listOf(
-                    "res/drawable/\$startup_animation_light__0.xml",
-                    "res/drawable/\$startup_animation_dark__0.xml"
-                ),
-                "_R_G_L_10_G_D_0_P_0"
-            )
+            try {
+                setSplashDrawablePathFillColor(
+                    listOf(
+                        "res/drawable/\$startup_animation_light__0.xml",
+                        "res/drawable/\$startup_animation_dark__0.xml"
+                    ),
+                    "_R_G_L_10_G_D_0_P_0"
+                )
+            } catch (_: Exception) {
+                // Do nothing
+            }
 
             if (!is_19_46_or_greater) {
                 // Resources removed in 19.46+
