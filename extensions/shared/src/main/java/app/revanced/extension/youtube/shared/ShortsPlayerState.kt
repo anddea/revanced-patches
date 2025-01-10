@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.shared
 
 import app.revanced.extension.shared.utils.Event
 import app.revanced.extension.shared.utils.Logger
+import app.revanced.extension.youtube.settings.Settings
 
 /**
  * ShortsPlayerState shorts player state.
@@ -39,6 +40,16 @@ enum class ShortsPlayerState {
          */
         @JvmStatic
         val onChange = Event<ShortsPlayerState>()
+
+        private var shortsPlaybackSpeed = Settings.DEFAULT_PLAYBACK_SPEED.get()
+
+        fun getShortsPlaybackSpeed(): Float {
+            return shortsPlaybackSpeed
+        }
+
+        fun setShortsPlaybackSpeed(speed: Float) {
+            shortsPlaybackSpeed = speed
+        }
     }
 
     /**
