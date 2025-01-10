@@ -1,3 +1,20 @@
+# [3.2.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2025-01-10)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof streaming data:** Enhanced bitrate not available on `Android VR`, `Android TV` ([07614ad](https://github.com/anddea/revanced-patches/commit/07614ad93f18f5631ff86bb1893003ec5282e4f5))
+* **YouTube Music - Player components:** `Restore old comments popup panels` not working on YouTube Music 7.25.53 ([2ce0bc4](https://github.com/anddea/revanced-patches/commit/2ce0bc42e88699f4f1043d87b723d5956bf83fc2))
+
+
+### Features
+
+* **YouTube - Seekbar components:** Add `Gradient seekbar colors` and `Gradient seekbar bounds` settings (for YouTube 19.25+) ([2a7b022](https://github.com/anddea/revanced-patches/commit/2a7b02267234b64d8983dd1b5525143a009aa566))
+* **YouTube - Shorts components:** Add `Playback speed` option to custom actions ([4c50517](https://github.com/anddea/revanced-patches/commit/4c50517693735078ff8aefe58b918e5240f2edb4))
+* **YouTube & YouTube Music - Settings:** Allow to export API key for `Return YouTube Username` (Caution: Do not share with others) ([e86ae68](https://github.com/anddea/revanced-patches/commit/e86ae68198b0ff10f940b6a084839aabdad29271))
+* **YouTube Music - Disable music video in album:** Remove `Dismiss queue` options ([5d8ce8e](https://github.com/anddea/revanced-patches/commit/5d8ce8eb08fc4fa62fd3f7175b345d5a105de993))
+* **YouTube Music:** Add `Dark theme` patch, remove `Amoled` patch ([097845b](https://github.com/anddea/revanced-patches/commit/097845b3e6acabcaaf886adf6a34c6dce6798681))
+
 # [3.2.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.1.0...v3.2.0-dev.1) (2025-01-05)
 
 
