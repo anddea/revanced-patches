@@ -83,7 +83,6 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Amoled` | Applies a pure black theme to some components. | 6.20.51 ~ 7.25.53 |
 | `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 6.20.51 ~ 7.25.53 |
 | `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 6.20.51 ~ 7.25.53 |
 | `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 6.20.51 ~ 7.25.53 |
@@ -92,11 +91,12 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 6.20.51 ~ 7.25.53 |
 | `Custom branding name for YouTube Music` | Renames the YouTube Music app to the name specified in patch options. | 6.20.51 ~ 7.25.53 |
 | `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 6.20.51 ~ 7.25.53 |
+| `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 6.20.51 ~ 7.25.53 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.06.54 ~ 7.25.53 |
 | `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 7.25.53 |
 | `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 7.25.53 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 7.25.53 |
-| `Disable music video in album` | Adds option to redirect music videos from albums. | 6.20.51 ~ 7.25.53 |
+| `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 7.25.53 |
 | `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes. | 6.20.51 ~ 7.25.53 |
 | `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 7.25.53 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 7.25.53 |

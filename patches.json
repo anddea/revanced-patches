@@ -44,26 +44,6 @@
     "options": []
   },
   {
-    "name": "Amoled",
-    "description": "Applies a pure black theme to some components.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube Music"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "Bitrate default value",
     "description": "Sets the audio quality to \u0027Always High\u0027 when you first install the app.",
     "use": true,
@@ -658,6 +638,53 @@
     ]
   },
   {
+    "name": "Dark theme",
+    "description": "Changes the app\u0027s dark theme to the values specified in patch options.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53"
+      ]
+    },
+    "options": [
+      {
+        "key": "darkThemeBackgroundColor",
+        "title": "Dark theme background color",
+        "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
+        "required": false,
+        "type": "kotlin.String",
+        "default": "@android:color/black",
+        "values": {
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Dark Pink": "#FF290025",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Yellow": "#FF282900",
+          "Dark Orange": "#FF291800",
+          "Dark Red": "#FF290000"
+        }
+      },
+      {
+        "key": "materialYou",
+        "title": "MaterialYou",
+        "description": "Applies the MaterialYou theme for Android 12+ devices.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      }
+    ]
+  },
+  {
     "name": "Description components",
     "description": "Adds options to hide and disable description components.",
     "use": true,
@@ -842,11 +869,10 @@
   },
   {
     "name": "Disable music video in album",
-    "description": "Adds option to redirect music videos from albums.",
+    "description": "Adds option to redirect music videos from albums for non-premium users.",
     "use": false,
     "dependencies": [
       "Settings for YouTube Music",
-      "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch"
     ],
@@ -2384,26 +2410,7 @@
         "19.44.39"
       ]
     },
-    "options": [
-      {
-        "key": "cairoStartColor",
-        "title": "Cairo start color",
-        "description": "Set Cairo start color for the seekbar.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "#FFFF0033",
-        "values": null
-      },
-      {
-        "key": "cairoEndColor",
-        "title": "Cairo end color",
-        "description": "Set Cairo end color for the seekbar.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "#FFFF2791",
-        "values": null
-      }
-    ]
+    "options": []
   },
   {
     "name": "Settings for Reddit",
