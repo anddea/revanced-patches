@@ -240,12 +240,6 @@ Note:
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will not change to the next / previous video.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
     <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
@@ -352,9 +346,6 @@ Limitations:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
-    <string name="revanced_enable_translucent_status_bar_summary_off">Status bar is opaque.</string>
-    <string name="revanced_enable_translucent_status_bar_summary_on">Status bar is translucent.</string>
-    <string name="revanced_enable_translucent_status_bar_title">Enable translucent status bar</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is disabled.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is enabled.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Enable watch panel gestures</string>
@@ -372,7 +363,7 @@ You tab → View channel → Menu → Settings"</string>
     <string name="revanced_enter_fullscreen_summary_off">Do not enter fullscreen mode when the video starts.</string>
     <string name="revanced_enter_fullscreen_summary_on">"Enter fullscreen mode when the video starts.
 
-Limitation: Does not work if the player is minimized, in PiP mode, or in the background.</string>
+Limitation: Does not work if the player is minimized, in PiP mode, or in the background."</string>
     <string name="revanced_enter_fullscreen_title">Enter fullscreen mode when video starts</string>
     <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
     <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
@@ -420,6 +411,11 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
+    <string name="revanced_gradient_seekbar_colors_summary">Gradient start and end colors separated by comma.</string>
+    <string name="revanced_gradient_seekbar_colors_title">Gradient seekbar colors</string>
+    <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
     <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.

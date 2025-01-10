@@ -162,11 +162,11 @@
     <string name="revanced_disable_default_playback_speed_live_summary_on">Скорость воспроизведения в трансляциях отключена.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Скорость в прямых трансляциях</string>
     <string name="revanced_disable_default_playback_speed_music_off">Скорость воспроизведения по умолчанию для музыки включена.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Скорость воспроизведения по умолчанию для музыки отключена.
-
-Ограничение:
-Этот параметр не может применяться к видео, которые не содержат баннер 'Слушать в YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Скорость по умолчанию для категории YouTube Музыка включена.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Скорость воспроизведения для музыки</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Скорость по умолчанию для категории YouTube Музыка включена.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Скорость по умолчанию для категории YouTube Музыка отключена.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Выбирать скорость ориентируясь на категории</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панель взаимодействия включена.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель взаимодействия отключена.</string>
     <string name="revanced_disable_engagement_panel_title">Панель взаимодействия</string>
@@ -235,12 +235,6 @@
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Переключение видео жестами включены.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Переключение видео жестами отключены.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Переключение видео жестом</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Включена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Отключена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Темная полупрозрачная панель навигации</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Включена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Отключена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Светлая полупрозрачная панель навигации</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Полупрозрачность включена.</string>
     <string name="revanced_disable_translucent_status_bar_title">Полупрозрачность строки состояния</string>
@@ -359,6 +353,19 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широкая строка поиска замещает логотип YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Логотип YouTube отображается рядом с широкой строкой поиска.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Широкая строка поиска с логотипом</string>
+    <string name="revanced_enter_fullscreen_summary_off">Полноэкранный режим при запуске видео отключен.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Полноэкранный режим при запуске видео включен.
+
+Не работает когда:
+- плеер свернут
+- картинка в картинке (PiP)
+- фоновый режим."</string>
+    <string name="revanced_enter_fullscreen_title">Полноэкранный режим при запуске видео</string>
+    <string name="revanced_exit_fullscreen_entry_1">Отключено</string>
+    <string name="revanced_exit_fullscreen_entry_2">Портретный вид</string>
+    <string name="revanced_exit_fullscreen_entry_3">Альбомный вид</string>
+    <string name="revanced_exit_fullscreen_entry_4">Авто поворот</string>
+    <string name="revanced_exit_fullscreen_title">Полноэкранный режим в конце видео</string>
     <string name="revanced_expand_video_description_strings_default_value">Описание</string>
     <string name="revanced_expand_video_description_strings_summary">"Введите название на панели описания видео.
 Символы различаются в зависимости от языка.
@@ -1767,12 +1774,14 @@ Shorts
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">О PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудио дорожки отсутствует.
 • Стабильная громкость недоступна.
-• Отключить принудительные автозвуковые дорожки недоступна."</string>
+• Отключить принудительные авто звуковые дорожки недоступна.
+• Детские видео не могут воспроизводиться в режиме инкогнито или выхода."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню \"Звуковая дорожка\" не доступно."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню \"Звуковая дорожка\" VR не доступно."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Еще не найдено.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Возможно проблемы (требуется PoToken).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Видео может закончиться 1 секунду ранее.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Платные видео и фильмы могут не проигрываться.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Фильмы или платные видео могут не воспроизводиться.
+• Детские видео могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видео может не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиент потоковых данных скрыт в Статистике для сисадминов.</string>
@@ -1784,10 +1793,13 @@ Shorts
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Редактор Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData выданный с BotGuard в надежном браузере.</string>

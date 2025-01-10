@@ -232,8 +232,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">플레이어 하단에서 아래로 스와이프하여 전체 화면 모드로 들어갑니다.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">플레이어 하단에서 아래로 스와이프하여 전체 화면 모드로 들어가지 않습니다.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">스와이프 제스처로 전체 화면 모드 전환 비활성화하기 (플레이어 하단)</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">플레이어 내부에서 아래로 스와이프하여 전체 화면 모드로 들어갑니다.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">플레이어 내부에서 아래로 스와이프하여 전체 화면 모드로 들어가지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">플레이어 내부에서 위로 스와이프하여 전체 화면 모드로 들어갑니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">플레이어 내부에서 위로 스와이프하여 전체 화면 모드로 들어가지 않습니다.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">스와이프 제스처로 전체 화면 모드 전환 비활성화하기 (플레이어 내부)</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">전체 화면에서 아래로 스와이프하여 전체 화면 모드를 나갑니다.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">전체 화면에서 아래로 스와이프하여 전체 화면 모드를 나가지 않습니다.</string>
@@ -241,12 +241,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">어두운 테마 하단바가 불투명하거나 반투명합니다.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">어두운 테마 하단바가 불투명합니다.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">어두운 반투명 하단바 비활성화하기</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">밝은 테마 하단바가 불투명하거나 반투명합니다.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 테마 하단바가 불투명합니다.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 하단바 비활성화하기</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다.</string>
     <string name="revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
@@ -369,10 +363,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">YouTube 헤더가 있는 넓은 검색창</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">헤더가 있는 넓은 검색창 활성화하기</string>
     <string name="revanced_enter_fullscreen_summary_off">동영상이 시작할 때, 전체 화면 모드로 들어가지 않습니다.</string>
-    <string name="revanced_enter_fullscreen_summary_on">동영상이 시작할 때, 전체 화면 모드로 들어갑니다.
+    <string name="revanced_enter_fullscreen_summary_on">"동영상이 시작할 때, 전체 화면 모드로 들어갑니다.
 
 알려진 문제점: 
-플레이어가 최소화되어 있거나 PiP 모드 또는 백그라운드 재생에 있는 경우에는 작동되지 않습니다.</string>
+• 플레이어가 최소화되어 있거나 PIP 모드 또는 백그라운드 재생에 있는 경우에는 작동되지 않습니다."</string>
     <string name="revanced_enter_fullscreen_title">동영상이 시작할 때, 전체 화면 모드로 들어가기</string>
     <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
     <string name="revanced_exit_fullscreen_entry_2">세로 모드</string>
@@ -1196,7 +1190,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 두 번 눌러서 미니 플레이어 크기를 늘릴 수 있습니다.
 • 다시 두 번 누르면 원래 크기로 복원됩니다."</string>
     <string name="revanced_miniplayer_double_tap_action_title">\'두 번 누르기\' 및 \'핀치하여 크기 조정\' 활성화하기</string>
-    <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다.\n• YouTube v19.44.39 에서는 드래그 &amp; 드롭을 비활성화한 상태에서 모던 스타일 1, 2, 3을 사용하면, 미니 플레이어 상태에서 \'위로 스와이프하여 화면 펼치기\'와 \'아래로 스와이프하여 화면 닫기\'를 사용할 수 없습니다.\n• YouTube v19.16.39 에서는 위에 설명된 기능은 전부 사용할 수는 있지만, 드래그 &amp; 드롭 기능이 지원되지 않습니다.</string>
+    <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다.\n• YouTube v19.44.39 에서는 드래그 &amp; 드롭을 비활성화하고 모던 스타일 1, 2, 3을 사용하면, 미니 플레이어 상태에서 \'위로 스와이프하여 화면 펼치기\'와 \'아래로 스와이프하여 화면 닫기\'를 사용할 수 없습니다.\n• YouTube v19.16.39 에서는 위에 설명된 기능은 전부 사용할 수는 있지만, 드래그 &amp; 드롭 기능이 지원되지 않습니다.</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_on">"드래그 &amp; 드롭을 활성화합니다.
 • 미니 플레이어를 화면 구석으로 드래그 할 수 있습니다."</string>
     <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
@@ -1782,9 +1776,10 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 필요할 
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken / VisitorData에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
-• 자동 오디오 트랙을 비활성화할 수 없습니다
-• 로그아웃이 되어있거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
-• VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다."</string>
+• 자동 오디오 트랙을 비활성화할 수 없습니다.
+• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
+• VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
+• TV는 AV1 코덱이 지원되지 않습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
@@ -1792,8 +1787,10 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 필요할 
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 동영상이 1초 일찍 종료될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
-• 로그아웃이 되어있거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
-• 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다."</string>
+• 안정적인 볼륨을 사용할 수 없습니다.
+• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
+• 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
+• AV1 코덱이 지원되지 않습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
