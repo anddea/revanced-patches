@@ -4,6 +4,8 @@ import static app.revanced.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed;
 
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.media.AudioManager;
@@ -181,6 +183,7 @@ public class VideoUtils extends IntentUtils {
     /**
      * Pause the media by changing audio focus.
      */
+    @SuppressWarnings("deprecation")
     public static void pauseMedia() {
         if (context != null && context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
             audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
@@ -199,6 +202,24 @@ public class VideoUtils extends IntentUtils {
                     final float selectedPlaybackSpeed = Float.parseFloat(playbackSpeedEntryValues[mIndex] + "f");
                     VideoInformation.overridePlaybackSpeed(selectedPlaybackSpeed);
                     userSelectedPlaybackSpeed(selectedPlaybackSpeed);
+                    mDialog.dismiss();
+                })
+                .show();
+    }
+
+    public static void showShortsPlaybackSpeedDialog(@NonNull Context context) {
+        final String[] playbackSpeedEntries = CustomPlaybackSpeedPatch.getTrimmedListEntries();
+        final String[] playbackSpeedEntryValues = CustomPlaybackSpeedPatch.getTrimmedListEntryValues();
+
+        final float playbackSpeed = ShortsPlayerState.Companion.getShortsPlaybackSpeed();
+        final int index = Arrays.binarySearch(playbackSpeedEntryValues, String.valueOf(playbackSpeed));
+
+        new AlertDialog.Builder(context)
+                .setSingleChoiceItems(playbackSpeedEntries, index, (mDialog, mIndex) -> {
+                    final float selectedPlaybackSpeed = Float.parseFloat(playbackSpeedEntryValues[mIndex] + "f");
+                    VideoInformation.overridePlaybackSpeed(selectedPlaybackSpeed);
+                    userSelectedPlaybackSpeed(selectedPlaybackSpeed);
+                    ShortsPlayerState.Companion.setShortsPlaybackSpeed(selectedPlaybackSpeed);
                     mDialog.dismiss();
                 })
                 .show();

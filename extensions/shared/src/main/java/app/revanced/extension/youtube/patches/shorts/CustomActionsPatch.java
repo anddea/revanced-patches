@@ -333,6 +333,11 @@ public final class CustomActionsPatch {
     }
 
     public enum CustomAction {
+        SPEED(
+                Settings.SHORTS_CUSTOM_ACTIONS_SPEED,
+                "yt_outline_play_arrow_half_circle_black_24",
+                () -> VideoUtils.showShortsPlaybackSpeedDialog(contextRef.get())
+        ),
         COPY_URL(
                 Settings.SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL,
                 "yt_outline_link_black_24",
