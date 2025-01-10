@@ -22,10 +22,6 @@ public final class app/revanced/patches/music/flyoutmenu/components/FlyoutMenuCo
 	public static final fun getFlyoutMenuComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/general/amoled/AmoledPatchKt {
-	public static final fun getAmoledPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
 public final class app/revanced/patches/music/general/autocaptions/AutoCaptionsPatchKt {
 	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -80,6 +76,11 @@ public final class app/revanced/patches/music/layout/overlayfilter/OverlayFilter
 
 public final class app/revanced/patches/music/layout/playeroverlay/PlayerOverlayFilterPatchKt {
 	public static final fun getPlayerOverlayFilterPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/music/layout/theme/DarkThemePatchKt {
+	public static final fun getDARK_COLOR ()[Ljava/lang/String;
+	public static final fun getDarkThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/music/layout/translations/TranslationsPatchKt {
@@ -214,6 +215,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getColorGrey ()J
 	public static final fun getDarkBackground ()J
 	public static final fun getDesignBottomSheetDialog ()J
+	public static final fun getElementsContainer ()J
 	public static final fun getEndButtonsContainer ()J
 	public static final fun getFloatingLayout ()J
 	public static final fun getHistoryMenuItem ()J
@@ -492,6 +494,10 @@ public final class app/revanced/patches/shared/mapping/ResourceType : java/lang/
 	public final fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static fun values ()[Lapp/revanced/patches/shared/mapping/ResourceType;
+}
+
+public final class app/revanced/patches/shared/materialyou/BaseMaterialYouPatchKt {
+	public static final fun baseMaterialYou (Lapp/revanced/patcher/patch/ResourcePatchContext;)V
 }
 
 public final class app/revanced/patches/shared/opus/BaseOpusCodecsPatchKt {
@@ -1219,6 +1225,8 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun insertNode (Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun lowerCaseOrThrow (Lapp/revanced/patcher/patch/Option;)Ljava/lang/String;
 	public static final fun removeOverlayBackground (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;[Ljava/lang/String;)V
+	public static final fun removeResources (Lapp/revanced/patcher/patch/ResourcePatchContext;[Lapp/revanced/util/ResourceGroup;Z)V
+	public static synthetic fun removeResources$default (Lapp/revanced/patcher/patch/ResourcePatchContext;[Lapp/revanced/util/ResourceGroup;ZILjava/lang/Object;)V
 	public static final fun removeStringsElements (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;)V
 	public static final fun removeStringsElements (Lapp/revanced/patcher/patch/ResourcePatchContext;[Ljava/lang/String;[Ljava/lang/String;)V
 	public static final fun underBarOrThrow (Lapp/revanced/patcher/patch/Option;)Ljava/lang/String;
