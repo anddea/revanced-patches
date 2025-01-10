@@ -166,10 +166,11 @@ Paramètres → Lecture automatique → Lecture automatique de la vidéo suivant
     <string name="revanced_disable_default_playback_speed_live_summary_on">La vitesse de lecture par défaut est désactivée pour les diffusions en direct.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Désact. vitesse lecture des diffusions en direct</string>
     <string name="revanced_disable_default_playback_speed_music_off">La vitesse de lecture par défaut est activée pour la musique.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"La vitesse de lecture par défaut est désactivée pour la musique.
-
-Limitation : Ce paramètre peut ne pas s'appliquer aux vidéos qui n'incluent pas la bannière 'Écouter sur YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">La vitesse de lecture par défaut est activée pour la musique.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Désactiver la vitesse de lecture pour la musique</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">La vitesse de lecture par défaut est désactivée pour les vidéos lues sur YouTube Music.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">La vitesse de lecture par défaut est désactivée si la catégorie de la vidéo est Musique.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Valider en utilisant les catégories</string>
     <string name="revanced_disable_engagement_panel_summary_off">La description en plein écran est activée.</string>
     <string name="revanced_disable_engagement_panel_summary_on">La description en plein écran est désactivée.</string>
     <string name="revanced_disable_engagement_panel_title">Désactiver description en plein écran</string>
@@ -238,12 +239,6 @@ Note :
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Glisser vers le haut / bas en plein écran lira la vidéo suivante / précédente.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Glisser vers le haut / bas en plein écran ne lira pas la vidéo suivante / précédente.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Désactiver les gestes pour changer de vidéo</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barre translucide en mode sombre est opaque ou translucide.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barre translucide en mode sombre est opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Désactiver la barre translucide en mode sombre</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barre de navigation en mode clair est opaque ou translucide.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barre de navigation en mode clair est opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Désactiver la barre translucide clair</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">La barre de navigation est opaque ou translucide.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">La barre de navigation est opaque.</string>
     <string name="revanced_disable_translucent_status_bar_title">Désactiver la barre de navigation translucide</string>
@@ -364,6 +359,16 @@ Vous → Afficher la chaîne → Menu → Paramètres"</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">La barre de recherche large masque l\'en-tête YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">La barre de recherche large ne masque pas l\'en-tête YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Activ. Barre recherche large avec en-tête</string>
+    <string name="revanced_enter_fullscreen_summary_off">Ne pas passer en mode plein écran au démarrage de la vidéo.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Passer en mode plein écran lorsque la vidéo démarre.
+
+Limitation : Ne fonctionne pas si le lecteur est minimisé, en mode PiP, ou en arrière-plan."</string>
+    <string name="revanced_enter_fullscreen_title">Passer en mode plein écran au démarrage de la vidéo</string>
+    <string name="revanced_exit_fullscreen_entry_1">Désactivé</string>
+    <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
+    <string name="revanced_exit_fullscreen_entry_3">Paysage</string>
+    <string name="revanced_exit_fullscreen_entry_4">Portrait et paysage</string>
+    <string name="revanced_exit_fullscreen_title">Quitter le mode plein écran à la fin de la vidéo</string>
     <string name="revanced_expand_video_description_strings_default_value">Description</string>
     <string name="revanced_expand_video_description_strings_summary">"Entrez un titre dans la description de la vidéo dans votre langue.
 L'option 'Ouvrir la description automatiquement' risque de ne pas fonctionner si la valeur du titre ne correspond pas au titre dans la description."</string>
@@ -1737,13 +1742,17 @@ Si vous essayez d'utiliser iOS comme client par défaut, il se peut que vous aye
 
 Cliquez pour plus d'informations."</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">À propos de PoToken / VisitorData</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Le menu 'piste audio' n'est pas disponible.
+• Le volume stable n'est pas disponible.
+• La désactivation forcée des pistes audio automatiques n'est pas disponible.
+• Les vidéos pour enfants peuvent ne pas être lues en cas de déconnexion ou en mode incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Le menu \"Piste Audio\" est manquant.
 • Le volume stable n'es pas disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Le menu \"Piste Audio\" est manquant.
 • Le volume stable n'es pas disponible."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Les vidéos privées conçues pour enfants peuvent ne pas être lues.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Les vidéos privées conçues pour enfants peuvent ne pas être lues.
-• Les films ou vidéos payantes peuvent ne pas être lues.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Il peut y avoir des problèmes de lecture (PoToken required).</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Les films ou vidéos payantes peut ne pas être lus.
+• Les vidéos pour enfants peuvent ne pas être lues en cas de déconnexion ou en mode incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effets inconnus de la falsification</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Les vidéos peuvent ne pas être lus.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client utilisé pour récupérer les données de lecture en direct est masqué dans \'Statistiques pour les nerds\'.</string>
@@ -1753,10 +1762,13 @@ Cliquez pour plus d'informations."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Les données de lecture en direct sont falsifiées.</string>
     <string name="revanced_spoof_streaming_data_title">Falsifier les données de lecture en direct</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">TV iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Client par défaut</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Désactiver ce paramètre peut entraîner des problèmes de lecture vidéo.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData publié par BotGuard dans un navigateur de confiance.</string>

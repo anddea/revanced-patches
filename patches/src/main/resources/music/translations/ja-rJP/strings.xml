@@ -39,9 +39,19 @@
     <string name="revanced_disable_cairo_splash_animation_title">Cairo スプラッシュアニメーションを無効にする</string>
     <string name="revanced_disable_dislike_redirection_summary">低評価ボタンを押したとき、次の曲へのリダイレクトするのを無効にする。</string>
     <string name="revanced_disable_dislike_redirection_title">低評価リダイレクトを無効化</string>
+    <string name="revanced_disable_drc_audio_summary">音声に適用されるDRC (Dynamic Range Compression) を無効にします。</string>
     <string name="revanced_disable_drc_audio_title">DRCオーディオを無効にする</string>
     <string name="revanced_disable_mini_player_gesture_summary">ミニプレーヤーでスワイプによる曲の変更を無効にします</string>
     <string name="revanced_disable_mini_player_gesture_title">ミニプレーヤージェスチャーを無効にする</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">リダイレクト</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">公式楽曲にリダイレクトする方法を指定します。</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">リダイレクトのタイプ</string>
+    <string name="revanced_disable_music_video_in_album_summary">"非プレミアムユーザーがアルバムに含まれる曲を再生すると、公式の楽曲でなくMVが再生されることがあります。
+
+アルバムからMVの再生が検出された場合、公式の楽曲を検索します。
+
+• Piped Instance APIを利用しています。"</string>
+    <string name="revanced_disable_music_video_in_album_title">アルバム内のミュージックビデオを無効にする</string>
     <string name="revanced_disable_player_gesture_summary">プレイヤーでスワイプによる曲の変更を無効にします。</string>
     <string name="revanced_disable_player_gesture_title">プレイヤージェスチャーを無効にする</string>
     <string name="revanced_enable_black_navigation_bar_summary">ナビゲーションバーの色を黒に設定します。</string>
@@ -400,7 +410,14 @@ API キーの発行方法については、ここをタップしてください�
 • シークバーのサムネイルが表示されない場合があります。
 • 再生履歴はブランドアカウントでは動作しません。"</string>
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_title">既定のクライアント</string>
+    <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_title">既定のクライアント</string>
 </resources>

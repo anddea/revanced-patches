@@ -161,10 +161,11 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_default_playback_speed_live_summary_on">A velocidade de reprodução padrão está desativada na transmissão ao vivo.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Desativar a velocidade de reprodução na transmissão ao vivo</string>
     <string name="revanced_disable_default_playback_speed_music_off">A velocidade de reprodução padrão está ativada para música.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"A velocidade de reprodução padrão é desabilitada para música.
-
-Limitação: esta configuração pode não se aplicar a vídeos que não incluem o banner 'Ouvir no YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">A velocidade de reprodução padrão está desativada para música.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Desativar a velocidade de reprodução para música</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">A velocidade padrão de reprodução está desativada para vídeos reproduzíveis no YouTube.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">A velocidade de reprodução padrão está desativada se a categoria de vídeo for Música.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Validar usando categorias</string>
     <string name="revanced_disable_engagement_panel_summary_off">O painel de engajamento está ativado.</string>
     <string name="revanced_disable_engagement_panel_summary_on">O painel de engajamento está desativado.</string>
     <string name="revanced_disable_engagement_panel_title">Desativar painel de engajamento</string>
@@ -221,15 +222,18 @@ Nota:
     <string name="revanced_disable_splash_animation_summary_off">A animação do inicial está ativada.</string>
     <string name="revanced_disable_splash_animation_summary_on">A animação inicial está desativada.</string>
     <string name="revanced_disable_splash_animation_title">Desativar animação inicial</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Deslizar para baixo no reprodutor entrará no modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Deslizar para baixo no reprodutor não entrará no modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Desativar deslizar para entrar no modo de tela cheia (abaixo do reprodutor)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Deslizar para cima no reprodutor entrará no modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Deslizar para cima no reprodutor não entrará no modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Desativar deslizar para entrar no modo de tela cheia (no reprodutor)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Deslizar para baixo na tela cheia sairá do modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Deslizar para baixo na tela cheia não sairá do modo de tela cheia.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Desativar deslizar para sair do modo tela cheia</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Deslizar para cima / baixo reproduzirá o vídeo seguinte / anterior.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Deslizar para cima / baixo não reproduzirá o vídeo seguinte / anterior.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Desativar deslizar para alterar o vídeo</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A barra de navegação no modo escuro está opaca ou transparente.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">A barra de navegação no modo escuro está opaca.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Desativar barra transparente no modo escuro</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação no modo claro está opaca ou transparente.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro está opaca.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Desativar barra transparente no modo claro</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status está opaca ou transparente.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status está opaca.</string>
     <string name="revanced_disable_translucent_status_bar_title">Desativar barra de status transparente</string>
@@ -348,6 +352,16 @@ Aba Você &gt; Visualizar canal &gt; Menu &gt; Configurações."</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">A barra de pesquisa ampla não inclui o cabeçalho do YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">A barra de pesquisa ampla inclui o cabeçalho do YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Ativar barra de pesquisa ampla com cabeçalho</string>
+    <string name="revanced_enter_fullscreen_summary_off">Não entre em modo de tela cheia quando o vídeo iniciar.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"\"Entre no modo tela cheia quando o vídeo é iniciado.
+
+Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em segundo plano."</string>
+    <string name="revanced_enter_fullscreen_title">Entrar no modo de tela cheia quando o vídeo iniciar</string>
+    <string name="revanced_exit_fullscreen_entry_1">Desativado</string>
+    <string name="revanced_exit_fullscreen_entry_2">Retrato</string>
+    <string name="revanced_exit_fullscreen_entry_3">Paisagem</string>
+    <string name="revanced_exit_fullscreen_entry_4">Retrato e paisagem</string>
+    <string name="revanced_exit_fullscreen_title">Sair do modo de tela cheia ao final do vídeo</string>
     <string name="revanced_expand_video_description_strings_default_value">Descrição</string>
     <string name="revanced_expand_video_description_strings_summary">"Insira um título no painel de descrição do vídeo.
 Estes caracteres variam dependendo do seu idioma.
@@ -1723,10 +1737,16 @@ Se você estiver tentando usar o iOS como cliente padrão, pode precisar desses 
 
 Clique para ver mais informações."</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Sobre o PoToken / VisitorData</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• O menu de faixa de áudio está faltando.
+• Volume estável não está disponível.
+• Desativar faixas de áudio automático forçadas não estão disponíveis.
+• Os vídeos para crianças podem não reproduzir quando desconectado ou em modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• O menu de faixa de áudio está faltando."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• O menu de faixa de áudio está faltando."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Ainda não encontrado.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Pode haver problemas de reprodução (PoToken necessário).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Os vídeos podem acabar 1 segundo antes.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Filmes ou vídeos pagos podem não reproduzir.
+• Os vídeos para crianças podem não ser reproduzidos quando desconectado ou em modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
@@ -1736,9 +1756,13 @@ Clique para ver mais informações."</string>
     <string name="revanced_spoof_streaming_data_summary_on">Os dados de streaming são falsificados.</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_summary">Dados de visitante emitido pelo BotGuard em um navegador confiável.</string>
