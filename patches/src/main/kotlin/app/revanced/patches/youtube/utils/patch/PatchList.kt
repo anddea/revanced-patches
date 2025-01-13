@@ -57,12 +57,12 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
-    DISABLE_AUTO_AUDIO_TRACKS(
-        "Disable auto audio tracks",
+    DISABLE_FORCED_AUTO_AUDIO_TRACKS(
+        "Disable forced auto audio tracks",
         "Adds an option to disable audio tracks from being automatically enabled."
     ),
-    DISABLE_AUTO_CAPTIONS(
-        "Disable auto captions",
+    DISABLE_FORCED_AUTO_CAPTIONS(
+        "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
     ),
     DISABLE_HAPTIC_FEEDBACK(

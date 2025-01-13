@@ -193,162 +193,6 @@ val playerComponentsPatch = bytecodePatch(
     )
 
     execute {
-        // region patch for disable gesture in player
-
-        val playerViewPagerConstructorMethod =
-            playerViewPagerConstructorFingerprint.methodOrThrow()
-        val mainActivityOnStartMethod =
-            getMainActivityMethod("onStart")
-
-        mapOf(
-            miniPlayerViewPager to "disableMiniPlayerGesture",
-            playerViewPager to "disablePlayerGesture"
-        ).forEach { (literal, methodName) ->
-            val viewPagerReference = with(playerViewPagerConstructorMethod) {
-                val constIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
-
-                getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
-            }
-            mainActivityOnStartMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.toString() == viewPagerReference
-                }
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                val jumpIndex =
-                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
-                        move-result v$insertRegister
-                        if-nez v$insertRegister, :disable
-                        """, ExternalLabel("disable", getInstruction(jumpIndex))
-                )
-            }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_disable_mini_player_gesture",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_disable_player_gesture",
-            "false"
-        )
-
-        // endregion
-
-        // region patch for enable color match player and enable black player background
-
-        val (
-            colorMathPlayerMethodParameter,
-            colorMathPlayerInvokeVirtualReference,
-            colorMathPlayerIGetReference
-        ) = switchToggleColorFingerprint.matchOrThrow(miniPlayerConstructorFingerprint).let {
-            with(it.method) {
-                val relativeIndex = it.patternMatch!!.endIndex + 1
-                val invokeVirtualIndex =
-                    indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
-                val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
-
-                // black player background
-                val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
-                val targetMethod = getWalkerMethod(invokeDirectIndex)
-                val insertIndex = targetMethod.indexOfFirstInstructionOrThrow(Opcode.IF_NE)
-
-                targetMethod.addInstructions(
-                    insertIndex, """
-                        invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
-                        move-result p1
-                        invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
-                        move-result p2
-                        """
-                )
-                Triple(
-                    parameters,
-                    getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference,
-                    getInstruction<ReferenceInstruction>(iGetIndex).reference
-                )
-            }
-        }
-
-        val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
-            val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
-            val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
-            getInstruction<ReferenceInstruction>(iPutIndex).reference
-        }
-
-        miniPlayerConstructorFingerprint.mutableClassOrThrow().methods.filter {
-            it.accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
-                    it.parameters == colorMathPlayerMethodParameter &&
-                    it.returnType == "V"
-        }.forEach { method ->
-            method.apply {
-                val freeRegister = implementation!!.registerCount - parameters.size - 3
-
-                val invokeDirectIndex =
-                    indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
-                val invokeDirectReference =
-                    getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
-
-                addInstructionsWithLabels(
-                    invokeDirectIndex + 1, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableColorMatchPlayer()Z
-                        move-result v$freeRegister
-                        if-eqz v$freeRegister, :off
-                        invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
-                        move-result-object v$freeRegister
-                        check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
-                        iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
-                        iput v$freeRegister, p0, $colorMathPlayerIPutReference
-                        :off
-                        invoke-direct {p0}, $invokeDirectReference
-                        """
-                )
-                removeInstruction(invokeDirectIndex)
-            }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_enable_black_player_background",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_enable_color_match_player",
-            "true"
-        )
-
-        // endregion
-
-        // region patch for enable force minimized player
-
-        minimizedPlayerFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForceMinimizedPlayer(Z)Z
-                        move-result v$insertRegister
-                        """
-                )
-            }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_enable_force_minimized_player",
-            "true"
-        )
-
-        // endregion
 
         // region patch for enable next previous button
 
@@ -402,9 +246,9 @@ val playerComponentsPatch = bytecodePatch(
 
             addInstructions(
                 invokeStaticIndex, """
-            invoke-static {v$viewArrayRegister}, $PLAYER_CLASS_DESCRIPTOR->getViewArray([Landroid/view/View;)[Landroid/view/View;
-            move-result-object v$viewArrayRegister
-            """
+                    invoke-static {v$viewArrayRegister}, $PLAYER_CLASS_DESCRIPTOR->getViewArray([Landroid/view/View;)[Landroid/view/View;
+                    move-result-object v$viewArrayRegister
+                    """
             )
         }
 
@@ -512,6 +356,163 @@ val playerComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.PLAYER,
             "revanced_enable_mini_player_previous_button",
+            "true"
+        )
+
+        // endregion
+
+        // region patch for enable color match player and enable black player background
+
+        val (
+            colorMathPlayerMethodParameter,
+            colorMathPlayerInvokeVirtualReference,
+            colorMathPlayerIGetReference
+        ) = switchToggleColorFingerprint.matchOrThrow(miniPlayerConstructorFingerprint).let {
+            with(it.method) {
+                val relativeIndex = it.patternMatch!!.endIndex + 1
+                val invokeVirtualIndex =
+                    indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
+                val iGetIndex = indexOfFirstInstructionOrThrow(relativeIndex, Opcode.IGET)
+
+                // black player background
+                val invokeDirectIndex = indexOfFirstInstructionOrThrow(Opcode.INVOKE_DIRECT)
+                val targetMethod = getWalkerMethod(invokeDirectIndex)
+                val insertIndex = targetMethod.indexOfFirstInstructionOrThrow(Opcode.IF_NE)
+
+                targetMethod.addInstructions(
+                    insertIndex, """
+                        invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                        move-result p1
+                        invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                        move-result p2
+                        """
+                )
+                Triple(
+                    parameters,
+                    getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference,
+                    getInstruction<ReferenceInstruction>(iGetIndex).reference
+                )
+            }
+        }
+
+        val colorMathPlayerIPutReference = with(miniPlayerConstructorFingerprint.methodOrThrow()) {
+            val colorGreyIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
+            val iPutIndex = indexOfFirstInstructionOrThrow(colorGreyIndex, Opcode.IPUT)
+            getInstruction<ReferenceInstruction>(iPutIndex).reference
+        }
+
+        miniPlayerConstructorFingerprint.mutableClassOrThrow().methods.filter {
+            it.accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                    it.parameters == colorMathPlayerMethodParameter &&
+                    it.returnType == "V"
+        }.forEach { method ->
+            method.apply {
+                val freeRegister = implementation!!.registerCount - parameters.size - 3
+
+                val invokeDirectIndex =
+                    indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
+                val invokeDirectReference =
+                    getInstruction<ReferenceInstruction>(invokeDirectIndex).reference
+
+                addInstructionsWithLabels(
+                    invokeDirectIndex + 1, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableColorMatchPlayer()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :off
+                        invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
+                        move-result-object v$freeRegister
+                        check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
+                        iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
+                        iput v$freeRegister, p0, $colorMathPlayerIPutReference
+                        :off
+                        invoke-direct {p0}, $invokeDirectReference
+                        """
+                )
+                removeInstruction(invokeDirectIndex)
+            }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_enable_color_match_player",
+            "true"
+        )
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_enable_black_player_background",
+            "false"
+        )
+
+        // endregion
+
+        // region patch for disable gesture in player
+
+        val playerViewPagerConstructorMethod =
+            playerViewPagerConstructorFingerprint.methodOrThrow()
+        val mainActivityOnStartMethod =
+            getMainActivityMethod("onStart")
+
+        mapOf(
+            miniPlayerViewPager to "disableMiniPlayerGesture",
+            playerViewPager to "disablePlayerGesture"
+        ).forEach { (literal, methodName) ->
+            val viewPagerReference = with(playerViewPagerConstructorMethod) {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
+
+                getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+            }
+            mainActivityOnStartMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.toString() == viewPagerReference
+                }
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :disable
+                        """, ExternalLabel("disable", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_mini_player_gesture",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_player_gesture",
+            "false"
+        )
+
+        // endregion
+
+        // region patch for enable force minimized player
+
+        minimizedPlayerFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val insertIndex = it.patternMatch!!.endIndex
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructions(
+                    insertIndex, """
+                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForceMinimizedPlayer(Z)Z
+                        move-result v$insertRegister
+                        """
+                )
+            }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_enable_force_minimized_player",
             "true"
         )
 
@@ -725,38 +726,6 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide audio video switch toggle
-
-        audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference = (instruction as? ReferenceInstruction)?.reference
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference is MethodReference &&
-                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
-                }
-                .map { (index, _) -> index }
-                .reversed()
-                .forEach { index ->
-                    val instruction = getInstruction<FiveRegisterInstruction>(index)
-
-                    replaceInstruction(
-                        index,
-                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
-                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
-                    )
-                }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_hide_audio_video_switch_toggle",
-            "false"
-        )
-
-        // endregion
-
         // region patch for hide channel guideline, timestamps & emoji picker buttons
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
@@ -765,11 +734,6 @@ val playerComponentsPatch = bytecodePatch(
             CategoryType.PLAYER,
             "revanced_hide_comment_channel_guidelines",
             "true"
-        )
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_hide_comment_timestamp_and_emoji_buttons",
-            "false"
         )
 
         // region patch for hide double-tap overlay filter
@@ -796,6 +760,12 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_comment_timestamp_and_emoji_buttons",
+            "false"
+        )
+
         // region patch for hide fullscreen share button
 
         remixGenericButtonFingerprint.matchOrThrow().let {
@@ -815,6 +785,38 @@ val playerComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.PLAYER,
             "revanced_hide_fullscreen_share_button",
+            "false"
+        )
+
+        // endregion
+
+        // region patch for hide song video switch toggle
+
+        audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference is MethodReference &&
+                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
+                    val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                    replaceInstruction(
+                        index,
+                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
+                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
+                    )
+                }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_audio_video_switch_toggle",
             "false"
         )
 

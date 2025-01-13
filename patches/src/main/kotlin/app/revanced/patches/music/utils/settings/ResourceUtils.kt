@@ -32,6 +32,7 @@ internal object ResourceUtils {
     const val ACTIVITY_HOOK_TARGET_CLASS =
         "com.google.android.gms.common.api.GoogleApiActivity"
 
+    var gmsCorePackageName = "app.revanced.android.gms"
     var musicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
 
     private var iconType = "default"
@@ -68,8 +69,12 @@ internal object ResourceUtils {
         }
     }
 
-    fun updatePackageName(newPackage: String) {
-        musicPackageName = newPackage
+    fun updatePackageName(
+        newGmsCorePackage: String,
+        newMusicPackage: String,
+    ) {
+        gmsCorePackageName = newGmsCorePackage
+        musicPackageName = newMusicPackage
         replacePackageName()
     }
 

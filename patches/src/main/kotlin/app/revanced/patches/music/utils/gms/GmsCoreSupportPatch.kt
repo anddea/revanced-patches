@@ -7,11 +7,8 @@ import app.revanced.patches.music.utils.extension.sharedExtensionPatch
 import app.revanced.patches.music.utils.fix.fileprovider.fileProviderPatch
 import app.revanced.patches.music.utils.mainactivity.mainActivityFingerprint
 import app.revanced.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
-import app.revanced.patches.music.utils.settings.CategoryType
-import app.revanced.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePackageName
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
-import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.shared.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
@@ -38,19 +35,9 @@ private fun gmsCoreSupportResourcePatch(
     packageNameYouTubeOption = packageNameYouTubeOption,
     packageNameYouTubeMusicOption = packageNameYouTubeMusicOption,
     executeBlock = {
-        updatePackageName(packageNameYouTubeMusicOption.valueOrThrow())
-
-        addGmsCorePreference(
-            CategoryType.MISC.value,
-            "gms_core_settings",
+        updatePackageName(
             gmsCoreVendorGroupIdOption.valueOrThrow() + ".android.gms",
-            "org.microg.gms.ui.SettingsActivity"
-        )
-
-        addSwitchPreference(
-            CategoryType.MISC,
-            "revanced_gms_show_dialog",
-            "true"
+            packageNameYouTubeMusicOption.valueOrThrow()
         )
 
         updatePatchStatus(GMSCORE_SUPPORT)
