@@ -253,6 +253,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
                 "false"
             )
         }
+        addSwitchPreference(
+            CategoryType.FLYOUT,
+            "revanced_hide_flyout_menu_like_dislike",
+            "false",
+            false
+        )
         if (is_6_36_or_greater) {
             addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 

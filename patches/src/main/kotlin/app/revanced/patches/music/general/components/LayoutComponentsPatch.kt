@@ -306,16 +306,6 @@ val layoutComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.GENERAL,
-            "revanced_hide_playlist_card_shelf",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.GENERAL,
-            "revanced_hide_samples_shelf",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.GENERAL,
             "revanced_hide_cast_button",
             "true"
         )
@@ -331,11 +321,6 @@ val layoutComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.GENERAL,
-            "revanced_hide_tap_to_update_button",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.GENERAL,
             "revanced_hide_history_button",
             "false"
         )
@@ -346,6 +331,16 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_playlist_card_shelf",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_samples_shelf",
+            "false"
+        )
         if (soundSearchButtonIncluded) {
             addSwitchPreference(
                 CategoryType.GENERAL,
@@ -353,6 +348,11 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_tap_to_update_button",
+            "false"
+        )
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_voice_search_button",
