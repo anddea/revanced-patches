@@ -14,7 +14,7 @@
 Autoplay can be changed in YouTube settings:
 Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Auto switch mix playlists is disabled.</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">Disable switch mix playlists</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Disable auto switch mix playlists</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Enabling this feature will disable automatic switching to YouTube Mix when playing music while autoplay is turned on.</string>
     <string name="revanced_disable_default_playback_speed_music_off">Default playback speed is enabled for music.</string>
     <string name="revanced_disable_default_playback_speed_music_on">Default playback speed is disabled for music.</string>
@@ -28,9 +28,9 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
     <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation is enabled above the Like button.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation is disabled above the Like button.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button animation</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation above the Like button is enabled.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation above the Like button is disabled.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button fountain animation</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
@@ -53,7 +53,7 @@ Settings → Autoplay → Autoplay next video"</string>
 • Video playback will use more internet data than VP9.
 • VP9 codec is still used for HDR video."</string>
     <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to livestreams that do not have seekbar thumbnails.
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to live streams that do not have seekbar thumbnails.
 
 Internet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.
 
@@ -66,7 +66,7 @@ This feature works best with a very fast internet connection."</string>
 
 Limitations:
 • Does not work if app version is spoofed to 18.49.37 or earlier.
-• Does not work with livestream."</string>
+• Does not work with live stream."</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Enable custom actions in flyout menu</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Custom actions are disabled in toolbar.</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Custom actions are enabled in toolbar.
@@ -96,11 +96,11 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
-    <string name="revanced_hide_live_chat_summary_summary_off">Chat summary is shown.</string>
-    <string name="revanced_hide_live_chat_summary_summary_on">Chat summary is hidden.</string>
-    <string name="revanced_hide_live_chat_summary_title">Hide Chat summary in live chat</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the timestamp are shown.</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the timestamp are hidden.</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Live Chat summary is shown.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Live Chat summary is hidden.</string>
+    <string name="revanced_hide_live_chat_summary_title">Hide Live Chat summary</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the seekbar are shown.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the seekbar are hidden.</string>
     <string name="revanced_hide_seekbar_chapter_label_title">Hide seekbar chapter labels</string>
     <string name="revanced_hide_settings_menu_about_summary_off">About menu is shown.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">About menu is hidden.</string>
@@ -197,8 +197,8 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">All contents (Sort by time)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Members only videos</string>
-    <string name="revanced_overlay_button_play_all_type_entry_11">Members only shorts</string>
-    <string name="revanced_overlay_button_play_all_type_entry_12">Members only livestreams</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Members only Shorts</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Members only live streams</string>
     <string name="revanced_overlay_button_play_all_type_entry_2">All contents (Sort by popular)</string>
     <string name="revanced_overlay_button_play_all_type_entry_3">Videos only (Sort by time)</string>
     <string name="revanced_overlay_button_play_all_type_entry_4">Videos only (Sort by popular)</string>
@@ -245,7 +245,7 @@ Click to see how to issue a API key."</string>
     <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown.</string>
     <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are hidden from the video subtitles."</string>
     <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_general_min_duration_invalid">Invalid time duration.</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>

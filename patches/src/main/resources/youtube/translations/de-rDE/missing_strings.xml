@@ -26,9 +26,9 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
     <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation is enabled above the Like button.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation is disabled above the Like button.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button animation</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Fountain animation above the Like button is enabled.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Fountain animation above the Like button is disabled.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disable Like button fountain animation</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode.</string>
     <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
@@ -44,7 +44,7 @@ Settings → Autoplay → Autoplay next video"</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen.</string>
     <string name="revanced_enable_save_and_restore_brightness_title">Enable save and restore brightness</string>
-    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to livestreams that do not have seekbar thumbnails.
+    <string name="revanced_enable_seekbar_thumbnails_high_quality_dialog_message">"This will restore thumbnails to live streams that do not have seekbar thumbnails.
 
 Internet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.
 
@@ -57,7 +57,7 @@ This feature works best with a very fast internet connection."</string>
 
 Limitations:
 • Does not work if app version is spoofed to 18.49.37 or earlier.
-• Does not work with livestream."</string>
+• Does not work with live stream."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Custom actions are disabled in toolbar.</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Custom actions are enabled in toolbar.
 
@@ -93,14 +93,14 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_hide_contents_section_summary_off">How this content was made section is shown.</string>
     <string name="revanced_hide_contents_section_summary_on">How this content was made section is hidden.</string>
     <string name="revanced_hide_contents_section_title">Hide Contents section</string>
-    <string name="revanced_hide_live_chat_summary_summary_off">Chat summary is shown.</string>
-    <string name="revanced_hide_live_chat_summary_summary_on">Chat summary is hidden.</string>
-    <string name="revanced_hide_live_chat_summary_title">Hide Chat summary in live chat</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Live Chat summary is shown.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Live Chat summary is hidden.</string>
+    <string name="revanced_hide_live_chat_summary_title">Hide Live Chat summary</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_off">Sleep timer menu is shown.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_summary_on">Sleep timer menu is hidden.</string>
     <string name="revanced_hide_player_flyout_menu_sleep_timer_title">Hide Sleep timer menu</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the timestamp are shown.</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the timestamp are hidden.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Chapter labels next to the seekbar are shown.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Chapter labels next to the seekbar are hidden.</string>
     <string name="revanced_hide_seekbar_chapter_label_title">Hide seekbar chapter labels</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
@@ -171,12 +171,12 @@ Miniplayer can be dragged off screen to the left or right."</string>
 Tap and hold to undo.
 
 Info:
-• May not work on livestreams."</string>
+• May not work on live streams."</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">All contents (Sort by time)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Members only videos</string>
-    <string name="revanced_overlay_button_play_all_type_entry_11">Members only shorts</string>
-    <string name="revanced_overlay_button_play_all_type_entry_12">Members only livestreams</string>
+    <string name="revanced_overlay_button_play_all_type_entry_11">Members only Shorts</string>
+    <string name="revanced_overlay_button_play_all_type_entry_12">Members only live streams</string>
     <string name="revanced_overlay_button_play_all_type_entry_2">All contents (Sort by popular)</string>
     <string name="revanced_overlay_button_play_all_type_entry_3">Videos only (Sort by time)</string>
     <string name="revanced_overlay_button_play_all_type_entry_4">Videos only (Sort by popular)</string>
@@ -186,7 +186,7 @@ Info:
     <string name="revanced_overlay_button_play_all_type_entry_8">Streamed videos only (Sort by popular)</string>
     <string name="revanced_overlay_button_play_all_type_entry_9">All Members only contents</string>
     <string name="revanced_overlay_button_play_all_type_title">Generate playlist mode</string>
-    <string name="revanced_override_playlist_download_button_summary_off">If shown, the native playlist download button opens the native in-app downloader.</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Native playlist download button, if shown, opens the native in-app downloader.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Native playlist download button is always shown, and in public playlists, it opens your external downloader.</string>
     <string name="revanced_override_playlist_download_button_title">Override playlist download button</string>
     <string name="revanced_override_video_download_button_summary_off">Native video download button opens the native in-app downloader.</string>
@@ -226,8 +226,8 @@ Click to see how to issue a API key."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were shown from the video subtitles."</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' were hidden from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are shown from the video subtitles."</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Phrases like '#', 'Fundraiser', 'Shop' and 'products' are hidden from the video subtitles."</string>
     <string name="revanced_sanitize_video_subtitle_title">Sanitize video subtitle</string>
     <string name="revanced_sb_general_min_duration_invalid">Invalid time duration.</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
