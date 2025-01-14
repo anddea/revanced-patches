@@ -342,10 +342,11 @@ val toolBarComponentsPatch = bytecodePatch(
                         opcode == Opcode.INVOKE_VIRTUAL &&
                                 getReference<MethodReference>()?.toString() == voiceInputControllerActivityMethodCall
                     }
-                val setOnClickListenerIndex = indexOfFirstInstructionOrThrow(voiceInputControllerActivityIndex) {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "setOnClickListener"
-                }
+                val setOnClickListenerIndex =
+                    indexOfFirstInstructionOrThrow(voiceInputControllerActivityIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "setOnClickListener"
+                    }
                 val viewRegister =
                     getInstruction<FiveRegisterInstruction>(setOnClickListenerIndex).registerC
 

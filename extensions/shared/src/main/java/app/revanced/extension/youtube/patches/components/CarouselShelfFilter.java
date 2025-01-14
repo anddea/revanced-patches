@@ -18,6 +18,7 @@ public final class CarouselShelfFilter extends Filter {
     private static final String BROWSE_ID_CLIP = "FEclips";
     private static final String BROWSE_ID_HOME = "FEwhat_to_watch";
     private static final String BROWSE_ID_LIBRARY = "FElibrary";
+    private static final String BROWSE_ID_MOVIE = "FEstorefront";
     private static final String BROWSE_ID_NOTIFICATION = "FEactivity";
     private static final String BROWSE_ID_NOTIFICATION_INBOX = "FEnotifications_inbox";
     private static final String BROWSE_ID_PLAYLIST = "VLPL";
@@ -32,9 +33,10 @@ public final class CarouselShelfFilter extends Filter {
     );
 
     private static final Supplier<Stream<String>> whitelistBrowseId = () -> Stream.of(
-            BROWSE_ID_LIBRARY,
-            BROWSE_ID_NOTIFICATION_INBOX,
             BROWSE_ID_CLIP,
+            BROWSE_ID_LIBRARY,
+            BROWSE_ID_MOVIE,
+            BROWSE_ID_NOTIFICATION_INBOX,
             BROWSE_ID_PREMIUM
     );
 

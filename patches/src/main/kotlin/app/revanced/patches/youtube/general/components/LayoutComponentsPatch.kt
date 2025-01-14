@@ -17,10 +17,13 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -55,9 +58,15 @@ val layoutComponentsPatch = bytecodePatch(
         sharedResourceIdPatch,
         settingsMenuPatch,
         viewGroupMarginLayoutParamsHookPatch,
+        versionCheckPatch,
     )
 
     execute {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: GENERAL",
+            "SETTINGS: HIDE_LAYOUT_COMPONENTS"
+        )
 
         // region patch for disable pip notification
 
@@ -82,6 +91,19 @@ val layoutComponentsPatch = bytecodePatch(
                     )
                 }
             }
+        }
+
+        // endregion
+
+        // region patch for disable translucent status bar
+
+        if (is_19_25_or_greater) {
+            translucentStatusBarFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                TRANSLUCENT_STATUS_BAR_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->disableTranslucentStatusBar(Z)Z"
+            )
+
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
         }
 
         // endregion
@@ -234,10 +256,7 @@ val layoutComponentsPatch = bytecodePatch(
         // region add settings
 
         addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: HIDE_LAYOUT_COMPONENTS"
-            ),
+            settingArray,
             HIDE_LAYOUT_COMPONENTS
         )
 

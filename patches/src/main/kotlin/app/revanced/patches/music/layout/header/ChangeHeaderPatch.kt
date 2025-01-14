@@ -5,6 +5,13 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.patch.PatchList.CUSTOM_HEADER_FOR_YOUTUBE_MUSIC
+import app.revanced.patches.music.utils.playservice.is_7_06_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
+import app.revanced.patches.music.utils.resourceid.actionBarLogo
+import app.revanced.patches.music.utils.resourceid.actionBarLogoRingo2
+import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.music.utils.resourceid.ytmLogo
+import app.revanced.patches.music.utils.resourceid.ytmLogoRingo2
 import app.revanced.patches.music.utils.settings.ResourceUtils.getIconType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.settingsPatch
@@ -13,8 +20,7 @@ import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
-import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.resolvable
+import app.revanced.util.replaceLiteralInstructionCall
 import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
 
@@ -100,24 +106,31 @@ private val getDescription = {
 private val changeHeaderBytecodePatch = bytecodePatch(
     description = "changeHeaderBytecodePatch"
 ) {
+    dependsOn(
+        sharedResourceIdPatch,
+        versionCheckPatch,
+    )
+
     execute {
+
         /**
          * New Header has been added from YouTube Music v7.04.51.
          *
-         * The new header's file names are  'action_bar_logo_ringo2.png' and 'ytm_logo_ringo2.png'.
+         * The new header's file names are 'action_bar_logo_ringo2.png' and 'ytm_logo_ringo2.png'.
          * The only difference between the existing header and the new header is the dimensions of the image.
          *
          * The affected patch is [changeHeaderPatch].
-         *
-         * TODO: Add a new header image file to [changeHeaderPatch] later.
          */
-        if (!headerSwitchConfigFingerprint.resolvable()) {
+        if (!is_7_06_or_greater) {
             return@execute
         }
-        headerSwitchConfigFingerprint.injectLiteralInstructionBooleanCall(
-            45617851L,
-            "0x0"
-        )
+
+        listOf(
+            actionBarLogoRingo2 to actionBarLogo,
+            ytmLogoRingo2 to ytmLogo,
+        ).forEach { (originalResource, replacementResource) ->
+            replaceLiteralInstructionCall(originalResource, replacementResource)
+        }
     }
 }
 

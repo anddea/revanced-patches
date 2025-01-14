@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.utils.navigation.addBottomBarContainerHook
 import app.revanced.patches.youtube.utils.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
-import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -85,50 +84,12 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         // region patch for enable translucent navigation bar
 
-        if (is_19_23_or_greater) {
-            translucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
-                TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
-                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
-            )
-
-            settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
-        }
-
         if (is_19_25_or_greater) {
-            arrayOf(
-                Triple(
-                    translucentNavigationStatusBarFeatureFlagFingerprint,
-                    TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
-                    "useTranslucentNavigationStatusBar"
-                ),
-                Triple(
-                    translucentNavigationButtonsFeatureFlagFingerprint,
-                    TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
-                    "useTranslucentNavigationButtons"
-                ),
-                Triple(
-                    translucentNavigationButtonsSystemFeatureFlagFingerprint,
-                    TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
-                    "useTranslucentNavigationButtons"
-                )
-            ).forEach {
-                it.first.injectLiteralInstructionBooleanCall(
-                    it.second,
-                    "$GENERAL_CLASS_DESCRIPTOR->${it.third}(Z)Z"
-                )
-            }
-
-            translucentStatusBarFingerprint.injectLiteralInstructionBooleanCall(
-                TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
-                "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentStatusBar()Z"
-            )
-
-            translucentNavigationBarSystemFingerprint.injectLiteralInstructionBooleanCall(
-                TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
+            translucentNavigationBarFingerprint.injectLiteralInstructionBooleanCall(
+                TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG,
                 "$GENERAL_CLASS_DESCRIPTOR->enableTranslucentNavigationBar()Z"
             )
 
-            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
             settingArray += "SETTINGS: TRANSLUCENT_NAVIGATION_BAR"
         }
 

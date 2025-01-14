@@ -111,22 +111,21 @@ public final class RYDVoteData {
     public void updateUsingVote(Vote vote) {
         final int likesToAdd, dislikesToAdd;
 
-        switch (vote) {
-            case LIKE:
+        dislikesToAdd = switch (vote) {
+            case LIKE -> {
                 likesToAdd = 1;
-                dislikesToAdd = 0;
-                break;
-            case DISLIKE:
+                yield 0;
+            }
+            case DISLIKE -> {
                 likesToAdd = 0;
-                dislikesToAdd = 1;
-                break;
-            case LIKE_REMOVE:
+                yield 1;
+            }
+            case LIKE_REMOVE -> {
                 likesToAdd = 0;
-                dislikesToAdd = 0;
-                break;
-            default:
-                throw new IllegalStateException();
-        }
+                yield 0;
+            }
+            default -> throw new IllegalStateException();
+        };
 
         // If a video has no public likes but RYD has raw like data,
         // then use the raw data instead.

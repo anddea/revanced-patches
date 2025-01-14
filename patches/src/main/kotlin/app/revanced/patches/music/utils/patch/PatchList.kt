@@ -5,10 +5,6 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
-    AMOLED(
-        "Amoled",
-        "Applies a pure black theme to some components."
-    ),
     BITRATE_DEFAULT_VALUE(
         "Bitrate default value",
         "Sets the audio quality to 'Always High' when you first install the app."
@@ -23,7 +19,7 @@ internal enum class PatchList(
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
@@ -41,6 +37,10 @@ internal enum class PatchList(
         "Custom header for YouTube Music",
         "Applies a custom header in the top left corner within the app."
     ),
+    DARK_THEME(
+        "Dark theme",
+        "Changes the app's dark theme to the values specified in patch options."
+    ),
     DISABLE_CAIRO_SPLASH_ANIMATION(
         "Disable Cairo splash animation",
         "Adds an option to disable Cairo splash animation."
@@ -56,6 +56,10 @@ internal enum class PatchList(
     DISABLE_DISLIKE_REDIRECTION(
         "Disable dislike redirection",
         "Adds an option to disable redirection to the next track when clicking the Dislike button."
+    ),
+    DISABLE_MUSIC_VIDEO_IN_ALBUM(
+        "Disable music video in album",
+        "Adds option to redirect music videos from albums for non-premium users."
     ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",

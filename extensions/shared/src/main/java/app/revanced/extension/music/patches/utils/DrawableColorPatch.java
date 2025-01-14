@@ -1,21 +1,50 @@
 package app.revanced.extension.music.patches.utils;
 
+import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import app.revanced.extension.shared.utils.ResourceUtils;
+
 @SuppressWarnings("unused")
 public class DrawableColorPatch {
     private static final int[] DARK_VALUES = {
-            -14606047 // comments box background
+            -14606047, // comments box background
+            -16579837, // button container background in album
+            -16777216, // button container background in playlist
     };
 
-    public static int getLithoColor(int originalValue) {
-        if (anyEquals(originalValue, DARK_VALUES))
-            return -16777215;
+    // background colors
+    private static final Drawable headerGradient =
+            ResourceUtils.getDrawable("revanced_header_gradient");
+    private static final int blackColor =
+            ResourceUtils.getColor("yt_black1");
+    private static final int elementsContainerIdentifier =
+            ResourceUtils.getIdIdentifier("elements_container");
 
-        return originalValue;
+    public static int getLithoColor(int originalValue) {
+        return ArrayUtils.contains(DARK_VALUES, originalValue)
+                ? blackColor
+                : originalValue;
     }
 
-    private static boolean anyEquals(int value, int... of) {
-        for (int v : of) if (value == v) return true;
-        return false;
+    public static void setHeaderGradient(ViewGroup viewGroup) {
+        viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            if (!(viewGroup instanceof FrameLayout frameLayout))
+                return;
+            if (!(frameLayout.getChildAt(0) instanceof ViewGroup parentViewGroup))
+                return;
+            if (!(parentViewGroup.getChildAt(0) instanceof ImageView gradientView))
+                return;
+            // For some reason, it sometimes applies to other lithoViews.
+            // To prevent this, check the viewId before applying the gradient.
+            if (headerGradient != null && viewGroup.getId() == elementsContainerIdentifier) {
+                gradientView.setForeground(headerGradient);
+            }
+        });
     }
 }
 

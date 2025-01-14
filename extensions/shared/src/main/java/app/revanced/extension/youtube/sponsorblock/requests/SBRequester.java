@@ -126,8 +126,12 @@ public class SBRequester {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, privateUserId, videoId, category, start, end, duration);
             final int responseCode = connection.getResponseCode();
 
-            String userMessage = switch (responseCode) {
-                case HTTP_STATUS_CODE_SUCCESS -> str("revanced_sb_submit_succeeded");
+            if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
+                Utils.showToastLong(str("revanced_sb_submit_succeeded"));
+                return;
+            }
+
+            String userErrorMessage = switch (responseCode) {
                 case 409 -> str("revanced_sb_submit_failed_duplicate");
                 case 403 -> str("revanced_sb_submit_failed_forbidden",
                         Requester.parseErrorStringAndDisconnect(connection));
@@ -137,9 +141,10 @@ public class SBRequester {
                 default -> str("revanced_sb_submit_failed_unknown_error",
                         responseCode, connection.getResponseMessage());
             };
+
             // Message might be about the users account or an error too large to show in a toast.
             // Use a dialog instead.
-            SponsorBlockUtils.showErrorDialog(userMessage);
+            SponsorBlockUtils.showErrorDialog(userErrorMessage);
         } catch (SocketTimeoutException ex) {
             Logger.printDebug(() -> "Timeout", ex);
             Utils.showToastLong(str("revanced_sb_submit_failed_timeout"));

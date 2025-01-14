@@ -6,13 +6,8 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean SpoofStreamingData() {
-        // Replace this with true If the Spoof streaming data patch succeeds
-        return false;
-    }
-
-    public static boolean SpoofStreamingDataAndroidOnlyDefaultBoolean() {
-        // Replace this with true If the Spoof streaming data patch succeeds in YouTube
+    public static boolean SpoofStreamingDataMusic() {
+        // Replace this with true If the Spoof streaming data patch succeeds in YouTube Music
         return false;
     }
 }
