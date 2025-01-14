@@ -1,3 +1,30 @@
+# [3.2.0](https://github.com/anddea/revanced-patches/compare/v3.1.0...v3.2.0) (2025-01-14)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:**  Restrict `Change splash icons` patch option to YouTube 19.16.39 and below ([65f8dae](https://github.com/anddea/revanced-patches/commit/65f8daeb2b69b916dbd358fd70315385f95550a6))
+* **YouTube - Disable haptic feedback:** `Disable seek haptic feedback` doesn't work ([9039b45](https://github.com/anddea/revanced-patches/commit/9039b45f1f557128b9eb17a8030819e9c507255b))
+* **YouTube - Overlay buttons:** Restrict `Bottom margin` and `Wider between-buttons space` patch options to YouTube 19.16.39 and below ([93250cc](https://github.com/anddea/revanced-patches/commit/93250cc3cecdfab84468a8a4860d3fb13e94b75f))
+* **YouTube - Spoof streaming data:** Enhanced bitrate not available on `Android VR`, `Android TV` ([07614ad](https://github.com/anddea/revanced-patches/commit/07614ad93f18f5631ff86bb1893003ec5282e4f5))
+* **YouTube Music - Custom header:** Not working on YouTube Music 7.25.53 ([a7c7d36](https://github.com/anddea/revanced-patches/commit/a7c7d364628bf917cfe5a3f4ce8fe98f987b48be))
+* **YouTube Music - Player components:** `Restore old comments popup panels` not working on YouTube Music 7.25.53 ([2ce0bc4](https://github.com/anddea/revanced-patches/commit/2ce0bc42e88699f4f1043d87b723d5956bf83fc2))
+
+
+### Features
+
+* **YouTube - Change start page:** Add more start page options ([34070ef](https://github.com/anddea/revanced-patches/commit/34070efae41ec13bb0a435ad22011238998d1261))
+* **YouTube - Custom branding icon:** Add `Squid Game` icon ([e943124](https://github.com/anddea/revanced-patches/commit/e9431241c762bee6127cc26abcbbe24f82088304))
+* **YouTube - Fullscreen components:** Remove `Force fullscreen` setting, add `Enter fullscreen mode` and `Exit fullscreen mode` settings ([155f223](https://github.com/anddea/revanced-patches/commit/155f2233222cc92a9d1315c9a3e036ecc613c12c))
+* **YouTube - Seekbar components:** Add `Gradient seekbar colors` and `Gradient seekbar bounds` settings (for YouTube 19.25+) ([2a7b022](https://github.com/anddea/revanced-patches/commit/2a7b02267234b64d8983dd1b5525143a009aa566))
+* **YouTube - Shorts components:** Add `Playback speed` option to custom actions ([4c50517](https://github.com/anddea/revanced-patches/commit/4c50517693735078ff8aefe58b918e5240f2edb4))
+* **YouTube - Spoof streaming data:** Remove `Use Android clients only` setting, restore `Force iOS AVC` setting ([23b886c](https://github.com/anddea/revanced-patches/commit/23b886c3345fe87527b02fbdca5d774ee5d476f0))
+* **YouTube - Swipe controls:** Add `Disable swipe to enter fullscreen mode` & `Disable swipe to exit fullscreen mode` settings ([5b164e1](https://github.com/anddea/revanced-patches/commit/5b164e113d405f547f6767d5df84c192a1c55838))
+* **YouTube & YouTube Music - Settings:** Allow to export API key for `Return YouTube Username` (Caution: Do not share with others) ([e86ae68](https://github.com/anddea/revanced-patches/commit/e86ae68198b0ff10f940b6a084839aabdad29271))
+* **YouTube Music - Disable music video in album:** Remove `Dismiss queue` options ([5d8ce8e](https://github.com/anddea/revanced-patches/commit/5d8ce8eb08fc4fa62fd3f7175b345d5a105de993))
+* **YouTube Music:** Add `Dark theme` patch, remove `Amoled` patch ([097845b](https://github.com/anddea/revanced-patches/commit/097845b3e6acabcaaf886adf6a34c6dce6798681))
+* **YouTube Music:** Add `Disable music video in album` patch ([4cfe879](https://github.com/anddea/revanced-patches/commit/4cfe87913338620873a01010a6c03f9e0af2c86c))
+
 # [3.2.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.2.0-dev.1...v3.2.0-dev.2) (2025-01-10)
 
 
