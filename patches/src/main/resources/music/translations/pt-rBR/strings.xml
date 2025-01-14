@@ -48,6 +48,17 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="revanced_disable_drc_audio_title">Desativar áudio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Desativar deslize para alterar faixas no mini reprodutor.</string>
     <string name="revanced_disable_mini_player_gesture_title">Desativar gesto do mini reprodutor</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Tocar alternador de Áudio / Vídeo</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Tocar e segurar alternador de Áudio / Vídeo</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirecionar</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Especifica como redirecionar para a música oficial.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Tipo de redirecionamento</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Quando um usuário não premium toca uma música incluída em um álbum, o videoclipe às vezes é tocado em vez da música oficial.
+
+Encontre a música oficial se um videoclipe for detectado tocando de um álbum.
+
+• Desenvolvido pela API de instância do Piped."</string>
+    <string name="revanced_disable_music_video_in_album_title">Desativar vídeo da música no álbum</string>
     <string name="revanced_disable_player_gesture_summary">Desativar deslize para alterar faixas no reprodutor.</string>
     <string name="revanced_disable_player_gesture_title">Desativar gesto do reprodutor</string>
     <string name="revanced_enable_black_navigation_bar_summary">Define a cor da barra de navegação para preto.</string>
@@ -408,20 +419,25 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
     <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
 
-※ Quando usado com 'Dados de streaming falsos', podem ocorrer problemas de reprodução."</string>
+• Quando usado com 'Dados de streaming falsos', podem ocorrer problemas de reprodução."</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
-    <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar."</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar.
+
+• Ao usar o cliente Android, é recomendado usar também 'Falsificar versão do aplicativo'."</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifique os dados de streaming para evitar problemas de reprodução.
 
-※ Quando usado com 'Falsificar cliente', podem ocorrer problemas de reprodução."</string>
+• Quando usado com 'Falsificar cliente', podem ocorrer problemas de reprodução."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Define um cliente padrão que busca dados de streaming.</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
 </resources>

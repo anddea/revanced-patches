@@ -360,8 +360,8 @@ public class ReturnYouTubeDislikePatch {
                 removeRollingNumberPatchChanges(view);
                 return original;
             }
-            final boolean isDescriptionPanel = view.getParent() instanceof ViewGroup viewGroupParent
-                    && viewGroupParent.getChildCount() < 2;
+            final boolean isDescriptionPanel = view.getParent() instanceof ViewGroup viewGroupParent &&
+                    viewGroupParent.getChildCount() < 2;
             // Called for all instances of RollingNumber, so must check if text is for a dislikes.
             // Text will already have the correct content but it's missing the drawable separators.
             if (!ReturnYouTubeDislike.isPreviouslyCreatedSegmentedSpan(original.toString()) || isDescriptionPanel) {

@@ -30,7 +30,9 @@ internal class JsonPatchesFileGenerator : PatchesFileGenerator {
                 },
             )
         }.let {
-            patchesJson.writeText(GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(it))
+            patchesJson.writeText(
+                GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(it)
+            )
         }
     }
 

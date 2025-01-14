@@ -46,10 +46,8 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         enableDisablePreferences();
 
         AmbientModePreferenceLinks();
-        ChangeHeaderPreferenceLinks();
         ExternalDownloaderPreferenceLinks();
         FullScreenPanelPreferenceLinks();
-        LayoutOverrideLinks();
         MiniPlayerPreferenceLinks();
         NavigationPreferenceLinks();
         RYDPreferenceLinks();
@@ -72,16 +70,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
     }
 
     /**
-     * Enable/Disable Preference related to Change header
-     */
-    private static void ChangeHeaderPreferenceLinks() {
-        enableDisablePreferences(
-                PatchStatus.MinimalHeader(),
-                Settings.CHANGE_YOUTUBE_HEADER
-        );
-    }
-
-    /**
      * Enable/Disable Preference for External downloader settings
      */
     private static void ExternalDownloaderPreferenceLinks() {
@@ -90,16 +78,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 isSpoofingToLessThan("18.24.00"),
                 Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON,
                 Settings.OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON
-        );
-    }
-
-    /**
-     * Enable/Disable Layout Override Preference
-     */
-    private static void LayoutOverrideLinks() {
-        enableDisablePreferences(
-                ExtendedUtils.isTablet(),
-                Settings.FORCE_FULLSCREEN
         );
     }
 
@@ -139,17 +117,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.HIDE_QUICK_ACTIONS_SAVE_TO_PLAYLIST_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_SHARE_BUTTON
         );
-
-        enableDisablePreferences(
-                Settings.DISABLE_LANDSCAPE_MODE.get(),
-                Settings.FORCE_FULLSCREEN
-        );
-
-        enableDisablePreferences(
-                Settings.FORCE_FULLSCREEN.get(),
-                Settings.DISABLE_LANDSCAPE_MODE
-        );
-
     }
 
     /**
@@ -204,10 +171,8 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.REPLACE_TOOLBAR_CREATE_BUTTON_TYPE
         );
         enableDisablePreferences(
-                !isSDKAbove(33),
-                Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR,
-                Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT,
-                Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+                !isSDKAbove(31),
+                Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR
         );
     }
 

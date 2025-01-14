@@ -20,6 +20,10 @@
     <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
     <string name="revanced_disable_dislike_redirection_summary">點擊不喜歡按鈕時停用重定向到下一首歌曲</string>
     <string name="revanced_disable_dislike_redirection_title">停用不喜歡重定向</string>
+    <string name="revanced_disable_mini_player_gesture_summary">停用迷你播放器中的滑動切換曲目功能。</string>
+    <string name="revanced_disable_mini_player_gesture_title">停用迷你播放器手勢</string>
+    <string name="revanced_disable_player_gesture_summary">停用播放器中的滑動切換歌曲。</string>
+    <string name="revanced_disable_player_gesture_title">停用播放器手勢</string>
     <string name="revanced_enable_black_navigation_bar_summary">將導覽列的顏色設成黑色</string>
     <string name="revanced_enable_black_navigation_bar_title">啟用黑色導覽列</string>
     <string name="revanced_enable_black_player_background_summary">將播放器背景顏色設成為黑色</string>
@@ -56,6 +60,7 @@
     <string name="revanced_enable_zen_mode_podcast_title">在播客中啟用護眼模式</string>
     <string name="revanced_enable_zen_mode_summary">在影片播放器上增加灰色陰影以減少眼睛疲勞</string>
     <string name="revanced_enable_zen_mode_title">護眼模式</string>
+    <string name="revanced_extended_reset_to_default_toast">重設為預設值。</string>
     <string name="revanced_extended_restart_first_run">重新啟動以套用更改後的介面</string>
     <string name="revanced_extended_restart_message">套用並重新啟動</string>
     <string name="revanced_extended_settings_export_as_file">匯出設定到文件</string>
@@ -70,6 +75,7 @@
     <string name="revanced_extended_settings_import_failed">匯入失敗: %s</string>
     <string name="revanced_extended_settings_import_reset">設定已重設為預設值</string>
     <string name="revanced_extended_settings_import_success">已匯入設定: %d</string>
+    <string name="revanced_extended_settings_reset">重置</string>
     <string name="revanced_extended_settings_title">ReVanced 擴充功能</string>
     <string name="revanced_external_downloader_action_summary">"下載按鈕開啟您的外部下載器
 
@@ -117,6 +123,8 @@
     <string name="revanced_hide_comment_channel_guidelines_title">隱藏頻道指南</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">輸入留言時隱藏時間戳記和表情符號按鈕</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">隱藏時間戳與表情符號按鈕</string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">隱藏點兩下以快轉或倒退時出現的深色疊加層。</string>
+    <string name="revanced_hide_double_tap_overlay_filter_title">隱藏連點兩下疊加濾鏡</string>
     <string name="revanced_hide_floating_button_summary">在媒體庫中隱藏浮動按鈕</string>
     <string name="revanced_hide_floating_button_title">隱藏浮動按鈕</string>
     <string name="revanced_hide_flyout_menu_3_column_component_title">隱藏三列組件</string>
@@ -132,6 +140,7 @@
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">隱藏前往播客選項</string>
     <string name="revanced_hide_flyout_menu_help_title">隱藏說明&amp; 回報問題選項</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">隱藏讚與倒讚按鈕</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">隱藏在快速播放專區中置頂選單</string>
     <string name="revanced_hide_flyout_menu_play_next_title">隱藏播放下一個選項</string>
     <string name="revanced_hide_flyout_menu_quality_title">隱藏畫質選項</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">隱藏從媒體庫中移除選項</string>
@@ -146,6 +155,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">隱藏開啟電台選項</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">隱藏資訊統計選項</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">隱藏訂閱/取消訂閱選項</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">隱藏從快速播放取消置頂選單</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">隱藏查看歌曲製作人員選項</string>
     <string name="revanced_hide_fullscreen_ads_summary">"隱藏全螢幕廣告"</string>
     <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
@@ -183,8 +193,20 @@
     <string name="revanced_hide_premium_promotion_title">隱藏 Premium 升級彈出選單</string>
     <string name="revanced_hide_premium_renewal_summary">隱藏 Premium 續訂橫幅</string>
     <string name="revanced_hide_premium_renewal_title">隱藏 Premium 續訂橫幅</string>
+    <string name="revanced_hide_promotion_alert_banner_summary">隱藏促銷提醒橫幅。</string>
+    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
     <string name="revanced_hide_samples_shelf_summary">在探索中隱藏樣品架</string>
     <string name="revanced_hide_samples_shelf_title">隱藏樣品架</string>
+    <string name="revanced_hide_settings_menu_about_title">隱藏關於選單</string>
+    <string name="revanced_hide_settings_menu_data_saving_title">隱藏資料儲存選單</string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">隱藏下載&amp;儲存選單</string>
+    <string name="revanced_hide_settings_menu_general_title">隱藏一般選單</string>
+    <string name="revanced_hide_settings_menu_notification_title">隱藏通知選單</string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">隱藏取得 Music Premium 選單</string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">隱藏家庭中心選單</string>
+    <string name="revanced_hide_settings_menu_playback_title">隱藏播放選單</string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">隱藏隱私權&amp;資料選單</string>
+    <string name="revanced_hide_settings_menu_recommendations_title">隱藏推薦選單</string>
     <string name="revanced_hide_sound_search_button_summary">在搜尋欄裡隱藏聽聲辨曲按鈕</string>
     <string name="revanced_hide_sound_search_button_title">隱藏聽聲辨取按鈕</string>
     <string name="revanced_hide_tap_to_update_button_summary">隱藏輕觸以重新整理按鈕</string>
@@ -200,11 +222,15 @@
     <string name="revanced_preference_screen_general_title">一般設定</string>
     <string name="revanced_preference_screen_navigation_title">導覽列</string>
     <string name="revanced_preference_screen_player_title">播放器</string>
+    <string name="revanced_preference_screen_return_youtube_username_title">恢復 YouTube 使用者名稱</string>
     <string name="revanced_preference_screen_ryd_title">恢復Youtube 倒讚</string>
     <string name="revanced_preference_screen_sb_title">贊助區塊阻擋（SponsorBlock）</string>
+    <string name="revanced_preference_screen_settings_title">設定選單</string>
     <string name="revanced_preference_screen_video_title">影片</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">記住上次選擇的播放速度</string>
     <string name="revanced_remember_playback_speed_last_selected_title">記住播放速度的變更</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">變更預設播放速度時顯示提示訊息。</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">顯示提示訊息</string>
     <string name="revanced_remember_playback_speed_toast">將預設速度更改為 %s</string>
     <string name="revanced_remember_repeat_state_summary">記住重複播放的狀態</string>
     <string name="revanced_remember_repeat_state_title">記住重複播放狀態</string>
@@ -212,6 +238,8 @@
     <string name="revanced_remember_shuffle_state_title">記住隨機播放狀態</string>
     <string name="revanced_remember_video_quality_last_selected_summary">記住上次選擇的影片畫質</string>
     <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質變更</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">變更預設播放速度時顯示提示訊息。</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">顯示提示訊息</string>
     <string name="revanced_remember_video_quality_mobile">設定行動數據預設的畫質為%s</string>
     <string name="revanced_remember_video_quality_none">畫質設定失敗</string>
     <string name="revanced_remember_video_quality_wifi">設定WiFi預設的畫質為%s</string>
@@ -238,6 +266,19 @@
     <string name="revanced_restore_old_player_layout_title">恢復舊版播放器介面</string>
     <string name="revanced_restore_old_style_library_shelf_summary">將媒體庫選項恢復為舊樣式（實驗性功能）</string>
     <string name="revanced_restore_old_style_library_shelf_title">恢復舊版媒體庫樣式</string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">\@帳號名稱 (使用者名稱)</string>
+    <string name="revanced_return_youtube_username_display_format_summary">選擇使用者名稱顯示樣式。</string>
+    <string name="revanced_return_youtube_username_display_format_title">顯示樣式</string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">使用者名稱 (@帳號名稱)</string>
+    <string name="revanced_return_youtube_username_display_format_username_only">使用者名稱</string>
+    <string name="revanced_return_youtube_username_enabled_summary">在留言中將使用者名稱取代帳號名稱。</string>
+    <string name="revanced_return_youtube_username_enabled_title">啟用恢復 YouTube 使用者名稱</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"需要 YouTube Data API v3 開發者金鑰才能將帳號名稱替換為使用者名稱。免費方案的 API 金鑰每日配額為 10,000 次，每替換一次留言中的帳號名稱為使用者名稱會消耗 1 次配額。點擊此處了解如何申請 API 金鑰。"</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">關於 YouTube 資料 API 金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">使用 YouTube 資料 API v3 的開發人員金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube 資料 API 金鑰</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. 前往 &lt;a href=%1$s&gt;建立新專案&amp;p;.&lt;br&gt;2.點擊&lt;b&gt;創建&lt;/b&gt; 按鈕。&lt;br&gt;3.&lt;br&gt;轉到 &lt;a href=%2$s&gt;YouTube 資料 API v3&lt;/a&gt;.&lt;br&gt;4.點選&lt;b&gt;啟用&lt;/b&gt; 按鈕。&lt;br&gt;5.點選&lt;b&gt;建立憑證&lt;b&gt; 按鈕。 &lt;br&gt;6.選擇&lt;b&gt;公共資料&lt;/b&gt; 選項。&lt;br&gt;7.點選&lt;b&gt;下一步&lt;/b&gt; 按鈕。&lt;br&gt;8.複製 API 金鑰。&lt;br&gt;&lt;br&gt;※ API 金鑰不應與其他人共用，因此它不包含在匯入/匯出設定中。</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">取得 YouTube 資料 API v3 開發人員金鑰</string>
     <string name="revanced_ryd_about">關於</string>
     <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供
 點擊了解更多資訊</string>
@@ -248,12 +289,15 @@
     <string name="revanced_ryd_dislike_percentage_title">倒讚百分比</string>
     <string name="revanced_ryd_enabled_summary">顯示影片的不喜歡次數</string>
     <string name="revanced_ryd_enabled_title">啟用恢復Youtube倒讚</string>
+    <string name="revanced_ryd_estimated_like_summary">顯示影片的喜歡次數</string>
+    <string name="revanced_ryd_estimated_like_title">顯示估計喜歡的次數</string>
     <string name="revanced_ryd_failure_client_rate_limit_requested">倒讚顯示不正常（已達到客戶端 API 限制）</string>
     <string name="revanced_ryd_failure_connection_status_code">倒讚數無法使用 (狀態 %d)</string>
     <string name="revanced_ryd_failure_connection_timeout">倒讚數暫時無法使用 (API 連線超時)</string>
     <string name="revanced_ryd_failure_generic">倒讚數無法使用 (狀態 %s)</string>
     <string name="revanced_ryd_toast_on_connection_error_summary">當 Return YouTube Dislike API 無法使用時顯示提示訊息</string>
     <string name="revanced_ryd_toast_on_connection_error_title">當API無法使用時顯示提示訊息</string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_sanitize_sharing_links_summary">分享連結時從 URL 中刪除追蹤參數。</string>
     <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
     <string name="revanced_sb_api_url">更改 API 網址</string>
@@ -287,6 +331,18 @@
     <string name="revanced_sb_segments_sponsor">贊助商廣告</string>
     <string name="revanced_sb_segments_sponsor_sum">付費推廣、付費推薦和直接廣告
 非自我推廣或免費提及、推薦他們喜歡的事物、創作者、網站、產品</string>
+    <string name="revanced_sb_skip_automatically">自動跳過</string>
+    <string name="revanced_sb_skipped_filler">已跳過贅詞</string>
+    <string name="revanced_sb_skipped_interaction">已跳過煩人的提醒</string>
+    <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
+    <string name="revanced_sb_skipped_intro_end">已跳過中場休息</string>
+    <string name="revanced_sb_skipped_intro_middle">已跳過中場休息</string>
+    <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>
+    <string name="revanced_sb_skipped_nomusic">已跳過非音樂片段</string>
+    <string name="revanced_sb_skipped_outro">已跳過結尾</string>
+    <string name="revanced_sb_skipped_preview_beginning">已跳過預覽</string>
+    <string name="revanced_sb_skipped_preview_end">已跳過前情提要</string>
+    <string name="revanced_sb_skipped_preview_middle">已跳過預覽</string>
     <string name="revanced_sb_skipped_selfpromo">已跳過自我宣傳</string>
     <string name="revanced_sb_skipped_sponsor">已跳過贊助</string>
     <string name="revanced_sb_toast_on_connection_error">當API無法使用時顯示提示訊息</string>
@@ -300,7 +356,9 @@
  • 如果稍後停用，舊的 UI 可能會保留，直到應用程式資料被清除"</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - 在加拿大地區停用電台模式</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - 停用即時歌詞</string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - 還原舊的動作欄</string>
     <string name="revanced_spoof_app_version_target_summary">選擇欲偽裝的應用程式版本</string>
     <string name="revanced_spoof_app_version_target_title">偽裝應用程式版本</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
 </resources>

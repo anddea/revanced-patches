@@ -7,11 +7,6 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean MinimalHeader() {
-        // Replace this with true If the Custom header patch succeeds and the patch option was `youtube_minimal_header`
-        return false;
-    }
-
     public static boolean PlayerButtons() {
         // Replace this with true if the Hide player buttons patch succeeds
         return false;

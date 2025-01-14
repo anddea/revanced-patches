@@ -38,7 +38,7 @@ public class VideoQualityPatch {
         if (videoId.equals(newlyLoadedVideoId))
             return;
         videoId = newlyLoadedVideoId;
-        setVideoQuality(Settings.SKIP_PRELOADED_BUFFER.get() ? 250 : 500);
+        setVideoQuality(Settings.SKIP_PRELOADED_BUFFER.get() ? 250 : 750);
     }
 
     /**

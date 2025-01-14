@@ -8,13 +8,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
 public class NavigationPatch {
-    private static final int colorGrey12 =
-            ResourceUtils.getColor("revanced_color_grey_12");
+    private static final int colorGrey12 = PatchStatus.DarkTheme()
+            ? ResourceUtils.getColor("ytm_color_grey_12")
+            : ResourceUtils.getColor("revanced_color_grey_12");
+
     public static Enum<?> lastPivotTab;
 
     public static int enableBlackNavigationBar() {

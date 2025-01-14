@@ -27,8 +27,22 @@ public class SwipeControlsPatch {
     /**
      * Injection point.
      */
-    public static boolean disableWatchPanelGestures() {
-        return !Settings.DISABLE_WATCH_PANEL_GESTURES.get();
+    public static boolean disableSwipeToEnterFullscreenModeBelowThePlayer() {
+        return !Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_BELOW_THE_PLAYER.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableSwipeToEnterFullscreenModeInThePlayer(boolean original) {
+        return !Settings.DISABLE_SWIPE_TO_ENTER_FULLSCREEN_MODE_IN_THE_PLAYER.get() && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean disableSwipeToExitFullscreenMode(boolean original) {
+        return !Settings.DISABLE_SWIPE_TO_EXIT_FULLSCREEN_MODE.get() && original;
     }
 
     /**

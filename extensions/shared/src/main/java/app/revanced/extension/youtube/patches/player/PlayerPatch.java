@@ -5,8 +5,6 @@ import static app.revanced.extension.shared.utils.Utils.hideViewByRemovingFromPa
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
@@ -20,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import java.lang.ref.WeakReference;
 import java.util.Objects;
 
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -326,37 +323,6 @@ public class PlayerPatch {
 
         isScreenOn = true;
         Utils.runOnMainThreadDelayed(() -> isScreenOn = false, Settings.KEEP_LANDSCAPE_MODE_TIMEOUT.get());
-    }
-
-    private static WeakReference<Activity> watchDescriptorActivityRef = new WeakReference<>(null);
-    private static volatile boolean isLandScapeVideo = true;
-
-    public static void setWatchDescriptorActivity(Activity activity) {
-        watchDescriptorActivityRef = new WeakReference<>(activity);
-    }
-
-    public static boolean forceFullscreen(boolean original) {
-        if (!Settings.FORCE_FULLSCREEN.get())
-            return original;
-
-        Utils.runOnMainThreadDelayed(PlayerPatch::setOrientation, 1000);
-        return true;
-    }
-
-    private static void setOrientation() {
-        final Activity watchDescriptorActivity = watchDescriptorActivityRef.get();
-        final int requestedOrientation = isLandScapeVideo
-                ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                : watchDescriptorActivity.getRequestedOrientation();
-
-        watchDescriptorActivity.setRequestedOrientation(requestedOrientation);
-    }
-
-    public static void setVideoPortrait(int width, int height) {
-        if (!Settings.FORCE_FULLSCREEN.get())
-            return;
-
-        isLandScapeVideo = width > height;
     }
 
     // endregion

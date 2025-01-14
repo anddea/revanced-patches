@@ -20,6 +20,10 @@ private val classLoader = object {}.javaClass.classLoader
 fun Patch<*>.getStringOptionValue(key: String) =
     options[key] as Option<String>
 
+@Suppress("UNCHECKED_CAST")
+fun Patch<*>.getBooleanOptionValue(key: String) =
+    options[key] as Option<Boolean>
+
 fun Option<String>.valueOrThrow() = value
     ?: throw PatchException("Invalid patch option: $title.")
 
@@ -361,6 +365,33 @@ fun updatePathData(document: org.w3c.dom.Document, pathData: String) {
     for (i in 0 until elements.length) {
         val pathElement = elements.item(i) as? Element
         pathElement?.setAttribute("android:pathData", pathData)
+    }
+}
+
+/**
+ * Delete resources from the resource directory.
+ *
+ * @param resources The resources to delete.
+ */
+fun ResourcePatchContext.removeResources(
+    vararg resources: ResourceGroup,
+    createDirectoryIfNotExist: Boolean = false,
+) {
+    val resourceDirectory = get("res")
+
+    for (resourceGroup in resources) {
+        resourceGroup.resources.forEach { resource ->
+            val resourceDirectoryName = resourceGroup.resourceDirectoryName
+            if (createDirectoryIfNotExist) {
+                val targetDirectory = resourceDirectory.resolve(resourceDirectoryName)
+                if (!targetDirectory.isDirectory) Files.createDirectories(targetDirectory.toPath())
+            }
+            val resourceFile = "$resourceDirectoryName/$resource"
+            val targetFile = resourceDirectory.resolve(resourceFile)
+            if(targetFile.exists()) {
+                Files.delete(targetFile.toPath())
+            }
+        }
     }
 }
 

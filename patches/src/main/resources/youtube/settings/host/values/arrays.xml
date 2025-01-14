@@ -42,18 +42,20 @@
         <item>@string/revanced_change_start_page_entry_shorts</item>
         <item>@string/revanced_change_start_page_entry_subscriptions</item>
         <item>@string/revanced_change_start_page_entry_explore</item>
+        <item>@string/revanced_change_start_page_entry_notifications</item>
         <item>@string/revanced_change_start_page_entry_library</item>
+        <item>@string/revanced_change_start_page_entry_your_clips</item>
         <item>@string/revanced_change_start_page_entry_liked_videos</item>
         <item>@string/revanced_change_start_page_entry_watch_later</item>
         <item>@string/revanced_change_start_page_entry_history</item>
         <item>@string/revanced_change_start_page_entry_trending</item>
+        <item>@string/revanced_change_start_page_entry_courses</item>
         <item>@string/revanced_change_start_page_entry_gaming</item>
         <item>@string/revanced_change_start_page_entry_live</item>
         <item>@string/revanced_change_start_page_entry_music</item>
         <item>@string/revanced_change_start_page_entry_movies</item>
         <item>@string/revanced_change_start_page_entry_sports</item>
         <item>@string/revanced_change_start_page_entry_browse</item>
-        <item>@string/revanced_change_start_page_entry_courses</item>
     </string-array>
     <string-array name="revanced_change_start_page_entry_values">
         <item>ORIGINAL</item>
@@ -63,11 +65,14 @@
         <!-- Browser Id -->
         <item>SUBSCRIPTIONS</item>
         <item>EXPLORE</item>
+        <item>NOTIFICATIONS</item>
         <item>LIBRARY</item>
+        <item>YOUR_CLIPS</item>
         <item>LIKED_VIDEO</item>
         <item>WATCH_LATER</item>
         <item>HISTORY</item>
         <item>TRENDING</item>
+        <item>COURSES</item>
         <item>GAMING</item>
         <item>LIVE</item>
         <item>MUSIC</item>
@@ -109,6 +114,18 @@
         <item>1080</item>
         <item>1440</item>
         <item>2160</item>
+    </string-array>
+    <string-array name="revanced_exit_fullscreen_entries">
+        <item>@string/revanced_exit_fullscreen_entry_1</item>
+        <item>@string/revanced_exit_fullscreen_entry_2</item>
+        <item>@string/revanced_exit_fullscreen_entry_3</item>
+        <item>@string/revanced_exit_fullscreen_entry_4</item>
+    </string-array>
+    <string-array name="revanced_exit_fullscreen_entry_values">
+        <item>DISABLED</item>
+        <item>PORTRAIT</item>
+        <item>LANDSCAPE</item>
+        <item>PORTRAIT_LANDSCAPE</item>
     </string-array>
     <string-array name="revanced_external_downloader_video_label">
         <item>NewPipe</item>
@@ -255,25 +272,17 @@
         <item>HEART_TINT</item>
         <item>HIDDEN</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_type_android_entries">
-        <item>@string/revanced_spoof_streaming_data_type_entry_android_unplugged</item>
+    <string-array name="revanced_spoof_streaming_data_type_entries">
         <item>@string/revanced_spoof_streaming_data_type_entry_android_vr</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_type_android_entry_values">
-        <item>ANDROID_UNPLUGGED</item>
-        <item>ANDROID_VR</item>
-    </string-array>
-    <string-array name="revanced_spoof_streaming_data_type_android_ios_entries">
-        <item>@string/revanced_spoof_streaming_data_type_entry_ios</item>
+        <item>@string/revanced_spoof_streaming_data_type_entry_android_unplugged</item>
         <item>@string/revanced_spoof_streaming_data_type_entry_ios_unplugged</item>
-        <item>@string/revanced_spoof_streaming_data_type_entry_android_unplugged</item>
-        <item>@string/revanced_spoof_streaming_data_type_entry_android_vr</item>
+        <item>@string/revanced_spoof_streaming_data_type_entry_ios</item>
     </string-array>
-    <string-array name="revanced_spoof_streaming_data_type_android_ios_entry_values">
-        <item>IOS</item>
-        <item>IOS_UNPLUGGED</item>
-        <item>ANDROID_UNPLUGGED</item>
+    <string-array name="revanced_spoof_streaming_data_type_entry_values">
         <item>ANDROID_VR</item>
+        <item>ANDROID_UNPLUGGED</item>
+        <item>IOS_UNPLUGGED</item>
+        <item>IOS</item>
     </string-array>
     <string-array name="revanced_spoof_app_version_target_entries">
     </string-array>

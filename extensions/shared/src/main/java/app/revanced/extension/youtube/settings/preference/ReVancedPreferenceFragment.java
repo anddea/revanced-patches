@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity.setToolbarLayoutParams;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
 import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
@@ -18,6 +19,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Insets;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
@@ -31,6 +33,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.util.TypedValue;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -202,6 +205,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                                 .findViewById(android.R.id.content)
                                 .getParent();
 
+                        // Fix required for Android 15
+                        if (isSDKAbove(35)) {
+                            rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+                                Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
+                                v.setPadding(0, statusInsets.top, 0, 0);
+                                return insets;
+                            });
+                        }
+
                         Toolbar toolbar = new Toolbar(preferenceScreen.getContext());
 
                         toolbar.setTitle(preferenceScreen.getTitle());
@@ -218,6 +230,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         if (toolbarTextView != null) {
                             toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
                         }
+
+                        setToolbarLayoutParams(toolbar);
 
                         rootView.addView(toolbar, 0);
                         return false;

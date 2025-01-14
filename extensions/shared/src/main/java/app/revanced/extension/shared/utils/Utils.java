@@ -54,8 +54,6 @@ public class Utils {
     @SuppressLint("StaticFieldLeak")
     public static Context context;
 
-    private static Resources resources;
-
     protected Utils() {
     } // utility class
 
@@ -142,6 +140,24 @@ public class Utils {
         return backgroundThreadPool.submit(call);
     }
 
+    /**
+     * Simulates a delay by doing meaningless calculations.
+     * Used for debugging to verify UI timeout logic.
+     */
+    @SuppressWarnings("UnusedReturnValue")
+    public static long doNothingForDuration(long amountOfTimeToWaste) {
+        final long timeCalculationStarted = System.currentTimeMillis();
+        Logger.printDebug(() -> "Artificially creating delay of: " + amountOfTimeToWaste + "ms");
+
+        long meaninglessValue = 0;
+        while (System.currentTimeMillis() - timeCalculationStarted < amountOfTimeToWaste) {
+            // could do a thread sleep, but that will trigger an exception if the thread is interrupted
+            meaninglessValue += Long.numberOfLeadingZeros((long) Math.exp(Math.random()));
+        }
+        // return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
+        // leaving an empty loop that hammers on the System.currentTimeMillis native call
+        return meaninglessValue;
+    }
 
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
         return indexOfFirstFound(value, targets) >= 0;
@@ -264,11 +280,15 @@ public class Utils {
     }
 
     public static Resources getResources() {
-        if (resources == null) {
-            return getLocalizedContextAndSetResources(getContext()).getResources();
-        } else {
-            return resources;
+        Activity mActivity = activityRef.get();
+        if (mActivity != null) {
+            return mActivity.getResources();
         }
+        Context mContext = getContext();
+        if (mContext != null) {
+            return mContext.getResources();
+        }
+        throw new IllegalStateException("Get resources failed");
     }
 
     /**
@@ -285,6 +305,9 @@ public class Utils {
         Activity mActivity = activityRef.get();
         if (mActivity == null) {
             return mContext;
+        }
+        if (mContext == null) {
+            return null;
         }
 
         // Locale of MainActivity.
@@ -303,7 +326,6 @@ public class Utils {
 
         // If they are identical, no need to override them.
         if (applicationLocale == contextLocale) {
-            resources = mActivity.getResources();
             return mContext;
         }
 
@@ -311,9 +333,7 @@ public class Utils {
         Locale.setDefault(applicationLocale);
         Configuration configuration = new Configuration(mContext.getResources().getConfiguration());
         configuration.setLocale(applicationLocale);
-        Context localizedContext = mContext.createConfigurationContext(configuration);
-        resources = localizedContext.getResources();
-        return localizedContext;
+        return mContext.createConfigurationContext(configuration);
     }
 
     public static void setActivity(Activity mainActivity) {
@@ -462,16 +482,6 @@ public class Utils {
         return false;
     }
 
-    public static boolean isDarkModeEnabled() {
-        return isDarkModeEnabled(context);
-    }
-
-    public static boolean isDarkModeEnabled(Context context) {
-        Configuration config = context.getResources().getConfiguration();
-        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
-    }
-
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
@@ -512,6 +522,11 @@ public class Utils {
                     }
                 }
         );
+    }
+
+    public static boolean isLandscapeOrientation() {
+        final int orientation = context.getResources().getConfiguration().orientation;
+        return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     /**
