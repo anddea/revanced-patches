@@ -38,9 +38,6 @@ public class GmsCoreSupport {
     private static final String DONT_KILL_MY_APP_LINK
             = "https://dontkillmyapp.com";
 
-    private static final String META_SPOOF_PACKAGE_NAME =
-            GMS_CORE_PACKAGE_NAME + ".SPOOFED_PACKAGE_NAME";
-
     private static void open(Activity mActivity, String queryOrLink) {
         Intent intent;
         try {
@@ -190,52 +187,6 @@ public class GmsCoreSupport {
             return !powerManager.isIgnoringBatteryOptimizations(GMS_CORE_PACKAGE_NAME);
         }
         return false;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static String spoofPackageName(Context context) {
-        // Package name of ReVanced.
-        final String packageName = context.getPackageName();
-
-        try {
-            final PackageManager packageManager = context.getPackageManager();
-
-            // Package name of YouTube or YouTube Music.
-            String originalPackageName;
-
-            try {
-                originalPackageName = packageManager
-                        .getPackageInfo(packageName, PackageManager.GET_META_DATA)
-                        .applicationInfo
-                        .metaData
-                        .getString(META_SPOOF_PACKAGE_NAME);
-            } catch (PackageManager.NameNotFoundException exception) {
-                Logger.printDebug(() -> "Failed to parsing metadata");
-                return packageName;
-            }
-
-            if (StringUtils.isBlank(originalPackageName)) {
-                Logger.printDebug(() -> "Failed to parsing spoofed package name");
-                return packageName;
-            }
-
-            try {
-                packageManager.getPackageInfo(originalPackageName, PackageManager.GET_ACTIVITIES);
-            } catch (PackageManager.NameNotFoundException exception) {
-                Logger.printDebug(() -> "Original app '" + originalPackageName + "' was not found");
-                return packageName;
-            }
-
-            Logger.printDebug(() -> "Package name of '" + packageName + "' spoofed to '" + originalPackageName + "'");
-
-            return originalPackageName;
-        } catch (Exception ex) {
-            Logger.printException(() -> "spoofPackageName failure", ex);
-        }
-
-        return packageName;
     }
 
     private static boolean isAndroidAutomotive(Context context) {
