@@ -2,7 +2,9 @@ package app.revanced.patches.shared.translations
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
+import app.revanced.util.doRecursively
 import app.revanced.util.inputStreamFromBundledResource
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.File
 import java.nio.file.Files
@@ -59,7 +61,7 @@ fun ResourcePatchContext.baseTranslationsPatch(
             val destinationFile = valuesDirectory.resolve("strings.xml")
 
             updateStringsXml(customLangFile, destinationFile)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             // Exception is thrown if an invalid path is used in the patch option.
             throw PatchException("Invalid custom translations path:  $customLang")
         }
@@ -84,6 +86,33 @@ fun ResourcePatchContext.baseTranslationsPatch(
     APP_LANGUAGES.filter { it !in filteredStringResources }.forEach { language ->
         resourceDirectory.resolve("values-$language").takeIf { it.exists() && it.isDirectory }
             ?.deleteRecursively()
+    }
+
+    // Filter the app languages to include both versions of locales (with and without 'r', en-rGB and en-GB)
+    // and also handle locales with "b+" prefix
+    val filteredAppLanguages = selectedStringResourcesArray.flatMap { language ->
+        setOf(language, language.replace("-r", "-"),
+            language.replace("b+", "").replace("+", "-"))
+    }.toTypedArray()
+
+    // Remove unselected app languages from UI
+    document("res/xml/locales_config.xml").use { document ->
+        val nodesToRemove = mutableListOf<Node>()
+
+        document.doRecursively { node ->
+            if (node is Element && node.tagName == "locale") {
+                node.getAttributeNode("android:name")?.let { attribute ->
+                    if (attribute.textContent != "en" && attribute.textContent !in filteredAppLanguages) {
+                        nodesToRemove.add(node)
+                    }
+                }
+            }
+        }
+
+        // Remove the collected nodes (avoids NullPointerException)
+        for (node in nodesToRemove) {
+            node.parentNode?.removeChild(node)
+        }
     }
 }
 
