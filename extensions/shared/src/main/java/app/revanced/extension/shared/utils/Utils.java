@@ -359,7 +359,17 @@ public class Utils {
         //
         // Info level also helps debug if a patch hook is called before
         // the context is set since debug logging is off by default.
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Set context: ");
+        sb.append(appContext);
+        StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
+        if (stackTraceElement.length > 3) {
+            sb.append("\n");
+            sb.append("Called from method: ");
+            sb.append(stackTraceElement[3]);
+        }
+
+        Logger.initializationInfo(Utils.class, sb.toString());
     }
 
     public static void setClipboard(@NonNull String text) {
