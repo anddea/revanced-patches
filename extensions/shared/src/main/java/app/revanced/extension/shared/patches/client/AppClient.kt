@@ -4,6 +4,7 @@ import android.os.Build
 import app.revanced.extension.shared.patches.PatchStatus
 import app.revanced.extension.shared.settings.BaseSettings
 import org.apache.commons.lang3.ArrayUtils
+import java.util.Locale
 
 /**
  * Used to fetch streaming data.
@@ -106,8 +107,16 @@ object AppClient {
      * but for some reason the build.props for the `Quest 3` state that the SDK version is 32.
      */
     private const val ANDROID_SDK_VERSION_ANDROID_VR = "32"
-    private val USER_AGENT_ANDROID_VR =
-        androidUserAgent(PACKAGE_NAME_ANDROID_VR, CLIENT_VERSION_ANDROID_VR, OS_VERSION_ANDROID_VR)
+    private const val BUILD_ID_ANDROID_VR = "SQ3A.220605.009.A1"
+    private const val CHIPSET_ANDROID_VR = "Qualcomm;SXR2230P"
+
+    private val USER_AGENT_ANDROID_VR = androidUserAgent(
+        packageName = PACKAGE_NAME_ANDROID_VR,
+        clientVersion = CLIENT_VERSION_ANDROID_VR,
+        osVersion = OS_VERSION_ANDROID_VR,
+        deviceModel = DEVICE_MODEL_ANDROID_VR,
+        buildId = BUILD_ID_ANDROID_VR
+    )
 
 
     // ANDROID UNPLUGGED
@@ -126,10 +135,16 @@ object AppClient {
     private const val DEVICE_MAKE_ANDROID_UNPLUGGED = "Google"
     private const val OS_VERSION_ANDROID_UNPLUGGED = "14"
     private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
+    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTT3.240625.001.K5"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244336107"
+    private const val CHIPSET_ANDROID_UNPLUGGED = "Mediatek;MT8696"
+
     private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
-        PACKAGE_NAME_ANDROID_UNPLUGGED,
-        CLIENT_VERSION_ANDROID_UNPLUGGED,
-        OS_VERSION_ANDROID_UNPLUGGED
+        packageName = PACKAGE_NAME_ANDROID_UNPLUGGED,
+        clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
+        osVersion = OS_VERSION_ANDROID_UNPLUGGED,
+        deviceModel = DEVICE_MODEL_ANDROID_UNPLUGGED,
+        buildId = BUILD_ID_ANDROID_UNPLUGGED
     )
 
 
@@ -141,9 +156,24 @@ object AppClient {
     private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
     private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101"
 
+    /**
+     * The device machine id for the Google Pixel 9 Pro Fold.
+     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/barbet) for more information.
+     */
+    private const val DEVICE_MODEL_ANDROID_CREATOR = "Pixel 9 Pro Fold"
+    private const val DEVICE_MAKE_ANDROID_CREATOR = "Google"
+    private const val OS_VERSION_ANDROID_CREATOR = "15"
+    private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "35"
+    private const val BUILD_ID_ANDROID_CREATOR = "AP3A.241005.015.A2"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "244738035"
+    private const val CHIPSET_ANDROID_CREATOR = "Google;Tensor G4"
+
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
-        PACKAGE_NAME_ANDROID_CREATOR,
-        CLIENT_VERSION_ANDROID_CREATOR
+        packageName = PACKAGE_NAME_ANDROID_CREATOR,
+        clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
+        osVersion = OS_VERSION_ANDROID_CREATOR,
+        deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
+        buildId = BUILD_ID_ANDROID_CREATOR
     )
 
 
@@ -158,35 +188,52 @@ object AppClient {
      * It is not the default client yet, as it requires sufficient testing.
      */
     private const val CLIENT_VERSION_ANDROID_MUSIC = "4.27.53"
+
+    /**
+     * The device machine id for the Google Pixel 4.
+     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/flame) for more information.
+     */
+    private const val DEVICE_MODEL_ANDROID_MUSIC = "Pixel 4"
+    private const val DEVICE_MAKE_ANDROID_MUSIC = "Google"
+    private const val OS_VERSION_ANDROID_MUSIC = "11"
+    private const val ANDROID_SDK_VERSION_ANDROID_MUSIC = "30"
+    private const val BUILD_ID_ANDROID_MUSIC = "SPP2.210219.008"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_MUSIC = "244738022"
+    private const val CHIPSET_ANDROID_MUSIC = "Qualcomm;SM8150"
+
     private val USER_AGENT_ANDROID_MUSIC = androidUserAgent(
-        PACKAGE_NAME_ANDROID_MUSIC,
-        CLIENT_VERSION_ANDROID_MUSIC
+        packageName = PACKAGE_NAME_ANDROID_MUSIC,
+        clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
+        osVersion = OS_VERSION_ANDROID_MUSIC,
+        deviceModel = DEVICE_MODEL_ANDROID_MUSIC,
+        buildId = BUILD_ID_ANDROID_MUSIC
     )
 
 
+    /**
+     * Same format as Android YouTube User-Agent.
+     * Example: 'com.google.android.youtube/19.46.40(Linux; U; Android 13; in_ID; 21061110AG Build/TP1A.220624.014) gzip'
+     * Source: https://whatmyuseragent.com/apps/youtube.
+     */
     private fun androidUserAgent(
         packageName: String,
         clientVersion: String,
-        osVersion: String? = Build.VERSION.RELEASE
-    ): String {
-        return packageName +
-                "/" +
-                clientVersion +
-                " (Linux; U; Android " +
-                osVersion +
-                "; GB) gzip"
-    }
+        osVersion: String? = Build.VERSION.RELEASE,
+        deviceModel: String? = Build.MODEL,
+        buildId: String? = Build.ID,
+    ): String =
+        "$packageName/$clientVersion(Linux; U; Android $osVersion; ${Locale.getDefault()}; $deviceModel Build/$buildId) gzip"
 
-    private fun iOSUserAgent(packageName: String, clientVersion: String): String {
-        return packageName +
-                "/" +
-                clientVersion +
-                "(" +
-                DEVICE_MODEL_IOS +
-                "; U; CPU iOS " +
-                USER_AGENT_VERSION_IOS +
-                " like Mac OS X)"
-    }
+    /**
+     * Same format as iOS YouTube User-Agent.
+     * Example: 'com.google.ios.youtube/16.38.2 (iPhone9,4; U; CPU iOS 14_7_1 like Mac OS X; en_AU)'
+     * Source: https://github.com/mitmproxy/mitmproxy/issues/4836.
+     */
+    private fun iOSUserAgent(
+        packageName: String,
+        clientVersion: String
+    ): String =
+        "$packageName/$clientVersion ($DEVICE_MODEL_IOS; U; CPU iOS $USER_AGENT_VERSION_IOS like Mac OS X; ${Locale.getDefault()})"
 
     private fun forceAVC(): Boolean {
         return BaseSettings.SPOOF_STREAMING_DATA_IOS_FORCE_AVC.get()
@@ -248,6 +295,14 @@ object AppClient {
          */
         val clientVersion: String,
         /**
+         * GmsCore versionCode.
+         */
+        val gmscoreVersionCode: String? = null,
+        /**
+         * ChipSet.
+         */
+        val chipset: String? = null,
+        /**
          * If the client can access the API logged in.
          * If false, 'Authorization' must not be included.
          */
@@ -274,6 +329,7 @@ object AppClient {
             userAgent = USER_AGENT_ANDROID_VR,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
             clientVersion = CLIENT_VERSION_ANDROID_VR,
+            chipset = CHIPSET_ANDROID_VR,
             friendlyName = "Android VR"
         ),
         ANDROID_UNPLUGGED(
@@ -284,13 +340,21 @@ object AppClient {
             userAgent = USER_AGENT_ANDROID_UNPLUGGED,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_UNPLUGGED,
             clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
+            gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED,
+            chipset = CHIPSET_ANDROID_UNPLUGGED,
             requireAuth = true,
             friendlyName = "Android TV"
         ),
         ANDROID_CREATOR(
             id = 14,
+            deviceMake = DEVICE_MAKE_ANDROID_CREATOR,
+            deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
+            osVersion = OS_VERSION_ANDROID_CREATOR,
             userAgent = USER_AGENT_ANDROID_CREATOR,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_CREATOR,
             clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
+            gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_CREATOR,
+            chipset = CHIPSET_ANDROID_CREATOR,
             requireAuth = true,
             friendlyName = "Android Studio"
         ),
@@ -325,8 +389,14 @@ object AppClient {
         ),
         ANDROID_MUSIC(
             id = 21,
+            deviceMake = DEVICE_MAKE_ANDROID_MUSIC,
+            deviceModel = DEVICE_MODEL_ANDROID_MUSIC,
+            osVersion = OS_VERSION_ANDROID_MUSIC,
             userAgent = USER_AGENT_ANDROID_MUSIC,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_MUSIC,
             clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
+            gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_MUSIC,
+            chipset = CHIPSET_ANDROID_MUSIC,
             requireAuth = true,
             friendlyName = "Android Music"
         );
