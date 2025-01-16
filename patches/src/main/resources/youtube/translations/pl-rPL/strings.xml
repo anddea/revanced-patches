@@ -16,8 +16,8 @@ Wyłączenie optymalizacji baterii dla GmsCore nie wpłynie negatywnie na zużyc
 Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
     <string name="gms_core_dialog_title">Wymagana akcja</string>
-    <string name="gms_core_settings_summary">Włącz cloud messaging, by otrzymywać powiadomienia.</string>
-    <string name="gms_core_settings_title">Otwórz GmsCore</string>
+    <string name="gms_core_settings_summary">Otwiera ustawienia GmsCore. Następnie włącz cloud messaging, by otrzymywać powiadomienia.</string>
+    <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow dostarcza miniaturki filmów z YouTube pochodzące z procesu crowdsourcingu. Miniaturki te są często bardziej trafne niż te dostarczane przez YouTube. Jeśli opcja ta jest włączona, adresy URL filmów będą wysyłane do serwera API i nie będą wysyłane żadne inne dane. Jeśli film nie posiada miniaturki od DeArrow, to wyświetla się oryginalna lub przechwycona z filmu.
 
@@ -486,7 +486,7 @@ Sklep"</string>
     <string name="revanced_hide_comment_thanks_button_title">Przycisk od dziękowania</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Widoczne</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Ukryte</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Czas i przyciski od emotikon</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Przyciski czasu i emotikon</string>
     <string name="revanced_hide_comments_by_members_summary_off">Widoczne</string>
     <string name="revanced_hide_comments_by_members_summary_on">Ukryte</string>
     <string name="revanced_hide_comments_by_members_title">Banery z komentarzami sponsorów</string>
@@ -629,8 +629,8 @@ Słowa z wielkimi literami w środku muszą być wpisane z odpowiednią wielkoś
     <string name="revanced_hide_like_dislike_button_summary_off">Widoczne</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Ukryte</string>
     <string name="revanced_hide_like_dislike_button_title">Przyciski od łapkowania w górę i dół</string>
-    <string name="revanced_hide_live_chat_messages_summary_off">Widoczne\n\nUstawienie te dotyczy również transmisji na żywo za pośrednictwem Shortsów.</string>
-    <string name="revanced_hide_live_chat_messages_summary_on">Ukryte\n\nUstawienie te dotyczy również transmisji na żywo za pośrednictwem Shortsów.</string>
+    <string name="revanced_hide_live_chat_messages_summary_off">Widoczne\n\nUstawienie te dotyczy również transmisji na żywo w Shortsach.</string>
+    <string name="revanced_hide_live_chat_messages_summary_on">Ukryte\n\nUstawienie te dotyczy również transmisji na żywo w Shortsach.</string>
     <string name="revanced_hide_live_chat_messages_title">Wiadomości z czatu na żywo</string>
     <string name="revanced_hide_live_chat_replay_button_summary_off">Widoczny\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Ukryty\n\nPojawia się również w trybie pełnoekranowym po zamknięciu czatu na żywo.</string>
@@ -1243,7 +1243,10 @@ Stuknij i przytrzymaj, by skopiować czas filmu."</string>
     <string name="revanced_overlay_button_not_allowed_warning">Stuknij i przytrzymaj, by zmienić działanie przycisku</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">Nie można wygenerować playlisty z powodu niedopasowania ID kanału.</string>
     <string name="revanced_overlay_button_play_all_summary">"Stuknij, by wygenerować playlistę ze wszystkimi filmikami z kanału.
-Stuknij i przytrzymaj, by to cofnąć."</string>
+Stuknij i przytrzymaj, by to cofnąć.
+
+Informacja:
+• Może nie działać w transmisjach na żywo"</string>
     <string name="revanced_overlay_button_play_all_title">Przycisk od odtwarzania wszystkiego</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">Cała zawartość (sortowanie po czasie, rosnąco)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">Cała zawartość (sortowanie po czasie)</string>
@@ -1266,7 +1269,7 @@ Stuknij i przytrzymaj, by zmienić prędkość odtwarzania na 1.0x. Stuknij i pr
     <string name="revanced_overlay_button_whitelist_summary">Stuknij, by otworzyć okno białej listy.
 Stuknij i przytrzymaj, by otworzyć okno ustawień białej listy.</string>
     <string name="revanced_overlay_button_whitelist_title">Przycisk od białej listy</string>
-    <string name="revanced_override_playlist_download_button_summary_off">Natywne pobieranie</string>
+    <string name="revanced_override_playlist_download_button_summary_off">Natywne pobieranie (jeśli jest widoczne, otwiera natywne pobieranie filmu)</string>
     <string name="revanced_override_playlist_download_button_summary_on">Zewnętrzna aplikacja</string>
     <string name="revanced_override_playlist_download_button_title">Metoda pobierania playlist</string>
     <string name="revanced_override_video_download_button_summary_off">Natywne pobieranie</string>
@@ -1467,8 +1470,8 @@ Ograniczenie: Liczba łapek w dół może nie być widoczna, gdy użytkownik nie
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte</string>
     <string name="revanced_sanitize_sharing_links_summary">Usuwa śledzące parametry z adresów URL podczas udostępniania linków</string>
     <string name="revanced_sanitize_sharing_links_title">Oczyść udostępniane linki</string>
-    <string name="revanced_sanitize_video_subtitle_summary_off">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są widoczne"</string>
-    <string name="revanced_sanitize_video_subtitle_summary_on">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są ukryte"</string>
+    <string name="revanced_sanitize_video_subtitle_summary_off">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są widoczne w napisach filmu"</string>
+    <string name="revanced_sanitize_video_subtitle_summary_on">"Frazy takie jak '#', 'Zbiórka', 'Sklep' i 'Produkty' są ukryte w napisach filmu"</string>
     <string name="revanced_sanitize_video_subtitle_title">Oczyść napisy w filmach</string>
     <string name="revanced_sb_about">O integracji</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>

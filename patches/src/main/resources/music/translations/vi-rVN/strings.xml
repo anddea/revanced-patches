@@ -13,8 +13,8 @@ Tắt tối ưu hoá pin cho GmsCore sẽ không làm ảnh hưởng đáng kể
 Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá pin."</string>
     <string name="gms_core_dialog_open_website_text">Mở trang web</string>
     <string name="gms_core_dialog_title">Hành động cần thiết</string>
-    <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt MicroG và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
-    <string name="gms_core_settings_title">GmsCore</string>
+    <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
+    <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Thay thế miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế khu vực cho hình ảnh</string>
@@ -64,9 +64,9 @@ Trong trường hợp đó, hệ thống sẽ tìm và chuyển hướng tới b
     <string name="revanced_enable_black_navigation_bar_summary">Đặt màu thanh điều hướng phía dưới cùng thành màu đen.</string>
     <string name="revanced_enable_black_navigation_bar_title">Thanh điều hướng màu đen</string>
     <string name="revanced_enable_black_player_background_summary">Thay đổi màu nền trình phát thành màu đen.</string>
-    <string name="revanced_enable_black_player_background_title">Nền trình phát màu đen</string>
-    <string name="revanced_enable_color_match_player_summary">Đồng bộ màu của trình phát thu nhỏ với màu của trình phát.</string>
-    <string name="revanced_enable_color_match_player_title">Trình phát thu nhỏ khớp màu</string>
+    <string name="revanced_enable_black_player_background_title">Thay đổi màu nền của trình phát</string>
+    <string name="revanced_enable_color_match_player_summary">Thay đổi màu của trình phát thu nhỏ khớp với màu của trình phát toàn màn hình.</string>
+    <string name="revanced_enable_color_match_player_title">Thay đổi màu của trình phát thu nhỏ</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
 Hạn chế:
@@ -99,9 +99,9 @@ Cụ thể:
  • Tính năng này dành cho podcast.
  • Tính năng này vẫn đang được phát triển nên có thể chưa ổn định."</string>
     <string name="revanced_enable_trim_silence_title">Cắt bỏ khoảng lặng</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">Đồng thời bật chế độ tập trung cho podcast.</string>
-    <string name="revanced_enable_zen_mode_podcast_title">Chế độ tập trung cho podcast</string>
-    <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp bạn giảm mỏi mắt và tập trung hơn.</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Chế độ tập trung cho Podcast.</string>
+    <string name="revanced_enable_zen_mode_podcast_title">Chế độ tập trung cho Podcast</string>
+    <string name="revanced_enable_zen_mode_summary">Thay đổi nền của trình phát thành màu xám nhạt để giúp mắt của bạn thư giãn hơn.</string>
     <string name="revanced_enable_zen_mode_title">Chế độ tập trung</string>
     <string name="revanced_extended_reset_to_default_toast">Đặt lại về giá trị mặc định.</string>
     <string name="revanced_extended_restart_first_run">Vui lòng khởi động lại ứng dụng để các tính năng hoạt động bình thường</string>
@@ -152,8 +152,8 @@ Cụ thể:
     <string name="revanced_hide_action_button_radio_title">Ẩn nút Đài phát</string>
     <string name="revanced_hide_action_button_share_summary">Ẩn nút Chia sẻ trong thanh thao tác.</string>
     <string name="revanced_hide_action_button_share_title">Ẩn nút Chia sẻ</string>
-    <string name="revanced_hide_audio_video_switch_toggle_summary">Ẩn nút chuyển đổi Bài hát/Video trong trình phát.</string>
-    <string name="revanced_hide_audio_video_switch_toggle_title">Ẩn nút chuyển đổi Bài hát/Video</string>
+    <string name="revanced_hide_audio_video_switch_toggle_summary">Ẩn nút chuyển đổi giữa Bài hát và Video trong trình phát.</string>
+    <string name="revanced_hide_audio_video_switch_toggle_title">Ẩn nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_hide_button_shelf_summary">Ẩn khối danh mục ở cuối thẻ Trang chủ và đầu thẻ Khám phá.</string>
     <string name="revanced_hide_button_shelf_title">Ẩn khối danh mục</string>
     <string name="revanced_hide_carousel_shelf_summary">Ẩn các kệ được cá nhân hoá dựa trên sở thích của bạn khỏi thẻ Trang chủ và thẻ Khám phá.</string>
@@ -164,8 +164,8 @@ Cụ thể:
     <string name="revanced_hide_category_bar_title">Ẩn thanh danh mục</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Ẩn các nhãn nguyên tắc (Nguyên tắc cộng đồng, Nguyên tắc của kênh,...) trong phần Bình luận.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ẩn các nhãn nguyên tắc</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ẩn nút dấu thời gian và các biểu tượng cảm xúc khi đang nhập bình luận.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ẩn nút dấu thời gian và các biểu tượng cảm xúc</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ẩn biểu tượng cảm xúc và nút dấu thời gian khi đang nhập bình luận.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ẩn biểu tượng cảm xúc và nút dấu thời gian</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Ẩn lớp phủ tối xuất hiện khi nhấn đúp để tua.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ẩn lớp phủ khi nhấn đúp để tua</string>
     <string name="revanced_hide_floating_button_summary">Ẩn nút nổi trong thẻ Thư viện.</string>
@@ -221,8 +221,8 @@ Hạn chế:
     <string name="revanced_hide_navigation_explore_button_title">Ẩn thẻ Khám phá</string>
     <string name="revanced_hide_navigation_home_button_summary">Ẩn thẻ Trang chủ khỏi thanh điều hướng.</string>
     <string name="revanced_hide_navigation_home_button_title">Ẩn nút Trang chủ</string>
-    <string name="revanced_hide_navigation_label_summary">Ẩn tên thẻ trên thanh điều hướng.</string>
-    <string name="revanced_hide_navigation_label_title">Ẩn tên thẻ</string>
+    <string name="revanced_hide_navigation_label_summary">Ẩn tên bên dưới các nút trên thanh điều hướng.</string>
+    <string name="revanced_hide_navigation_label_title">Ẩn tên bên dưới nút</string>
     <string name="revanced_hide_navigation_library_button_summary">Ẩn thẻ Thư viện khỏi thanh điều hướng.</string>
     <string name="revanced_hide_navigation_library_button_title">Ẩn thẻ Thư viện</string>
     <string name="revanced_hide_navigation_samples_button_summary">Ẩn thẻ Đoạn nhạc khỏi thanh điều hướng.</string>
@@ -308,13 +308,13 @@ Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục C�
     <string name="revanced_replace_flyout_menu_report_title">Thay thế mục Báo vi phạm</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Khôi phục bảng bình luận kiểu cũ.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Bảng bình luận kiểu cũ</string>
-    <string name="revanced_restore_old_player_background_summary">Khôi phục nền trình phát về kiểu cũ.</string>
+    <string name="revanced_restore_old_player_background_summary">Khôi phục nền của trình phát về kiểu cũ.</string>
     <string name="revanced_restore_old_player_background_title">Nền trình phát kiểu cũ</string>
     <string name="revanced_restore_old_player_layout_summary">"Khôi phục bố cục trình phát về kiểu cũ.
-\nLưu ý: Một số tính năng có thể không hoạt động bình thường trong bố cục trình phát kiểu cũ."</string>
+Một số tính năng có thể không hoạt động bình thường trong bố cục trình phát kiểu cũ."</string>
     <string name="revanced_restore_old_player_layout_title">Bố cục trình phát kiểu cũ</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Khôi phục lại thẻ Thư viện về kiểu cũ. (Thử nghiệm)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Thẻ Thư viện kiểu cũ</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Thẻ Thư viện cũ</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Tên người dùng)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Chọn định dạng hiển thị tên người dùng.</string>
     <string name="revanced_return_youtube_username_display_format_title">Định dạng hiển thị</string>
@@ -397,7 +397,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua Đoạn xem trước.</string>
     <string name="revanced_sb_skipped_preview_end">Đã bỏ qua Phần tóm tắt.</string>
     <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua Đoạn xem trước.</string>
-    <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua Tự quảng cáo.</string>
+    <string name="revanced_sb_skipped_selfpromo">Đã bỏ qua đoạn Tự quảng cáo.</string>
     <string name="revanced_sb_skipped_sponsor">Đã bỏ qua Nhà tài trợ.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tạm thời không khả dụng.</string>
     <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tạm thời không khả dụng (trạng thái %d).</string>

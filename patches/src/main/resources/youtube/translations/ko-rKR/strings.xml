@@ -17,7 +17,7 @@ GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
     <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
-    <string name="gms_core_settings_title">GmsCore 열기</string>
+    <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
 
@@ -162,7 +162,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 자동재생은 YouTube 설정에서 변경할 수 있습니다:
 설정 → 자동재생 → 다음 동영상 자동재생"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">믹스 재생목록 자동전환을 비활성화합니다.</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">믹스 재생목록 전환 비활성화하기</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">믹스 재생목록 자동전환 비활성화하기</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">이 설정을 활성화하면 자동재생이 켜져 있는 동안에 음악 동영상을 재생하면 YouTube 믹스 재생목록으로 자동전환되지 않습니다.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">실시간 스트림에서 기본 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">실시간 스트림에서 기본 동영상 재생 속도를 비활성화합니다.</string>
@@ -984,8 +984,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">플레이어 왼쪽 상단에서 다음 버튼들이 표시됩니다.\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">플레이어 왼쪽 상단에서 다음 버튼들이 숨겨집니다.\n• 구독 &amp; 라이브 &amp; 트렌드 &amp; 쇼핑</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">일시 정지 오버레이 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">버튼 배경이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">버튼 배경이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">재생 &amp; 일시 정지 버튼 배경이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">재생 &amp; 일시 정지 버튼 배경이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">재생 &amp; 일시 정지 버튼 배경 숨기기</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">리믹스 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">리믹스 버튼이 숨겨집니다.</string>
@@ -1035,8 +1035,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_sound_button_summary_off">사운드 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">사운드 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_sound_button_title">사운드 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_summary_off">메타데이터 라벨이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_summary_on">메타데이터 라벨이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_summary_off">사운드 메타데이터 라벨이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_summary_on">사운드 메타데이터 라벨이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">사운드 메타데이터 라벨 숨기기</string>
     <string name="revanced_hide_shorts_stickers_summary_off">스티커가 표시됩니다.</string>
     <string name="revanced_hide_shorts_stickers_summary_on">스티커가 숨겨집니다.</string>
@@ -1062,8 +1062,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
-    <string name="revanced_hide_shorts_video_title_summary_off">제목이 표시됩니다.</string>
-    <string name="revanced_hide_shorts_video_title_summary_on">제목이 숨겨집니다.</string>
+    <string name="revanced_hide_shorts_video_title_summary_off">동영상 제목이 표시됩니다.</string>
+    <string name="revanced_hide_shorts_video_title_summary_on">동영상 제목이 숨겨집니다.</string>
     <string name="revanced_hide_shorts_video_title_title">동영상 제목 숨기기</string>
     <string name="revanced_hide_show_more_button_summary_off">\'자세히 보기\' 버튼이 표시됩니다.</string>
     <string name="revanced_hide_show_more_button_summary_on">\'자세히 보기\' 버튼이 숨겨집니다.</string>
@@ -1819,17 +1819,17 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 필요할 
     <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면 모드에서 스와이프 제스처를 활성화합니다.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면 모드에서 스와이프 제스처 활성화하기</string>
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">자동</string>
-    <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지합니다.</string>
+    <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있습니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정할 수 있습니다. (0–255)</string>
-    <string name="revanced_swipe_overlay_background_alpha_title">오버레이 투명도</string>
+    <string name="revanced_swipe_overlay_background_alpha_summary">스와이프 오버레이 배경 투명도 값을 지정할 수 있습니다.</string>
+    <string name="revanced_swipe_overlay_background_alpha_title">스와이프 오버레이 배경 투명도</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">스와이프 영역 크기는 50 보다 클 수 없습니다.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">스와이프를 할 수 있는 화면 영역 크기를 지정할 수 있습니다. (백분율)\n\n알림: \'두 번 탭하여 탐색\' 제스처의 화면 영역 크기도 변경됩니다.</string>
     <string name="revanced_swipe_overlay_rect_size_title">스와이프 오버레이 화면 크기</string>
-    <string name="revanced_swipe_overlay_text_size_summary">오버레이 텍스트 크기를 지정할 수 있습니다.</string>
-    <string name="revanced_swipe_overlay_text_size_title">오버레이 텍스트 크기</string>
+    <string name="revanced_swipe_overlay_text_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다.</string>
+    <string name="revanced_swipe_overlay_text_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다. (밀리초)</string>
-    <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
+    <string name="revanced_swipe_overlay_timeout_title">스와이프 오버레이 타임아웃</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 감도는 1-1000 사이어야 합니다. (퍼센트)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (퍼센트)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
     <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 감도</string>

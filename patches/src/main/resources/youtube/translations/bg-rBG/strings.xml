@@ -66,12 +66,14 @@
     <string name="revanced_change_share_sheet_summary_off">Списък с приложения за спделяне – вграден.</string>
     <string name="revanced_change_share_sheet_summary_on">Използва се от системният лист за споделяне.</string>
     <string name="revanced_change_share_sheet_title">Списък със приложения за споделяне</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">Промяна на фона на Shorts приповторение</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">Автоматично изпълнение</string>
     <string name="revanced_change_shorts_repeat_state_entry_default">По подразбиране</string>
     <string name="revanced_change_shorts_repeat_state_entry_pause">Пауза</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Повтори</string>
     <string name="revanced_change_shorts_repeat_state_title">Промяна на състоянието - повторение на Shorts</string>
     <string name="revanced_change_start_page_entry_browse">Разглеждане на канала</string>
+    <string name="revanced_change_start_page_entry_courses">Курсове / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По подразбиране</string>
     <string name="revanced_change_start_page_entry_explore">Проучване</string>
     <string name="revanced_change_start_page_entry_gaming">Игри</string>
@@ -88,6 +90,7 @@
     <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
     <string name="revanced_change_start_page_entry_trending">Популярни</string>
     <string name="revanced_change_start_page_entry_watch_later">За Гледане по-късно</string>
+    <string name="revanced_change_start_page_entry_your_clips">Вашите клипове</string>
     <string name="revanced_change_start_page_title">Промяна на началната страница</string>
     <string name="revanced_change_start_page_type_summary_off">Началната страница се променя само веднъж.</string>
     <string name="revanced_change_start_page_type_summary_on">"Началната страница винаги се променя.
@@ -148,10 +151,11 @@
     <string name="revanced_disable_default_playback_speed_live_summary_on">Скоростта на възпроизвеждане по подразбиране е деактивирана за потоци на живо.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Деактивирайте скоростта на възпроизвеждане за потоци на живо</string>
     <string name="revanced_disable_default_playback_speed_music_off">Скоростта на възпроизвеждане по подразбиране е активирана за музика.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Скоростта на възпроизвеждане по подразбиране не се прилага за музикални видеоклипове
-
- Тази настройка може да не се прилага за видеоклипове, които не включват функцията „Слушане с YouTube Music“."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Скоростта на възпроизвеждане по подразбиране е деактивирана за музика.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Деактивирайте скоростта на възпроизвеждане за музика</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Скоростта по подразбиране за категорията YouTube Music е активирана.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Скоростта по подразбиране за категорията YouTube Music е деактивирана.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Изберете скорост въз основа на категориите</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панелът за взаимодействие е активиран.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панелът за взаимодействие е деактивиран.</string>
     <string name="revanced_disable_engagement_panel_title">Панел за взаимодействие</string>
@@ -208,6 +212,21 @@
     <string name="revanced_disable_splash_animation_summary_off">Новата начална анимация е включена.</string>
     <string name="revanced_disable_splash_animation_summary_on">Новата начална анимация е изключена.</string>
     <string name="revanced_disable_splash_animation_title">Анимация при стартиране на приложението</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Плъзгането надолу под плейъра ще влезе в режим на цял екран.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Плъзгането надолу под плейъра няма да влезе в режим на цял екран.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Деактивирайте плъзгането за влизане в режим на цял екран (под плейъра)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Плъзгането нагоре в плейъра ще влезе в режим на цял екран.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Плъзгането нагоре в плейъра няма да влезе в режим на цял екран.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Деактивиране на плъзгане за влизане в режим на цял екран (в плейъра)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Плъзгането надолу на цял екран ще излезе от режима на цял екран.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Плъзгането надолу на цял екран няма да излезе от режима на цял екран.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Деактивирайте плъзгането, за да излезете от режим на цял екран</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">Плъзгането нагоре/надолу в режим на цял екран ще премине към следващото/предишното видео.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">Плъзгането нагоре/надолу в режим на цял екран няма да премине към следващото/предишното видео.</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">Жестове за превключване на видеоклипове</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Лентата на прогреса е непрозрачна или полупрозрачна.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Лентата на прогреса е непрозрачна.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Деактивирайте полупрозрачната лента на прогреса</string>
     <string name="revanced_disable_video_description_interaction_summary">"Деактивирайте следните взаимодействия, когато се отвори описанието на видеоклипа:
 
 • Докоснете за превъртане.
@@ -269,6 +288,18 @@
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_off">Миниатюри с средно качество в лентата на прогреса.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_summary_on">Миниатюри с високо качество в лентата на прогреса.</string>
     <string name="revanced_enable_seekbar_thumbnails_high_quality_title">Висококачествени миниатюри</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Персонализираните действия са деактивирани в падащото меню.</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Персонализираните действия са активирани в падащото меню.
+
+Ограничения:
+• Не работи, ако версията на приложението е подправена до 18.49.37 или по-стара.
+• Не работи с поток на живо."</string>
+    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Активиране на персонални действия в падащото меню</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Персонализираните действия са деактивирани в лентата с инструменти.</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Персонализираните действия са активирани в лентата с инструменти.
+
+Натиснете и задръжте бутона Още, за да се покаже диалоговият прозорец с персонализирани действия."</string>
+    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Активиране на персонални действия в лентата с инструменти</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">Времевите показатели са деактивирани.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"Времевите показатели са активирани.
 Ограничения:
@@ -309,9 +340,16 @@
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широка лента за търсене замества логото на YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Логото на YouTube се появява до широката лента за търсене.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Широка лента за търсене с лого</string>
+    <string name="revanced_enter_fullscreen_summary_off">Не влизайте в режим на цял екран, когато видеото започне.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Влезте в режим на цял екран, когато видеото започне.
+
+Ограничение: Не работи, ако плейърът е минимизиран, в режим PiP или във фонов режим."</string>
+    <string name="revanced_enter_fullscreen_title">Влезте в режим на цял екран, когато видеото започне</string>
     <string name="revanced_exit_fullscreen_entry_1">Изключено</string>
     <string name="revanced_exit_fullscreen_entry_2">Портрет</string>
     <string name="revanced_exit_fullscreen_entry_3">Пейзаж</string>
+    <string name="revanced_exit_fullscreen_entry_4">Портрет и пейзаж</string>
+    <string name="revanced_exit_fullscreen_title">Излезте от режима на цял екран в края на видеото</string>
     <string name="revanced_expand_video_description_strings_default_value">Описание</string>
     <string name="revanced_expand_video_description_strings_summary">"Въведете заглавие в описанието на видеоклипа на вашия език.
 Опцията „Отваряне на описанието автоматично“ може да не работи, ако стойността на заглавието не съвпада със заглавието в описанието."</string>
@@ -572,6 +610,9 @@
     <string name="revanced_hide_live_chat_replay_button_summary_off">Бутонът за повторно възпроизвеждане на чат на живо се показва.\n\nНе се появява на цял екран при затваряне на чат на живо.</string>
     <string name="revanced_hide_live_chat_replay_button_summary_on">Бутонът за повторно възпроизвеждане на чат на живо е скрит.\n\nНе се появява на цял екран при затваряне на чат на живо.</string>
     <string name="revanced_hide_live_chat_replay_button_title">Бутон за повторение на чата на живо</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Показва се чата на живо.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Чата на живо е скрит.</string>
+    <string name="revanced_hide_live_chat_summary_title">Скриване на чата на живо</string>
     <string name="revanced_hide_low_views_video_summary">Скрийте видеоклипове с по-малко от 1000 гледания от емисията и от канали, за които сте се абонирали.</string>
     <string name="revanced_hide_low_views_video_title">Скриване на видеоклипове с малко гледания</string>
     <string name="revanced_hide_medical_panel_summary_off">Медицински панел се показва.</string>
@@ -1169,6 +1210,7 @@ Note:
 Информация:
 • Може да не работи при потоци на живо."</string>
     <string name="revanced_overlay_button_play_all_title">Бутона за възпроизвеждане на всички</string>
+    <string name="revanced_overlay_button_play_all_type_entry_0">Цялото съдържание (Сортиране по време, Възходящо)</string>
     <string name="revanced_overlay_button_play_all_type_entry_1">Цялото съдържание (Сортиране по дата)</string>
     <string name="revanced_overlay_button_play_all_type_entry_10">Видеоклипове само за членове</string>
     <string name="revanced_overlay_button_play_all_type_entry_11"> Shorts само за членове</string>
@@ -1215,6 +1257,7 @@ Note:
     <string name="revanced_preference_category_others">Други</string>
     <string name="revanced_preference_category_overlay_buttons">Добавете бутони към екрана за възпроизвеждане</string>
     <string name="revanced_preference_category_patch_information">Информация за корекции</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Бързи действия</string>
     <string name="revanced_preference_category_recommended_video">Препоръчани видеоклипове</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts рафтове</string>
@@ -1334,6 +1377,10 @@ Note:
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старото меню за видео качество е скрито.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Показва се старото меню за видео качество.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Възстановете старото меню за качество на видеото</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Старият интерфейс на плейъра е деактивиран.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старият интерфейс на плейъра е активиран.
+Без полета в горната и долната част на плейъра."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Стар интерфейс на плейъра</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@handle (Потребителско име)</string>
     <string name="revanced_return_youtube_username_display_format_title">Формат на дисплея</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Потребителско име (@handle)</string>
@@ -1569,8 +1616,31 @@ Note:
     <string name="revanced_share_copy_timestamp_success">Времевата отметка е копирана в клипборда. (%s)</string>
     <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
     <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
+    <string name="revanced_shorts_custom_actions_about_about_summary">"Експериментална функция!
+Без гаранция за работа!
+Повечето грешки не могат да бъдат коригирани поради ограничения от страна на клиента, така че го използвайте само за тестване."</string>
+    <string name="revanced_shorts_custom_actions_about_title">Относно действията на потребителя</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">Копиране адреса на видеото</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Менюто за копиране на URL адреса е скрито.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Показва се менюто за копиране на URL адреса.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Копиране на URL адрес на времево клеймо</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Копиране на URL менюто е скрито.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Показва се менюто за копиране на URL адреса.</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Показване на менюто за URL адрес на копиране</string>
+    <string name="revanced_shorts_custom_actions_copy_video_url_title">Показване на менюто за копиране на URL адреса на видеоклипа</string>
     <string name="revanced_shorts_custom_actions_external_downloader_label">Външна програма за изтегляне</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Менюто за външно изтегляне е скрито.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Показва се менюто за външно изтегляне.</string>
+    <string name="revanced_shorts_custom_actions_external_downloader_title">Показване на външно меню за изтегляне</string>
+    <string name="revanced_shorts_custom_actions_open_video_label">Пусни видео</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_off">Менюто е скрито.</string>
+    <string name="revanced_shorts_custom_actions_open_video_summary_on">Менюто се показва.</string>
+    <string name="revanced_shorts_custom_actions_open_video_title">Покажи на отворено видео меню</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_label">Режим на повторение</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Режим на повторение е скрит.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Показва се режим на повторение.</string>
+    <string name="revanced_shorts_custom_actions_repeat_state_title">Меню за режим на повторение</string>
+    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Персонализирани действия</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Оригинал</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Харесва ми</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_3">Палец нагоре (тема Кайро)</string>
@@ -1621,6 +1691,8 @@ Note:
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Възстановяване на старото поведение на качеството на видеото по подразбиране</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Деактивира изгледите и харесванията да се актуализират в реално време</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Стар стил на анимация - въртящи се числа</string>
+    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Деактивира иконата Cairo в навигацията и лентата с инструменти</string>
+    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Възстановяване на стария падащ панел за скорост на възпроизвеждане</string>
     <string name="revanced_spoof_app_version_target_entry_title">Версия за модификация на приложението</string>
     <string name="revanced_spoof_app_version_target_summary">Въведете версията на приложението, която да се приложи.</string>
     <string name="revanced_spoof_app_version_target_title">Редактирайте версията на приложението, която да бъде приложена</string>
@@ -1629,9 +1701,29 @@ Note:
 Това ще промени външния вид и функциите на приложението, но ако по-късно се деактивира, се препоръчва да изчистите данните на приложението, за да избегнете грешки в потребителския интерфейс."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Преоразмерява вашето устройство, за да покже видеоклипове с по-високо качество, които може да не са налични на вашето устройство."</string>
     <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Видео кодекът се определя автоматично.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Видео кодек по подразбиране AVC (H.264).</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Принудително AVC (H.264) за iOS</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Активирането на това може да подобри живота на батерията и да поправи заекването на възпроизвеждането.
+
+AVC има максимална разделителна способност от 1080p, аудио кодекът Opus не е наличен, а видеовъзпроизвеждането ще използва повече интернет данни от VP9 или AV1."</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken се пуска с BotGuard в доверен браузър.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Някои клиенти изискват PoToken и VisitorData, за да получат валиден отговор на поточни данни.
+
+Ако се опитвате да използвате iOS като клиент по подразбиране, може да имате нужда от тези стойности.
+
+Щракнете, за да видите повече информация."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">За PoToken / VisitorData</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android">"• Липсва менюто за аудио запис.
+• Не е наличен стабилен звук.
+• Деактивиране на принудителни автоматични аудио записи не е налично.
+• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли или сте в режим инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Липсва менюто за избор на аудио."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Липсва менюто за избор на аудио."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">"• Филми или платени видеоклипове може да не се възпроизвеждат."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Възможно е да има проблеми с възпроизвеждането (необходим е PoToken).</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Филми или платени видеоклипове може да не се възпроизвеждат.
+• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли или сте в режим инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Ефекти от замяната</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видеото може да не се възпроизведе.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиентът, използван за получаване на данни за поток, е скрит в Статистика за системни администратори.</string>
@@ -1641,11 +1733,17 @@ Note:
     <string name="revanced_spoof_streaming_data_summary_on">Данните за поточно предаване са подправени.</string>
     <string name="revanced_spoof_streaming_data_title">Подправяне на поточни данни</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Андроид</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS
+</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по подразбиране</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането на видео.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData, издадени от BotGuard в доверен браузър.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чувствителността на плъзгане за яркост трябва да бъде между 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Конфигурирайте минималното разстояние за плъзгане на яркостта между 1 и 1000 (%).\nКолкото по-късо е минималното разстояние, толкова по-бързо се променя нивото на яркост.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Чувствителност при плъзгане на яркост</string>
