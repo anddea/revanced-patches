@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -39,11 +40,22 @@ public class PipedRequester {
         synchronized (cache) {
             final long now = System.currentTimeMillis();
 
-            cache.values().removeIf(request -> {
-                final boolean expired = request.isExpired(now);
-                if (expired) Logger.printDebug(() -> "Removing expired stream: " + request.videoId);
-                return expired;
-            });
+            if (Utils.isSDKAbove(25)) {
+                cache.values().removeIf(request -> {
+                    final boolean expired = request.isExpired(now);
+                    if (expired) Logger.printDebug(() -> "Removing expired stream: " + request.videoId);
+                    return expired;
+                });
+            } else {
+                Iterator<Map.Entry<String, PipedRequester>> itr = cache.entrySet().iterator();
+                while (itr.hasNext()) {
+                    Map.Entry<String, PipedRequester> entry = itr.next();
+                    if (entry.getValue().isExpired(now)) {
+                        Logger.printDebug(() -> "Removing expired fetch: " + entry.getValue().videoId);
+                        itr.remove();
+                    }
+                }
+            }
 
             if (!cache.containsKey(videoId)) {
                 PipedRequester pipedRequester = new PipedRequester(videoId, playlistId, playlistIndex);
