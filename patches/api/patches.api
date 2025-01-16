@@ -342,6 +342,7 @@ public final class app/revanced/patches/reddit/layout/screenshotpopup/Screenshot
 }
 
 public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
+	public static final fun indexOfDismissScreenInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
@@ -386,7 +387,8 @@ public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPa
 
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun is_2024_18_or_greater ()Z
+	public static final fun is_2024_26_or_greater ()Z
+	public static final fun is_2024_41_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {
@@ -430,7 +432,6 @@ public final class app/revanced/patches/shared/extension/SharedExtensionPatchKt 
 
 public final class app/revanced/patches/shared/gms/FingerprintsKt {
 	public static final field GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME Ljava/lang/String;
-	public static final fun indexOfGetPackageNameInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/shared/gms/GmsCoreSupportPatchKt {
@@ -490,6 +491,7 @@ public final class app/revanced/patches/shared/mapping/ResourceType : java/lang/
 	public static final field LAYOUT Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STRING Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STYLE Lapp/revanced/patches/shared/mapping/ResourceType;
+	public static final field XML Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/mapping/ResourceType;
@@ -534,6 +536,10 @@ public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgen
 	public static final fun baseSpoofUserAgentPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/spoof/useragent/FingerprintsKt {
+	public static final field CLIENT_PACKAGE_NAME Ljava/lang/String;
+}
+
 public final class app/revanced/patches/shared/textcomponent/TextComponentPatchKt {
 	public static final fun getTextComponentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -555,7 +561,8 @@ public final class app/revanced/patches/shared/transformation/IMethodCall$Defaul
 }
 
 public final class app/revanced/patches/shared/transformation/TransformInstructionsPatchKt {
-	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun transformInstructionsPatch$default (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/translations/BaseTranslationsPatchKt {
@@ -821,8 +828,16 @@ public final class app/revanced/patches/youtube/utils/extension/SharedExtensionP
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/attributes/ThemeAttributesPatchKt {
+	public static final fun getThemeAttributesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPatchKt {
 	public static final fun getCfBottomUIPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/fix/cairo/CairoFragmentPatchKt {
+	public static final fun getCairoFragmentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatchKt {
@@ -1040,6 +1055,8 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getScrubbing ()J
 	public static final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public static final fun getSeekUndoEduOverlayStub ()J
+	public static final fun getSettingsFragment ()J
+	public static final fun getSettingsFragmentCairo ()J
 	public static final fun getSlidingDialogAnimation ()J
 	public static final fun getSubtitleMenuSettingsFooterInfo ()J
 	public static final fun getSuggestedAction ()J
@@ -1056,6 +1073,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getYouTubeControlsOverlaySubtitleButton ()J
 	public static final fun getYouTubeLogo ()J
 	public static final fun getYtFillBell ()J
+	public static final fun getYtOutlineMoonZ ()J
 	public static final fun getYtOutlinePictureInPictureWhite ()J
 	public static final fun getYtOutlineVideoCamera ()J
 	public static final fun getYtOutlineXWhite ()J
@@ -1189,6 +1207,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;I)I
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;Lcom/android/tools/smali/dexlib2/AccessFlags;)I
 	public static final fun parametersEqual (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun referenceMatchesOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILjava/lang/String;)V
 	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JJ)V
 	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JLjava/lang/String;)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
