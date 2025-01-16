@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">動画プレーヤーのアクセシビリティコントロールを有効にしますか？</string>
-    <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスが有効化されているため、操作方法が変わります。</string>
+    <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスが有効になっているため、操作方法が変わります。</string>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで実行する権限がありません。
@@ -17,7 +17,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
     <string name="gms_core_dialog_open_website_text">Web サイトを開く</string>
     <string name="gms_core_dialog_title">アクションが必要です</string>
     <string name="gms_core_settings_summary">通知を受け取るには、Cloud Messaging の設定を有効にしてください。</string>
-    <string name="gms_core_settings_title">GmsCore を開く</string>
+    <string name="gms_core_settings_title">GmsCore の設定を開く</string>
     <string name="gms_core_toast_not_installed_message">GmsCore がインストールされていません。インストールしてください。</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。これを有効にすると、動画のURLが API サーバーに送信されますが、他のデータは送信されません。動画に DeArrow サムネイルがない場合は、オリジナルまたは静止画サムネイルが表示されます。
 
@@ -159,7 +159,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_auto_player_popup_panels_title">プレーヤーのポップアップパネルを無効化</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"自動再生がオフの場合、音楽を再生した際にミックスプレイリストへの自動切り替えを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動再生がオフの場合、音楽を再生した際に自動的にミックスプレイリストに切り替わるのを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスプレイリストの切り替えを無効化</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスプレイリストの自動切り替えを無効化</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">自動再生がオフの場合、音楽を再生した際にミックスプレイリストへの自動切り替えを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
@@ -486,8 +486,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_comment_thanks_button_summary_off">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_thanks_button_summary_on">「Thanks」ボタンを非表示にします。</string>
     <string name="revanced_hide_comment_thanks_button_title">「Thanks」ボタンを非表示</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">「タイムスタンプと絵文字」ボタンを非表示にします。</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">「タイムスタンプと絵文字」ボタンを非表示にします。</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">タイムスタンプと絵文字のボタンを非表示にします。</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">タイムスタンプと絵文字のボタンを非表示にします。</string>
     <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">タイムスタンプと絵文字ボタンを非表示</string>
     <string name="revanced_hide_comments_by_members_summary_off">「メンバーからのコメント」バナーを非表示にします。</string>
     <string name="revanced_hide_comments_by_members_summary_on">「メンバーからのコメント」バナーを非表示にします。</string>
@@ -797,7 +797,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_quick_actions_like_button_title">高評価ボタンを非表示</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_off">「チャット」ボタンを非表示にします。</string>
     <string name="revanced_hide_quick_actions_live_chat_button_summary_on">「チャット」ボタンを非表示にします。</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">チャットボタンを非表示</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">ライブチャットボタンを非表示</string>
     <string name="revanced_hide_quick_actions_more_button_summary_off">「さらに表示」ボタンを非表示にします。</string>
     <string name="revanced_hide_quick_actions_more_button_summary_on">「さらに表示」ボタンを非表示にします。</string>
     <string name="revanced_hide_quick_actions_more_button_title">「さらに表示」ボタンを非表示</string>
@@ -1263,7 +1263,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_overlay_button_whitelist_summary">タップするとホワイトリストのダイアログが開きます。
 長押しするとホワイトリストの設定のダイアログが開きます。</string>
     <string name="revanced_overlay_button_whitelist_title">ホワイトリストボタンを表示</string>
-    <string name="revanced_override_playlist_download_button_summary_off">「ダウンロード」ボタンで外部ダウンローダーを開きます。</string>
+    <string name="revanced_override_playlist_download_button_summary_off">「オフライン」ボタンで外部ダウンローダーを開きます。</string>
     <string name="revanced_override_playlist_download_button_summary_on">「ダウンロード」ボタンで外部ダウンローダーを開きます。</string>
     <string name="revanced_override_playlist_download_button_title">プレイリストにダウンロードボタンを追加</string>
     <string name="revanced_override_video_download_button_summary_off">「オフライン」ボタンで外部ダウンローダーを開きます。</string>
