@@ -1,3 +1,19 @@
+# [3.3.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.2.0...v3.3.0-dev.1) (2025-01-16)
+
+
+### Bug Fixes
+
+* **YouTube - Fullscreen components:** Fullscreen layout refreshes multiple times when `Quick actions top margin` is set ([37ab4e3](https://github.com/anddea/revanced-patches/commit/37ab4e3767309bf4d04279891d3cf28f57b5517b))
+* **YouTube - Hide feed components:** `Hide carousel shelf` hides the contents of `Courses` ([92261c3](https://github.com/anddea/revanced-patches/commit/92261c39bf70a0938d3d2417596c318d32d36527))
+* **YouTube Music - Dark theme:** Gradient not applied to playlist header background ([e5f4a98](https://github.com/anddea/revanced-patches/commit/e5f4a98d6e1d885fa621151ec81f7cc71a01ea76))
+* **YouTube Music - Disable music video in album:** App crashes on Android 5 / 6 devices ([353c0bf](https://github.com/anddea/revanced-patches/commit/353c0bf1ec0c9f556d55a24ed8dc9f45199fb9ba))
+* **YouTube:** Unable to access `Autoplay next video` setting ([e775df3](https://github.com/anddea/revanced-patches/commit/e775df322e9428a51ac01940c37fccb4988237b0))
+
+
+### Features
+
+* **Reddit:** Add support for latest versions ([44952e0](https://github.com/anddea/revanced-patches/commit/44952e0d710c13688923ea04770c2542a23ff0bc))
+
 # [3.2.0](https://github.com/anddea/revanced-patches/compare/v3.1.0...v3.2.0) (2025-01-14)
 
 
