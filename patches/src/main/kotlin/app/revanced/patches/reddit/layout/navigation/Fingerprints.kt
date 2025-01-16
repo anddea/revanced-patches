@@ -57,7 +57,18 @@ internal val bottomNavScreenOnGlobalLayoutFingerprint = legacyFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.name == "onGlobalLayout"
+    customFingerprint = { method, _ ->
+        method.name == "onGlobalLayout"
+    }
+)
+
+internal val bottomNavScreenSetupBottomNavigationFingerprint = legacyFingerprint(
+    name = "bottomNavScreenSetupBottomNavigationFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.FILLED_NEW_ARRAY),
+    customFingerprint = { method, classDef ->
+        classDef.type.startsWith("Lcom/reddit/launch/bottomnav/BottomNavScreen${'$'}setupBottomNavigation${'$'}") &&
+                method.name == "invoke"
     }
 )

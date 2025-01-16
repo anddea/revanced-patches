@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import app.revanced.extension.reddit.settings.Settings;
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
@@ -28,6 +29,22 @@ public class RemoveSubRedditDialogPatch {
             return;
 
         clickViewDelayed(cancelButtonView);
+    }
+
+    public static void dismissDialogV2(Object object) {
+        if (!Settings.REMOVE_NOTIFICATION_DIALOG.get())
+            return;
+
+        Utils.runOnMainThreadDelayed(() -> {
+            try {
+                dismissRedditDialogV2(object);
+            } catch (Exception ex) {
+                Logger.printException(() -> "dismissDialogV2 failed", ex);
+            }
+        }, 0);
+    }
+
+    private static void dismissRedditDialogV2(Object object) {
     }
 
     private static void clickViewDelayed(View view) {
