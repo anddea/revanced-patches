@@ -311,8 +311,8 @@ public class GeneralPatch {
 
     // region [Toolbar components] patch
 
-    private static final int generalHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytWordmarkHeader");
-    private static final int premiumHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytPremiumWordmarkHeader");
+    private static int generalHeaderAttributeId = 0;
+    private static int premiumHeaderAttributeId = 0;
 
     public static void setDrawerNavigationHeader(View lithoView) {
         final int headerAttributeId = getHeaderAttributeId();
@@ -330,6 +330,11 @@ public class GeneralPatch {
     }
 
     public static int getHeaderAttributeId() {
+        if (premiumHeaderAttributeId == 0) {
+            generalHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytWordmarkHeader");
+            premiumHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytPremiumWordmarkHeader");
+        }
+
         return Settings.CHANGE_YOUTUBE_HEADER.get()
                 ? premiumHeaderAttributeId
                 : generalHeaderAttributeId;
@@ -343,11 +348,6 @@ public class GeneralPatch {
         // Rest of the implementation added by patch.
         return ResourceUtils.getDrawable("");
     }
-
-    private static final int searchBarId = ResourceUtils.getIdIdentifier("search_bar");
-    private static final int youtubeTextId = ResourceUtils.getIdIdentifier("youtube_text");
-    private static final int searchBoxId = ResourceUtils.getIdIdentifier("search_box");
-    private static final int searchIconId = ResourceUtils.getIdIdentifier("search_icon");
 
     private static final boolean wideSearchbarEnabled = Settings.ENABLE_WIDE_SEARCH_BAR.get();
     // Loads the search bar deprecated by Google.
@@ -384,9 +384,18 @@ public class GeneralPatch {
             return !wideSearchbarYouTabEnabled && original;
     }
 
+    private static int searchBarId = 0;
+    private static int youtubeTextId = 0;
+    private static int searchBoxId = 0;
+    private static int searchIconId = 0;
+
     public static void setWideSearchBarLayout(View view) {
         if (!wideSearchbarEnabled)
             return;
+
+        if (searchBarId == 0) {
+            searchBarId = ResourceUtils.getIdIdentifier("search_bar");
+        }
 
         if (!(view.findViewById(searchBarId) instanceof RelativeLayout searchBarView))
             return;
@@ -394,6 +403,11 @@ public class GeneralPatch {
         // When the deprecated search bar is loaded, two search bars overlap.
         // Manually hides another search bar.
         if (wideSearchbarWithHeaderEnabled) {
+            if (youtubeTextId == 0) {
+                youtubeTextId = ResourceUtils.getIdIdentifier("youtube_text");
+                searchBoxId = ResourceUtils.getIdIdentifier("search_box");
+                searchIconId = ResourceUtils.getIdIdentifier("search_icon");
+            }
             final View searchIconView = searchBarView.findViewById(searchIconId);
             final View searchBoxView = searchBarView.findViewById(searchBoxId);
             final View textView = searchBarView.findViewById(youtubeTextId);
@@ -508,14 +522,16 @@ public class GeneralPatch {
         imageView.setImageDrawable(drawable);
     }
 
-    private static final int settingsDrawableId =
-            ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
-    private static final int settingsCairoDrawableId =
-            ResourceUtils.getDrawableIdentifier("yt_outline_gear_cairo_black_24");
+    private static int settingsDrawableId = 0;
+    private static int settingsCairoDrawableId = 0;
 
     public static int getCreateButtonDrawableId(int original) {
         if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get()) {
             return original;
+        }
+
+        if (settingsDrawableId == 0) {
+            settingsDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
         }
 
         if (settingsDrawableId == 0) {
@@ -526,6 +542,10 @@ public class GeneralPatch {
         // Or spoofed the app version to 19.26.42 or earlier.
         if (!ExtendedUtils.IS_19_28_OR_GREATER || ExtendedUtils.isSpoofingToLessThan("19.27.00")) {
             return settingsDrawableId;
+        }
+
+        if (settingsCairoDrawableId == 0) {
+            settingsCairoDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_cairo_black_24");
         }
 
         return settingsCairoDrawableId == 0
