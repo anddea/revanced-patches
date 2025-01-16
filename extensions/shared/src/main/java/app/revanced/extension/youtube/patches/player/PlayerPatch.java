@@ -297,7 +297,6 @@ public class PlayerPatch {
                 mlp.rightMargin,
                 mlp.bottomMargin
         );
-        view.requestLayout();
     }
 
     public static boolean enableCompactControlsOverlay(boolean original) {
