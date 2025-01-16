@@ -306,6 +306,11 @@ val layoutComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.GENERAL,
+            "revanced_hide_playlist_card_shelf",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.GENERAL,
             "revanced_hide_cast_button",
             "true"
         )
@@ -331,11 +336,6 @@ val layoutComponentsPatch = bytecodePatch(
                 "false"
             )
         }
-        addSwitchPreference(
-            CategoryType.GENERAL,
-            "revanced_hide_playlist_card_shelf",
-            "false"
-        )
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_samples_shelf",

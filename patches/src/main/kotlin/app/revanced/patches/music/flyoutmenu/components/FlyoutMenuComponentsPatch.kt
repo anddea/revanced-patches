@@ -253,12 +253,6 @@ val flyoutMenuComponentsPatch = bytecodePatch(
                 "false"
             )
         }
-        addSwitchPreference(
-            CategoryType.FLYOUT,
-            "revanced_hide_flyout_menu_like_dislike",
-            "false",
-            false
-        )
         if (is_6_36_or_greater) {
             addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
@@ -349,6 +343,12 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.FLYOUT,
+            "revanced_hide_flyout_menu_unpin_from_speed_dial",
+            "false",
+            false
+        )
+        addSwitchPreference(
+            CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_play_next",
             "false",
             false
@@ -428,12 +428,6 @@ val flyoutMenuComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.FLYOUT,
             "revanced_hide_flyout_menu_subscribe",
-            "false",
-            false
-        )
-        addSwitchPreference(
-            CategoryType.FLYOUT,
-            "revanced_hide_flyout_menu_unpin_from_speed_dial",
             "false",
             false
         )
