@@ -79,7 +79,7 @@ internal enum class PatchList(
     ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
-        "Adds an options to enable the OPUS audio codec if the player response includes."
+        "Adds an options to enable the OPUS audio codec if the player response includes it."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -171,7 +171,7 @@ internal enum class PatchList(
     ),
     MINIPLAYER(
         "Miniplayer",
-        "Adds options to change the in app minimized player, and if patching target 19.16+ adds options to use modern miniplayers."
+        "Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers."
     ),
     NAVIGATION_BAR_COMPONENTS(
         "Navigation bar components",
@@ -179,7 +179,7 @@ internal enum class PatchList(
     ),
     OVERLAY_BUTTONS(
         "Overlay buttons",
-        "Adds options to display overlay buttons in the video player."
+        "Adds options to display useful overlay buttons in the video player."
     ),
     PLAYER_COMPONENTS(
         "Player components",
@@ -235,7 +235,7 @@ internal enum class PatchList(
     ),
     THEME(
         "Theme",
-        "Changes the app's theme to the values specified in patch options."
+        "Changes the app's themes to the values specified in patch options."
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",
