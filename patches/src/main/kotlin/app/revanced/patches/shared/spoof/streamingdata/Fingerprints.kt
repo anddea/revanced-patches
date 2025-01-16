@@ -198,21 +198,20 @@ internal val hlsCurrentTimeFingerprint = legacyFingerprint(
     literals = listOf(HLS_CURRENT_TIME_FEATURE_FLAG),
 )
 
-internal val poTokenToStringFingerprint = legacyFingerprint(
-    name = "poTokenToStringFingerprint",
-    returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    strings = listOf("UTF-8"),
-    customFingerprint = { method, classDef ->
-        method.name == "toString" &&
-                classDef.fields.find { it.type == "[B" } != null &&
-                // In YouTube, this field's type is 'Lcom/google/android/gms/potokens/PoToken;'.
-                // In YouTube Music, this class name is obfuscated.
-                classDef.fields.find {
-                    it.accessFlags == AccessFlags.PRIVATE.value && it.type.startsWith(
-                        "L"
-                    )
-                } != null
-    },
+internal val gmsServiceBrokerFingerprint = legacyFingerprint(
+    name = "gmsServiceBrokerFingerprint",
+    returnType = "V",
+    strings = listOf("mServiceBroker is null, client disconnected")
 )
+
+internal val gmsServiceBrokerExceptionFingerprint = legacyFingerprint(
+    name = "gmsServiceBrokerExceptionFingerprint",
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Exception;"),
+    opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID
+    ),
+    strings = listOf("Exception must not be null")
+)
+

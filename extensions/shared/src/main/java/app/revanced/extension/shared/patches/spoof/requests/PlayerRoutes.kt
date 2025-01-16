@@ -13,6 +13,9 @@ import org.json.JSONObject
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.nio.charset.StandardCharsets
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 @Suppress("deprecation")
 object PlayerRoutes {
@@ -47,34 +50,48 @@ object PlayerRoutes {
      */
     private const val CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000 // 10 Seconds.
 
-    private val LOCALE_LANGUAGE: String = Utils.getContext().resources
-        .configuration.locale.language
+    private val LOCALE: Locale = Utils.getContext().resources
+        .configuration.locale
+    private val LOCALE_COUNTRY: String = LOCALE.country
+    private val LOCALE_LANGUAGE: String = LOCALE.language
+    private val TIME_ZONE: TimeZone = TimeZone.getDefault()
+    private val TIME_ZONE_ID: String = TIME_ZONE.id
+    private val UTC_OFFSET_MINUTES: Int = TIME_ZONE.getOffset(Date().time) / 60000
 
     @JvmStatic
     fun createApplicationRequestBody(
         clientType: AppClient.ClientType,
         videoId: String,
         playlistId: String? = null,
-        botGuardPoToken: String? = null,
-        visitorId: String? = null,
+        botGuardPoToken: String = "",
+        visitorId: String = "",
+        setLocale: Boolean = false,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
         try {
             val client = JSONObject()
-            client.put("clientName", clientType.clientName)
-            client.put("clientVersion", clientType.clientVersion)
             client.put("deviceMake", clientType.deviceMake)
             client.put("deviceModel", clientType.deviceModel)
+            client.put("clientName", clientType.clientName)
+            client.put("clientVersion", clientType.clientVersion)
             client.put("osName", clientType.osName)
             client.put("osVersion", clientType.osVersion)
-            if (clientType.osName == "Android") {
+            if (clientType.osName != "iOS") {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
+                if (clientType.gmscoreVersionCode != null) {
+                    client.put("gmscoreVersionCode", clientType.gmscoreVersionCode)
+                }
+                if (clientType.chipset != null) {
+                    client.put("chipset", clientType.chipset)
+                }
             }
-            if (!clientType.supportsCookies) {
+            if (setLocale) {
                 client.put("hl", LOCALE_LANGUAGE)
+                client.put("gl", LOCALE_COUNTRY)
+                client.put("timeZone", TIME_ZONE_ID)
+                client.put("utcOffsetMinutes", "$UTC_OFFSET_MINUTES")
             }
-
             val context = JSONObject()
             context.put("client", client)
 
@@ -137,7 +154,8 @@ object PlayerRoutes {
         return getPlayerResponseConnectionFromRoute(
             route,
             clientType.userAgent,
-            clientType.id.toString()
+            clientType.id.toString(),
+            clientType.clientVersion
         )
     }
 
@@ -149,7 +167,8 @@ object PlayerRoutes {
         return getPlayerResponseConnectionFromRoute(
             route,
             clientType.userAgent,
-            clientType.id.toString()
+            clientType.id.toString(),
+            clientType.clientVersion,
         )
     }
 
@@ -157,12 +176,14 @@ object PlayerRoutes {
     fun getPlayerResponseConnectionFromRoute(
         route: CompiledRoute,
         userAgent: String,
+        clientId: String,
         clientVersion: String
     ): HttpURLConnection {
         val connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route)
 
         connection.setRequestProperty("Content-Type", "application/json")
         connection.setRequestProperty("User-Agent", userAgent)
+        connection.setRequestProperty("X-YouTube-Client-Name", clientId)
         connection.setRequestProperty("X-YouTube-Client-Version", clientVersion)
 
         connection.useCaches = false
