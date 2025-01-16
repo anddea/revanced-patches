@@ -10,6 +10,7 @@ import app.revanced.patches.shared.mapping.ResourceType.INTEGER
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING
 import app.revanced.patches.shared.mapping.ResourceType.STYLE
+import app.revanced.patches.shared.mapping.ResourceType.XML
 import app.revanced.patches.shared.mapping.get
 import app.revanced.patches.shared.mapping.resourceMappingPatch
 import app.revanced.patches.shared.mapping.resourceMappings
@@ -189,6 +190,10 @@ var scrubbing = -1L
 var seekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     private set
 var seekUndoEduOverlayStub = -1L
+    private set
+var settingsFragment = -1L
+    private set
+var settingsFragmentCairo = -1L
     private set
 var slidingDialogAnimation = -1L
     private set
@@ -591,6 +596,14 @@ internal val sharedResourceIdPatch = resourcePatch(
         seekUndoEduOverlayStub = resourceMappings[
             ID,
             "seek_undo_edu_overlay_stub"
+        ]
+        settingsFragment = resourceMappings[
+            XML,
+            "settings_fragment"
+        ]
+        settingsFragmentCairo = resourceMappings[
+            XML,
+            "settings_fragment_cairo"
         ]
         slidingDialogAnimation = resourceMappings[
             STYLE,

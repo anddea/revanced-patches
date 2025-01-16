@@ -8,6 +8,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.fix.cairo.cairoFragmentPatch
 import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
 import app.revanced.patches.youtube.utils.playservice.is_18_34_or_greater
@@ -30,6 +31,10 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+/**
+ * No longer needed due to [cairoFragmentPatch].
+ * TODO: Test sufficiently and remove the patch.
+ */
 private val spoofAppVersionBytecodePatch = bytecodePatch(
     description = "spoofAppVersionBytecodePatch"
 ) {
