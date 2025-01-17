@@ -414,6 +414,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_external_downloader_package_name_video_title">동영상 외부 다운로더 앱 패키지명</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시하기</string>
+    <string name="revanced_gradient_seekbar_colors_summary">Cairo 재생바의 시작 색상과 종료 색상을 쉼표로 구분하여 설정할 수 있습니다.</string>
+    <string name="revanced_gradient_seekbar_colors_title">Cairo 재생바 색상</string>
+    <string name="revanced_gradient_seekbar_positions_reset">Cairo 재생바의 경계를 기본값으로 초기화합니다.</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Cairo 재생바의 시작 및 종료 위치를 0에서 1까지 쉼표로 구분하여 설정할 수 있습니다.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Cairo 재생바 경계</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">필터링할 계정 메뉴 이름을 줄바꿈으로 구분하여 설정합니다.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">계정 메뉴 필터 편집하기</string>
     <string name="revanced_hide_account_menu_summary">"계정 메뉴 및 내 페이지에서 구성요소가 숨겨집니다.
@@ -1175,10 +1180,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때, 가로 모드를 유지합니다.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
@@ -1699,6 +1707,10 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">반복 상태 변경 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">반복 상태 변경 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">반복 상태 변경 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_speed_label">재생 속도</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">재생 속도 메뉴가 숨겨집니다.\n\n알림:\n• Shorts에 기본 동영상 재생 속도를 활성화해야 합니다.\n• 변경된 재생 속도는 다음 재생 Shorts 동영상부터 적용됩니다.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">재생 속도 메뉴가 표시됩니다.\n\n알림:\n• Shorts에 기본 동영상 재생 속도를 활성화해야 합니다..\n• 변경된 재생 속도는 다음 재생 Shorts 동영상부터 적용됩니다.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">재생 속도 메뉴 표시하기</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">사용자 정의 동작</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">기본값</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">엄지척</string>
@@ -1780,8 +1792,8 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 필요할 
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
 • TV는 AV1 코덱이 지원되지 않습니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨을 사용할 수 없습니다.\n• 자동 오디오 트랙을 비활성화할 수 없습니다.\n• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.\n• 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.\n• AV1 코덱이 지원되지 않습니다."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.\n• 안정적인 볼륨을 사용할 수 없습니다.\n• 자동 오디오 트랙을 비활성화할 수 없습니다.\n• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.\n• Kids 동영상에서 다른 클라이언트가 사용될 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
