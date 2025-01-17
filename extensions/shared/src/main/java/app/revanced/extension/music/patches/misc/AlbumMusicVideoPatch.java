@@ -13,7 +13,9 @@ import app.revanced.extension.music.patches.misc.requests.PipedRequester;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoInformation;
 import app.revanced.extension.music.utils.VideoUtils;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class AlbumMusicVideoPatch {
@@ -98,8 +100,17 @@ public class AlbumMusicVideoPatch {
             if (request == null) {
                 return;
             }
+            // This hook is always called off the main thread,
+            // but this can later be called for the same video id from the main thread.
+            // This is not a concern, since the fetch will always be finished
+            // and never block the main thread.
+            // But if debugging, then still verify this is the situation.
+            if (BaseSettings.ENABLE_DEBUG_LOGGING.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
+                Logger.printException(() -> "Error: Blocking main thread");
+            }
             String songId = request.getStream();
             if (songId == null) {
+                Logger.printDebug(() -> "Official song not found, videoId: " + videoId);
                 return;
             }
             synchronized (lastVideoIds) {

@@ -12,8 +12,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -25,38 +24,21 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 public class PipedRequester {
-    /**
-     * How long to keep fetches until they are expired.
-     */
-    private static final long CACHE_RETENTION_TIME_MILLISECONDS = 60 * 1000; // 1 Minute
-
-    private static final long MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000; // 20 seconds
+    private static final long MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 4 * 1000; // 4 seconds
 
     @GuardedBy("itself")
-    private static final Map<String, PipedRequester> cache = new HashMap<>();
+    private static final Map<String, PipedRequester> cache = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 10;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
 
     @SuppressLint("ObsoleteSdkInt")
     public static void fetchRequestIfNeeded(@NonNull String videoId, @NonNull String playlistId, final int playlistIndex) {
         synchronized (cache) {
-            final long now = System.currentTimeMillis();
-
-            if (Utils.isSDKAbove(25)) {
-                cache.values().removeIf(request -> {
-                    final boolean expired = request.isExpired(now);
-                    if (expired) Logger.printDebug(() -> "Removing expired stream: " + request.videoId);
-                    return expired;
-                });
-            } else {
-                Iterator<Map.Entry<String, PipedRequester>> itr = cache.entrySet().iterator();
-                while (itr.hasNext()) {
-                    Map.Entry<String, PipedRequester> entry = itr.next();
-                    if (entry.getValue().isExpired(now)) {
-                        Logger.printDebug(() -> "Removing expired fetch: " + entry.getValue().videoId);
-                        itr.remove();
-                    }
-                }
-            }
-
             if (!cache.containsKey(videoId)) {
                 PipedRequester pipedRequester = new PipedRequester(videoId, playlistId, playlistIndex);
                 cache.put(videoId, pipedRequester);
@@ -85,7 +67,7 @@ public class PipedRequester {
     private static JSONObject send(@NonNull String videoId, @NonNull String playlistId, final int playlistIndex) {
         final long startTime = System.currentTimeMillis();
         Logger.printDebug(() -> "Fetching piped instances (videoId: '" + videoId +
-                "', playlistId: '" + playlistId + "', playlistIndex: '" + playlistIndex + "'");
+                "', playlistId: '" + playlistId + "', playlistIndex: '" + playlistIndex + "')");
 
         try {
             HttpURLConnection connection = PipedRoutes.getPlaylistConnectionFromRoute(playlistId);
@@ -121,6 +103,8 @@ public class PipedRequester {
                 if (songId.isEmpty()) {
                     handleConnectionError("Url is empty!");
                 } else if (!songId.equals(videoId)) {
+                    Logger.printDebug(() -> "Video found (videoId: '" + videoId +
+                            "', songId: '" + songId + "')");
                     return songId;
                 }
             } catch (JSONException e) {
@@ -145,24 +129,10 @@ public class PipedRequester {
     /**
      * Time this instance and the fetch future was created.
      */
-    private final long timeFetched;
-    private final String videoId;
     private final Future<String> future;
 
     private PipedRequester(@NonNull String videoId, @NonNull String playlistId, final int playlistIndex) {
-        this.timeFetched = System.currentTimeMillis();
-        this.videoId = videoId;
         this.future = Utils.submitOnBackgroundThread(() -> fetch(videoId, playlistId, playlistIndex));
-    }
-
-    public boolean isExpired(long now) {
-        final long timeSinceCreation = now - timeFetched;
-        if (timeSinceCreation > CACHE_RETENTION_TIME_MILLISECONDS) {
-            return true;
-        }
-
-        // Only expired if the fetch failed (API null response).
-        return (fetchCompleted() && getStream() == null);
     }
 
     /**

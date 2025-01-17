@@ -12,6 +12,8 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
@@ -25,20 +27,18 @@ val changeStartPagePatch = bytecodePatch(
 
     execute {
 
-        coldStartUpFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val targetIndex = it.patternMatch!!.endIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        coldStartUpFingerprint.methodOrThrow().apply {
+            val targetIndex = indexOfFirstStringInstructionOrThrow(DEFAULT_BROWSE_ID) + 1
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstructions(
-                    targetIndex + 1, """
-                        invoke-static {v$targetRegister}, $GENERAL_CLASS_DESCRIPTOR->changeStartPage(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$targetRegister
-                        return-object v$targetRegister
-                        """
-                )
-                removeInstruction(targetIndex)
-            }
+            addInstructions(
+                targetIndex + 1, """
+                    invoke-static {v$targetRegister}, $GENERAL_CLASS_DESCRIPTOR->changeStartPage(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$targetRegister
+                    return-object v$targetRegister
+                    """
+            )
+            removeInstruction(targetIndex)
         }
 
         addPreferenceWithIntent(

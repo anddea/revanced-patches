@@ -9,6 +9,8 @@ import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKA
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.DISABLE_DISLIKE_REDIRECTION
 import app.revanced.patches.music.utils.pendingIntentReceiverFingerprint
+import app.revanced.patches.music.utils.playservice.is_7_29_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addSwitchPreference
@@ -23,7 +25,8 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.Reference
+
+var onClickReference = ""
 
 @Suppress("unused")
 val dislikeRedirectionPatch = bytecodePatch(
@@ -32,11 +35,12 @@ val dislikeRedirectionPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        versionCheckPatch,
+    )
 
     execute {
-        lateinit var onClickReference: Reference
-
         pendingIntentReceiverFingerprint.methodOrThrow().apply {
             val startIndex = indexOfFirstStringInstructionOrThrow("YTM Dislike")
             val onClickRelayIndex =
@@ -49,27 +53,35 @@ val dislikeRedirectionPatch = bytecodePatch(
                 val onClickMethod = getWalkerMethod(onClickMethodIndex)
 
                 onClickMethod.apply {
-                    val onClickIndex = indexOfFirstInstructionOrThrow {
-                        val reference =
-                            ((this as? ReferenceInstruction)?.reference as? MethodReference)
+                    val relativeIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()
+                                    ?.parameterTypes
+                                    ?.contains("Ljava/util/Map;") == true
+                    }
+                    val onClickIndex = indexOfFirstInstructionOrThrow(relativeIndex) {
+                        val reference = getReference<MethodReference>()
 
                         opcode == Opcode.INVOKE_INTERFACE &&
                                 reference?.returnType == "V" &&
                                 reference.parameterTypes.size == 1
                     }
                     onClickReference =
-                        getInstruction<ReferenceInstruction>(onClickIndex).reference
+                        getInstruction<ReferenceInstruction>(onClickIndex).reference.toString()
 
                     disableDislikeRedirection(onClickIndex)
                 }
             }
         }
 
-        dislikeButtonOnClickListenerFingerprint.methodOrThrow().apply {
-            val onClickIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.toString() == onClickReference.toString()
-            }
-            disableDislikeRedirection(onClickIndex)
+        if (is_7_29_or_greater) {
+            dislikeButtonOnClickListenerAlternativeFingerprint
+                .methodOrThrow()
+                .disableDislikeRedirection()
+        } else {
+            dislikeButtonOnClickListenerFingerprint
+                .methodOrThrow()
+                .disableDislikeRedirection()
         }
 
         addSwitchPreference(
@@ -83,7 +95,15 @@ val dislikeRedirectionPatch = bytecodePatch(
     }
 }
 
-private fun MutableMethod.disableDislikeRedirection(onClickIndex: Int) {
+private fun MutableMethod.disableDislikeRedirection(startIndex: Int = 0) {
+    val onClickIndex =
+        if (startIndex == 0) {
+            indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.toString() == onClickReference
+            }
+        } else {
+            startIndex
+        }
     val targetIndex = indexOfFirstInstructionReversedOrThrow(onClickIndex, Opcode.IF_EQZ)
     val insertRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 

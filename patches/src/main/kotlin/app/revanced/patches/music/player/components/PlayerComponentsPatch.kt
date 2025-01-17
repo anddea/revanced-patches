@@ -917,7 +917,7 @@ val playerComponentsPatch = bytecodePatch(
                     val reference = (instruction as? ReferenceInstruction)?.reference
                     instruction.opcode == Opcode.INVOKE_VIRTUAL &&
                             reference is MethodReference &&
-                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                            reference.toString().endsWith(AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY)
                 }
                 .map { (index, _) -> index }
                 .reversed()
