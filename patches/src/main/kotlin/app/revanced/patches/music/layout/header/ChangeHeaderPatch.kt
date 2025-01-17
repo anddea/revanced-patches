@@ -4,8 +4,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.CUSTOM_HEADER_FOR_YOUTUBE_MUSIC
 import app.revanced.patches.music.utils.playservice.is_7_06_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_27_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.actionBarLogo
 import app.revanced.patches.music.utils.resourceid.actionBarLogoRingo2
@@ -15,14 +17,17 @@ import app.revanced.patches.music.utils.resourceid.ytmLogoRingo2
 import app.revanced.patches.music.utils.settings.ResourceUtils.getIconType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyFile
 import app.revanced.util.copyResources
+import app.revanced.util.doRecursively
 import app.revanced.util.replaceLiteralInstructionCall
 import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
+import org.w3c.dom.Element
 
 private const val DEFAULT_HEADER_KEY = "Custom branding icon"
 private const val DEFAULT_HEADER_VALUE = "custom_branding_icon"
@@ -125,11 +130,26 @@ private val changeHeaderBytecodePatch = bytecodePatch(
             return@execute
         }
 
-        listOf(
-            actionBarLogoRingo2 to actionBarLogo,
-            ytmLogoRingo2 to ytmLogo,
-        ).forEach { (originalResource, replacementResource) ->
-            replaceLiteralInstructionCall(originalResource, replacementResource)
+        if (actionBarLogoRingo2 == -1L || ytmLogoRingo2 == -1L) {
+            printWarn("Target resource not found!")
+            return@execute
+        }
+
+        if (is_7_27_or_greater) {
+            replaceLiteralInstructionCall(
+                actionBarLogoRingo2,
+                """
+                    invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $GENERAL_CLASS_DESCRIPTOR->getHeaderDrawableId(I)I
+                    move-result v$REGISTER_TEMPLATE_REPLACEMENT
+                    """
+            )
+        } else {
+            listOf(
+                actionBarLogoRingo2 to actionBarLogo,
+                ytmLogoRingo2 to ytmLogo,
+            ).forEach { (originalResource, replacementResource) ->
+                replaceLiteralInstructionCall(originalResource, replacementResource)
+            }
         }
     }
 }
@@ -184,6 +204,21 @@ val changeHeaderPatch = resourcePatch(
             }
         } else {
             printWarn(warnings)
+        }
+
+        if (is_7_27_or_greater) {
+            document("res/layout/signin_fragment.xml").use { document ->
+                document.doRecursively node@{ node ->
+                    if (node !is Element) return@node
+
+                    if (node.attributes.getNamedItem("android:id")?.nodeValue == "@id/logo") {
+                        node.getAttributeNode("android:src")
+                            ?.let { attribute ->
+                                attribute.textContent = "@drawable/ytm_logo"
+                            }
+                    }
+                }
+            }
         }
 
         updatePatchStatus(CUSTOM_HEADER_FOR_YOUTUBE_MUSIC)

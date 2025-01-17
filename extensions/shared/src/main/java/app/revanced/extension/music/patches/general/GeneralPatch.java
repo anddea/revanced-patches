@@ -12,12 +12,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.shared.utils.ResourceUtils;
 
 /**
  * @noinspection ALL
  */
 @SuppressWarnings("unused")
 public class GeneralPatch {
+
+    // region [Change header] patch
+
+    public static int getHeaderDrawableId(int original) {
+        final int headerId = ResourceUtils.getDrawableIdentifier("action_bar_logo");
+
+        return headerId == 0
+                ? original
+                : headerId;
+    }
+
+    // endregion
 
     // region [Change start page] patch
 

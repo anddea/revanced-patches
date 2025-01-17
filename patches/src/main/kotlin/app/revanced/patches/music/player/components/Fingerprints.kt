@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
-    "Lcom/google/android/apps/youtube/music/player/AudioVideoSwitcherToggleView;->setVisibility(I)V"
+    "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
 
 internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
     name = "audioVideoSwitchToggleFingerprint",
@@ -33,7 +33,9 @@ internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                    getReference<MethodReference>()
+                        ?.toString()
+                        ?.endsWith(AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY) == true
         } >= 0
     }
 )

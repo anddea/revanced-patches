@@ -191,7 +191,12 @@ val videoInformationPatch = bytecodePatch(
          */
         videoIdFingerprint.matchOrThrow().let {
             it.method.apply {
-                val playerResponseModelIndex = it.patternMatch!!.startIndex
+                val playerResponseModelIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    (opcode == Opcode.INVOKE_INTERFACE_RANGE || opcode == Opcode.INVOKE_INTERFACE) &&
+                            reference?.returnType == "Ljava/lang/String;" &&
+                            reference.parameterTypes.isEmpty()
+                }
 
                 PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
                     getInstruction(playerResponseModelIndex)

@@ -4,8 +4,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.extension.Constants.UTILS_PATH
-import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$UTILS_PATH/VideoTypeHookPatch;"
@@ -17,22 +23,27 @@ val videoTypeHookPatch = bytecodePatch(
 
     execute {
 
-        videoTypeFingerprint.matchOrThrow(videoTypeParentFingerprint).let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.startIndex + 3
-                val referenceIndex = insertIndex + 1
-                val referenceInstruction =
-                    getInstruction<ReferenceInstruction>(referenceIndex).reference
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        if-nez p0, :dismiss
-                        sget-object p0, $referenceInstruction
-                        :dismiss
-                        invoke-static {p0}, $EXTENSION_CLASS_DESCRIPTOR->setVideoType(Ljava/lang/Enum;)V
-                        """
-                )
+        videoTypeFingerprint.methodOrThrow(videoTypeParentFingerprint).apply {
+            val getEnumIndex = indexOfGetEnumInstruction(this)
+            val enumClass = (getInstruction<ReferenceInstruction>(getEnumIndex).reference as MethodReference).definingClass
+            val referenceIndex = indexOfFirstInstructionOrThrow(getEnumIndex) {
+                opcode == Opcode.SGET_OBJECT &&
+                        getReference<FieldReference>()?.type == enumClass
             }
+            val referenceInstruction =
+                getInstruction<ReferenceInstruction>(referenceIndex).reference
+
+            val insertIndex = indexOfFirstInstructionOrThrow(getEnumIndex, Opcode.IF_NEZ)
+            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+            addInstructionsWithLabels(
+                insertIndex, """
+                    if-nez v$insertRegister, :dismiss
+                    sget-object v$insertRegister, $referenceInstruction
+                    :dismiss
+                    invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->setVideoType(Ljava/lang/Enum;)V
+                    """
+            )
         }
     }
 }

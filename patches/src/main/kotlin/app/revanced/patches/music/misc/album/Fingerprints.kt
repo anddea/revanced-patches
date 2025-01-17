@@ -22,7 +22,9 @@ internal val audioVideoSwitchToggleConstructorFingerprint = legacyFingerprint(
 internal fun indexOfAudioVideoSwitchSetOnClickListenerInstruction(method: Method) =
     method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.toString() == "Lcom/google/android/apps/youtube/music/player/AudioVideoSwitcherToggleView;->setOnClickListener(Landroid/view/View${'$'}OnClickListener;)V"
+                getReference<MethodReference>()
+                    ?.toString()
+                    ?.endsWith("/AudioVideoSwitcherToggleView;->setOnClickListener(Landroid/view/View${'$'}OnClickListener;)V") == true
     }
 
 internal val snackBarParentFingerprint = legacyFingerprint(
