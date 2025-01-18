@@ -436,6 +436,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_SHELF_HISTORY = new BooleanSetting("revanced_hide_shorts_shelf_history", FALSE);
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_BACKGROUND_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_background_repeat_state", ShortsLoopBehavior.UNKNOWN);
     public static final EnumSetting<ShortsLoopBehavior> CHANGE_SHORTS_REPEAT_STATE = new EnumSetting<>("revanced_change_shorts_repeat_state", ShortsLoopBehavior.UNKNOWN);
+    public static final BooleanSetting OPEN_SHORTS_IN_REGULAR_PLAYER = new BooleanSetting("revanced_open_shorts_in_regular_player", FALSE);
 
     // PreferenceScreen: Shorts - Shorts player components
     public static final BooleanSetting HIDE_SHORTS_CHANNEL_BAR = new BooleanSetting("revanced_hide_shorts_channel_bar", FALSE);

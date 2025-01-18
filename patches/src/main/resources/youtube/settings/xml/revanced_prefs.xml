@@ -651,11 +651,14 @@
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_subscriptions_title" android:key="revanced_hide_shorts_shelf_subscriptions" android:summaryOn="@string/revanced_hide_shorts_shelf_subscriptions_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_subscriptions_summary_off" android:dependency="revanced_hide_shorts_shelf" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_search_title" android:key="revanced_hide_shorts_shelf_search" android:summaryOn="@string/revanced_hide_shorts_shelf_search_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_search_summary_off" android:dependency="revanced_hide_shorts_shelf" />
         <SwitchPreference android:title="@string/revanced_hide_shorts_shelf_history_title" android:key="revanced_hide_shorts_shelf_history" android:summaryOn="@string/revanced_hide_shorts_shelf_history_summary_on" android:summaryOff="@string/revanced_hide_shorts_shelf_history_summary_off" android:dependency="revanced_hide_shorts_shelf" />
-        <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
-        <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_COMPONENTS -->
+        <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>SETTINGS: SHORTS_COMPONENTS -->
 
         <!-- SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND
         <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_background_repeat_state_title" android:key="revanced_change_shorts_background_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />SETTINGS: SHORTS_REPEAT_STATE_BACKGROUND -->
+
+        <!-- SETTINGS: SHORTS_COMPONENTS
+        <ListPreference android:entries="@array/revanced_change_shorts_repeat_state_entries" android:title="@string/revanced_change_shorts_repeat_state_title" android:key="revanced_change_shorts_repeat_state" android:entryValues="@array/revanced_change_shorts_repeat_state_entry_values" />
+        <SwitchPreference android:title="@string/revanced_open_shorts_in_regular_player_title" android:key="revanced_open_shorts_in_regular_player" android:summaryOn="@string/revanced_open_shorts_in_regular_player_summary_on" android:summaryOff="@string/revanced_open_shorts_in_regular_player_summary_off" />SETTINGS: SHORTS_COMPONENTS -->
 
     <!-- PREFERENCE_SCREEN: SHORTS
     </PreferenceScreen>PREFERENCE_SCREEN: SHORTS -->
