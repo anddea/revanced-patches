@@ -31,6 +31,9 @@
     <string name="revanced_custom_filter_summary">사용자 정의 필터를 활성화하여 레이아웃 구성요소를 숨깁니다.</string>
     <string name="revanced_custom_filter_title">사용자 정의 필터 활성화</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 필터 값입니다: %s</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">잘못된 하단바 색상 값입니다.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">하단바 색상의 헥스 코드를 입력하세요.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">사용자 정의 하단바 색상</string>
     <string name="revanced_custom_playback_speeds_invalid">사용자 정의 재생 속도는 %s배속보다 작아야 합니다.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">잘못된 재생 속도 값입니다.</string>
     <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 재생 속도 값을 추가하거나 변경할 수 있습니다.</string>
@@ -60,8 +63,6 @@
     <string name="revanced_disable_music_video_in_album_title">앨범에서 뮤직 비디오 비활성화</string>
     <string name="revanced_disable_player_gesture_summary">플레이어에서 \'스와이프 제스처로 트랙 변경\'을 비활성화합니다.</string>
     <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
-    <string name="revanced_enable_black_navigation_bar_summary">하단바 색상을 검정으로 설정합니다.</string>
-    <string name="revanced_enable_black_navigation_bar_title">검정 하단바 활성화</string>
     <string name="revanced_enable_black_player_background_summary">플레이어 배경 색상을 검정으로 설정합니다.</string>
     <string name="revanced_enable_black_player_background_title">검정 플레이어 배경 활성화</string>
     <string name="revanced_enable_color_match_player_summary">미니 플레이어 색상을 전체 화면 플레이어 색상으로 변경합니다.</string>
@@ -72,6 +73,8 @@
 • 보관함 탭에서 앨범 아트가 그리드로 구성될 때 작아집니다.
 • 취침 타이머 레이아웃이 비정상적으로 보일 수 있습니다."</string>
     <string name="revanced_enable_compact_dialog_title">소형 다이얼로그 활성화</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">사용자 정의 하단바 색상을 활성화합니다.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">사용자 정의 하단바 색상 활성화</string>
     <string name="revanced_enable_debug_buffer_logging_summary">디버그 로그에 버퍼를 포함하여 출력합니다.</string>
     <string name="revanced_enable_debug_buffer_logging_title">디버그 버퍼 로깅 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
@@ -214,7 +217,7 @@
     <string name="revanced_hide_handle_title">핸들(@사용자 아이디) 제거</string>
     <string name="revanced_hide_history_button_summary">툴바에서 최근 감상 기록 버튼을 숨깁니다.</string>
     <string name="revanced_hide_history_button_title">최근 감상 기록 버튼 제거</string>
-    <string name="revanced_hide_music_ads_summary">음악을 재생하기 전 광고를 숨깁니다.</string>
+    <string name="revanced_hide_music_ads_summary">음악을 재생하는 동안에 광고를 숨깁니다.</string>
     <string name="revanced_hide_music_ads_title">음악 광고 제거</string>
     <string name="revanced_hide_navigation_bar_summary">하단바를 숨깁니다.</string>
     <string name="revanced_hide_navigation_bar_title">하단바 제거</string>
@@ -236,10 +239,10 @@
     <string name="revanced_hide_paid_promotion_label_title">유료 광고 포함 라벨 제거</string>
     <string name="revanced_hide_playlist_card_shelf_summary">피드에서 재생목록 카드 선반을 숨깁니다.</string>
     <string name="revanced_hide_playlist_card_shelf_title">재생목록 카드 선반 제거</string>
-    <string name="revanced_hide_premium_promotion_summary">YouTube Premium 팝업 광고를 숨깁니다.</string>
-    <string name="revanced_hide_premium_promotion_title">YouTube Premium 팝업 광고 제거</string>
-    <string name="revanced_hide_premium_renewal_summary">YouTube Premium 갱신 배너를 숨깁니다.</string>
-    <string name="revanced_hide_premium_renewal_title">YouTube Premium 갱신 배너 제거</string>
+    <string name="revanced_hide_premium_promotion_summary">YT Premium 프로모션 팝업을 숨깁니다.</string>
+    <string name="revanced_hide_premium_promotion_title">YT Premium 프로모션 팝업 제거</string>
+    <string name="revanced_hide_premium_renewal_summary">YT Premium 갱신 배너를 숨깁니다.</string>
+    <string name="revanced_hide_premium_renewal_title">YT Premium 갱신 배너 제거</string>
     <string name="revanced_hide_promotion_alert_banner_summary">프로모션 알림 배너를 숨깁니다.</string>
     <string name="revanced_hide_promotion_alert_banner_title">프로모션 알림 배너 제거</string>
     <string name="revanced_hide_samples_shelf_summary">피드에서 샘플 선반을 숨깁니다.</string>
@@ -332,7 +335,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">YouTube Data API Key에 대한 정보</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">YouTube Data API v3를 사용하기 위한 Developer Key입니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API Key</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 터치합니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. &lt;a href=%1$s&gt;새 프로젝트 만들기&lt;/a&gt; 로 이동합니다.&lt;br&gt;2. &lt;b&gt;만들기&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;3. &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt; 로 이동합니다.&lt;br&gt;4. &lt;b&gt;사용&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;5. &lt;b&gt;사용자 인증 정보 만들기&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;6. &lt;b&gt;공개 데이터&lt;/b&gt; 옵션을 선택합니다.&lt;br&gt;7. &lt;b&gt;다음&lt;/b&gt; 버튼을 누릅니다.&lt;br&gt;8. API Key를 복사합니다.&lt;br&gt;&lt;br&gt;※ API Key는 다른 사람과 공유해서는 안 되므로 가져오기 / 내보내기 설정에 포함되지 않습니다.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">YouTube Data API v3 Developer Key 발급</string>
     <string name="revanced_ryd_about">정보</string>
     <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요.</string>

@@ -1,195 +1,373 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="gms_core_dialog_continue_text">Continue</string>
-    <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore does not have permission to run in the background.
+    <string name="gms_core_dialog_continue_text">&lt;string name="gms_core_dialog_continue_text"&gt;Continue&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_dismiss_text">&lt;string name="gms_core_dialog_dismiss_text"&gt;Don\'t show again&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">&lt;string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message"&gt;"GmsCore does not have permission to run in the background.
 
 Follow the 'Don't kill my app!' guide for your device, and apply the instructions to your GmsCore installation.
 
-This is required for the app to work."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore battery optimizations must be disabled to prevent issues.
+This is required for the app to work."&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">&lt;string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message"&gt;"GmsCore battery optimizations must be disabled to prevent issues.
 
 Disabling battery optimizations for GmsCore will not negatively affect battery usage.
 
-Tap the continue button and allow optimization changes."</string>
-    <string name="gms_core_dialog_open_website_text">Open website</string>
-    <string name="gms_core_dialog_title">Action needed</string>
-    <string name="gms_core_settings_summary">Opens GmsCore settings. Then enable cloud messaging to receive notifications.</string>
-    <string name="gms_core_settings_title">Open GmsCore settings</string>
-    <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
-    <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-    <string name="revanced_change_share_sheet_summary">Change from in-app share sheet to system share sheet.</string>
-    <string name="revanced_change_share_sheet_title">Change share sheet</string>
-    <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds.</string>
-    <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable \'Open supported links\' and enable the supported web addresses.</string>
-    <string name="revanced_default_app_settings_title">Open default app settings</string>
-    <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
-    <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
-    <string name="revanced_disable_drc_audio_summary">Disables DRC (Dynamic Range Compression) applied to audio.</string>
-    <string name="revanced_disable_drc_audio_title">Disable DRC audio</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Disables swipe to change tracks in the miniplayer.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Disable miniplayer gesture</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Tap Song / Video toggle</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Tap and hold Song / Video toggle</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirect</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Specifies how to redirect to official song.</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_title">Redirection type</string>
-    <string name="revanced_disable_music_video_in_album_summary">"When a non-premium user plays a song included in an album, the music video is sometimes played instead of the official song.
+Tap the continue button and allow optimization changes."&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_open_website_text">&lt;string name="gms_core_dialog_open_website_text"&gt;Open website&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_title">&lt;string name="gms_core_dialog_title"&gt;Action needed&lt;/string&gt;
+    </string>
+    <string name="gms_core_settings_summary">&lt;string name="gms_core_settings_summary"&gt;To receive notifications in RVX Music, enable Cloud Messaging.&lt;/string&gt;
+    </string>
+    <string name="gms_core_settings_title">&lt;string name="gms_core_settings_title"&gt;Open GmsCore settings&lt;/string&gt;
+    </string>
+    <string name="gms_core_toast_not_installed_message">&lt;string name="gms_core_toast_not_installed_message"&gt;GmsCore is not installed. Install it.&lt;/string&gt;
+    </string>
+    <string name="revanced_bypass_image_region_restrictions_summary">&lt;string name="revanced_bypass_image_region_restrictions_summary"&gt;Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.&lt;/string&gt;
+    </string>
+    <string name="revanced_bypass_image_region_restrictions_title">&lt;string name="revanced_bypass_image_region_restrictions_title"&gt;Bypass image region restrictions&lt;/string&gt;
+    </string>
+    <string name="revanced_change_share_sheet_summary">&lt;string name="revanced_change_share_sheet_summary"&gt;Changes the in-app share sheet to system share sheet.&lt;/string&gt;
+    </string>
+    <string name="revanced_change_share_sheet_title">&lt;string name="revanced_change_share_sheet_title"&gt;Change share sheet&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">&lt;string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast"&gt;Invalid navigation bar color value.&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">&lt;string name="revanced_custom_navigation_bar_color_value_summary"&gt;Type the hex code of the navigation bar color.&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_title">&lt;string name="revanced_custom_navigation_bar_color_value_title"&gt;Custom navigation bar color value&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_playback_speeds_parse_exception">&lt;string name="revanced_custom_playback_speeds_parse_exception"&gt;Invalid custom playback speeds.&lt;/string&gt;
+    </string>
+    <string name="revanced_default_app_settings_summary">&lt;string name="revanced_default_app_settings_summary"&gt;To open YouTube Music links in RVX Music, enable Open supported links and enable all the Supported web addresses.&lt;/string&gt;
+    </string>
+    <string name="revanced_default_app_settings_title">&lt;string name="revanced_default_app_settings_title"&gt;Open default app settings&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_cairo_splash_animation_summary">&lt;string name="revanced_disable_cairo_splash_animation_summary"&gt;Disables Cairo splash animation when the app starts up.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_cairo_splash_animation_title">&lt;string name="revanced_disable_cairo_splash_animation_title"&gt;Disable Cairo splash animation&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_drc_audio_summary">&lt;string name="revanced_disable_drc_audio_summary"&gt;Disables DRC (Dynamic Range Compression) applied to audio.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_drc_audio_title">&lt;string name="revanced_disable_drc_audio_title"&gt;Disable DRC audio&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_mini_player_gesture_summary">&lt;string name="revanced_disable_mini_player_gesture_summary"&gt;Disables swipe to change tracks in the miniplayer.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_mini_player_gesture_title">&lt;string name="revanced_disable_mini_player_gesture_title"&gt;Disable miniplayer gesture&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">&lt;string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click"&gt;Tap Song / Video toggle&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">&lt;string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click"&gt;Tap and hold Song / Video toggle&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">&lt;string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect"&gt;Redirect&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">&lt;string name="revanced_disable_music_video_in_album_redirect_type_summary"&gt;Specifies how to redirect to official song.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">&lt;string name="revanced_disable_music_video_in_album_redirect_type_title"&gt;Redirection type&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_summary">&lt;string name="revanced_disable_music_video_in_album_summary"&gt;"When a non-premium user plays a song included in an album, the music video is sometimes played instead of the official song.
 
 Find the official song if a music video is detected playing from an album.
 
-• Powered by Piped Instance API."</string>
-    <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
-    <string name="revanced_disable_player_gesture_summary">Disables swipe to change tracks in the player.</string>
-    <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
-    <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
-    <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
-    <string name="revanced_extended_settings_reset">Reset</string>
-    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
-    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_hide_double_tap_overlay_filter_summary">Hides dark overlay that appears when double-tapping to seek.</string>
-    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
-    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
-    <string name="revanced_hide_promotion_alert_banner_summary">Hides the promotion alert banner.</string>
-    <string name="revanced_hide_promotion_alert_banner_title">Hide promotion alert banner</string>
-    <string name="revanced_hide_settings_menu_about_title">Hide About menu</string>
-    <string name="revanced_hide_settings_menu_data_saving_title">Hide Data saving menu</string>
-    <string name="revanced_hide_settings_menu_downloads_and_storage_title">Hide Downloads &amp; storage menu</string>
-    <string name="revanced_hide_settings_menu_general_title">Hide General menu</string>
-    <string name="revanced_hide_settings_menu_notification_title">Hide Notifications menu</string>
-    <string name="revanced_hide_settings_menu_paid_memberships_title">Hide Get Music premium menu</string>
-    <string name="revanced_hide_settings_menu_parent_tools_title">Hide Family Center menu</string>
-    <string name="revanced_hide_settings_menu_playback_title">Hide Playback menu</string>
-    <string name="revanced_hide_settings_menu_privacy_and_location_title">Hide Privacy &amp; data menu</string>
-    <string name="revanced_hide_settings_menu_recommendations_title">Hide Recommendations menu</string>
-    <string name="revanced_hide_settings_menu_summary">"Hide elements of the settings menu.
-This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."</string>
-    <string name="revanced_hide_settings_menu_title">Hide settings menu</string>
-    <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
-    <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
-    <string name="revanced_preference_screen_ryd_title">Return YouTube Dislike</string>
-    <string name="revanced_preference_screen_sb_title">SponsorBlock</string>
-    <string name="revanced_preference_screen_settings_title">Settings menu</string>
-    <string name="revanced_preference_screen_video_title">Video</string>
-    <string name="revanced_remember_playback_speed_last_selected_summary">Remembers the last playback speed selected.</string>
-    <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Show a toast when changing the default playback speed.</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_title">Show a toast</string>
-    <string name="revanced_remember_playback_speed_toast">Changing default speed to %s.</string>
-    <string name="revanced_remember_video_quality_last_selected_summary">Remembers the last video quality selected.</string>
-    <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary">Show a toast when changing the default video quality.</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
-    <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
-    <string name="revanced_remember_video_quality_none">Failed to set quality.</string>
-    <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>
-    <string name="revanced_restore_old_comments_popup_panels_summary">Restores the comments popup panels to the old style.</string>
-    <string name="revanced_restore_old_comments_popup_panels_title">Restore old comments popup panels</string>
-    <string name="revanced_restore_old_player_background_summary">Restores the player background to the old style.</string>
-    <string name="revanced_restore_old_player_background_title">Restore old player background</string>
-    <string name="revanced_restore_old_player_layout_summary">"Restores the player layout to the old style.
-Some features may not work properly in the old player layout."</string>
-    <string name="revanced_restore_old_player_layout_title">Restore old player layout</string>
-    <string name="revanced_return_youtube_username_display_format_handle_username">@handle (Username)</string>
-    <string name="revanced_return_youtube_username_display_format_summary">Select the username display format.</string>
-    <string name="revanced_return_youtube_username_display_format_title">Display format</string>
-    <string name="revanced_return_youtube_username_display_format_username_handle">Username (@handle)</string>
-    <string name="revanced_return_youtube_username_display_format_username_only">Username</string>
-    <string name="revanced_return_youtube_username_enabled_summary">Replaces handles with usernames in comments.</string>
-    <string name="revanced_return_youtube_username_enabled_title">Enable Return YouTube Username</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">"A YouTube Data API v3 Developer Key is required to replace handles with usernames.
+• Powered by Piped Instance API."&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_title">&lt;string name="revanced_disable_music_video_in_album_title"&gt;Disable music video in album&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_player_gesture_summary">&lt;string name="revanced_disable_player_gesture_summary"&gt;Disables swipe to change tracks in the player.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_player_gesture_title">&lt;string name="revanced_disable_player_gesture_title"&gt;Disable player gesture&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">&lt;string name="revanced_enable_custom_navigation_bar_color_summary"&gt;Sets the navigation bar color.&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">&lt;string name="revanced_enable_custom_navigation_bar_color_title"&gt;Enable custom navigation bar color&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_debug_buffer_logging_summary">&lt;string name="revanced_enable_debug_buffer_logging_summary"&gt;Includes the buffer in the debug log.&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_debug_buffer_logging_title">&lt;string name="revanced_enable_debug_buffer_logging_title"&gt;Enable debug buffer logging&lt;/string&gt;
+    </string>
+    <string name="revanced_extended_reset_to_default_toast">&lt;string name="revanced_extended_reset_to_default_toast"&gt;Reset to default values.&lt;/string&gt;
+    </string>
+    <string name="revanced_extended_settings_reset">&lt;string name="revanced_extended_settings_reset"&gt;Reset&lt;/string&gt;
+    </string>
+    <string name="revanced_gms_show_dialog_summary">&lt;string name="revanced_gms_show_dialog_summary"&gt;Displays the optimization dialog for GMSCore at each application startup.&lt;/string&gt;
+    </string>
+    <string name="revanced_gms_show_dialog_title">&lt;string name="revanced_gms_show_dialog_title"&gt;Show optimization dialog for GMSCore&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_double_tap_overlay_filter_summary">&lt;string name="revanced_hide_double_tap_overlay_filter_summary"&gt;Hides dark overlay that appears when double-tapping to seek.&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">&lt;string name="revanced_hide_flyout_menu_pin_to_speed_dial_title"&gt;Hide Pin to Speed dial menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">&lt;string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title"&gt;Hide Unpin from Speed dial menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_promotion_alert_banner_summary">&lt;string name="revanced_hide_promotion_alert_banner_summary"&gt;Hides the promotion alert banner.&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_promotion_alert_banner_title">&lt;string name="revanced_hide_promotion_alert_banner_title"&gt;Hide promotion alert banner&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_about_title">&lt;string name="revanced_hide_settings_menu_about_title"&gt;Hide About menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_data_saving_title">&lt;string name="revanced_hide_settings_menu_data_saving_title"&gt;Hide Data saving menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_downloads_and_storage_title">&lt;string name="revanced_hide_settings_menu_downloads_and_storage_title"&gt;Hide Downloads &amp;amp; storage menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_general_title">&lt;string name="revanced_hide_settings_menu_general_title"&gt;Hide General menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_notification_title">&lt;string name="revanced_hide_settings_menu_notification_title"&gt;Hide Notifications menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_paid_memberships_title">&lt;string name="revanced_hide_settings_menu_paid_memberships_title"&gt;Hide Get Music premium menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_parent_tools_title">&lt;string name="revanced_hide_settings_menu_parent_tools_title"&gt;Hide Family Center menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_playback_title">&lt;string name="revanced_hide_settings_menu_playback_title"&gt;Hide Playback menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_privacy_and_location_title">&lt;string name="revanced_hide_settings_menu_privacy_and_location_title"&gt;Hide Privacy &amp;amp; data menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_recommendations_title">&lt;string name="revanced_hide_settings_menu_recommendations_title"&gt;Hide Recommendations menu&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_summary">&lt;string name="revanced_hide_settings_menu_summary"&gt;"Hide elements of the settings menu.
+This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_title">&lt;string name="revanced_hide_settings_menu_title"&gt;Hide settings menu&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_misc_title">&lt;string name="revanced_preference_screen_misc_title"&gt;Miscellaneous&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_return_youtube_username_title">&lt;string name="revanced_preference_screen_return_youtube_username_title"&gt;Return YouTube Username&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_ryd_title">&lt;string name="revanced_preference_screen_ryd_title"&gt;Return YouTube Dislike&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_sb_title">&lt;string name="revanced_preference_screen_sb_title"&gt;SponsorBlock&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_settings_title">&lt;string name="revanced_preference_screen_settings_title"&gt;Settings menu&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_video_title">&lt;string name="revanced_preference_screen_video_title"&gt;Video&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_playback_speed_last_selected_summary">&lt;string name="revanced_remember_playback_speed_last_selected_summary"&gt;Remembers the last playback speed selected.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_playback_speed_last_selected_title">&lt;string name="revanced_remember_playback_speed_last_selected_title"&gt;Remember playback speed changes&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">&lt;string name="revanced_remember_playback_speed_last_selected_toast_summary"&gt;Shows a toast when changing the default playback speed.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_title">&lt;string name="revanced_remember_playback_speed_last_selected_toast_title"&gt;Show a toast&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_playback_speed_toast">&lt;string name="revanced_remember_playback_speed_toast"&gt;Changing default speed to %s.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_last_selected_summary">&lt;string name="revanced_remember_video_quality_last_selected_summary"&gt;Remembers the last video quality selected.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_last_selected_title">&lt;string name="revanced_remember_video_quality_last_selected_title"&gt;Remember video quality changes&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">&lt;string name="revanced_remember_video_quality_last_selected_toast_summary"&gt;Shows a toast when changing the default video quality.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_last_selected_toast_title">&lt;string name="revanced_remember_video_quality_last_selected_toast_title"&gt;Show a toast&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_mobile">&lt;string name="revanced_remember_video_quality_mobile"&gt;Changing default mobile data quality to %s.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_none">&lt;string name="revanced_remember_video_quality_none"&gt;Failed to set quality.&lt;/string&gt;
+    </string>
+    <string name="revanced_remember_video_quality_wifi">&lt;string name="revanced_remember_video_quality_wifi"&gt;Changing default Wi-Fi quality to %s.&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_comments_popup_panels_summary">&lt;string name="revanced_restore_old_comments_popup_panels_summary"&gt;Restores the comments popup panels to the old style.&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_comments_popup_panels_title">&lt;string name="revanced_restore_old_comments_popup_panels_title"&gt;Restore old comments popup panels&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_player_background_summary">&lt;string name="revanced_restore_old_player_background_summary"&gt;Restores the player background to the old style.&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_player_background_title">&lt;string name="revanced_restore_old_player_background_title"&gt;Restore old player background&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_player_layout_summary">&lt;string name="revanced_restore_old_player_layout_summary"&gt;"Restores the player layout to the old style.
+Some features may not work properly in the old player layout."&lt;/string&gt;
+    </string>
+    <string name="revanced_restore_old_player_layout_title">&lt;string name="revanced_restore_old_player_layout_title"&gt;Restore old player layout&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_display_format_handle_username">&lt;string name="revanced_return_youtube_username_display_format_handle_username"&gt;@handle (Username)&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_display_format_summary">&lt;string name="revanced_return_youtube_username_display_format_summary"&gt;Select the username display format.&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_display_format_title">&lt;string name="revanced_return_youtube_username_display_format_title"&gt;Display format&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_display_format_username_handle">&lt;string name="revanced_return_youtube_username_display_format_username_handle"&gt;Username (@handle)&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_display_format_username_only">&lt;string name="revanced_return_youtube_username_display_format_username_only"&gt;Username&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_enabled_summary">&lt;string name="revanced_return_youtube_username_enabled_summary"&gt;Replaces handles with usernames in comments.&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_enabled_title">&lt;string name="revanced_return_youtube_username_enabled_title"&gt;Enable Return YouTube Username&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_about_summary"&gt;"A YouTube Data API v3 Developer Key is required to replace handles with usernames.
 
 The daily quota for API keys on the free plan is 10,000, and 1 quota is used to replace a handle with a username for 1 comment.
 
-Click to see how to issue a API key."</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">About YouTube Data API key</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">The developer key for using the YouTube Data API v3.</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">1. Go to &lt;a href=%1$s&gt;Create a new project&lt;/a&gt;.&lt;br&gt;2. Click the &lt;b&gt;CREATE&lt;/b&gt; button.&lt;br&gt;3. Go to &lt;a href=%2$s&gt;YouTube Data API v3&lt;/a&gt;.&lt;br&gt;4. Click the &lt;b&gt;ENABLE&lt;/b&gt; button.&lt;br&gt;5. Click the &lt;b&gt;CREATE CREDENTIALS&lt;/b&gt; button.&lt;br&gt;6. Select the &lt;b&gt;Public data&lt;/b&gt; option.&lt;br&gt;7. Click the &lt;b&gt;NEXT&lt;/b&gt; button.&lt;br&gt;8. Copy the API key.&lt;br&gt;&lt;br&gt;※ API key should never be shared with others, so it is not included in Import / Export settings.</string>
-    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">Issue YouTube Data API v3 developer key</string>
-    <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-    <string name="revanced_ryd_enabled_title">Enable Return YouTube Dislike</string>
-    <string name="revanced_ryd_estimated_like_summary">Shows the estimated like count of videos.</string>
-    <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
-    <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
-    <string name="revanced_sb_about">About</string>
-    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.</string>
-    <string name="revanced_sb_api_url">Change API URL</string>
-    <string name="revanced_sb_api_url_changed">API URL changed.</string>
-    <string name="revanced_sb_api_url_invalid">API URL is invalid.</string>
-    <string name="revanced_sb_api_url_reset">API URL reset.</string>
-    <string name="revanced_sb_api_url_sum">The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you\'re doing.</string>
-    <string name="revanced_sb_color_changed">Color changed.</string>
-    <string name="revanced_sb_color_dot_label">Color:</string>
-    <string name="revanced_sb_color_invalid">Invalid color code.</string>
-    <string name="revanced_sb_color_reset">Color reset.</string>
-    <string name="revanced_sb_diff_segments">Change segment behavior</string>
-    <string name="revanced_sb_enabled">Enable SponsorBlock</string>
-    <string name="revanced_sb_enabled_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
-    <string name="revanced_sb_reset_color">Reset color</string>
-    <string name="revanced_sb_segments_filler">Filler Tangent / Jokes</string>
-    <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.</string>
-    <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-    <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.</string>
-    <string name="revanced_sb_segments_intro">Intermission / Intro Animation</string>
-    <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.</string>
-    <string name="revanced_sb_segments_nomusic">Music: Non-Music Section</string>
-    <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category.</string>
-    <string name="revanced_sb_segments_outro">Endcards / Credits</string>
-    <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information.</string>
-    <string name="revanced_sb_segments_preview">Preview / Recap / Hook</string>
-    <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.</string>
-    <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
-    <string name="revanced_sb_segments_selfpromo_sum">Similar to Sponsor, except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.</string>
-    <string name="revanced_sb_segments_sponsor">Sponsor</string>
-    <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals, and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.</string>
-    <string name="revanced_sb_skip_automatically">Skip automatically</string>
-    <string name="revanced_sb_skip_ignore">Disable</string>
-    <string name="revanced_sb_skipped_filler">Skipped filler.</string>
-    <string name="revanced_sb_skipped_interaction">Skipped annoying reminder.</string>
-    <string name="revanced_sb_skipped_intro_beginning">Skipped intro.</string>
-    <string name="revanced_sb_skipped_intro_end">Skipped intermission.</string>
-    <string name="revanced_sb_skipped_intro_middle">Skipped intermission.</string>
-    <string name="revanced_sb_skipped_multiple_segments">Skipped multiple segments.</string>
-    <string name="revanced_sb_skipped_nomusic">Skipped a non-music section.</string>
-    <string name="revanced_sb_skipped_outro">Skipped outro.</string>
-    <string name="revanced_sb_skipped_preview_beginning">Skipped preview.</string>
-    <string name="revanced_sb_skipped_preview_end">Skipped recap.</string>
-    <string name="revanced_sb_skipped_preview_middle">Skipped preview.</string>
-    <string name="revanced_sb_skipped_selfpromo">Skipped self-promotion.</string>
-    <string name="revanced_sb_skipped_sponsor">Skipped sponsor.</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock is temporarily unavailable.</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock is temporarily unavailable (status %d).</string>
-    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock is temporarily unavailable (API timed out).</string>
-    <string name="revanced_sb_toast_on_connection_error">Show a toast if API is unavailable</string>
-    <string name="revanced_sb_toast_on_connection_error_sum">Shows a toast if the SponsorBlock API is unavailable.</string>
-    <string name="revanced_sb_toast_on_skip">Show a toast when skipping automatically</string>
-    <string name="revanced_sb_toast_on_skip_sum">Shows a toast when a segment is automatically skipped.</string>
-    <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restore old action bar</string>
-    <string name="revanced_spoof_client_summary">"Spoof the client to prevent playback issues.
+Click to see how to issue an API key."&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_about_title"&gt;About YouTube Data API key&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary"&gt;The developer key for using the YouTube Data API v3.&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title"&gt;YouTube Data API key&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_message"&gt;1. Go to &amp;lt;a href=%1$s&amp;gt;Create a new project&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;2. Click the &amp;lt;b&amp;gt;CREATE&amp;lt;/b&amp;gt; button.&amp;lt;br&amp;gt;3. Go to &amp;lt;a href=%2$s&amp;gt;YouTube Data API v3&amp;lt;/a&amp;gt;.&amp;lt;br&amp;gt;4. Click the &amp;lt;b&amp;gt;ENABLE&amp;lt;/b&amp;gt; button.&amp;lt;br&amp;gt;5. Click the &amp;lt;b&amp;gt;CREATE CREDENTIALS&amp;lt;/b&amp;gt; button.&amp;lt;br&amp;gt;6. Select the &amp;lt;b&amp;gt;Public data&amp;lt;/b&amp;gt; option.&amp;lt;br&amp;gt;7. Click the &amp;lt;b&amp;gt;NEXT&amp;lt;/b&amp;gt; button.&amp;lt;br&amp;gt;8. Copy the API key.&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;※ API key should never be shared with others, so it is not included in Import / Export settings.&lt;/string&gt;
+    </string>
+    <string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title">&lt;string name="revanced_return_youtube_username_youtube_data_api_v3_dialog_title"&gt;Issue YouTube Data API v3 developer key&lt;/string&gt;
+    </string>
+    <string name="revanced_ryd_attribution_title">&lt;string name="revanced_ryd_attribution_title"&gt;ReturnYouTubeDislike.com&lt;/string&gt;
+    </string>
+    <string name="revanced_ryd_enabled_title">&lt;string name="revanced_ryd_enabled_title"&gt;Enable Return YouTube Dislike&lt;/string&gt;
+    </string>
+    <string name="revanced_ryd_estimated_like_summary">&lt;string name="revanced_ryd_estimated_like_summary"&gt;Shows the estimated like count of videos.&lt;/string&gt;
+    </string>
+    <string name="revanced_ryd_estimated_like_title">&lt;string name="revanced_ryd_estimated_like_title"&gt;Show estimated likes&lt;/string&gt;
+    </string>
+    <string name="revanced_ryd_video_likes_hidden_by_video_owner">&lt;string name="revanced_ryd_video_likes_hidden_by_video_owner"&gt;Hidden&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_about">&lt;string name="revanced_sb_about"&gt;About&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_about_api">&lt;string name="revanced_sb_about_api"&gt;sponsor.ajay.app&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_about_api_sum">&lt;string name="revanced_sb_about_api_sum"&gt;Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_api_url">&lt;string name="revanced_sb_api_url"&gt;Change API URL&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_api_url_changed">&lt;string name="revanced_sb_api_url_changed"&gt;API URL changed.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_api_url_invalid">&lt;string name="revanced_sb_api_url_invalid"&gt;API URL is invalid.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_api_url_reset">&lt;string name="revanced_sb_api_url_reset"&gt;API URL reset.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_api_url_sum">&lt;string name="revanced_sb_api_url_sum"&gt;The address SponsorBlock uses to make calls to the server. Do not change this unless you know what you\'re doing.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_color_changed">&lt;string name="revanced_sb_color_changed"&gt;Color changed.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_color_dot_label">&lt;string name="revanced_sb_color_dot_label"&gt;Color:&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_color_invalid">&lt;string name="revanced_sb_color_invalid"&gt;Invalid color code.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_color_reset">&lt;string name="revanced_sb_color_reset"&gt;Color reset.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_diff_segments">&lt;string name="revanced_sb_diff_segments"&gt;Change segment behavior&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_enabled">&lt;string name="revanced_sb_enabled"&gt;Enable SponsorBlock&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_enabled_sum">&lt;string name="revanced_sb_enabled_sum"&gt;SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_reset_color">&lt;string name="revanced_sb_reset_color"&gt;Reset color&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_filler">&lt;string name="revanced_sb_segments_filler"&gt;Filler Tangent / Jokes&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_filler_sum">&lt;string name="revanced_sb_segments_filler_sum"&gt;Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_interaction">&lt;string name="revanced_sb_segments_interaction"&gt;Interaction Reminder (Subscribe)&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_interaction_sum">&lt;string name="revanced_sb_segments_interaction_sum"&gt;A short reminder to like, subscribe, or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_intro">&lt;string name="revanced_sb_segments_intro"&gt;Intermission / Intro Animation&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_intro_sum">&lt;string name="revanced_sb_segments_intro_sum"&gt;An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_nomusic">&lt;string name="revanced_sb_segments_nomusic"&gt;Music: Non-Music Section&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_nomusic_sum">&lt;string name="revanced_sb_segments_nomusic_sum"&gt;Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_outro">&lt;string name="revanced_sb_segments_outro"&gt;Endcards / Credits&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_outro_sum">&lt;string name="revanced_sb_segments_outro_sum"&gt;Credits or when the YouTube endcards appear. Not for conclusions with information.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_preview">&lt;string name="revanced_sb_segments_preview"&gt;Preview / Recap / Hook&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_preview_sum">&lt;string name="revanced_sb_segments_preview_sum"&gt;Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_selfpromo">&lt;string name="revanced_sb_segments_selfpromo"&gt;Unpaid / Self Promotion&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_selfpromo_sum">&lt;string name="revanced_sb_segments_selfpromo_sum"&gt;Similar to Sponsor, except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_sponsor">&lt;string name="revanced_sb_segments_sponsor"&gt;Sponsor&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_segments_sponsor_sum">&lt;string name="revanced_sb_segments_sponsor_sum"&gt;Paid promotion, paid referrals, and direct advertisements. Not for self-promotion or free shout-outs to causes / creators / websites / products they like.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skip_automatically">&lt;string name="revanced_sb_skip_automatically"&gt;Skip automatically&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skip_ignore">&lt;string name="revanced_sb_skip_ignore"&gt;Disable&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_filler">&lt;string name="revanced_sb_skipped_filler"&gt;Skipped filler.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_interaction">&lt;string name="revanced_sb_skipped_interaction"&gt;Skipped annoying reminder.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_intro_beginning">&lt;string name="revanced_sb_skipped_intro_beginning"&gt;Skipped intro.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_intro_end">&lt;string name="revanced_sb_skipped_intro_end"&gt;Skipped intermission.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_intro_middle">&lt;string name="revanced_sb_skipped_intro_middle"&gt;Skipped intermission.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_multiple_segments">&lt;string name="revanced_sb_skipped_multiple_segments"&gt;Skipped multiple segments.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_nomusic">&lt;string name="revanced_sb_skipped_nomusic"&gt;Skipped a non-music section.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_outro">&lt;string name="revanced_sb_skipped_outro"&gt;Skipped outro.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_preview_beginning">&lt;string name="revanced_sb_skipped_preview_beginning"&gt;Skipped preview.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_preview_end">&lt;string name="revanced_sb_skipped_preview_end"&gt;Skipped recap.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_preview_middle">&lt;string name="revanced_sb_skipped_preview_middle"&gt;Skipped preview.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_selfpromo">&lt;string name="revanced_sb_skipped_selfpromo"&gt;Skipped self-promotion.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_skipped_sponsor">&lt;string name="revanced_sb_skipped_sponsor"&gt;Skipped sponsor.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">&lt;string name="revanced_sb_sponsorblock_connection_failure_generic"&gt;SponsorBlock is temporarily unavailable.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">&lt;string name="revanced_sb_sponsorblock_connection_failure_status"&gt;SponsorBlock is temporarily unavailable (status %d).&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">&lt;string name="revanced_sb_sponsorblock_connection_failure_timeout"&gt;SponsorBlock is temporarily unavailable (API timed out).&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_toast_on_connection_error">&lt;string name="revanced_sb_toast_on_connection_error"&gt;Show a toast if API is unavailable&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_toast_on_connection_error_sum">&lt;string name="revanced_sb_toast_on_connection_error_sum"&gt;Shows a toast if the SponsorBlock API is unavailable.&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_toast_on_skip">&lt;string name="revanced_sb_toast_on_skip"&gt;Show a toast when skipping automatically&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_toast_on_skip_sum">&lt;string name="revanced_sb_toast_on_skip_sum"&gt;Shows a toast when a segment is automatically skipped.&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_app_version_target_entry_7_16_53">&lt;string name="revanced_spoof_app_version_target_entry_7_16_53"&gt;7.16.53 - Restore old action bar&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_summary">&lt;string name="revanced_spoof_client_summary"&gt;"Spoof the client to prevent playback issues.
 
-• When used with 'Spoofing streaming data', playback issues may occur."</string>
-    <string name="revanced_spoof_client_title">Spoof client</string>
-    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
-    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
-    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_summary">"Defines a default client for spoofing.
+• When used with 'Spoofing streaming data', playback issues may occur."&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_title">&lt;string name="revanced_spoof_client_title"&gt;Spoof client&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">&lt;string name="revanced_spoof_client_type_entry_android_music_4_27"&gt;Android Music 4.27.53&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">&lt;string name="revanced_spoof_client_type_entry_android_music_5_29"&gt;Android Music 5.29.53&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">&lt;string name="revanced_spoof_client_type_entry_ios_music_6_21"&gt;iOS Music 6.21&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_summary">&lt;string name="revanced_spoof_client_type_summary"&gt;"Defines a default client for spoofing.
 
-• When using the Android client, it is recommended to also use 'Spoof app version'."</string>
-    <string name="revanced_spoof_client_type_title">Default client</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.
+• When using the Android client, it is recommended to also use 'Spoof app version'."&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_title">&lt;string name="revanced_spoof_client_type_title"&gt;Default client&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">&lt;string name="revanced_spoof_streaming_data_stats_for_nerds_summary"&gt;Shows the client used to fetch streaming data in Stats for nerds.&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">&lt;string name="revanced_spoof_streaming_data_stats_for_nerds_title"&gt;Show in Stats for nerds&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_summary">&lt;string name="revanced_spoof_streaming_data_summary"&gt;"Spoof the streaming data to prevent playback issues.
 
-• When used with 'Spoof client', playback issues may occur."</string>
-    <string name="revanced_spoof_streaming_data_title">Spoof streaming data</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_summary">Defines a default client that fetches streaming data.</string>
-    <string name="revanced_spoof_streaming_data_type_title">Default client</string>
+• When used with 'Spoof client', playback issues may occur."&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_title">&lt;string name="revanced_spoof_streaming_data_title"&gt;Spoof streaming data&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">&lt;string name="revanced_spoof_streaming_data_type_entry_android_music"&gt;Android Music&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">&lt;string name="revanced_spoof_streaming_data_type_entry_android_unplugged"&gt;Android TV&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr">&lt;string name="revanced_spoof_streaming_data_type_entry_android_vr"&gt;Android VR&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">&lt;string name="revanced_spoof_streaming_data_type_entry_ios"&gt;iOS&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_summary">&lt;string name="revanced_spoof_streaming_data_type_summary"&gt;Defines a default client that fetches streaming data.&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_title">&lt;string name="revanced_spoof_streaming_data_type_title"&gt;Default client&lt;/string&gt;
+</string>
 </resources>

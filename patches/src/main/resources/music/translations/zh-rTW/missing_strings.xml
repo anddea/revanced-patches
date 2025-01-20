@@ -1,44 +1,80 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="gms_core_dialog_continue_text">Continue</string>
-    <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore does not have permission to run in the background.
+    <string name="gms_core_dialog_continue_text">&lt;string name="gms_core_dialog_continue_text"&gt;Continue&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_dismiss_text">&lt;string name="gms_core_dialog_dismiss_text"&gt;Don\'t show again&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">&lt;string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message"&gt;"GmsCore does not have permission to run in the background.
 
 Follow the 'Don't kill my app!' guide for your device, and apply the instructions to your GmsCore installation.
 
-This is required for the app to work."</string>
-    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"GmsCore battery optimizations must be disabled to prevent issues.
+This is required for the app to work."&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">&lt;string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message"&gt;"GmsCore battery optimizations must be disabled to prevent issues.
 
 Disabling battery optimizations for GmsCore will not negatively affect battery usage.
 
-Tap the continue button and allow optimization changes."</string>
-    <string name="gms_core_dialog_open_website_text">Open website</string>
-    <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
-    <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
-    <string name="revanced_disable_drc_audio_summary">Disables DRC (Dynamic Range Compression) applied to audio.</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Tap Song / Video toggle</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Tap and hold Song / Video toggle</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Specifies how to redirect to official song.</string>
-    <string name="revanced_disable_music_video_in_album_summary">"When a non-premium user plays a song included in an album, the music video is sometimes played instead of the official song.
+Tap the continue button and allow optimization changes."&lt;/string&gt;
+    </string>
+    <string name="gms_core_dialog_open_website_text">&lt;string name="gms_core_dialog_open_website_text"&gt;Open website&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">&lt;string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast"&gt;Invalid navigation bar color value.&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">&lt;string name="revanced_custom_navigation_bar_color_value_summary"&gt;Type the hex code of the navigation bar color.&lt;/string&gt;
+    </string>
+    <string name="revanced_custom_navigation_bar_color_value_title">&lt;string name="revanced_custom_navigation_bar_color_value_title"&gt;Custom navigation bar color value&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_cairo_splash_animation_summary">&lt;string name="revanced_disable_cairo_splash_animation_summary"&gt;Disables Cairo splash animation when the app starts up.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_cairo_splash_animation_title">&lt;string name="revanced_disable_cairo_splash_animation_title"&gt;Disable Cairo splash animation&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_drc_audio_summary">&lt;string name="revanced_disable_drc_audio_summary"&gt;Disables DRC (Dynamic Range Compression) applied to audio.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">&lt;string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click"&gt;Tap Song / Video toggle&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">&lt;string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click"&gt;Tap and hold Song / Video toggle&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">&lt;string name="revanced_disable_music_video_in_album_redirect_type_summary"&gt;Specifies how to redirect to official song.&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_summary">&lt;string name="revanced_disable_music_video_in_album_summary"&gt;"When a non-premium user plays a song included in an album, the music video is sometimes played instead of the official song.
 
 Find the official song if a music video is detected playing from an album.
 
-• Powered by Piped Instance API."</string>
-    <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
-    <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
-    <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
-    <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_hide_settings_menu_summary">"Hide elements of the settings menu.
-This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."</string>
-    <string name="revanced_hide_settings_menu_title">Hide settings menu</string>
-    <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
-    <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-    <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.</string>
-    <string name="revanced_spoof_client_type_summary">"Defines a default client for spoofing.
+• Powered by Piped Instance API."&lt;/string&gt;
+    </string>
+    <string name="revanced_disable_music_video_in_album_title">&lt;string name="revanced_disable_music_video_in_album_title"&gt;Disable music video in album&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">&lt;string name="revanced_enable_custom_navigation_bar_color_summary"&gt;Sets the navigation bar color.&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">&lt;string name="revanced_enable_custom_navigation_bar_color_title"&gt;Enable custom navigation bar color&lt;/string&gt;
+    </string>
+    <string name="revanced_enable_debug_buffer_logging_summary">&lt;string name="revanced_enable_debug_buffer_logging_summary"&gt;Includes the buffer in the debug log.&lt;/string&gt;
+    </string>
+    <string name="revanced_gms_show_dialog_summary">&lt;string name="revanced_gms_show_dialog_summary"&gt;Displays the optimization dialog for GMSCore at each application startup.&lt;/string&gt;
+    </string>
+    <string name="revanced_gms_show_dialog_title">&lt;string name="revanced_gms_show_dialog_title"&gt;Show optimization dialog for GMSCore&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_summary">&lt;string name="revanced_hide_settings_menu_summary"&gt;"Hide elements of the settings menu.
+This hides not only the YT Music settings menu, but also the ReVanced Extended settings menu."&lt;/string&gt;
+    </string>
+    <string name="revanced_hide_settings_menu_title">&lt;string name="revanced_hide_settings_menu_title"&gt;Hide settings menu&lt;/string&gt;
+    </string>
+    <string name="revanced_preference_screen_misc_title">&lt;string name="revanced_preference_screen_misc_title"&gt;Miscellaneous&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_about_api">&lt;string name="revanced_sb_about_api"&gt;sponsor.ajay.app&lt;/string&gt;
+    </string>
+    <string name="revanced_sb_about_api_sum">&lt;string name="revanced_sb_about_api_sum"&gt;Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms.&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_client_type_summary">&lt;string name="revanced_spoof_client_type_summary"&gt;"Defines a default client for spoofing.
 
-• When using the Android client, it is recommended to also use 'Spoof app version'."</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+• When using the Android client, it is recommended to also use 'Spoof app version'."&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">&lt;string name="revanced_spoof_streaming_data_stats_for_nerds_summary"&gt;Shows the client used to fetch streaming data in Stats for nerds.&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">&lt;string name="revanced_spoof_streaming_data_stats_for_nerds_title"&gt;Show in Stats for nerds&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">&lt;string name="revanced_spoof_streaming_data_type_entry_android_unplugged"&gt;Android TV&lt;/string&gt;
+    </string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">&lt;string name="revanced_spoof_streaming_data_type_entry_ios"&gt;iOS&lt;/string&gt;
+    </string>
 </resources>

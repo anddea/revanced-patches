@@ -16,10 +16,10 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="gms_core_settings_summary">Chuyển hướng tới cài đặt GmsCore và kích hoạt Cloud Messaging để nhận thông báo đẩy.</string>
     <string name="gms_core_settings_title">Cài đặt GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore chưa được cài đặt. Hãy cài đặt nó đi nào.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary">Thay thế miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Bỏ qua miền bị chặn ở một số khu vực để có thể thu được được hình thu nhỏ video của danh sách phát, ảnh đại diện kênh, v. v.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bỏ qua hạn chế khu vực cho hình ảnh</string>
-    <string name="revanced_change_share_sheet_summary">Chuyển giao diện chia sẻ trong ứng dụng sang của hệ thống.</string>
-    <string name="revanced_change_share_sheet_title">Thay đổi giao diện chia sẻ</string>
+    <string name="revanced_change_share_sheet_summary">Chuyển bảng chia sẻ trong ứng dụng Youtube sang của hệ thống Android.</string>
+    <string name="revanced_change_share_sheet_title">Thay đổi bảng chia sẻ</string>
     <string name="revanced_change_start_page_entry_chart">Bảng xếp hạng</string>
     <string name="revanced_change_start_page_entry_explore">Khám phá</string>
     <string name="revanced_change_start_page_entry_home">Trang chủ</string>
@@ -32,6 +32,9 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_custom_filter_summary">Ẩn các thành phần không mong muốn bằng bộ lọc tuỳ chỉnh.</string>
     <string name="revanced_custom_filter_title">Bộ lọc tuỳ chỉnh</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Tên mục đã nhập không hợp lệ: %s.</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Mã màu hex không hợp lệ.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Nhập mã màu hex của thanh điều hướng mà bạn muốn thay đổi.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Tuỳ chỉnh giá trị màu sắc</string>
     <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh phải nhỏ hơn %sx.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát tùy chỉnh không hợp lệ.</string>
     <string name="revanced_custom_playback_speeds_summary">Thêm giá trị tốc độ phát mà bạn muốn thay đổi hoặc chỉnh sửa các giá trị tốc độ phát hiện có.</string>
@@ -61,8 +64,6 @@ Trong trường hợp đó, hệ thống sẽ tìm và chuyển hướng tới b
     <string name="revanced_disable_music_video_in_album_title">Tắt video âm nhạc trong đĩa nhạc</string>
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Đặt màu thanh điều hướng phía dưới cùng thành màu đen.</string>
-    <string name="revanced_enable_black_navigation_bar_title">Thanh điều hướng màu đen</string>
     <string name="revanced_enable_black_player_background_summary">Thay đổi màu nền trình phát thành màu đen.</string>
     <string name="revanced_enable_black_player_background_title">Thay đổi màu nền của trình phát</string>
     <string name="revanced_enable_color_match_player_summary">Thay đổi màu của trình phát thu nhỏ khớp với màu của trình phát toàn màn hình.</string>
@@ -73,6 +74,8 @@ Hạn chế:
 • Ảnh bìa Album trong thẻ Thư viện (Danh sách phát, Podcast, Bài hát, Đĩa nhạc, Nghệ sĩ,...) cũng thu gọn theo.
 • Bố cục Hẹn giờ ngủ có thể xuất hiện bất thường."</string>
     <string name="revanced_enable_compact_dialog_title">Trình đơn tuỳ chọn thu gọn</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Chỉnh màu cho thanh điều hướng.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Màu thanh điều hướng tuỳ chỉnh</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Bao gồm bộ đệm trong nhật ký gỡ lỗi.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Bật nhật ký bộ đệm gỡ lỗi</string>
     <string name="revanced_enable_debug_logging_summary">Bật ghi nhật ký gỡ lỗi.</string>
@@ -113,7 +116,7 @@ Cụ thể:
     <string name="revanced_extended_settings_import_as_file">Nhập cài đặt từ tệp</string>
     <string name="revanced_extended_settings_import_copy">Sao chép</string>
     <string name="revanced_extended_settings_import_export_as_text">Nhập/Xuất cài đặt dưới dạng văn bản</string>
-    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất các tuỳ chọn cài đặt của bạn.</string>
+    <string name="revanced_extended_settings_import_export_summary">Nhập hoặc xuất các tuỳ chọn cài đặt RVX Music của bạn.</string>
     <string name="revanced_extended_settings_import_export_title">Nhập/Xuất cài đặt</string>
     <string name="revanced_extended_settings_import_failed">Nhập cài đặt thất bại: %s.</string>
     <string name="revanced_extended_settings_import_reset">Đã đặt lại cài đặt về mặc định.</string>
@@ -213,7 +216,7 @@ Hạn chế:
     <string name="revanced_hide_handle_title">Ẩn tên người dùng</string>
     <string name="revanced_hide_history_button_summary">Ẩn nút Video đã xem khỏi thanh công cụ.</string>
     <string name="revanced_hide_history_button_title">Ẩn nút Video đã xem</string>
-    <string name="revanced_hide_music_ads_summary">Ẩn quảng cáo xuất hiện trước khi phát nhạc.</string>
+    <string name="revanced_hide_music_ads_summary">Ẩn quảng cáo xuất hiện trong khi phát nhạc.</string>
     <string name="revanced_hide_music_ads_title">Ẩn quảng cáo</string>
     <string name="revanced_hide_navigation_bar_summary">Ẩn thanh điều hướng.</string>
     <string name="revanced_hide_navigation_bar_title">Ẩn thanh điều hướng</string>
@@ -366,7 +369,7 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_sb_color_reset">Đã đặt lại màu phân đoạn về mặc định.</string>
     <string name="revanced_sb_diff_segments">Cài đặt phân đoạn</string>
     <string name="revanced_sb_enabled">Kích hoạt SponsorBlock</string>
-    <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video YouTube.</string>
+    <string name="revanced_sb_enabled_sum">SponsorBlock là một tiện tích được đóng góp bởi cộng đồng nhằm bỏ qua các phân đoạn gây khó chịu trong video trên YouTube.</string>
     <string name="revanced_sb_reset_color">Đặt lại màu</string>
     <string name="revanced_sb_segments_filler">Cảnh phụ/Lạc đề/Hài hước</string>
     <string name="revanced_sb_segments_filler_sum">Phân cảnh được thêm vào chỉ để câu giờ hoặc gây cười nhưng không cần thiết cho nội dung chính của video. Không bao gồm phân đoạn cung cấp bối cảnh hoặc chi tiết nền.</string>
