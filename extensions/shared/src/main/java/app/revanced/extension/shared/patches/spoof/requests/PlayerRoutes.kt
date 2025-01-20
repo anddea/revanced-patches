@@ -5,6 +5,7 @@ import app.revanced.extension.shared.patches.client.WebClient
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.requests.Route
 import app.revanced.extension.shared.requests.Route.CompiledRoute
+import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
 import org.apache.commons.lang3.StringUtils
@@ -77,7 +78,7 @@ object PlayerRoutes {
             client.put("clientVersion", clientType.clientVersion)
             client.put("osName", clientType.osName)
             client.put("osVersion", clientType.osVersion)
-            if (clientType.osName != "iOS") {
+            if (clientType.osName == "Android") {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
                 if (clientType.gmscoreVersionCode != null) {
                     client.put("gmscoreVersionCode", clientType.gmscoreVersionCode)
@@ -86,12 +87,18 @@ object PlayerRoutes {
                     client.put("chipset", clientType.chipset)
                 }
             }
-            if (setLocale) {
-                client.put("hl", LOCALE_LANGUAGE)
-                client.put("gl", LOCALE_COUNTRY)
-                client.put("timeZone", TIME_ZONE_ID)
-                client.put("utcOffsetMinutes", "$UTC_OFFSET_MINUTES")
-            }
+            client.put(
+                "hl",
+                if (setLocale) {
+                    BaseSettings.SPOOF_STREAMING_DATA_LANGUAGE.get().language
+                } else {
+                    LOCALE_LANGUAGE
+                }
+            )
+            client.put("gl", LOCALE_COUNTRY)
+            client.put("timeZone", TIME_ZONE_ID)
+            client.put("utcOffsetMinutes", "$UTC_OFFSET_MINUTES")
+
             val context = JSONObject()
             context.put("client", client)
 

@@ -13,8 +13,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import app.revanced.extension.shared.patches.client.AppClient.ClientType;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -340,5 +342,13 @@ public class SpoofStreamingDataPatch {
         }
 
         return videoFormat;
+    }
+
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
+                    BaseSettings.SPOOF_STREAMING_DATA_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
+        }
     }
 }

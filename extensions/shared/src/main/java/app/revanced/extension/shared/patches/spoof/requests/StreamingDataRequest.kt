@@ -93,9 +93,14 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
+        private val SPOOF_STREAMING_DATA_TYPE: AppClient.ClientType =
+            BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
 
         private val CLIENT_ORDER_TO_USE: Array<AppClient.ClientType> =
-            availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_TYPE.get())
+            availableClientTypes(SPOOF_STREAMING_DATA_TYPE)
+
+        private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
+            SPOOF_STREAMING_DATA_TYPE == AppClient.ClientType.ANDROID_VR_NO_AUTH
 
         private var lastSpoofedClientType: AppClient.ClientType? = null
 
@@ -177,8 +182,6 @@ class StreamingDataRequest private constructor(
                 connection.connectTimeout = HTTP_TIMEOUT_MILLISECONDS
                 connection.readTimeout = HTTP_TIMEOUT_MILLISECONDS
 
-                val setLocale =
-                    !clientType.supportsCookies || playerHeaders[AUTHORIZATION_HEADER] == null
                 val usePoToken =
                     clientType.requirePoToken && !StringUtils.isAnyEmpty(botGuardPoToken, visitorId)
 
@@ -209,7 +212,7 @@ class StreamingDataRequest private constructor(
                         videoId = videoId,
                         botGuardPoToken = botGuardPoToken,
                         visitorId = visitorId,
-                        setLocale = setLocale
+                        setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
                     )
                     Logger.printDebug { "Set poToken (botGuardPoToken):\n$botGuardPoToken" }
                 } else {
@@ -217,9 +220,10 @@ class StreamingDataRequest private constructor(
                         createApplicationRequestBody(
                             clientType = clientType,
                             videoId = videoId,
-                            setLocale = setLocale
+                            setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
                         )
                 }
+
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)
 
