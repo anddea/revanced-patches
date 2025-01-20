@@ -14,6 +14,7 @@ import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.text1
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
+import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.matchOrThrow
@@ -62,7 +63,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
     execute {
         /**
-         * Enable black navigation bar
+         * Enable custom navigation bar color
          */
         tabLayoutFingerprint.methodOrThrow().apply {
             val constIndex = indexOfFirstLiteralInstructionOrThrow(colorGrey)
@@ -74,7 +75,7 @@ val navigationBarComponentsPatch = bytecodePatch(
 
             addInstructions(
                 insertIndex, """
-                    invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->enableBlackNavigationBar()I
+                    invoke-static {}, $NAVIGATION_CLASS_DESCRIPTOR->enableCustomNavigationBarColor()I
                     move-result v$insertRegister
                     """
             )
@@ -129,8 +130,13 @@ val navigationBarComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.NAVIGATION,
-            "revanced_enable_black_navigation_bar",
-            "true"
+            "revanced_enable_custom_navigation_bar_color",
+            "false"
+        )
+        addPreferenceWithIntent(
+            CategoryType.NAVIGATION,
+            "revanced_custom_navigation_bar_color_value",
+            "revanced_enable_custom_navigation_bar_color"
         )
         addSwitchPreference(
             CategoryType.NAVIGATION,
