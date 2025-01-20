@@ -13,7 +13,7 @@ internal val communityDrawerPresenterConstructorFingerprint = legacyFingerprint(
     name = "communityDrawerPresenterConstructorFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    strings = listOf("matureFeedFeatures", "communityDrawerSettings"),
+    strings = listOf("communityDrawerSettings"),
     customFingerprint = { method, _ ->
         indexOfHeaderItemInstruction(method) >= 0
     }

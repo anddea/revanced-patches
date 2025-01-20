@@ -26,12 +26,12 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Custom header for YouTube` | Applies a custom header in the top left corner within the app. | 18.29.38 ~ 19.44.39 |
 | `Description components` | Adds options to hide and disable description components. | 18.29.38 ~ 19.44.39 |
 | `Disable QUIC protocol` | Adds an option to disable CronetEngine's QUIC protocol. | 18.29.38 ~ 19.44.39 |
-| `Disable auto audio tracks` | Adds an option to disable audio tracks from being automatically enabled. | 18.29.38 ~ 19.44.39 |
-| `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 18.29.38 ~ 19.44.39 |
+| `Disable forced auto audio tracks` | Adds an option to disable audio tracks from being automatically enabled. | 18.29.38 ~ 19.44.39 |
+| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 18.29.38 ~ 19.44.39 |
 | `Disable haptic feedback` | Adds options to disable haptic feedback when swiping in the video player. | 18.29.38 ~ 19.44.39 |
 | `Disable resuming Shorts on startup` | Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched. | 18.29.38 ~ 19.44.39 |
 | `Disable splash animation` | Adds an option to disable the splash animation on app startup. | 18.29.38 ~ 19.44.39 |
-| `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes. | 18.29.38 ~ 19.44.39 |
+| `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes it. | 18.29.38 ~ 19.44.39 |
 | `Enable debug logging` | Adds an option to enable debug logging. | 18.29.38 ~ 19.44.39 |
 | `Enable external browser` | Adds an option to always open links in your browser instead of in the in-app-browser. | 18.29.38 ~ 19.44.39 |
 | `Enable gradient loading screen` | Adds an option to enable the gradient loading screen. | 18.29.38 ~ 19.44.39 |
@@ -54,9 +54,9 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Hook download actions` | Adds support to download videos with an external downloader app using the in-app download button. | 18.29.38 ~ 19.44.39 |
 | `Layout switch` | Adds an option to spoof the dpi in order to use a tablet or phone layout. | 18.29.38 ~ 19.44.39 |
 | `MaterialYou` | Applies the MaterialYou theme for Android 12+ devices. | 18.29.38 ~ 19.44.39 |
-| `Miniplayer` | Adds options to change the in app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 18.29.38 ~ 19.44.39 |
+| `Miniplayer` | Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers. | 18.29.38 ~ 19.44.39 |
 | `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 18.29.38 ~ 19.44.39 |
-| `Overlay buttons` | Adds options to display overlay buttons in the video player. | 18.29.38 ~ 19.44.39 |
+| `Overlay buttons` | Adds options to display useful overlay buttons in the video player. | 18.29.38 ~ 19.44.39 |
 | `Player components` | Adds options to hide or change components related to the video player. | 18.29.38 ~ 19.44.39 |
 | `Remove background playback restrictions` | Removes restrictions on background playback, including for music and kids videos. | 18.29.38 ~ 19.44.39 |
 | `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 18.29.38 ~ 19.44.39 |
@@ -71,7 +71,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Spoof streaming data` | Adds options to spoof the streaming data to allow playback. | 18.29.38 ~ 19.44.39 |
 | `Spoof watch history` | Adds an option to change the domain of the watch history or check its status. | 18.29.38 ~ 19.44.39 |
 | `Swipe controls` | Adds options for controlling volume and brightness with swiping, and whether to enter fullscreen when swiping down below the player. | 18.29.38 ~ 19.44.39 |
-| `Theme` | Changes the app's theme to the values specified in patch options. | 18.29.38 ~ 19.44.39 |
+| `Theme` | Changes the app's themes to the values specified in patch options. | 18.29.38 ~ 19.44.39 |
 | `Toolbar components` | Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons. | 18.29.38 ~ 19.44.39 |
 | `Translations for YouTube` | Add translations or remove string resources. | 18.29.38 ~ 19.44.39 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 18.29.38 ~ 19.44.39 |
@@ -94,10 +94,10 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 6.20.51 ~ 7.25.53 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.06.54 ~ 7.25.53 |
 | `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 7.25.53 |
-| `Disable auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 7.25.53 |
 | `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 7.25.53 |
+| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 7.25.53 |
 | `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 7.25.53 |
-| `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes. | 6.20.51 ~ 7.25.53 |
+| `Enable OPUS codec` | Adds an options to enable the OPUS audio codec if the player response includes it. | 6.20.51 ~ 7.25.53 |
 | `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 7.25.53 |
 | `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 7.25.53 |
 | `Flyout menu components` | Adds options to hide or change flyout menu components. | 6.20.51 ~ 7.25.53 |

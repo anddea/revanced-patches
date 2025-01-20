@@ -110,14 +110,8 @@ public class StringRef extends Utils {
                         ? mActivity
                         : getContext();
                 if (resources == null) {
-                    resources = getResources();
+                    resources = context.getResources();
                 }
-                if (resources != null) {
-                    value = ResourceUtils.getString(value);
-                    resolved = true;
-                    return value;
-                }
-                resources = context.getResources();
                 if (resources != null) {
                     final String packageName = context.getPackageName();
                     final int identifier = resources.getIdentifier(value, "string", packageName);

@@ -121,7 +121,7 @@ class MusicRequest private constructor(
             val startTime = System.currentTimeMillis()
             val clientType = AppClient.ClientType.ANDROID_VR
             val clientTypeName = clientType.name
-            Logger.printDebug { "Fetching playlist request for: $videoId using client: $clientTypeName" }
+            Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 
             try {
                 val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
@@ -129,7 +129,7 @@ class MusicRequest private constructor(
                     clientType
                 )
                 val requestBody =
-                    PlayerRoutes.createApplicationRequestBody(clientType, videoId, "RD$videoId")
+                    PlayerRoutes.createApplicationRequestBody(clientType = clientType, videoId = videoId, playlistId = "RD$videoId")
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)
@@ -161,7 +161,7 @@ class MusicRequest private constructor(
             val startTime = System.currentTimeMillis()
             val clientType = WebClient.ClientType.MWEB
             val clientTypeName = clientType.name
-            Logger.printDebug { "Fetching playability request for: $videoId using client: $clientTypeName" }
+            Logger.printDebug { "Fetching playability request for: $videoId, using client: $clientTypeName" }
 
             try {
                 val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
@@ -197,20 +197,38 @@ class MusicRequest private constructor(
 
         private fun parseApplicationResponse(playlistJson: JSONObject): Boolean {
             try {
-                val playerParams: String? = (playlistJson
-                    .getJSONObject("contents")
-                    .getJSONObject("singleColumnWatchNextResults")
-                    .getJSONObject("playlist")
-                    .getJSONObject("playlist")
-                    .getJSONArray("contents")[0] as JSONObject)
-                    .getJSONObject("playlistPanelVideoRenderer")
-                    .getJSONObject("navigationEndpoint")
-                    .getJSONObject("watchEndpoint")
-                    .getString("playerParams")
+                val singleColumnWatchNextResultsJsonObject: JSONObject =
+                    playlistJson
+                        .getJSONObject("contents")
+                        .getJSONObject("singleColumnWatchNextResults")
 
-                return VideoInformation.isMixPlaylistsOpenedByUser(playerParams!!)
+                if (!singleColumnWatchNextResultsJsonObject.has("playlist")) {
+                    return false
+                }
+
+                val playlistJsonObject: JSONObject? =
+                    singleColumnWatchNextResultsJsonObject
+                        .getJSONObject("playlist")
+                        .getJSONObject("playlist")
+
+                val currentStreamJsonObject = playlistJsonObject
+                    ?.getJSONArray("contents")
+                    ?.get(0)
+
+                if (currentStreamJsonObject !is JSONObject) {
+                    return false
+                }
+
+                val watchEndpointJsonObject: JSONObject? =
+                    currentStreamJsonObject
+                        .getJSONObject("playlistPanelVideoRenderer")
+                        .getJSONObject("navigationEndpoint")
+                        .getJSONObject("watchEndpoint")
+
+                val playerParams: String? = watchEndpointJsonObject?.getString("playerParams")
+                return playerParams != null && VideoInformation.isMixPlaylistsOpenedByUser(playerParams)
             } catch (e: JSONException) {
-                Logger.printDebug { "Fetch failed while processing Application response data for response: $playlistJson" }
+                Logger.printException ({ "Fetch failed while processing Application response data for response: $playlistJson" }, e)
             }
 
             return false
@@ -219,12 +237,12 @@ class MusicRequest private constructor(
         private fun parseWebResponse(microFormatJson: JSONObject): Boolean {
             try {
                 return microFormatJson
+                    .getJSONObject("microformat")
                     .getJSONObject("playerMicroformatRenderer")
-                    .getJSONObject("category")
-                    .getString("status")
+                    .getString("category")
                     .equals("Music")
             } catch (e: JSONException) {
-                Logger.printDebug { "Fetch failed while processing Web response data for response: $microFormatJson" }
+                Logger.printException ({ "Fetch failed while processing Web response data for response: $microFormatJson" }, e)
             }
 
             return false

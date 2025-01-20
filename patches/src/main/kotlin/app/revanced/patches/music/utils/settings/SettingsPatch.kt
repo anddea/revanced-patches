@@ -14,8 +14,11 @@ import app.revanced.patches.music.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.music.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.extension.sharedExtensionPatch
 import app.revanced.patches.music.utils.mainactivity.mainActivityResolvePatch
+import app.revanced.patches.music.utils.patch.PatchList.GMSCORE_SUPPORT
 import app.revanced.patches.music.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE_MUSIC
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
+import app.revanced.patches.music.utils.settings.ResourceUtils.addGmsCorePreference
+import app.revanced.patches.music.utils.settings.ResourceUtils.gmsCorePackageName
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
@@ -215,6 +218,14 @@ val settingsPatch = resourcePatch(
         ResourceUtils.addRVXSettingsPreference()
 
         ResourceUtils.updatePatchStatus(SETTINGS_FOR_YOUTUBE_MUSIC)
+
+        /**
+         * add import export settings
+         */
+        addPreferenceWithIntent(
+            CategoryType.MISC,
+            "revanced_extended_settings_import_export"
+        )
     }
 
     finalize {
@@ -249,13 +260,20 @@ val settingsPatch = resourcePatch(
             "revanced_default_app_settings"
         )
 
-        /**
-         * add import export settings
-         */
-        addPreferenceWithIntent(
-            CategoryType.MISC,
-            "revanced_extended_settings_import_export"
-        )
+        if (GMSCORE_SUPPORT.included == true) {
+            addGmsCorePreference(
+                CategoryType.MISC.value,
+                "gms_core_settings",
+                gmsCorePackageName,
+                "org.microg.gms.ui.SettingsActivity"
+            )
+
+            addSwitchPreference(
+                CategoryType.MISC,
+                "revanced_gms_show_dialog",
+                "true"
+            )
+        }
 
         /**
          * sort preference

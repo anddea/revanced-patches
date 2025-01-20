@@ -10,6 +10,7 @@ import app.revanced.patches.shared.mapping.ResourceType.INTEGER
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING
 import app.revanced.patches.shared.mapping.ResourceType.STYLE
+import app.revanced.patches.shared.mapping.ResourceType.XML
 import app.revanced.patches.shared.mapping.get
 import app.revanced.patches.shared.mapping.resourceMappingPatch
 import app.revanced.patches.shared.mapping.resourceMappings
@@ -190,6 +191,10 @@ var seekEasyHorizontalTouchOffsetToStartScrubbing = -1L
     private set
 var seekUndoEduOverlayStub = -1L
     private set
+var settingsFragment = -1L
+    private set
+var settingsFragmentCairo = -1L
+    private set
 var slidingDialogAnimation = -1L
     private set
 var subtitleMenuSettingsFooterInfo = -1L
@@ -221,6 +226,8 @@ var youTubeControlsOverlaySubtitleButton = -1L
 var youTubeLogo = -1L
     private set
 var ytFillBell = -1L
+    private set
+var ytOutlineMoonZ = -1L
     private set
 var ytOutlinePictureInPictureWhite = -1L
     private set
@@ -592,6 +599,14 @@ internal val sharedResourceIdPatch = resourcePatch(
             ID,
             "seek_undo_edu_overlay_stub"
         ]
+        settingsFragment = resourceMappings[
+            XML,
+            "settings_fragment"
+        ]
+        settingsFragmentCairo = resourceMappings[
+            XML,
+            "settings_fragment_cairo"
+        ]
         slidingDialogAnimation = resourceMappings[
             STYLE,
             "SlidingDialogAnimation"
@@ -655,6 +670,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytFillBell = resourceMappings[
             DRAWABLE,
             "yt_fill_bell_black_24"
+        ]
+        ytOutlineMoonZ = resourceMappings[
+            DRAWABLE,
+            "yt_outline_moon_z_vd_theme_24"
         ]
         ytOutlinePictureInPictureWhite = resourceMappings[
             DRAWABLE,

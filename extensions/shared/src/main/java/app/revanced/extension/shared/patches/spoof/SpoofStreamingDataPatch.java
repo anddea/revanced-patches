@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDa
 
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,9 +33,6 @@ public class SpoofStreamingDataPatch {
      */
     private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
-
-    @NonNull
-    private static volatile String droidGuardPoToken = "";
 
     /**
      * Key: video id
@@ -113,6 +109,16 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
+     */
+    public static Object isSpoofingEnabled(Object original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+        return null;
+    }
+
+    /**
+     * Injection point.
      * This method is only invoked when playing a livestream on an iOS client.
      */
     public static boolean fixHLSCurrentTime(boolean original) {
@@ -173,7 +179,7 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA_MUSIC) {
             try {
                 if (requestHeader != null) {
-                    StreamingDataRequest.fetchRequest(videoId, requestHeader, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
+                    StreamingDataRequest.fetchRequest(videoId, requestHeader, VISITOR_DATA, PO_TOKEN);
                 } else {
                     Logger.printDebug(() -> "Ignoring request with no header.");
                 }
@@ -212,7 +218,7 @@ public class SpoofStreamingDataPatch {
                     return;
                 }
 
-                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
+                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN);
             } catch (Exception ex) {
                 Logger.printException(() -> "fetchStreams failure", ex);
             }
@@ -334,18 +340,5 @@ public class SpoofStreamingDataPatch {
         }
 
         return videoFormat;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setDroidGuardPoToken(byte[] bytes) {
-        if (SPOOF_STREAMING_DATA && bytes.length > 20) {
-            final String poToken = Base64.encodeToString(bytes, Base64.URL_SAFE);
-            if (!droidGuardPoToken.equals(poToken)) {
-                Logger.printDebug(() -> "New droidGuardPoToken loaded:\n" + poToken);
-                droidGuardPoToken = poToken;
-            }
-        }
     }
 }

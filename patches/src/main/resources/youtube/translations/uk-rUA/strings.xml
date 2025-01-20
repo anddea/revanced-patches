@@ -12,8 +12,8 @@
 Натисніть кнопку продовжити й дозвольте змінити оптимізацію."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
-    <string name="gms_core_settings_summary">Увімкніть налаштування спливаючих повідомлень, щоб отримувати сповіщення.</string>
-    <string name="gms_core_settings_title">Відкрити GmsCore</string>
+    <string name="gms_core_settings_summary">Відкриються налаштування GmsCore. Після цього увімкніть хмарний обмін повідомленнями, щоб отримувати сповіщення.</string>
+    <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow надає краудсорсингові мініатюри для відео з YouTube. Ці мініатюри часто більш релевантні, ніж ті, що надаються YouTube. Якщо увімкнено, URL-адреси відео надсилатиметься на сервер API, а інші дані не надсилатиметься. Якщо для відео немає мініатюр DeArrow, зображається оригінал або кадр.
 
@@ -155,7 +155,7 @@
 Автовідтворення можна змінити у налаштуваннях YouTube:
 Налаштування → Автоматичне відтворення → Автовідтворення наступного відео"</string>
     <string name="revanced_disable_auto_switch_mix_playlists_summary_on">Автоперемикання списків відтворення Мікс вимкнено.</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">Вимкнути перемикання списків відтворення Мікс</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">Вимкнути автоперемикання списків відтворення Мікс</string>
     <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">Вмикання цієї функції вимкне автоматичне перемикання на YouTube Mix коли музика відтворюється якщо автовідтворення увімкнене.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">Типову швидкість відтворення увімкнено в прямих трансляціях.</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">Типову швидкість відтворення вимкнено в прямих трансляціях.</string>
@@ -210,9 +210,9 @@
     <string name="revanced_disable_shorts_background_playback_summary_off">Фонове відтворення Shorts увімкнено.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Фонове відтворення Shorts вимкнено.</string>
     <string name="revanced_disable_shorts_background_playback_title">Вимкнути фонове відтворення Shorts</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Фонтанну анімацію увімкнено над кнопкою Подобається.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Фонтанну анімацію вимкнено над кнопкою Подобається.</string>
-    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Вимкнути анімацію кнопки Подобається</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Фонтанну анімацію над кнопкою Подобається увімкнено.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Фонтанну анімацію над кнопкою Подобається вимкнено.</string>
+    <string name="revanced_disable_shorts_like_button_fountain_animation_title">Вимкнути фонтанну анімацію кнопки Подобається</string>
     <string name="revanced_disable_speed_overlay_summary">"Вимикається 'Відтворення зі швидкістю 2x' під час утримання
 
 Зауваження:
@@ -524,7 +524,7 @@
     <string name="revanced_hide_end_screen_cards_title">Приховати картки кінцевого екрану</string>
     <string name="revanced_hide_expandable_chip_summary_off">Розширювані фішки показується.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Розширювані фішки приховано.</string>
-    <string name="revanced_hide_expandable_chip_title">Приховати розширювану фішку під відео</string>
+    <string name="revanced_hide_expandable_chip_title">Приховати розширювальні фішки під відео</string>
     <string name="revanced_hide_expandable_shelf_summary_off">Висувні полиці показується.</string>
     <string name="revanced_hide_expandable_shelf_summary_on">Висувні полиці приховано.</string>
     <string name="revanced_hide_expandable_shelf_title">Приховати висувні полиці</string>
@@ -631,15 +631,15 @@
     <string name="revanced_hide_like_dislike_button_summary_off">Кнопки Подобається та Не подобається показується.</string>
     <string name="revanced_hide_like_dislike_button_summary_on">Кнопки Подобається та Не подобається приховано.</string>
     <string name="revanced_hide_like_dislike_button_title">Приховати кнопки Подобається і Не подобається</string>
-    <string name="revanced_hide_live_chat_messages_summary_off">Повідомлення онлайн чату показується.\n\nЦе налаштування також застосовується до прямих трансляцій Shorts.</string>
-    <string name="revanced_hide_live_chat_messages_summary_on">Повідомлення онлайн чату приховано.\n\nЦе налаштування також застосовується до прямих трансляцій Shorts.</string>
-    <string name="revanced_hide_live_chat_messages_title">Приховати повідомлення онлайн чату</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_off">Кнопку повтору онлайн чату показується.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_on">Кнопку повтору онлайн чату приховано.\n\nЗ\'являється в повноекранному режимі при закритті онлайн чату.</string>
-    <string name="revanced_hide_live_chat_replay_button_title">Приховати кнопку повтору онлайн чату</string>
-    <string name="revanced_hide_live_chat_summary_summary_off">Опис чату показується.</string>
-    <string name="revanced_hide_live_chat_summary_summary_on">Опис чату приховано.</string>
-    <string name="revanced_hide_live_chat_summary_title">Приховати Опис чату в чаті</string>
+    <string name="revanced_hide_live_chat_messages_summary_off">Повідомлення Чату показується.\n\nЦе налаштування також застосовується до прямих трансляцій Shorts.</string>
+    <string name="revanced_hide_live_chat_messages_summary_on">Повідомлення Чату приховано.\n\nЦе налаштування також застосовується до прямих трансляцій Shorts.</string>
+    <string name="revanced_hide_live_chat_messages_title">Приховати повідомлення Чату</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">Кнопку повтору Чату показується.\n\nЗ\'являється в повноекранному режимі при закритті Чату.</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">Кнопку повтору Чату приховано.\n\nЗ\'являється в повноекранному режимі при закритті Чату.</string>
+    <string name="revanced_hide_live_chat_replay_button_title">Приховати кнопку повтору Чату</string>
+    <string name="revanced_hide_live_chat_summary_summary_off">Опис Чату показується.</string>
+    <string name="revanced_hide_live_chat_summary_summary_on">Опис Чату приховано.</string>
+    <string name="revanced_hide_live_chat_summary_title">Приховати опис Чату</string>
     <string name="revanced_hide_low_views_video_summary">Приховати відео з менш ніж 1,000 переглядів з головної стрічки, вантажені з каналів, на які не підписані.</string>
     <string name="revanced_hide_low_views_video_title">Приховати відео з малою кількістю переглядів</string>
     <string name="revanced_hide_medical_panel_summary_off">Панелі про медицину показується.</string>
@@ -671,7 +671,7 @@
     <string name="revanced_hide_navigation_library_button_title">Приховати кнопку Бібліотека</string>
     <string name="revanced_hide_navigation_notifications_button_summary_off">Кнопку сповіщень показується.</string>
     <string name="revanced_hide_navigation_notifications_button_summary_on">Кнопку сповіщень приховано.</string>
-    <string name="revanced_hide_navigation_notifications_button_title">Приховати кнопку сповіщень</string>
+    <string name="revanced_hide_navigation_notifications_button_title">Приховати кнопку Сповіщення</string>
     <string name="revanced_hide_navigation_shorts_button_summary_off">Кнопку YouTube Shorts показується.</string>
     <string name="revanced_hide_navigation_shorts_button_summary_on">Кнопку YouTube Shorts приховано.</string>
     <string name="revanced_hide_navigation_shorts_button_title">Приховати кнопку YouTube Shorts</string>
@@ -780,8 +780,8 @@
     <string name="revanced_hide_preview_comment_off">Закріплений коментар показується</string>
     <string name="revanced_hide_preview_comment_on">Закріплений коментар приховано</string>
     <string name="revanced_hide_preview_comment_title">Приховати Закріплений коментар</string>
-    <string name="revanced_hide_preview_comment_type_off">Це змінює розмір секції коментарів, тому неможливо відкрити чат у секції коментарів.</string>
-    <string name="revanced_hide_preview_comment_type_on">Це не змінює розмір секції коментарів, тому можливо відкрити чат у секції коментарів.</string>
+    <string name="revanced_hide_preview_comment_type_off">Це змінює розмір секції коментарів, тому неможливо відкрити Чат у секції коментарів.</string>
+    <string name="revanced_hide_preview_comment_type_on">Це не змінює розмір секції коментарів, тому можливо відкрити Чат у секції коментарів.</string>
     <string name="revanced_hide_preview_comment_type_title">Тип приховування закріпленого коментаря</string>
     <string name="revanced_hide_promotion_alert_banner_summary_off">Рекламні сповіщення показується.</string>
     <string name="revanced_hide_promotion_alert_banner_summary_on">Рекламні сповіщення приховано.</string>
@@ -795,9 +795,9 @@
     <string name="revanced_hide_quick_actions_like_button_summary_off">Кнопку Подобається показується.</string>
     <string name="revanced_hide_quick_actions_like_button_summary_on">Кнопку Подобається приховано.</string>
     <string name="revanced_hide_quick_actions_like_button_title">Приховати кнопку Подобається</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Кнопку онлайн чату показується.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Кнопку онлайн чату приховано.</string>
-    <string name="revanced_hide_quick_actions_live_chat_button_title">Приховати кнопку онлайн чату</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_summary_off">Кнопку Чату показується.</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_summary_on">Кнопку Чату приховано.</string>
+    <string name="revanced_hide_quick_actions_live_chat_button_title">Приховати кнопку Чату</string>
     <string name="revanced_hide_quick_actions_more_button_summary_off">Кнопку Детальніше показується.</string>
     <string name="revanced_hide_quick_actions_more_button_summary_on">Кнопку Детальніше приховано.</string>
     <string name="revanced_hide_quick_actions_more_button_title">Приховати кнопку Детальніше</string>
@@ -848,8 +848,8 @@
     <string name="revanced_hide_seek_undo_message_summary_off">Сповіщення скасування перемотки показується.</string>
     <string name="revanced_hide_seek_undo_message_summary_on">Сповіщення скасування перемотки приховано.</string>
     <string name="revanced_hide_seek_undo_message_title">Приховати сповіщення скасування перемотки</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_off">Мітки розділів біля мітки часу показується.</string>
-    <string name="revanced_hide_seekbar_chapter_label_summary_on">Мітки розділів біля мітки часу приховано.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_off">Мітки розділів біля смуги прогресу показується.</string>
+    <string name="revanced_hide_seekbar_chapter_label_summary_on">Мітки розділів біля смуги прогресу приховано.</string>
     <string name="revanced_hide_seekbar_chapter_label_title">Приховати мітки розділів панелі прогресу</string>
     <string name="revanced_hide_seekbar_summary_off">Панель прогресу у відеоплеєрі показується.</string>
     <string name="revanced_hide_seekbar_summary_on">Панель прогресу у відеоплеєрі приховано.</string>
@@ -946,8 +946,8 @@
     <string name="revanced_hide_shorts_floating_button_summary_off">"Плавучі кнопки, такі як 'Використати цей звук' показується у вкладці YouTube Shorts каналу."</string>
     <string name="revanced_hide_shorts_floating_button_summary_on">"Плавучі кнопки, такі як 'Використати цей звук' приховано у вкладці YouTube Shorts каналу."</string>
     <string name="revanced_hide_shorts_floating_button_title">Приховати плавучу кнопку</string>
-    <string name="revanced_hide_shorts_full_video_link_label_summary_off">Мітку посилання відео показується.</string>
-    <string name="revanced_hide_shorts_full_video_link_label_summary_on">Мітку посилання відео приховано.</string>
+    <string name="revanced_hide_shorts_full_video_link_label_summary_off">Мітку посилання на повне відео показується.</string>
+    <string name="revanced_hide_shorts_full_video_link_label_summary_on">Мітку посилання на повне відео приховано.</string>
     <string name="revanced_hide_shorts_full_video_link_label_title">Приховати мітку посилання на повне відео</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопку Зелений екран показується.</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопку Зелений екран приховано.</string>
@@ -961,9 +961,9 @@
     <string name="revanced_hide_shorts_like_button_summary_off">Кнопку Подобається показується.</string>
     <string name="revanced_hide_shorts_like_button_summary_on">Кнопку Подобається приховано.</string>
     <string name="revanced_hide_shorts_like_button_title">Приховати кнопку Подобається</string>
-    <string name="revanced_hide_shorts_live_header_summary_off">Заголовок онлайн чату показується.\n\nКнопку назад у заголовку не приховуватиметься.</string>
-    <string name="revanced_hide_shorts_live_header_summary_on">Заголовок онлайн чату приховано.\n\nКнопку назад у заголовку не приховуватиметься.</string>
-    <string name="revanced_hide_shorts_live_header_title">Приховати заголовок онлайн чату</string>
+    <string name="revanced_hide_shorts_live_header_summary_off">Заголовок Чату показується.\n\nКнопку назад у заголовку не приховуватиметься.</string>
+    <string name="revanced_hide_shorts_live_header_summary_on">Заголовок Чату приховано.\n\nКнопку назад у заголовку не приховуватиметься.</string>
+    <string name="revanced_hide_shorts_live_header_title">Приховати заголовок Чату</string>
     <string name="revanced_hide_shorts_location_button_summary_off">Кнопку місцезнаходження показується.</string>
     <string name="revanced_hide_shorts_location_button_summary_on">Кнопку місцезнаходження приховано.</string>
     <string name="revanced_hide_shorts_location_button_title">Приховати кнопку місцезнаходження</string>
@@ -979,8 +979,8 @@
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Кнопки накладені при паузі показується.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Кнопки накладені при паузі приховано.</string>
     <string name="revanced_hide_shorts_paused_overlay_buttons_title">Приховати кнопки накладені при паузі</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Фон кнопки показується.</string>
-    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Фон кнопки приховано.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_off">Фон кнопки Відтворити-Призупинити показується.</string>
+    <string name="revanced_hide_shorts_play_pause_button_background_summary_on">Фон кнопки Відтворити-Призупинити приховано.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">Приховати фон кнопки Відтворити - Призупинити</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">Кнопку Ремікс показується.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">Кнопку Ремікс приховано.</string>
@@ -1025,8 +1025,8 @@
     <string name="revanced_hide_shorts_sound_button_summary_off">Кнопку Зі звуком показується.</string>
     <string name="revanced_hide_shorts_sound_button_summary_on">Кнопку Зі звуком приховано.</string>
     <string name="revanced_hide_shorts_sound_button_title">Приховати кнопку Зі звуком</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Мітку метаданих показується.</string>
-    <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Мітку метаданих приховано.</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Мітку метаданих звуку показується.</string>
+    <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Мітку метаданих звуку приховано.</string>
     <string name="revanced_hide_shorts_sound_metadata_label_title">Приховати мітку метаданих звуку</string>
     <string name="revanced_hide_shorts_stickers_summary_off">Стікери показується.</string>
     <string name="revanced_hide_shorts_stickers_summary_on">Стікери приховано.</string>
@@ -1052,8 +1052,8 @@
     <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопку Використати цей звук показується.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопку Використати цей звук приховано.</string>
     <string name="revanced_hide_shorts_use_this_sound_button_title">Приховати кнопку Використати цей звук</string>
-    <string name="revanced_hide_shorts_video_title_summary_off">Назву показується.</string>
-    <string name="revanced_hide_shorts_video_title_summary_on">Назву приховано.</string>
+    <string name="revanced_hide_shorts_video_title_summary_off">Назву відео показується.</string>
+    <string name="revanced_hide_shorts_video_title_summary_on">Назву відео приховано.</string>
     <string name="revanced_hide_shorts_video_title_title">Приховати назву відео</string>
     <string name="revanced_hide_show_more_button_summary_off">Кнопку \'Показати більше\' показується.</string>
     <string name="revanced_hide_show_more_button_summary_on">Кнопку \'Показати більше\' приховано.</string>

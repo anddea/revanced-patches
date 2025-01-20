@@ -193,54 +193,6 @@ val playerComponentsPatch = bytecodePatch(
     )
 
     execute {
-        // region patch for disable gesture in player
-
-        val playerViewPagerConstructorMethod =
-            playerViewPagerConstructorFingerprint.methodOrThrow()
-        val mainActivityOnStartMethod =
-            getMainActivityMethod("onStart")
-
-        mapOf(
-            miniPlayerViewPager to "disableMiniPlayerGesture",
-            playerViewPager to "disablePlayerGesture"
-        ).forEach { (literal, methodName) ->
-            val viewPagerReference = with(playerViewPagerConstructorMethod) {
-                val constIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
-
-                getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
-            }
-            mainActivityOnStartMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.toString() == viewPagerReference
-                }
-                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-                val jumpIndex =
-                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
-                        move-result v$insertRegister
-                        if-nez v$insertRegister, :disable
-                        """, ExternalLabel("disable", getInstruction(jumpIndex))
-                )
-            }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_disable_mini_player_gesture",
-            "false"
-        )
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_disable_player_gesture",
-            "false"
-        )
-
-        // endregion
 
         // region patch for enable color match player and enable black player background
 
@@ -315,13 +267,62 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
+            "revanced_enable_color_match_player",
+            "true"
+        )
+        addSwitchPreference(
+            CategoryType.PLAYER,
             "revanced_enable_black_player_background",
+            "false"
+        )
+
+        // endregion
+
+        // region patch for disable gesture in player
+
+        val playerViewPagerConstructorMethod =
+            playerViewPagerConstructorFingerprint.methodOrThrow()
+        val mainActivityOnStartMethod =
+            getMainActivityMethod("onStart")
+
+        mapOf(
+            miniPlayerViewPager to "disableMiniPlayerGesture",
+            playerViewPager to "disablePlayerGesture"
+        ).forEach { (literal, methodName) ->
+            val viewPagerReference = with(playerViewPagerConstructorMethod) {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+                val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.IPUT_OBJECT)
+
+                getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+            }
+            mainActivityOnStartMethod.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.toString() == viewPagerReference
+                }
+                val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val jumpIndex =
+                    indexOfFirstInstructionOrThrow(insertIndex, Opcode.INVOKE_VIRTUAL) + 1
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->$methodName()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :disable
+                        """, ExternalLabel("disable", getInstruction(jumpIndex))
+                )
+            }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_disable_mini_player_gesture",
             "false"
         )
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_color_match_player",
-            "true"
+            "revanced_disable_player_gesture",
+            "false"
         )
 
         // endregion
@@ -347,6 +348,124 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_enable_force_minimized_player",
             "true"
         )
+
+        // endregion
+
+        // region patch for restore old comments popup panels
+
+        var restoreOldCommentsPopupPanel = false
+
+        if (is_6_27_or_greater && !is_7_18_or_greater) {
+            oldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
+                45427672L,
+                "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
+            )
+            restoreOldCommentsPopupPanel = true
+        } else if (is_7_18_or_greater) {
+
+            // region disable player from being pushed to the top when opening a comment
+
+            mppWatchWhileLayoutFingerprint.methodOrThrow().apply {
+                val callableIndex = indexOfCallableInstruction(this)
+                val insertIndex =
+                    indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels()Z
+                        move-result v$insertRegister
+                        if-eqz v$insertRegister, :restore
+                        """, ExternalLabel("restore", getInstruction(callableIndex + 1))
+                )
+            }
+
+            // endregion
+
+            // region region limit the height of the engagement panel
+
+            engagementPanelHeightFingerprint.matchOrThrow(engagementPanelHeightParentFingerprint)
+                .let {
+                    it.method.apply {
+                        val targetIndex = it.patternMatch!!.endIndex
+                        val targetRegister =
+                            getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                        addInstructions(
+                            targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                        )
+                    }
+                }
+
+            miniPlayerDefaultViewVisibilityFingerprint.mutableClassOrThrow().let {
+                it.methods.find { method ->
+                    method.parameters == listOf("Landroid/view/View;", "I")
+                }?.apply {
+                    val targetIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        opcode == Opcode.INVOKE_INTERFACE &&
+                                reference?.returnType == "Z" &&
+                                reference.parameterTypes.size == 0
+                    } + 1
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1, """
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
+                            move-result v$targetRegister
+                            """
+                    )
+                } ?: throw PatchException("Could not find targetMethod")
+            }
+
+            // endregion
+
+            restoreOldCommentsPopupPanel = true
+        }
+
+        if (restoreOldCommentsPopupPanel) {
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_restore_old_comments_popup_panels",
+                "false"
+            )
+        }
+
+        // endregion
+
+        // region patch for restore old player background
+
+        if (oldPlayerBackgroundFingerprint.resolvable()) {
+            oldPlayerBackgroundFingerprint.injectLiteralInstructionBooleanCall(
+                45415319L,
+                "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerBackground(Z)Z"
+            )
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_restore_old_player_background",
+                "false"
+            )
+        }
+
+        // endregion
+
+        // region patch for restore old player layout
+
+        if (oldPlayerLayoutFingerprint.resolvable()) {
+            oldPlayerLayoutFingerprint.injectLiteralInstructionBooleanCall(
+                45399578L,
+                "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerLayout(Z)Z"
+            )
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_restore_old_player_layout",
+                "false"
+            )
+        }
 
         // endregion
 
@@ -402,9 +521,9 @@ val playerComponentsPatch = bytecodePatch(
 
             addInstructions(
                 invokeStaticIndex, """
-            invoke-static {v$viewArrayRegister}, $PLAYER_CLASS_DESCRIPTOR->getViewArray([Landroid/view/View;)[Landroid/view/View;
-            move-result-object v$viewArrayRegister
-            """
+                    invoke-static {v$viewArrayRegister}, $PLAYER_CLASS_DESCRIPTOR->getViewArray([Landroid/view/View;)[Landroid/view/View;
+                    move-result-object v$viewArrayRegister
+                    """
             )
         }
 
@@ -725,38 +844,6 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide audio video switch toggle
-
-        audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
-            implementation!!.instructions
-                .withIndex()
-                .filter { (_, instruction) ->
-                    val reference = (instruction as? ReferenceInstruction)?.reference
-                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference is MethodReference &&
-                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
-                }
-                .map { (index, _) -> index }
-                .reversed()
-                .forEach { index ->
-                    val instruction = getInstruction<FiveRegisterInstruction>(index)
-
-                    replaceInstruction(
-                        index,
-                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
-                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
-                    )
-                }
-        }
-
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_hide_audio_video_switch_toggle",
-            "false"
-        )
-
-        // endregion
-
         // region patch for hide channel guideline, timestamps & emoji picker buttons
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
@@ -765,11 +852,6 @@ val playerComponentsPatch = bytecodePatch(
             CategoryType.PLAYER,
             "revanced_hide_comment_channel_guidelines",
             "true"
-        )
-        addSwitchPreference(
-            CategoryType.PLAYER,
-            "revanced_hide_comment_timestamp_and_emoji_buttons",
-            "false"
         )
 
         // region patch for hide double-tap overlay filter
@@ -796,6 +878,12 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_comment_timestamp_and_emoji_buttons",
+            "false"
+        )
+
         // region patch for hide fullscreen share button
 
         remixGenericButtonFingerprint.matchOrThrow().let {
@@ -815,6 +903,38 @@ val playerComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.PLAYER,
             "revanced_hide_fullscreen_share_button",
+            "false"
+        )
+
+        // endregion
+
+        // region patch for hide song video switch toggle
+
+        audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference is MethodReference &&
+                            reference.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
+                    val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                    replaceInstruction(
+                        index,
+                        "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
+                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
+                    )
+                }
+        }
+
+        addSwitchPreference(
+            CategoryType.PLAYER,
+            "revanced_hide_audio_video_switch_toggle",
             "false"
         )
 
@@ -933,124 +1053,6 @@ val playerComponentsPatch = bytecodePatch(
             "revanced_remember_shuffle_state",
             "true"
         )
-
-        // endregion
-
-        // region patch for restore old comments popup panels
-
-        var restoreOldCommentsPopupPanel = false
-
-        if (is_6_27_or_greater && !is_7_18_or_greater) {
-            oldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
-                45427672L,
-                "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
-            )
-            restoreOldCommentsPopupPanel = true
-        } else if (is_7_18_or_greater) {
-
-            // region disable player from being pushed to the top when opening a comment
-
-            mppWatchWhileLayoutFingerprint.methodOrThrow().apply {
-                val callableIndex = indexOfCallableInstruction(this)
-                val insertIndex =
-                    indexOfFirstInstructionReversedOrThrow(callableIndex, Opcode.NEW_INSTANCE)
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels()Z
-                        move-result v$insertRegister
-                        if-eqz v$insertRegister, :restore
-                        """, ExternalLabel("restore", getInstruction(callableIndex + 1))
-                )
-            }
-
-            // endregion
-
-            // region region limit the height of the engagement panel
-
-            engagementPanelHeightFingerprint.matchOrThrow(engagementPanelHeightParentFingerprint)
-                .let {
-                    it.method.apply {
-                        val targetIndex = it.patternMatch!!.endIndex
-                        val targetRegister =
-                            getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                        addInstructions(
-                            targetIndex + 1, """
-                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
-                            move-result v$targetRegister
-                            """
-                        )
-                    }
-                }
-
-            miniPlayerDefaultViewVisibilityFingerprint.mutableClassOrThrow().let {
-                it.methods.find { method ->
-                    method.parameters == listOf("Landroid/view/View;", "I")
-                }?.apply {
-                    val targetIndex = indexOfFirstInstructionOrThrow {
-                        val reference = getReference<MethodReference>()
-                        opcode == Opcode.INVOKE_INTERFACE &&
-                                reference?.returnType == "Z" &&
-                                reference.parameterTypes.size == 0
-                    } + 1
-                    val targetRegister =
-                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z
-                            move-result v$targetRegister
-                            """
-                    )
-                } ?: throw PatchException("Could not find targetMethod")
-            }
-
-            // endregion
-
-            restoreOldCommentsPopupPanel = true
-        }
-
-        if (restoreOldCommentsPopupPanel) {
-            addSwitchPreference(
-                CategoryType.PLAYER,
-                "revanced_restore_old_comments_popup_panels",
-                "false"
-            )
-        }
-
-        // endregion
-
-        // region patch for restore old player background
-
-        if (oldPlayerBackgroundFingerprint.resolvable()) {
-            oldPlayerBackgroundFingerprint.injectLiteralInstructionBooleanCall(
-                45415319L,
-                "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerBackground(Z)Z"
-            )
-            addSwitchPreference(
-                CategoryType.PLAYER,
-                "revanced_restore_old_player_background",
-                "false"
-            )
-        }
-
-        // endregion
-
-        // region patch for restore old player layout
-
-        if (oldPlayerLayoutFingerprint.resolvable()) {
-            oldPlayerLayoutFingerprint.injectLiteralInstructionBooleanCall(
-                45399578L,
-                "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerLayout(Z)Z"
-            )
-            addSwitchPreference(
-                CategoryType.PLAYER,
-                "revanced_restore_old_player_layout",
-                "false"
-            )
-        }
 
         // endregion
 

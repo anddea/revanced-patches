@@ -3,7 +3,9 @@ package app.revanced.extension.reddit.patches;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import app.revanced.extension.reddit.settings.Settings;
 import app.revanced.extension.shared.utils.Logger;
@@ -22,6 +24,22 @@ public final class NavigationButtonsPatch {
             Logger.printException(() -> "Failed to remove button list", exception);
         }
         return list;
+    }
+
+    public static Object[] hideNavigationButtons(Object[] array) {
+        try {
+            for (NavigationButton button : NavigationButton.values()) {
+                if (button.enabled && array.length > button.index) {
+                    Object buttonObject = array[button.index];
+                    array = Arrays.stream(array)
+                            .filter(item -> !Objects.equals(item, buttonObject))
+                            .toArray(Object[]::new);
+                }
+            }
+        } catch (Exception exception) {
+            Logger.printException(() -> "Failed to remove button array", exception);
+        }
+        return array;
     }
 
     public static void hideNavigationButtons(ViewGroup viewGroup) {

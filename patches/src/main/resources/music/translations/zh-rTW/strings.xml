@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="gms_core_dialog_title">需要採取行動</string>
+    <string name="gms_core_settings_summary">打開GmsCore 設定，並啟用雲端訊息已接收通知。</string>
+    <string name="gms_core_settings_title">開啟 GmsCore 設定</string>
+    <string name="gms_core_toast_not_installed_message">GmsCore未安裝，請安裝。</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">取代被封鎖的地區網域以正確載入如撥放清單封面、頻道大頭貼等圖片。</string>
+    <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
+    <string name="revanced_change_share_sheet_summary">更改App內分享清單為系統分享清單</string>
+    <string name="revanced_change_share_sheet_title">更改分享表單</string>
     <string name="revanced_change_start_page_entry_chart">圖表</string>
     <string name="revanced_change_start_page_entry_explore">探索</string>
     <string name="revanced_change_start_page_entry_home">首頁</string>
@@ -16,12 +24,17 @@
     <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度無效 使用預設值</string>
     <string name="revanced_custom_playback_speeds_summary">新增或變更可以使用的播放速度</string>
     <string name="revanced_custom_playback_speeds_title">編輯自訂播放速度</string>
+    <string name="revanced_default_app_settings_summary">要在RVX Music中打開YouTube Music連結，啟用「打開支援的連結」並啟用支援的網址。</string>
+    <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_disable_auto_captions_summary">停用在播放器中被強制啟用的字幕</string>
     <string name="revanced_disable_auto_captions_title">停用強制自動字幕</string>
     <string name="revanced_disable_dislike_redirection_summary">點擊不喜歡按鈕時停用重定向到下一首歌曲</string>
     <string name="revanced_disable_dislike_redirection_title">停用不喜歡重定向</string>
+    <string name="revanced_disable_drc_audio_title">停用DRC音訊</string>
     <string name="revanced_disable_mini_player_gesture_summary">停用迷你播放器中的滑動切換曲目功能。</string>
     <string name="revanced_disable_mini_player_gesture_title">停用迷你播放器手勢</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">重新導向</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">限制類型</string>
     <string name="revanced_disable_player_gesture_summary">停用播放器中的滑動切換歌曲。</string>
     <string name="revanced_disable_player_gesture_title">停用播放器手勢</string>
     <string name="revanced_enable_black_navigation_bar_summary">將導覽列的顏色設成黑色</string>
@@ -36,6 +49,7 @@
 • 資料庫上的專輯封面會變得很小
 • 睡眠定時器的介面可能會出現錯誤"</string>
     <string name="revanced_enable_compact_dialog_title">啟用精簡選單</string>
+    <string name="revanced_enable_debug_buffer_logging_title">啟用除錯紀錄</string>
     <string name="revanced_enable_debug_logging_summary">列出除錯記錄檔</string>
     <string name="revanced_enable_debug_logging_title">啟用除錯紀錄</string>
     <string name="revanced_enable_force_minimized_player_summary">切換歌曲時保持迷你播放器狀態</string>
@@ -300,15 +314,21 @@
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">隱藏</string>
     <string name="revanced_sanitize_sharing_links_summary">分享連結時從 URL 中刪除追蹤參數。</string>
     <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
+    <string name="revanced_sb_about">關於</string>
     <string name="revanced_sb_api_url">更改 API 網址</string>
     <string name="revanced_sb_api_url_changed">API 網址已更改</string>
     <string name="revanced_sb_api_url_invalid">API 網址無效</string>
     <string name="revanced_sb_api_url_reset">API 網址重設</string>
     <string name="revanced_sb_api_url_sum">SponsorBlock 用於調用伺服器位置
 如果您知道自己在做什麼，否則請不要更改此設定</string>
+    <string name="revanced_sb_color_changed">顏色已變更。</string>
+    <string name="revanced_sb_color_dot_label">顏色：</string>
+    <string name="revanced_sb_color_invalid">無效的顏色代碼。</string>
+    <string name="revanced_sb_color_reset">顏色已重設。</string>
     <string name="revanced_sb_diff_segments">更改片段操作</string>
     <string name="revanced_sb_enabled">啟用SponsorBlock</string>
     <string name="revanced_sb_enabled_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的惱人片段</string>
+    <string name="revanced_sb_reset_color">重設顏色</string>
     <string name="revanced_sb_segments_filler">贅詞、玩笑</string>
     <string name="revanced_sb_segments_filler_sum">僅為影片中主要內容所不相關的贅字或幽默片段。這不應有內容或背景細節</string>
     <string name="revanced_sb_segments_interaction">互動提醒 (訂閱)</string>
@@ -332,6 +352,7 @@
     <string name="revanced_sb_segments_sponsor_sum">付費推廣、付費推薦和直接廣告
 非自我推廣或免費提及、推薦他們喜歡的事物、創作者、網站、產品</string>
     <string name="revanced_sb_skip_automatically">自動跳過</string>
+    <string name="revanced_sb_skip_ignore">停用</string>
     <string name="revanced_sb_skipped_filler">已跳過贅詞</string>
     <string name="revanced_sb_skipped_interaction">已跳過煩人的提醒</string>
     <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
@@ -345,6 +366,9 @@
     <string name="revanced_sb_skipped_preview_middle">已跳過預覽</string>
     <string name="revanced_sb_skipped_selfpromo">已跳過自我宣傳</string>
     <string name="revanced_sb_skipped_sponsor">已跳過贊助</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock 暫時無法使用。</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用 (狀態 %d)。</string>
+    <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用 (API 超時)。</string>
     <string name="revanced_sb_toast_on_connection_error">當API無法使用時顯示提示訊息</string>
     <string name="revanced_sb_toast_on_connection_error_sum">當 Sponsorblock 無法使用時顯示提示訊息</string>
     <string name="revanced_sb_toast_on_skip">自動跳過片段時顯示提示訊息</string>
@@ -360,5 +384,20 @@
     <string name="revanced_spoof_app_version_target_summary">選擇欲偽裝的應用程式版本</string>
     <string name="revanced_spoof_app_version_target_title">偽裝應用程式版本</string>
     <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
+    <string name="revanced_spoof_client_summary">"偽裝客戶端以避免播放問題
+
+• 使用「偽裝串流資料」時可能會發生播放問題"</string>
+    <string name="revanced_spoof_client_title">偽裝客戶端</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_title">預設客戶端</string>
+    <string name="revanced_spoof_streaming_data_summary">"偽裝客戶端以避免播放問題
+
+• 使用「偽裝串流資料」時可能會發生播放問題"</string>
+    <string name="revanced_spoof_streaming_data_title">偽裝串流數據</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_summary">定義預設客戶端以抓取串流資料。</string>
+    <string name="revanced_spoof_streaming_data_type_title">預設客戶端</string>
 </resources>

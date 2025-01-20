@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.transformation
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.findMutableMethodOf
@@ -10,6 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 fun <T> transformInstructionsPatch(
     filterMap: (ClassDef, Method, Instruction, Int) -> T?,
     transform: (MutableMethod, T) -> Unit,
+    executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     description = "transformInstructionsPatch"
 ) {
@@ -49,5 +51,7 @@ fun <T> transformInstructionsPatch(
                 while (!patchIndices.isEmpty()) transform(mutableMethod, patchIndices.removeLast())
             }
         }
+
+        executeBlock()
     }
 }
