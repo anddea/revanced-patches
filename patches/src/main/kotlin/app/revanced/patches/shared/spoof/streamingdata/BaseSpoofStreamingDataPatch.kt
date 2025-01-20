@@ -14,14 +14,11 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -369,36 +366,5 @@ fun baseSpoofStreamingDataPatch(
 
         executeBlock()
 
-    }
-
-    finalize {
-        gmsServiceBrokerFingerprint.methodOrThrow()
-            .addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
-                    move-result v0
-                    if-eqz v0, :ignore
-                    return-void
-                    :ignore
-                    nop
-                    """
-            )
-
-        gmsServiceBrokerExceptionFingerprint.matchOrThrow().let {
-            val walkerIndex = it.patternMatch!!.startIndex
-            val walkerMethod = it.getWalkerMethod(walkerIndex)
-
-            walkerMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.CHECK_CAST)
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->isSpoofingEnabled(Ljava/lang/Object;)Ljava/lang/Object;
-                        move-result-object v$insertRegister
-                        """
-                )
-            }
-        }
     }
 }

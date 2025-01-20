@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.utils.fullscreen.enterFullscreenMethod
+import app.revanced.patches.youtube.utils.fullscreen.enterFullscreenMethods
 import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
@@ -122,10 +122,12 @@ private val playerControlsBytecodePatch = bytecodePatch(
 
         // Reproduced only in RVX
         if (is_19_23_or_greater) {
-            enterFullscreenMethod.addInstruction(
-                0,
-                "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediately()V"
-            )
+            enterFullscreenMethods.forEach { method ->
+                method.addInstruction(
+                    0,
+                    "invoke-static {}, $EXTENSION_PLAYER_CONTROLS_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediately()V"
+                )
+            }
         }
 
         // endregion

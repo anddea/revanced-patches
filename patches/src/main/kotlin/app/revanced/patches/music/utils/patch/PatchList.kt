@@ -31,7 +31,7 @@ internal enum class PatchList(
     ),
     CUSTOM_BRANDING_NAME_FOR_YOUTUBE_MUSIC(
         "Custom branding name for YouTube Music",
-        "Renames the YouTube Music app to the name specified in patch options."
+        "Changes the YouTube Music app name to the name specified in patch options."
     ),
     CUSTOM_HEADER_FOR_YOUTUBE_MUSIC(
         "Custom header for YouTube Music",
@@ -63,7 +63,7 @@ internal enum class PatchList(
     ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
-        "Adds an options to enable the OPUS audio codec if the player response includes it."
+        "Adds an option to enable the OPUS audio codec if the player response includes it."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -135,7 +135,7 @@ internal enum class PatchList(
     ),
     SANITIZE_SHARING_LINKS(
         "Sanitize sharing links",
-        "Adds an option to remove tracking query parameters from URLs when sharing links."
+        "Adds an option to sanitize sharing links by removing tracking query parameters."
     ),
     SETTINGS_FOR_YOUTUBE_MUSIC(
         "Settings for YouTube Music",

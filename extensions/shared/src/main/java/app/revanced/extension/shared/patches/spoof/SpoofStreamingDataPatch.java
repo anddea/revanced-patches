@@ -111,16 +111,6 @@ public class SpoofStreamingDataPatch {
 
     /**
      * Injection point.
-     */
-    public static Object isSpoofingEnabled(Object original) {
-        if (!SPOOF_STREAMING_DATA) {
-            return original;
-        }
-        return null;
-    }
-
-    /**
-     * Injection point.
      * This method is only invoked when playing a livestream on an iOS client.
      */
     public static boolean fixHLSCurrentTime(boolean original) {

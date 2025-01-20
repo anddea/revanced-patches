@@ -1,13 +1,10 @@
 package app.revanced.patches.youtube.utils.settings
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_PATH
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
@@ -24,11 +21,14 @@ import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
-import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.removeStringsElements
 import app.revanced.util.valueOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 import java.nio.file.Files
@@ -51,23 +51,16 @@ private val settingsBytecodePatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.injectCall(index: Int) {
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-            addInstructions(
-                index + 1, """
-                    invoke-static {v$register}, $EXTENSION_THEME_METHOD_DESCRIPTOR
-                    return-object v$register
-                    """
-            )
-            removeInstruction(index)
-        }
 
         // apply the current theme of the settings page
-        themeSetterSystemFingerprint.matchOrThrow().let {
-            it.method.apply {
-                injectCall(implementation!!.instructions.size - 1)
-                injectCall(it.patternMatch!!.startIndex)
+        themeSetterSystemFingerprint.methodOrThrow().apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static { v$register }, $EXTENSION_THEME_METHOD_DESCRIPTOR"
+                )
             }
         }
 

@@ -129,7 +129,11 @@ class MusicRequest private constructor(
                     clientType
                 )
                 val requestBody =
-                    PlayerRoutes.createApplicationRequestBody(clientType = clientType, videoId = videoId, playlistId = "RD$videoId")
+                    PlayerRoutes.createApplicationRequestBody(
+                        clientType = clientType,
+                        videoId = videoId,
+                        playlistId = "RD$videoId"
+                    )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)
@@ -161,7 +165,7 @@ class MusicRequest private constructor(
             val startTime = System.currentTimeMillis()
             val clientType = WebClient.ClientType.MWEB
             val clientTypeName = clientType.name
-            Logger.printDebug { "Fetching playability request for: $videoId, using client: $clientTypeName" }
+            Logger.printDebug { "Fetching microformat request for: $videoId, using client: $clientTypeName" }
 
             try {
                 val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
@@ -226,9 +230,14 @@ class MusicRequest private constructor(
                         .getJSONObject("watchEndpoint")
 
                 val playerParams: String? = watchEndpointJsonObject?.getString("playerParams")
-                return playerParams != null && VideoInformation.isMixPlaylistsOpenedByUser(playerParams)
+                return playerParams != null && VideoInformation.isMixPlaylistsOpenedByUser(
+                    playerParams
+                )
             } catch (e: JSONException) {
-                Logger.printException ({ "Fetch failed while processing Application response data for response: $playlistJson" }, e)
+                Logger.printException(
+                    { "Fetch failed while processing Application response data for response: $playlistJson" },
+                    e
+                )
             }
 
             return false
@@ -242,7 +251,10 @@ class MusicRequest private constructor(
                     .getString("category")
                     .equals("Music")
             } catch (e: JSONException) {
-                Logger.printException ({ "Fetch failed while processing Web response data for response: $microFormatJson" }, e)
+                Logger.printException(
+                    { "Fetch failed while processing Web response data for response: $microFormatJson" },
+                    e
+                )
             }
 
             return false

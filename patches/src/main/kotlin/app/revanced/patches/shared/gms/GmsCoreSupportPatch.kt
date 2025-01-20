@@ -389,6 +389,9 @@ private object Constants {
 
         // misc
         "com.google.android.gms.clearcut.service.START",
+        "com.google.android.gms.common.telemetry.service.START",
+        "com.google.android.gms.gmscompliance.service.START",
+        "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
         "com.google.android.gms.languageprofile.service.START",
         "com.google.android.gms.measurement.START",
         "com.google.android.gms.pseudonymous.service.START",

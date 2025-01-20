@@ -44,6 +44,14 @@ object PlayerRoutes {
                 "&alt=proto"
     ).compile()
 
+    @JvmField
+    val GET_VIDEO_DETAILS: CompiledRoute = Route(
+        Route.Method.POST,
+        "player" +
+                "?prettyPrint=false" +
+                "&fields=videoDetails.channelId"
+    ).compile()
+
     private const val YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/"
 
     /**
@@ -78,13 +86,10 @@ object PlayerRoutes {
             client.put("clientVersion", clientType.clientVersion)
             client.put("osName", clientType.osName)
             client.put("osVersion", clientType.osVersion)
-            if (clientType.osName == "Android") {
+            if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion)
                 if (clientType.gmscoreVersionCode != null) {
                     client.put("gmscoreVersionCode", clientType.gmscoreVersionCode)
-                }
-                if (clientType.chipset != null) {
-                    client.put("chipset", clientType.chipset)
                 }
             }
             client.put(

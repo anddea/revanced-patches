@@ -27,6 +27,10 @@ public class PatchStatus {
         return false;
     }
 
+    public static String SpoofAppVersionDefaultString() {
+        return "18.17.43";
+    }
+
     public static boolean ToolBarComponents() {
         // Replace this with true if the Toolbar components patch succeeds
         return false;

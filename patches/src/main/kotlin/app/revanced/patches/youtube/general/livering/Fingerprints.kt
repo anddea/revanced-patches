@@ -1,0 +1,78 @@
+package app.revanced.patches.youtube.general.livering
+
+import app.revanced.patches.youtube.utils.resourceid.elementsImage
+import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.or
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+internal val elementsImageFingerprint = legacyFingerprint(
+    name = "elementsImageFingerprint",
+    returnType = "Landroid/view/View;",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    parameters = listOf("Landroid/view/View;"),
+    literals = listOf(elementsImage),
+)
+
+internal val clientSettingEndpointFingerprint = legacyFingerprint(
+    name = "clientSettingEndpointFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "Ljava/util/Map;"),
+    strings = listOf(
+        "force_fullscreen",
+        "PLAYBACK_START_DESCRIPTOR_MUTATOR",
+        "VideoPresenterConstants.VIDEO_THUMBNAIL_BITMAP_KEY"
+    ),
+    customFingerprint = { method, _ ->
+        indexOfPlaybackStartDescriptorInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfPlaybackStartDescriptorInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference?.returnType == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" &&
+                reference.parameterTypes.isEmpty()
+    }
+
+internal val engagementPanelCommentsClosedFingerprint = legacyFingerprint(
+    name = "engagementPanelCommentsClosedFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    opcodes = listOf(
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_STATIC,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_DIRECT,
+    ),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.INVOKE_INTERFACE &&
+                    getReference<MethodReference>()?.name == "hasNext"
+        } >= 0
+    }
+)
+
+internal val engagementPanelCommentsOpenFingerprint = legacyFingerprint(
+    name = "engagementPanelCommentsOpenFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.IGET_OBJECT,
+        Opcode.IF_NE,
+        Opcode.RETURN_VOID,
+        Opcode.IPUT_OBJECT,
+        Opcode.RETURN_VOID,
+    ),
+    customFingerprint = { method, _ ->
+        method.implementation!!.instructions.count() == 5
+    }
+)

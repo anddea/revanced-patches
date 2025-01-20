@@ -16,6 +16,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstruction
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -27,6 +28,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -41,6 +43,8 @@ private var filterCount = 0
 
 internal lateinit var addLithoFilter: (String) -> Unit
     private set
+
+internal var emptyComponentLabel = ""
 
 val lithoFilterPatch = bytecodePatch(
     description = "lithoFilterPatch",
@@ -72,6 +76,8 @@ val lithoFilterPatch = bytecodePatch(
                         iget-object v0, v0, $emptyComponentFieldReference
                         return-object v0
                         """
+
+                    emptyComponentLabel = label
 
                     Pair(this, label)
                 }
@@ -121,17 +127,25 @@ val lithoFilterPatch = bytecodePatch(
             val stringBuilderRegister =
                 getInstruction<TwoRegisterInstruction>(stringBuilderIndex).registerA
 
-            val emptyStringIndex = indexOfFirstStringInstructionOrThrow("")
+            val emptyStringIndex = indexOfFirstStringInstruction("")
+            val relativeIndex = if (emptyStringIndex > -1) {
+                emptyStringIndex
+            } else {
+                val separatorIndex = indexOfFirstStringInstructionOrThrow("|")
+                indexOfFirstInstructionOrThrow(separatorIndex) {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            getReference<TypeReference>()?.type == "Ljava/lang/StringBuilder;"
+                }
+            }
+
             val identifierRegister = getInstruction<TwoRegisterInstruction>(
-                indexOfFirstInstructionReversedOrThrow(emptyStringIndex) {
+                indexOfFirstInstructionReversedOrThrow(relativeIndex) {
                     opcode == Opcode.IPUT_OBJECT
                             && getReference<FieldReference>()?.type == "Ljava/lang/String;"
                 }
             ).registerA
             val objectRegister = getInstruction<FiveRegisterInstruction>(
-                indexOfFirstInstructionOrThrow(emptyStringIndex) {
-                    opcode == Opcode.INVOKE_VIRTUAL
-                }
+                indexOfFirstInstructionOrThrow(relativeIndex, Opcode.INVOKE_VIRTUAL)
             ).registerC
 
             val insertIndex = stringBuilderIndex + 1
