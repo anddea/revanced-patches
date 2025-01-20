@@ -281,7 +281,7 @@ val miniplayerPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->setRoundedCorners(Z)Z"
             )
 
-            settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CONERS"
+            settingArray += "SETTINGS: MINIPLAYER_ROUNDED_CORNERS"
         }
 
         if (is_19_43_or_greater) {
