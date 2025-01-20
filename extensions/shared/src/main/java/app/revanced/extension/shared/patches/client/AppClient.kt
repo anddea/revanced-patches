@@ -317,6 +317,10 @@ object AppClient {
          */
         val requirePoToken: Boolean = false,
         /**
+         * Client name for innertube body.
+         */
+        val clientName: String,
+        /**
          * Friendly name displayed in stats for nerds.
          */
         val friendlyName: String
@@ -330,7 +334,21 @@ object AppClient {
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
             clientVersion = CLIENT_VERSION_ANDROID_VR,
             chipset = CHIPSET_ANDROID_VR,
+            clientName = "ANDROID_VR",
             friendlyName = "Android VR"
+        ),
+        ANDROID_VR_NO_AUTH(
+            id = 28,
+            deviceMake = DEVICE_MAKE_ANDROID_VR,
+            deviceModel = DEVICE_MODEL_ANDROID_VR,
+            osVersion = OS_VERSION_ANDROID_VR,
+            userAgent = USER_AGENT_ANDROID_VR,
+            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
+            clientVersion = CLIENT_VERSION_ANDROID_VR,
+            chipset = CHIPSET_ANDROID_VR,
+            supportsCookies = false,
+            clientName = "ANDROID_VR",
+            friendlyName = "Android VR No auth"
         ),
         ANDROID_UNPLUGGED(
             id = 29,
@@ -343,6 +361,7 @@ object AppClient {
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED,
             chipset = CHIPSET_ANDROID_UNPLUGGED,
             requireAuth = true,
+            clientName = "ANDROID_UNPLUGGED",
             friendlyName = "Android TV"
         ),
         ANDROID_CREATOR(
@@ -356,6 +375,7 @@ object AppClient {
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_CREATOR,
             chipset = CHIPSET_ANDROID_CREATOR,
             requireAuth = true,
+            clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
         ),
         IOS_UNPLUGGED(
@@ -367,6 +387,7 @@ object AppClient {
             userAgent = USER_AGENT_IOS_UNPLUGGED,
             clientVersion = CLIENT_VERSION_IOS_UNPLUGGED,
             requireAuth = true,
+            clientName = "IOS_UNPLUGGED",
             friendlyName = if (forceAVC())
                 "iOS TV Force AVC"
             else
@@ -382,6 +403,7 @@ object AppClient {
             clientVersion = CLIENT_VERSION_IOS,
             supportsCookies = false,
             requirePoToken = true,
+            clientName = "IOS",
             friendlyName = if (forceAVC())
                 "iOS Force AVC"
             else
@@ -398,10 +420,9 @@ object AppClient {
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_MUSIC,
             chipset = CHIPSET_ANDROID_MUSIC,
             requireAuth = true,
+            clientName = "ANDROID_MUSIC",
             friendlyName = "Android Music"
         );
-
-        val clientName: String = name
 
         companion object {
             val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
@@ -410,6 +431,7 @@ object AppClient {
                 IOS_UNPLUGGED,
                 ANDROID_CREATOR,
                 IOS,
+                ANDROID_VR_NO_AUTH,
             )
 
             internal val CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(

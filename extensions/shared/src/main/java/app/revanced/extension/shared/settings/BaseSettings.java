@@ -6,6 +6,7 @@ import static app.revanced.extension.shared.patches.PatchStatus.HideFullscreenAd
 
 import app.revanced.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.revanced.extension.shared.patches.client.AppClient.ClientType;
+import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.AudioStreamLanguageOverrideAvailability;
 
 /**
  * Settings shared across multiple apps.
@@ -38,6 +39,7 @@ public class BaseSettings {
     public static final StringSetting RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY = new StringSetting("revanced_return_youtube_username_youtube_data_api_v3_developer_key", "", true);
 
     public static final BooleanSetting SPOOF_STREAMING_DATA = new BooleanSetting("revanced_spoof_streaming_data", TRUE, true, "revanced_spoof_streaming_data_user_dialog_message");
+    public static final EnumSetting<AppLanguage> SPOOF_STREAMING_DATA_LANGUAGE = new EnumSetting<>("revanced_spoof_streaming_data_language", AppLanguage.DEFAULT, new AudioStreamLanguageOverrideAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_streaming_data_ios_force_avc", FALSE, true,
             "revanced_spoof_streaming_data_ios_force_avc_user_dialog_message");
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE);
