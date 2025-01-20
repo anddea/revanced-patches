@@ -893,7 +893,15 @@ val shortsComponentPatch = bytecodePatch(
                 nop
             """
 
-        if (!is_19_25_or_greater) {
+        if (is_19_25_or_greater) {
+            shortsPlaybackIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p1
+                    ${extensionInstructions(0, 1)}
+                    """
+            )
+        } else {
             shortsPlaybackIntentLegacyFingerprint.methodOrThrow().apply {
                 val index = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.returnType == PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
@@ -906,17 +914,7 @@ val shortsComponentPatch = bytecodePatch(
                     extensionInstructions(playbackStartRegister, freeRegister)
                 )
             }
-
-            return@execute
         }
-
-        shortsPlaybackIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
-            0,
-            """
-                move-object/from16 v0, p1
-                ${extensionInstructions(0, 1)}
-            """
-        )
 
         // endregion
 

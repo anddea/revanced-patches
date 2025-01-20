@@ -12,10 +12,10 @@ import app.revanced.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
 public class DrawableColorPatch {
-    private static final int[] DARK_VALUES = {
-            -14606047, // comments box background
-            -16579837, // button container background in album
-            -16777216, // button container background in playlist
+    private static final int[] DARK_COLORS = {
+            0xFF212121, // comments box background
+            0xFF030303, // button container background in album
+            0xFF000000, // button container background in playlist
     };
 
     // background colors
@@ -26,10 +26,10 @@ public class DrawableColorPatch {
     private static final int elementsContainerIdentifier =
             ResourceUtils.getIdIdentifier("elements_container");
 
-    public static int getLithoColor(int originalValue) {
-        return ArrayUtils.contains(DARK_VALUES, originalValue)
+    public static int getLithoColor(int colorValue) {
+        return ArrayUtils.contains(DARK_COLORS, colorValue)
                 ? blackColor
-                : originalValue;
+                : colorValue;
     }
 
     public static void setHeaderGradient(ViewGroup viewGroup) {

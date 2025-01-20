@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.fullscreen.fullscreenButtonHookPatch
+import app.revanced.patches.youtube.utils.indexOfFocusableInTouchModeInstruction
 import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.FULLSCREEN_COMPONENTS
@@ -101,7 +102,6 @@ val fullscreenComponentsPatch = bytecodePatch(
                 "invoke-static {v$targetRegister}, " +
                         "$PLAYER_CLASS_DESCRIPTOR->disableEngagementPanels(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V"
             )
-
         }
 
         playerTitleViewFingerprint.methodOrThrow().apply {
@@ -190,7 +190,7 @@ val fullscreenComponentsPatch = bytecodePatch(
 
         // region patch for quick actions
 
-        quickActionsElementFingerprint.methodOrThrow().apply {
+        quickActionsElementSyntheticFingerprint.methodOrThrow().apply {
             val containerCalls = implementation!!.instructions.withIndex()
                 .filter { instruction ->
                     (instruction.value as? WideLiteralInstruction)?.wideLiteral == quickActionsElementContainer
@@ -219,11 +219,13 @@ val fullscreenComponentsPatch = bytecodePatch(
         // region patch for compact control overlay
 
         youtubeControlsOverlayFingerprint.methodOrThrow().apply {
-            val targetIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "setFocusableInTouchMode"
+            val targetIndex = indexOfFocusableInTouchModeInstruction(this)
+            val walkerIndex = indexOfFirstInstructionOrThrow(targetIndex) {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_STATIC &&
+                        reference?.returnType == "Z" &&
+                        reference.parameterTypes.size == 1
             }
-            val walkerIndex = indexOfFirstInstructionOrThrow(targetIndex, Opcode.INVOKE_STATIC)
 
             val walkerMethod = getWalkerMethod(walkerIndex)
             walkerMethod.apply {

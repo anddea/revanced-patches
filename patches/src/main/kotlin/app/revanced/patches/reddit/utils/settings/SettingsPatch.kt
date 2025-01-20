@@ -58,7 +58,7 @@ private val settingsBytecodePatch = bytecodePatch(
                     .replace(".", "").toInt()
 
             is_2024_26_or_greater = 2024260 <= versionNumber
-            is_2024_41_or_greater = 2024100 <= versionNumber
+            is_2024_41_or_greater = 2024410 <= versionNumber
         }
 
         /**

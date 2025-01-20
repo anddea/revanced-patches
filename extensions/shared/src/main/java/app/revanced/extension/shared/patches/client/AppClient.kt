@@ -289,7 +289,7 @@ object AppClient {
         /**
          * Android SDK version, equivalent to [Build.VERSION.SDK] (System property: ro.build.version.sdk)
          */
-        val androidSdkVersion: String = Build.VERSION.SDK,
+        val androidSdkVersion: String? = null,
         /**
          * App version.
          */
@@ -298,10 +298,6 @@ object AppClient {
          * GmsCore versionCode.
          */
         val gmscoreVersionCode: String? = null,
-        /**
-         * ChipSet.
-         */
-        val chipset: String? = null,
         /**
          * If the client can access the API logged in.
          * If false, 'Authorization' must not be included.
@@ -333,7 +329,6 @@ object AppClient {
             userAgent = USER_AGENT_ANDROID_VR,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
             clientVersion = CLIENT_VERSION_ANDROID_VR,
-            chipset = CHIPSET_ANDROID_VR,
             clientName = "ANDROID_VR",
             friendlyName = "Android VR"
         ),
@@ -345,7 +340,6 @@ object AppClient {
             userAgent = USER_AGENT_ANDROID_VR,
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_VR,
             clientVersion = CLIENT_VERSION_ANDROID_VR,
-            chipset = CHIPSET_ANDROID_VR,
             supportsCookies = false,
             clientName = "ANDROID_VR",
             friendlyName = "Android VR No auth"
@@ -359,7 +353,6 @@ object AppClient {
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_UNPLUGGED,
             clientVersion = CLIENT_VERSION_ANDROID_UNPLUGGED,
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED,
-            chipset = CHIPSET_ANDROID_UNPLUGGED,
             requireAuth = true,
             clientName = "ANDROID_UNPLUGGED",
             friendlyName = "Android TV"
@@ -373,7 +366,6 @@ object AppClient {
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_CREATOR,
             clientVersion = CLIENT_VERSION_ANDROID_CREATOR,
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_CREATOR,
-            chipset = CHIPSET_ANDROID_CREATOR,
             requireAuth = true,
             clientName = "ANDROID_CREATOR",
             friendlyName = "Android Studio"
@@ -418,7 +410,6 @@ object AppClient {
             androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_MUSIC,
             clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
             gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_MUSIC,
-            chipset = CHIPSET_ANDROID_MUSIC,
             requireAuth = true,
             clientName = "ANDROID_MUSIC",
             friendlyName = "Android Music"

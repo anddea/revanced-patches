@@ -16,6 +16,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -40,11 +41,11 @@ val textComponentPatch = bytecodePatch(
             spannedIndex = indexOfSpannableStringInstruction(this)
             spannedRegister = getInstruction<FiveRegisterInstruction>(spannedIndex).registerC
             spannedContextRegister =
-                getInstruction<TwoRegisterInstruction>(0).registerA
+                getInstruction<OneRegisterInstruction>(spannedIndex + 1).registerA
 
             replaceInstruction(
                 spannedIndex,
-                "nop"
+                "move-object/from16 v$spannedContextRegister, p0"
             )
             addInstruction(
                 ++spannedIndex,

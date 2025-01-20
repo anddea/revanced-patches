@@ -198,20 +198,4 @@ internal val hlsCurrentTimeFingerprint = legacyFingerprint(
     literals = listOf(HLS_CURRENT_TIME_FEATURE_FLAG),
 )
 
-internal val gmsServiceBrokerFingerprint = legacyFingerprint(
-    name = "gmsServiceBrokerFingerprint",
-    returnType = "V",
-    strings = listOf("mServiceBroker is null, client disconnected")
-)
-
-internal val gmsServiceBrokerExceptionFingerprint = legacyFingerprint(
-    name = "gmsServiceBrokerExceptionFingerprint",
-    returnType = "V",
-    parameters = listOf("Ljava/lang/Exception;"),
-    opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
-    ),
-    strings = listOf("Exception must not be null")
-)
 

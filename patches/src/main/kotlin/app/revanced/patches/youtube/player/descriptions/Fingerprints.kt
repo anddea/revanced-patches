@@ -22,11 +22,6 @@ internal fun indexOfContentDescriptionInstruction(method: Method) =
                 getReference<MethodReference>()?.name == "setContentDescription"
     }
 
-internal val engagementPanelTitleParentFingerprint = legacyFingerprint(
-    name = "engagementPanelTitleParentFingerprint",
-    strings = listOf("[EngagementPanelTitleHeader] Cannot remove action buttons from header as the child count is out of sync. Buttons to remove exceed current header child count.")
-)
-
 /**
  * This fingerprint is compatible with YouTube v18.35.xx~
  * Nonetheless, the patch works in YouTube v19.02.xx~

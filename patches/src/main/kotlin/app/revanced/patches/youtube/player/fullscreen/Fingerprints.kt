@@ -7,6 +7,7 @@ import app.revanced.patches.youtube.utils.resourceid.quickActionsElementContaine
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal val broadcastReceiverFingerprint = legacyFingerprint(
     name = "broadcastReceiverFingerprint",
@@ -45,12 +46,15 @@ internal val playerTitleViewFingerprint = legacyFingerprint(
     literals = listOf(playerVideoTitleView),
 )
 
-internal val quickActionsElementFingerprint = legacyFingerprint(
-    name = "quickActionsElementFingerprint",
+internal val quickActionsElementSyntheticFingerprint = legacyFingerprint(
+    name = "quickActionsElementSyntheticFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/View;"),
     literals = listOf(quickActionsElementContainer),
+    customFingerprint = { _, classDef ->
+        AccessFlags.SYNTHETIC.isSet(classDef.accessFlags)
+    }
 )
 
 internal val relatedEndScreenResultsFingerprint = legacyFingerprint(

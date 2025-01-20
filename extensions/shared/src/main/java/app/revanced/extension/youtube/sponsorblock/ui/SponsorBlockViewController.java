@@ -23,6 +23,7 @@ import app.revanced.extension.youtube.patches.player.PlayerPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
+import kotlin.Unit;
 
 @SuppressWarnings("unused")
 public class SponsorBlockViewController {
@@ -44,7 +45,7 @@ public class SponsorBlockViewController {
     static {
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             playerTypeChanged(type);
-            return null;
+            return Unit.INSTANCE;
         });
 
         defaultBottomMargin = getDimension("brand_interaction_default_bottom_margin");

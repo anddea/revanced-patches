@@ -87,7 +87,6 @@ internal val floatingMicrophoneFingerprint = legacyFingerprint(
     opcodes = listOf(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
-        Opcode.RETURN_VOID
     ),
     literals = listOf(fab),
 )

@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.accountSwitcherAccessibility
+import app.revanced.patches.youtube.utils.resourceid.fab
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -154,18 +155,17 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide floating microphone
 
-        floatingMicrophoneFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+        floatingMicrophoneFingerprint.methodOrThrow().apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(fab)
+            val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
+            val insertRegister = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
 
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
-                        move-result v$register
-                        """
-                )
-            }
+            addInstructions(
+                booleanIndex + 1, """
+                    invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
+                    move-result v$insertRegister
+                    """
+            )
         }
 
         // endregion

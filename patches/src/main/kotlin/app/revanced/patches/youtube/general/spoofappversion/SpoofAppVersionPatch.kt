@@ -2,12 +2,14 @@ package app.revanced.patches.youtube.general.spoofappversion
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.spoof.appversion.baseSpoofAppVersionPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.fix.cairo.cairoFragmentPatch
 import app.revanced.patches.youtube.utils.indexOfGetDrawableInstruction
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_APP_VERSION
@@ -23,6 +25,7 @@ import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.toolBarButtonFingerprint
 import app.revanced.util.appendAppVersion
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -69,6 +72,13 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
                     """, ExternalLabel("ignore", getInstruction(jumpIndex))
             )
         }
+
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "SpoofAppVersionDefaultString"
+        }.replaceInstruction(
+            0,
+            "const-string v0, \"18.38.45\""
+        )
     }
 
 }

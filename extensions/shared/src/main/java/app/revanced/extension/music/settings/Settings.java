@@ -116,8 +116,9 @@ public class Settings extends BaseSettings {
             PatchStatus.SpoofAppVersionDefaultString(), true);
 
 
-    // PreferenceScreen: Navigation bar
-    public static final BooleanSetting ENABLE_BLACK_NAVIGATION_BAR = new BooleanSetting("revanced_enable_black_navigation_bar", FALSE);
+    // PreferenceScreen: Navigation Bar
+    public static final BooleanSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_enable_custom_navigation_bar_color", FALSE, true);
+    public static final StringSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE = new StringSetting("revanced_custom_navigation_bar_color_value", "#000000", true);
     public static final BooleanSetting HIDE_NAVIGATION_HOME_BUTTON = new BooleanSetting("revanced_hide_navigation_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_SAMPLES_BUTTON = new BooleanSetting("revanced_hide_navigation_samples_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_EXPLORE_BUTTON = new BooleanSetting("revanced_hide_navigation_explore_button", FALSE, true);
@@ -251,6 +252,7 @@ public class Settings extends BaseSettings {
             CUSTOM_FILTER_STRINGS.key,
             CUSTOM_PLAYBACK_SPEEDS.key,
             DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE.key,
+            ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.key,
             EXTERNAL_DOWNLOADER_PACKAGE_NAME.key,
             HIDE_ACCOUNT_MENU_FILTER_STRINGS.key,
             SB_API_URL.key,

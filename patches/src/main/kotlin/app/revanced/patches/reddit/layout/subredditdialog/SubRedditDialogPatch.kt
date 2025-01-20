@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.layout.subredditdialog
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
@@ -11,6 +10,7 @@ import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
 import app.revanced.patches.reddit.utils.settings.is_2024_41_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -65,15 +65,12 @@ val subRedditDialogPatch = bytecodePatch(
             frequentUpdatesSheetV2ScreenFingerprint
                 .methodOrThrow()
                 .apply {
-                    val targetIndex = implementation!!.instructions.lastIndex
+                    val targetIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
 
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {p0}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialogV2(Ljava/lang/Object;)V
-                            return-void
-                            """
+                    addInstructionsAtControlFlowLabel(
+                        targetIndex,
+                        "invoke-static {p0}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialogV2(Ljava/lang/Object;)V"
                     )
-                    removeInstruction(targetIndex)
                 }
         }
 

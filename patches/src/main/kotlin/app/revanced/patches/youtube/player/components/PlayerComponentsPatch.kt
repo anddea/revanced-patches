@@ -23,6 +23,8 @@ import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.suggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
 import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
@@ -278,9 +280,15 @@ val playerComponentsPatch = bytecodePatch(
         speedOverlayPatch,
         suggestedVideoEndScreenPatch,
         videoInformationPatch,
+        versionCheckPatch,
     )
 
     execute {
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: PLAYER",
+            "SETTINGS: PLAYER_COMPONENTS"
+        )
+
         fun MutableMethod.getAllLiteralComponent(
             startIndex: Int,
             endIndex: Int
@@ -563,30 +571,34 @@ val playerComponentsPatch = bytecodePatch(
             )
         }
 
-        youtubeControlsOverlayFingerprint.methodOrThrow().apply {
-            val insertIndex =
-                indexOfFirstLiteralInstructionOrThrow(seekUndoEduOverlayStub)
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        if (!is_20_02_or_greater) {
+            youtubeControlsOverlayFingerprint.methodOrThrow().apply {
+                val insertIndex =
+                    indexOfFirstLiteralInstructionOrThrow(seekUndoEduOverlayStub)
+                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            val onClickListenerIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "setOnClickListener"
-            }
-            val constComponent = getFirstLiteralComponent(insertIndex, onClickListenerIndex - 1)
+                val onClickListenerIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "setOnClickListener"
+                }
+                val constComponent = getFirstLiteralComponent(insertIndex, onClickListenerIndex - 1)
 
-            if (constComponent.isNotEmpty()) {
-                addInstruction(
-                    onClickListenerIndex + 2,
-                    constComponent
+                if (constComponent.isNotEmpty()) {
+                    addInstruction(
+                        onClickListenerIndex + 2,
+                        constComponent
+                    )
+                }
+                addInstructionsWithLabels(
+                    insertIndex, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekUndoMessage()Z
+                        move-result v$insertRegister
+                        if-nez v$insertRegister, :default
+                        """, ExternalLabel("default", getInstruction(onClickListenerIndex + 1))
                 )
+
+                settingArray += "SETTINGS: HIDE_SEEK_UNDO_MESSAGE"
             }
-            addInstructionsWithLabels(
-                insertIndex, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekUndoMessage()Z
-                    move-result v$insertRegister
-                    if-nez v$insertRegister, :default
-                    """, ExternalLabel("default", getInstruction(onClickListenerIndex + 1))
-            )
         }
 
         // endregion
@@ -652,10 +664,7 @@ val playerComponentsPatch = bytecodePatch(
         // region add settings
 
         addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: PLAYER",
-                "SETTINGS: PLAYER_COMPONENTS"
-            ),
+            settingArray,
             PLAYER_COMPONENTS
         )
 

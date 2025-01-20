@@ -83,6 +83,8 @@ var easySeekEduContainer = -1L
     private set
 var editSettingsAction = -1L
     private set
+var elementsImage = -1L
+    private set
 var endScreenElementLayoutCircle = -1L
     private set
 var endScreenElementLayoutIcon = -1L
@@ -239,7 +241,8 @@ var ytPremiumWordMarkHeader = -1L
     private set
 var ytWordMarkHeader = -1L
     private set
-
+var ytYoutubeMagenta = -1L
+    private set
 
 internal val sharedResourceIdPatch = resourcePatch(
     description = "sharedResourceIdPatch"
@@ -382,6 +385,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         editSettingsAction = resourceMappings[
             STRING,
             "edit_settings_action"
+        ]
+        elementsImage = resourceMappings[
+            ID,
+            "elements_image"
         ]
         endScreenElementLayoutCircle = resourceMappings[
             LAYOUT,
@@ -694,6 +701,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytWordMarkHeader = resourceMappings[
             ATTR,
             "ytWordmarkHeader"
+        ]
+        ytYoutubeMagenta = resourceMappings[
+            COLOR,
+            "yt_youtube_magenta",
         ]
     }
 }

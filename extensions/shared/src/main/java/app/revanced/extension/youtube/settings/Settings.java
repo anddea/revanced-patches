@@ -87,10 +87,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_MOVIE_SHELF = new BooleanSetting("revanced_hide_movie_shelf", FALSE);
     public static final BooleanSetting HIDE_NOTIFY_ME_BUTTON = new BooleanSetting("revanced_hide_notify_me_button", FALSE);
     public static final BooleanSetting HIDE_PLAYABLES = new BooleanSetting("revanced_hide_playables", TRUE);
-    public static final BooleanSetting HIDE_SHOW_MORE_BUTTON = new BooleanSetting("revanced_hide_show_more_button", FALSE, true);
     public static final BooleanSetting HIDE_FEED_SEARCH_BAR = new BooleanSetting("revanced_hide_feed_search_bar", FALSE);
-    public static final BooleanSetting HIDE_FEED_SURVEY = new BooleanSetting("revanced_hide_feed_survey", TRUE);
+    public static final BooleanSetting HIDE_SHOW_MORE_BUTTON = new BooleanSetting("revanced_hide_show_more_button", FALSE, true);
     public static final BooleanSetting HIDE_SUBSCRIPTIONS_CAROUSEL = new BooleanSetting("revanced_hide_subscriptions_carousel", FALSE, true);
+    public static final BooleanSetting HIDE_FEED_SURVEY = new BooleanSetting("revanced_hide_feed_survey", TRUE);
     public static final BooleanSetting HIDE_TICKET_SHELF = new BooleanSetting("revanced_hide_ticket_shelf", TRUE);
 
 
@@ -156,8 +156,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
 
     public static final EnumSetting<FormFactor> CHANGE_LAYOUT = new EnumSetting<>("revanced_change_layout", FormFactor.ORIGINAL, true);
+    public static final BooleanSetting CHANGE_LIVE_RING_CLICK_ACTION = new BooleanSetting("revanced_change_live_ring_click_action", FALSE, true);
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", false, true, "revanced_spoof_app_version_user_dialog_message");
-    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "18.17.43", true, parent(SPOOF_APP_VERSION));
+    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", PatchStatus.SpoofAppVersionDefaultString(), true, parent(SPOOF_APP_VERSION));
 
     // PreferenceScreen: General - Account menu
     public static final BooleanSetting HIDE_ACCOUNT_MENU = new BooleanSetting("revanced_hide_account_menu", FALSE);
@@ -181,7 +182,7 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting MINIPLAYER_WIDTH_DIP = new IntegerSetting("revanced_miniplayer_width_dip", 192, true, MINIPLAYER_ANY_MODERN);
     public static final IntegerSetting MINIPLAYER_OPACITY = new IntegerSetting("revanced_miniplayer_opacity", 100, true, MINIPLAYER_TYPE.availability(MODERN_1));
 
-    // PreferenceScreen: General - Navigation bar
+    // PreferenceScreen: General - Navigation Bar
     public static final BooleanSetting ENABLE_NARROW_NAVIGATION_BUTTONS = new BooleanSetting("revanced_enable_narrow_navigation_buttons", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_CREATE_BUTTON = new BooleanSetting("revanced_hide_navigation_create_button", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_HOME_BUTTON = new BooleanSetting("revanced_hide_navigation_home_button", FALSE, true);
@@ -210,7 +211,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SETTINGS_MENU_GENERAL = new BooleanSetting("revanced_hide_settings_menu_general", FALSE, true);
     public static final BooleanSetting HIDE_SETTINGS_MENU_ACCOUNT = new BooleanSetting("revanced_hide_settings_menu_account", FALSE, true);
     public static final BooleanSetting HIDE_SETTINGS_MENU_DATA_SAVING = new BooleanSetting("revanced_hide_settings_menu_data_saving", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_AUTOPLAY = new BooleanSetting("revanced_hide_settings_menu_auto_play", FALSE, true);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_AUTOPLAY_PLAYBACK = new BooleanSetting("revanced_hide_settings_menu_autoplay_playback", FALSE, true);
     public static final BooleanSetting HIDE_SETTINGS_MENU_VIDEO_QUALITY_PREFERENCES = new BooleanSetting("revanced_hide_settings_menu_video_quality", FALSE, true);
     public static final BooleanSetting HIDE_SETTINGS_MENU_OFFLINE = new BooleanSetting("revanced_hide_settings_menu_offline", FALSE, true);
     public static final BooleanSetting HIDE_SETTINGS_MENU_WATCH_ON_TV = new BooleanSetting("revanced_hide_settings_menu_pair_with_tv", FALSE, true);
@@ -236,7 +237,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CHANGE_YOUTUBE_HEADER = new BooleanSetting("revanced_change_youtube_header", TRUE, true);
     public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR = new BooleanSetting("revanced_enable_wide_search_bar", FALSE, true);
     public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR_WITH_HEADER = new BooleanSetting("revanced_enable_wide_search_bar_with_header", TRUE, true);
-    public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR_IN_YOU_TAB = new BooleanSetting("revanced_enable_wide_search_bar_in_you_tab", FALSE, true);
+    public static final BooleanSetting ENABLE_WIDE_SEARCH_BAR_IN_YOU_TAB = new BooleanSetting("revanced_enable_wide_search_bar_in_you_tab", FALSE, true, "revanced_enable_wide_search_bar_in_you_tab_user_dialog_message");
     public static final BooleanSetting HIDE_TOOLBAR_CAST_BUTTON = new BooleanSetting("revanced_hide_toolbar_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_TOOLBAR_CREATE_BUTTON = new BooleanSetting("revanced_hide_toolbar_create_button", FALSE, true);
     public static final BooleanSetting HIDE_TOOLBAR_NOTIFICATION_BUTTON = new BooleanSetting("revanced_hide_toolbar_notification_button", FALSE, true);
@@ -284,6 +285,23 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
     public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", FALSE);
+
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_0 = new BooleanSetting("revanced_hide_action_button_index_0", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_1 = new BooleanSetting("revanced_hide_action_button_index_1", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_2 = new BooleanSetting("revanced_hide_action_button_index_2", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_3 = new BooleanSetting("revanced_hide_action_button_index_3", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_4 = new BooleanSetting("revanced_hide_action_button_index_4", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_5 = new BooleanSetting("revanced_hide_action_button_index_5", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_6 = new BooleanSetting("revanced_hide_action_button_index_6", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_7 = new BooleanSetting("revanced_hide_action_button_index_7", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_0 = new BooleanSetting("revanced_hide_action_button_index_live_0", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_1 = new BooleanSetting("revanced_hide_action_button_index_live_1", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_2 = new BooleanSetting("revanced_hide_action_button_index_live_2", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_3 = new BooleanSetting("revanced_hide_action_button_index_live_3", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_4 = new BooleanSetting("revanced_hide_action_button_index_live_4", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_5 = new BooleanSetting("revanced_hide_action_button_index_live_5", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_6 = new BooleanSetting("revanced_hide_action_button_index_live_6", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_7 = new BooleanSetting("revanced_hide_action_button_index_live_7", FALSE);
 
     // PreferenceScreen: Player - Ambient mode
     public static final BooleanSetting BYPASS_AMBIENT_MODE_RESTRICTIONS = new BooleanSetting("revanced_bypass_ambient_mode_restrictions", FALSE);
@@ -395,7 +413,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting REPLACE_TIME_STAMP_ACTION = new BooleanSetting("revanced_replace_time_stamp_action", TRUE, true, parent(APPEND_TIME_STAMP_INFORMATION));
     public static final BooleanSetting DISABLE_SEEKBAR_CHAPTERS = new BooleanSetting("revanced_disable_seekbar_chapters", FALSE, true);
     public static final BooleanSetting ENABLE_CUSTOM_SEEKBAR_COLOR = new BooleanSetting("revanced_enable_custom_seekbar_color", FALSE, true);
-    public static final StringSetting ENABLE_CUSTOM_SEEKBAR_COLOR_VALUE = new StringSetting("revanced_custom_seekbar_color_value", "#FF0033", true, parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
+    public static final StringSetting CUSTOM_SEEKBAR_COLOR_VALUE = new StringSetting("revanced_custom_seekbar_color_value", "#FF0033", true, parent(ENABLE_CUSTOM_SEEKBAR_COLOR));
     public static final BooleanSetting ENABLE_SEEKBAR_TAPPING = new BooleanSetting("revanced_enable_seekbar_tapping", TRUE);
     public static final BooleanSetting HIDE_SEEKBAR_CHAPTER_LABEL = new BooleanSetting("revanced_hide_seekbar_chapter_label", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
@@ -557,8 +575,8 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: Miscellaneous
-    public static final BooleanSetting ENABLE_EXTERNAL_BROWSER = new BooleanSetting("revanced_enable_external_browser", TRUE, true);
-    public static final BooleanSetting ENABLE_OPEN_LINKS_DIRECTLY = new BooleanSetting("revanced_enable_open_links_directly", TRUE);
+    public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
+    public static final BooleanSetting OPEN_LINKS_EXTERNALLY = new BooleanSetting("revanced_open_links_externally", TRUE, true);
 
     // Experimental Flags
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);

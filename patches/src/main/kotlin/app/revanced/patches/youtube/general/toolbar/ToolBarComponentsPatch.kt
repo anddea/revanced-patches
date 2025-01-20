@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
+import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -265,7 +266,11 @@ val toolBarComponentsPatch = bytecodePatch(
         // region patch for hide search term thumbnail
 
         createSearchSuggestionsFingerprint.methodOrThrow().apply {
-            val relativeIndex = indexOfFirstLiteralInstructionOrThrow(40L)
+            val literal = if (is_19_46_or_greater)
+                32L
+            else
+                40L
+            val relativeIndex = indexOfFirstLiteralInstructionOrThrow(literal)
             val replaceIndex = indexOfFirstInstructionReversedOrThrow(relativeIndex) {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.toString() == "Landroid/widget/ImageView;->setVisibility(I)V"

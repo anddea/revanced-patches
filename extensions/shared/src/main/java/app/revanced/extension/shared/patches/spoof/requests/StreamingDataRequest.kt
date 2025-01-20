@@ -279,7 +279,7 @@ class StreamingDataRequest private constructor(
                         } else {
                             BufferedInputStream(connection.inputStream).use { inputStream ->
                                 ByteArrayOutputStream().use { stream ->
-                                    val buffer = ByteArray(8192)
+                                    val buffer = ByteArray(4096)
                                     var bytesRead: Int
                                     while ((inputStream.read(buffer)
                                             .also { bytesRead = it }) >= 0
