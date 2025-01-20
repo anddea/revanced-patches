@@ -44,7 +44,7 @@ public class VideoQualitySettingsActivity extends Activity {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.getLocalizedContextAndSetResources(base));
+        super.attachBaseContext(Utils.getLocalizedContext(base));
     }
 
     @Override

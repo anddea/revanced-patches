@@ -24,6 +24,8 @@ public class BaseSettings {
     public static final BooleanSetting SETTINGS_INITIALIZED = new BooleanSetting("revanced_settings_initialized", FALSE, false, false);
     public static final BooleanSetting GMS_SHOW_DIALOG = new BooleanSetting("revanced_gms_show_dialog", TRUE);
 
+    public static final EnumSetting<AppLanguage> REVANCED_LANGUAGE = new EnumSetting<>("revanced_language", AppLanguage.DEFAULT, true);
+
     /**
      * These settings are used by YouTube and YouTube Music.
      */
