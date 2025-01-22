@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
+import app.revanced.util.Utils.printWarn
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.doRecursively
@@ -55,7 +56,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
     }
 }
 
-private const val MARGIN_NONE = "0.0dip"
+private const val MARGIN_MINIMUM = "0.1dip"
 private const val MARGIN_DEFAULT = "2.5dip"
 private const val MARGIN_WIDER = "5.0dip"
 
@@ -95,7 +96,7 @@ val overlayButtonsPatch = resourcePatch(
         default = MARGIN_DEFAULT,
         values = mapOf(
             "Default" to MARGIN_DEFAULT,
-            "None" to MARGIN_NONE,
+            "Minimum" to MARGIN_MINIMUM,
             "Wider" to MARGIN_WIDER,
         ),
         title = "Bottom margin",
@@ -125,8 +126,19 @@ val overlayButtonsPatch = resourcePatch(
         val iconType = iconTypeOption
             .lowerCaseOrThrow()
 
-        val marginBottom = bottomMarginOption
+        var marginBottom = bottomMarginOption
             .lowerCaseOrThrow()
+
+        try {
+            val marginBottomFloat = marginBottom.split("dip")[0].toFloat()
+            if (marginBottomFloat <= 0f) {
+                printWarn("Patch option \"Bottom margin\" must be greater than 0, fallback to minimum.")
+                marginBottom = MARGIN_MINIMUM
+            }
+        } catch (_: Exception) {
+            printWarn("Patch option \"Bottom margin\" failed validation, fallback to default.")
+            marginBottom = MARGIN_DEFAULT
+        }
 
         val useWiderButtonsSpace = widerButtonsSpace == true
 
