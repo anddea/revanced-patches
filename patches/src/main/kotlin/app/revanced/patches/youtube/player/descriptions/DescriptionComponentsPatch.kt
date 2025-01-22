@@ -9,7 +9,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.engagementPanelTitleParentFingerprint
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.DESCRIPTION_COMPONENTS

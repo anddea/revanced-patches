@@ -40,39 +40,3 @@ internal fun indexOfPlaybackStartDescriptorInstruction(method: Method) =
                 reference?.returnType == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" &&
                 reference.parameterTypes.isEmpty()
     }
-
-internal val engagementPanelCommentsClosedFingerprint = legacyFingerprint(
-    name = "engagementPanelCommentsClosedFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_DIRECT,
-    ),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.INVOKE_INTERFACE &&
-                    getReference<MethodReference>()?.name == "hasNext"
-        } >= 0
-    }
-)
-
-internal val engagementPanelCommentsOpenFingerprint = legacyFingerprint(
-    name = "engagementPanelCommentsOpenFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NE,
-        Opcode.RETURN_VOID,
-        Opcode.IPUT_OBJECT,
-        Opcode.RETURN_VOID,
-    ),
-    customFingerprint = { method, _ ->
-        method.implementation!!.instructions.count() == 5
-    }
-)

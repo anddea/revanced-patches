@@ -16,6 +16,11 @@ internal val engagementPanelTitleFingerprint = legacyFingerprint(
     }
 )
 
+internal val engagementPanelTitleParentFingerprint = legacyFingerprint(
+    name = "engagementPanelTitleParentFingerprint",
+    strings = listOf("[EngagementPanelTitleHeader] Cannot remove action buttons from header as the child count is out of sync. Buttons to remove exceed current header child count.")
+)
+
 internal fun indexOfContentDescriptionInstruction(method: Method) =
     method.indexOfFirstInstructionReversed {
         opcode == Opcode.INVOKE_VIRTUAL &&
