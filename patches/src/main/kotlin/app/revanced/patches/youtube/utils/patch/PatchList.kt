@@ -105,10 +105,6 @@ internal enum class PatchList(
         "Force player buttons background",
         "Changes the dark background surrounding the video player controls at compile time."
     ),
-    FORCE_SNACKBAR_THEME(
-        "Force snackbar theme",
-        "Changes snackbar background color to match selected theme at compile time."
-    ),
     FULLSCREEN_COMPONENTS(
         "Fullscreen components",
         "Adds options to hide or change components related to fullscreen."
@@ -220,6 +216,10 @@ internal enum class PatchList(
     SHORTS_COMPONENTS(
         "Shorts components",
         "Adds options to hide or change components related to YouTube Shorts."
+    ),
+    SNACK_BAR_COMPONENTS(
+        "Snack bar components",
+        "Adds options to hide or change components related to the snack bar."
     ),
     SPONSORBLOCK(
         "SponsorBlock",

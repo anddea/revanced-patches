@@ -69,16 +69,6 @@ internal val appBlockingCheckResultToStringFingerprint = legacyFingerprint(
     strings = listOf("AppBlockingCheckResult{intent=")
 )
 
-internal val bottomUiContainerFingerprint = legacyFingerprint(
-    name = "bottomUiContainerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L", "L"),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/BottomUiContainer;")
-    }
-)
-
 internal val floatingMicrophoneFingerprint = legacyFingerprint(
     name = "floatingMicrophoneFingerprint",
     returnType = "V",

@@ -121,6 +121,8 @@ var insetOverlayViewLayout = -1L
     private set
 var interstitialsContainer = -1L
     private set
+var insetElementsWrapper = -1L
+    private set
 var menuItemView = -1L
     private set
 var metaPanel = -1L
@@ -461,6 +463,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         interstitialsContainer = resourceMappings[
             ID,
             "interstitials_container"
+        ]
+        insetElementsWrapper = resourceMappings[
+            LAYOUT,
+            "inset_elements_wrapper"
         ]
         menuItemView = resourceMappings[
             ID,
