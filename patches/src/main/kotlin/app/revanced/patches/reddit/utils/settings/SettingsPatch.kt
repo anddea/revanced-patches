@@ -37,6 +37,8 @@ var is_2024_26_or_greater = false
     private set
 var is_2024_41_or_greater = false
     private set
+var is_2025_01_or_greater = false
+    private set
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -59,6 +61,7 @@ private val settingsBytecodePatch = bytecodePatch(
 
             is_2024_26_or_greater = 2024260 <= versionNumber
             is_2024_41_or_greater = 2024410 <= versionNumber
+            is_2025_01_or_greater = 2025010 <= versionNumber
         }
 
         /**
