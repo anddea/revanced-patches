@@ -218,6 +218,18 @@ val settingsPatch = resourcePatch(
         }
 
         /**
+         * add searchDependency attribute to group parent and children settings
+         */
+        document("res/values/attrs.xml").use { document ->
+            (document.getElementsByTagName("resources").item(0) as Element).appendChild(
+                document.createElement("attr").apply {
+                    setAttribute("format", "string")
+                    setAttribute("name", "searchDependency")
+                }
+            )
+        }
+
+        /**
          * initialize ReVanced Extended Settings
          */
         ResourceUtils.addPreferenceFragment(
