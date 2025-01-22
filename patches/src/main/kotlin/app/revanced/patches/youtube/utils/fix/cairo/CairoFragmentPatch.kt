@@ -98,19 +98,25 @@ val cairoFragmentPatch = bytecodePatch(
 
         settingsFragmentSyntheticFingerprint.methodOrThrow().apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(settingsFragmentCairo)
-            val fragmentStyleIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+            val fragmentStylePrimaryIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_VIRTUAL_RANGE &&
                         reference?.returnType == "V" &&
                         reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
-            val fragmentStyleMethod = getWalkerMethod(fragmentStyleIndex)
+            val fragmentStyleSecondaryIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        reference?.returnType == "V" &&
+                        reference.parameterTypes == listOf("Ljava/util/List;", "Landroidx/preference/Preference;")
+            }
 
             arrayOf(
                 // Load cairo fragment xml.
                 this,
                 // Set style to cairo preference.
-                fragmentStyleMethod
+                getWalkerMethod(fragmentStylePrimaryIndex),
+                getWalkerMethod(fragmentStyleSecondaryIndex)
             ).forEach { method ->
                 method.disableCairoFragmentConfig()
             }
