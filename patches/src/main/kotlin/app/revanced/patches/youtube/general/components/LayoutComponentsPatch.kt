@@ -2,12 +2,10 @@ package app.revanced.patches.youtube.general.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.settingmenu.settingsMenuPatch
@@ -211,21 +209,6 @@ val layoutComponentsPatch = bytecodePatch(
                     """
             )
             removeInstruction(insertIndex)
-        }
-
-        // endregion
-
-        // region patch for hide snack bar
-
-        bottomUiContainerFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideSnackBar()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                    """, ExternalLabel("show", getInstruction(0))
-            )
         }
 
         // endregion

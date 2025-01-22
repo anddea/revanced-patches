@@ -123,6 +123,15 @@
             <SwitchPreference android:title="@string/revanced_hide_settings_menu_about_title" android:key="revanced_hide_settings_menu_about" android:summaryOn="@string/revanced_hide_settings_menu_about_summary_on" android:summaryOff="@string/revanced_hide_settings_menu_about_summary_off" />
         </PreferenceScreen>SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
+        <!-- SETTINGS: SNACK_BAR_COMPONENTS
+        <PreferenceScreen android:title="@string/revanced_preference_screen_snack_bar_title" android:key="revanced_preference_screen_snack_bar" android:summary="@string/revanced_preference_screen_snack_bar_summary">
+            <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_server_side_snack_bar_title" android:key="revanced_hide_server_side_snack_bar" android:summaryOn="@string/revanced_hide_server_side_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_server_side_snack_bar_summary_off" />
+            <SwitchPreference android:title="@string/revanced_invert_snack_bar_theme_title" android:key="revanced_invert_snack_bar_theme" android:summaryOn="@string/revanced_invert_snack_bar_theme_summary_on" android:summaryOff="@string/revanced_invert_snack_bar_theme_summary_off" />
+            <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
+            <SwitchPreference android:title="@string/revanced_change_server_side_snack_bar_background_title" android:key="revanced_change_server_side_snack_bar_background" android:summaryOn="@string/revanced_change_server_side_snack_bar_background_summary_on" android:summaryOff="@string/revanced_change_server_side_snack_bar_background_summary_off" />
+        </PreferenceScreen>SETTINGS: SNACK_BAR_COMPONENTS -->
+
         <!-- SETTINGS: TOOLBAR_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_toolbar_title" android:key="revanced_preference_screen_toolbar" android:summary="@string/revanced_preference_screen_toolbar_summary">
             <SwitchPreference android:title="@string/revanced_change_youtube_header_title" android:key="revanced_change_youtube_header" android:summaryOn="@string/revanced_change_youtube_header_summary_on" android:summaryOff="@string/revanced_change_youtube_header_summary_off" />
@@ -168,8 +177,7 @@
 
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <SwitchPreference android:title="@string/revanced_hide_floating_microphone_title" android:key="revanced_hide_floating_microphone" android:summaryOn="@string/revanced_hide_floating_microphone_summary_on" android:summaryOff="@string/revanced_hide_floating_microphone_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_gray_separator_title" android:key="revanced_hide_gray_separator" android:summaryOn="@string/revanced_hide_gray_separator_summary_on" android:summaryOff="@string/revanced_hide_gray_separator_summary_off" />
-        <SwitchPreference android:title="@string/revanced_hide_snack_bar_title" android:key="revanced_hide_snack_bar" android:summaryOn="@string/revanced_hide_snack_bar_summary_on" android:summaryOff="@string/revanced_hide_snack_bar_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
+        <SwitchPreference android:title="@string/revanced_hide_gray_separator_title" android:key="revanced_hide_gray_separator" android:summaryOn="@string/revanced_hide_gray_separator_summary_on" android:summaryOff="@string/revanced_hide_gray_separator_summary_off" />SETTINGS: HIDE_LAYOUT_COMPONENTS -->
 
         <!-- SETTINGS: MINIPLAYER_TYPE_19_14
         <ListPreference android:entries="@array/revanced_miniplayer_type_19_14_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_14_entry_values" />SETTINGS: MINIPLAYER_TYPE_19_14 -->
@@ -925,6 +933,7 @@
                 <Preference android:title="Miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Navigation bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Remove viewer discretion dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Snack bar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Spoof app version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Toolbar components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>

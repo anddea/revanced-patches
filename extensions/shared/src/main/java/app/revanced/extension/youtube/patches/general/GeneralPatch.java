@@ -188,10 +188,6 @@ public class GeneralPatch {
         return Settings.HIDE_FLOATING_MICROPHONE.get() || original;
     }
 
-    public static boolean hideSnackBar() {
-        return Settings.HIDE_SNACK_BAR.get();
-    }
-
     // endregion
 
     // region [Hide navigation bar components] patch
