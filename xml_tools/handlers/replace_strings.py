@@ -2,10 +2,11 @@
 
 import logging
 from pathlib import Path
-from xml.etree import ElementTree as ET
+
+from defusedxml import ElementTree
 
 from config.settings import Settings
-from utils.xml import XMLProcessor
+from utils.xml_processor import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
 
@@ -23,20 +24,27 @@ def update_strings(target_path: Path, source_path: Path) -> None:
         _, target_root, target_strings = XMLProcessor.parse_file(target_path)
         _, _, source_strings = XMLProcessor.parse_file(source_path)
 
-        # Update existing strings
-        for elem in target_root.findall(".//string"):
-            name = elem.get("name")
-            if name in source_strings:
-                data = source_strings[name]
-                elem.text = data["text"]
-                elem.attrib.update(data["attributes"])
-                del source_strings[name]
+        # Create a dictionary of existing elements for quick lookup
+        existing_elements = {elem.get("name"): elem for elem in target_root.findall(".//string")}
 
-        # Add new strings
-        for _name, data in sorted(source_strings.items()):
-            string_elem = ET.Element("string", **data["attributes"])
-            string_elem.text = data["text"]
-            target_root.append(string_elem)
+        # Update existing strings or add new ones
+        for name, data in source_strings.items():
+            if name in existing_elements:
+                # Update existing element
+                existing_elem = existing_elements[name]
+                # Use defusedxml to parse from string
+                new_elem = ElementTree.fromstring(data["text"])
+                # Replace attributes and children
+                existing_elem.attrib.clear()
+                existing_elem.attrib.update(new_elem.attrib)
+                existing_elem[:] = new_elem[:]
+                existing_elem.text = new_elem.text
+                existing_elem.tail = new_elem.tail
+            else:
+                # Add new element
+                # Use defusedxml to parse from string
+                new_elem = ElementTree.fromstring(data["text"])
+                target_root.append(new_elem)
 
         # Write updated file
         XMLProcessor.write_file(target_path, target_root)

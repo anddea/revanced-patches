@@ -6,7 +6,7 @@ from pathlib import Path
 from lxml import etree as et
 
 from config.settings import Settings
-from utils.xml import XMLProcessor
+from utils.xml_processor import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
 
