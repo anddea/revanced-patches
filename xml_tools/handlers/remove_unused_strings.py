@@ -4,6 +4,7 @@ import logging
 import os
 from pathlib import Path
 
+from defusedxml import lxml
 from lxml import etree as et
 
 from config.settings import Settings
@@ -157,8 +158,7 @@ def process_xml_file(file_path: Path, unused_names: set[str]) -> None:
         kept_strings = 0
         for name, data in sorted(strings_dict.items()):
             if not should_remove(name, unused_names):
-                string_elem = et.Element("string", **data["attributes"])
-                string_elem.text = data["text"]
+                string_elem = lxml.fromstring(data["text"].encode())
                 new_root.append(string_elem)
                 kept_strings += 1
 
