@@ -1,3 +1,10 @@
+# [3.3.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.3.0-dev.2...v3.3.0-dev.3) (2025-01-23)
+
+
+### Features
+
+* **YouTube - Settings:** Group related elements in search results ([0a7e761](https://github.com/anddea/revanced-patches/commit/0a7e761d9791e9d55d9180b0ef8dd813ea909006))
+
 # [3.3.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.3.0-dev.1...v3.3.0-dev.2) (2025-01-22)
 
 
