@@ -79,6 +79,14 @@
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">伺服器端彈出訊息背景顏色未更改。</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">伺服器端彈出訊息背景顏色已更改。</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">變更伺服器端彈出訊息背景</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"某些彈出訊息使用伺服器端定義的主題，而不是應用程式主題。
+
+更改這些彈出訊息的背景顏色。
+
+如果伺服器端有更改，彈出訊息的背景顏色可能不會改變。"</string>
     <string name="revanced_change_share_sheet_summary_off">使用應用程式內分享擴展。</string>
     <string name="revanced_change_share_sheet_summary_on">使用系統分享擴展。</string>
     <string name="revanced_change_share_sheet_title">更改分享擴展</string>
@@ -415,6 +423,11 @@
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_gms_show_dialog_summary">在每次應用程式啟動時，顯示 GMSCore 的優化對話框。</string>
     <string name="revanced_gms_show_dialog_title">顯示 GMSCore 優化對話框</string>
+    <string name="revanced_gradient_seekbar_colors_summary">進度條漸變的起始和結束顏色，以逗號分隔。</string>
+    <string name="revanced_gradient_seekbar_colors_title">漸變進度條顏色</string>
+    <string name="revanced_gradient_seekbar_positions_reset">漸變位置重設為預設值。</string>
+    <string name="revanced_gradient_seekbar_positions_summary">漸變起始與結束位置範圍從 0 到 1，以逗號分隔。</string>
+    <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要篩選的帳戶選單名稱清單，每行一個名稱</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
     <string name="revanced_hide_account_menu_summary">"隱藏帳戶選單和你的內容分頁的元素
@@ -898,6 +911,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">自我推廣卡片已顯示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">自我推廣卡片已隱藏</string>
     <string name="revanced_hide_self_sponsor_cards_title">隱藏自我推廣卡片</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端彈出訊息已顯示。</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端彈出訊息已隱藏。</string>
+    <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端彈出訊息</string>
     <string name="revanced_hide_settings_menu_about_summary_off">關於選單已顯示。</string>
     <string name="revanced_hide_settings_menu_about_summary_on">關於選單已隱藏。</string>
     <string name="revanced_hide_settings_menu_about_title">隱藏關於選單</string>
@@ -1210,6 +1226,9 @@ Note:
     <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">彈出訊息主題未反轉。</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">彈出訊息主題已反轉。</string>
+    <string name="revanced_invert_snack_bar_theme_title">反轉彈出訊息主題</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
     <string name="revanced_keep_landscape_mode_summary_off">關閉和開啟螢幕後，影片會以縱向模式播放。</string>
     <string name="revanced_keep_landscape_mode_summary_on">關閉和開啟螢幕後，影片繼續以橫向模式播放。</string>
@@ -1465,6 +1484,8 @@ Note:
     <string name="revanced_preference_screen_shorts_player_summary">隱藏或顯示短片播放器中的組件</string>
     <string name="revanced_preference_screen_shorts_player_title">短片播放器</string>
     <string name="revanced_preference_screen_shorts_title">短片</string>
+    <string name="revanced_preference_screen_snack_bar_summary">隱藏或變更與彈出訊息列相關的組件。</string>
+    <string name="revanced_preference_screen_snack_bar_title">彈出訊息列</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">偽裝串流資料以防止播放問題。</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">偽裝串流數據</string>
     <string name="revanced_preference_screen_swipe_controls_title">滑動控制</string>
@@ -1803,6 +1824,10 @@ Note:
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">重複狀態選單被已隱藏。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">重複狀態選單已顯示。</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">顯示重複狀態選單</string>
+    <string name="revanced_shorts_custom_actions_speed_label">播放速度</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">播放速度選單已隱藏。\n\n資訊:\n• 應該要啟用短片預設播放速度。\n• 所選的速度會套用於下一個影片。</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">播放速度選單已顯示。\n\n資訊:\n• 應該要啟用短片預設播放速度。\n• 所選的速度會套用於下一個影片。</string>
+    <string name="revanced_shorts_custom_actions_speed_title">顯示播放速度選單</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">自訂操作</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">原始</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">比讚</string>
