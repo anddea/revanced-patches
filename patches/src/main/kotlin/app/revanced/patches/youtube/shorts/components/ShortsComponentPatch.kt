@@ -62,6 +62,9 @@ import app.revanced.patches.youtube.utils.toolbar.hookToolBar
 import app.revanced.patches.youtube.utils.toolbar.toolBarHookPatch
 import app.revanced.patches.youtube.video.information.hookShortsVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.playbackstart.PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
+import app.revanced.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
+import app.revanced.patches.youtube.video.playbackstart.playbackStartVideoIdReference
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -569,6 +572,8 @@ val shortsComponentPatch = bytecodePatch(
         shortsToolBarPatch,
 
         lithoFilterPatch,
+        navigationBarHookPatch,
+        playbackStartDescriptorPatch,
         playerTypeHookPatch,
         sharedResourceIdPatch,
         textComponentPatch,
@@ -870,6 +875,45 @@ val shortsComponentPatch = bytecodePatch(
                 "$SHORTS_CLASS_DESCRIPTOR->restoreShortsOldPlayerLayout()Z"
             )
             settingArray += "SETTINGS: RESTORE_SHORTS_OLD_PLAYER_LAYOUT"
+        }
+
+        // endregion
+
+        // region patch for open Shorts in regular player
+
+        fun extensionInstructions(playbackStartRegister: Int, freeRegister: Int) =
+            """
+                invoke-virtual { v$playbackStartRegister }, $playbackStartVideoIdReference
+                move-result-object v$freeRegister
+                invoke-static { v$freeRegister }, $SHORTS_CLASS_DESCRIPTOR->openShortInRegularPlayer(Ljava/lang/String;)Z
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :disabled
+                return-void
+                :disabled
+                nop
+            """
+
+        if (is_19_25_or_greater) {
+            shortsPlaybackIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p1
+                    ${extensionInstructions(0, 1)}
+                    """
+            )
+        } else {
+            shortsPlaybackIntentLegacyFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.returnType == PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
+                }
+                val freeRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+                val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                addInstructionsWithLabels(
+                    index + 2,
+                    extensionInstructions(playbackStartRegister, freeRegister)
+                )
+            }
         }
 
         // endregion

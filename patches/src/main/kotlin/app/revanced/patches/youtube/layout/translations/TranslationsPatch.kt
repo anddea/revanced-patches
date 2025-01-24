@@ -8,9 +8,6 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.patch.PatchList.TRANSLATIONS_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.doRecursively
-import org.w3c.dom.Element
-import org.w3c.dom.Node
 
 // Array of supported translations, each represented by its language code.
 private val SUPPORTED_TRANSLATIONS = setOf(
@@ -64,36 +61,6 @@ val translationsPatch = resourcePatch(
             customTranslations, selectedTranslations, selectedStringResources,
             SUPPORTED_TRANSLATIONS, "youtube"
         )
-
-        // Process selected app languages
-        val selectedAppLanguagesArray = selectedStringResources!!.split(",").map { it.trim() }.toTypedArray()
-
-        // Filter the app languages to include both versions of locales (with and without 'r', en-rGB and en-GB)
-        // and also handle locales with "b+" prefix
-        val filteredAppLanguages = selectedAppLanguagesArray.flatMap { language ->
-            setOf(language, language.replace("-r", "-"),
-                language.replace("b+", "").replace("+", "-"))
-        }.toTypedArray()
-
-        // Remove unselected app languages from UI
-        document("res/xml/locales_config.xml").use { document ->
-            val nodesToRemove = mutableListOf<Node>()
-
-            document.doRecursively loop@{ node ->
-                if (node !is Element || node.tagName != "locale") return@loop
-
-                node.getAttributeNode("android:name")?.let { attribute ->
-                    if (attribute.textContent != "en" && attribute.textContent !in filteredAppLanguages) {
-                        nodesToRemove.add(node)
-                    }
-                }
-            }
-
-            // Remove the collected nodes (avoids NullPointerException)
-            for (node in nodesToRemove) {
-                node.parentNode?.removeChild(node)
-            }
-        }
 
         addPreference(TRANSLATIONS_FOR_YOUTUBE)
 

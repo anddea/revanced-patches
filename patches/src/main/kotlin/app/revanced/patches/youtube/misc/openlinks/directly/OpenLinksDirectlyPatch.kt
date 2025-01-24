@@ -1,11 +1,11 @@
-package app.revanced.patches.youtube.misc.openlinksdirectly
+package app.revanced.patches.youtube.misc.openlinks.directly
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.MISC_PATH
-import app.revanced.patches.youtube.utils.patch.PatchList.ENABLE_OPEN_LINKS_DIRECTLY
+import app.revanced.patches.youtube.utils.patch.PatchList.BYPASS_URL_REDIRECTS
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.methodOrThrow
@@ -17,8 +17,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val openLinksDirectlyPatch = bytecodePatch(
-    ENABLE_OPEN_LINKS_DIRECTLY.title,
-    ENABLE_OPEN_LINKS_DIRECTLY.summary,
+    BYPASS_URL_REDIRECTS.title,
+    BYPASS_URL_REDIRECTS.summary,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -40,7 +40,7 @@ val openLinksDirectlyPatch = bytecodePatch(
 
                 replaceInstruction(
                     insertIndex,
-                    "invoke-static {v$insertRegister}, $MISC_PATH/OpenLinksDirectlyPatch;->enableBypassRedirect(Ljava/lang/String;)Landroid/net/Uri;"
+                    "invoke-static {v$insertRegister}, $MISC_PATH/OpenLinksDirectlyPatch;->parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;"
                 )
             }
         }
@@ -49,9 +49,9 @@ val openLinksDirectlyPatch = bytecodePatch(
 
         addPreference(
             arrayOf(
-                "SETTINGS: ENABLE_OPEN_LINKS_DIRECTLY"
+                "SETTINGS: BYPASS_URL_REDIRECTS"
             ),
-            ENABLE_OPEN_LINKS_DIRECTLY
+            BYPASS_URL_REDIRECTS
         )
 
         // endregion

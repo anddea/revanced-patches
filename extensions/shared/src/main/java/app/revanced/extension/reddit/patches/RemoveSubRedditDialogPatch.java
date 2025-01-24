@@ -30,6 +30,14 @@ public class RemoveSubRedditDialogPatch {
         clickViewDelayed(cancelButtonView);
     }
 
+    public static boolean spoofHasBeenVisitedStatus(boolean hasBeenVisited) {
+        return Settings.REMOVE_NSFW_DIALOG.get() || hasBeenVisited;
+    }
+
+    public static boolean spoofLoggedInStatus(boolean isLoggedIn) {
+        return !Settings.REMOVE_NOTIFICATION_DIALOG.get() && isLoggedIn;
+    }
+
     private static void clickViewDelayed(View view) {
         Utils.runOnMainThreadDelayed(() -> {
             if (view != null) {

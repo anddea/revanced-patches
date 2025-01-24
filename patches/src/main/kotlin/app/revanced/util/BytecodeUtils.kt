@@ -529,6 +529,11 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     return instructions
 }
 
+fun Method.referenceMatchesOrThrow(targetIndex: Int, reference: String) {
+    val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+    if (reference != targetReference) throw PatchException("References do not match. Expected: '$reference', Found: '$targetReference'")
+}
+
 /**
  * Called for _all_ instructions with the given literal value.
  */

@@ -15,8 +15,6 @@ import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
-import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
-import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -58,7 +56,7 @@ private val overlayButtonsBytecodePatch = bytecodePatch(
     }
 }
 
-private const val MARGIN_NONE = "0.0dip"
+private const val MARGIN_MINIMUM = "0.1dip"
 private const val MARGIN_DEFAULT = "2.5dip"
 private const val MARGIN_WIDER = "5.0dip"
 
@@ -78,7 +76,6 @@ val overlayButtonsPatch = resourcePatch(
         playerControlsPatch,
         sharedResourceIdPatch,
         settingsPatch,
-        versionCheckPatch,
     )
 
     val iconTypeOption = stringOption(
@@ -99,11 +96,11 @@ val overlayButtonsPatch = resourcePatch(
         default = MARGIN_DEFAULT,
         values = mapOf(
             "Default" to MARGIN_DEFAULT,
-            "None" to MARGIN_NONE,
+            "Minimum" to MARGIN_MINIMUM,
             "Wider" to MARGIN_WIDER,
         ),
         title = "Bottom margin",
-        description = "The bottom margin for the overlay buttons and timestamp. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        description = "The bottom margin for the overlay buttons and timestamp.",
         required = true
     )
 
@@ -111,7 +108,7 @@ val overlayButtonsPatch = resourcePatch(
         key = "widerButtonsSpace",
         default = false,
         title = "Wider between-buttons space",
-        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        description = "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
         required = true
     )
 
@@ -132,15 +129,18 @@ val overlayButtonsPatch = resourcePatch(
         var marginBottom = bottomMarginOption
             .lowerCaseOrThrow()
 
-        if (marginBottom != MARGIN_DEFAULT && is_19_17_or_greater) {
-            printWarn("\"Bottom margin\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
+        try {
+            val marginBottomFloat = marginBottom.split("dip")[0].toFloat()
+            if (marginBottomFloat <= 0f) {
+                printWarn("Patch option \"Bottom margin\" must be greater than 0, fallback to minimum.")
+                marginBottom = MARGIN_MINIMUM
+            }
+        } catch (_: Exception) {
+            printWarn("Patch option \"Bottom margin\" failed validation, fallback to default.")
             marginBottom = MARGIN_DEFAULT
         }
 
-        if (widerButtonsSpace == true && is_19_17_or_greater) {
-            printWarn("\"Wider between-buttons space\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
-        }
-        val useWiderButtonsSpace = widerButtonsSpace == true && !is_19_17_or_greater
+        val useWiderButtonsSpace = widerButtonsSpace == true
 
         // Inject hooks for overlay buttons.
         setOf(
@@ -196,10 +196,13 @@ val overlayButtonsPatch = resourcePatch(
                     "yt_fill_arrow_repeat_white_24.png",
                     "yt_outline_arrow_repeat_1_white_24.png",
                     "yt_outline_arrow_shuffle_1_white_24.png",
+                    "yt_outline_arrow_shuffle_black_24.png",
+                    "yt_outline_list_play_arrow_black_24.png",
+                    "yt_outline_list_play_arrow_white_24.png",
                     "yt_outline_screen_full_exit_white_24.png",
-                    "yt_outline_screen_full_white_24.png",
                     "yt_outline_screen_full_vd_theme_24.png",
-                    "yt_outline_screen_vertical_vd_theme_24.png"
+                    "yt_outline_screen_full_white_24.png",
+                    "yt_outline_screen_vertical_vd_theme_24.png",
                 ),
                 ResourceGroup(
                     "drawable",
@@ -215,15 +218,11 @@ val overlayButtonsPatch = resourcePatch(
             "android.support.constraint.ConstraintLayout"
         )
 
-        var xmlFiles = arrayOf(
-            "youtube_controls_bottom_ui_container.xml"
-        )
-        if (!is_19_17_or_greater) {
-            xmlFiles += "youtube_controls_fullscreen_button.xml"
-            xmlFiles += "youtube_controls_cf_fullscreen_button.xml"
-        }
-
-        xmlFiles.forEach { xmlFile ->
+        arrayOf(
+            "youtube_controls_bottom_ui_container.xml",
+            "youtube_controls_fullscreen_button.xml",
+            "youtube_controls_cf_fullscreen_button.xml"
+        ).forEach { xmlFile ->
             val targetXml = get("res").resolve("layout").resolve(xmlFile)
             if (targetXml.exists()) {
                 document("res/layout/$xmlFile").use { document ->
@@ -238,6 +237,13 @@ val overlayButtonsPatch = resourcePatch(
                                 }
                             }
 
+                        node.getAttributeNode("yt:layout_constraintBottom_toTopOf")
+                            ?.let { attribute ->
+                                if (attribute.textContent == "@id/quick_actions_container") {
+                                    attribute.textContent = "@+id/bottom_margin"
+                                }
+                            }
+
                         val (id, height, width) = Triple(
                             node.getAttribute("android:id"),
                             node.getAttribute("android:layout_height"),
@@ -248,11 +254,7 @@ val overlayButtonsPatch = resourcePatch(
                             width != "0.0dip",
                         )
 
-                        val isButton = if (is_19_17_or_greater)
-                        // Note: Do not modify fullscreen button and multiview button
-                            id.endsWith("_button") && id != "@id/multiview_button"
-                        else
-                            id.endsWith("_button") || id == "@id/youtube_controls_fullscreen_button_stub"
+                        val isButton = id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
 
                         // Adjust TimeBar and Chapter bottom padding
                         val timBarItem = mutableMapOf(
@@ -266,7 +268,6 @@ val overlayButtonsPatch = resourcePatch(
                             "48.0dip"
 
                         if (isButton) {
-                            node.setAttribute("android:layout_marginBottom", marginBottom)
                             node.setAttribute("android:paddingLeft", "0.0dip")
                             node.setAttribute("android:paddingRight", "0.0dip")
                             node.setAttribute("android:paddingBottom", "22.0dip")
@@ -275,14 +276,15 @@ val overlayButtonsPatch = resourcePatch(
                                 node.setAttribute("android:layout_width", layoutHeightWidth)
                             }
                         } else if (timBarItem.containsKey(id)) {
-                            node.setAttribute("android:layout_marginBottom", marginBottom)
                             if (!useWiderButtonsSpace) {
                                 node.setAttribute("android:paddingBottom", timBarItem.getValue(id))
                             }
                         }
 
-                        if (!is_19_17_or_greater && id.equals("@id/youtube_controls_fullscreen_button_stub")) {
-                            node.setAttribute("android:layout_width", layoutHeightWidth)
+                        if (id.equals("@+id/bottom_margin")) {
+                            node.setAttribute("android:layout_height", marginBottom)
+                        } else if (id.equals("@id/time_bar_reference_view")) {
+                            node.setAttribute("yt:layout_constraintBottom_toTopOf", "@id/quick_actions_container")
                         }
                     }
                 }

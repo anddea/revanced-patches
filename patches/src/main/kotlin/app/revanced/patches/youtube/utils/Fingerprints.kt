@@ -27,14 +27,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuItemBuilderFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "L",
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.IGET,
+        Opcode.AND_INT_LIT16,
+        Opcode.IF_EQZ,
     ),
     strings = listOf("Text missing for BottomSheetMenuItem."),
     customFingerprint = { method, _ ->
@@ -251,9 +249,19 @@ internal val youtubeControlsOverlayFingerprint = legacyFingerprint(
         fadeDurationFast,
         insetOverlayViewLayout,
         scrimOverlay,
-        seekUndoEduOverlayStub
+        // Removed in YouTube 20.02.38+
+        // seekUndoEduOverlayStub
     ),
+    customFingerprint = { method, _ ->
+        indexOfFocusableInTouchModeInstruction(method) >= 0
+    }
 )
+
+internal fun indexOfFocusableInTouchModeInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "setFocusableInTouchMode"
+    }
 
 const val PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR =
     "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
