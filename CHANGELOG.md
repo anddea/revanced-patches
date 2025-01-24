@@ -1,3 +1,38 @@
+# [3.3.0](https://github.com/anddea/revanced-patches/compare/v3.2.0...v3.3.0) (2025-01-24)
+
+
+### Bug Fixes
+
+* **Reddit - Remove subreddit dialog:** Navigation bar is not visible when `Remove notification suggestion dialog` setting is turned on (Reddit 2025.02+) ([c5921f7](https://github.com/anddea/revanced-patches/commit/c5921f7f1ccce43b605bd8ccdaaca496e74b8288))
+* **YouTube - Change live ring click action:** Clicking on the timestamp in the comments opens the channel ([0556938](https://github.com/anddea/revanced-patches/commit/0556938caa3bfd5dd335da46f7801232b84184ad))
+* **YouTube - Fullscreen components:** Fullscreen layout refreshes multiple times when `Quick actions top margin` is set ([37ab4e3](https://github.com/anddea/revanced-patches/commit/37ab4e3767309bf4d04279891d3cf28f57b5517b))
+* **YouTube - Hide feed components:** `Hide carousel shelf` hides the contents of `Courses` ([92261c3](https://github.com/anddea/revanced-patches/commit/92261c39bf70a0938d3d2417596c318d32d36527))
+* **YouTube - Overlay Buttons:** When the patch option `Bottom margin` is 0, all player bottom buttons are hidden ([d3bbcd1](https://github.com/anddea/revanced-patches/commit/d3bbcd1d86cdaf6900237835dffdd5c48aaf614a))
+* **YouTube - Theme:** Splash screen color attribute not specified in YouTube 19.44.39 ([c24877f](https://github.com/anddea/revanced-patches/commit/c24877ffc3abe1606f2710d6c5886906bcfcb89a))
+* **YouTube - Visual preferences icons:** Icon is not shown properly when patch option is set to `Custom branding icon` ([838f9e7](https://github.com/anddea/revanced-patches/commit/838f9e7f9f8982087225425aa391f9586caf7c10))
+* **YouTube Music - Change start page:** Start page not changing in YT Music 8.02.53+ ([020b1b5](https://github.com/anddea/revanced-patches/commit/020b1b578db385c415eff2cd29a585f13c7640a3))
+* **YouTube Music - Dark theme:** Gradient not applied to playlist header background ([e5f4a98](https://github.com/anddea/revanced-patches/commit/e5f4a98d6e1d885fa621151ec81f7cc71a01ea76))
+* **YouTube Music - Disable music video in album:** App crashes on Android 5 / 6 devices ([353c0bf](https://github.com/anddea/revanced-patches/commit/353c0bf1ec0c9f556d55a24ed8dc9f45199fb9ba))
+* **YouTube:** Unable to access `Autoplay next video` setting ([e775df3](https://github.com/anddea/revanced-patches/commit/e775df322e9428a51ac01940c37fccb4988237b0))
+
+
+### Features
+
+* **Reddit:** Add support for latest versions ([44952e0](https://github.com/anddea/revanced-patches/commit/44952e0d710c13688923ea04770c2542a23ff0bc))
+* **YouTube - Overlay buttons:** Allow setting patch options `Bottom margin` and `Wider between-buttons space` for YouTube 19.17+ ([ca30692](https://github.com/anddea/revanced-patches/commit/ca3069227733ab778bdab86649f9f40f1c7d9a54))
+* **YouTube - Settings:** Add `RVX language` setting ([c61d294](https://github.com/anddea/revanced-patches/commit/c61d294ba2b1fd5616e8ca12cc63ccb5bf5b5e85))
+* **YouTube - Settings:** Group related elements in search results ([0a7e761](https://github.com/anddea/revanced-patches/commit/0a7e761d9791e9d55d9180b0ef8dd813ea909006))
+* **YouTube - Shorts components:** Add `Open Shorts in regular player` setting ([38a9323](https://github.com/anddea/revanced-patches/commit/38a932336429594839aad4305b909cc5b24577fe))
+* **YouTube - Spoof streaming data:** Add `VR default audio stream language` setting ([3d860ff](https://github.com/anddea/revanced-patches/commit/3d860ff5b224d862f9d4ca8235447fc2352b6cf2))
+* **YouTube Music - Navigation bar components:** Add `Enable custom navigation bar color` setting, remove `Set navigation bar to black` setting ([a447858](https://github.com/anddea/revanced-patches/commit/a447858d74c4bc1770885787b83664ebcfe52057))
+* **YouTube Music:** Add support version `8.02.53` ([668f799](https://github.com/anddea/revanced-patches/commit/668f799721652dedc5077548856eefc6751e3edf))
+* **YouTube:** Add `Snack bar components` patch ([7635cc3](https://github.com/anddea/revanced-patches/commit/7635cc3f63ca1b97baa165098b760a3f3714476f))
+
+
+### Performance Improvements
+
+* **YouTube:** Use KMP to search Shorts video id ([4447e51](https://github.com/anddea/revanced-patches/commit/4447e51e146254a8fef04c0c1b84c2f3785eb747))
+
 # [3.3.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.3.0-dev.2...v3.3.0-dev.3) (2025-01-23)
 
 
