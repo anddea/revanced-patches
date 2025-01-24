@@ -13,20 +13,12 @@ private val PLAYER_PARAMETER_STARTS_WITH_PARAMETER_LIST = listOf(
     "I",
     "I"
 )
-private val PLAYER_PARAMETER_ENDS_WITH_PARAMETER_LIST = listOf(
-    "Ljava/util/Set;",
-    "Ljava/lang/String;",
-    "Ljava/lang/String;",
-    "L",
-    "Z", // Appears to indicate if the video id is being opened or is currently playing.
-    "Z",
-    "Z"
-)
 
 internal val playerParameterBuilderFingerprint = legacyFingerprint(
     name = "playerParameterBuilderFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "L",
+    strings = listOf("psps"),
     // 19.22 and earlier parameters are:
     // "Ljava/lang/String;", // VideoId.
     // "[B",
@@ -60,20 +52,41 @@ internal val playerParameterBuilderFingerprint = legacyFingerprint(
     customFingerprint = custom@{ method, _ ->
         val parameterTypes = method.parameterTypes
         val parameterSize = parameterTypes.size
-        if (parameterSize != 13 && parameterSize != 14) {
+        if (parameterSize < 13) {
             return@custom false
         }
 
         val startsWithMethodParameterList = parameterTypes.slice(0..5)
-        val endsWithMethodParameterList = parameterTypes.slice(parameterSize - 7..<parameterSize)
 
         parametersEqual(
             PLAYER_PARAMETER_STARTS_WITH_PARAMETER_LIST,
             startsWithMethodParameterList
-        ) &&
-                parametersEqual(
-                    PLAYER_PARAMETER_ENDS_WITH_PARAMETER_LIST,
-                    endsWithMethodParameterList
-                )
+        )
     }
+)
+
+/**
+ * For targets 19.22 and earlier.
+ */
+private val PLAYER_PARAMETER_LEGACY_LIST = listOf(
+    "Ljava/lang/String;", // VideoId.
+    "[B",
+    "Ljava/lang/String;", // Player parameters proto buffer.
+    "Ljava/lang/String;",
+    "I",
+    "I",
+    "Ljava/util/Set;",
+    "Ljava/lang/String;",
+    "Ljava/lang/String;",
+    "L",
+    "Z", // Appears to indicate if the video id is being opened or is currently playing.
+    "Z",
+    "Z",
+)
+
+internal val playerParameterBuilderLegacyFingerprint = legacyFingerprint(
+    name = "playerParameterBuilderLegacyFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "L",
+    parameters = PLAYER_PARAMETER_LEGACY_LIST,
 )

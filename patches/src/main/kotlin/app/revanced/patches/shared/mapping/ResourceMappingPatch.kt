@@ -77,5 +77,6 @@ enum class ResourceType(val value: String) {
     INTEGER("integer"),
     LAYOUT("layout"),
     STRING("string"),
-    STYLE("style")
+    STYLE("style"),
+    XML("xml")
 }

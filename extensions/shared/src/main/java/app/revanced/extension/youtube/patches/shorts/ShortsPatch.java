@@ -16,11 +16,14 @@ import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
 import java.lang.ref.WeakReference;
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.utils.VideoUtils;
+import kotlin.Unit;
 
 @SuppressWarnings("unused")
 public class ShortsPatch {
@@ -34,7 +37,7 @@ public class ShortsPatch {
         if (HIDE_SHORTS_NAVIGATION_BAR) {
             ShortsPlayerState.getOnChange().addObserver((ShortsPlayerState state) -> {
                 setNavigationBarLayoutParams(state);
-                return null;
+                return Unit.INSTANCE;
             });
         }
         final int bottomMargin = validateValue(
@@ -58,6 +61,10 @@ public class ShortsPatch {
 
     public static boolean disableResumingStartupShortsPlayer() {
         return Settings.DISABLE_RESUMING_SHORTS_PLAYER.get();
+    }
+
+    public static boolean disableResumingStartupShortsPlayer(boolean original) {
+        return !Settings.DISABLE_RESUMING_SHORTS_PLAYER.get() && original;
     }
 
     public static boolean enableShortsTimeStamp(boolean original) {
@@ -209,6 +216,40 @@ public class ShortsPatch {
 
     public static boolean restoreShortsOldPlayerLayout() {
         return !Settings.RESTORE_SHORTS_OLD_PLAYER_LAYOUT.get();
+    }
+
+    public static boolean openShortInRegularPlayer(String videoId) {
+        try {
+            if (!Settings.OPEN_SHORTS_IN_REGULAR_PLAYER.get()) {
+                return false; // Default unpatched behavior.
+            }
+
+            if (videoId.isEmpty()) {
+                // Shorts was opened using launcher app shortcut.
+                //
+                // This check will not detect if the Shorts app shortcut is used
+                // while the app is running in the background (instead the regular player is opened).
+                // To detect that the hooked method map parameter can be checked
+                // if integer key 'com.google.android.apps.youtube.app.endpoint.flags'
+                // has bitmask 16 set.
+                //
+                // This use case seems unlikely if the user has the Shorts
+                // set to open in the regular player, so it's ignored as
+                // checking the map makes the patch more complicated.
+                Logger.printDebug(() -> "Ignoring Short with no videoId");
+                return false;
+            }
+
+            if (NavigationButton.getSelectedNavigationButton() == NavigationButton.SHORTS) {
+                return false; // Always use Shorts player for the Shorts nav button.
+            }
+
+            VideoUtils.openVideo(videoId, true);
+            return true;
+        } catch (Exception ex) {
+            Logger.printException(() -> "openShortInRegularPlayer failure", ex);
+            return false;
+        }
     }
 
 }

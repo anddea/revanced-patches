@@ -43,6 +43,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import kotlin.text.Regex;
 
@@ -280,13 +282,12 @@ public class Utils {
     }
 
     public static Resources getResources() {
+        if (context != null) {
+            return context.getResources();
+        }
         Activity mActivity = activityRef.get();
         if (mActivity != null) {
             return mActivity.getResources();
-        }
-        Context mContext = getContext();
-        if (mContext != null) {
-            return mContext.getResources();
         }
         throw new IllegalStateException("Get resources failed");
     }
@@ -301,7 +302,7 @@ public class Utils {
      * @param mContext Context to check locale.
      * @return Context with locale applied.
      */
-    public static Context getLocalizedContextAndSetResources(Context mContext) {
+    public static Context getLocalizedContext(Context mContext) {
         Activity mActivity = activityRef.get();
         if (mActivity == null) {
             return mContext;
@@ -310,19 +311,15 @@ public class Utils {
             return null;
         }
 
-        // Locale of MainActivity.
-        Locale applicationLocale;
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+
+        // Locale of Application.
+        Locale applicationLocale = language == AppLanguage.DEFAULT
+                ? mActivity.getResources().getConfiguration().locale
+                : language.getLocale();
 
         // Locale of Context.
-        Locale contextLocale;
-
-        if (isSDKAbove(24)) {
-            applicationLocale = mActivity.getResources().getConfiguration().getLocales().get(0);
-            contextLocale = mContext.getResources().getConfiguration().getLocales().get(0);
-        } else {
-            applicationLocale = mActivity.getResources().getConfiguration().locale;
-            contextLocale = mContext.getResources().getConfiguration().locale;
-        }
+        Locale contextLocale = mContext.getResources().getConfiguration().locale;
 
         // If they are identical, no need to override them.
         if (applicationLocale == contextLocale) {
@@ -350,6 +347,14 @@ public class Utils {
 
         context = appContext;
 
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+        if (language != AppLanguage.DEFAULT) {
+            // Create a new context with the desired language.
+            Configuration config = appContext.getResources().getConfiguration();
+            config.setLocale(language.getLocale());
+            context = appContext.createConfigurationContext(config);
+        }
+
         // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
         // Calling the regular printDebug method here can cause a Settings context null pointer exception,
         // even though the context is already set before the call.
@@ -359,7 +364,17 @@ public class Utils {
         //
         // Info level also helps debug if a patch hook is called before
         // the context is set since debug logging is off by default.
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Set context: ");
+        sb.append(appContext);
+        StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
+        if (stackTraceElement.length > 3) {
+            sb.append("\n");
+            sb.append("Called from method: ");
+            sb.append(stackTraceElement[3]);
+        }
+
+        Logger.initializationInfo(Utils.class, sb.toString());
     }
 
     public static void setClipboard(@NonNull String text) {

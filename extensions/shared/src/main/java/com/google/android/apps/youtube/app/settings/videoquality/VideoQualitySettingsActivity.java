@@ -44,7 +44,19 @@ public class VideoQualitySettingsActivity extends Activity {
 
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(Utils.getLocalizedContextAndSetResources(base));
+        super.attachBaseContext(Utils.getLocalizedContext(base));
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (fragment != null && searchViewRef.get() != null && !searchViewRef.get().getQuery().toString().isEmpty()) {
+            // Reset the preferences only if a search query is active
+            fragment.resetPreferences();
+            searchViewRef.get().setQuery("", false); // Clear the search query
+            searchViewRef.get().clearFocus(); // Remove focus from the search view
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override

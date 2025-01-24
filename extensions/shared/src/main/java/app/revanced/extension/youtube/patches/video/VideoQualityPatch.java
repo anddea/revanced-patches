@@ -24,7 +24,9 @@ public class VideoQualityPatch {
      * Injection point.
      */
     public static void newVideoStarted() {
-        setVideoQuality(0);
+        VideoInformation.qualityNeedsUpdating = true;
+        VideoInformation.videoQualities = null;
+        setVideoQuality(250);
     }
 
     /**

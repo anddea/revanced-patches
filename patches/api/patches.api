@@ -48,6 +48,8 @@ public final class app/revanced/patches/music/general/oldstylelibraryshelf/OldSt
 
 public final class app/revanced/patches/music/general/redirection/DislikeRedirectionPatchKt {
 	public static final fun getDislikeRedirectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getOnClickReference ()Ljava/lang/String;
+	public static final fun setOnClickReference (Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/music/general/spoofappversion/SpoofAppVersionPatchKt {
@@ -56,6 +58,10 @@ public final class app/revanced/patches/music/general/spoofappversion/SpoofAppVe
 
 public final class app/revanced/patches/music/general/startpage/ChangeStartPagePatchKt {
 	public static final fun getChangeStartPagePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/general/startpage/FingerprintsKt {
+	public static final field DEFAULT_BROWSE_ID Ljava/lang/String;
 }
 
 public final class app/revanced/patches/music/layout/branding/icon/CustomBrandingIconPatchKt {
@@ -202,6 +208,8 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_7_20_or_greater ()Z
 	public static final fun is_7_23_or_greater ()Z
 	public static final fun is_7_25_or_greater ()Z
+	public static final fun is_7_27_or_greater ()Z
+	public static final fun is_7_29_or_greater ()Z
 }
 
 public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdPatchKt {
@@ -342,7 +350,9 @@ public final class app/revanced/patches/reddit/layout/screenshotpopup/Screenshot
 }
 
 public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
+	public static final fun indexOfHasBeenVisitedInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun listOfIsLoggedInInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/util/List;
 }
 
 public final class app/revanced/patches/reddit/layout/subredditdialog/SubRedditDialogPatchKt {
@@ -386,7 +396,9 @@ public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPa
 
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun is_2024_18_or_greater ()Z
+	public static final fun is_2024_26_or_greater ()Z
+	public static final fun is_2024_41_or_greater ()Z
+	public static final fun is_2025_01_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {
@@ -430,7 +442,6 @@ public final class app/revanced/patches/shared/extension/SharedExtensionPatchKt 
 
 public final class app/revanced/patches/shared/gms/FingerprintsKt {
 	public static final field GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME Ljava/lang/String;
-	public static final fun indexOfGetPackageNameInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/shared/gms/GmsCoreSupportPatchKt {
@@ -490,6 +501,7 @@ public final class app/revanced/patches/shared/mapping/ResourceType : java/lang/
 	public static final field LAYOUT Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STRING Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static final field STYLE Lapp/revanced/patches/shared/mapping/ResourceType;
+	public static final field XML Lapp/revanced/patches/shared/mapping/ResourceType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/mapping/ResourceType;
@@ -534,6 +546,10 @@ public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgen
 	public static final fun baseSpoofUserAgentPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/spoof/useragent/FingerprintsKt {
+	public static final field CLIENT_PACKAGE_NAME Ljava/lang/String;
+}
+
 public final class app/revanced/patches/shared/textcomponent/TextComponentPatchKt {
 	public static final fun getTextComponentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -555,7 +571,8 @@ public final class app/revanced/patches/shared/transformation/IMethodCall$Defaul
 }
 
 public final class app/revanced/patches/shared/transformation/TransformInstructionsPatchKt {
-	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun transformInstructionsPatch$default (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/translations/BaseTranslationsPatchKt {
@@ -611,6 +628,10 @@ public final class app/revanced/patches/youtube/general/layoutswitch/LayoutSwitc
 	public static final fun getLayoutSwitchPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/general/livering/OpenChannelOfLiveAvatarPatchKt {
+	public static final fun getOpenChannelOfLiveAvatarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/general/loadingscreen/GradientLoadingScreenPatchKt {
 	public static final fun getGradientLoadingScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -627,8 +648,8 @@ public final class app/revanced/patches/youtube/general/navigation/NavigationBar
 	public static final fun getNavigationBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/general/snackbar/ForceSnackbarThemeKt {
-	public static final fun getForceSnackbarTheme ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/youtube/general/snackbar/SnackBarComponentsPatchKt {
+	public static final fun getSnackBarComponentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/general/splashanimation/SplashAnimationPatchKt {
@@ -712,12 +733,12 @@ public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatchKt 
 	public static final fun getDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/externalbrowser/OpenLinksExternallyPatchKt {
-	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/misc/openlinks/directly/OpenLinksDirectlyPatchKt {
+	public static final fun getOpenLinksDirectlyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/openlinksdirectly/OpenLinksDirectlyPatchKt {
-	public static final fun getOpenLinksDirectlyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/misc/openlinks/externally/OpenLinksExternallyPatchKt {
+	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/quic/QUICProtocolPatchKt {
@@ -817,12 +838,24 @@ public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOv
 	public static final fun getControlsOverlayConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/engagement/EngagementPanelHookPatchKt {
+	public static final fun getEngagementPanelHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/attributes/ThemeAttributesPatchKt {
+	public static final fun getThemeAttributesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPatchKt {
 	public static final fun getCfBottomUIPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/utils/fix/cairo/CairoFragmentPatchKt {
+	public static final fun getCairoFragmentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatchKt {
@@ -944,6 +977,8 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_44_or_greater ()Z
 	public static final fun is_19_46_or_greater ()Z
+	public static final fun is_19_49_or_greater ()Z
+	public static final fun is_20_02_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -986,6 +1021,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getDrawerResults ()J
 	public static final fun getEasySeekEduContainer ()J
 	public static final fun getEditSettingsAction ()J
+	public static final fun getElementsImage ()J
 	public static final fun getEmojiPickerIcon ()J
 	public static final fun getEndScreenElementLayoutCircle ()J
 	public static final fun getEndScreenElementLayoutIcon ()J
@@ -1002,6 +1038,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getImageOnlyTab ()J
 	public static final fun getInlineTimeBarColorizedBarPlayedColorDark ()J
 	public static final fun getInlineTimeBarPlayedNotHighlightedColor ()J
+	public static final fun getInsetElementsWrapper ()J
 	public static final fun getInsetOverlayViewLayout ()J
 	public static final fun getInterstitialsContainer ()J
 	public static final fun getMenuItemView ()J
@@ -1040,6 +1077,8 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getScrubbing ()J
 	public static final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public static final fun getSeekUndoEduOverlayStub ()J
+	public static final fun getSettingsFragment ()J
+	public static final fun getSettingsFragmentCairo ()J
 	public static final fun getSlidingDialogAnimation ()J
 	public static final fun getSubtitleMenuSettingsFooterInfo ()J
 	public static final fun getSuggestedAction ()J
@@ -1056,11 +1095,13 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getYouTubeControlsOverlaySubtitleButton ()J
 	public static final fun getYouTubeLogo ()J
 	public static final fun getYtFillBell ()J
+	public static final fun getYtOutlineMoonZ ()J
 	public static final fun getYtOutlinePictureInPictureWhite ()J
 	public static final fun getYtOutlineVideoCamera ()J
 	public static final fun getYtOutlineXWhite ()J
 	public static final fun getYtPremiumWordMarkHeader ()J
 	public static final fun getYtWordMarkHeader ()J
+	public static final fun getYtYoutubeMagenta ()J
 }
 
 public final class app/revanced/patches/youtube/utils/returnyoutubedislike/ReturnYouTubeDislikePatchKt {
@@ -1108,6 +1149,14 @@ public final class app/revanced/patches/youtube/video/information/VideoInformati
 
 public final class app/revanced/patches/youtube/video/playback/VideoPlaybackPatchKt {
 	public static final fun getVideoPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/playbackstart/FingerprintsKt {
+	public static final field PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR Ljava/lang/String;
+}
+
+public final class app/revanced/patches/youtube/video/playbackstart/PlaybackStartDescriptorPatchKt {
+	public static final fun getPlaybackStartDescriptorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public abstract class app/revanced/patches/youtube/video/playerresponse/Hook {
@@ -1189,6 +1238,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;I)I
 	public static final fun or (Lcom/android/tools/smali/dexlib2/AccessFlags;Lcom/android/tools/smali/dexlib2/AccessFlags;)I
 	public static final fun parametersEqual (Ljava/lang/Iterable;Ljava/lang/Iterable;)Z
+	public static final fun referenceMatchesOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILjava/lang/String;)V
 	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JJ)V
 	public static final fun replaceLiteralInstructionCall (Lapp/revanced/patcher/patch/BytecodePatchContext;JLjava/lang/String;)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V

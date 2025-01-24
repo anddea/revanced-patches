@@ -63,12 +63,18 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_bypass_image_region_restrictions_summary_off">Utilizando el host de imágenes original.\n\nAl activar esto se pueden arreglar las imágenes faltantes que están bloqueadas en algunas regiones.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Utilizando host de imágenes yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Omitir restricciones de región de imágenes</string>
+    <string name="revanced_bypass_url_redirects_summary_off">No se omiten las redirecciones de URL.</string>
+    <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones de URL.</string>
+    <string name="revanced_bypass_url_redirects_title">Omitir redirecciones de URL</string>
     <string name="revanced_change_layout_entry_1">Original</string>
     <string name="revanced_change_layout_entry_2">Teléfono</string>
     <string name="revanced_change_layout_entry_3">Teléfono (máx. 480 dpi)</string>
     <string name="revanced_change_layout_entry_4">Tablet</string>
     <string name="revanced_change_layout_entry_5">Tablet (min. 600 dpi)</string>
     <string name="revanced_change_layout_title">Cambiar diseño</string>
+    <string name="revanced_change_live_ring_click_action_summary_off">El directo se abre al pulsar en el anillo del directo.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">El canal se abre al pulsar en el anillo del directo.</string>
+    <string name="revanced_change_live_ring_click_action_title">Cambiar acción de pulsación en anillo del directo</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambiar tipo de interruptores</string>
@@ -85,6 +91,7 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizaje</string>
     <string name="revanced_change_start_page_entry_default">Predeterminada</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
+    <string name="revanced_change_start_page_entry_fashion">Moda y belleza</string>
     <string name="revanced_change_start_page_entry_gaming">Juegos</string>
     <string name="revanced_change_start_page_entry_history">Historial</string>
     <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -92,8 +99,11 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_change_start_page_entry_live">En directo</string>
     <string name="revanced_change_start_page_entry_movies">Películas</string>
     <string name="revanced_change_start_page_entry_music">Música</string>
+    <string name="revanced_change_start_page_entry_news">Noticias</string>
     <string name="revanced_change_start_page_entry_notifications">Notificaciones</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Búsqueda</string>
+    <string name="revanced_change_start_page_entry_shopping">Compras</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Deportes</string>
     <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
@@ -272,18 +282,12 @@ Efecto secundario: El tema Cairo también se aplica a los puntos de notificació
     <string name="revanced_enable_default_playback_speed_shorts_summary_off">La velocidad predeterminada de reproducción no se aplica a los Shorts.</string>
     <string name="revanced_enable_default_playback_speed_shorts_summary_on">La velocidad predeterminada de reproducción se aplica a los Shorts.</string>
     <string name="revanced_enable_default_playback_speed_shorts_title">Activar velocidad predeterminada de reproducción de Shorts</string>
-    <string name="revanced_enable_external_browser_summary_off">El navegador externo está desactivado.</string>
-    <string name="revanced_enable_external_browser_summary_on">El navegador externo está activado.</string>
-    <string name="revanced_enable_external_browser_title">Activar navegador externo</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">La pantalla de carga de degradado está desactivada.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">La pantalla de carga de degradado está activada.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Activar pantalla de carga de degradado</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">El espacio entre los botones de navegación no se hace más estrecho.</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">El espacio entre los botones de navegación se hace más estrecho.</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Activar botones de navegación estrechos</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Siguiendo la política predeterminada de redireccionamiento.</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Omitiendo los redireccionamientos de URL.</string>
-    <string name="revanced_enable_open_links_directly_title">Activar apertura de enlaces directamente</string>
     <string name="revanced_enable_opus_codec_summary">Activa el códec OPUS si la respuesta del reproductor incluye el códec OPUS.</string>
     <string name="revanced_enable_opus_codec_title">Activar códec OPUS</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">No se guarda ni restaura el brillo al salir o entrar en pantalla completa.</string>
@@ -347,7 +351,16 @@ Desliza hacia arriba / abajo para reproducir el vídeo siguiente / anterior.</st
 
 En este caso, utiliza la siguiente ruta:
 Pestaña Tú &gt; Ver canal &gt; Menú &gt; Configuración."</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">La barra de búsqueda ancha está desactivada en la pestaña Tú.</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"La barra de búsqueda ancha está activada en la pestaña Tú.
+
+Para acceder a la configuración, utilice la siguiente ruta:
+Pestaña Tú → Ver canal → Menú → Configuración"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Activar barra de búsqueda ancha en pestaña Tú</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_user_dialog_message">"Si activas esta opción, se desactivará el botón Configuración de la pestaña Tú.
+
+En este caso, es posible que tengas que utilizar la siguiente ruta para acceder a la configuración:
+Pestaña Tú → Ver canal → Menú → Configuración"</string>
     <string name="revanced_enable_wide_search_bar_summary_off">La barra de búsqueda ancha está desactivada.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">La barra de búsqueda ancha está activada.</string>
     <string name="revanced_enable_wide_search_bar_title">Activar barra de búsqueda ancha</string>
@@ -407,6 +420,35 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_hide_account_menu_summary">"Oculta elementos del menú de la cuenta y de la pestaña Tú.
 Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_account_menu_title">Ocultar menú de cuenta</string>
+    <string name="revanced_hide_action_button_index_0_summary_off">El primer botón está visible.</string>
+    <string name="revanced_hide_action_button_index_0_summary_on">El primer botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_0_title">Ocultar primer botón</string>
+    <string name="revanced_hide_action_button_index_1_summary_off">El segundo botón está visible.</string>
+    <string name="revanced_hide_action_button_index_1_summary_on">El segundo botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_1_title">Ocultar segundo botón</string>
+    <string name="revanced_hide_action_button_index_2_summary_off">El tercer botón está visible.</string>
+    <string name="revanced_hide_action_button_index_2_summary_on">El tercer botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_2_title">Ocultar tercer botón</string>
+    <string name="revanced_hide_action_button_index_3_summary_off">El cuarto botón está visible.</string>
+    <string name="revanced_hide_action_button_index_3_summary_on">El cuarto botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_3_title">Ocultar cuarto botón</string>
+    <string name="revanced_hide_action_button_index_4_summary_off">El quinto botón está visible.</string>
+    <string name="revanced_hide_action_button_index_4_summary_on">El quinto botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_4_title">Ocultar quinto botón</string>
+    <string name="revanced_hide_action_button_index_5_summary_off">El sexto botón está visible.</string>
+    <string name="revanced_hide_action_button_index_5_summary_on">El sexto botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_5_title">Ocultar sexto botón</string>
+    <string name="revanced_hide_action_button_index_6_summary_off">El séptimo botón está visible.</string>
+    <string name="revanced_hide_action_button_index_6_summary_on">El séptimo botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_6_title">Ocultar séptimo botón</string>
+    <string name="revanced_hide_action_button_index_7_summary_off">El octavo botón está visible.</string>
+    <string name="revanced_hide_action_button_index_7_summary_on">El octavo botón está oculto.</string>
+    <string name="revanced_hide_action_button_index_7_title">Ocultar octavo botón</string>
+    <string name="revanced_hide_action_button_index_about_summary">"Oculta los botones de acción por índice antes de que se inicialicen los botones de acción.
+
+- Al ocultar los botones de acción no se deja ningún espacio vacío.
+- El índice de los botones de acción puede no ser siempre el mismo botón."</string>
+    <string name="revanced_hide_action_button_index_about_title">Acerca de Ocultar botón de acción por índice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen de vídeo generado por IA está visible.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen de vídeo generado por IA está oculta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar sección de resumen de vídeo generado por IA</string>
@@ -423,6 +465,14 @@ Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_browse_store_button_summary_on">El botón de explorar tienda está oculto.</string>
     <string name="revanced_hide_browse_store_button_title">Ocultar botón de explorar tienda</string>
     <string name="revanced_hide_carousel_shelf_summary">"Oculta las siguientes estanterías:
+• Noticias de última hora
+• Seguir viendo
+• Explorar más canales
+• Volver a escuchar
+• Compras
+• Volver a ver"</string>
+    <string name="revanced_hide_carousel_shelf_summary_off">Las estanterías de carrusel están visibles.</string>
+    <string name="revanced_hide_carousel_shelf_summary_on">"Las estanterías de carrusel están ocultas, tales como:
 • Noticias de última hora
 • Seguir viendo
 • Explorar más canales
@@ -628,7 +678,7 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_live_chat_summary_summary_off">El resumen del chat está visible.</string>
     <string name="revanced_hide_live_chat_summary_summary_on">El resumen del chat está oculto.</string>
     <string name="revanced_hide_live_chat_summary_title">Ocultar resumen del chat en chat en directo</string>
-    <string name="revanced_hide_low_views_video_summary">Oculta los vídeos con menos de 1.000 visualizaciones de los feeds de inicio que hayan sido subidos desde canales a los que no estás suscrito.</string>
+    <string name="revanced_hide_low_views_video_summary">"Oculta los vídeos con menos de 1.000 visualizaciones de los feeds de inicio que hayan sido subidos desde canales a los que no estás suscrito."</string>
     <string name="revanced_hide_low_views_video_title">Ocultar vídeos con pocas visualizaciones</string>
     <string name="revanced_hide_medical_panel_summary_off">Los paneles médicos están visibles.</string>
     <string name="revanced_hide_medical_panel_summary_on">Los paneles médicos están ocultos.</string>
@@ -858,9 +908,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_settings_menu_account_summary_off">El menú \"Cuenta\" está visible.</string>
     <string name="revanced_hide_settings_menu_account_summary_on">El menú \"Cuenta\" está oculto.</string>
     <string name="revanced_hide_settings_menu_account_title">Ocultar menú \"Cuenta\"</string>
-    <string name="revanced_hide_settings_menu_auto_play_summary_off">El menú \"Reproducción automática\" está visible.</string>
-    <string name="revanced_hide_settings_menu_auto_play_summary_on">El menú \"Reproducción automática\" está oculto.</string>
-    <string name="revanced_hide_settings_menu_auto_play_title">Ocultar menú \"Reproducción automática\"</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú de reproducción automática o de reproducción está visible.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú de reproducción automática o de reproducción está oculto.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú de reproducción automática o de reproducción</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú \"Facturación y pagos\" está visible.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú \"Facturación y pagos\" está oculto.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú \"Facturación y pagos\"</string>
@@ -1143,10 +1193,65 @@ Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajus
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Mantiene el modo horizontal al apagar y encender la pantalla en pantalla completa.</string>
+    <string name="revanced_keep_landscape_mode_summary_off">Los vídeos se reproducen en modo vertical después de apagar y encender la pantalla.</string>
+    <string name="revanced_keep_landscape_mode_summary_on">Los vídeos continúan reproduciéndose en modo horizontal después de apagar y encender la pantalla.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">La cantidad de milisegundos que se fuerza el modo horizontal.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Mantener tiempo de espera del modo horizontal</string>
     <string name="revanced_keep_landscape_mode_title">Mantener modo horizontal</string>
     <string name="revanced_label_default">Predeterminada</string>
+    <string name="revanced_language_AR">Árabe</string>
+    <string name="revanced_language_AZ">Azerbaiyano</string>
+    <string name="revanced_language_BG">Búlgaro</string>
+    <string name="revanced_language_BN">Bengalí</string>
+    <string name="revanced_language_CA">Catalán</string>
+    <string name="revanced_language_CS">Checo</string>
+    <string name="revanced_language_DA">Danés</string>
+    <string name="revanced_language_DE">Alemán</string>
+    <string name="revanced_language_DEFAULT">Idioma de la app</string>
+    <string name="revanced_language_EL">Griego</string>
+    <string name="revanced_language_EN">Inglés</string>
+    <string name="revanced_language_ES">Español</string>
+    <string name="revanced_language_ET">Estoniano</string>
+    <string name="revanced_language_FA">Persa</string>
+    <string name="revanced_language_FI">Finlandés</string>
+    <string name="revanced_language_FR">Francés</string>
+    <string name="revanced_language_GU">Guyaratí</string>
+    <string name="revanced_language_HI">Hindi</string>
+    <string name="revanced_language_HR">Croata</string>
+    <string name="revanced_language_HU">Húngaro</string>
+    <string name="revanced_language_ID">Indonesio</string>
+    <string name="revanced_language_IT">Italiano</string>
+    <string name="revanced_language_JA">Japonés</string>
+    <string name="revanced_language_KK">Kazajo</string>
+    <string name="revanced_language_KO">Coreano</string>
+    <string name="revanced_language_LT">Lituano</string>
+    <string name="revanced_language_LV">Letón</string>
+    <string name="revanced_language_MK">Macedonio</string>
+    <string name="revanced_language_MN">Mongol</string>
+    <string name="revanced_language_MR">Maratí</string>
+    <string name="revanced_language_MS">Malayo</string>
+    <string name="revanced_language_MY">Birmano</string>
+    <string name="revanced_language_NL">Holandés</string>
+    <string name="revanced_language_OR">Odia</string>
+    <string name="revanced_language_PA">Punyabí</string>
+    <string name="revanced_language_PL">Polaco</string>
+    <string name="revanced_language_PT">Portugués</string>
+    <string name="revanced_language_RO">Rumano</string>
+    <string name="revanced_language_RU">Ruso</string>
+    <string name="revanced_language_SK">Eslovaco</string>
+    <string name="revanced_language_SL">Esloveno</string>
+    <string name="revanced_language_SR">Serbio</string>
+    <string name="revanced_language_SV">Sueco</string>
+    <string name="revanced_language_SW">Suajili</string>
+    <string name="revanced_language_TA">Tamil</string>
+    <string name="revanced_language_TE">Télugu</string>
+    <string name="revanced_language_TH">Tailandés</string>
+    <string name="revanced_language_TR">Turco</string>
+    <string name="revanced_language_UK">Ucraniano</string>
+    <string name="revanced_language_UR">Urdu</string>
+    <string name="revanced_language_VI">Vietnamita</string>
+    <string name="revanced_language_ZH">Chino</string>
+    <string name="revanced_language_title">Idioma de RVX</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Acción de doble toque y pellizco para redimensionar está desactivado.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Acción de doble toque y pulsar para cambiar el tamaño está habilitado.
 
@@ -1203,6 +1308,12 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_miniplayer_width_dip_invalid_toast">El tamaño del píxel debe estar entre %1$s y %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Inicial en tamaño de pantalla, en píxeles.</string>
     <string name="revanced_miniplayer_width_dip_title">Tamaño inicial</string>
+    <string name="revanced_open_links_externally_summary_off">Abre enlaces en el navegador de la app.</string>
+    <string name="revanced_open_links_externally_summary_on">Abre enlaces en el navegador externo.</string>
+    <string name="revanced_open_links_externally_title">Abrir enlaces en el navegador</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">No abre los Shorts en el reproductor normal.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Abre los Shorts en el reproductor normal.</string>
+    <string name="revanced_open_shorts_in_regular_player_title">Abrir Shorts en reproductor normal</string>
     <string name="revanced_overlay_button">Botón superpuesto</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Pulsa para activar los estados de repetición continua.
 Mantén pulsado para pausar después de los estados de repetición."</string>
@@ -1266,6 +1377,8 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_custom_actions">Acciones personalizadas</string>
     <string name="revanced_preference_category_download_button">Botón de descarga</string>
     <string name="revanced_preference_category_experimental_flag">Funciones Experimentales</string>
+    <string name="revanced_preference_category_hide_by_index">Ocultar por índice</string>
+    <string name="revanced_preference_category_hide_by_index_live">Ocultar por índice en directo</string>
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
@@ -1637,6 +1750,9 @@ Limitación: es posible que los no me gusta no aparezcan en modo incógnito."</s
     <string name="revanced_shorts_custom_actions_about_about_summary">"Esta función es aún experimental, por lo que no hay garantía de que funcione perfectamente.
 
 La mayoría de los errores no pueden solucionarse debido a las limitaciones del lado del cliente, así que utilízala solo con fines de prueba."</string>
+    <string name="revanced_shorts_custom_actions_about_summary">"Esta función es aún experimental, por lo que no hay garantía de que funcione perfectamente.
+
+La mayoría de los errores no pueden solucionarse debido a las limitaciones del lado del cliente, así que utilízala solo con fines de prueba."</string>
     <string name="revanced_shorts_custom_actions_about_title">Acerca de las acciones personalizadas</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">Copiar URL del vídeo</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">El menú de copiar URL del vídeo está oculto.</string>
@@ -1727,6 +1843,7 @@ Si se desactiva más tarde, se recomienda borrar los datos de la aplicación par
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Activar este ajuste podría mejorar la duración de la batería y solucionar el problema de la reproducción entrecortada.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1."</string>
+    <string name="revanced_spoof_streaming_data_language_title">Idioma de transmisión de audio por defecto VR</string>
     <string name="revanced_spoof_streaming_data_po_token_summary">PoToken emitido por BotGuard en un navegador de confianza.</string>
     <string name="revanced_spoof_streaming_data_po_token_title">PoToken a utilizar</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Algunos clientes requieren PoToken y VisitorData para obtener una respuesta de datos de streaming válida.
@@ -1758,12 +1875,14 @@ Pulsa aquí para ver más información."</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Creador de Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
-</string>
+<small>(Inicio de sesión requerido)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
+<small>(Sin autentificación)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
-</string>
+<small>(PoToken requerido)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
-</string>
+<small>(Inicio de sesión requerido)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente predeterminado</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desactivar este ajuste puede causar problemas de reproducción de vídeo.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData emitido por BotGuard en un navegador de confianza.</string>

@@ -1,13 +1,19 @@
 package app.revanced.patches.shared.spoof.useragent
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.shared.transformation.IMethodCall
 import app.revanced.patches.shared.transformation.filterMapInstruction35c
 import app.revanced.patches.shared.transformation.transformInstructionsPatch
+import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -63,6 +69,22 @@ fun baseSpoofUserAgentPatch(
             replaceInstruction(
                 instructionIndex + 1,
                 "const-string v$targetRegister, \"$packageName\"",
+            )
+        }
+    },
+    executeBlock = {
+        apiStatsFingerprint.methodOrThrow().apply {
+            val stringIndex = indexOfFirstStringInstructionOrThrow(CLIENT_PACKAGE_NAME)
+            val putIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                opcode == Opcode.INVOKE_INTERFACE &&
+                        getReference<MethodReference>()?.name == "put"
+            }
+            val packageNameRegister = getInstruction<FiveRegisterInstruction>(putIndex).registerE
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(putIndex, Opcode.INVOKE_STATIC)
+
+            addInstruction(
+                insertIndex,
+                "const-string v$packageNameRegister, \"$packageName\"",
             )
         }
     },

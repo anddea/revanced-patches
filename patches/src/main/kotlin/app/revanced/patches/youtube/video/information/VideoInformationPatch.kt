@@ -249,11 +249,13 @@ val videoInformationPatch = bytecodePatch(
             )
 
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(45368273L)
-            val walkerIndex =
-                indexOfFirstInstructionReversedOrThrow(
-                    literalIndex,
-                    Opcode.INVOKE_VIRTUAL_RANGE
-                )
+            val walkerIndex = indexOfFirstInstructionReversedOrThrow(literalIndex) {
+                val reference = getReference<MethodReference>()
+                (opcode == Opcode.INVOKE_VIRTUAL || opcode == Opcode.INVOKE_VIRTUAL_RANGE) &&
+                        reference?.definingClass == definingClass &&
+                        reference.parameterTypes.isEmpty() &&
+                        reference.returnType == "V"
+            }
 
             videoEndMethod = getWalkerMethod(walkerIndex)
         }
@@ -419,7 +421,10 @@ val videoInformationPatch = bytecodePatch(
                                 
                                 # Get the container class field.
                                 iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference  
-                                                                
+
+                                # For some reason, in YouTube 19.44.39 this value is sometimes null.
+                                if-eqz v0, :ignore
+
                                 # Get the field from its class.
                                 iget-object v1, v0, $setPlaybackSpeedClassFieldReference
                                 

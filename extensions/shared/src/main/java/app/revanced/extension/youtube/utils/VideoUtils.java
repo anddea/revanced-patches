@@ -32,11 +32,16 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public class VideoUtils extends IntentUtils {
+    private static final String CHANNEL_URL = "https://www.youtube.com/channel/";
     private static final String PLAYLIST_URL = "https://www.youtube.com/playlist?list=";
     private static final String VIDEO_URL = "https://youtu.be/";
     private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
     private static final String VIDEO_SCHEME_LINK_FORMAT = "https://youtu.be/%s?t=%d";
     private static final AtomicBoolean isExternalDownloaderLaunched = new AtomicBoolean(false);
+
+    private static String getChannelUrl(String channelId) {
+        return CHANNEL_URL + channelId;
+    }
 
     private static String getPlaylistUrl(String playlistId) {
         return PLAYLIST_URL + playlistId;
@@ -140,6 +145,10 @@ public class VideoUtils extends IntentUtils {
         } finally {
             runOnMainThreadDelayed(() -> isExternalDownloaderLaunched.compareAndSet(true, false), 500);
         }
+    }
+
+    public static void openChannel(@NonNull String channelId) {
+        launchView(getChannelUrl(channelId), getContext().getPackageName());
     }
 
     public static void openVideo() {

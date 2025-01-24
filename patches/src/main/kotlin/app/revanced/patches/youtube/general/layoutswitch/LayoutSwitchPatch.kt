@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
-import app.revanced.patches.youtube.utils.patch.PatchList.LAYOUT_SWITCH
+import app.revanced.patches.youtube.utils.patch.PatchList.CHANGE_LAYOUT
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.definingClassOrThrow
@@ -24,8 +24,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val layoutSwitchPatch = bytecodePatch(
-    LAYOUT_SWITCH.title,
-    LAYOUT_SWITCH.summary,
+    CHANGE_LAYOUT.title,
+    CHANGE_LAYOUT.summary,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -71,9 +71,9 @@ val layoutSwitchPatch = bytecodePatch(
             arrayOf(
                 "PREFERENCE_SCREEN: GENERAL",
                 "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS",
-                "SETTINGS: LAYOUT_SWITCH"
+                "SETTINGS: CHANGE_LAYOUT"
             ),
-            LAYOUT_SWITCH
+            CHANGE_LAYOUT
         )
 
         // endregion

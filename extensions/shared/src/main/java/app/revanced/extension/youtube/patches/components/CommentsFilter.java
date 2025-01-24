@@ -57,6 +57,17 @@ public final class CommentsFilter extends Filter {
                 "sponsorships_comments_footer.eml"
         );
 
+        final StringFilterGroup liveChatMessages = new StringFilterGroup(
+                Settings.HIDE_LIVE_CHAT_MESSAGES,
+                "live_chat_text_message",
+                "viewer_engagement_message" // message about poll, not poll itself
+        );
+
+        final StringFilterGroup liveChatSummary = new StringFilterGroup(
+                Settings.HIDE_LIVE_CHAT_SUMMARY,
+                "live_chat_summary_banner"
+        );
+
         final StringFilterGroup previewComment = new StringFilterGroup(
                 Settings.HIDE_PREVIEW_COMMENT_OLD_METHOD,
                 "|carousel_item.",
@@ -88,6 +99,8 @@ public final class CommentsFilter extends Filter {
                 commentsPreviewDots,
                 createShorts,
                 membersBanner,
+                liveChatMessages,
+                liveChatSummary,
                 previewComment,
                 previewCommentText,
                 thanks,

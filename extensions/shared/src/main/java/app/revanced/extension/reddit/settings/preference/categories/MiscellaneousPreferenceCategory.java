@@ -41,7 +41,7 @@ public class MiscellaneousPreferenceCategory extends ConditionalPreferenceCatego
             addPreference(new TogglePreference(
                     context,
                     "Sanitize sharing links",
-                    "Removes tracking query parameters from URLs when sharing links.",
+                    "Sanitizes sharing links by removing tracking query parameters.",
                     Settings.SANITIZE_URL_QUERY
             ));
         }

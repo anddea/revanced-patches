@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
@@ -36,11 +35,12 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 public final class ReturnYouTubeDislikeFilterPatch extends Filter {
 
     /**
-     * Last unique video id's loaded.  Value is ignored and Map is treated as a Set.
-     * Cannot use {@link LinkedHashSet} because it's missing #removeEldestEntry().
+     * Last unique video id's loaded.
+     * Key is a String represeting the video id.
+     * Value is a ByteArrayFilterGroup used for performing KMP pattern searching.
      */
     @GuardedBy("itself")
-    private static final Map<String, Boolean> lastVideoIds = new LinkedHashMap<>() {
+    private static final Map<String, ByteArrayFilterGroup> lastVideoIds = new LinkedHashMap<>() {
         /**
          * Number of video id's to keep track of for searching thru the buffer.
          * A minimum value of 3 should be sufficient, but check a few more just in case.
@@ -101,8 +101,11 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
                 return;
             }
             synchronized (lastVideoIds) {
-                if (lastVideoIds.put(videoId, Boolean.TRUE) == null) {
-                    Logger.printDebug(() -> "New Short video id: " + videoId);
+                if (!lastVideoIds.containsKey(videoId)) {
+                    Logger.printDebug(() -> "New Shorts video id: " + videoId);
+                    // Put a placeholder first
+                    lastVideoIds.put(videoId, null);
+                    lastVideoIds.put(videoId, new ByteArrayFilterGroup(null, videoId));
                 }
             }
         } catch (Exception ex) {
@@ -114,7 +117,12 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
      * This could use {@link TrieSearch}, but since the patterns are constantly changing
      * the overhead of updating the Trie might negate the search performance gain.
      */
-    private static boolean byteArrayContainsString(@NonNull byte[] array, @NonNull String text) {
+    private static boolean byteArrayContainsString(@NonNull byte[] array, @NonNull String text,
+                                                   @Nullable ByteArrayFilterGroup videoIdFilter) {
+        // If a video filter is available, check it first.
+        if (videoIdFilter != null) {
+            return videoIdFilter.check(array).isFiltered();
+        }
         for (int i = 0, lastArrayStartIndex = array.length - text.length(); i <= lastArrayStartIndex; i++) {
             boolean found = true;
             for (int j = 0, textLength = text.length(); j < textLength; j++) {
@@ -154,8 +162,10 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     @Nullable
     private String findVideoId(byte[] protobufBufferArray) {
         synchronized (lastVideoIds) {
-            for (String videoId : lastVideoIds.keySet()) {
-                if (byteArrayContainsString(protobufBufferArray, videoId)) {
+            for (Map.Entry<String, ByteArrayFilterGroup> entry : lastVideoIds.entrySet()) {
+                final String videoId = entry.getKey();
+                final ByteArrayFilterGroup videoIdFilter = entry.getValue();
+                if (byteArrayContainsString(protobufBufferArray, videoId, videoIdFilter)) {
                     return videoId;
                 }
             }

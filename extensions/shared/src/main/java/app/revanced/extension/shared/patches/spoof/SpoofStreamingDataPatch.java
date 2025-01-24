@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.patches.PatchStatus.SpoofStreamingDa
 
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,8 +13,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import app.revanced.extension.shared.patches.client.AppClient.ClientType;
 import app.revanced.extension.shared.patches.spoof.requests.StreamingDataRequest;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
@@ -34,9 +35,6 @@ public class SpoofStreamingDataPatch {
      */
     private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
-
-    @NonNull
-    private static volatile String droidGuardPoToken = "";
 
     /**
      * Key: video id
@@ -173,7 +171,7 @@ public class SpoofStreamingDataPatch {
         if (SPOOF_STREAMING_DATA_MUSIC) {
             try {
                 if (requestHeader != null) {
-                    StreamingDataRequest.fetchRequest(videoId, requestHeader, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
+                    StreamingDataRequest.fetchRequest(videoId, requestHeader, VISITOR_DATA, PO_TOKEN);
                 } else {
                     Logger.printDebug(() -> "Ignoring request with no header.");
                 }
@@ -212,7 +210,7 @@ public class SpoofStreamingDataPatch {
                     return;
                 }
 
-                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN, droidGuardPoToken);
+                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN);
             } catch (Exception ex) {
                 Logger.printException(() -> "fetchStreams failure", ex);
             }
@@ -336,16 +334,11 @@ public class SpoofStreamingDataPatch {
         return videoFormat;
     }
 
-    /**
-     * Injection point.
-     */
-    public static void setDroidGuardPoToken(byte[] bytes) {
-        if (SPOOF_STREAMING_DATA && bytes.length > 20) {
-            final String poToken = Base64.encodeToString(bytes, Base64.URL_SAFE);
-            if (!droidGuardPoToken.equals(poToken)) {
-                Logger.printDebug(() -> "New droidGuardPoToken loaded:\n" + poToken);
-                droidGuardPoToken = poToken;
-            }
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_STREAMING_DATA.get() &&
+                    BaseSettings.SPOOF_STREAMING_DATA_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 }

@@ -61,6 +61,21 @@ fun baseAdsPatch(
                 )
         }
 
+        val getAdvertisingIdMethod = with (advertisingIdFingerprint.methodOrThrow()) {
+            val getAdvertisingIdIndex = indexOfGetAdvertisingIdInstruction(this)
+            getWalkerMethod(getAdvertisingIdIndex)
+        }
+
+        getAdvertisingIdMethod.addInstructionsWithLabels(
+            0, """
+                invoke-static {}, $classDescriptor->$methodDescriptor()Z
+                move-result v0
+                if-nez v0, :ignore
+                return-void
+                :ignore
+                nop
+                """
+        )
     }
 }
 

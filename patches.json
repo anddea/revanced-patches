@@ -57,7 +57,28 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Bypass URL redirects",
+    "description": "Adds an option to bypass URL redirects and open the original URL directly.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
       ]
     },
     "options": []
@@ -98,7 +119,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -115,7 +137,51 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Change layout",
+    "description": "Adds an option to change the dp in order to use a tablet or phone layout.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Change live ring click action",
+    "description": "Adds an option to open the channel instead of the live stream when clicking on the live ring.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "ResourcePatch",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
       ]
     },
     "options": []
@@ -202,7 +268,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -241,7 +308,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -388,7 +456,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -439,7 +508,7 @@
   },
   {
     "name": "Custom branding name for Reddit",
-    "description": "Renames the Reddit app to the name specified in patch options.",
+    "description": "Changes the Reddit app name to the name specified in patch options.",
     "use": false,
     "dependencies": [],
     "compatiblePackages": {
@@ -462,7 +531,7 @@
   },
   {
     "name": "Custom branding name for YouTube",
-    "description": "Renames the YouTube app to the name specified in patch options.",
+    "description": "Changes the YouTube app name to the name specified in patch options.",
     "use": false,
     "dependencies": [
       "Settings for YouTube"
@@ -497,7 +566,7 @@
   },
   {
     "name": "Custom branding name for YouTube Music",
-    "description": "Renames the YouTube Music app to the name specified in patch options.",
+    "description": "Changes the YouTube Music app name to the name specified in patch options.",
     "use": false,
     "dependencies": [
       "Settings for YouTube Music"
@@ -509,7 +578,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -620,7 +690,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -651,7 +722,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -722,7 +794,8 @@
       "com.google.android.apps.youtube.music": [
         "7.06.54",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -742,7 +815,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -768,7 +842,28 @@
     "options": []
   },
   {
-    "name": "Disable auto audio tracks",
+    "name": "Disable dislike redirection",
+    "description": "Adds an option to disable redirection to the next track when clicking the Dislike button.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "ResourcePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.02.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Disable forced auto audio tracks",
     "description": "Adds an option to disable audio tracks from being automatically enabled.",
     "use": true,
     "dependencies": [
@@ -788,7 +883,7 @@
     "options": []
   },
   {
-    "name": "Disable auto captions",
+    "name": "Disable forced auto captions",
     "description": "Adds an option to disable captions from being automatically enabled.",
     "use": true,
     "dependencies": [
@@ -809,7 +904,7 @@
     "options": []
   },
   {
-    "name": "Disable auto captions",
+    "name": "Disable forced auto captions",
     "description": "Adds an option to disable captions from being automatically enabled.",
     "use": true,
     "dependencies": [
@@ -823,26 +918,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Disable dislike redirection",
-    "description": "Adds an option to disable redirection to the next track when clicking the Dislike button.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube Music"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -883,7 +960,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -893,7 +971,8 @@
     "description": "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
     "use": true,
     "dependencies": [
-      "Settings for YouTube"
+      "Settings for YouTube",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -943,7 +1022,7 @@
   },
   {
     "name": "Enable OPUS codec",
-    "description": "Adds an options to enable the OPUS audio codec if the player response includes.",
+    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -964,7 +1043,7 @@
   },
   {
     "name": "Enable OPUS codec",
-    "description": "Adds an options to enable the OPUS audio codec if the player response includes.",
+    "description": "Adds an option to enable the OPUS audio codec if the player response includes it.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -977,7 +1056,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1016,28 +1096,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable external browser",
-    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "18.29.38",
-        "18.33.40",
-        "18.38.44",
-        "18.48.39",
-        "19.05.36",
-        "19.16.39",
-        "19.44.39"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1077,27 +1137,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Enable open links directly",
-    "description": "Adds an option to skip over redirection URLs in external links.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "18.29.38",
-        "18.33.40",
-        "18.38.44",
-        "18.48.39",
-        "19.05.36",
-        "19.16.39",
-        "19.44.39"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1123,7 +1164,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1167,61 +1209,6 @@
           "Opacity80": "#cc000000",
           "Opacity90": "#e6000000",
           "Opacity100": "#ff000000"
-        }
-      }
-    ]
-  },
-  {
-    "name": "Force snackbar theme",
-    "description": "Changes snackbar background color to match selected theme at compile time.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "18.29.38",
-        "18.33.40",
-        "18.38.44",
-        "18.48.39",
-        "19.05.36",
-        "19.16.39",
-        "19.44.39"
-      ]
-    },
-    "options": [
-      {
-        "key": "cornerRadius",
-        "title": "Corner radius",
-        "description": "Specify a corner radius for the snackbar.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "8.0dip",
-        "values": null
-      },
-      {
-        "key": "backgroundColor",
-        "title": "Background color",
-        "description": "Specify a background color for the snackbar. You can specify hex color.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "?ytChipBackground",
-        "values": {
-          "Chip": "?ytChipBackground",
-          "Base": "?ytBaseBackground"
-        }
-      },
-      {
-        "key": "strokeColor",
-        "title": "Stroke color",
-        "description": "Specify a stroke color for the snackbar. You can specify hex color.",
-        "required": false,
-        "type": "kotlin.String",
-        "default": "none",
-        "values": {
-          "None": "none",
-          "Accent": "?attr/colorAccent",
-          "Inverted": "?attr/ytInvertedBackground"
         }
       }
     ]
@@ -1334,7 +1321,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -1431,7 +1419,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1454,7 +1443,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1465,6 +1455,7 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -1478,7 +1469,17 @@
         "19.44.39"
       ]
     },
-    "options": []
+    "options": [
+      {
+        "key": "hideActionButtonByIndex",
+        "title": "Hide action buttons by index",
+        "description": "Add an option to hide action buttons by index.\n\nThis setting is still experimental, so use it only for debugging purposes.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      }
+    ]
   },
   {
     "name": "Hide ads",
@@ -1537,7 +1538,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1575,7 +1577,9 @@
       "BytecodePatch",
       "ResourcePatch",
       "Settings for YouTube",
-      "BytecodePatch"
+      "BytecodePatch",
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -1654,7 +1658,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1662,7 +1667,7 @@
   {
     "name": "Hide navigation buttons",
     "description": "Adds options to hide buttons in the navigation bar.",
-    "use": false,
+    "use": true,
     "dependencies": [
       "Settings for Reddit"
     ],
@@ -1686,7 +1691,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1751,7 +1757,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -1869,26 +1876,6 @@
     "options": []
   },
   {
-    "name": "Layout switch",
-    "description": "Adds an option to spoof the dpi in order to use a tablet or phone layout.",
-    "use": true,
-    "dependencies": [
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "18.29.38",
-        "18.33.40",
-        "18.38.44",
-        "18.48.39",
-        "19.05.36",
-        "19.16.39",
-        "19.44.39"
-      ]
-    },
-    "options": []
-  },
-  {
     "name": "MaterialYou",
     "description": "Applies the MaterialYou theme for Android 12+ devices.",
     "use": false,
@@ -1911,7 +1898,7 @@
   },
   {
     "name": "Miniplayer",
-    "description": "Adds options to change the in app minimized player, and if patching target 19.16+ adds options to use modern miniplayers.",
+    "description": "Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers.",
     "use": true,
     "dependencies": [
       "ResourcePatch",
@@ -1971,7 +1958,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2003,8 +1991,29 @@
     "options": []
   },
   {
+    "name": "Open links externally",
+    "description": "Adds an option to always open links in your browser instead of the in-app browser.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch",
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Overlay buttons",
-    "description": "Adds options to display overlay buttons in the video player.",
+    "description": "Adds options to display useful overlay buttons in the video player.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -2012,8 +2021,7 @@
       "BytecodePatch",
       "ResourcePatch",
       "ResourcePatch",
-      "Settings for YouTube",
-      "ResourcePatch"
+      "Settings for YouTube"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -2043,20 +2051,20 @@
       {
         "key": "bottomMargin",
         "title": "Bottom margin",
-        "description": "The bottom margin for the overlay buttons and timestamp. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        "description": "The bottom margin for the overlay buttons and timestamp.",
         "required": true,
         "type": "kotlin.String",
         "default": "2.5dip",
         "values": {
           "Default": "2.5dip",
-          "None": "0.0dip",
+          "Minimum": "0.1dip",
           "Wider": "5.0dip"
         }
       },
       {
         "key": "widerButtonsSpace",
         "title": "Wider between-buttons space",
-        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons. Supports from YouTube 18.29.38 to YouTube 19.16.39.",
+        "description": "Prevent adjacent button presses by increasing the horizontal spacing between buttons.",
         "required": true,
         "type": "kotlin.Boolean",
         "default": false,
@@ -2086,7 +2094,8 @@
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch",
-      "BytecodePatch"
+      "BytecodePatch",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -2120,7 +2129,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2170,7 +2180,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2223,7 +2234,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2242,7 +2254,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2286,7 +2299,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2328,14 +2342,15 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Adds an option to remove tracking query parameters from URLs when sharing links.",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
       "Settings for Reddit"
@@ -2347,7 +2362,7 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Adds an option to remove tracking query parameters from URLs when sharing links.",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -2368,7 +2383,7 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Adds an option to remove tracking query parameters from URLs when sharing links.",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -2381,7 +2396,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2443,6 +2459,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "ResourcePatch",
+      "BytecodePatch",
       "BytecodePatch"
     ],
     "compatiblePackages": {
@@ -2523,7 +2540,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -2561,6 +2579,8 @@
       "BytecodePatch",
       "BytecodePatch",
       "BytecodePatch",
+      "BytecodePatch",
+      "BytecodePatch",
       "ResourcePatch",
       "BytecodePatch",
       "ResourcePatch",
@@ -2578,6 +2598,88 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Snack bar components",
+    "description": "Adds options to hide or change components related to the snack bar.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "options": [
+      {
+        "key": "cornerRadius",
+        "title": "Corner radius",
+        "description": "Specify a corner radius for the snack bar.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "8.0dip",
+        "values": null
+      },
+      {
+        "key": "darkThemeBackgroundColor",
+        "title": "Dark theme background color",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "@color/yt_black3",
+        "values": {
+          "YouTube Dark": "@color/yt_black3",
+          "Amoled Black": "@android:color/black",
+          "Catppuccin (Mocha)": "#FF181825",
+          "Dark Pink": "#FF290025",
+          "Dark Blue": "#FF001029",
+          "Dark Green": "#FF002905",
+          "Dark Yellow": "#FF282900",
+          "Dark Orange": "#FF291800",
+          "Dark Red": "#FF290000"
+        }
+      },
+      {
+        "key": "lightThemeBackgroundColor",
+        "title": "Light theme background color",
+        "description": "Specify a background color for the snack bar. You can specify hex color (#AARRGGBB) or color resource reference.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "@color/yt_white3",
+        "values": {
+          "YouTube Light": "@color/yt_white3",
+          "White": "@android:color/white",
+          "Catppuccin (Latte)": "#FFE6E9EF",
+          "Light Pink": "#FFFCCFF3",
+          "Light Blue": "#FFD1E0FF",
+          "Light Green": "#FFCCFFCC",
+          "Light Yellow": "#FFFDFFCC",
+          "Light Orange": "#FFFFE6CC",
+          "Light Red": "#FFFFD6D6"
+        }
+      },
+      {
+        "key": "strokeColor",
+        "title": "Stroke color",
+        "description": "Specify a stroke color for the snack bar. You can specify hex color.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "",
+        "values": {
+          "None": "",
+          "Blue": "?attr/ytThemedBlue",
+          "Chip": "?attr/ytChipBackground"
+        }
+      }
+    ]
   },
   {
     "name": "SponsorBlock",
@@ -2638,7 +2740,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2743,7 +2846,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -2796,7 +2900,7 @@
   },
   {
     "name": "Theme",
-    "description": "Changes the app\u0027s theme to the values specified in patch options.",
+    "description": "Changes the app\u0027s themes to the values specified in patch options.",
     "use": true,
     "dependencies": [
       "ResourcePatch",
@@ -2818,7 +2922,7 @@
         "key": "darkThemeBackgroundColor",
         "title": "Dark theme background color",
         "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
-        "required": false,
+        "required": true,
         "type": "kotlin.String",
         "default": "@android:color/black",
         "values": {
@@ -2837,7 +2941,7 @@
         "key": "lightThemeBackgroundColor",
         "title": "Light theme background color",
         "description": "Can be a hex color (#AARRGGBB) or a color resource reference.",
-        "required": false,
+        "required": true,
         "type": "kotlin.String",
         "default": "@android:color/white",
         "values": {
@@ -2942,7 +3046,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -3020,7 +3125,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": []
@@ -3068,7 +3174,7 @@
         "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": false,
+        "default": true,
         "values": null
       }
     ]
@@ -3087,7 +3193,8 @@
         "6.42.55",
         "6.51.53",
         "7.16.53",
-        "7.25.53"
+        "7.25.53",
+        "8.02.53"
       ]
     },
     "options": [
@@ -3112,7 +3219,7 @@
         "description": "Whether to apply Visual preferences icons to all settings menus.\n\nIf true: icons are applied to the parent PreferenceScreen of YouTube settings, the parent PreferenceScreen of RVX settings and the RVX sub-settings (if supported).\n\nIf false: icons are applied only to the parent PreferenceScreen of YouTube settings and RVX settings.",
         "required": true,
         "type": "kotlin.Boolean",
-        "default": false,
+        "default": true,
         "values": null
       }
     ]

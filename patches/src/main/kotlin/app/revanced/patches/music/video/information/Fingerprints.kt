@@ -26,12 +26,6 @@ internal val videoIdFingerprint = legacyFingerprint(
     returnType = "V",
     parameters = listOf("L", "Ljava/lang/String;"),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
-    ),
     strings = listOf("Null initialPlayabilityStatus")
 )
 

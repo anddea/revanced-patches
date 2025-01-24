@@ -11,7 +11,7 @@ internal enum class PatchList(
     ),
     CUSTOM_BRANDING_NAME_FOR_REDDIT(
         "Custom branding name for Reddit",
-        "Renames the Reddit app to the name specified in patch options."
+        "Changes the Reddit app name to the name specified in patch options."
     ),
     DISABLE_SCREENSHOT_POPUP(
         "Disable screenshot popup",
@@ -55,7 +55,7 @@ internal enum class PatchList(
     ),
     SANITIZE_SHARING_LINKS(
         "Sanitize sharing links",
-        "Adds an option to remove tracking query parameters from URLs when sharing links."
+        "Adds an option to sanitize sharing links by removing tracking query parameters."
     ),
     SETTINGS_FOR_REDDIT(
         "Settings for Reddit",

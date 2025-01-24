@@ -21,6 +21,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import kotlin.collections.listOf
 
 internal val bottomSheetMenuListBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuListBuilderFingerprint",
@@ -187,3 +188,40 @@ internal val shortsFullscreenFeatureFingerprint = legacyFingerprint(
     literals = listOf(FULLSCREEN_FEATURE_FLAG),
 )
 
+// Pre 19.25
+internal val shortsPlaybackIntentLegacyFingerprint = legacyFingerprint(
+    name = "shortsPlaybackIntentLegacyFingerprint",
+    returnType = "V",
+    parameters = listOf(
+        "L",
+        "Ljava/util/Map;",
+        "J",
+        "Ljava/lang/String;",
+        "Z",
+        "Ljava/util/Map;"
+    ),
+    strings = listOf(
+        // None of these strings are unique.
+        "com.google.android.apps.youtube.app.endpoint.flags",
+        "ReelWatchFragmentArgs",
+        "reels_fragment_descriptor"
+    )
+)
+
+internal val shortsPlaybackIntentFingerprint = legacyFingerprint(
+    name = "shortsPlaybackIntentFingerprint",
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf(
+        "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
+        "Ljava/util/Map;",
+        "J",
+        "Ljava/lang/String;"
+    ),
+    strings = listOf(
+        // None of these strings are unique.
+        "com.google.android.apps.youtube.app.endpoint.flags",
+        "ReelWatchFragmentArgs",
+        "reels_fragment_descriptor"
+    )
+)

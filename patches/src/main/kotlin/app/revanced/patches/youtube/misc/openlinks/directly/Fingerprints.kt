@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.openlinksdirectly
+package app.revanced.patches.youtube.misc.openlinks.directly
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or

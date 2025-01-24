@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -27,6 +26,7 @@ import app.revanced.patches.youtube.utils.playerSeekbarColorFingerprint
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -49,7 +49,6 @@ import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
@@ -205,6 +204,82 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for enable cairo seekbar
+
+        if (is_19_23_or_greater) {
+            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
+                45617850L,
+                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
+            )
+
+            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
+        }
+
+        // endregion
+
+        // region patch for gradient seekbar color and bounds
+
+        if (is_19_25_or_greater) {
+            // In version 19.23, gradient colors and bounds use a different structure,
+            // and the implementation is still raw/underdeveloped.
+
+            // Adjust gradient seekbar colors
+            playerLinearGradientLegacyFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val index = it.patternMatch!!.endIndex
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientColors([I)[I
+                            move-result-object v$register
+                            """
+                    )
+                }
+            }
+
+            // Adjust gradient seekbar positions
+            setBoundsFingerprint.methodOrThrow().apply {
+                val newArrayIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
+                val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
+
+                val smaliInstruction = """
+                    invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
+                """.trimIndent()
+
+                addInstruction(
+                    indexOfFirstInstructionOrThrow(Opcode.FILL_ARRAY_DATA) + 1,
+                    smaliInstruction
+                )
+            }
+
+            // Set seekbar thumb color
+            seekbarThumbFingerprint.methodOrThrow().apply {
+                val instructions = implementation!!.instructions.toList()
+
+                val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
+
+                if (lastMoveResultIndex == -1) {
+                    throw PatchException("Could not find the last move-result instruction")
+                }
+
+                val resultRegister = (instructions[lastMoveResultIndex] as? OneRegisterInstruction)?.registerA
+                    ?: throw PatchException("Could not get the register used in the last move-result instruction")
+
+                val smaliInstruction = """
+                    invoke-static {}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarThumbColor()I
+                    move-result v$resultRegister
+                """.trimIndent()
+
+                addInstructions(lastMoveResultIndex + 1, smaliInstruction)
+            }
+
+            settingArray += "SETTINGS: GRADIENT_SEEKBAR_OPTIONS"
+        }
+
+        // endregion patch for gradient seekbar color and bounds
+
         // region patch for seekbar color
 
         fun MutableMethod.addColorChangeInstructions(literal: Long) {
@@ -246,15 +321,34 @@ val seekbarComponentsPatch = bytecodePatch(
         addDrawableColorHook("$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
         if (is_19_25_or_greater) {
-            playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
-                PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
-                "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
-            )
-
             lithoLinearGradientFingerprint.methodOrThrow().addInstruction(
                 0,
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
             )
+
+            if (!is_19_49_or_greater) {
+                playerLinearGradientLegacyFingerprint.matchOrThrow().let {
+                    it.method.apply {
+                        val index = it.patternMatch!!.endIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                        addInstructions(
+                            index + 1,
+                            """
+                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLinearGradient([I)[I
+                            move-result-object v$register
+                            """
+                        )
+                    }
+                }
+            } else {
+                // TODO: add 19.49 support
+                playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
+                    PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
+                    "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
+                )
+            }
+
 
             if (!restoreOldSplashAnimationIncluded) {
                 // Don't use the lotte splash screen layout if using custom seekbar.
@@ -479,110 +573,6 @@ val seekbarComponentsPatch = bytecodePatch(
         }
 
         // endregion
-
-        // region patch for enable cairo seekbar
-
-        if (is_19_23_or_greater) {
-            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45617850L,
-                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
-            )
-
-            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
-        }
-
-        // endregion
-
-        // region patch for gradient seekbar color and bounds
-
-        if (is_19_25_or_greater) {
-            // In version 19.23, gradient colors and bounds use a different structure,
-            // and the implementation is still raw/underdeveloped.
-
-            // Adjust gradient seekbar colors
-            gradientSeekbarConstructorFingerprint.methodOrThrow().apply {
-                val instructions = implementation!!.instructions.toList()
-
-                val iputCInstructionIndex = instructions.indexOfLast {
-                    it.opcode == Opcode.IPUT
-                }
-
-                if (iputCInstructionIndex == -1) {
-                    throw PatchException("Could not find IPUT instruction")
-                }
-
-                val registerUsedInIput = (instructions[iputCInstructionIndex] as? OneRegisterInstruction)?.registerA
-                    ?: throw PatchException("Could not get register used in IPUT instruction")
-
-                val nextFreeRegister1 = registerUsedInIput + 1
-                val nextFreeRegister2 = registerUsedInIput + 3 // +2 is going to be used, so skip it to avoid errors
-
-                val putValueInstructionIndex = instructions.indexOfLast { it.opcode == Opcode.IPUT_OBJECT }
-
-                if (putValueInstructionIndex == -1) {
-                    throw PatchException("Could not find last IPUT_OBJECT instruction in constructor")
-                }
-
-                val fieldReference = instructions[putValueInstructionIndex].getReference<FieldReference>()
-                    ?: throw PatchException("Could not get field reference for IPUT_OBJECT")
-
-                val smaliInstruction = """
-                    const/4 v$registerUsedInIput, 0x2
-                    new-array v$registerUsedInIput, v$registerUsedInIput, [I
-                    const v$nextFreeRegister1, -0xFF0033
-                    const/4 v$nextFreeRegister2, 0x0
-                    aput v$nextFreeRegister1, v$registerUsedInIput, v$nextFreeRegister2
-                    const v$nextFreeRegister1, -0xFF2791
-                    const/4 v$nextFreeRegister2, 0x1
-                    aput v$nextFreeRegister1, v$registerUsedInIput, v$nextFreeRegister2
-                    invoke-static { v$registerUsedInIput }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientColors([I)V
-                    iput-object v$registerUsedInIput, p0, ${fieldReference.definingClass}->${fieldReference.name}:${fieldReference.type}
-                """.trimIndent()
-
-                addInstructions(iputCInstructionIndex + 1, smaliInstruction)
-                removeInstructions(putValueInstructionIndex + 2, 9)
-            }
-
-            // Adjust gradient seekbar positions
-            setBoundsFingerprint.methodOrThrow().apply {
-                val newArrayIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
-                val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
-
-                val smaliInstruction = """
-                    invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
-                """.trimIndent()
-
-                addInstruction(
-                    indexOfFirstInstructionOrThrow(Opcode.FILL_ARRAY_DATA) + 1,
-                    smaliInstruction
-                )
-            }
-
-            // Set seekbar thumb color
-            seekbarThumbFingerprint.methodOrThrow().apply {
-                val instructions = implementation!!.instructions.toList()
-
-                val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
-
-                if (lastMoveResultIndex == -1) {
-                    throw PatchException("Could not find the last move-result instruction")
-                }
-
-                val resultRegister = (instructions[lastMoveResultIndex] as? OneRegisterInstruction)?.registerA
-                    ?: throw PatchException("Could not get the register used in the last move-result instruction")
-
-                val smaliInstruction = """
-                    invoke-static {}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarThumbColor()I
-                    move-result v$resultRegister
-                """.trimIndent()
-
-                addInstructions(lastMoveResultIndex + 1, smaliInstruction)
-            }
-
-            settingArray += "SETTINGS: GRADIENT_SEEKBAR_OPTIONS"
-        }
-
-        // endregion patch for gradient seekbar color and bounds
 
         // region add settings
 

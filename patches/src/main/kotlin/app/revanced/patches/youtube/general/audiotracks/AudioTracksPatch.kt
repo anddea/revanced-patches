@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
-import app.revanced.patches.youtube.utils.patch.PatchList.DISABLE_AUTO_AUDIO_TRACKS
+import app.revanced.patches.youtube.utils.patch.PatchList.DISABLE_FORCED_AUTO_AUDIO_TRACKS
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.methodOrThrow
@@ -19,8 +19,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val audioTracksPatch = bytecodePatch(
-    DISABLE_AUTO_AUDIO_TRACKS.title,
-    DISABLE_AUTO_AUDIO_TRACKS.summary,
+    DISABLE_FORCED_AUTO_AUDIO_TRACKS.title,
+    DISABLE_FORCED_AUTO_AUDIO_TRACKS.summary,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -67,7 +67,7 @@ val audioTracksPatch = bytecodePatch(
                 "PREFERENCE_SCREEN: GENERAL",
                 "SETTINGS: DISABLE_AUTO_AUDIO_TRACKS"
             ),
-            DISABLE_AUTO_AUDIO_TRACKS
+            DISABLE_FORCED_AUTO_AUDIO_TRACKS
         )
 
         // endregion

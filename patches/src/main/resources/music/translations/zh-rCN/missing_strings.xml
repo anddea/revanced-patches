@@ -14,15 +14,18 @@ Disabling battery optimizations for GmsCore will not negatively affect battery u
 Tap the continue button and allow optimization changes."</string>
     <string name="gms_core_dialog_open_website_text">Open website</string>
     <string name="gms_core_dialog_title">Action needed</string>
-    <string name="gms_core_settings_summary">Opens GmsCore settings. Then enable cloud messaging to receive notifications.</string>
+    <string name="gms_core_settings_summary">To receive notifications in RVX Music, enable Cloud Messaging.</string>
     <string name="gms_core_settings_title">Open GmsCore settings</string>
     <string name="gms_core_toast_not_installed_message">GmsCore is not installed. Install it.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary">Replaces the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-    <string name="revanced_change_share_sheet_summary">Change from in-app share sheet to system share sheet.</string>
+    <string name="revanced_change_share_sheet_summary">Changes the in-app share sheet to system share sheet.</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Invalid navigation bar color value.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Type the hex code of the navigation bar color.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Custom navigation bar color value</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds.</string>
-    <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable \'Open supported links\' and enable the supported web addresses.</string>
+    <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable Open supported links and enable all the Supported web addresses.</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Disable Cairo splash animation</string>
@@ -43,6 +46,8 @@ Find the official song if a music video is detected playing from an album.
     <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
     <string name="revanced_disable_player_gesture_summary">Disables swipe to change tracks in the player.</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Sets the navigation bar color.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Enable custom navigation bar color</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Enable debug buffer logging</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
@@ -75,12 +80,12 @@ This hides not only the YT Music settings menu, but also the ReVanced Extended s
     <string name="revanced_preference_screen_video_title">Video</string>
     <string name="revanced_remember_playback_speed_last_selected_summary">Remembers the last playback speed selected.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
-    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Show a toast when changing the default playback speed.</string>
+    <string name="revanced_remember_playback_speed_last_selected_toast_summary">Shows a toast when changing the default playback speed.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_playback_speed_toast">Changing default speed to %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary">Remembers the last video quality selected.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
-    <string name="revanced_remember_video_quality_last_selected_toast_summary">Show a toast when changing the default video quality.</string>
+    <string name="revanced_remember_video_quality_last_selected_toast_summary">Shows a toast when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set quality.</string>
@@ -103,7 +108,7 @@ Some features may not work properly in the old player layout."</string>
 
 The daily quota for API keys on the free plan is 10,000, and 1 quota is used to replace a handle with a username for 1 comment.
 
-Click to see how to issue a API key."</string>
+Click to see how to issue an API key."</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_about_title">About YouTube Data API key</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_summary">The developer key for using the YouTube Data API v3.</string>
     <string name="revanced_return_youtube_username_youtube_data_api_v3_developer_key_title">YouTube Data API key</string>
@@ -128,7 +133,7 @@ Click to see how to issue a API key."</string>
     <string name="revanced_sb_color_reset">Color reset.</string>
     <string name="revanced_sb_diff_segments">Change segment behavior</string>
     <string name="revanced_sb_enabled">Enable SponsorBlock</string>
-    <string name="revanced_sb_enabled_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos.</string>
+    <string name="revanced_sb_enabled_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos.</string>
     <string name="revanced_sb_reset_color">Reset color</string>
     <string name="revanced_sb_segments_filler">Filler Tangent / Jokes</string>
     <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details.</string>

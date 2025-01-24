@@ -2,7 +2,9 @@ package app.revanced.patches.shared.translations
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
+import app.revanced.util.doRecursively
 import app.revanced.util.inputStreamFromBundledResource
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.File
 import java.nio.file.Files
@@ -47,6 +49,7 @@ fun ResourcePatchContext.baseTranslationsPatch(
     sourceDirectory: String,
 ) {
     val resourceDirectory = get("res")
+    val isYouTube = sourceDirectory == "youtube"
 
     // Check if the custom translation path is valid.
     customTranslations?.takeIf { it.isNotEmpty() }?.let { customLang ->
@@ -59,7 +62,7 @@ fun ResourcePatchContext.baseTranslationsPatch(
             val destinationFile = valuesDirectory.resolve("strings.xml")
 
             updateStringsXml(customLangFile, destinationFile)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             // Exception is thrown if an invalid path is used in the patch option.
             throw PatchException("Invalid custom translations path:  $customLang")
         }
@@ -84,6 +87,72 @@ fun ResourcePatchContext.baseTranslationsPatch(
     APP_LANGUAGES.filter { it !in filteredStringResources }.forEach { language ->
         resourceDirectory.resolve("values-$language").takeIf { it.exists() && it.isDirectory }
             ?.deleteRecursively()
+    }
+
+    // Filter the app languages to include both versions of locales (with and without 'r', en-rGB and en-GB)
+    // and also handle locales with "b+" prefix
+    var filteredAppLanguages = (selectedStringResourcesArray + arrayOf("en"))
+        .map { language ->
+            language.replace("-r", "-").replace("b+", "").replace("+", "-")
+        }.toHashSet().toTypedArray()
+
+    // Remove unselected app languages from UI
+    document("res/xml/locales_config.xml").use { document ->
+        val nodesToRemove = mutableListOf<Node>()
+
+        document.doRecursively { node ->
+            if (node is Element && node.tagName == "locale") {
+                node.getAttributeNode("android:name")?.let { attribute ->
+                    if (attribute.textContent !in filteredAppLanguages) {
+                        nodesToRemove.add(node)
+                    }
+                }
+            }
+        }
+
+        // Remove the collected nodes (avoids NullPointerException)
+        for (node in nodesToRemove) {
+            node.parentNode?.removeChild(node)
+        }
+    }
+
+    if (!isYouTube) return
+
+    filteredAppLanguages = filteredAppLanguages.map { language ->
+        language.subSequence(0,2).toString().uppercase()
+    }.toHashSet().toTypedArray()
+
+    // Remove unselected app languages from RVX Settings
+    setOf(
+        "revanced_language_entries",
+        "revanced_language_entry_values",
+    ).forEach { attributeName ->
+        document("res/values/arrays.xml").use { document ->
+            with(document) {
+                val nodesToRemove = mutableListOf<Node>()
+
+                val resourcesNode = getElementsByTagName("resources").item(0) as Element
+                for (i in 0 until resourcesNode.childNodes.length) {
+                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+
+                    if (node.getAttribute("name") == attributeName) {
+                        for (j in 0 until node.childNodes.length) {
+                            val item = node.childNodes.item(j) as? Element ?: continue
+                            val text = item.textContent
+                            val length = text.length
+                            if (!text.endsWith("DEFAULT") && text.subSequence(length - 2, length) !in filteredAppLanguages) {
+                                nodesToRemove.add(item)
+                            }
+                        }
+                    }
+                }
+
+                // Remove the collected nodes (avoids NullPointerException)
+                for (n in nodesToRemove) {
+                    n.parentNode?.removeChild(n)
+                }
+            }
+        }
     }
 }
 

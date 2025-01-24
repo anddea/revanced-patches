@@ -69,9 +69,9 @@ public final class VideoInformation {
      * The available qualities of the current video in human readable form: [1080, 720, 480]
      */
     @Nullable
-    private static List<Integer> videoQualities;
+    public static volatile List<Integer> videoQualities;
 
-    private static boolean qualityNeedsUpdating;
+    public static volatile boolean qualityNeedsUpdating;
 
     /**
      * Injection point.

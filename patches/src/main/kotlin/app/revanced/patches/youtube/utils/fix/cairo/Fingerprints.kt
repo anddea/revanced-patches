@@ -3,6 +3,9 @@ package app.revanced.patches.youtube.utils.fix.cairo
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patches.youtube.utils.resourceid.settingsFragment
+import app.revanced.patches.youtube.utils.resourceid.settingsFragmentCairo
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * Added in YouTube v19.04.38
@@ -12,9 +15,17 @@ import com.android.tools.smali.dexlib2.AccessFlags
  */
 internal const val CAIRO_FRAGMENT_FEATURE_FLAG = 45532100L
 
-internal val carioFragmentConfigFingerprint = legacyFingerprint(
-    name = "carioFragmentConfigFingerprint",
+internal val cairoFragmentConfigFingerprint = legacyFingerprint(
+    name = "cairoFragmentConfigFingerprint",
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(CAIRO_FRAGMENT_FEATURE_FLAG),
+)
+
+internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
+    name = "settingsFragmentSyntheticFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
+    literals = listOf(settingsFragment, settingsFragmentCairo),
 )

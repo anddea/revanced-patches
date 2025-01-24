@@ -19,6 +19,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.XmlResourceParser;
 import android.graphics.Insets;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,23 +38,17 @@ import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
@@ -240,12 +235,539 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
-    // Map to store dependencies: key is the preference key, value is a list of dependent preferences
+    // region Search Fragment: Constants
+
+    /**
+     * XML tag name for PreferenceScreen.
+     * Used for parsing the preferences XML file.
+     * Example: <pre>{@code <PreferenceScreen ...>}</pre>
+     */
+    private static final String PREFERENCE_SCREEN_TAG = "PreferenceScreen";
+
+    /**
+     * XML attribute name for the preference key.
+     * Used to identify each preference uniquely.
+     * Example: <pre>{@code <Preference android:key="preference_key" ...>>}</pre>
+     */
+    private static final String KEY_ATTRIBUTE = "key";
+
+    /**
+     * Custom XML attribute name for specifying a preference's dependency.
+     * This attribute defines a custom dependency relationship between preferences,
+     * where the value is the key of the preference this one depends on.
+     * Example: <pre>{@code <Preference ... app:searchDependency="parent_preference_key" ...>}</pre>
+     */
+    private static final String DEPENDENCY_ATTRIBUTE = "searchDependency";
+
+    /**
+     * XML attribute name for the preference title.
+     * Used to display the human-readable name of the preference.
+     * Example: <pre>{@code <Preference ... android:title="@string/preference_title" ...>}</pre>
+     */
+    private static final String TITLE_ATTRIBUTE = "title";
+
+    // endregion
+
+    // region Search Fragment: Variables
+
+    /**
+     * Stores dependencies between preferences.
+     * <p>
+     * <b>Key:</b> <i>The key of a preference that other preferences depend on.</i><br>
+     * <b>Value:</b> <i>A list of preferences that depend on the key preference.</i>
+     * <p>
+     * Example: For preferences <pre>{@code
+     * <Preference1 android:key="preference_key_1" ...>
+     * <Preference2 ... android:dependency="preference_key_1" ...>
+     * <Preference3 ... android:dependency="preference_key_1" ...>
+     * ...
+     * }</pre>
+     * <p>
+     * dependencyMap will be <pre>{@code
+     * dependencyMap = {preference_key_1: [Preference2, Preference3], ...}
+     * }</pre>
+     */
     private final Map<String, List<Preference>> dependencyMap = new HashMap<>();
-    // Set to track already added preferences to avoid duplicates
+
+    /**
+     * Keeps track of preferences that have already been added to the search results.
+     * <p>
+     * This prevents duplicate entries when a preference is matched multiple times
+     * due to dependencies or multiple search criteria.
+     * <p>
+     * Example: For preferences <pre>{@code
+     * <PreferenceScreen ... android:title="@string/preference_screen_title" ...>
+     *     <Preference android:key="preference_key_1" ...>
+     *     <Preference android:key="preference_key_2" ...>
+     *     ...
+     * </PreferenceScreen>
+     * ...
+     * }</pre>
+     * <p>
+     * addedPreferences will be <pre>{@code
+     * addedPreferences = [preference_screen_title:preference_key_1, preference_screen_title:preference_key_2, ...]
+     * }</pre>
+     */
     private final Set<String> addedPreferences = new HashSet<>();
-    // Map to store preferences grouped by their parent PreferenceGroup
+
+    /**
+     * Stores preferences grouped by their parent PreferenceGroup (or PreferenceScreen).
+     * <p>
+     * <b>Key:</b> <i>The parent PreferenceGroup. The root PreferenceScreen is represented by a special top-level group.</i><br>
+     * <b>Value:</b> <i>A list of preferences belonging to that group.</i>
+     * <p>
+     * Example: For preferences <pre>{@code
+     * <PreferenceScreen ... android:title="@string/preference_screen_top_level_title" ...>
+     *     <PreferenceScreen ... android:title="@string/preference_screen_1_title" ...>
+     *         <Preference ... android:title="@string/preference_screen_1_preference_title_1" ...>
+     *         <Preference ... android:title="@string/preference_screen_1_preference_title_2" ...>
+     *         ...
+     *     </PreferenceScreen>
+     *     <PreferenceScreen ... android:title="@string/preference_screen_2_title" ...>
+     *         <Preference ... android:title="@string/preference_screen_2_preference_title_1" ...>
+     *         <Preference ... android:title="@string/preference_screen_2_preference_title_2" ...>
+     *         ...
+     *     </PreferenceScreen>
+     *     ...
+     * </PreferenceScreen>
+     * }</pre>
+     * <p>
+     * groupedPreferences will be <pre>{@code
+     * groupedPreferences = {preference_screen_top_level_title=[preference_screen_1_title, preference_screen_2_title, ...], preference_screen_1_title=[preference_screen_1_preference_title_1, preference_screen_1_preference_title_2, ...], ...}
+     * }</pre>
+     */
     private final Map<PreferenceGroup, List<Preference>> groupedPreferences = new LinkedHashMap<>();
+
+    /**
+     * Stores custom dependencies defined in the preferences XML file with {@link #DEPENDENCY_ATTRIBUTE}.
+     * <p>
+     * <b>Key:</b> <i>A string representing the category and key of a preference in the format "Category:Key".
+     *                The category is derived from the title of the parent PreferenceScreen.</i><br>
+     * <b>Value:</b> <i>The key of the preference on which the key preference depends.</i>
+     * <p>
+     * Example: For preferences <pre>{@code
+     * <PreferenceScreen ... android:title="@string/preference_screen_title" ...>
+     *     <Preference android:key="preference_key_1" ...>
+     *     <Preference android:key="preference_key_2" ... app:searchDependency="preference_key_1">
+     *     <Preference android:key="preference_key_3" ... app:searchDependency="preference_key_1">
+     *     ...
+     * </PreferenceScreen>
+     * ...
+     * }</pre>
+     * <p>
+     * customDependencyMap will be <pre>{@code
+     * customDependencyMap = {preference_screen_title:preference_key_2 = preference_key_1, preference_screen_title:preference_key_3 = preference_key_1, ...}
+     * }</pre>
+     */
+    private final Map<String, String> customDependencyMap = new HashMap<>();
+
+    // endregion
+
+    // region Search Fragment: Initialization
+
+    /**
+     * Initializes the {@link #customDependencyMap} by parsing the preferences XML resource.
+     * <p>
+     * It reads the "searchDependency" attribute to establish custom dependency relationships.
+     * It uses a stack to keep track of the current category (PreferenceScreen title) hierarchy.
+     * <p>
+     * The dependencies are stored in the {@link #customDependencyMap}.
+     */
+    private void initializeCustomDependencies() {
+        // Get the XML resource ID.
+        int xmlId = ResourceUtils.getXmlIdentifier("revanced_prefs");
+        if (xmlId == 0) {
+            Logger.printException(() -> "Could not find XML resource: revanced_prefs");
+            return;
+        }
+
+        try (XmlResourceParser parser = getResources().getXml(xmlId)) {
+            // Stack to store the titles of PreferenceScreens, representing the category hierarchy.
+            Stack<String> categoryTitleStack = new Stack<>();
+            int eventType = parser.getEventType();
+
+            // Iterate through the XML document.
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG) {
+                    String tagName = parser.getName();
+
+                    // Handle PreferenceScreen tags to track the category hierarchy.
+                    if (PREFERENCE_SCREEN_TAG.equals(tagName)) {
+                        String screenTitle = getAttributeValue(parser, TITLE_ATTRIBUTE);
+                        if (screenTitle != null) {
+                            // Push the category title onto the stack. Assume titles start with "@" (e.g., "@string/title").
+                            categoryTitleStack.push(ResourceUtils.getString(screenTitle.substring(1)));
+                        }
+                    }
+
+                    // Extract key and custom dependency attributes.
+                    String key = getAttributeValue(parser, KEY_ATTRIBUTE);
+                    String dependency = getAttributeValue(parser, DEPENDENCY_ATTRIBUTE);
+
+                    // If both key and custom dependency are present, add them to the map.
+                    if (key != null && dependency != null) {
+                        // Build the category key (e.g., "Category:Key").
+                        String categoryKey = buildCategoryKey(categoryTitleStack) + ":" + key;
+                        // Store the custom dependency.
+                        customDependencyMap.put(categoryKey, dependency);
+                    }
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    // Pop the category title from the stack when exiting a PreferenceScreen.
+                    if (PREFERENCE_SCREEN_TAG.equals(parser.getName()) && !categoryTitleStack.isEmpty()) {
+                        categoryTitleStack.pop();
+                    }
+                }
+                eventType = parser.next();
+            }
+        } catch (XmlPullParserException | IOException e) {
+            Logger.printException(() -> "Error parsing XML for custom dependencies", e);
+        }
+    }
+
+    /**
+     * Builds a string representing the current category hierarchy.
+     *
+     * @param categoryTitleStack The stack containing the title of the parent PreferenceScreen.
+     *                           The top of the stack represents the most immediate parent category.
+     * @return A string representing the most immediate parent title, or an empty string if the stack is empty.
+     */
+    private String buildCategoryKey(Stack<String> categoryTitleStack) {
+        return categoryTitleStack.isEmpty() ? "" : categoryTitleStack.peek();
+    }
+
+    /**
+     * Retrieves the value of a specified attribute from the given XML parser.
+     *
+     * @param parser        The {@link XmlResourceParser} currently parsing the XML document.
+     * @param attributeName The name of the attribute to retrieve.
+     * @return The value of the attribute if found, otherwise null.
+     */
+    private String getAttributeValue(XmlResourceParser parser, String attributeName) {
+        for (int i = 0; i < parser.getAttributeCount(); i++) {
+            if (attributeName.equals(parser.getAttributeName(i))) {
+                return parser.getAttributeValue(i);
+            }
+        }
+        return null;
+    }
+
+    // endregion
+
+    // region Search Fragment: Preference Storage
+
+    /**
+     * Recursively scans a PreferenceGroup and stores all its preferences, including those in nested groups,
+     * into the {@link #groupedPreferences} map. It also populates the {@link #dependencyMap} with
+     * dependency relationships based on custom dependencies.
+     *
+     * @param preferenceGroup The PreferenceGroup to scan.
+     */
+    private void storeAllPreferences(PreferenceGroup preferenceGroup) {
+        // Determine if this is the root PreferenceScreen.
+        boolean isRootScreen = preferenceGroup == getPreferenceScreen();
+        // Use a special top-level group for the root screen, otherwise use the given group.
+        PreferenceGroup groupKey = isRootScreen ? createTopLevelGroup(preferenceGroup.getContext()) : preferenceGroup;
+
+        // Get the list of preferences for this group, creating it if it doesn't exist.
+        List<Preference> currentGroupPreferences = groupedPreferences.computeIfAbsent(groupKey, k -> new ArrayList<>());
+
+        // Iterate through all preferences in the group.
+        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
+            Preference preference = preferenceGroup.getPreference(i);
+
+            // Add the preference to the group's list if it's not already present.
+            if (!currentGroupPreferences.contains(preference)) {
+                currentGroupPreferences.add(preference);
+            }
+
+            // Check for custom dependencies and update the dependencyMap.
+            String dependencyKey = getCustomDependency(preference, preferenceGroup);
+            if (dependencyKey != null) {
+                dependencyMap.computeIfAbsent(dependencyKey, k -> new ArrayList<>()).add(preference);
+            }
+
+            // Recursively process nested PreferenceGroups.
+            if (preference instanceof PreferenceGroup) {
+                storeAllPreferences((PreferenceGroup) preference);
+            }
+        }
+    }
+
+    /**
+     * Creates a special top-level PreferenceGroup to represent the root PreferenceScreen
+     * in the {@link #groupedPreferences} map. This allows treating the root screen like
+     * any other PreferenceGroup for easier processing.
+     *
+     * @param context The application context.
+     * @return A new PreferenceCategory representing the top-level group, titled "ReVanced Extended".
+     */
+    private PreferenceGroup createTopLevelGroup(Context context) {
+        PreferenceCategory topLevelGroup = new PreferenceCategory(context);
+        topLevelGroup.setTitle(ResourceUtils.getString("revanced_extended_settings_title"));
+        return topLevelGroup;
+    }
+
+    // endregion
+
+    // region Search Fragment: Dependency Handling
+
+    /**
+     * Retrieves the custom dependency key for a given preference, if one is defined in the {@link #customDependencyMap}.
+     *
+     * @param preference The preference for which to find the custom dependency.
+     * @param group      The PreferenceGroup containing the preference.
+     * @return The custom dependency key (which is the key of another preference) if found, otherwise null.
+     */
+    private String getCustomDependency(Preference preference, PreferenceGroup group) {
+        // Construct the category key based on the preference group's title and the preference's key.
+        String categoryTitle = (group == null || group.getTitle() == null) ? "" : group.getTitle().toString();
+        String categoryKey = categoryTitle + ":" + preference.getKey();
+
+        // Return the custom dependency key from the map.
+        return customDependencyMap.get(categoryKey);
+    }
+
+    /**
+     * Determines the dependency key for a given preference. It first checks for a custom dependency
+     * (app:searchDependency), and if none is found, it falls back to the standard Android dependency
+     * (android:dependency) attribute.
+     *
+     * @param preference The preference for which to find the dependency key.
+     * @param group      The PreferenceGroup containing the preference.
+     * @return The dependency key (which is the key of another preference), or null if no dependency is found.
+     */
+    private String getDependencyKey(Preference preference, PreferenceGroup group) {
+        // First, try to get a custom dependency.
+        String dependencyKey = getCustomDependency(preference, group);
+        // If no custom dependency is found, fall back to the standard dependency.
+        if (dependencyKey == null) {
+            dependencyKey = preference.getDependency();
+        }
+        return dependencyKey;
+    }
+
+    /**
+     * Recursively adds a preference and its dependencies to the set of keys to include in the search results.
+     * It handles both forward dependencies (preferences that depend on this one) and backward dependencies
+     * (preferences on which this one depends).
+     *
+     * @param preference    The preference to add.
+     * @param keysToInclude The set of keys to be included in the search results.
+     *                      A key is added to this set only if it hasn't been added before, ensuring uniqueness.
+     * @param dependencyKey The dependency key of the preference, which could be a custom dependency or a standard one.
+     * @param group         The PreferenceGroup containing the preference.
+     */
+    private void addPreferenceAndDependencies(Preference preference, Set<String> keysToInclude, String dependencyKey, PreferenceGroup group) {
+        String key = preference.getKey();
+        // Add the preference's key to the set only if it's not already present.
+        if (key != null && keysToInclude.add(group.getTitle() + ":" + key)) {
+            // Add the parent preference on which this preference depends on
+            if (dependencyKey != null) {
+                Preference dependency = findPreferenceInAllGroups(dependencyKey);
+                if (dependency != null) {
+                    addPreferenceAndDependencies(dependency, keysToInclude, getDependencyKey(dependency, group), group);
+                }
+            }
+
+            // Recursively add preferences that depend on this one.
+            if (dependencyMap.containsKey(key)) {
+                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceAndDependencies(dependentPreference, keysToInclude, getDependencyKey(dependentPreference, group), group));
+            }
+        }
+    }
+
+    /**
+     * Finds a preference within all the stored preference groups based on its key.
+     *
+     * @param key The key of the preference to search for.
+     * @return The found Preference object, or null if no preference with the given key is found.
+     */
+    private Preference findPreferenceInAllGroups(String key) {
+        return groupedPreferences.values().stream()
+                .flatMap(List::stream)
+                .filter(preference -> preference.getKey() != null && preference.getKey().equals(key))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // endregion
+
+    // region Search Fragment: Search Filtering
+
+    /**
+     * Filters the preferences based on a given search query.
+     * It populates the PreferenceScreen with the search results.
+     * <p>
+     * The filtering logic considers the preference title, summary, and entries (for ListPreferences).
+     * It also takes into account dependencies between preferences, ensuring that dependent preferences are
+     * displayed along with the preferences they depend on.
+     * <p>
+     * {@code android:dependency} dependencies show the queried setting itself and its dependency (parent).<br>
+     * {@code app:searchDependency} dependencies show the queried setting itself, alongside its peers that have the same
+     * {@code app:searchDependency} key, and their dependency (parent).
+     *
+     * @param query The search query string.
+     */
+    public void filterPreferences(String query) {
+        // If the query is empty, reset the preference screen to its original state.
+        if (query == null || query.isEmpty()) {
+            resetPreferences();
+            return;
+        }
+
+        // Get the root PreferenceScreen.
+        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        // Remove all existing preferences from the screen.
+        preferenceScreen.removeAll();
+        // Clear the set of added preferences.
+        addedPreferences.clear();
+
+        String finalQuery = query.toLowerCase();
+        // This map will hold the preferences that match the search query, grouped by their parent group.
+        Map<PreferenceGroup, List<Preference>> matchedGroupPreferences = new LinkedHashMap<>();
+        // This set will hold the unique keys of preferences to be included in the results.
+        Set<String> keysToInclude = new HashSet<>();
+
+        // First pass: Identify preferences that match the query and their dependencies.
+        groupedPreferences.forEach((group, preferences) -> preferences.stream()
+                .filter(preference -> preferenceMatches(preference, finalQuery))
+                .forEach(preference -> {
+                    String dependencyKey = getDependencyKey(preference, group);
+                    // Add the matching preference and its dependencies to keysToInclude.
+                    addPreferenceAndDependencies(preference, keysToInclude, dependencyKey, group);
+                }));
+
+        // Second pass: Build the matchedGroupPreferences map using the identified keys.
+        groupedPreferences.forEach((group, preferences) -> {
+            List<Preference> matchedPreferences = preferences.stream()
+                    .filter(preference -> keysToInclude.contains(group.getTitle() + ":" + preference.getKey()))
+                    .collect(Collectors.toList());
+            if (!matchedPreferences.isEmpty()) {
+                matchedGroupPreferences.put(group, matchedPreferences);
+            }
+        });
+
+        // Add the matched preferences to the screen, maintaining the original order.
+        matchedGroupPreferences.forEach((group, matchedPreferences) -> {
+            // Create a new PreferenceCategory for each group.
+            PreferenceCategory category = new PreferenceCategory(preferenceScreen.getContext());
+            category.setTitle(group.getTitle());
+            preferenceScreen.addPreference(category);
+
+            // Add each matched preference to the category.
+            matchedPreferences.forEach(preference -> {
+                String dependencyKey = getDependencyKey(preference, group);
+                addPreferenceWithDependencies(category, preference, dependencyKey);
+            });
+        });
+    }
+
+    /**
+     * Checks if a given preference matches the search query. The match is considered true if the query
+     * is found in the preference's title, summary, or (for SwitchPreferences and ListPreferences) specific fields.
+     *
+     * @param preference The preference to check.
+     * @param query      The search query (already converted to lowercase).
+     * @return True if the preference matches the query, false otherwise.
+     */
+    private boolean preferenceMatches(Preference preference, String query) {
+        // Check if the query is in the title or summary.
+        return preference.getTitle().toString().toLowerCase().contains(query) ||
+                (preference.getSummary() != null && preference.getSummary().toString().toLowerCase().contains(query)) ||
+                // Check specific fields for SwitchPreferences and ListPreferences.
+                matchesSwitchPreference(preference, query) ||
+                matchesListPreference(preference, query);
+    }
+
+    /**
+     * Checks if a SwitchPreference matches the search query. The match is considered true if the query
+     * is found in the preference's "summary on" or "summary off" text.
+     *
+     * @param preference The SwitchPreference to check.
+     * @param query      The search query (already converted to lowercase).
+     * @return True if the SwitchPreference matches the query, false otherwise.
+     */
+    private boolean matchesSwitchPreference(Preference preference, String query) {
+        // Only check if it's a SwitchPreference.
+        if (!(preference instanceof SwitchPreference switchPreference)) return false;
+        // Check if the query is in the "summary on" or "summary off" text.
+        return (switchPreference.getSummaryOn() != null && switchPreference.getSummaryOn().toString().toLowerCase().contains(query)) ||
+                (switchPreference.getSummaryOff() != null && switchPreference.getSummaryOff().toString().toLowerCase().contains(query));
+    }
+
+    /**
+     * Checks if a ListPreference matches the search query. The match is considered true if the query
+     * is found in any of the preference's entry titles or entry values.
+     *
+     * @param preference The ListPreference to check.
+     * @param query      The search query (already converted to lowercase).
+     * @return True if the ListPreference matches the query, false otherwise.
+     */
+    private boolean matchesListPreference(Preference preference, String query) {
+        // Only check if it's a ListPreference.
+        if (!(preference instanceof ListPreference listPreference)) return false;
+        // Check if the query is in any of the entry titles or entry values.
+        return listPreference.getEntries() != null &&
+                Arrays.stream(listPreference.getEntries()).anyMatch(entry -> entry.toString().toLowerCase().contains(query)) ||
+                listPreference.getEntryValues() != null &&
+                        Arrays.stream(listPreference.getEntryValues()).anyMatch(entryValue -> entryValue.toString().toLowerCase().contains(query));
+    }
+
+    /**
+     * Recursively adds a preference and its dependencies to the given PreferenceGroup.
+     * This method ensures that:<p>
+     * 1. Dependencies are added before the preferences that depend on them to prevent display issues and crashes.<br>
+     * 2. A preference is added only once, even if it's a dependency of multiple other preferences.
+     *
+     * @param preferenceGroup The PreferenceGroup to which the preference should be added.
+     * @param preference      The preference to add.
+     * @param dependencyKey   The dependency key of the preference.
+     */
+    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey) {
+        String key = preference.getKey();
+        String uniqueKey = preferenceGroup.getTitle() + ":" + key;
+
+        // Only add the preference if it hasn't been added already.
+        if (key != null && addedPreferences.add(uniqueKey)) {
+            // Add dependencies first to avoid possible crashes.
+            // Recursively add the preference on which this one depends.
+            if (dependencyKey != null) {
+                Preference dependency = findPreferenceInAllGroups(dependencyKey);
+                if (dependency != null) {
+                    addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup));
+                } else {
+                    return;
+                }
+            }
+
+            // Add the preference itself.
+            preferenceGroup.addPreference(preference);
+
+            // Recursively add preferences that depend on this one.
+            if (dependencyMap.containsKey(key)) {
+                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, preferenceGroup)));
+            }
+        }
+    }
+
+    // endregion
+
+    // region Search Fragment: Resetting
+
+    /**
+     * Resets the preference screen to its original state, removing any search results and restoring
+     * all preferences to their default positions.
+     */
+    public void resetPreferences() {
+        // Get the root PreferenceScreen.
+        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        // Remove all preferences from the screen.
+        preferenceScreen.removeAll();
+        // Re-add all preferences from the original screen.
+        getAllPreferencesBy(originalPreferenceScreen).forEach(preferenceScreen::addPreference);
+    }
+
+    // endregion
 
     @SuppressLint("ResourceType")
     @Override
@@ -268,6 +790,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             setBackupRestorePreference();
 
             // Store all preferences and their dependencies
+            initializeCustomDependencies();
             storeAllPreferences(getPreferenceScreen());
 
             // Load and set initial preferences states
@@ -316,273 +839,16 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Recursively stores all preferences and their dependencies grouped by their parent PreferenceGroup.
+     * Retrieves all preferences from a PreferenceGroup.
      *
-     * @param preferenceGroup The preference group to scan.
+     * @param preferenceGroup The PreferenceGroup to retrieve preferences from.
+     * @return A list of preferences.
      */
-    private void storeAllPreferences(PreferenceGroup preferenceGroup) {
-        // Check if this is the root PreferenceScreen
-        boolean isRootScreen = preferenceGroup == getPreferenceScreen();
-
-        // Use the special top-level group only for the root PreferenceScreen
-        PreferenceGroup groupKey = isRootScreen
-                ? new PreferenceCategory(preferenceGroup.getContext())
-                : preferenceGroup;
-
-        if (isRootScreen) {
-            groupKey.setTitle(ResourceUtils.getString("revanced_extended_settings_title"));
-        }
-
-        // Initialize a list to hold preferences of the current group
-        List<Preference> currentGroupPreferences = groupedPreferences.computeIfAbsent(groupKey, k -> new ArrayList<>());
-
-        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-            Preference preference = preferenceGroup.getPreference(i);
-
-            // Add preference to the current group if not already added
-            if (!currentGroupPreferences.contains(preference)) {
-                currentGroupPreferences.add(preference);
-            }
-
-            // Store dependencies
-            if (preference.getDependency() != null) {
-                String dependencyKey = preference.getDependency();
-                dependencyMap.computeIfAbsent(dependencyKey, k -> new ArrayList<>()).add(preference);
-            }
-
-            // Recursively handle nested PreferenceGroups
-            if (preference instanceof PreferenceGroup nestedGroup) {
-                storeAllPreferences(nestedGroup);
-            }
-        }
-    }
-
-    /**
-     * Filters preferences based on the search query, displaying grouped results with group titles.
-     *
-     * @param query The search query.
-     */
-    public void filterPreferences(String query) {
-        // If the query is null or empty, reset preferences to their default state
-        if (query == null || query.isEmpty()) {
-            resetPreferences();
-            return;
-        }
-
-        // Convert the query to lowercase for case-insensitive search
-        query = query.toLowerCase();
-
-        // Get the preference screen to modify
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        // Remove all current preferences from the screen
-        preferenceScreen.removeAll();
-        // Clear the list of added preferences to start fresh
-        addedPreferences.clear();
-
-        // Create a map to store matched preferences for each group
-        Map<PreferenceGroup, List<Preference>> matchedGroupPreferences = new LinkedHashMap<>();
-
-        // Create a set to store all keys that should be included
-        Set<String> keysToInclude = new HashSet<>();
-
-        // First pass: identify all preferences that match the query and their dependencies
-        for (Map.Entry<PreferenceGroup, List<Preference>> entry : groupedPreferences.entrySet()) {
-            List<Preference> preferences = entry.getValue();
-            for (Preference preference : preferences) {
-                if (preferenceMatches(preference, query)) {
-                    addPreferenceAndDependencies(preference, keysToInclude);
-                }
-            }
-        }
-
-        // Second pass: add all identified preferences to matchedGroupPreferences
-        for (Map.Entry<PreferenceGroup, List<Preference>> entry : groupedPreferences.entrySet()) {
-            PreferenceGroup group = entry.getKey();
-            List<Preference> preferences = entry.getValue();
-            List<Preference> matchedPreferences = new ArrayList<>();
-
-            for (Preference preference : preferences) {
-                if (keysToInclude.contains(preference.getKey())) {
-                    matchedPreferences.add(preference);
-                }
-            }
-
-            if (!matchedPreferences.isEmpty()) {
-                matchedGroupPreferences.put(group, matchedPreferences);
-            }
-        }
-
-        // Add matched preferences to the screen, maintaining the original order
-        for (Map.Entry<PreferenceGroup, List<Preference>> entry : matchedGroupPreferences.entrySet()) {
-            PreferenceGroup group = entry.getKey();
-            List<Preference> matchedPreferences = entry.getValue();
-
-            // Add the category for this group
-            PreferenceCategory category = new PreferenceCategory(preferenceScreen.getContext());
-            category.setTitle(group.getTitle());
-            preferenceScreen.addPreference(category);
-
-            // Add matched preferences for this group
-            for (Preference preference : matchedPreferences) {
-                if (preference.isSelectable()) {
-                    addPreferenceWithDependencies(category, preference);
-                } else {
-                    // For non-selectable preferences, just add them directly
-                    category.addPreference(preference);
-                }
-            }
-        }
-    }
-
-    /**
-     * Checks if a preference matches the given query.
-     *
-     * @param preference The preference to check.
-     * @param query      The search query.
-     * @return True if the preference matches the query, false otherwise.
-     */
-    private boolean preferenceMatches(Preference preference, String query) {
-        // Check if the title contains the query string
-        if (preference.getTitle().toString().toLowerCase().contains(query)) {
-            return true;
-        }
-
-        // Check if the summary contains the query string
-        if (preference.getSummary() != null && preference.getSummary().toString().toLowerCase().contains(query)) {
-            return true;
-        }
-
-        // Additional checks for SwitchPreference
-        if (preference instanceof SwitchPreference switchPreference) {
-            CharSequence summaryOn = switchPreference.getSummaryOn();
-            CharSequence summaryOff = switchPreference.getSummaryOff();
-
-            if ((summaryOn != null && summaryOn.toString().toLowerCase().contains(query)) ||
-                    (summaryOff != null && summaryOff.toString().toLowerCase().contains(query))) {
-                return true;
-            }
-        }
-
-        // Additional checks for ListPreference
-        if (preference instanceof ListPreference listPreference) {
-            CharSequence[] entries = listPreference.getEntries();
-            if (entries != null) {
-                for (CharSequence entry : entries) {
-                    if (entry.toString().toLowerCase().contains(query)) {
-                        return true;
-                    }
-                }
-            }
-
-            CharSequence[] entryValues = listPreference.getEntryValues();
-            if (entryValues != null) {
-                for (CharSequence entryValue : entryValues) {
-                    if (entryValue.toString().toLowerCase().contains(query)) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Recursively adds a preference and its dependencies to the set of keys to include.
-     *
-     * @param preference    The preference to add.
-     * @param keysToInclude The set of keys to include.
-     */
-    private void addPreferenceAndDependencies(Preference preference, Set<String> keysToInclude) {
-        String key = preference.getKey();
-        if (key != null && !keysToInclude.contains(key)) {
-            keysToInclude.add(key);
-
-            // Add the preference this one depends on
-            String dependencyKey = preference.getDependency();
-            if (dependencyKey != null) {
-                Preference dependency = findPreferenceInAllGroups(dependencyKey);
-                if (dependency != null) {
-                    addPreferenceAndDependencies(dependency, keysToInclude);
-                }
-            }
-
-            // Add preferences that depend on this one
-            if (dependencyMap.containsKey(key)) {
-                for (Preference dependentPreference : Objects.requireNonNull(dependencyMap.get(key))) {
-                    addPreferenceAndDependencies(dependentPreference, keysToInclude);
-                }
-            }
-        }
-    }
-
-    /**
-     * Recursively adds a preference along with its dependencies
-     * (android:dependency attribute in XML).
-     *
-     * @param preferenceGroup The preference group to add to.
-     * @param preference      The preference to add.
-     */
-    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference) {
-        String key = preference.getKey();
-
-        // Instead of just using preference keys, we combine the category and key to ensure uniqueness
-        if (key != null && !addedPreferences.contains(preferenceGroup.getTitle() + ":" + key)) {
-            // Add dependencies first
-            if (preference.getDependency() != null) {
-                String dependencyKey = preference.getDependency();
-                Preference dependency = findPreferenceInAllGroups(dependencyKey);
-                if (dependency != null) {
-                    addPreferenceWithDependencies(preferenceGroup, dependency);
-                } else {
-                    return;
-                }
-            }
-
-            // Add the preference using a combination of the category and the key
-            preferenceGroup.addPreference(preference);
-            addedPreferences.add(preferenceGroup.getTitle() + ":" + key); // Track based on both category and key
-
-            // Handle dependent preferences
-            if (dependencyMap.containsKey(key)) {
-                for (Preference dependentPreference : Objects.requireNonNull(dependencyMap.get(key))) {
-                    addPreferenceWithDependencies(preferenceGroup, dependentPreference);
-                }
-            }
-        }
-    }
-
-    /**
-     * Finds a preference in all groups based on its key.
-     *
-     * @param key The key of the preference to find.
-     * @return The found preference, or null if not found.
-     */
-    private Preference findPreferenceInAllGroups(String key) {
-        for (List<Preference> preferences : groupedPreferences.values()) {
-            for (Preference preference : preferences) {
-                if (preference.getKey() != null && preference.getKey().equals(key)) {
-                    return preference;
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Resets the preference screen to its original state.
-     */
-    private void resetPreferences() {
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        preferenceScreen.removeAll();
-        for (Preference preference : getAllPreferencesBy(originalPreferenceScreen))
-            preferenceScreen.addPreference(preference);
-    }
-
     private List<Preference> getAllPreferencesBy(PreferenceGroup preferenceGroup) {
         List<Preference> preferences = new ArrayList<>();
-        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++)
+        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
             preferences.add(preferenceGroup.getPreference(i));
+        }
         return preferences;
     }
 

@@ -33,8 +33,8 @@ import java.util.concurrent.TimeoutException
  * did use its own client streams.
  */
 class StreamingDataRequest private constructor(
-    videoId: String, playerHeaders: Map<String, String>, visitorId: String,
-    botGuardPoToken: String, droidGuardPoToken: String
+    videoId: String, playerHeaders: Map<String, String>,
+    visitorId: String, botGuardPoToken: String
 ) {
     private val videoId: String
     private val future: Future<ByteBuffer?>
@@ -47,8 +47,7 @@ class StreamingDataRequest private constructor(
                 videoId,
                 playerHeaders,
                 visitorId,
-                botGuardPoToken,
-                droidGuardPoToken
+                botGuardPoToken
             )
         }
     }
@@ -94,9 +93,14 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
+        private val SPOOF_STREAMING_DATA_TYPE: AppClient.ClientType =
+            BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
 
         private val CLIENT_ORDER_TO_USE: Array<AppClient.ClientType> =
-            availableClientTypes(BaseSettings.SPOOF_STREAMING_DATA_TYPE.get())
+            availableClientTypes(SPOOF_STREAMING_DATA_TYPE)
+
+        private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
+            SPOOF_STREAMING_DATA_TYPE == AppClient.ClientType.ANDROID_VR_NO_AUTH
 
         private var lastSpoofedClientType: AppClient.ClientType? = null
 
@@ -136,8 +140,8 @@ class StreamingDataRequest private constructor(
 
         @JvmStatic
         fun fetchRequest(
-            videoId: String, fetchHeaders: Map<String, String>, visitorId: String,
-            botGuardPoToken: String, droidGuardPoToken: String
+            videoId: String, fetchHeaders: Map<String, String>,
+            visitorId: String, botGuardPoToken: String
         ) {
             // Always fetch, even if there is an existing request for the same video.
             cache[videoId] =
@@ -145,8 +149,7 @@ class StreamingDataRequest private constructor(
                     videoId,
                     fetchHeaders,
                     visitorId,
-                    botGuardPoToken,
-                    droidGuardPoToken
+                    botGuardPoToken
                 )
         }
 
@@ -160,8 +163,11 @@ class StreamingDataRequest private constructor(
         }
 
         private fun send(
-            clientType: AppClient.ClientType, videoId: String, playerHeaders: Map<String, String>,
-            visitorId: String, botGuardPoToken: String, droidGuardPoToken: String
+            clientType: AppClient.ClientType,
+            videoId: String,
+            playerHeaders: Map<String, String>,
+            visitorId: String,
+            botGuardPoToken: String
         ): HttpURLConnection? {
             Objects.requireNonNull(clientType)
             Objects.requireNonNull(videoId)
@@ -205,16 +211,19 @@ class StreamingDataRequest private constructor(
                         clientType = clientType,
                         videoId = videoId,
                         botGuardPoToken = botGuardPoToken,
-                        visitorId = visitorId
+                        visitorId = visitorId,
+                        setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
                     )
-                    if (droidGuardPoToken.isNotEmpty()) {
-                        Logger.printDebug { "Original poToken (droidGuardPoToken):\n$droidGuardPoToken" }
-                    }
-                    Logger.printDebug { "Replaced poToken (botGuardPoToken):\n$botGuardPoToken" }
+                    Logger.printDebug { "Set poToken (botGuardPoToken):\n$botGuardPoToken" }
                 } else {
                     requestBody =
-                        createApplicationRequestBody(clientType = clientType, videoId = videoId)
+                        createApplicationRequestBody(
+                            clientType = clientType,
+                            videoId = videoId,
+                            setLocale = DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH,
+                        )
                 }
+
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)
 
@@ -242,8 +251,8 @@ class StreamingDataRequest private constructor(
         }
 
         private fun fetch(
-            videoId: String, playerHeaders: Map<String, String>, visitorId: String,
-            botGuardPoToken: String, droidGuardPoToken: String
+            videoId: String, playerHeaders: Map<String, String>,
+            visitorId: String, botGuardPoToken: String
         ): ByteBuffer? {
             lastSpoofedClientType = null
 
@@ -260,8 +269,7 @@ class StreamingDataRequest private constructor(
                     videoId,
                     playerHeaders,
                     visitorId,
-                    botGuardPoToken,
-                    droidGuardPoToken
+                    botGuardPoToken
                 )?.let { connection ->
                     try {
                         // gzip encoding doesn't response with content length (-1),
@@ -271,7 +279,7 @@ class StreamingDataRequest private constructor(
                         } else {
                             BufferedInputStream(connection.inputStream).use { inputStream ->
                                 ByteArrayOutputStream().use { stream ->
-                                    val buffer = ByteArray(2048)
+                                    val buffer = ByteArray(4096)
                                     var bytesRead: Int
                                     while ((inputStream.read(buffer)
                                             .also { bytesRead = it }) >= 0

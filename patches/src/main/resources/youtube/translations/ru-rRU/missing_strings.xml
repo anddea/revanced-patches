@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Background color of the server-side snackbar has not changed.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Background color of the server-side snackbar has changed.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Change server-side snack bar background</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Some snack bars use a theme defined on the server side, not the app theme.
+
+Change the background color of these snack bars.
+
+If there are server-side changes, the background color of the snack bar may not change."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gradient_seekbar_colors_summary">Gradient start and end colors separated by comma.</string>
@@ -7,6 +15,9 @@
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">Server-side snack bar is shown.</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">Server-side snack bar is hidden.</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Hide server-side snack bar</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
@@ -14,6 +25,11 @@
     <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">Theme of the snack bar is not inverted.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">Theme of the snack bar is inverted.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Invert snack bar theme</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Hide or change components related to snack bar.</string>
+    <string name="revanced_preference_screen_snack_bar_title">Snack bar</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
