@@ -15,8 +15,8 @@ internal val browseIdFingerprint = legacyFingerprint(
     strings = listOf("FEwhat_to_watch"),
 )
 
-internal val intentActionFingerprint = legacyFingerprint(
-    name = "intentActionFingerprint",
+internal val intentFingerprint = legacyFingerprint(
+    name = "intentFingerprint",
     parameters = listOf("Landroid/content/Intent;"),
     strings = listOf("has_handled_intent"),
 )
