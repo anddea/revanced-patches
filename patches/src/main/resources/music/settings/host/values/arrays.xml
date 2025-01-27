@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="revanced_change_start_page_entries">
-        <item>@string/revanced_change_start_page_entry_chart</item>
+        <item>@string/revanced_change_start_page_entry_default</item>
+        <item>@string/revanced_change_start_page_entry_charts</item>
+        <item>@string/revanced_change_start_page_entry_episodes_for_later</item>
         <item>@string/revanced_change_start_page_entry_explore</item>
-        <item>@string/revanced_change_start_page_entry_home</item>
+        <item>@string/revanced_change_start_page_entry_history</item>
         <item>@string/revanced_change_start_page_entry_library</item>
-        <item>@string/revanced_change_start_page_entry_subscription</item>
+        <item>@string/revanced_change_start_page_entry_liked_music</item>
+        <item>@string/revanced_change_start_page_entry_podcasts</item>
+        <item>@string/revanced_change_start_page_entry_samples</item>
+        <item>@string/revanced_change_start_page_entry_search</item>
+        <item>@string/revanced_change_start_page_entry_subscriptions</item>
     </string-array>
     <string-array name="revanced_change_start_page_entry_values">
-        <item>FEmusic_charts</item>
-        <item>FEmusic_explore</item>
-        <item>FEmusic_home</item>
-        <item>FEmusic_library_landing</item>
-        <item>FEmusic_library_corpus_artists</item>
+        <item>ORIGINAL</item>
+        <item>CHARTS</item>
+        <item>EPISODES_FOR_LATER</item>
+        <item>EXPLORE</item>
+        <item>HISTORY</item>
+        <item>LIBRARY</item>
+        <item>LIKED_MUSIC</item>
+        <item>PODCASTS</item>
+        <item>SAMPLES</item>
+        <item>SEARCH</item>
+        <item>SUBSCRIPTIONS</item>
     </string-array>
     <string-array name="revanced_disable_music_video_in_album_redirect_type_entries">
         <item>@string/revanced_disable_music_video_in_album_redirect_type_entry_redirect</item>

@@ -1,10 +1,11 @@
 package app.revanced.patches.music.general.startpage
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
+import app.revanced.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.music.utils.patch.PatchList.CHANGE_START_PAGE
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -18,6 +19,9 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "$GENERAL_PATH/ChangeStartPagePatch;"
+
 @Suppress("unused")
 val changeStartPagePatch = bytecodePatch(
     CHANGE_START_PAGE.title,
@@ -29,6 +33,11 @@ val changeStartPagePatch = bytecodePatch(
 
     execute {
 
+        coldStartIntentFingerprint.methodOrThrow().addInstruction(
+            0,
+            "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->overrideIntent(Landroid/content/Intent;)V"
+        )
+
         coldStartUpFingerprint.methodOrThrow().apply {
             val defaultBrowseIdIndex = indexOfFirstStringInstructionOrThrow(DEFAULT_BROWSE_ID)
             val browseIdIndex = indexOfFirstInstructionReversedOrThrow(defaultBrowseIdIndex) {
@@ -39,7 +48,7 @@ val changeStartPagePatch = bytecodePatch(
 
             addInstructions(
                 browseIdIndex + 1, """
-                    invoke-static {v$browseIdRegister}, $GENERAL_CLASS_DESCRIPTOR->changeStartPage(Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static {v$browseIdRegister}, $EXTENSION_CLASS_DESCRIPTOR->overrideBrowseId(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$browseIdRegister
                     """
             )

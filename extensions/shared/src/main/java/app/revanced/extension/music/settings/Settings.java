@@ -6,6 +6,7 @@ import static app.revanced.extension.music.sponsorblock.objects.CategoryBehaviou
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.music.patches.general.ChangeStartPagePatch.StartPage;
 import app.revanced.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.revanced.extension.music.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.music.patches.utils.PatchStatus;
@@ -91,7 +92,7 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: General
-    public static final StringSetting CHANGE_START_PAGE = new StringSetting("revanced_change_start_page", "FEmusic_home", true);
+    public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting DISABLE_DISLIKE_REDIRECTION = new BooleanSetting("revanced_disable_dislike_redirection", FALSE);
     public static final BooleanSetting ENABLE_LANDSCAPE_MODE = new BooleanSetting("revanced_enable_landscape_mode", FALSE, true);
     public static final BooleanSetting CUSTOM_FILTER = new BooleanSetting("revanced_custom_filter", FALSE);

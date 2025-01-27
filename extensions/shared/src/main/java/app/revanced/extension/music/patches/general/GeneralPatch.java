@@ -32,17 +32,6 @@ public class GeneralPatch {
 
     // endregion
 
-    // region [Change start page] patch
-
-    public static String changeStartPage(final String browseId) {
-        if (!browseId.equals("FEmusic_home"))
-            return browseId;
-
-        return Settings.CHANGE_START_PAGE.get();
-    }
-
-    // endregion
-
     // region [Disable dislike redirection] patch
 
     public static boolean disableDislikeRedirection() {
