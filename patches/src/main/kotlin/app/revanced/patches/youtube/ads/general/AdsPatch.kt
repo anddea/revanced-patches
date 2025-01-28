@@ -28,6 +28,7 @@ import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -128,6 +129,24 @@ val adsPatch = bytecodePatch(
                         """, ExternalLabel("show", getInstruction(startIndex + 2))
                 )
             }
+        }
+
+        // endregion
+
+        // region patch for hide end screen store banner
+
+        fullScreenEngagementAdContainerFingerprint.methodOrThrow().apply {
+            val addListIndex = indexOfAddListInstruction(this)
+            val addListInstruction =
+                getInstruction<FiveRegisterInstruction>(addListIndex)
+            val listRegister = addListInstruction.registerC
+            val objectRegister = addListInstruction.registerD
+
+            replaceInstruction(
+                addListIndex,
+                "invoke-static { v$listRegister, v$objectRegister }, " +
+                        "$ADS_CLASS_DESCRIPTOR->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V"
+            )
         }
 
         // endregion
