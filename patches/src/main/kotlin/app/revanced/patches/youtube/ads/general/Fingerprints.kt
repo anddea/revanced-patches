@@ -1,11 +1,16 @@
 package app.revanced.patches.youtube.ads.general
 
+import app.revanced.patches.youtube.utils.resourceid.fullScreenEngagementAdContainer
 import app.revanced.patches.youtube.utils.resourceid.interstitialsContainer
 import app.revanced.patches.youtube.utils.resourceid.slidingDialogAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val compactYpcOfferModuleViewFingerprint = legacyFingerprint(
     name = "compactYpcOfferModuleViewFingerprint",
@@ -23,6 +28,23 @@ internal val compactYpcOfferModuleViewFingerprint = legacyFingerprint(
                 method.name == "onMeasure"
     }
 )
+
+internal val fullScreenEngagementAdContainerFingerprint = legacyFingerprint(
+    name = "fullScreenEngagementAdContainerFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    literals = listOf(fullScreenEngagementAdContainer),
+    customFingerprint = { method, _ ->
+        indexOfAddListInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfAddListInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "add"
+    }
 
 internal val interstitialsContainerFingerprint = legacyFingerprint(
     name = "interstitialsContainerFingerprint",
