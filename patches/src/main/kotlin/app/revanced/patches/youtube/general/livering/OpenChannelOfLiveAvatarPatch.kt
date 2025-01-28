@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.livering
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,16 +9,18 @@ import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.engagement.hookEngagementPanelState
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.CHANGE_LIVE_RING_CLICK_ACTION
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
 import app.revanced.patches.youtube.video.playbackstart.playbackStartVideoIdReference
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/OpenChannelOfLiveAvatarPatch;"
@@ -33,17 +34,11 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
-        sharedResourceIdPatch,
         playbackStartDescriptorPatch,
         engagementPanelHookPatch,
     )
 
     execute {
-
-        elementsImageFingerprint.methodOrThrow().addInstruction(
-            0,
-            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->liveChannelAvatarClicked()V"
-        )
 
         hookEngagementPanelState(EXTENSION_CLASS_DESCRIPTOR)
 
@@ -66,6 +61,14 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
             val playbackStartIndex = indexOfPlaybackStartDescriptorInstruction(this) + 1
             val playbackStartRegister = getInstruction<OneRegisterInstruction>(playbackStartIndex).registerA
 
+            val mapIndex = indexOfFirstInstructionOrThrow(playbackStartIndex) {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_STATIC &&
+                        reference?.returnType == "Ljava/lang/Object;" &&
+                        reference.parameterTypes.firstOrNull() == "Ljava/util/Map;"
+            }
+            val mapRegister = getInstruction<FiveRegisterInstruction>(mapIndex).registerC
+
             freeIndex = indexOfFirstInstructionOrThrow(playbackStartIndex, Opcode.CONST_STRING)
             freeRegister = getInstruction<OneRegisterInstruction>(freeIndex).registerA
 
@@ -73,7 +76,7 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
                 playbackStartIndex + 1, """
                     invoke-virtual { v$playbackStartRegister }, $playbackStartVideoIdReference
                     move-result-object v$freeRegister
-                    invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->openChannelOfLiveAvatar(Ljava/lang/String;)V
+                    invoke-static { v$mapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->openChannelOfLiveAvatar(Ljava/util/Map;Ljava/lang/String;)V
                     """
             )
         }

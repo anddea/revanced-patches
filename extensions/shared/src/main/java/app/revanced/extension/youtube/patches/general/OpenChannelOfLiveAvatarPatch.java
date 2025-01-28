@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.patches.general;
 
 import androidx.annotation.Nullable;
 
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.revanced.extension.shared.utils.Logger;
@@ -15,8 +16,13 @@ public final class OpenChannelOfLiveAvatarPatch {
             Settings.CHANGE_LIVE_RING_CLICK_ACTION.get();
 
     private static final AtomicBoolean engagementPanelOpen = new AtomicBoolean(false);
-    private static volatile boolean liveChannelAvatarClicked = false;
     private static volatile String videoId = "";
+
+    /**
+     * If the video is open by clicking live ring, this key does not exists.
+     */
+    private static final String VIDEO_THUMBNAIL_VIEW_KEY =
+            "VideoPresenterConstants.VIDEO_THUMBNAIL_VIEW_KEY";
 
     public static void showEngagementPanel(@Nullable Object object) {
         engagementPanelOpen.set(object != null);
@@ -26,19 +32,15 @@ public final class OpenChannelOfLiveAvatarPatch {
         engagementPanelOpen.compareAndSet(true, false);
     }
 
-    public static void liveChannelAvatarClicked() {
-        liveChannelAvatarClicked = true;
-    }
-
     public static boolean openChannelOfLiveAvatar() {
         try {
             if (!CHANGE_LIVE_RING_CLICK_ACTION) {
                 return false;
             }
-            if (!liveChannelAvatarClicked) {
+            if (engagementPanelOpen.get()) {
                 return false;
             }
-            if (engagementPanelOpen.get()) {
+            if (videoId.isEmpty()) {
                 return false;
             }
             VideoDetailsRequest request = VideoDetailsRequest.getRequestForVideoId(videoId);
@@ -46,7 +48,6 @@ public final class OpenChannelOfLiveAvatarPatch {
                 String channelId = request.getInfo();
                 if (channelId != null) {
                     videoId = "";
-                    liveChannelAvatarClicked = false;
                     VideoUtils.openChannel(channelId);
                     return true;
                 }
@@ -57,12 +58,15 @@ public final class OpenChannelOfLiveAvatarPatch {
         return false;
     }
 
-    public static void openChannelOfLiveAvatar(String newlyLoadedVideoId) {
+    public static void openChannelOfLiveAvatar(Map<Object, Object> playbackStartDescriptorMap, String newlyLoadedVideoId) {
         try {
             if (!CHANGE_LIVE_RING_CLICK_ACTION) {
                 return;
             }
-            if (!liveChannelAvatarClicked) {
+            if (playbackStartDescriptorMap == null) {
+                return;
+            }
+            if (playbackStartDescriptorMap.containsKey(VIDEO_THUMBNAIL_VIEW_KEY)) {
                 return;
             }
             if (engagementPanelOpen.get()) {
