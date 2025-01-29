@@ -65,12 +65,18 @@
 Включение может исправить недостающие изображения, в некоторых регионах.</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">Использовать для изображений host yt4.ggpht.com.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
+    <string name="revanced_bypass_url_redirects_summary_off">Отключено.</string>
+    <string name="revanced_bypass_url_redirects_summary_on">Включено.</string>
+    <string name="revanced_bypass_url_redirects_title">Обход URL переадресации</string>
     <string name="revanced_change_layout_entry_1">Оригинал</string>
     <string name="revanced_change_layout_entry_2">Телефон</string>
     <string name="revanced_change_layout_entry_3">Телефон (Макс. 480 dip)</string>
     <string name="revanced_change_layout_entry_4">Планшет</string>
     <string name="revanced_change_layout_entry_5">Планшет (Мин. 600 dip)</string>
     <string name="revanced_change_layout_title">Изменить макет</string>
+    <string name="revanced_change_live_ring_click_action_summary_off">Открывается прямой эфир.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">Открывается канал.</string>
+    <string name="revanced_change_live_ring_click_action_title">Действие нажатия на точку прямого эфира</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Текущий переключатель - Визуальный.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Текущий переключатель - Текстовый.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Изменить тип переключателя</string>
@@ -87,6 +93,7 @@
     <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По умолчанию</string>
     <string name="revanced_change_start_page_entry_explore">Навигатор</string>
+    <string name="revanced_change_start_page_entry_fashion">Модная</string>
     <string name="revanced_change_start_page_entry_gaming">Игры</string>
     <string name="revanced_change_start_page_entry_history">История</string>
     <string name="revanced_change_start_page_entry_library">Библиотека</string>
@@ -94,12 +101,17 @@
     <string name="revanced_change_start_page_entry_live">Трансляции</string>
     <string name="revanced_change_start_page_entry_movies">Фильмы</string>
     <string name="revanced_change_start_page_entry_music">Музыка</string>
+    <string name="revanced_change_start_page_entry_news">Новости</string>
+    <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
+    <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
+    <string name="revanced_change_start_page_entry_shopping">Покупки</string>
     <string name="revanced_change_start_page_entry_shorts">Shorts</string>
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
     <string name="revanced_change_start_page_entry_trending">В тренде</string>
     <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
+    <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
     <string name="revanced_change_start_page_title">Начальная страница</string>
     <string name="revanced_change_start_page_type_summary_off">Начальная страница изменится один раз.</string>
     <string name="revanced_change_start_page_type_summary_on">"Начальная страница постоянно изменяется.
@@ -160,11 +172,11 @@
     <string name="revanced_disable_default_playback_speed_live_summary_on">Скорость воспроизведения в трансляциях отключена.</string>
     <string name="revanced_disable_default_playback_speed_live_title">Скорость в прямых трансляциях</string>
     <string name="revanced_disable_default_playback_speed_music_off">Скорость воспроизведения по умолчанию для музыки включена.</string>
-    <string name="revanced_disable_default_playback_speed_music_on">"Скорость воспроизведения по умолчанию для музыки отключена.
-
-Ограничение:
-Этот параметр не может применяться к видео, которые не содержат баннер 'Слушать в YouTube Music'."</string>
+    <string name="revanced_disable_default_playback_speed_music_on">Скорость по умолчанию для категории YouTube Музыка включена.</string>
     <string name="revanced_disable_default_playback_speed_music_title">Скорость воспроизведения для музыки</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">Скорость по умолчанию для категории YouTube Музыка включена.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">Скорость по умолчанию для категории YouTube Музыка отключена.</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">Выбирать скорость ориентируясь на категории</string>
     <string name="revanced_disable_engagement_panel_summary_off">Панель взаимодействия включена.</string>
     <string name="revanced_disable_engagement_panel_summary_on">Панель взаимодействия отключена.</string>
     <string name="revanced_disable_engagement_panel_title">Панель взаимодействия</string>
@@ -221,18 +233,21 @@
     <string name="revanced_disable_splash_animation_summary_off">Анимированная заставка включена.</string>
     <string name="revanced_disable_splash_animation_summary_on">Анимированная заставка отключена.</string>
     <string name="revanced_disable_splash_animation_title">Анимированная заставка</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Жест под плеером включен.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Жест под плеером отключен.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Жест полноэкранного режима (под плеером)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Жест в плеере включен.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Жест в плеере отключен.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Жест полноэкранного режима (в плеере)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Жест выхода из режима включен.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Жест выхода из режима отключен.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Жест выхода из полноэкранного режима</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_off">Переключение видео жестами включены.</string>
     <string name="revanced_disable_swipe_to_switch_video_summary_on">Переключение видео жестами отключены.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">Переключение видео жестом</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Включена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Отключена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Темная полупрозрачная панель навигации</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Включена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Отключена.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Светлая полупрозрачная панель навигации</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Включена.</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Отключена.</string>
-    <string name="revanced_disable_translucent_status_bar_title">Полупрозрачная строка состояния</string>
+    <string name="revanced_disable_translucent_status_bar_summary_off">Полупрозрачность отключена.</string>
+    <string name="revanced_disable_translucent_status_bar_summary_on">Полупрозрачность включена.</string>
+    <string name="revanced_disable_translucent_status_bar_title">Полупрозрачность строки состояния</string>
     <string name="revanced_disable_video_description_interaction_summary">"Отключает следующее взаимодействие при расширении описания видео:
 
 • Нажать - прокрутка.
@@ -245,9 +260,6 @@
 • Воспроизведение видео будет использовать больше сетевых данных, чем с VP9.
 • HDR воспроизведения нет, HDR видео все еще использует VP9 кодек."</string>
     <string name="revanced_disable_vp9_codec_title">VP9 кодек</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Полноэкранный режим жестом вниз включен.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Полноэкранный режим жестом вниз отключен.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Жесты панели просмотра</string>
     <string name="revanced_enable_cairo_seekbar_summary_off">Тема Каир прогресса отключена.</string>
     <string name="revanced_enable_cairo_seekbar_summary_on">"Тема Каир прогресса включена.
 
@@ -272,18 +284,12 @@
     <string name="revanced_enable_default_playback_speed_shorts_summary_off">Скорость воспроизведения по умолчанию в Shorts отключена.</string>
     <string name="revanced_enable_default_playback_speed_shorts_summary_on">Скорость воспроизведения по умолчанию в Shorts включена.</string>
     <string name="revanced_enable_default_playback_speed_shorts_title">Скорость воспроизведения по умолчанию в Shorts</string>
-    <string name="revanced_enable_external_browser_summary_off">Внешние ссылки открываются в приложении.</string>
-    <string name="revanced_enable_external_browser_summary_on">Внешние ссылки открываются в браузере.</string>
-    <string name="revanced_enable_external_browser_title">Внешние ссылки</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Переливающийся экран загрузки отключен.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Переливающийся экран загрузки включен.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Переливающийся экран загрузки</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_off">Обычное расстояние между кнопками.</string>
     <string name="revanced_enable_narrow_navigation_buttons_summary_on">Уменьшенное расстояние между кнопками.</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">Узкие кнопки навигации</string>
-    <string name="revanced_enable_open_links_directly_summary_off">Обход youtube.com/redirect при открытии ссылок отключен.</string>
-    <string name="revanced_enable_open_links_directly_summary_on">Обход youtube.com/redirect при открытии ссылок включен.</string>
-    <string name="revanced_enable_open_links_directly_title">Перенаправление ссылок</string>
     <string name="revanced_enable_opus_codec_summary">Включить кодек OPUS, если содержимое в плеере подходит для кодека.</string>
     <string name="revanced_enable_opus_codec_title">Включить кодек OPUS</string>
     <string name="revanced_enable_save_and_restore_brightness_summary_off">Не сохранять и не восстанавливать яркость при переключениях полного экрана.</string>
@@ -337,20 +343,42 @@
     <string name="revanced_enable_swipe_volume_title">Управление громкостью жестом</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
-    <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачная панель навигации</string>
+    <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачность панели навигации</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Переход в полноэкранный режим жестом вниз в нижней части плеера отключен.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Переход в полноэкранный режим жестом вниз в нижней части плеера включен.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Жест под плеером</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"Эта опция отключит кнопку \"Настройки\" во вкладке \"Вы\".
 
 Используйте такую последовательность: Вкладка \"Вы\" -&gt; Страница канала -&gt; Меню -&gt; Настройки."</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">Широкая панель поиска во вкладке «Вы» отключена.</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"Широкая панель поиска во вкладке «Вы» включена.
+
+Настройки здесь:
+Вкладка «Вы» → Просмотр канала → Меню → Настройки"</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_title">Широкая строка поиска во вкладке \"Вы\"</string>
+    <string name="revanced_enable_wide_search_bar_in_you_tab_user_dialog_message">"Включая эту функцию кнопка Настройки отключится во вкладке «Вы».
+
+Настройки здесь:
+Вкладка «Вы» → Просмотр канала → Меню → Настройки"</string>
     <string name="revanced_enable_wide_search_bar_summary_off">Широкая строка поиска отключена.</string>
     <string name="revanced_enable_wide_search_bar_summary_on">Широкая строка поиска включена.</string>
     <string name="revanced_enable_wide_search_bar_title">Широкая строка поиска</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">Широкая строка поиска замещает логотип YouTube.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">Логотип YouTube отображается рядом с широкой строкой поиска.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">Широкая строка поиска с логотипом</string>
+    <string name="revanced_enter_fullscreen_summary_off">Полноэкранный режим при запуске видео отключен.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"Полноэкранный режим при запуске видео включен.
+
+Не работает когда:
+- плеер свернут
+- картинка в картинке (PiP)
+- фоновый режим."</string>
+    <string name="revanced_enter_fullscreen_title">Полноэкранный режим при запуске видео</string>
+    <string name="revanced_exit_fullscreen_entry_1">Отключено</string>
+    <string name="revanced_exit_fullscreen_entry_2">Портретный вид</string>
+    <string name="revanced_exit_fullscreen_entry_3">Альбомный вид</string>
+    <string name="revanced_exit_fullscreen_entry_4">Авто поворот</string>
+    <string name="revanced_exit_fullscreen_title">Полноэкранный режим в конце видео</string>
     <string name="revanced_expand_video_description_strings_default_value">Описание</string>
     <string name="revanced_expand_video_description_strings_summary">"Введите название на панели описания видео.
 Символы различаются в зависимости от языка.
@@ -389,11 +417,6 @@
     <string name="revanced_external_downloader_package_name_playlist_title">Внешний загрузчик для плейлиста, название пакета</string>
     <string name="revanced_external_downloader_package_name_video_summary">Например: NewPipe или YTDLnis, или др.</string>
     <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
-    <string name="revanced_force_fullscreen_summary">"Видео будут переведены в полноэкранный режим при:
-
-• Нажатии на временную метку в комментариях.
-• Запуске видео."</string>
-    <string name="revanced_force_fullscreen_title">Принудительный полноэкранный режим</string>
     <string name="revanced_gms_show_dialog_summary">Показывает диалоговое окно оптимизации для GMSCore при каждом запуске приложения.</string>
     <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации для GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
@@ -401,6 +424,35 @@
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
 Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
+    <string name="revanced_hide_action_button_index_0_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_0_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_0_title">Первая кнопка</string>
+    <string name="revanced_hide_action_button_index_1_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_1_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_1_title">Вторая кнопка</string>
+    <string name="revanced_hide_action_button_index_2_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_2_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_2_title">Третья кнопка</string>
+    <string name="revanced_hide_action_button_index_3_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_3_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_3_title">Четвертая кнопка</string>
+    <string name="revanced_hide_action_button_index_4_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_4_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_4_title">Пятая кнопка</string>
+    <string name="revanced_hide_action_button_index_5_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_5_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_5_title">Шестая кнопка</string>
+    <string name="revanced_hide_action_button_index_6_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_6_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_6_title">Седьмая кнопка</string>
+    <string name="revanced_hide_action_button_index_7_summary_off">Отображена.</string>
+    <string name="revanced_hide_action_button_index_7_summary_on">Скрыта.</string>
+    <string name="revanced_hide_action_button_index_7_title">Восьмая кнопка</string>
+    <string name="revanced_hide_action_button_index_about_summary">"Скрытие кнопок по индексу до их инициализации.
+
+- Скрытие кнопок действий не оставляет пустого места.
+- Индекс кнопок действий не всегда может быть одной и той же кнопкой."</string>
+    <string name="revanced_hide_action_button_index_about_title">О скрытии по индексу</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Краткое содержание ИИ отображено.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Краткое содержание ИИ скрыто.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Краткое содержание в видео сгенерированное ИИ</string>
@@ -417,6 +469,14 @@
     <string name="revanced_hide_browse_store_button_summary_on">Кнопка \"Магазин\" скрыта.</string>
     <string name="revanced_hide_browse_store_button_title">Кнопка \"Магазин\"</string>
     <string name="revanced_hide_carousel_shelf_summary">"Скрывает следующие полки:
+• Срочные новости
+• Продолжить просмотр
+• Больше каналов
+• Слушать ещё раз
+• Покупки
+• Смотреть ещё раз"</string>
+    <string name="revanced_hide_carousel_shelf_summary_off">Полки карусели отображены.</string>
+    <string name="revanced_hide_carousel_shelf_summary_on">"Скрывает полки карусели:
 • Срочные новости
 • Продолжить просмотр
 • Больше каналов
@@ -625,7 +685,7 @@ Shorts
     <string name="revanced_hide_live_chat_summary_summary_off">Сводка чата трансляции отображена.</string>
     <string name="revanced_hide_live_chat_summary_summary_on">Сводка чата трансляции скрыта.</string>
     <string name="revanced_hide_live_chat_summary_title">Сводка в чате трансляции</string>
-    <string name="revanced_hide_low_views_video_summary">Скрыть видео с менее 1000 просмотров из ленты, из каналов от которых Вы отписались.</string>
+    <string name="revanced_hide_low_views_video_summary">"Скрыть видео с менее 1000 просмотров из ленты, из каналов от которых Вы отписались."</string>
     <string name="revanced_hide_low_views_video_title">Скрыть видео с низкими просмотрами</string>
     <string name="revanced_hide_medical_panel_summary_off">Медицинские панели отображены.</string>
     <string name="revanced_hide_medical_panel_summary_on">Медицинские панели скрыты.</string>
@@ -855,9 +915,9 @@ Shorts
     <string name="revanced_hide_settings_menu_account_summary_off">Аккаунт отображен.</string>
     <string name="revanced_hide_settings_menu_account_summary_on">Аккаунт скрыт.</string>
     <string name="revanced_hide_settings_menu_account_title">Аккаунт</string>
-    <string name="revanced_hide_settings_menu_auto_play_summary_off">Автовоспроизведение отображено.</string>
-    <string name="revanced_hide_settings_menu_auto_play_summary_on">Автовоспроизведение скрыто.</string>
-    <string name="revanced_hide_settings_menu_auto_play_title">Автовоспроизведение</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">Отображено.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">Скрыто.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_title">Меню автовоспроизведения или воспроизведения</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">Счета и платежи отображены.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">Счета и платежи скрыты.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_title">Счета и платежи</string>
@@ -1163,10 +1223,65 @@ Shorts
     <string name="revanced_icon_vanced_light">Vanced Light</string>
     <string name="revanced_icon_youtube">Иконка YouTube</string>
     <string name="revanced_keep_landscape_mode_summary">Удерживает альбомный режим в полноэкранном режиме.</string>
+    <string name="revanced_keep_landscape_mode_summary_off">Портретный режим при выкл / вкл экрана.</string>
+    <string name="revanced_keep_landscape_mode_summary_on">Ландшафтный режим при выкл / вкл экрана.</string>
     <string name="revanced_keep_landscape_mode_timeout_summary">Количество миллисекунд, в течение которых принудительно работает альбомный режим.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Сохранять таймаут альбомного режима</string>
     <string name="revanced_keep_landscape_mode_title">Удерживать альбомный режим</string>
     <string name="revanced_label_default">По умолчанию</string>
+    <string name="revanced_language_AR">عَرَبِيّ</string>
+    <string name="revanced_language_AZ">Azərbaycan</string>
+    <string name="revanced_language_BG">Български</string>
+    <string name="revanced_language_BN">বাংলা</string>
+    <string name="revanced_language_CA">Català</string>
+    <string name="revanced_language_CS">Čeština</string>
+    <string name="revanced_language_DA">Dansk</string>
+    <string name="revanced_language_DE">Deutsch</string>
+    <string name="revanced_language_DEFAULT">Язык приложения</string>
+    <string name="revanced_language_EL">Ελληνικά</string>
+    <string name="revanced_language_EN">English</string>
+    <string name="revanced_language_ES">Español</string>
+    <string name="revanced_language_ET">Eesti keel</string>
+    <string name="revanced_language_FA">فارسی</string>
+    <string name="revanced_language_FI">Suomalainen</string>
+    <string name="revanced_language_FR">Le français</string>
+    <string name="revanced_language_GU">ગુજરાતી</string>
+    <string name="revanced_language_HI">हिन्दी</string>
+    <string name="revanced_language_HR">Hrvatski</string>
+    <string name="revanced_language_HU">Magyar</string>
+    <string name="revanced_language_ID">Indonesia</string>
+    <string name="revanced_language_IT">Italiano</string>
+    <string name="revanced_language_JA">日本語</string>
+    <string name="revanced_language_KK">Қазақ</string>
+    <string name="revanced_language_KO">한국어</string>
+    <string name="revanced_language_LT">Lietùvių</string>
+    <string name="revanced_language_LV">Latviešu</string>
+    <string name="revanced_language_MK">Македонски</string>
+    <string name="revanced_language_MN">Монгол</string>
+    <string name="revanced_language_MR">Marāṭhī / मराठी</string>
+    <string name="revanced_language_MS">Melayu</string>
+    <string name="revanced_language_MY">မြန်မာ</string>
+    <string name="revanced_language_NL">Nederlands</string>
+    <string name="revanced_language_OR">ଓଡ଼ିଆ</string>
+    <string name="revanced_language_PA">ਪੰਜਾਬੀ / پنجابی</string>
+    <string name="revanced_language_PL">Polski</string>
+    <string name="revanced_language_PT">Português</string>
+    <string name="revanced_language_RO">Romanesc</string>
+    <string name="revanced_language_RU">Русский</string>
+    <string name="revanced_language_SK">Slovenský</string>
+    <string name="revanced_language_SL">Slovenski</string>
+    <string name="revanced_language_SR">Српски</string>
+    <string name="revanced_language_SV">Svenska</string>
+    <string name="revanced_language_SW">Kiswahili</string>
+    <string name="revanced_language_TA">தமிழ்</string>
+    <string name="revanced_language_TE">తెలుగు</string>
+    <string name="revanced_language_TH">แบบไทย</string>
+    <string name="revanced_language_TR">Türkçe</string>
+    <string name="revanced_language_UK">Українська</string>
+    <string name="revanced_language_UR">اردو</string>
+    <string name="revanced_language_VI">Tiếng Việt</string>
+    <string name="revanced_language_ZH">中文</string>
+    <string name="revanced_language_title">Язык RVX</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и щипок для изменения размера отключено.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Двойное нажатие и щипок для изменения размера включено.
 
@@ -1223,6 +1338,12 @@ Shorts
     <string name="revanced_miniplayer_width_dip_invalid_toast">Размер в пикселях должен быть между %1$s и %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Начальный размер мини-плеера в пикселях.</string>
     <string name="revanced_miniplayer_width_dip_title">Начальный размер</string>
+    <string name="revanced_open_links_externally_summary_off">Открывает ссылки в браузере приложения.</string>
+    <string name="revanced_open_links_externally_summary_on">Открывает ссылки во внешнем браузере.</string>
+    <string name="revanced_open_links_externally_title">Открывать внешние ссылки</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">Отключено.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Включено.</string>
+    <string name="revanced_open_shorts_in_regular_player_title">Открывать Shorts в обычном плеере</string>
     <string name="revanced_overlay_button">Компоненты в плеере</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Нажать - все время повтор.
 Нажать и удерживать - пауза после повтора."</string>
@@ -1287,6 +1408,8 @@ Shorts
     <string name="revanced_preference_category_custom_actions">Пользовательские действия</string>
     <string name="revanced_preference_category_download_button">Кнопка \"Скачать\"</string>
     <string name="revanced_preference_category_experimental_flag">Экспериментальные опции</string>
+    <string name="revanced_preference_category_hide_by_index">Скрытие по индексу</string>
+    <string name="revanced_preference_category_hide_by_index_live">Скрытие по индексу в прямых эфирах</string>
     <string name="revanced_preference_category_image_region_restrictions">Ограничения изображений по региону</string>
     <string name="revanced_preference_category_import_export_as_file">Импорт/экспорт в виде файла</string>
     <string name="revanced_preference_category_import_export_as_text">Импорт/экспорт настроек в виде текста</string>
@@ -1294,6 +1417,7 @@ Shorts
     <string name="revanced_preference_category_others">Другие</string>
     <string name="revanced_preference_category_overlay_buttons">Наложение кнопок</string>
     <string name="revanced_preference_category_patch_information">Информация о патчах</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Быстрые действия</string>
     <string name="revanced_preference_category_recommended_video">Рекомендованное видео</string>
     <string name="revanced_preference_category_shorts_shelf">Настройки скрытия Shorts</string>
@@ -1657,6 +1781,10 @@ Shorts
 Гарантии работы нет!
 
 Большинство ошибок не может быть исправлено из-за ограничений со стороны клиента, поэтому используйте их только для тестирования."</string>
+    <string name="revanced_shorts_custom_actions_about_summary">"Экспериментальная функция!
+Гарантии работы нет!
+
+Большинство ошибок не может быть исправлено из-за ограничений со стороны клиента, поэтому используйте их только для тестирования."</string>
     <string name="revanced_shorts_custom_actions_about_title">О пользовательских действиях</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">Копировать URL-адрес видео</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Меню копирования URL видео скрыто.</string>
@@ -1745,17 +1873,33 @@ Shorts
 При отключении подмены, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Подменяет размеры устройства, для разблокировки более высокого качества видео, которое может быть недоступно на вашем устройстве."</string>
     <string name="revanced_spoof_device_dimensions_title">Подмена размеров устройства</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android и iOS клиенты используются для получения потоковых данных.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android клиенты используются для получения потоковых данных.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Использовать только клиенты Android</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Принудительное использование AVC (H.264) отключено.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Принудительное использование AVC (H.264) включено.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_title">Принудительно iOS, AVC (H.264)</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"Включение может:
+- улучшить время автономной работы
+- устранить прерывания при воспроизведении.
+
+Максимальное разрешение видео AVC составляет 1080p. Кодек Opus недоступен. Потребление интернет трафика будет больше, чем при VP9 или AV1."</string>
+    <string name="revanced_spoof_streaming_data_language_title">Язык аудио потока по умолчанию VR</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken выпущен с BotGuard в доверенном браузере.</string>
+    <string name="revanced_spoof_streaming_data_po_token_title">PoToken</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Некоторые клиенты требуют PoToken и VisitorData для получения правильного потокового ответа данных.
+
+При использовании iOS клиента по умолчанию, эти значения могут потребоваться.
+
+Нажмите, чтобы увидеть дополнительную информацию."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">О PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню аудио дорожки отсутствует.
 • Стабильная громкость недоступна.
-• Отключить принудительные автозвуковые дорожки недоступна."</string>
+• Отключить принудительные авто звуковые дорожки недоступна.
+• Детские видео не могут воспроизводиться в режиме инкогнито или выхода."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• Меню \"Звуковая дорожка\" не доступно."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• Меню \"Звуковая дорожка\" VR не доступно."</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• Еще не найдено.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• Возможно проблемы (требуется PoToken).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Видео может закончиться 1 секунду ранее.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Платные видео и фильмы могут не проигрываться.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Фильмы или платные видео могут не воспроизводиться.
+• Детские видео могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видео может не воспроизводиться.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиент потоковых данных скрыт в Статистике для сисадминов.</string>
@@ -1767,13 +1911,19 @@ Shorts
     <string name="revanced_spoof_streaming_data_title">Подмена потоковых данных</string>
     <string name="revanced_spoof_streaming_data_type_entry_android">Android</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Редактор Android</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">"Android TV
+<small>(Требуется вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">Музыка iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
+<small>(Без автора)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
+<small>(Необходим PoToken)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS
+<small>(Необходим вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData выданный с BotGuard в надежном браузере.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Значение должно быть от 1 до 1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Настройка чувствительности жеста яркости от 1 до 1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Чувствительность жеста яркости</string>

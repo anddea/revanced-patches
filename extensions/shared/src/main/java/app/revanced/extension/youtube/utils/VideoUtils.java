@@ -4,6 +4,8 @@ import static app.revanced.extension.shared.utils.ResourceUtils.getStringArray;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed;
 
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.media.AudioManager;
@@ -30,11 +32,16 @@ import app.revanced.extension.youtube.shared.VideoInformation;
 
 @SuppressWarnings("unused")
 public class VideoUtils extends IntentUtils {
+    private static final String CHANNEL_URL = "https://www.youtube.com/channel/";
     private static final String PLAYLIST_URL = "https://www.youtube.com/playlist?list=";
     private static final String VIDEO_URL = "https://youtu.be/";
     private static final String VIDEO_SCHEME_INTENT_FORMAT = "vnd.youtube://%s?start=%d";
     private static final String VIDEO_SCHEME_LINK_FORMAT = "https://youtu.be/%s?t=%d";
     private static final AtomicBoolean isExternalDownloaderLaunched = new AtomicBoolean(false);
+
+    private static String getChannelUrl(String channelId) {
+        return CHANNEL_URL + channelId;
+    }
 
     private static String getPlaylistUrl(String playlistId) {
         return PLAYLIST_URL + playlistId;
@@ -140,6 +147,10 @@ public class VideoUtils extends IntentUtils {
         }
     }
 
+    public static void openChannel(@NonNull String channelId) {
+        launchView(getChannelUrl(channelId), getContext().getPackageName());
+    }
+
     public static void openVideo() {
         openVideo(VideoInformation.getVideoId());
     }
@@ -181,6 +192,7 @@ public class VideoUtils extends IntentUtils {
     /**
      * Pause the media by changing audio focus.
      */
+    @SuppressWarnings("deprecation")
     public static void pauseMedia() {
         if (context != null && context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
             audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
@@ -199,6 +211,24 @@ public class VideoUtils extends IntentUtils {
                     final float selectedPlaybackSpeed = Float.parseFloat(playbackSpeedEntryValues[mIndex] + "f");
                     VideoInformation.overridePlaybackSpeed(selectedPlaybackSpeed);
                     userSelectedPlaybackSpeed(selectedPlaybackSpeed);
+                    mDialog.dismiss();
+                })
+                .show();
+    }
+
+    public static void showShortsPlaybackSpeedDialog(@NonNull Context context) {
+        final String[] playbackSpeedEntries = CustomPlaybackSpeedPatch.getTrimmedListEntries();
+        final String[] playbackSpeedEntryValues = CustomPlaybackSpeedPatch.getTrimmedListEntryValues();
+
+        final float playbackSpeed = ShortsPlayerState.Companion.getShortsPlaybackSpeed();
+        final int index = Arrays.binarySearch(playbackSpeedEntryValues, String.valueOf(playbackSpeed));
+
+        new AlertDialog.Builder(context)
+                .setSingleChoiceItems(playbackSpeedEntries, index, (mDialog, mIndex) -> {
+                    final float selectedPlaybackSpeed = Float.parseFloat(playbackSpeedEntryValues[mIndex] + "f");
+                    VideoInformation.overridePlaybackSpeed(selectedPlaybackSpeed);
+                    userSelectedPlaybackSpeed(selectedPlaybackSpeed);
+                    ShortsPlayerState.Companion.setShortsPlaybackSpeed(selectedPlaybackSpeed);
                     mDialog.dismiss();
                 })
                 .show();
@@ -261,6 +291,20 @@ public class VideoUtils extends IntentUtils {
      */
     public static boolean getExternalDownloaderLaunchedState(boolean original) {
         return !isExternalDownloaderLaunched.get() && original;
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
+    public static void enterFullscreenMode() {
+        Logger.printDebug(() -> "Enter fullscreen mode");
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
+    public static void exitFullscreenMode() {
+        Logger.printDebug(() -> "Exit fullscreen mode");
     }
 
     /**

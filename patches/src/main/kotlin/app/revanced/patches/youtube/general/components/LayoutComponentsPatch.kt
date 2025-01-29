@@ -2,12 +2,10 @@ package app.revanced.patches.youtube.general.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.settingmenu.settingsMenuPatch
@@ -17,10 +15,14 @@ import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.accountSwitcherAccessibility
+import app.revanced.patches.youtube.utils.resourceid.fab
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -55,9 +57,15 @@ val layoutComponentsPatch = bytecodePatch(
         sharedResourceIdPatch,
         settingsMenuPatch,
         viewGroupMarginLayoutParamsHookPatch,
+        versionCheckPatch,
     )
 
     execute {
+
+        var settingArray = arrayOf(
+            "PREFERENCE_SCREEN: GENERAL",
+            "SETTINGS: HIDE_LAYOUT_COMPONENTS"
+        )
 
         // region patch for disable pip notification
 
@@ -82,6 +90,19 @@ val layoutComponentsPatch = bytecodePatch(
                     )
                 }
             }
+        }
+
+        // endregion
+
+        // region patch for disable translucent status bar
+
+        if (is_19_25_or_greater) {
+            translucentStatusBarFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                TRANSLUCENT_STATUS_BAR_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->disableTranslucentStatusBar(Z)Z"
+            )
+
+            settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
         }
 
         // endregion
@@ -132,18 +153,17 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide floating microphone
 
-        floatingMicrophoneFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+        floatingMicrophoneFingerprint.methodOrThrow().apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(fab)
+            val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
+            val insertRegister = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
 
-                addInstructions(
-                    insertIndex + 1, """
-                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
-                        move-result v$register
-                        """
-                )
-            }
+            addInstructions(
+                booleanIndex + 1, """
+                    invoke-static {v$insertRegister}, $GENERAL_CLASS_DESCRIPTOR->hideFloatingMicrophone(Z)Z
+                    move-result v$insertRegister
+                    """
+            )
         }
 
         // endregion
@@ -193,21 +213,6 @@ val layoutComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide snack bar
-
-        bottomUiContainerFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideSnackBar()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                    """, ExternalLabel("show", getInstruction(0))
-            )
-        }
-
-        // endregion
-
         // region patch for hide tooltip content
 
         tooltipContentFullscreenFingerprint.methodOrThrow().apply {
@@ -234,10 +239,7 @@ val layoutComponentsPatch = bytecodePatch(
         // region add settings
 
         addPreference(
-            arrayOf(
-                "PREFERENCE_SCREEN: GENERAL",
-                "SETTINGS: HIDE_LAYOUT_COMPONENTS"
-            ),
+            settingArray,
             HIDE_LAYOUT_COMPONENTS
         )
 

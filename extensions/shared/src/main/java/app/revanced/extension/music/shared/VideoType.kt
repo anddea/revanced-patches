@@ -19,7 +19,7 @@ enum class VideoType {
 
     companion object {
 
-        private val nameToVideoType = values().associateBy { it.name }
+        private val nameToVideoType = entries.associateBy { it.name }
 
         @JvmStatic
         fun setFromString(enumName: String) {

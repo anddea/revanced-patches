@@ -1,5 +1,6 @@
 package app.revanced.extension.music.patches.navigation;
 
+import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 
 import android.graphics.Color;
@@ -8,19 +9,31 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class NavigationPatch {
-    private static final int colorGrey12 =
-            ResourceUtils.getColor("revanced_color_grey_12");
+    private static final int colorGrey12 = PatchStatus.DarkTheme()
+            ? ResourceUtils.getColor("ytm_color_grey_12")
+            : ResourceUtils.getColor("revanced_color_grey_12");
+
     public static Enum<?> lastPivotTab;
 
-    public static int enableBlackNavigationBar() {
-        return Settings.ENABLE_BLACK_NAVIGATION_BAR.get()
-                ? Color.BLACK
-                : colorGrey12;
+    public static int enableCustomNavigationBarColor() {
+        try {
+            if (Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR.get()) {
+                return Color.parseColor(Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.get());
+            }
+        } catch (Exception ex) {
+            Utils.showToastShort(str("revanced_custom_navigation_bar_color_value_invalid_invalid_toast"));
+            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.resetToDefault();
+        }
+
+        return colorGrey12;
     }
 
     public static void hideNavigationLabel(TextView textview) {

@@ -1,6 +1,7 @@
 package app.revanced.extension.shared.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 
@@ -104,16 +105,13 @@ public class StringRef extends Utils {
     public String toString() {
         if (!resolved) {
             try {
-                Context context = getContext();
+                Activity mActivity = getActivity();
+                Context context = mActivity != null
+                        ? mActivity
+                        : getContext();
                 if (resources == null) {
-                    resources = getResources();
+                    resources = context.getResources();
                 }
-                if (resources != null) {
-                    value = ResourceUtils.getString(value);
-                    resolved = true;
-                    return value;
-                }
-                resources = context.getResources();
                 if (resources != null) {
                     final String packageName = context.getPackageName();
                     final int identifier = resources.getIdentifier(value, "string", packageName);

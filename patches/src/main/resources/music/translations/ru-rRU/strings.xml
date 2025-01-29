@@ -30,6 +30,9 @@
     <string name="revanced_custom_filter_summary">Включает пользовательский фильтр для скрытия компонентов интерфейса.</string>
     <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недопустимый пользовательский фильтр: %s.</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Неверное значение цвета панели навигации.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Введите hex код цвета панели навигации.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Значение пользовательского цвета панели навигации</string>
     <string name="revanced_custom_playback_speeds_invalid">Недопустимые скорости. Значения сброшены к начальным.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения. Используются значения по умолчанию.</string>
     <string name="revanced_custom_playback_speeds_summary">Настройте доступные скорости воспроизведения.</string>
@@ -46,10 +49,19 @@
     <string name="revanced_disable_drc_audio_title">Отключить DRC аудио</string>
     <string name="revanced_disable_mini_player_gesture_summary">Отключает свайп для переключения треков в миниплеере.</string>
     <string name="revanced_disable_mini_player_gesture_title">Отключить жест мини плеера</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Нажмите на переключатель Аудио/Видео</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Нажмите и удерживайте переключатель Аудио/Видео</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Перенаправление</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Определение способа перенаправления на официальную песню.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Тип перенаправления</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Когда пользователь без премиума воспроизводит песню из альбома, иногда вместо официальной песни воспроизводится музыкальное видео.
+
+Если будет обнаружено воспроизведение музыкального видео, будет перенаправлено на официальную песню.
+
+• Используется \"Piped Instance\", но в некоторых регионах API может быть недоступен."</string>
+    <string name="revanced_disable_music_video_in_album_title">Отключить музыкальные видео в альбоме</string>
     <string name="revanced_disable_player_gesture_summary">Отключает свайп для переключения треков в плеере.</string>
     <string name="revanced_disable_player_gesture_title">Отключить жест плеера</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Устанавливает чёрный цвет панели навигации.</string>
-    <string name="revanced_enable_black_navigation_bar_title">Чёрная панель навигации</string>
     <string name="revanced_enable_black_player_background_summary">Меняет адаптивный цвет фона плеера на черный.</string>
     <string name="revanced_enable_black_player_background_title">Включить черный фон плеера</string>
     <string name="revanced_enable_color_match_player_summary">Цвет мини-проигрывателя соответствует цвету полноэкранного проигрывателя.</string>
@@ -60,6 +72,8 @@
 • Заставки альбомов во вкладке \"Библиотека\" становятся меньше в виде сетки.
 • Интерфейс \"Автовыключение\" может необычно появляться."</string>
     <string name="revanced_enable_compact_dialog_title">Компактный вид окна</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Устанавливает цвет для панели навигации.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Включить пользовательский цвет панели навигации</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Вывод журнала отладки включает буфер.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Ведение журналов отладки буфера</string>
     <string name="revanced_enable_debug_logging_summary">Выводит журнал отладки.</string>
@@ -408,16 +422,23 @@
 • Превью во время перемотки может отсутствовать.
 • История просмотра не работает при использовании аккаунта компании."</string>
     <string name="revanced_spoof_client_title">Подмена клиента</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Определяет клиент по умолчанию для подмены.
+
+※ При использовании клиента Android рекомендуется использовать его вместе с \"Подмена версии приложения\"."</string>
+    <string name="revanced_spoof_client_type_title">Клиент по умолчанию</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подделать потоковые данные, чтобы предотвратить проблемы с воспроизведением.
 
 ※ При использовании вместе с \"Подменой клиента\" могут возникнуть проблемы с воспроизведением."</string>
     <string name="revanced_spoof_streaming_data_title">Подделка потоковых данных</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Определяет клиент по умолчанию, получающий потоковые данные.</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по умолчанию</string>
 </resources>

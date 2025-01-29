@@ -4,6 +4,8 @@ import static app.revanced.extension.music.settings.Settings.BYPASS_IMAGE_REGION
 import static app.revanced.extension.music.settings.Settings.CHANGE_START_PAGE;
 import static app.revanced.extension.music.settings.Settings.CUSTOM_FILTER_STRINGS;
 import static app.revanced.extension.music.settings.Settings.CUSTOM_PLAYBACK_SPEEDS;
+import static app.revanced.extension.music.settings.Settings.DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE;
+import static app.revanced.extension.music.settings.Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE;
 import static app.revanced.extension.music.settings.Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME;
 import static app.revanced.extension.music.settings.Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS;
 import static app.revanced.extension.music.settings.Settings.OPEN_DEFAULT_APP_SETTINGS;
@@ -139,6 +141,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 } else if (settings.equals(BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN)
                         || settings.equals(CUSTOM_FILTER_STRINGS)
                         || settings.equals(CUSTOM_PLAYBACK_SPEEDS)
+                        || settings.equals(ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE)
                         || settings.equals(HIDE_ACCOUNT_MENU_FILTER_STRINGS)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)) {
                     ResettableEditTextPreference.showDialog(mActivity, stringSetting);
@@ -160,9 +163,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }
             } else if (settings instanceof EnumSetting<?> enumSetting) {
-                if (settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
+                if (settings.equals(DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE)
+                        || settings.equals(RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT)
                         || settings.equals(SPOOF_CLIENT_TYPE)
-                        || settings.equals(SPOOF_STREAMING_DATA_TYPE)) {
+                        || settings.equals(SPOOF_STREAMING_DATA_TYPE)
+                ) {
                     ResettableListPreference.showDialog(mActivity, enumSetting, 0);
                 }
             }

@@ -41,11 +41,9 @@ public final class AnimationFeedbackPatch {
 
     private static final boolean HIDE_PLAY_PAUSE_FEEDBACK = Settings.HIDE_SHORTS_PLAY_PAUSE_BUTTON_BACKGROUND.get();
 
-    private static final int PAUSE_TAP_FEEDBACK_HIDDEN
-            = ResourceUtils.getRawIdentifier("pause_tap_feedback_hidden");
+    private static int PAUSE_TAP_FEEDBACK_HIDDEN = 0;
 
-    private static final int PLAY_TAP_FEEDBACK_HIDDEN
-            = ResourceUtils.getRawIdentifier("play_tap_feedback_hidden");
+    private static int PLAY_TAP_FEEDBACK_HIDDEN = 0;
 
 
     /**
@@ -66,8 +64,12 @@ public final class AnimationFeedbackPatch {
         if (!HIDE_PLAY_PAUSE_FEEDBACK) {
             return;
         }
-
-        LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PAUSE_TAP_FEEDBACK_HIDDEN);
+        if (PAUSE_TAP_FEEDBACK_HIDDEN == 0) {
+            PAUSE_TAP_FEEDBACK_HIDDEN = ResourceUtils.getRawIdentifier("pause_tap_feedback_hidden");
+        }
+        if (PAUSE_TAP_FEEDBACK_HIDDEN != 0) {
+            LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PAUSE_TAP_FEEDBACK_HIDDEN);
+        }
     }
 
     /**
@@ -77,8 +79,12 @@ public final class AnimationFeedbackPatch {
         if (!HIDE_PLAY_PAUSE_FEEDBACK) {
             return;
         }
-
-        LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PLAY_TAP_FEEDBACK_HIDDEN);
+        if (PLAY_TAP_FEEDBACK_HIDDEN == 0) {
+            PLAY_TAP_FEEDBACK_HIDDEN = ResourceUtils.getRawIdentifier("play_tap_feedback_hidden");
+        }
+        if (PLAY_TAP_FEEDBACK_HIDDEN != 0) {
+            LottieAnimationViewPatch.setLottieAnimationRawResources(lottieAnimationView, PLAY_TAP_FEEDBACK_HIDDEN);
+        }
     }
 
 }

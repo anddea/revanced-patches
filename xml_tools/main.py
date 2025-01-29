@@ -14,6 +14,7 @@ from config import Settings
 from core import log_process, setup_logging
 from handlers import (
     check_prefs,
+    check_prefs_reverse,
     check_strings,
     missing_strings,
     remove_unused_strings,
@@ -50,7 +51,13 @@ def get_rvx_base_dir(logger: Logger) -> Path:
 
 def is_rvx_dir_needed(options: dict) -> bool:
     """Determine if rvx_base_dir validation is needed based on options."""
-    return options.get("run_all") or options.get("replace") or options.get("prefs") or options.get("check")
+    return (
+        options.get("run_all")
+        or options.get("replace")
+        or options.get("prefs")
+        or options.get("reverse")
+        or options.get("check")
+    )
 
 
 @click.group(invoke_without_command=True)
@@ -63,6 +70,7 @@ def is_rvx_dir_needed(options: dict) -> bool:
 @click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
 @click.option("-c", "--check", is_flag=True, help="Run missing strings check")
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
+@click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check")
 @click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
 @click.pass_context
 def cli(ctx: click.Context, **kwargs: dict[str, bool | str | None]) -> None:
@@ -106,6 +114,7 @@ def process_all(config: CLIConfig) -> None:
         ("Missing Strings Creation (YouTube)", missing_strings.process, ["youtube"]),
         ("Missing Strings Creation (YouTube Music)", missing_strings.process, ["music"]),
         ("Missing Prefs Check", check_prefs.process, ["youtube", base_dir]),
+        ("Missing Prefs Check (Reverse)", check_prefs_reverse.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube)", check_strings.process, ["youtube", base_dir]),
         ("Missing Strings Check (YouTube Music)", check_strings.process, ["music", base_dir]),
     ]
@@ -147,6 +156,10 @@ def handle_individual_operations(config: CLIConfig, options: dict) -> None:
         if options.get("prefs"):
             log_process(logger, "Check Preferences")
             check_prefs.process(app, base_dir)
+
+        if options.get("reverse"):
+            log_process(logger, "Check Preferences (Reverse)")
+            check_prefs_reverse.process(app, base_dir)
 
     except Exception:
         logger.exception("Error during processing: ")

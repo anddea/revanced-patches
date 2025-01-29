@@ -27,6 +27,9 @@
     <string name="revanced_custom_filter_summary">カスタムフィルターを有効にします。</string>
     <string name="revanced_custom_filter_title">カスタムフィルター</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタムフィルターです: %s。</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">ナビゲーションバーの色が無効です。</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">ナビゲーションバーの色の16進数コードを入力します。</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">ナビゲーションバーの色の値</string>
     <string name="revanced_custom_playback_speeds_invalid">無効なカスタム再生速度です。デフォルト値にリセットします。</string>
     <string name="revanced_custom_playback_speeds_parse_exception">無効なカスタム再生速度です。デフォルトの値を使用します。</string>
     <string name="revanced_custom_playback_speeds_summary">利用可能な再生速度を編集します。</string>
@@ -39,13 +42,23 @@
     <string name="revanced_disable_cairo_splash_animation_title">Cairo スプラッシュアニメーションを無効にする</string>
     <string name="revanced_disable_dislike_redirection_summary">低評価ボタンを押したとき、次の曲へのリダイレクトするのを無効にする。</string>
     <string name="revanced_disable_dislike_redirection_title">低評価リダイレクトを無効化</string>
+    <string name="revanced_disable_drc_audio_summary">音声に適用されるDRC (Dynamic Range Compression) を無効にします。</string>
     <string name="revanced_disable_drc_audio_title">DRCオーディオを無効にする</string>
     <string name="revanced_disable_mini_player_gesture_summary">ミニプレーヤーでスワイプによる曲の変更を無効にします</string>
     <string name="revanced_disable_mini_player_gesture_title">ミニプレーヤージェスチャーを無効にする</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">曲 / 動画 の切り替えをタップ</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">曲 / 動画 の切り替えをタップし長押し</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">リダイレクト</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">公式楽曲にリダイレクトする方法を指定します。</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">リダイレクトのタイプ</string>
+    <string name="revanced_disable_music_video_in_album_summary">"非プレミアムユーザーがアルバムに含まれる曲を再生すると、公式の楽曲でなくMVが再生されることがあります。
+
+アルバムからMVの再生が検出された場合、公式の楽曲を検索します。
+
+• Piped Instance APIを利用しています。"</string>
+    <string name="revanced_disable_music_video_in_album_title">アルバム内のミュージックビデオを無効にする</string>
     <string name="revanced_disable_player_gesture_summary">プレイヤーでスワイプによる曲の変更を無効にします。</string>
     <string name="revanced_disable_player_gesture_title">プレイヤージェスチャーを無効にする</string>
-    <string name="revanced_enable_black_navigation_bar_summary">ナビゲーションバーの色を黒に設定します。</string>
-    <string name="revanced_enable_black_navigation_bar_title">黒いナビゲーションバーを有効化</string>
     <string name="revanced_enable_black_player_background_summary">プレイヤーの背景の色を黒に固定します。</string>
     <string name="revanced_enable_black_player_background_title">黒のプレイヤー背景を有効化</string>
     <string name="revanced_enable_color_match_player_summary">ミニプレーヤーと全画面プレーヤーの色を統一します。</string>
@@ -56,6 +69,8 @@
 • ライブラリのアルバムアートが小さくなります。
 • スリープタイマーのレイアウトが異常になる場合があります。"</string>
     <string name="revanced_enable_compact_dialog_title">コンパクトなダイアログ</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">ナビゲーションバーの色を設定します。</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">カスタムナビゲーションバーの色を有効にする</string>
     <string name="revanced_enable_debug_buffer_logging_summary">デバッグログをバッファに含めて出力する。</string>
     <string name="revanced_enable_debug_buffer_logging_title">デバッグバッファログを有効化</string>
     <string name="revanced_enable_debug_logging_summary">デバッグログを出力します。</string>
@@ -164,6 +179,7 @@
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">「ポッドキャストに移動」を非表示</string>
     <string name="revanced_hide_flyout_menu_help_title">「ヘルプとフィードバック」を非表示</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">高評価/低評価ボタンを非表示</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">「[クイック アクセス] に固定」を非表示</string>
     <string name="revanced_hide_flyout_menu_play_next_title">「次に再生」を非表示</string>
     <string name="revanced_hide_flyout_menu_quality_title">画質メニューを非表示</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">「ライブラリから削除」を非表示</string>
@@ -178,6 +194,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">「ラジオを聴く」を非表示</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">統計情報を非表示</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">登録/解除メニューを非表示</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">「[クイック アクセス] への固定を解除」を非表示</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">「曲のクレジットを表示」を非表示</string>
     <string name="revanced_hide_fullscreen_ads_summary">"全画面広告を非表示にします。"</string>
     <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
@@ -400,7 +417,23 @@ API キーの発行方法については、ここをタップしてください�
 • シークバーのサムネイルが表示されない場合があります。
 • 再生履歴はブランドアカウントでは動作しません。"</string>
     <string name="revanced_spoof_client_title">クライアントを偽装</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"偽装のデフォルトクライアントを定義します。
+
+• Androidクライアントを使用する場合は、「Spoof app version」も使用することを推奨します。"</string>
+    <string name="revanced_spoof_client_type_title">既定のクライアント</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Stats for nerds でストリーミングデータの取得に使用されるクライアントを定義する。</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_title">マニア向けの統計を表示</string>
+    <string name="revanced_spoof_streaming_data_summary">"ストリーミングデータを偽装して、再生の問題を防ぎます。
+
+• Spoof client と併用すると、再生に問題が発生する場合があります。"</string>
+    <string name="revanced_spoof_streaming_data_title">ストリーミングデータを偽装</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
+    <string name="revanced_spoof_streaming_data_type_summary">ストリーミングデータを取得するデフォルトのクライアントを定義します。</string>
+    <string name="revanced_spoof_streaming_data_type_title">既定のクライアント</string>
 </resources>

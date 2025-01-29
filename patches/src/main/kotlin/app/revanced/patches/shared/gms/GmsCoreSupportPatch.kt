@@ -31,7 +31,6 @@ import app.revanced.util.returnEarly
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
@@ -297,7 +296,14 @@ fun gmsCoreSupportPatch(
             castDynamiteModuleV2Fingerprint,
             googlePlayUtilityFingerprint,
             serviceCheckFingerprint,
+            sslGuardFingerprint,
         ).forEach { it.methodOrThrow().returnEarly() }
+
+        // Prevent spam logs.
+        eCatcherFingerprint.methodOrThrow().apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
+            addInstruction(index, "return-void")
+        }
 
         // Specific method that needs to be patched.
         transformPrimeMethod()
@@ -327,22 +333,6 @@ fun gmsCoreSupportPatch(
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
-        certificateFingerprint.second.classDefOrNull?.methods?.forEach { mutableMethod ->
-            mutableMethod.apply {
-                val getPackageNameIndex = indexOfGetPackageNameInstruction(this)
-
-                if (getPackageNameIndex > -1) {
-                    val targetRegister =
-                        (getInstruction(getPackageNameIndex) as FiveRegisterInstruction).registerC
-
-                    replaceInstruction(
-                        getPackageNameIndex,
-                        "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->spoofPackageName(Landroid/content/Context;)Ljava/lang/String;",
-                    )
-                }
-            }
-        } // Since it has only been confirmed to work on YouTube and YouTube Music, does not raise an exception even if the fingerprint cannot be solved.
-
         executeBlock()
     }
 
@@ -354,84 +344,33 @@ fun gmsCoreSupportPatch(
  * that are present in GmsCore which need to be transformed.
  */
 private object Constants {
-    /**
-     * All permissions.
-     */
     val PERMISSIONS = setOf(
         // C2DM / GCM
         "com.google.android.c2dm.permission.RECEIVE",
         "com.google.android.c2dm.permission.SEND",
-        "com.google.android.gtalkservice.permission.GTALK_SERVICE",
         "com.google.android.providers.gsf.permission.READ_GSERVICES",
-
-        // GAuth
-        "com.google.android.googleapps.permission.GOOGLE_AUTH",
-        "com.google.android.googleapps.permission.GOOGLE_AUTH.cp",
-        "com.google.android.googleapps.permission.GOOGLE_AUTH.local",
-        "com.google.android.googleapps.permission.GOOGLE_AUTH.mail",
-        "com.google.android.googleapps.permission.GOOGLE_AUTH.writely",
-
-        // Ad
-        "com.google.android.gms.permission.AD_ID_NOTIFICATION",
-        "com.google.android.gms.permission.AD_ID",
     )
 
-    /**
-     * All intent actions.
-     */
     val ACTIONS = setOf(
-        // location
-        "com.google.android.gms.location.places.ui.PICK_PLACE",
-        "com.google.android.gms.location.places.GeoDataApi",
-        "com.google.android.gms.location.places.PlacesApi",
-        "com.google.android.gms.location.places.PlaceDetectionApi",
-        "com.google.android.gms.wearable.MESSAGE_RECEIVED",
-        "com.google.android.gms.checkin.BIND_TO_SERVICE",
-
         // C2DM / GCM
         "com.google.android.c2dm.intent.REGISTER",
         "com.google.android.c2dm.intent.REGISTRATION",
-        "com.google.android.c2dm.intent.UNREGISTER",
         "com.google.android.c2dm.intent.RECEIVE",
         "com.google.iid.TOKEN_REQUEST",
-        "com.google.android.gcm.intent.SEND",
-
-        // car
-        "com.google.android.gms.car.service.START",
 
         // people
         "com.google.android.gms.people.service.START",
 
-        // wearable
-        "com.google.android.gms.wearable.BIND",
-
         // auth
         "com.google.android.gsf.login",
         "com.google.android.gsf.action.GET_GLS",
-        "com.google.android.gms.common.account.CHOOSE_ACCOUNT",
-        "com.google.android.gms.auth.login.LOGIN",
-        "com.google.android.gms.auth.api.credentials.PICKER",
-        "com.google.android.gms.auth.api.credentials.service.START",
         "com.google.android.gms.auth.service.START",
-        "com.google.firebase.auth.api.gms.service.START",
-        "com.google.android.gms.auth.be.appcert.AppCertService",
-        "com.google.android.gms.credential.manager.service.firstparty.START",
-        "com.google.android.gms.auth.GOOGLE_SIGN_IN",
         "com.google.android.gms.signin.service.START",
-        "com.google.android.gms.auth.api.signin.service.START",
-        "com.google.android.gms.auth.api.identity.service.signin.START",
         "com.google.android.gms.accountsettings.action.VIEW_SETTINGS",
-
-        // fido
-        "com.google.android.gms.fido.fido2.privileged.START",
+        "com.google.android.gms.auth.account.authapi.START",
 
         // gass
         "com.google.android.gms.gass.START",
-
-        // games
-        "com.google.android.gms.games.service.START",
-        "com.google.android.gms.games.PLAY_GAMES_UPGRADE",
-        "com.google.android.gms.games.internal.connect.service.START",
 
         // help
         "com.google.android.gms.googlehelp.service.GoogleHelpService.START",
@@ -448,35 +387,27 @@ private object Constants {
         // phenotype
         "com.google.android.gms.phenotype.service.START",
 
-        // location
-        "com.google.android.gms.location.reporting.service.START",
-
         // misc
-        "com.google.android.gms.gmscompliance.service.START",
-        "com.google.android.gms.oss.licenses.service.START",
-        "com.google.android.gms.tapandpay.service.BIND",
-        "com.google.android.gms.measurement.START",
-        "com.google.android.gms.languageprofile.service.START",
         "com.google.android.gms.clearcut.service.START",
+        "com.google.android.gms.common.telemetry.service.START",
+        "com.google.android.gms.gmscompliance.service.START",
         "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE",
-        "com.google.android.gms.icing.INDEX_SERVICE",
-        "com.google.android.gms.mdm.services.START",
+        "com.google.android.gms.languageprofile.service.START",
+        "com.google.android.gms.measurement.START",
+        "com.google.android.gms.pseudonymous.service.START",
+        "com.google.android.gms.usagereporting.service.START",
+        "com.google.android.gms.wallet.service.BIND",
 
         // potoken
         "com.google.android.gms.potokens.service.START",
 
-        // droidguard, safetynet
+        // droidguard
         "com.google.android.gms.droidguard.service.START",
-        "com.google.android.gms.safetynet.service.START",
     )
 
-    /**
-     * All content provider authorities.
-     */
     val AUTHORITIES = setOf(
         // gsf
         "com.google.android.gsf.gservices",
-        "com.google.settings",
 
         // auth
         "com.google.android.gms.auth.accounts",

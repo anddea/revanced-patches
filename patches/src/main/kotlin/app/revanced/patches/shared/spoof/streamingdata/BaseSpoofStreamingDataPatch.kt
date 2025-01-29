@@ -6,17 +6,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.patches.shared.formatStreamModelConstructorFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.definingClassOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -104,9 +101,9 @@ fun baseSpoofStreamingDataPatch(
                         "fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
 
             if (entrySetIndex < 0) smaliInstructions = """
-                        move-object/from16 v$mapRegister, p1
-                        
-                        """ + smaliInstructions
+                move-object/from16 v$mapRegister, p1
+                
+                """ + smaliInstructions
 
             // Copy request headers for streaming data fetch.
             addInstructions(newRequestBuilderIndex + 2, smaliInstructions)
@@ -117,15 +114,20 @@ fun baseSpoofStreamingDataPatch(
         // region Replace the streaming data.
 
         val approxDurationMsReference = formatStreamModelConstructorFingerprint.matchOrThrow().let {
-            with (it.method) {
+            with(it.method) {
                 getInstruction<ReferenceInstruction>(it.patternMatch!!.startIndex).reference
             }
         }
 
-        val streamingDataFormatsReference = with(videoStreamingDataConstructorFingerprint.methodOrThrow(videoStreamingDataToStringFingerprint)) {
+        val streamingDataFormatsReference = with(
+            videoStreamingDataConstructorFingerprint.methodOrThrow(
+                videoStreamingDataToStringFingerprint
+            )
+        ) {
             val getFormatsFieldIndex = indexOfGetFormatsFieldInstruction(this)
             val longMaxValueIndex = indexOfLongMaxValueInstruction(this, getFormatsFieldIndex)
-            val longMaxValueRegister = getInstruction<OneRegisterInstruction>(longMaxValueIndex).registerA
+            val longMaxValueRegister =
+                getInstruction<OneRegisterInstruction>(longMaxValueIndex).registerA
             val videoIdIndex =
                 indexOfFirstInstructionOrThrow(longMaxValueIndex) {
                     val reference = getReference<FieldReference>()
@@ -361,13 +363,6 @@ fun baseSpoofStreamingDataPatch(
         )
 
         // endregion
-
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofStreamingData"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
 
         executeBlock()
 

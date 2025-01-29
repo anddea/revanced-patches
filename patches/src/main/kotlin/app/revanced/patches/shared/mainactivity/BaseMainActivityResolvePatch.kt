@@ -18,6 +18,10 @@ lateinit var onConfigurationChangedMethod: MutableMethod
     private set
 lateinit var onCreateMethod: MutableMethod
     private set
+lateinit var onStartMethod: MutableMethod
+    private set
+lateinit var onStopMethod: MutableMethod
+    private set
 
 private lateinit var constructorMethod: MutableMethod
 private lateinit var onBackPressedMethod: MutableMethod
@@ -45,6 +49,9 @@ fun baseMainActivityResolvePatch(
 
         // set onConfigurationChanged method
         onConfigurationChangedMethod = getMainActivityMethod("onConfigurationChanged")
+
+        onStartMethod = getMainActivityMethod("onStart")
+        onStopMethod = getMainActivityMethod("onStop")
     }
 }
 

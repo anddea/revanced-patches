@@ -5,10 +5,6 @@ internal enum class PatchList(
     val summary: String,
     var included: Boolean? = false
 ) {
-    AMOLED(
-        "Amoled",
-        "Applies a pure black theme to some components."
-    ),
     BITRATE_DEFAULT_VALUE(
         "Bitrate default value",
         "Sets the audio quality to 'Always High' when you first install the app."
@@ -23,7 +19,7 @@ internal enum class PatchList(
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
@@ -35,11 +31,15 @@ internal enum class PatchList(
     ),
     CUSTOM_BRANDING_NAME_FOR_YOUTUBE_MUSIC(
         "Custom branding name for YouTube Music",
-        "Renames the YouTube Music app to the name specified in patch options."
+        "Changes the YouTube Music app name to the name specified in patch options."
     ),
     CUSTOM_HEADER_FOR_YOUTUBE_MUSIC(
         "Custom header for YouTube Music",
         "Applies a custom header in the top left corner within the app."
+    ),
+    DARK_THEME(
+        "Dark theme",
+        "Changes the app's dark theme to the values specified in patch options."
     ),
     DISABLE_CAIRO_SPLASH_ANIMATION(
         "Disable Cairo splash animation",
@@ -49,17 +49,21 @@ internal enum class PatchList(
         "Disable DRC audio",
         "Adds an option to disable DRC (Dynamic Range Compression) audio."
     ),
-    DISABLE_AUTO_CAPTIONS(
-        "Disable auto captions",
+    DISABLE_FORCED_AUTO_CAPTIONS(
+        "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
     ),
     DISABLE_DISLIKE_REDIRECTION(
         "Disable dislike redirection",
         "Adds an option to disable redirection to the next track when clicking the Dislike button."
     ),
+    DISABLE_MUSIC_VIDEO_IN_ALBUM(
+        "Disable music video in album",
+        "Adds option to redirect music videos from albums for non-premium users."
+    ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
-        "Adds an options to enable the OPUS audio codec if the player response includes."
+        "Adds an option to enable the OPUS audio codec if the player response includes it."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
@@ -131,7 +135,7 @@ internal enum class PatchList(
     ),
     SANITIZE_SHARING_LINKS(
         "Sanitize sharing links",
-        "Adds an option to remove tracking query parameters from URLs when sharing links."
+        "Adds an option to sanitize sharing links by removing tracking query parameters."
     ),
     SETTINGS_FOR_YOUTUBE_MUSIC(
         "Settings for YouTube Music",

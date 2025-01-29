@@ -17,13 +17,25 @@ internal enum class PatchList(
         "Bypass image region restrictions",
         "Adds an option to use a different host for static images, so that images blocked in some countries can be received."
     ),
+    BYPASS_URL_REDIRECTS(
+        "Bypass URL redirects",
+        "Adds an option to bypass URL redirects and open the original URL directly."
+    ),
+    CHANGE_LAYOUT(
+        "Change layout",
+        "Adds an option to change the dp in order to use a tablet or phone layout."
+    ),
+    CHANGE_LIVE_RING_CLICK_ACTION(
+        "Change live ring click action",
+        "Adds an option to open the channel instead of the live stream when clicking on the live ring."
+    ),
     CHANGE_PLAYER_FLYOUT_MENU_TOGGLES(
         "Change player flyout menu toggles",
         "Adds an option to use text toggles instead of switch toggles within the additional settings menu."
     ),
     CHANGE_SHARE_SHEET(
         "Change share sheet",
-        "Add option to change from in-app share sheet to system share sheet."
+        "Adds an option to change the in-app share sheet to the system share sheet."
     ),
     CHANGE_START_PAGE(
         "Change start page",
@@ -39,7 +51,7 @@ internal enum class PatchList(
     ),
     CUSTOM_BRANDING_NAME_FOR_YOUTUBE(
         "Custom branding name for YouTube",
-        "Renames the YouTube app to the name specified in patch options."
+        "Changes the YouTube app name to the name specified in patch options."
     ),
     CUSTOM_DOUBLE_TAP_LENGTH(
         "Custom double tap length",
@@ -57,12 +69,12 @@ internal enum class PatchList(
         "Disable QUIC protocol",
         "Adds an option to disable CronetEngine's QUIC protocol."
     ),
-    DISABLE_AUTO_AUDIO_TRACKS(
-        "Disable auto audio tracks",
+    DISABLE_FORCED_AUTO_AUDIO_TRACKS(
+        "Disable forced auto audio tracks",
         "Adds an option to disable audio tracks from being automatically enabled."
     ),
-    DISABLE_AUTO_CAPTIONS(
-        "Disable auto captions",
+    DISABLE_FORCED_AUTO_CAPTIONS(
+        "Disable forced auto captions",
         "Adds an option to disable captions from being automatically enabled."
     ),
     DISABLE_HAPTIC_FEEDBACK(
@@ -79,31 +91,19 @@ internal enum class PatchList(
     ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
-        "Adds an options to enable the OPUS audio codec if the player response includes."
+        "Adds an option to enable the OPUS audio codec if the player response includes it."
     ),
     ENABLE_DEBUG_LOGGING(
         "Enable debug logging",
         "Adds an option to enable debug logging."
     ),
-    ENABLE_EXTERNAL_BROWSER(
-        "Enable external browser",
-        "Adds an option to always open links in your browser instead of in the in-app-browser."
-    ),
     ENABLE_GRADIENT_LOADING_SCREEN(
         "Enable gradient loading screen",
         "Adds an option to enable the gradient loading screen."
     ),
-    ENABLE_OPEN_LINKS_DIRECTLY(
-        "Enable open links directly",
-        "Adds an option to skip over redirection URLs in external links."
-    ),
     FORCE_HIDE_PLAYER_BUTTONS_BACKGROUND(
         "Force player buttons background",
         "Changes the dark background surrounding the video player controls at compile time."
-    ),
-    FORCE_SNACKBAR_THEME(
-        "Force snackbar theme",
-        "Changes snackbar background color to match selected theme at compile time."
     ),
     FULLSCREEN_COMPONENTS(
         "Fullscreen components",
@@ -151,7 +151,7 @@ internal enum class PatchList(
     ),
     HIDE_SHORTCUTS(
         "Hide shortcuts",
-        "Remove, at compile time, the app shortcuts that appears when app icon is long pressed."
+        "Remove, at compile time, the app shortcuts that appears when the app icon is long pressed."
     ),
     HOOK_YOUTUBE_MUSIC_ACTIONS(
         "Hook YouTube Music actions",
@@ -161,25 +161,25 @@ internal enum class PatchList(
         "Hook download actions",
         "Adds support to download videos with an external downloader app using the in-app download button."
     ),
-    LAYOUT_SWITCH(
-        "Layout switch",
-        "Adds an option to spoof the dpi in order to use a tablet or phone layout."
-    ),
     MATERIALYOU(
         "MaterialYou",
         "Applies the MaterialYou theme for Android 12+ devices."
     ),
     MINIPLAYER(
         "Miniplayer",
-        "Adds options to change the in app minimized player, and if patching target 19.16+ adds options to use modern miniplayers."
+        "Adds options to change the in-app minimized player, and if patching target 19.16+ adds options to use modern miniplayers."
     ),
     NAVIGATION_BAR_COMPONENTS(
         "Navigation bar components",
         "Adds options to hide or change components related to the navigation bar."
     ),
+    OPEN_LINKS_EXTERNALLY(
+        "Open links externally",
+        "Adds an option to always open links in your browser instead of the in-app browser."
+    ),
     OVERLAY_BUTTONS(
         "Overlay buttons",
-        "Adds options to display overlay buttons in the video player."
+        "Adds options to display useful overlay buttons in the video player."
     ),
     PLAYER_COMPONENTS(
         "Player components",
@@ -203,7 +203,7 @@ internal enum class PatchList(
     ),
     SANITIZE_SHARING_LINKS(
         "Sanitize sharing links",
-        "Adds an option to remove tracking query parameters from URLs when sharing links."
+        "Adds an option to sanitize sharing links by removing tracking query parameters."
     ),
     SEEKBAR_COMPONENTS(
         "Seekbar components",
@@ -216,6 +216,10 @@ internal enum class PatchList(
     SHORTS_COMPONENTS(
         "Shorts components",
         "Adds options to hide or change components related to YouTube Shorts."
+    ),
+    SNACK_BAR_COMPONENTS(
+        "Snack bar components",
+        "Adds options to hide or change components related to the snack bar."
     ),
     SPONSORBLOCK(
         "SponsorBlock",
@@ -235,11 +239,11 @@ internal enum class PatchList(
     ),
     THEME(
         "Theme",
-        "Changes the app's theme to the values specified in patch options."
+        "Changes the app's themes to the values specified in patch options."
     ),
     TOOLBAR_COMPONENTS(
         "Toolbar components",
-        "Adds options to hide or change components located on the toolbar, such as toolbar buttons, search bar, and header."
+        "Adds options to hide or change components located on the toolbar, such as the search bar, header, and toolbar buttons."
     ),
     TRANSLATIONS_FOR_YOUTUBE(
         "Translations for YouTube",

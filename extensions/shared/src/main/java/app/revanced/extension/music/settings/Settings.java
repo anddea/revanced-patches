@@ -6,6 +6,7 @@ import static app.revanced.extension.music.sponsorblock.objects.CategoryBehaviou
 
 import androidx.annotation.NonNull;
 
+import app.revanced.extension.music.patches.misc.AlbumMusicVideoPatch.RedirectType;
 import app.revanced.extension.music.patches.misc.client.AppClient.ClientType;
 import app.revanced.extension.music.patches.utils.PatchStatus;
 import app.revanced.extension.music.sponsorblock.SponsorBlockSettings;
@@ -51,8 +52,8 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: Flyout menu
-    public static final BooleanSetting ENABLE_COMPACT_DIALOG = new BooleanSetting("revanced_enable_compact_dialog", FALSE);
     public static final BooleanSetting ENABLE_TRIM_SILENCE = new BooleanSetting("revanced_enable_trim_silence", FALSE, true);
+    public static final BooleanSetting ENABLE_COMPACT_DIALOG = new BooleanSetting("revanced_enable_compact_dialog", FALSE);
     public static final BooleanSetting HIDE_FLYOUT_MENU_LIKE_DISLIKE = new BooleanSetting("revanced_hide_flyout_menu_like_dislike", FALSE, true);
     public static final BooleanSetting HIDE_FLYOUT_MENU_3_COLUMN_COMPONENT = new BooleanSetting("revanced_hide_flyout_menu_3_column_component", FALSE, true);
     public static final BooleanSetting HIDE_FLYOUT_MENU_ADD_TO_QUEUE = new BooleanSetting("revanced_hide_flyout_menu_add_to_queue", FALSE, true);
@@ -97,15 +98,15 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_FILTER_STRINGS = new StringSetting("revanced_custom_filter_strings", "", true);
     public static final BooleanSetting HIDE_BUTTON_SHELF = new BooleanSetting("revanced_hide_button_shelf", FALSE, true);
     public static final BooleanSetting HIDE_CAROUSEL_SHELF = new BooleanSetting("revanced_hide_carousel_shelf", FALSE, true);
-    public static final BooleanSetting HIDE_PLAYLIST_CARD_SHELF = new BooleanSetting("revanced_hide_playlist_card_shelf", FALSE, true);
-    public static final BooleanSetting HIDE_SAMPLE_SHELF = new BooleanSetting("revanced_hide_samples_shelf", FALSE, true);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_hide_category_bar", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_BUTTON = new BooleanSetting("revanced_hide_floating_button", FALSE, true);
-    public static final BooleanSetting HIDE_TAP_TO_UPDATE_BUTTON = new BooleanSetting("revanced_hide_tap_to_update_button", FALSE, true);
     public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_hide_history_button", FALSE);
     public static final BooleanSetting HIDE_NOTIFICATION_BUTTON = new BooleanSetting("revanced_hide_notification_button", FALSE, true);
+    public static final BooleanSetting HIDE_PLAYLIST_CARD_SHELF = new BooleanSetting("revanced_hide_playlist_card_shelf", FALSE, true);
+    public static final BooleanSetting HIDE_SAMPLE_SHELF = new BooleanSetting("revanced_hide_samples_shelf", FALSE, true);
     public static final BooleanSetting HIDE_SOUND_SEARCH_BUTTON = new BooleanSetting("revanced_hide_sound_search_button", FALSE, true);
+    public static final BooleanSetting HIDE_TAP_TO_UPDATE_BUTTON = new BooleanSetting("revanced_hide_tap_to_update_button", FALSE, true);
     public static final BooleanSetting HIDE_VOICE_SEARCH_BUTTON = new BooleanSetting("revanced_hide_voice_search_button", FALSE, true);
     public static final BooleanSetting REMOVE_VIEWER_DISCRETION_DIALOG = new BooleanSetting("revanced_remove_viewer_discretion_dialog", FALSE);
     public static final BooleanSetting RESTORE_OLD_STYLE_LIBRARY_SHELF = new BooleanSetting("revanced_restore_old_style_library_shelf", FALSE, true);
@@ -115,8 +116,9 @@ public class Settings extends BaseSettings {
             PatchStatus.SpoofAppVersionDefaultString(), true);
 
 
-    // PreferenceScreen: Navigation bar
-    public static final BooleanSetting ENABLE_BLACK_NAVIGATION_BAR = new BooleanSetting("revanced_enable_black_navigation_bar", TRUE);
+    // PreferenceScreen: Navigation Bar
+    public static final BooleanSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR = new BooleanSetting("revanced_enable_custom_navigation_bar_color", FALSE, true);
+    public static final StringSetting ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE = new StringSetting("revanced_custom_navigation_bar_color_value", "#000000", true);
     public static final BooleanSetting HIDE_NAVIGATION_HOME_BUTTON = new BooleanSetting("revanced_hide_navigation_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_SAMPLES_BUTTON = new BooleanSetting("revanced_hide_navigation_samples_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_EXPLORE_BUTTON = new BooleanSetting("revanced_hide_navigation_explore_button", FALSE, true);
@@ -127,21 +129,21 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: Player
-    public static final BooleanSetting DISABLE_MINI_PLAYER_GESTURE = new BooleanSetting("revanced_disable_mini_player_gesture", FALSE, true);
-    public static final BooleanSetting DISABLE_PLAYER_GESTURE = new BooleanSetting("revanced_disable_player_gesture", FALSE, true);
-    public static final BooleanSetting ENABLE_BLACK_PLAYER_BACKGROUND = new BooleanSetting("revanced_enable_black_player_background", FALSE, true);
-    public static final BooleanSetting ENABLE_COLOR_MATCH_PLAYER = new BooleanSetting("revanced_enable_color_match_player", TRUE);
-    public static final BooleanSetting ENABLE_FORCE_MINIMIZED_PLAYER = new BooleanSetting("revanced_enable_force_minimized_player", TRUE);
     public static final BooleanSetting ENABLE_MINI_PLAYER_NEXT_BUTTON = new BooleanSetting("revanced_enable_mini_player_next_button", TRUE, true);
     public static final BooleanSetting ENABLE_MINI_PLAYER_PREVIOUS_BUTTON = new BooleanSetting("revanced_enable_mini_player_previous_button", TRUE, true);
+    public static final BooleanSetting ENABLE_COLOR_MATCH_PLAYER = new BooleanSetting("revanced_enable_color_match_player", TRUE);
+    public static final BooleanSetting ENABLE_BLACK_PLAYER_BACKGROUND = new BooleanSetting("revanced_enable_black_player_background", FALSE, true);
+    public static final BooleanSetting DISABLE_MINI_PLAYER_GESTURE = new BooleanSetting("revanced_disable_mini_player_gesture", FALSE, true);
+    public static final BooleanSetting DISABLE_PLAYER_GESTURE = new BooleanSetting("revanced_disable_player_gesture", FALSE, true);
+    public static final BooleanSetting ENABLE_FORCE_MINIMIZED_PLAYER = new BooleanSetting("revanced_enable_force_minimized_player", TRUE);
     public static final BooleanSetting ENABLE_SWIPE_TO_DISMISS_MINI_PLAYER = new BooleanSetting("revanced_enable_swipe_to_dismiss_mini_player", TRUE, true);
     public static final BooleanSetting ENABLE_ZEN_MODE = new BooleanSetting("revanced_enable_zen_mode", FALSE);
     public static final BooleanSetting ENABLE_ZEN_MODE_PODCAST = new BooleanSetting("revanced_enable_zen_mode_podcast", FALSE);
-    public static final BooleanSetting HIDE_AUDIO_VIDEO_SWITCH_TOGGLE = new BooleanSetting("revanced_hide_audio_video_switch_toggle", FALSE, true);
     public static final BooleanSetting HIDE_COMMENT_CHANNEL_GUIDELINES = new BooleanSetting("revanced_hide_comment_channel_guidelines", TRUE);
-    public static final BooleanSetting HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comment_timestamp_and_emoji_buttons", FALSE);
     public static final BooleanSetting HIDE_DOUBLE_TAP_OVERLAY_FILTER = new BooleanSetting("revanced_hide_double_tap_overlay_filter", FALSE, true);
+    public static final BooleanSetting HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comment_timestamp_and_emoji_buttons", FALSE);
     public static final BooleanSetting HIDE_FULLSCREEN_SHARE_BUTTON = new BooleanSetting("revanced_hide_fullscreen_share_button", FALSE, true);
+    public static final BooleanSetting HIDE_AUDIO_VIDEO_SWITCH_TOGGLE = new BooleanSetting("revanced_hide_audio_video_switch_toggle", FALSE, true);
     public static final BooleanSetting REMEMBER_REPEAT_SATE = new BooleanSetting("revanced_remember_repeat_state", TRUE);
     public static final BooleanSetting REMEMBER_SHUFFLE_SATE = new BooleanSetting("revanced_remember_shuffle_state", TRUE);
     public static final BooleanSetting ALWAYS_SHUFFLE = new BooleanSetting("revanced_always_shuffle", FALSE);
@@ -178,6 +180,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting CHANGE_SHARE_SHEET = new BooleanSetting("revanced_change_share_sheet", FALSE, true);
     public static final BooleanSetting DISABLE_CAIRO_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_cairo_splash_animation", FALSE, true);
     public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("revanced_disable_drc_audio", FALSE, true);
+    public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
+    public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
     public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", FALSE, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
     public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", FALSE, true);
@@ -247,6 +251,8 @@ public class Settings extends BaseSettings {
             CHANGE_START_PAGE.key,
             CUSTOM_FILTER_STRINGS.key,
             CUSTOM_PLAYBACK_SPEEDS.key,
+            DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE.key,
+            ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE.key,
             EXTERNAL_DOWNLOADER_PACKAGE_NAME.key,
             HIDE_ACCOUNT_MENU_FILTER_STRINGS.key,
             SB_API_URL.key,

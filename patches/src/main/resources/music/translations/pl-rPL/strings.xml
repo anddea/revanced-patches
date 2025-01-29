@@ -13,8 +13,8 @@ Wyłączenie optymalizacji baterii dla GmsCore nie wpłynie negatywnie na zużyc
 Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
     <string name="gms_core_dialog_title">Wymagane działanie</string>
-    <string name="gms_core_settings_summary">Włącz cloud messaging, by otrzymywać powiadomienia.</string>
-    <string name="gms_core_settings_title">Otwórz GmsCore</string>
+    <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX Music, włącz Cloud Messaging.</string>
+    <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu dla obrazów</string>
@@ -32,11 +32,14 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_custom_filter_summary">Włącza własny filtr do ukrywania komponentów układu aplikacji.</string>
     <string name="revanced_custom_filter_title">Włącz własny filtr</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s.</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Nieprawidłowa wartość koloru paska nawigacji.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Wpisz kod hex koloru paska nawigacji.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Niestandardowy kolor paska nawigacji</string>
     <string name="revanced_custom_playback_speeds_invalid">Niestandardowe prędkości muszą być mniejsze niż %sx.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe niestandardowe prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_summary">Skonfiguruj dostępne prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
-    <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube Music w RVX Music, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX.</string>
+    <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube Music w RVX Music, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX Music.</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
     <string name="revanced_disable_auto_captions_summary">Wyłącza automatycznie włączane napisy w odtwarzaczu filmów.</string>
     <string name="revanced_disable_auto_captions_title">Wyłącz automatyczne napisy</string>
@@ -48,20 +51,31 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
     <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
     <string name="revanced_disable_mini_player_gesture_title">Wyłącz gest w miniodtwarzaczu</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Kliknij przełącznik utwór-teledysk</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Kliknij i przytrzymaj przełącznik utwór-teledysk</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Przekieruj</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Określa, w jaki sposób przekierowuje do oficjalnego utworu</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Typ przekierowania</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Gdy użytkownik non-premium odtwarza utwór zawarty w albumie, czasami zamiast oficjalnego utworu, odtwarzany jest teledysk.
+
+Opcja znajduje oficjalny utwór, jeśli wykryje odtwarzanie teledysku z albumu.
+
+• Obsługiwane przez Piped Instance API."</string>
+    <string name="revanced_disable_music_video_in_album_title">Wyłącz teledyski w albumach</string>
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Ustawia kolor paska nawigacji na czarny.</string>
-    <string name="revanced_enable_black_navigation_bar_title">Włącz czarny pasek nawigacji</string>
     <string name="revanced_enable_black_player_background_summary">Zmienia tło odtwarzacza na czarne.</string>
-    <string name="revanced_enable_black_player_background_title">Włącz czarne tło odtwarzacza</string>
-    <string name="revanced_enable_color_match_player_summary">Dopasowuje kolor miniodtwarzacza do otwarzacza pełnoekranowego.</string>
-    <string name="revanced_enable_color_match_player_title">Włącz pasujące kolory odtwarzaczy</string>
+    <string name="revanced_enable_black_player_background_title">Zmień kolor tła odtwarzacza</string>
+    <string name="revanced_enable_color_match_player_summary">Zmienia kolor miniodtwarzacza na kolor będący w odtwarzaczu pełnoekranowym.</string>
+    <string name="revanced_enable_color_match_player_title">Zmień kolor miniodtwarzacza</string>
     <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe menu ustawień utworu na telefonie.
 
 Ograniczenia:
 • Okładka albumu w zakładce biblioteki staje się mniejsza, gdy jest ustawiona siatka
 • Układ wyłącznika czasowego może wyglądać nietypowo"</string>
     <string name="revanced_enable_compact_dialog_title">Włącz kompaktowe menu</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Ustawia kolor paska nawigacji.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Włącz niestandardowy kolor paska nawigacji</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Zawiera buforowanie w logach debugowania.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
@@ -88,9 +102,9 @@ Informacje:
 • Ta funkcja jest dostępna tylko dla podcastów.
 • Ta funkcja jest nadal w fazie rozwoju, więc może być niestabilna."</string>
     <string name="revanced_enable_trim_silence_title">Włącz przełącznik do pomijania ciszy</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">Tryb zen jest stosowany również do podcastów.</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Włącza tryb zen w podcastach.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Włącz tryb zen w podcastach</string>
-    <string name="revanced_enable_zen_mode_summary">Zmienia kolor tła odtwarzacza na jasnoszary, aby zmniejszyć zmęczenie oczu.</string>
+    <string name="revanced_enable_zen_mode_summary">Włącza jasnoszary kolor tła odtwarzacza, aby zmniejszyć zmęczenie oczu.</string>
     <string name="revanced_enable_zen_mode_title">Włącz tryb zen</string>
     <string name="revanced_extended_reset_to_default_toast">Przywrócono domyślne wartości.</string>
     <string name="revanced_extended_restart_first_run">Uruchom ponownie, aby wczytać układ poprawnie</string>
@@ -102,7 +116,7 @@ Informacje:
     <string name="revanced_extended_settings_import_as_file">Zaimportuj ustawienia z pliku</string>
     <string name="revanced_extended_settings_import_copy">Kopiuj</string>
     <string name="revanced_extended_settings_import_export_as_text">Zaimportuj/Wyeksportuj ustawienia jako tekst</string>
-    <string name="revanced_extended_settings_import_export_summary">Zaimportuj lub wyeksportuj ustawienia</string>
+    <string name="revanced_extended_settings_import_export_summary">Zaimportuj / wyeksportuj ustawienia RVX Music</string>
     <string name="revanced_extended_settings_import_export_title">Importuj/Eksportuj ustawienia</string>
     <string name="revanced_extended_settings_import_failed">Nie udało się zaimportować: %s.</string>
     <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
@@ -153,8 +167,8 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_category_bar_title">Ukryj panel kategorii</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Ukrywa wytyczne kanału na górze sekcji komentarzy.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Ukryj wytyczne</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ukrywa czas i przyciski od emotikon podczas pisania komentarzy.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ukryj czas i przyciski od emotikon</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Ukrywa przyciski czasu i emotikon podczas pisania komentarzy.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Ukryj przyciski czasu i emotikon</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Ukrywa poświatę pojawiającą się, gdy przewijamy za pomocą podwójnego kliknięcia.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Ukryj poświatę po dwukrotnym kliknięciu</string>
     <string name="revanced_hide_floating_button_summary">Ukrywa pływający przycisk w zakładce biblioteki.</string>
@@ -202,7 +216,7 @@ Ograniczenie:
     <string name="revanced_hide_handle_title">Ukryj nicki</string>
     <string name="revanced_hide_history_button_summary">Ukrywa przycisk historii z paska narzędzi.</string>
     <string name="revanced_hide_history_button_title">Ukryj przycisk historii</string>
-    <string name="revanced_hide_music_ads_summary">Ukrywa reklamy przed odtworzeniem multimediów.</string>
+    <string name="revanced_hide_music_ads_summary">Ukrywa reklamy w trakcie odtwarzania multimediów.</string>
     <string name="revanced_hide_music_ads_title">Ukryj reklamy multimedialne</string>
     <string name="revanced_hide_navigation_bar_summary">Ukrywa pasek nawigacji.</string>
     <string name="revanced_hide_navigation_bar_title">Ukryj pasek nawigacji</string>
@@ -210,7 +224,7 @@ Ograniczenie:
     <string name="revanced_hide_navigation_explore_button_title">Ukryj przycisk od strony odkrywania</string>
     <string name="revanced_hide_navigation_home_button_summary">Ukrywa przycisk do strony głównej.</string>
     <string name="revanced_hide_navigation_home_button_title">Ukryj przycisk do strony głównej</string>
-    <string name="revanced_hide_navigation_label_summary">Ukrywa nazwy w pasku nawigacji.</string>
+    <string name="revanced_hide_navigation_label_summary">Ukrywa nazwy każdego przycisku w pasku nawigacji.</string>
     <string name="revanced_hide_navigation_label_title">Ukryj nazwy w pasku nawigacji</string>
     <string name="revanced_hide_navigation_library_button_summary">Ukrywa przycisk biblioteki.</string>
     <string name="revanced_hide_navigation_library_button_title">Ukryj przycisk do biblioteki</string>
@@ -424,10 +438,10 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
 
 ※ Używane równolegle z opcją 'Oszukuj klienta', może powodować problemy z odtwarzaniem"</string>
     <string name="revanced_spoof_streaming_data_title">Oszukuj strumień danych</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Denifiuje domyślnego klienta, z którego będzie przechwytywany strumień danych.</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
 </resources>

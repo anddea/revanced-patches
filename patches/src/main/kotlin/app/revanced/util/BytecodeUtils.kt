@@ -264,6 +264,34 @@ fun MutableMethod.injectLiteralInstructionViewCall(
 }
 
 fun BytecodePatchContext.replaceLiteralInstructionCall(
+    originalLiteral: Long,
+    replaceLiteral: Long
+) {
+    classes.forEach { classDef ->
+        classDef.methods.forEach { method ->
+            method.implementation.apply {
+                this?.instructions?.forEachIndexed { _, instruction ->
+                    if (instruction.opcode != Opcode.CONST)
+                        return@forEachIndexed
+                    if ((instruction as Instruction31i).wideLiteral != originalLiteral)
+                        return@forEachIndexed
+
+                    proxy(classDef)
+                        .mutableClass
+                        .findMutableMethodOf(method).apply {
+                            val index = indexOfFirstLiteralInstructionOrThrow(originalLiteral)
+                            val register =
+                                (instruction as OneRegisterInstruction).registerA
+
+                            replaceInstruction(index, "const v$register, $replaceLiteral")
+                        }
+                }
+            }
+        }
+    }
+}
+
+fun BytecodePatchContext.replaceLiteralInstructionCall(
     literal: Long,
     smaliInstruction: String
 ) {
@@ -499,6 +527,11 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     if (instructions.isEmpty()) throw PatchException("Could not find opcode: $opcode in: $this")
 
     return instructions
+}
+
+fun Method.referenceMatchesOrThrow(targetIndex: Int, reference: String) {
+    val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
+    if (reference != targetReference) throw PatchException("References do not match. Expected: '$reference', Found: '$targetReference'")
 }
 
 /**

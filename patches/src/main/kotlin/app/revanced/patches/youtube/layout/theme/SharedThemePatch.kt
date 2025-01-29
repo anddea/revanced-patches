@@ -27,7 +27,7 @@ val sharedThemePatch = resourcePatch(
         document(attrsResourceFile).use { document ->
             (document.getElementsByTagName("resources").item(0) as Element).appendChild(
                 document.createElement("attr").apply {
-                    setAttribute("format", "reference")
+                    setAttribute("format", "reference|color")
                     setAttribute("name", SPLASH_SCREEN_COLOR_NAME)
                 }
             )
@@ -49,7 +49,7 @@ val sharedThemePatch = resourcePatch(
                         setAttribute(
                             "name",
                             when (pathIndex) {
-                                0 -> "splashScreenColor"
+                                0 -> SPLASH_SCREEN_COLOR_NAME
                                 1 -> "android:windowSplashScreenBackground"
                                 else -> "null"
                             }
@@ -59,8 +59,10 @@ val sharedThemePatch = resourcePatch(
                             document.createTextNode(
                                 when (pathIndex) {
                                     0 -> when (nodeAttributeName) {
-                                        "Base.Theme.YouTube.Launcher.Dark" -> "@color/yt_black1"
-                                        "Base.Theme.YouTube.Launcher.Light" -> "@color/yt_white1"
+                                        "Base.Theme.YouTube.Launcher.Dark",
+                                        "Base.Theme.YouTube.Launcher.Cairo.Dark" -> "@color/yt_black1"
+                                        "Base.Theme.YouTube.Launcher.Light",
+                                        "Base.Theme.YouTube.Launcher.Cairo.Light" -> "@color/yt_white1"
                                         else -> "null"
                                     }
 

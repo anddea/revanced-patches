@@ -11,6 +11,7 @@ import app.revanced.patches.music.utils.resourceid.miniPlayerViewPager
 import app.revanced.patches.music.utils.resourceid.playerViewPager
 import app.revanced.patches.music.utils.resourceid.remixGenericButtonSize
 import app.revanced.patches.music.utils.resourceid.tapBloomView
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -22,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
-    "Lcom/google/android/apps/youtube/music/player/AudioVideoSwitcherToggleView;->setVisibility(I)V"
+    "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
 
 internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
     name = "audioVideoSwitchToggleFingerprint",
@@ -32,7 +33,9 @@ internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.indexOfFirstInstruction {
             opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.toString() == AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY
+                    getReference<MethodReference>()
+                        ?.toString()
+                        ?.endsWith(AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY) == true
         } >= 0
     }
 )
@@ -50,10 +53,11 @@ internal val engagementPanelHeightFingerprint = legacyFingerprint(
     ),
     parameters = emptyList(),
     customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "booleanValue"
-        } >= 0
+        method.containsLiteralInstruction(1) &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.name == "booleanValue"
+                } >= 0
     }
 )
 

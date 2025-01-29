@@ -3,10 +3,11 @@
 import logging
 from pathlib import Path
 
-from lxml import etree as et
+from defusedxml import lxml
+from lxml import etree
 
 from config.settings import Settings
-from utils.xml import XMLProcessor
+from utils.xml_processor import XMLProcessor
 
 logger = logging.getLogger("xml_tools")
 
@@ -19,16 +20,19 @@ def sort_file(path: Path) -> None:
 
     """
     try:
-        _, root, strings = XMLProcessor.parse_file(path)
+        # Use defusedxml for parsing
+        _, _, strings = XMLProcessor.parse_file(path)
 
-        # Create new root with sorted strings
-        new_root = et.Element("resources")
+        # Create new root with sorted strings using lxml
+        new_root = etree.Element("resources")  # Use etree.Element from lxml
         for name in sorted(strings.keys()):
             data = strings[name]
-            string_elem = et.Element("string", **data["attributes"])
-            string_elem.text = data["text"]
+            # Parse the string representation into an element using defusedxml
+            # Use lxml.fromstring (which is patched by defusedxml)
+            string_elem = lxml.fromstring(data["text"].encode())  # encode to bytes
             new_root.append(string_elem)
 
+        # Use lxml-based write_file for pretty-printing
         XMLProcessor.write_file(path, new_root)
         logger.info("Sorted strings in %s", path)
 

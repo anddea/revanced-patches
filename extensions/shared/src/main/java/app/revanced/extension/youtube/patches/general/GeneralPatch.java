@@ -5,7 +5,6 @@ import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.shared.utils.Utils.hideViewByLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewGroupByMarginLayoutParams;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
-import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import static app.revanced.extension.youtube.patches.utils.PatchStatus.ImageSearchButton;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
@@ -41,10 +40,10 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
 @SuppressWarnings("unused")
@@ -109,12 +108,7 @@ public class GeneralPatch {
     // region [Disable splash animation] patch
 
     public static boolean disableSplashAnimation(boolean original) {
-        try {
-            return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to load disableSplashAnimation", ex);
-        }
-        return original;
+        return !Settings.DISABLE_SPLASH_ANIMATION.get() && original;
     }
 
     // endregion
@@ -128,6 +122,10 @@ public class GeneralPatch {
     // endregion
 
     // region [Hide layout components] patch
+
+    public static boolean disableTranslucentStatusBar(boolean original) {
+        return !Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get() && original;
+    }
 
     private static String[] accountMenuBlockList;
 
@@ -190,15 +188,9 @@ public class GeneralPatch {
         return Settings.HIDE_FLOATING_MICROPHONE.get() || original;
     }
 
-    public static boolean hideSnackBar() {
-        return Settings.HIDE_SNACK_BAR.get();
-    }
-
     // endregion
 
     // region [Hide navigation bar components] patch
-
-    private static final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
 
     private static final Map<NavigationButton, Boolean> shouldHideMap = new EnumMap<>(NavigationButton.class) {
         {
@@ -215,10 +207,15 @@ public class GeneralPatch {
         return Settings.ENABLE_NARROW_NAVIGATION_BUTTONS.get() || original;
     }
 
+    public static boolean enableTranslucentNavigationBar() {
+        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
+    }
+
     /**
      * @noinspection ALL
      */
     public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
+        final int fillBellCairoBlack = ResourceUtils.getDrawableIdentifier("yt_fill_bell_cairo_black_24");
         if (fillBellCairoBlack != 0) {
             // It's very unlikely, but Google might fix this issue someday.
             // If so, [fillBellCairoBlack] might already be in enumMap.
@@ -243,52 +240,6 @@ public class GeneralPatch {
 
     public static void hideNavigationBar(View view) {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_BAR.get(), view);
-    }
-
-    public static boolean useTranslucentNavigationStatusBar(boolean original) {
-        try {
-            if (Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get()) {
-                return false;
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to load useTranslucentNavigationStatusBar", ex);
-        }
-
-        return original;
-    }
-
-    public static boolean enableTranslucentNavigationBar() {
-        return Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR.get();
-    }
-
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
-            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
-
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
-            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
-
-    public static boolean useTranslucentNavigationButtons(boolean original) {
-        try {
-            // Feature requires Android 13+
-            if (!isSDKAbove(33)) {
-                return original;
-            }
-
-            if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
-                return original;
-            }
-
-            if (DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
-                return false;
-            }
-
-            return Utils.isDarkModeEnabled()
-                    ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
-                    : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
-        } catch (Exception ex) {
-            Logger.printException(() -> "Failed to load useTranslucentNavigationButtons", ex);
-        }
-        return original;
     }
 
     // endregion
@@ -356,8 +307,8 @@ public class GeneralPatch {
 
     // region [Toolbar components] patch
 
-    private static final int generalHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytWordmarkHeader");
-    private static final int premiumHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytPremiumWordmarkHeader");
+    private static int generalHeaderAttributeId = 0;
+    private static int premiumHeaderAttributeId = 0;
 
     public static void setDrawerNavigationHeader(View lithoView) {
         final int headerAttributeId = getHeaderAttributeId();
@@ -375,6 +326,11 @@ public class GeneralPatch {
     }
 
     public static int getHeaderAttributeId() {
+        if (premiumHeaderAttributeId == 0) {
+            generalHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytWordmarkHeader");
+            premiumHeaderAttributeId = ResourceUtils.getAttrIdentifier("ytPremiumWordmarkHeader");
+        }
+
         return Settings.CHANGE_YOUTUBE_HEADER.get()
                 ? premiumHeaderAttributeId
                 : generalHeaderAttributeId;
@@ -388,11 +344,6 @@ public class GeneralPatch {
         // Rest of the implementation added by patch.
         return ResourceUtils.getDrawable("");
     }
-
-    private static final int searchBarId = ResourceUtils.getIdIdentifier("search_bar");
-    private static final int youtubeTextId = ResourceUtils.getIdIdentifier("youtube_text");
-    private static final int searchBoxId = ResourceUtils.getIdIdentifier("search_box");
-    private static final int searchIconId = ResourceUtils.getIdIdentifier("search_icon");
 
     private static final boolean wideSearchbarEnabled = Settings.ENABLE_WIDE_SEARCH_BAR.get();
     // Loads the search bar deprecated by Google.
@@ -429,15 +380,30 @@ public class GeneralPatch {
             return !wideSearchbarYouTabEnabled && original;
     }
 
+    private static int searchBarId = 0;
+    private static int youtubeTextId = 0;
+    private static int searchBoxId = 0;
+    private static int searchIconId = 0;
+
     public static void setWideSearchBarLayout(View view) {
         if (!wideSearchbarEnabled)
             return;
+
+        if (searchBarId == 0) {
+            searchBarId = ResourceUtils.getIdIdentifier("search_bar");
+        }
+
         if (!(view.findViewById(searchBarId) instanceof RelativeLayout searchBarView))
             return;
 
         // When the deprecated search bar is loaded, two search bars overlap.
         // Manually hides another search bar.
         if (wideSearchbarWithHeaderEnabled) {
+            if (youtubeTextId == 0) {
+                youtubeTextId = ResourceUtils.getIdIdentifier("youtube_text");
+                searchBoxId = ResourceUtils.getIdIdentifier("search_box");
+                searchIconId = ResourceUtils.getIdIdentifier("search_icon");
+            }
             final View searchIconView = searchBarView.findViewById(searchIconId);
             final View searchBoxView = searchBarView.findViewById(searchBoxId);
             final View textView = searchBarView.findViewById(youtubeTextId);
@@ -552,14 +518,35 @@ public class GeneralPatch {
         imageView.setImageDrawable(drawable);
     }
 
-    private static final int settingsDrawableId =
-            ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
+    private static int settingsDrawableId = 0;
+    private static int settingsCairoDrawableId = 0;
 
     public static int getCreateButtonDrawableId(int original) {
-        return Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get() &&
-                settingsDrawableId != 0
+        if (!Settings.REPLACE_TOOLBAR_CREATE_BUTTON.get()) {
+            return original;
+        }
+
+        if (settingsDrawableId == 0) {
+            settingsDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_black_24");
+        }
+
+        if (settingsDrawableId == 0) {
+            return original;
+        }
+
+        // If the user has patched YouTube 19.26.42,
+        // Or spoofed the app version to 19.26.42 or earlier.
+        if (!ExtendedUtils.IS_19_28_OR_GREATER || ExtendedUtils.isSpoofingToLessThan("19.27.00")) {
+            return settingsDrawableId;
+        }
+
+        if (settingsCairoDrawableId == 0) {
+            settingsCairoDrawableId = ResourceUtils.getDrawableIdentifier("yt_outline_gear_cairo_black_24");
+        }
+
+        return settingsCairoDrawableId == 0
                 ? settingsDrawableId
-                : original;
+                : settingsCairoDrawableId;
     }
 
     public static void replaceCreateButton(String enumString, View toolbarView) {

@@ -13,10 +13,10 @@
 Натисніть кнопку \"Продовжити\" та вимкніть оптимізацію."</string>
     <string name="gms_core_dialog_open_website_text">Відкрити сайт</string>
     <string name="gms_core_dialog_title">Потрібна дія</string>
-    <string name="gms_core_settings_summary">Увімкніть \"Хмарні повідомлення\", щоб отримувати сповіщення.</string>
-    <string name="gms_core_settings_title">Відкрити GmsCore</string>
+    <string name="gms_core_settings_summary">Щоб отримувати сповіщення у RVX Music, увімкніть \"Хмарні повідомлення\".</string>
+    <string name="gms_core_settings_title">Відкрити налаштування GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не встановлено. Встановіть.</string>
-    <string name="revanced_bypass_image_region_restrictions_summary">Замінює домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо.</string>
+    <string name="revanced_bypass_image_region_restrictions_summary">Обходить домен для зображень, заблокований у деяких регіонах, що дозволить отримувати мініатюри списків відтворення, аватари каналів тощо.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Змінити домен зображень</string>
     <string name="revanced_change_share_sheet_summary">Змінює тип вікна діалогу поширення з вбудованого на системний.</string>
     <string name="revanced_change_share_sheet_title">Змінити діалог поширення</string>
@@ -32,13 +32,16 @@
     <string name="revanced_custom_filter_summary">Вмикає користувацькі фільтри для приховування компонентів інтерфейсу.</string>
     <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Недопустимий користувацький фільтр: %s.</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Недійсне значення кольору панелі навігації.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Введіть hex код кольору панелі навігації.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Значення користувацького кольору панелі навігації</string>
     <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості мають бути меншими за %sx.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення.</string>
     <string name="revanced_custom_playback_speeds_summary">Налаштувати доступні швидкості відтворення.</string>
     <string name="revanced_custom_playback_speeds_title">Редагувати користувацькі швидкості відтворення</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати посилання на YouTube Music у RVX Music, увімкніть \"Відкривати підтримувані посилання\" та активуйте підтримувані веб-адреси.</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування за замовчуванням</string>
-    <string name="revanced_disable_auto_captions_summary">Вимикає автоматичне ввімкнення субтитрів.</string>
+    <string name="revanced_disable_auto_captions_summary">Вимикає примусове ввімкнення автоматичних субтитрів.</string>
     <string name="revanced_disable_auto_captions_title">Вимкнути примусові авто субтитри</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Вимикає сплеш анімацію Каїр під час запуску застосунку.</string>
     <string name="revanced_disable_cairo_splash_animation_title">Вимкнути сплеш анімацію Каїр</string>
@@ -48,25 +51,36 @@
     <string name="revanced_disable_drc_audio_title">Вимкнути DRC аудіо</string>
     <string name="revanced_disable_mini_player_gesture_summary">Вимикає жести перемикання треків у мініплеєрі.</string>
     <string name="revanced_disable_mini_player_gesture_title">Вимкнути жести мініплеєра</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Натиснення перемикача \"пісня | відео\"</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Натиснення та утримання перемикача \"пісня | відео\"</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Перенаправлення</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Визначає спосіб перенаправлення до офіційної пісні.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Тип перенаправлення</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Коли користувач без преміуму відтворює пісню з альбому, іноді замість офіційної пісні відтворюється музичне відео.
+
+Знайти офіційну пісню, якщо виявлено музичне відео з альбому. 
+
+• На базі Piped Instance API."</string>
+    <string name="revanced_disable_music_video_in_album_title">Вимкнути музичні відео в альбомі</string>
     <string name="revanced_disable_player_gesture_summary">Вимикає жести перемикання треків у плеєрі.</string>
     <string name="revanced_disable_player_gesture_title">Вимкнути жести плеєра</string>
-    <string name="revanced_enable_black_navigation_bar_summary">Встановлює чорний колір для панелі навігації.</string>
-    <string name="revanced_enable_black_navigation_bar_title">Увімкнути чорну панель навігації</string>
     <string name="revanced_enable_black_player_background_summary">Змінює адаптивний колір фона плеєра на чорний.</string>
-    <string name="revanced_enable_black_player_background_title">Увімкнути чорний фон плеєра</string>
-    <string name="revanced_enable_color_match_player_summary">Колір мініплеєра повторює колір повноекранного плеєра.</string>
-    <string name="revanced_enable_color_match_player_title">Увімкнути колірну відповідність плеєрів</string>
+    <string name="revanced_enable_black_player_background_title">Змінити колір фону плеєра</string>
+    <string name="revanced_enable_color_match_player_summary">Змінює колір мініплеєра на колір повноекранного плеєра.</string>
+    <string name="revanced_enable_color_match_player_title">Змінити колір мініплеєра</string>
     <string name="revanced_enable_compact_dialog_summary">"Вмикає компактне спливаюче вікно на телефонах.
 
 Відомі проблеми:
 • Обкладинка альбому на вкладці \"Бібліотека\" стає меншою, якщо вона впорядкована сіткою.
 • Вікно \"Таймер сну\" може з'являтися незвично."</string>
     <string name="revanced_enable_compact_dialog_title">Увімкнути компактний вигляд меню</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Встановлює колір для панелі навігації.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Увімкнути користувацький колір панелі навігації</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Включає буфер у журнал налагодження.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
     <string name="revanced_enable_debug_logging_summary">Виводить протокол налагодження.</string>
     <string name="revanced_enable_debug_logging_title">Увімкнути протоколи налагодження</string>
-    <string name="revanced_enable_force_minimized_player_summary">Тримає плеєр згорнутим, навіть коли відтворюється інший трек.</string>
+    <string name="revanced_enable_force_minimized_player_summary">Вмикає мініплеєр на постійній основі під час переходу на новий трек.</string>
     <string name="revanced_enable_force_minimized_player_title">Увімкнути мініплеєр на постійній основі</string>
     <string name="revanced_enable_landscape_mode_summary">Вмикає ландшафтний режим під час повороту екрана на телефонах.</string>
     <string name="revanced_enable_landscape_mode_title">Увімкнути ландшафтний режим</string>
@@ -74,7 +88,7 @@
     <string name="revanced_enable_mini_player_next_button_title">Додати кнопку наступне у мініплеєр</string>
     <string name="revanced_enable_mini_player_previous_button_summary">Додає кнопку попереднього треку у мініплеєр.</string>
     <string name="revanced_enable_mini_player_previous_button_title">Додати кнопку попереднє у мініплеєр</string>
-    <string name="revanced_enable_opus_codec_summary">"Вмикає кодек OPUS, якщо відповідь від сервера містить кодек OPUS.
+    <string name="revanced_enable_opus_codec_summary">"Вмикає кодек OPUS, якщо відповідь від сервера містить його.
 
 Інформація:
 • Останні YouTube Music клієнти за умовчанням використовують аудіокодек OPUS.
@@ -88,9 +102,9 @@
 • Ця функція призначена для подкастів.
 • Ця функція все ще у розробці, тому може бути нестабільною."</string>
     <string name="revanced_enable_trim_silence_title">Додати перемикач \"Пропуск тиші\"</string>
-    <string name="revanced_enable_zen_mode_podcast_summary">Режим \"Дзен\" також застосовується до подкастів.</string>
+    <string name="revanced_enable_zen_mode_podcast_summary">Вмикає режим \"Дзен\" для подкастів.</string>
     <string name="revanced_enable_zen_mode_podcast_title">Увімкнути режим \"Дзен\" у подкастах</string>
-    <string name="revanced_enable_zen_mode_summary">Змінює колір фона плеєра на світло-сірий, щоб зменшити навантаження на очі.</string>
+    <string name="revanced_enable_zen_mode_summary">Вмикає світло-сірий колір фону плеєра, щоб зменшити навантаження на очі.</string>
     <string name="revanced_enable_zen_mode_title">Увімкнути режим \"Дзен\"</string>
     <string name="revanced_extended_reset_to_default_toast">Скинуто до значень за замовчуванням.</string>
     <string name="revanced_extended_restart_first_run">Перезапустіть, щоб нормально завантажився макет</string>
@@ -102,7 +116,7 @@
     <string name="revanced_extended_settings_import_as_file">Імпорт налаштувань із файлу</string>
     <string name="revanced_extended_settings_import_copy">Копіювати</string>
     <string name="revanced_extended_settings_import_export_as_text">Імпорт або експорт налаштувань у вигляді тексту</string>
-    <string name="revanced_extended_settings_import_export_summary">Імпортує або експортує налаштування.</string>
+    <string name="revanced_extended_settings_import_export_summary">Імпортує або експортує налаштування RVX Music.</string>
     <string name="revanced_extended_settings_import_export_title">Імпорт / Експорт налаштувань</string>
     <string name="revanced_extended_settings_import_failed">Не вдалося імпортувати налаштування: %s.</string>
     <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
@@ -153,8 +167,8 @@
     <string name="revanced_hide_category_bar_title">Приховати панель категорій</string>
     <string name="revanced_hide_comment_channel_guidelines_summary">Приховує правила каналу у верхній частині секції коментарів.</string>
     <string name="revanced_hide_comment_channel_guidelines_title">Приховати правила каналу</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Приховує кнопки мітки часу та емодзі під час введення коментарів.</string>
-    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати мітку часу та емодзі</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary">Приховує кнопки емодзі та мітки часу під час введення коментарів.</string>
+    <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Приховати емодзі та кнопку мітки часу</string>
     <string name="revanced_hide_double_tap_overlay_filter_summary">Приховує затемнення, яке з’являється під час подвійного натискання для перемотування.</string>
     <string name="revanced_hide_double_tap_overlay_filter_title">Приховати фільтр подвійного натискання</string>
     <string name="revanced_hide_floating_button_summary">Приховує плаваючу кнопку у вкладці \"Бібліотека\".</string>
@@ -172,7 +186,7 @@
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Приховати \"Перейти до подкасту\"</string>
     <string name="revanced_hide_flyout_menu_help_title">Приховати \"Довідка й відгуки\"</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Приховати \"Подобається\" і \"Не подобається\"</string>
-    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Приховати \"Закріпити у швидкому виборі\"</string>
+    <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Приховати \"Закріпити в розділі Швидкий набір\"</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Приховати \"Відтворити наступним\"</string>
     <string name="revanced_hide_flyout_menu_quality_title">Приховати \"Якість\"</string>
     <string name="revanced_hide_flyout_menu_remove_from_library_title">Приховати \"Вилучити з бібліотеки\"</string>
@@ -187,7 +201,7 @@
     <string name="revanced_hide_flyout_menu_start_radio_title">Приховати \"Увімкнути Радіо\"</string>
     <string name="revanced_hide_flyout_menu_stats_for_nerds_title">Приховати \"Статистика для досвідчених користувачів\"</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Приховати \"Підписатися / Скасувати підписку\"</string>
-    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Приховати \"Відкріпити зі швидкого вибору\"</string>
+    <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Приховати \"Відкріпити від розділу Швидкий набір\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати \"Переглянути авторів пісні\"</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Приховує повноекранну рекламу.
 
@@ -202,7 +216,7 @@
     <string name="revanced_hide_handle_title">Приховати електронну пошту / @нік</string>
     <string name="revanced_hide_history_button_summary">Приховує кнопку історії на панелі інструментів вкладки \"Бібліотека\".</string>
     <string name="revanced_hide_history_button_title">Приховати кнопку історії</string>
-    <string name="revanced_hide_music_ads_summary">Приховує рекламу перед відтворенням медіа.</string>
+    <string name="revanced_hide_music_ads_summary">Приховує рекламу, яка з\'являється під час відтворення медіа.</string>
     <string name="revanced_hide_music_ads_title">Приховати медіарекламу</string>
     <string name="revanced_hide_navigation_bar_summary">Приховує панель навігації.</string>
     <string name="revanced_hide_navigation_bar_title">Приховати панель навігації</string>
@@ -210,7 +224,7 @@
     <string name="revanced_hide_navigation_explore_button_title">Приховати \"Навігація\"</string>
     <string name="revanced_hide_navigation_home_button_summary">Приховує кнопку \"Головна\" на панелі навігації.</string>
     <string name="revanced_hide_navigation_home_button_title">Приховати \"Головна\"</string>
-    <string name="revanced_hide_navigation_label_summary">Приховує підписи кнопок на панелі навігації.</string>
+    <string name="revanced_hide_navigation_label_summary">Приховує підпис під кожною навігаційною кнопкою.</string>
     <string name="revanced_hide_navigation_label_title">Приховати підписи кнопок навігації</string>
     <string name="revanced_hide_navigation_library_button_summary">Приховує кнопку \"Бібліотека\" на панелі навігації.</string>
     <string name="revanced_hide_navigation_library_button_title">Приховати \"Бібліотека\"</string>
@@ -224,7 +238,7 @@
     <string name="revanced_hide_paid_promotion_label_title">Приховати \"Містить пряму рекламу\"</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Приховує полицю карток списку відтворення в стрічці.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Приховати полицю карток списку відтворення</string>
-    <string name="revanced_hide_premium_promotion_summary">Приховує спливаючі вікна реклами підписки Music Premium.</string>
+    <string name="revanced_hide_premium_promotion_summary">Приховує спливаючі вікна реклами підписки.</string>
     <string name="revanced_hide_premium_promotion_title">Приховати спливаючу рекламу Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Приховує банер поновлення підписки Music Premium.</string>
     <string name="revanced_hide_premium_renewal_title">Приховати банер поновлення Premium</string>
@@ -295,14 +309,14 @@
     <string name="revanced_replace_flyout_menu_report_only_player_title">Залишити \"Поскаржитися\"</string>
     <string name="revanced_replace_flyout_menu_report_summary">Замінює пункт \"Поскаржитися\" на пункт \"Швидкість відео\".</string>
     <string name="revanced_replace_flyout_menu_report_title">Заміна \"Поскаржитися\"</string>
-    <string name="revanced_restore_old_comments_popup_panels_summary">Повертає старий стиль спливаючих панелей коментарів.</string>
+    <string name="revanced_restore_old_comments_popup_panels_summary">Відновлює старий стиль спливаючих панелей коментарів.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Відновити старі спливаючі панелі коментарів</string>
-    <string name="revanced_restore_old_player_background_summary">Повертає фон плеєра до старого стилю.</string>
+    <string name="revanced_restore_old_player_background_summary">Відновлює фон плеєра до старого стилю.</string>
     <string name="revanced_restore_old_player_background_title">Відновити старий фон плеєра</string>
-    <string name="revanced_restore_old_player_layout_summary">"Повертає інтерфейс плеєра до старого стилю.
+    <string name="revanced_restore_old_player_layout_summary">"Відновлює інтерфейс плеєра до старого стилю.
 Деякі функції можуть працювати не належним чином у старому інтерфейсі плеєра."</string>
     <string name="revanced_restore_old_player_layout_title">Відновити старий інтерфейс плеєра</string>
-    <string name="revanced_restore_old_style_library_shelf_summary">Повертає старий стиль вкладки \"Бібліотека\". (Експериментальна опція)</string>
+    <string name="revanced_restore_old_style_library_shelf_summary">Відновлює старий стиль вкладки \"Бібліотека\". (Експериментальна опція)</string>
     <string name="revanced_restore_old_style_library_shelf_title">Відновити старий стиль вкладки \"Бібліотека\"</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@псевдонім (Ім\'я користувача)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Вибрати формат відображення імені користувача.</string>
@@ -339,7 +353,7 @@
     <string name="revanced_ryd_toast_on_connection_error_summary">Показує тост, якщо API ReturnYouTubeDislike не доступний.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано</string>
-    <string name="revanced_sanitize_sharing_links_summary">Видаляє параметри запиту відстеження з URL-адрес під час обміну посиланнями.</string>
+    <string name="revanced_sanitize_sharing_links_summary">Видаляє параметри запиту відстеження з посилання перед тим, як поділитися ним.</string>
     <string name="revanced_sanitize_sharing_links_title">Обробляти поширення посилань</string>
     <string name="revanced_sb_about">Про інтеграцію</string>
     <string name="revanced_sb_about_api">sponsor.ajay.app</string>
@@ -408,23 +422,25 @@
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
     <string name="revanced_spoof_client_summary">"Підробити клієнт, щоб запобігти проблемам із відтворенням.
 
-Обмеження:
-• Аудіокодек OPUS може не підтримуватися.
-• Мініатюри перемотки можуть бути відсутніми.
-• Історія переглядів не працює з обліковим записом бренду.
-
-※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
+※ Під час використання разом з \"Підробка потокових даних\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_client_title">Підміна клієнта</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки. 
+
+※ Під час використання клієнта Android рекомендується використовувати його разом з \"Підробити версію програми\"."</string>
+    <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Підробити потокові дані, щоб запобігти проблемам із відтворенням.
 
 ※ Під час використання разом з \"Підміною клієнта\" можуть виникнути проблеми з відтворенням."</string>
     <string name="revanced_spoof_streaming_data_title">Підробка потокових даних</string>
+    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
     <string name="revanced_spoof_streaming_data_type_summary">Визначає клієнт за замовчуванням, який отримує потокові дані.</string>
     <string name="revanced_spoof_streaming_data_type_title">Клієнт за замовчуванням</string>
 </resources>

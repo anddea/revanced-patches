@@ -43,6 +43,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import kotlin.text.Regex;
 
@@ -53,8 +55,6 @@ public class Utils {
 
     @SuppressLint("StaticFieldLeak")
     public static Context context;
-
-    private static Resources resources;
 
     protected Utils() {
     } // utility class
@@ -142,6 +142,24 @@ public class Utils {
         return backgroundThreadPool.submit(call);
     }
 
+    /**
+     * Simulates a delay by doing meaningless calculations.
+     * Used for debugging to verify UI timeout logic.
+     */
+    @SuppressWarnings("UnusedReturnValue")
+    public static long doNothingForDuration(long amountOfTimeToWaste) {
+        final long timeCalculationStarted = System.currentTimeMillis();
+        Logger.printDebug(() -> "Artificially creating delay of: " + amountOfTimeToWaste + "ms");
+
+        long meaninglessValue = 0;
+        while (System.currentTimeMillis() - timeCalculationStarted < amountOfTimeToWaste) {
+            // could do a thread sleep, but that will trigger an exception if the thread is interrupted
+            meaninglessValue += Long.numberOfLeadingZeros((long) Math.exp(Math.random()));
+        }
+        // return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
+        // leaving an empty loop that hammers on the System.currentTimeMillis native call
+        return meaninglessValue;
+    }
 
     public static boolean containsAny(@NonNull String value, @NonNull String... targets) {
         return indexOfFirstFound(value, targets) >= 0;
@@ -264,11 +282,14 @@ public class Utils {
     }
 
     public static Resources getResources() {
-        if (resources == null) {
-            return getLocalizedContextAndSetResources(getContext()).getResources();
-        } else {
-            return resources;
+        if (context != null) {
+            return context.getResources();
         }
+        Activity mActivity = activityRef.get();
+        if (mActivity != null) {
+            return mActivity.getResources();
+        }
+        throw new IllegalStateException("Get resources failed");
     }
 
     /**
@@ -281,29 +302,27 @@ public class Utils {
      * @param mContext Context to check locale.
      * @return Context with locale applied.
      */
-    public static Context getLocalizedContextAndSetResources(Context mContext) {
+    public static Context getLocalizedContext(Context mContext) {
         Activity mActivity = activityRef.get();
         if (mActivity == null) {
             return mContext;
         }
+        if (mContext == null) {
+            return null;
+        }
 
-        // Locale of MainActivity.
-        Locale applicationLocale;
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+
+        // Locale of Application.
+        Locale applicationLocale = language == AppLanguage.DEFAULT
+                ? mActivity.getResources().getConfiguration().locale
+                : language.getLocale();
 
         // Locale of Context.
-        Locale contextLocale;
-
-        if (isSDKAbove(24)) {
-            applicationLocale = mActivity.getResources().getConfiguration().getLocales().get(0);
-            contextLocale = mContext.getResources().getConfiguration().getLocales().get(0);
-        } else {
-            applicationLocale = mActivity.getResources().getConfiguration().locale;
-            contextLocale = mContext.getResources().getConfiguration().locale;
-        }
+        Locale contextLocale = mContext.getResources().getConfiguration().locale;
 
         // If they are identical, no need to override them.
         if (applicationLocale == contextLocale) {
-            resources = mActivity.getResources();
             return mContext;
         }
 
@@ -311,9 +330,7 @@ public class Utils {
         Locale.setDefault(applicationLocale);
         Configuration configuration = new Configuration(mContext.getResources().getConfiguration());
         configuration.setLocale(applicationLocale);
-        Context localizedContext = mContext.createConfigurationContext(configuration);
-        resources = localizedContext.getResources();
-        return localizedContext;
+        return mContext.createConfigurationContext(configuration);
     }
 
     public static void setActivity(Activity mainActivity) {
@@ -330,6 +347,14 @@ public class Utils {
 
         context = appContext;
 
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+        if (language != AppLanguage.DEFAULT) {
+            // Create a new context with the desired language.
+            Configuration config = appContext.getResources().getConfiguration();
+            config.setLocale(language.getLocale());
+            context = appContext.createConfigurationContext(config);
+        }
+
         // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
         // Calling the regular printDebug method here can cause a Settings context null pointer exception,
         // even though the context is already set before the call.
@@ -339,7 +364,17 @@ public class Utils {
         //
         // Info level also helps debug if a patch hook is called before
         // the context is set since debug logging is off by default.
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Set context: ");
+        sb.append(appContext);
+        StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
+        if (stackTraceElement.length > 3) {
+            sb.append("\n");
+            sb.append("Called from method: ");
+            sb.append(stackTraceElement[3]);
+        }
+
+        Logger.initializationInfo(Utils.class, sb.toString());
     }
 
     public static void setClipboard(@NonNull String text) {
@@ -462,16 +497,6 @@ public class Utils {
         return false;
     }
 
-    public static boolean isDarkModeEnabled() {
-        return isDarkModeEnabled(context);
-    }
-
-    public static boolean isDarkModeEnabled(Context context) {
-        Configuration config = context.getResources().getConfiguration();
-        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
-    }
-
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
@@ -512,6 +537,11 @@ public class Utils {
                     }
                 }
         );
+    }
+
+    public static boolean isLandscapeOrientation() {
+        final int orientation = context.getResources().getConfiguration().orientation;
+        return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
     /**

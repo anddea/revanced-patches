@@ -29,19 +29,20 @@ internal val castDynamiteModuleFingerprint = legacyFingerprint(
     name = "castDynamiteModuleFingerprint",
     strings = listOf("com.google.android.gms.cast.framework.internal.CastDynamiteModuleImpl")
 )
+
 internal val castDynamiteModuleV2Fingerprint = legacyFingerprint(
     name = "castDynamiteModuleV2Fingerprint",
     strings = listOf("Failed to load module via V2: ")
 )
 
 internal val googlePlayUtilityFingerprint = legacyFingerprint(
-    name = "castContextFetchFingerprint",
+    name = "googlePlayUtilityFingerprint",
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
     strings = listOf(
         "This should never happen.",
-        "MetadataValueReader"
+        "MetadataValueReader",
     )
 )
 
@@ -51,6 +52,23 @@ internal val serviceCheckFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
     strings = listOf("Google Play Services not available")
+)
+
+internal val sslGuardFingerprint = legacyFingerprint(
+    name = "sslGuardFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    strings = listOf("Cannot initialize SslGuardSocketFactory will null"),
+)
+
+internal val eCatcherFingerprint = legacyFingerprint(
+    name = "eCatcherFingerprint",
+    returnType = "V",
+    opcodes = listOf(Opcode.NEW_ARRAY),
+    strings = listOf("ECatcher disabled: level: %s, category: %s, message: %s"),
+    customFingerprint = { method, _ ->
+        method.parameterTypes.contains("Ljava/util/function/Function;")
+    },
 )
 
 internal val primesApiFingerprint = legacyFingerprint(
@@ -90,19 +108,3 @@ internal val primesLifecycleEventFingerprint = legacyFingerprint(
         } >= 0
     }
 )
-
-internal val certificateFingerprint = legacyFingerprint(
-    name = "certificateFingerprint",
-    returnType = "Ljava/lang/String;",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    parameters = emptyList(),
-    strings = listOf("X.509", "user", "S"),
-    customFingerprint = { method, _ ->
-        indexOfGetPackageNameInstruction(method) >= 0
-    }
-)
-
-fun indexOfGetPackageNameInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        getReference<MethodReference>()?.toString() == "Landroid/content/Context;->getPackageName()Ljava/lang/String;"
-    }

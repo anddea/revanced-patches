@@ -19,12 +19,6 @@ public final class FeedComponentsFilter extends Filter {
     private static final String INLINE_EXPANSION_PATH = "inline_expansion";
     private static final String FEED_VIDEO_PATH = "video_lockup_with_attachment";
 
-    private static final ByteArrayFilterGroup inlineExpansion =
-            new ByteArrayFilterGroup(
-                    Settings.HIDE_EXPANDABLE_CHIP,
-                    "inline_expansion"
-            );
-
     private static final ByteArrayFilterGroup mixPlaylists =
             new ByteArrayFilterGroup(
                     null,
@@ -37,14 +31,11 @@ public final class FeedComponentsFilter extends Filter {
                     "channel_profile"
             );
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch();
-
+    private static final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
     private final StringFilterGroup channelProfile;
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup expandableChip;
     private final ByteArrayFilterGroup visitStoreButton;
-    private final StringFilterGroup videoLockup;
-
-    private static final StringTrieSearch communityPostsFeedGroupSearch = new StringTrieSearch();
     private final StringFilterGroupList communityPostsFeedGroup = new StringFilterGroupList();
 
 
@@ -90,18 +81,12 @@ public final class FeedComponentsFilter extends Filter {
                 "cell_button.eml"
         );
 
-        videoLockup = new StringFilterGroup(
-                null,
-                FEED_VIDEO_PATH
-        );
-
         addIdentifierCallbacks(
                 chipsShelf,
                 communityPosts,
                 expandableShelf,
                 feedSearchBar,
-                tasteBuilder,
-                videoLockup
+                tasteBuilder
         );
 
         // Paths.
@@ -207,8 +192,7 @@ public final class FeedComponentsFilter extends Filter {
                 notifyMe,
                 playables,
                 subscriptionsChannelBar,
-                ticketShelf,
-                videoLockup
+                ticketShelf
         );
 
         final StringFilterGroup communityPostsHomeAndRelatedVideos =
@@ -259,16 +243,12 @@ public final class FeedComponentsFilter extends Filter {
             if (!communityPostsFeedGroupSearch.matches(allValue) && Settings.HIDE_COMMUNITY_POSTS_CHANNEL.get()) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
-            if (!communityPostsFeedGroup.check(allValue).isFiltered()) {
-                return false;
-            }
-        } else if (matchedGroup == expandableChip) {
-            if (path.startsWith(FEED_VIDEO_PATH)) {
+            if (communityPostsFeedGroup.check(allValue).isFiltered()) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
-        } else if (matchedGroup == videoLockup) {
-            if (contentIndex == 0 && path.startsWith("CellType|") && inlineExpansion.check(protobufBufferArray).isFiltered()) {
+        } else if (matchedGroup == expandableChip) {
+            if (path.startsWith(FEED_VIDEO_PATH)) {
                 return super.isFiltered(path, identifier, allValue, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;

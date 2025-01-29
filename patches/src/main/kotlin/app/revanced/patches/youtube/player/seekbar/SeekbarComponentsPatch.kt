@@ -6,18 +6,19 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.addDrawableColorHook
 import app.revanced.patches.shared.drawable.drawableColorHookPatch
 import app.revanced.patches.shared.mainactivity.onCreateMethod
+import app.revanced.patches.youtube.layout.branding.icon.customBrandingIconPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
+import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
@@ -25,6 +26,7 @@ import app.revanced.patches.youtube.utils.playerSeekbarColorFingerprint
 import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPlayedColorDark
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
@@ -46,10 +48,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
@@ -110,21 +109,10 @@ val seekbarComponentsPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    val cairoStartColor by stringOption(
-        key = "cairoStartColor",
-        default = "#FFFF2791",
-        title = "Cairo start color",
-        description = "Set Cairo start color for the seekbar."
-    )
-
-    val cairoEndColor by stringOption(
-        key = "cairoEndColor",
-        default = "#FFFF0033",
-        title = "Cairo end color",
-        description = "Set Cairo end color for the seekbar."
-    )
-
     execute {
+
+        val restoreOldSplashAnimationIncluded = CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included == true &&
+                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimationOption").value == true
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: PLAYER",
@@ -216,6 +204,82 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for enable cairo seekbar
+
+        if (is_19_23_or_greater) {
+            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
+                45617850L,
+                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
+            )
+
+            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
+        }
+
+        // endregion
+
+        // region patch for gradient seekbar color and bounds
+
+        if (is_19_25_or_greater) {
+            // In version 19.23, gradient colors and bounds use a different structure,
+            // and the implementation is still raw/underdeveloped.
+
+            // Adjust gradient seekbar colors
+            playerLinearGradientLegacyFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val index = it.patternMatch!!.endIndex
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientColors([I)[I
+                            move-result-object v$register
+                            """
+                    )
+                }
+            }
+
+            // Adjust gradient seekbar positions
+            setBoundsFingerprint.methodOrThrow().apply {
+                val newArrayIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
+                val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
+
+                val smaliInstruction = """
+                    invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
+                """.trimIndent()
+
+                addInstruction(
+                    indexOfFirstInstructionOrThrow(Opcode.FILL_ARRAY_DATA) + 1,
+                    smaliInstruction
+                )
+            }
+
+            // Set seekbar thumb color
+            seekbarThumbFingerprint.methodOrThrow().apply {
+                val instructions = implementation!!.instructions.toList()
+
+                val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
+
+                if (lastMoveResultIndex == -1) {
+                    throw PatchException("Could not find the last move-result instruction")
+                }
+
+                val resultRegister = (instructions[lastMoveResultIndex] as? OneRegisterInstruction)?.registerA
+                    ?: throw PatchException("Could not get the register used in the last move-result instruction")
+
+                val smaliInstruction = """
+                    invoke-static {}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarThumbColor()I
+                    move-result v$resultRegister
+                """.trimIndent()
+
+                addInstructions(lastMoveResultIndex + 1, smaliInstruction)
+            }
+
+            settingArray += "SETTINGS: GRADIENT_SEEKBAR_OPTIONS"
+        }
+
+        // endregion patch for gradient seekbar color and bounds
+
         // region patch for seekbar color
 
         fun MutableMethod.addColorChangeInstructions(literal: Long) {
@@ -257,39 +321,62 @@ val seekbarComponentsPatch = bytecodePatch(
         addDrawableColorHook("$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
         if (is_19_25_or_greater) {
-            playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
-                PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
-                "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
-            )
-
             lithoLinearGradientFingerprint.methodOrThrow().addInstruction(
                 0,
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
             )
 
-            // Don't use the lotte splash screen layout if using custom seekbar.
-            arrayOf(
-                launchScreenLayoutTypeFingerprint.methodOrThrow(),
-                onCreateMethod
-            ).forEach { method ->
-                method.apply {
-                    val literalIndex =
-                        indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
-                    val resultIndex =
-                        indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                    val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+            if (!is_19_49_or_greater) {
+                playerLinearGradientLegacyFingerprint.matchOrThrow().let {
+                    it.method.apply {
+                        val index = it.patternMatch!!.endIndex
+                        val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                    addInstructions(
-                        resultIndex + 1,
-                        """
+                        addInstructions(
+                            index + 1,
+                            """
+                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLinearGradient([I)[I
+                            move-result-object v$register
+                            """
+                        )
+                    }
+                }
+            } else {
+                // TODO: add 19.49 support
+                playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
+                    PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
+                    "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
+                )
+            }
+
+
+            if (!restoreOldSplashAnimationIncluded) {
+                // Don't use the lotte splash screen layout if using custom seekbar.
+                arrayOf(
+                    launchScreenLayoutTypeFingerprint.methodOrThrow(),
+                    onCreateMethod
+                ).forEach { method ->
+                    method.apply {
+                        val literalIndex =
+                            indexOfFirstLiteralInstructionOrThrow(
+                                launchScreenLayoutTypeLotteFeatureFlag
+                            )
+                        val resultIndex =
+                            indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                        val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+                        addInstructions(
+                            resultIndex + 1,
+                            """
                             invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
                             move-result v$register
                             """
-                    )
+                        )
+                    }
                 }
             }
 
-            // Hook the splash animation drawable to set the a seekbar color theme.
+            // Hook the splash animation drawable to set the seekbar color theme.
             onCreateMethod.apply {
                 val drawableIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
@@ -307,7 +394,6 @@ val seekbarComponentsPatch = bytecodePatch(
                             "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
                 )
             }
-
         }
 
         val context = getContext()
@@ -327,20 +413,7 @@ val seekbarComponentsPatch = bytecodePatch(
                 scaleNode.replaceChild(replacementNode, shapeNode)
             }
 
-        context.document("res/values/colors.xml").use { document ->
-            document.doRecursively loop@{ node ->
-                if (node is Element && node.tagName == "color") {
-                    if (node.getAttribute("name") == "yt_youtube_red_cairo") {
-                        node.textContent = cairoStartColor
-                    }
-                    if (node.getAttribute("name") == "yt_youtube_magenta") {
-                        node.textContent = cairoEndColor
-                    }
-                }
-            }
-        }
-
-        if (is_19_25_or_greater) {
+        if (is_19_25_or_greater && !restoreOldSplashAnimationIncluded) {
             // Add attribute and styles for splash screen custom color.
             // Using a style is the only way to selectively change just the seekbar fill color.
             //
@@ -386,13 +459,17 @@ val seekbarComponentsPatch = bytecodePatch(
                 }
             }
 
-            setSplashDrawablePathFillColor(
-                listOf(
-                    "res/drawable/\$startup_animation_light__0.xml",
-                    "res/drawable/\$startup_animation_dark__0.xml"
-                ),
-                "_R_G_L_10_G_D_0_P_0"
-            )
+            try {
+                setSplashDrawablePathFillColor(
+                    listOf(
+                        "res/drawable/\$startup_animation_light__0.xml",
+                        "res/drawable/\$startup_animation_dark__0.xml"
+                    ),
+                    "_R_G_L_10_G_D_0_P_0"
+                )
+            } catch (_: Exception) {
+                // Do nothing
+            }
 
             if (!is_19_46_or_greater) {
                 // Resources removed in 19.46+
@@ -493,19 +570,6 @@ val seekbarComponentsPatch = bytecodePatch(
             updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSeekbarThumbnailsDefaultBoolean")
         } else {
             printWarn("\"Restore old seekbar thumbnails\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
-        }
-
-        // endregion
-
-        // region patch for enable cairo seekbar
-
-        if (is_19_23_or_greater) {
-            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45617850L,
-                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
-            )
-
-            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
         }
 
         // endregion

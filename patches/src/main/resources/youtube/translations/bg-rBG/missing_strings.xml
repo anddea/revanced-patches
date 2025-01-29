@@ -3,42 +3,52 @@
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Alternative domain</string>
-    <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
-    <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down will play the next / previous video.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down will not play the next / previous video.</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque.</string>
-    <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
-    <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
-    <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
-    <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is enabled.</string>
-    <string name="revanced_disable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is disabled.</string>
-    <string name="revanced_disable_watch_panel_gestures_title">Disable watch panel gestures</string>
-    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_off">Custom actions are disabled in flyout menu.</string>
-    <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Custom actions are enabled in flyout menu.
+    <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
+    <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
+    <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Background color of the server-side snackbar has not changed.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Background color of the server-side snackbar has changed.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Change server-side snack bar background</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Some snack bars use a theme defined on the server side, not the app theme.
 
-Limitations:
-• Does not work if app version is spoofed to 18.49.37 or earlier.
-• Does not work with livestream."</string>
-    <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Enable custom actions in flyout menu</string>
-    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Custom actions are disabled in toolbar.</string>
-    <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"Custom actions are enabled in toolbar.
+Change the background color of these snack bars.
 
-Press and hold the More button to show the Custom actions dialog."</string>
-    <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
+If there are server-side changes, the background color of the snack bar may not change."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_hide_live_chat_summary_summary_off">Chat summary is shown.</string>
-    <string name="revanced_hide_live_chat_summary_summary_on">Chat summary is hidden.</string>
-    <string name="revanced_hide_live_chat_summary_title">Hide Chat summary in live chat</string>
+    <string name="revanced_gradient_seekbar_colors_summary">Gradient start and end colors separated by comma.</string>
+    <string name="revanced_gradient_seekbar_colors_title">Gradient seekbar colors</string>
+    <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
+    <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
+    <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
+    <string name="revanced_hide_action_button_index_0_summary_off">First button is shown.</string>
+    <string name="revanced_hide_action_button_index_0_summary_on">First button is hidden.</string>
+    <string name="revanced_hide_action_button_index_0_title">Hide first button</string>
+    <string name="revanced_hide_action_button_index_1_summary_off">Second button is shown.</string>
+    <string name="revanced_hide_action_button_index_1_summary_on">Second button is hidden.</string>
+    <string name="revanced_hide_action_button_index_1_title">Hide second button</string>
+    <string name="revanced_hide_action_button_index_4_summary_off">Fifth button is shown.</string>
+    <string name="revanced_hide_action_button_index_4_summary_on">Fifth button is hidden.</string>
+    <string name="revanced_hide_action_button_index_4_title">Hide fifth button</string>
+    <string name="revanced_hide_action_button_index_5_summary_off">Sixth button is shown.</string>
+    <string name="revanced_hide_action_button_index_5_summary_on">Sixth button is hidden.</string>
+    <string name="revanced_hide_action_button_index_5_title">Hide sixth button</string>
+    <string name="revanced_hide_action_button_index_6_summary_off">Seventh button is shown.</string>
+    <string name="revanced_hide_action_button_index_6_summary_on">Seventh button is hidden.</string>
+    <string name="revanced_hide_action_button_index_6_title">Hide seventh button</string>
+    <string name="revanced_hide_action_button_index_7_summary_off">Eighth button is shown.</string>
+    <string name="revanced_hide_action_button_index_7_summary_on">Eighth button is hidden.</string>
+    <string name="revanced_hide_action_button_index_7_title">Hide eighth button</string>
+    <string name="revanced_hide_action_button_index_about_summary">"Hide the action buttons by index before the action buttons are initialized.
+
+- Hiding the action buttons leaves no empty space.
+- Index of the action buttons may not always be the same button."</string>
+    <string name="revanced_hide_action_button_index_about_title">About Hide action button by index</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">Server-side snack bar is shown.</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">Server-side snack bar is hidden.</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Hide server-side snack bar</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_off">Disabled comments button or with label \"0\" is shown.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_summary_on">Disabled comments button or with label \"0\" is hidden.</string>
     <string name="revanced_hide_shorts_comments_disabled_button_title">Hide disabled comments button</string>
@@ -49,60 +59,40 @@ Press and hold the More button to show the Custom actions dialog."</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
     <string name="revanced_icon_mmt_yellow">MMT Yellow</string>
     <string name="revanced_icon_revancify_yellow">Revancify Yellow</string>
+    <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
+    <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
-    <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
-    <string name="revanced_preference_category_custom_actions">Custom actions</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
-No margins on top and bottom of player."</string>
-    <string name="revanced_restore_shorts_old_player_layout_title">Restore old player layout</string>
+    <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">Theme of the snack bar is not inverted.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">Theme of the snack bar is inverted.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Invert snack bar theme</string>
+    <string name="revanced_keep_landscape_mode_summary_off">Videos play in portrait mode after turning the screen off and on.</string>
+    <string name="revanced_keep_landscape_mode_summary_on">Videos continue to play in landscape mode after turning the screen off and on.</string>
+    <string name="revanced_open_links_externally_summary_off">Opens links in the in-app browser.</string>
+    <string name="revanced_open_links_externally_summary_on">Opens links in the external browser.</string>
+    <string name="revanced_open_links_externally_title">Open links externally</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">Do not open Shorts in the regular player.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Open Shorts in the regular player.</string>
+    <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
+    <string name="revanced_preference_category_hide_by_index">Hide by index</string>
+    <string name="revanced_preference_category_hide_by_index_live">Hide by index in live stream</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
-    <string name="revanced_shorts_custom_actions_about_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
+    <string name="revanced_shorts_custom_actions_about_summary">"This feature is still experimental, so there is no guarantee that it will work perfectly.
 
 Most bugs cannot be fixed due to client-side limitations, so use it only for testing purposes."</string>
-    <string name="revanced_shorts_custom_actions_about_title">About Custom actions</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_label">Copy video URL</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">Copy video URL menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">Copy video URL menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_label">Copy timestamp URL</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_off">Copy timestamp URL menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_summary_on">Copy timestamp URL menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_timestamp_title">Show copy timestamp URL menu</string>
-    <string name="revanced_shorts_custom_actions_copy_video_url_title">Show copy video URL menu</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_label">External downloader</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_summary_off">External downloader menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_summary_on">External downloader menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_external_downloader_title">Show external downloader menu</string>
-    <string name="revanced_shorts_custom_actions_open_video_label">Open video</string>
-    <string name="revanced_shorts_custom_actions_open_video_summary_off">Open video menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_open_video_summary_on">Open video menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_open_video_title">Show open video menu</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_label">Repeat state</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Repeat state menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Repeat state menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_repeat_state_title">Show repeat state menu</string>
-    <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Custom actions</string>
-    <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Disable Cairo icon in navigation and toolbar</string>
-    <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restore old playback speed flyout panel</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_off">Android and iOS clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_summary_on">Android clients are used to fetch streaming data.</string>
-    <string name="revanced_spoof_streaming_data_android_only_title">Use Android clients only</string>
-    <string name="revanced_spoof_streaming_data_android_only_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_android">"• Audio track menu is missing.
-• Stable volume is not available.
-• Disable forced auto audio tracks is not available."</string>
+    <string name="revanced_shorts_custom_actions_speed_label">Playback speed</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_off">Playback speed menu is hidden.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
+    <string name="revanced_shorts_custom_actions_speed_summary_on">Playback speed menu is shown.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
+    <string name="revanced_shorts_custom_actions_speed_title">Show playback speed menu</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">• Movies or paid videos may not play.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_music">iOS Music</string>
-    <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">iOS TV</string>
 </resources>
