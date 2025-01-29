@@ -24,6 +24,7 @@ public final class CarouselShelfFilter extends Filter {
     private static final String BROWSE_ID_NOTIFICATION = "FEactivity";
     private static final String BROWSE_ID_NOTIFICATION_INBOX = "FEnotifications_inbox";
     private static final String BROWSE_ID_PLAYLIST = "VLPL";
+    private static final String BROWSE_ID_PODCASTS = "FEpodcasts_destination";
     private static final String BROWSE_ID_PREMIUM = "SPunlimited";
     private static final String BROWSE_ID_SUBSCRIPTION = "FEsubscriptions";
 
@@ -41,6 +42,7 @@ public final class CarouselShelfFilter extends Filter {
             BROWSE_ID_MOVIE,
             BROWSE_ID_NEWS,
             BROWSE_ID_NOTIFICATION_INBOX,
+            BROWSE_ID_PODCASTS,
             BROWSE_ID_PREMIUM
     );
 
