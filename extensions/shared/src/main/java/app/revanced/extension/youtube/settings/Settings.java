@@ -114,6 +114,7 @@ public class Settings extends BaseSettings {
 
     // PreferenceScreen: Feed - Flyout menu
     public static final BooleanSetting HIDE_FEED_FLYOUT_MENU = new BooleanSetting("revanced_hide_feed_flyout_menu", FALSE);
+    public static final BooleanSetting HIDE_FEED_FLYOUT_MENU_FILTER_TYPE = new BooleanSetting("revanced_hide_feed_flyout_menu_filter_type", FALSE, true, parent(HIDE_FEED_FLYOUT_MENU));
     public static final StringSetting HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS = new StringSetting("revanced_hide_feed_flyout_menu_filter_strings", "", true, parent(HIDE_FEED_FLYOUT_MENU));
 
     // PreferenceScreen: Feed - Video filter
