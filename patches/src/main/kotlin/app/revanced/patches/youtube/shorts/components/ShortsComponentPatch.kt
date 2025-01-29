@@ -65,6 +65,8 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.playbackstart.PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
 import app.revanced.patches.youtube.video.playbackstart.playbackStartVideoIdReference
+import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentFingerprint
+import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentLegacyFingerprint
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
@@ -894,7 +896,7 @@ val shortsComponentPatch = bytecodePatch(
             """
 
         if (is_19_25_or_greater) {
-            shortsPlaybackIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
+            shortsPlaybackStartIntentFingerprint.methodOrThrow().addInstructionsWithLabels(
                 0,
                 """
                     move-object/from16 v0, p1
@@ -902,7 +904,7 @@ val shortsComponentPatch = bytecodePatch(
                     """
             )
         } else {
-            shortsPlaybackIntentLegacyFingerprint.methodOrThrow().apply {
+            shortsPlaybackStartIntentLegacyFingerprint.methodOrThrow().apply {
                 val index = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.returnType == PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
                 }

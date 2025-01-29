@@ -1,9 +1,10 @@
 package app.revanced.extension.youtube.patches.general;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+
+import com.facebook.litho.ComponentHost;
 
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.patches.general.requests.VideoDetailsRequest;
@@ -15,8 +16,13 @@ public final class OpenChannelOfLiveAvatarPatch {
     private static final boolean CHANGE_LIVE_RING_CLICK_ACTION =
             Settings.CHANGE_LIVE_RING_CLICK_ACTION.get();
 
-    private static final AtomicBoolean engagementPanelOpen = new AtomicBoolean(false);
     private static volatile String videoId = "";
+
+    /**
+     * This key's value is the LithoView that opened the video (Live ring or Thumbnails).
+     */
+    private static final String ELEMENTS_SENDER_VIEW =
+            "com.google.android.libraries.youtube.rendering.elements.sender_view";
 
     /**
      * If the video is open by clicking live ring, this key does not exists.
@@ -24,28 +30,56 @@ public final class OpenChannelOfLiveAvatarPatch {
     private static final String VIDEO_THUMBNAIL_VIEW_KEY =
             "VideoPresenterConstants.VIDEO_THUMBNAIL_VIEW_KEY";
 
-    public static void showEngagementPanel(@Nullable Object object) {
-        engagementPanelOpen.set(object != null);
+    /**
+     * Injection point.
+     *
+     * @param playbackStartDescriptorMap    map containing information about PlaybackStartDescriptor
+     * @param newlyLoadedVideoId            id of the current video
+     */
+    public static void fetchChannelId(@NonNull Map<Object, Object> playbackStartDescriptorMap, String newlyLoadedVideoId) {
+        try {
+            if (!CHANGE_LIVE_RING_CLICK_ACTION) {
+                return;
+            }
+            // Video id is empty
+            if (newlyLoadedVideoId.isEmpty()) {
+                return;
+            }
+            // Video was opened by clicking the thumbnail
+            if (playbackStartDescriptorMap.containsKey(VIDEO_THUMBNAIL_VIEW_KEY)) {
+                return;
+            }
+            // If the video was opened in the watch history, there is no VIDEO_THUMBNAIL_VIEW_KEY
+            // In this case, check the view that opened the video (Live ring is litho)
+            if (!(playbackStartDescriptorMap.get(ELEMENTS_SENDER_VIEW) instanceof ComponentHost componentHost)) {
+                return;
+            }
+            // Child count of other litho Views such as Thumbnail and Watch history: 2
+            // Child count of live ring: 1
+            if (componentHost.getChildCount() != 1) {
+                return;
+            }
+            // Fetch channel id
+            videoId = newlyLoadedVideoId;
+            VideoDetailsRequest.fetchRequestIfNeeded(newlyLoadedVideoId);
+        } catch (Exception ex) {
+            Logger.printException(() -> "fetchVideoInformation failure", ex);
+        }
     }
 
-    public static void hideEngagementPanel() {
-        engagementPanelOpen.compareAndSet(true, false);
-    }
-
-    public static boolean openChannelOfLiveAvatar() {
+    public static boolean openChannel() {
         try {
             if (!CHANGE_LIVE_RING_CLICK_ACTION) {
                 return false;
             }
-            if (engagementPanelOpen.get()) {
-                return false;
-            }
+            // If it is not fetch, the video id is empty
             if (videoId.isEmpty()) {
                 return false;
             }
             VideoDetailsRequest request = VideoDetailsRequest.getRequestForVideoId(videoId);
             if (request != null) {
                 String channelId = request.getInfo();
+                // Open the channel
                 if (channelId != null) {
                     videoId = "";
                     VideoUtils.openChannel(channelId);
@@ -53,33 +87,9 @@ public final class OpenChannelOfLiveAvatarPatch {
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "openChannelOfLiveAvatar failure", ex);
+            Logger.printException(() -> "openChannel failure", ex);
         }
         return false;
-    }
-
-    public static void openChannelOfLiveAvatar(Map<Object, Object> playbackStartDescriptorMap, String newlyLoadedVideoId) {
-        try {
-            if (!CHANGE_LIVE_RING_CLICK_ACTION) {
-                return;
-            }
-            if (playbackStartDescriptorMap == null) {
-                return;
-            }
-            if (playbackStartDescriptorMap.containsKey(VIDEO_THUMBNAIL_VIEW_KEY)) {
-                return;
-            }
-            if (engagementPanelOpen.get()) {
-                return;
-            }
-            if (newlyLoadedVideoId.isEmpty()) {
-                return;
-            }
-            videoId = newlyLoadedVideoId;
-            VideoDetailsRequest.fetchRequestIfNeeded(newlyLoadedVideoId);
-        } catch (Exception ex) {
-            Logger.printException(() -> "openChannelOfLiveAvatar failure", ex);
-        }
     }
 
 }
