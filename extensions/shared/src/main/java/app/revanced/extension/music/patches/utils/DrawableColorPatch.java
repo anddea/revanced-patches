@@ -3,11 +3,11 @@ package app.revanced.extension.music.patches.utils;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
@@ -34,9 +34,7 @@ public class DrawableColorPatch {
 
     public static void setHeaderGradient(ViewGroup viewGroup) {
         viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
-            if (!(viewGroup instanceof FrameLayout frameLayout))
-                return;
-            if (!(frameLayout.getChildAt(0) instanceof ViewGroup firstChildView))
+            if (!(viewGroup.getChildAt(0) instanceof ViewGroup firstChildView))
                 return;
             View secondChildView = firstChildView.getChildAt(0);
 
@@ -55,7 +53,11 @@ public class DrawableColorPatch {
     private static void setHeaderGradient(ViewGroup viewGroup, ImageView gradientView) {
         // For some reason, it sometimes applies to other lithoViews.
         // To prevent this, check the viewId before applying the gradient.
-        if (headerGradient != null && viewGroup.getId() == elementsContainerIdentifier) {
+        if (gradientView.getForeground() == null && headerGradient != null && viewGroup.getId() == elementsContainerIdentifier) {
+            viewGroup.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            gradientView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            Logger.printDebug(() -> "set header gradient.\nviewGroup measured width: " + viewGroup.getMeasuredWidth() + ", gradientView measured width: " + gradientView.getMeasuredWidth());
+
             gradientView.setForeground(headerGradient);
         }
     }
