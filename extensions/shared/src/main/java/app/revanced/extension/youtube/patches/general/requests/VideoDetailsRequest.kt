@@ -2,7 +2,7 @@ package app.revanced.extension.youtube.patches.general.requests
 
 import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.WebClient
+import app.revanced.extension.shared.patches.client.YouTubeWebClient
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
@@ -81,7 +81,7 @@ class VideoDetailsRequest private constructor(
 
         private fun sendRequest(videoId: String): JSONObject? {
             val startTime = System.currentTimeMillis()
-            val clientType = WebClient.ClientType.MWEB
+            val clientType = YouTubeWebClient.ClientType.MWEB
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching video details request for: $videoId, using client: $clientTypeName" }
 

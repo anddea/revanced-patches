@@ -153,10 +153,6 @@ internal enum class PatchList(
         "Spoof client",
         "Adds options to spoof the client to allow playback."
     ),
-    SPOOF_STREAMING_DATA(
-        "Spoof streaming data",
-        "Adds options to spoof the streaming data to allow playback."
-    ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",
         "Add translations or remove string resources."

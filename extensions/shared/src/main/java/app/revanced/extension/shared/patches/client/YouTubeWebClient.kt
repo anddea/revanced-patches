@@ -4,7 +4,7 @@ package app.revanced.extension.shared.patches.client
  * Used to fetch video information.
  */
 @Suppress("unused")
-object WebClient {
+object YouTubeWebClient {
     /**
      * This user agent does not require a PoToken in [ClientType.MWEB]
      * https://github.com/yt-dlp/yt-dlp/blob/0b6b7742c2e7f2a1fcb0b54ef3dd484bab404b3f/yt_dlp/extractor/youtube.py#L259

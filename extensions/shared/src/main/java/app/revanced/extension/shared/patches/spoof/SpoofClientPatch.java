@@ -1,66 +1,98 @@
-package app.revanced.extension.music.patches.misc;
+package app.revanced.extension.shared.patches.spoof;
 
-import app.revanced.extension.music.patches.misc.client.AppClient.ClientType;
+import app.revanced.extension.shared.patches.client.MusicAppClient.ClientType;
 import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
-public class SpoofClientPatch {
+public class SpoofClientPatch extends BlockRequestPatch {
     private static final ClientType CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
-    public static final boolean SPOOF_CLIENT = Settings.SPOOF_CLIENT.get();
 
     /**
      * Injection point.
      */
-    public static int getClientTypeId(int originalClientTypeId) {
+    public static int getClientId(int original) {
         if (SPOOF_CLIENT) {
             return CLIENT_TYPE.id;
         }
 
-        return originalClientTypeId;
+        return original;
     }
 
     /**
      * Injection point.
      */
-    public static String getClientVersion(String originalClientVersion) {
+    public static String getClientVersion(String original) {
         if (SPOOF_CLIENT) {
             return CLIENT_TYPE.clientVersion;
         }
 
-        return originalClientVersion;
+        return original;
     }
 
     /**
      * Injection point.
      */
-    public static String getClientModel(String originalClientModel) {
+    public static String getDeviceBrand(String original) {
+        if (SPOOF_CLIENT) {
+            return CLIENT_TYPE.deviceBrand;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getDeviceMake(String original) {
+        if (SPOOF_CLIENT) {
+            return CLIENT_TYPE.deviceMake;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getDeviceModel(String original) {
         if (SPOOF_CLIENT) {
             return CLIENT_TYPE.deviceModel;
         }
 
-        return originalClientModel;
+        return original;
     }
 
     /**
      * Injection point.
      */
-    public static String getOsVersion(String originalOsVersion) {
+    public static String getOsName(String original) {
+        if (SPOOF_CLIENT) {
+            return CLIENT_TYPE.osName;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getOsVersion(String original) {
         if (SPOOF_CLIENT) {
             return CLIENT_TYPE.osVersion;
         }
 
-        return originalOsVersion;
+        return original;
     }
 
     /**
      * Injection point.
      */
-    public static String getUserAgent(String originalUserAgent) {
+    public static String getUserAgent(String original) {
         if (SPOOF_CLIENT) {
             return CLIENT_TYPE.userAgent;
         }
 
-        return originalUserAgent;
+        return original;
     }
 
     /**

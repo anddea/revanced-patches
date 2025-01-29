@@ -2,8 +2,8 @@ package app.revanced.extension.youtube.patches.video.requests
 
 import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.AppClient
-import app.revanced.extension.shared.patches.client.WebClient
+import app.revanced.extension.shared.patches.client.YouTubeAppClient
+import app.revanced.extension.shared.patches.client.YouTubeWebClient
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
@@ -119,7 +119,7 @@ class MusicRequest private constructor(
             Objects.requireNonNull(videoId)
 
             val startTime = System.currentTimeMillis()
-            val clientType = AppClient.ClientType.ANDROID_VR
+            val clientType = YouTubeAppClient.ClientType.ANDROID_VR
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 
@@ -163,7 +163,7 @@ class MusicRequest private constructor(
             Objects.requireNonNull(videoId)
 
             val startTime = System.currentTimeMillis()
-            val clientType = WebClient.ClientType.MWEB
+            val clientType = YouTubeWebClient.ClientType.MWEB
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching microformat request for: $videoId, using client: $clientTypeName" }
 

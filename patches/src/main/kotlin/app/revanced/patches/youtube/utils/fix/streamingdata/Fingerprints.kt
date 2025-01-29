@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.spoof.streamingdata
+package app.revanced.patches.youtube.utils.fix.streamingdata
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
@@ -14,37 +14,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 // In YouTube 17.34.36, this class is obfuscated.
 const val STREAMING_DATA_INTERFACE =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass${'$'}StreamingData;"
-
-internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
-    name = "buildInitPlaybackRequestFingerprint",
-    returnType = "Lorg/chromium/net/UrlRequest\$Builder;",
-    opcodes = listOf(
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
-    ),
-    strings = listOf(
-        "Content-Type",
-        "Range",
-    ),
-)
-
-internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
-    name = "buildPlayerRequestURIFingerprint",
-    returnType = "Ljava/lang/String;",
-    strings = listOf(
-        "key",
-        "asig",
-    ),
-    customFingerprint = { method, _ ->
-        indexOfToStringInstruction(method) >= 0
-    },
-)
-
-internal fun indexOfToStringInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
-    }
 
 internal val buildMediaDataSourceFingerprint = legacyFingerprint(
     name = "buildMediaDataSourceFingerprint",

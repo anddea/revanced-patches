@@ -6,8 +6,13 @@ public class PatchStatus {
         return false;
     }
 
-    public static boolean SpoofStreamingDataMusic() {
-        // Replace this with true If the Spoof streaming data patch succeeds in YouTube Music
+    public static boolean SpoofClient() {
+        // Replace this with true If the Spoof streaming data patch succeeds in YouTube Music.
+        return false;
+    }
+
+    public static boolean SpoofStreamingData() {
+        // Replace this with true If the Spoof streaming data patch succeeds in YouTube.
         return false;
     }
 }
