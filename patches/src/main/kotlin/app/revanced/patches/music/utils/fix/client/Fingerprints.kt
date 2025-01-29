@@ -2,13 +2,9 @@ package app.revanced.patches.music.utils.fix.client
 
 import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.util.fingerprint.legacyFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val createPlayerRequestBodyFingerprint = legacyFingerprint(
     name = "createPlayerRequestBodyFingerprint",
@@ -21,26 +17,6 @@ internal val createPlayerRequestBodyFingerprint = legacyFingerprint(
     ),
     strings = listOf("ms"),
 )
-
-internal val createPlayerRequestBodyWithVersionReleaseFingerprint = legacyFingerprint(
-    name = "createPlayerRequestBodyWithVersionReleaseFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    strings = listOf("Google Inc."),
-    customFingerprint = { method, _ ->
-        indexOfBuildInstruction(method) >= 0
-    },
-)
-
-fun indexOfBuildInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.name == "build" &&
-                reference.parameterTypes.isEmpty() &&
-                reference.returnType.startsWith("L")
-    }
 
 internal val setPlayerRequestClientTypeFingerprint = legacyFingerprint(
     name = "setPlayerRequestClientTypeFingerprint",

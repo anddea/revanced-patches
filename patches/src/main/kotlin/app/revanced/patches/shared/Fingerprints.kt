@@ -18,10 +18,18 @@ internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
     parameters = emptyList(),
     opcodes = listOf(Opcode.OR_INT_LIT16),
     customFingerprint = { method, _ ->
-        indexOfModelInstruction(method) >= 0 &&
+        indexOfBrandInstruction(method) >= 0 &&
+                indexOfManufacturerInstruction(method) >= 0 &&
+                indexOfModelInstruction(method) >= 0 &&
                 indexOfReleaseInstruction(method) >= 0
     }
 )
+
+fun indexOfBrandInstruction(method: Method) =
+    method.indexOfFieldReference("Landroid/os/Build;->BRAND:Ljava/lang/String;")
+
+fun indexOfManufacturerInstruction(method: Method) =
+    method.indexOfFieldReference("Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;")
 
 fun indexOfModelInstruction(method: Method) =
     method.indexOfFieldReference("Landroid/os/Build;->MODEL:Ljava/lang/String;")

@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.patches.client
 
 import android.os.Build
-import app.revanced.extension.shared.patches.PatchStatus
 import app.revanced.extension.shared.settings.BaseSettings
 import org.apache.commons.lang3.ArrayUtils
 import java.util.Locale
@@ -9,7 +8,7 @@ import java.util.Locale
 /**
  * Used to fetch streaming data.
  */
-object AppClient {
+object YouTubeAppClient {
     // IOS
     /**
      * Video not playable: Paid / Movie / Private / Age-restricted
@@ -108,7 +107,6 @@ object AppClient {
      */
     private const val ANDROID_SDK_VERSION_ANDROID_VR = "32"
     private const val BUILD_ID_ANDROID_VR = "SQ3A.220605.009.A1"
-    private const val CHIPSET_ANDROID_VR = "Qualcomm;SXR2230P"
 
     private val USER_AGENT_ANDROID_VR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_VR,
@@ -137,7 +135,6 @@ object AppClient {
     private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
     private const val BUILD_ID_ANDROID_UNPLUGGED = "UTT3.240625.001.K5"
     private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244336107"
-    private const val CHIPSET_ANDROID_UNPLUGGED = "Mediatek;MT8696"
 
     private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_UNPLUGGED,
@@ -166,7 +163,6 @@ object AppClient {
     private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "35"
     private const val BUILD_ID_ANDROID_CREATOR = "AP3A.241005.015.A2"
     private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "244738035"
-    private const val CHIPSET_ANDROID_CREATOR = "Google;Tensor G4"
 
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_CREATOR,
@@ -174,39 +170,6 @@ object AppClient {
         osVersion = OS_VERSION_ANDROID_CREATOR,
         deviceModel = DEVICE_MODEL_ANDROID_CREATOR,
         buildId = BUILD_ID_ANDROID_CREATOR
-    )
-
-
-    // ANDROID MUSIC
-    /**
-     * Video not playable: All videos that can't be played on YouTube Music
-     */
-    private const val PACKAGE_NAME_ANDROID_MUSIC = "com.google.android.apps.youtube.music"
-
-    /**
-     * Older client versions don't seem to require poToken.
-     * It is not the default client yet, as it requires sufficient testing.
-     */
-    private const val CLIENT_VERSION_ANDROID_MUSIC = "4.27.53"
-
-    /**
-     * The device machine id for the Google Pixel 4.
-     * See [this GitLab](https://dumps.tadiphone.dev/dumps/google/flame) for more information.
-     */
-    private const val DEVICE_MODEL_ANDROID_MUSIC = "Pixel 4"
-    private const val DEVICE_MAKE_ANDROID_MUSIC = "Google"
-    private const val OS_VERSION_ANDROID_MUSIC = "11"
-    private const val ANDROID_SDK_VERSION_ANDROID_MUSIC = "30"
-    private const val BUILD_ID_ANDROID_MUSIC = "SPP2.210219.008"
-    private const val GMS_CORE_VERSION_CODE_ANDROID_MUSIC = "244738022"
-    private const val CHIPSET_ANDROID_MUSIC = "Qualcomm;SM8150"
-
-    private val USER_AGENT_ANDROID_MUSIC = androidUserAgent(
-        packageName = PACKAGE_NAME_ANDROID_MUSIC,
-        clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
-        osVersion = OS_VERSION_ANDROID_MUSIC,
-        deviceModel = DEVICE_MODEL_ANDROID_MUSIC,
-        buildId = BUILD_ID_ANDROID_MUSIC
     )
 
 
@@ -240,10 +203,7 @@ object AppClient {
     }
 
     fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
-        val availableClientTypes = if (PatchStatus.SpoofStreamingDataMusic())
-            ClientType.CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC
-        else
-            ClientType.CLIENT_ORDER_TO_USE_YOUTUBE
+        val availableClientTypes = ClientType.CLIENT_ORDER_TO_USE_YOUTUBE
 
         if (ArrayUtils.contains(availableClientTypes, preferredClient)) {
             val clientToUse: Array<ClientType?> = arrayOfNulls(availableClientTypes.size)
@@ -400,19 +360,6 @@ object AppClient {
                 "iOS Force AVC"
             else
                 "iOS"
-        ),
-        ANDROID_MUSIC(
-            id = 21,
-            deviceMake = DEVICE_MAKE_ANDROID_MUSIC,
-            deviceModel = DEVICE_MODEL_ANDROID_MUSIC,
-            osVersion = OS_VERSION_ANDROID_MUSIC,
-            userAgent = USER_AGENT_ANDROID_MUSIC,
-            androidSdkVersion = ANDROID_SDK_VERSION_ANDROID_MUSIC,
-            clientVersion = CLIENT_VERSION_ANDROID_MUSIC,
-            gmscoreVersionCode = GMS_CORE_VERSION_CODE_ANDROID_MUSIC,
-            requireAuth = true,
-            clientName = "ANDROID_MUSIC",
-            friendlyName = "Android Music"
         );
 
         companion object {
@@ -423,11 +370,6 @@ object AppClient {
                 ANDROID_CREATOR,
                 IOS,
                 ANDROID_VR_NO_AUTH,
-            )
-
-            internal val CLIENT_ORDER_TO_USE_YOUTUBE_MUSIC: Array<ClientType> = arrayOf(
-                ANDROID_VR,
-                ANDROID_MUSIC,
             )
         }
     }

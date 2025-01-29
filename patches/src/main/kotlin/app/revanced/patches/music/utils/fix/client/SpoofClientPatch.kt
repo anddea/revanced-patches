@@ -3,24 +3,28 @@ package app.revanced.patches.music.utils.fix.client
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.music.utils.compatibility.Constants
-import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
+import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_CLIENT
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
-import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
-import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
+import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
+import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
+import app.revanced.patches.shared.indexOfBrandInstruction
+import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
-import app.revanced.util.Utils.printWarn
+import app.revanced.patches.shared.indexOfReleaseInstruction
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -32,109 +36,118 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "$MISC_PATH/SpoofClientPatch;"
+    "$SPOOF_PATH/SpoofClientPatch;"
 private const val CLIENT_INFO_CLASS_DESCRIPTOR =
     "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
     SPOOF_CLIENT.title,
-    SPOOF_CLIENT.summary,
-    false,
+    SPOOF_CLIENT.summary
 ) {
-    compatibleWith(
-        Constants.YOUTUBE_MUSIC_PACKAGE_NAME(
-            "6.20.51",
-            "6.29.59",
-            "6.42.55",
-            "6.51.53",
-            "7.16.53",
-        ),
-    )
+    compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
         settingsPatch,
-        versionCheckPatch,
+        blockRequestPatch,
     )
 
     execute {
-        if (is_7_25_or_greater) {
-            printWarn("\"${SPOOF_CLIENT.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
-            return@execute
-        }
+        lateinit var clientInfoReference: Reference
+        lateinit var clientIdReference: Reference
+        lateinit var clientVersionReference: Reference
+        lateinit var deviceBrandReference: Reference
+        lateinit var deviceMakeReference: Reference
+        lateinit var deviceModelReference: Reference
+        lateinit var osNameReference: Reference
+        lateinit var osVersionReference: Reference
+
+        fun MutableMethod.getFieldReference(index: Int) =
+            getInstruction<ReferenceInstruction>(index).reference
 
         // region Get field references to be used below.
 
-        val (clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField) =
-            setPlayerRequestClientTypeFingerprint.matchOrThrow().let { result ->
-                with(result.method) {
-                    // Field in the player request object that holds the client info object.
-                    val clientInfoField = instructions.find { instruction ->
-                        // requestMessage.clientInfo = clientInfoBuilder.build();
-                        instruction.opcode == Opcode.IPUT_OBJECT &&
-                                instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
-                    }?.getReference<FieldReference>()
-                        ?: throw PatchException("Could not find clientInfoField")
-
-                    // Client info object's client type field.
-                    val clientInfoClientTypeField =
-                        getInstruction(result.patternMatch!!.endIndex)
-                            .getReference<FieldReference>()
-                            ?: throw PatchException("Could not find clientInfoClientTypeField")
-
-                    val clientInfoVersionIndex = result.stringMatches!!.first().index
-                    val clientInfoVersionRegister =
-                        getInstruction<OneRegisterInstruction>(clientInfoVersionIndex).registerA
-                    val clientInfoClientVersionFieldIndex =
-                        indexOfFirstInstructionOrThrow(clientInfoVersionIndex) {
-                            opcode == Opcode.IPUT_OBJECT &&
-                                    (this as TwoRegisterInstruction).registerA == clientInfoVersionRegister
-                        }
-
-                    // Client info object's client version field.
-                    val clientInfoClientVersionField =
-                        getInstruction(clientInfoClientVersionFieldIndex)
-                            .getReference<FieldReference>()
-                            ?: throw PatchException("Could not find clientInfoClientVersionField")
-
-                    Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
-                }
-            }
-
-        val clientInfoClientModelField =
-            with(createPlayerRequestBodyWithModelFingerprint.methodOrThrow()) {
-                // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-                val clientInfoClientModelIndex =
-                    indexOfFirstInstructionOrThrow(indexOfModelInstruction(this)) {
-                        val reference = getReference<FieldReference>()
-                        opcode == Opcode.IPUT_OBJECT &&
-                                reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
-                                reference.type == "Ljava/lang/String;"
-                    }
-                getInstruction<ReferenceInstruction>(clientInfoClientModelIndex).reference
-            }
-
-        val clientInfoOsVersionField =
-            with(createPlayerRequestBodyWithVersionReleaseFingerprint.methodOrThrow()) {
-                val buildIndex = indexOfBuildInstruction(this)
-                val clientInfoOsVersionIndex = indexOfFirstInstructionOrThrow(buildIndex - 5) {
-                    val reference = getReference<FieldReference>()
+        setPlayerRequestClientTypeFingerprint.matchOrThrow().let {
+            it.method.apply {
+                val clientInfoIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&
-                            reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
-                            reference.type == "Ljava/lang/String;"
+                            getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
                 }
-                getInstruction<ReferenceInstruction>(clientInfoOsVersionIndex).reference
+                val clientIdIndex = it.patternMatch!!.endIndex
+                val dummyClientVersionIndex = it.stringMatches!!.first().index
+                val dummyClientVersionRegister =
+                    getInstruction<OneRegisterInstruction>(dummyClientVersionIndex).registerA
+                val clientVersionIndex =
+                    indexOfFirstInstructionOrThrow(dummyClientVersionIndex) {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                (this as TwoRegisterInstruction).registerA == dummyClientVersionRegister
+                    }
+
+                clientInfoReference =
+                    getFieldReference(clientInfoIndex)
+                clientIdReference =
+                    getFieldReference(clientIdIndex)
+                clientVersionReference =
+                    getFieldReference(clientVersionIndex)
             }
+        }
+
+        fun MutableMethod.getClientInfoIndex(
+            startIndex: Int,
+            reversed: Boolean = false
+        ): Int {
+            val filter: Instruction.() -> Boolean = {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IPUT_OBJECT &&
+                        reference?.definingClass == CLIENT_INFO_CLASS_DESCRIPTOR &&
+                        reference.type == "Ljava/lang/String;"
+            }
+            return if (reversed) {
+                indexOfFirstInstructionReversedOrThrow(startIndex, filter)
+            } else {
+                indexOfFirstInstructionOrThrow(startIndex, filter)
+            }
+        }
+
+        createPlayerRequestBodyWithModelFingerprint.methodOrThrow().apply {
+            val buildManufacturerIndex =
+                indexOfManufacturerInstruction(this)
+            val deviceBrandIndex =
+                getClientInfoIndex(indexOfBrandInstruction(this))
+            val deviceMakeIndex =
+                getClientInfoIndex(buildManufacturerIndex)
+            val deviceModelIndex =
+                getClientInfoIndex(indexOfModelInstruction(this))
+            val chipSetIndex =
+                getClientInfoIndex(buildManufacturerIndex, true)
+            val osNameIndex =
+                getClientInfoIndex(chipSetIndex - 1, true)
+            val osVersionIndex =
+                getClientInfoIndex(indexOfReleaseInstruction(this))
+
+            deviceBrandReference =
+                getFieldReference(deviceBrandIndex)
+            deviceMakeReference =
+                getFieldReference(deviceMakeIndex)
+            deviceModelReference =
+                getFieldReference(deviceModelIndex)
+            osNameReference =
+                getFieldReference(osNameIndex)
+            osVersionReference =
+                getFieldReference(osVersionIndex)
+        }
 
         // endregion
 
@@ -181,31 +194,49 @@ val spoofClientPatch = bytecodePatch(
                                 move-result v0
                                 if-eqz v0, :disabled
                             
-                                iget-object v0, p0, $clientInfoField
+                                iget-object v0, p0, $clientInfoReference
                             
-                                # Set client type to the spoofed value.
-                                iget v1, v0, $clientInfoClientTypeField
-                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getClientTypeId(I)I
+                                # Set client id.
+                                iget v1, v0, $clientIdReference
+                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getClientId(I)I
                                 move-result v1
-                                iput v1, v0, $clientInfoClientTypeField
-
-                                # Set client model to the spoofed value.
-                                iget-object v1, v0, $clientInfoClientModelField
-                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
-                                move-result-object v1
-                                iput-object v1, v0, $clientInfoClientModelField
+                                iput v1, v0, $clientIdReference
                             
-                                # Set client version to the spoofed value.
-                                iget-object v1, v0, $clientInfoClientVersionField
+                                # Set client version.
+                                iget-object v1, v0, $clientVersionReference
                                 invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
                                 move-result-object v1
-                                iput-object v1, v0, $clientInfoClientVersionField
+                                iput-object v1, v0, $clientVersionReference
 
-                                # Set client os version to the spoofed value.
-                                iget-object v1, v0, $clientInfoOsVersionField
+                                # Set device brand.
+                                iget-object v1, v0, $deviceBrandReference
+                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getDeviceBrand(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v1
+                                iput-object v1, v0, $deviceBrandReference
+
+                                # Set device make.
+                                iget-object v1, v0, $deviceMakeReference
+                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getDeviceMake(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v1
+                                iput-object v1, v0, $deviceMakeReference
+
+                                # Set device model.
+                                iget-object v1, v0, $deviceModelReference
+                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getDeviceModel(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v1
+                                iput-object v1, v0, $deviceModelReference
+
+                                # Set os name.
+                                iget-object v1, v0, $osNameReference
+                                invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getOsName(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v1
+                                iput-object v1, v0, $osNameReference
+
+                                # Set os version.
+                                iget-object v1, v0, $osVersionReference
                                 invoke-static { v1 }, $EXTENSION_CLASS_DESCRIPTOR->getOsVersion(Ljava/lang/String;)Ljava/lang/String;
                                 move-result-object v1
-                                iput-object v1, v0, $clientInfoOsVersionField
+                                iput-object v1, v0, $osVersionReference
 
                                 :disabled
                                 return-void
@@ -273,10 +304,17 @@ val spoofClientPatch = bytecodePatch(
 
         // endregion
 
+        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+            name == "SpoofClient"
+        }.replaceInstruction(
+            0,
+            "const/4 v0, 0x1"
+        )
+
         addSwitchPreference(
             CategoryType.MISC,
             "revanced_spoof_client",
-            "false"
+            "true"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,
