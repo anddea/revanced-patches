@@ -29,3 +29,26 @@ internal val settingsFragmentSyntheticFingerprint = legacyFingerprint(
     opcodes = listOf(Opcode.INVOKE_VIRTUAL_RANGE),
     literals = listOf(settingsFragment, settingsFragmentCairo),
 )
+
+internal val settingsFragmentStylePrimaryFingerprint = legacyFingerprint(
+    name = "settingsFragmentStylePrimaryFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf(
+        "Ljava/lang/String;",
+        "Ljava/util/List;",
+        "Landroidx/preference/Preference;",
+        "Lj${'$'}/util/Optional;",
+        "Lj${'$'}/util/Optional;",
+    ),
+)
+
+internal val settingsFragmentStyleSecondaryFingerprint = legacyFingerprint(
+    name = "settingsFragmentStyleSecondaryFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf(
+        "Ljava/util/List;",
+        "Landroidx/preference/Preference;",
+    ),
+)
