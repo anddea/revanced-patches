@@ -4,15 +4,19 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
-import app.revanced.patches.youtube.utils.engagement.hookEngagementPanelState
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.CHANGE_LIVE_RING_CLICK_ACTION
+import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
+import app.revanced.patches.youtube.video.playbackstart.PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.video.playbackstart.playbackStartDescriptorPatch
 import app.revanced.patches.youtube.video.playbackstart.playbackStartVideoIdReference
+import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentFingerprint
+import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentLegacyFingerprint
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -20,7 +24,10 @@ import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/OpenChannelOfLiveAvatarPatch;"
@@ -35,12 +42,10 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
     dependsOn(
         settingsPatch,
         playbackStartDescriptorPatch,
-        engagementPanelHookPatch,
+        versionCheckPatch,
     )
 
     execute {
-
-        hookEngagementPanelState(EXTENSION_CLASS_DESCRIPTOR)
 
         clientSettingEndpointFingerprint.methodOrThrow().apply {
             val eqzIndex = indexOfFirstInstructionReversedOrThrow(Opcode.IF_EQZ)
@@ -49,7 +54,7 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
 
             addInstructionsWithLabels(
                 eqzIndex, """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->openChannelOfLiveAvatar()Z
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->openChannel()Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :ignore
                     return-void
@@ -76,9 +81,80 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
                 playbackStartIndex + 1, """
                     invoke-virtual { v$playbackStartRegister }, $playbackStartVideoIdReference
                     move-result-object v$freeRegister
-                    invoke-static { v$mapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->openChannelOfLiveAvatar(Ljava/util/Map;Ljava/lang/String;)V
+                    invoke-static { v$mapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchChannelId(Ljava/util/Map;Ljava/lang/String;)V
                     """
             )
+        }
+
+        fun MutableMethod.openChannel() =
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference = (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.NEW_INSTANCE &&
+                            reference is TypeReference &&
+                            reference.type == "Landroid/os/Bundle;"
+                }
+                .map { (index, _) -> index }
+                .reversed()
+                .forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructionsWithLabels(
+                        index, """
+                            invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->openChannel()Z
+                            move-result v$register
+                            if-eqz v$register, :ignore
+                            return-void
+                            :ignore
+                            nop
+                            """
+                    )
+                }
+
+
+        fun fetchChannelIdInstructions(
+            playbackStartRegister: Int,
+            mapRegister: Int,
+            videoIdRegister: Int,
+        ) =
+            """
+                invoke-virtual { v$playbackStartRegister }, $playbackStartVideoIdReference
+                move-result-object v$videoIdRegister
+                invoke-static { v$mapRegister, v$videoIdRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchChannelId(Ljava/util/Map;Ljava/lang/String;)V
+            """
+
+        if (is_19_25_or_greater) {
+            shortsPlaybackStartIntentFingerprint.methodOrThrow().apply {
+                openChannel()
+
+                addInstructionsWithLabels(
+                    0, """
+                        move-object/from16 v0, p1
+                        move-object/from16 v1, p2
+                        ${fetchChannelIdInstructions(0, 1, 2)}
+                        """
+                )
+            }
+        } else {
+            shortsPlaybackStartIntentLegacyFingerprint.methodOrThrow().apply {
+                openChannel()
+
+                val playbackStartIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.returnType == PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
+                }
+                val mapIndex = indexOfFirstInstructionReversedOrThrow(playbackStartIndex, Opcode.IPUT)
+                val mapRegister = getInstruction<TwoRegisterInstruction>(mapIndex).registerA
+                val playbackStartRegister = getInstruction<OneRegisterInstruction>(playbackStartIndex + 1).registerA
+                val videoIdRegister = getInstruction<FiveRegisterInstruction>(playbackStartIndex).registerC
+
+                addInstructionsWithLabels(
+                    playbackStartIndex + 2, """
+                        move-object/from16 v$mapRegister, p2
+                        ${fetchChannelIdInstructions(playbackStartRegister, mapRegister, videoIdRegister)}
+                        """
+                )
+            }
         }
 
         // region add settings
