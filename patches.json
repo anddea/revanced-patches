@@ -169,9 +169,8 @@
     "use": true,
     "dependencies": [
       "Settings for YouTube",
-      "ResourcePatch",
       "BytecodePatch",
-      "BytecodePatch"
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.youtube": [
@@ -399,7 +398,7 @@
         "description": "The icon to apply to the app.\n\nIf a path to a folder is provided, the folder must contain the following folders:\n\n- mipmap-xxxhdpi\n- mipmap-xxhdpi\n- mipmap-xhdpi\n- mipmap-hdpi\n- mipmap-mdpi\n\nEach of these folders must contain the following files:\n\n- adaptiveproduct_youtube_background_color_108.png\n- adaptiveproduct_youtube_foreground_color_108.png\n- ic_launcher.png\n- ic_launcher_round.png",
         "required": true,
         "type": "kotlin.String",
-        "default": "xisr_holiday",
+        "default": "xisr_special",
         "values": {
           "AFN Blue": "afn_blue",
           "AFN Red": "afn_red",
@@ -415,8 +414,8 @@
           "Squid Game": "squid_game",
           "Vanced Black": "vanced_black",
           "Vanced Light": "vanced_light",
+          "Xisr Special": "xisr_special",
           "Xisr Yellow": "xisr_yellow",
-          "Xisr Holiday": "xisr_holiday",
           "YouTube": "youtube",
           "YouTube Black": "youtube_black"
         }
@@ -2457,7 +2456,7 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "BytecodePatch",
+      "ResourcePatch",
       "ResourcePatch",
       "BytecodePatch",
       "BytecodePatch"
@@ -2775,15 +2774,11 @@
     "use": true,
     "dependencies": [
       "BytecodePatch",
-      "Restore old style library shelf",
       "Settings for YouTube Music",
       "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
         "6.51.53",
         "7.16.53"
       ]
@@ -2793,49 +2788,8 @@
   {
     "name": "Spoof client",
     "description": "Adds options to spoof the client to allow playback.",
-    "use": false,
-    "dependencies": [
-      "Settings for YouTube Music",
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.google.android.apps.youtube.music": [
-        "6.20.51",
-        "6.29.59",
-        "6.42.55",
-        "6.51.53",
-        "7.16.53"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Spoof streaming data",
-    "description": "Adds options to spoof the streaming data to allow playback.",
     "use": true,
     "dependencies": [
-      "BytecodePatch",
-      "Settings for YouTube"
-    ],
-    "compatiblePackages": {
-      "com.google.android.youtube": [
-        "18.29.38",
-        "18.33.40",
-        "18.38.44",
-        "18.48.39",
-        "19.05.36",
-        "19.16.39",
-        "19.44.39"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Spoof streaming data",
-    "description": "Adds options to spoof the streaming data to allow playback.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch",
       "Settings for YouTube Music",
       "BytecodePatch"
     ],
@@ -2848,6 +2802,28 @@
         "7.16.53",
         "7.25.53",
         "8.02.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Spoof streaming data",
+    "description": "Adds options to spoof the streaming data to allow playback.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube",
+      "BytecodePatch",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
       ]
     },
     "options": []

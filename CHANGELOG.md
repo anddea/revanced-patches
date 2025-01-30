@@ -1,3 +1,31 @@
+# [3.4.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.3.0...v3.4.0-dev.1) (2025-01-30)
+
+
+### Bug Fixes
+
+* **YouTube - Change live ring click action:** Channel does not open when the live ring of Shorts live stream is clicked ([dd6baa4](https://github.com/anddea/revanced-patches/commit/dd6baa4a63a90cbd5bf3c2c43f241ad86763846d))
+* **YouTube - Change live ring click action:** Sometimes the channel opens even if the live ring is not clicked. ([48b1c35](https://github.com/anddea/revanced-patches/commit/48b1c353c1215c03b6f83e59dc34a5d72c5bd5fe))
+* **YouTube - Hide ads:** New types of ads are shown ([da63932](https://github.com/anddea/revanced-patches/commit/da639323b6e3853d455634264c1494cf3ad20a42))
+* **YouTube - Hide feed components:** `Hide community posts in subscriptions` not working ([f986d4b](https://github.com/anddea/revanced-patches/commit/f986d4b83c6af2e3cf5bb7a25d745f708f408f3d))
+* **YouTube - Hide feed components:** `Hide Playables` not working ([664949a](https://github.com/anddea/revanced-patches/commit/664949a3397866adf6211a10b47fe7b2acfa1a62))
+* **YouTube - Hide feed components:** Podcasts subpage is empty when  is on ([5265191](https://github.com/anddea/revanced-patches/commit/52651916fa098adc10c88f609bc9f91f3442d57d))
+* **YouTube - Settings:** All patches fail in some environments ([a25858a](https://github.com/anddea/revanced-patches/commit/a25858a83fbc68adc4974a45bba7f932984feab9))
+* **YouTube Music - Dark theme:** Gradient layer overlaps ([2f90e68](https://github.com/anddea/revanced-patches/commit/2f90e68ee6d783187a4433612dc3f756cb7a5ab1))
+* **YouTube Music - Settings:** ListPreference dialog always selects default value ([1d3cbd5](https://github.com/anddea/revanced-patches/commit/1d3cbd5dee79f44d4ed029b62389392da81c8a14))
+
+
+### Features
+
+* **YouTube - Change start page:** Add more start pages ([b138dc3](https://github.com/anddea/revanced-patches/commit/b138dc336b0d6e6b390568a57f4d6410c673e070))
+* **YouTube - Custom branding icon:** Replace `Xisr Holiday` icon with `Xisr Special` icon ([#952](https://github.com/anddea/revanced-patches/issues/952)) ([077bc52](https://github.com/anddea/revanced-patches/commit/077bc525d7c1f556c2ad41d5494c750df3e7a1cd))
+* **YouTube - Hide ads:** Add `Hide end screen store banner` setting ([177abbc](https://github.com/anddea/revanced-patches/commit/177abbc6908558adbf9c9c205dfd91da35a54578))
+* **YouTube - Hide feed flyout menu:** Add `Feed flyout menu filter type` setting ([5862325](https://github.com/anddea/revanced-patches/commit/58623251af7f6152f1ffde3b00af261c67e19f98))
+* **YouTube - Hide layout components:** Add `Account menu filter type` setting ([e99529a](https://github.com/anddea/revanced-patches/commit/e99529a8a1063800ce957b03797971b0084e5d61))
+* **YouTube - Seekbar components:** Add option to use custom seekbar accent color ([bf2a9bd](https://github.com/anddea/revanced-patches/commit/bf2a9bd802cadf264d9b8e8fc97cc8adb6c468b7))
+* **YouTube Music - Change start page:** Add more start pages ([193293a](https://github.com/anddea/revanced-patches/commit/193293a25661821e4ad8724fd3e2b595364152a8))
+* **YouTube Music - Spoof app version:** Remove the version that is no longer valid ([da3bbb1](https://github.com/anddea/revanced-patches/commit/da3bbb1638dc2afd06403a37d30b0f9da7a6d645))
+* **YouTube Music - Spoof client:** Add support for latest versions, Remove 'Spoof streaming data' patch ([295d940](https://github.com/anddea/revanced-patches/commit/295d940eb96a4de59bf655723ecad7d047db4dfa))
+
 # [3.3.0](https://github.com/anddea/revanced-patches/compare/v3.2.0...v3.3.0) (2025-01-24)
 
 
