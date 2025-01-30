@@ -73,11 +73,19 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_change_layout_entry_5">Tablet (min. 600 dpi)</string>
     <string name="revanced_change_layout_title">Cambiar diseño</string>
     <string name="revanced_change_live_ring_click_action_summary_off">El directo se abre al pulsar en el anillo del directo.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">El canal se abre al pulsar en el anillo del directo.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"El canal se abre al pulsar en el anillo del directo."</string>
     <string name="revanced_change_live_ring_click_action_title">Cambiar acción de pulsación en anillo del directo</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Se utilizan interruptores cambiables.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Se utilizan interruptores de texto.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Cambiar tipo de interruptores</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">El color de fondo de la barra de notificaciones del lado del servidor no ha cambiado.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">El color de fondo de la barra de notificaciones del lado del servidor ha cambiado.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Cambiar fondo de barra de notificaciones del lado del servidor</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Algunas barras de notificaciones utilizan un tema definido en el lado del servidor, no el tema de la aplicación.
+
+Cambie el color de fondo de estas barras de notificaciones.
+
+Si hay cambios en el lado del servidor, es posible que el color de fondo de la barra de notificaciones no cambie."</string>
     <string name="revanced_change_share_sheet_summary_off">Se utiliza la hoja de compartir incorporada.</string>
     <string name="revanced_change_share_sheet_summary_on">Se utiliza la hoja de compartir del sistema.</string>
     <string name="revanced_change_share_sheet_title">Cambiar hoja de compartir</string>
@@ -135,9 +143,6 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">La opacidad de la superposición del reproductor debe estar entre 0-100. Restablezca a los valores predeterminados.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Valor de opacidad entre 0-100, donde 0 es transparente.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Opacidad personalizada de superposición del reproductor</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Valor de color de la barra de búsqueda inválido.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Escribe el código hexadecimal del color de la barra de progreso.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Valor de color personalizado de barra de progreso</string>
     <string name="revanced_default_app_settings_summary">Para abrir RVX en un navegador externo, activa \"Abrir enlaces compatibles\" y activa las direcciones web compatibles.</string>
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
     <string name="revanced_default_playback_speed_title">Velocidad predeterminada de reproducción</string>
@@ -899,6 +904,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_self_sponsor_cards_summary_off">Las tarjetas autopatrocinadas están visibles.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Las tarjetas autopatrocinadas están ocultas.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Ocultar tarjetas autopatrocinadas</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">La barra de notificaciones del lado del servidor está visible.</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">La barra de notificaciones del lado del servidor está oculta.</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Ocultar barra de notificaciones del lado del servidor</string>
     <string name="revanced_hide_settings_menu_about_summary_off">El menú \"Información\" está visible.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">El menú \"Información\" está oculto.</string>
     <string name="revanced_hide_settings_menu_about_title">Ocultar menú \"Información\"</string>
@@ -908,9 +916,9 @@ Si el diseño de la pantalla del reproductor cambia debido a cambios en el servi
     <string name="revanced_hide_settings_menu_account_summary_off">El menú \"Cuenta\" está visible.</string>
     <string name="revanced_hide_settings_menu_account_summary_on">El menú \"Cuenta\" está oculto.</string>
     <string name="revanced_hide_settings_menu_account_title">Ocultar menú \"Cuenta\"</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú de reproducción automática o de reproducción está visible.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú de reproducción automática o de reproducción está oculto.</string>
-    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú de reproducción automática o de reproducción</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_off">El menú de reproducción automática está visible.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_summary_on">El menú de reproducción automática está oculto.</string>
+    <string name="revanced_hide_settings_menu_autoplay_playback_title">Ocultar menú \"Reproducción automática\"</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_off">El menú \"Facturación y pagos\" está visible.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_summary_on">El menú \"Facturación y pagos\" está oculto.</string>
     <string name="revanced_hide_settings_menu_billing_and_payment_title">Ocultar menú \"Facturación y pagos\"</string>
@@ -1192,6 +1200,9 @@ Si un Doodle de YouTube está actualmente mostrándose en tu región y este ajus
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">El tema de la barra de notificaciones no está invertido.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">El tema de la barra de notificaciones está invertido.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Invertir tema de barra de notificaciones</string>
     <string name="revanced_keep_landscape_mode_summary">Mantiene el modo horizontal al apagar y encender la pantalla en pantalla completa.</string>
     <string name="revanced_keep_landscape_mode_summary_off">Los vídeos se reproducen en modo vertical después de apagar y encender la pantalla.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Los vídeos continúan reproduciéndose en modo horizontal después de apagar y encender la pantalla.</string>
@@ -1447,6 +1458,8 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_screen_shorts_player_summary">Ocultar o mostrar los componentes en el reproductor de Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Reproductor de Shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Ocultar o cambiar los componentes relacionados con la barra de notificaciones.</string>
+    <string name="revanced_preference_screen_snack_bar_title">Barra de notificaciones</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Falsifica los datos de transmisión para evitar problemas de reproducción.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Falsificar datos de transmisión</string>
     <string name="revanced_preference_screen_swipe_controls_title">Controles deslizantes</string>

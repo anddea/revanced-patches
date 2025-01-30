@@ -9,6 +9,7 @@
         <!-- SETTINGS: HIDE_LAYOUT_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_account_menu_title" android:key="revanced_preference_screen_account_menu" android:summary="@string/revanced_preference_screen_account_menu_summary">
             <SwitchPreference android:title="@string/revanced_hide_account_menu_title" android:key="revanced_hide_account_menu" android:summary="@string/revanced_hide_account_menu_summary" />
+            <SwitchPreference android:title="@string/revanced_hide_account_menu_filter_type_title" android:key="revanced_hide_account_menu_filter_type" android:summaryOn="@string/revanced_hide_account_menu_filter_type_summary_on" android:summaryOff="@string/revanced_hide_account_menu_filter_type_summary_off" />
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_account_menu_filter_strings_title" android:key="revanced_hide_account_menu_filter_strings" android:summary="@string/revanced_hide_account_menu_filter_strings_summary" android:inputType="textMultiLine" app:searchDependency="revanced_hide_account_menu" />
             <SwitchPreference android:title="@string/revanced_hide_handle_title" android:key="revanced_hide_handle" android:summaryOn="@string/revanced_hide_handle_summary_on" android:summaryOff="@string/revanced_hide_handle_summary_off" app:searchDependency="revanced_hide_account_menu" />
         </PreferenceScreen>
@@ -205,6 +206,7 @@
 
     <!-- PREFERENCE_SCREEN: ADS
     <PreferenceScreen android:title="@string/revanced_preference_screen_ads_title" android:key="revanced_preference_screen_ads">
+        <SwitchPreference android:title="@string/revanced_hide_end_screen_store_banner_title" android:key="revanced_hide_end_screen_store_banner" android:summaryOn="@string/revanced_hide_end_screen_store_banner_summary_on" android:summaryOff="@string/revanced_hide_end_screen_store_banner_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_fullscreen_ads_title" android:key="revanced_hide_fullscreen_ads" android:summaryOn="@string/revanced_hide_fullscreen_ads_summary_on" android:summaryOff="@string/revanced_hide_fullscreen_ads_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_general_ads_title" android:key="revanced_hide_general_ads" android:summaryOn="@string/revanced_hide_general_ads_summary_on" android:summaryOff="@string/revanced_hide_general_ads_summary_off" />
         <SwitchPreference android:title="@string/revanced_hide_merchandise_shelf_title" android:key="revanced_hide_merchandise_shelf" android:summaryOn="@string/revanced_hide_merchandise_shelf_summary_on" android:summaryOff="@string/revanced_hide_merchandise_shelf_summary_off" />
@@ -269,6 +271,7 @@
         <!-- SETTINGS: HIDE_FEED_FLYOUT_MENU
         <PreferenceScreen android:title="@string/revanced_preference_screen_feed_flyout_menu_title" android:key="revanced_preference_screen_feed_flyout_menu" android:summary="@string/revanced_preference_screen_feed_flyout_menu_summary">
             <SwitchPreference android:title="@string/revanced_hide_feed_flyout_menu_title" android:key="revanced_hide_feed_flyout_menu" android:summaryOn="@string/revanced_hide_feed_flyout_menu_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_menu_summary_off" />
+            <SwitchPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_type_title" android:key="revanced_hide_feed_flyout_menu_filter_type" android:summaryOn="@string/revanced_hide_feed_flyout_menu_filter_type_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_menu_filter_type_summary_off" />
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_strings_title" android:key="revanced_hide_feed_flyout_menu_filter_strings" android:summary="@string/revanced_hide_feed_flyout_menu_filter_strings_summary" android:inputType="textMultiLine" app:searchDependency="revanced_hide_feed_flyout_menu" />
         </PreferenceScreen>SETTINGS: HIDE_FEED_FLYOUT_MENU -->
 
@@ -513,7 +516,13 @@
             <SwitchPreference android:title="@string/revanced_replace_time_stamp_action_title" android:key="revanced_replace_time_stamp_action" android:summaryOn="@string/revanced_replace_time_stamp_action_summary_on" android:summaryOff="@string/revanced_replace_time_stamp_action_summary_off" />
             <SwitchPreference android:title="@string/revanced_disable_seekbar_chapters_title" android:key="revanced_disable_seekbar_chapters" android:summaryOn="@string/revanced_disable_seekbar_chapters_summary_on" android:summaryOff="@string/revanced_disable_seekbar_chapters_summary_off" />
             <SwitchPreference android:title="@string/revanced_enable_custom_seekbar_color_title" android:key="revanced_enable_custom_seekbar_color" android:summaryOn="@string/revanced_enable_custom_seekbar_color_summary_on" android:summaryOff="@string/revanced_enable_custom_seekbar_color_summary_off" />
-            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_value_title" android:key="revanced_custom_seekbar_color_value" android:summary="@string/revanced_custom_seekbar_color_value_summary" android:hint="#FF0000" android:inputType="text" app:searchDependency="revanced_enable_custom_seekbar_color" />
+            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_primary_title" android:key="revanced_custom_seekbar_color_primary" android:summary="@string/revanced_custom_seekbar_color_primary_summary" android:hint="#FF0033" android:inputType="text" app:searchDependency="revanced_enable_custom_seekbar_color" />SETTINGS: SEEKBAR_COMPONENTS -->
+
+            <!-- SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT
+            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_custom_seekbar_color_accent_title" android:key="revanced_custom_seekbar_color_accent" android:summary="@string/revanced_custom_seekbar_color_accent_summary" android:hint="#FF2791" android:inputType="text" app:searchDependency="revanced_enable_custom_seekbar_color" />
+            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_gradient_seekbar_positions_title" android:key="revanced_gradient_seekbar_positions" android:summary="@string/revanced_gradient_seekbar_positions_summary" android:inputType="text" app:searchDependency="revanced_enable_custom_seekbar_color" />SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT -->
+
+            <!-- SETTINGS: SEEKBAR_COMPONENTS
             <SwitchPreference android:title="@string/revanced_enable_seekbar_tapping_title" android:key="revanced_enable_seekbar_tapping" android:summaryOn="@string/revanced_enable_seekbar_tapping_summary_on" android:summaryOff="@string/revanced_enable_seekbar_tapping_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_seekbar_chapter_label_title" android:key="revanced_hide_seekbar_chapter_label" android:summaryOn="@string/revanced_hide_seekbar_chapter_label_summary_on" android:summaryOff="@string/revanced_hide_seekbar_chapter_label_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_seekbar_title" android:key="revanced_hide_seekbar" android:summaryOn="@string/revanced_hide_seekbar_summary_on" android:summaryOff="@string/revanced_hide_seekbar_summary_off" />
@@ -526,10 +535,6 @@
             <!-- SETTINGS: ENABLE_CAIRO_SEEKBAR
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
             <SwitchPreference android:title="@string/revanced_enable_cairo_seekbar_title" android:key="revanced_enable_cairo_seekbar" android:summaryOn="@string/revanced_enable_cairo_seekbar_summary_on" android:summaryOff="@string/revanced_enable_cairo_seekbar_summary_off" />SETTINGS: ENABLE_CAIRO_SEEKBAR -->
-
-            <!-- SETTINGS: GRADIENT_SEEKBAR_OPTIONS
-            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_gradient_seekbar_colors_title" android:key="revanced_gradient_seekbar_colors" android:summary="@string/revanced_gradient_seekbar_colors_summary" android:inputType="text" app:searchDependency="revanced_enable_cairo_seekbar" />
-            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_gradient_seekbar_positions_title" android:key="revanced_gradient_seekbar_positions" android:summary="@string/revanced_gradient_seekbar_positions_summary" android:inputType="text" app:searchDependency="revanced_enable_cairo_seekbar" />SETTINGS: GRADIENT_SEEKBAR_OPTIONS -->
 
         <!-- SETTINGS: SEEKBAR_COMPONENTS
         </PreferenceScreen>SETTINGS: SEEKBAR_COMPONENTS -->

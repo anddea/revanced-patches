@@ -7,7 +7,7 @@ public class PatchStatus {
     }
 
     public static boolean SpoofClient() {
-        // Replace this with true If the Spoof streaming data patch succeeds in YouTube Music.
+        // Replace this with true If the Spoof client patch succeeds in YouTube Music.
         return false;
     }
 

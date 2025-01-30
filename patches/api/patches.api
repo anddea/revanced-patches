@@ -162,21 +162,12 @@ public final class app/revanced/patches/music/utils/fix/androidauto/AndroidAutoC
 	public static final fun getAndroidAutoCertificatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/utils/fix/client/FingerprintsKt {
-	public static final fun indexOfBuildInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
-}
-
 public final class app/revanced/patches/music/utils/fix/client/SpoofClientPatchKt {
 	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/fix/fileprovider/FileProviderPatchKt {
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/music/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
-	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/utils/flyoutmenu/FlyoutMenuHookPatchKt {
@@ -200,6 +191,7 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_6_27_or_greater ()Z
 	public static final fun is_6_36_or_greater ()Z
 	public static final fun is_6_42_or_greater ()Z
+	public static final fun is_6_43_or_greater ()Z
 	public static final fun is_7_03_or_greater ()Z
 	public static final fun is_7_06_or_greater ()Z
 	public static final fun is_7_13_or_greater ()Z
@@ -403,6 +395,8 @@ public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 
 public final class app/revanced/patches/shared/FingerprintsKt {
 	public static final field SPANNABLE_STRING_REFERENCE Ljava/lang/String;
+	public static final fun indexOfBrandInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfManufacturerInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfModelInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfReleaseInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSpannableStringInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
@@ -532,14 +526,9 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 	public static final fun baseSpoofAppVersionPatch (Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/spoof/streamingdata/BaseSpoofStreamingDataPatchKt {
+public final class app/revanced/patches/shared/spoof/blockrequest/BlockRequestPatchKt {
 	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
-	public static final fun baseSpoofStreamingDataPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun baseSpoofStreamingDataPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/shared/spoof/streamingdata/FingerprintsKt {
-	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
+	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/spoof/useragent/BaseSpoofUserAgentPatchKt {
@@ -855,7 +844,7 @@ public final class app/revanced/patches/youtube/utils/fix/bottomui/CfBottomUIPat
 }
 
 public final class app/revanced/patches/youtube/utils/fix/cairo/CairoFragmentPatchKt {
-	public static final fun getCairoFragmentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getCairoFragmentPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/fix/cairo/CairoSettingsPatchKt {
@@ -882,7 +871,12 @@ public final class app/revanced/patches/youtube/utils/fix/splash/DarkModeSplashS
 	public static final fun getDarkModeSplashScreenPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/fix/streamingdata/FingerprintsKt {
+	public static final field STREAMING_DATA_INTERFACE Ljava/lang/String;
+}
+
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -1021,7 +1015,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getDrawerResults ()J
 	public static final fun getEasySeekEduContainer ()J
 	public static final fun getEditSettingsAction ()J
-	public static final fun getElementsImage ()J
 	public static final fun getEmojiPickerIcon ()J
 	public static final fun getEndScreenElementLayoutCircle ()J
 	public static final fun getEndScreenElementLayoutIcon ()J
@@ -1032,6 +1025,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getFilterBarHeight ()J
 	public static final fun getFloatyBarTopMargin ()J
 	public static final fun getFullScreenButton ()J
+	public static final fun getFullScreenEngagementAdContainer ()J
 	public static final fun getFullScreenEngagementOverlay ()J
 	public static final fun getFullScreenEngagementPanel ()J
 	public static final fun getHorizontalCardList ()J
@@ -1100,6 +1094,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getYtOutlineVideoCamera ()J
 	public static final fun getYtOutlineXWhite ()J
 	public static final fun getYtPremiumWordMarkHeader ()J
+	public static final fun getYtStaticBrandRed ()J
 	public static final fun getYtWordMarkHeader ()J
 	public static final fun getYtYoutubeMagenta ()J
 }
