@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.util.Arrays;
 import java.util.Locale;
 
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -29,7 +28,7 @@ public class ResettableListPreference {
             final String[] mEntries = getStringArray(entryKey);
             final String[] mEntryValues = getStringArray(entryValueKey);
 
-            final int findIndex = Arrays.binarySearch(mEntryValues, setting.get());
+            final int findIndex = ArrayUtils.indexOf(mEntryValues, setting.get());
             mClickedDialogEntryIndex = findIndex >= 0 ? findIndex : defaultIndex;
 
             getDialogBuilder(mActivity)
