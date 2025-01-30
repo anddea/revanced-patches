@@ -35,7 +35,7 @@ public final class AdsFilter extends Filter {
                 "alert_banner_promo.eml"
         );
 
-        // Keywords checked in 2024:
+        // Keywords checked in 2025:
         final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 // "brand_video_shelf.eml"
@@ -63,6 +63,9 @@ public final class AdsFilter extends Filter {
                 // "text_image_button_group_layout.eml"
                 // "video_display_button_group_layout.eml"
                 "_button_group_layout",
+
+                // "text_image_no_button_layout.eml"
+                "_button_layout",
 
                 // "banner_text_icon_buttoned_layout.eml"
                 // "video_display_compact_buttoned_layout.eml"
