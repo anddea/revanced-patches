@@ -3,11 +3,11 @@ package app.revanced.patches.music.general.spoofappversion
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patches.music.general.oldstylelibraryshelf.oldStyleLibraryShelfPatch
 import app.revanced.patches.music.utils.compatibility.Constants.YOUTUBE_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_APP_VERSION
+import app.revanced.patches.music.utils.playservice.is_6_43_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
@@ -32,7 +32,7 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
     )
 
     execute {
-        if (is_7_25_or_greater) {
+        if (!is_6_43_or_greater || is_7_25_or_greater) {
             return@execute
         }
         if (is_7_17_or_greater) {
@@ -61,9 +61,6 @@ val spoofAppVersionPatch = resourcePatch(
 ) {
     compatibleWith(
         YOUTUBE_MUSIC_PACKAGE_NAME(
-            "6.20.51",
-            "6.29.59",
-            "6.42.55",
             "6.51.53",
             "7.16.53",
         ),
@@ -71,14 +68,13 @@ val spoofAppVersionPatch = resourcePatch(
 
     dependsOn(
         spoofAppVersionBytecodePatch,
-        oldStyleLibraryShelfPatch,
         settingsPatch,
         versionCheckPatch,
     )
 
     execute {
-        if (is_7_25_or_greater) {
-            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 7.24.51 or earlier.")
+        if (!is_6_43_or_greater || is_7_25_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.43.53 ~ 7.24.51.")
             return@execute
         }
         if (is_7_17_or_greater) {
