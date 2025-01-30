@@ -241,6 +241,8 @@ var ytOutlineXWhite = -1L
     private set
 var ytPremiumWordMarkHeader = -1L
     private set
+var ytStaticBrandRed = -1L
+    private set
 var ytWordMarkHeader = -1L
     private set
 var ytYoutubeMagenta = -1L
@@ -703,6 +705,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytPremiumWordMarkHeader = resourceMappings[
             ATTR,
             "ytPremiumWordmarkHeader"
+        ]
+        ytStaticBrandRed = resourceMappings[
+            ATTR,
+            "ytStaticBrandRed",
         ]
         ytWordMarkHeader = resourceMappings[
             ATTR,

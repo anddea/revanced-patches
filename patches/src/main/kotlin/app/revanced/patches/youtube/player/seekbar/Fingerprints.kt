@@ -1,12 +1,30 @@
 package app.revanced.patches.youtube.player.seekbar
 
 import app.revanced.patches.youtube.utils.resourceid.reelTimeBarPlayedColor
+import app.revanced.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.revanced.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import kotlin.collections.listOf
+
+internal val shortsSeekbarColorFingerprint = legacyFingerprint(
+    name = "shortsSeekbarColorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    literals = listOf(reelTimeBarPlayedColor),
+)
+
+internal val controlsOverlayStyleFingerprint = legacyFingerprint(
+    name = "controlsOverlayStyleFingerprint",
+    opcodes = listOf(Opcode.CONST_HIGH16),
+    strings = listOf("YOUTUBE", "PREROLL", "POSTROLL"),
+    customFingerprint = { method, _ ->
+        method.definingClass.endsWith("/ControlsOverlayStyle;")
+    }
+)
 
 internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
 
@@ -17,6 +35,21 @@ internal val playerSeekbarGradientConfigFingerprint = legacyFingerprint(
     literals = listOf(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG),
 )
 
+internal val playerSeekbarHandleColorFingerprint = legacyFingerprint(
+    name = "playerSeekbarHandleColorFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf("Landroid/content/Context;"),
+    literals = listOf(ytStaticBrandRed),
+)
+
+internal val watchHistoryMenuUseProgressDrawableFingerprint = legacyFingerprint(
+    name = "watchHistoryMenuUseProgressDrawableFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L"),
+    literals = listOf(-1712394514),
+)
+
 internal val lithoLinearGradientFingerprint = legacyFingerprint(
     name = "lithoLinearGradientFingerprint",
     accessFlags = AccessFlags.STATIC.value,
@@ -25,11 +58,13 @@ internal val lithoLinearGradientFingerprint = legacyFingerprint(
 )
 
 /**
- * YouTube 19.25 - 19.47
+ * YouTube 19.49+
  */
-internal val playerLinearGradientLegacyFingerprint = legacyFingerprint(
-    name = "playerLinearGradientLegacyFingerprint",
-    returnType = "V",
+internal val playerLinearGradientFingerprint = legacyFingerprint(
+    name = "playerLinearGradientFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("I", "I", "I", "I", "Landroid/content/Context;", "I"),
+    returnType = "Landroid/graphics/LinearGradient;",
     opcodes = listOf(
         Opcode.FILLED_NEW_ARRAY,
         Opcode.MOVE_RESULT_OBJECT
@@ -38,13 +73,11 @@ internal val playerLinearGradientLegacyFingerprint = legacyFingerprint(
 )
 
 /**
- * YouTube 19.49+
+ * YouTube 19.25 - 19.47
  */
-internal val playerLinearGradientFingerprint = legacyFingerprint(
-    name = "playerLinearGradientFingerprint",
-    returnType = "Landroid/graphics/LinearGradient;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("I", "I", "I", "I", "Landroid/content/Context;", "I"),
+internal val playerLinearGradientLegacyFingerprint = legacyFingerprint(
+    name = "playerLinearGradientLegacyFingerprint",
+    returnType = "V",
     opcodes = listOf(
         Opcode.FILLED_NEW_ARRAY,
         Opcode.MOVE_RESULT_OBJECT
@@ -91,22 +124,6 @@ internal val launchScreenLayoutTypeFingerprint = legacyFingerprint(
     }
 )
 
-internal val cairoSeekbarConfigFingerprint = legacyFingerprint(
-    name = "cairoSeekbarConfigFingerprint",
-    returnType = "Z",
-    parameters = emptyList(),
-    literals = listOf(45617850L),
-)
-
-internal val controlsOverlayStyleFingerprint = legacyFingerprint(
-    name = "controlsOverlayStyleFingerprint",
-    opcodes = listOf(Opcode.CONST_HIGH16),
-    strings = listOf("YOUTUBE", "PREROLL", "POSTROLL"),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/ControlsOverlayStyle;")
-    }
-)
-
 internal val seekbarTappingFingerprint = legacyFingerprint(
     name = "seekbarTappingFingerprint",
     returnType = "Z",
@@ -137,13 +154,6 @@ internal val seekbarThumbnailsQualityFingerprint = legacyFingerprint(
     returnType = "Z",
     parameters = emptyList(),
     literals = listOf(45399684L),
-)
-
-internal val shortsSeekbarColorFingerprint = legacyFingerprint(
-    name = "shortsSeekbarColorFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    literals = listOf(reelTimeBarPlayedColor),
 )
 
 internal val thumbnailPreviewConfigFingerprint = legacyFingerprint(
