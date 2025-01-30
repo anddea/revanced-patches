@@ -119,9 +119,8 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 8.02.53 |
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 8.02.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 8.02.53 |
-| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics. | 6.20.51 ~ 7.16.53 |
-| `Spoof client` | Adds options to spoof the client to allow playback. | 6.20.51 ~ 7.16.53 |
-| `Spoof streaming data` | Adds options to spoof the streaming data to allow playback. | 6.20.51 ~ 8.02.53 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics. | 6.51.53 ~ 7.16.53 |
+| `Spoof client` | Adds options to spoof the client to allow playback. | 6.20.51 ~ 8.02.53 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 8.02.53 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 8.02.53 |
 | `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 6.20.51 ~ 8.02.53 |
