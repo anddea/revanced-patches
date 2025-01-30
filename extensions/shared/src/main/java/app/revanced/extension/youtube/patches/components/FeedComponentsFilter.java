@@ -62,7 +62,8 @@ public final class FeedComponentsFilter extends Filter {
                 "images_post_root",
                 "images_post_slim",
                 "poll_post_root",
-                "text_post_root"
+                "text_post_root",
+                "videos_post_root"
         );
 
         final StringFilterGroup expandableShelf = new StringFilterGroup(
