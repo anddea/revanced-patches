@@ -76,11 +76,19 @@
     <string name="revanced_change_layout_entry_5">Τάμπλετ (Μέγιστο dp 600)</string>
     <string name="revanced_change_layout_title">Αλλαγή διεπαφής</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Η ζωντανή μετάδοση ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Το κανάλι ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Το κανάλι ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης."</string>
     <string name="revanced_change_live_ring_click_action_title">Αλλαγή ενέργειας πατήματος δακτυλίου ζωντανής μετάδοσης</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Εμφανίζονται εναλλαγές διακόπτη.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Εμφανίζονται εναλλαγές κειμένου.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Τύπος εναλλαγής ρυθμίσεων</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Το χρώμα φόντου της γραμμής ειδοποιήσεων αλληλεπίδρασης δεν έχει αλλάξει.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Το χρώμα φόντου της γραμμής ειδοποιήσεων αλληλεπίδρασης έχει αλλάξει.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Αλλαγή φόντου γραμμής ειδοποιήσεων αλληλεπίδρασης</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Κάποιες γραμμές ειδοποιήσεων αλληλεπίδρασης χρησιμοποιούν ένα θέμα που έχει οριστεί στην πλευρά του διακομιστή, και όχι το θέμα της εφαρμογής.
+
+Αλλαγή χρώματος του φόντου αυτών των γραμμών.
+
+Αν υπάρξουν αλλαγές στην πλευρά του διακομιστή, το χρώμα φόντου της γραμμής ενδέχεται να μην αλλάξει."</string>
     <string name="revanced_change_share_sheet_summary_off">Χρησιμοποιείται το μενού κοινοποίηση της εφαρμογής.</string>
     <string name="revanced_change_share_sheet_summary_on">Χρησιμοποιείται το μενού κοινοποίηση της συστήματός σας.</string>
     <string name="revanced_change_share_sheet_title">Αλλαγή μενού κοινοποίησης</string>
@@ -138,9 +146,6 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Η αδιαφάνεια πρέπει να είναι μεταξύ 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Μη έγκυρη τιμή χρώματος γραμμής προόδου.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Εισάγετε τον κωδικό hex του χρώματος της γραμμής προόδου.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Τιμή χρώματος γραμμής προόδου</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube στο RVX, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
     <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
     <string name="revanced_default_playback_speed_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
@@ -200,8 +205,8 @@
     <string name="revanced_disable_hdr_auto_brightness_summary_off">Η αυτόματη φωτεινότητα HDR είναι ενεργοποιημένη.</string>
     <string name="revanced_disable_hdr_auto_brightness_summary_on">Η αυτόματη φωτεινότητα HDR είναι απενεργοποιημένη.</string>
     <string name="revanced_disable_hdr_auto_brightness_title">Απενεργοποίηση αυτόματης φωτεινότητας HDR</string>
-    <string name="revanced_disable_hdr_video_summary_off">Τα βίντεο που υποστηρίζουν HDR θα παίζουν σε HDR ποιότητα.</string>
-    <string name="revanced_disable_hdr_video_summary_on">Τα βίντεο που υποστηρίζουν HDR δεν θα παίζουν σε HDR ποιότητα.</string>
+    <string name="revanced_disable_hdr_video_summary_off">Τα βίντεο που υποστηρίζουν HDR αναπαράγονται σε HDR ποιότητα.</string>
+    <string name="revanced_disable_hdr_video_summary_on">Τα βίντεο που υποστηρίζουν HDR δεν αναπαράγονται σε HDR ποιότητα.</string>
     <string name="revanced_disable_hdr_video_title">Απενεργοποίηση βίντεο HDR</string>
     <string name="revanced_disable_landscape_mode_summary_off">Η οριζόντια λειτουργία σε λειτουργία πλήρους οθόνης είναι ενεργοποιημένη.</string>
     <string name="revanced_disable_landscape_mode_summary_on">Η οριζόντια λειτουργία σε λειτουργία πλήρους οθόνης είναι απενεργοποιημένη.</string>
@@ -918,6 +923,9 @@ Playlists
     <string name="revanced_hide_self_sponsor_cards_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_self_sponsor_cards_title">Κάρτες αυτοχρηματοδότησης</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Γραμμή ειδοποιήσεων αλληλεπίδρασης πλευράς του διακομιστή</string>
     <string name="revanced_hide_settings_menu_about_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_settings_menu_about_title">Μενού «Σχετικά με»</string>
@@ -1224,6 +1232,9 @@ Playlists
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">Το θέμα της γραμμής ειδοποιήσεων αλληλεπίδρασης δεν είναι ανεστραμμένο.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">Το θέμα της γραμμής ειδοποιήσεων αλληλεπίδρασης είναι ανεστραμμένο.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Αντιστροφή θέματος γραμμής ειδοποιήσεων αλληλεπίδρασης</string>
     <string name="revanced_keep_landscape_mode_summary">Διατήρηση της οριζόντιας λειτουργίας στο κλείσιμο και άνοιγμα της οθόνης ενώ βρίσκεστε σε λειτουργία πλήρους οθόνης.</string>
     <string name="revanced_keep_landscape_mode_summary_off">Τα βίντεο αναπαράγονται σε κάθετη λειτουργία όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Τα βίντεο συνεχίζουν να αναπαράγονται σε οριζόντια λειτουργία ακόμη και όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
@@ -1487,6 +1498,8 @@ Playlists
     <string name="revanced_preference_screen_shorts_player_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Οθόνη αναπαραγωγής Shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Απόκρυψη ή αλλαγή στοιχείων που σχετίζονται με τη γραμμή ειδοποιήσεων αλληλεπίδρασης.</string>
+    <string name="revanced_preference_screen_snack_bar_title">Γραμμή ειδοποιήσεων αλληλεπίδρασης</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Παραποίηση των δεδομένων ροής για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_preference_screen_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>

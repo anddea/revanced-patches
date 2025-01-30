@@ -74,19 +74,19 @@
     <string name="revanced_change_layout_entry_5">平板電腦 (最少 600 dip)</string>
     <string name="revanced_change_layout_title">變更佈局</string>
     <string name="revanced_change_live_ring_click_action_summary_off">點擊直播按鈕 直播將會開啟。</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">點擊直播按鈕 頻道將會開啟。</string>
-    <string name="revanced_change_live_ring_click_action_title">เปลี่ยนการกระทำคลิกวงแหวนสด</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"點擊直播按鈕 頻道將會開啟。"</string>
+    <string name="revanced_change_live_ring_click_action_title">變更點擊直播狀態頻道圖示的動作</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_off">伺服器端彈出訊息背景顏色未更改。</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_on">伺服器端彈出訊息背景顏色已更改。</string>
-    <string name="revanced_change_server_side_snack_bar_background_title">變更伺服器端彈出訊息背景</string>
-    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"某些彈出訊息使用伺服器端定義的主題，而不是應用程式主題。
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">伺服器端短暫通知的背景顏色沒有改變。</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">伺服器端短暫通知的背景顏色已變更。</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">更改伺服器端短暫通知背景</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"一些短暫通知使用伺服器端定義的主題，而不是應用程式主題。
 
-更改這些彈出訊息的背景顏色。
+更改這些短暫通知的背景顏色。
 
-如果伺服器端有更改，彈出訊息的背景顏色可能不會改變。"</string>
+如果伺服器端發生變化，短暫通知的背景顏色可能不會改變。"</string>
     <string name="revanced_change_share_sheet_summary_off">使用應用程式內分享擴展。</string>
     <string name="revanced_change_share_sheet_summary_on">使用系統分享擴展。</string>
     <string name="revanced_change_share_sheet_title">更改分享擴展</string>
@@ -145,9 +145,6 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">播放器疊加層不透明度必須介於 0-100 之間。重設為預設值。</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">搜尋欄顏色值無效。</string>
-    <string name="revanced_custom_seekbar_color_value_summary">輸入套用於搜尋欄的十六進制顏色代碼</string>
-    <string name="revanced_custom_seekbar_color_value_title">自定義進度條顏色</string>
     <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_title">預設播放速度</string>
@@ -423,8 +420,6 @@
     <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
     <string name="revanced_gms_show_dialog_summary">在每次應用程式啟動時，顯示 GMSCore 的優化對話框。</string>
     <string name="revanced_gms_show_dialog_title">顯示 GMSCore 優化對話框</string>
-    <string name="revanced_gradient_seekbar_colors_summary">進度條漸變的起始和結束顏色，以逗號分隔。</string>
-    <string name="revanced_gradient_seekbar_colors_title">漸變進度條顏色</string>
     <string name="revanced_gradient_seekbar_positions_reset">漸變位置重設為預設值。</string>
     <string name="revanced_gradient_seekbar_positions_summary">漸變起始與結束位置範圍從 0 到 1，以逗號分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
@@ -911,9 +906,9 @@
     <string name="revanced_hide_self_sponsor_cards_summary_off">自我推廣卡片已顯示</string>
     <string name="revanced_hide_self_sponsor_cards_summary_on">自我推廣卡片已隱藏</string>
     <string name="revanced_hide_self_sponsor_cards_title">隱藏自我推廣卡片</string>
-    <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端彈出訊息已顯示。</string>
-    <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端彈出訊息已隱藏。</string>
-    <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端彈出訊息</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端短暫通知已顯示。</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端短暫通知已隱藏。</string>
+    <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端短暫通知</string>
     <string name="revanced_hide_settings_menu_about_summary_off">關於選單已顯示。</string>
     <string name="revanced_hide_settings_menu_about_summary_on">關於選單已隱藏。</string>
     <string name="revanced_hide_settings_menu_about_title">隱藏關於選單</string>
@@ -1226,9 +1221,9 @@ Note:
     <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑</string>
-    <string name="revanced_invert_snack_bar_theme_summary_off">彈出訊息主題未反轉。</string>
-    <string name="revanced_invert_snack_bar_theme_summary_on">彈出訊息主題已反轉。</string>
-    <string name="revanced_invert_snack_bar_theme_title">反轉彈出訊息主題</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">短暫通知的主題沒有倒置。</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">短暫通知的主題是倒置的。</string>
+    <string name="revanced_invert_snack_bar_theme_title">反轉短暫通知主題</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
     <string name="revanced_keep_landscape_mode_summary_off">關閉和開啟螢幕後，影片會以縱向模式播放。</string>
     <string name="revanced_keep_landscape_mode_summary_on">關閉和開啟螢幕後，影片繼續以橫向模式播放。</string>
@@ -1484,8 +1479,8 @@ Note:
     <string name="revanced_preference_screen_shorts_player_summary">隱藏或顯示短片播放器中的組件</string>
     <string name="revanced_preference_screen_shorts_player_title">短片播放器</string>
     <string name="revanced_preference_screen_shorts_title">短片</string>
-    <string name="revanced_preference_screen_snack_bar_summary">隱藏或變更與彈出訊息列相關的組件。</string>
-    <string name="revanced_preference_screen_snack_bar_title">彈出訊息列</string>
+    <string name="revanced_preference_screen_snack_bar_summary">隱藏或更改與短暫通知相關的組件。</string>
+    <string name="revanced_preference_screen_snack_bar_title">短暫通知</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">偽裝串流資料以防止播放問題。</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">偽裝串流數據</string>
     <string name="revanced_preference_screen_swipe_controls_title">滑動控制</string>

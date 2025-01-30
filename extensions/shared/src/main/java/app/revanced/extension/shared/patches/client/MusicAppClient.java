@@ -6,6 +6,10 @@ import java.util.Locale;
 
 public class MusicAppClient {
 
+    // Response to the '/next' request is 'Please update to continue using the app':
+    // https://github.com/inotia00/ReVanced_Extended/issues/2743
+    // Nevertheless, '/player' request is still valid.
+
     // Audio codec is MP4A.
     private static final String CLIENT_VERSION_ANDROID_MUSIC_4_27 = "4.27.53";
 
@@ -17,6 +21,7 @@ public class MusicAppClient {
     private static final String DEVICE_MAKE_ANDROID_MUSIC = Build.MANUFACTURER;
     private static final String DEVICE_MODEL_ANDROID_MUSIC = Build.MODEL;
     private static final String BUILD_ID_ANDROID_MUSIC = Build.ID;
+    // In YouTube, this OS name is used to hide ads in Shorts.
     private static final String OS_NAME_ANDROID_MUSIC = "Android Automotive";
     private static final String OS_VERSION_ANDROID_MUSIC = Build.VERSION.RELEASE;
 
@@ -28,9 +33,13 @@ public class MusicAppClient {
 
     // Audio codec is OPUS.
     private static final String CLIENT_VERSION_IOS_MUSIC_7_04 = "7.04";
-    private static final String DEVICE_MODEL_IOS_MUSIC_7_04 = "iPhone17,2";
-    private static final String OS_VERSION_IOS_MUSIC_7_04 = "18.2.1.22C161";
-    private static final String USER_AGENT_VERSION_IOS_MUSIC_7_04 = "18_2_1";
+    // Release date for iOS YouTube Music 7.04 is June 4, 2024.
+    // Release date for iOS 18 is September 16, 2024.
+    // Since iOS cannot downgrade the OS version or app version in the usual way,
+    // 17.7.2 is used as an iOS version that matches iOS YouTube Music 7.04.
+    private static final String DEVICE_MODEL_IOS_MUSIC_7_04 = "iPhone16,2";
+    private static final String OS_VERSION_IOS_MUSIC_7_04 = "17.7.2.21H221";
+    private static final String USER_AGENT_VERSION_IOS_MUSIC_7_04 = "17_7_2";
 
     private static final String PACKAGE_NAME_IOS_MUSIC = "com.google.ios.youtubemusic";
     private static final String DEVICE_BRAND_IOS_MUSIC = "Apple";
@@ -95,8 +104,7 @@ public class MusicAppClient {
                 CLIENT_VERSION_ANDROID_MUSIC_5_29,
                 ActionButtonType.NONE
         ),
-        IOS_MUSIC_6_21(
-                26,
+        IOS_MUSIC_6_21(26,
                 DEVICE_BRAND_IOS_MUSIC,
                 DEVICE_MAKE_IOS_MUSIC,
                 DEVICE_MODEL_IOS_MUSIC_6_21,
@@ -106,8 +114,7 @@ public class MusicAppClient {
                 CLIENT_VERSION_IOS_MUSIC_6_21,
                 ActionButtonType.YOUTUBE_BUTTON
         ),
-        IOS_MUSIC_7_04(
-                26,
+        IOS_MUSIC_7_04(26,
                 DEVICE_BRAND_IOS_MUSIC,
                 DEVICE_MAKE_IOS_MUSIC,
                 DEVICE_MODEL_IOS_MUSIC_7_04,

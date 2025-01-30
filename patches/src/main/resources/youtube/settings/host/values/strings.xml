@@ -79,7 +79,9 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_change_layout_entry_5">Tablet (Min 600 dp)</string>
     <string name="revanced_change_layout_title">Change layout</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Channel opens when the live ring is clicked.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
+
+Limitation: When the Shorts live stream is opened in regular player due to the 'Open Shorts in regular player' setting, channel does not open."</string>
     <string name="revanced_change_live_ring_click_action_title">Change live ring click action</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Switch toggles are used.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Text toggles are used.</string>
@@ -101,6 +103,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pause</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Repeat</string>
     <string name="revanced_change_shorts_repeat_state_title">Change Shorts repeat state</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
     <string name="revanced_change_start_page_entry_browse">Browse channels</string>
     <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
     <string name="revanced_change_start_page_entry_default">Default</string>
@@ -115,6 +118,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_music">Music</string>
     <string name="revanced_change_start_page_entry_news">News</string>
     <string name="revanced_change_start_page_entry_notifications">Notifications</string>
+    <string name="revanced_change_start_page_entry_playlists">Playlists</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Search</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
@@ -122,6 +126,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_sports">Sports</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
     <string name="revanced_change_start_page_entry_trending">Trending</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
     <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
     <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
     <string name="revanced_change_start_page_title">Change start page</string>
@@ -149,9 +154,11 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Invalid seekbar color value.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Type the hex code of the seekbar color.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Custom seekbar color value</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
     <string name="revanced_default_app_settings_summary">To open YouTube links in RVX, enable Open supported links and enable all the Supported web addresses.</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_default_playback_speed_title">Default playback speed</string>
@@ -432,13 +439,18 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_gradient_seekbar_colors_summary">Gradient start and end colors separated by comma.</string>
-    <string name="revanced_gradient_seekbar_colors_title">Gradient seekbar colors</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filter if matches.
+
+To hide the <b>Get YouTube Premium</b> menu, you can only use <b>Get YouTube Premium</b> as keywords."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filter if contains.
+
+To hide the <b>Get YouTube Premium</b> menu, you can use <b>YouTube Premium</b> or <b>Premium</b> as keywords."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
     <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
 Some components may not be hidden."</string>
     <string name="revanced_hide_account_menu_title">Hide account menu</string>
@@ -585,6 +597,9 @@ Store"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">End screen cards are shown.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">End screen cards are hidden.</string>
     <string name="revanced_hide_end_screen_cards_title">Hide end screen cards</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
     <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden.</string>
     <string name="revanced_hide_expandable_chip_title">Hide expandable chips under videos</string>
@@ -596,6 +611,13 @@ Store"</string>
     <string name="revanced_hide_feed_captions_button_title">Hide Captions button</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">List of flyout menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filter if matches.
+
+To hide the <b>Play next in queue</b> menu, you can only use <b>Play next in queue</b> as keywords."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filter if contains.
+
+To hide the <b>Play next in queue</b> menu, you can use <b>Play next</b> or <b>in queue</b> as keywords."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter is disabled.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter is enabled.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Enable feed flyout menu filter</string>
@@ -1235,7 +1257,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Vanced Black</string>
     <string name="revanced_icon_vanced_light">Vanced Light</string>
-    <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
+    <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
