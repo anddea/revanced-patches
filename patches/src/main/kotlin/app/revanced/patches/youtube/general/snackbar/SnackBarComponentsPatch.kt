@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -212,6 +213,14 @@ val snackBarComponentsPatch = resourcePatch(
         required = true,
     )
 
+    val applyCornerRadiusToPlaylistBottomBarOption by booleanOption(
+        key = "applyCornerRadiusToPlaylistBottomBar",
+        default = false,
+        title = "Apply corner radius to playlist bottom bar",
+        description = "Whether to apply the same corner radius to the bottom bar of the playlist as the snack bar.",
+        required = true
+    )
+
     val darkThemeBackgroundColor = stringOption(
         key = "darkThemeBackgroundColor",
         default = ytBackgroundColorDark,
@@ -248,6 +257,8 @@ val snackBarComponentsPatch = resourcePatch(
         // Check patch options first.
         val cornerRadius = cornerRadiusOption
             .valueOrThrow()
+        val applyCornerRadiusToPlaylistBottomBar =
+            applyCornerRadiusToPlaylistBottomBarOption == true
         val darkThemeColor = darkThemeBackgroundColor
             .valueOrThrow()
         val lightThemeColor = lightThemeBackgroundColor
@@ -323,6 +334,27 @@ val snackBarComponentsPatch = resourcePatch(
                         setAttribute("android:color", strokeColor)
                     }
                 )
+            }
+        }
+
+        document("res/values/dimens.xml").use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+
+            for (i in 0 until resourcesNode.childNodes.length) {
+                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+                val dimenName = node.getAttribute("name")
+
+                if (dimenName.equals("snackbar_corner_radius")) {
+                    node.textContent = cornerRadius
+                }
+            }
+        }
+
+        if (applyCornerRadiusToPlaylistBottomBar) {
+            document("res/drawable/playlist_entry_point_corner_drawable.xml").use { document ->
+                document.getNode("corners").apply {
+                    attributes.getNamedItem("android:radius").nodeValue = cornerRadius
+                }
             }
         }
 
