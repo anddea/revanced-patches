@@ -137,7 +137,7 @@ internal fun updatePatchStatus(
     updatePatchStatus(patch)
 }
 
-private const val DEFAULT_LABEL = "ReVanced Extended"
+private const val DEFAULT_LABEL = "RVX"
 
 val settingsPatch = resourcePatch(
     SETTINGS_FOR_REDDIT.title,
@@ -150,9 +150,13 @@ val settingsPatch = resourcePatch(
         settingsBytecodePatch
     )
 
-    val settingsLabelOption = stringOption(
+    val rvxSettingsLabel = stringOption(
         key = "settingsLabel",
         default = DEFAULT_LABEL,
+        values = mapOf(
+            "ReVanced Extended" to "ReVanced Extended",
+            "RVX" to DEFAULT_LABEL,
+        ),
         title = "RVX settings menu name",
         description = "The name of the RVX settings menu.",
         required = true
@@ -162,7 +166,7 @@ val settingsPatch = resourcePatch(
         /**
          * Replace settings icon and label
          */
-        val settingsLabel = settingsLabelOption
+        val settingsLabel = rvxSettingsLabel
             .valueOrThrow()
 
         arrayOf(
