@@ -1,3 +1,10 @@
+# [3.4.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.2...v3.4.0-dev.3) (2025-01-31)
+
+
+### Bug Fixes
+
+* **YouTube - Seekbar components:** Prevent color preference crash on some devices ([fb3bff1](https://github.com/anddea/revanced-patches/commit/fb3bff12aef2e01590a3dda772d96c30b7ae9407))
+
 # [3.4.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.1...v3.4.0-dev.2) (2025-01-31)
 
 
