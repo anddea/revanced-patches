@@ -37,7 +37,6 @@ import app.revanced.extension.youtube.patches.general.ChangeStartPagePatch.Start
 import app.revanced.extension.youtube.patches.general.LayoutSwitchPatch.FormFactor;
 import app.revanced.extension.youtube.patches.general.MiniplayerPatch;
 import app.revanced.extension.youtube.patches.general.YouTubeMusicActionsPatch;
-import app.revanced.extension.youtube.patches.misc.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.youtube.patches.player.ExitFullscreenPatch.FullscreenMode;
 import app.revanced.extension.youtube.patches.shorts.AnimationFeedbackPatch.AnimationType;
 import app.revanced.extension.youtube.patches.shorts.ShortsRepeatStatePatch.ShortsLoopBehavior;
@@ -595,7 +594,6 @@ public class Settings extends BaseSettings {
     public static final LongSetting DOUBLE_BACK_TO_CLOSE_TIMEOUT = new LongSetting("revanced_double_back_to_close_timeout", 2000L);
 
     // PreferenceScreen: Miscellaneous - Watch history
-    public static final EnumSetting<WatchHistoryType> WATCH_HISTORY_TYPE = new EnumSetting<>("revanced_watch_history_type", WatchHistoryType.REPLACE);
 
     // PreferenceScreen: Miscellaneous - Spoof streaming data
 

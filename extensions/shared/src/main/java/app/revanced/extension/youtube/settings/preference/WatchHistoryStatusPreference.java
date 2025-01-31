@@ -8,9 +8,9 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
+import app.revanced.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Utils;
-import app.revanced.extension.youtube.patches.misc.WatchHistoryPatch.WatchHistoryType;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})

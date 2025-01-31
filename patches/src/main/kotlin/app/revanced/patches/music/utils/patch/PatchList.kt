@@ -164,5 +164,9 @@ internal enum class PatchList(
     VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC(
         "Visual preferences icons for YouTube Music",
         "Adds icons to specific preferences in the settings."
+    ),
+    WATCH_HISTORY(
+        "Watch history",
+        "Adds an option to change the domain of the watch history or check its status."
     )
 }
