@@ -206,6 +206,7 @@ val settingsPatch = resourcePatch(
             ),
             ResourceGroup(
                 "layout",
+                "revanced_color_picker.xml",
                 "revanced_settings_preferences_category.xml",
                 "revanced_settings_with_toolbar.xml",
             ),
