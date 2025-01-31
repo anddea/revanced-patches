@@ -859,7 +859,7 @@
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_spoof_streaming_data_po_token_title" android:key="revanced_spoof_streaming_data_po_token" android:summary="@string/revanced_spoof_streaming_data_po_token_summary" android:inputType="text" android:dependency="revanced_spoof_streaming_data" />
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_spoof_streaming_data_visitor_data_title" android:key="revanced_spoof_streaming_data_visitor_data" android:summary="@string/revanced_spoof_streaming_data_visitor_data_summary" android:inputType="text" android:dependency="revanced_spoof_streaming_data" />
             <Preference android:title="@string/revanced_spoof_streaming_data_po_token_visitor_data_about_title" android:summary="@string/revanced_spoof_streaming_data_po_token_visitor_data_about_summary" android:dependency="revanced_spoof_streaming_data">
-                <intent android:action="android.intent.action.VIEW" android:data="https://github.com/iv-org/youtube-trusted-session-generator?tab=readme-ov-file#youtube-trusted-session-generator" />
+                <intent android:action="android.intent.action.VIEW" android:data="https://github.com/inotia00/scrape-youtube-termux" />
             </Preference>
         </PreferenceScreen>SETTINGS: SPOOF_STREAMING_DATA -->
 
