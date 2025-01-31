@@ -113,6 +113,10 @@ internal enum class PatchList(
         "GmsCore support",
         "Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services."
     ),
+    HIDE_ACCESSIBILITY_CONTROLS_DIALOG(
+        "Hide accessibility controls dialog",
+        "Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'."
+    ),
     HIDE_SHORTS_DIMMING(
         "Hide Shorts dimming",
         "Removes, at compile time, the dimming effect at the top and bottom of Shorts videos."
