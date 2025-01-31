@@ -12,6 +12,7 @@ import app.revanced.extension.shared.utils.PackageUtils;
 
 public class ExtendedUtils extends PackageUtils {
 
+    @SuppressWarnings("unused")
     public static boolean isSpoofingToLessThan(@NonNull String versionName) {
         if (!Settings.SPOOF_APP_VERSION.get())
             return false;
