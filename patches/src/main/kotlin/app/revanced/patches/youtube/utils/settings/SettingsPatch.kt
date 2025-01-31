@@ -80,7 +80,7 @@ private val settingsBytecodePatch = bytecodePatch(
 }
 
 private const val DEFAULT_ELEMENT = "@string/about_key"
-private const val DEFAULT_LABEL = "ReVanced Extended"
+private const val DEFAULT_LABEL = "RVX"
 
 private val SETTINGS_ELEMENTS_MAP = mapOf(
     "Parent settings" to "@string/parent_tools_key",
@@ -107,7 +107,7 @@ private val SETTINGS_ELEMENTS_MAP = mapOf(
     "About" to DEFAULT_ELEMENT
 )
 
-private lateinit var customName: String
+private lateinit var settingsLabel: String
 
 val settingsPatch = resourcePatch(
     SETTINGS_FOR_YOUTUBE.title,
@@ -132,9 +132,13 @@ val settingsPatch = resourcePatch(
         required = true,
     )
 
-    val settingsLabel = stringOption(
-        key = "settingsLabel",
+    val rvxSettingsLabel = stringOption(
+        key = "rvxSettingsLabel",
         default = DEFAULT_LABEL,
+        values = mapOf(
+            "ReVanced Extended" to "ReVanced Extended",
+            "RVX" to DEFAULT_LABEL,
+        ),
         title = "RVX settings label",
         description = "The name of the RVX settings menu.",
         required = true,
@@ -152,7 +156,7 @@ val settingsPatch = resourcePatch(
         /**
          * check patch options
          */
-        customName = settingsLabel
+        settingsLabel = rvxSettingsLabel
             .valueOrThrow()
 
         val insertKey = insertPosition
@@ -280,13 +284,13 @@ val settingsPatch = resourcePatch(
          * change RVX settings menu name
          * since it must be invoked after the Translations patch, it must be the last in the order.
          */
-        if (customName != DEFAULT_LABEL) {
+        if (settingsLabel != DEFAULT_LABEL) {
             removeStringsElements(
                 arrayOf("revanced_extended_settings_title")
             )
             document("res/values/strings.xml").use { document ->
                 mapOf(
-                    "revanced_extended_settings_title" to customName
+                    "revanced_extended_settings_title" to settingsLabel
                 ).forEach { (k, v) ->
                     val stringElement = document.createElement("string")
 
