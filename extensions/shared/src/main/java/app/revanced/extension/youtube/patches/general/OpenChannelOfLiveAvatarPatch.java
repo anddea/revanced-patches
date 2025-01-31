@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.general;
 
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 
 import com.facebook.litho.ComponentHost;
@@ -57,6 +59,14 @@ public final class OpenChannelOfLiveAvatarPatch {
             // Child count of other litho Views such as Thumbnail and Watch history: 2
             // Child count of live ring: 1
             if (componentHost.getChildCount() != 1) {
+                return;
+            }
+            // Play all button in playlist cannot be filtered with the above conditions
+            // Check the ViewGroup tree
+            if (!(componentHost.getChildAt(0) instanceof ComponentHost liveRingViewGroup)) {
+                return;
+            }
+            if (!(liveRingViewGroup.getChildAt(0) instanceof ImageView)) {
                 return;
             }
             // Fetch channel id
