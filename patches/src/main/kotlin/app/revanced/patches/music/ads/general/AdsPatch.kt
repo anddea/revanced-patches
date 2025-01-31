@@ -7,6 +7,7 @@ import app.revanced.patches.music.navigation.components.navigationBarComponentsP
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ADS_PATH
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
+import app.revanced.patches.music.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ADS
 import app.revanced.patches.music.utils.resourceid.buttonContainer
 import app.revanced.patches.music.utils.resourceid.floatingLayout
@@ -55,6 +56,7 @@ val adsPatch = bytecodePatch(
         baseAdsPatch("$ADS_PATH/MusicAdsPatch;", "hideMusicAds"),
         lithoFilterPatch,
         navigationBarComponentsPatch, // for 'Hide upgrade button' setting
+        navigationBarHookPatch,
         sharedResourceIdPatch,
     )
 
