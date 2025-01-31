@@ -173,6 +173,11 @@ public final class FeedComponentsFilter extends Filter {
                 "subscriptions_channel_bar"
         );
 
+        final StringFilterGroup subscriptionsCategoryBar = new StringFilterGroup(
+                Settings.HIDE_CATEGORY_BAR_IN_FEED,
+                "subscriptions_chip_bar"
+        );
+
         final StringFilterGroup ticketShelf = new StringFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
                 "ticket_horizontal_shelf",
@@ -193,6 +198,7 @@ public final class FeedComponentsFilter extends Filter {
                 notifyMe,
                 playables,
                 subscriptionsChannelBar,
+                subscriptionsCategoryBar,
                 ticketShelf
         );
 
