@@ -141,6 +141,11 @@ public class ColorPreference extends EditTextPreference {
 
         // Get the EditText from the parent class.
         EditText editText = getEditText();
+        // Remove the EditText from its current parent if it exists
+        ViewParent parent = editText.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(editText);
+        }
         // Set the initial text of the EditText to the current color in hexadecimal format.
         editText.setText(String.format("#%06X", currentColor));
         // Add a TextWatcher to the EditText to update the color preview in real-time.
