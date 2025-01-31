@@ -1,3 +1,10 @@
+# [3.4.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.1...v3.4.0-dev.2) (2025-01-31)
+
+
+### Features
+
+* **YouTube - Seekbar components:** Add a color indicator and a color picker to improve color settings ([bd0aa09](https://github.com/anddea/revanced-patches/commit/bd0aa09ce0f0bace411122544c5565ff86e27f58))
+
 # [3.4.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.3.0...v3.4.0-dev.1) (2025-01-30)
 
 
