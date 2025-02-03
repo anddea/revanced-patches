@@ -3,9 +3,9 @@ package app.revanced.patches.shared.spoof.useragent
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patches.shared.transformation.IMethodCall
-import app.revanced.patches.shared.transformation.filterMapInstruction35c
-import app.revanced.patches.shared.transformation.transformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.IMethodCall
+import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
+import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
