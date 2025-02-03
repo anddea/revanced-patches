@@ -41,6 +41,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Fullscreen components` | Adds options to hide or change components related to fullscreen. | 18.29.38 ~ 19.44.39 |
 | `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 18.29.38 ~ 19.44.39 |
 | `Hide Shorts dimming` | Removes, at compile time, the dimming effect at the top and bottom of Shorts videos. | 18.29.38 ~ 19.44.39 |
+| `Hide accessibility controls dialog` | Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'. | 18.29.38 ~ 19.44.39 |
 | `Hide action buttons` | Adds options to hide action buttons under videos. | 18.29.38 ~ 19.44.39 |
 | `Hide ads` | Adds options to hide ads. | 18.29.38 ~ 19.44.39 |
 | `Hide comments components` | Adds options to hide components related to comments. | 18.29.38 ~ 19.44.39 |
@@ -119,11 +120,12 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 8.02.53 |
 | `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 8.02.53 |
 | `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 8.02.53 |
-| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics. | 6.51.53 ~ 7.16.53 |
+| `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 6.51.53 ~ 7.16.53 |
 | `Spoof client` | Adds options to spoof the client to allow playback. | 6.20.51 ~ 8.02.53 |
 | `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 8.02.53 |
 | `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 8.02.53 |
 | `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 6.20.51 ~ 8.02.53 |
+| `Watch history` | Adds an option to change the domain of the watch history or check its status. | 6.20.51 ~ 8.02.53 |
 </details>
 
 ### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)

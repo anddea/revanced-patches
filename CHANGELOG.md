@@ -1,3 +1,21 @@
+# [3.4.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.3...v3.4.0-dev.4) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Change live ring click action:** Cannot play the playlist ([374a63f](https://github.com/anddea/revanced-patches/commit/374a63f3b24a86ade5e0696b8dc705a808208b8e))
+* **YouTube - Hide feed components:** `Hide category bar in feed` does not work on the Subscriptions tab ([86d8420](https://github.com/anddea/revanced-patches/commit/86d8420423859a5a2f8f6654fc089705bfe4e971))
+* **YouTube Music - Hide ads:** Renewal banner or update banner disappears too late ([73f656f](https://github.com/anddea/revanced-patches/commit/73f656fae6230fbbdcc07c92b7a6a235fb3bb41b))
+
+
+### Features
+
+* **Universal:** Add `Spoof Wi-Fi connection` patch ([62a3fd7](https://github.com/anddea/revanced-patches/commit/62a3fd7ef9fc45a45d09c6bcc6f54482cc8fc9e0))
+* **YouTube - Seekbar components:** Enhance color picker responsiveness and usability ([992fd92](https://github.com/anddea/revanced-patches/commit/992fd926acc77198e07651d9ab317d1b450fab53))
+* **YouTube - Snack bar components:** Add patch option `Apply corner radius to playlist bottom bar` ([906ebea](https://github.com/anddea/revanced-patches/commit/906ebea43e1244a739cbef0ab5856b91e6bba2e8))
+* **YouTube Music:** Add `Watch history` patch ([30ab671](https://github.com/anddea/revanced-patches/commit/30ab67162b92b8ff2fe3cc50fc43c99e1ce669e4))
+* **YouTube:** Add `Hide accessibility controls dialog` patch ([0bbc0bf](https://github.com/anddea/revanced-patches/commit/0bbc0bf5f443bf83d2c100f8883385bc3a225483))
+
 # [3.4.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.2...v3.4.0-dev.3) (2025-01-31)
 
 
