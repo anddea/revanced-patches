@@ -76,7 +76,9 @@
     <string name="revanced_change_layout_entry_5">Τάμπλετ (Μέγιστο dp 600)</string>
     <string name="revanced_change_layout_title">Αλλαγή διεπαφής</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Η ζωντανή μετάδοση ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Το κανάλι ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης."</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Το κανάλι ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.
+
+Περιορισμός: Όταν πρόκειται για ζωντανή μετάδοση Shorts και η λειτουργία «Άνοιγμα των Shorts στην κανονική οθόνη αναπαραγωγής» είναι ενεργοποιημένη, δεν ανοίγει το κανάλι."</string>
     <string name="revanced_change_live_ring_click_action_title">Αλλαγή ενέργειας πατήματος δακτυλίου ζωντανής μετάδοσης</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Εμφανίζονται εναλλαγές διακόπτη.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Εμφανίζονται εναλλαγές κειμένου.</string>
@@ -98,6 +100,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">Παύση</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Επανάληψη</string>
     <string name="revanced_change_shorts_repeat_state_title">Αλλαγή κατάστασης επανάληψης Shorts</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Όλες οι εγγραφές</string>
     <string name="revanced_change_start_page_entry_browse">Περιήγηση καναλιών</string>
     <string name="revanced_change_start_page_entry_courses">Μαθήματα / Εκμάθηση</string>
     <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
@@ -112,6 +115,7 @@
     <string name="revanced_change_start_page_entry_music">Μουσική</string>
     <string name="revanced_change_start_page_entry_news">Ειδήσεις</string>
     <string name="revanced_change_start_page_entry_notifications">Ειδοποιήσεις</string>
+    <string name="revanced_change_start_page_entry_playlists">Λίστες αναπαραγωγής</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
@@ -119,6 +123,7 @@
     <string name="revanced_change_start_page_entry_sports">Αθλητικά</string>
     <string name="revanced_change_start_page_entry_subscriptions">Εγγραφές</string>
     <string name="revanced_change_start_page_entry_trending">Τάσεις</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Εικονική Πραγματικότητα</string>
     <string name="revanced_change_start_page_entry_watch_later">Παρακολούθηση αργότερα</string>
     <string name="revanced_change_start_page_entry_your_clips">Τα κλιπ σας</string>
     <string name="revanced_change_start_page_title">Αλλαγή αρχικής σελίδας</string>
@@ -146,6 +151,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Η αδιαφάνεια πρέπει να είναι μεταξύ 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Εισάγετε τον κωδικό hex του χρώματος έμφασης της γραμμής προόδου.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Προσαρμοσμένο χρώμα έμφασης γραμμής προόδου</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Μη έγκυρο χρώμα γραμμής προόδου.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Εισάγετε τον κωδικό hex του πρωτεύοντος χρώματος της γραμμής προόδου.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
     <string name="revanced_default_app_settings_summary">Για να ανοίγουν οι συνδέσμοι YouTube στο RVX, ενεργοποιήστε το «Άνοιγμα υποστηριζόμενων συνδέσμων» και τις υποστηριζόμενες διευθύνσεις ιστού.</string>
     <string name="revanced_default_app_settings_title">Άνοιγμα ρυθμίσεων προεπιλεγμένων εφαρμογών</string>
     <string name="revanced_default_playback_speed_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
@@ -428,6 +438,13 @@
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου προγράμματος λήψης βίντεο</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού λογαριασμού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου μενού λογαριασμού</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά.
+
+Παράδειγμα: Για απόκρυψη του μενού <b>«Αποκτήστε το YouTube Premium»</b>, πρέπει να εισαχθεί το <b>Αποκτήστε το YouTube Premium</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά.
+
+Παράδειγμα: Για απόκρυψη του μενού <b>«Αποκτήστε το YouTube Premium»</b>, μπορεί να εισαχθεί το <b>YouTube Premium</b> ή το <b>Premium</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Τύπος φίλτρου μενού λογαριασμού</string>
     <string name="revanced_hide_account_menu_summary">"Απόκρυψη στοιχείων του μενού λογαριασμού και της καρτέλας «Εσείς».
 Κάποια στοιχεία ενδέχεται να μην κρύβονται."</string>
     <string name="revanced_hide_account_menu_title">Φιλτράρισμα μενού λογαριασμού</string>
@@ -582,6 +599,9 @@ Playlists
     <string name="revanced_hide_end_screen_cards_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_end_screen_cards_title">Κάρτες τελικής οθόνης</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Εμφανίζεται.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος τελικής οθόνης</string>
     <string name="revanced_hide_expandable_chip_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_expandable_chip_title">Επεκτάσιμα πλαίσια κάτω από τα βίντεο</string>
@@ -593,6 +613,13 @@ Playlists
     <string name="revanced_hide_feed_captions_button_title">Κουμπί υπότιτλων</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του αναδυόμενου μενού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Επεξεργασία φίλτρου αναδυόμενων μενού ροής</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά.
+
+Παράδειγμα: Για απόκρυψη του μενού <b>«Αναπαραγωγή επόμενου στην ουρά»</b>, πρέπει να εισαχθεί το <b>Αναπαραγωγή επόμενου στην ουρά</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά.
+
+Παράδειγμα: Για απόκρυψη του μενού <b>«Αναπαραγωγή επόμενου στην ουρά»</b>, μπορεί να εισαχθεί το <b>Αναπαραγωγή επόμενου</b> ή το <b>στην ουρά</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Τύπος φίλτρου αναδυόμενου μενού ροής</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Το φιλτράρισμα του αναδυόμενου μενού στη ροή είναι απενεργοποιημένο.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Το φιλτράρισμα του αναδυόμενου μενού στη ροή είναι ενεργοποιημένο.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Φιλτράρισμα του αναδυόμενου μενού στη ροή</string>

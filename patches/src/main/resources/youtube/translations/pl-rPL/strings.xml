@@ -79,7 +79,9 @@ Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_change_layout_entry_5">Tabletowy (max. 600 dpi)</string>
     <string name="revanced_change_layout_title">Układ aplikacji</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Otwarcie transmisji na żywo</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Otwarcie kanału"</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Otwarcie kanału
+
+Ograniczenie: jeśli transmisja na żywo Shortsa jest otwierana w zwykłym odtwarzaczu przy użyciu opcji 'Otwieranie Shortsów w zwykłym odtwarzaczu', kanał się nie otworzy."</string>
     <string name="revanced_change_live_ring_click_action_title">Zachowanie po kliknięciu okręgu od transmisji na żywo</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Przełączniki</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Tekst</string>
@@ -101,6 +103,7 @@ Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się
     <string name="revanced_change_shorts_repeat_state_entry_pause">Wstrzymywanie</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Powtarzanie</string>
     <string name="revanced_change_shorts_repeat_state_title">Zmień stan powtarzania Shortsów</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Wszystkie subskrypcje</string>
     <string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
     <string name="revanced_change_start_page_entry_courses">Nauka</string>
     <string name="revanced_change_start_page_entry_default">Domyślna</string>
@@ -115,6 +118,7 @@ Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się
     <string name="revanced_change_start_page_entry_music">Muzyka</string>
     <string name="revanced_change_start_page_entry_news">Wiadomości</string>
     <string name="revanced_change_start_page_entry_notifications">Powiadomienia</string>
+    <string name="revanced_change_start_page_entry_playlists">Playlisty</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasty</string>
     <string name="revanced_change_start_page_entry_search">Wyszukiwanie</string>
     <string name="revanced_change_start_page_entry_shopping">Zakupy</string>
@@ -122,11 +126,9 @@ Jeśli zajdą zmiany po stronie serwera, kolor tła tych komunikatów może się
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
     <string name="revanced_change_start_page_entry_trending">Na czasie</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Rzeczywistość wirtualna</string>
     <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
     <string name="revanced_change_start_page_entry_your_clips">Twoje klipy</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">Wszystkie subskrypcje</string>
-    <string name="revanced_change_start_page_entry_playlists">Playlisty</string>
-    <string name="revanced_change_start_page_entry_virtual_reality">Rzeczywistość wirtualna</string>
     <string name="revanced_change_start_page_title">Strona startowa</string>
     <string name="revanced_change_start_page_type_summary_off">Strona główna zmienia się tylko raz</string>
     <string name="revanced_change_start_page_type_summary_on">"Strona główna zawsze się zmienia
@@ -152,6 +154,11 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi wynosić między 0 a 100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Wartość przezroczystości musi wynosić między 0 a 100, gdzie 0 oznacza przezroczystość</string>
     <string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Wpisz kod hex akcentu paska postępu filmu.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Niestandardowy kolor akcentu</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Nieprawidłowy kolor paska postępu filmu.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Wpisz kod hex pierwszorzędnego koloru paska postępu filmu.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Niestandardowy kolor pierwszorzędny</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube w RVX, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX.</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
     <string name="revanced_default_playback_speed_title">Domyślna prędkość odtwarzania</string>
@@ -438,13 +445,13 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_gradient_seekbar_positions_title">Granice kolorowego pasku postępu</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtr menu konta</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Musi pasować
+
+Aby ukryć menu <b>Przejdź na YouTube Premium</b>, możesz użyć jedynie <b>Przejdź na YouTube Premium</b> jako słowo kluczowe."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Musi zawierać
+
+Aby ukryć menu <b>Przejdź na YouTube Premium</b>, możesz użyć <b>YouTube Premium</b> lub <b>Premium</b> jako słowa kluczowe."</string>
     <string name="revanced_hide_account_menu_filter_type_title">Typ filtrowania</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">Musi pasować
-
-Aby ukryć menu <b>Przejdź na YouTube Premium</b>, możesz użyć jedynie <b>Przejdź na YouTube Premium</b> jako słowo kluczowe.</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">Musi zawierać
-
-Aby ukryć menu <b>Przejdź na YouTube Premium</b>, możesz użyć <b>YouTube Premium</b> lub <b>Premium</b> jako słowa kluczowe.</string>
     <string name="revanced_hide_account_menu_summary">"Ukrywa elementy menu konta i zakładki Ty.
 Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_account_menu_title">Menu konta</string>
@@ -591,6 +598,9 @@ Sklep"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Widoczne</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Ukryte</string>
     <string name="revanced_hide_end_screen_cards_title">Karty końcowe w filmach</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Widoczny</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Ukryty</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Baner sklepowy po zakończeniu filmu</string>
     <string name="revanced_hide_expandable_chip_summary_off">Widoczne</string>
     <string name="revanced_hide_expandable_chip_summary_on">Ukryte</string>
     <string name="revanced_hide_expandable_chip_title">Produkty i rozdziały pod filmami</string>
@@ -602,13 +612,13 @@ Sklep"</string>
     <string name="revanced_hide_feed_captions_button_title">Przycisk od napisów na stronie głównej</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Lista nazw menu do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtr menu ze strony głównej</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Musi pasować
+
+Aby ukryć menu <b>Odtwórz jako następny w kolejce</b>, możesz użyć jedynie <b>Odtwórz jako następny w kolejce</b> jako słowo kluczowe."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Musi zawierać
+
+Aby ukryć menu <b>Odtwórz jako następny w kolejce</b>, możesz użyć <b>Odtwórz jako następny</b> lub <b>w kolejce</b> jako słowa kluczowe."</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Typ filtrowania</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Musi pasować
-
-Aby ukryć menu <b>Odtwórz jako następny w kolejce</b>, możesz użyć jedynie <b>Odtwórz jako następny w kolejce</b> jako słowo kluczowe.</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Musi zawierać
-
-Aby ukryć menu <b>Odtwórz jako następny w kolejce</b>, możesz użyć <b>Odtwórz jako następny</b> lub <b>w kolejce</b> jako słowa kluczowe.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Wyłączony</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Włączony</string>
     <string name="revanced_hide_feed_flyout_menu_title">Filtr menu ze strony głównej</string>
@@ -1246,8 +1256,8 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
     <string name="revanced_icon_xisr_holiday">Świąteczna Xisr</string>
-    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_xisr_special">Specjalna Xisr</string>
+    <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">Czarna YouTube</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Nie</string>
@@ -2027,12 +2037,4 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
-    <string name="revanced_custom_seekbar_color_accent_summary">Wpisz kod hex akcentu paska postępu filmu.</string>
-    <string name="revanced_custom_seekbar_color_accent_title">Niestandardowy kolor akcentu</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">Nieprawidłowy kolor paska postępu filmu.</string>
-    <string name="revanced_custom_seekbar_color_primary_summary">Wpisz kod hex pierwszorzędnego koloru paska postępu filmu.</string>
-    <string name="revanced_custom_seekbar_color_primary_title">Niestandardowy kolor pierwszorzędny</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_off">Widoczny</string>
-    <string name="revanced_hide_end_screen_store_banner_summary_on">Ukryty</string>
-    <string name="revanced_hide_end_screen_store_banner_title">Baner sklepowy po zakończeniu filmu</string>
 </resources>

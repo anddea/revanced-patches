@@ -97,6 +97,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">Остановить</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Повторять</string>
     <string name="revanced_change_shorts_repeat_state_title">Состояние повторов в Shorts</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Все подписки</string>
     <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
     <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
     <string name="revanced_change_start_page_entry_default">По умолчанию</string>
@@ -111,6 +112,7 @@
     <string name="revanced_change_start_page_entry_music">Музыка</string>
     <string name="revanced_change_start_page_entry_news">Новости</string>
     <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
+    <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
     <string name="revanced_change_start_page_entry_podcasts">Подкасты</string>
     <string name="revanced_change_start_page_entry_search">Поиск</string>
     <string name="revanced_change_start_page_entry_shopping">Покупки</string>
@@ -118,6 +120,7 @@
     <string name="revanced_change_start_page_entry_sports">Спорт</string>
     <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
     <string name="revanced_change_start_page_entry_trending">В тренде</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Виртуальная реальность</string>
     <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
     <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
     <string name="revanced_change_start_page_title">Начальная страница</string>
@@ -144,6 +147,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Значение должно быть в диапазоне от 0 до 100. Сброс по умолчанию.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Диапазон от 0 (прозрачный) до 100.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Видимость затемнения плеера</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Введите hex код акцентного цвета полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Пользовательский акцентный цвет полосы прогресса</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Неверный цвет полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Введите hex код основного цвета полосы прогресса.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Пользовательский основной цвет полосы прогресса</string>
     <string name="revanced_default_app_settings_summary">Чтобы открывать ссылки YouTube с помощью RVX, настройте \"Открытие поддерживаемых ссылок\" и включите нужные поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Использование по умолчанию</string>
     <string name="revanced_default_playback_speed_title">Скорость по умолчанию</string>
@@ -426,6 +434,13 @@
     <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации для GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр элементов меню аккаунта</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Фильтровать, если совпадают.
+
+Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать только <b>Оформить подписку YouTube Premium</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Фильтровать, если содержит.
+
+Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать <b>YouTube Premium</b> или <b>Premium</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Тип фильтра меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
 Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
@@ -573,6 +588,9 @@ Shorts
     <string name="revanced_hide_end_screen_cards_summary_off">Карточки следующих видео отображены.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Карточки следующих видео скрыты.</string>
     <string name="revanced_hide_end_screen_cards_title">Карточки следующих видео</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина отображается.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина скрыт.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина на конечном экране</string>
     <string name="revanced_hide_expandable_chip_summary_off">Расширенные эпизоды отображены.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Расширенные эпизоды скрыты.</string>
     <string name="revanced_hide_expandable_chip_title">Расширенные эпизоды под видео</string>
@@ -584,6 +602,13 @@ Shorts
     <string name="revanced_hide_feed_captions_button_title">Кнопка \"Субтитры\" в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Список имен всплывающего меню ленты для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Фильтр всплывающего меню ленты</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Фильтровать, если совпадают.
+
+Чтобы скрыть меню <b>Воспроизведение следующих в очереди</b>, можно использовать только <b>Воспроизведение следующих в очереди</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Фильтровать, если содержит.
+
+Чтобы скрыть меню <b>Воспроизвести следующим в очереди</b>, можно использовать <b>Воспроизвести следующим</b> или <b>в очереди</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Тип фильтра выдвижного меню в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Фильтр всплывающего меню ленты отключен.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Фильтр всплывающего меню ленты включен.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Фильтр всплывающего меню ленты</string>

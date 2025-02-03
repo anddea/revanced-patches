@@ -96,6 +96,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">暫停</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">重複播放</string>
     <string name="revanced_change_shorts_repeat_state_title">更改短片重複狀態</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">所有訂閱</string>
     <string name="revanced_change_start_page_entry_browse">瀏覽頻道</string>
     <string name="revanced_change_start_page_entry_courses">課程/學習</string>
     <string name="revanced_change_start_page_entry_default">預設</string>
@@ -110,6 +111,7 @@
     <string name="revanced_change_start_page_entry_music">音樂</string>
     <string name="revanced_change_start_page_entry_news">新聞</string>
     <string name="revanced_change_start_page_entry_notifications">通知</string>
+    <string name="revanced_change_start_page_entry_playlists">播放清單</string>
     <string name="revanced_change_start_page_entry_podcasts">播客</string>
     <string name="revanced_change_start_page_entry_search">搜尋</string>
     <string name="revanced_change_start_page_entry_shopping">購物</string>
@@ -117,6 +119,7 @@
     <string name="revanced_change_start_page_entry_sports">運動</string>
     <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
     <string name="revanced_change_start_page_entry_trending">熱門</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">虛擬實境</string>
     <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
     <string name="revanced_change_start_page_entry_your_clips">你的剪輯</string>
     <string name="revanced_change_start_page_title">更改起始頁</string>
@@ -145,6 +148,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">播放器疊加層不透明度必須介於 0-100 之間。重設為預設值。</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">輸入搜尋欄強調色的十六進位代碼。</string>
+    <string name="revanced_custom_seekbar_color_accent_title">自訂搜尋欄強調色</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">搜尋欄顏色無效。</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">輸入搜尋欄原色的十六進位代碼。</string>
+    <string name="revanced_custom_seekbar_color_primary_title">自訂搜尋欄原色</string>
     <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_title">預設播放速度</string>
@@ -425,6 +433,13 @@
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要篩選的帳戶選單名稱清單，每行一個名稱</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"如果匹配則過濾。
+
+若要隱藏<b>取得 YouTube Premium</b> 選單，您只能使用<b>取得 YouTube Premium</b> 作為關鍵字。"</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"如果包含則過濾。
+
+要隱藏<b>取得 YouTube Premium</b> 選單，您可以使用 <b>YouTube Premium</b> 或 <b>Premium</b> 作為關鍵字。"</string>
+    <string name="revanced_hide_account_menu_filter_type_title">帳戶選單過濾類型</string>
     <string name="revanced_hide_account_menu_summary">"隱藏帳戶選單和你的內容分頁的元素
 部分元件可能不會隱藏"</string>
     <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
@@ -571,6 +586,9 @@
     <string name="revanced_hide_end_screen_cards_summary_off">片尾資訊卡已顯示</string>
     <string name="revanced_hide_end_screen_cards_summary_on">片尾資訊卡已隱藏</string>
     <string name="revanced_hide_end_screen_cards_title">隱藏結束界面卡片</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">商店橫幅已顯示。</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">商店橫幅已隱藏。</string>
+    <string name="revanced_hide_end_screen_store_banner_title">隱藏片尾商店橫幅</string>
     <string name="revanced_hide_expandable_chip_summary_off">影片下方的章節選擇欄已顯示</string>
     <string name="revanced_hide_expandable_chip_summary_on">影片下方的章節選擇欄已隱藏</string>
     <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
@@ -582,6 +600,13 @@
     <string name="revanced_hide_feed_captions_button_title">隱藏動態字幕按鈕</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">要過濾的動態彈出選單名稱清單，每行一個名稱</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">編輯資訊彈出式選單篩選</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"如果匹配則過濾。
+
+若要隱藏<b>播放佇列中的下一個</b>選單，您只能使用<b>播放佇列中的下一個</b>作為關鍵字。"</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"如果包含則過濾。
+
+若要隱藏<b>播放佇列中的下一個</b>選單，您可以使用<b>播放下一個</b>或<b>佇列中的</b>作為關鍵字。"</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">資訊彈出式選單過濾類型</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">資訊彈出式選單已顯示</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">資訊彈出式選單已隱藏</string>
     <string name="revanced_hide_feed_flyout_menu_title">隱藏資訊彈出式選單</string>
