@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.transformation
+package app.revanced.patches.all.misc.transformation
 
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
@@ -8,10 +8,15 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
+private const val EXTENSION_NAME_SPACE_PATH =
+    "Lapp/revanced/extension/"
+
 fun <T> transformInstructionsPatch(
     filterMap: (ClassDef, Method, Instruction, Int) -> T?,
     transform: (MutableMethod, T) -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
+    // If the instructions of Extension are replaced, the patch may not work as intended.
+    skipExtension: Boolean = true,
 ) = bytecodePatch(
     description = "transformInstructionsPatch"
 ) {
@@ -26,6 +31,9 @@ fun <T> transformInstructionsPatch(
         // Find all methods to patch
         buildMap {
             classes.forEach { classDef ->
+                if (skipExtension && classDef.type.startsWith(EXTENSION_NAME_SPACE_PATH)) {
+                    return@forEach
+                }
                 val methods = buildList {
                     classDef.methods.forEach { method ->
                         // Since the Sequence executes lazily,
