@@ -147,7 +147,7 @@ internal enum class PatchList(
     ),
     SPOOF_APP_VERSION(
         "Spoof app version",
-        "Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics."
+        "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features."
     ),
     SPOOF_CLIENT(
         "Spoof client",
