@@ -23,6 +23,7 @@ import java.util.Objects;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
@@ -116,19 +117,32 @@ public class PlayerPatch {
      * view id R.id.content
      */
     private static final int contentId = ResourceUtils.getIdIdentifier("content");
-    private static final boolean expandDescriptionEnabled = Settings.EXPAND_VIDEO_DESCRIPTION.get();
-    private static final String descriptionString = Settings.EXPAND_VIDEO_DESCRIPTION_STRINGS.get();
+    private static final boolean EXPAND_VIDEO_DESCRIPTION = Settings.EXPAND_VIDEO_DESCRIPTION.get();
+    private static final StringSetting EXPAND_VIDEO_DESCRIPTION_STRINGS = Settings.EXPAND_VIDEO_DESCRIPTION_STRINGS;
+    private static final String EXPAND_VIDEO_DESCRIPTION_STRINGS_DEFAULT_VALUE = "revanced_expand_video_description_strings_default_value";
+
+    static {
+        final String descriptionString = EXPAND_VIDEO_DESCRIPTION_STRINGS.get();
+        if (descriptionString.equals(EXPAND_VIDEO_DESCRIPTION_STRINGS_DEFAULT_VALUE) &&
+                Utils.getContext() != null) {
+            String defaultValue = ResourceUtils.getString(EXPAND_VIDEO_DESCRIPTION_STRINGS_DEFAULT_VALUE);
+            if (!descriptionString.equals(defaultValue)) {
+                EXPAND_VIDEO_DESCRIPTION_STRINGS.save(defaultValue);
+            }
+        }
+    }
 
     private static boolean isDescriptionPanel = false;
 
     public static void setContentDescription(String contentDescription) {
-        if (!expandDescriptionEnabled) {
+        if (!EXPAND_VIDEO_DESCRIPTION) {
             return;
         }
         if (contentDescription == null || contentDescription.isEmpty()) {
             isDescriptionPanel = false;
             return;
         }
+        final String descriptionString = EXPAND_VIDEO_DESCRIPTION_STRINGS.get();
         if (descriptionString.isEmpty()) {
             isDescriptionPanel = false;
             return;
@@ -141,9 +155,8 @@ public class PlayerPatch {
      */
     private static long lastTimeDescriptionViewInvoked;
 
-
     public static void onVideoDescriptionCreate(RecyclerView recyclerView) {
-        if (!expandDescriptionEnabled)
+        if (!EXPAND_VIDEO_DESCRIPTION)
             return;
 
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
