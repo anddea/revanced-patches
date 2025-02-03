@@ -95,6 +95,7 @@ Si hay cambios en el lado del servidor, es posible que el color de fondo de la b
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pausar</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Repetir</string>
     <string name="revanced_change_shorts_repeat_state_title">Cambiar estado de repetición de Shorts</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Todas las suscripciones</string>
     <string name="revanced_change_start_page_entry_browse">Explorar canales</string>
     <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizaje</string>
     <string name="revanced_change_start_page_entry_default">Predeterminada</string>
@@ -109,6 +110,7 @@ Si hay cambios en el lado del servidor, es posible que el color de fondo de la b
     <string name="revanced_change_start_page_entry_music">Música</string>
     <string name="revanced_change_start_page_entry_news">Noticias</string>
     <string name="revanced_change_start_page_entry_notifications">Notificaciones</string>
+    <string name="revanced_change_start_page_entry_playlists">Listas de reproducción</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_search">Búsqueda</string>
     <string name="revanced_change_start_page_entry_shopping">Compras</string>
@@ -116,6 +118,7 @@ Si hay cambios en el lado del servidor, es posible que el color de fondo de la b
     <string name="revanced_change_start_page_entry_sports">Deportes</string>
     <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
     <string name="revanced_change_start_page_entry_trending">Tendencias</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Realidad virtual</string>
     <string name="revanced_change_start_page_entry_watch_later">Ver más tarde</string>
     <string name="revanced_change_start_page_entry_your_clips">Tus clips</string>
     <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
@@ -143,6 +146,11 @@ Limitación: Es posible que el botón Atrás de la barra de herramientas no func
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">La opacidad de la superposición del reproductor debe estar entre 0-100. Restablezca a los valores predeterminados.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Valor de opacidad entre 0-100, donde 0 es transparente.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Opacidad personalizada de superposición del reproductor</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Escribe el código hexadecimal del color de acento de la barra de progreso.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Color de acento personalizado de barra de progreso</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Color de la barra de progreso no válido.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Escribe el código hexadecimal del color primario de la barra de progreso.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Color primario personalizado de barra de progreso</string>
     <string name="revanced_default_app_settings_summary">Para abrir RVX en un navegador externo, activa \"Abrir enlaces compatibles\" y activa las direcciones web compatibles.</string>
     <string name="revanced_default_app_settings_title">Abrir ajustes predeterminados de la app</string>
     <string name="revanced_default_playback_speed_title">Velocidad predeterminada de reproducción</string>
@@ -422,6 +430,13 @@ Por favor, descarga %2$s desde el sitio web."</string>
     <string name="revanced_external_downloader_package_name_video_title">Nombre del paquete del descargador de vídeo</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nombres del menú de la cuenta a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro de menú de cuenta</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filtrar si coincide.
+
+Para ocultar el menú <b>Obtener YouTube Premium</b>, solo puedes utilizar <b>Obtener YouTube Premium</b> como palabras clave."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filtrar si contiene.
+
+Para ocultar el menú <b>Obtener YouTube Premium</b>, puedes utilizar <b>YouTube Premium</b> o <b>Premium</b> como palabras clave."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Tipo de filtro de menú de cuenta</string>
     <string name="revanced_hide_account_menu_summary">"Oculta elementos del menú de la cuenta y de la pestaña Tú.
 Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_account_menu_title">Ocultar menú de cuenta</string>
@@ -568,6 +583,9 @@ Tienda"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Las tarjetas de la pantalla final están visibles.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Las tarjetas de la pantalla final están ocultas.</string>
     <string name="revanced_hide_end_screen_cards_title">Ocultar tarjetas de pantalla final</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">El banner de la tienda está visible.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">El banner de la tienda está oculto.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner de tienda de pantalla final</string>
     <string name="revanced_hide_expandable_chip_summary_off">Las fichas ampliables están visibles.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Las fichas ampliables están ocultas.</string>
     <string name="revanced_hide_expandable_chip_title">Ocultar fichas ampliables bajo los vídeos</string>
@@ -579,6 +597,13 @@ Tienda"</string>
     <string name="revanced_hide_feed_captions_button_title">Ocultar botón de subtítulos del feed</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Lista de nombres del menú desplegable a filtrar separados por una nueva línea.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtro del menú desplegable del feed</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filtrar si coincide.
+
+Para ocultar el menú <b>Reproducir el siguiente de la cola</b>, solo puedes utilizar <b>Reproducir el siguiente de la cola</b> como palabras clave."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filtrar si contiene.
+
+Para ocultar el menú <b>Reproducir el siguiente de la cola</b>, puedes utilizar <b>Reproducir el siguiente</b> o <b>de la cola</b> como palabras clave."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Tipo de filtro del menú desplegable del feed</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">El filtro del menú desplegable del feed está desactivado.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">El filtro del menú desplegable del feed está activado.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Activar filtro del menú desplegable del feed</string>

@@ -78,7 +78,9 @@ Nhấn và giữ để chuyển loại thông tin cần thêm vào."</string>
     <string name="revanced_change_layout_entry_5">Máy tính bảng (Tối thiểu 600 dp)</string>
     <string name="revanced_change_layout_title">Thay đổi giao diện</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Mở video đang phát trực tiếp khi nhấn vào vòng phát trực tiếp.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Mở kênh khi nhấn vào vòng phát trực tiếp."</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Mở kênh khi nhấn vào vòng phát trực tiếp.
+
+Hạn chế: Khi video ngắn phát trực tiếp được mở trong trình phát do cài đặt \"Mở video ngắn trong trình phát\", thì kênh sẽ không được mở."</string>
     <string name="revanced_change_live_ring_click_action_title">Thay đổi thao tác nhấn vào vòng phát trực tiếp</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng công tắc.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng văn bản.</string>
@@ -98,6 +100,7 @@ Bạn có thể đổi màu nền cho chúng, nhưng nếu phía máy chủ thay
     <string name="revanced_change_shorts_repeat_state_entry_pause">Dừng</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Lặp lại</string>
     <string name="revanced_change_shorts_repeat_state_title">Thay đổi trạng thái lặp lại của video ngắn</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Tất cả kênh đã đăng ký</string>
     <string name="revanced_change_start_page_entry_browse">Duyệt kênh</string>
     <string name="revanced_change_start_page_entry_courses">Học tập</string>
     <string name="revanced_change_start_page_entry_default">Mặc định</string>
@@ -112,6 +115,7 @@ Bạn có thể đổi màu nền cho chúng, nhưng nếu phía máy chủ thay
     <string name="revanced_change_start_page_entry_music">Âm nhạc</string>
     <string name="revanced_change_start_page_entry_news">Tin tức</string>
     <string name="revanced_change_start_page_entry_notifications">Thông báo</string>
+    <string name="revanced_change_start_page_entry_playlists">Danh sách phát</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
     <string name="revanced_change_start_page_entry_shopping">Mua sắm</string>
@@ -119,6 +123,7 @@ Bạn có thể đổi màu nền cho chúng, nhưng nếu phía máy chủ thay
     <string name="revanced_change_start_page_entry_sports">Thể thao</string>
     <string name="revanced_change_start_page_entry_subscriptions">Kênh đăng ký</string>
     <string name="revanced_change_start_page_entry_trending">Thịnh hành</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Thực tế ảo</string>
     <string name="revanced_change_start_page_entry_watch_later">Xem sau</string>
     <string name="revanced_change_start_page_entry_your_clips">Đoạn video của bạn</string>
     <string name="revanced_change_start_page_title">Thay đổi trang khởi động</string>
@@ -146,6 +151,11 @@ Hạn chế: Nút Quay lại trên thanh công cụ có thể không hoạt đ�
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Độ mờ của lớp phủ trình phát phải nằm trong khoảng 0 - 100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Độ mờ lớp phủ trình phát</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Nhập mã hex cho màu nhấn của thanh tiến trình mà bạn muốn thay đổi.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Tuỳ chỉnh màu nhấn của thanh tiến trình</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Mã hex mà bạn đã nhập không hợp lệ.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Nhập mã hex cho màu chính của thanh tiến trình mà bạn muốn thay đổi.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Tuỳ chỉnh màu chính của thanh tiến trình</string>
     <string name="revanced_default_app_settings_summary">Để mở liên kết YouTube trong RVX, hãy bật \"Mở các đường liên kết được hỗ trợ\" và thêm các đường liên kết được hỗ trợ.</string>
     <string name="revanced_default_app_settings_title">Mở theo mặc định</string>
     <string name="revanced_default_playback_speed_title">Tốc độ phát mặc định</string>
@@ -424,6 +434,13 @@ Mở rộng mô tả video có thể không hoạt động nếu bạn nhập n�
     <string name="revanced_external_downloader_package_name_video_title">Tên gói trình tải xuống video</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Nhập tên các mục thành phần của trình đơn Tài khoản mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Cài đặt bộ lọc</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Lọc nếu khớp toàn bộ từ khoá đã nhập.
+
+Để ẩn trình đơn <b>Mua Youtube Premium</b>, bạn chỉ có thể sử dụng từ khoá <b>Mua Youtube Premium</b>."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Lọc nếu trong đó có chứa từ khoá đã nhập.
+
+Để ẩn trình đơn <b>Mua Youtube Premium</b>, bạn có thể sử dụng từ khoá <b>YouTube Premium</b> hoặc <b>Premium</b>."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Cài đặt kiểu lọc</string>
     <string name="revanced_hide_account_menu_summary">"Ẩn các mục của trình đơn Tài khoản và thẻ Bạn.
 Một số mục có thể không bị ẩn."</string>
     <string name="revanced_hide_account_menu_title">Bộ lọc trình đơn Tài khoản</string>
@@ -571,6 +588,9 @@ Cửa hàng"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Các thẻ liên kết được hiển thị.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Các thẻ liên kết đã ẩn.</string>
     <string name="revanced_hide_end_screen_cards_title">Ẩn các thẻ liên kết video khác ở cuối video</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Dải quảng cáo cửa hàng được hiển thị.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Dải quảng cáo cửa hàng đã ẩn.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Ẩn dải quảng cáo cửa hàng ở cuối video</string>
     <string name="revanced_hide_expandable_chip_summary_off">Bảng giới thiệu mở rộng bên dưới video được hiển thị.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Bảng giới thiệu mở rộng bên dưới video đã ẩn.</string>
     <string name="revanced_hide_expandable_chip_title">Ẩn bảng giới thiệu mở rộng bên dưới video</string>
@@ -582,6 +602,13 @@ Cửa hàng"</string>
     <string name="revanced_hide_feed_captions_button_title">Ẩn nút Phụ đề</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Nhập tên các mục thành phần của trình đơn tuỳ chọn mà bạn muốn lọc được phân cách bằng dòng.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Cài đặt bộ lọc</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Lọc nếu khớp toàn bộ từ khoá đã nhập.
+
+Để ẩn trình đơn <b>Phát tiếp theo trong hàng chờ</b>, bạn chỉ có thể sử dụng từ khoá <b>Phát tiếp theo trong hàng chờ</b>."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Lọc nếu trong đó có chứa từ khoá đã nhập.
+
+Để ẩn trình đơn <b>Phát tiếp theo trong hàng chờ</b>, bạn có thể sử dụng từ khoá <b>Phát tiếp theo</b> hoặc <b>hàng chờ</b>."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Cài đặt kiểu lọc</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Bộ lọc trình đơn tuỳ chọn trên bảng tin đã tắt.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Bộ lọc trình đơn tuỳ chọn trên bảng tin đã bật.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Bộ lọc trình đơn tuỳ chọn trên bảng tin</string>

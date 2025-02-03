@@ -76,7 +76,9 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_change_layout_entry_5">Tablet (Minimo 600 dp)</string>
     <string name="revanced_change_layout_title">Cambia l\'interfaccia</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Video live</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Canale"</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Canale
+
+Nota: i canali non si aprono se gli Shorts live sono aperti nel riproduttore normale."</string>
     <string name="revanced_change_live_ring_click_action_title">Cambia cosa apre l\'anello live quando viene toccato</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Levette</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Testi</string>
@@ -98,6 +100,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pausa</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Ripeti</string>
     <string name="revanced_change_shorts_repeat_state_title">Cambia lo stato di ripetizione</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Tutte le iscrizioni</string>
     <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
     <string name="revanced_change_start_page_entry_courses">Apprendimento</string>
     <string name="revanced_change_start_page_entry_default">Predefinita (Home)</string>
@@ -112,6 +115,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_music">Musica</string>
     <string name="revanced_change_start_page_entry_news">Notizie</string>
     <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
+    <string name="revanced_change_start_page_entry_playlists">Playlist</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
@@ -119,6 +123,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_trending">Tendenze</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Realtà virtuale</string>
     <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
     <string name="revanced_change_start_page_entry_your_clips">I tuoi clip</string>
     <string name="revanced_change_start_page_title">Cambia la scheda iniziale</string>
@@ -146,6 +151,11 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacità della sovrapposizione del riproduttore deve essere tra 0 e 100</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è tra 0 e 100, dove 0 è trasparente.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Opacità personalizzata della sovrapposizione del riproduttore</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Digita il codice esadecimale del colore.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Colore accento personalizzato</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Colore della barra di avanzamento non valido</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Digita il codice esadecimale del colore.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Colore primario personalizzato</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e tutti gli indirizzi web supportati.</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
     <string name="revanced_default_playback_speed_title">Velocità di riproduzione predefinita</string>
@@ -429,6 +439,13 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filtra se corrisponde.
+
+Per nascondere il menù <b>Passa a YouTube Premium</b>, puoi usare solo la parola chiave <b>Passa a YouTube Premium</b>."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filtra se contiene.
+
+Per nascondere il menù <b>Passa a YouTube Premium</b>, puoi usare le parole chiave come <b>YouTube Premium</b> o <b>Premium</b>."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Cambia il tipo di filtro dei menù dell\'account</string>
     <string name="revanced_hide_account_menu_summary">"Nascondi i componenti dei menù dell'account e della scheda Tu.
 Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
@@ -574,6 +591,9 @@ Negozio"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Le schede finali sono visibili.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Le schede finali sono nascoste.</string>
     <string name="revanced_hide_end_screen_cards_title">Nascondi le schede finali</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Il banner del negozio alla fine dei video è visibile.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Il banner del negozio alla fine dei video è nascosto.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Nascondi il banner del negozio alla fine dei video</string>
     <string name="revanced_hide_expandable_chip_summary_off">I chip espandibili sotto i video sono visibili.</string>
     <string name="revanced_hide_expandable_chip_summary_on">I chip espandibili sotto i video sono nascosti.</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi i chip espandibili sotto i video</string>
@@ -585,6 +605,13 @@ Negozio"</string>
     <string name="revanced_hide_feed_captions_button_title">Nascondi il pulsante Sottotitoli</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">L\'elenco dei nomi dei menù a comparsa da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtro dei menù a comparsa</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filtra se corrisponde.
+
+Per nascondere il menù <b>Riproduci come il prossimo in coda</b>, puoi usare solo la parola chiave <b>Riproduci come il prossimo in coda</b>."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filtra se contiene.
+
+Per nascondere il menù <b>Riproduci come il prossimo in coda</b>, puoi usare le parole chiave come <b>Riproduci come</b> o <b>in coda</b>."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Cambia il tipo di filtro dei menù a comparsa</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Il filtro dei menù a comparsa è disattivato.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Il filtro dei menù a comparsa è attivato.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Attiva il filtro dei menù a comparsa</string>
@@ -1127,12 +1154,12 @@ Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
 
 Note:
 • If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">La schermata finale del video consigliato è visibile.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"La schermata finale del video consigliato è nascosta quando la riproduzione automatica è disattivata.
+    <string name="revanced_hide_suggested_video_end_screen_summary_off">Il video consigliato alla fine dei video è visibile.</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary_on">"Il video consigliato alla fine dei video è nascosto quando la riproduzione automatica è disattivata.
 
 La riproduzione automatica può essere modificata seguendo questo percorso:
 Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic. video successivo"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi la schermata finale del video consigliato</string>
+    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi il video consigliato alla fine dei video</string>
     <string name="revanced_hide_thanks_button_summary_off">Il pulsante Grazie è visibile.</string>
     <string name="revanced_hide_thanks_button_summary_on">Il pulsante Grazie è nascosto.</string>
     <string name="revanced_hide_thanks_button_title">Nascondi il pulsante Grazie</string>
@@ -1340,8 +1367,8 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
     <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">I Shorts non sono aperti nel riproduttore normale.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">I Shorts sono aperti nel riproduttore normale.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">Gli Shorts non sono aperti nel riproduttore normale.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Gli Shorts sono aperti nel riproduttore normale.</string>
     <string name="revanced_open_shorts_in_regular_player_title">Apri nel riproduttore normale</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video.

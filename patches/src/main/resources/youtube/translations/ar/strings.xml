@@ -78,7 +78,9 @@
     <string name="revanced_change_layout_entry_5">الجهاز اللوحي (الحد الأدنى 600 dp)</string>
     <string name="revanced_change_layout_title">تغيير التخطيط</string>
     <string name="revanced_change_live_ring_click_action_summary_off">يتم فتح البث المباشر عند النقر على الحلقة المباشرة.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"يتم فتح القناة عند النقر على الحلقة المباشرة."</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"يتم فتح القناة عند النقر على الحلقة المباشرة.
+
+القيود: عند فتح البث المباشر لفيديوهات Shorts في المشغل العادي بسبب إعداد \"فتح فيديوهات Shorts في المشغل العادي\"، لا يتم فتح القناة."</string>
     <string name="revanced_change_live_ring_click_action_title">تغيير إجراء النقر على البث المباشر</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">يتم استخدام مفتاح التبديل.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">يتم استخدام مفتاح التبديل النصي.</string>
@@ -100,6 +102,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">إيقاف</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">تكرار</string>
     <string name="revanced_change_shorts_repeat_state_title">تغيير حالة تكرار Shorts</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
     <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
     <string name="revanced_change_start_page_entry_courses">الدورات / التعلم</string>
     <string name="revanced_change_start_page_entry_default">الافتراضي</string>
@@ -114,6 +117,7 @@
     <string name="revanced_change_start_page_entry_music">موسيقى</string>
     <string name="revanced_change_start_page_entry_news">أخبار</string>
     <string name="revanced_change_start_page_entry_notifications">الإشعارات</string>
+    <string name="revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
     <string name="revanced_change_start_page_entry_podcasts">البودكاست</string>
     <string name="revanced_change_start_page_entry_search">البحث</string>
     <string name="revanced_change_start_page_entry_shopping">التسوق</string>
@@ -121,6 +125,7 @@
     <string name="revanced_change_start_page_entry_sports">رياضة</string>
     <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
     <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">الواقع الافتراضي</string>
     <string name="revanced_change_start_page_entry_watch_later">المشاهدة لاحقًا</string>
     <string name="revanced_change_start_page_entry_your_clips">فيديوهاتك</string>
     <string name="revanced_change_start_page_title">تغيير صفحة البداية</string>
@@ -148,6 +153,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">يجب أن تكون شفافية واجهة المشغل بين 0-100.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">قيمة التعتيم بين 0-100، حيث 0 شفافة.</string>
     <string name="revanced_custom_player_overlay_opacity_title">شفافية واجهة المشغل المخصصة</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">اكتب رمز اللون المميز لشريط التقدم الأساسي.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">لون لشريط التقدم المميز المخصص</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">قيمة لون شريط التقدم غير صالحة.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">اكتب رمز اللون لشريط التقدم الأساسي.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">اللون الأساسي لشريط التقدم المخصص</string>
     <string name="revanced_default_app_settings_summary">لفتح روابط YouTube في RVX، قم بتمكين خيار فتح الروابط المدعومة وتمكين جميع عناوين الويب المدعومة.</string>
     <string name="revanced_default_app_settings_title">فتح إعدادات التطبيق الافتراضية</string>
     <string name="revanced_default_playback_speed_title">سرعة التشغيل الافتراضية</string>
@@ -426,6 +436,13 @@
     <string name="revanced_external_downloader_package_name_video_title">اسم حزمة تنزيل الفيديو</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">قائمة بأسماء قائمة الحسابات المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"قم بالتصفية إذا كانت النتائج متطابقة.
+
+لإخفاء قائمة <b>الحصول على YouTube Premium</b>، يمكنك فقط استخدام <b>الحصول على YouTube Premium</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"قم بالتصفية إذا كان يحتوي على.
+
+لإخفاء قائمة <b>الحصول على YouTube Premium</b>، يمكنك استخدام <b>YouTube Premium</b> أو <b>Premium</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">نوع تصفية قائمة الحساب</string>
     <string name="revanced_hide_account_menu_summary">"إخفاء عناصر قائمة الحساب وعلامة التبويب أنت.
 قد لا يتم إخفاء بعض المكونات."</string>
     <string name="revanced_hide_account_menu_title">إخفاء قائمة الحساب</string>
@@ -572,6 +589,9 @@
     <string name="revanced_hide_end_screen_cards_summary_off">يتم عرض بطاقات شاشة النهاية.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">تم إخفاء بطاقات شاشة النهاية.</string>
     <string name="revanced_hide_end_screen_cards_title">إخفاء بطاقات شاشة النهاية</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">يتم عرض لافتة المتجر.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">تم إخفاء لافتة المتجر.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
     <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع.</string>
     <string name="revanced_hide_expandable_chip_title">إخفاء الشرائح القابلة للتوسع تحت الفيديوهات</string>
@@ -583,6 +603,13 @@
     <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">قائمة بأسماء القائمة المنبثقة المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">تصفية القائمة المنبثقة بالموجز</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"قم بالتصفية إذا كانت هناك تطابقات.
+
+لإخفاء قائمة <b>تشغيل التالي في قائمة المحتوى التالي</b>، يمكنك فقط استخدام <b>تشغيل التالي في قائمة المحتوى التالي</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"قم بالتصفية إذا كان يحتوي على.
+
+لإخفاء قائمة <b>تشغيل التالي في قائمة المحتوى التالي</b>، يمكنك استخدام <b>تشغيل التالي</b> أو <b>في قائمة الانتظار</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">نوع تصفية القائمة المنبثقة للموجز</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">تم تعطيل فلتر القائمة المنبثقة بالموجز.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">تم تمكين فلتر القائمة المنبثقة بالموجز.</string>
     <string name="revanced_hide_feed_flyout_menu_title">تمكين فلتر القائمة المنبثقة بالموجز</string>

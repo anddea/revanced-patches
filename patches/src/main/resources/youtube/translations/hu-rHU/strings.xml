@@ -100,6 +100,7 @@ Ha szerveroldali változások történnek, előfordulhat, hogy az üzenet sáv h
     <string name="revanced_change_shorts_repeat_state_entry_pause">Szünet</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Ismétlés</string>
     <string name="revanced_change_shorts_repeat_state_title">Shorts ismétlési állapotának módosítása</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Minden feliratkozás</string>
     <string name="revanced_change_start_page_entry_browse">Csatornák böngészése</string>
     <string name="revanced_change_start_page_entry_courses">Kurzusok / Tanulás</string>
     <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
@@ -114,6 +115,7 @@ Ha szerveroldali változások történnek, előfordulhat, hogy az üzenet sáv h
     <string name="revanced_change_start_page_entry_music">Zene</string>
     <string name="revanced_change_start_page_entry_news">Hírek</string>
     <string name="revanced_change_start_page_entry_notifications">Értesítések</string>
+    <string name="revanced_change_start_page_entry_playlists">Lejátszási listák</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcastek</string>
     <string name="revanced_change_start_page_entry_search">Keresés</string>
     <string name="revanced_change_start_page_entry_shopping">Vásárlás</string>
@@ -121,6 +123,7 @@ Ha szerveroldali változások történnek, előfordulhat, hogy az üzenet sáv h
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
     <string name="revanced_change_start_page_entry_trending">Felkapott</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
     <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
     <string name="revanced_change_start_page_entry_your_clips">Klipjeid</string>
     <string name="revanced_change_start_page_title">Kezdőlap megváltoztatása</string>
@@ -148,6 +151,11 @@ Korlátozás: Előfordulhat, hogy az eszköztár Vissza gombja nem működik."</
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">A lejátszó átlátszóságának 0 és 100 között kell lennie. Visszaállítás alapértelmezettre.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Átlátszósági érték 0 és 100 között, ahol a 0 az átlátszó.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Egyéni lejátszó átlátszóság beállítása</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Írja be a keresősáv kiemelő színének hexadecimális kódját.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Keresősáv egyéni kiemelő színe</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Érvénytelen keresősáv szín.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Írja be a keresősáv elsődleges színének hexadecimális kódját.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Keresősáv egyéni elsődleges színe</string>
     <string name="revanced_default_app_settings_summary">YouTube linkek RVX-el való megnyitásához, engedélyezze a támogatott hivatkozások megnyitását és engedélyezze az összes támogatott webcímet.</string>
     <string name="revanced_default_app_settings_title">Alapértelmezett program beállítások megnyitása</string>
     <string name="revanced_default_playback_speed_title">Alapértelmezett lejátszási sebesség</string>
@@ -426,6 +434,13 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">A fiók menüben szűrendő menüpontok listája, új sorokkal elválasztva.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Fiók menü szűrő</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">"Szűrje, ha egyezik.
+
+A <b>YouTube Prémium beszerzése</b> menü elrejtéséhez csak a <b>YouTube Prémium beszerzése</b> lehetőséget használhatja kulcsszóként."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">"Szűrje, ha tartalmazza.
+
+A <b>YouTube Prémium beszerzése</b> menü elrejtéséhez használhatja a <b>YouTube Prémium</b> vagy a <b>Prémium</b> kulcsszót."</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Fiók menü szűrés típusa</string>
     <string name="revanced_hide_account_menu_summary">"Fiókmenü és az Te lap elemeinek elrejtése.
 Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_account_menu_title">Fiókmenü elrejtése</string>
@@ -572,6 +587,9 @@ Lejátszási listák
     <string name="revanced_hide_end_screen_cards_summary_off">A záróképernyő kártyák láthatóak.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">A záróképernyő kártyák el vannak rejtve.</string>
     <string name="revanced_hide_end_screen_cards_title">Záróképernyő kártyák elrejtése</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Az üzlet banner látható.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Az üzlet banner el van rejtve.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Záróképernyő üzlet banner elrejtése</string>
     <string name="revanced_hide_expandable_chip_summary_off">A bővíthető vágások megjelennek.</string>
     <string name="revanced_hide_expandable_chip_summary_on">A bővíthető vágások el vannak rejtve.</string>
     <string name="revanced_hide_expandable_chip_title">Bővíthető vágások elrejtése a videók alatt</string>
@@ -583,6 +601,13 @@ Lejátszási listák
     <string name="revanced_hide_feed_captions_button_title">Feliratok gomb elrejtése</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Szűrendő lebegő menü neveinek listája, új sorokkal elválasztva.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Hírfolyam lebegő menü szűrő</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Szűrje, ha egyezik.
+
+A <b>Következő lejátszás a sorban</b> menü elrejtéséhez csak a <b>Következő lejátszás a sorban</b> lehetőséget használhatja kulcsszóként."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Szűrje, ha tartalmazza.
+
+A <b>Következő lejátszás a sorban</b> menü elrejtéséhez használhatja a <b>Következő lejátszás</b> vagy <b>a sorban</b> kulcsszót."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Hírfolyam előugró menü szűrés típusa</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">A hírfolyam lebegő menü szűrő ki van kapcsolva.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">A hírfolyam lebegő menü szűrő engedélyezve van.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Hírfolyam lebegő menü szűrő engedélyezése</string>
