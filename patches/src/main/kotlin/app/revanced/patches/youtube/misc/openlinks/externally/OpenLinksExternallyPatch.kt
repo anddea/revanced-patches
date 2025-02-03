@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.openlinks.externally
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.transformation.transformInstructionsPatch
+import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.OPEN_LINKS_EXTERNALLY
