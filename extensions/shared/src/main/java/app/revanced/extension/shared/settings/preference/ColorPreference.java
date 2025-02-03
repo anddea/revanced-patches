@@ -192,17 +192,23 @@ public class ColorPreference extends EditTextPreference {
         View dialogView = LayoutInflater.from(context).inflate(getLayoutIdentifier("revanced_color_picker"), layout);
         // Get the CustomColorPickerView from the inflated layout.
         CustomColorPickerView colorPickerView = dialogView.findViewById(ResourceUtils.getIdIdentifier("color_picker_view"));
-        // Set the initial color of the color picker.
-        colorPickerView.setColor(initialColor);
+        // Set the initial color of the color picker. Also provide the original color for the preview.
+        colorPickerView.setInitialColor(initialColor);
 
         // Create an AlertDialog with the color picker view.
-        AlertDialog dialog = new AlertDialog.Builder(context)
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(dialogView)
-                .setPositiveButton(android.R.string.ok, null) // Listener will be set later to prevent immediate closing.
-                .setNegativeButton(android.R.string.cancel, null) // Listener will be set later.
-                .create();
+                .setPositiveButton(android.R.string.ok, null)  // Listener will be set later.
+                .setNegativeButton(android.R.string.cancel, null);  // Listener will be set later.
 
-        // Set an OnShowListener for the dialog to configure button behavior.
+        // Apply the dynamic theme for the dialog.
+        Utils.setEditTextDialogTheme(builder);
+
+        AlertDialog dialog = builder.create();
+
+        // Prevent the dialog from closing when touched outside.
+        dialog.setCanceledOnTouchOutside(false);
+
         dialog.setOnShowListener(d -> {
             // Set a listener for color changes in the color picker view.
             colorPickerView.setOnColorChangedListener(color -> {
