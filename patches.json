@@ -1404,6 +1404,26 @@
     "options": []
   },
   {
+    "name": "Hide accessibility controls dialog",
+    "description": "Removes, at compile time, accessibility controls dialog \u0027Turn on accessibility controls for the video player?\u0027.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube"
+    ],
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "18.29.38",
+        "18.33.40",
+        "18.38.44",
+        "18.48.39",
+        "19.05.36",
+        "19.16.39",
+        "19.44.39"
+      ]
+    },
+    "options": []
+  },
+  {
     "name": "Hide account components",
     "description": "Adds options to hide components related to the account menu.",
     "use": true,
@@ -1528,6 +1548,7 @@
       "BytecodePatch",
       "BytecodePatch",
       "Navigation bar components",
+      "BytecodePatch",
       "ResourcePatch"
     ],
     "compatiblePackages": {
@@ -2445,8 +2466,11 @@
         "description": "The name of the RVX settings menu.",
         "required": true,
         "type": "kotlin.String",
-        "default": "ReVanced Extended",
-        "values": null
+        "default": "RVX",
+        "values": {
+          "ReVanced Extended": "ReVanced Extended",
+          "RVX": "RVX"
+        }
       }
     ]
   },
@@ -2506,13 +2530,16 @@
         }
       },
       {
-        "key": "settingsLabel",
+        "key": "rvxSettingsLabel",
         "title": "RVX settings label",
         "description": "The name of the RVX settings menu.",
         "required": true,
         "type": "kotlin.String",
-        "default": "ReVanced Extended",
-        "values": null
+        "default": "RVX",
+        "values": {
+          "ReVanced Extended": "ReVanced Extended",
+          "RVX": "RVX"
+        }
       },
       {
         "key": "settingsSummaries",
@@ -2545,13 +2572,16 @@
     },
     "options": [
       {
-        "key": "settingsLabel",
+        "key": "rvxSettingsLabel",
         "title": "RVX settings label",
         "description": "The name of the RVX settings menu.",
         "required": true,
         "type": "kotlin.String",
-        "default": "ReVanced Extended",
-        "values": null
+        "default": "RVX",
+        "values": {
+          "ReVanced Extended": "ReVanced Extended",
+          "RVX": "RVX"
+        }
       },
       {
         "key": "settingsSummaries",
@@ -2625,6 +2655,15 @@
         "required": true,
         "type": "kotlin.String",
         "default": "8.0dip",
+        "values": null
+      },
+      {
+        "key": "applyCornerRadiusToPlaylistBottomBar",
+        "title": "Apply corner radius to playlist bottom bar",
+        "description": "Whether to apply the same corner radius to the bottom bar of the playlist as the snack bar.",
+        "required": true,
+        "type": "kotlin.Boolean",
+        "default": false,
         "values": null
       },
       {
@@ -2746,6 +2785,16 @@
     "options": []
   },
   {
+    "name": "Spoof Wi-Fi connection",
+    "description": "Spoofs an existing Wi-Fi connection.",
+    "use": false,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": null,
+    "options": []
+  },
+  {
     "name": "Spoof app version",
     "description": "Adds options to spoof the YouTube client version. This can be used to restore old UI elements and features.",
     "use": true,
@@ -2770,7 +2819,7 @@
   },
   {
     "name": "Spoof app version",
-    "description": "Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics.",
+    "description": "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features.",
     "use": true,
     "dependencies": [
       "BytecodePatch",
@@ -3199,5 +3248,26 @@
         "values": null
       }
     ]
+  },
+  {
+    "name": "Watch history",
+    "description": "Adds an option to change the domain of the watch history or check its status.",
+    "use": true,
+    "dependencies": [
+      "Settings for YouTube Music",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.29.59",
+        "6.42.55",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.02.53"
+      ]
+    },
+    "options": []
   }
 ]
