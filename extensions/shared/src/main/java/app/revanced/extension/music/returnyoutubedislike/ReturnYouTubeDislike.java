@@ -185,7 +185,7 @@ public class ReturnYouTubeDislike {
 
         SpannableStringBuilder builder = new SpannableStringBuilder("\u2009");
         if (!isLithoText) {
-            builder.append("\u2009");
+            builder.append("\u2009\u2009\u2009");
         }
         final boolean compactLayout = Settings.RYD_COMPACT_LAYOUT.get();
 
@@ -200,7 +200,10 @@ public class ReturnYouTubeDislike {
         }
 
         if (!compactLayout) {
-            String leftSeparatorString = "\u200E    "; // u200E = left to right character
+            // u200E = left to right character
+            String leftSeparatorString = isLithoText
+                    ? "\u200E    "
+                    : "\u200E     ";
             Spannable leftSeparatorSpan = new SpannableString(leftSeparatorString);
             ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
             shapeDrawable.getPaint().setColor(getSeparatorColor(isLithoText));
