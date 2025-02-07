@@ -29,6 +29,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getNode
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -78,22 +79,31 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
 
         bottomUiContainerThemeFingerprint.matchOrThrow().let {
             it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
-                val appThemeIndex = startIndex + 1
-                val darkThemeIndex = startIndex + 2
-                val insertIndex = startIndex + 3
+                val darkThemeIndex = it.patternMatch!!.startIndex + 2
+                val darkThemeReference = getInstruction<ReferenceInstruction>(darkThemeIndex).reference.toString()
 
-                val appThemeRegister =
-                    getInstruction<OneRegisterInstruction>(appThemeIndex).registerA
-                val darkThemeRegister =
-                    getInstruction<OneRegisterInstruction>(darkThemeIndex).registerA
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        instruction.opcode == Opcode.SGET_OBJECT &&
+                                (instruction as? ReferenceInstruction)?.reference?.toString() == darkThemeReference
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach { index ->
+                        val appThemeIndex = indexOfFirstInstructionReversedOrThrow(index, Opcode.MOVE_RESULT_OBJECT)
+                        val appThemeRegister =
+                            getInstruction<OneRegisterInstruction>(appThemeIndex).registerA
+                        val darkThemeRegister =
+                            getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$appThemeRegister, v$darkThemeRegister}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/lang/Enum;
-                        move-result-object v$appThemeRegister
-                        """
-                )
+                        addInstructions(
+                            index + 1, """
+                                invoke-static {v$appThemeRegister, v$darkThemeRegister}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/lang/Enum;
+                                move-result-object v$appThemeRegister
+                                """
+                        )
+                    }
             }
         }
 
