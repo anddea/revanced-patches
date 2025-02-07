@@ -1,16 +1,21 @@
 package app.revanced.patches.shared.litho
 
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+
+internal const val BUFFER_UPD_FEATURE_FLAG = 45419603L
 
 internal val bufferUpbFeatureFlagFingerprint = legacyFingerprint(
     name = "bufferUpbFeatureFlagFingerprint",
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
-    literals = listOf(45419603L),
+    literals = listOf(BUFFER_UPD_FEATURE_FLAG),
 )
 
 internal val byteBufferFingerprint = legacyFingerprint(
@@ -51,9 +56,16 @@ internal val emptyComponentsFingerprint = legacyFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_STATIC_RANGE,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT
+        Opcode.IGET_OBJECT,
     ),
-    strings = listOf("Error while converting %s"),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CONST_STRING &&
+                    getReference<StringReference>()
+                        ?.string.toString()
+                        .startsWith("Error while converting")
+        } >= 0
+    }
 )
 
 /**
@@ -65,10 +77,12 @@ internal val pathBuilderFingerprint = legacyFingerprint(
     strings = listOf("Number of bits must be positive"),
 )
 
+internal const val PATH_UPD_FEATURE_FLAG = 45631264L
+
 internal val pathUpbFeatureFlagFingerprint = legacyFingerprint(
     name = "pathUpbFeatureFlagFingerprint",
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    literals = listOf(45631264L),
+    literals = listOf(PATH_UPD_FEATURE_FLAG),
 )

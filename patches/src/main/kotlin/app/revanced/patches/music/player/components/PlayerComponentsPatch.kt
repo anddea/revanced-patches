@@ -24,6 +24,7 @@ import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_03_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.darkBackground
@@ -57,6 +58,7 @@ import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -65,6 +67,7 @@ import app.revanced.util.insertNode
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -72,6 +75,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
 
 private const val IMAGE_VIEW_TAG_NAME =
@@ -850,17 +854,28 @@ val playerComponentsPatch = bytecodePatch(
         // region patch for remember shuffle state
 
         shuffleOnClickFingerprint.methodOrThrow().apply {
-            val accessibilityIndex = indexOfAccessibilityInstruction(this)
-
             // region set shuffle enum
+            val enumClass = shuffleEnumFingerprint.methodOrThrow().definingClass
 
-            val enumIndex = indexOfFirstInstructionReversedOrThrow(accessibilityIndex) {
-                opcode == Opcode.INVOKE_DIRECT &&
-                        getReference<MethodReference>()?.returnType == "Ljava/lang/String;"
+            val startIndex = indexOfFirstLiteralInstructionOrThrow(SHUFFLE_BUTTON_ID)
+
+            val (enumIndex, enumRegister) = if (is_8_03_or_greater) {
+                val index = indexOfFirstInstructionReversedOrThrow(startIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.returnType == enumClass
+                }
+                val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                Pair(index + 2, register)
+            } else {
+                val index = indexOfFirstInstructionReversedOrThrow(startIndex) {
+                    opcode == Opcode.INVOKE_DIRECT &&
+                            getReference<MethodReference>()?.returnType == "Ljava/lang/String;"
+                }
+                val register = getInstruction<FiveRegisterInstruction>(index).registerD
+
+                Pair(index, register)
             }
-            val enumRegister = getInstruction<FiveRegisterInstruction>(enumIndex).registerD
-            val enumClass =
-                (getInstruction<ReferenceInstruction>(enumIndex).reference as MethodReference).parameterTypes.first()
 
             addInstruction(
                 enumIndex,
@@ -872,7 +887,7 @@ val playerComponentsPatch = bytecodePatch(
             // region set static field
 
             val shuffleClassIndex =
-                indexOfFirstInstructionReversedOrThrow(accessibilityIndex, Opcode.CHECK_CAST)
+                indexOfFirstInstructionReversedOrThrow(enumIndex, Opcode.CHECK_CAST)
             val shuffleClass =
                 getInstruction<ReferenceInstruction>(shuffleClassIndex).reference.toString()
             val shuffleMutableClass = classBy { classDef ->
@@ -901,17 +916,55 @@ val playerComponentsPatch = bytecodePatch(
 
             // region make all methods accessible
 
+            fun Method.indexOfEnumOrdinalInstruction() =
+                indexOfFirstInstruction {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.name == "ordinal" &&
+                            reference.definingClass == enumClass
+                }
+
+            val isShuffleMethod: Method.() -> Boolean = {
+                returnType == "V" &&
+                        indexOfEnumOrdinalInstruction() >= 0 &&
+                        indexOfFirstInstruction {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "post"
+                        } >= 0
+            }
+
             val shuffleMethod = shuffleMutableClass.methods.find { method ->
-                method.parameterTypes.firstOrNull() == enumClass &&
-                        method.parameterTypes.size == 1 &&
-                        method.returnType == "V"
+                method.isShuffleMethod()
             } ?: throw PatchException("shuffle method not found")
+            val shuffleMethodRegisterCount = shuffleMethod.implementation!!.registerCount
 
             shuffleMutableClass.methods.add(
                 shuffleMethod.cloneMutable(
                     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-                    name = "shuffleTracks"
-                )
+                    name = "shuffleTracks",
+                    registerCount = if (is_8_03_or_greater) {
+                        shuffleMethodRegisterCount + 1
+                    } else {
+                        shuffleMethodRegisterCount
+                    },
+                    parameters = listOf(
+                        ImmutableMethodParameter(
+                            enumClass,
+                            annotations,
+                            "enumClass"
+                        )
+                    )
+                ).apply {
+                    if (is_8_03_or_greater) {
+                        val index = indexOfEnumOrdinalInstruction()
+                        val register = getInstruction<FiveRegisterInstruction>(index).registerC
+
+                        addInstruction(
+                            index,
+                            "move-object/from16 v$register, p1"
+                        )
+                    }
+                }
             )
 
             // endregion
