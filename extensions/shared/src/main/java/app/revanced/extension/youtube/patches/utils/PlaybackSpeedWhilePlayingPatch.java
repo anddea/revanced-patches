@@ -9,7 +9,7 @@ public class PlaybackSpeedWhilePlayingPatch {
 
     public static boolean playbackSpeedChanged(float playbackSpeed) {
         if (playbackSpeed == DEFAULT_YOUTUBE_PLAYBACK_SPEED &&
-                PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+                PlayerType.getCurrent().isMaximizedOrFullscreenOrPiP()) {
 
             Logger.printDebug(() -> "Even though playback has already started and the user has not changed the playback speed, " +
                     "the app attempts to change the playback speed to 1.0x." +

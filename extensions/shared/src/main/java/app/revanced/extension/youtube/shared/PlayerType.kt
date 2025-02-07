@@ -139,6 +139,14 @@ enum class PlayerType {
 
     /**
      * Check if the current player type is
+     * [WATCH_WHILE_MAXIMIZED], [WATCH_WHILE_FULLSCREEN], [WATCH_WHILE_PICTURE_IN_PICTURE]
+     */
+    fun isMaximizedOrFullscreenOrPiP(): Boolean {
+        return isMaximizedOrFullscreen() || this == WATCH_WHILE_PICTURE_IN_PICTURE
+    }
+
+    /**
+     * Check if the current player type is
      * [WATCH_WHILE_FULLSCREEN], [WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN].
      *
      * Useful to check if a video is fullscreen.
