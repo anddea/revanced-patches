@@ -45,6 +45,17 @@ object PlayerRoutes {
     ).compile()
 
     @JvmField
+    val GET_VIDEO_ACTION_BUTTON: CompiledRoute = Route(
+        Route.Method.POST,
+        "next" +
+                "?prettyPrint=false" +
+                "&fields=contents.singleColumnWatchNextResults." +
+                "results.results.contents.slimVideoMetadataSectionRenderer." +
+                "contents.elementRenderer.newElement.type.componentType." +
+                "model.videoActionBarModel.buttons.buttonViewModel"
+    ).compile()
+
+    @JvmField
     val GET_VIDEO_DETAILS: CompiledRoute = Route(
         Route.Method.POST,
         "player" +

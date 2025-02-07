@@ -18,6 +18,8 @@ import app.revanced.patches.shared.spoof.useragent.baseSpoofUserAgentPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_STREAMING_DATA
+import app.revanced.patches.youtube.utils.request.buildRequestPatch
+import app.revanced.patches.youtube.utils.request.hookBuildRequest
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -31,7 +33,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -39,7 +40,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-const val EXTENSION_CLASS_DESCRIPTOR =
+private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/SpoofStreamingDataPatch;"
 
 val spoofStreamingDataPatch = bytecodePatch(
@@ -52,36 +53,14 @@ val spoofStreamingDataPatch = bytecodePatch(
         settingsPatch,
         baseSpoofUserAgentPatch(YOUTUBE_PACKAGE_NAME),
         blockRequestPatch,
+        buildRequestPatch,
     )
 
     execute {
 
         // region Get replacement streams at player requests.
 
-        buildRequestFingerprint.methodOrThrow().apply {
-            val newRequestBuilderIndex = indexOfNewUrlRequestBuilderInstruction(this)
-            val urlRegister =
-                getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-
-            val entrySetIndex = indexOfEntrySetInstruction(this)
-            val mapRegister = if (entrySetIndex < 0)
-                urlRegister + 1
-            else
-                getInstruction<FiveRegisterInstruction>(entrySetIndex).registerC
-
-            var smaliInstructions =
-                "invoke-static { v$urlRegister, v$mapRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->" +
-                        "fetchStreams(Ljava/lang/String;Ljava/util/Map;)V"
-
-            if (entrySetIndex < 0) smaliInstructions = """
-                move-object/from16 v$mapRegister, p1
-                
-                """ + smaliInstructions
-
-            // Copy request headers for streaming data fetch.
-            addInstructions(newRequestBuilderIndex + 2, smaliInstructions)
-        }
+        hookBuildRequest("$EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V")
 
         // endregion
 

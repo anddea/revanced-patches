@@ -2,6 +2,7 @@ package app.revanced.extension.shared.patches.client
 
 import android.os.Build
 import app.revanced.extension.shared.settings.BaseSettings
+import app.revanced.extension.shared.utils.PackageUtils
 import org.apache.commons.lang3.ArrayUtils
 import java.util.Locale
 
@@ -73,6 +74,15 @@ object YouTubeAppClient {
         iOSUserAgent(PACKAGE_NAME_IOS_UNPLUGGED, CLIENT_VERSION_IOS_UNPLUGGED)
 
 
+    // ANDROID
+    private const val PACKAGE_NAME_ANDROID = "com.google.android.youtube"
+    private val CLIENT_VERSION_ANDROID = PackageUtils.getAppVersionName()
+    private val USER_AGENT_ANDROID = androidUserAgent(
+        packageName = PACKAGE_NAME_ANDROID,
+        clientVersion = CLIENT_VERSION_ANDROID,
+    )
+
+
     // ANDROID VR
     /**
      * Video not playable: Kids
@@ -91,7 +101,7 @@ object YouTubeAppClient {
      * [the App Store page of the YouTube app](https://www.meta.com/en-us/experiences/2002317119880945/),
      * in the `Additional details` section.
      */
-    private const val CLIENT_VERSION_ANDROID_VR = "1.61.48"
+    private const val CLIENT_VERSION_ANDROID_VR = "1.62.27"
 
     /**
      * The device machine id for the Meta Quest 3, used to get opus codec with the Android VR client.
@@ -281,6 +291,14 @@ object YouTubeAppClient {
          */
         val friendlyName: String
     ) {
+        ANDROID(
+            id = 3,
+            userAgent = USER_AGENT_ANDROID,
+            androidSdkVersion = Build.VERSION.SDK,
+            clientVersion = CLIENT_VERSION_ANDROID,
+            clientName = "ANDROID",
+            friendlyName = "Android"
+        ),
         ANDROID_VR(
             id = 28,
             deviceMake = DEVICE_MAKE_ANDROID_VR,

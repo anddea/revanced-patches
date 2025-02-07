@@ -292,22 +292,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", FALSE);
 
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_0 = new BooleanSetting("revanced_hide_action_button_index_0", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_1 = new BooleanSetting("revanced_hide_action_button_index_1", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_2 = new BooleanSetting("revanced_hide_action_button_index_2", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_3 = new BooleanSetting("revanced_hide_action_button_index_3", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_4 = new BooleanSetting("revanced_hide_action_button_index_4", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_5 = new BooleanSetting("revanced_hide_action_button_index_5", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_6 = new BooleanSetting("revanced_hide_action_button_index_6", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_7 = new BooleanSetting("revanced_hide_action_button_index_7", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_0 = new BooleanSetting("revanced_hide_action_button_index_live_0", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_1 = new BooleanSetting("revanced_hide_action_button_index_live_1", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_2 = new BooleanSetting("revanced_hide_action_button_index_live_2", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_3 = new BooleanSetting("revanced_hide_action_button_index_live_3", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_4 = new BooleanSetting("revanced_hide_action_button_index_live_4", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_5 = new BooleanSetting("revanced_hide_action_button_index_live_5", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_6 = new BooleanSetting("revanced_hide_action_button_index_live_6", FALSE);
-    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX_LIVE_7 = new BooleanSetting("revanced_hide_action_button_index_live_7", FALSE);
+    public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX = new BooleanSetting("revanced_hide_action_button_index", FALSE, true);
+    public static final IntegerSetting REMIX_BUTTON_INDEX = new IntegerSetting("revanced_remix_button_index", 3, true, parent(HIDE_ACTION_BUTTON_INDEX));
 
     // PreferenceScreen: Player - Ambient mode
     public static final BooleanSetting BYPASS_AMBIENT_MODE_RESTRICTIONS = new BooleanSetting("revanced_bypass_ambient_mode_restrictions", FALSE);
