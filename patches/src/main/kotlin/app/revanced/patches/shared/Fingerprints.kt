@@ -10,6 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
     name = "createPlayerRequestBodyWithModelFingerprint",
@@ -75,9 +76,14 @@ internal val sharedSettingFingerprint = legacyFingerprint(
 internal val spannableStringBuilderFingerprint = legacyFingerprint(
     name = "spannableStringBuilderFingerprint",
     returnType = "Ljava/lang/CharSequence;",
-    strings = listOf("Failed to set PB Style Run Extension in TextComponentSpec. Extension id: %s"),
     customFingerprint = { method, _ ->
-        indexOfSpannableStringInstruction(method) >= 0
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CONST_STRING &&
+                    getReference<StringReference>()
+                        ?.string.toString()
+                        .startsWith("Failed to set PB Style Run Extension in TextComponentSpec.")
+        } >= 0 &&
+                indexOfSpannableStringInstruction(method) >= 0
     }
 )
 
