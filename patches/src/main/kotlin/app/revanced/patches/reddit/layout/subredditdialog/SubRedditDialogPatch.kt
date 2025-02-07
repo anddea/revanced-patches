@@ -9,6 +9,7 @@ import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
 import app.revanced.patches.reddit.utils.settings.is_2024_41_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_01_or_greater
+import app.revanced.patches.reddit.utils.settings.is_2025_05_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.util.fingerprint.methodOrThrow
@@ -53,15 +54,17 @@ val subRedditDialogPatch = bytecodePatch(
         }
 
         // Not used in latest Reddit client.
-        frequentUpdatesSheetScreenFingerprint.methodOrThrow().apply {
-            val index = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_OBJECT)
-            val register =
-                getInstruction<OneRegisterInstruction>(index).registerA
+        if (!is_2025_05_or_greater) {
+            frequentUpdatesSheetScreenFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_OBJECT)
+                val register =
+                    getInstruction<OneRegisterInstruction>(index).registerA
 
-            addInstruction(
-                index,
-                "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialog(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    index,
+                    "invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialog(Landroid/view/View;)V"
+                )
+            }
         }
 
         if (is_2025_01_or_greater) {
