@@ -1,15 +1,17 @@
 package app.revanced.extension.youtube.patches.general;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DEFAULT;
 import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DISABLED;
 import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
 import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_2;
 import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.ORIGINAL;
+import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_4;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_29_OR_GREATER;
+import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_34_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.validateValue;
 
 import android.content.Context;
@@ -27,7 +29,6 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.utils.ExtendedUtils;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public final class MiniplayerPatch {
@@ -44,7 +45,7 @@ public final class MiniplayerPatch {
         /**
          * Unmodified type, and same as un-patched.
          */
-        ORIGINAL(null, null),
+        DEFAULT(null, null),
         /**
          * Exactly the same as MINIMAL and only here for migration of user settings.
          * Eventually this should be deleted.
@@ -57,10 +58,13 @@ public final class MiniplayerPatch {
         MODERN_2(null, 2),
         MODERN_3(null, 3),
         /**
-         * Half broken miniplayer, that might be work in progress or left over abandoned code.
-         * Can force this type by editing the import/export settings.
+         * Works and is functional with 20.03+
          */
-        MODERN_4(null, 4);
+        MODERN_4(null, 4),
+        /**
+         * Half broken miniplayer, and in 20.02 and earlier is declared as type 4.
+         */
+        MODERN_5(null, 5);
 
         /**
          * Legacy tablet hook value.
@@ -157,20 +161,21 @@ public final class MiniplayerPatch {
     private static final boolean DRAG_AND_DROP_ENABLED =
             CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
 
-    private static final boolean HIDE_EXPAND_CLOSE_ENABLED =
-            Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.get()
-                    && Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.isAvailable();
+    private static final boolean HIDE_OVERLAY_BUTTONS_ENABLED =
+            Settings.MINIPLAYER_HIDE_OVERLAY_BUTTONS.get()
+                    && Settings.MINIPLAYER_HIDE_OVERLAY_BUTTONS.isAvailable();
 
     private static final boolean HIDE_SUBTEXT_ENABLED =
-            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
+            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3 || CURRENT_TYPE == MODERN_4)
+                    && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
 
     // 19.25 is last version that has forward/back buttons for phones,
     // but buttons still show for tablets/foldable devices and they don't work well so always hide.
     private static final boolean HIDE_REWIND_FORWARD_ENABLED = CURRENT_TYPE == MODERN_1
-            && (ExtendedUtils.IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
+            && (IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
     private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
-            Settings.MINIPLAYER_ROUNDED_CORNERS.get();
+            CURRENT_TYPE.isModern() && Settings.MINIPLAYER_ROUNDED_CORNERS.get();
 
     private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
             DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
@@ -202,11 +207,12 @@ public final class MiniplayerPatch {
         }
     }
 
-    public static final class MiniplayerHideExpandCloseAvailability implements Setting.Availability {
+    public static final class MiniplayerHideOverlayButtonsAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
             MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
-            return (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
+            return type == MODERN_4
+                    || (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
                     || (!IS_19_26_OR_GREATER && type == MODERN_1
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
@@ -220,7 +226,7 @@ public final class MiniplayerPatch {
      * effectively disabling the miniplayer.
      */
     public static boolean getMiniplayerOnCloseHandler(boolean original) {
-        return CURRENT_TYPE == ORIGINAL
+        return CURRENT_TYPE == DEFAULT
                 ? original
                 : CURRENT_TYPE == DISABLED;
     }
@@ -239,7 +245,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean getModernMiniplayerOverride(boolean original) {
-        return CURRENT_TYPE == ORIGINAL
+        return CURRENT_TYPE == DEFAULT
                 ? original
                 : CURRENT_TYPE.isModern();
     }
@@ -257,9 +263,13 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static void adjustMiniplayerOpacity(ImageView view) {
+    public static void adjustMiniplayerOpacity(View view) {
         if (CURRENT_TYPE == MODERN_1) {
-            view.setImageAlpha(OPACITY_LEVEL);
+            if (view instanceof ImageView imageView) {
+                imageView.setImageAlpha(OPACITY_LEVEL);
+            } else {
+                Logger.printException(() -> "Unknown miniplayer overlay view. viewType: " + view.getClass().getName());
+            }
         }
     }
 
@@ -267,7 +277,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean getModernFeatureFlagsActiveOverride(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 
@@ -277,8 +287,8 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDoubleTapAction(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+    public static boolean getMiniplayerDoubleTapAction(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 
@@ -288,8 +298,8 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDragAndDrop(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+    public static boolean getMiniplayerDragAndDrop(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 
@@ -300,9 +310,33 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean setRoundedCorners(boolean original) {
-        if (CURRENT_TYPE.isModern()) {
-            return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
+    public static boolean getRoundedCorners(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
+            return original;
+        }
+
+        return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean getHorizontalDrag(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
+            return original;
+        }
+
+        return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean getMaximizeAnimation(boolean original) {
+        // This must be forced on if horizontal drag is enabled,
+        // otherwise the UI has visual glitches when maximizing the miniplayer.
+        if (MINIPLAYER_HORIZONTAL_DRAG_ENABLED) {
+            return true;
         }
 
         return original;
@@ -311,7 +345,7 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static int setMiniplayerDefaultSize(int original) {
+    public static int getMiniplayerDefaultSize(int original) {
         if (CURRENT_TYPE.isModern()) {
             if (MINIPLAYER_SIZE == 0) {
                 setMiniPlayerSize();
@@ -324,29 +358,26 @@ public final class MiniplayerPatch {
         return original;
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hideMiniplayerExpandClose(View view) {
+        Utils.hideViewByRemovingFromParentUnderCondition(HIDE_OVERLAY_BUTTONS_ENABLED, view);
+    }
 
     /**
      * Injection point.
      */
-    public static boolean setHorizontalDrag(boolean original) {
-        if (CURRENT_TYPE.isModern()) {
-            return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
+    public static void hideMiniplayerActionButton(View view) {
+        if (CURRENT_TYPE == MODERN_4) {
+            Utils.hideViewByRemovingFromParentUnderCondition(HIDE_OVERLAY_BUTTONS_ENABLED, view);
         }
-
-        return original;
     }
 
     /**
      * Injection point.
      */
-    public static void hideMiniplayerExpandClose(ImageView view) {
-        Utils.hideViewByRemovingFromParentUnderCondition(HIDE_EXPAND_CLOSE_ENABLED, view);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void hideMiniplayerRewindForward(ImageView view) {
+    public static void hideMiniplayerRewindForward(View view) {
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_REWIND_FORWARD_ENABLED, view);
     }
 

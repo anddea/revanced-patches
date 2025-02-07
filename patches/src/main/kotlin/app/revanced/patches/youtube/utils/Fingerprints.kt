@@ -95,7 +95,6 @@ internal val playerButtonsResourcesFingerprint = legacyFingerprint(
 internal val playerButtonsVisibilityFingerprint = legacyFingerprint(
     name = "playerButtonsVisibilityFingerprint",
     returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,

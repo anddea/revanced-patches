@@ -2,8 +2,6 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
 import android.preference.Preference;
@@ -11,7 +9,6 @@ import android.preference.SwitchPreference;
 
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.patches.general.LayoutSwitchPatch;
-import app.revanced.extension.youtube.patches.general.MiniplayerPatch;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
@@ -48,7 +45,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         AmbientModePreferenceLinks();
         ExternalDownloaderPreferenceLinks();
         FullScreenPanelPreferenceLinks();
-        MiniPlayerPreferenceLinks();
         NavigationPreferenceLinks();
         RYDPreferenceLinks();
         SeekBarPreferenceLinks();
@@ -137,22 +133,6 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 Settings.HIDE_QUICK_ACTIONS_OPEN_PLAYLIST_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_SAVE_TO_PLAYLIST_BUTTON,
                 Settings.HIDE_QUICK_ACTIONS_SHARE_BUTTON
-        );
-    }
-
-    /**
-     * Enable/Disable Preference related to Miniplayer settings
-     */
-    private static void MiniPlayerPreferenceLinks() {
-        final MiniplayerPatch.MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
-        final boolean available =
-                (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) &&
-                        !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() &&
-                        !Settings.MINIPLAYER_DRAG_AND_DROP.get();
-
-        enableDisablePreferences(
-                !available,
-                Settings.MINIPLAYER_HIDE_EXPAND_CLOSE
         );
     }
 

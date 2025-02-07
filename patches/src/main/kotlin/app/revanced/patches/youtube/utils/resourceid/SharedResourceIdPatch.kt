@@ -115,6 +115,8 @@ var imageOnlyTab = -1L
     private set
 var inlineTimeBarColorizedBarPlayedColorDark = -1L
     private set
+var inlineTimeBarLiveSeekAbleRange = -1L
+    private set
 var inlineTimeBarPlayedNotHighlightedColor = -1L
     private set
 var insetOverlayViewLayout = -1L
@@ -134,6 +136,8 @@ var modernMiniPlayerClose = -1L
 var modernMiniPlayerExpand = -1L
     private set
 var modernMiniPlayerForwardButton = -1L
+    private set
+var modernMiniPlayerOverlayActionButton = -1L
     private set
 var modernMiniPlayerRewindButton = -1L
     private set
@@ -240,6 +244,8 @@ var ytOutlineVideoCamera = -1L
 var ytOutlineXWhite = -1L
     private set
 var ytPremiumWordMarkHeader = -1L
+    private set
+var ytTextSecondary = -1L
     private set
 var ytStaticBrandRed = -1L
     private set
@@ -454,6 +460,10 @@ internal val sharedResourceIdPatch = resourcePatch(
             COLOR,
             "inline_time_bar_colorized_bar_played_color_dark"
         ]
+        inlineTimeBarLiveSeekAbleRange = resourceMappings[
+            COLOR,
+            "inline_time_bar_live_seekable_range"
+        ]
         inlineTimeBarPlayedNotHighlightedColor = resourceMappings[
             COLOR,
             "inline_time_bar_played_not_highlighted_color"
@@ -493,6 +503,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         modernMiniPlayerForwardButton = resourceMappings[
             ID,
             "modern_miniplayer_forward_button"
+        ]
+        modernMiniPlayerOverlayActionButton = resourceMappings[
+            ID,
+            "modern_miniplayer_overlay_action_button"
         ]
         modernMiniPlayerRewindButton = resourceMappings[
             ID,
@@ -705,6 +719,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytPremiumWordMarkHeader = resourceMappings[
             ATTR,
             "ytPremiumWordmarkHeader"
+        ]
+        ytTextSecondary = resourceMappings[
+            ATTR,
+            "ytTextSecondary",
         ]
         ytStaticBrandRed = resourceMappings[
             ATTR,
