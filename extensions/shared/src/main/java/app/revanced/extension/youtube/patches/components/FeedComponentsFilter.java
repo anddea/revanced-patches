@@ -62,6 +62,7 @@ public final class FeedComponentsFilter extends Filter {
                 "images_post_root",
                 "images_post_slim",
                 "poll_post_root",
+                "post_shelf_slim",
                 "text_post_root",
                 "videos_post_root"
         );
