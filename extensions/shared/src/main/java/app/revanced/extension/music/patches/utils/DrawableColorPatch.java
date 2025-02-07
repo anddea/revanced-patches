@@ -1,5 +1,7 @@
 package app.revanced.extension.music.patches.utils;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,7 +9,6 @@ import android.widget.ImageView;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
 @SuppressWarnings("unused")
@@ -21,10 +22,10 @@ public class DrawableColorPatch {
     // background colors
     private static final Drawable headerGradient =
             ResourceUtils.getDrawable("revanced_header_gradient");
+    private static final Drawable transparentDrawable =
+            new ColorDrawable(Color.TRANSPARENT);
     private static final int blackColor =
             ResourceUtils.getColor("yt_black1");
-    private static final int elementsContainerIdentifier =
-            ResourceUtils.getIdIdentifier("elements_container");
 
     public static int getLithoColor(int colorValue) {
         return ArrayUtils.contains(DARK_COLORS, colorValue)
@@ -40,25 +41,30 @@ public class DrawableColorPatch {
 
             if (secondChildView instanceof ImageView gradientView) {
                 // Album
-                setHeaderGradient(viewGroup, gradientView);
+                setHeaderGradient(gradientView);
             } else if (secondChildView instanceof ViewGroup thirdChildView &&
                     thirdChildView.getChildCount() == 1 &&
                     thirdChildView.getChildAt(0) instanceof ImageView gradientView) {
                 // Playlist
-                setHeaderGradient(viewGroup, gradientView);
+                setHeaderGradient(gradientView);
             }
         });
     }
 
-    private static void setHeaderGradient(ViewGroup viewGroup, ImageView gradientView) {
-        // For some reason, it sometimes applies to other lithoViews.
-        // To prevent this, check the viewId before applying the gradient.
-        if (gradientView.getForeground() == null && headerGradient != null && viewGroup.getId() == elementsContainerIdentifier) {
-            viewGroup.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            gradientView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-            Logger.printDebug(() -> "set header gradient.\nviewGroup measured width: " + viewGroup.getMeasuredWidth() + ", gradientView measured width: " + gradientView.getMeasuredWidth());
-
+    private static void setHeaderGradient(ImageView gradientView) {
+        // headerGradient is litho, so this view is sometimes used elsewhere, like the button of the action bar.
+        // In order to prevent the gradient to be applied to the button of the action bar,
+        // Add a layout listener to the ImageView.
+        if (headerGradient != null && gradientView.getForeground() == null) {
             gradientView.setForeground(headerGradient);
+            gradientView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+                if (gradientView.getParent() instanceof View view &&
+                        view.getContentDescription() != null &&
+                        gradientView.getForeground() == headerGradient
+                ) {
+                    gradientView.setForeground(transparentDrawable);
+                }
+            });
         }
     }
 }
