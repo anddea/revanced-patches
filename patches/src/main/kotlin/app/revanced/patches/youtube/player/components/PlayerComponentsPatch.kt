@@ -24,6 +24,8 @@ import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.suggestedV
 import app.revanced.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_03_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
@@ -91,8 +93,8 @@ private val speedOverlayPatch = bytecodePatch(
             // region patch for Disable speed overlay (Enable slide to seek)
 
             mapOf(
-                restoreSlideToSeekBehaviorFingerprint to 45411329L,
-                speedOverlayFingerprint to 45411330L
+                restoreSlideToSeekBehaviorFingerprint to RESTORE_SLIDE_TO_SEEK_FEATURE_FLAG,
+                speedOverlayFingerprint to SPEED_OVERLAY_FEATURE_FLAG
             ).forEach { (fingerprint, literal) ->
                 fingerprint.injectLiteralInstructionBooleanCall(
                     literal,
@@ -237,18 +239,21 @@ private val speedOverlayPatch = bytecodePatch(
                 )
             }
 
-            speedOverlayTextValueFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val targetIndex = it.patternMatch!!.startIndex
-                    val targetRegister =
-                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            // Removed in YouTube 20.03+
+            if (!is_20_03_or_greater) {
+                speedOverlayTextValueFingerprint.matchOrThrow().let {
+                    it.method.apply {
+                        val targetIndex = it.patternMatch!!.startIndex
+                        val targetRegister =
+                            getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                    addInstructions(
-                        targetIndex + 1, """
-                            invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue()D
-                            move-result-wide v$targetRegister
-                            """
-                    )
+                        addInstructions(
+                            targetIndex + 1, """
+                                invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue()D
+                                move-result-wide v$targetRegister
+                                """
+                        )
+                    }
                 }
             }
 
@@ -509,32 +514,42 @@ val playerComponentsPatch = bytecodePatch(
             fingerprint.methodOrThrow(filmStripOverlayParentFingerprint).hookFilmstripOverlay()
         }
 
-        youtubeControlsOverlayFingerprint.methodOrThrow().apply {
-            val constIndex = indexOfFirstLiteralInstructionOrThrow(fadeDurationFast)
-            val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
-            val insertIndex =
-                indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
-            val jumpIndex = implementation!!.instructions.let { instruction ->
-                insertIndex + instruction.subList(insertIndex, instruction.size - 1)
-                    .indexOfFirst { instructions ->
-                        instructions.opcode == Opcode.GOTO || instructions.opcode == Opcode.GOTO_16
-                    }
+        // Removed in YouTube 20.05+
+        if (!is_20_05_or_greater) {
+            youtubeControlsOverlayFingerprint.methodOrThrow().apply {
+                val constIndex = indexOfFirstLiteralInstructionOrThrow(fadeDurationFast)
+                val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
+                val insertIndex =
+                    indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.INVOKE_VIRTUAL) + 1
+                val jumpIndex = implementation!!.instructions.let { instruction ->
+                    insertIndex + instruction.subList(insertIndex, instruction.size - 1)
+                        .indexOfFirst { instructions ->
+                            instructions.opcode == Opcode.GOTO || instructions.opcode == Opcode.GOTO_16
+                        }
+                }
+
+                val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                val replaceReference =
+                    getInstruction<ReferenceInstruction>(insertIndex).reference
+
+                addInstructionsWithLabels(
+                    insertIndex + 1, getAllLiteralComponent(insertIndex, jumpIndex - 1) + """
+                        const v$constRegister, $fadeDurationFast
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay()Z
+                        move-result v${replaceInstruction.registerA}
+                        if-nez v${replaceInstruction.registerA}, :hidden
+                        iget-object v${replaceInstruction.registerA}, v${replaceInstruction.registerB}, $replaceReference
+                        """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                )
+                removeInstruction(insertIndex)
             }
-
-            val replaceInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
-            val replaceReference =
-                getInstruction<ReferenceInstruction>(insertIndex).reference
-
-            addInstructionsWithLabels(
-                insertIndex + 1, getAllLiteralComponent(insertIndex, jumpIndex - 1) + """
-                    const v$constRegister, $fadeDurationFast
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay()Z
-                    move-result v${replaceInstruction.registerA}
-                    if-nez v${replaceInstruction.registerA}, :hidden
-                    iget-object v${replaceInstruction.registerA}, v${replaceInstruction.registerB}, $replaceReference
-                    """, ExternalLabel("hidden", getInstruction(jumpIndex))
+        } else {
+            // This is a new film strip overlay added to YouTube 20.05+
+            // Disabling this flag is not related to the operation of the patch.
+            filmStripOverlayConfigV2Fingerprint.injectLiteralInstructionBooleanCall(
+                FILM_STRIP_OVERLAY_V2_FEATURE_FLAG,
+                "0x0"
             )
-            removeInstruction(insertIndex)
         }
 
         // endregion
@@ -571,6 +586,7 @@ val playerComponentsPatch = bytecodePatch(
             )
         }
 
+        // Removed in YouTube 20.02+
         if (!is_20_02_or_greater) {
             youtubeControlsOverlayFingerprint.methodOrThrow().apply {
                 val insertIndex =

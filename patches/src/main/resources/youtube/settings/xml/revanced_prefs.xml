@@ -48,6 +48,9 @@
             <!-- SETTINGS: MINIPLAYER_TYPE_19_43
             <ListPreference android:entries="@array/revanced_miniplayer_type_19_43_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_43_entry_values" />SETTINGS: MINIPLAYER_TYPE_19_43 -->
 
+            <!-- SETTINGS: MINIPLAYER_TYPE_20_03
+            <ListPreference android:entries="@array/revanced_miniplayer_type_20_03_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_20_03_entry_values" />SETTINGS: MINIPLAYER_TYPE_20_03 -->
+
             <!-- SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION
             <SwitchPreference android:title="@string/revanced_miniplayer_double_tap_action_title" android:key="revanced_miniplayer_double_tap_action" android:summaryOn="@string/revanced_miniplayer_double_tap_action_summary_on" android:summaryOff="@string/revanced_miniplayer_double_tap_action_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION -->
 
@@ -60,17 +63,17 @@
             <!-- SETTINGS: MINIPLAYER_ROUNDED_CORNERS
             <SwitchPreference android:title="@string/revanced_miniplayer_rounded_corners_title" android:key="revanced_miniplayer_rounded_corners" android:summaryOn="@string/revanced_miniplayer_rounded_corners_summary_on" android:summaryOff="@string/revanced_miniplayer_rounded_corners_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_ROUNDED_CORNERS -->
 
-            <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
+            <!-- SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_off" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25 -->
 
-            <!-- SETTINGS: MINIPLAYER_EXPAND_CLOSE_19_25
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_expand_close_title" android:key="revanced_miniplayer_hide_expand_close" android:summaryOn="@string/revanced_miniplayer_hide_expand_close_legacy_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_expand_close_legacy_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_EXPAND_CLOSE_19_25 -->
-
-            <!-- SETTINGS: MINIPLAYER_EXPAND_CLOSE_19_26
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_expand_close_title" android:key="revanced_miniplayer_hide_expand_close" android:summaryOn="@string/revanced_miniplayer_hide_expand_close_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_expand_close_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_EXPAND_CLOSE_19_26 -->
+            <!-- SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_summary_off" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26 -->
 
             <!-- SETTINGS: MINIPLAYER_REWIND_FORWARD
             <SwitchPreference android:title="@string/revanced_miniplayer_hide_rewind_forward_title" android:key="revanced_miniplayer_hide_rewind_forward" android:summaryOn="@string/revanced_miniplayer_hide_rewind_forward_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_rewind_forward_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_REWIND_FORWARD -->
+
+            <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
 
             <!-- SETTINGS: MINIPLAYER_WIDTH_DIP
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_width_dip_title" android:key="revanced_miniplayer_width_dip" android:summary="@string/revanced_miniplayer_width_dip_summary" android:inputType="number" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_WIDTH_DIP -->

@@ -16,6 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+private lateinit var engagementPanelBuilderMethod: MutableMethod
 private lateinit var hideEngagementPanelMethod: MutableMethod
 private var showEngagementPanelMethods = mutableListOf<MutableMethod>()
 
@@ -26,8 +27,10 @@ val engagementPanelHookPatch = bytecodePatch(
 
     execute {
         engagementPanelBuilderFingerprint.matchOrThrow().let {
+            engagementPanelBuilderMethod = it.method
+
             it.classDef.methods.filter { method ->
-                method.indexOfEngagementPanelBuilderInstruction(it.method) >= 0
+                method.indexOfEngagementPanelBuilderInstruction() >= 0
             }.forEach { method ->
                 showEngagementPanelMethods.add(method)
             }
@@ -38,11 +41,11 @@ val engagementPanelHookPatch = bytecodePatch(
     }
 }
 
-private fun Method.indexOfEngagementPanelBuilderInstruction(targetMethod: MutableMethod) =
+private fun Method.indexOfEngagementPanelBuilderInstruction() =
     indexOfFirstInstructionReversed {
         opcode == Opcode.INVOKE_DIRECT &&
                 MethodUtil.methodSignaturesMatch(
-                    targetMethod,
+                    engagementPanelBuilderMethod,
                     getReference<MethodReference>()!!
                 )
     }
@@ -50,7 +53,7 @@ private fun Method.indexOfEngagementPanelBuilderInstruction(targetMethod: Mutabl
 internal fun hookEngagementPanelState(classDescriptor: String) {
     showEngagementPanelMethods.forEach { method ->
         method.apply {
-            val index = indexOfEngagementPanelBuilderInstruction(this)
+            val index = indexOfEngagementPanelBuilderInstruction()
             val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
             addInstruction(

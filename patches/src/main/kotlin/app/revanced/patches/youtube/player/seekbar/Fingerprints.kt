@@ -1,7 +1,9 @@
 package app.revanced.patches.youtube.player.seekbar
 
+import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarLiveSeekAbleRange
 import app.revanced.patches.youtube.utils.resourceid.reelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.resourceid.ytStaticBrandRed
+import app.revanced.patches.youtube.utils.resourceid.ytTextSecondary
 import app.revanced.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -35,11 +37,18 @@ internal val playerSeekbarGradientConfigFingerprint = legacyFingerprint(
     literals = listOf(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG),
 )
 
-internal val playerSeekbarHandleColorFingerprint = legacyFingerprint(
-    name = "playerSeekbarHandleColorFingerprint",
+internal val playerSeekbarHandleColorPrimaryFingerprint = legacyFingerprint(
+    name = "playerSeekbarHandleColorPrimaryFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("Landroid/content/Context;"),
-    literals = listOf(ytStaticBrandRed),
+    literals = listOf(ytTextSecondary, ytStaticBrandRed),
+)
+
+internal val playerSeekbarHandleColorSecondaryFingerprint = legacyFingerprint(
+    name = "playerSeekbarHandleColorSecondaryFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf("Landroid/content/Context;"),
+    literals = listOf(inlineTimeBarLiveSeekAbleRange, ytStaticBrandRed),
 )
 
 internal val watchHistoryMenuUseProgressDrawableFingerprint = legacyFingerprint(

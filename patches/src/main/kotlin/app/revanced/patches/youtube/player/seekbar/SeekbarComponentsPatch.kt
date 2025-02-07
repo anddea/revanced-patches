@@ -255,8 +255,11 @@ val seekbarComponentsPatch = bytecodePatch(
                 "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
 
-            playerSeekbarHandleColorFingerprint.methodOrThrow().apply {
-                addColorChangeInstructions(ytStaticBrandRed, "getVideoPlayerSeekbarColorAccent")
+            arrayOf(
+                playerSeekbarHandleColorPrimaryFingerprint,
+                playerSeekbarHandleColorSecondaryFingerprint
+            ).forEach {
+                it.methodOrThrow().addColorChangeInstructions(ytStaticBrandRed, "getVideoPlayerSeekbarColorAccent")
             }
             // If hiding feed seekbar thumbnails, then turn off the cairo gradient
             // of the watch history menu items as they use the same gradient as the
@@ -311,18 +314,31 @@ val seekbarComponentsPatch = bytecodePatch(
             }
 
             // Adjust gradient seekbar bounds / positions
-            setBoundsFingerprint.methodOrThrow().apply {
-                val newArrayIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
-                val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
+            val boundsFingerprint =
+                if (is_19_49_or_greater) {
+                    playerLinearGradientFingerprint
+                } else {
+                    setBoundsFingerprint
+                }
 
-                val smaliInstruction = """
-                    invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
-                """.trimIndent()
+            boundsFingerprint.methodOrThrow().apply {
+                val fillArrayDataIndices = findInstructionIndicesReversedOrThrow(Opcode.FILL_ARRAY_DATA)
 
-                addInstruction(
-                    indexOfFirstInstructionOrThrow(Opcode.FILL_ARRAY_DATA) + 1,
-                    smaliInstruction
-                )
+                if (fillArrayDataIndices.isEmpty()) {
+                    throw PatchException("No FILL_ARRAY_DATA instructions found in method: ${this.name}")
+                }
+
+                for (fillArrayIndex in fillArrayDataIndices) {
+                    val newArrayIndex = indexOfFirstInstructionReversedOrThrow(fillArrayIndex, Opcode.NEW_ARRAY)
+
+                    val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
+
+                    val smaliInstruction = """
+                        invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
+                    """.trimIndent()
+
+                    addInstruction(fillArrayIndex + 1, smaliInstruction)
+                }
             }
 
             // Set seekbar thumb color
