@@ -63,42 +63,19 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
     }
 
     /**
-     * Parameters causing playback issues.
-     */
-    private static final String[] PATH_NO_VIDEO_ID = {
-            "ad_break",         // This request fetches a list of times when ads can be displayed.
-            "get_drm_license",  // Waiting for a paid video to start.
-            "heartbeat",        // This request determines whether to pause playback when the user is AFK.
-            "refresh",          // Waiting for a livestream to start.
-    };
-
-    /**
      * Injection point.
      */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
         if (SPOOF_STREAMING_DATA) {
-            try {
-                Uri uri = Uri.parse(url);
-                String path = uri.getPath();
-                if (path == null || !path.contains("player")) {
-                    return;
-                }
-
-                if (Utils.containsAny(path, PATH_NO_VIDEO_ID)) {
-                    Logger.printDebug(() -> "Ignoring path: " + path);
-                    return;
-                }
-
-                String id = uri.getQueryParameter("id");
-                if (id == null) {
-                    Logger.printException(() -> "Ignoring request with no id: " + url);
-                    return;
-                }
-
-                StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN);
-            } catch (Exception ex) {
-                Logger.printException(() -> "fetchStreams failure", ex);
+            String id = Utils.getVideoIdFromRequest(url);
+            if (id == null) {
+                Logger.printException(() -> "Ignoring request with no id: " + url);
+                return;
+            } else if (id.isEmpty()) {
+                return;
             }
+
+            StreamingDataRequest.fetchRequest(id, requestHeaders, VISITOR_DATA, PO_TOKEN);
         }
     }
 

@@ -6,6 +6,7 @@ import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -17,6 +18,8 @@ public final class ActionButtonsFilter extends Filter {
     private final StringFilterGroup bufferFilterPathRule;
     private final StringFilterGroup likeSubscribeGlow;
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
+
+    private static final boolean HIDE_ACTION_BUTTON_INDEX = Settings.HIDE_ACTION_BUTTON_INDEX.get();
 
     public ActionButtonsFilter() {
         actionBarRule = new StringFilterGroup(
@@ -95,6 +98,9 @@ public final class ActionButtonsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (HIDE_ACTION_BUTTON_INDEX) {
+            return false;
+        }
         if (!path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX)) {
             return false;
         }

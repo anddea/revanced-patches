@@ -110,20 +110,13 @@ class StreamingDataRequest private constructor(
         private const val HTTP_TIMEOUT_MILLISECONDS = 10 * 1000
 
         /**
-         * Any arbitrarily large value, but must be at least twice [.HTTP_TIMEOUT_MILLISECONDS]
+         * Any arbitrarily large value, but must be at least twice [HTTP_TIMEOUT_MILLISECONDS]
          */
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
 
         @GuardedBy("itself")
         val cache: MutableMap<String, StreamingDataRequest> = Collections.synchronizedMap(
             object : LinkedHashMap<String, StreamingDataRequest>(100) {
-                /**
-                 * Cache limit must be greater than the maximum number of videos open at once,
-                 * which theoretically is more than 4 (3 Shorts + one regular minimized video).
-                 * But instead use a much larger value, to handle if a video viewed a while ago
-                 * is somehow still referenced.  Each stream is a small array of Strings
-                 * so memory usage is not a concern.
-                 */
                 private val CACHE_LIMIT = 50
 
                 override fun removeEldestEntry(eldest: Map.Entry<String, StreamingDataRequest>): Boolean {
