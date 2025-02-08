@@ -1,3 +1,23 @@
+# [3.4.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.4...v3.4.0-dev.5) (2025-02-08)
+
+
+### Bug Fixes
+
+* **Reddit - Hide ads:** `View all comments` button hidden if comment ads are hidden ([f73d19f](https://github.com/anddea/revanced-patches/commit/f73d19fd84320d641f4b6e83cc3763336a07fa0a))
+* **Reddit - Remove subreddit dialog:** Patch fails for Reddit 2025.05.0+ ([b2a5ef2](https://github.com/anddea/revanced-patches/commit/b2a5ef29e2d32f4518b2115427463f42a77f0b49))
+* **YouTube - Hide feed components:** `Hide community posts` not working ([597c7d7](https://github.com/anddea/revanced-patches/commit/597c7d759baadc089cc0b4999ef17ef4cacf6aa4))
+* **YouTube - Remove background playback restriction:** Play/Pause button not working in PiP mode ([2f35f59](https://github.com/anddea/revanced-patches/commit/2f35f594e2df00ebb749706998dacd8910ea437b))
+* **YouTube - Snack bar components:** `Invert snack bar theme` setting does not work in YouTube 18.29.38 ([d3eb8eb](https://github.com/anddea/revanced-patches/commit/d3eb8eb1c3d90bace17a3cccf9344a7fe19ef230))
+* **YouTube Music - Dark theme:** Gradient is applied to the button of the action bar ([4f0cf0f](https://github.com/anddea/revanced-patches/commit/4f0cf0fc6b84ce1477bbaa1b14624086b58fe011))
+* **YouTube:** Playback speed sometimes changes to 1.0x in PiP mode (unpatched YouTube bug) ([291c529](https://github.com/anddea/revanced-patches/commit/291c52920f4df7cec7c9fd6de8776ed096df2dd3))
+
+
+### Features
+
+* **YouTube - Hide action buttons:** Add `Hide action button by index` setting ([f6b350f](https://github.com/anddea/revanced-patches/commit/f6b350f91f0b79aa5d892f72ee1ed2e45f36ad2e))
+* **YouTube Music:** Add support version `8.05.50` ([db053e4](https://github.com/anddea/revanced-patches/commit/db053e45a4302148b83ae73cea6e123ca5461db6))
+* **YouTube:** Add support for a wider range of versions (up to 20.06) ([2d30ae1](https://github.com/anddea/revanced-patches/commit/2d30ae1b20f7cec9c601e4c0a795b8b10654e9bd))
+
 # [3.4.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.3...v3.4.0-dev.4) (2025-02-03)
 
 

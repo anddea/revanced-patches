@@ -85,47 +85,47 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 6.20.51 ~ 8.02.53 |
-| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 6.20.51 ~ 8.02.53 |
-| `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 6.20.51 ~ 8.02.53 |
-| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 6.20.51 ~ 8.02.53 |
-| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 6.20.51 ~ 8.02.53 |
-| `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 6.20.51 ~ 8.02.53 |
-| `Custom branding name for YouTube Music` | Changes the YouTube Music app name to the name specified in patch options. | 6.20.51 ~ 8.02.53 |
-| `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 6.20.51 ~ 8.02.53 |
-| `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 6.20.51 ~ 8.02.53 |
+| `Bitrate default value` | Sets the audio quality to 'Always High' when you first install the app. | 6.20.51 ~ 8.05.50 |
+| `Bypass image region restrictions` | Adds an option to use a different host for static images, so that images blocked in some countries can be received. | 6.20.51 ~ 8.05.50 |
+| `Certificate spoof` | Enables YouTube Music to work with Android Auto by spoofing the YouTube Music certificate. | 6.20.51 ~ 8.05.50 |
+| `Change share sheet` | Adds an option to change the in-app share sheet to the system share sheet. | 6.20.51 ~ 8.05.50 |
+| `Change start page` | Adds an option to set which page the app opens in instead of the homepage. | 6.20.51 ~ 8.05.50 |
+| `Custom branding icon for YouTube Music` | Changes the YouTube Music app icon to the icon specified in patch options. | 6.20.51 ~ 8.05.50 |
+| `Custom branding name for YouTube Music` | Changes the YouTube Music app name to the name specified in patch options. | 6.20.51 ~ 8.05.50 |
+| `Custom header for YouTube Music` | Applies a custom header in the top left corner within the app. | 6.20.51 ~ 8.05.50 |
+| `Dark theme` | Changes the app's dark theme to the values specified in patch options. | 6.20.51 ~ 8.05.50 |
 | `Disable Cairo splash animation` | Adds an option to disable Cairo splash animation. | 7.06.54 ~ 8.02.53 |
-| `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 8.02.53 |
-| `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 8.02.53 |
-| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.02.53 |
-| `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.02.53 |
-| `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 6.20.51 ~ 8.02.53 |
-| `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 8.02.53 |
-| `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 8.02.53 |
-| `Flyout menu components` | Adds options to hide or change flyout menu components. | 6.20.51 ~ 8.02.53 |
-| `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 6.20.51 ~ 8.02.53 |
-| `Hide account components` | Adds options to hide components related to the account menu. | 6.20.51 ~ 8.02.53 |
-| `Hide action bar components` | Adds options to hide action bar components and replace the offline download button with an external download button. | 6.20.51 ~ 8.02.53 |
-| `Hide ads` | Adds options to hide ads. | 6.20.51 ~ 8.02.53 |
-| `Hide layout components` | Adds options to hide general layout components. | 6.20.51 ~ 8.02.53 |
-| `Hide overlay filter` | Removes, at compile time, the dark overlay that appears when player flyout menus are open. | 6.20.51 ~ 8.02.53 |
-| `Hide player overlay filter` | Removes, at compile time, the dark overlay that appears when single-tapping in the player. | 6.20.51 ~ 8.02.53 |
-| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 6.20.51 ~ 8.02.53 |
-| `Player components` | Adds options to hide or change components related to the player. | 6.20.51 ~ 8.02.53 |
-| `Remove background playback restrictions` | Removes restrictions on background playback, including for kids videos. | 6.20.51 ~ 8.02.53 |
-| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 6.20.51 ~ 8.02.53 |
-| `Restore old style library shelf` | Adds an option to return the Library tab to the old style. | 6.20.51 ~ 8.02.53 |
-| `Return YouTube Dislike` | Adds an option to show the dislike count of songs using the Return YouTube Dislike API. | 6.20.51 ~ 8.02.53 |
-| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 6.20.51 ~ 8.02.53 |
-| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 8.02.53 |
-| `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 8.02.53 |
-| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 8.02.53 |
+| `Disable DRC audio` | Adds an option to disable DRC (Dynamic Range Compression) audio. | 6.20.51 ~ 8.05.50 |
+| `Disable dislike redirection` | Adds an option to disable redirection to the next track when clicking the Dislike button. | 6.20.51 ~ 8.05.50 |
+| `Disable forced auto captions` | Adds an option to disable captions from being automatically enabled. | 6.20.51 ~ 8.05.50 |
+| `Disable music video in album` | Adds option to redirect music videos from albums for non-premium users. | 6.20.51 ~ 8.05.50 |
+| `Enable OPUS codec` | Adds an option to enable the OPUS audio codec if the player response includes it. | 6.20.51 ~ 8.05.50 |
+| `Enable debug logging` | Adds an option to enable debug logging. | 6.20.51 ~ 8.05.50 |
+| `Enable landscape mode` | Adds an option to enable landscape mode when rotating the screen on phones. | 6.20.51 ~ 8.05.50 |
+| `Flyout menu components` | Adds options to hide or change flyout menu components. | 6.20.51 ~ 8.05.50 |
+| `GmsCore support` | Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services. | 6.20.51 ~ 8.05.50 |
+| `Hide account components` | Adds options to hide components related to the account menu. | 6.20.51 ~ 8.05.50 |
+| `Hide action bar components` | Adds options to hide action bar components and replace the offline download button with an external download button. | 6.20.51 ~ 8.05.50 |
+| `Hide ads` | Adds options to hide ads. | 6.20.51 ~ 8.05.50 |
+| `Hide layout components` | Adds options to hide general layout components. | 6.20.51 ~ 8.05.50 |
+| `Hide overlay filter` | Removes, at compile time, the dark overlay that appears when player flyout menus are open. | 6.20.51 ~ 8.05.50 |
+| `Hide player overlay filter` | Removes, at compile time, the dark overlay that appears when single-tapping in the player. | 6.20.51 ~ 8.05.50 |
+| `Navigation bar components` | Adds options to hide or change components related to the navigation bar. | 6.20.51 ~ 8.05.50 |
+| `Player components` | Adds options to hide or change components related to the player. | 6.20.51 ~ 8.05.50 |
+| `Remove background playback restrictions` | Removes restrictions on background playback, including for kids videos. | 6.20.51 ~ 8.05.50 |
+| `Remove viewer discretion dialog` | Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction. | 6.20.51 ~ 8.05.50 |
+| `Restore old style library shelf` | Adds an option to return the Library tab to the old style. | 6.20.51 ~ 8.05.50 |
+| `Return YouTube Dislike` | Adds an option to show the dislike count of songs using the Return YouTube Dislike API. | 6.20.51 ~ 8.05.50 |
+| `Return YouTube Username` | Adds an option to replace YouTube handles with usernames in comments using YouTube Data API v3. | 6.20.51 ~ 8.05.50 |
+| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 6.20.51 ~ 8.05.50 |
+| `Settings for YouTube Music` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 6.20.51 ~ 8.05.50 |
+| `SponsorBlock` | Adds options to enable and configure SponsorBlock, which can skip undesired video segments, such as non-music sections. | 6.20.51 ~ 8.05.50 |
 | `Spoof app version` | Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features. | 6.51.53 ~ 7.16.53 |
-| `Spoof client` | Adds options to spoof the client to allow playback. | 6.20.51 ~ 8.02.53 |
-| `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 8.02.53 |
-| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 8.02.53 |
-| `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 6.20.51 ~ 8.02.53 |
-| `Watch history` | Adds an option to change the domain of the watch history or check its status. | 6.20.51 ~ 8.02.53 |
+| `Spoof client` | Adds options to spoof the client to allow playback. | 6.20.51 ~ 8.05.50 |
+| `Translations for YouTube Music` | Add translations or remove string resources. | 6.20.51 ~ 8.05.50 |
+| `Video playback` | Adds options to customize settings related to video playback, such as default video quality and playback speed. | 6.20.51 ~ 8.05.50 |
+| `Visual preferences icons for YouTube Music` | Adds icons to specific preferences in the settings. | 6.20.51 ~ 8.05.50 |
+| `Watch history` | Adds an option to change the domain of the watch history or check its status. | 6.20.51 ~ 8.05.50 |
 </details>
 
 ### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
@@ -187,7 +187,7 @@ Example:
         "6.51.53",
         "7.16.53",
         "7.25.53",
-        "8.02.53"
+        "8.05.50"
       ]
     },
     "options": []
