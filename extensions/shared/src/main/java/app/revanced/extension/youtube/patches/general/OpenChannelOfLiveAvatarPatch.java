@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.general;
 
+import static app.revanced.extension.shared.utils.StringRef.str;
+
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,12 @@ import app.revanced.extension.youtube.utils.VideoUtils;
 public final class OpenChannelOfLiveAvatarPatch {
     private static final boolean CHANGE_LIVE_RING_CLICK_ACTION =
             Settings.CHANGE_LIVE_RING_CLICK_ACTION.get();
+
+    /**
+     * If you change the language in the app settings, a string from another language may be used.
+     * In this case, restarting the app will solve it.
+     */
+    private static final String liveRingDescription = str("revanced_live_ring_description");
 
     private static volatile String videoId = "";
 
@@ -56,18 +64,29 @@ public final class OpenChannelOfLiveAvatarPatch {
             if (!(playbackStartDescriptorMap.get(ELEMENTS_SENDER_VIEW) instanceof ComponentHost componentHost)) {
                 return;
             }
-            // Child count of other litho Views such as Thumbnail and Watch history: 2
-            // Child count of live ring: 1
-            if (componentHost.getChildCount() != 1) {
-                return;
-            }
-            // Play all button in playlist cannot be filtered with the above conditions
-            // Check the ViewGroup tree
-            if (!(componentHost.getChildAt(0) instanceof ComponentHost liveRingViewGroup)) {
-                return;
-            }
-            if (!(liveRingViewGroup.getChildAt(0) instanceof ImageView)) {
-                return;
+            // Check content description (accessibility labels) of the live ring.
+            final String contentDescription = componentHost.getContentDescription().toString();
+            final boolean match = liveRingDescription.equals(contentDescription);
+            Logger.printDebug(() -> "resource description: '" + liveRingDescription + "', litho description: '" + contentDescription + "', match: " + match);
+            if (!match) {
+                // Sometimes it may not match:
+                // 1. In some languages, accessibility label is not provided.
+                // 2. Language has changed in the app settings, and the app has not restarted.
+                // In this case, fallback with the legacy method.
+
+                // Child count of other litho Views such as Thumbnail and Watch history: 2
+                // Child count of live ring: 1
+                if (componentHost.getChildCount() != 1) {
+                    return;
+                }
+                // Play all button in playlist cannot be filtered with the above conditions
+                // Check the ViewGroup tree
+                if (!(componentHost.getChildAt(0) instanceof ComponentHost liveRingViewGroup)) {
+                    return;
+                }
+                if (!(liveRingViewGroup.getChildAt(0) instanceof ImageView)) {
+                    return;
+                }
             }
             // Fetch channel id
             videoId = newlyLoadedVideoId;

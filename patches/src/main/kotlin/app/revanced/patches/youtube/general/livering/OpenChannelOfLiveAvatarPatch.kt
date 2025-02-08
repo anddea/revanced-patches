@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
@@ -17,6 +18,7 @@ import app.revanced.patches.youtube.video.playbackstart.playbackStartDescriptorP
 import app.revanced.patches.youtube.video.playbackstart.playbackStartVideoIdReference
 import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentFingerprint
 import app.revanced.patches.youtube.video.playbackstart.shortsPlaybackStartIntentLegacyFingerprint
+import app.revanced.util.copyXmlNode
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -28,6 +30,29 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+
+private val openChannelOfLiveAvatarResourcePatch = resourcePatch(
+    description = "openChannelOfLiveAvatarResourcePatch"
+) {
+    execute {
+        arrayOf(
+            "", "af", "am", "ar", "as", "az", "b+sr+Latn", "be", "bg", "bn", "bs", "ca",
+            "cs", "da", "de", "el", "en-rGB", "en-rIN", "es", "es-rUS", "et", "eu", "fa",
+            "fi", "fr", "fr-rCA", "gl", "gu", "hi", "hr", "hu", "hy", "in", "is", "it",
+            "iw", "ja", "ka", "kk", "km", "kn", "ko", "ky", "lo", "lt", "lv", "mk", "ml",
+            "mn", "mr", "ms", "my", "nb", "ne", "nl", "or", "pa", "pl", "pt", "pt-rBR",
+            "pt-rPT", "ro", "ru", "si", "sk", "sl", "sq", "sr", "sv", "sw", "ta", "te",
+            "th", "tl", "tr", "uk", "ur", "uz", "vi", "zh-rCN", "zh-rHK", "zh-rTW", "zu"
+        ).forEach { locale ->
+            val directory = if (locale.isEmpty())
+                "values"
+            else
+                "values-$locale"
+
+            copyXmlNode("youtube/livering/host", "$directory/strings.xml", "resources")
+        }
+    }
+}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$GENERAL_PATH/OpenChannelOfLiveAvatarPatch;"
@@ -41,6 +66,7 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
 
     dependsOn(
         settingsPatch,
+        openChannelOfLiveAvatarResourcePatch,
         playbackStartDescriptorPatch,
         versionCheckPatch,
     )
