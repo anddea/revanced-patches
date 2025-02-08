@@ -357,6 +357,7 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Полупрозрачность отключена.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Полупрозрачность включена.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Полупрозрачность панели навигации</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">В некоторых версиях YouTube этот параметр может сделать панель навигации прозрачной или нарушить макет в режиме PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Переход в полноэкранный режим жестом вниз в нижней части плеера отключен.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Переход в полноэкранный режим жестом вниз в нижней части плеера включен.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Жест под плеером</string>
@@ -419,7 +420,7 @@
     <string name="revanced_extended_settings_import_title">Импорт настроек</string>
     <string name="revanced_extended_settings_reset">Сброс</string>
     <string name="revanced_extended_settings_search_title">Поиск %s</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Внешний загрузчик</string>
     <string name="revanced_external_downloader_not_installed">Не установлен</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не установлен.
@@ -444,35 +445,6 @@
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
 Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_0_title">Первая кнопка</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_1_title">Вторая кнопка</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_2_title">Третья кнопка</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_3_title">Четвертая кнопка</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_4_title">Пятая кнопка</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_5_title">Шестая кнопка</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_6_title">Седьмая кнопка</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Отображена.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Скрыта.</string>
-    <string name="revanced_hide_action_button_index_7_title">Восьмая кнопка</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Скрытие кнопок по индексу до их инициализации.
-
-- Скрытие кнопок действий не оставляет пустого места.
-- Индекс кнопок действий не всегда может быть одной и той же кнопкой."</string>
-    <string name="revanced_hide_action_button_index_about_title">О скрытии по индексу</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Краткое содержание ИИ отображено.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Краткое содержание ИИ скрыто.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Краткое содержание в видео сгенерированное ИИ</string>
@@ -1338,14 +1310,14 @@ Shorts
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Перетаскивание мини-плеера отключено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Перетаскивание мини-плеера включено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Перетаскивание мини-плеера</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" отображены.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки \"Развернуть\" и \"Закрыть\" скрыты.
-Только жесты."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" отображены.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопки скрыты.
-(развернуть или закрыть мини-плеер жестом)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки развертывания и закрытия показываются.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки скрыты.
+
+Проведите, чтобы развернуть или закрыть."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Скрыть кнопки развертывания и закрытия</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Наложенные кнопки отображаются.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Наложенные кнопки скрыты.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Скрыть наложенные кнопки</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки отображены.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки скрыты.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Кнопки перемотки</string>
@@ -1370,6 +1342,7 @@ Shorts
     <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
     <string name="revanced_miniplayer_type_entry_5">Современный 2</string>
     <string name="revanced_miniplayer_type_entry_6">Современный 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Новейший 4</string>
     <string name="revanced_miniplayer_type_title">Тип мини-плеера</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Размер в пикселях должен быть между %1$s и %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Начальный размер мини-плеера в пикселях.</string>
@@ -1444,8 +1417,6 @@ Shorts
     <string name="revanced_preference_category_custom_actions">Пользовательские действия</string>
     <string name="revanced_preference_category_download_button">Кнопка \"Скачать\"</string>
     <string name="revanced_preference_category_experimental_flag">Экспериментальные опции</string>
-    <string name="revanced_preference_category_hide_by_index">Скрытие по индексу</string>
-    <string name="revanced_preference_category_hide_by_index_live">Скрытие по индексу в прямых эфирах</string>
     <string name="revanced_preference_category_image_region_restrictions">Ограничения изображений по региону</string>
     <string name="revanced_preference_category_import_export_as_file">Импорт/экспорт в виде файла</string>
     <string name="revanced_preference_category_import_export_as_text">Импорт/экспорт настроек в виде текста</string>

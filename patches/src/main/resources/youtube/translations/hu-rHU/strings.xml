@@ -362,6 +362,7 @@ Korlátozások:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A navigációs sáv nem átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">A navigációs sáv átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Átlátszó navigációs sáv engedélyezése</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">Egyes YouTube-verziókban ez a beállítás átlátszóvá teheti a rendszer navigációs sávját, vagy kép a képben módban az elrendezés széteshet.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">A videólejátszó alatti lefelé húzás esetén a teljes képernyős módra váltás ki van kapcsolva.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">A videólejátszó alatti lefelé húzás esetén a teljes képernyős módra váltás be van kapcsolva.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Nézőpanel bekapcsolása gesztussal</string>
@@ -421,7 +422,7 @@ A videoleírások kibővítése nem működik, ha a beírt név nem egyezik meg 
     <string name="revanced_extended_settings_import_title">Beállítások importálása</string>
     <string name="revanced_extended_settings_reset">Visszaállítás</string>
     <string name="revanced_extended_settings_search_title">%s keresése</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Külső letöltéskezelő</string>
     <string name="revanced_external_downloader_not_installed">Nincs telepítve</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"A(z) %1$s nincs telepítve.
@@ -444,35 +445,6 @@ A <b>YouTube Prémium beszerzése</b> menü elrejtéséhez használhatja a <b>Yo
     <string name="revanced_hide_account_menu_summary">"Fiókmenü és az Te lap elemeinek elrejtése.
 Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_account_menu_title">Fiókmenü elrejtése</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Az első gomb látható.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Az első gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_0_title">Első gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">A második gomb látható.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">A második gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_1_title">Második gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">A harmadik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">A harmadik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_2_title">Harmadik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">A negyedik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">A negyedik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_3_title">Negyedik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Az ötödik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Az ötödik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_4_title">Ötödik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">A hatodik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">A hatodik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_5_title">Hatodik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">A hetedik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">A hetedik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_6_title">Hetedik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">A nyolcadik gomb látható.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">A nyolcadik gomb el van rejtve.</string>
-    <string name="revanced_hide_action_button_index_7_title">Nyolcadik gomb elrejtése</string>
-    <string name="revanced_hide_action_button_index_about_summary">"A műveletgombok index szerint elrejtése, mielőtt inicializálná azokat.
-
-- A műveletgombok elrejtése nem hagy üres helyet.
-- Előfordulhat, hogy a műveletgombok indexe nem mindig ugyanaz a gomb."</string>
-    <string name="revanced_hide_action_button_index_about_title">Műveletgomb elrejtése index alapján</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Az AI generált videó összefoglaló rész látható.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Az AI generált videó összefoglaló rész el van rejtve.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">AI generált videó összefoglaló rész elrejtése</string>
@@ -1319,14 +1291,14 @@ A minilejátszó a képernyő bármely sarkába elhúzható."</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">A Fogd és vidd letiltva.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">A Fogd és vidd engedélyezve.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Fogd és vidd engedélyezése</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">A kibontás és bezárás gombok láthatóak.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"A gombok rejtettek.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">A kibontás és bezárás gombok láthatóak.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"A gombok rejtettek.
 
 Csúsztasson a kibontáshoz vagy bezáráshoz."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Kibontás és bezárás gombok elrejtése</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">A kibontás és bezárás gombok láthatóak.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">A bezárás gomb el van rejtve.</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Kibontás és bezárás gombok elrejtése</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Kibontás és bezárás gombok elrejtése</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Az átfedés gombok láthatóak.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Az átfedés gombok el vannak rejtve.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Átfedés gombok elrejtése</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Az előre és hátra ugrás láthatóak.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Az előre és hátra ugrás elrejtve.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Előre és vissza ugrás gombok elrejtése</string>
@@ -1351,6 +1323,7 @@ A minilejátszó jobbra vagy balra húzható a képernyőn."</string>
     <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
     <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
     <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_miniplayer_type_title">Minilejátszó típusa</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">A képpont méretének %1$s és %2$s között kell lennie.</string>
     <string name="revanced_miniplayer_width_dip_summary">Kezdeti méret a képernyőn, képpontban.</string>
@@ -1424,8 +1397,6 @@ Információ:
     <string name="revanced_preference_category_custom_actions">Egyéni műveletek</string>
     <string name="revanced_preference_category_download_button">Letöltés gomb</string>
     <string name="revanced_preference_category_experimental_flag">Kísérleti funkciók</string>
-    <string name="revanced_preference_category_hide_by_index">Elrejtés index alapján</string>
-    <string name="revanced_preference_category_hide_by_index_live">Elrejtés az élő közvetítésben index alapján</string>
     <string name="revanced_preference_category_image_region_restrictions">Régiós kép korlátozások</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export fájlként</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export szövegként</string>

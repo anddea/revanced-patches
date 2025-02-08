@@ -57,8 +57,6 @@ Nhấn vào Tiếp tục và cho phép thay đổi lựa chọn tối ưu hoá p
     <string name="revanced_disable_dislike_redirection_title">Tắt chuyển hướng khi nhấn nút Không thích</string>
     <string name="revanced_disable_drc_audio_summary">Vô hiệu hoá tính năng nén dải âm thanh động.</string>
     <string name="revanced_disable_drc_audio_title">Vô hiệu hoá audio DRC</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát thu nhỏ.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Tắt cử chỉ trình phát thu nhỏ</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Nhấn vào nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Nhấn và giữ nút chuyển đổi giữa Bài hát và Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Chuyển hướng</string>
@@ -72,10 +70,6 @@ Trong trường hợp đó, hệ thống sẽ tìm và chuyển hướng tới b
     <string name="revanced_disable_music_video_in_album_title">Tắt video âm nhạc trong đĩa nhạc</string>
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
-    <string name="revanced_enable_black_player_background_summary">Thay đổi màu nền trình phát thành màu đen.</string>
-    <string name="revanced_enable_black_player_background_title">Thay đổi màu nền của trình phát</string>
-    <string name="revanced_enable_color_match_player_summary">Thay đổi màu của trình phát thu nhỏ khớp với màu của trình phát toàn màn hình.</string>
-    <string name="revanced_enable_color_match_player_title">Thay đổi màu của trình phát thu nhỏ</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
 Hạn chế:
@@ -88,8 +82,6 @@ Hạn chế:
     <string name="revanced_enable_debug_buffer_logging_title">Bật nhật ký bộ đệm gỡ lỗi</string>
     <string name="revanced_enable_debug_logging_summary">Bật ghi nhật ký gỡ lỗi.</string>
     <string name="revanced_enable_debug_logging_title">Nhật ký gỡ lỗi</string>
-    <string name="revanced_enable_force_minimized_player_summary">Luôn phát nhạc trong trình phát thu nhỏ bất cứ khi nào bạn nghe một bài hát nằm ngoài trình phát hoặc bắt đầu đài phát.</string>
-    <string name="revanced_enable_force_minimized_player_title">Luôn phát trong trình phát thu nhỏ</string>
     <string name="revanced_enable_landscape_mode_summary">Cho phép ứng dụng tự động xoay theo hướng màn hình mà thiết bị được giữ.</string>
     <string name="revanced_enable_landscape_mode_title">Tự động xoay màn hình</string>
     <string name="revanced_enable_mini_player_next_button_summary">Thêm nút bài hát tiếp theo vào trình phát thu nhỏ.</string>
@@ -130,7 +122,7 @@ Cụ thể:
     <string name="revanced_extended_settings_import_reset">Đã đặt lại cài đặt về mặc định.</string>
     <string name="revanced_extended_settings_import_success">Đã nhập %d cài đặt.</string>
     <string name="revanced_extended_settings_reset">Đặt lại</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Khi thao tác với nút tải xuống sẽ mở trình tải xuống bên ngoài của bạn.
 
 • Chỉ ghi đè lên nút Tải xuống trong trình phát.
@@ -429,17 +421,13 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_app_version_target_summary">Chọn phiên bản YouTube Music mà bạn muốn giả mạo.</string>
     <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo</string>
     <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
-    <string name="revanced_spoof_client_summary">"Giả mạo ứng dụng khách nhằm khắc phục sự cố phát.
-
-• Khi được sử dụng đồng thời với \"Giả mạo luồng dữ liệu trực tuyến\", có thể gây ra sự cố phát."</string>
+    <string name="revanced_spoof_client_summary">Giả mạo ứng dụng khách khách để ngăn chặn sự cố phát.</string>
     <string name="revanced_spoof_client_title">Giả mạo ứng dụng khách</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">"Xác định ứng dụng khách mặc định để giả mạo.
-
-• Khi sử dụng ứng dụng khách Android, tính năng này nên được sử dụng đồng thời với \"Giả mạo phiên bản ứng dụng\"."</string>
+    <string name="revanced_spoof_client_type_summary">Xác định ứng dụng khách mặc định để giả mạo.</string>
     <string name="revanced_spoof_client_type_title">Ứng dụng khách mặc định</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
@@ -452,4 +440,11 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">Xác định một ứng dụng khách mặc định để nạp luồng dữ liệu trực tuyến.</string>
     <string name="revanced_spoof_streaming_data_type_title">Ứng dụng khách mặc định</string>
+    <string name="revanced_watch_history_type_entry_1">Gốc</string>
+    <string name="revanced_watch_history_type_entry_2">Thay thế miền</string>
+    <string name="revanced_watch_history_type_entry_3">Chặn nhật ký</string>
+    <string name="revanced_watch_history_type_summary">"• Gốc: Tuân theo cài đặt nhật ký xem của tài khoản Google, nhưng có thể không hoạt động do DNS hoặc VPN.
+• Thay thế miền: Vẫn tuân theo cài đặt nhật ký xem của tài khoản Google.
+• Chặn nhật ký: Nhật ký xem bị chặn hoàn toàn."</string>
+    <string name="revanced_watch_history_type_title">Kiểu nhật ký</string>
 </resources>

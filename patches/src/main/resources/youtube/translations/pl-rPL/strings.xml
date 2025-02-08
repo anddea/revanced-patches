@@ -365,6 +365,7 @@ Ograniczenia:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Nieprzezroczysty</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Półprzezroczysty</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Wygląd paska nawigacji</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">W niektórych wersjach YouTube, to ustawienie może sprawić systemowy pasek nawigacji przezroczystym, lub popsuć układ w trybie PiP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest wyłączone</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Wejście w tryb pełnoekranowy przesuwaniem w dół poniżej odtwarzacza filmu jest włączone</string>
     <string name="revanced_enable_watch_panel_gestures_title">Pełny ekran przesuwaniem</string>
@@ -425,7 +426,7 @@ Opcja rozwijania opisu filmu może nie działać, jeśli wprowadzony ciąg znak�
     <string name="revanced_extended_settings_import_title">Zaimportuj ustawienia</string>
     <string name="revanced_extended_settings_reset">Zresetuj</string>
     <string name="revanced_extended_settings_search_title">Wyszukaj w %s</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Zewnętrzna aplikacja od pobierania</string>
     <string name="revanced_external_downloader_not_installed">Nie zainstalowany</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s nie jest zainstalowany.
@@ -455,35 +456,6 @@ Aby ukryć menu <b>Przejdź na YouTube Premium</b>, możesz użyć <b>YouTube Pr
     <string name="revanced_hide_account_menu_summary">"Ukrywa elementy menu konta i zakładki Ty.
 Niektóre komponenty mogą nie być ukryte."</string>
     <string name="revanced_hide_account_menu_title">Menu konta</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_0_title">Pierwszy przycisk</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_1_title">Drugi przycisk</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_2_title">Trzeci przycisk</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_3_title">Czwarty przycisk</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_4_title">Piąty przycisk</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_5_title">Szósty przycisk</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_6_title">Siódmy przycisk</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Widoczny</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Ukryty</string>
-    <string name="revanced_hide_action_button_index_7_title">Ósmy przycisk</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Ukrywa przyciski akcji według indeksu przed zainicjowaniem przycisków akcji.
-
-- ukrywanie przycisków akcji nie pozostawia pustego miejsca
-- indeks przycisków akcji nie zawsze jest tym samym przyciskiem"</string>
-    <string name="revanced_hide_action_button_index_about_title">O ukrywaniu przycisków akcji po indeksie</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Widoczne</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Ukryte</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Podsumowanie filmów wygenerowane przez AI</string>
@@ -1343,12 +1315,14 @@ Miniodtwarzacz można przeciągnąć do dowolnego rogu ekranu."</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Wyłączony</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Włączony</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Widoczne</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Ukryte. Przesuń, aby rozwinąć lub zamknąć."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Przyciski rozwijania i zamykania</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Widoczny</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Ukryty</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Przycisk zamykania</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Widoczne</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Ukryte
+
+Przesuń, by rozwinąć lub zamknąć."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Przyciski rozwijania i zamykania</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Widoczne</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Ukryte</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Przyciski w miniodtwarzaczu</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Widoczne</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ukryte</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Przyciski przewijania do przodu i wstecz</string>
@@ -1373,6 +1347,7 @@ Miniodtwarzacz można przeciągnąć poza ekran w lewo lub prawo."</string>
     <string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
     <string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
     <string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Nowoczesny 4</string>
     <string name="revanced_miniplayer_type_title">Typ miniodtwarzacza</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar w pikselach musi znajdować się w przedziale od %1$s do %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Początkowy rozmiar ekranu, w pikselach.</string>
@@ -1447,8 +1422,6 @@ Stuknij tutaj, by pobrać YouTube Music.</string>
     <string name="revanced_preference_category_custom_actions">Własne akcje</string>
     <string name="revanced_preference_category_download_button">Przycisk od pobierania</string>
     <string name="revanced_preference_category_experimental_flag">Eksperymentalne flagi</string>
-    <string name="revanced_preference_category_hide_by_index">Ukryj wg indeksu</string>
-    <string name="revanced_preference_category_hide_by_index_live">Ukryj wg indeksu w transmisjach na żywo</string>
     <string name="revanced_preference_category_image_region_restrictions">Ograniczenia regionu dla obrazów</string>
     <string name="revanced_preference_category_import_export_as_file">Zaimportuj / Wyeksportuj jako plik</string>
     <string name="revanced_preference_category_import_export_as_text">Zaimportuj / Wyeksportuj jako tekst</string>

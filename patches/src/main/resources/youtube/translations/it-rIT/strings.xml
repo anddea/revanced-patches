@@ -361,6 +361,7 @@ Note:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In alcune versioni di YouTube, questa impostazione può rendere trasparente la barra di navigazione del sistema, oppure l\'interfaccia potrebbe non funzionare correttamente in modalità PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Attiva i gesti del pannello di controllo</string>
@@ -424,7 +425,7 @@ Nota: l'opzione Espandi Automaticamente potrebbe non funzionare se il titolo ins
     <string name="revanced_extended_settings_import_title">Importa le impostazioni</string>
     <string name="revanced_extended_settings_reset">Ripristina</string>
     <string name="revanced_extended_settings_search_title">Cerca su %s</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Downloader esterno</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato.
@@ -449,34 +450,6 @@ Per nascondere il menù <b>Passa a YouTube Premium</b>, puoi usare le parole chi
     <string name="revanced_hide_account_menu_summary">"Nascondi i componenti dei menù dell'account e della scheda Tu.
 Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Il primo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Il primo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_0_title">Nascondi il primo pulsante</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Il secondo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Il secondo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_1_title">Nascondi il secondo pulsante</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Il terzo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Il terzo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_2_title">Nascondi il terzo pulsante</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Il quarto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Il quarto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_3_title">Nascondi il quarto pulsante</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Il quinto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Il quinto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_4_title">Nascondi il quinto pulsante</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Il sesto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Il sesto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_5_title">Nascondi il sesto pulsante</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Il settimo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Il settimo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_6_title">Nascondi il settimo pulsante</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">L\'ottavo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">L\'ottavo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_7_title">Nascondi l\'ottavo pulsante</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Nascondi i pulsanti di azione in base al loro indice prima che vengano inizializzati.
-
-Nota: in questo modo non ci saranno spazi vuoti tra i pulsanti, ma l'indice potrebbe non corrispondere sempre allo stesso pulsante."</string>
-    <string name="revanced_hide_action_button_index_about_title">Informazioni sul nascondere in base all\'indice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo Video Generato dall\'IA è visibile.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo Video Generato dall\'IA è nascosta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo Video Generato dall\'IA</string>
@@ -1328,14 +1301,14 @@ Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello sch
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Il gesto Trascina-e-Rilascia è disattivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Il gesto Trascina-e-Rilascia è attivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Attiva il gesto Trascina-e-Rilascia</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"I pulsanti Espandi e Chiudi sono nascosti.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti Espandi e Chiudi sono nascosti.
 
-Trascina il riproduttore minimizzato per espandere o chiudere."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è visibile.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante Chiudi è nascosto.</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Nascondi il pulsante Chiudi</string>
+Trascina il riproduttore minimizzato per espanderlo o chiuderlo."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti in sovrapposizione sono visibili.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti in sovrapposizione sono nascosti.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti in sovrapposizione</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">I pulsanti Salta Avanti e Salta Indietro sono visibili.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">I pulsanti Salta Avanti e Salta Indietro sono nascosti.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Nascondi i pulsanti Salta Avanti e Salta Indietro</string>
@@ -1354,12 +1327,13 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati.</string>
     <string name="revanced_miniplayer_rounded_corners_title">Attiva gli angoli arrotondati</string>
     <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
-    <string name="revanced_miniplayer_type_entry_1">Originale</string>
+    <string name="revanced_miniplayer_type_entry_1">Predefinito</string>
     <string name="revanced_miniplayer_type_entry_2">Minimale</string>
     <string name="revanced_miniplayer_type_entry_3">Tablet</string>
     <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
     <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
     <string name="revanced_miniplayer_type_title">Cambia lo stile del riproduttore minimizzato</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">La dimensione in pixel deve essere tra %1$s e %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">La dimensione iniziale sullo schermo in pixel.</string>
@@ -1434,8 +1408,6 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_category_custom_actions">Azioni personalizzate</string>
     <string name="revanced_preference_category_download_button">Pulsanti Scarica</string>
     <string name="revanced_preference_category_experimental_flag">Opzioni sperimentali</string>
-    <string name="revanced_preference_category_hide_by_index">Nascondi in base all\'indice</string>
-    <string name="revanced_preference_category_hide_by_index_live">Nascondi in base all\'indice nei video live</string>
     <string name="revanced_preference_category_image_region_restrictions">Restrizioni regionali delle immagini</string>
     <string name="revanced_preference_category_import_export_as_file">Esporta / Importa come file</string>
     <string name="revanced_preference_category_import_export_as_text">Esporta / Importa come testo</string>
