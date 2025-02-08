@@ -198,21 +198,21 @@ val playerComponentsPatch = bytecodePatch(
 
     execute {
 
-        // region patch for enable next previous button
+        // region patch for add next previous button
 
-        val nextButtonFieldName = "nextButton"
-        val previousButtonFieldName = "previousButton"
+        val nextButtonViewMethodName = "setNextButtonView"
+        val previousButtonViewMethodName = "setPreviousButtonView"
         val nextButtonClassFieldName = "nextButtonClass"
         val previousButtonClassFieldName = "previousButtonClass"
-        val nextButtonButtonMethodName = "setNextButton"
-        val previousButtonMethodName = "setPreviousButton"
-        val nextButtonOnClickListenerMethodName = "setNextButtonOnClickListener"
-        val previousButtonOnClickListenerMethodName = "setPreviousButtonOnClickListener"
+        val nextOnClickListenerMethodName = "setNextButtonOnClickListener"
+        val previousOnClickListenerMethodName = "setPreviousButtonOnClickListener"
+        val nextButtonClickedMethodName = "nextButtonClicked"
+        val previousButtonClickedMethodName = "previousButtonClicked"
         val nextButtonIntentString = "YTM Next"
         val previousButtonIntentString = "YTM Previous"
 
-        fun MutableMethod.setStaticFieldValue(
-            fieldName: String,
+        fun MutableMethod.setButtonView(
+            methodName: String,
             viewId: Long
         ) {
             val miniPlayerPlayPauseReplayButtonIndex =
@@ -232,7 +232,7 @@ val playerComponentsPatch = bytecodePatch(
                     const v$constRegister, $viewId
                     invoke-virtual {v$findViewByIdRegister, v$constRegister}, $definingClass->findViewById(I)Landroid/view/View;
                     move-result-object v$constRegister
-                    sput-object v$constRegister, $PLAYER_CLASS_DESCRIPTOR->$fieldName:Landroid/view/View;
+                    invoke-static {v$constRegister}, $PLAYER_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V
                     """
             )
         }
@@ -256,7 +256,7 @@ val playerComponentsPatch = bytecodePatch(
             )
         }
 
-        fun MutableMethod.setOnClickListener(
+        fun MutableMethod.setIntentOnClickListener(
             intentString: String,
             methodName: String,
             fieldName: String
@@ -302,6 +302,32 @@ val playerComponentsPatch = bytecodePatch(
             }
         }
 
+        fun MutableMethod.setOnclickListener(
+            methodName: String,
+            viewId: Long
+        ) {
+            val miniPlayerPlayPauseReplayButtonIndex =
+                indexOfFirstLiteralInstructionOrThrow(miniPlayerPlayPauseReplayButton)
+            val miniPlayerPlayPauseReplayButtonRegister =
+                getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
+            val findViewByIdIndex =
+                indexOfFirstInstructionOrThrow(
+                    miniPlayerPlayPauseReplayButtonIndex,
+                    Opcode.INVOKE_VIRTUAL
+                )
+            val parentViewRegister =
+                getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
+
+            addInstructions(
+                miniPlayerPlayPauseReplayButtonIndex, """
+                    const v$miniPlayerPlayPauseReplayButtonRegister, $viewId
+                    invoke-virtual {v$parentViewRegister, v$miniPlayerPlayPauseReplayButtonRegister}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+                    move-result-object v$miniPlayerPlayPauseReplayButtonRegister
+                    invoke-static {v$miniPlayerPlayPauseReplayButtonRegister}, $PLAYER_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V
+                    """
+            )
+        }
+
         val miniPlayerConstructorMutableMethod =
             miniPlayerConstructorFingerprint.methodOrThrow()
 
@@ -320,33 +346,33 @@ val playerComponentsPatch = bytecodePatch(
 
                     addInstructions(
                         targetIndex + 1, """
-                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->enableMiniPlayerNextButton(Z)Z
+                            invoke-static {v$targetRegister}, $PLAYER_CLASS_DESCRIPTOR->addMiniPlayerNextButton(Z)Z
                             move-result v$targetRegister
                             """
                     )
                 }
             }
         } else {
-            miniPlayerConstructorMutableMethod.setInstanceFieldValue(
-                nextButtonButtonMethodName,
+            miniPlayerConstructorMutableMethod.setOnclickListener(
+                nextOnClickListenerMethodName,
                 topStart
             )
-            mppWatchWhileLayoutMutableMethod.setStaticFieldValue(nextButtonFieldName, topStart)
-            pendingIntentReceiverMutableMethod.setOnClickListener(
+            mppWatchWhileLayoutMutableMethod.setButtonView(nextButtonViewMethodName, topStart)
+            pendingIntentReceiverMutableMethod.setIntentOnClickListener(
                 nextButtonIntentString,
-                nextButtonOnClickListenerMethodName,
+                nextButtonClickedMethodName,
                 nextButtonClassFieldName
             )
         }
 
-        miniPlayerConstructorMutableMethod.setInstanceFieldValue(
-            previousButtonMethodName,
+        miniPlayerConstructorMutableMethod.setOnclickListener(
+            previousOnClickListenerMethodName,
             topEnd
         )
-        mppWatchWhileLayoutMutableMethod.setStaticFieldValue(previousButtonFieldName, topEnd)
-        pendingIntentReceiverMutableMethod.setOnClickListener(
+        mppWatchWhileLayoutMutableMethod.setButtonView(previousButtonViewMethodName, topEnd)
+        pendingIntentReceiverMutableMethod.setIntentOnClickListener(
             previousButtonIntentString,
-            previousButtonOnClickListenerMethodName,
+            previousButtonClickedMethodName,
             previousButtonClassFieldName
         )
 
@@ -354,18 +380,18 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_mini_player_next_button",
+            "revanced_add_miniplayer_next_button",
             "true"
         )
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_mini_player_previous_button",
+            "revanced_add_miniplayer_previous_button",
             "true"
         )
 
         // endregion
 
-        // region patch for enable color match player and enable black player background
+        // region patch for color match player and black player background
 
         val (
             colorMathPlayerMethodParameter,
@@ -385,9 +411,9 @@ val playerComponentsPatch = bytecodePatch(
 
                 targetMethod.addInstructions(
                     insertIndex, """
-                        invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                        invoke-static {p1}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor(I)I
                         move-result p1
-                        invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->enableBlackPlayerBackground(I)I
+                        invoke-static {p2}, $PLAYER_CLASS_DESCRIPTOR->changePlayerBackgroundColor(I)I
                         move-result p2
                         """
                 )
@@ -420,7 +446,7 @@ val playerComponentsPatch = bytecodePatch(
 
                 addInstructionsWithLabels(
                     invokeDirectIndex + 1, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableColorMatchPlayer()Z
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->changeMiniPlayerColor()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :off
                         invoke-virtual {p1}, $colorMathPlayerInvokeVirtualReference
@@ -438,12 +464,12 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_color_match_player",
+            "revanced_change_miniplayer_color",
             "true"
         )
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_black_player_background",
+            "revanced_change_player_background_color",
             "false"
         )
 
@@ -487,7 +513,7 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_disable_mini_player_gesture",
+            "revanced_disable_miniplayer_gesture",
             "false"
         )
         addSwitchPreference(
@@ -498,7 +524,7 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for enable force minimized player
+        // region patch for forced minimized player
 
         minimizedPlayerFingerprint.matchOrThrow().let {
             it.method.apply {
@@ -507,7 +533,7 @@ val playerComponentsPatch = bytecodePatch(
 
                 addInstructions(
                     insertIndex, """
-                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForceMinimizedPlayer(Z)Z
+                        invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->enableForcedMiniPlayer(Z)Z
                         move-result v$insertRegister
                         """
                 )
@@ -516,13 +542,13 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_force_minimized_player",
+            "revanced_enable_forced_miniplayer",
             "true"
         )
 
         // endregion
 
-        // region patch for enable swipe to dismiss mini player
+        // region patch for enable swipe to dismiss miniplayer
 
         if (!is_6_42_or_greater) {
             swipeToCloseFingerprint.methodOrThrow().apply {
@@ -676,7 +702,7 @@ val playerComponentsPatch = bytecodePatch(
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_enable_swipe_to_dismiss_mini_player",
+            "revanced_enable_swipe_to_dismiss_miniplayer",
             "true"
         )
 
@@ -794,7 +820,7 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for hide song video switch toggle
+        // region patch for hide song video toggle
 
         audioVideoSwitchToggleFingerprint.methodOrThrow().apply {
             implementation!!.instructions
@@ -813,14 +839,14 @@ val playerComponentsPatch = bytecodePatch(
                     replaceInstruction(
                         index,
                         "invoke-static {v${instruction.registerC}, v${instruction.registerD}}," +
-                                "$PLAYER_CLASS_DESCRIPTOR->hideAudioVideoSwitchToggle(Landroid/view/View;I)V"
+                                "$PLAYER_CLASS_DESCRIPTOR->hideSongVideoToggle(Landroid/view/View;I)V"
                     )
                 }
         }
 
         addSwitchPreference(
             CategoryType.PLAYER,
-            "revanced_hide_audio_video_switch_toggle",
+            "revanced_hide_song_video_toggle",
             "false"
         )
 
@@ -997,7 +1023,7 @@ val playerComponentsPatch = bytecodePatch(
 
         if (is_6_27_or_greater && !is_7_18_or_greater) {
             oldEngagementPanelFingerprint.injectLiteralInstructionBooleanCall(
-                45427672L,
+                OLD_ENGAGEMENT_PANEL_FEATURE_FLAG,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldCommentsPopUpPanels(Z)Z"
             )
             restoreOldCommentsPopupPanel = true
@@ -1081,7 +1107,7 @@ val playerComponentsPatch = bytecodePatch(
 
         if (oldPlayerBackgroundFingerprint.resolvable()) {
             oldPlayerBackgroundFingerprint.injectLiteralInstructionBooleanCall(
-                45415319L,
+                OLD_PLAYER_BACKGROUND_FEATURE_FLAG,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerBackground(Z)Z"
             )
             addSwitchPreference(
@@ -1097,7 +1123,7 @@ val playerComponentsPatch = bytecodePatch(
 
         if (oldPlayerLayoutFingerprint.resolvable()) {
             oldPlayerLayoutFingerprint.injectLiteralInstructionBooleanCall(
-                45399578L,
+                OLD_PLAYER_LAYOUT_FEATURE_FLAG,
                 "$PLAYER_CLASS_DESCRIPTOR->restoreOldPlayerLayout(Z)Z"
             )
             addSwitchPreference(
@@ -1112,30 +1138,4 @@ val playerComponentsPatch = bytecodePatch(
         updatePatchStatus(PLAYER_COMPONENTS)
 
     }
-}
-
-private fun MutableMethod.setInstanceFieldValue(
-    methodName: String,
-    viewId: Long
-) {
-    val miniPlayerPlayPauseReplayButtonIndex =
-        indexOfFirstLiteralInstructionOrThrow(miniPlayerPlayPauseReplayButton)
-    val miniPlayerPlayPauseReplayButtonRegister =
-        getInstruction<OneRegisterInstruction>(miniPlayerPlayPauseReplayButtonIndex).registerA
-    val findViewByIdIndex =
-        indexOfFirstInstructionOrThrow(
-            miniPlayerPlayPauseReplayButtonIndex,
-            Opcode.INVOKE_VIRTUAL
-        )
-    val parentViewRegister =
-        getInstruction<FiveRegisterInstruction>(findViewByIdIndex).registerC
-
-    addInstructions(
-        miniPlayerPlayPauseReplayButtonIndex, """
-            const v$miniPlayerPlayPauseReplayButtonRegister, $viewId
-            invoke-virtual {v$parentViewRegister, v$miniPlayerPlayPauseReplayButtonRegister}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-            move-result-object v$miniPlayerPlayPauseReplayButtonRegister
-            invoke-static {v$miniPlayerPlayPauseReplayButtonRegister}, $PLAYER_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V
-            """
-    )
 }

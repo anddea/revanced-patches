@@ -227,12 +227,16 @@ internal val nextButtonVisibilityFingerprint = legacyFingerprint(
     )
 )
 
+internal const val OLD_ENGAGEMENT_PANEL_FEATURE_FLAG = 45427672L
+
 internal val oldEngagementPanelFingerprint = legacyFingerprint(
     name = "oldEngagementPanelFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45427672L),
+    literals = listOf(OLD_ENGAGEMENT_PANEL_FEATURE_FLAG),
 )
+
+internal const val OLD_PLAYER_BACKGROUND_FEATURE_FLAG = 45415319L
 
 /**
  * Deprecated in YouTube Music v6.34.51+
@@ -241,8 +245,10 @@ internal val oldPlayerBackgroundFingerprint = legacyFingerprint(
     name = "oldPlayerBackgroundFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45415319L),
+    literals = listOf(OLD_PLAYER_BACKGROUND_FEATURE_FLAG),
 )
+
+internal const val OLD_PLAYER_LAYOUT_FEATURE_FLAG = 45399578L
 
 /**
  * Deprecated in YouTube Music v6.31.55+
@@ -251,7 +257,7 @@ internal val oldPlayerLayoutFingerprint = legacyFingerprint(
     name = "oldPlayerLayoutFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45399578L),
+    literals = listOf(OLD_PLAYER_LAYOUT_FEATURE_FLAG),
 )
 
 internal val playerPatchConstructorFingerprint = legacyFingerprint(
