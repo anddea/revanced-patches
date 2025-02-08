@@ -357,6 +357,7 @@ Desliza hacia arriba / abajo para reproducir el vídeo siguiente / anterior.</st
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra de navegación es opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra de navegación es translúcida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Activar barra de navegación translúcida</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">En ciertas versiones de YouTube, este ajuste puede hacer transparente la barra de navegación del sistema o el diseño puede romperse en modo PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está desactivado.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">El cambio a pantalla completa deslizando el dedo por la zona inferior del reproductor está activado.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Activar gestos del panel de visualización</string>
@@ -417,7 +418,7 @@ Estos caracteres varían dependiendo de tu idioma.
     <string name="revanced_extended_settings_import_title">Importar ajustes</string>
     <string name="revanced_extended_settings_reset">Restablecer</string>
     <string name="revanced_extended_settings_search_title">Buscar en %s</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Descargador externo</string>
     <string name="revanced_external_downloader_not_installed">No instalado</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s no está instalado.
@@ -440,35 +441,17 @@ Para ocultar el menú <b>Obtener YouTube Premium</b>, puedes utilizar <b>YouTube
     <string name="revanced_hide_account_menu_summary">"Oculta elementos del menú de la cuenta y de la pestaña Tú.
 Algunos componentes pueden no estar ocultos."</string>
     <string name="revanced_hide_account_menu_title">Ocultar menú de cuenta</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">El primer botón está visible.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">El primer botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_0_title">Ocultar primer botón</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">El segundo botón está visible.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">El segundo botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_1_title">Ocultar segundo botón</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">El tercer botón está visible.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">El tercer botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_2_title">Ocultar tercer botón</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">El cuarto botón está visible.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">El cuarto botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_3_title">Ocultar cuarto botón</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">El quinto botón está visible.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">El quinto botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_4_title">Ocultar quinto botón</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">El sexto botón está visible.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">El sexto botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_5_title">Ocultar sexto botón</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">El séptimo botón está visible.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">El séptimo botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_6_title">Ocultar séptimo botón</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">El octavo botón está visible.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">El octavo botón está oculto.</string>
-    <string name="revanced_hide_action_button_index_7_title">Ocultar octavo botón</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Oculta los botones de acción por índice antes de que se inicialicen los botones de acción.
+    <string name="revanced_hide_action_button_index_summary_off">"Los botones de acción están ocultos por el filtro de identificación.
 
-- Al ocultar los botones de acción no se deja ningún espacio vacío.
-- El índice de los botones de acción puede no ser siempre el mismo botón."</string>
-    <string name="revanced_hide_action_button_index_about_title">Acerca de Ocultar botón de acción por índice</string>
+Información:
+• Los botones de acción derecha están ocultos.
+• Al ocultar los botones de acción se deja un espacio vacío."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Los botones de acción están ocultos por índice.
+
+Información:
+• Los botones de acción incorrectos pueden estar ocultos, o los botones de acción pueden no estar ocultos.
+• Al ocultar los botones de acción no se deja un espacio vacío."</string>
+    <string name="revanced_hide_action_button_index_title">Ocultar botón de acción por índice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sección de resumen de vídeo generado por IA está visible.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sección de resumen de vídeo generado por IA está oculta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar sección de resumen de vídeo generado por IA</string>
@@ -1308,14 +1291,14 @@ El mini reproductor puede ser arrastrado a cualquier esquina de la pantalla."</s
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Arrastrar y soltar está desactivado.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Arrastrar y soltar está activado.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Activar arrastrar y soltar</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Mostrar los botones de ampliación y cierre.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Los botones están ocultos.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Los botones de expandir y cerrar están visibles.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Los botones están ocultos.
 
 Desliza para expandir o cerrar."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botones de expandir y cerrar</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Los botones de expandir y cerrar están visibles.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Los botones están ocultos.\n(pasa el dedo por el minirreproductor para ampliarlo o cerrarlo)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botones de expandir y cerrar</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botones de expandir y cerrar</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Los botones superpuestos están visibles.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Los botones superpuestos están ocultos.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botones superpuestos</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Avanzar y retroceder están visibles.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Avanzar y retroceder están ocultos.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Ocultar botones de avanzar y retroceder</string>
@@ -1340,6 +1323,7 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
     <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
     <string name="revanced_miniplayer_type_title">Tipo de minirreproductor</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">El tamaño del píxel debe estar entre %1$s y %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Inicial en tamaño de pantalla, en píxeles.</string>
@@ -1413,8 +1397,6 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_custom_actions">Acciones personalizadas</string>
     <string name="revanced_preference_category_download_button">Botón de descarga</string>
     <string name="revanced_preference_category_experimental_flag">Funciones Experimentales</string>
-    <string name="revanced_preference_category_hide_by_index">Ocultar por índice</string>
-    <string name="revanced_preference_category_hide_by_index_live">Ocultar por índice en directo</string>
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
@@ -1521,6 +1503,7 @@ Después de unos 20 segundos de búfer, cambia a un códec diferente."</string>
     <string name="revanced_remember_video_quality_mobile">Cambiando la calidad predeterminada con datos móviles a %s.</string>
     <string name="revanced_remember_video_quality_none">Error al establecer la calidad de vídeo.</string>
     <string name="revanced_remember_video_quality_wifi">Cambiando la calidad predeterminada con Wi-Fi a %s.</string>
+    <string name="revanced_remix_button_index_title">Índice de botón Remix</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Elimina el diálogo de discreción del espectador.
 Esto no evita la restricción de edad. Solo la acepta automáticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Eliminar diálogo de discreción del espectador</string>

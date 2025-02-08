@@ -365,6 +365,7 @@ Limitations:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Navigation bar is opaque.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Navigation bar is translucent.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Enable translucent navigation bar</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In certain YouTube versions, this setting can make the system navigation bar transparent or the layout can be broken in PIP mode.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entering fullscreen when swiping down below the video player is disabled.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entering fullscreen when swiping down below the video player is enabled.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Enable watch panel gestures</string>
@@ -444,45 +445,23 @@ Please download %2$s from the website."</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Get YouTube Premium</b> menu, you can only use <b>Get YouTube Premium</b> as keywords."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Get YouTube Premium</b> menu, you can use <b>YouTube Premium</b> or <b>Premium</b> as keywords."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
     <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
 Some components may not be hidden."</string>
     <string name="revanced_hide_account_menu_title">Hide account menu</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">First button is shown.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">First button is hidden.</string>
-    <string name="revanced_hide_action_button_index_0_title">Hide first button</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Second button is shown.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Second button is hidden.</string>
-    <string name="revanced_hide_action_button_index_1_title">Hide second button</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Third button is shown.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Third button is hidden.</string>
-    <string name="revanced_hide_action_button_index_2_title">Hide third button</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Fourth button is shown.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Fourth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_3_title">Hide fourth button</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Fifth button is shown.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Fifth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_4_title">Hide fifth button</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Sixth button is shown.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Sixth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_5_title">Hide sixth button</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Seventh button is shown.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Seventh button is hidden.</string>
-    <string name="revanced_hide_action_button_index_6_title">Hide seventh button</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Eighth button is shown.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Eighth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_7_title">Hide eighth button</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Hide the action buttons by index before the action buttons are initialized.
+    <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
 
-- Hiding the action buttons leaves no empty space.
-- Index of the action buttons may not always be the same button."</string>
-    <string name="revanced_hide_action_button_index_about_title">About Hide action button by index</string>
+Info:
+• Right action buttons are hidden.
+• Hiding action buttons leaves empty space."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
+
+Info:
+• Wrong action buttons may be hidden, or action buttons may not be hidden.
+• Hiding action buttons leaves no empty space."</string>
+    <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
@@ -611,12 +590,8 @@ Store"</string>
     <string name="revanced_hide_feed_captions_button_title">Hide Captions button</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">List of flyout menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Play next in queue</b> menu, you can only use <b>Play next in queue</b> as keywords."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Play next in queue</b> menu, you can use <b>Play next</b> or <b>in queue</b> as keywords."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter is disabled.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter is enabled.</string>
@@ -1335,14 +1310,14 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
 
 Miniplayer can be dragged to any corner of the screen."</string>
     <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Buttons are hidden.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden.
 
 Swipe to expand or close."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Close button is shown.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Close button is hidden.</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Hide close button</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
@@ -1361,12 +1336,13 @@ Miniplayer can be dragged off-screen to the left or right."</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded.</string>
     <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
     <string name="revanced_miniplayer_type_entry_0">Disabled</string>
-    <string name="revanced_miniplayer_type_entry_1">Original</string>
+    <string name="revanced_miniplayer_type_entry_1">Default</string>
     <string name="revanced_miniplayer_type_entry_2">Minimal</string>
     <string name="revanced_miniplayer_type_entry_3">Tablet</string>
     <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
     <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
     <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_miniplayer_type_title">Miniplayer type</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels.</string>
@@ -1440,8 +1416,6 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_category_custom_actions">Custom actions</string>
     <string name="revanced_preference_category_download_button">Download button</string>
     <string name="revanced_preference_category_experimental_flag">Experimental flags</string>
-    <string name="revanced_preference_category_hide_by_index">Hide by index</string>
-    <string name="revanced_preference_category_hide_by_index_live">Hide by index in live stream</string>
     <string name="revanced_preference_category_image_region_restrictions">Image region restrictions</string>
     <string name="revanced_preference_category_import_export_as_file">Import / Export as file</string>
     <string name="revanced_preference_category_import_export_as_text">Import / Export as text</string>
@@ -1548,6 +1522,7 @@ A different codec will be applied after about 20 seconds of buffering."</string>
     <string name="revanced_remember_video_quality_mobile">Changing default mobile data quality to %s.</string>
     <string name="revanced_remember_video_quality_none">Failed to set video quality.</string>
     <string name="revanced_remember_video_quality_wifi">Changing default Wi-Fi quality to %s.</string>
+    <string name="revanced_remix_button_index_title">Remix button index</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Removes the viewer discretion dialog.
 This does not bypass the age restriction. It just accepts it automatically."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>

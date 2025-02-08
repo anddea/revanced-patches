@@ -22,6 +22,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In certain YouTube versions, this setting can make the system navigation bar transparent or the layout can be broken in PIP mode.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
@@ -29,43 +30,25 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Get YouTube Premium</b> menu, you can only use <b>Get YouTube Premium</b> as keywords."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Get YouTube Premium</b> menu, you can use <b>YouTube Premium</b> or <b>Premium</b> as keywords."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">First button is shown.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">First button is hidden.</string>
-    <string name="revanced_hide_action_button_index_0_title">Hide first button</string>
-    <string name="revanced_hide_action_button_index_1_title">Hide second button</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Fifth button is shown.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Fifth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_4_title">Hide fifth button</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Sixth button is shown.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Sixth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_5_title">Hide sixth button</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Seventh button is shown.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Seventh button is hidden.</string>
-    <string name="revanced_hide_action_button_index_6_title">Hide seventh button</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Eighth button is shown.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Eighth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_7_title">Hide eighth button</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Hide the action buttons by index before the action buttons are initialized.
+    <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
 
-- Hiding the action buttons leaves no empty space.
-- Index of the action buttons may not always be the same button."</string>
-    <string name="revanced_hide_action_button_index_about_title">About Hide action button by index</string>
+Info:
+• Right action buttons are hidden.
+• Hiding action buttons leaves empty space."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
+
+Info:
+• Wrong action buttons may be hidden, or action buttons may not be hidden.
+• Hiding action buttons leaves no empty space."</string>
+    <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Play next in queue</b> menu, you can only use <b>Play next in queue</b> as keywords."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Play next in queue</b> menu, you can use <b>Play next</b> or <b>in queue</b> as keywords."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_server_side_snack_bar_summary_off">Server-side snack bar is shown.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Server-side snack bar is hidden.</string>
@@ -91,14 +74,22 @@ To hide the <b>Play next in queue</b> menu, you can use <b>Play next</b> or <b>i
     <string name="revanced_invert_snack_bar_theme_title">Invert snack bar theme</string>
     <string name="revanced_keep_landscape_mode_summary_off">Videos play in portrait mode after turning the screen off and on.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Videos continue to play in landscape mode after turning the screen off and on.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden.
+
+Swipe to expand or close."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in the in-app browser.</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in the external browser.</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
     <string name="revanced_open_shorts_in_regular_player_summary_off">Do not open Shorts in the regular player.</string>
     <string name="revanced_open_shorts_in_regular_player_summary_on">Open Shorts in the regular player.</string>
     <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
-    <string name="revanced_preference_category_hide_by_index">Hide by index</string>
-    <string name="revanced_preference_category_hide_by_index_live">Hide by index in live stream</string>
+    <string name="revanced_remix_button_index_title">Remix button index</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>

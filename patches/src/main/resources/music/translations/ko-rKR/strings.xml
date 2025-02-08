@@ -56,8 +56,6 @@
     <string name="revanced_disable_dislike_redirection_title">싫어요 리다이렉션 비활성화</string>
     <string name="revanced_disable_drc_audio_summary">오디오에 적용된 DRC (Dynamic Range Compression)를 비활성화합니다.</string>
     <string name="revanced_disable_drc_audio_title">DRC 오디오 비활성화</string>
-    <string name="revanced_disable_mini_player_gesture_summary">미니 플레이어에서 \'스와이프 제스처로 트랙 변경\'을 비활성화합니다.</string>
-    <string name="revanced_disable_mini_player_gesture_title">미니 플레이어 제스처 비활성화</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">\'노래↔동영상\' 토글 누르기</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">\'노래↔동영상\' 토글 길게 누르기</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">리다이렉션</string>
@@ -71,10 +69,6 @@
     <string name="revanced_disable_music_video_in_album_title">앨범에서 뮤직 비디오 비활성화</string>
     <string name="revanced_disable_player_gesture_summary">플레이어에서 \'스와이프 제스처로 트랙 변경\'을 비활성화합니다.</string>
     <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
-    <string name="revanced_enable_black_player_background_summary">플레이어 배경 색상을 검정으로 설정합니다.</string>
-    <string name="revanced_enable_black_player_background_title">검정 플레이어 배경 활성화</string>
-    <string name="revanced_enable_color_match_player_summary">미니 플레이어 색상을 전체 화면 플레이어 색상으로 변경합니다.</string>
-    <string name="revanced_enable_color_match_player_title">미니 플레이어 색상 변경</string>
     <string name="revanced_enable_compact_dialog_summary">"휴대폰에서 소형 메뉴 구성요소를 활성화합니다.
 
 알려진 문제점:
@@ -87,8 +81,6 @@
     <string name="revanced_enable_debug_buffer_logging_title">디버그 버퍼 로깅 활성화</string>
     <string name="revanced_enable_debug_logging_summary">디버그 로그를 출력합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화</string>
-    <string name="revanced_enable_force_minimized_player_summary">트랙이 변경되더라도 미니 플레이어로 강제 활성화합니다.</string>
-    <string name="revanced_enable_force_minimized_player_title">미니 플레이어 강제 활성화</string>
     <string name="revanced_enable_landscape_mode_summary">앱을 가로로 회전할 수 있도록 합니다.</string>
     <string name="revanced_enable_landscape_mode_title">가로 모드 활성화</string>
     <string name="revanced_enable_mini_player_next_button_summary">미니 플레이어에서 다음 버튼을 활성화합니다.</string>
@@ -129,7 +121,7 @@
     <string name="revanced_extended_settings_import_reset">설정을 기본값으로 초기화합니다.</string>
     <string name="revanced_extended_settings_import_success">%d 설정을 가져왔습니다.</string>
     <string name="revanced_extended_settings_reset">초기화</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended 설정</string>
+    <string name="revanced_extended_settings_title">RVX 설정</string>
     <string name="revanced_external_downloader_action_summary">"오프라인 저장 버튼으로 외부 다운로더 앱을 실행할 수 있습니다.
 
 • 플레이어 하단에 있는 오프라인 저장 버튼만 재정의할 수 있습니다.
@@ -431,17 +423,13 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_app_version_target_summary">변경할 앱 버전을 선택하세요.</string>
     <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
     <string name="revanced_spoof_app_version_title">앱 버전 변경</string>
-    <string name="revanced_spoof_client_summary">"클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.
-
-• '스트리밍 데이터 변경'과 함께 사용할 경우에 재생 문제가 발생할 수 있습니다."</string>
+    <string name="revanced_spoof_client_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다.</string>
     <string name="revanced_spoof_client_title">클라이언트 변경</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">"변경할 기본 클라이언트를 정의합니다.
-
-• Android 클라이언트를 사용할 경우에 '앱 버전 변경'과 함께 사용하는 것을 권장합니다."</string>
+    <string name="revanced_spoof_client_type_summary">클라이언트 변경에 대한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">동영상 통계에서 표시</string>
@@ -454,4 +442,11 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">스트리밍 데이터를 가져오는 데 사용되는 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
+    <string name="revanced_watch_history_type_entry_1">기본값</string>
+    <string name="revanced_watch_history_type_entry_2">도메인 변경</string>
+    <string name="revanced_watch_history_type_entry_3">검색 기록 차단</string>
+    <string name="revanced_watch_history_type_summary">"• 기본값: Google 계정의 시청 기록 설정을 따르지만 DNS 또는 VPN으로 인하여 시청 기록이 작동되지 않을 수 있습니다.
+• 도메인 변경: Google 계정의 시청 기록 설정을 따릅니다.
+• 시청 기록 차단: 시청 기록이 차단됩니다."</string>
+    <string name="revanced_watch_history_type_title">시청 기록 유형</string>
 </resources>

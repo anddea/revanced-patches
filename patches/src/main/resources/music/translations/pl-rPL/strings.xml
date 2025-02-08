@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_continue_text">Kontynuuj</string>
+    <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore nie ma uprawnień do działania w tle.
 
 Postępuj zgodnie z przewodnikiem 'Don't kill my app!' dla twojego urządzenia i zastosuj instrukcje dla swojej instalacji GmsCore.
@@ -57,8 +58,6 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
     <string name="revanced_disable_drc_audio_summary">Wyłącza DRC (Dynamic Range Compression) stosowane w utworach.</string>
     <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w miniodtwarzaczu.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Wyłącz gest w miniodtwarzaczu</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Kliknij przełącznik utwór-teledysk</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Kliknij i przytrzymaj przełącznik utwór-teledysk</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Przekieruj</string>
@@ -72,10 +71,6 @@ Opcja znajduje oficjalny utwór, jeśli wykryje odtwarzanie teledysku z albumu.
     <string name="revanced_disable_music_video_in_album_title">Wyłącz teledyski w albumach</string>
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
-    <string name="revanced_enable_black_player_background_summary">Zmienia tło odtwarzacza na czarne.</string>
-    <string name="revanced_enable_black_player_background_title">Zmień kolor tła odtwarzacza</string>
-    <string name="revanced_enable_color_match_player_summary">Zmienia kolor miniodtwarzacza na kolor będący w odtwarzaczu pełnoekranowym.</string>
-    <string name="revanced_enable_color_match_player_title">Zmień kolor miniodtwarzacza</string>
     <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe menu ustawień utworu na telefonie.
 
 Ograniczenia:
@@ -88,8 +83,6 @@ Ograniczenia:
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
     <string name="revanced_enable_debug_logging_title">Włącz logowanie debugowania</string>
-    <string name="revanced_enable_force_minimized_player_summary">Zostawia odtwarzacz zminimalizowany, nawet jeśli zostanie odtworzony inny utwór.</string>
-    <string name="revanced_enable_force_minimized_player_title">Włącz wymuszenie zminimalizowanego odtwarzacza</string>
     <string name="revanced_enable_landscape_mode_summary">Pozwala wejść w tryb pełnoekranowy poprzez obrót ekranu telefonu.</string>
     <string name="revanced_enable_landscape_mode_title">Włącz tryb pełnoekranowy</string>
     <string name="revanced_enable_mini_player_next_button_summary">Dodaje przycisk do następnej piosenki w miniodtwarzaczu.</string>
@@ -130,7 +123,7 @@ Informacje:
     <string name="revanced_extended_settings_import_reset">Ustawienia zostały zresetowane do domyślnych.</string>
     <string name="revanced_extended_settings_import_success">Zaimportowano ustawienia %d.</string>
     <string name="revanced_extended_settings_reset">Zresetuj</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Przycisk od pobierania otwiera zewnętrzną aplikację do pobierania.
 
 • Jedynie zmienia działanie przycisku w odtwarzaczu.
@@ -143,6 +136,8 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
+    <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
+    <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Ukrywa puste komponenty w menu konta.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Ukryj puste komponenty</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista nazw w menu konta do filtrowania, która musi być oddzielona nowymi liniami.</string>
@@ -429,18 +424,13 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_app_version_target_summary">Wybierz wersję, którą chcesz oszukiwać.</string>
     <string name="revanced_spoof_app_version_target_title">Docelowa wersja aplikacji</string>
     <string name="revanced_spoof_app_version_title">Oszukaj wersję aplikacji</string>
-    <string name="revanced_spoof_client_summary">"Oszukuj klienta, by zapobiec problemom z odtwarzaniem.
-
-※ Używane równolegle z opcją 'Oszukuj strumień danych', może powodować problemy z odtwarzaniem
-"</string>
+    <string name="revanced_spoof_client_summary">Oszukuj klienta, by zapobiec problemom z odtwarzaniem.</string>
     <string name="revanced_spoof_client_title">Oszukuj klienta</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
-    <string name="revanced_spoof_client_type_summary">"Definiuje domyślnego klienta do oszukiwania.
-
-※ Jeśli używasz klienta Androida, zaleca się korzystanie razem z opcją 'Oszukuj wersję aplikacji'."</string>
+    <string name="revanced_spoof_client_type_summary">Definiuje domyślny klient do oszukiwania.</string>
     <string name="revanced_spoof_client_type_title">Domyślny klient</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Pokazuje używanego klienta do przechwytywania strumienia danych w statystykach dla nerdów.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>
@@ -453,7 +443,11 @@ Kliknij, by zobaczyć, jak zgłosić klucz API."</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">Denifiuje domyślnego klienta, z którego będzie przechwytywany strumień danych.</string>
     <string name="revanced_spoof_streaming_data_type_title">Domyślny klient</string>
-    <string name="gms_core_dialog_dismiss_text">Nie pokazuj ponownie</string>
-    <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
-    <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
+    <string name="revanced_watch_history_type_entry_1">Oryginalny</string>
+    <string name="revanced_watch_history_type_entry_2">Zastąpienie domeny</string>
+    <string name="revanced_watch_history_type_entry_3">Zablokowanie historii oglądania</string>
+    <string name="revanced_watch_history_type_summary">"• Oryginalny: Stosuje się do ustawień historii oglądania konta Google, lecz historia oglądania może nie działać przy używaniu DNS lub VPN
+• Zastąpienie domeny: Stosuje się do ustawień historii oglądania konta Google
+• Zablokowanie historii oglądania: Historia oglądania jest zablokowana"</string>
+    <string name="revanced_watch_history_type_title">Typ historii oglądania</string>
 </resources>

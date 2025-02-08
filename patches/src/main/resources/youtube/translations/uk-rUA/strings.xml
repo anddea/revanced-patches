@@ -361,6 +361,7 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">У певних версіях YouTube цей параметр може зробити панель навігації прозорою або порушити макет у режимі PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Увімкнути жести панелі перегляду</string>
@@ -421,7 +422,7 @@
     <string name="revanced_extended_settings_import_title">Імпортувати налаштування</string>
     <string name="revanced_extended_settings_reset">Скинути</string>
     <string name="revanced_extended_settings_search_title">Пошук %s</string>
-    <string name="revanced_extended_settings_title">Розширені</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Зовнішній завантажувач</string>
     <string name="revanced_external_downloader_not_installed">Не встановлено</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s не встановлено.
@@ -451,35 +452,6 @@
     <string name="revanced_hide_account_menu_summary">"Приховуються елементи меню облікового запису і вкладки Ви.
 Деякі компоненти не можуть бути приховані."</string>
     <string name="revanced_hide_account_menu_title">Приховати меню акаунту</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Першу кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Першу кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_0_title">Приховати першу кнопку</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Другу кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Другу кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_1_title">Приховати другу кнопку</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Третю кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Третю кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_2_title">Приховати третю кнопку</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Четверту кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Четверту кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_3_title">Приховати четверту кнопку</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">П\'яту кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">П\'яту кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_4_title">Приховати п\'яту кнопку</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Шосту кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Шосту кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_5_title">Приховати шосту кнопку</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Сьому кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Сьому кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_6_title">Приховати сьому кнопку</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Восьму кнопку показується.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Восьму кнопку приховано.</string>
-    <string name="revanced_hide_action_button_index_7_title">Приховати восьму кнопку</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Приховати кнопки дії за індексом до ініціалізації кнопок дій.
-
-- Приховування кнопок дій не залишає порожнього місця.
-- Індекс кнопок дій може не завжди бути потрібної кнопки."</string>
-    <string name="revanced_hide_action_button_index_about_title">Про Приховати кнопку дії за індексом</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секцію короткого змісту відео, згенерованого ШІ показується.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію короткого змісту відео, згенерованого ШІ приховано.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Приховати секцію короткого змісту відео, згенерованого ШІ</string>
@@ -1341,14 +1313,14 @@
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Перетягування вимкнено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Перетягування увімкнено.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Увімкнути перетягування</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки розгортання і закриття показується.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки приховано.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки розгортання і закриття показується.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки приховано.
 
 Проведіть, щоб розгорнути або закрити."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Приховати кнопки розгортання і закриття</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопку закриття показується.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопку закриття приховано.</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопку закриття</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Приховати кнопки розгортання і закриття</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Накладені кнопки показується.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Накладені кнопки приховано.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати накладені кнопки</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Перемотування вперед та назад показується.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Перемотування вперед та назад приховано.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Приховати кнопки перемотування вперед та назад</string>
@@ -1373,6 +1345,7 @@
     <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
     <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
     <string name="revanced_miniplayer_type_entry_6">Новітній 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Новітній 4</string>
     <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Початковий розмір на екрані, у пікселях.</string>
@@ -1446,8 +1419,6 @@
     <string name="revanced_preference_category_custom_actions">Спеціальні дії</string>
     <string name="revanced_preference_category_download_button">Кнопка завантаження</string>
     <string name="revanced_preference_category_experimental_flag">Експериментальні опції</string>
-    <string name="revanced_preference_category_hide_by_index">Приховати за індексом</string>
-    <string name="revanced_preference_category_hide_by_index_live">Приховати за індексом у прямій трансляції</string>
     <string name="revanced_preference_category_image_region_restrictions">Регіональні обмеження зображень</string>
     <string name="revanced_preference_category_import_export_as_file">Імпорт / Експорт як файл</string>
     <string name="revanced_preference_category_import_export_as_text">Імпорт / Експорт як текст</string>

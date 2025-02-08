@@ -100,6 +100,7 @@ Limitations:
 
 Press and hold the More button to show the Custom actions dialog."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In certain YouTube versions, this setting can make the system navigation bar transparent or the layout can be broken in PIP mode.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">Wide search bar is disabled in the You tab.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"Wide search bar is enabled in the You tab.
 
@@ -126,42 +127,20 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Get YouTube Premium</b> menu, you can only use <b>Get YouTube Premium</b> as keywords."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Get YouTube Premium</b> menu, you can use <b>YouTube Premium</b> or <b>Premium</b> as keywords."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">First button is shown.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">First button is hidden.</string>
-    <string name="revanced_hide_action_button_index_0_title">Hide first button</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Second button is shown.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Second button is hidden.</string>
-    <string name="revanced_hide_action_button_index_1_title">Hide second button</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Third button is shown.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Third button is hidden.</string>
-    <string name="revanced_hide_action_button_index_2_title">Hide third button</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Fourth button is shown.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Fourth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_3_title">Hide fourth button</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Fifth button is shown.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Fifth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_4_title">Hide fifth button</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Sixth button is shown.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Sixth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_5_title">Hide sixth button</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Seventh button is shown.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Seventh button is hidden.</string>
-    <string name="revanced_hide_action_button_index_6_title">Hide seventh button</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Eighth button is shown.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Eighth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_7_title">Hide eighth button</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Hide the action buttons by index before the action buttons are initialized.
+    <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
 
-- Hiding the action buttons leaves no empty space.
-- Index of the action buttons may not always be the same button."</string>
-    <string name="revanced_hide_action_button_index_about_title">About Hide action button by index</string>
+Info:
+• Right action buttons are hidden.
+• Hiding action buttons leaves empty space."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
+
+Info:
+• Wrong action buttons may be hidden, or action buttons may not be hidden.
+• Hiding action buttons leaves no empty space."</string>
+    <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI-generated video summary section is shown.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI-generated video summary section is hidden.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Hide AI-generated video summary section</string>
@@ -176,12 +155,8 @@ To hide the <b>Get YouTube Premium</b> menu, you can use <b>YouTube Premium</b> 
     <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden.</string>
     <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filter if matches.
-
-To hide the <b>Play next in queue</b> menu, you can only use <b>Play next in queue</b> as keywords."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filter if contains.
-
-To hide the <b>Play next in queue</b> menu, you can use <b>Play next</b> or <b>in queue</b> as keywords."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names.&lt;br&gt;&lt;br&gt;For example,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; will hide the video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;but will not hide: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
     <string name="revanced_hide_live_chat_summary_summary_off">Live Chat summary is shown.</string>
@@ -345,6 +320,15 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_language_VI">Vietnamese</string>
     <string name="revanced_language_ZH">Chinese</string>
     <string name="revanced_language_title">RVX language</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden.
+
+Swipe to expand or close."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_open_links_externally_summary_off">Opens links in the in-app browser.</string>
     <string name="revanced_open_links_externally_summary_on">Opens links in the external browser.</string>
     <string name="revanced_open_links_externally_title">Open links externally</string>
@@ -367,8 +351,6 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_overlay_button_play_all_type_entry_9">All Members only contents</string>
     <string name="revanced_overlay_button_play_all_type_title">Generate playlist mode</string>
     <string name="revanced_preference_category_custom_actions">Custom actions</string>
-    <string name="revanced_preference_category_hide_by_index">Hide by index</string>
-    <string name="revanced_preference_category_hide_by_index_live">Hide by index in live stream</string>
     <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_suggested_actions">Suggested actions</string>
     <string name="revanced_preference_screen_return_youtube_username_title">Return YouTube Username</string>
@@ -382,6 +364,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">A toast will not be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">A toast will be shown when changing the default video quality.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Show a toast</string>
+    <string name="revanced_remix_button_index_title">Remix button index</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
 No margins on top and bottom of player."</string>

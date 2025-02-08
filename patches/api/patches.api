@@ -231,6 +231,7 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_7_25_or_greater ()Z
 	public static final fun is_7_27_or_greater ()Z
 	public static final fun is_7_29_or_greater ()Z
+	public static final fun is_8_03_or_greater ()Z
 }
 
 public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdPatchKt {
@@ -420,6 +421,7 @@ public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 	public static final fun is_2024_26_or_greater ()Z
 	public static final fun is_2024_41_or_greater ()Z
 	public static final fun is_2025_01_or_greater ()Z
+	public static final fun is_2025_05_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {
@@ -896,7 +898,6 @@ public final class app/revanced/patches/youtube/utils/fix/streamingdata/Fingerpr
 }
 
 public final class app/revanced/patches/youtube/utils/fix/streamingdata/SpoofStreamingDataPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getSpoofStreamingDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -993,11 +994,17 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_49_or_greater ()Z
 	public static final fun is_20_02_or_greater ()Z
+	public static final fun is_20_03_or_greater ()Z
+	public static final fun is_20_05_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
 	public static final fun getRecyclerViewTreeObserverPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun recyclerViewTreeObserverHook (Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/youtube/utils/request/BuildRequestPatchKt {
+	public static final fun getBuildRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceIdPatchKt {
@@ -1051,6 +1058,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getHorizontalCardList ()J
 	public static final fun getImageOnlyTab ()J
 	public static final fun getInlineTimeBarColorizedBarPlayedColorDark ()J
+	public static final fun getInlineTimeBarLiveSeekAbleRange ()J
 	public static final fun getInlineTimeBarPlayedNotHighlightedColor ()J
 	public static final fun getInsetElementsWrapper ()J
 	public static final fun getInsetOverlayViewLayout ()J
@@ -1061,6 +1069,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getModernMiniPlayerClose ()J
 	public static final fun getModernMiniPlayerExpand ()J
 	public static final fun getModernMiniPlayerForwardButton ()J
+	public static final fun getModernMiniPlayerOverlayActionButton ()J
 	public static final fun getModernMiniPlayerRewindButton ()J
 	public static final fun getMusicAppDeeplinkButtonView ()J
 	public static final fun getNotificationBigPictureIconWidth ()J
@@ -1115,6 +1124,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getYtOutlineXWhite ()J
 	public static final fun getYtPremiumWordMarkHeader ()J
 	public static final fun getYtStaticBrandRed ()J
+	public static final fun getYtTextSecondary ()J
 	public static final fun getYtWordMarkHeader ()J
 	public static final fun getYtYoutubeMagenta ()J
 }

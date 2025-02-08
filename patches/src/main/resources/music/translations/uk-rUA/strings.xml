@@ -21,9 +21,18 @@
     <string name="revanced_change_share_sheet_summary">Змінює тип вікна діалогу поширення з вбудованого на системний.</string>
     <string name="revanced_change_share_sheet_title">Змінити діалог поширення</string>
     <string name="revanced_change_start_page_entry_chart">Хіт-паради</string>
+    <string name="revanced_change_start_page_entry_charts">Хіт-паради</string>
+    <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Послухати пізніше</string>
     <string name="revanced_change_start_page_entry_explore">Навігація</string>
+    <string name="revanced_change_start_page_entry_history">Історія</string>
     <string name="revanced_change_start_page_entry_library">Бібліотека</string>
+    <string name="revanced_change_start_page_entry_liked_music">Музика, яка сподобалась</string>
+    <string name="revanced_change_start_page_entry_podcasts">Подкасти</string>
+    <string name="revanced_change_start_page_entry_samples">Семпли</string>
+    <string name="revanced_change_start_page_entry_search">Пошук</string>
     <string name="revanced_change_start_page_entry_subscription">Підписка</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
     <string name="revanced_change_start_page_summary">Виберіть сторінку з якої буде стартувати додаток.</string>
     <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новими рядками.</string>
@@ -48,8 +57,6 @@
     <string name="revanced_disable_dislike_redirection_title">Вимкнути перенаправлення при \"Не подобається\"</string>
     <string name="revanced_disable_drc_audio_summary">Вимикає DRC (стиснення динамічного діапазону), застосованого до аудіо.</string>
     <string name="revanced_disable_drc_audio_title">Вимкнути DRC аудіо</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Вимикає жести перемикання треків у мініплеєрі.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Вимкнути жести мініплеєра</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Натиснення перемикача \"пісня | відео\"</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Натиснення та утримання перемикача \"пісня | відео\"</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Перенаправлення</string>
@@ -63,10 +70,6 @@
     <string name="revanced_disable_music_video_in_album_title">Вимкнути музичні відео в альбомі</string>
     <string name="revanced_disable_player_gesture_summary">Вимикає жести перемикання треків у плеєрі.</string>
     <string name="revanced_disable_player_gesture_title">Вимкнути жести плеєра</string>
-    <string name="revanced_enable_black_player_background_summary">Змінює адаптивний колір фона плеєра на чорний.</string>
-    <string name="revanced_enable_black_player_background_title">Змінити колір фону плеєра</string>
-    <string name="revanced_enable_color_match_player_summary">Змінює колір мініплеєра на колір повноекранного плеєра.</string>
-    <string name="revanced_enable_color_match_player_title">Змінити колір мініплеєра</string>
     <string name="revanced_enable_compact_dialog_summary">"Вмикає компактне спливаюче вікно на телефонах.
 
 Відомі проблеми:
@@ -79,8 +82,6 @@
     <string name="revanced_enable_debug_buffer_logging_title">Увімкнути ведення журналу буфера налагодження</string>
     <string name="revanced_enable_debug_logging_summary">Виводить протокол налагодження.</string>
     <string name="revanced_enable_debug_logging_title">Увімкнути протоколи налагодження</string>
-    <string name="revanced_enable_force_minimized_player_summary">Вмикає мініплеєр на постійній основі під час переходу на новий трек.</string>
-    <string name="revanced_enable_force_minimized_player_title">Увімкнути мініплеєр на постійній основі</string>
     <string name="revanced_enable_landscape_mode_summary">Вмикає ландшафтний режим під час повороту екрана на телефонах.</string>
     <string name="revanced_enable_landscape_mode_title">Увімкнути ландшафтний режим</string>
     <string name="revanced_enable_mini_player_next_button_summary">Додає кнопку наступного треку у мініплеєр.</string>
@@ -121,7 +122,7 @@
     <string name="revanced_extended_settings_import_reset">Налаштування скинуто до стандартних.</string>
     <string name="revanced_extended_settings_import_success">Налаштування в кількості: %d успішно відновлено</string>
     <string name="revanced_extended_settings_reset">Скинути</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"Кнопка \"Завантажити\" відкриває ваш зовнішній завантажувач.
 
 • Підміняє лише кнопку \"Завантажити\" на панелі дій в плеєрі.
@@ -415,20 +416,18 @@
 • Якщо пізніше вимкнути, старий інтерфейс може залишитися, доки не буде очищено дані програми."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Вимкнення режиму радіо в канадських регіонах</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Вимкнення динамічних текстів (караоке)</string>
+    <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Вимкнення динамічних текстів</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Відновлення старої панелі дій</string>
     <string name="revanced_spoof_app_version_target_summary">Виберіть зі списку цільову версію підробки програми.</string>
     <string name="revanced_spoof_app_version_target_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
-    <string name="revanced_spoof_client_summary">"Підробити клієнт, щоб запобігти проблемам із відтворенням.
-
-※ Під час використання разом з \"Підробка потокових даних\" можуть виникнути проблеми з відтворенням."</string>
+    <string name="revanced_spoof_client_summary">Підміна клієнта щоб запобігти проблемам відтворення.</string>
     <string name="revanced_spoof_client_title">Підміна клієнта</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_summary">"Визначає клієнт за замовчуванням для підробки. 
-
-※ Під час використання клієнта Android рекомендується використовувати його разом з \"Підробити версію програми\"."</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_summary">Визначає клієнт за замовчуванням для підробки.</string>
     <string name="revanced_spoof_client_type_title">Клієнт за замовчуванням</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показує клієнт, який використовується для отримання потокових даних у \"Статистиці для сисадмінів\".</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
@@ -441,4 +440,11 @@
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">Визначає клієнт за замовчуванням, який отримує потокові дані.</string>
     <string name="revanced_spoof_streaming_data_type_title">Клієнт за замовчуванням</string>
+    <string name="revanced_watch_history_type_entry_1">Оригінальний</string>
+    <string name="revanced_watch_history_type_entry_2">Замінити домен</string>
+    <string name="revanced_watch_history_type_entry_3">Блокувати історію переглядів</string>
+    <string name="revanced_watch_history_type_summary">"• Оригінальний: Відповідає налаштуванням історії переглядів облікового запису Google, але історія переглядів може не працювати через DNS або VPN.
+• Замінити домен: Дотримується налаштувань історії переглядів облікового запису Google.
+• Блокувати історію переглядів: Історію переглядів заблоковано."</string>
+    <string name="revanced_watch_history_type_title">Тип історії перегляду</string>
 </resources>
