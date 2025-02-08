@@ -60,7 +60,9 @@ object PlayerRoutes {
         Route.Method.POST,
         "player" +
                 "?prettyPrint=false" +
-                "&fields=videoDetails.channelId"
+                "&fields=videoDetails.channelId," +
+                "videoDetails.isLiveContent," +
+                "videoDetails.isUpcoming"
     ).compile()
 
     private const val YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/"

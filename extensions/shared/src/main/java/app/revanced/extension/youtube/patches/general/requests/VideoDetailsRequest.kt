@@ -119,9 +119,22 @@ class VideoDetailsRequest private constructor(
 
         private fun parseResponse(videoDetailsJson: JSONObject): String? {
             try {
-                return videoDetailsJson
-                    .getJSONObject("videoDetails")
-                    .getString("channelId")
+                val videoDetailsJson = videoDetailsJson.getJSONObject("videoDetails")
+
+                // Live streams always open when live ring is clicked.
+                // Make sure this video is live streams.
+                val isLiveContent = videoDetailsJson.has("isLiveContent") &&
+                        videoDetailsJson.getBoolean("isLiveContent")
+
+                // Even if 'isLiveContent' is true, it may be 'UPCOMING' video.
+                // Check if the value of 'isUpcoming' is true.
+                val isUpcoming = videoDetailsJson.has("isUpcoming") &&
+                        videoDetailsJson.getBoolean("isUpcoming")
+
+                // Return the channel id only if the video is live streams and not 'UPCOMING' video.
+                if (isLiveContent && !isUpcoming) {
+                    return videoDetailsJson.getString("channelId")
+                }
             } catch (e: JSONException) {
                 Logger.printException(
                     { "Fetch failed while processing response data for response: $videoDetailsJson" },
