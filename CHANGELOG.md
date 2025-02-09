@@ -1,3 +1,10 @@
+# [3.4.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.5...v3.4.0-dev.6) (2025-02-09)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add a color picker to customize segment colors ([5c2ced9](https://github.com/anddea/revanced-patches/commit/5c2ced964168185da8303c529135aed5d2a5c3d0))
+
 # [3.4.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.4...v3.4.0-dev.5) (2025-02-08)
 
 
