@@ -1,3 +1,10 @@
+# [3.4.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.6...v3.4.0-dev.7) (2025-02-09)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Display skip segment button when player controls are shown ([bccbdda](https://github.com/anddea/revanced-patches/commit/bccbddaba32b49b7fdd4dd372d6d0e24077dc333))
+
 # [3.4.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.5...v3.4.0-dev.6) (2025-02-09)
 
 
