@@ -61,6 +61,8 @@ var miniPlayerPlayPauseReplayButton = -1L
     private set
 var miniPlayerViewPager = -1L
     private set
+var modernDialogBackground = -1L
+    private set
 var musicNotifierShelf = -1L
     private set
 var musicTasteBuilderShelf = -1L
@@ -207,6 +209,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         miniPlayerViewPager = resourceMappings[
             ID,
             "mini_player_view_pager"
+        ]
+        modernDialogBackground = resourceMappings[
+            DRAWABLE,
+            "modern_dialog_background"
         ]
         musicNotifierShelf = resourceMappings[
             LAYOUT,

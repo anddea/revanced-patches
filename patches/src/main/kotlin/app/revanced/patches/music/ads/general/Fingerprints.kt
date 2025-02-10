@@ -3,13 +3,18 @@ package app.revanced.patches.music.ads.general
 import app.revanced.patches.music.utils.resourceid.buttonContainer
 import app.revanced.patches.music.utils.resourceid.floatingLayout
 import app.revanced.patches.music.utils.resourceid.interstitialsContainer
+import app.revanced.patches.music.utils.resourceid.modernDialogBackground
 import app.revanced.patches.music.utils.resourceid.musicNotifierShelf
 import app.revanced.patches.music.utils.resourceid.privacyTosFooter
 import app.revanced.patches.music.utils.resourceid.slidingDialogAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val accountMenuFooterFingerprint = legacyFingerprint(
     name = "accountMenuFooterFingerprint",
@@ -33,6 +38,29 @@ internal val floatingLayoutFingerprint = legacyFingerprint(
     parameters = emptyList(),
     literals = listOf(floatingLayout)
 )
+
+internal val getPremiumDialogParentFingerprint = legacyFingerprint(
+    name = "getPremiumDialogParentFingerprint",
+    returnType = "Landroid/graphics/drawable/Drawable;",
+    accessFlags = AccessFlags.PROTECTED.value,
+    parameters = listOf("Landroid/content/Context;"),
+    literals = listOf(modernDialogBackground)
+)
+
+internal val getPremiumDialogFingerprint = legacyFingerprint(
+    name = "getPremiumDialogFingerprint",
+    returnType = "Landroid/app/Dialog;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, _ ->
+        indexOfSetContentViewInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfSetContentViewInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<MethodReference>()?.toString() == "Landroid/app/Dialog;->setContentView(Landroid/view/View;)V"
+    }
 
 internal val getPremiumTextViewFingerprint = legacyFingerprint(
     name = "getPremiumTextViewFingerprint",
