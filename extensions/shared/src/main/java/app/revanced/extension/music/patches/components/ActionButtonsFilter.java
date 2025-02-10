@@ -35,10 +35,15 @@ public final class ActionButtonsFilter extends Filter {
                 Settings.HIDE_ACTION_BUTTON_LIKE_DISLIKE,
                 "segmented_like_dislike_button.eml"
         );
+        final StringFilterGroup songVideoButton = new StringFilterGroup(
+                Settings.HIDE_ACTION_BUTTON_SONG_VIDEO,
+                "music_audio_video_button.eml"
+        );
         addPathCallbacks(
                 bufferFilterPathRule,
                 downloadButton,
-                likeDislikeContainer
+                likeDislikeContainer,
+                songVideoButton
         );
 
         bufferButtonsGroupList.addAll(

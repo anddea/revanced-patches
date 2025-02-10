@@ -12,6 +12,7 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ACTION_BAR_COMPONENTS
 import app.revanced.patches.music.utils.playservice.is_7_17_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_33_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.likeDislikeContainer
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
@@ -189,6 +190,13 @@ val actionBarComponentsPatch = bytecodePatch(
             "revanced_hide_action_button_radio",
             "false"
         )
+        if (is_7_33_or_greater) {
+            addSwitchPreference(
+                CategoryType.ACTION_BAR,
+                "revanced_hide_action_button_song_video",
+                "false"
+            )
+        }
         if (!is_7_25_or_greater) {
             addSwitchPreference(
                 CategoryType.ACTION_BAR,
