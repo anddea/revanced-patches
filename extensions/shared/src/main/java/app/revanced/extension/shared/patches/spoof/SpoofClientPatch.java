@@ -116,4 +116,19 @@ public class SpoofClientPatch extends BlockRequestPatch {
         }
         return original;
     }
+
+    /**
+     * Injection point.
+     * <p>
+     * When spoofing the client to Android, the playback speed menu is missing from the player response.
+     * This fix is required because playback speed is not available in YouTube Music Podcasts.
+     * <p>
+     * Return false to force create the playback speed menu.
+     */
+    public static boolean forceCreatePlaybackSpeedMenuInverse(boolean original) {
+        if (SPOOF_CLIENT) {
+            return false;
+        }
+        return original;
+    }
 }

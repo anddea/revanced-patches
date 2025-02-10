@@ -1,5 +1,6 @@
 package app.revanced.patches.music.utils
 
+import app.revanced.patches.music.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -20,6 +21,14 @@ internal val playbackSpeedBottomSheetFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     strings = listOf("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
+)
+
+internal val playbackRateBottomSheetClassFingerprint = legacyFingerprint(
+    name = "playbackRateBottomSheetClassFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    literals = listOf(varispeedUnavailableTitle)
 )
 
 internal val playbackSpeedFingerprint = legacyFingerprint(

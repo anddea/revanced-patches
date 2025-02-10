@@ -14,6 +14,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+private var patchIncluded = false
+
 fun customPlaybackSpeedPatch(
     descriptor: String,
     maxSpeed: Float
@@ -21,6 +23,10 @@ fun customPlaybackSpeedPatch(
     description = "customPlaybackSpeedPatch"
 ) {
     execute {
+        if (patchIncluded) {
+            return@execute
+        }
+
         arrayGeneratorFingerprint.matchOrThrow().let {
             it.method.apply {
                 val targetIndex = it.patternMatch!!.startIndex
@@ -84,6 +90,8 @@ fun customPlaybackSpeedPatch(
                 )
             }
         }
+
+        patchIncluded = true
 
     }
 }
