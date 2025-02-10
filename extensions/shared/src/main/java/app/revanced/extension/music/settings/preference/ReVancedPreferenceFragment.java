@@ -4,6 +4,8 @@ import static app.revanced.extension.music.settings.Settings.BYPASS_IMAGE_REGION
 import static app.revanced.extension.music.settings.Settings.CHANGE_START_PAGE;
 import static app.revanced.extension.music.settings.Settings.CUSTOM_FILTER_STRINGS;
 import static app.revanced.extension.music.settings.Settings.CUSTOM_PLAYBACK_SPEEDS;
+import static app.revanced.extension.music.settings.Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY;
+import static app.revanced.extension.music.settings.Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY;
 import static app.revanced.extension.music.settings.Settings.DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE;
 import static app.revanced.extension.music.settings.Settings.ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE;
 import static app.revanced.extension.music.settings.Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME;
@@ -139,6 +141,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (settings.equals(BYPASS_IMAGE_REGION_RESTRICTIONS_DOMAIN)
                         || settings.equals(CUSTOM_FILTER_STRINGS)
                         || settings.equals(CUSTOM_PLAYBACK_SPEEDS)
+                        || settings.equals(CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY)
+                        || settings.equals(CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY)
                         || settings.equals(ENABLE_CUSTOM_NAVIGATION_BAR_COLOR_VALUE)
                         || settings.equals(HIDE_ACCOUNT_MENU_FILTER_STRINGS)
                         || settings.equals(RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY)) {

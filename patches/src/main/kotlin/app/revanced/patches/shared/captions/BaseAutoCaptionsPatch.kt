@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
-import app.revanced.patches.shared.startVideoInformerFingerprint
 import app.revanced.util.fingerprint.methodOrThrow
 
 private const val EXTENSION_CLASS_DESCRIPTOR =

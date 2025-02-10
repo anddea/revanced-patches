@@ -1,5 +1,6 @@
 package app.revanced.extension.music.patches.player;
 
+import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.hideViewByRemovingFromParentUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
@@ -11,11 +12,14 @@ import android.view.View;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
 
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoType;
 import app.revanced.extension.music.utils.VideoUtils;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class PlayerPatch {
@@ -29,6 +33,10 @@ public class PlayerPatch {
             Settings.DISABLE_PLAYER_GESTURE.get();
     private static final boolean ENABLE_SWIPE_TO_DISMISS_MINIPLAYER =
             Settings.ENABLE_SWIPE_TO_DISMISS_MINIPLAYER.get();
+    private static final boolean ENABLE_ZEN_MODE =
+            Settings.ENABLE_ZEN_MODE.get();
+    private static final boolean ENABLE_ZEN_MODE_PODCAST =
+            Settings.ENABLE_ZEN_MODE_PODCAST.get();
     private static final boolean HIDE_DOUBLE_TAP_OVERLAY_FILTER =
             Settings.HIDE_DOUBLE_TAP_OVERLAY_FILTER.get();
     private static final boolean HIDE_FULLSCREEN_SHARE_BUTTON =
@@ -37,12 +45,44 @@ public class PlayerPatch {
             Settings.HIDE_SONG_VIDEO_TOGGLE.get();
     private static final boolean RESTORE_OLD_COMMENTS_POPUP_PANELS =
             Settings.RESTORE_OLD_COMMENTS_POPUP_PANELS.get();
+    private static final boolean SETTINGS_INITIALIZED =
+            Settings.SETTINGS_INITIALIZED.get();
 
-    private static final int MUSIC_VIDEO_GREY_BACKGROUND_COLOR = 0xFF404040;
-    private static final int MUSIC_VIDEO_ORIGINAL_BACKGROUND_COLOR = 0xFF030303;
+    private static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY =
+            Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY;
+    private static final StringSetting CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY =
+            Settings.CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY;
+
+    private static final int ZEN_MODE_BACKGROUND_COLOR = 0xFF404040;
+    private static final int MUSIC_VIDEO_BACKGROUND_COLOR = 0xFF030303;
+
+    private static final int[] MUSIC_VIDEO_GRADIENT_COLORS = {MUSIC_VIDEO_BACKGROUND_COLOR, MUSIC_VIDEO_BACKGROUND_COLOR};
+    private static final int[] ZEN_MODE_GRADIENT_COLORS = {ZEN_MODE_BACKGROUND_COLOR, ZEN_MODE_BACKGROUND_COLOR};
+    private static final int[] customColorGradient = new int[2];
+    private static boolean colorInitalized = false;
 
     private static WeakReference<View> previousButtonViewRef = new WeakReference<>(null);
     private static WeakReference<View> nextButtonViewRef = new WeakReference<>(null);
+
+    static {
+        if (CHANGE_PLAYER_BACKGROUND_COLOR)
+            loadPlayerbackgroundColor();
+    }
+
+    private static void loadPlayerbackgroundColor() {
+        try {
+            customColorGradient[0] = Color.parseColor(CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY.get());
+            customColorGradient[1] = Color.parseColor(CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY.get());
+            colorInitalized = true;
+        } catch (Exception ex) {
+            Utils.showToastShort(str("revanced_custom_player_background_invalid_toast"));
+            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            CUSTOM_PLAYER_BACKGROUND_COLOR_PRIMARY.resetToDefault();
+            CUSTOM_PLAYER_BACKGROUND_COLOR_SECONDARY.resetToDefault();
+
+            loadPlayerbackgroundColor();
+        }
+    }
 
     public static boolean addMiniPlayerNextButton(boolean original) {
         return !ADD_MINIPLAYER_NEXT_BUTTON && original;
@@ -52,10 +92,20 @@ public class PlayerPatch {
         return Settings.CHANGE_MINIPLAYER_COLOR.get();
     }
 
-    public static int changePlayerBackgroundColor(int originalColor) {
-        return CHANGE_PLAYER_BACKGROUND_COLOR && originalColor != MUSIC_VIDEO_GREY_BACKGROUND_COLOR
-                ? Color.BLACK
-                : originalColor;
+    public static int[] changePlayerBackgroundColor(int[] colors) {
+        if (Arrays.equals(MUSIC_VIDEO_GRADIENT_COLORS, colors)) {
+            final VideoType videoType = VideoType.getCurrent();
+            final boolean isZenMode = ENABLE_ZEN_MODE &&
+                    (videoType.isMusicVideo() || (videoType.isPodCast() && ENABLE_ZEN_MODE_PODCAST));
+            if (isZenMode) {
+                return ZEN_MODE_GRADIENT_COLORS;
+            }
+        }
+        if (CHANGE_PLAYER_BACKGROUND_COLOR && colorInitalized) {
+            return customColorGradient;
+        }
+
+        return colors;
     }
 
     public static boolean disableMiniPlayerGesture() {
@@ -137,9 +187,10 @@ public class PlayerPatch {
     }
 
     public static int enableZenMode(int originalColor) {
-        if (Settings.ENABLE_ZEN_MODE.get() && originalColor == MUSIC_VIDEO_ORIGINAL_BACKGROUND_COLOR) {
-            if (Settings.ENABLE_ZEN_MODE_PODCAST.get() || !VideoType.getCurrent().isPodCast()) {
-                return MUSIC_VIDEO_GREY_BACKGROUND_COLOR;
+        if (ENABLE_ZEN_MODE && originalColor == MUSIC_VIDEO_BACKGROUND_COLOR) {
+            final VideoType videoType = VideoType.getCurrent();
+            if (videoType.isMusicVideo() || (videoType.isPodCast() && ENABLE_ZEN_MODE_PODCAST)) {
+                return ZEN_MODE_BACKGROUND_COLOR;
             }
         }
         return originalColor;
@@ -162,9 +213,9 @@ public class PlayerPatch {
     }
 
     public static void setShuffleState(Enum<?> shuffleState) {
-        if (!Settings.REMEMBER_SHUFFLE_SATE.get())
-            return;
-        Settings.ALWAYS_SHUFFLE.save(shuffleState.ordinal() == 1);
+        if (Settings.REMEMBER_SHUFFLE_SATE.get()) {
+            Settings.ALWAYS_SHUFFLE.save(shuffleState.ordinal() == 1);
+        }
     }
 
     public static void shuffleTracks() {
@@ -199,14 +250,13 @@ public class PlayerPatch {
     }
 
     public static boolean restoreOldCommentsPopUpPanels(boolean original) {
-        if (!Settings.SETTINGS_INITIALIZED.get()) {
-            return original;
-        }
-        return !RESTORE_OLD_COMMENTS_POPUP_PANELS && original;
+        return SETTINGS_INITIALIZED
+                ? !RESTORE_OLD_COMMENTS_POPUP_PANELS && original
+                : original;
     }
 
     public static boolean restoreOldPlayerBackground(boolean original) {
-        if (!Settings.SETTINGS_INITIALIZED.get()) {
+        if (!SETTINGS_INITIALIZED) {
             return original;
         }
         if (!isSDKAbove(23)) {
@@ -220,7 +270,7 @@ public class PlayerPatch {
     }
 
     public static boolean restoreOldPlayerLayout(boolean original) {
-        if (!Settings.SETTINGS_INITIALIZED.get()) {
+        if (!SETTINGS_INITIALIZED) {
             return original;
         }
         return !Settings.RESTORE_OLD_PLAYER_LAYOUT.get();

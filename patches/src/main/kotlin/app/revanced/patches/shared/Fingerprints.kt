@@ -95,27 +95,6 @@ fun indexOfSpannableStringInstruction(method: Method) = method.indexOfFirstInstr
             getReference<MethodReference>()?.toString() == SPANNABLE_STRING_REFERENCE
 }
 
-internal val startVideoInformerFingerprint = legacyFingerprint(
-    name = "startVideoInformerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
-    ),
-    strings = listOf("pc"),
-    customFingerprint = { method, _ ->
-        method.implementation
-            ?.instructions
-            ?.withIndex()
-            ?.filter { (_, instruction) ->
-                instruction.opcode == Opcode.CONST_STRING
-            }
-            ?.map { (index, _) -> index }
-            ?.size == 1
-    }
-)
-
 internal val videoLengthFingerprint = legacyFingerprint(
     name = "videoLengthFingerprint",
     returnType = "V",
