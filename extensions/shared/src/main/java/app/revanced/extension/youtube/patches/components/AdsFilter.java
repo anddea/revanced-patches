@@ -46,6 +46,9 @@ public final class AdsFilter extends Filter {
                 // "composite_concurrent_carousel_layout"
                 "carousel_",
 
+                // "inline_injection_entrypoint_layout.eml"
+                "inline_injection_entrypoint_layout",
+
                 // "statement_banner.eml"
                 "statement_banner",
 
