@@ -13,6 +13,8 @@ import app.revanced.patches.music.utils.extension.Constants.VIDEO_PATH
 import app.revanced.patches.music.utils.patch.PatchList.SPOOF_CLIENT
 import app.revanced.patches.music.utils.playbackRateBottomSheetClassFingerprint
 import app.revanced.patches.music.utils.playbackSpeedBottomSheetFingerprint
+import app.revanced.patches.music.utils.playservice.is_7_33_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -30,6 +32,7 @@ import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
@@ -69,6 +72,7 @@ val spoofClientPatch = bytecodePatch(
         settingsPatch,
         sharedResourceIdPatch,
         blockRequestPatch,
+        versionCheckPatch,
         customPlaybackSpeedPatch(
             "$VIDEO_PATH/CustomPlaybackSpeedPatch;",
             5.0f
@@ -329,6 +333,17 @@ val spoofClientPatch = bytecodePatch(
                     invoke-static { v$insertRegister }, $EXTENSION_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenuInverse(Z)Z
                     move-result v$insertRegister
                     """,
+            )
+        }
+
+        // endregion
+
+        // region fix for feature flags
+
+        if (is_7_33_or_greater) {
+            playbackFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYBACK_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->forceDisablePlaybackFeatureFlag(Z)Z"
             )
         }
 

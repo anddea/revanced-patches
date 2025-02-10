@@ -40,3 +40,19 @@ internal val userAgentHeaderBuilderFingerprint = legacyFingerprint(
     parameters = listOf("Landroid/content/Context;"),
     strings = listOf("(Linux; U; Android "),
 )
+
+/**
+ * If this flag is activated, a playback issue occurs.
+ * (Regardless of the 'Spoof client')
+ *
+ * Added in YouTube Music 7.33+
+ */
+internal const val PLAYBACK_FEATURE_FLAG = 45665455L
+
+internal val playbackFeatureFlagFingerprint = legacyFingerprint(
+    name = "playbackFeatureFlagFingerprint",
+    returnType = "Z",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    literals = listOf(PLAYBACK_FEATURE_FLAG),
+)

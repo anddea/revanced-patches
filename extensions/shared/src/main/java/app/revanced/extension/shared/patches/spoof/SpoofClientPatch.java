@@ -131,4 +131,16 @@ public class SpoofClientPatch extends BlockRequestPatch {
         }
         return original;
     }
+
+    /**
+     * Injection point.
+     * <p>
+     * Return false to force disable playback feature flag.
+     */
+    public static boolean forceDisablePlaybackFeatureFlag(boolean original) {
+        if (SPOOF_CLIENT) {
+            return false;
+        }
+        return original;
+    }
 }
