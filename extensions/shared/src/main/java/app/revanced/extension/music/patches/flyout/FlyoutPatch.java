@@ -22,60 +22,67 @@ import java.lang.ref.WeakReference;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoType;
 import app.revanced.extension.music.utils.VideoUtils;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils.ResourceType;
 
 @SuppressWarnings("unused")
 public class FlyoutPatch {
+    private static final BooleanSetting ENABLE_COMPACT_DIALOG =
+            Settings.ENABLE_COMPACT_DIALOG;
+    private static final BooleanSetting ENABLE_TRIM_SILENCE =
+            Settings.ENABLE_TRIM_SILENCE;
+    private static final BooleanSetting REPLACE_FLYOUT_MENU_DISMISS_QUEUE =
+            Settings.REPLACE_FLYOUT_MENU_DISMISS_QUEUE;
+    private static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT =
+            Settings.REPLACE_FLYOUT_MENU_REPORT;
+    private static final BooleanSetting REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER =
+            Settings.REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER;
+    private static final boolean HIDE_FLYOUT_MENU_LIKE_DISLIKE =
+            Settings.HIDE_FLYOUT_MENU_LIKE_DISLIKE.get();
+    private static volatile boolean lastMenuWasDismissQueue = false;
+    private static WeakReference<View> touchOutSideViewRef = new WeakReference<>(null);
+    private static final ColorFilter cf = new PorterDuffColorFilter(Color.parseColor("#ffffffff"), PorterDuff.Mode.SRC_ATOP);
 
     public static int enableCompactDialog(int original) {
-        if (!Settings.ENABLE_COMPACT_DIALOG.get())
-            return original;
-
-        return Math.max(original, 600);
+        return ENABLE_COMPACT_DIALOG.get()
+                ? Math.max(original, 600)
+                : original;
     }
 
     public static boolean enableTrimSilence(boolean original) {
-        if (!Settings.ENABLE_TRIM_SILENCE.get())
+        if (!ENABLE_TRIM_SILENCE.get())
             return original;
 
         return VideoType.getCurrent().isPodCast() || original;
     }
 
     public static boolean enableTrimSilenceSwitch(boolean original) {
-        if (!Settings.ENABLE_TRIM_SILENCE.get())
+        if (!ENABLE_TRIM_SILENCE.get())
             return original;
 
         return VideoType.getCurrent().isPodCast() && original;
     }
 
     public static boolean hideComponents(@Nullable Enum<?> flyoutMenuEnum) {
-        if (flyoutMenuEnum == null)
-            return false;
+        if (flyoutMenuEnum != null) {
+            final String flyoutMenuName = flyoutMenuEnum.name();
+            Logger.printDebug(() -> "flyoutMenu loaded: " + flyoutMenuName);
 
-        final String flyoutMenuName = flyoutMenuEnum.name();
-
-        Logger.printDebug(() -> "flyoutMenu: " + flyoutMenuName);
-
-        for (FlyoutPanelComponent component : FlyoutPanelComponent.values())
-            if (component.name.equals(flyoutMenuName) && component.enabled)
-                return true;
+            for (FlyoutPanelComponent component : FlyoutPanelComponent.values())
+                if (component.name().equals(flyoutMenuName) && component.setting.get())
+                    return true;
+        }
 
         return false;
     }
 
     public static void hideLikeDislikeContainer(View view) {
-        if (!Settings.HIDE_FLYOUT_MENU_LIKE_DISLIKE.get())
-            return;
-
-        if (view.getParent() instanceof ViewGroup viewGroup) {
+        if (HIDE_FLYOUT_MENU_LIKE_DISLIKE &&
+                view.getParent() instanceof ViewGroup viewGroup) {
             viewGroup.removeView(view);
         }
     }
-
-    private static volatile boolean lastMenuWasDismissQueue = false;
-
-    private static WeakReference<View> touchOutSideViewRef = new WeakReference<>(null);
 
     public static void setTouchOutSideView(View touchOutSideView) {
         touchOutSideViewRef = new WeakReference<>(touchOutSideView);
@@ -98,80 +105,71 @@ public class FlyoutPatch {
     }
 
     private static void replaceDismissQueue(@NonNull TextView textView, @NonNull ImageView imageView) {
-        if (!Settings.REPLACE_FLYOUT_MENU_DISMISS_QUEUE.get())
-            return;
-
-        if (!(textView.getParent() instanceof ViewGroup clickAbleArea))
-            return;
-
-        runOnMainThreadDelayed(() -> {
-                    textView.setText(str("revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label"));
-                    imageView.setImageResource(getIdentifier("yt_outline_youtube_logo_icon_vd_theme_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
-                    clickAbleArea.setOnClickListener(viewGroup -> VideoUtils.openInYouTube());
+        if (REPLACE_FLYOUT_MENU_DISMISS_QUEUE.get() &&
+                textView.getParent() instanceof ViewGroup clickAbleArea) {
+            runOnMainThreadDelayed(() -> {
+                textView.setText(str("revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label"));
+                imageView.setImageResource(getIdentifier("yt_outline_youtube_logo_icon_vd_theme_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                clickAbleArea.setOnClickListener(view -> VideoUtils.openInYouTube());
                 }, 0L
-        );
+            );
+        }
     }
 
-    private static final ColorFilter cf = new PorterDuffColorFilter(Color.parseColor("#ffffffff"), PorterDuff.Mode.SRC_ATOP);
-
-    private static void replaceReport(@NonNull TextView textView, @NonNull ImageView imageView, boolean wasDismissQueue) {
-        if (!Settings.REPLACE_FLYOUT_MENU_REPORT.get())
-            return;
-
-        if (Settings.REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER.get() && !wasDismissQueue)
-            return;
-
-        if (!(textView.getParent() instanceof ViewGroup clickAbleArea))
-            return;
-
-        runOnMainThreadDelayed(() -> {
-                    textView.setText(str("playback_rate_title"));
-                    imageView.setImageResource(getIdentifier("yt_outline_play_arrow_half_circle_black_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
-                    imageView.setColorFilter(cf);
-                    clickAbleArea.setOnClickListener(view -> {
-                        clickView(touchOutSideViewRef.get());
-                        VideoUtils.showPlaybackSpeedFlyoutMenu();
-                    });
+    private static void replaceReport(@NonNull TextView textView, @NonNull ImageView imageView,
+                                      boolean wasDismissQueue) {
+        if (REPLACE_FLYOUT_MENU_REPORT.get() &&
+                (!REPLACE_FLYOUT_MENU_REPORT_ONLY_PLAYER.get() || wasDismissQueue) &&
+                textView.getParent() instanceof ViewGroup clickAbleArea
+        ) {
+            runOnMainThreadDelayed(() -> {
+                textView.setText(str("playback_rate_title"));
+                imageView.setImageResource(getIdentifier("yt_outline_play_arrow_half_circle_black_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                imageView.setColorFilter(cf);
+                clickAbleArea.setOnClickListener(view -> {
+                    clickView(touchOutSideViewRef.get());
+                    VideoUtils.showPlaybackSpeedFlyoutMenu();
+                });
                 }, 0L
-        );
+            );
+        }
     }
 
     private enum FlyoutPanelComponent {
-        SAVE_EPISODE_FOR_LATER("BOOKMARK_BORDER", Settings.HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER.get()),
-        SHUFFLE_PLAY("SHUFFLE", Settings.HIDE_FLYOUT_MENU_SHUFFLE_PLAY.get()),
-        RADIO("MIX", Settings.HIDE_FLYOUT_MENU_START_RADIO.get()),
-        SUBSCRIBE("SUBSCRIBE", Settings.HIDE_FLYOUT_MENU_SUBSCRIBE.get()),
-        EDIT_PLAYLIST("EDIT", Settings.HIDE_FLYOUT_MENU_EDIT_PLAYLIST.get()),
-        DELETE_PLAYLIST("DELETE", Settings.HIDE_FLYOUT_MENU_DELETE_PLAYLIST.get()),
-        PLAY_NEXT("QUEUE_PLAY_NEXT", Settings.HIDE_FLYOUT_MENU_PLAY_NEXT.get()),
-        ADD_TO_QUEUE("QUEUE_MUSIC", Settings.HIDE_FLYOUT_MENU_ADD_TO_QUEUE.get()),
-        SAVE_TO_LIBRARY("LIBRARY_ADD", Settings.HIDE_FLYOUT_MENU_SAVE_TO_LIBRARY.get()),
-        REMOVE_FROM_LIBRARY("LIBRARY_REMOVE", Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_LIBRARY.get()),
-        SAVE_TO_PLAYLIST("ADD_TO_PLAYLIST", Settings.HIDE_FLYOUT_MENU_SAVE_TO_PLAYLIST.get()),
-        REMOVE_FROM_PLAYLIST("REMOVE_FROM_PLAYLIST", Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_PLAYLIST.get()),
-        DOWNLOAD("OFFLINE_DOWNLOAD", Settings.HIDE_FLYOUT_MENU_DOWNLOAD.get()),
-        GO_TO_EPISODE("INFO", Settings.HIDE_FLYOUT_MENU_GO_TO_EPISODE.get()),
-        GO_TO_PODCAST("BROADCAST", Settings.HIDE_FLYOUT_MENU_GO_TO_PODCAST.get()),
-        GO_TO_ALBUM("ALBUM", Settings.HIDE_FLYOUT_MENU_GO_TO_ALBUM.get()),
-        GO_TO_ARTIST("ARTIST", Settings.HIDE_FLYOUT_MENU_GO_TO_ARTIST.get()),
-        VIEW_SONG_CREDIT("PEOPLE_GROUP", Settings.HIDE_FLYOUT_MENU_VIEW_SONG_CREDIT.get()),
-        PIN_TO_SPEED_DIAL("KEEP", Settings.HIDE_FLYOUT_MENU_PIN_TO_SPEED_DIAL.get()),
-        UNPIN_FROM_SPEED_DIAL("KEEP_OFF", Settings.HIDE_FLYOUT_MENU_UNPIN_FROM_SPEED_DIAL.get()),
-        SHARE("SHARE", Settings.HIDE_FLYOUT_MENU_SHARE.get()),
-        DISMISS_QUEUE("DISMISS_QUEUE", Settings.HIDE_FLYOUT_MENU_DISMISS_QUEUE.get()),
-        HELP("HELP_OUTLINE", Settings.HIDE_FLYOUT_MENU_HELP.get()),
-        REPORT("FLAG", Settings.HIDE_FLYOUT_MENU_REPORT.get()),
-        QUALITY("SETTINGS_MATERIAL", Settings.HIDE_FLYOUT_MENU_QUALITY.get()),
-        CAPTIONS("CAPTIONS", Settings.HIDE_FLYOUT_MENU_CAPTIONS.get()),
-        STATS_FOR_NERDS("PLANNER_REVIEW", Settings.HIDE_FLYOUT_MENU_STATS_FOR_NERDS.get()),
-        SLEEP_TIMER("MOON_Z", Settings.HIDE_FLYOUT_MENU_SLEEP_TIMER.get());
+        ADD_TO_PLAYLIST(Settings.HIDE_FLYOUT_MENU_SAVE_TO_PLAYLIST),
+        ALBUM(Settings.HIDE_FLYOUT_MENU_GO_TO_ALBUM),
+        ARTIST(Settings.HIDE_FLYOUT_MENU_GO_TO_ARTIST),
+        BOOKMARK_BORDER(Settings.HIDE_FLYOUT_MENU_SAVE_EPISODE_FOR_LATER),
+        BROADCAST(Settings.HIDE_FLYOUT_MENU_GO_TO_PODCAST),
+        CAPTIONS(Settings.HIDE_FLYOUT_MENU_CAPTIONS),
+        DELETE(Settings.HIDE_FLYOUT_MENU_DELETE_PLAYLIST),
+        DISMISS_QUEUE(Settings.HIDE_FLYOUT_MENU_DISMISS_QUEUE),
+        EDIT(Settings.HIDE_FLYOUT_MENU_EDIT_PLAYLIST),
+        FLAG(Settings.HIDE_FLYOUT_MENU_REPORT),
+        HELP_OUTLINE(Settings.HIDE_FLYOUT_MENU_HELP),
+        HIDE(Settings.HIDE_FLYOUT_MENU_NOT_INTERESTED),
+        INFO(Settings.HIDE_FLYOUT_MENU_GO_TO_EPISODE),
+        KEEP(Settings.HIDE_FLYOUT_MENU_PIN_TO_SPEED_DIAL),
+        KEEP_OFF(Settings.HIDE_FLYOUT_MENU_UNPIN_FROM_SPEED_DIAL),
+        LIBRARY_ADD(Settings.HIDE_FLYOUT_MENU_SAVE_TO_LIBRARY),
+        LIBRARY_REMOVE(Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_LIBRARY),
+        MIX(Settings.HIDE_FLYOUT_MENU_START_RADIO),
+        MOON_Z(Settings.HIDE_FLYOUT_MENU_SLEEP_TIMER),
+        OFFLINE_DOWNLOAD(Settings.HIDE_FLYOUT_MENU_DOWNLOAD),
+        PEOPLE_GROUP(Settings.HIDE_FLYOUT_MENU_VIEW_SONG_CREDIT),
+        PLANNER_REVIEW(Settings.HIDE_FLYOUT_MENU_STATS_FOR_NERDS),
+        QUEUE_MUSIC(Settings.HIDE_FLYOUT_MENU_ADD_TO_QUEUE),
+        QUEUE_PLAY_NEXT(Settings.HIDE_FLYOUT_MENU_PLAY_NEXT),
+        REMOVE_FROM_PLAYLIST(Settings.HIDE_FLYOUT_MENU_REMOVE_FROM_PLAYLIST),
+        SETTINGS_MATERIAL(Settings.HIDE_FLYOUT_MENU_QUALITY),
+        SHARE(Settings.HIDE_FLYOUT_MENU_SHARE),
+        SHUFFLE(Settings.HIDE_FLYOUT_MENU_SHUFFLE_PLAY),
+        SUBSCRIBE(Settings.HIDE_FLYOUT_MENU_SUBSCRIBE);
 
-        private final boolean enabled;
-        private final String name;
+        private final BooleanSetting setting;
 
-        FlyoutPanelComponent(String name, boolean enabled) {
-            this.enabled = enabled;
-            this.name = name;
+        FlyoutPanelComponent(BooleanSetting setting) {
+            this.setting = setting;
         }
     }
 }
