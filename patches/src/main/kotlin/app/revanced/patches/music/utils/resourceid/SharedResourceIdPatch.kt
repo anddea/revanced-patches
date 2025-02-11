@@ -43,6 +43,8 @@ var historyMenuItem = -1L
     private set
 var inlineTimeBarAdBreakMarkerColor = -1L
     private set
+var inlineTimeBarProgressColor = -1L
+    private set
 var interstitialsContainer = -1L
     private set
 var isTablet = -1L
@@ -173,6 +175,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         inlineTimeBarAdBreakMarkerColor = resourceMappings[
             COLOR,
             "inline_time_bar_ad_break_marker_color"
+        ]
+        inlineTimeBarProgressColor = resourceMappings[
+            COLOR,
+            "inline_time_bar_progress_color"
         ]
         interstitialsContainer = resourceMappings[
             ID,
