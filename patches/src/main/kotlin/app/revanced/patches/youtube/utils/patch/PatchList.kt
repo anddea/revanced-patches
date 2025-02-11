@@ -81,6 +81,10 @@ internal enum class PatchList(
         "Disable haptic feedback",
         "Adds options to disable haptic feedback when swiping in the video player."
     ),
+    DISABLE_RESUMING_MINIPLAYER_ON_STARTUP(
+        "Disable resuming Miniplayer on startup",
+        "Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup."
+    ),
     DISABLE_RESUMING_SHORTS_ON_STARTUP(
         "Disable resuming Shorts on startup",
         "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched."

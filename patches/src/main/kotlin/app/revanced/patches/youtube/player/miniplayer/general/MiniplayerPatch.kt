@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.player.miniplayer
+package app.revanced.patches.youtube.player.miniplayer.general
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions

@@ -449,6 +449,9 @@
         <!-- SETTINGS: MINIPLAYER_COMPONENTS
         <PreferenceScreen android:title="@string/revanced_preference_screen_miniplayer_title" android:key="revanced_preference_screen_miniplayer" android:summary="@string/revanced_preference_screen_miniplayer_summary">SETTINGS: MINIPLAYER_COMPONENTS -->
 
+            <!-- SETTINGS: DISABLE_RESUMING_MINIPLAYER
+            <app.revanced.extension.shared.settings.preference.HtmlSwitchPreference android:title="@string/revanced_disable_resuming_miniplayer_title" android:key="revanced_disable_resuming_miniplayer" android:summaryOn="@string/revanced_disable_resuming_miniplayer_summary_on" android:summaryOff="@string/revanced_disable_resuming_miniplayer_summary_off" />DISABLE_RESUMING_MINIPLAYER -->
+
             <!-- SETTINGS: MINIPLAYER_TYPE_19_14
             <ListPreference android:entries="@array/revanced_miniplayer_type_19_14_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_19_14_entry_values" />SETTINGS: MINIPLAYER_TYPE_19_14 -->
 
@@ -933,6 +936,7 @@
                 <Preference android:title="Change player flyout menu toggles" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Description components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable haptic feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Disable resuming Miniplayer on startup" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Fullscreen components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide comments components" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

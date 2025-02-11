@@ -366,6 +366,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_ZOOM = new BooleanSetting("revanced_disable_haptic_feedback_zoom", FALSE);
 
     // PreferenceScreen: Player - Miniplayer
+    public static final BooleanSetting DISABLE_RESUMING_MINIPLAYER = new BooleanSetting("revanced_disable_resuming_miniplayer", FALSE, true);
     public static final EnumSetting<MiniplayerType> MINIPLAYER_TYPE = new EnumSetting<>("revanced_miniplayer_type", MiniplayerType.DEFAULT, true);
     private static final Setting.Availability MINIPLAYER_ANY_MODERN = MINIPLAYER_TYPE.availability(MODERN_1, MODERN_2, MODERN_3, MODERN_4);
     public static final BooleanSetting MINIPLAYER_DOUBLE_TAP_ACTION = new BooleanSetting("revanced_miniplayer_double_tap_action", TRUE, true, MINIPLAYER_ANY_MODERN);
