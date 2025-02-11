@@ -89,22 +89,21 @@ public class BlockRequestPatch {
      * <p>
      * Blocks /initplayback requests.
      */
-    public static String blockInitPlaybackRequest(String originalUrlString) {
+    public static Uri blockInitPlaybackRequest(Uri initPlaybackRequestUri) {
         if (BLOCK_REQUEST) {
             try {
-                var originalUri = Uri.parse(originalUrlString);
-                String path = originalUri.getPath();
+                String path = initPlaybackRequestUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
                     Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
 
-                    return originalUri.buildUpon().clearQuery().build().toString();
+                    return initPlaybackRequestUri.buildUpon().clearQuery().build();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
             }
         }
 
-        return originalUrlString;
+        return initPlaybackRequestUri;
     }
 }

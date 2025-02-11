@@ -18,6 +18,9 @@ internal val buildInitPlaybackRequestFingerprint = legacyFingerprint(
         "Content-Type",
         "Range",
     ),
+    customFingerprint = { method, _ ->
+        indexOfUriToStringInstruction(method) >= 0
+    },
 )
 
 internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
@@ -28,11 +31,11 @@ internal val buildPlayerRequestURIFingerprint = legacyFingerprint(
         "asig",
     ),
     customFingerprint = { method, _ ->
-        indexOfToStringInstruction(method) >= 0
+        indexOfUriToStringInstruction(method) >= 0
     },
 )
 
-internal fun indexOfToStringInstruction(method: Method) =
+internal fun indexOfUriToStringInstruction(method: Method) =
     method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
