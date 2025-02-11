@@ -137,7 +137,7 @@ val returnYouTubeDislikePatch = resourcePatch(
         addSwitchPreference(
             CategoryType.RETURN_YOUTUBE_DISLIKE,
             "revanced_ryd_toast_on_connection_error",
-            "false",
+            "true",
             "revanced_ryd_enabled"
         )
 
