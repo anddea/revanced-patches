@@ -13,10 +13,13 @@ import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.shared.spans.addSpanFilter
 import app.revanced.patches.shared.spans.inclusiveSpanPatch
-import app.revanced.patches.shared.startVideoInformerFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.controlsOverlayConfigPatch
-import app.revanced.patches.youtube.utils.engagementPanelBuilderFingerprint
+import app.revanced.patches.youtube.utils.engagement.engagementPanelBuilderMethod
+import app.revanced.patches.youtube.utils.engagement.engagementPanelFreeRegister
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdIndex
+import app.revanced.patches.youtube.utils.engagement.engagementPanelIdRegister
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
@@ -39,7 +42,6 @@ import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.Utils.printWarn
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
@@ -49,7 +51,6 @@ import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -286,6 +287,7 @@ val playerComponentsPatch = bytecodePatch(
         suggestedVideoEndScreenPatch,
         videoInformationPatch,
         versionCheckPatch,
+        engagementPanelHookPatch,
     )
 
     execute {
@@ -373,54 +375,19 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for disable auto player popup panels
 
-        fun MutableMethod.hookInitVideoPanel(initVideoPanel: Int) =
-            addInstructions(
-                0, """
-                    const/4 v0, $initVideoPanel
-                    invoke-static {v0}, $PLAYER_CLASS_DESCRIPTOR->setInitVideoPanel(Z)V
-                    """
-            )
-
-        arrayOf(
-            lithoComponentOnClickListenerFingerprint,
-            offlineActionsOnClickListenerFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.methodOrThrow().apply {
-                val syntheticIndex =
-                    indexOfFirstInstruction(Opcode.NEW_INSTANCE)
-                if (syntheticIndex >= 0) {
-                    val syntheticReference =
-                        getInstruction<ReferenceInstruction>(syntheticIndex).reference.toString()
-
-                    findMethodOrThrow(syntheticReference) {
-                        name == "onClick"
-                    }.hookInitVideoPanel(0)
-                } else {
-                    printWarn("target Opcode not found in ${fingerprint.first}")
-                }
-            }
-        }
-
-        findMethodOrThrow(
-            engagementPanelPlaylistSyntheticFingerprint.methodOrThrow().definingClass
-        ) {
-            name == "onClick"
-        }.hookInitVideoPanel(0)
-
-        startVideoInformerFingerprint.methodOrThrow().hookInitVideoPanel(1)
-
-        engagementPanelBuilderFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    move/from16 v0, p4
-                    invoke-static {v0}, $PLAYER_CLASS_DESCRIPTOR->disableAutoPlayerPopupPanels(Z)Z
-                    move-result v0
-                    if-eqz v0, :shown
-                    const/4 v0, 0x0
-                    return-object v0
-                    """, ExternalLabel("shown", getInstruction(0))
-            )
-        }
+        engagementPanelBuilderMethod.addInstructionsWithLabels(
+            engagementPanelIdIndex, """
+                move/from16 v$engagementPanelFreeRegister, p4
+                invoke-static {v$engagementPanelFreeRegister, v$engagementPanelIdRegister}, $PLAYER_CLASS_DESCRIPTOR->disableAutoPlayerPopupPanels(ZLjava/lang/String;)Z
+                move-result v$engagementPanelFreeRegister
+                if-eqz v$engagementPanelFreeRegister, :shown
+                const/4 v$engagementPanelFreeRegister, 0x0
+                return-object v$engagementPanelFreeRegister
+                :shown
+                nop
+                """
+        )
+        hookVideoInformation("$PLAYER_CLASS_DESCRIPTOR->disableAutoPlayerPopupPanels(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
 
         // endregion
 

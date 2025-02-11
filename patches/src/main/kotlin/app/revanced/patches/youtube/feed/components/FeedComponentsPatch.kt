@@ -14,7 +14,6 @@ import app.revanced.patches.shared.mainactivity.onCreateMethod
 import app.revanced.patches.youtube.utils.bottomsheet.bottomSheetHookPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
-import app.revanced.patches.youtube.utils.engagement.hookEngagementPanelState
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.FEED_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.FEED_PATH
@@ -189,8 +188,6 @@ val feedComponentsPatch = bytecodePatch(
                 )
             }
         }
-
-        hookEngagementPanelState(RELATED_VIDEO_CLASS_DESCRIPTOR)
 
         // endregion
 
