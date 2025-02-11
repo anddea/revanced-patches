@@ -1,21 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
-    <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
-
-Info:
-• Right action buttons are hidden.
-• Hiding action buttons leaves empty space."</string>
-    <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
-
-Info:
-• Wrong action buttons may be hidden, or action buttons may not be hidden.
-• Hiding action buttons leaves no empty space."</string>
-    <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
     <string name="revanced_icon_mmt_orange">MMT Orange</string>
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
@@ -23,7 +15,6 @@ Info:
     <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
-    <string name="revanced_remix_button_index_title">Remix button index</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>

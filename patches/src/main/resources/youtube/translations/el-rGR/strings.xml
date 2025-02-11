@@ -400,10 +400,6 @@
     <string name="revanced_exit_fullscreen_entry_3">Οριζόντια</string>
     <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφη και οριζόντια</string>
     <string name="revanced_exit_fullscreen_title">Έξοδος από τη λειτουργία πλήρους οθόνης στο τέλος του βίντεο</string>
-    <string name="revanced_expand_video_description_strings_default_value">Περιγραφή</string>
-    <string name="revanced_expand_video_description_strings_summary">"Εισάγετε τον τίτλο του πίνακα περιγραφής βίντεο στη γλώσσα σας.
-Η λειτουργία «Αυτόματο άνοιγμα περιγραφής βίντεο» ενδέχεται να μη λειτουργήσει αν η εισαγόμενη συμβολοσειρά σας δεν ταιριάζει με τον τίτλο."</string>
-    <string name="revanced_expand_video_description_strings_title">Τίτλος του πίνακα περιγραφής βίντεο</string>
     <string name="revanced_expand_video_description_summary_off">Η περιγραφή βίντεο ανοίγεται χειροκίνητα.</string>
     <string name="revanced_expand_video_description_summary_on">Η περιγραφή βίντεο ανοίγεται αυτόματα.</string>
     <string name="revanced_expand_video_description_title">Αυτόματο άνοιγμα περιγραφής βίντεο</string>
@@ -437,18 +433,26 @@
     <string name="revanced_external_downloader_package_name_playlist_title">Όνομα πακέτου προγράμματος λήψης λίστας αναπαραγωγής</string>
     <string name="revanced_external_downloader_package_name_video_summary">Όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης (π.χ NewPipe, YTLDnis).</string>
     <string name="revanced_external_downloader_package_name_video_title">Όνομα πακέτου προγράμματος λήψης βίντεο</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Οι διαφημίσεις πλήρους οθόνης έκλεισαν.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του μενού λογαριασμού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Επεξεργασία φίλτρου μενού λογαριασμού</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά.
-
-Παράδειγμα: Για απόκρυψη του μενού <b>«Αποκτήστε το YouTube Premium»</b>, πρέπει να εισαχθεί το <b>Αποκτήστε το YouTube Premium</b> ως λέξεις-κλειδιά."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά.
-
-Παράδειγμα: Για απόκρυψη του μενού <b>«Αποκτήστε το YouTube Premium»</b>, μπορεί να εισαχθεί το <b>YouTube Premium</b> ή το <b>Premium</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά. &lt;br&gt;&lt;br&gt;Παράδειγμα: Για απόκρυψη του μενού &lt;br&gt;«Αποκτήστε το YouTube Premium»&lt;br&gt;, πρέπει να εισαχθεί το &lt;b&gt;«Αποκτήστε το YouTube Premium»&lt;/b&gt; ως λέξεις-κλειδιά.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά. &lt;br&gt;&lt;br&gt;Παράδειγμα: Για απόκρυψη του μενού &lt;br&gt;«Αποκτήστε το YouTube Premium»&lt;br&gt;, μπορεί να εισαχθεί το &lt;b&gt;«YouTube Premium»&lt;/b&gt; ή το &lt;b&gt;«Premium»&lt;/b&gt; ως λέξεις-κλειδιά.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Τύπος φίλτρου μενού λογαριασμού</string>
     <string name="revanced_hide_account_menu_summary">"Απόκρυψη στοιχείων του μενού λογαριασμού και της καρτέλας «Εσείς».
 Κάποια στοιχεία ενδέχεται να μην κρύβονται."</string>
     <string name="revanced_hide_account_menu_title">Φιλτράρισμα μενού λογαριασμού</string>
+    <string name="revanced_hide_action_button_index_summary_off">"Τα κουμπιά ενεργειών είναι κρυμμένα βάσει φίλτρου αναγνωριστικού.
+
+Πληροφορίες:
+• Γίνεται πάντα απόκρυψη των σωστών κουμπιών ενεργειών.
+• Η απόκρυψη βάσει φίλτρου αναγνωριστικού αφήνει κενό χώρο."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Τα κουμπιά ενεργειών είναι κρυμμένα βάσει ευρετηρίου.
+
+Πληροφορίες:
+• Μπορεί να γίνεται απόκρυψη των λάθος κουμπιών, ή να μη γίνεται καθόλου απόκρυψη.
+• Η απόκρυψη ανά ευρετήριο δεν αφήνει κενό χώρο."</string>
+    <string name="revanced_hide_action_button_index_title">Απόκρυψη κουμπιoύ ενεργειών ανά ευρετήριο</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο παραγμένου με τεχνητή νοημοσύνη</string>
@@ -585,12 +589,8 @@ Playlists
     <string name="revanced_hide_feed_captions_button_title">Κουμπί υπότιτλων</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Λίστα ονομάτων των επιλογών του αναδυόμενου μενού για φιλτράρισμα, διαχωρισμένα με νέες γραμμές.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Επεξεργασία φίλτρου αναδυόμενων μενού ροής</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά.
-
-Παράδειγμα: Για απόκρυψη του μενού <b>«Αναπαραγωγή επόμενου στην ουρά»</b>, πρέπει να εισαχθεί το <b>Αναπαραγωγή επόμενου στην ουρά</b> ως λέξεις-κλειδιά."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά.
-
-Παράδειγμα: Για απόκρυψη του μενού <b>«Αναπαραγωγή επόμενου στην ουρά»</b>, μπορεί να εισαχθεί το <b>Αναπαραγωγή επόμενου</b> ή το <b>στην ουρά</b> ως λέξεις-κλειδιά."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Φιλτράρισμα αν το μενού ταιριάζει με τις εισαγόμενες λέξεις-κλειδιά.&lt;br&gt;&lt;br&gt;Παράδειγμα: Για απόκρυψη του μενού &lt;b&gt;«Αναπαραγωγή επόμενου στην ουρά»&lt;/b&gt;, πρέπει να εισαχθεί το &lt;b&gt;«Αναπαραγωγή επόμενου στην ουρά»&lt;/b&gt; ως λέξεις-κλειδιά.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Φιλτράρισμα αν στο μενού περιέχονται οι εισαγόμενες λέξεις-κλειδιά. &lt;br&gt;&lt;br&gt;Παράδειγμα: Για απόκρυψη του μενού &lt;br&gt;«Αναπαραγωγή επόμενου στην ουρά»&lt;br&gt;, μπορεί να εισαχθεί το &lt;b&gt;«Αναπαραγωγή επόμενου»&lt;/b&gt; ή το &lt;b&gt;«στην ουρά»&lt;/b&gt; ως λέξεις-κλειδιά.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Τύπος φίλτρου αναδυόμενου μενού ροής</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Το φιλτράρισμα του αναδυόμενου μενού στη ροή είναι απενεργοποιημένο.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Το φιλτράρισμα του αναδυόμενου μενού στη ροή είναι ενεργοποιημένο.</string>
@@ -1534,6 +1534,7 @@ Playlists
     <string name="revanced_remember_video_quality_mobile">Η προεπιλεγμένη ποιότητα δεδομένων άλλαξε σε %s.</string>
     <string name="revanced_remember_video_quality_none">Αποτυχία ορισμού ποιότητας βίντεο.</string>
     <string name="revanced_remember_video_quality_wifi">Η προεπιλεγμένη ποιότητα με Wi-Fi άλλαξε σε %s.</string>
+    <string name="revanced_remix_button_index_title">Ευρετήριο κουμπιού Remix</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Αφαίρεση του παραθύρου προειδοποίησης ηλικιακού περιορισμού.
 Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό, απλά τον αποδέχεται αυτόματα."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Παράθυρο ηλικιακού περιορισμού</string>

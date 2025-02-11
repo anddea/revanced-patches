@@ -230,7 +230,9 @@ public final class app/revanced/patches/music/utils/playservice/VersionCheckPatc
 	public static final fun is_7_23_or_greater ()Z
 	public static final fun is_7_25_or_greater ()Z
 	public static final fun is_7_27_or_greater ()Z
+	public static final fun is_7_28_or_greater ()Z
 	public static final fun is_7_29_or_greater ()Z
+	public static final fun is_7_33_or_greater ()Z
 	public static final fun is_8_03_or_greater ()Z
 }
 
@@ -250,6 +252,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getFloatingLayout ()J
 	public static final fun getHistoryMenuItem ()J
 	public static final fun getInlineTimeBarAdBreakMarkerColor ()J
+	public static final fun getInlineTimeBarProgressColor ()J
 	public static final fun getInterstitialsContainer ()J
 	public static final fun getLikeDislikeContainer ()J
 	public static final fun getMainActivityLaunchAnimation ()J
@@ -258,6 +261,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getMiniPlayerMdxPlaying ()J
 	public static final fun getMiniPlayerPlayPauseReplayButton ()J
 	public static final fun getMiniPlayerViewPager ()J
+	public static final fun getModernDialogBackground ()J
 	public static final fun getMusicNotifierShelf ()J
 	public static final fun getMusicTasteBuilderShelf ()J
 	public static final fun getNamesInactiveAccountThumbnailSize ()J
@@ -422,6 +426,7 @@ public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
 	public static final fun is_2024_41_or_greater ()Z
 	public static final fun is_2025_01_or_greater ()Z
 	public static final fun is_2025_05_or_greater ()Z
+	public static final fun is_2025_06_or_greater ()Z
 }
 
 public final class app/revanced/patches/shared/FingerprintsKt {
@@ -643,10 +648,6 @@ public final class app/revanced/patches/youtube/general/loadingscreen/GradientLo
 	public static final fun getGradientLoadingScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/general/miniplayer/MiniplayerPatchKt {
-	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/general/music/YouTubeMusicActionsPatchKt {
 	public static final fun getYoutubeMusicActionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -806,6 +807,14 @@ public final class app/revanced/patches/youtube/player/fullscreen/FullscreenComp
 
 public final class app/revanced/patches/youtube/player/hapticfeedback/HapticFeedbackPatchKt {
 	public static final fun getHapticFeedbackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/player/miniplayer/general/MiniplayerPatchKt {
+	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/player/miniplayer/startup/ResumingMiniplayerOnStartupPatchKt {
+	public static final fun getResumingMiniplayerOnStartupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/player/overlaybuttons/OverlayButtonsPatchKt {
@@ -1031,7 +1040,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getChannelListSubMenu ()J
 	public static final fun getCompactLink ()J
 	public static final fun getCompactListItem ()J
-	public static final fun getComponentLongClickListener ()J
 	public static final fun getContentPill ()J
 	public static final fun getControlsLayoutStub ()J
 	public static final fun getDarkBackground ()J
@@ -1073,7 +1081,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getModernMiniPlayerRewindButton ()J
 	public static final fun getMusicAppDeeplinkButtonView ()J
 	public static final fun getNotificationBigPictureIconWidth ()J
-	public static final fun getOfflineActionsVideoDeletedUndoSnackbarText ()J
 	public static final fun getPlayerCollapseButton ()J
 	public static final fun getPlayerControlNextButtonTouchArea ()J
 	public static final fun getPlayerControlPreviousButtonTouchArea ()J
@@ -1284,8 +1291,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyAdaptiveIcon (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
 	public static synthetic fun copyAdaptiveIcon$default (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)V
 	public static final fun copyFile (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z
-	public static final fun copyResources (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;Z)V
-	public static synthetic fun copyResources$default (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;ZILjava/lang/Object;)V
+	public static final fun copyResources (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
 	public static final fun copyResourcesWithRename (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/util/Map;)V
 	public static final fun copyXmlNode (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lkotlin/Unit;
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;

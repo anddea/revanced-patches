@@ -228,6 +228,9 @@
     <string name="revanced_disable_like_dislike_glow_title">تعطيل توهج زر أعجبني ولم يعجبني</string>
     <string name="revanced_disable_quic_protocol_summary">"تم تعطيل بروتوكول QUIC الخاص بـ CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">تعطيل بروتوكول QUIC</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">سيتم استئناف ميزة &lt;b&gt;متابعة المشاهدة&lt;/b&gt; عند بدء تشغيل التطبيق.&lt;br&gt;&lt;br&gt;معلومات:&lt;br&gt;• &lt;b&gt;متابعة المشاهدة&lt;/b&gt; هي ميزة YouTube Premium.&lt;br&gt;• لا يفرض هذا الإعداد تمكين ميزة &lt;b&gt;متابعة المشاهدة.&lt;/b&gt;</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">لن يتم استئناف &lt;b&gt;متابعة المشاهدة&lt;/b&gt; عند بدء تشغيل التطبيق.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">تعطيل استئناف المشغل المصغر</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">سيتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">لن يتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق.</string>
     <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
@@ -398,10 +401,6 @@
     <string name="revanced_exit_fullscreen_entry_3">بالعرض</string>
     <string name="revanced_exit_fullscreen_entry_4">بالطول و العرض</string>
     <string name="revanced_exit_fullscreen_title">الخروج من وضع ملء الشاشة في نهاية الفيديو</string>
-    <string name="revanced_expand_video_description_strings_default_value">الوصف</string>
-    <string name="revanced_expand_video_description_strings_summary">"أدخل عنوان لوحة وصف الفيديو بلغتك.
-قد لا يعمل خيار توسيع وصف الفيديو إذا كانت السلسلة المدخلة لا تتطابق مع عنوان لوحة وصف الفيديو."</string>
-    <string name="revanced_expand_video_description_strings_title">العنوان في لوحة وصف الفيديو</string>
     <string name="revanced_expand_video_description_summary_off">لا يتم توسيع أوصاف الفيديو تلقائيًا.</string>
     <string name="revanced_expand_video_description_summary_on">يتم توسيع أوصاف الفيديو تلقائيًا.</string>
     <string name="revanced_expand_video_description_title">توسيع وصف الفيديو</string>
@@ -435,18 +434,26 @@
     <string name="revanced_external_downloader_package_name_playlist_title">اسم حزمة تنزيل قائمة التشغيل</string>
     <string name="revanced_external_downloader_package_name_video_summary">اسم الحزمة لتطبيق التنزيل الخارجي المثبت لديك، مثل NewPipe أو YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">اسم حزمة تنزيل الفيديو</string>
+    <string name="revanced_fullscreen_ads_closed_toast">تم إغلاق الإعلانات على كامل الشاشة.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">قائمة بأسماء قائمة الحسابات المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">تعديل فلتر قائمة الحساب</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"قم بالتصفية إذا كانت النتائج متطابقة.
-
-لإخفاء قائمة <b>الحصول على YouTube Premium</b>، يمكنك فقط استخدام <b>الحصول على YouTube Premium</b> ككلمات رئيسية."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"قم بالتصفية إذا كان يحتوي على.
-
-لإخفاء قائمة <b>الحصول على YouTube Premium</b>، يمكنك استخدام <b>YouTube Premium</b> أو <b>Premium</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">قم بالتصفية إذا تطابقت النتائج.&lt;br&gt;&lt;br&gt;لإخفاء قائمة &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt;، يمكنك فقط استخدام &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt; ككلمات رئيسية.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">قم بالتصفية إذا كان يحتوي على.&lt;br&gt;&lt;br&gt;لإخفاء قائمة &lt;b&gt;\'الحصول على YouTube Premium\'&lt;/b&gt;، يمكنك استخدام &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; أو &lt;b&gt;\'Premium\'&lt;/b&gt; ككلمات رئيسية.</string>
     <string name="revanced_hide_account_menu_filter_type_title">نوع تصفية قائمة الحساب</string>
     <string name="revanced_hide_account_menu_summary">"إخفاء عناصر قائمة الحساب وعلامة التبويب أنت.
 قد لا يتم إخفاء بعض المكونات."</string>
     <string name="revanced_hide_account_menu_title">إخفاء قائمة الحساب</string>
+    <string name="revanced_hide_action_button_index_summary_off">"تم إخفاء أزرار الإجراءات بواسطة مرشح المعرف.
+
+معلومات:
+• يتم إخفاء أزرار الإجراءات اليمنى.
+• يؤدي إخفاء أزرار الإجراءات إلى ترك مساحة فارغة."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"تم إخفاء أزرار الإجراءات بواسطة الفهرس.
+
+معلومات:
+• قد تكون أزرار الإجراءات مخفية بشكل خاطئ، أو قد لا تكون أزرار الإجراءات مخفية.
+• لا يترك إخفاء أزرار الإجراءات أي مساحة فارغة."</string>
+    <string name="revanced_hide_action_button_index_title">إخفاء زر الإجراء حسب الفهرس</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">يتم عرض قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">تم إخفاء قسم ملخص الفيديو الذي تم إنشاؤه بواسطة AI.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">إخفاء قسم ملخص الفيديو المنشئ بواسطة الذكاء الاصطناعي</string>
@@ -575,12 +582,8 @@
     <string name="revanced_hide_feed_captions_button_title">إخفاء زر التَرْجَمَة</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">قائمة بأسماء القائمة المنبثقة المراد تصفيتها، مفصولة بسطور جديدة.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">تصفية القائمة المنبثقة بالموجز</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"قم بالتصفية إذا كانت هناك تطابقات.
-
-لإخفاء قائمة <b>تشغيل التالي في قائمة المحتوى التالي</b>، يمكنك فقط استخدام <b>تشغيل التالي في قائمة المحتوى التالي</b> ككلمات رئيسية."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"قم بالتصفية إذا كان يحتوي على.
-
-لإخفاء قائمة <b>تشغيل التالي في قائمة المحتوى التالي</b>، يمكنك استخدام <b>تشغيل التالي</b> أو <b>في قائمة الانتظار</b> ككلمات رئيسية."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">قم بالتصفية إذا كانت هناك تطابقات.&lt;br&gt;&lt;br&gt;لإخفاء القائمة &lt;b&gt;\'تشغيل التالي في قائمة المحتوى التالي\'&lt;/b&gt;، يمكنك فقط استخدام &lt;b&gt;\'تشغيل التالي في قائمة المحتوى التالي\'&lt;/b&gt; ككلمات رئيسية.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">قم بالتصفية إذا كان يحتوي على.&lt;br&gt;&lt;br&gt;لإخفاء القائمة &lt;b&gt;\'تشغيل التالي في قائمة المحتوى التالي\'&lt;/b&gt;، يمكنك استخدام &lt;b&gt;\'تشغيل التالي\'&lt;/b&gt; أو &lt;b&gt;\'في قائمة المحتوى الرئيسي\'&lt;/b&gt; ككلمات رئيسية.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">نوع تصفية القائمة المنبثقة للموجز</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">تم تعطيل فلتر القائمة المنبثقة بالموجز.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">تم تمكين فلتر القائمة المنبثقة بالموجز.</string>
@@ -1447,7 +1450,7 @@
     <string name="revanced_preference_screen_hook_buttons_title">أزرار الإرتباط</string>
     <string name="revanced_preference_screen_import_export_summary">إستيراد \ تصدير إعدادات RVX.</string>
     <string name="revanced_preference_screen_import_export_title">استيراد / تصدير الإعدادات</string>
-    <string name="revanced_preference_screen_miniplayer_summary">تغيير نمط المشغل المصغر داخل التطبيق.</string>
+    <string name="revanced_preference_screen_miniplayer_summary">إخفاء أو تغيير المكونات المتعلقة بالمشغل المصغر.</string>
     <string name="revanced_preference_screen_miniplayer_title">المشغل المصغر</string>
     <string name="revanced_preference_screen_misc_title">خيارات متنوعة</string>
     <string name="revanced_preference_screen_navigation_bar_summary">إخفاء أو عرض مكونات قسم شريط التنقل.</string>
@@ -1507,6 +1510,7 @@
     <string name="revanced_remember_video_quality_mobile">تغيير جودة بيانات الجوّال الافتراضية إلى %s.</string>
     <string name="revanced_remember_video_quality_none">فشل في تعيين جودة الفيديو.</string>
     <string name="revanced_remember_video_quality_wifi">تغيير جودة Wi-Fi الافتراضية إلى %s.</string>
+    <string name="revanced_remix_button_index_title">فهرس زر ريمكس</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"يزيل مربع حوار تقدير المشاهد. هذا لا يتجاوز القيود العمرية. إنه يقبل ذلك تلقائيًا."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">إزالة مربع حوار تقدير المشاهد</string>
     <string name="revanced_replace_av1_codec_summary">يستبدل برنامج الترميز AV1 ببرنامج الترميز VP9.</string>

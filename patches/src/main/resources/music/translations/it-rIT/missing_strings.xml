@@ -23,10 +23,14 @@ Tap the continue button and allow optimization changes."</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Bypasses the domain that is blocked in some regions so that playlist thumbnails, channel avatars, etc. can be received.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+    <string name="revanced_change_action_bar_position_summary">Moves the action bar below the play button.</string>
+    <string name="revanced_change_action_bar_position_title">Change action bar position</string>
     <string name="revanced_change_miniplayer_color_summary">Changes the miniplayer color to match the fullscreen player.</string>
     <string name="revanced_change_miniplayer_color_title">Change miniplayer color</string>
-    <string name="revanced_change_player_background_color_summary">Changes the player background color to black.</string>
+    <string name="revanced_change_player_background_color_summary">Changes the player background color to custom color.</string>
     <string name="revanced_change_player_background_color_title">Change player background color</string>
+    <string name="revanced_change_seekbar_position_summary">Moves the seekbar below the play button.</string>
+    <string name="revanced_change_seekbar_position_title">Change seekbar position</string>
     <string name="revanced_change_share_sheet_summary">Changes the in-app share sheet to system share sheet.</string>
     <string name="revanced_change_share_sheet_title">Change share sheet</string>
     <string name="revanced_change_start_page_entry_chart">Charts</string>
@@ -49,6 +53,15 @@ Tap the continue button and allow optimization changes."</string>
     <string name="revanced_custom_navigation_bar_color_value_summary">Type the hex code of the navigation bar color.</string>
     <string name="revanced_custom_navigation_bar_color_value_title">Custom navigation bar color value</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds.</string>
+    <string name="revanced_custom_player_background_color_primary_summary">"Type the hex code of the player background primary color.
+
+Use dark colors if possible, as the app does not support light themes."</string>
+    <string name="revanced_custom_player_background_color_primary_title">Player background primary color</string>
+    <string name="revanced_custom_player_background_color_secondary_summary">"Type the hex code of the player background secondary color.
+
+Use dark colors if possible, as the app does not support light themes."</string>
+    <string name="revanced_custom_player_background_color_secondary_title">Player background secondary color</string>
+    <string name="revanced_custom_player_background_invalid_toast">Invalid player background color.</string>
     <string name="revanced_default_app_settings_summary">To open YouTube Music links in RVX Music, enable Open supported links and enable all the Supported web addresses.</string>
     <string name="revanced_default_app_settings_title">Open default app settings</string>
     <string name="revanced_disable_cairo_splash_animation_summary">Disables Cairo splash animation when the app starts up.</string>
@@ -91,6 +104,8 @@ Limitations:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Enable swipe to dismiss miniplayer</string>
+    <string name="revanced_enable_thick_seekbar_summary">Enables the thick seekbar.</string>
+    <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
     <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
 
 Info:
@@ -115,6 +130,7 @@ Info:
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s is not installed.
 Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">Warning</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_hide_action_button_add_to_playlist_summary">Hides the Save button.</string>
@@ -131,6 +147,9 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_action_button_radio_title">Hide Radio button</string>
     <string name="revanced_hide_action_button_share_summary">Hides the Share button.</string>
     <string name="revanced_hide_action_button_share_title">Hide Share button</string>
+    <string name="revanced_hide_action_button_song_video_summary">"Hides the Song / Video button.
+(This button is only available to some users)"</string>
+    <string name="revanced_hide_action_button_song_video_title">Hide Song / Video button</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Hides the Song / Video toggle in the player.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Hide Song / Video toggle</string>
     <string name="revanced_hide_carousel_shelf_title">Hide carousel shelf</string>
@@ -157,6 +176,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Hide Go to podcast menu</string>
     <string name="revanced_hide_flyout_menu_help_title">Hide Help &amp; feedback menu</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Hide Like and Dislike buttons</string>
+    <string name="revanced_hide_flyout_menu_not_interested_title">Hide Not interested menu</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Hide Pin to Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Hide Play next menu</string>
     <string name="revanced_hide_flyout_menu_quality_title">Hide Quality menu</string>
@@ -174,10 +194,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Hides fullscreen ads.
-
-Limitations:
-• Sometimes you may see a blank black screen instead of the home feed."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
@@ -206,6 +223,7 @@ Limitations:
     <string name="revanced_hide_paid_promotion_label_title">Hide paid promotion label</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Hides the playlist card shelf in the feed.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Hide playlist card shelf</string>
+    <string name="revanced_hide_premium_promotion_closed_toast">Premium promotion popups are closed.</string>
     <string name="revanced_hide_premium_promotion_summary">Hides the premium promotion popups.</string>
     <string name="revanced_hide_premium_promotion_title">Hide premium promotion popups</string>
     <string name="revanced_hide_premium_renewal_summary">Hides the premium renewal banner.</string>
