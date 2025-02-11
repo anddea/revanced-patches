@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.printInfo
 import app.revanced.util.copyResources
-import app.revanced.util.inputStreamFromBundledResourceOrThrow
+import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.lowerCaseOrThrow
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
@@ -78,18 +78,25 @@ val shortsActionButtonsPatch = resourcePatch(
             fromResourceArray.forEach { fromFileName ->
                 drawableDirectories.forEach { drawableDirectory ->
                     val fromFile = "$drawableDirectory/$fromFileName.webp"
-                    val fromPath = res.resolve(fromFile).toPath()
+                    val fromFileResolved = res.resolve(fromFile)
                     val toFile = "$drawableDirectory/$toFileName.webp"
-                    val toPath = res.resolve(toFile).toPath()
+                    val toFileResolved = res.resolve(toFile)
                     val inputStreamForLegacy =
-                        inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
-                    val inputStreamForNew =
-                        inputStreamFromBundledResourceOrThrow(sourceResourceDirectory, fromFile)
+                        inputStreamFromBundledResource(sourceResourceDirectory, fromFile)
 
-                    Files.copy(inputStreamForLegacy, fromPath, StandardCopyOption.REPLACE_EXISTING)
+                    // Some directory is missing in the bundles.
+                    if (inputStreamForLegacy != null && fromFileResolved.exists()) {
+                        Files.copy(inputStreamForLegacy, fromFileResolved.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                    }
 
                     if (is_19_36_or_greater) {
-                        Files.copy(inputStreamForNew, toPath, StandardCopyOption.REPLACE_EXISTING)
+                        val inputStreamForNew =
+                            inputStreamFromBundledResource(sourceResourceDirectory, fromFile)
+
+                        // Some directory is missing in the bundles.
+                        if (inputStreamForNew != null && toFileResolved.exists()) {
+                            Files.copy(inputStreamForNew, toFileResolved.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                        }
                     }
                 }
             }

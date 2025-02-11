@@ -297,17 +297,14 @@ fun Node.insertNode(tagName: String, targetNode: Node, block: Element.() -> Unit
 fun ResourcePatchContext.copyResources(
     sourceResourceDirectory: String,
     vararg resources: ResourceGroup,
-    createDirectoryIfNotExist: Boolean = false,
 ) {
     val resourceDirectory = get("res")
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceDirectoryName = resourceGroup.resourceDirectoryName
-            if (createDirectoryIfNotExist) {
-                val targetDirectory = resourceDirectory.resolve(resourceDirectoryName)
-                if (!targetDirectory.isDirectory) Files.createDirectories(targetDirectory.toPath())
-            }
+            val targetDirectory = resourceDirectory.resolve(resourceDirectoryName)
+            if (!targetDirectory.isDirectory) Files.createDirectories(targetDirectory.toPath())
             val resourceFile = "$resourceDirectoryName/$resource"
             inputStreamFromBundledResource(
                 sourceResourceDirectory,
@@ -427,11 +424,14 @@ fun ResourcePatchContext.copyXmlNode(
     resourceDirectory,
     targetResource
 )?.let { inputStream ->
-    // Copy nodes from the resources node to the real resource node
-    elementTag.copyXmlNode(
-        document(inputStream),
-        document("res/$targetResource"),
-    ).close()
+    val outputPath = "res/$targetResource"
+    if (get(outputPath).exists()) {
+        // Copy nodes from the resources node to the real resource node
+        elementTag.copyXmlNode(
+            document(inputStream),
+            document(outputPath),
+        ).close()
+    }
 }
 
 /**
