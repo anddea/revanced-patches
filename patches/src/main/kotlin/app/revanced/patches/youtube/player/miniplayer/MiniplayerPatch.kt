@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.miniplayer
+package app.revanced.patches.youtube.player.miniplayer
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
+import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.MINIPLAYER
 import app.revanced.patches.youtube.utils.playservice.is_19_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
@@ -55,7 +55,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "$GENERAL_PATH/MiniplayerPatch;"
+    "$PLAYER_PATH/MiniplayerPatch;"
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
 @Suppress("unused", "SpellCheckingInspection")
@@ -74,7 +74,8 @@ val miniplayerPatch = bytecodePatch(
     execute {
 
         var settingArray = arrayOf(
-            "PREFERENCE_SCREEN: GENERAL"
+            "PREFERENCE_SCREEN: PLAYER",
+            "SETTINGS: MINIPLAYER_COMPONENTS"
         )
 
         fun Method.findReturnIndicesReversed() =

@@ -1,12 +1,12 @@
-package app.revanced.extension.youtube.patches.general;
+package app.revanced.extension.youtube.patches.player;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DEFAULT;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.DISABLED;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_2;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.extension.youtube.patches.general.MiniplayerPatch.MiniplayerType.MODERN_4;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DEFAULT;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.DISABLED;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_1;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_2;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_3;
+import static app.revanced.extension.youtube.patches.player.MiniplayerPatch.MiniplayerType.MODERN_4;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_20_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_21_OR_GREATER;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.IS_19_26_OR_GREATER;

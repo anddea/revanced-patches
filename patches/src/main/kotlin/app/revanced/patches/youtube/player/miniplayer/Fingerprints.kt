@@ -1,6 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
-package app.revanced.patches.youtube.general.miniplayer
+package app.revanced.patches.youtube.player.miniplayer
 
 import app.revanced.patches.youtube.utils.resourceid.floatyBarTopMargin
 import app.revanced.patches.youtube.utils.resourceid.miniplayerMaxSize
