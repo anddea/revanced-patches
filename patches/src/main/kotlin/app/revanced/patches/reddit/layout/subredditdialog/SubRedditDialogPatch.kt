@@ -10,6 +10,7 @@ import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
 import app.revanced.patches.reddit.utils.settings.is_2024_41_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_01_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_05_or_greater
+import app.revanced.patches.reddit.utils.settings.is_2025_06_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.util.fingerprint.methodOrThrow
@@ -83,19 +84,21 @@ val subRedditDialogPatch = bytecodePatch(
         }
 
         // Not used in latest Reddit client.
-        redditAlertDialogsFingerprint.methodOrThrow().apply {
-            val backgroundTintIndex = indexOfSetBackgroundTintListInstruction(this)
-            val insertIndex =
-                indexOfFirstInstructionOrThrow(backgroundTintIndex) {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "setTextAppearance"
-                }
-            val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+        if (!is_2025_06_or_greater) {
+            redditAlertDialogsFingerprint.methodOrThrow().apply {
+                val backgroundTintIndex = indexOfSetBackgroundTintListInstruction(this)
+                val insertIndex =
+                    indexOfFirstInstructionOrThrow(backgroundTintIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "setTextAppearance"
+                    }
+                val insertRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-            addInstruction(
-                insertIndex,
-                "invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->confirmDialog(Landroid/widget/TextView;)V"
-            )
+                addInstruction(
+                    insertIndex,
+                    "invoke-static {v$insertRegister}, $EXTENSION_CLASS_DESCRIPTOR->confirmDialog(Landroid/widget/TextView;)V"
+                )
+            }
         }
 
         updatePatchStatus(
