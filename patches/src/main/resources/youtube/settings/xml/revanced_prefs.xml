@@ -542,7 +542,6 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category">
                 <SwitchPreference android:title="@string/revanced_disable_video_description_interaction_title" android:key="revanced_disable_video_description_interaction" android:summary="@string/revanced_disable_video_description_interaction_summary" />
                 <SwitchPreference android:title="@string/revanced_expand_video_description_title" android:key="revanced_expand_video_description" android:summaryOn="@string/revanced_expand_video_description_summary_on" android:summaryOff="@string/revanced_expand_video_description_summary_off" />
-                <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_expand_video_description_strings_title" android:key="revanced_expand_video_description_strings" android:summary="@string/revanced_expand_video_description_strings_summary" android:inputType="text" app:searchDependency="revanced_expand_video_description" />
             </PreferenceCategory>SETTINGS: DESCRIPTION_INTERACTION -->
 
         <!-- SETTINGS: DESCRIPTION_COMPONENTS

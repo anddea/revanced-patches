@@ -3,29 +3,9 @@ package app.revanced.patches.youtube.player.descriptions
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val engagementPanelTitleFingerprint = legacyFingerprint(
-    name = "engagementPanelTitleFingerprint",
-    strings = listOf(". "),
-    customFingerprint = { method, _ ->
-        indexOfContentDescriptionInstruction(method) >= 0
-    }
-)
-
-internal val engagementPanelTitleParentFingerprint = legacyFingerprint(
-    name = "engagementPanelTitleParentFingerprint",
-    strings = listOf("[EngagementPanelTitleHeader] Cannot remove action buttons from header as the child count is out of sync. Buttons to remove exceed current header child count.")
-)
-
-internal fun indexOfContentDescriptionInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "setContentDescription"
-    }
 
 /**
  * This fingerprint is compatible with YouTube v18.35.xx~

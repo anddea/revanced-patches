@@ -1,24 +1,30 @@
 package app.revanced.patches.youtube.utils.engagement
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.utils.engagementPanelBuilderFingerprint
+import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-private lateinit var engagementPanelBuilderMethod: MutableMethod
-private lateinit var hideEngagementPanelMethod: MutableMethod
-private var showEngagementPanelMethods = mutableListOf<MutableMethod>()
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "$SHARED_PATH/EngagementPanel;"
+
+internal lateinit var engagementPanelBuilderMethod: MutableMethod
+internal var engagementPanelFreeRegister = 0
+internal var engagementPanelIdIndex = 0
+internal var engagementPanelIdRegister = 0
 
 val engagementPanelHookPatch = bytecodePatch(
     description = "engagementPanelHookPatch"
@@ -26,45 +32,66 @@ val engagementPanelHookPatch = bytecodePatch(
     dependsOn(sharedResourceIdPatch)
 
     execute {
-        engagementPanelBuilderFingerprint.matchOrThrow().let {
-            engagementPanelBuilderMethod = it.method
+        fun Method.setFreeIndex(startIndex: Int) {
+            val startRegister = engagementPanelIdRegister
+            var index = startIndex
+            var register = startRegister
 
-            it.classDef.methods.filter { method ->
-                method.indexOfEngagementPanelBuilderInstruction() >= 0
-            }.forEach { method ->
-                showEngagementPanelMethods.add(method)
+            while (register == startRegister) {
+                index = indexOfFirstInstruction(index + 1, Opcode.IGET_OBJECT)
+                register = getInstruction<TwoRegisterInstruction>(index).registerA
             }
+
+            engagementPanelFreeRegister = register
         }
 
-        hideEngagementPanelMethod =
-            engagementPanelUpdateFingerprint.methodOrThrow(engagementPanelBuilderFingerprint)
-    }
-}
+        val engagementPanelInfoClass = engagementPanelLayoutFingerprint
+            .methodOrThrow()
+            .parameters[0]
+            .toString()
 
-private fun Method.indexOfEngagementPanelBuilderInstruction() =
-    indexOfFirstInstructionReversed {
-        opcode == Opcode.INVOKE_DIRECT &&
-                MethodUtil.methodSignaturesMatch(
-                    engagementPanelBuilderMethod,
-                    getReference<MethodReference>()!!
+        val (engagementPanelIdReference, engagementPanelObjectReference) =
+            with(findMethodOrThrow(engagementPanelInfoClass)) {
+                val engagementPanelIdIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/String;"
+                }
+                val engagementPanelObjectIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type != "Ljava/lang/String;"
+                }
+                Pair(
+                    getInstruction<ReferenceInstruction>(engagementPanelIdIndex).reference.toString(),
+                    getInstruction<ReferenceInstruction>(engagementPanelObjectIndex).reference.toString(),
                 )
-    }
+            }
 
-internal fun hookEngagementPanelState(classDescriptor: String) {
-    showEngagementPanelMethods.forEach { method ->
-        method.apply {
-            val index = indexOfEngagementPanelBuilderInstruction()
-            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+        engagementPanelBuilderFingerprint.methodOrThrow().apply {
+            val insertIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.IGET_OBJECT &&
+                        getReference<FieldReference>()?.toString() == engagementPanelObjectReference
+            }
+            val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+            val classRegister = insertInstruction.registerB
+            engagementPanelIdRegister = insertInstruction.registerA
 
-            addInstruction(
-                index + 2,
-                "invoke-static {v$register}, $classDescriptor->showEngagementPanel(Ljava/lang/Object;)V"
+            setFreeIndex(insertIndex)
+
+            addInstructions(
+                insertIndex, """
+                    iget-object v$engagementPanelIdRegister, v$classRegister, $engagementPanelIdReference
+                    invoke-static {v$engagementPanelIdRegister}, $EXTENSION_CLASS_DESCRIPTOR->setId(Ljava/lang/String;)V
+                    """
             )
+            engagementPanelIdIndex = insertIndex + 1
+            engagementPanelBuilderMethod = this
         }
-    }
 
-    hideEngagementPanelMethod.addInstruction(
-        0,
-        "invoke-static {}, $classDescriptor->hideEngagementPanel()V"
-    )
+        engagementPanelUpdateFingerprint
+            .methodOrThrow(engagementPanelBuilderFingerprint)
+            .addInstruction(
+                0,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hide()V"
+            )
+    }
 }

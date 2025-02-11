@@ -9,6 +9,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.DESCRIPTION_COMPONENTS
@@ -46,6 +47,7 @@ val descriptionComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
+        engagementPanelHookPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
     )
@@ -103,19 +105,6 @@ val descriptionComponentsPatch = bytecodePatch(
                             "$PLAYER_CLASS_DESCRIPTOR->disableVideoDescriptionInteraction(Landroid/widget/TextView;Z)V"
                 )
             }
-
-            engagementPanelTitleFingerprint.methodOrThrow(engagementPanelTitleParentFingerprint)
-                .apply {
-                    val contentDescriptionIndex = indexOfContentDescriptionInstruction(this)
-                    val contentDescriptionRegister =
-                        getInstruction<FiveRegisterInstruction>(contentDescriptionIndex).registerD
-
-                    addInstruction(
-                        contentDescriptionIndex,
-                        "invoke-static {v$contentDescriptionRegister}," +
-                                "$PLAYER_CLASS_DESCRIPTOR->setContentDescription(Ljava/lang/String;)V"
-                    )
-                }
 
             recyclerViewTreeObserverHook("$PLAYER_CLASS_DESCRIPTOR->onVideoDescriptionCreate(Landroid/support/v7/widget/RecyclerView;)V")
 
