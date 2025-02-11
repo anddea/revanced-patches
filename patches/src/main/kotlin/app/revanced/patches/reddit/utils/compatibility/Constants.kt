@@ -8,6 +8,9 @@ internal object Constants {
 
     val COMPATIBLE_PACKAGE: Pair<PackageName, Set<VersionName>?> = Pair(
         REDDIT_PACKAGE_NAME,
-        null
+        setOf(
+            "2024.17.0", // This is the last version that can be patched without anti-split.
+            "2025.05.1", // This is the latest version supported by the RVX patch.
+        )
     )
 }
