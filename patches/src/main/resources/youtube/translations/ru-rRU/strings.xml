@@ -393,11 +393,6 @@
     <string name="revanced_exit_fullscreen_entry_3">Альбомный вид</string>
     <string name="revanced_exit_fullscreen_entry_4">Портретный и альбомный</string>
     <string name="revanced_exit_fullscreen_title">Переход из полноэкранного режима в конце видео</string>
-    <string name="revanced_expand_video_description_strings_default_value">Описание</string>
-    <string name="revanced_expand_video_description_strings_summary">"Введите название на панели описания видео.
-Символы различаются в зависимости от языка.
-«Развернуть описание видео» может не работать, если вы сохраните неверную строку."</string>
-    <string name="revanced_expand_video_description_strings_title">Название в панели описания видео</string>
     <string name="revanced_expand_video_description_summary_off">Описание видео разворачивается вручную.</string>
     <string name="revanced_expand_video_description_summary_on">Описание видео автоматически развернуто.</string>
     <string name="revanced_expand_video_description_title">Развернуть описание видео</string>
@@ -431,20 +426,28 @@
     <string name="revanced_external_downloader_package_name_playlist_title">Внешний загрузчик для плейлиста, название пакета</string>
     <string name="revanced_external_downloader_package_name_video_summary">Например: NewPipe или YTDLnis, или др.</string>
     <string name="revanced_external_downloader_package_name_video_title">Внешний загрузчик для видео, название пакета</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Полноэкранная реклама закрыта.</string>
     <string name="revanced_gms_show_dialog_summary">Показывает диалоговое окно оптимизации для GMSCore при каждом запуске приложения.</string>
     <string name="revanced_gms_show_dialog_title">Показать диалог оптимизации для GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список элементов меню учетной записи для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Фильтр элементов меню аккаунта</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Фильтровать, если совпадают.
-
-Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать только <b>Оформить подписку YouTube Premium</b> в качестве ключевых слов."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Фильтровать, если содержит.
-
-Чтобы скрыть меню <b>Оформить подписку YouTube Premium</b>, можно использовать <b>YouTube Premium</b> или <b>Premium</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Фильтруется, если совпадают.&lt;br&gt;&lt;br&gt;Чтобы скрыть меню &lt;b&gt;\'Оформить подписку YouTube Premium\'&lt;/b&gt;, можете использовать только &lt;b&gt;\'Оформить подписку YouTube Premium\'&lt;/b&gt; как ключевые слова.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Фильтруется, если содержат.&lt;br&gt;&lt;br&gt;Чтобы скрыть меню &lt;b&gt;\'Оформить подписку YouTube Premium\'&lt;/b&gt;, можете использовать &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; или &lt;b&gt;\'Premium\'&lt;/b&gt; как ключевые слова.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Тип фильтра меню аккаунта</string>
     <string name="revanced_hide_account_menu_summary">"Скрыть элементы меню аккаунта и вкладки \"Вы\".
 Некоторые компоненты не могут быть скрыты."</string>
     <string name="revanced_hide_account_menu_title">Скрыть меню аккаунта</string>
+    <string name="revanced_hide_action_button_index_summary_off">"Кнопки действий скрыты фильтром идентификаторов.
+
+Информация:
+• Кнопки действий справа скрыты.
+• Скрытие кнопок действий оставляет пустое место."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Кнопки действий скрыты по индексу.
+
+Информация:
+• Неправильные кнопки действий могут быть скрыты, остальные будут отображаться.
+• Кнопки скрытия действий не оставляют пустого места."</string>
+    <string name="revanced_hide_action_button_index_title">Действия с кнопками по индексу</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Краткое содержание ИИ отображено.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Краткое содержание ИИ скрыто.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Краткое содержание в видео сгенерированное ИИ</string>
@@ -574,12 +577,8 @@ Shorts
     <string name="revanced_hide_feed_captions_button_title">Кнопка \"Субтитры\" в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Список имен всплывающего меню ленты для скрытия.\nРазделять новой строкой.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Фильтр всплывающего меню ленты</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Фильтровать, если совпадают.
-
-Чтобы скрыть меню <b>Воспроизведение следующих в очереди</b>, можно использовать только <b>Воспроизведение следующих в очереди</b> в качестве ключевых слов."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Фильтровать, если содержит.
-
-Чтобы скрыть меню <b>Воспроизвести следующим в очереди</b>, можно использовать <b>Воспроизвести следующим</b> или <b>в очереди</b> в качестве ключевых слов."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Фильтруется, если совпадают.&lt;br&gt;&lt;br&gt;Чтобы скрыть меню &lt;b&gt;\'Воспроизвести следующим в очереди\'&lt;/b&gt;, можете использовать только &lt;b&gt;\'Воспроизвести следующим в очереди\'&lt;/b&gt; как ключевые слова.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Фильтруется, если содержат.&lt;br&gt;&lt;br&gt;Чтобы скрыть меню &lt;b&gt;\'Воспроизвести следующим в очереди\'&lt;/b&gt;, можете использовать &lt;b&gt;\'Воспроизвести следующим\'&lt;/b&gt; или &lt;b&gt;\'в очереди\'&lt;/b&gt; как ключевые слова.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Тип фильтра выдвижного меню в ленте</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Фильтр всплывающего меню ленты отключен.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Фильтр всплывающего меню ленты включен.</string>
@@ -1523,6 +1522,7 @@ Shorts
     <string name="revanced_remember_video_quality_mobile">Качество видео в моб. сети изменено на %s.</string>
     <string name="revanced_remember_video_quality_none">Ошибка установки качества видео.</string>
     <string name="revanced_remember_video_quality_wifi">Качество видео в Wi-Fi сети изменено на %s.</string>
+    <string name="revanced_remix_button_index_title">Индекс кнопки \"Микс\"</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Возрастные ограничения будут приниматься автоматически."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Скрыть диалог возрастного ограничения</string>
     <string name="revanced_replace_av1_codec_summary">Замена программного кодека AV1 на VP9.</string>

@@ -398,11 +398,6 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
     <string name="revanced_exit_fullscreen_entry_3">Orizzontale</string>
     <string name="revanced_exit_fullscreen_entry_4">Verticale e orizzontale</string>
     <string name="revanced_exit_fullscreen_title">Esci da schermo intero alla fine dei video</string>
-    <string name="revanced_expand_video_description_strings_default_value">Descrizione</string>
-    <string name="revanced_expand_video_description_strings_summary">"Inserisci il titolo del pannello della descrizione nella tua lingua.
-
-Nota: l'opzione Espandi Automaticamente potrebbe non funzionare se il titolo inserito non corrisponde al titolo del pannello della descrizione."</string>
-    <string name="revanced_expand_video_description_strings_title">Titolo del pannello</string>
     <string name="revanced_expand_video_description_summary_off">La descrizione dei video non viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_summary_on">La descrizione dei video viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_title">Espandi automaticamente</string>
@@ -436,20 +431,28 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto del downloader esterno delle playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filtra se corrisponde.
-
-Per nascondere il menù <b>Passa a YouTube Premium</b>, puoi usare solo la parola chiave <b>Passa a YouTube Premium</b>."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filtra se contiene.
-
-Per nascondere il menù <b>Passa a YouTube Premium</b>, puoi usare le parole chiave come <b>YouTube Premium</b> o <b>Premium</b>."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filtra se corrisponde.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;, puoi usare solo la parola chiave &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filtra se contiene.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;, puoi usare le parole chiave come &lt;b&gt;YouTube Premium&lt;/b&gt; o &lt;b&gt;Premium&lt;/b&gt;.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Cambia il tipo di filtro dei menù dell\'account</string>
     <string name="revanced_hide_account_menu_summary">"Nascondi i componenti dei menù dell'account e della scheda Tu.
 Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
+    <string name="revanced_hide_action_button_index_summary_off">"I pulsanti di azione sono nascosti in base al filtro identificatore.
+
+Note:
+• I pulsanti a destra sono nascosti.
+• Nascondendoli in questo modo, ci saranno spazi vuoti tra i pulsanti."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"I pulsanti di azione sono nascosti in base all'indice.
+
+Note:
+• I pulsanti sbagliati potrebbero essere nascosti o potrebbero non essere nascosti affatto.
+• Nascondendoli in questo modo, non ci saranno spazi vuoti tra i pulsanti."</string>
+    <string name="revanced_hide_action_button_index_title">Nascondi i pulsanti di azione in base all\'indice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo Video Generato dall\'IA è visibile.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo Video Generato dall\'IA è nascosta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo Video Generato dall\'IA</string>
@@ -578,12 +581,8 @@ Negozio"</string>
     <string name="revanced_hide_feed_captions_button_title">Nascondi il pulsante Sottotitoli</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">L\'elenco dei nomi dei menù a comparsa da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtro dei menù a comparsa</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filtra se corrisponde.
-
-Per nascondere il menù <b>Riproduci come il prossimo in coda</b>, puoi usare solo la parola chiave <b>Riproduci come il prossimo in coda</b>."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filtra se contiene.
-
-Per nascondere il menù <b>Riproduci come il prossimo in coda</b>, puoi usare le parole chiave come <b>Riproduci come</b> o <b>in coda</b>."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtra se corrisponde.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;, puoi usare solo la parola chiave &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtra se contiene.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;, puoi usare le parole chiave come &lt;b&gt;Riproduci come&lt;/b&gt; o &lt;b&gt;in coda&lt;/b&gt;.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Cambia il tipo di filtro dei menù a comparsa</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Il filtro dei menù a comparsa è disattivato.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Il filtro dei menù a comparsa è attivato.</string>
@@ -1514,6 +1513,7 @@ Verrà applicato un codec diverso dopo circa 20 secondi di buffering."</string>
     <string name="revanced_remember_video_quality_mobile">Cambiando la qualità video predefinita con connessione dati a %s</string>
     <string name="revanced_remember_video_quality_none">Impossibile impostare la qualità video</string>
     <string name="revanced_remember_video_quality_wifi">Cambiando la qualità video predefinita con Wi-Fi a %s</string>
+    <string name="revanced_remix_button_index_title">Indice del pulsante Remix</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Rimuove la finestra sulla discrezione dello spettatore.
 Nota: questo non bypassa la restrizione di età, ma la accetta automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Rimuovi la finestra sulla discrezione dello spettatore</string>

@@ -398,10 +398,6 @@ Limitation : Ne fonctionne pas si le lecteur est minimisé, en mode PiP, ou en 
     <string name="revanced_exit_fullscreen_entry_3">Paysage</string>
     <string name="revanced_exit_fullscreen_entry_4">Portrait et paysage</string>
     <string name="revanced_exit_fullscreen_title">Quitter le mode plein écran à la fin de la vidéo</string>
-    <string name="revanced_expand_video_description_strings_default_value">Description</string>
-    <string name="revanced_expand_video_description_strings_summary">"Entrez un titre dans la description de la vidéo dans votre langue.
-L'option 'Ouvrir la description automatiquement' risque de ne pas fonctionner si la valeur du titre ne correspond pas au titre dans la description."</string>
-    <string name="revanced_expand_video_description_strings_title">Titre dans la description de la vidéo</string>
     <string name="revanced_expand_video_description_summary_off">La description s\'ouvre manuellement.</string>
     <string name="revanced_expand_video_description_summary_on">La description s\'ouvre automatiquement.</string>
     <string name="revanced_expand_video_description_title">Ouvrir la description automatiquement</string>
@@ -435,18 +431,26 @@ Veuillez télécharger %2$s à partir du site web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nom du paquet du téléchargeur de la playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nom du paquet de l\'appli de téléchargement externe installée, telle que NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nom du paquet du téléchargeur vidéo</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Les publicités en plein écran sont fermées.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Liste de noms du menu de compte à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtre du menu du compte</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Filtrer les correspondances.
-
-Pour masquer le menu <b>S\'abonner à YouTube Premium</b>, vous pouvez uniquement utiliser <b>S\'abonner à YouTube Premium</b> comme mots-clés."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Filtrer si contient.
-
-Pour masquer le menu <b>S\'abonner à YouTube Premium</b>, vous pouvez utiliser <b>YouTube Premium</b> ou <b>Premium</b> comme mots-clés."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filtrer si correspond.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'S\'\abonner à YouTube Premium\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; comme mots-clés.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'S\'\abonner à YouTube Premium\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; comme mots-clés.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Type de filtre de menu du compte</string>
     <string name="revanced_hide_account_menu_summary">"Masque les éléments du menu du compte et de l'onglet 'Vous'.
 Certains composants peuvent ne pas être masqués."</string>
     <string name="revanced_hide_account_menu_title">Masquer le menu du compte</string>
+    <string name="revanced_hide_action_button_index_summary_off">"Les boutons d'action sont masqués par le filtre d'identification.
+
+Info:
+• Les boutons d'action de droite sont masqués.
+• Le fait de masquer les boutons d'action laisse un espace vide."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Les boutons d'action sont masqués par l'index.
+
+Info :
+• Des boutons d'action incorrects peuvent être masqués, ou des boutons d'action peuvent ne pas être masqués.
+• Le fait de masquer les boutons d'action ne laisse pas d'espace vide."</string>
+    <string name="revanced_hide_action_button_index_title">Masquer le bouton d\'action par index</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section \'Résumé de la vidéo générée par l\'IA\' est affichée.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section \'Résumé de la vidéo générée par l\'IA\' est masquée.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer la section \'Résumé vidéo générée par IA\'</string>
@@ -575,12 +579,8 @@ Boutique"</string>
     <string name="revanced_hide_feed_captions_button_title">Masquer le bouton \'Sous-titres\'</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Liste de menus déroulant à filtrer, séparés par un saut de ligne.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtre du menu déroulant</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Filtrer les correspondances.
-
-Pour masquer le menu <b>Lire ensuite dans la file d\'attente</b>, vous pouvez uniquement utiliser <b>Lire ensuite dans la file d\'attente</b> comme mots-clés."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Filtrer si contient.
-
-Pour masquer le menu <b>Lire ensuite dans la file d\'attente</b>, vous pouvez utiliser <b>Lire ensuite</b> ou <b>dans la file d\'attente</b> comme mots-clés."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtrer si correspond.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'Lire ensuite dans la file d\'\attente\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'dans la file d\'\attente\'&lt;/b&gt; comme mots-clés.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtrer si contient.&lt;br&gt;&lt;br&gt;Pour masquer le menu &lt;b&gt;\'Lire ensuite dans la file d\'\attente\'&lt;/b&gt; vous pouvez uniquement utiliser &lt;b&gt;\'dans la file d\'\attente\'&lt;/b&gt; comme mots-clés.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Type de filtre du menu déroulant dans les flux</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Le filtre du menu déroulant est désactivé.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Le filtre du menu déroulant est activé.</string>
@@ -1501,6 +1501,7 @@ Un codec différent sera appliqué après environ 20 secondes de mise en mémoir
     <string name="revanced_remember_video_quality_mobile">La résolution sur les données mobiles a été modifiée par %s.</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité vidéo.</string>
     <string name="revanced_remember_video_quality_wifi">La résolution sur le Wi-Fi a été modifiée par %s.</string>
+    <string name="revanced_remix_button_index_title">Index du bouton \'Remix\'</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Supprime le message 'Confirmer votre âge'.
 Cela ne contourne pas la restriction d'âge, mais le confirme automatiquement."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Suppr. Message \'Confirmer votre âge\'</string>

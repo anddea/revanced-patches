@@ -226,6 +226,9 @@ Beállítások → Automatikus lejátszás → Következő videó automatikus le
     <string name="revanced_disable_like_dislike_glow_title">Tetszik és nem tetszik gombok ragyogásának letiltása</string>
     <string name="revanced_disable_quic_protocol_summary">"A CronetEngine QUIC protokoll letiltása."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC protokoll letiltása</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">A &lt;b&gt;Folytassa a lejátszást&lt;/b&gt; el fog indulni az alkalmazás indításakor. &lt;br&gt;&lt;br&gt;Infó:&lt;br&gt;• A &lt;b&gt;Folytassa a lejátszást&lt;/b&gt; egy YouTube Prémium funkció.&lt;br&gt;• Ez a beállítás nem erőlteti a &lt;b&gt;Folytassa a lejátszást&lt;/b&gt; engedélyezését.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">A &lt;b&gt;Folytassa a lejátszást&lt;/b&gt; nem fog elindulni az alkalmazás indításakor.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Minilejátszó folytatásának letiltása</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">A Shorts lejátszó újraindul az alkalmazás indításakor.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">A Shorts lejátszó nem indul újra az alkalmazás indításakor.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Shorts lejátszó folytatásának letiltása</string>
@@ -362,7 +365,7 @@ Korlátozások:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A navigációs sáv nem átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">A navigációs sáv átlátszó.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Átlátszó navigációs sáv engedélyezése</string>
-    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">Egyes YouTube-verziókban ez a beállítás átlátszóvá teheti a rendszer navigációs sávját, vagy kép a képben módban az elrendezés széteshet.</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">Egyes YouTube verziókban ez a beállítás átlátszóvá teheti a rendszer navigációs sávját, vagy kép a képben módban az elrendezés széteshet.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">A videólejátszó alatti lefelé húzás esetén a teljes képernyős módra váltás ki van kapcsolva.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">A videólejátszó alatti lefelé húzás esetén a teljes képernyős módra váltás be van kapcsolva.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Nézőpanel bekapcsolása gesztussal</string>
@@ -396,10 +399,6 @@ Korlátozás: Nem működik, ha a lejátszó kicsinyített, PiP módban vagy a h
     <string name="revanced_exit_fullscreen_entry_3">Fekvő mód</string>
     <string name="revanced_exit_fullscreen_entry_4">Álló- és fekvő mód</string>
     <string name="revanced_exit_fullscreen_title">Lépjen ki a teljes képernyős módból a videó végén</string>
-    <string name="revanced_expand_video_description_strings_default_value">Leírás</string>
-    <string name="revanced_expand_video_description_strings_summary">"Írja be a videoleírás panel nevét az Ön nyelvén.
-A videoleírások kibővítése nem működik, ha a beírt név nem egyezik meg a videoleírás panel nevével."</string>
-    <string name="revanced_expand_video_description_strings_title">Cím a videoleírás panelen</string>
     <string name="revanced_expand_video_description_summary_off">A videoleírások nem bővülnek ki automatikusan.</string>
     <string name="revanced_expand_video_description_summary_on">A videoleírások automatikusan kibővülnek.</string>
     <string name="revanced_expand_video_description_title">Videoleírások kibővítése</string>
@@ -433,18 +432,26 @@ Töltsd le a(z) %2$s weboldalról."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Lejátszási lista letöltő csomag neve</string>
     <string name="revanced_external_downloader_package_name_video_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Videó letöltő csomag neve</string>
+    <string name="revanced_fullscreen_ads_closed_toast">A teljes képernyős hirdetések bezárva.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">A fiók menüben szűrendő menüpontok listája, új sorokkal elválasztva.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Fiók menü szűrő</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"Szűrje, ha egyezik.
-
-A <b>YouTube Prémium beszerzése</b> menü elrejtéséhez csak a <b>YouTube Prémium beszerzése</b> lehetőséget használhatja kulcsszóként."</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"Szűrje, ha tartalmazza.
-
-A <b>YouTube Prémium beszerzése</b> menü elrejtéséhez használhatja a <b>YouTube Prémium</b> vagy a <b>Prémium</b> kulcsszót."</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Szűrje, ha egyezik.&lt;br&gt;&lt;br&gt;A &lt;br&gt;YouTube Prémium beszerzése&lt;br&gt; menü elrejtéséhez csak a &lt;b&gt;YouTube Prémium beszerzése&lt;/b&gt; lehetőséget használhatja kulcsszóként.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Szűrje, ha tartalmazza.&lt;br&gt;&lt;br&gt;A &lt;b&gt;YouTube Prémium beszerzése&lt;/b&gt; menü elrejtéséhez használhatja a &lt;b&gt;YouTube Prémium&lt;/b&gt; vagy a &lt;b&gt;Prémium&lt;/b&gt; kulcsszót.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Fiók menü szűrés típusa</string>
     <string name="revanced_hide_account_menu_summary">"Fiókmenü és az Te lap elemeinek elrejtése.
 Előfordulhat, hogy egyes komponensek nincsenek elrejtve."</string>
     <string name="revanced_hide_account_menu_title">Fiókmenü elrejtése</string>
+    <string name="revanced_hide_action_button_index_summary_off">"A műveletgombokat az azonosító szűrő rejti el.
+
+Információ:
+• A megfelelő műveletgombok vannak elrejtve.
+• A műveletgombok elrejtése üres helyet hagy."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"A műveletgombok index alapján vannak elrejtve.
+
+Információ:
+• Előfordulhat, hogy a műveletgombok nincsenek vagy rosszak vannak elrejtve.
+• A műveletgombok elrejtése nem hagy üres helyet."</string>
+    <string name="revanced_hide_action_button_index_title">Műveletgomb elrejtése index alapján</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Az AI generált videó összefoglaló rész látható.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Az AI generált videó összefoglaló rész el van rejtve.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">AI generált videó összefoglaló rész elrejtése</string>
@@ -573,12 +580,8 @@ Lejátszási listák
     <string name="revanced_hide_feed_captions_button_title">Feliratok gomb elrejtése</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Szűrendő lebegő menü neveinek listája, új sorokkal elválasztva.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Hírfolyam lebegő menü szűrő</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"Szűrje, ha egyezik.
-
-A <b>Következő lejátszás a sorban</b> menü elrejtéséhez csak a <b>Következő lejátszás a sorban</b> lehetőséget használhatja kulcsszóként."</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"Szűrje, ha tartalmazza.
-
-A <b>Következő lejátszás a sorban</b> menü elrejtéséhez használhatja a <b>Következő lejátszás</b> vagy <b>a sorban</b> kulcsszót."</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Szűrje, ha egyezik.&lt;br&gt;&lt;br&gt;A &lt;b&gt;\'Következő a lejátszási sorban\'&lt;/b&gt; menü elrejtéséhez csak a &lt;b&gt;\'Következő a lejátszási sorban\'&lt;/b&gt;lehetőséget használhatja kulcsszóként.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Szűrje, ha tartalmazza.&lt;br&gt;&lt;br&gt;A &lt;b&gt;Következő a lejátszási sorban&lt;/b&gt; menü elrejtéséhez használhatja a &lt;b&gt;Következő a&lt;/b&gt; vagy &lt;b&gt;lejátszási sorban&lt;/b&gt; kulcsszót.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Hírfolyam előugró menü szűrés típusa</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">A hírfolyam lebegő menü szűrő ki van kapcsolva.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">A hírfolyam lebegő menü szűrő engedélyezve van.</string>
@@ -1503,6 +1506,7 @@ Egy másik kodek kerül alkalmazásra kb. 20 másodperc pufferezés után."</str
     <string name="revanced_remember_video_quality_mobile">Az alapértelmezett videó minőség mobil hálózaton: %s.</string>
     <string name="revanced_remember_video_quality_none">Nem sikerült beállítani a videóminőséget.</string>
     <string name="revanced_remember_video_quality_wifi">Az alapértelmezett videó minőség Wi-Fi hálózaton: %s.</string>
+    <string name="revanced_remix_button_index_title">Gomb index megkeverése</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Eltávolítja a nézői belátás párbeszédpanelt.
 Ez nem kerüli meg a korhatárt. Csak automatikusan fogadja el."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Távolítsa el a nézői diszkréciós párbeszédpanelt</string>

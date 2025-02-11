@@ -14,8 +14,20 @@
     <string name="gms_core_settings_summary">Включите \"Облачные уведомления\" для получения уведомлений.</string>
     <string name="gms_core_settings_title">Открыть GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore не установлен. Установите его.</string>
+    <string name="revanced_add_miniplayer_next_button_summary">Добавляет кнопку следующего трека в миниплеер.</string>
+    <string name="revanced_add_miniplayer_next_button_title">Добавить кнопку следующее в миниплеер</string>
+    <string name="revanced_add_miniplayer_previous_button_summary">Добавляет кнопку предыдущего трека в миниплеер.</string>
+    <string name="revanced_add_miniplayer_previous_button_title">Добавить кнопку предыдущее в миниплеер</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Заменяет заблокированный в некоторых регионах домен, чтобы можно было получать миниатюры плейлистов, аватары каналов и т. д.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Обойти ограничения изображений по региону</string>
+    <string name="revanced_change_action_bar_position_summary">Перемещает панель действий под кнопку воспроизведения.</string>
+    <string name="revanced_change_action_bar_position_title">Изменить положение панели действий</string>
+    <string name="revanced_change_miniplayer_color_summary">Меняет цвет миниплеера на цвет полноэкранного плеера.</string>
+    <string name="revanced_change_miniplayer_color_title">Изменить цвет миниплеера</string>
+    <string name="revanced_change_player_background_color_summary">Меняет цвет фона плеера на пользовательский.</string>
+    <string name="revanced_change_player_background_color_title">Изменить цвет фона плеера</string>
+    <string name="revanced_change_seekbar_position_summary">Перемещает панель прогресса под кнопку воспроизведения.</string>
+    <string name="revanced_change_seekbar_position_title">Изменить положение панели прогресса</string>
     <string name="revanced_change_share_sheet_summary">Меняет тип диалогового окна \"Поделиться\" из встроенного на системное.</string>
     <string name="revanced_change_share_sheet_title">Изменить окно \"Поделиться\"</string>
     <string name="revanced_change_start_page_entry_chart">Хит-парады</string>
@@ -45,6 +57,15 @@
     <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения. Используются значения по умолчанию.</string>
     <string name="revanced_custom_playback_speeds_summary">Настройте доступные скорости воспроизведения.</string>
     <string name="revanced_custom_playback_speeds_title">Изменить скорости</string>
+    <string name="revanced_custom_player_background_color_primary_summary">"Введите hex код основного цвета фона плеера.
+
+По возможности используйте темные цвета, поскольку программа не поддерживает светлые темы."</string>
+    <string name="revanced_custom_player_background_color_primary_title">Основной цвет фона плеера</string>
+    <string name="revanced_custom_player_background_color_secondary_summary">"Введите hex код дополнительного цвета фона плеера.
+
+По возможности используйте темные цвета, поскольку программа не поддерживает светлые темы."</string>
+    <string name="revanced_custom_player_background_color_secondary_title">Дополнительный цвет фона плеера</string>
+    <string name="revanced_custom_player_background_invalid_toast">Недопустимый цвет фона плеера.</string>
     <string name="revanced_default_app_settings_summary">Чтобы открыть ссылку на YouTube Music в RVX Music, включите \"Открывать поддерживаемые ссылки\" и включите поддерживаемые веб-адреса.</string>
     <string name="revanced_default_app_settings_title">Открыть настройки по умолчанию</string>
     <string name="revanced_disable_auto_captions_summary">Отключает автоматическое включение субтитров.</string>
@@ -55,6 +76,8 @@
     <string name="revanced_disable_dislike_redirection_title">Отключить переключение при \"Не нравится\"</string>
     <string name="revanced_disable_drc_audio_summary">Выключает DRC (сжатие динамического диапазона), применяемого к аудио.</string>
     <string name="revanced_disable_drc_audio_title">Отключить DRC аудио</string>
+    <string name="revanced_disable_miniplayer_gesture_summary">Отключает жесты переключения треков в миниплеере.</string>
+    <string name="revanced_disable_miniplayer_gesture_title">Отключить жесты миниплеера</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Нажмите на переключатель Аудио/Видео</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Нажмите и удерживайте переключатель Аудио/Видео</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Перенаправление</string>
@@ -80,6 +103,8 @@
     <string name="revanced_enable_debug_buffer_logging_title">Ведение журналов отладки буфера</string>
     <string name="revanced_enable_debug_logging_summary">Выводит журнал отладки.</string>
     <string name="revanced_enable_debug_logging_title">Ведение журнала отладки</string>
+    <string name="revanced_enable_forced_miniplayer_summary">Включает миниплеер на постоянной основе при переходе на новый трек.</string>
+    <string name="revanced_enable_forced_miniplayer_title">Включить миниплеер на постоянной основе</string>
     <string name="revanced_enable_landscape_mode_summary">Включает альбомный режим при повороте экрана на телефонах.</string>
     <string name="revanced_enable_landscape_mode_title">Альбомный режим</string>
     <string name="revanced_enable_mini_player_next_button_summary">Включает кнопку следующего трека в миниплеере.</string>
@@ -94,6 +119,10 @@
     <string name="revanced_enable_opus_codec_title">Кодек Opus</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Включает жест вниз для скрытия миниплеера.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Включить жест скрытия миниплеера</string>
+    <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Включает жест вниз для закрытия миниплеера.</string>
+    <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Включить жест закрытия миниплеера</string>
+    <string name="revanced_enable_thick_seekbar_summary">Включает толстую панель прогресса.</string>
+    <string name="revanced_enable_thick_seekbar_title">Включить толстую панель прогресса</string>
     <string name="revanced_enable_trim_silence_summary">"Включает переключатель \"Обрезать тишину\" во всплывающем меню скорости воспроизведения.
 
 Информация:
@@ -133,6 +162,7 @@
     <string name="revanced_external_downloader_not_installed_warning">%s не установлен. Пожалуйста, установите его.</string>
     <string name="revanced_external_downloader_package_name_summary">Имя пакета вашего установленного внешнего загрузчика. Например, NewPipe или YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Имя пакета внешнего загрузчика</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Полноэкранная реклама закрыта.</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Скрывает пустой пункт в меню аккаунта.</string>
     <string name="revanced_hide_account_menu_empty_component_title">Скрыть пустые пункты</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Список имен меню аккаунта для фильтрации, разделяемых новой строкой.</string>
@@ -153,6 +183,9 @@
     <string name="revanced_hide_action_button_radio_title">Скрыть кнопку \"Включить радиостанцию\"</string>
     <string name="revanced_hide_action_button_share_summary">Скрывает кнопку \"Поделиться\".</string>
     <string name="revanced_hide_action_button_share_title">Скрыть кнопку \"Поделиться\"</string>
+    <string name="revanced_hide_action_button_song_video_summary">"Скрывает кнопку Песня/Видео.
+(Эта кнопка доступна только некоторым пользователям)"</string>
+    <string name="revanced_hide_action_button_song_video_title">Скрыть кнопку Песня / Видео</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Скрывает переключатель \"аудио/видео\" в плеере.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Скрыть переключатель \"аудио/видео\"</string>
     <string name="revanced_hide_button_shelf_summary">Скрывает ряд кнопок с главной страницы и со вкладки \"Навигатор\".</string>
@@ -184,6 +217,7 @@
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Скрыть пункт \"Перейти к подкасту\"</string>
     <string name="revanced_hide_flyout_menu_help_title">Скрыть пункт \"Справка и отзывы\"</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Скрыть кнопки \"Нравится\" и \"Не нравится\"</string>
+    <string name="revanced_hide_flyout_menu_not_interested_title">Скрыть меню \"Не интересует\"</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Скрыть \"Закрепить в быстром выборе\"</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Скрыть пункт \"Включить следующим\"</string>
     <string name="revanced_hide_flyout_menu_quality_title">Скрыть пункт \"Качество\"</string>
@@ -201,7 +235,7 @@
     <string name="revanced_hide_flyout_menu_subscribe_title">Скрыть пункт \"Подписаться / Отменить подписку\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Скрыть \"Открепить из быстрого выбора\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Скрыть пункт \"Участники и создатели\"</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Скрывает полноэкранную рекламу."</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Скрывает полноэкранную рекламу.</string>
     <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Скрывает кнопку \"Поделиться\" в полноэкранном проигрывателе.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Скрыть кнопку \"Поделиться\" в полноэкранном режиме</string>
@@ -233,6 +267,7 @@
     <string name="revanced_hide_paid_promotion_label_title">Скрыть \"Содержит прямую рекламу\"</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Скрывает полку с заставкой плейлиста в ленте.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Скрыть полку с заставкой плейлиста</string>
+    <string name="revanced_hide_premium_promotion_closed_toast">Всплывающие окна покупки премиума закрыты.</string>
     <string name="revanced_hide_premium_promotion_summary">Скрывает всплывающую рекламу Premium.</string>
     <string name="revanced_hide_premium_promotion_title">Скрыть всплывающую рекламу Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Скрывает баннер продления Premium.</string>
@@ -254,6 +289,8 @@
     <string name="revanced_hide_settings_menu_summary">"Скрывает элементы меню настроек.
 При этом скрывается не только меню настроек YT Music, но и меню настроек ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Скрыть меню настроек</string>
+    <string name="revanced_hide_song_video_toggle_summary">Скрывает переключатель \"песня | видео\" в плеере.</string>
+    <string name="revanced_hide_song_video_toggle_title">Скрыть переключатель \"песня | видео\"</string>
     <string name="revanced_hide_sound_search_button_summary">Скрывает кнопку поиска звука в строке поиска.</string>
     <string name="revanced_hide_sound_search_button_title">Скрыть кнопку поиска звука</string>
     <string name="revanced_hide_tap_to_update_button_summary">Скрывает кнопку \"Обновить\".</string>

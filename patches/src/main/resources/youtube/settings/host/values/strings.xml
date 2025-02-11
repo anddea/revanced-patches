@@ -229,6 +229,9 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_disable_like_dislike_glow_title">Disable Like and Dislike button glow</string>
     <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
     <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
@@ -399,10 +402,6 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
     <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
     <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
-    <string name="revanced_expand_video_description_strings_default_value">Description</string>
-    <string name="revanced_expand_video_description_strings_summary">"Enter the title of the video description panel in your language.
-The Expand video description option may not work if the entered string does not match the video description panel title."</string>
-    <string name="revanced_expand_video_description_strings_title">Title in video description panel</string>
     <string name="revanced_expand_video_description_summary_off">Video descriptions are not expanded automatically.</string>
     <string name="revanced_expand_video_description_summary_on">Video descriptions are expanded automatically.</string>
     <string name="revanced_expand_video_description_title">Expand video descriptions</string>
@@ -438,6 +437,7 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
@@ -445,8 +445,8 @@ Please download %2$s from the website."</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">List of account menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Account menu filter</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
     <string name="revanced_hide_account_menu_summary">"Hide elements of the account menu and You tab.
 Some components may not be hidden."</string>
@@ -590,8 +590,8 @@ Store"</string>
     <string name="revanced_hide_feed_captions_button_title">Hide Captions button</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">List of flyout menu names to filter, separated by new lines.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.\n\nTo hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter is disabled.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter is enabled.</string>
@@ -1302,7 +1302,7 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
 
-• Double tap to increase miniplayer size.
+• Double tap to increase Miniplayer size.
 • Double tap again to restore original size."</string>
     <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled.</string>
@@ -1462,7 +1462,7 @@ Tap and hold to open whitelist setting dialog.</string>
     <string name="revanced_preference_screen_hook_buttons_title">Hook buttons</string>
     <string name="revanced_preference_screen_import_export_summary">Import / Export RVX settings.</string>
     <string name="revanced_preference_screen_import_export_title">Import / Export settings</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Change the style of the in-app minimized player.</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Hide or change components related to Miniplayer.</string>
     <string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
     <string name="revanced_preference_screen_misc_title">Miscellaneous</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Hide or show navigation bar section components.</string>

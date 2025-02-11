@@ -75,7 +75,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_change_layout_entry_4">タブレット</string>
     <string name="revanced_change_layout_entry_5">タブレット(最小 600 dp)</string>
     <string name="revanced_change_layout_title">レイアウトを変更</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">現在の設定: 「ライブ」状態のアイコンをタップすると、チャンネルが開きます。\n\n注意: 「通常のプレーヤーでショートを再生」設定を有効にしている場合、ショートのライブ配信を通常のプレーヤーで開くとチャンネルは開きません。</string>
+    <string name="revanced_change_live_ring_click_action_summary_off">現在の設定: 「ライブ」状態のアイコンをタップすると、ライブ配信が開きます。\n\n注意: 「通常のプレーヤーでショートを再生」設定を有効にしている場合、ショートのライブ配信を通常のプレーヤーで開くとチャンネルは開きません。</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"現在の設定: 「ライブ」状態のアイコンをタップすると、チャンネルが開きます。
 
 注意: 「通常のプレーヤーでショートを再生」設定を有効にしている場合、ショートのライブ配信を通常のプレーヤーで開くとチャンネルは開きません。"</string>
@@ -135,7 +135,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_change_youtube_header_summary_off">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_summary_on">左上のヘッダーを「Premium」に変更します。</string>
     <string name="revanced_change_youtube_header_title">YouTube ヘッダーを変更</string>
-    <string name="revanced_custom_filter_strings_summary">フィルタリングするコンポーネントパスビルダーの文字列を並べたリスト。（改行区切り）</string>
+    <string name="revanced_custom_filter_strings_summary">フィルタリングするコンポーネントパスビルダーの文字列を並べたリストを改行で区切ってフィルタリングできます。</string>
     <string name="revanced_custom_filter_strings_title">カスタムフィルター</string>
     <string name="revanced_custom_filter_summary_off">カスタムフィルターを有効化します。</string>
     <string name="revanced_custom_filter_summary_on">カスタムフィルターを有効化します。</string>
@@ -182,10 +182,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_disable_auto_player_popup_panels_summary_off">再生リストとライブチャットのパネルが自動で開くのを無効化します。</string>
     <string name="revanced_disable_auto_player_popup_panels_summary_on">再生リストとライブチャットのパネルが自動で開くのを無効化します。</string>
     <string name="revanced_disable_auto_player_popup_panels_title">プレーヤーのポップアップパネルを無効化</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"自動再生がオフの場合、音楽を再生した際にミックスプレイリストへの自動切り替えを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 再生 → 次の動画を自動再生」"</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動再生がオフの場合、音楽を再生した際に自動的にミックスプレイリストに切り替わるのを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスプレイリストの自動切り替えを無効化</string>
-    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">自動再生がオフの場合、音楽を再生した際にミックスプレイリストへの自動切り替えを無効化できます。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_off">"自動再生がオンの状態で音楽を再生すると自動的にミックスリストに切り替わるのを無効化します。"</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_summary_on">自動再生がオンの状態で音楽を再生すると自動的にミックスリストに切り替わるのを無効化します。</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_title">ミックスリストの自動切り替えを無効化</string>
+    <string name="revanced_disable_auto_switch_mix_playlists_user_dialog_message">この機能を有効にすることにより、自動再生がオンの状態で音楽を再生するとミックスリストへの自動切り替えが無効になります。\n\n自動再生は YouTube の設定で変更できます: 「設定 → 自動再生 → 次の動画を自動再生」</string>
     <string name="revanced_disable_default_playback_speed_live_summary_off">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
     <string name="revanced_disable_default_playback_speed_live_summary_on">ライブ配信ではデフォルトに設定された再生速度を無効化します。</string>
     <string name="revanced_disable_default_playback_speed_live_title">ライブ配信でデフォルトの再生速度を無効化</string>
@@ -305,8 +305,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_gradient_loading_screen_summary_off">アプリ起動時や動画の読み込み画面などでグラデーションを有効化します。</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">アプリ起動時や動画の読み込み画面などでグラデーションを有効化します。</string>
     <string name="revanced_enable_gradient_loading_screen_title">グラデーションの読み込み画面を有効化</string>
-    <string name="revanced_enable_narrow_navigation_buttons_summary_off">ナビゲーション ボタンの間隔を狭くします。</string>
-    <string name="revanced_enable_narrow_navigation_buttons_summary_on">ナビゲーション ボタンの間隔は狭くなります。</string>
+    <string name="revanced_enable_narrow_navigation_buttons_summary_off">ナビゲーションボタンの間隔を狭くします。</string>
+    <string name="revanced_enable_narrow_navigation_buttons_summary_on">ナビゲーションボタンの間隔を狭くします。</string>
     <string name="revanced_enable_narrow_navigation_buttons_title">幅の狭いナビゲーションボタンを有効化</string>
     <string name="revanced_enable_opus_codec_summary">プレーヤーの応答に OPUS コーデックが含まれている場合、OPUS コーデックを有効にします。</string>
     <string name="revanced_enable_opus_codec_title">OPUS コーデックを有効化</string>
@@ -401,10 +401,6 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_exit_fullscreen_entry_3">横向きの動画のみ</string>
     <string name="revanced_exit_fullscreen_entry_4">縦向きの動画と横向きの動画</string>
     <string name="revanced_exit_fullscreen_title">動画終了時に全画面表示を終了</string>
-    <string name="revanced_expand_video_description_strings_default_value">概要</string>
-    <string name="revanced_expand_video_description_strings_summary">"動画の概要欄パネルのタイトルを入力してください。
-概要欄パネルのタイトルは各言語によって異なるため不正確な文字列を保存した場合、「概要欄の自動展開」が機能しないことがあります。"</string>
-    <string name="revanced_expand_video_description_strings_title">動画の概要欄を自動で開く</string>
     <string name="revanced_expand_video_description_summary_off">概要欄を自動で展開します。</string>
     <string name="revanced_expand_video_description_summary_on">概要欄を自動で展開します。</string>
     <string name="revanced_expand_video_description_title">概要欄を自動で展開</string>
@@ -440,20 +436,28 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_external_downloader_package_name_video_long_press_title">長押し時の外部ダウンローダのパッケージ名</string>
     <string name="revanced_external_downloader_package_name_video_summary">NewPipe や YTDLnis などの、インストールされている外部ダウンローダーアプリのパッケージ名です。</string>
     <string name="revanced_external_downloader_package_name_video_title">外部ダウンローダーのパッケージ名</string>
+    <string name="revanced_fullscreen_ads_closed_toast">全画面広告を閉じました。</string>
     <string name="revanced_gms_show_dialog_summary">アプリの起動時に、GMSCore の最適化ダイアログを表示します。</string>
     <string name="revanced_gms_show_dialog_title">GMSCore の最適化ダイアログを表示</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">フィルタリングするアカウントメニュー名のリスト。（改行区切り）</string>
     <string name="revanced_hide_account_menu_filter_strings_title">アカウントメニューフィルター</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_off">"現在の設定: 設定したキーワードが完全に一致した場合にメニューを非表示にします。
-
-例えば、「YouTube Premium に登録」メニューを非表示にしたい場合、「YouTube Premium に登録」のみをキーワードとして使用できます。"</string>
-    <string name="revanced_hide_account_menu_filter_type_summary_on">"現在の設定: 設定したキーワードが部分的に一致した場合にメニューを非表示にします。
-
-例えば、「YouTube Premium に登録」メニューを非表示にしたい場合、「YouTube Premium」や「Premium に登録」などをキーワードとして使用できます。"</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">現在の設定: 設定したキーワードが完全に一致した場合にメニューを非表示にします。&lt;br&gt;&lt;br&gt;例えば、&lt;b&gt;「YouTube Premium に登録」&lt;/b&gt;メニューを非表示にしたい場合、&lt;b&gt;「YouTube Premium に登録」&lt;/b&gt;のみをキーワードとして使用できます。</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">現在の設定: 設定したキーワードが部分的に一致した場合にメニューを非表示にします。&lt;br&gt;&lt;br&gt;例えば、&lt;b&gt;「YouTube Premium に登録」&lt;/b&gt;メニューを非表示にしたい場合、&lt;b&gt;「YouTube Premium」&lt;/b&gt;や&lt;b&gt;「Premium に登録」&lt;/b&gt;などをキーワードとして使用できます。</string>
     <string name="revanced_hide_account_menu_filter_type_title">アカウントメニューのフィルタリングの種類を選択</string>
     <string name="revanced_hide_account_menu_summary">"アカウントメニューとマイページタブの要素を非表示にします。
 一部のコンポーネントは非表示にならない可能性があります。"</string>
     <string name="revanced_hide_account_menu_title">アカウントメニューを非表示</string>
+    <string name="revanced_hide_action_button_index_summary_off">"アクションボタンを識別子フィルターで非表示にします。
+
+注意:
+・右側のアクションボタンは非表示になります。
+・アクションボタンを非表示にすると、空きスペースが残ります。"</string>
+    <string name="revanced_hide_action_button_index_summary_on">"アクションボタンをインデックスで非表示にします。
+
+注意: 
+・間違ったアクションボタンが非表示になったり、アクションボタンが非表示にならない可能性があります。
+・アクションボタンを非表示にすると空きスペースがなくなります。"</string>
+    <string name="revanced_hide_action_button_index_title">インデックスでアクションボタンを非表示</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">概要欄にある「AI による動画の要約」欄を非表示にします。</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">概要欄にある「AI による動画の要約」欄を非表示にします。</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">AI 生成の要約欄を非表示</string>
@@ -582,12 +586,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_feed_captions_button_title">字幕ボタンを非表示</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">フィルタリングするフライアウトメニューの項目名をリストしてください 。(改行区切り)</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">フィードのフライアウトメニューのフィルタ</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">"現在の設定: 設定したキーワードが完全に一致した場合にメニューを非表示にします。
-
-例えば、「キューの最初に追加」メニューを非表示にしたい場合、「キューの最初に追加」のみをキーワードとして使用できます。"</string>
-    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">"現在の設定: 設定したキーワードが部分的に一致した場合にメニューを非表示にします。
-
-例えば、「キューの最初に追加」メニューを非表示にしたい場合、「キュー」や「追加」などをキーワードとして使用できます。"</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">現在の設定: 設定したキーワードが完全に一致した場合にメニューを非表示にします。&lt;br&gt;&lt;br&gt;例えば、&lt;b&gt;「キューの最初に追加」&lt;/b&gt;メニューを非表示にしたい場合、&lt;b&gt;「キューの最初に追加」&lt;/b&gt;のみをキーワードとして使用できます。</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">現在の設定: 設定したキーワードが部分的に一致した場合にメニューを非表示にします。&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;「キューの最初に追加」&lt;br&gt;メニューを非表示にしたい場合、&lt;b&gt;「キュー」&lt;/b&gt;や&lt;b&gt;「追加」&lt;/b&gt;などをキーワードとして使用できます。</string>
     <string name="revanced_hide_feed_flyout_menu_filter_type_title">フィードのフライアウトメニューのフィルタの種類</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">フィードのフライアアウトメニューのフィルタを有効化します。</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">フィードのフライアアウトメニューのフィルタを有効化します。</string>
@@ -646,10 +646,10 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_key_concepts_section_summary_off">概要欄下部に表示されるキーコンセプトセクションを非表示にします。</string>
     <string name="revanced_hide_key_concepts_section_summary_on">概要欄下部に表示されるキーコンセプトセクションを非表示にします。</string>
     <string name="revanced_hide_key_concepts_section_title">キーコンセプトセクションを非表示</string>
-    <string name="revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果 は、キーワードやフレーズに一致するコンテンツを非表示にするようにフィルタリングされます。
+    <string name="revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果から、キーワードフレーズに一致するコンテンツが非表示になるようにフィルタリングします。
 
 注意:
-・一部のショート動画は非表示にならない場合があります。
+・ショートはチャンネル名で非表示にすることはできません。
 ・一部の UI コンポーネントは非表示にならない場合があります。
 ・キーワードで検索しても結果が表示されない場合があります。"</string>
     <string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
@@ -706,9 +706,9 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_hide_merchandise_shelf_summary_off">フィードに表示される商品広告を非表示にします。</string>
     <string name="revanced_hide_merchandise_shelf_summary_on">フィードに表示される商品広告を非表示にします。</string>
     <string name="revanced_hide_merchandise_shelf_title">商品欄を非表示</string>
-    <string name="revanced_hide_mix_playlists_summary_off">ミックスプレイリストを非表示にします。</string>
-    <string name="revanced_hide_mix_playlists_summary_on">ミックスプレイリストを非表示にします。</string>
-    <string name="revanced_hide_mix_playlists_title">ミックスプレイリストを非表示</string>
+    <string name="revanced_hide_mix_playlists_summary_off">ミックスリストを非表示にします。</string>
+    <string name="revanced_hide_mix_playlists_summary_on">ミックスリストを非表示にします。</string>
+    <string name="revanced_hide_mix_playlists_title">ミックスリストを非表示</string>
     <string name="revanced_hide_movie_shelf_summary_off">有料の映画、テレビ番組を非表示にします。</string>
     <string name="revanced_hide_movie_shelf_summary_on">有料の映画、テレビ番組を非表示にします。</string>
     <string name="revanced_hide_movie_shelf_title">映画欄を非表示</string>
@@ -1484,7 +1484,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_screen_swipe_controls_title">スワイプコントロール</string>
     <string name="revanced_preference_screen_toolbar_summary">ツールバーのボタン、検索バー、ヘッダーなどのツールバーにあるコンポーネントを非表示または変更できます。</string>
     <string name="revanced_preference_screen_toolbar_title">ツールバー</string>
-    <string name="revanced_preference_screen_video_description_summary">概要欄のコンポーネントを非表示または表示</string>
+    <string name="revanced_preference_screen_video_description_summary">概要欄のコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_video_description_title">概要欄</string>
     <string name="revanced_preference_screen_video_filter_summary">キーワードや再生回数で動画をフィルタリングします。</string>
     <string name="revanced_preference_screen_video_filter_title">動画フィルター</string>
@@ -1515,6 +1515,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_remember_video_quality_mobile">モバイルネットワーク使用時のデフォルト画質を %s に変更しました。</string>
     <string name="revanced_remember_video_quality_none">画質を設定できませんでした。</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi 使用時のデフォルト画質を %s に変更しました。</string>
+    <string name="revanced_remix_button_index_title">リミックスボタンのインデックス</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"年齢制限ダイアログを削除します。 
 
 注意: 年齢制限を回避することはできませんが、自動的に同意します。"</string>

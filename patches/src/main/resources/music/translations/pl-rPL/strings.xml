@@ -17,8 +17,20 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="gms_core_settings_summary">Aby otrzymywać powiadomienia w RVX Music, włącz Cloud Messaging.</string>
     <string name="gms_core_settings_title">Otwórz ustawienia GmsCore</string>
     <string name="gms_core_toast_not_installed_message">GmsCore nie jest zainstalowany. Zainstaluj go.</string>
+    <string name="revanced_add_miniplayer_next_button_summary">Dodaje przycisk do następnego utworu w miniodtwarzaczu.</string>
+    <string name="revanced_add_miniplayer_next_button_title">Dodaj przycisk do następnego utworu w miniodtwarzaczu</string>
+    <string name="revanced_add_miniplayer_previous_button_summary">Dodaje przycisk do poprzedniego utworu w miniodtwarzaczu.</string>
+    <string name="revanced_add_miniplayer_previous_button_title">Dodaj przycisk do poprzedniego utworu w miniodtwarzaczu</string>
     <string name="revanced_bypass_image_region_restrictions_summary">Zastępuje domenę, która jest blokowana w niektórych regionach, aby można było otrzymywać miniaturki playlist, awatary kanałów itp.</string>
     <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu dla obrazów</string>
+    <string name="revanced_change_action_bar_position_summary">Przenosi pasek akcji pod przycisk odtwarzania.</string>
+    <string name="revanced_change_action_bar_position_title">Zmień pozycję paska akcji</string>
+    <string name="revanced_change_miniplayer_color_summary">Zmienia kolor miniodtwarzacza na pasujący do odtwarzacza pełnoekranowego.</string>
+    <string name="revanced_change_miniplayer_color_title">Zmień kolor miniodtwarzacza</string>
+    <string name="revanced_change_player_background_color_summary">Zmienia kolor tła odtwarzacza na własny.</string>
+    <string name="revanced_change_player_background_color_title">Zmień kolor tła odtwarzacza</string>
+    <string name="revanced_change_seekbar_position_summary">Przenosi pasek postępu utworu pod przycisk odtwarzania.</string>
+    <string name="revanced_change_seekbar_position_title">Zmień pozycję paska postępu utworu</string>
     <string name="revanced_change_share_sheet_summary">Zmienia wygląd panelu udostępniania z natywnego aplikacji na systemowy.</string>
     <string name="revanced_change_share_sheet_title">Zmień wygląd panelu udostępniania</string>
     <string name="revanced_change_start_page_entry_chart">Listy przebojów</string>
@@ -48,6 +60,15 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe niestandardowe prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_summary">Skonfiguruj dostępne prędkości odtwarzania.</string>
     <string name="revanced_custom_playback_speeds_title">Edytuj niestandardowe prędkości odtwarzania</string>
+    <string name="revanced_custom_player_background_color_primary_summary">"Wpisz kod hex pierwszorzędnego koloru tła odtwarzacza.
+
+Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasnych motywów."</string>
+    <string name="revanced_custom_player_background_color_primary_title">Kolor pierwszorzędny</string>
+    <string name="revanced_custom_player_background_color_secondary_summary">"Wpisz kod hex drugorzędnego koloru tła odtwarzacza.
+
+Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasnych motywów."</string>
+    <string name="revanced_custom_player_background_color_secondary_title">Kolor drugorzędny</string>
+    <string name="revanced_custom_player_background_invalid_toast">Nieprawidłowy kolor tła odtwarzacza.</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube Music w RVX Music, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX Music.</string>
     <string name="revanced_default_app_settings_title">Otwórz systemowe ustawienia aplikacji</string>
     <string name="revanced_disable_auto_captions_summary">Wyłącza automatycznie włączane napisy w odtwarzaczu filmów.</string>
@@ -58,8 +79,10 @@ Stuknij przycisk kontynuacji i zezwól na zmiany w optymalizacji."</string>
     <string name="revanced_disable_dislike_redirection_title">Wyłącz pomijanie nielubianych piosenek</string>
     <string name="revanced_disable_drc_audio_summary">Wyłącza DRC (Dynamic Range Compression) stosowane w utworach.</string>
     <string name="revanced_disable_drc_audio_title">Wyłącz audio DRC</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Kliknij przełącznik utwór-teledysk</string>
-    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Kliknij i przytrzymaj przełącznik utwór-teledysk</string>
+    <string name="revanced_disable_miniplayer_gesture_summary">Wyłącza gest przesunięcia, aby zmienić utwór.</string>
+    <string name="revanced_disable_miniplayer_gesture_title">Wyłącz gest miniodtwarzacza</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Kliknij przełącznik utwór/teledysk</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Kliknij i przytrzymaj przełącznik utwór/teledysk</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Przekieruj</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">Określa, w jaki sposób przekierowuje do oficjalnego utworu</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Typ przekierowania</string>
@@ -83,6 +106,8 @@ Ograniczenia:
     <string name="revanced_enable_debug_buffer_logging_title">Logi do debugowania buforu</string>
     <string name="revanced_enable_debug_logging_summary">Wyświetla log od debugowania.</string>
     <string name="revanced_enable_debug_logging_title">Włącz logowanie debugowania</string>
+    <string name="revanced_enable_forced_miniplayer_summary">Zostawia odtwarzacz zminimalizowany, nawet jeśli zostanie odtworzony inny utwór.</string>
+    <string name="revanced_enable_forced_miniplayer_title">Włącz wymuszenie miniodtwarzacza</string>
     <string name="revanced_enable_landscape_mode_summary">Pozwala wejść w tryb pełnoekranowy poprzez obrót ekranu telefonu.</string>
     <string name="revanced_enable_landscape_mode_title">Włącz tryb pełnoekranowy</string>
     <string name="revanced_enable_mini_player_next_button_summary">Dodaje przycisk do następnej piosenki w miniodtwarzaczu.</string>
@@ -97,6 +122,10 @@ Informacje:
     <string name="revanced_enable_opus_codec_title">Włącz kodek OPUS</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_summary">Włącza przesuwanie w dół do zamykania miniodtwarzacza.</string>
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Włącz przesuwanie do zamykania miniodtwarzacza</string>
+    <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Włącza przesunięcie, by zamknąć miniodtwarzacz.</string>
+    <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Włącz przesunięcie, by zamknąć miniodtwarzacz</string>
+    <string name="revanced_enable_thick_seekbar_summary">Włącza pogrubiony pasek postępu utworu.</string>
+    <string name="revanced_enable_thick_seekbar_title">Włącz pogrubiony pasek postępu utworu</string>
     <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk pomijania ciszy do menu od prędkości odtwarzania.
 
 Informacje:
@@ -136,6 +165,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Zainstaluj go.</string>
     <string name="revanced_external_downloader_package_name_summary">Nazwa pakietu zainstalowanej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_title">Nazwa pakietu aplikacji od pobierania</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Zamknięto pełnoekranowe reklamy</string>
     <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
     <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
     <string name="revanced_hide_account_menu_empty_component_summary">Ukrywa puste komponenty w menu konta.</string>
@@ -158,6 +188,9 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_action_button_radio_title">Ukryj przycisk radia</string>
     <string name="revanced_hide_action_button_share_summary">Ukrywa przycisk udostępniania.</string>
     <string name="revanced_hide_action_button_share_title">Ukryj przycisk udostępniania</string>
+    <string name="revanced_hide_action_button_song_video_summary">"Ukrywa przycisk utwór/teledysk.
+(Ten przycisk jest jedynie dostępny u niektórych użytkowników)"</string>
+    <string name="revanced_hide_action_button_song_video_title">Ukryj przycisk utwór/teledysk</string>
     <string name="revanced_hide_audio_video_switch_toggle_summary">Ukrywa przełącznik utwór-teledysk w odtwarzaczu.</string>
     <string name="revanced_hide_audio_video_switch_toggle_title">Ukryj przełącznik utwór-teledysk</string>
     <string name="revanced_hide_button_shelf_summary">Ukrywa półkę z przyciskami na stronie głównej.</string>
@@ -189,6 +222,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_go_to_podcast_title">Ukryj menu od przechodzenia do podcastu</string>
     <string name="revanced_hide_flyout_menu_help_title">Ukryj menu do pomocy i opinii</string>
     <string name="revanced_hide_flyout_menu_like_dislike_title">Ukryj przyciski łapki w górę i dół</string>
+    <string name="revanced_hide_flyout_menu_not_interested_title">Ukryj menu od niezainteresowania</string>
     <string name="revanced_hide_flyout_menu_pin_to_speed_dial_title">Ukryj przypinanie do menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_play_next_title">Ukryj menu od odtwarzania jako następny</string>
     <string name="revanced_hide_flyout_menu_quality_title">Ukryj menu od jakości</string>
@@ -206,10 +240,7 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / odsubskrybowywania</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ukryj odpinanie z menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu do autorów utworu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">"Ukrywa reklamy pełnoekranowe.
-
-Ograniczenie:
-• Czasem może pojawić się pusty, czarny ekran zamiast strony głównej"</string>
+    <string name="revanced_hide_fullscreen_ads_summary">Ukrywa pełnoekranowe reklamy.</string>
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ukrywa przycisk udostępniania w trybie pełnoekranowym.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>
@@ -241,6 +272,7 @@ Ograniczenie:
     <string name="revanced_hide_paid_promotion_label_title">Ukryj etykiety oznaczające płatne promocje</string>
     <string name="revanced_hide_playlist_card_shelf_summary">Ukrywa półkę z rekomendowanymi playlistami na stronie głównej.</string>
     <string name="revanced_hide_playlist_card_shelf_title">Ukryj półki z rekomendowanymi playlistami</string>
+    <string name="revanced_hide_premium_promotion_closed_toast">Zamknięto wyskakujące okienka promocyjne Premium.</string>
     <string name="revanced_hide_premium_promotion_summary">Ukrywa wyskakujące okienka promocyjne Premium.</string>
     <string name="revanced_hide_premium_promotion_title">Ukryj wyskakujące okienka promocyjne Premium</string>
     <string name="revanced_hide_premium_renewal_summary">Ukrywa baner odnawiania Premium.</string>
@@ -262,6 +294,8 @@ Ograniczenie:
     <string name="revanced_hide_settings_menu_summary">"Ukrywa elementy menu ustawień.
 Działa nie tylko na elementy menu ustawień YT Music, lecz także ReVanced Extended."</string>
     <string name="revanced_hide_settings_menu_title">Ukryj menu ustawień</string>
+    <string name="revanced_hide_song_video_toggle_summary">Ukrywa przełącznik utwór/teledysk w odtwarzaczu.</string>
+    <string name="revanced_hide_song_video_toggle_title">Ukryj przełącznik utwór/teledysk</string>
     <string name="revanced_hide_sound_search_button_summary">Ukrywa przycisk od rozpoznawania piosenek w pasku wyszukiwania.</string>
     <string name="revanced_hide_sound_search_button_title">Ukryj przycisk od rozpoznawania piosenek</string>
     <string name="revanced_hide_tap_to_update_button_summary">Ukrywa przycisk \'Stuknij, aby zaktualizować\'.</string>

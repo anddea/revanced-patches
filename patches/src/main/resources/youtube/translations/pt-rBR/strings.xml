@@ -389,11 +389,6 @@ Limitação: não funciona se o reprodutor estiver minimizado, no modo PiP ou em
     <string name="revanced_exit_fullscreen_entry_3">Paisagem</string>
     <string name="revanced_exit_fullscreen_entry_4">Retrato e paisagem</string>
     <string name="revanced_exit_fullscreen_title">Sair do modo de tela cheia ao final do vídeo</string>
-    <string name="revanced_expand_video_description_strings_default_value">Descrição</string>
-    <string name="revanced_expand_video_description_strings_summary">"Insira um título no painel de descrição do vídeo.
-Estes caracteres variam dependendo do seu idioma.
-'Expandir descrição do vídeo' pode não funcionar se você salvar uma string incorreta."</string>
-    <string name="revanced_expand_video_description_strings_title">Título no painel de descrição do vídeo</string>
     <string name="revanced_expand_video_description_summary_off">A descrição do vídeo é expandida manualmente.</string>
     <string name="revanced_expand_video_description_summary_on">A descrição do vídeo é expandida automaticamente.</string>
     <string name="revanced_expand_video_description_title">Expandir descrição do vídeo</string>
@@ -427,12 +422,24 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome do pacote do aplicativo de download de playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nome do pacote do seu aplicativo de download externo instalado, como NewPipe ou YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome do pacote do aplicativo de download de vídeo</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Os anúncios em tela cheia são fechados.</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">Lista de nomes do menu de conta a serem filtrados separados por uma nova linha.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Filtro do menu da conta</string>
     <string name="revanced_hide_account_menu_filter_type_title">Tipo de filtro do menu Conta</string>
     <string name="revanced_hide_account_menu_summary">"Ocultar elementos do menu de contas e aba Você
 Alguns componentes podem não ser ocultos"</string>
     <string name="revanced_hide_account_menu_title">Ocultar menu de contas</string>
+    <string name="revanced_hide_action_button_index_summary_off">"Os botões de ação são ocultos pelo filtro de identificação.
+
+Informação:
+• Botões de ação à direita estão ocultos.
+• Ocultar botões de ação deixa espaço vazio."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Os botões de ação são ocultos pelo índice.
+
+Informação:
+• Botões de ação errados podem ser ocultados, ou os botões de ação não podem ser ocultados.
+• Ocultar botões de ação não deixam espaço vazio."</string>
+    <string name="revanced_hide_action_button_index_title">Ocultar o botão de ação por índice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">A seção de resumo de vídeo gerado por IA será exibida.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">A seção de resumo de vídeo gerado por IA está oculta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Ocultar a seção de resumo de vídeo gerado por IA</string>
@@ -1482,6 +1489,7 @@ Após cerca de 20 segundos de buffer, muda para um codec diferente."</string>
     <string name="revanced_remember_video_quality_mobile">Alterando a qualidade padrão de dados móveis para %s.</string>
     <string name="revanced_remember_video_quality_none">Falha ao definir a qualidade de vídeo.</string>
     <string name="revanced_remember_video_quality_wifi">Alterando a qualidade padrão do Wi-Fi para %s.</string>
+    <string name="revanced_remix_button_index_title">Índice do botão remix</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Remover o diálogo discricionário de visualização.
 Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Remover o diálogo discricionário do visualizador</string>
