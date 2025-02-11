@@ -1,3 +1,31 @@
+# [3.4.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.7...v3.4.0-dev.8) (2025-02-11)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Shorts action buttons:** Exception is thrown when patching with Revancify ([fedf389](https://github.com/anddea/revanced-patches/commit/fedf389f642611193a6ecfe9e76071eca23a46d5))
+* **YouTube - Hide ads:** New types of ads are shown ([a70684c](https://github.com/anddea/revanced-patches/commit/a70684caade3f66c92f4a758a074ead930769238))
+* **YouTube - Remove background playback restriction:** Play/Pause button not working in PiP mode (Unpatched YouTube bug) ([2c3bf75](https://github.com/anddea/revanced-patches/commit/2c3bf759bd5bbb66eb0852a28b6ace13e8efcb6d))
+* **YouTube - Shorts components:** When `Shorts repeat state` is `Autoplay`, HUD is hidden (YouTube 19.34+) ([c773a42](https://github.com/anddea/revanced-patches/commit/c773a42e24a608f9486a53ef1ccb6fd287f5e1a4))
+* **YouTube Music - Flyout menu components:** `Hide Download menu` setting does not work ([d5b1ebe](https://github.com/anddea/revanced-patches/commit/d5b1ebef8046cd11e021184da7c28ad5ead0b906))
+* **YouTube Music - Flyout menu components:** Flyout menu does not close when `Watch on YouTube` is clicked ([8cc0627](https://github.com/anddea/revanced-patches/commit/8cc06272382e23fb8cbe8b34c7f44a1fa3b82329))
+* **YouTube Music - Hide ads:** New type of `Premium promotion popups` are shown ([9f3b068](https://github.com/anddea/revanced-patches/commit/9f3b068e6593a6df17740b717beb774166c60919))
+* **YouTube Music - Hide ads:** The `Hide fullscreen ads` setting does not fully hide fullscreen ads ([821e89e](https://github.com/anddea/revanced-patches/commit/821e89e41f58a44bb2e587e9d67ba125aee1c41f))
+* **YouTube Music - Hide ads:** When the fullscreen ad is shown more than twice, the dialog does not close ([3356691](https://github.com/anddea/revanced-patches/commit/335669187fe62d70a8bb8270fc6119a8371daa43))
+* **YouTube Music - Spoof client:** Some users have a playback issue even if `Spoof client` is turned on (A/B testing) ([25273cb](https://github.com/anddea/revanced-patches/commit/25273cb98f33544a4109d96c3e4f04f265cf839a))
+* **YouTube Music - Spoof client:** When the default client is `Android Music`, playback speed menu does not open ([bd4a2ec](https://github.com/anddea/revanced-patches/commit/bd4a2ec0fc8f072bda98735254bcf0be3e62e508))
+
+
+### Features
+
+* **Reddit:** Restrict support version to `2025.05.1` ([f0fe391](https://github.com/anddea/revanced-patches/commit/f0fe39198b13246c57ee467c9d990535510569cf))
+* **YouTube Music - Flyout menu components:** Add `Hide Not interested menu` setting ([17793e5](https://github.com/anddea/revanced-patches/commit/17793e51d8f82ddf884ef165fd9c487af446db28))
+* **YouTube Music - Hide action bar components:** Add `Hide Song / Video button` setting (YouTube Music 7.33.51+) ([34d5631](https://github.com/anddea/revanced-patches/commit/34d56314c03a29e9de2e2c988bf5163ab0a19abf))
+* **YouTube Music - Hide action bar components:** Add support for `Override Download action button` setting & add `Change action bar position` setting (YouTube Music 7.25.53+) ([6c36d97](https://github.com/anddea/revanced-patches/commit/6c36d97ac7e060d3746188685977c92574c1bf04))
+* **YouTube Music - Player components:** Add `Change seekbar position` and `Enable thick seekbar` settings (YouTube Music 7.29.51+) ([f8a3a95](https://github.com/anddea/revanced-patches/commit/f8a3a95a10bb549202453a386d9c46a2c073aa2d))
+* **YouTube Music - Player components:** Add `Player background primary color` and `Player background secondary color` settings ([37131e0](https://github.com/anddea/revanced-patches/commit/37131e091ecabec6acbb1a2098566dfd8faa65f0))
+* **YouTube:** Add `Disable resuming Miniplayer on startup` patch ([69b67a0](https://github.com/anddea/revanced-patches/commit/69b67a0b2b71cd819a9f5d86e2b39f1546189a9c))
+
 # [3.4.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.6...v3.4.0-dev.7) (2025-02-09)
 
 
