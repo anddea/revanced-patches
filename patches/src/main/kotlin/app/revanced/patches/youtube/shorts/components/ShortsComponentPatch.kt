@@ -393,7 +393,10 @@ private val shortsRepeatPatch = bytecodePatch(
     description = "shortsRepeatPatch"
 ) {
     execute {
-        dependsOn(mainActivityResolvePatch)
+        dependsOn(
+            mainActivityResolvePatch,
+            versionCheckPatch,
+        )
 
         injectOnCreateMethodCall(
             EXTENSION_REPEAT_STATE_CLASS_DESCRIPTOR,
@@ -461,6 +464,13 @@ private val shortsRepeatPatch = bytecodePatch(
                         }
                 }
             }
+        }
+
+        if (is_19_34_or_greater) {
+            shortsHUDFeatureFingerprint.injectLiteralInstructionBooleanCall(
+                SHORTS_HUD_FEATURE_FLAG,
+                "0x0"
+            )
         }
     }
 }
