@@ -71,6 +71,19 @@ internal val reelEnumStaticFingerprint = legacyFingerprint(
     returnType = "L"
 )
 
+internal const val SHORTS_HUD_FEATURE_FLAG = 45644023L
+
+/**
+ * Fix [HUD is hidden](https://github.com/ReVanced/revanced-patches/issues/4426)
+ */
+internal val shortsHUDFeatureFingerprint = legacyFingerprint(
+    name = "shortsHUDFeatureFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(SHORTS_HUD_FEATURE_FLAG),
+)
+
 internal val reelFeedbackFingerprint = legacyFingerprint(
     name = "reelFeedbackFingerprint",
     returnType = "V",
