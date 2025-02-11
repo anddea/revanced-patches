@@ -33,6 +33,7 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: Action Bar
+    public static final BooleanSetting CHANGE_ACTION_BAR_POSITION = new BooleanSetting("revanced_change_action_bar_position", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_LIKE_DISLIKE = new BooleanSetting("revanced_hide_action_button_like_dislike", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_COMMENT = new BooleanSetting("revanced_hide_action_button_comment", FALSE, true);
     public static final BooleanSetting HIDE_ACTION_BUTTON_ADD_TO_PLAYLIST = new BooleanSetting("revanced_hide_action_button_add_to_playlist", FALSE, true);

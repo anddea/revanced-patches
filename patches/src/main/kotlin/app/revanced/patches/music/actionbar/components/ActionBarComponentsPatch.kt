@@ -24,6 +24,9 @@ import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.videoInformationPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.shared.textcomponent.hookSpannableString
+import app.revanced.patches.shared.textcomponent.textComponentPatch
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -51,6 +54,7 @@ val actionBarComponentsPatch = bytecodePatch(
         settingsPatch,
         lithoFilterPatch,
         sharedResourceIdPatch,
+        textComponentPatch,
         videoInformationPatch,
         versionCheckPatch,
     )
@@ -58,6 +62,36 @@ val actionBarComponentsPatch = bytecodePatch(
     execute {
         if (is_7_17_or_greater) {
             addLithoFilter(FILTER_CLASS_DESCRIPTOR)
+            hookSpannableString(ACTIONBAR_CLASS_DESCRIPTOR, "onLithoTextLoaded")
+
+            commandResolverFingerprint.methodOrThrow().addInstruction(
+                0,
+                "invoke-static {p2}, $ACTIONBAR_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/util/Map;)Z"
+            )
+
+            offlineVideoEndpointFingerprint.methodOrThrow().addInstructionsWithLabels(
+                0, """
+                    invoke-static {p2}, $ACTIONBAR_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/util/Map;)Z
+                    move-result v0
+                    if-eqz v0, :ignore
+                    return-void
+                    :ignore
+                    nop
+                    """
+            )
+
+            if (is_7_25_or_greater) {
+                actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                    ACTION_BAR_POSITION_FEATURE_FLAG,
+                    "$ACTIONBAR_CLASS_DESCRIPTOR->changeActionBarPosition(Z)Z"
+                )
+
+                addSwitchPreference(
+                    CategoryType.ACTION_BAR,
+                    "revanced_change_action_bar_position",
+                    "false"
+                )
+            }
         }
 
         if (!is_7_25_or_greater) {
@@ -182,12 +216,12 @@ val actionBarComponentsPatch = bytecodePatch(
         )
         addSwitchPreference(
             CategoryType.ACTION_BAR,
-            "revanced_hide_action_button_share",
+            "revanced_hide_action_button_radio",
             "false"
         )
         addSwitchPreference(
             CategoryType.ACTION_BAR,
-            "revanced_hide_action_button_radio",
+            "revanced_hide_action_button_share",
             "false"
         )
         if (is_7_33_or_greater) {
@@ -203,17 +237,17 @@ val actionBarComponentsPatch = bytecodePatch(
                 "revanced_hide_action_button_label",
                 "false"
             )
-            addSwitchPreference(
-                CategoryType.ACTION_BAR,
-                "revanced_external_downloader_action",
-                "false"
-            )
-            addPreferenceWithIntent(
-                CategoryType.ACTION_BAR,
-                "revanced_external_downloader_package_name",
-                "revanced_external_downloader_action"
-            )
         }
+        addSwitchPreference(
+            CategoryType.ACTION_BAR,
+            "revanced_external_downloader_action",
+            "false"
+        )
+        addPreferenceWithIntent(
+            CategoryType.ACTION_BAR,
+            "revanced_external_downloader_package_name",
+            "revanced_external_downloader_action"
+        )
 
         updatePatchStatus(HIDE_ACTION_BAR_COMPONENTS)
 
