@@ -8,7 +8,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.ads.baseAdsPatch
 import app.revanced.patches.shared.ads.hookLithoFullscreenAds
 import app.revanced.patches.shared.ads.hookNonLithoFullscreenAds
-import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
@@ -22,7 +21,6 @@ import app.revanced.patches.youtube.utils.resourceid.interstitialsContainer
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.findMethodOrThrow
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -150,13 +148,6 @@ val adsPatch = bytecodePatch(
         }
 
         // endregion
-
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "HideFullscreenAdsDefaultBoolean"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
 
         // region add settings
 

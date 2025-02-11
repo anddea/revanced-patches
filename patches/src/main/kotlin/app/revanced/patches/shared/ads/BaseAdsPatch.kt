@@ -16,6 +16,7 @@ import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -91,17 +92,32 @@ internal fun MutableMethod.hookNonLithoFullscreenAds(literal: Long) {
 
 internal fun Match.hookLithoFullscreenAds() {
     method.apply {
+        // It is ideal to check the dialog type and protobuffer before closing the dialog.
+        // There is no register that can be used freely, so it is divided into two hooking.
+        val showDialogIndex = indexOfFirstInstructionOrThrow {
+            getReference<MethodReference>()?.name == "show"
+        }
+        val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
+
+        addInstruction(
+            showDialogIndex + 1,
+            "invoke-static {v$dialogRegister}, $EXTENSION_CLASS_DESCRIPTOR->dismissDialog(Ljava/lang/Object;)V"
+        )
+
+        // Dialog type should be checked first.
         val dialogCodeIndex = patternMatch!!.endIndex
         val dialogCodeField =
             getInstruction<ReferenceInstruction>(dialogCodeIndex).reference as FieldReference
-        if (dialogCodeField.type != "I")
+        if (dialogCodeField.type != "I") {
             throw PatchException("Invalid dialogCodeField: $dialogCodeField")
+        }
 
         var prependInstructions = """
             move-object/from16 v0, p1
             move-object/from16 v1, p2
             """
 
+        // Used only in very old versions.
         if (parameterTypes.firstOrNull() != "[B") {
             val toByteArrayReference = getInstruction<ReferenceInstruction>(
                 indexOfFirstInstructionOrThrow {
@@ -116,15 +132,12 @@ internal fun Match.hookLithoFullscreenAds() {
         }
 
         // Disable fullscreen ads
-        addInstructionsWithLabels(
+        addInstructions(
             0, prependInstructions + """
                 check-cast v1, ${dialogCodeField.definingClass}
                 iget v1, v1, $dialogCodeField
-                invoke-static {v0, v1}, $EXTENSION_CLASS_DESCRIPTOR->disableFullscreenAds([BI)Z
-                move-result v1
-                if-eqz v1, :show
-                return-void
-                """, ExternalLabel("show", getInstruction(0))
+                invoke-static {v0, v1}, $EXTENSION_CLASS_DESCRIPTOR->checkDialog([BI)V
+                """
         )
     }
 }
