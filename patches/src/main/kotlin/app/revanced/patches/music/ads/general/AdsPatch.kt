@@ -174,10 +174,12 @@ val adsPatch = bytecodePatch(
 
         addLithoFilter(ADS_FILTER_CLASS_DESCRIPTOR)
 
+        // endregion
+
         addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads",
-            "false"
+            "true"
         )
         addSwitchPreference(
             CategoryType.ADS,

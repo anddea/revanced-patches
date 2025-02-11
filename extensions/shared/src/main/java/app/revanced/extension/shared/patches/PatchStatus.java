@@ -2,10 +2,6 @@ package app.revanced.extension.shared.patches;
 
 @SuppressWarnings("unused")
 public class PatchStatus {
-    public static boolean HideFullscreenAdsDefaultBoolean() {
-        return false;
-    }
-
     public static boolean SpoofClient() {
         // Replace this with true If the Spoof client patch succeeds in YouTube Music.
         return false;
