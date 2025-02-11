@@ -97,6 +97,11 @@ val backgroundPlaybackPatch = bytecodePatch(
                     }
                 }
             }
+
+            pipInputConsumerFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                PIP_INPUT_CONSUMER_FEATURE_FLAG,
+                "0x0"
+            )
         }
 
         // Force allowing background play for videos labeled for kids.
