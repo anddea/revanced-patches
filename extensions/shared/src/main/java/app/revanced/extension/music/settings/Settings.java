@@ -161,16 +161,16 @@ public class Settings extends BaseSettings {
 
 
     // PreferenceScreen: Settings menu
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PARENT_TOOLS = new BooleanSetting("revanced_hide_settings_menu_parent_tools", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_GENERAL = new BooleanSetting("revanced_hide_settings_menu_general", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PLAYBACK = new BooleanSetting("revanced_hide_settings_menu_playback", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_DATA_SAVING = new BooleanSetting("revanced_hide_settings_menu_data_saving", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_DOWNLOADS_AND_STORAGE = new BooleanSetting("revanced_hide_settings_menu_downloads_and_storage", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_NOTIFICATIONS = new BooleanSetting("revanced_hide_settings_menu_notification", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PRIVACY_AND_LOCATION = new BooleanSetting("revanced_hide_settings_menu_privacy_and_location", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_RECOMMENDATIONS = new BooleanSetting("revanced_hide_settings_menu_recommendations", FALSE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_PAID_MEMBERSHIPS = new BooleanSetting("revanced_hide_settings_menu_paid_memberships", TRUE, true);
-    public static final BooleanSetting HIDE_SETTINGS_MENU_ABOUT = new BooleanSetting("revanced_hide_settings_menu_about", FALSE, true);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_PARENT_TOOLS = new BooleanSetting("revanced_hide_settings_menu_parent_tools", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_GENERAL = new BooleanSetting("revanced_hide_settings_menu_general", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_PLAYBACK = new BooleanSetting("revanced_hide_settings_menu_playback", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_DATA_SAVING = new BooleanSetting("revanced_hide_settings_menu_data_saving", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_DOWNLOADS_AND_STORAGE = new BooleanSetting("revanced_hide_settings_menu_downloads_and_storage", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_NOTIFICATIONS = new BooleanSetting("revanced_hide_settings_menu_notification", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_PRIVACY_AND_LOCATION = new BooleanSetting("revanced_hide_settings_menu_privacy_and_location", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_RECOMMENDATIONS = new BooleanSetting("revanced_hide_settings_menu_recommendations", FALSE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_PAID_MEMBERSHIPS = new BooleanSetting("revanced_hide_settings_menu_paid_memberships", TRUE);
+    public static final BooleanSetting HIDE_SETTINGS_MENU_ABOUT = new BooleanSetting("revanced_hide_settings_menu_about", FALSE);
 
 
     // PreferenceScreen: Video

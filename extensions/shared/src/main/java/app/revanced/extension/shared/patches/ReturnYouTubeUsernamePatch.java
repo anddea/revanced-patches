@@ -14,12 +14,14 @@ import app.revanced.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")
 public class ReturnYouTubeUsernamePatch {
-    private static final boolean RETURN_YOUTUBE_USERNAME_ENABLED = BaseSettings.RETURN_YOUTUBE_USERNAME_ENABLED.get();
-    private static final Boolean RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT = BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.get().userNameFirst;
-    private static final String YOUTUBE_API_KEY = BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.get();
+    private static final String YOUTUBE_API_KEY =
+            BaseSettings.RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.get();
+    private static final boolean RETURN_YOUTUBE_USERNAME_ENABLED =
+            BaseSettings.RETURN_YOUTUBE_USERNAME_ENABLED.get() && !YOUTUBE_API_KEY.isEmpty();
+    private static final Boolean RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT =
+            BaseSettings.RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.get().userNameFirst;
 
     private static final String AUTHOR_BADGE_PATH = "|author_badge.eml|";
-    private static volatile String lastFetchedHandle = "";
 
     /**
      * Injection point.
@@ -51,18 +53,12 @@ public class ReturnYouTubeUsernamePatch {
             if (!RETURN_YOUTUBE_USERNAME_ENABLED) {
                 return original;
             }
-            if (YOUTUBE_API_KEY.isEmpty()) {
-                Logger.printDebug(() -> "API key is empty");
-                return original;
-            }
             // In comments, the path to YouTube Handle(@youtube) always includes [AUTHOR_BADGE_PATH].
             if (!conversionContext.toString().contains(AUTHOR_BADGE_PATH)) {
                 return original;
             }
             String handle = original.toString();
-            if (fetchNeeded && !handle.equals(lastFetchedHandle)) {
-                lastFetchedHandle = handle;
-                // Get the original username using YouTube Data API v3.
+            if (fetchNeeded) {
                 ChannelRequest.fetchRequestIfNeeded(handle, YOUTUBE_API_KEY, RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT);
                 return original;
             }
@@ -77,9 +73,7 @@ public class ReturnYouTubeUsernamePatch {
                 Logger.printDebug(() -> "ChannelRequest Stream is null, handle:" + handle);
                 return original;
             }
-            final CharSequence copiedSpannableString = copySpannableString(original, userName);
-            Logger.printDebug(() -> "Replaced: '" + original + "' with: '" + copiedSpannableString + "'");
-            return copiedSpannableString;
+            return copySpannableString(original, userName);
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
         }
