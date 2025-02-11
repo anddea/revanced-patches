@@ -22,9 +22,34 @@ internal val actionBarComponentFingerprint = legacyFingerprint(
     literals = listOf(99180L),
 )
 
+internal const val ACTION_BAR_POSITION_FEATURE_FLAG = 45658717L
+
+internal val actionBarPositionFeatureFlagFingerprint = legacyFingerprint(
+    name = "actionBarPositionFeatureFlagFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(ACTION_BAR_POSITION_FEATURE_FLAG)
+)
+
 internal val likeDislikeContainerFingerprint = legacyFingerprint(
     name = "likeDislikeContainerFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     literals = listOf(likeDislikeContainer)
+)
+
+internal val commandResolverFingerprint = legacyFingerprint(
+    name = "commandResolverFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = listOf("L", "L", "Ljava/util/Map;"),
+    strings = listOf("CommandResolver threw exception during resolution")
+)
+
+internal val offlineVideoEndpointFingerprint = legacyFingerprint(
+    name = "offlineVideoEndpointFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    strings = listOf("Object is not an offlineable video: %s")
 )
