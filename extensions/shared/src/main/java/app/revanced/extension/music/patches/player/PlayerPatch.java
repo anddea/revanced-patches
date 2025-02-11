@@ -29,10 +29,14 @@ public class PlayerPatch {
             Settings.ADD_MINIPLAYER_PREVIOUS_BUTTON.get();
     private static final boolean CHANGE_PLAYER_BACKGROUND_COLOR =
             Settings.CHANGE_PLAYER_BACKGROUND_COLOR.get();
+    private static final boolean CHANGE_SEEK_BAR_POSITION =
+            Settings.CHANGE_SEEK_BAR_POSITION.get();
     private static final boolean DISABLE_PLAYER_GESTURE =
             Settings.DISABLE_PLAYER_GESTURE.get();
     private static final boolean ENABLE_SWIPE_TO_DISMISS_MINIPLAYER =
             Settings.ENABLE_SWIPE_TO_DISMISS_MINIPLAYER.get();
+    private static final boolean ENABLE_THICK_SEEKBAR =
+            Settings.ENABLE_THICK_SEEKBAR.get();
     private static final boolean ENABLE_ZEN_MODE =
             Settings.ENABLE_ZEN_MODE.get();
     private static final boolean ENABLE_ZEN_MODE_PODCAST =
@@ -106,6 +110,12 @@ public class PlayerPatch {
         }
 
         return colors;
+    }
+
+    public static boolean changeSeekBarPosition(boolean original) {
+        return SETTINGS_INITIALIZED
+                ? CHANGE_SEEK_BAR_POSITION
+                : original;
     }
 
     public static boolean disableMiniPlayerGesture() {
@@ -184,6 +194,12 @@ public class PlayerPatch {
 
     public static Object enableSwipeToDismissMiniPlayer(Object object) {
         return ENABLE_SWIPE_TO_DISMISS_MINIPLAYER ? null : object;
+    }
+
+    public static boolean enableThickSeekBar(boolean original) {
+        return SETTINGS_INITIALIZED
+                ? ENABLE_THICK_SEEKBAR
+                : original;
     }
 
     public static int enableZenMode(int originalColor) {

@@ -24,6 +24,7 @@ import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.playservice.is_7_25_or_greater
+import app.revanced.patches.music.utils.playservice.is_7_29_or_greater
 import app.revanced.patches.music.utils.playservice.is_8_03_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
@@ -55,6 +56,7 @@ import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.matchOrNull
 import app.revanced.util.fingerprint.matchOrThrow
+import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.fingerprint.resolvable
@@ -71,6 +73,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -488,6 +491,52 @@ val playerComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for enable thick seek bar
+
+        var thickSeekBar = false
+
+        fun MutableMethod.thickSeekBarHook(index: Int, methodName: String = "enableThickSeekBar") {
+            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+            addInstructions(
+                index + 2, """
+                    invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->$methodName(Z)Z
+                    move-result v$register
+                    """
+            )
+        }
+
+        if (is_7_25_or_greater) {
+            val thickSeekBarMethodCall = thickSeekBarFeatureFlagFingerprint.methodCall()
+            val filter: Instruction.() -> Boolean = {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.toString() == thickSeekBarMethodCall
+            }
+
+            thickSeekBarInflateFingerprint.methodOrThrow().apply {
+                val indexes = findInstructionIndicesReversed(filter)
+
+                thickSeekBarHook(indexes.first(), "changeSeekBarPosition")
+                thickSeekBarHook(indexes.last())
+            }
+
+            if (is_7_29_or_greater) {
+                thickSeekBarColorFingerprint.methodOrThrow().apply {
+                    findInstructionIndicesReversed(filter).forEach { thickSeekBarHook(it) }
+                }
+            }
+
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_change_seekbar_position",
+                "false"
+            )
+
+            thickSeekBar = true
+        }
+
+        // endregion
+
         // region patch for disable gesture in player
 
         val playerViewPagerConstructorMethod =
@@ -720,6 +769,14 @@ val playerComponentsPatch = bytecodePatch(
         )
 
         // endregion
+
+        if (thickSeekBar) {
+            addSwitchPreference(
+                CategoryType.PLAYER,
+                "revanced_enable_thick_seekbar",
+                "true"
+            )
+        }
 
         // region patch for enable zen mode (~ 6.34)
 

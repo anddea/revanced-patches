@@ -4,6 +4,7 @@ import app.revanced.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIP
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.darkBackground
+import app.revanced.patches.music.utils.resourceid.inlineTimeBarProgressColor
 import app.revanced.patches.music.utils.resourceid.miniPlayerDefaultText
 import app.revanced.patches.music.utils.resourceid.miniPlayerMdxPlaying
 import app.revanced.patches.music.utils.resourceid.miniPlayerPlayPauseReplayButton
@@ -357,6 +358,33 @@ internal val switchToggleColorFingerprint = legacyFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IGET
     )
+)
+
+internal val thickSeekBarColorFingerprint = legacyFingerprint(
+    name = "thickSeekBarColorFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    literals = listOf(inlineTimeBarProgressColor),
+    customFingerprint = { method, _ ->
+        method.definingClass.endsWith("/MusicPlaybackControls;")
+    }
+)
+
+internal val thickSeekBarFeatureFlagFingerprint = legacyFingerprint(
+    name = "thickSeekBarFeatureFlagFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(45659062L),
+)
+
+internal val thickSeekBarInflateFingerprint = legacyFingerprint(
+    name = "thickSeekBarInflateFingerprint",
+    returnType = "V",
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        method.definingClass.endsWith("/MusicPlaybackControls;") &&
+                method.name == "onFinishInflate"
+    }
 )
 
 internal val zenModeFingerprint = legacyFingerprint(
