@@ -55,7 +55,8 @@ fun Node.cloneNodes(parent: Node) {
  */
 fun Node.doRecursively(action: (Node) -> Unit) {
     action(this)
-    for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
+    val childNodes = this.childNodes
+    for (i in 0 until childNodes.length) childNodes.item(i).doRecursively(action)
 }
 
 fun List<String>.getResourceGroup(fileNames: Array<String>) = map { directory ->
@@ -154,10 +155,11 @@ fun ResourcePatchContext.addEntryValues(
 ) {
     document(path).use { document ->
         with(document) {
-            val resourcesNode = getElementsByTagName("resources").item(0) as Element
+            val resourcesNode = documentElement
+            val childNodes = resourcesNode.childNodes
             val newElement: Element = createElement("item")
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
 
                 if (node.getAttribute("name") == attributeName) {
                     newElement.appendChild(createTextNode(attributeValue))
@@ -167,6 +169,7 @@ fun ResourcePatchContext.addEntryValues(
                     } else {
                         node.insertBefore(newElement, node.firstChild)
                     }
+                    break
                 }
             }
         }

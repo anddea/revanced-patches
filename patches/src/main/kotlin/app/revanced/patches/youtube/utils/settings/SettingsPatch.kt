@@ -245,22 +245,21 @@ val settingsPatch = resourcePatch(
         /**
          * remove ReVanced Extended Settings divider
          */
-        arrayOf("Theme.YouTube.Settings", "Theme.YouTube.Settings.Dark").forEach { themeName ->
-            document("res/values/styles.xml").use { document ->
-                with(document) {
-                    val resourcesNode = getElementsByTagName("resources").item(0) as Element
+        document("res/values/styles.xml").use { document ->
+            val themeNames = arrayOf("Theme.YouTube.Settings", "Theme.YouTube.Settings.Dark")
+            with(document) {
+                val resourcesNode = documentElement
+                val childNodes = resourcesNode.childNodes
 
-                    val newElement: Element = createElement("item")
-                    newElement.setAttribute("name", "android:listDivider")
+                for (i in 0 until childNodes.length) {
+                    val node = childNodes.item(i) as? Element ?: continue
 
-                    for (i in 0 until resourcesNode.childNodes.length) {
-                        val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-
-                        if (node.getAttribute("name") == themeName) {
-                            newElement.appendChild(createTextNode("@null"))
-
-                            node.appendChild(newElement)
+                    if (node.getAttribute("name") in themeNames) {
+                        val newElement = createElement("item").apply {
+                            setAttribute("name", "android:listDivider")
+                            appendChild(createTextNode("@null"))
                         }
+                        node.appendChild(newElement)
                     }
                 }
             }
