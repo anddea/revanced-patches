@@ -11,6 +11,7 @@ import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.settings.ResourceUtils.setIconType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.util.FilesCompat
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyAdaptiveIcon
@@ -20,7 +21,6 @@ import app.revanced.util.underBarOrThrow
 import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 import java.io.File
-import java.nio.file.Files
 
 private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
     "adaptiveproduct_youtube_music_background_color_108"
@@ -165,9 +165,9 @@ val customBrandingIconPatch = resourcePatch(
                         val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
 
                         group.resources.forEach { iconFileName ->
-                            Files.write(
-                                toDirectory.resolve(iconFileName).toPath(),
-                                fromDirectory.resolve(iconFileName).readBytes()
+                            FilesCompat.copy(
+                                fromDirectory.resolve(iconFileName),
+                                toDirectory.resolve(iconFileName)
                             )
                         }
                     }
