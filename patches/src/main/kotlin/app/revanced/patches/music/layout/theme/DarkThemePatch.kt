@@ -112,10 +112,11 @@ val darkThemePatch = resourcePatch(
             .valueOrThrow()
 
         document("res/values/colors.xml").use { document ->
-            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+            val resourcesNode = document.documentElement
+            val childNodes = resourcesNode.childNodes
 
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
                 val colorName = node.getAttribute("name")
 
                 if (DARK_COLOR.contains(colorName)) {
