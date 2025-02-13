@@ -44,7 +44,7 @@ public class BaseSettings {
             "revanced_spoof_streaming_data_ios_force_avc_user_dialog_message");
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE);
     // Client type must be last spoof setting due to cyclic references.
-    public static final EnumSetting<YouTubeAppClient.ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", YouTubeAppClient.ClientType.ANDROID_VR, true);
+    public static final EnumSetting<YouTubeAppClient.ClientType> SPOOF_STREAMING_DATA_CLIENT = new EnumSetting<>("revanced_spoof_streaming_data_client", YouTubeAppClient.ClientType.IOS_UNPLUGGED, true);
 
     public static final StringSetting SPOOF_STREAMING_DATA_PO_TOKEN = new StringSetting("revanced_spoof_streaming_data_po_token", "", true);
     public static final StringSetting SPOOF_STREAMING_DATA_VISITOR_DATA = new StringSetting("revanced_spoof_streaming_data_visitor_data", "", true);
