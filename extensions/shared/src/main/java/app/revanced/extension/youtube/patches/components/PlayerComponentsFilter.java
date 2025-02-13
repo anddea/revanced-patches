@@ -8,11 +8,13 @@ import app.revanced.extension.shared.patches.components.StringFilterGroupList;
 import app.revanced.extension.shared.utils.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.RootView;
 
 @SuppressWarnings("unused")
 public final class PlayerComponentsFilter extends Filter {
     private final StringFilterGroupList channelBarGroupList = new StringFilterGroupList();
     private final StringFilterGroup channelBar;
+    private final StringFilterGroup singleItemInformationPanel;
     private final StringTrieSearch suggestedActionsException = new StringTrieSearch();
     private final StringFilterGroup suggestedActions;
 
@@ -53,7 +55,11 @@ public final class PlayerComponentsFilter extends Filter {
         final StringFilterGroup infoPanel = new StringFilterGroup(
                 Settings.HIDE_INFO_PANEL,
                 "compact_banner",
-                "publisher_transparency_panel",
+                "publisher_transparency_panel"
+        );
+
+        singleItemInformationPanel = new StringFilterGroup(
+                Settings.HIDE_INFO_PANEL,
                 "single_item_information_panel"
         );
 
@@ -87,6 +93,7 @@ public final class PlayerComponentsFilter extends Filter {
                 infoPanel,
                 medicalPanel,
                 seekMessage,
+                singleItemInformationPanel,
                 suggestedActions,
                 timedReactions
         );
@@ -111,7 +118,16 @@ public final class PlayerComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(String path, @Nullable String identifier, String allValue, byte[] protobufBufferArray,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == suggestedActions) {
+        // This identifier is used not only in players but also in search results:
+        // https://github.com/ReVanced/revanced-patches/issues/3245
+        // Until 2024, medical information panels such as Covid 19 also used this identifier and were shown in the search results.
+        // From 2025, the medical information panel is no longer shown in the search results.
+        // Therefore, this identifier does not filter when the search bar is activated.
+        if (matchedGroup == singleItemInformationPanel) {
+            if (!RootView.isPlayerActive() && RootView.isSearchBarActive()) {
+                return false;
+            }
+        } else if (matchedGroup == suggestedActions) {
             // suggested actions button on shorts and the suggested actions button on video players use the same path builder.
             // Check PlayerType to make each setting work independently.
             if (suggestedActionsException.matches(path) || PlayerType.getCurrent().isNoneOrHidden()) {
