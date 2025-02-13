@@ -1,3 +1,17 @@
+# [3.4.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.8...v3.4.0-dev.9) (2025-02-13)
+
+
+### Bug Fixes
+
+* **YouTube - Player components:** The `Show anyway` button in the search warning popup is hidden when `Hide info panels` is enabled ([4b3ad62](https://github.com/anddea/revanced-patches/commit/4b3ad6239ad9c47fafd4dcfb203052465019ffb7))
+* **YouTube - Translations:** A patch exception is thrown when the `String resources to keep` option is empty ([9032a3f](https://github.com/anddea/revanced-patches/commit/9032a3ffe2822244c319a9d263bf17ba503ca37c))
+* **YouTube Music - Return YouTube Dislike:** Length of the separator is different in the new action bar ([e252fbf](https://github.com/anddea/revanced-patches/commit/e252fbfd404545c1496ee4aaabf93118711103c7))
+
+
+### Features
+
+* **YouTube Music:** Change the latest supported version from `8.05.50` to `8.05.51` ([fad4b3b](https://github.com/anddea/revanced-patches/commit/fad4b3b01cac3b928d533d637b3d7c065073803a))
+
 # [3.4.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.4.0-dev.7...v3.4.0-dev.8) (2025-02-11)
 
 
