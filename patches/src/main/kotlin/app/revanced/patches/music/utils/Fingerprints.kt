@@ -6,6 +6,15 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val ACTION_BAR_POSITION_FEATURE_FLAG = 45658717L
+
+internal val actionBarPositionFeatureFlagFingerprint = legacyFingerprint(
+    name = "actionBarPositionFeatureFlagFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(ACTION_BAR_POSITION_FEATURE_FLAG)
+)
+
 internal val pendingIntentReceiverFingerprint = legacyFingerprint(
     name = "pendingIntentReceiverFingerprint",
     returnType = "V",

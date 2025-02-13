@@ -20,6 +20,7 @@ import app.revanced.extension.shared.utils.Logger;
  */
 @SuppressWarnings("unused")
 public class ReturnYouTubeDislikePatch {
+    private static volatile boolean isNewActionBar = false;
 
     /**
      * Injection point.
@@ -52,7 +53,7 @@ public class ReturnYouTubeDislikePatch {
             if (!(original instanceof Spanned)) {
                 original = new SpannableString(original);
             }
-            return videoData.getDislikesSpan((Spanned) original, true);
+            return videoData.getDislikesSpan((Spanned) original, true, isNewActionBar);
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
         }
@@ -90,10 +91,18 @@ public class ReturnYouTubeDislikePatch {
             if (videoData == null) {
                 return original; // User enabled RYD while a video was on screen.
             }
-            return videoData.getDislikesSpan(original, false);
+            return videoData.getDislikesSpan(original, false, false);
         } catch (Exception ex) {
             Logger.printException(() -> "onSpannedCreated failure", ex);
         }
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean actionBarFeatureFlagLoaded(boolean original) {
+        isNewActionBar = original;
         return original;
     }
 
