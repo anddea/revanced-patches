@@ -118,7 +118,12 @@ fun ResourcePatchContext.baseTranslationsPatch(
     if (!isYouTube) return
 
     filteredAppLanguages = filteredAppLanguages.map { language ->
-        language.subSequence(0,2).toString().uppercase()
+        val hyphenIndex = language.indexOf("-") - 1
+        if (hyphenIndex > 2) {
+            language.subSequence(0, hyphenIndex).toString().uppercase()
+        } else {
+            language.uppercase()
+        }
     }.toHashSet().toTypedArray()
 
     // Remove unselected app languages from RVX Settings
@@ -140,7 +145,9 @@ fun ResourcePatchContext.baseTranslationsPatch(
                     val item = itemNodes.item(j) as? Element ?: continue
                     val text = item.textContent
                     val length = text.length
-                    if (!text.endsWith("DEFAULT") && text.subSequence(length - 2, length) !in filteredAppLanguages) {
+                    if (!text.endsWith("DEFAULT") &&
+                        length >= 2 &&
+                        text.subSequence(length - 2, length) !in filteredAppLanguages) {
                         nodesToRemove.add(item)
                     }
                 }
