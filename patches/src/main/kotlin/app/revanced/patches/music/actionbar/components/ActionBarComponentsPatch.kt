@@ -6,6 +6,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.utils.ACTION_BAR_POSITION_FEATURE_FLAG
+import app.revanced.patches.music.utils.actionBarPositionFeatureFlagFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ACTIONBAR_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
