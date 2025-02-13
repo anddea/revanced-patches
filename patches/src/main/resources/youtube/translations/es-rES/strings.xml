@@ -221,6 +221,9 @@ Configuración → Reproducción automática → Reproducción automática del s
     <string name="revanced_disable_like_dislike_glow_title">Desactivar brillo de botones de me gusta y no me gusta</string>
     <string name="revanced_disable_quic_protocol_summary">"Desactiva el protocolo QUIC de CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Desactivar protocolo QUIC</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Seguir viendo&lt;/b&gt; no se reanudará al iniciar la aplicación.&lt;br&gt;&lt;br&gt; Información:&lt;br&gt;• &lt;b&gt;Seguir viendo&lt;/b&gt; es la función de YouTube Premium.&lt;br&gt;• Este ajuste no obliga a activar &lt;b&gt;Seguir viendo&lt;/b&gt;.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Seguir viendo&lt;/b&gt; no se reanudará al iniciar la aplicación.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Desactivar reanudación del mini reproductor</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">El reproductor de Shorts se reanudará al iniciar la app</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">El reproductor de Shorts no se reanudará al iniciar la app</string>
     <string name="revanced_disable_resuming_shorts_player_title">Desactivar reanudación del reproductor de Shorts</string>
@@ -1312,7 +1315,7 @@ El mini reproductor puede ser arrastrado de la pantalla a la izquierda o derecha
     <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
     <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-    <string name="revanced_miniplayer_type_title">Tipo de minirreproductor</string>
+    <string name="revanced_miniplayer_type_title">Tipo de mini reproductor</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">El tamaño del píxel debe estar entre %1$s y %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Inicial en tamaño de pantalla, en píxeles.</string>
     <string name="revanced_miniplayer_width_dip_title">Tamaño inicial</string>
@@ -1384,7 +1387,7 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_category_animation_feedback">Animación / Comentarios</string>
     <string name="revanced_preference_category_custom_actions">Acciones personalizadas</string>
     <string name="revanced_preference_category_download_button">Botón de descarga</string>
-    <string name="revanced_preference_category_experimental_flag">Funciones Experimentales</string>
+    <string name="revanced_preference_category_experimental_flag">Funciones experimentales</string>
     <string name="revanced_preference_category_image_region_restrictions">Restricciones de región de imágenes</string>
     <string name="revanced_preference_category_import_export_as_file">Importar / Exportar como archivo</string>
     <string name="revanced_preference_category_import_export_as_text">Importar / Exportar como texto</string>
@@ -1431,8 +1434,8 @@ Toque y mantenga presionado para abrir el diálogo de configuración de la lista
     <string name="revanced_preference_screen_hook_buttons_title">Botones de enganche</string>
     <string name="revanced_preference_screen_import_export_summary">Importar o exportar los ajustes.</string>
     <string name="revanced_preference_screen_import_export_title">Importar / Exportar ajustes</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Cambia el estilo del reproductor minimizado de la aplicación.</string>
-    <string name="revanced_preference_screen_miniplayer_title">Minirreproductor</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Ocultar o cambiar componentes relacionados con el mini reproductor.</string>
+    <string name="revanced_preference_screen_miniplayer_title">Mini reproductor</string>
     <string name="revanced_preference_screen_misc_title">Otros</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Ocultar o mostrar los componentes de la sección de la barra de navegación.</string>
     <string name="revanced_preference_screen_navigation_bar_title">Barra de navegación</string>
