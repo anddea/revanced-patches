@@ -16,7 +16,7 @@ GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 누르세요."</string>
     <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
     <string name="gms_core_dialog_title">필수 조치</string>
-    <string name="gms_core_settings_summary">알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
+    <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
     <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
@@ -79,10 +79,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_layout_entry_5">태블릿 (최소 너비: 600 dp)</string>
     <string name="revanced_change_layout_title">레이아웃 변경하기</string>
     <string name="revanced_change_live_ring_click_action_summary_off">라이브 링이 표시된 채널 아이콘을 누르면 실시간 스트림 동영상으로 연결됩니다.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"라이브 링이 표시된 채널 아이콘을 누르면 채널 페이지로 연결됩니다.
+    <string name="revanced_change_live_ring_click_action_summary_on">"라이브 링이 표시된 채널 아이콘을 누르면 채널 프로필으로 연결됩니다.
 
 알려진 문제점: 
-• '일반 플레이어에서 Shorts 재생하기' 설정으로 인하여 일반 플레이어에서 Shorts 실시간 스트림이 재생된다면, 채널 페이지로 연결되지 않을 수 있습니다."</string>
+• '일반 플레이어에서 Shorts 재생하기' 설정으로 인하여 일반 플레이어에서 Shorts 실시간 스트림이 재생된다면, 채널 프로필으로 연결되지 않을 수 있습니다."</string>
     <string name="revanced_change_live_ring_click_action_title">라이브 링 누르기 동작 변경하기</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">스위치 토글으로 표시합니다.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">텍스트 토글으로 표시합니다.</string>
@@ -96,7 +96,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 
 서버 측 변경 사항이 있는 경우에는 스낵바 배경 색상이 변경되지 않을 수 있습니다."</string>
     <string name="revanced_change_share_sheet_summary_off">YouTube 기본 공유 시트를 사용합니다.</string>
-    <string name="revanced_change_share_sheet_summary_on">Android 기본 공유 시트를 사용합니다.\n\n• 공유 버튼으로 바로 Android 기본 공유 메뉴를 실행할 수 있습니다.</string>
+    <string name="revanced_change_share_sheet_summary_on">Android 시스템 공유 시트를 사용합니다.\n\n• 공유 버튼으로 바로 Android 시스템 공유 메뉴를 실행할 수 있습니다.</string>
     <string name="revanced_change_share_sheet_title">공유 시트 변경하기</string>
     <string name="revanced_change_shorts_background_repeat_state_title">Shorts 백그라운드 재생 반복 상태 변경하기</string>
     <string name="revanced_change_shorts_repeat_state_entry_auto_play">자동넘김</string>
@@ -231,8 +231,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_like_dislike_glow_title">빛나는 \'좋아요 &amp; 싫어요\' 버튼 비활성화하기</string>
     <string name="revanced_disable_quic_protocol_summary">"QUIC 프로토콜을 비활성화합니다.\n동영상 로딩 속도가 개선될 수 있습니다."</string>
     <string name="revanced_disable_quic_protocol_title">QUIC 프로토콜 비활성화하기</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_off">앱을 시작할 때, &lt;b&gt;계속 시청하기&lt;/b&gt;를 다시 시작합니다.&lt;br&gt;&lt;br&gt;알림:&lt;br&gt;• &lt;b&gt;계속 시청하기&lt;/b&gt;는 YouTube Premium 기능입니다.&lt;br&gt;• 이 설정은 &lt;b&gt;계속 시청하기&lt;/b&gt;를 강제로 사용하도록 설정하지는 않습니다.</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_on">앱을 시작할 때, &lt;b&gt;계속 시청하기&lt;/b&gt;를 다시 시작하지 않습니다.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">앱을 시작할 때, &lt;b&gt;\'계속 시청하기\'&lt;/b&gt;를 다시 시작합니다.&lt;br&gt;&lt;br&gt;알림:&lt;br&gt;• &lt;b&gt;\'계속 시청하기\'&lt;/b&gt;는 YouTube Premium 기능입니다.&lt;br&gt;• 이 설정은 &lt;b&gt;\'계속 시청하기\'&lt;/b&gt;를 강제로 사용하도록 설정하지는 않습니다.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">앱을 시작할 때, &lt;b&gt;\'계속 시청하기\'&lt;/b&gt;를 다시 시작하지 않습니다.</string>
     <string name="revanced_disable_resuming_miniplayer_title">미니플레이어 다시 시작 비활성화하기</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다.</string>
@@ -1155,12 +1155,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 
 알림:
 • '최종 화면 추천 동영상'에서 문제가 발생하는 경우 앱을 다시 시작해보세요."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">최종 화면에서 \'다음 재생 추천 동영상\'이 표시됩니다.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"자동재생이 꺼져 있으면 최종 화면에서 '다음 재생 추천 동영상'이 숨겨집니다.
+    <string name="revanced_hide_suggested_video_end_screen_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다.</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary_on">"자동재생이 꺼져 있으면 최종 화면에서 다음 재생 추천 동영상이 숨겨집니다.
 
 자동재생은 YouTube 설정에서 변경할 수 있습니다:
 설정 → 자동재생 / 재생 → 다음 동영상 자동재생"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">최종 화면에서 \'다음 재생 추천 동영상\' 숨기기</string>
+    <string name="revanced_hide_suggested_video_end_screen_title">최종 화면에서 다음 재생 추천 동영상 숨기기</string>
     <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다.</string>
     <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
@@ -1212,9 +1212,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">천회 -&gt; 1000\n만회 -&gt; 10000\n억회 -&gt; 100000000\n조회수 -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_summary">레이아웃에서 표시되는 동영상의 조회수에 대한 언어 템플릿을 설정할 수 있습니다. \n• \'키(해당 언어의 문자/단어) -&gt; 값(키의 의미)\'은 줄바꿈으로 구분하여 설정해야 하고, 키는 \'-&gt;\' 기호 앞에 와야 합니다. \n• 편집창은 \'하나의 언어에 대한 키만 입력\' &amp; \'앞에는 숫자 관련 키, 마지막에는 조회수 단어 키 순으로 입력\' 해야 합니다. \n• 앱 언어 또는 시스템 언어를 변경하는 경우 이 설정을 다시 설정해야 합니다.\n예) 한국어: 조회수 10만회 = 만회 -&gt; 10000, 조회수 -&gt; views\n영어: 10K views = K -&gt; 1000, views -&gt; views</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">조회수 키</string>
-    <string name="revanced_hide_view_products_summary_off">플레이어에서 제품 보기 배너가 표시됩니다.</string>
-    <string name="revanced_hide_view_products_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다.</string>
-    <string name="revanced_hide_view_products_title">제품 보기 배너 숨기기</string>
+    <string name="revanced_hide_view_products_summary_off">제품 보기 배너가 표시됩니다.</string>
+    <string name="revanced_hide_view_products_summary_on">제품 보기 배너가 숨겨집니다.</string>
+    <string name="revanced_hide_view_products_title">플레이어에서 제품 보기 배너 숨기기</string>
     <string name="revanced_hide_voice_search_button_summary_off">음성 검색 버튼이 표시됩니다.</string>
     <string name="revanced_hide_voice_search_button_summary_on">음성 검색 버튼이 숨겨집니다.</string>
     <string name="revanced_hide_voice_search_button_title">음성 검색 버튼 숨기기</string>
@@ -1446,7 +1446,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_category_others">기타</string>
     <string name="revanced_preference_category_overlay_buttons">오버레이 버튼</string>
     <string name="revanced_preference_category_patch_information">패치 정보</string>
-    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
+    <string name="revanced_preference_category_po_token_visitor_data">PoToken &amp; VisitorData</string>
     <string name="revanced_preference_category_quick_actions">빠른 작업</string>
     <string name="revanced_preference_category_recommended_video">추천 동영상</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts 선반</string>
@@ -1481,9 +1481,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_general_title">일반</string>
     <string name="revanced_preference_screen_haptic_feedback_summary">진동 피드백을 활성화하거나 비활성화할 수 있습니다.</string>
     <string name="revanced_preference_screen_haptic_feedback_title">진동 피드백</string>
-    <string name="revanced_preference_screen_hook_buttons_summary">\'앱 내에 있는 버튼을 누를 시 실행 동작\'을 재정의할 수 있습니다.</string>
+    <string name="revanced_preference_screen_hook_buttons_summary">앱 내에 있는 버튼을 누를 경우에 실행되는 동작을 재정의할 수 있습니다.</string>
     <string name="revanced_preference_screen_hook_buttons_title">버튼 재정의</string>
-    <string name="revanced_preference_screen_import_export_summary">설정을 가져오거나 내보낼 수 있습니다.</string>
+    <string name="revanced_preference_screen_import_export_summary">RVX 설정을 가져오거나 내보낼 수 있습니다.</string>
     <string name="revanced_preference_screen_import_export_title">설정 가져오기 / 내보내기</string>
     <string name="revanced_preference_screen_miniplayer_summary">미니 플레이어와 관련된 구성요소를 숨기거나 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_miniplayer_title">미니 플레이어</string>
@@ -1914,14 +1914,14 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
     <string name="revanced_spoof_streaming_data_language_title">Android VR 기본 오디오 스트림 언어</string>
-    <string name="revanced_spoof_streaming_data_po_token_summary">\'정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 PoToken\'을 등록할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 PoToken을 등록할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_po_token_title">PoToken 등록하기</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"일부 클라이언트는 유효한 스트리밍 데이터 응답을 받기 위해 PoToken과 VisitorData가 요구됩니다.
 
 iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 요구될 수 있습니다.
 
-자세한 정보를 보려면 여기를 누르세요."</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken / VisitorData에 대한 정보</string>
+PoToken과 VisitorData를 발급받는 방법 및 자세한 정보를 보려면 여기를 누르세요."</string>
+    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken &amp; VisitorData에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 자동 오디오 트랙을 비활성화할 수 없습니다.
@@ -1951,8 +1951,8 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 요구될 
 • AV1 코덱이 지원되지 않습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
     <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
@@ -1970,7 +1970,7 @@ iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 요구될 
 <small>(로그인이 요구됨)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_summary">\'정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 VisitorData\'를 등록할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 VisitorData를 등록할 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData 등록하기</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">밝기 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">밝기 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 밝기 레벨이 더 빠르게 변경됩니다.</string>
