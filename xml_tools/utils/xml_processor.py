@@ -55,6 +55,8 @@ class XMLProcessor:
             path.parent.mkdir(parents=True, exist_ok=True)
             tree = ET.ElementTree(root)
             ET.indent(tree, space="    ")
-            tree.write(path, encoding="utf-8", xml_declaration=True)
+            with path.open(mode="wb") as f:
+                tree.write(f, encoding="utf-8", xml_declaration=True)
+                f.write(b"\n")
         except OSError:
             logger.exception("Failed to write %s: ", path)

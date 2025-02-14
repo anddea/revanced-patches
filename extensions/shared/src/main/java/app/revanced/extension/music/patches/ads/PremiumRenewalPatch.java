@@ -8,32 +8,43 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.revanced.extension.music.settings.Settings;
-import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.music.shared.NavigationBar;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class PremiumRenewalPatch {
+    private static final String dialogGotItText =
+            str("dialog_got_it_text");
 
     public static void hidePremiumRenewal(LinearLayout buttonContainerView) {
         if (!Settings.HIDE_PREMIUM_RENEWAL.get())
             return;
 
         buttonContainerView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
-            try {
-                Utils.runOnMainThreadDelayed(() -> {
-                            if (!(buttonContainerView.getChildAt(0) instanceof ViewGroup closeButtonParentView))
-                                return;
-                            if (!(closeButtonParentView.getChildAt(0) instanceof TextView closeButtonView))
-                                return;
-                            if (closeButtonView.getText().toString().equals(str("dialog_got_it_text")))
-                                Utils.clickView(closeButtonView);
-                            else
-                                Utils.hideViewByLayoutParams((View) buttonContainerView.getParent());
-                        }, 0
-                );
-            } catch (Exception ex) {
-                Logger.printException(() -> "hidePremiumRenewal failure", ex);
+            if (NavigationBar.getNavigationTabIndex() == 0) {
+                // Always hide the banner when the navigation bar index is 0.
+                hideParentViewByLayoutParams(buttonContainerView);
+            } else {
+                // This banner is exposed to the library as well as the home.
+                // In this case, it is necessary to check whether the text of the button is 'Got it' or not.
+                if (!(buttonContainerView.getChildAt(0) instanceof ViewGroup closeButtonParentView))
+                    return;
+                if (!(closeButtonParentView.getChildAt(0) instanceof TextView closeButtonView))
+                    return;
+                // If the text of the button is 'Got it', just click the button.
+                // If not, tab sometimes becomes freezing.
+                if (closeButtonView.getText().toString().equals(dialogGotItText)) {
+                    Utils.clickView(closeButtonView);
+                } else {
+                    hideParentViewByLayoutParams(buttonContainerView);
+                }
             }
         });
+    }
+
+    private static void hideParentViewByLayoutParams(View view) {
+        if (view.getParent() instanceof View parentView) {
+            Utils.hideViewByLayoutParams(parentView);
+        }
     }
 }

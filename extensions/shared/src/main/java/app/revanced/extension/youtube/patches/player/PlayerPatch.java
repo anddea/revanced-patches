@@ -19,16 +19,19 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.InitializationPatch;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.RootView;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
@@ -116,34 +119,15 @@ public class PlayerPatch {
      * view id R.id.content
      */
     private static final int contentId = ResourceUtils.getIdIdentifier("content");
-    private static final boolean expandDescriptionEnabled = Settings.EXPAND_VIDEO_DESCRIPTION.get();
-    private static final String descriptionString = Settings.EXPAND_VIDEO_DESCRIPTION_STRINGS.get();
-
-    private static boolean isDescriptionPanel = false;
-
-    public static void setContentDescription(String contentDescription) {
-        if (!expandDescriptionEnabled) {
-            return;
-        }
-        if (contentDescription == null || contentDescription.isEmpty()) {
-            isDescriptionPanel = false;
-            return;
-        }
-        if (descriptionString.isEmpty()) {
-            isDescriptionPanel = false;
-            return;
-        }
-        isDescriptionPanel = descriptionString.equals(contentDescription);
-    }
+    private static final boolean EXPAND_VIDEO_DESCRIPTION = Settings.EXPAND_VIDEO_DESCRIPTION.get();
 
     /**
      * The last time the clickDescriptionView method was called.
      */
     private static long lastTimeDescriptionViewInvoked;
 
-
     public static void onVideoDescriptionCreate(RecyclerView recyclerView) {
-        if (!expandDescriptionEnabled)
+        if (!EXPAND_VIDEO_DESCRIPTION)
             return;
 
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
@@ -159,9 +143,8 @@ public class PlayerPatch {
                 if (contentView.getId() != contentId) {
                     return;
                 }
-                // This method is invoked whenever the Engagement panel is opened. (Description, Chapters, Comments, etc.)
-                // Check the title of the Engagement panel to prevent unnecessary clicking.
-                if (!isDescriptionPanel) {
+                // Check description panel opened.
+                if (!EngagementPanel.isDescription()) {
                     return;
                 }
                 // The first view group contains information such as the video's title, like count, and number of views.
@@ -443,20 +426,22 @@ public class PlayerPatch {
         imageView.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
     }
 
-    private static boolean isAutoPopupPanel;
+    @NonNull
+    private static final AtomicBoolean newVideoStarted = new AtomicBoolean(false);
 
-    public static boolean disableAutoPlayerPopupPanels(boolean isLiveChatOrPlaylistPanel) {
-        if (!Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get()) {
-            return false;
+    public static boolean disableAutoPlayerPopupPanels(boolean isLiveChatOrPlaylistPanel, String panelId) {
+        if (Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get()) {
+            return isLiveChatOrPlaylistPanel || (panelId.equals("PAproduct_list") && newVideoStarted.get());
         }
-        if (isLiveChatOrPlaylistPanel) {
-            return true;
-        }
-        return isAutoPopupPanel && ShortsPlayerState.getCurrent().isClosed();
+        return false;
     }
 
-    public static void setInitVideoPanel(boolean initVideoPanel) {
-        isAutoPopupPanel = initVideoPanel;
+    public static void disableAutoPlayerPopupPanels(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
+                                                     @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
+                                                     final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
+        if (Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get() && newVideoStarted.compareAndSet(false, true)) {
+            Utils.runOnMainThreadDelayed(() -> newVideoStarted.compareAndSet(true, false), 1500L);
+        }
     }
 
     @NonNull
@@ -480,7 +465,7 @@ public class PlayerPatch {
             return;
         }
         VideoUtils.pauseMedia();
-        VideoUtils.openVideo(videoId);
+        VideoUtils.openVideo(newlyLoadedVideoId);
     }
 
     public static boolean disableSpeedOverlay() {
@@ -690,10 +675,6 @@ public class PlayerPatch {
 
     public static boolean restoreOldSeekbarThumbnails() {
         return !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
-    }
-
-    public static boolean enableCairoSeekbar() {
-        return Settings.ENABLE_CAIRO_SEEKBAR.get();
     }
 
     // endregion

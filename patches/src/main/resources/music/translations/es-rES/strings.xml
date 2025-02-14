@@ -19,10 +19,18 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_change_share_sheet_summary">Cambia la hoja de compartir en la app a la hoja de compartir del sistema.</string>
     <string name="revanced_change_share_sheet_title">Cambiar la hoja de compartir</string>
     <string name="revanced_change_start_page_entry_chart">Ranking</string>
+    <string name="revanced_change_start_page_entry_charts">Ranking</string>
+    <string name="revanced_change_start_page_entry_default">Predeterminado</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Episodios para luego</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
-    <string name="revanced_change_start_page_entry_home">Inicio</string>
+    <string name="revanced_change_start_page_entry_history">Historial</string>
     <string name="revanced_change_start_page_entry_library">Biblioteca</string>
+    <string name="revanced_change_start_page_entry_liked_music">Música \"Me gusta\"</string>
+    <string name="revanced_change_start_page_entry_podcasts">Pódcasts</string>
+    <string name="revanced_change_start_page_entry_samples">Muestras</string>
+    <string name="revanced_change_start_page_entry_search">Buscar</string>
     <string name="revanced_change_start_page_entry_subscription">Suscripciones</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
     <string name="revanced_change_start_page_summary">Seleccione en qué página se abre la aplicación.</string>
     <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
     <string name="revanced_custom_filter_strings_summary">Filtra los nombres de los componentes, separados por líneas.</string>
@@ -44,8 +52,6 @@ Pulsa el botón de continuar y desactiva las optimizaciones de la batería."</st
     <string name="revanced_disable_dislike_redirection_title">Desactivar redirección de No me Gusta</string>
     <string name="revanced_disable_drc_audio_summary">Deshabilita DRC (Dynamic Range Compression) aplicado al audio.</string>
     <string name="revanced_disable_drc_audio_title">Desactivar audio DRC</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Desactivar el gesto de deslizar para cambiar de pista en el minireproductor.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Desactivar gesto de minireproductor</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Interruptor de Audio / Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Mantén pulsado el interruptor de Audio / Video</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirigir</string>
@@ -59,22 +65,17 @@ Se usa una instancia redireccionada, pero la API puede no estar disponible en al
     <string name="revanced_disable_music_video_in_album_title">Desactivar vídeo de música en el álbum</string>
     <string name="revanced_disable_player_gesture_summary">Desactivar el gesto de deslizar para cambiar de pista en el reproductor.</string>
     <string name="revanced_disable_player_gesture_title">Desactivar gesto del reproductor</string>
-    <string name="revanced_enable_black_player_background_summary">Cambia el color de fondo del reproductor a negro.</string>
-    <string name="revanced_enable_black_player_background_title">Activar fondo de reproductor negro</string>
-    <string name="revanced_enable_color_match_player_summary">Hace coincidir el color del reproductor a pantalla completa con el de minimizado.</string>
-    <string name="revanced_enable_color_match_player_title">Activar coincidencia de color de reproductores</string>
     <string name="revanced_enable_compact_dialog_summary">"Activa el diálogo compacto en el teléfono.
 
 Problemas conocidos:
 - Las carátulas de los álbumes en la página de biblioteca se hacen pequeñas cuando se organizan por cuadrícula.
 - El diseño del temporizador puede parecer inusual."</string>
     <string name="revanced_enable_compact_dialog_title">Activar diálogo compacto</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Activar color personalizado de la barra de navegación</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Incluye el búfer en el registro de depuración.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Incluir búfer en registro de depuración</string>
     <string name="revanced_enable_debug_logging_summary">Imprime el registro de depuración.</string>
     <string name="revanced_enable_debug_logging_title">Activar registro de depuración</string>
-    <string name="revanced_enable_force_minimized_player_summary">Mantiene el reproductor permanentemente minimizado incluso si se reproduce otra pista.</string>
-    <string name="revanced_enable_force_minimized_player_title">Activar reproductor minimizado forzado</string>
     <string name="revanced_enable_landscape_mode_summary">Permite entrar en modo horizontal mediante la rotación de la pantalla del teléfono.</string>
     <string name="revanced_enable_landscape_mode_title">Activar modo horizontal</string>
     <string name="revanced_enable_mini_player_next_button_summary">Añadir botón siguiente pista al minireproductor.</string>
@@ -402,6 +403,7 @@ Toca para ver cómo crear una clave de API."</string>
 - Si más tarde se desactiva, la antigua interfaz de usuario puede permanecer hasta que se borren los datos de la aplicación."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desactivar el modo radio en las regiones canadienses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desactivar letras en tiempo real</string>
+    <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desactivar letras en tiempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar la antigua barra de acción</string>
     <string name="revanced_spoof_app_version_target_summary">Seleccione el objetivo de la versión de la app a modificar.</string>
     <string name="revanced_spoof_app_version_target_title">Objetivo de la versión de la app a modificar</string>
@@ -426,7 +428,6 @@ Limitaciones:
 
 ※ Cuando se utiliza con 'Cliente de spoof', problemas de reproducción pueden producirse."</string>
     <string name="revanced_spoof_streaming_data_title">Falsificar datos de transmisión</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_summary">Define un cliente por defecto que obtiene datos de streaming.</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente por defecto</string>

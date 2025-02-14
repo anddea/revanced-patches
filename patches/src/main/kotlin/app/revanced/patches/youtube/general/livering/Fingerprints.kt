@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.general.livering
 
-import app.revanced.patches.youtube.utils.resourceid.elementsImage
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,14 +8,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal val elementsImageFingerprint = legacyFingerprint(
-    name = "elementsImageFingerprint",
-    returnType = "Landroid/view/View;",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    parameters = listOf("Landroid/view/View;"),
-    literals = listOf(elementsImage),
-)
 
 internal val clientSettingEndpointFingerprint = legacyFingerprint(
     name = "clientSettingEndpointFingerprint",

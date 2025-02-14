@@ -7,9 +7,7 @@ import android.widget.LinearLayout;
 
 import app.revanced.extension.reddit.settings.preference.ReVancedPreferenceFragment;
 
-/**
- * @noinspection ALL
- */
+@SuppressWarnings("all")
 public class ActivityHook {
     public static void initialize(Activity activity) {
         SettingsStatus.load();

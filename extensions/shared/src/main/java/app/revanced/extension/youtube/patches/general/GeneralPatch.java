@@ -171,13 +171,23 @@ public class GeneralPatch {
 
     private static void hideAccountMenu(ViewGroup viewGroup, String menuTitleString) {
         for (String filter : accountMenuBlockList) {
-            if (!filter.isEmpty() && menuTitleString.equals(filter)) {
-                if (viewGroup.getLayoutParams() instanceof MarginLayoutParams)
-                    hideViewGroupByMarginLayoutParams(viewGroup);
-                else
-                    viewGroup.setLayoutParams(new LayoutParams(0, 0));
+            if (!filter.isEmpty()) {
+                if (Settings.HIDE_ACCOUNT_MENU_FILTER_TYPE.get()) {
+                    if (menuTitleString.contains(filter))
+                        hideViewGroup(viewGroup);
+                } else {
+                    if (menuTitleString.equals(filter))
+                        hideViewGroup(viewGroup);
+                }
             }
         }
+    }
+
+    private static void hideViewGroup(ViewGroup viewGroup) {
+        if (viewGroup.getLayoutParams() instanceof MarginLayoutParams)
+            hideViewGroupByMarginLayoutParams(viewGroup);
+        else
+            viewGroup.setLayoutParams(new LayoutParams(0, 0));
     }
 
     public static int hideHandle(int originalValue) {

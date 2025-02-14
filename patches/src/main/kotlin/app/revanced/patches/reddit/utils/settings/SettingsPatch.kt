@@ -39,6 +39,10 @@ var is_2024_41_or_greater = false
     private set
 var is_2025_01_or_greater = false
     private set
+var is_2025_05_or_greater = false
+    private set
+var is_2025_06_or_greater = false
+    private set
 
 private val settingsBytecodePatch = bytecodePatch(
     description = "settingsBytecodePatch"
@@ -62,6 +66,8 @@ private val settingsBytecodePatch = bytecodePatch(
             is_2024_26_or_greater = 2024260 <= versionNumber
             is_2024_41_or_greater = 2024410 <= versionNumber
             is_2025_01_or_greater = 2025010 <= versionNumber
+            is_2025_05_or_greater = 2025050 <= versionNumber
+            is_2025_06_or_greater = 2025060 <= versionNumber
         }
 
         /**
@@ -137,7 +143,7 @@ internal fun updatePatchStatus(
     updatePatchStatus(patch)
 }
 
-private const val DEFAULT_LABEL = "ReVanced Extended"
+private const val DEFAULT_LABEL = "RVX"
 
 val settingsPatch = resourcePatch(
     SETTINGS_FOR_REDDIT.title,
@@ -150,9 +156,13 @@ val settingsPatch = resourcePatch(
         settingsBytecodePatch
     )
 
-    val settingsLabelOption = stringOption(
-        key = "settingsLabel",
+    val rvxSettingsLabel = stringOption(
+        key = "rvxSettingsLabel",
         default = DEFAULT_LABEL,
+        values = mapOf(
+            "ReVanced Extended" to "ReVanced Extended",
+            "RVX" to DEFAULT_LABEL,
+        ),
         title = "RVX settings menu name",
         description = "The name of the RVX settings menu.",
         required = true
@@ -162,7 +172,7 @@ val settingsPatch = resourcePatch(
         /**
          * Replace settings icon and label
          */
-        val settingsLabel = settingsLabelOption
+        val settingsLabel = rvxSettingsLabel
             .valueOrThrow()
 
         arrayOf(

@@ -2,12 +2,16 @@ package app.revanced.patches.music.ads.general
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.navigation.components.navigationBarComponentsPatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ADS_PATH
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
+import app.revanced.patches.music.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ADS
+import app.revanced.patches.music.utils.playservice.is_7_28_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.buttonContainer
 import app.revanced.patches.music.utils.resourceid.floatingLayout
 import app.revanced.patches.music.utils.resourceid.interstitialsContainer
@@ -29,6 +33,7 @@ import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -55,7 +60,9 @@ val adsPatch = bytecodePatch(
         baseAdsPatch("$ADS_PATH/MusicAdsPatch;", "hideMusicAds"),
         lithoFilterPatch,
         navigationBarComponentsPatch, // for 'Hide upgrade button' setting
+        navigationBarHookPatch,
         sharedResourceIdPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -76,14 +83,33 @@ val adsPatch = bytecodePatch(
 
         // region patch for hide premium promotion popup
 
+        // get premium bottom sheet
         floatingLayoutFingerprint.methodOrThrow().apply {
             val targetIndex = indexOfFirstLiteralInstructionOrThrow(floatingLayout) + 2
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static {v$targetRegister}, $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->hidePremiumPromotion(Landroid/view/View;)V"
+                "invoke-static {v$targetRegister}, $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->hidePremiumPromotionBottomSheet(Landroid/view/View;)V"
             )
+        }
+
+        // get premium dialog in player
+        if (is_7_28_or_greater) {
+            getPremiumDialogFingerprint
+                .methodOrThrow(getPremiumDialogParentFingerprint)
+                .apply {
+                    val setContentViewIndex = indexOfSetContentViewInstruction(this)
+                    val dialogInstruction = getInstruction<FiveRegisterInstruction>(setContentViewIndex)
+                    val dialogRegister = dialogInstruction.registerC
+                    val viewRegister = dialogInstruction.registerD
+
+                    replaceInstruction(
+                        setContentViewIndex,
+                        "invoke-static {v$dialogRegister, v$viewRegister}, " +
+                                " $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->hidePremiumPromotionDialog(Landroid/app/Dialog;Landroid/view/View;)V"
+                    )
+                }
         }
 
         // endregion
@@ -148,10 +174,12 @@ val adsPatch = bytecodePatch(
 
         addLithoFilter(ADS_FILTER_CLASS_DESCRIPTOR)
 
+        // endregion
+
         addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads",
-            "false"
+            "true"
         )
         addSwitchPreference(
             CategoryType.ADS,

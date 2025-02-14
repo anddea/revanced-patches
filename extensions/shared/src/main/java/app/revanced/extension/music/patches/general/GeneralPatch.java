@@ -1,6 +1,5 @@
 package app.revanced.extension.music.patches.general;
 
-import static app.revanced.extension.music.utils.ExtendedUtils.isSpoofingToLessThan;
 import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 
 import android.app.AlertDialog;
@@ -28,17 +27,6 @@ public class GeneralPatch {
         return headerId == 0
                 ? original
                 : headerId;
-    }
-
-    // endregion
-
-    // region [Change start page] patch
-
-    public static String changeStartPage(final String browseId) {
-        if (!browseId.equals("FEmusic_home"))
-            return browseId;
-
-        return Settings.CHANGE_START_PAGE.get();
     }
 
     // endregion
@@ -172,7 +160,7 @@ public class GeneralPatch {
 
     public static String restoreOldStyleLibraryShelf(final String browseId) {
         final boolean oldStyleLibraryShelfEnabled =
-                Settings.RESTORE_OLD_STYLE_LIBRARY_SHELF.get() || isSpoofingToLessThan("5.38.00");
+                Settings.RESTORE_OLD_STYLE_LIBRARY_SHELF.get();
         return oldStyleLibraryShelfEnabled && browseId.equals("FEmusic_library_landing")
                 ? "FEmusic_liked"
                 : browseId;

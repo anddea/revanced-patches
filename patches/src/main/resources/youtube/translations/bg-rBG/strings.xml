@@ -61,7 +61,7 @@
     <string name="revanced_change_layout_entry_5">Таблет (Мин 600 dip)</string>
     <string name="revanced_change_layout_title">Промяна на резолюция</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Потокът на живо се отваря, когато се щракне върху пръстена на живо.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Каналът се отваря, когато се щракне върху пръстена на живо.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Каналът се отваря, когато се щракне върху пръстена на живо."</string>
     <string name="revanced_change_live_ring_click_action_title">Действие на кликване върху точка за предаване на живо</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Използват се бутони за превключване.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Използват се превключващи бутони с текст.</string>
@@ -123,9 +123,6 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">Непрозрачността на наслагването на плейъра трябва да бъде между 0-100. Нулирайте стойностите по подразбиране.</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Прозрачност на на плейъра</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Невалидна стойност за цвят на лентата на прогреса.</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Въведете кода за цвят на лентата за време.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Стойност по избор за цвят на лентата за време</string>
     <string name="revanced_default_app_settings_summary">За да отваряте връзки към YouTube с помощта на RVX, конфигурирайте „Отваряне на поддържани връзки“ и активирайте поддържаните уеб адреси, които искате.</string>
     <string name="revanced_default_app_settings_title">Отвори настройките по подразбиране</string>
     <string name="revanced_default_playback_speed_title">Скорост на възпроизвеждане по подразбиране</string>
@@ -360,10 +357,6 @@
     <string name="revanced_exit_fullscreen_entry_3">Пейзаж</string>
     <string name="revanced_exit_fullscreen_entry_4">Портрет и пейзаж</string>
     <string name="revanced_exit_fullscreen_title">Излезте от режима на цял екран в края на видеото</string>
-    <string name="revanced_expand_video_description_strings_default_value">Описание</string>
-    <string name="revanced_expand_video_description_strings_summary">"Въведете заглавие в описанието на видеоклипа на вашия език.
-Опцията „Отваряне на описанието автоматично“ може да не работи, ако стойността на заглавието не съвпада със заглавието в описанието."</string>
-    <string name="revanced_expand_video_description_strings_title">Заглавие в панела с описание на видеоклипа</string>
     <string name="revanced_expand_video_description_summary_off">Описанието на видеоклипа не се отваря автоматично.</string>
     <string name="revanced_expand_video_description_summary_on">Описанието на видеоклипа се отваря автоматично.</string>
     <string name="revanced_expand_video_description_title">Автоматично отваряне на видео описание</string>
@@ -402,12 +395,6 @@
     <string name="revanced_hide_account_menu_summary">"Скриване на елементи от менюто на акаунта и раздела \"Вие\".
 Някои компоненти не могат да бъдат скрити."</string>
     <string name="revanced_hide_account_menu_title">Скриване на менюто на акаунта</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Бутона се показва.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Бутона е скрит.</string>
-    <string name="revanced_hide_action_button_index_2_title">Скриване на третия бутон</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Бутона се показва.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Бутона е скрит.</string>
-    <string name="revanced_hide_action_button_index_3_title">Скриване на четвъртия бутон</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Показана се резюме на видеото, генерирано от AI.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Резюме на видео, генерирано от AI, е скрито.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Скриване на секцията с резюме на видео, генерирано от AI</string>
@@ -1229,14 +1216,6 @@ Note:
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Деактивирано минимизирано плъзгане и пускане на екрана.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Активирано е минимизирано плъзгане и пускане на екрана.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Разрешете плъзгане и местене на мини-плеера</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Бутоните са скрити. 
-
-Плъзнете, за да разширите или затворите."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Бутони за разширяване и свиване на екрана</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Бутони за разширяване и свиване на екрана са видими.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Бутоните са скрити.\n(плъзнете миниплейъра, за да разширите или затворите)</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Бутони за разширяване и свиване на екрана</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Бутони за напред и назад са показани.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Бутони за напред и назад са скрити.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Бутони за напред и назад</string>

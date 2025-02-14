@@ -2,13 +2,12 @@ package app.revanced.patches.shared.translations
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatchContext
+import app.revanced.util.FilesCompat
 import app.revanced.util.doRecursively
 import app.revanced.util.inputStreamFromBundledResource
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.StandardCopyOption
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerFactory
@@ -119,39 +118,45 @@ fun ResourcePatchContext.baseTranslationsPatch(
     if (!isYouTube) return
 
     filteredAppLanguages = filteredAppLanguages.map { language ->
-        language.subSequence(0,2).toString().uppercase()
+        val hyphenIndex = language.indexOf("-") - 1
+        if (hyphenIndex > 2) {
+            language.subSequence(0, hyphenIndex).toString().uppercase()
+        } else {
+            language.uppercase()
+        }
     }.toHashSet().toTypedArray()
 
     // Remove unselected app languages from RVX Settings
-    setOf(
-        "revanced_language_entries",
-        "revanced_language_entry_values",
-    ).forEach { attributeName ->
-        document("res/values/arrays.xml").use { document ->
-            with(document) {
-                val nodesToRemove = mutableListOf<Node>()
+    document("res/values/arrays.xml").use { document ->
+        val targetAttributeNames = setOf(
+            "revanced_language_entries",
+            "revanced_language_entry_values",
+        )
+        val nodesToRemove = mutableListOf<Node>()
 
-                val resourcesNode = getElementsByTagName("resources").item(0) as Element
-                for (i in 0 until resourcesNode.childNodes.length) {
-                    val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+        val resourcesNode = document.documentElement
+        val childNodes = resourcesNode.childNodes
+        for (i in 0 until childNodes.length) {
+            val node = childNodes.item(i) as? Element ?: continue
 
-                    if (node.getAttribute("name") == attributeName) {
-                        for (j in 0 until node.childNodes.length) {
-                            val item = node.childNodes.item(j) as? Element ?: continue
-                            val text = item.textContent
-                            val length = text.length
-                            if (!text.endsWith("DEFAULT") && text.subSequence(length - 2, length) !in filteredAppLanguages) {
-                                nodesToRemove.add(item)
-                            }
-                        }
+            if (node.getAttribute("name") in targetAttributeNames) {
+                val itemNodes = node.childNodes
+                for (j in 0 until itemNodes.length) {
+                    val item = itemNodes.item(j) as? Element ?: continue
+                    val text = item.textContent
+                    val length = text.length
+                    if (!text.endsWith("DEFAULT") &&
+                        length >= 2 &&
+                        text.subSequence(length - 2, length) !in filteredAppLanguages) {
+                        nodesToRemove.add(item)
                     }
                 }
-
-                // Remove the collected nodes (avoids NullPointerException)
-                for (n in nodesToRemove) {
-                    n.parentNode?.removeChild(n)
-                }
             }
+        }
+
+        // Remove the collected nodes (avoids NullPointerException)
+        for (n in nodesToRemove) {
+            n.parentNode?.removeChild(n)
         }
     }
 }
@@ -174,12 +179,11 @@ private fun ResourcePatchContext.copyStringsXml(
         )?.let { inputStream ->
             val directory = "values-$language-v21"
             val valuesV21Directory = resourceDirectory.resolve(directory)
-            if (!valuesV21Directory.isDirectory) Files.createDirectories(valuesV21Directory.toPath())
+            if (!valuesV21Directory.isDirectory) valuesV21Directory.mkdirs()
 
-            Files.copy(
+            FilesCompat.copy(
                 inputStream,
-                resourceDirectory.resolve("$directory/strings.xml").toPath(),
-                StandardCopyOption.REPLACE_EXISTING
+                resourceDirectory.resolve("$directory/strings.xml")
             )
         }
     }

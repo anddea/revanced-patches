@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="accessibility_settings_edu_opt_in_text">是否啟用影片播放器的無障礙控制？</string>
-    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此您的控制選項已被修改。</string>
+    <string name="accessibility_settings_edu_opt_out_text">由於已啟用無障礙服務，因此你的控制選項已被修改。</string>
     <string name="gms_core_dialog_continue_text">繼續</string>
     <string name="gms_core_dialog_dismiss_text">不再顯示</string>
     <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore 沒有後台運行的權限
@@ -34,7 +34,7 @@
     <string name="revanced_alt_thumbnail_home_title">首頁標籤</string>
     <string name="revanced_alt_thumbnail_library_title">你的標籤</string>
     <string name="revanced_alt_thumbnail_options_entry_1">原始縮圖</string>
-    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 原始縮圖</string>
+    <string name="revanced_alt_thumbnail_options_entry_2">DeArrow 和原始縮圖</string>
     <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 靜態影片擷取</string>
     <string name="revanced_alt_thumbnail_options_entry_4">靜態影片擷取</string>
     <string name="revanced_alt_thumbnail_player_title">播放器播放清單、推薦</string>
@@ -74,19 +74,19 @@
     <string name="revanced_change_layout_entry_5">平板電腦 (最少 600 dip)</string>
     <string name="revanced_change_layout_title">變更佈局</string>
     <string name="revanced_change_live_ring_click_action_summary_off">點擊直播按鈕 直播將會開啟。</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">點擊直播按鈕 頻道將會開啟。</string>
-    <string name="revanced_change_live_ring_click_action_title">เปลี่ยนการกระทำคลิกวงแหวนสด</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"點擊直播按鈕 頻道將會開啟。"</string>
+    <string name="revanced_change_live_ring_click_action_title">變更點擊直播狀態頻道圖示的動作</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用開關切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用檔案切換</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切換類型</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_off">伺服器端彈出訊息背景顏色未更改。</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_on">伺服器端彈出訊息背景顏色已更改。</string>
-    <string name="revanced_change_server_side_snack_bar_background_title">變更伺服器端彈出訊息背景</string>
-    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"某些彈出訊息使用伺服器端定義的主題，而不是應用程式主題。
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">伺服器端短暫通知的背景顏色沒有改變。</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">伺服器端短暫通知的背景顏色已變更。</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">更改伺服器端短暫通知背景</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"一些短暫通知使用伺服器端定義的主題，而不是應用程式主題。
 
-更改這些彈出訊息的背景顏色。
+更改這些短暫通知的背景顏色。
 
-如果伺服器端有更改，彈出訊息的背景顏色可能不會改變。"</string>
+如果伺服器端發生變化，短暫通知的背景顏色可能不會改變。"</string>
     <string name="revanced_change_share_sheet_summary_off">使用應用程式內分享擴展。</string>
     <string name="revanced_change_share_sheet_summary_on">使用系統分享擴展。</string>
     <string name="revanced_change_share_sheet_title">更改分享擴展</string>
@@ -96,6 +96,7 @@
     <string name="revanced_change_shorts_repeat_state_entry_pause">暫停</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">重複播放</string>
     <string name="revanced_change_shorts_repeat_state_title">更改短片重複狀態</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">所有訂閱</string>
     <string name="revanced_change_start_page_entry_browse">瀏覽頻道</string>
     <string name="revanced_change_start_page_entry_courses">課程/學習</string>
     <string name="revanced_change_start_page_entry_default">預設</string>
@@ -110,6 +111,7 @@
     <string name="revanced_change_start_page_entry_music">音樂</string>
     <string name="revanced_change_start_page_entry_news">新聞</string>
     <string name="revanced_change_start_page_entry_notifications">通知</string>
+    <string name="revanced_change_start_page_entry_playlists">播放清單</string>
     <string name="revanced_change_start_page_entry_podcasts">播客</string>
     <string name="revanced_change_start_page_entry_search">搜尋</string>
     <string name="revanced_change_start_page_entry_shopping">購物</string>
@@ -117,6 +119,7 @@
     <string name="revanced_change_start_page_entry_sports">運動</string>
     <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
     <string name="revanced_change_start_page_entry_trending">熱門</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">虛擬實境</string>
     <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
     <string name="revanced_change_start_page_entry_your_clips">你的剪輯</string>
     <string name="revanced_change_start_page_title">更改起始頁</string>
@@ -128,7 +131,7 @@
     <string name="revanced_change_youtube_header_summary_off">預設標題已啟用</string>
     <string name="revanced_change_youtube_header_summary_on">高級標題已啟用</string>
     <string name="revanced_change_youtube_header_title">變更 YouTube 標題</string>
-    <string name="revanced_custom_filter_strings_summary">以換行分隔的名稱來過濾元件</string>
+    <string name="revanced_custom_filter_strings_summary">依行分隔的名稱篩選元件</string>
     <string name="revanced_custom_filter_strings_title">編輯自訂篩選器</string>
     <string name="revanced_custom_filter_summary_off">自訂篩選已停用</string>
     <string name="revanced_custom_filter_summary_on">自訂篩選已啟用</string>
@@ -145,9 +148,11 @@
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">播放器疊加層不透明度必須介於 0-100 之間。重設為預設值。</string>
     <string name="revanced_custom_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
     <string name="revanced_custom_player_overlay_opacity_title">自訂播放器的不透明度</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">搜尋欄顏色值無效。</string>
-    <string name="revanced_custom_seekbar_color_value_summary">輸入套用於搜尋欄的十六進制顏色代碼</string>
-    <string name="revanced_custom_seekbar_color_value_title">自定義進度條顏色</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">輸入搜尋欄強調色的十六進位代碼。</string>
+    <string name="revanced_custom_seekbar_color_accent_title">自訂搜尋欄強調色</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">搜尋欄顏色無效。</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">輸入搜尋欄原色的十六進位代碼。</string>
+    <string name="revanced_custom_seekbar_color_primary_title">自訂搜尋欄原色</string>
     <string name="revanced_default_app_settings_summary">若要以外部瀏覽器開啟 RVX，請在設定開啟「開啟支援連結」並啟用支援的網址。</string>
     <string name="revanced_default_app_settings_title">開啟預設應用程式設定</string>
     <string name="revanced_default_playback_speed_title">預設播放速度</string>
@@ -218,6 +223,9 @@
     <string name="revanced_disable_like_dislike_glow_title">停用讚和反讚按鈕發光</string>
     <string name="revanced_disable_quic_protocol_summary">"停用 Cronet 引擎的 QUIC 協議"</string>
     <string name="revanced_disable_quic_protocol_title">停用 QUIC 協議</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;繼續觀看&lt;/b&gt; 將在應用程式啟動時恢復。&lt;br&gt;&lt;br&gt;訊息:&lt;br&gt;• &lt;b&gt;繼續觀看&lt;/b&gt; 是 YouTube Premium 功能。&lt;br&gt;• 此設定不會強制 &lt;b&gt;繼續觀看&lt;/b&gt; 被啟用。</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;繼續觀看&lt;/b&gt; 不會在應用程式啟動時恢復。</string>
+    <string name="revanced_disable_resuming_miniplayer_title">停用恢復迷你播放器</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">短片播放器在應用程式啟動時會恢復播放。</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">短片播放器在應用程式啟動時不會恢復播放。</string>
     <string name="revanced_disable_resuming_shorts_player_title">停用恢復短片播放器</string>
@@ -349,6 +357,7 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">導覽列不透明。</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">導覽列是半透明的。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">啟用半透明導覽列</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">在某些 YouTube 版本中，此設定可以使系統導覽列透明，或在 PIP 模式下可以破壞佈局。</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">當在影片播放器下方向下滑動時，停用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">當在影片播放器下方向下滑動時，啟用進入全螢幕模式</string>
     <string name="revanced_enable_watch_panel_gestures_title">啟用觀看面板手勢</string>
@@ -382,10 +391,6 @@
     <string name="revanced_exit_fullscreen_entry_3">橫向</string>
     <string name="revanced_exit_fullscreen_entry_4">縱向和橫向</string>
     <string name="revanced_exit_fullscreen_title">影片結束時退出全螢幕模式</string>
-    <string name="revanced_expand_video_description_strings_default_value">描述</string>
-    <string name="revanced_expand_video_description_strings_summary">"在影片描述面板中輸入標題
-如果保存了不正確的字符串，則「展開影片描述」可能無法正常工作"</string>
-    <string name="revanced_expand_video_description_strings_title">影片描述面板中的標題</string>
     <string name="revanced_expand_video_description_summary_off">手動展開影片描述</string>
     <string name="revanced_expand_video_description_summary_on">自動展開影片描述</string>
     <string name="revanced_expand_video_description_title">自動展開影片描述</string>
@@ -408,60 +413,44 @@
     <string name="revanced_extended_settings_import_title">導入配置</string>
     <string name="revanced_extended_settings_reset">重置</string>
     <string name="revanced_extended_settings_search_title">搜尋設定</string>
-    <string name="revanced_extended_settings_title">ReVanced 擴充功能</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">外部下載器</string>
     <string name="revanced_external_downloader_not_installed">未安裝</string>
-    <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s 未安裝
-請從網站下載 %2$s"</string>
+    <string name="revanced_external_downloader_not_installed_dialog_message">"未安裝 %1$s。
+請從網站下載 %2$s。"</string>
     <string name="revanced_external_downloader_not_installed_dialog_title">警告</string>
-    <string name="revanced_external_downloader_not_installed_warning">%s 未安裝，請先安裝</string>
+    <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請安裝該應用程式。</string>
     <string name="revanced_external_downloader_package_name_playlist_summary">你安裝的外部下載器應用程式的套件名稱，例如 YTDLnis。</string>
     <string name="revanced_external_downloader_package_name_playlist_title">播放清單下載器套件名稱</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">您安裝的外部下載器應用程式套件名稱，例如 NewPipe 或 YTDLnis，長按時顯示。</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">長按時影片下載器套件名稱</string>
-    <string name="revanced_external_downloader_package_name_video_summary">您安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
-    <string name="revanced_external_downloader_package_name_video_title">影片下載套件名</string>
+    <string name="revanced_external_downloader_package_name_video_summary">你安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 YTDLnis。</string>
+    <string name="revanced_external_downloader_package_name_video_title">影片下載器套件名稱</string>
+    <string name="revanced_fullscreen_ads_closed_toast">全螢幕廣告已關閉。</string>
     <string name="revanced_gms_show_dialog_summary">在每次應用程式啟動時，顯示 GMSCore 的優化對話框。</string>
     <string name="revanced_gms_show_dialog_title">顯示 GMSCore 優化對話框</string>
-    <string name="revanced_gradient_seekbar_colors_summary">進度條漸變的起始和結束顏色，以逗號分隔。</string>
-    <string name="revanced_gradient_seekbar_colors_title">漸變進度條顏色</string>
     <string name="revanced_gradient_seekbar_positions_reset">漸變位置重設為預設值。</string>
     <string name="revanced_gradient_seekbar_positions_summary">漸變起始與結束位置範圍從 0 到 1，以逗號分隔。</string>
     <string name="revanced_gradient_seekbar_positions_title">進度條漸變邊界值</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">要篩選的帳戶選單名稱清單，每行一個名稱</string>
     <string name="revanced_hide_account_menu_filter_strings_title">編輯帳號選單篩選</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">如果匹配則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'獲取 YouTube Premium\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; 或 &lt;b&gt;\'Premium\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_account_menu_filter_type_title">帳戶選單過濾類型</string>
     <string name="revanced_hide_account_menu_summary">"隱藏帳戶選單和你的內容分頁的元素
 部分元件可能不會隱藏"</string>
     <string name="revanced_hide_account_menu_title">隱藏帳戶選單</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">第一個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">第一個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_0_title">隱藏第一個按鈕</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">第二個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">第二個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_1_title">隱藏第二個按鈕</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">第三個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">第三個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_2_title">隱藏第三個按鈕</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">第四個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">第四個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_3_title">隱藏第四個按鈕</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">第五個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">第五個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_4_title">隱藏第五個按鈕</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">第六個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">第六個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_5_title">隱藏第六個按鈕</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">第七個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">第七個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_6_title">隱藏第七個按鈕</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">第八個按鈕已顯示。</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">第八個按鈕已隱藏。</string>
-    <string name="revanced_hide_action_button_index_7_title">隱藏第八個按鈕</string>
-    <string name="revanced_hide_action_button_index_about_summary">"在初始化操作按鈕之前按下索引隱藏操作按鈕。
+    <string name="revanced_hide_action_button_index_summary_off">"操作按鈕被標識符過濾器隱藏。
 
-- 隱藏操作按鈕，不留任何空白。
-- 操作按鈕的索引可能不會總是相同的按鈕。"</string>
-    <string name="revanced_hide_action_button_index_about_title">關於按索引隱藏操作按鈕</string>
+資訊:
+• 右側操作按鈕被隱藏。
+• 隱藏操作按鈕會留下空白空間。"</string>
+    <string name="revanced_hide_action_button_index_summary_on">"操作按鈕被索引隱藏。
+
+資訊:
+• 可能隱藏了錯誤的操作按鈕，或可能未隱藏操作按鈕。
+• 隱藏操作按鈕不留任何空白。"</string>
+    <string name="revanced_hide_action_button_index_title">按索引隱藏操作按鈕</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 生成的影片摘要部分已顯示。</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 生成的影片摘要部分已隱藏。</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏 AI 生成的影片摘要部分</string>
@@ -576,6 +565,9 @@
     <string name="revanced_hide_end_screen_cards_summary_off">片尾資訊卡已顯示</string>
     <string name="revanced_hide_end_screen_cards_summary_on">片尾資訊卡已隱藏</string>
     <string name="revanced_hide_end_screen_cards_title">隱藏結束界面卡片</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">商店橫幅已顯示。</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">商店橫幅已隱藏。</string>
+    <string name="revanced_hide_end_screen_store_banner_title">隱藏片尾商店橫幅</string>
     <string name="revanced_hide_expandable_chip_summary_off">影片下方的章節選擇欄已顯示</string>
     <string name="revanced_hide_expandable_chip_summary_on">影片下方的章節選擇欄已隱藏</string>
     <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
@@ -587,6 +579,9 @@
     <string name="revanced_hide_feed_captions_button_title">隱藏動態字幕按鈕</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">要過濾的動態彈出選單名稱清單，每行一個名稱</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">編輯資訊彈出式選單篩選</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">如果符合則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'播放隊列中的下一個\'&lt;/b&gt; 選單中，您只能使用 &lt;b&gt;\'播放隊列中下一個\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">如果包含則進行過濾。&lt;br&gt;&lt;br&gt;隱藏隊列中的 &lt;b&gt;\'播放隊列中的下一個\'&lt;/b&gt; 選單中，您可以使用 &lt;b&gt;\'播放下一個\'&lt;/b&gt; 或&lt;b&gt;\'在隊列\'&lt;/b&gt; 作為關鍵字。</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">資訊彈出式選單過濾類型</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">資訊彈出式選單已顯示</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">資訊彈出式選單已隱藏</string>
     <string name="revanced_hide_feed_flyout_menu_title">隱藏資訊彈出式選單</string>
@@ -816,9 +811,9 @@
     <string name="revanced_hide_player_previous_next_button_summary_off">上一個和下一個按鈕已顯示</string>
     <string name="revanced_hide_player_previous_next_button_summary_on">上一個和下一個按鈕已隱藏</string>
     <string name="revanced_hide_player_previous_next_button_title">隱藏上一個和下一個按鈕</string>
-    <string name="revanced_hide_player_store_shelf_summary_off">購物架已顯示。</string>
-    <string name="revanced_hide_player_store_shelf_summary_on">購物架已隱藏。</string>
-    <string name="revanced_hide_player_store_shelf_title">隱藏玩家購物架</string>
+    <string name="revanced_hide_player_store_shelf_summary_off">購物區塊已顯示</string>
+    <string name="revanced_hide_player_store_shelf_summary_on">購物區塊已隱藏</string>
+    <string name="revanced_hide_player_store_shelf_title">隱藏播放器購物區塊</string>
     <string name="revanced_hide_player_youtube_music_button_summary_off">YouTube Music 按鈕已顯示</string>
     <string name="revanced_hide_player_youtube_music_button_summary_on">YouTube Music 按鈕已隱藏</string>
     <string name="revanced_hide_player_youtube_music_button_title">隱藏 YouTube Music 按鈕</string>
@@ -834,9 +829,9 @@
     <string name="revanced_hide_preview_comment_type_off">這會改變評論區的大小，因此無法在評論區打開直播聊天重播。</string>
     <string name="revanced_hide_preview_comment_type_on">這不會改變評論區的大小，因此可以在評論區打開直播聊天重播。</string>
     <string name="revanced_hide_preview_comment_type_title">預覽評論類型</string>
-    <string name="revanced_hide_promotion_alert_banner_summary_off">顯示促銷警報橫幅。</string>
-    <string name="revanced_hide_promotion_alert_banner_summary_on">促銷警報橫幅已隱藏。</string>
-    <string name="revanced_hide_promotion_alert_banner_title">隱藏促銷警報橫幅</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_off">促銷訊息橫幅已顯示</string>
+    <string name="revanced_hide_promotion_alert_banner_summary_on">促銷訊息橫幅已隱藏</string>
+    <string name="revanced_hide_promotion_alert_banner_title">隱藏促銷訊息橫幅</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_off">評論按鈕已顯示</string>
     <string name="revanced_hide_quick_actions_comment_button_summary_on">評論按鈕已隱藏</string>
     <string name="revanced_hide_quick_actions_comment_button_title">隱藏評論按鈕</string>
@@ -908,12 +903,12 @@
     <string name="revanced_hide_seekbar_thumbnail_summary_on">進度條縮略圖預覽已隱藏</string>
     <string name="revanced_hide_seekbar_thumbnail_title">隱藏進度條縮略圖預覽</string>
     <string name="revanced_hide_seekbar_title">隱藏影片播放器進度條</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_off">自我推廣卡片已顯示</string>
-    <string name="revanced_hide_self_sponsor_cards_summary_on">自我推廣卡片已隱藏</string>
-    <string name="revanced_hide_self_sponsor_cards_title">隱藏自我推廣卡片</string>
-    <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端彈出訊息已顯示。</string>
-    <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端彈出訊息已隱藏。</string>
-    <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端彈出訊息</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_off">自我推廣資訊卡已顯示</string>
+    <string name="revanced_hide_self_sponsor_cards_summary_on">自我推廣資訊卡已隱藏</string>
+    <string name="revanced_hide_self_sponsor_cards_title">隱藏自我推廣資訊卡</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_off">伺服器端短暫通知已顯示。</string>
+    <string name="revanced_hide_server_side_snack_bar_summary_on">伺服器端短暫通知已隱藏。</string>
+    <string name="revanced_hide_server_side_snack_bar_title">隱藏伺服器端短暫通知</string>
     <string name="revanced_hide_settings_menu_about_summary_off">關於選單已顯示。</string>
     <string name="revanced_hide_settings_menu_about_summary_on">關於選單已隱藏。</string>
     <string name="revanced_hide_settings_menu_about_title">隱藏關於選單</string>
@@ -1185,7 +1180,7 @@ Note:
     <string name="revanced_hide_video_view_counts_less_than_summary">觀看次數低於這個值的影片會被隱藏。</string>
     <string name="revanced_hide_video_view_counts_less_than_title">低於觀看次數</string>
     <string name="revanced_hide_video_view_counts_multiplier_default_value">千 -&gt; 1 000\n百萬 -&gt; 1 000 000\n十億 -&gt; 1 000 000 000\n觀看數 -&gt; 觀看數</string>
-    <string name="revanced_hide_video_view_counts_multiplier_summary">指定你的語言模板來修飾用戶界面中每個影片下顯示的播放量。每個關鍵字（在你的語言中的一個字/詞） -&gt; 值（關鍵字的含義）必須單獨一行。在「-&gt;」符號之前是關鍵字。如果更改應用程序或系統語言，則需要重置此設定。\n\n示範：\n英語：10K views = K -&gt; 1000，views -&gt; views\n西班牙語：10 K vistas = K -&gt; 1000，vistas -&gt; views</string>
+    <string name="revanced_hide_video_view_counts_multiplier_summary">指定你的語言模板來修飾使用者。中每個影片下顯示的播放量。每個關鍵字（在你的語言中的一個字/詞） -&gt; 值（關鍵字的含義）必須單獨一行。在「-&gt;」符號之前是關鍵字。如果更改應用程序或系統語言，則需要重置此設定。\n\n示範：\n英語：10K 觀看數 = K -&gt; 1000，觀看數 -&gt; 觀看數\n西班牙文：10 K 觀看數 = K -&gt; 1000，觀看數 -&gt; 觀看數</string>
     <string name="revanced_hide_video_view_counts_multiplier_title">觀看次數的值</string>
     <string name="revanced_hide_view_products_summary_off">查看商品橫幅已顯示</string>
     <string name="revanced_hide_view_products_summary_on">查看商品橫幅已隱藏</string>
@@ -1226,9 +1221,9 @@ Note:
     <string name="revanced_icon_xisr_yellow">Xisr 黃</string>
     <string name="revanced_icon_youtube">YouTube</string>
     <string name="revanced_icon_youtube_black">YouTube 黑</string>
-    <string name="revanced_invert_snack_bar_theme_summary_off">彈出訊息主題未反轉。</string>
-    <string name="revanced_invert_snack_bar_theme_summary_on">彈出訊息主題已反轉。</string>
-    <string name="revanced_invert_snack_bar_theme_title">反轉彈出訊息主題</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">短暫通知的主題沒有倒置。</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">短暫通知的主題是倒置的。</string>
+    <string name="revanced_invert_snack_bar_theme_title">反轉短暫通知主題</string>
     <string name="revanced_keep_landscape_mode_summary">在全螢幕模式下關閉和開啟螢幕時保持橫向模式。</string>
     <string name="revanced_keep_landscape_mode_summary_off">關閉和開啟螢幕後，影片會以縱向模式播放。</string>
     <string name="revanced_keep_landscape_mode_summary_on">關閉和開啟螢幕後，影片繼續以橫向模式播放。</string>
@@ -1236,39 +1231,39 @@ Note:
     <string name="revanced_keep_landscape_mode_timeout_title">保持橫向模式的超時時間</string>
     <string name="revanced_keep_landscape_mode_title">保持橫向模式</string>
     <string name="revanced_label_default">預設</string>
-    <string name="revanced_language_AR">阿拉伯語</string>
-    <string name="revanced_language_AZ">亞塞拜然語</string>
-    <string name="revanced_language_BG">保加利亞語</string>
-    <string name="revanced_language_BN">孟加拉語</string>
-    <string name="revanced_language_CA">加泰隆尼亞語</string>
-    <string name="revanced_language_CS">捷克語</string>
-    <string name="revanced_language_DA">丹麥語</string>
-    <string name="revanced_language_DE">德語</string>
-    <string name="revanced_language_DEFAULT">應用語言</string>
-    <string name="revanced_language_EL">希臘語</string>
-    <string name="revanced_language_EN">英語</string>
-    <string name="revanced_language_ES">西班牙語</string>
-    <string name="revanced_language_ET">愛沙尼亞語</string>
-    <string name="revanced_language_FA">波斯語</string>
-    <string name="revanced_language_FI">芬蘭語</string>
-    <string name="revanced_language_FR">法語</string>
-    <string name="revanced_language_GU">古吉拉特語</string>
-    <string name="revanced_language_HI">印地語</string>
-    <string name="revanced_language_HR">克羅埃西亞語</string>
-    <string name="revanced_language_HU">匈牙利語</string>
-    <string name="revanced_language_ID">印尼語</string>
-    <string name="revanced_language_IT">義大利語</string>
-    <string name="revanced_language_JA">日語</string>
-    <string name="revanced_language_KK">哈薩克語</string>
-    <string name="revanced_language_KO">韓語</string>
-    <string name="revanced_language_LT">立陶宛語</string>
-    <string name="revanced_language_LV">拉脫維亞語</string>
-    <string name="revanced_language_MK">馬其頓語</string>
-    <string name="revanced_language_MN">蒙古語</string>
-    <string name="revanced_language_MR">馬拉提語</string>
-    <string name="revanced_language_MS">馬來語</string>
-    <string name="revanced_language_MY">緬甸語</string>
-    <string name="revanced_language_NL">荷蘭語</string>
+    <string name="revanced_language_AR">阿拉伯文</string>
+    <string name="revanced_language_AZ">亞塞拜然文</string>
+    <string name="revanced_language_BG">保加利亞文</string>
+    <string name="revanced_language_BN">孟加拉文</string>
+    <string name="revanced_language_CA">加泰隆尼亞文</string>
+    <string name="revanced_language_CS">捷克文</string>
+    <string name="revanced_language_DA">丹麥文</string>
+    <string name="revanced_language_DE">德文</string>
+    <string name="revanced_language_DEFAULT">應用程式語言</string>
+    <string name="revanced_language_EL">希臘文</string>
+    <string name="revanced_language_EN">英文</string>
+    <string name="revanced_language_ES">西班牙文</string>
+    <string name="revanced_language_ET">愛沙尼亞文</string>
+    <string name="revanced_language_FA">波斯文</string>
+    <string name="revanced_language_FI">芬蘭文</string>
+    <string name="revanced_language_FR">法文</string>
+    <string name="revanced_language_GU">古吉拉特文</string>
+    <string name="revanced_language_HI">印地文</string>
+    <string name="revanced_language_HR">克羅埃西亞文</string>
+    <string name="revanced_language_HU">匈牙利文</string>
+    <string name="revanced_language_ID">印尼文</string>
+    <string name="revanced_language_IT">義大利文</string>
+    <string name="revanced_language_JA">日文</string>
+    <string name="revanced_language_KK">哈薩克文</string>
+    <string name="revanced_language_KO">韓文</string>
+    <string name="revanced_language_LT">立陶宛文</string>
+    <string name="revanced_language_LV">拉脫維亞文</string>
+    <string name="revanced_language_MK">馬其頓文</string>
+    <string name="revanced_language_MN">蒙古文</string>
+    <string name="revanced_language_MR">馬拉提文</string>
+    <string name="revanced_language_MS">馬來文</string>
+    <string name="revanced_language_MY">緬甸文</string>
+    <string name="revanced_language_NL">荷蘭文</string>
     <string name="revanced_language_OR">歐迪亞語</string>
     <string name="revanced_language_PA">旁遮普語</string>
     <string name="revanced_language_PL">波蘭語</string>
@@ -1288,7 +1283,7 @@ Note:
     <string name="revanced_language_UR">烏爾都語</string>
     <string name="revanced_language_VI">越南語</string>
     <string name="revanced_language_ZH">中文</string>
-    <string name="revanced_language_title">RVX語言</string>
+    <string name="revanced_language_title">RVX 語言</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">已停用雙擊操作和縮放手勢來調整大小。</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"啟用雙擊操作和縮放手勢來調整大小。
 
@@ -1309,14 +1304,14 @@ Note:
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">拖曳已停用。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">拖曳已啟用。</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">啟用拖曳。</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">顯示展開和關閉按鈕。</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"按鈕被隱藏。
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">顯示展開和關閉按鈕。</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按鈕被隱藏。
 
 滑動即可展開或關閉。"</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">隱藏擴展和關閉按鈕</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">展開和關閉按鈕已顯示</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">按鈕已隱藏\n（滑動小型播放器即可展開或關閉）</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">隱藏展開和關閉按鈕</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隱藏展開和關閉按鈕</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">覆蓋按鈕已顯示。</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">覆蓋按鈕已隱藏。</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">隱藏覆蓋按鈕</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">快轉和倒轉按鈕已顯示</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">快轉和倒轉按鈕已隱藏</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">隱藏快轉和倒轉按鈕</string>
@@ -1341,6 +1336,7 @@ Note:
     <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
     <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
     <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_miniplayer_type_title">最小化播放器類型</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必須介於 %1$s 和 %2$s 之間。</string>
     <string name="revanced_miniplayer_width_dip_summary">初始螢幕尺寸（以像素為單位）。</string>
@@ -1414,8 +1410,6 @@ Note:
     <string name="revanced_preference_category_custom_actions">自訂操作</string>
     <string name="revanced_preference_category_download_button">下載按鈕</string>
     <string name="revanced_preference_category_experimental_flag">實驗性功能</string>
-    <string name="revanced_preference_category_hide_by_index">按索引隱藏</string>
-    <string name="revanced_preference_category_hide_by_index_live">在直播串流中按索引隱藏</string>
     <string name="revanced_preference_category_image_region_restrictions">影像區域限制</string>
     <string name="revanced_preference_category_import_export_as_file">導入 / 導出為文件</string>
     <string name="revanced_preference_category_import_export_as_text">導入 / 導出為檔案</string>
@@ -1484,8 +1478,8 @@ Note:
     <string name="revanced_preference_screen_shorts_player_summary">隱藏或顯示短片播放器中的組件</string>
     <string name="revanced_preference_screen_shorts_player_title">短片播放器</string>
     <string name="revanced_preference_screen_shorts_title">短片</string>
-    <string name="revanced_preference_screen_snack_bar_summary">隱藏或變更與彈出訊息列相關的組件。</string>
-    <string name="revanced_preference_screen_snack_bar_title">彈出訊息列</string>
+    <string name="revanced_preference_screen_snack_bar_summary">隱藏或更改與短暫通知相關的組件。</string>
+    <string name="revanced_preference_screen_snack_bar_title">短暫通知</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">偽裝串流資料以防止播放問題。</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">偽裝串流數據</string>
     <string name="revanced_preference_screen_swipe_controls_title">滑動控制</string>
@@ -1522,6 +1516,7 @@ Note:
     <string name="revanced_remember_video_quality_mobile">將預設移動數據畫質更改為 %s</string>
     <string name="revanced_remember_video_quality_none">無法設定影片畫質</string>
     <string name="revanced_remember_video_quality_wifi">將預設 WiFi 畫質更改為 %s</string>
+    <string name="revanced_remix_button_index_title">混音按鈕索引</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"移除觀眾酌情觀看對話方塊。
 這項選項不會繞過年齡限制，它只會自動接受。"</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">移除查看器的自由裁量對話框</string>

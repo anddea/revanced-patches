@@ -81,6 +81,10 @@ internal enum class PatchList(
         "Disable haptic feedback",
         "Adds options to disable haptic feedback when swiping in the video player."
     ),
+    DISABLE_RESUMING_MINIPLAYER_ON_STARTUP(
+        "Disable resuming Miniplayer on startup",
+        "Adds an option to disable the Miniplayer 'Continue watching' from resuming on app startup."
+    ),
     DISABLE_RESUMING_SHORTS_ON_STARTUP(
         "Disable resuming Shorts on startup",
         "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched."
@@ -112,6 +116,10 @@ internal enum class PatchList(
     GMSCORE_SUPPORT(
         "GmsCore support",
         "Allows patched Google apps to run without root and under a different package name by using GmsCore instead of Google Play Services."
+    ),
+    HIDE_ACCESSIBILITY_CONTROLS_DIALOG(
+        "Hide accessibility controls dialog",
+        "Removes, at compile time, accessibility controls dialog 'Turn on accessibility controls for the video player?'."
     ),
     HIDE_SHORTS_DIMMING(
         "Hide Shorts dimming",

@@ -165,13 +165,11 @@ val lithoFilterPatch = bytecodePatch(
         // Turn off native code that handles litho component names.  If this feature is on then nearly
         // all litho components have a null name and identifier/path filtering is completely broken.
 
-        if (bufferUpbFeatureFlagFingerprint.second.methodOrNull != null &&
-            pathUpbFeatureFlagFingerprint.second.methodOrNull != null
-        ) {
-            mapOf(
-                bufferUpbFeatureFlagFingerprint to 45419603L,
-                pathUpbFeatureFlagFingerprint to 45631264L,
-            ).forEach { (fingerprint, literalValue) ->
+        mapOf(
+            bufferUpbFeatureFlagFingerprint to BUFFER_UPD_FEATURE_FLAG,
+            pathUpbFeatureFlagFingerprint to PATH_UPD_FEATURE_FLAG,
+        ).forEach { (fingerprint, literalValue) ->
+            if (fingerprint.second.methodOrNull != null) {
                 fingerprint.injectLiteralInstructionBooleanCall(
                     literalValue,
                     "0x0"

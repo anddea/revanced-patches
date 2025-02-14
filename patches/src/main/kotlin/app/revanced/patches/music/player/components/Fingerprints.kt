@@ -4,6 +4,7 @@ import app.revanced.patches.music.utils.extension.Constants.PLAYER_CLASS_DESCRIP
 import app.revanced.patches.music.utils.playservice.is_7_18_or_greater
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.darkBackground
+import app.revanced.patches.music.utils.resourceid.inlineTimeBarProgressColor
 import app.revanced.patches.music.utils.resourceid.miniPlayerDefaultText
 import app.revanced.patches.music.utils.resourceid.miniPlayerMdxPlaying
 import app.revanced.patches.music.utils.resourceid.miniPlayerPlayPauseReplayButton
@@ -227,12 +228,16 @@ internal val nextButtonVisibilityFingerprint = legacyFingerprint(
     )
 )
 
+internal const val OLD_ENGAGEMENT_PANEL_FEATURE_FLAG = 45427672L
+
 internal val oldEngagementPanelFingerprint = legacyFingerprint(
     name = "oldEngagementPanelFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45427672L),
+    literals = listOf(OLD_ENGAGEMENT_PANEL_FEATURE_FLAG),
 )
+
+internal const val OLD_PLAYER_BACKGROUND_FEATURE_FLAG = 45415319L
 
 /**
  * Deprecated in YouTube Music v6.34.51+
@@ -241,8 +246,10 @@ internal val oldPlayerBackgroundFingerprint = legacyFingerprint(
     name = "oldPlayerBackgroundFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45415319L),
+    literals = listOf(OLD_PLAYER_BACKGROUND_FEATURE_FLAG),
 )
+
+internal const val OLD_PLAYER_LAYOUT_FEATURE_FLAG = 45399578L
 
 /**
  * Deprecated in YouTube Music v6.31.55+
@@ -251,7 +258,7 @@ internal val oldPlayerLayoutFingerprint = legacyFingerprint(
     name = "oldPlayerLayoutFingerprint",
     returnType = "Z",
     parameters = emptyList(),
-    literals = listOf(45399578L),
+    literals = listOf(OLD_PLAYER_LAYOUT_FEATURE_FLAG),
 )
 
 internal val playerPatchConstructorFingerprint = legacyFingerprint(
@@ -306,23 +313,32 @@ internal val repeatTrackFingerprint = legacyFingerprint(
     strings = listOf("w_st")
 )
 
+internal const val SHUFFLE_BUTTON_ID = 45468L
+
 internal val shuffleOnClickFingerprint = legacyFingerprint(
     name = "shuffleOnClickFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/View;"),
-    literals = listOf(45468L),
+    literals = listOf(SHUFFLE_BUTTON_ID),
     customFingerprint = { method, _ ->
-        method.name == "onClick" &&
-                indexOfAccessibilityInstruction(method) >= 0
+        method.name == "onClick"
     }
 )
 
-internal fun indexOfAccessibilityInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "announceForAccessibility"
+internal val shuffleEnumFingerprint = legacyFingerprint(
+    name = "shuffleEnumFingerprint",
+    returnType = "V",
+    parameters = emptyList(),
+    strings = listOf(
+        "SHUFFLE_OFF",
+        "SHUFFLE_ALL",
+        "SHUFFLE_DISABLED",
+    ),
+    customFingerprint = { method, _ ->
+        method.name == "<clinit>"
     }
+)
 
 internal val swipeToCloseFingerprint = legacyFingerprint(
     name = "swipeToCloseFingerprint",
@@ -342,6 +358,33 @@ internal val switchToggleColorFingerprint = legacyFingerprint(
         Opcode.CHECK_CAST,
         Opcode.IGET
     )
+)
+
+internal val thickSeekBarColorFingerprint = legacyFingerprint(
+    name = "thickSeekBarColorFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    literals = listOf(inlineTimeBarProgressColor),
+    customFingerprint = { method, _ ->
+        method.definingClass.endsWith("/MusicPlaybackControls;")
+    }
+)
+
+internal val thickSeekBarFeatureFlagFingerprint = legacyFingerprint(
+    name = "thickSeekBarFeatureFlagFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    literals = listOf(45659062L),
+)
+
+internal val thickSeekBarInflateFingerprint = legacyFingerprint(
+    name = "thickSeekBarInflateFingerprint",
+    returnType = "V",
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        method.definingClass.endsWith("/MusicPlaybackControls;") &&
+                method.name == "onFinishInflate"
+    }
 )
 
 internal val zenModeFingerprint = legacyFingerprint(

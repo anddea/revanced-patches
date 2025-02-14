@@ -19,10 +19,18 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="revanced_change_share_sheet_summary">Uygulama içi paylaşım sayfasını sistem paylaşım sayfasıyla değiştirin.</string>
     <string name="revanced_change_share_sheet_title">Paylaşım sayfasını değiştir</string>
     <string name="revanced_change_start_page_entry_chart">Listeler</string>
+    <string name="revanced_change_start_page_entry_charts">Trendler</string>
+    <string name="revanced_change_start_page_entry_default">Varsayılan</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Daha sonra izle</string>
     <string name="revanced_change_start_page_entry_explore">Keşfet</string>
-    <string name="revanced_change_start_page_entry_home">Ana Sayfa</string>
+    <string name="revanced_change_start_page_entry_history">Geçmiş</string>
     <string name="revanced_change_start_page_entry_library">Kitaplık</string>
+    <string name="revanced_change_start_page_entry_liked_music">Beğenilen Müzikler</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcast\'ler</string>
+    <string name="revanced_change_start_page_entry_samples">Örnekler</string>
+    <string name="revanced_change_start_page_entry_search">Arama</string>
     <string name="revanced_change_start_page_entry_subscription">Abonelikler</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
     <string name="revanced_change_start_page_summary">Uygulamanın başlangıç sayfasını değiştirin.</string>
     <string name="revanced_change_start_page_title">Başlangıç ​​sayfasını değiştir</string>
     <string name="revanced_custom_filter_strings_summary">Yeni satırlarla ayrılmış olarak hangi bileşenlerin filtreleneceğini yapılandırın.</string>
@@ -30,6 +38,9 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="revanced_custom_filter_summary">Düzen bileşenlerini gizlemek için özel filtreyi etkinleştirir.</string>
     <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s.</string>
+    <string name="revanced_custom_navigation_bar_color_value_invalid_invalid_toast">Geçersiz gezinme çubuğu renk değeri.</string>
+    <string name="revanced_custom_navigation_bar_color_value_summary">Gezinme çubuğu renginin hex kodunu yaz.</string>
+    <string name="revanced_custom_navigation_bar_color_value_title">Özel gezinme çubuğu renk değeri</string>
     <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %sx\'den küçük olmalıdır.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları.</string>
     <string name="revanced_custom_playback_speeds_summary">Mevcut oynatma hızlarını değiştirin.</string>
@@ -42,26 +53,33 @@ Devam düğmesine dokunun ve pil optimizasyonlarını devre dışı bırakın."<
     <string name="revanced_disable_cairo_splash_animation_title">Kahire açılış animasyonunu devre dışı bırak</string>
     <string name="revanced_disable_dislike_redirection_summary">Beğenmedim düğmesine tıklandığında sonraki parçaya yönlendirmeyi devre dışı bırakır.</string>
     <string name="revanced_disable_dislike_redirection_title">Beğenmeme yönlendirmesini devre dışı bırak</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Mini oynatıcıdaki parçaları değiştirmek için kaydırmayı devre dışı bırakın.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Mini oynatıcı hareketini devre dışı bırak</string>
+    <string name="revanced_disable_drc_audio_summary">Sese uygulanan Dinamik Aralık Sıkıştırmayı devre dışı bırakır.</string>
+    <string name="revanced_disable_drc_audio_title">Sabit sesi devre dışı bırak</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Şarkı / Video geçişi için dokunun</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Şarkı / Video geçişi iççin basılı tutun</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Yönlendirme</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_summary">Resmi şarkıya nasıl yönlendireleceğini belirtir.</string>
+    <string name="revanced_disable_music_video_in_album_redirect_type_title">Yönlendirme türü</string>
+    <string name="revanced_disable_music_video_in_album_summary">"Premium olmayan bir kullanıcı bir albümde yer alan bir şarkıyı çaldığında, bazen resmi şarkı yerine müzik videosu çalınır.
+
+Bir albümden müzik videosu çalındığı algılanırsa resmi şarkıyı bulur.
+
+• Piped Instance API tarafından desteklenmektedir."</string>
+    <string name="revanced_disable_music_video_in_album_title">Albümdeki müzik videosunu devre dışı bırak</string>
     <string name="revanced_disable_player_gesture_summary">Oynatıcıdaki parçaları değiştirmek için kaydırmayı devre dışı bırakın.</string>
     <string name="revanced_disable_player_gesture_title">Oynatıcı hareketini devre dışı bırak</string>
-    <string name="revanced_enable_black_player_background_summary">Oynatıcının arka plan rengini siyaha değiştirir.</string>
-    <string name="revanced_enable_black_player_background_title">Siyah oynatıcı arka planını etkinleştir</string>
-    <string name="revanced_enable_color_match_player_summary">Küçültülmüş oynatıcının rengi ile tam ekran oynatıcının rengini eşler.</string>
-    <string name="revanced_enable_color_match_player_title">Oynatıcı renk eşlemesini etkinleştir</string>
     <string name="revanced_enable_compact_dialog_summary">"Telefonda kompakt iletişim kutusunu etkinleştirin. 
 
 Bilinen sorunlar: 
 • Kitaplık sekmesindeki albüm resmi, ızgara halinde düzenlendiğinde küçülür. 
 • Uyku zamanlayıcısı düzeni olağandışı görünebilir."</string>
     <string name="revanced_enable_compact_dialog_title">Kompakt diyaloğu etkinleştir</string>
+    <string name="revanced_enable_custom_navigation_bar_color_summary">Gezinme çubuğu rengini ayarlar.</string>
+    <string name="revanced_enable_custom_navigation_bar_color_title">Özel gezinme çubuğu rengini etkinleştir</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Hata ayıklama günlüklerini arabellek dahiline yazdırır.</string>
     <string name="revanced_enable_debug_buffer_logging_title">Hata ayıklama günlüklerine arabelleği kaydet</string>
     <string name="revanced_enable_debug_logging_summary">Hata ayıklama günlüğünü yazdırır.</string>
     <string name="revanced_enable_debug_logging_title">Hata ayıklama günlüğünü etkinleştir</string>
-    <string name="revanced_enable_force_minimized_player_summary">Başka bir kayıt oynatılıyor ise oynatıcıyı tamamen küçült.</string>
-    <string name="revanced_enable_force_minimized_player_title">Zorla küçültülmüş pencereyi aktifleştir</string>
     <string name="revanced_enable_landscape_mode_summary">Telefonlarda ekran döndürme ile manzara moduna geçiş sağlar.</string>
     <string name="revanced_enable_landscape_mode_title">Yatay Modu Etkinleştir</string>
     <string name="revanced_enable_mini_player_next_button_summary">Mini oynatıcıda sonraki düğmesini etkinleştirir.</string>
@@ -102,7 +120,7 @@ Bilgi:
     <string name="revanced_extended_settings_import_reset">Ayarlar varsayılana sıfırlandı.</string>
     <string name="revanced_extended_settings_import_success">%d ayar içe aktarıldı.</string>
     <string name="revanced_extended_settings_reset">Sıfırla</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"İndir düğmesi harici indiricinizi açar.
 
 • Yalnızca oynatıcıdaki indirme işlemi düğmesini geçersiz kılar.
@@ -295,7 +313,7 @@ Eski oynatıcı düzeninde bazı ayarlar düzgün çalışmayabilir."</string>
     <string name="revanced_restore_old_player_layout_title">Eski oynatıcı düzenini geri getir</string>
     <string name="revanced_restore_old_style_library_shelf_summary">Kütüphane rafını eski stile döndürün.
 (Deneysel)</string>
-    <string name="revanced_restore_old_style_library_shelf_title">Eski stil kitaplık rafını geri getir</string>
+    <string name="revanced_restore_old_style_library_shelf_title">Eski stil kütüphane rafını geri getir</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@HerkeseAçıkKullanıcıAdı (Kullanıcı Adı)</string>
     <string name="revanced_return_youtube_username_display_format_summary">Kullanıcı adı görüntüleme biçimini seçin.</string>
     <string name="revanced_return_youtube_username_display_format_title">Ekran formatı</string>
@@ -401,15 +419,24 @@ APl anahtarının nasıl verileceğini görmek için tıklayın."</string>
 • Daha sonra kapatılırsa, uygulama verileri temizlenene kadar eski kullanıcı arayüzü kalabilir."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Kanada bölgelerinde radyo modunu devre dışı bırakın</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Gerçek zamanlı şarkı sözlerini devre dışı bırak</string>
+    <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Gerçek zamanlı şarkı sözlerini devre dışı bırak</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Eski eylem çubuğunu geri yükle</string>
     <string name="revanced_spoof_app_version_target_summary">Sahte uygulama sürümü hedefini seçin.</string>
     <string name="revanced_spoof_app_version_target_title">Uygulama hedef sürümünü kandırma hedefi</string>
     <string name="revanced_spoof_app_version_title">Uygulama Versiyonunu taklit et</string>
-    <string name="revanced_spoof_client_summary">"\"Oynatma sorunlarını önlemek için istemciyi taklit edin.
-
-Sınırlamalar:
-• OPUS ses kodeği desteklenmiyor olabilir.
-• Arama çubuğu küçük resmi mevcut olmayabilir.
-• İzleme geçmişi marka hesabında çalışmaz."</string>
+    <string name="revanced_spoof_client_summary">Oynatma sorunlarını çözmek için istemciyi taklit eder.</string>
     <string name="revanced_spoof_client_title">Sahte istemci</string>
+    <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
+    <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_summary">Taklit etmek için varsayılan bir istemci tanımlar.</string>
+    <string name="revanced_spoof_client_type_title">Varsayılan istemci</string>
+    <string name="revanced_watch_history_type_entry_1">Orijinal</string>
+    <string name="revanced_watch_history_type_entry_2">Alan adını değiştir</string>
+    <string name="revanced_watch_history_type_entry_3">İzleme geçmişini engelle</string>
+    <string name="revanced_watch_history_type_summary">"- Orijinal: Google hesabının izleme geçmişi ayarlarını takip eder, ancak izleme geçmişi DNS veya VPN nedeniyle çalışmayabilir.
+- Alan adını değiştir: Google hesabının izleme geçmişi ayarlarını takip eder.
+- İzleme geçmişini engelle: İzleme geçmişi engellenir."</string>
+    <string name="revanced_watch_history_type_title">İzleme geçmişi türü</string>
 </resources>

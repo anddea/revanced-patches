@@ -21,10 +21,18 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="revanced_change_share_sheet_summary">Altera o menu de compartilhamento do app para o meno de compartilhamento do sistema.</string>
     <string name="revanced_change_share_sheet_title">Alterar menu de compartilhamento</string>
     <string name="revanced_change_start_page_entry_chart">Paradas</string>
+    <string name="revanced_change_start_page_entry_charts">Paradas</string>
+    <string name="revanced_change_start_page_entry_default">Padrão</string>
+    <string name="revanced_change_start_page_entry_episodes_for_later">Episódios para Mais Tarde</string>
     <string name="revanced_change_start_page_entry_explore">Explorar</string>
-    <string name="revanced_change_start_page_entry_home">Início</string>
+    <string name="revanced_change_start_page_entry_history">Histórico</string>
     <string name="revanced_change_start_page_entry_library">Biblioteca</string>
+    <string name="revanced_change_start_page_entry_liked_music">Músicas curtidas</string>
+    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
+    <string name="revanced_change_start_page_entry_samples">Descobertas</string>
+    <string name="revanced_change_start_page_entry_search">Buscar</string>
     <string name="revanced_change_start_page_entry_subscription">Inscrições</string>
+    <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
     <string name="revanced_change_start_page_summary">Selecione em qual página o aplicativo será aberto.</string>
     <string name="revanced_change_start_page_title">Alterar a página inicial</string>
     <string name="revanced_custom_filter_strings_summary">Lista de componentes a serem filtradas separadas por uma nova linha.</string>
@@ -49,8 +57,6 @@ Toque no botão continuar e permita as alterações de otimização."</string>
     <string name="revanced_disable_dislike_redirection_title">Desativar redirecionamento de dislike</string>
     <string name="revanced_disable_drc_audio_summary">Desativa o DRC (Compressão de faixa dinâmica) aplicada ao áudio.</string>
     <string name="revanced_disable_drc_audio_title">Desativar áudio DRC</string>
-    <string name="revanced_disable_mini_player_gesture_summary">Desativa a função de deslizar para alterar faixa no mini reprodutor.</string>
-    <string name="revanced_disable_mini_player_gesture_title">Desativar gesto do mini reprodutor</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_click">Tocar alternador de Música / Vídeo</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_on_long_click">Tocar e segurar alternador de Música / Vídeo</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirecionar</string>
@@ -64,10 +70,6 @@ Encontre a música oficial se um videoclipe for detectado tocando de um álbum.
     <string name="revanced_disable_music_video_in_album_title">Desativar vídeo da música no álbum</string>
     <string name="revanced_disable_player_gesture_summary">Desativa a função de deslizar para alterar faixa no reprodutor.</string>
     <string name="revanced_disable_player_gesture_title">Desativar gesto do reprodutor</string>
-    <string name="revanced_enable_black_player_background_summary">Altera a cor de fundo do reprodutor para preto.</string>
-    <string name="revanced_enable_black_player_background_title">Alterar cor de fundo do reprodutor</string>
-    <string name="revanced_enable_color_match_player_summary">Altera a cor do mini reprodutor para a cor do reprodutor em tela cheia.</string>
-    <string name="revanced_enable_color_match_player_title">Alterar cor do mini reprodutor</string>
     <string name="revanced_enable_compact_dialog_summary">"Ativa o menu flutuante compacto em telefones.
 
 Limitações:
@@ -80,8 +82,6 @@ Limitações:
     <string name="revanced_enable_debug_buffer_logging_title">Ativar o registro de depuração do buffer</string>
     <string name="revanced_enable_debug_logging_summary">Imprime o relatório de depuração</string>
     <string name="revanced_enable_debug_logging_title">Ativar o relatório de depuração</string>
-    <string name="revanced_enable_force_minimized_player_summary">Ativa o mini reprodutor forçado ao alternar para uma nova faixa.</string>
-    <string name="revanced_enable_force_minimized_player_title">Ativar mini reprodutor forçado</string>
     <string name="revanced_enable_landscape_mode_summary">Ativa o modo paisagem ao girar a tela nos telefones.</string>
     <string name="revanced_enable_landscape_mode_title">Ativar modo paisagem</string>
     <string name="revanced_enable_mini_player_next_button_summary">Adiciona o botão próximo no mini reprodutor.</string>
@@ -122,7 +122,7 @@ Informações:
     <string name="revanced_extended_settings_import_reset">Configurações redefinidas para o padrão</string>
     <string name="revanced_extended_settings_import_success">Configurações %d importadas</string>
     <string name="revanced_extended_settings_reset">Reiniciar</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_action_summary">"O botão de Download abre seu aplicativo de download externo.
 
 • Substitui apenas a ação do botão de download no reprodutor.
@@ -416,20 +416,18 @@ Clique para ver como emitir uma chave de API."</string>
 • Se for desativada posteriormente, a interface do usuário antiga poderá permanecer até que os dados do aplicativo sejam apagados."</string>
     <string name="revanced_spoof_app_version_target_entry_4_27_53">4.27.53 - Desativar modo de Rádio em regiões Canadenses</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
+    <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar barra de ação antiga</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
-    <string name="revanced_spoof_client_summary">"Falsificar o cliente para evitar problemas de reprodução.
-
-• Quando usado com 'Dados de streaming falsos', podem ocorrer problemas de reprodução."</string>
+    <string name="revanced_spoof_client_summary">Falsificar o cliente para evitar problemas de reprodução.</string>
     <string name="revanced_spoof_client_title">Falsificar cliente</string>
     <string name="revanced_spoof_client_type_entry_android_music_4_27">Android Music 4.27.53</string>
     <string name="revanced_spoof_client_type_entry_android_music_5_29">Android Music 5.29.53</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
-    <string name="revanced_spoof_client_type_summary">"Define um cliente padrão para falsificar.
-
-• Ao usar o cliente Android, é recomendado usar também 'Falsificar versão do aplicativo'."</string>
+    <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
+    <string name="revanced_spoof_client_type_summary">Define um cliente padrão para falsificar.</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
@@ -437,10 +435,16 @@ Clique para ver como emitir uma chave de API."</string>
 
 • Quando usado com 'Falsificar cliente', podem ocorrer problemas de reprodução."</string>
     <string name="revanced_spoof_streaming_data_title">Dados de streaming falsos</string>
-    <string name="revanced_spoof_streaming_data_type_entry_android_music">Android Music</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_unplugged">Android TV</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">iOS</string>
     <string name="revanced_spoof_streaming_data_type_summary">Define um cliente padrão que busca dados de streaming.</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
+    <string name="revanced_watch_history_type_entry_1">Original</string>
+    <string name="revanced_watch_history_type_entry_2">Substituir domínio</string>
+    <string name="revanced_watch_history_type_entry_3">Bloquear histórico de exibição</string>
+    <string name="revanced_watch_history_type_summary">"• Original: segue as configurações do histórico de exibição da conta do Google, mas o histórico de exibição pode não funcionar devido a DNS ou VPN.
+• Substituir domínio: segue as configurações do histórico de exibição da conta do Google.
+• Bloquear histórico de exibição: o histórico de exibição é bloqueado."</string>
+    <string name="revanced_watch_history_type_title">Tipo de histórico de exibição</string>
 </resources>

@@ -61,8 +61,6 @@ var compactLink = -1L
     private set
 var compactListItem = -1L
     private set
-var componentLongClickListener = -1L
-    private set
 var contentPill = -1L
     private set
 var controlsLayoutStub = -1L
@@ -82,8 +80,6 @@ var drawerResults = -1L
 var easySeekEduContainer = -1L
     private set
 var editSettingsAction = -1L
-    private set
-var elementsImage = -1L
     private set
 var endScreenElementLayoutCircle = -1L
     private set
@@ -105,6 +101,8 @@ var floatyBarTopMargin = -1L
     private set
 var fullScreenButton = -1L
     private set
+var fullScreenEngagementAdContainer = -1L
+    private set
 var fullScreenEngagementOverlay = -1L
     private set
 var fullScreenEngagementPanel = -1L
@@ -114,6 +112,8 @@ var horizontalCardList = -1L
 var imageOnlyTab = -1L
     private set
 var inlineTimeBarColorizedBarPlayedColorDark = -1L
+    private set
+var inlineTimeBarLiveSeekAbleRange = -1L
     private set
 var inlineTimeBarPlayedNotHighlightedColor = -1L
     private set
@@ -135,13 +135,13 @@ var modernMiniPlayerExpand = -1L
     private set
 var modernMiniPlayerForwardButton = -1L
     private set
+var modernMiniPlayerOverlayActionButton = -1L
+    private set
 var modernMiniPlayerRewindButton = -1L
     private set
 var musicAppDeeplinkButtonView = -1L
     private set
 var notificationBigPictureIconWidth = -1L
-    private set
-var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var playerCollapseButton = -1L
     private set
@@ -240,6 +240,10 @@ var ytOutlineVideoCamera = -1L
 var ytOutlineXWhite = -1L
     private set
 var ytPremiumWordMarkHeader = -1L
+    private set
+var ytTextSecondary = -1L
+    private set
+var ytStaticBrandRed = -1L
     private set
 var ytWordMarkHeader = -1L
     private set
@@ -344,10 +348,6 @@ internal val sharedResourceIdPatch = resourcePatch(
             LAYOUT,
             "compact_list_item"
         ]
-        componentLongClickListener = resourceMappings[
-            ID,
-            "component_long_click_listener"
-        ]
         contentPill = resourceMappings[
             LAYOUT,
             "content_pill"
@@ -387,10 +387,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         editSettingsAction = resourceMappings[
             STRING,
             "edit_settings_action"
-        ]
-        elementsImage = resourceMappings[
-            ID,
-            "elements_image"
         ]
         endScreenElementLayoutCircle = resourceMappings[
             LAYOUT,
@@ -432,6 +428,10 @@ internal val sharedResourceIdPatch = resourcePatch(
             ID,
             "fullscreen_button"
         ]
+        fullScreenEngagementAdContainer = resourceMappings[
+            ID,
+            "fullscreen_engagement_ad_container"
+        ]
         fullScreenEngagementOverlay = resourceMappings[
             LAYOUT,
             "fullscreen_engagement_overlay"
@@ -451,6 +451,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         inlineTimeBarColorizedBarPlayedColorDark = resourceMappings[
             COLOR,
             "inline_time_bar_colorized_bar_played_color_dark"
+        ]
+        inlineTimeBarLiveSeekAbleRange = resourceMappings[
+            COLOR,
+            "inline_time_bar_live_seekable_range"
         ]
         inlineTimeBarPlayedNotHighlightedColor = resourceMappings[
             COLOR,
@@ -492,6 +496,10 @@ internal val sharedResourceIdPatch = resourcePatch(
             ID,
             "modern_miniplayer_forward_button"
         ]
+        modernMiniPlayerOverlayActionButton = resourceMappings[
+            ID,
+            "modern_miniplayer_overlay_action_button"
+        ]
         modernMiniPlayerRewindButton = resourceMappings[
             ID,
             "modern_miniplayer_rewind_button"
@@ -503,10 +511,6 @@ internal val sharedResourceIdPatch = resourcePatch(
         notificationBigPictureIconWidth = resourceMappings[
             DIMEN,
             "notification_big_picture_icon_width"
-        ]
-        offlineActionsVideoDeletedUndoSnackbarText = resourceMappings[
-            STRING,
-            "offline_actions_video_deleted_undo_snackbar_text"
         ]
         playerCollapseButton = resourceMappings[
             ID,
@@ -703,6 +707,14 @@ internal val sharedResourceIdPatch = resourcePatch(
         ytPremiumWordMarkHeader = resourceMappings[
             ATTR,
             "ytPremiumWordmarkHeader"
+        ]
+        ytTextSecondary = resourceMappings[
+            ATTR,
+            "ytTextSecondary",
+        ]
+        ytStaticBrandRed = resourceMappings[
+            ATTR,
+            "ytStaticBrandRed",
         ]
         ytWordMarkHeader = resourceMappings[
             ATTR,

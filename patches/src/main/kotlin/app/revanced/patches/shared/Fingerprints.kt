@@ -10,6 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
     name = "createPlayerRequestBodyWithModelFingerprint",
@@ -18,10 +19,18 @@ internal val createPlayerRequestBodyWithModelFingerprint = legacyFingerprint(
     parameters = emptyList(),
     opcodes = listOf(Opcode.OR_INT_LIT16),
     customFingerprint = { method, _ ->
-        indexOfModelInstruction(method) >= 0 &&
+        indexOfBrandInstruction(method) >= 0 &&
+                indexOfManufacturerInstruction(method) >= 0 &&
+                indexOfModelInstruction(method) >= 0 &&
                 indexOfReleaseInstruction(method) >= 0
     }
 )
+
+fun indexOfBrandInstruction(method: Method) =
+    method.indexOfFieldReference("Landroid/os/Build;->BRAND:Ljava/lang/String;")
+
+fun indexOfManufacturerInstruction(method: Method) =
+    method.indexOfFieldReference("Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;")
 
 fun indexOfModelInstruction(method: Method) =
     method.indexOfFieldReference("Landroid/os/Build;->MODEL:Ljava/lang/String;")
@@ -67,9 +76,14 @@ internal val sharedSettingFingerprint = legacyFingerprint(
 internal val spannableStringBuilderFingerprint = legacyFingerprint(
     name = "spannableStringBuilderFingerprint",
     returnType = "Ljava/lang/CharSequence;",
-    strings = listOf("Failed to set PB Style Run Extension in TextComponentSpec. Extension id: %s"),
     customFingerprint = { method, _ ->
-        indexOfSpannableStringInstruction(method) >= 0
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CONST_STRING &&
+                    getReference<StringReference>()
+                        ?.string.toString()
+                        .startsWith("Failed to set PB Style Run Extension in TextComponentSpec.")
+        } >= 0 &&
+                indexOfSpannableStringInstruction(method) >= 0
     }
 )
 
@@ -80,27 +94,6 @@ fun indexOfSpannableStringInstruction(method: Method) = method.indexOfFirstInstr
     opcode == Opcode.INVOKE_STATIC &&
             getReference<MethodReference>()?.toString() == SPANNABLE_STRING_REFERENCE
 }
-
-internal val startVideoInformerFingerprint = legacyFingerprint(
-    name = "startVideoInformerFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
-    ),
-    strings = listOf("pc"),
-    customFingerprint = { method, _ ->
-        method.implementation
-            ?.instructions
-            ?.withIndex()
-            ?.filter { (_, instruction) ->
-                instruction.opcode == Opcode.CONST_STRING
-            }
-            ?.map { (index, _) -> index }
-            ?.size == 1
-    }
-)
 
 internal val videoLengthFingerprint = legacyFingerprint(
     name = "videoLengthFingerprint",

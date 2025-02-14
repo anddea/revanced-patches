@@ -186,8 +186,15 @@ public class FeedPatch {
             String menuTitleString = menuTitleCharSequence.toString();
 
             for (String filter : blockList) {
-                if (menuTitleString.equals(filter) && !filter.isEmpty())
-                    return null;
+                if (!filter.isEmpty()) {
+                    if (Settings.HIDE_FEED_FLYOUT_MENU_FILTER_TYPE.get()) {
+                        if (menuTitleString.contains(filter))
+                            return null;
+                    } else {
+                        if (menuTitleString.equals(filter))
+                            return null;
+                    }
+                }
             }
         }
 
