@@ -28,3 +28,19 @@ internal val likeDislikeContainerFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     literals = listOf(likeDislikeContainer)
 )
+
+internal val commandResolverFingerprint = legacyFingerprint(
+    name = "commandResolverFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC or AccessFlags.FINAL,
+    returnType = "Z",
+    parameters = listOf("L", "L", "Ljava/util/Map;"),
+    strings = listOf("CommandResolver threw exception during resolution")
+)
+
+internal val offlineVideoEndpointFingerprint = legacyFingerprint(
+    name = "offlineVideoEndpointFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L", "Ljava/util/Map;"),
+    strings = listOf("Object is not an offlineable video: %s")
+)

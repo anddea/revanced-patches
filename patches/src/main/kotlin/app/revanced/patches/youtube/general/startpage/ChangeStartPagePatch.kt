@@ -48,9 +48,9 @@ val changeStartPagePatch = bytecodePatch(
 
         // There is no browseId assigned to Shorts and Search.
         // Just hook the Intent action.
-        intentActionFingerprint.methodOrThrow().addInstruction(
+        intentFingerprint.methodOrThrow().addInstruction(
             0,
-            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V"
+            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntent(Landroid/content/Intent;)V"
         )
 
         // region add settings

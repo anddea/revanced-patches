@@ -15,7 +15,7 @@ internal object Constants {
             "6.51.53", // This is the latest version of YouTube Music 6.xx.xx
             "7.16.53", // This is the latest version that supports the 'Spoof app version' patch.
             "7.25.53", // This is the last supported version for 2024.
-            "8.02.53", // This is the latest version supported by the RVX patch.
+            "8.05.51", // This is the latest version supported by the RVX patch.
         )
     )
 }

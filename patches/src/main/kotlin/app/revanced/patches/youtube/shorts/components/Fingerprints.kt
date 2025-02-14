@@ -71,6 +71,19 @@ internal val reelEnumStaticFingerprint = legacyFingerprint(
     returnType = "L"
 )
 
+internal const val SHORTS_HUD_FEATURE_FLAG = 45644023L
+
+/**
+ * Fix [HUD is hidden](https://github.com/ReVanced/revanced-patches/issues/4426)
+ */
+internal val shortsHUDFeatureFingerprint = legacyFingerprint(
+    name = "shortsHUDFeatureFingerprint",
+    returnType = "Z",
+    parameters = emptyList(),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    literals = listOf(SHORTS_HUD_FEATURE_FLAG),
+)
+
 internal val reelFeedbackFingerprint = legacyFingerprint(
     name = "reelFeedbackFingerprint",
     returnType = "V",
@@ -186,42 +199,4 @@ internal val shortsFullscreenFeatureFingerprint = legacyFingerprint(
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(FULLSCREEN_FEATURE_FLAG),
-)
-
-// Pre 19.25
-internal val shortsPlaybackIntentLegacyFingerprint = legacyFingerprint(
-    name = "shortsPlaybackIntentLegacyFingerprint",
-    returnType = "V",
-    parameters = listOf(
-        "L",
-        "Ljava/util/Map;",
-        "J",
-        "Ljava/lang/String;",
-        "Z",
-        "Ljava/util/Map;"
-    ),
-    strings = listOf(
-        // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
-    )
-)
-
-internal val shortsPlaybackIntentFingerprint = legacyFingerprint(
-    name = "shortsPlaybackIntentFingerprint",
-    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf(
-        "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
-        "Ljava/util/Map;",
-        "J",
-        "Ljava/lang/String;"
-    ),
-    strings = listOf(
-        // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
-    )
 )

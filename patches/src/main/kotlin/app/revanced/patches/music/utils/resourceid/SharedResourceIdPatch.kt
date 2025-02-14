@@ -43,6 +43,8 @@ var historyMenuItem = -1L
     private set
 var inlineTimeBarAdBreakMarkerColor = -1L
     private set
+var inlineTimeBarProgressColor = -1L
+    private set
 var interstitialsContainer = -1L
     private set
 var isTablet = -1L
@@ -60,6 +62,8 @@ var miniPlayerMdxPlaying = -1L
 var miniPlayerPlayPauseReplayButton = -1L
     private set
 var miniPlayerViewPager = -1L
+    private set
+var modernDialogBackground = -1L
     private set
 var musicNotifierShelf = -1L
     private set
@@ -172,6 +176,10 @@ internal val sharedResourceIdPatch = resourcePatch(
             COLOR,
             "inline_time_bar_ad_break_marker_color"
         ]
+        inlineTimeBarProgressColor = resourceMappings[
+            COLOR,
+            "inline_time_bar_progress_color"
+        ]
         interstitialsContainer = resourceMappings[
             ID,
             "interstitials_container"
@@ -207,6 +215,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         miniPlayerViewPager = resourceMappings[
             ID,
             "mini_player_view_pager"
+        ]
+        modernDialogBackground = resourceMappings[
+            DRAWABLE,
+            "modern_dialog_background"
         ]
         musicNotifierShelf = resourceMappings[
             LAYOUT,

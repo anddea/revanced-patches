@@ -1,8 +1,8 @@
 package app.revanced.patches.shared.materialyou
 
 import app.revanced.patcher.patch.ResourcePatchContext
+import app.revanced.util.FilesCompat
 import org.w3c.dom.Element
-import java.nio.file.Files
 
 private fun ResourcePatchContext.patchXmlFile(
     fromDir: String,
@@ -17,7 +17,7 @@ private fun ResourcePatchContext.patchXmlFile(
     val fromDirectory = resourceDirectory.resolve(fromDir)
     val toDirectory = resourceDirectory.resolve(toDir)
 
-    if (!toDirectory.isDirectory) Files.createDirectories(toDirectory.toPath())
+    if (!toDirectory.isDirectory) toDirectory.mkdirs()
 
     val fromXmlFile = fromDirectory.resolve(xmlFileName)
     val toXmlFile = toDirectory.resolve(xmlFileName)
@@ -27,9 +27,9 @@ private fun ResourcePatchContext.patchXmlFile(
     }
 
     if (!toXmlFile.exists()) {
-        Files.copy(
-            fromXmlFile.toPath(),
-            toXmlFile.toPath()
+        FilesCompat.copy(
+            fromXmlFile,
+            toXmlFile
         )
     }
 
@@ -37,8 +37,9 @@ private fun ResourcePatchContext.patchXmlFile(
         val parentList = document.getElementsByTagName(parentNode).item(0) as Element
 
         if (targetNode != null) {
-            for (i in 0 until parentList.childNodes.length) {
-                val node = parentList.childNodes.item(i) as? Element ?: continue
+            val childNodes = parentList.childNodes
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
 
                 if (node.nodeName == targetNode && node.hasAttribute(attribute)) {
                     node.getAttributeNode(attribute).textContent = newValue

@@ -62,7 +62,9 @@ public final class FeedComponentsFilter extends Filter {
                 "images_post_root",
                 "images_post_slim",
                 "poll_post_root",
-                "text_post_root"
+                "post_shelf_slim",
+                "text_post_root",
+                "videos_post_root"
         );
 
         final StringFilterGroup expandableShelf = new StringFilterGroup(
@@ -163,13 +165,18 @@ public final class FeedComponentsFilter extends Filter {
 
         final StringFilterGroup playables = new StringFilterGroup(
                 Settings.HIDE_PLAYABLES,
-                "horizontal_gaming_shelf.eml",
+                "horizontal_gaming_shelf",
                 "mini_game_card.eml"
         );
 
         final StringFilterGroup subscriptionsChannelBar = new StringFilterGroup(
                 Settings.HIDE_SUBSCRIPTIONS_CAROUSEL,
                 "subscriptions_channel_bar"
+        );
+
+        final StringFilterGroup subscriptionsCategoryBar = new StringFilterGroup(
+                Settings.HIDE_CATEGORY_BAR_IN_FEED,
+                "subscriptions_chip_bar"
         );
 
         final StringFilterGroup ticketShelf = new StringFilterGroup(
@@ -192,6 +199,7 @@ public final class FeedComponentsFilter extends Filter {
                 notifyMe,
                 playables,
                 subscriptionsChannelBar,
+                subscriptionsCategoryBar,
                 ticketShelf
         );
 

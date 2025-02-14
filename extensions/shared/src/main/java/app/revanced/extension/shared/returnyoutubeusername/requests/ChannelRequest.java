@@ -50,14 +50,18 @@ public class ChannelRequest {
             });
 
     public static void fetchRequestIfNeeded(@NonNull String handle, @NonNull String apiKey, Boolean userNameFirst) {
-        if (!cache.containsKey(handle)) {
-            cache.put(handle, new ChannelRequest(handle, apiKey, userNameFirst));
+        synchronized (cache) {
+            if (cache.get(handle) == null) {
+                cache.put(handle, new ChannelRequest(handle, apiKey, userNameFirst));
+            }
         }
     }
 
     @Nullable
     public static ChannelRequest getRequestForHandle(@NonNull String handle) {
-        return cache.get(handle);
+        synchronized (cache) {
+            return cache.get(handle);
+        }
     }
 
     private static void handleConnectionError(String toastMessage, @Nullable Exception ex) {
@@ -108,7 +112,8 @@ public class ChannelRequest {
                 final String userName = channelJsonObject
                         .getJSONArray("items")
                         .getJSONObject(0)
-                        .getJSONObject("snippet")
+                        .getJSONObject("brandingSettings")
+                        .getJSONObject("channel")
                         .getString("title");
                 return authorBadgeBuilder(handle, userName, userNameFirst);
             } catch (JSONException e) {

@@ -315,7 +315,7 @@ val sponsorBlockPatch = resourcePatch(
         addSwitchPreference(
             SPONSOR_BLOCK_CATEGORY,
             "sb_toast_on_connection_error",
-            "false",
+            "true",
             "sb_enabled"
         )
         addPreferenceWithIntent(

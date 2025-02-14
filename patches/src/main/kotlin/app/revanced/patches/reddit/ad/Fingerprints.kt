@@ -9,22 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val commentAdsFingerprint = legacyFingerprint(
-    name = "commentAdsFingerprint",
-    returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
-    ),
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("/PostDetailPresenter\$loadAd\$1;") &&
-                method.name == "invokeSuspend"
-    },
-)
-
 internal val adPostFingerprint = legacyFingerprint(
     name = "adPostFingerprint",
     returnType = "V",

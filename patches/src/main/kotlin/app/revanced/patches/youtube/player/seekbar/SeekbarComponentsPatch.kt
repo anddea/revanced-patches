@@ -23,8 +23,8 @@ import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
 import app.revanced.patches.youtube.utils.playerSeekbarColorFingerprint
-import app.revanced.patches.youtube.utils.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
@@ -32,6 +32,7 @@ import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarColorizedBarPl
 import app.revanced.patches.youtube.utils.resourceid.inlineTimeBarPlayedNotHighlightedColor
 import app.revanced.patches.youtube.utils.resourceid.reelTimeBarPlayedColor
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.ytStaticBrandRed
 import app.revanced.patches.youtube.utils.seekbarFingerprint
 import app.revanced.patches.youtube.utils.seekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
@@ -204,92 +205,20 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // endregion
 
-        // region patch for enable cairo seekbar
-
-        if (is_19_23_or_greater) {
-            cairoSeekbarConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45617850L,
-                "$PLAYER_CLASS_DESCRIPTOR->enableCairoSeekbar()Z"
-            )
-
-            settingArray += "SETTINGS: ENABLE_CAIRO_SEEKBAR"
-        }
-
-        // endregion
-
-        // region patch for gradient seekbar color and bounds
-
-        if (is_19_25_or_greater) {
-            // In version 19.23, gradient colors and bounds use a different structure,
-            // and the implementation is still raw/underdeveloped.
-
-            // Adjust gradient seekbar colors
-            playerLinearGradientLegacyFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val index = it.patternMatch!!.endIndex
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                    addInstructions(
-                        index + 1,
-                        """
-                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientColors([I)[I
-                            move-result-object v$register
-                            """
-                    )
-                }
-            }
-
-            // Adjust gradient seekbar positions
-            setBoundsFingerprint.methodOrThrow().apply {
-                val newArrayIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_ARRAY)
-                val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
-
-                val smaliInstruction = """
-                    invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
-                """.trimIndent()
-
-                addInstruction(
-                    indexOfFirstInstructionOrThrow(Opcode.FILL_ARRAY_DATA) + 1,
-                    smaliInstruction
-                )
-            }
-
-            // Set seekbar thumb color
-            seekbarThumbFingerprint.methodOrThrow().apply {
-                val instructions = implementation!!.instructions.toList()
-
-                val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
-
-                if (lastMoveResultIndex == -1) {
-                    throw PatchException("Could not find the last move-result instruction")
-                }
-
-                val resultRegister = (instructions[lastMoveResultIndex] as? OneRegisterInstruction)?.registerA
-                    ?: throw PatchException("Could not get the register used in the last move-result instruction")
-
-                val smaliInstruction = """
-                    invoke-static {}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarThumbColor()I
-                    move-result v$resultRegister
-                """.trimIndent()
-
-                addInstructions(lastMoveResultIndex + 1, smaliInstruction)
-            }
-
-            settingArray += "SETTINGS: GRADIENT_SEEKBAR_OPTIONS"
-        }
-
-        // endregion patch for gradient seekbar color and bounds
-
         // region patch for seekbar color
 
-        fun MutableMethod.addColorChangeInstructions(literal: Long) {
-            val insertIndex = indexOfFirstLiteralInstructionOrThrow(literal) + 2
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        fun MutableMethod.addColorChangeInstructions(
+            literal: Long,
+            methodName: String = "getVideoPlayerSeekbarColor"
+        ) {
+            val index = indexOfFirstLiteralInstructionOrThrow(literal) + 2
+            val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
                 insertIndex + 1, """
-                    invoke-static {v$insertRegister}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$insertRegister
+                    invoke-static {v$register}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->$methodName(I)I
+                    move-result v$register
                     """
             )
         }
@@ -321,34 +250,119 @@ val seekbarComponentsPatch = bytecodePatch(
         addDrawableColorHook("$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoColor(I)I")
 
         if (is_19_25_or_greater) {
-            lithoLinearGradientFingerprint.methodOrThrow().addInstruction(
-                0,
-                "invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
+            playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
+                PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
+                "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
 
-            if (!is_19_49_or_greater) {
-                playerLinearGradientLegacyFingerprint.matchOrThrow().let {
-                    it.method.apply {
-                        val index = it.patternMatch!!.endIndex
-                        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-                        addInstructions(
-                            index + 1,
-                            """
-                            invoke-static { v$register },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLinearGradient([I)[I
-                            move-result-object v$register
-                            """
-                        )
+            arrayOf(
+                playerSeekbarHandleColorPrimaryFingerprint,
+                playerSeekbarHandleColorSecondaryFingerprint
+            ).forEach {
+                it.methodOrThrow().addColorChangeInstructions(ytStaticBrandRed, "getVideoPlayerSeekbarColorAccent")
+            }
+            // If hiding feed seekbar thumbnails, then turn off the cairo gradient
+            // of the watch history menu items as they use the same gradient as the
+            // player and there is no easy way to distinguish which to use a transparent color.
+            if (is_19_34_or_greater) {
+                watchHistoryMenuUseProgressDrawableFingerprint.methodOrThrow().apply {
+                    val progressIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        reference?.definingClass == "Landroid/widget/ProgressBar;" &&
+                                reference.name == "setMax"
                     }
+                    val index = indexOfFirstInstructionOrThrow(progressIndex, Opcode.MOVE_RESULT)
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->showWatchHistoryProgressDrawable(Z)Z
+                            move-result v$register
+                            """
+                    )
                 }
-            } else {
-                // TODO: add 19.49 support
-                playerSeekbarGradientConfigFingerprint.injectLiteralInstructionBooleanCall(
-                    PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
-                    "$EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
-                )
             }
 
+            lithoLinearGradientFingerprint.methodOrThrow().addInstructions(
+                0,
+                """
+                    invoke-static/range { p4 .. p5 },  $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getLithoLinearGradient([I[F)[I
+                    move-result-object p4
+                    """
+            )
+
+            val playerFingerprint =
+                if (is_19_49_or_greater) {
+                    playerLinearGradientFingerprint
+                } else {
+                    playerLinearGradientLegacyFingerprint
+                }
+
+            playerFingerprint.matchOrThrow().let {
+                it.method.apply {
+                    val index = it.patternMatch!!.endIndex
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index + 1,
+                        """
+                            invoke-static { v$register }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
+                            move-result-object v$register
+                            """
+                    )
+                }
+            }
+
+            // Adjust gradient seekbar bounds / positions
+            val boundsFingerprint =
+                if (is_19_49_or_greater) {
+                    playerLinearGradientFingerprint
+                } else {
+                    setBoundsFingerprint
+                }
+
+            boundsFingerprint.methodOrThrow().apply {
+                val fillArrayDataIndices = findInstructionIndicesReversedOrThrow(Opcode.FILL_ARRAY_DATA)
+
+                if (fillArrayDataIndices.isEmpty()) {
+                    throw PatchException("No FILL_ARRAY_DATA instructions found in method: ${this.name}")
+                }
+
+                for (fillArrayIndex in fillArrayDataIndices) {
+                    val newArrayIndex = indexOfFirstInstructionReversedOrThrow(fillArrayIndex, Opcode.NEW_ARRAY)
+
+                    val arrayRegister = getInstruction<OneRegisterInstruction>(newArrayIndex).registerA
+
+                    val smaliInstruction = """
+                        invoke-static/range { v$arrayRegister }, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarGradientPositions([F)V
+                    """.trimIndent()
+
+                    addInstruction(fillArrayIndex + 1, smaliInstruction)
+                }
+            }
+
+            // Set seekbar thumb color
+            seekbarThumbFingerprint.methodOrThrow().apply {
+                val instructions = implementation!!.instructions.toList()
+
+                val lastMoveResultIndex = instructions.indexOfLast { it.opcode == Opcode.MOVE_RESULT }
+
+                if (lastMoveResultIndex == -1) {
+                    throw PatchException("Could not find the last move-result instruction")
+                }
+
+                val resultRegister = (instructions[lastMoveResultIndex] as? OneRegisterInstruction)?.registerA
+                    ?: throw PatchException("Could not get the register used in the last move-result instruction")
+
+                val smaliInstruction = """
+                    invoke-static {}, $EXTENSION_SEEKBAR_COLOR_CLASS_DESCRIPTOR->setSeekbarThumbColor()I
+                    move-result v$resultRegister
+                """.trimIndent()
+
+                addInstructions(lastMoveResultIndex + 1, smaliInstruction)
+            }
+
+            settingArray += "SETTINGS: CUSTOM_SEEKBAR_COLOR_ACCENT"
 
             if (!restoreOldSplashAnimationIncluded) {
                 // Don't use the lotte splash screen layout if using custom seekbar.

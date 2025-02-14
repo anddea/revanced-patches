@@ -4,6 +4,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.music.utils.ACTION_BAR_POSITION_FEATURE_FLAG
+import app.revanced.patches.music.utils.actionBarPositionFeatureFlagFingerprint
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.music.utils.patch.PatchList.RETURN_YOUTUBE_DISLIKE
@@ -25,6 +27,7 @@ import app.revanced.patches.shared.removeLikeFingerprint
 import app.revanced.patches.shared.textcomponent.hookSpannableString
 import app.revanced.patches.shared.textcomponent.textComponentPatch
 import app.revanced.util.adoptChild
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -78,6 +81,11 @@ private val returnYouTubeDislikeBytecodePatch = bytecodePatch(
                         """
                 )
             }
+        } else {
+            actionBarPositionFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                ACTION_BAR_POSITION_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->actionBarFeatureFlagLoaded(Z)Z"
+            )
         }
 
         if (is_7_17_or_greater) {
@@ -137,7 +145,7 @@ val returnYouTubeDislikePatch = resourcePatch(
         addSwitchPreference(
             CategoryType.RETURN_YOUTUBE_DISLIKE,
             "revanced_ryd_toast_on_connection_error",
-            "false",
+            "true",
             "revanced_ryd_enabled"
         )
 

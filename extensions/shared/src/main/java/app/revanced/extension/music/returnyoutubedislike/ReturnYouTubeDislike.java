@@ -159,7 +159,8 @@ public class ReturnYouTubeDislike {
     @NonNull
     private static SpannableString createDislikeSpan(@NonNull Spanned oldSpannable,
                                                      @NonNull RYDVoteData voteData,
-                                                     boolean isLithoText) {
+                                                     boolean isLithoText,
+                                                     boolean isNewActionBar) {
         CharSequence oldLikes = oldSpannable;
 
         // YouTube creators can hide the like count on a video,
@@ -185,22 +186,33 @@ public class ReturnYouTubeDislike {
 
         SpannableStringBuilder builder = new SpannableStringBuilder("\u2009");
         if (!isLithoText) {
-            builder.append("\u2009");
+            builder.append("\u2009\u2009\u2009");
         }
         final boolean compactLayout = Settings.RYD_COMPACT_LAYOUT.get();
 
         if (middleSeparatorBounds == null) {
             final DisplayMetrics dp = Utils.getResources().getDisplayMetrics();
+            final int unit;
+            if (isNewActionBar) {
+                unit = 15;
+            } else if (isLithoText) {
+                unit = 23;
+            } else {
+                unit = 25;
+            }
             leftSeparatorBounds = new Rect(0, 0,
                     (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
-                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, isLithoText ? 23 : 25, dp));
+                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, unit, dp));
             final int middleSeparatorSize =
                     (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
             middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
         }
 
         if (!compactLayout) {
-            String leftSeparatorString = "\u200E    "; // u200E = left to right character
+            // u200E = left to right character
+            String leftSeparatorString = isLithoText
+                    ? "\u200E    "
+                    : "\u200E     ";
             Spannable leftSeparatorSpan = new SpannableString(leftSeparatorString);
             ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
             shapeDrawable.getPaint().setColor(getSeparatorColor(isLithoText));
@@ -436,12 +448,12 @@ public class ReturnYouTubeDislike {
      * @return the replacement span containing dislikes, or the original span if RYD is not available.
      */
     @NonNull
-    public synchronized Spanned getDislikesSpan(@NonNull Spanned original, boolean isLithoText) {
-        return waitForFetchAndUpdateReplacementSpan(original, isLithoText);
+    public synchronized Spanned getDislikesSpan(@NonNull Spanned original, boolean isLithoText, boolean isNewActionBar) {
+        return waitForFetchAndUpdateReplacementSpan(original, isLithoText, isNewActionBar);
     }
 
     @NonNull
-    private Spanned waitForFetchAndUpdateReplacementSpan(@NonNull Spanned original, boolean isLithoText) {
+    private Spanned waitForFetchAndUpdateReplacementSpan(@NonNull Spanned original, boolean isLithoText, boolean isNewActionBar) {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
@@ -476,7 +488,7 @@ public class ReturnYouTubeDislike {
                     votingData.updateUsingVote(userVote);
                 }
                 originalDislikeSpan = original;
-                replacementLikeDislikeSpan = createDislikeSpan(original, votingData, isLithoText);
+                replacementLikeDislikeSpan = createDislikeSpan(original, votingData, isLithoText, isNewActionBar);
                 Logger.printDebug(() -> "Replaced: '" + originalDislikeSpan + "' with: '"
                         + replacementLikeDislikeSpan + "'" + " using video: " + videoId);
 

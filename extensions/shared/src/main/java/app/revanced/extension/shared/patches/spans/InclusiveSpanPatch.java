@@ -7,6 +7,7 @@ import android.text.style.CharacterStyle;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.text.style.LineHeightSpan;
 import android.text.style.TypefaceSpan;
 
 import androidx.annotation.NonNull;
@@ -93,6 +94,8 @@ public final class InclusiveSpanPatch {
             return SpanType.TYPEFACE;
         } else if (span instanceof ImageSpan) {
             return SpanType.IMAGE;
+        } else if (span instanceof LineHeightSpan) {
+            return SpanType.LINE_HEIGHT;
         } else if (span instanceof CharacterStyle) { // Replaced by patch.
             return SpanType.CUSTOM_CHARACTER_STYLE;
         } else {

@@ -10,6 +10,7 @@ import java.lang.ref.WeakReference;
 
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
+import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 
 /**
  * @noinspection ALL
@@ -68,6 +69,8 @@ public class PlayerControlsPatch {
 
         // CreateSegmentButtonController.changeVisibility(showing, animation);
         // VotingButtonController.changeVisibility(showing, animation);
+
+        SegmentPlaybackController.onPlayerControlsVisibilityChanged(showing);
     }
 
     /**
@@ -118,6 +121,8 @@ public class PlayerControlsPatch {
 
         // CreateSegmentButtonController.changeVisibilityNegatedImmediate();
         // VotingButtonController.changeVisibilityNegatedImmediate();
+
+        // SegmentPlaybackController.onPlayerControlsVisibilityChanged(false);
     }
 
     /**

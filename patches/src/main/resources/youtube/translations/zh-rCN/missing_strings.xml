@@ -4,7 +4,9 @@
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Channel opens when the live ring is clicked.</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
+
+Limitation: When the Shorts live stream is opened in regular player due to the 'Open Shorts in regular player' setting, channel does not open."</string>
     <string name="revanced_change_live_ring_click_action_title">Change live ring click action</string>
     <string name="revanced_change_server_side_snack_bar_background_summary_off">Background color of the server-side snackbar has not changed.</string>
     <string name="revanced_change_server_side_snack_bar_background_summary_on">Background color of the server-side snackbar has changed.</string>
@@ -15,16 +17,26 @@ Change the background color of these snack bars.
 
 If there are server-side changes, the background color of the snack bar may not change."</string>
     <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
     <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
     <string name="revanced_change_start_page_entry_news">News</string>
     <string name="revanced_change_start_page_entry_notifications">Notifications</string>
+    <string name="revanced_change_start_page_entry_playlists">Playlists</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
     <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Invalid seekbar color value.</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
     <string name="revanced_disable_default_playback_speed_music_type_off">Default playback speed is disabled for videos playable on YouTube Music.</string>
     <string name="revanced_disable_default_playback_speed_music_type_on">Default playback speed is disabled if the video category is Music.</string>
     <string name="revanced_disable_default_playback_speed_music_type_title">Validate using categories</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
     <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
@@ -55,6 +67,7 @@ Limitations:
 
 Press and hold the More button to show the Custom actions dialog."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_title">Enable custom actions in toolbar</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In certain YouTube versions, this setting can make the system navigation bar transparent or the layout can be broken in PIP mode.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_off">Wide search bar is disabled in the You tab.</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary_on">"Wide search bar is enabled in the You tab.
 
@@ -76,48 +89,28 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
-    <string name="revanced_gradient_seekbar_colors_summary">Gradient start and end colors separated by comma.</string>
-    <string name="revanced_gradient_seekbar_colors_title">Gradient seekbar colors</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">First button is shown.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">First button is hidden.</string>
-    <string name="revanced_hide_action_button_index_0_title">Hide first button</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Second button is shown.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Second button is hidden.</string>
-    <string name="revanced_hide_action_button_index_1_title">Hide second button</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Third button is shown.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Third button is hidden.</string>
-    <string name="revanced_hide_action_button_index_2_title">Hide third button</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Fourth button is shown.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Fourth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_3_title">Hide fourth button</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Fifth button is shown.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Fifth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_4_title">Hide fifth button</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Sixth button is shown.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Sixth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_5_title">Hide sixth button</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Seventh button is shown.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Seventh button is hidden.</string>
-    <string name="revanced_hide_action_button_index_6_title">Hide seventh button</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">Eighth button is shown.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">Eighth button is hidden.</string>
-    <string name="revanced_hide_action_button_index_7_title">Hide eighth button</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Hide the action buttons by index before the action buttons are initialized.
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Get YouTube Premium\'&lt;/b&gt; menu, you can use &lt;b&gt;\'YouTube Premium\'&lt;/b&gt; or &lt;b&gt;\'Premium\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Account menu filter type</string>
+    <string name="revanced_hide_action_button_index_summary_off">"Action buttons are hidden by identifier filter.
 
-- Hiding the action buttons leaves no empty space.
-- Index of the action buttons may not always be the same button."</string>
-    <string name="revanced_hide_action_button_index_about_title">About Hide action button by index</string>
+Info:
+• Right action buttons are hidden.
+• Hiding action buttons leaves empty space."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"Action buttons are hidden by index.
+
+Info:
+• Wrong action buttons may be hidden, or action buttons may not be hidden.
+• Hiding action buttons leaves no empty space."</string>
+    <string name="revanced_hide_action_button_index_title">Hide action button by index</string>
     <string name="revanced_hide_carousel_shelf_summary_off">Carousel shelves are shown.</string>
-    <string name="revanced_hide_carousel_shelf_summary_on">"Carousel shelves are hidden, such as:
-• Breaking news
-• Continue watching
-• Explore more channels
-• Listen again
-• Shopping
-• Watch it again"</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filter if matches.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can only use &lt;b&gt;\'Play next in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filter if contains.&lt;br&gt;&lt;br&gt;To hide the &lt;b&gt;\'Play next in queue\'&lt;/b&gt; menu, you can use &lt;b&gt;\'Play next\'&lt;/b&gt; or &lt;b&gt;\'in queue\'&lt;/b&gt; as keywords.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Feed flyout menu filter type</string>
     <string name="revanced_hide_live_chat_summary_summary_off">Live Chat summary is shown.</string>
     <string name="revanced_hide_live_chat_summary_summary_on">Live Chat summary is hidden.</string>
     <string name="revanced_hide_live_chat_summary_title">Hide Live Chat summary</string>
@@ -131,70 +124,17 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_icon_mmt_pink">MMT Pink</string>
     <string name="revanced_icon_mmt_turquoise">MMT Turquoise</string>
     <string name="revanced_icon_squid_game">Squid Game</string>
-    <string name="revanced_icon_xisr_holiday">Xisr Holiday</string>
+    <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
     <string name="revanced_invert_snack_bar_theme_summary_off">Theme of the snack bar is not inverted.</string>
     <string name="revanced_invert_snack_bar_theme_summary_on">Theme of the snack bar is inverted.</string>
     <string name="revanced_invert_snack_bar_theme_title">Invert snack bar theme</string>
     <string name="revanced_keep_landscape_mode_summary_off">Videos play in portrait mode after turning the screen off and on.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Videos continue to play in landscape mode after turning the screen off and on.</string>
-    <string name="revanced_language_AR">Arabic</string>
-    <string name="revanced_language_AZ">Azerbaijani</string>
-    <string name="revanced_language_BG">Bulgarian</string>
-    <string name="revanced_language_BN">Bengali</string>
-    <string name="revanced_language_CA">Catalan</string>
-    <string name="revanced_language_CS">Czech</string>
-    <string name="revanced_language_DA">Danish</string>
-    <string name="revanced_language_DE">German</string>
-    <string name="revanced_language_DEFAULT">App language</string>
-    <string name="revanced_language_EL">Greek</string>
-    <string name="revanced_language_EN">English</string>
-    <string name="revanced_language_ES">Spanish</string>
-    <string name="revanced_language_ET">Estonian</string>
-    <string name="revanced_language_FA">Persian</string>
-    <string name="revanced_language_FI">Finnish</string>
-    <string name="revanced_language_FR">French</string>
-    <string name="revanced_language_GU">Gujarati</string>
-    <string name="revanced_language_HI">Hindi</string>
-    <string name="revanced_language_HR">Croatian</string>
-    <string name="revanced_language_HU">Hungarian</string>
-    <string name="revanced_language_ID">Indonesian</string>
-    <string name="revanced_language_IT">Italian</string>
-    <string name="revanced_language_JA">Japanese</string>
-    <string name="revanced_language_KK">Kazakh</string>
-    <string name="revanced_language_KO">Korean</string>
-    <string name="revanced_language_LT">Lithuanian</string>
-    <string name="revanced_language_LV">Latvian</string>
-    <string name="revanced_language_MK">Macedonian</string>
-    <string name="revanced_language_MN">Mongolian</string>
-    <string name="revanced_language_MR">Marathi</string>
-    <string name="revanced_language_MS">Malay</string>
-    <string name="revanced_language_MY">Burmese</string>
-    <string name="revanced_language_NL">Dutch</string>
-    <string name="revanced_language_OR">Odia</string>
-    <string name="revanced_language_PA">Punjabi</string>
-    <string name="revanced_language_PL">Polish</string>
-    <string name="revanced_language_PT">Portuguese</string>
-    <string name="revanced_language_RO">Romanian</string>
-    <string name="revanced_language_RU">Russian</string>
-    <string name="revanced_language_SK">Slovak</string>
-    <string name="revanced_language_SL">Slovene</string>
-    <string name="revanced_language_SR">Serbian</string>
-    <string name="revanced_language_SV">Swedish</string>
-    <string name="revanced_language_SW">Swahili</string>
-    <string name="revanced_language_TA">Tamil</string>
-    <string name="revanced_language_TE">Telugu</string>
-    <string name="revanced_language_TH">Thai</string>
-    <string name="revanced_language_TR">Turkish</string>
-    <string name="revanced_language_UK">Ukrainian</string>
-    <string name="revanced_language_UR">Urdu</string>
-    <string name="revanced_language_VI">Vietnamese</string>
-    <string name="revanced_language_ZH">Chinese</string>
-    <string name="revanced_language_title">RVX language</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled.
 
-• Double tap to increase miniplayer size.
+• Double tap to increase Miniplayer size.
 • Double tap again to restore original size."</string>
     <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
     <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled.</string>
@@ -202,11 +142,14 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
 
 Miniplayer can be dragged to any corner of the screen."</string>
     <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Buttons are hidden.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden.
 
 Swipe to expand or close."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled.</string>
     <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled.
 
@@ -216,6 +159,7 @@ Miniplayer can be dragged off-screen to the left or right."</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded.</string>
     <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
     <string name="revanced_miniplayer_type_entry_0">Disabled</string>
+    <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s.</string>
     <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels.</string>
     <string name="revanced_miniplayer_width_dip_title">Initial size</string>
@@ -247,11 +191,10 @@ Info:
     <string name="revanced_overlay_button_play_all_type_entry_9">All Members only contents</string>
     <string name="revanced_overlay_button_play_all_type_title">Generate playlist mode</string>
     <string name="revanced_preference_category_custom_actions">Custom actions</string>
-    <string name="revanced_preference_category_hide_by_index">Hide by index</string>
-    <string name="revanced_preference_category_hide_by_index_live">Hide by index in live stream</string>
     <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_screen_snack_bar_summary">Hide or change components related to snack bar.</string>
     <string name="revanced_preference_screen_snack_bar_title">Snack bar</string>
+    <string name="revanced_remix_button_index_title">Remix button index</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_off">Old player layout is not used.</string>
     <string name="revanced_restore_shorts_old_player_layout_summary_on">"Old player layout is used.
 No margins on top and bottom of player."</string>

@@ -76,7 +76,9 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_change_layout_entry_5">Tablet (Minimo 600 dp)</string>
     <string name="revanced_change_layout_title">Cambia l\'interfaccia</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Video live</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">Canale</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"Canale
+
+Nota: i canali non si aprono se gli Shorts live sono aperti nel riproduttore normale."</string>
     <string name="revanced_change_live_ring_click_action_title">Cambia cosa apre l\'anello live quando viene toccato</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Levette</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Testi</string>
@@ -98,6 +100,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_shorts_repeat_state_entry_pause">Pausa</string>
     <string name="revanced_change_shorts_repeat_state_entry_repeat">Ripeti</string>
     <string name="revanced_change_shorts_repeat_state_title">Cambia lo stato di ripetizione</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">Tutte le iscrizioni</string>
     <string name="revanced_change_start_page_entry_browse">Esplora canali</string>
     <string name="revanced_change_start_page_entry_courses">Apprendimento</string>
     <string name="revanced_change_start_page_entry_default">Predefinita (Home)</string>
@@ -112,6 +115,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_music">Musica</string>
     <string name="revanced_change_start_page_entry_news">Notizie</string>
     <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
+    <string name="revanced_change_start_page_entry_playlists">Playlist</string>
     <string name="revanced_change_start_page_entry_podcasts">Podcast</string>
     <string name="revanced_change_start_page_entry_search">Cerca</string>
     <string name="revanced_change_start_page_entry_shopping">Shopping</string>
@@ -119,6 +123,7 @@ Se ci sono cambiamenti sul lato server, il colore potrebbe non cambiare."</strin
     <string name="revanced_change_start_page_entry_sports">Sport</string>
     <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
     <string name="revanced_change_start_page_entry_trending">Tendenze</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">Realtà virtuale</string>
     <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
     <string name="revanced_change_start_page_entry_your_clips">I tuoi clip</string>
     <string name="revanced_change_start_page_title">Cambia la scheda iniziale</string>
@@ -146,9 +151,11 @@ Nota: il pulsante Indietro della barra degli strumenti potrebbe non funzionare."
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">L\'opacità della sovrapposizione del riproduttore deve essere tra 0 e 100</string>
     <string name="revanced_custom_player_overlay_opacity_summary">Il valore dell\'opacità è tra 0 e 100, dove 0 è trasparente.</string>
     <string name="revanced_custom_player_overlay_opacity_title">Opacità personalizzata della sovrapposizione del riproduttore</string>
-    <string name="revanced_custom_seekbar_color_value_invalid_invalid_toast">Valore del colore della barra di avanzamento non valido</string>
-    <string name="revanced_custom_seekbar_color_value_summary">Digita il codice esadecimale del colore.</string>
-    <string name="revanced_custom_seekbar_color_value_title">Valore del colore personalizzato</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">Digita il codice esadecimale del colore.</string>
+    <string name="revanced_custom_seekbar_color_accent_title">Colore accento personalizzato</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">Colore della barra di avanzamento non valido</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">Digita il codice esadecimale del colore.</string>
+    <string name="revanced_custom_seekbar_color_primary_title">Colore primario personalizzato</string>
     <string name="revanced_default_app_settings_summary">Per aprire RVX da un\'applicazione esterna, attiva \"Apri collegamenti supportati\" e tutti gli indirizzi web supportati.</string>
     <string name="revanced_default_app_settings_title">Apri le impostazioni predefinite dell\'app</string>
     <string name="revanced_default_playback_speed_title">Velocità di riproduzione predefinita</string>
@@ -219,6 +226,9 @@ Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic.
     <string name="revanced_disable_like_dislike_glow_title">Disattiva il bagliore dei pulsanti Mi Piace e Non Mi Piace</string>
     <string name="revanced_disable_quic_protocol_summary">"Disattiva il protocollo QUIC di CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Disattiva il protocollo QUIC</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continua a guardare&lt;/b&gt; riprenderà all\'avvio dell\'app.&lt;br&gt;&lt;br&gt;Note:&lt;br&gt;• &lt;b&gt;Continua a guardare&lt;/b&gt; è un impostazione Premium di YouTube del riproduttore minimizzato.&lt;br&gt;• Questa impostazione non attiva forzatamente &lt;b&gt;Continua a guardare&lt;/b&gt;.</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continua a guardare&lt;/b&gt; non riprenderà all\'avvio dell\'app.</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Disattiva la ripresa del riproduttore</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Il riproduttore degli Shorts riprenderà all\'avvio dell\'app.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Il riproduttore degli Shorts non riprenderà all\'avvio dell\'app.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Disattiva la ripresa del riproduttore</string>
@@ -230,7 +240,7 @@ Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic.
     <string name="revanced_disable_seekbar_chapters_title">Nascondi i capitoli</string>
     <string name="revanced_disable_shorts_background_playback_summary_off">La riproduzione in background degli Shorts è attivata.</string>
     <string name="revanced_disable_shorts_background_playback_summary_on">La riproduzione in background degli Shorts è disattivata.</string>
-    <string name="revanced_disable_shorts_background_playback_title">Disattiva la riproduzione in background degli Shorts</string>
+    <string name="revanced_disable_shorts_background_playback_title">Disattiva la riproduzione in background</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_off">Le animazioni sopra il pulsante Mi Piace sono attivate.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_summary_on">Le animazioni sopra il pulsante Mi Piace sono disattivate.</string>
     <string name="revanced_disable_shorts_like_button_fountain_animation_title">Disattiva le animazioni sopra il pulsante Mi Piace</string>
@@ -354,6 +364,7 @@ Note:
     <string name="revanced_enable_translucent_navigation_bar_summary_off">La barra di navigazione è opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">La barra di navigazione è traslucida.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Attiva la barra di navigazione traslucida</string>
+    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In alcune versioni di YouTube, questa impostazione può rendere trasparente la barra di navigazione del sistema, oppure l\'interfaccia potrebbe non funzionare correttamente in modalità PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è disattivato.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Il gesto per passare a schermo intero trascinando verso il basso sotto il riproduttore è attivato.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Attiva i gesti del pannello di controllo</string>
@@ -390,11 +401,6 @@ Nota: non funziona se il riproduttore è minimizzato, in modalità PiP o in back
     <string name="revanced_exit_fullscreen_entry_3">Orizzontale</string>
     <string name="revanced_exit_fullscreen_entry_4">Verticale e orizzontale</string>
     <string name="revanced_exit_fullscreen_title">Esci da schermo intero alla fine dei video</string>
-    <string name="revanced_expand_video_description_strings_default_value">Descrizione</string>
-    <string name="revanced_expand_video_description_strings_summary">"Inserisci il titolo del pannello della descrizione nella tua lingua.
-
-Nota: l'opzione Espandi Automaticamente potrebbe non funzionare se il titolo inserito non corrisponde al titolo del pannello della descrizione."</string>
-    <string name="revanced_expand_video_description_strings_title">Titolo del pannello</string>
     <string name="revanced_expand_video_description_summary_off">La descrizione dei video non viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_summary_on">La descrizione dei video viene espansa automaticamente.</string>
     <string name="revanced_expand_video_description_title">Espandi automaticamente</string>
@@ -417,7 +423,7 @@ Nota: l'opzione Espandi Automaticamente potrebbe non funzionare se il titolo ins
     <string name="revanced_extended_settings_import_title">Importa le impostazioni</string>
     <string name="revanced_extended_settings_reset">Ripristina</string>
     <string name="revanced_extended_settings_search_title">Cerca su %s</string>
-    <string name="revanced_extended_settings_title">ReVanced Extended</string>
+    <string name="revanced_extended_settings_title">RVX</string>
     <string name="revanced_external_downloader_dialog_title">Downloader esterno</string>
     <string name="revanced_external_downloader_not_installed">Non installato</string>
     <string name="revanced_external_downloader_not_installed_dialog_message">"%1$s non è installato.
@@ -428,41 +434,28 @@ Si prega di scaricare %2$s dal sito web."</string>
     <string name="revanced_external_downloader_package_name_playlist_title">Nome del pacchetto del downloader esterno delle playlist</string>
     <string name="revanced_external_downloader_package_name_video_summary">Il nome del pacchetto dell\'app di download esterna installata, ad esempio NewPipe o YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nome del pacchetto del downloader esterno dei video</string>
+    <string name="revanced_fullscreen_ads_closed_toast">Annunci a schermo intero chiusi</string>
     <string name="revanced_gms_show_dialog_summary">Visualizza la finestra di ottimizzazione per GMSCore a ogni avvio dell\'applicazione.</string>
     <string name="revanced_gms_show_dialog_title">Mostra la finestra di ottimizzazione per GMSCore</string>
     <string name="revanced_hide_account_menu_filter_strings_summary">L\'elenco dei nomi dei menù degli account da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_account_menu_filter_strings_title">Modifica il filtro dei menù dell\'account</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_off">Filtra se corrisponde.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;, puoi usare solo la parola chiave &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;.</string>
+    <string name="revanced_hide_account_menu_filter_type_summary_on">Filtra se contiene.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Passa a YouTube Premium&lt;/b&gt;, puoi usare le parole chiave come &lt;b&gt;YouTube Premium&lt;/b&gt; o &lt;b&gt;Premium&lt;/b&gt;.</string>
+    <string name="revanced_hide_account_menu_filter_type_title">Cambia il tipo di filtro dei menù dell\'account</string>
     <string name="revanced_hide_account_menu_summary">"Nascondi i componenti dei menù dell'account e della scheda Tu.
 Nota: alcuni componenti potrebbero non essere nascosti."</string>
     <string name="revanced_hide_account_menu_title">Nascondi i menù dell\'account</string>
-    <string name="revanced_hide_action_button_index_0_summary_off">Il primo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_0_summary_on">Il primo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_0_title">Nascondi il primo pulsante</string>
-    <string name="revanced_hide_action_button_index_1_summary_off">Il secondo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_1_summary_on">Il secondo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_1_title">Nascondi il secondo pulsante</string>
-    <string name="revanced_hide_action_button_index_2_summary_off">Il terzo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_2_summary_on">Il terzo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_2_title">Nascondi il terzo pulsante</string>
-    <string name="revanced_hide_action_button_index_3_summary_off">Il quarto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_3_summary_on">Il quarto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_3_title">Nascondi il quarto pulsante</string>
-    <string name="revanced_hide_action_button_index_4_summary_off">Il quinto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_4_summary_on">Il quinto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_4_title">Nascondi il quinto pulsante</string>
-    <string name="revanced_hide_action_button_index_5_summary_off">Il sesto pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_5_summary_on">Il sesto pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_5_title">Nascondi il sesto pulsante</string>
-    <string name="revanced_hide_action_button_index_6_summary_off">Il settimo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_6_summary_on">Il settimo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_6_title">Nascondi il settimo pulsante</string>
-    <string name="revanced_hide_action_button_index_7_summary_off">L\'ottavo pulsante è visibile.</string>
-    <string name="revanced_hide_action_button_index_7_summary_on">L\'ottavo pulsante è nascosto.</string>
-    <string name="revanced_hide_action_button_index_7_title">Nascondi l\'ottavo pulsante</string>
-    <string name="revanced_hide_action_button_index_about_summary">"Nascondi i pulsanti di azione in base al loro indice prima che vengano inizializzati.
+    <string name="revanced_hide_action_button_index_summary_off">"I pulsanti di azione sono nascosti in base al filtro identificatore.
 
-Nota: in questo modo non ci saranno spazi vuoti tra i pulsanti, ma l'indice potrebbe non corrispondere sempre allo stesso pulsante."</string>
-    <string name="revanced_hide_action_button_index_about_title">Informazioni sul nascondere in base all\'indice</string>
+Note:
+• I pulsanti a destra sono nascosti.
+• Nascondendoli in questo modo, ci saranno spazi vuoti tra i pulsanti."</string>
+    <string name="revanced_hide_action_button_index_summary_on">"I pulsanti di azione sono nascosti in base all'indice.
+
+Note:
+• I pulsanti sbagliati potrebbero essere nascosti o potrebbero non essere nascosti affatto.
+• Nascondendoli in questo modo, non ci saranno spazi vuoti tra i pulsanti."</string>
+    <string name="revanced_hide_action_button_index_title">Nascondi i pulsanti di azione in base all\'indice</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione Riepilogo Video Generato dall\'IA è visibile.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione Riepilogo Video Generato dall\'IA è nascosta.</string>
     <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi la sezione Riepilogo Video Generato dall\'IA</string>
@@ -577,6 +570,9 @@ Negozio"</string>
     <string name="revanced_hide_end_screen_cards_summary_off">Le schede finali sono visibili.</string>
     <string name="revanced_hide_end_screen_cards_summary_on">Le schede finali sono nascoste.</string>
     <string name="revanced_hide_end_screen_cards_title">Nascondi le schede finali</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_off">Il banner del negozio alla fine dei video è visibile.</string>
+    <string name="revanced_hide_end_screen_store_banner_summary_on">Il banner del negozio alla fine dei video è nascosto.</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Nascondi il banner del negozio alla fine dei video</string>
     <string name="revanced_hide_expandable_chip_summary_off">I chip espandibili sotto i video sono visibili.</string>
     <string name="revanced_hide_expandable_chip_summary_on">I chip espandibili sotto i video sono nascosti.</string>
     <string name="revanced_hide_expandable_chip_title">Nascondi i chip espandibili sotto i video</string>
@@ -588,6 +584,9 @@ Negozio"</string>
     <string name="revanced_hide_feed_captions_button_title">Nascondi il pulsante Sottotitoli</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">L\'elenco dei nomi dei menù a comparsa da filtrare, separati da nuove righe.</string>
     <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Filtro dei menù a comparsa</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_off">Filtra se corrisponde.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;, puoi usare solo la parola chiave &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_summary_on">Filtra se contiene.&lt;br&gt;&lt;br&gt;Per nascondere il menù &lt;b&gt;Riproduci come il prossimo in coda&lt;/b&gt;, puoi usare le parole chiave come &lt;b&gt;Riproduci come&lt;/b&gt; o &lt;b&gt;in coda&lt;/b&gt;.</string>
+    <string name="revanced_hide_feed_flyout_menu_filter_type_title">Cambia il tipo di filtro dei menù a comparsa</string>
     <string name="revanced_hide_feed_flyout_menu_summary_off">Il filtro dei menù a comparsa è disattivato.</string>
     <string name="revanced_hide_feed_flyout_menu_summary_on">Il filtro dei menù a comparsa è attivato.</string>
     <string name="revanced_hide_feed_flyout_menu_title">Attiva il filtro dei menù a comparsa</string>
@@ -1130,12 +1129,12 @@ Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
 
 Note:
 • If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">La schermata finale del video consigliato è visibile.</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_on">"La schermata finale del video consigliato è nascosta quando la riproduzione automatica è disattivata.
+    <string name="revanced_hide_suggested_video_end_screen_summary_off">Il video consigliato alla fine dei video è visibile.</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary_on">"Il video consigliato alla fine dei video è nascosto quando la riproduzione automatica è disattivata.
 
 La riproduzione automatica può essere modificata seguendo questo percorso:
 Impostazioni → Riproduzione automatica / Riproduzione → Riproduci automatic. video successivo"</string>
-    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi la schermata finale del video consigliato</string>
+    <string name="revanced_hide_suggested_video_end_screen_title">Nascondi il video consigliato alla fine dei video</string>
     <string name="revanced_hide_thanks_button_summary_off">Il pulsante Grazie è visibile.</string>
     <string name="revanced_hide_thanks_button_summary_on">Il pulsante Grazie è nascosto.</string>
     <string name="revanced_hide_thanks_button_title">Nascondi il pulsante Grazie</string>
@@ -1304,14 +1303,14 @@ Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello sch
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Il gesto Trascina-e-Rilascia è disattivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Il gesto Trascina-e-Rilascia è attivato.</string>
     <string name="revanced_miniplayer_enable_drag_and_drop_title">Attiva il gesto Trascina-e-Rilascia</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"I pulsanti Espandi e Chiudi sono nascosti.
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti Espandi e Chiudi sono nascosti.
 
-Trascina il riproduttore minimizzato per espandere o chiudere."</string>
-    <string name="revanced_miniplayer_hide_expand_close_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è visibile.</string>
-    <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante Chiudi è nascosto.</string>
-    <string name="revanced_miniplayer_hide_expand_close_title">Nascondi il pulsante Chiudi</string>
+Trascina il riproduttore minimizzato per espanderlo o chiuderlo."</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti in sovrapposizione sono visibili.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti in sovrapposizione sono nascosti.</string>
+    <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti in sovrapposizione</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_off">I pulsanti Salta Avanti e Salta Indietro sono visibili.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_summary_on">I pulsanti Salta Avanti e Salta Indietro sono nascosti.</string>
     <string name="revanced_miniplayer_hide_rewind_forward_title">Nascondi i pulsanti Salta Avanti e Salta Indietro</string>
@@ -1330,12 +1329,13 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati.</string>
     <string name="revanced_miniplayer_rounded_corners_title">Attiva gli angoli arrotondati</string>
     <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
-    <string name="revanced_miniplayer_type_entry_1">Originale</string>
+    <string name="revanced_miniplayer_type_entry_1">Predefinito</string>
     <string name="revanced_miniplayer_type_entry_2">Minimale</string>
     <string name="revanced_miniplayer_type_entry_3">Tablet</string>
     <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
     <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
     <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+    <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
     <string name="revanced_miniplayer_type_title">Cambia lo stile del riproduttore minimizzato</string>
     <string name="revanced_miniplayer_width_dip_invalid_toast">La dimensione in pixel deve essere tra %1$s e %2$s</string>
     <string name="revanced_miniplayer_width_dip_summary">La dimensione iniziale sullo schermo in pixel.</string>
@@ -1343,9 +1343,9 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
     <string name="revanced_open_links_externally_summary_off">Browser dell\'app</string>
     <string name="revanced_open_links_externally_summary_on">Browser esterno</string>
     <string name="revanced_open_links_externally_title">Cambia il modo di aprire i link</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">I Shorts non sono aperti nel riproduttore normale.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">I Shorts sono aperti nel riproduttore normale.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Apri i Shorts nel riproduttore normale</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">Gli Shorts non sono aperti nel riproduttore normale.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Gli Shorts sono aperti nel riproduttore normale.</string>
+    <string name="revanced_open_shorts_in_regular_player_title">Apri nel riproduttore normale</string>
     <string name="revanced_overlay_button">Pulsanti in sovrapposizione</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Tocca per attivare le ripetizioni dei video.
 Tocca e tieni premuto per attivare la pausa dopo le ripetizione."</string>
@@ -1410,8 +1410,6 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_category_custom_actions">Azioni personalizzate</string>
     <string name="revanced_preference_category_download_button">Pulsanti Scarica</string>
     <string name="revanced_preference_category_experimental_flag">Opzioni sperimentali</string>
-    <string name="revanced_preference_category_hide_by_index">Nascondi in base all\'indice</string>
-    <string name="revanced_preference_category_hide_by_index_live">Nascondi in base all\'indice nei video live</string>
     <string name="revanced_preference_category_image_region_restrictions">Restrizioni regionali delle immagini</string>
     <string name="revanced_preference_category_import_export_as_file">Esporta / Importa come file</string>
     <string name="revanced_preference_category_import_export_as_text">Esporta / Importa come testo</string>
@@ -1442,8 +1440,8 @@ Tocca e tieni premuto per aprire la finestra delle impostazioni della whitelist.
     <string name="revanced_preference_screen_channel_profile_title">Profilo del canale</string>
     <string name="revanced_preference_screen_comments_summary">Personalizza i componenti della sezione Commenti.</string>
     <string name="revanced_preference_screen_comments_title">Commenti</string>
-    <string name="revanced_preference_screen_community_posts_summary">Nascondi o mostra i post della community nelle schede e nel canale.</string>
-    <string name="revanced_preference_screen_community_posts_title">Post della community</string>
+    <string name="revanced_preference_screen_community_posts_summary">Nascondi o mostra i post delle community nelle schede e nel canale.</string>
+    <string name="revanced_preference_screen_community_posts_title">Post delle community</string>
     <string name="revanced_preference_screen_custom_filter_summary">Nascondi i componenti usando il filtro personalizzato.</string>
     <string name="revanced_preference_screen_custom_filter_title">Filtro personalizzato</string>
     <string name="revanced_preference_screen_feed_flyout_menu_summary">Personalizza i componenti dei menù a comparsa.</string>
@@ -1518,6 +1516,7 @@ Verrà applicato un codec diverso dopo circa 20 secondi di buffering."</string>
     <string name="revanced_remember_video_quality_mobile">Cambiando la qualità video predefinita con connessione dati a %s</string>
     <string name="revanced_remember_video_quality_none">Impossibile impostare la qualità video</string>
     <string name="revanced_remember_video_quality_wifi">Cambiando la qualità video predefinita con Wi-Fi a %s</string>
+    <string name="revanced_remix_button_index_title">Indice del pulsante Remix</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Rimuove la finestra sulla discrezione dello spettatore.
 Nota: questo non bypassa la restrizione di età, ma la accetta automaticamente."</string>
     <string name="revanced_remove_viewer_discretion_dialog_title">Rimuovi la finestra sulla discrezione dello spettatore</string>

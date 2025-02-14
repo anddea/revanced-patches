@@ -35,7 +35,7 @@ public final class AdsFilter extends Filter {
                 "alert_banner_promo.eml"
         );
 
-        // Keywords checked in 2024:
+        // Keywords checked in 2025:
         final StringFilterGroup generalAdsIdentifier = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 // "brand_video_shelf.eml"
@@ -43,35 +43,36 @@ public final class AdsFilter extends Filter {
                 "brand_video",
 
                 // "carousel_footered_layout.eml"
-                "carousel_footered_layout",
-
                 // "composite_concurrent_carousel_layout"
-                "composite_concurrent_carousel_layout",
+                "carousel_",
 
-                // "landscape_image_wide_button_layout.eml"
-                "landscape_image_wide_button_layout",
-
-                // "square_image_layout.eml"
-                "square_image_layout",
+                // "inline_injection_entrypoint_layout.eml"
+                "inline_injection_entrypoint_layout",
 
                 // "statement_banner.eml"
                 "statement_banner",
 
+                // "video_display_button_group_layout"
+                // "video_display_carousel_button_group_layout"
+                // "video_display_full_buttoned_layout"
+                // "video_display_full_layout"
                 // "video_display_full_layout.eml"
-                "video_display_full_layout",
+                "video_display_",
 
                 // "text_image_button_group_layout.eml"
-                // "video_display_button_group_layout.eml"
                 "_button_group_layout",
 
+                // "landscape_image_wide_button_layout.eml"
+                // "text_image_no_button_layout.eml"
+                "_button_layout",
+
                 // "banner_text_icon_buttoned_layout.eml"
-                // "video_display_compact_buttoned_layout.eml"
-                // "video_display_full_buttoned_layout.eml"
                 "_buttoned_layout",
 
                 // "compact_landscape_image_layout.eml"
                 // "full_width_portrait_image_layout.eml"
                 // "full_width_square_image_layout.eml"
+                // "square_image_layout.eml"
                 "_image_layout"
         );
 

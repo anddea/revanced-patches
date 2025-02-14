@@ -1,7 +1,7 @@
 package app.revanced.extension.shared.patches.spoof.requests
 
-import app.revanced.extension.shared.patches.client.AppClient
-import app.revanced.extension.shared.patches.client.WebClient
+import app.revanced.extension.shared.patches.client.YouTubeAppClient
+import app.revanced.extension.shared.patches.client.YouTubeWebClient
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.requests.Route
 import app.revanced.extension.shared.requests.Route.CompiledRoute
@@ -45,11 +45,24 @@ object PlayerRoutes {
     ).compile()
 
     @JvmField
+    val GET_VIDEO_ACTION_BUTTON: CompiledRoute = Route(
+        Route.Method.POST,
+        "next" +
+                "?prettyPrint=false" +
+                "&fields=contents.singleColumnWatchNextResults." +
+                "results.results.contents.slimVideoMetadataSectionRenderer." +
+                "contents.elementRenderer.newElement.type.componentType." +
+                "model.videoActionBarModel.buttons.buttonViewModel"
+    ).compile()
+
+    @JvmField
     val GET_VIDEO_DETAILS: CompiledRoute = Route(
         Route.Method.POST,
         "player" +
                 "?prettyPrint=false" +
-                "&fields=videoDetails.channelId"
+                "&fields=videoDetails.channelId," +
+                "videoDetails.isLiveContent," +
+                "videoDetails.isUpcoming"
     ).compile()
 
     private const val YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/"
@@ -69,7 +82,7 @@ object PlayerRoutes {
 
     @JvmStatic
     fun createApplicationRequestBody(
-        clientType: AppClient.ClientType,
+        clientType: YouTubeAppClient.ClientType,
         videoId: String,
         playlistId: String? = null,
         botGuardPoToken: String = "",
@@ -130,7 +143,7 @@ object PlayerRoutes {
 
     @JvmStatic
     fun createWebInnertubeBody(
-        clientType: WebClient.ClientType,
+        clientType: YouTubeWebClient.ClientType,
         videoId: String
     ): ByteArray {
         val innerTubeBody = JSONObject()
@@ -161,7 +174,7 @@ object PlayerRoutes {
     @JvmStatic
     fun getPlayerResponseConnectionFromRoute(
         route: CompiledRoute,
-        clientType: AppClient.ClientType
+        clientType: YouTubeAppClient.ClientType
     ): HttpURLConnection {
         return getPlayerResponseConnectionFromRoute(
             route,
@@ -174,7 +187,7 @@ object PlayerRoutes {
     @JvmStatic
     fun getPlayerResponseConnectionFromRoute(
         route: CompiledRoute,
-        clientType: WebClient.ClientType
+        clientType: YouTubeWebClient.ClientType
     ): HttpURLConnection {
         return getPlayerResponseConnectionFromRoute(
             route,

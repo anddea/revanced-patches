@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -28,6 +29,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getNode
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -77,22 +79,31 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
 
         bottomUiContainerThemeFingerprint.matchOrThrow().let {
             it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
-                val appThemeIndex = startIndex + 1
-                val darkThemeIndex = startIndex + 2
-                val insertIndex = startIndex + 3
+                val darkThemeIndex = it.patternMatch!!.startIndex + 2
+                val darkThemeReference = getInstruction<ReferenceInstruction>(darkThemeIndex).reference.toString()
 
-                val appThemeRegister =
-                    getInstruction<OneRegisterInstruction>(appThemeIndex).registerA
-                val darkThemeRegister =
-                    getInstruction<OneRegisterInstruction>(darkThemeIndex).registerA
+                implementation!!.instructions
+                    .withIndex()
+                    .filter { (_, instruction) ->
+                        instruction.opcode == Opcode.SGET_OBJECT &&
+                                (instruction as? ReferenceInstruction)?.reference?.toString() == darkThemeReference
+                    }
+                    .map { (index, _) -> index }
+                    .reversed()
+                    .forEach { index ->
+                        val appThemeIndex = indexOfFirstInstructionReversedOrThrow(index, Opcode.MOVE_RESULT_OBJECT)
+                        val appThemeRegister =
+                            getInstruction<OneRegisterInstruction>(appThemeIndex).registerA
+                        val darkThemeRegister =
+                            getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$appThemeRegister, v$darkThemeRegister}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/lang/Enum;
-                        move-result-object v$appThemeRegister
-                        """
-                )
+                        addInstructions(
+                            index + 1, """
+                                invoke-static {v$appThemeRegister, v$darkThemeRegister}, $EXTENSION_CLASS_DESCRIPTOR->invertSnackBarTheme(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/lang/Enum;
+                                move-result-object v$appThemeRegister
+                                """
+                        )
+                    }
             }
         }
 
@@ -212,6 +223,14 @@ val snackBarComponentsPatch = resourcePatch(
         required = true,
     )
 
+    val applyCornerRadiusToPlaylistBottomBarOption by booleanOption(
+        key = "applyCornerRadiusToPlaylistBottomBar",
+        default = false,
+        title = "Apply corner radius to playlist bottom bar",
+        description = "Whether to apply the same corner radius to the bottom bar of the playlist as the snack bar.",
+        required = true
+    )
+
     val darkThemeBackgroundColor = stringOption(
         key = "darkThemeBackgroundColor",
         default = ytBackgroundColorDark,
@@ -248,6 +267,8 @@ val snackBarComponentsPatch = resourcePatch(
         // Check patch options first.
         val cornerRadius = cornerRadiusOption
             .valueOrThrow()
+        val applyCornerRadiusToPlaylistBottomBar =
+            applyCornerRadiusToPlaylistBottomBarOption == true
         val darkThemeColor = darkThemeBackgroundColor
             .valueOrThrow()
         val lightThemeColor = lightThemeBackgroundColor
@@ -323,6 +344,29 @@ val snackBarComponentsPatch = resourcePatch(
                         setAttribute("android:color", strokeColor)
                     }
                 )
+            }
+        }
+
+        document("res/values/dimens.xml").use { document ->
+            val resourcesNode = document.documentElement
+            val childNodes = resourcesNode.childNodes
+
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
+                val dimenName = node.getAttribute("name")
+
+                if (dimenName.equals("snackbar_corner_radius")) {
+                    node.textContent = cornerRadius
+                    break
+                }
+            }
+        }
+
+        if (applyCornerRadiusToPlaylistBottomBar) {
+            document("res/drawable/playlist_entry_point_corner_drawable.xml").use { document ->
+                document.getNode("corners").apply {
+                    attributes.getNamedItem("android:radius").nodeValue = cornerRadius
+                }
             }
         }
 

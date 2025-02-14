@@ -1,8 +1,7 @@
 package app.revanced.extension.shared.patches.spoof.requests
 
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.AppClient
-import app.revanced.extension.shared.patches.client.AppClient.availableClientTypes
+import app.revanced.extension.shared.patches.client.YouTubeAppClient
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.GET_STREAMING_DATA
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.createApplicationRequestBody
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes.getPlayerResponseConnectionFromRoute
@@ -93,16 +92,16 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
-        private val SPOOF_STREAMING_DATA_TYPE: AppClient.ClientType =
-            BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
+        private val SPOOF_STREAMING_DATA_CLIENT: YouTubeAppClient.ClientType =
+            BaseSettings.SPOOF_STREAMING_DATA_CLIENT.get()
 
-        private val CLIENT_ORDER_TO_USE: Array<AppClient.ClientType> =
-            availableClientTypes(SPOOF_STREAMING_DATA_TYPE)
+        private val CLIENT_ORDER_TO_USE: Array<YouTubeAppClient.ClientType> =
+            YouTubeAppClient.availableClientTypes(SPOOF_STREAMING_DATA_CLIENT)
 
         private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
-            SPOOF_STREAMING_DATA_TYPE == AppClient.ClientType.ANDROID_VR_NO_AUTH
+            SPOOF_STREAMING_DATA_CLIENT == YouTubeAppClient.ClientType.ANDROID_VR_NO_AUTH
 
-        private var lastSpoofedClientType: AppClient.ClientType? = null
+        private var lastSpoofedClientType: YouTubeAppClient.ClientType? = null
 
 
         /**
@@ -111,20 +110,13 @@ class StreamingDataRequest private constructor(
         private const val HTTP_TIMEOUT_MILLISECONDS = 10 * 1000
 
         /**
-         * Any arbitrarily large value, but must be at least twice [.HTTP_TIMEOUT_MILLISECONDS]
+         * Any arbitrarily large value, but must be at least twice [HTTP_TIMEOUT_MILLISECONDS]
          */
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
 
         @GuardedBy("itself")
         val cache: MutableMap<String, StreamingDataRequest> = Collections.synchronizedMap(
             object : LinkedHashMap<String, StreamingDataRequest>(100) {
-                /**
-                 * Cache limit must be greater than the maximum number of videos open at once,
-                 * which theoretically is more than 4 (3 Shorts + one regular minimized video).
-                 * But instead use a much larger value, to handle if a video viewed a while ago
-                 * is somehow still referenced.  Each stream is a small array of Strings
-                 * so memory usage is not a concern.
-                 */
                 private val CACHE_LIMIT = 50
 
                 override fun removeEldestEntry(eldest: Map.Entry<String, StreamingDataRequest>): Boolean {
@@ -163,7 +155,7 @@ class StreamingDataRequest private constructor(
         }
 
         private fun send(
-            clientType: AppClient.ClientType,
+            clientType: YouTubeAppClient.ClientType,
             videoId: String,
             playerHeaders: Map<String, String>,
             visitorId: String,
@@ -279,7 +271,7 @@ class StreamingDataRequest private constructor(
                         } else {
                             BufferedInputStream(connection.inputStream).use { inputStream ->
                                 ByteArrayOutputStream().use { stream ->
-                                    val buffer = ByteArray(4096)
+                                    val buffer = ByteArray(2048)
                                     var bytesRead: Int
                                     while ((inputStream.read(buffer)
                                             .also { bytesRead = it }) >= 0

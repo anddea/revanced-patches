@@ -11,7 +11,7 @@ import app.revanced.extension.shared.requests.Route;
 public class ChannelRoutes {
     public static final String YOUTUBEI_V3_GAPIS_URL = "https://www.googleapis.com/youtube/v3/";
 
-    public static final Route GET_CHANNEL_DETAILS = new Route(GET, "channels?part=snippet&forHandle={handle}&key={api_key}");
+    public static final Route GET_CHANNEL_DETAILS = new Route(GET, "channels?part=brandingSettings&maxResults=1&prettyPrint=false&forHandle={handle}&key={api_key}");
 
     public ChannelRoutes() {
     }

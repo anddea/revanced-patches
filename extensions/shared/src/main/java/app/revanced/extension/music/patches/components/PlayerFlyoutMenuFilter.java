@@ -13,6 +13,10 @@ public final class PlayerFlyoutMenuFilter extends Filter {
                         Settings.HIDE_FLYOUT_MENU_3_COLUMN_COMPONENT,
                         "music_highlight_menu_item_carousel.eml",
                         "tile_button_carousel.eml"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_FLYOUT_MENU_DOWNLOAD,
+                        "list_item.eml"
                 )
         );
     }

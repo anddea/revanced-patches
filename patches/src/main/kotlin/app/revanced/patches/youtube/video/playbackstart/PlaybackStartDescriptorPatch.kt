@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.video.playbackstart
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -15,7 +15,7 @@ internal lateinit var playbackStartVideoIdReference: Reference
 val playbackStartDescriptorPatch = bytecodePatch(
     description = "playbackStartDescriptorPatch"
 ) {
-    dependsOn(sharedResourceIdPatch)
+    dependsOn(sharedExtensionPatch)
 
     execute {
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()

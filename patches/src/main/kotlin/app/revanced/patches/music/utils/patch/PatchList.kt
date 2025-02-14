@@ -147,15 +147,11 @@ internal enum class PatchList(
     ),
     SPOOF_APP_VERSION(
         "Spoof app version",
-        "Adds options to spoof the YouTube Music client version. This can remove the radio mode restriction in Canadian regions or disable real-time lyrics."
+        "Adds options to spoof the YouTube Music client version. This can be used to restore old UI elements and features."
     ),
     SPOOF_CLIENT(
         "Spoof client",
         "Adds options to spoof the client to allow playback."
-    ),
-    SPOOF_STREAMING_DATA(
-        "Spoof streaming data",
-        "Adds options to spoof the streaming data to allow playback."
     ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",
@@ -168,5 +164,9 @@ internal enum class PatchList(
     VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE_MUSIC(
         "Visual preferences icons for YouTube Music",
         "Adds icons to specific preferences in the settings."
+    ),
+    WATCH_HISTORY(
+        "Watch history",
+        "Adds an option to change the domain of the watch history or check its status."
     )
 }

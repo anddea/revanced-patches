@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getLayoutIdentifier;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.app.AlertDialog;
@@ -11,15 +12,15 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.*;
 
 import java.util.Objects;
 
+import app.revanced.extension.shared.settings.preference.CustomColorPickerView;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
@@ -30,6 +31,7 @@ public class SegmentCategoryListPreference extends ListPreference {
     private SegmentCategory mCategory;
     private EditText mEditText;
     private int mClickedDialogEntryIndex;
+    private TextView colorDotView;
 
     private void init() {
         final SegmentCategory segmentCategory = SegmentCategory.byCategoryKey(getKey());
@@ -69,6 +71,75 @@ public class SegmentCategoryListPreference extends ListPreference {
         init();
     }
 
+    private void showColorPickerDialog(Context context) {
+        // Store the original color in case the user cancels
+        final int originalColor = Color.parseColor(mCategory.colorString()) & 0xFFFFFF;
+
+        String currentColorString = mEditText.getText().toString();
+        int initialColor;
+        try {
+            initialColor = Color.parseColor(currentColorString);
+        } catch (IllegalArgumentException e) {
+            initialColor = originalColor;
+        }
+
+        // Create a RelativeLayout to hold the color picker view.
+        RelativeLayout layout = new RelativeLayout(context);
+        layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
+
+        // Inflate the color picker layout.
+        View dialogView = LayoutInflater.from(context).inflate(getLayoutIdentifier("revanced_color_picker"), layout);
+        // Get the CustomColorPickerView from the inflated layout.
+        CustomColorPickerView colorPickerView = dialogView.findViewById(ResourceUtils.getIdIdentifier("color_picker_view"));
+        // Set the initial color of the color picker.
+        colorPickerView.setInitialColor(initialColor);
+
+        // Create an AlertDialog with the color picker view.
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                .setView(dialogView)
+                .setPositiveButton(android.R.string.ok, null)  // Listener will be set later.
+                .setNegativeButton(android.R.string.cancel, null); // Listener will be set later
+
+        // Apply the dynamic theme for the dialog.
+        Utils.setEditTextDialogTheme(builder);
+
+        AlertDialog dialog = builder.create();
+
+        // Prevent the dialog from closing when touched outside.
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.setOnShowListener(d -> {
+            // Set a listener for color changes in the color picker view.
+            colorPickerView.setOnColorChangedListener(color -> {
+                // Update the EditText with the selected color in real-time.
+                int selectedColor = color & 0xFFFFFF; // Mask out alpha for consistency.
+                String hexColor = String.format("#%06X", selectedColor);
+                mEditText.setText(hexColor);
+                mEditText.setSelection(hexColor.length());
+            });
+
+            // Set an OnClickListener for the OK button.
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+                // Get the selected color from the color picker.
+                int selectedColor = colorPickerView.getColor() & 0xFFFFFF; // Mask out alpha for consistency.
+                String hexColor = String.format("#%06X", selectedColor);
+                mEditText.setText(hexColor);
+                mEditText.setSelection(hexColor.length());
+                dialog.dismiss();
+            });
+
+            // Set an OnClickListener for the Cancel button.
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(v -> {
+                // Restore the original color and update the preview and EditText.
+                mEditText.setText(String.format("#%06X", originalColor));
+                colorDotView.setText(SegmentCategory.getCategoryColorDot(originalColor));
+                dialog.dismiss();
+            });
+        });
+
+        dialog.show();
+    }
+
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         try {
@@ -78,7 +149,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             Context context = builder.getContext();
             TableLayout table = new TableLayout(context);
             table.setOrientation(LinearLayout.HORIZONTAL);
-            table.setPadding(70, 0, 150, 0);
+            table.setPadding(70, 0, 70, 0);
 
             TableRow row = new TableRow(context);
 
@@ -86,9 +157,10 @@ public class SegmentCategoryListPreference extends ListPreference {
             colorTextLabel.setText(str("revanced_sb_color_dot_label"));
             row.addView(colorTextLabel);
 
-            TextView colorDotView = new TextView(context);
+            colorDotView = new TextView(context);
             colorDotView.setText(mCategory.getCategoryColorDot());
             colorDotView.setPadding(30, 0, 30, 0);
+            colorDotView.setOnClickListener(v -> showColorPickerDialog(context));
             row.addView(colorDotView);
 
             mEditText = new EditText(context);

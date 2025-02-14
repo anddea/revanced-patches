@@ -12,6 +12,6 @@ public class PatchStatus {
     }
 
     public static String SpoofAppVersionDefaultString() {
-        return "6.11.52";
+        return "6.42.55";
     }
 }

@@ -287,7 +287,7 @@ public enum SegmentCategory {
     @NonNull
     private static String getCategoryColorDotHTML(int color) {
         color &= 0xFFFFFF;
-        return String.format("<font color=\"#%06X\">⬤</font>", color);
+        return String.format("<big><font color=\"#%06X\">⬤</font></big>", color);
     }
 
     @NonNull
