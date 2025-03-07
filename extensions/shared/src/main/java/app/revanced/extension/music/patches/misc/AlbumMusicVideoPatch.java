@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import app.revanced.extension.music.patches.misc.requests.PipedRequester;
+import app.revanced.extension.music.patches.misc.requests.PlaylistRequest;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoInformation;
 import app.revanced.extension.music.utils.VideoUtils;
@@ -76,8 +76,8 @@ public class AlbumMusicVideoPatch {
         }
         playerResponseVideoId = videoId;
 
-        // Fetch Piped instance.
-        PipedRequester.fetchRequestIfNeeded(videoId, playlistId, playlistIndex);
+        // Fetch.
+        PlaylistRequest.fetchRequestIfNeeded(videoId, playlistId, playlistIndex);
     }
 
     /**
@@ -96,7 +96,7 @@ public class AlbumMusicVideoPatch {
 
     private static void checkVideo(@NonNull String videoId) {
         try {
-            PipedRequester request = PipedRequester.getRequestForVideoId(videoId);
+            PlaylistRequest request = PlaylistRequest.getRequestForVideoId(videoId);
             if (request == null) {
                 return;
             }
@@ -109,7 +109,7 @@ public class AlbumMusicVideoPatch {
                 Logger.printException(() -> "Error: Blocking main thread");
             }
             String songId = request.getStream();
-            if (songId == null) {
+            if (songId.isEmpty()) {
                 Logger.printDebug(() -> "Official song not found, videoId: " + videoId);
                 return;
             }
@@ -157,7 +157,7 @@ public class AlbumMusicVideoPatch {
                 playerResponseVideoId = songId;
                 currentVideoId = songId;
                 VideoUtils.openInYouTubeMusic(songId);
-            }, 500);
+            }, 1000);
 
             VideoUtils.runOnMainThreadDelayed(() -> isVideoLaunched.compareAndSet(true, false), 1500);
         } catch (Exception ex) {

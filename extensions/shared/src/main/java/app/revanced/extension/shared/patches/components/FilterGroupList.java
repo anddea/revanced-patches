@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.patches.components;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
@@ -12,6 +14,7 @@ import java.util.function.Consumer;
 
 import app.revanced.extension.shared.utils.TrieSearch;
 
+@SuppressLint("ObsoleteSdkInt")
 @SuppressWarnings("unused")
 public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 

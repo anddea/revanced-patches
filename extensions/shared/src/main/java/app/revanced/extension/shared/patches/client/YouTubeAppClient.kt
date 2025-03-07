@@ -90,33 +90,37 @@ object YouTubeAppClient {
      *
      * Package name for YouTube VR (Google DayDream): com.google.android.apps.youtube.vr (Deprecated)
      * Package name for YouTube VR (Meta Quests): com.google.android.apps.youtube.vr.oculus
-     * Package name for YouTube VR (ByteDance Pico 4): com.google.android.apps.youtube.vr.pico
+     * Package name for YouTube VR (ByteDance Pico): com.google.android.apps.youtube.vr.pico
      */
-    private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.oculus"
+    private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.pico"
 
     /**
      * The hardcoded client version of the Android VR app used for InnerTube requests with this client.
      *
      * It can be extracted by getting the latest release version of the app on
-     * [the App Store page of the YouTube app](https://www.meta.com/en-us/experiences/2002317119880945/),
-     * in the `Additional details` section.
+     * [the App Store page of the YouTube VR app](https://store-global.picoxr.com/en/detail/1/7270207384512020485/),
+     * in the `Information` section.
      */
     private const val CLIENT_VERSION_ANDROID_VR = "1.62.27"
 
     /**
-     * The device machine id for the Meta Quest 3, used to get opus codec with the Android VR client.
-     * See [this GitLab](https://dumps.tadiphone.dev/dumps/oculus/eureka) for more information.
+     * The device machine id for the Pico 4 Ultra.
+     *
+     * For Pico 4 Ultra, there is no public firmware archive yet.
+     * The device machine id is taken from [this repository](https://github.com/Genymobile/scrcpy/issues/5659).
+     * The OS version and build ID are taken from [the signature key of OTA firmware](https://pico.crx.moe/docs/picoos-research/version-table#pico-4-ultra-series).
      */
-    private const val DEVICE_MODEL_ANDROID_VR = "Quest 3"
-    private const val DEVICE_MAKE_ANDROID_VR = "Oculus"
-    private const val OS_VERSION_ANDROID_VR = "12"
-
+    private const val DEVICE_MODEL_ANDROID_VR = "A9210"
     /**
-     * The SDK version for Android 12 is 31,
-     * but for some reason the build.props for the `Quest 3` state that the SDK version is 32.
+     * The manufacturer is 'ByteDance', but the build prop is marked as 'Pico'.
      */
-    private const val ANDROID_SDK_VERSION_ANDROID_VR = "32"
-    private const val BUILD_ID_ANDROID_VR = "SQ3A.220605.009.A1"
+    private const val DEVICE_MAKE_ANDROID_VR = "Pico"
+    private const val OS_VERSION_ANDROID_VR = "14"
+    private const val ANDROID_SDK_VERSION_ANDROID_VR = "34"
+    /**
+     * PICO OS 5.12.6 (Android 14)
+     */
+    private const val BUILD_ID_ANDROID_VR = "UKQ1.240321.001"
 
     private val USER_AGENT_ANDROID_VR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_VR,
@@ -382,12 +386,12 @@ object YouTubeAppClient {
 
         companion object {
             val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
-                IOS_UNPLUGGED,
+                ANDROID_VR_NO_AUTH,
                 ANDROID_UNPLUGGED,
                 ANDROID_CREATOR,
+                IOS_UNPLUGGED,
                 IOS,
                 ANDROID_VR,
-                ANDROID_VR_NO_AUTH,
             )
         }
     }

@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -13,9 +14,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-fun baseOpusCodecsPatch(
-    descriptor: String,
-) = bytecodePatch(
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "$PATCHES_PATH/OpusCodecPatch;"
+
+fun baseOpusCodecsPatch() = bytecodePatch(
     description = "baseOpusCodecsPatch"
 ) {
     execute {
@@ -35,7 +37,7 @@ fun baseOpusCodecsPatch(
 
                 addInstructionsWithLabels(
                     targetIndex + 1, """
-                        invoke-static {}, $descriptor
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->enableOpusCodec()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :mp4a
                         invoke-static {}, $opusCodecReference

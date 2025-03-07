@@ -25,6 +25,9 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
     <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
+    <string name="revanced_enable_swipe_speed_summary_off">Speed swipe is disabled.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">Speed swipe is enabled.</string>
+    <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">In certain YouTube versions, this setting can make the system navigation bar transparent or the layout can be broken in PIP mode.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
@@ -111,4 +114,7 @@ Most bugs cannot be fixed due to client-side limitations, so use it only for tes
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
 </resources>

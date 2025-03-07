@@ -61,6 +61,8 @@ var compactLink = -1L
     private set
 var compactListItem = -1L
     private set
+var componentLongClickListener = -1L
+    private set
 var contentPill = -1L
     private set
 var controlsLayoutStub = -1L
@@ -142,6 +144,8 @@ var modernMiniPlayerRewindButton = -1L
 var musicAppDeeplinkButtonView = -1L
     private set
 var notificationBigPictureIconWidth = -1L
+    private set
+var offlineActionsVideoDeletedUndoSnackbarText = -1L
     private set
 var playerCollapseButton = -1L
     private set
@@ -348,6 +352,10 @@ internal val sharedResourceIdPatch = resourcePatch(
             LAYOUT,
             "compact_list_item"
         ]
+        componentLongClickListener = resourceMappings[
+            ID,
+            "component_long_click_listener"
+        ]
         contentPill = resourceMappings[
             LAYOUT,
             "content_pill"
@@ -511,6 +519,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         notificationBigPictureIconWidth = resourceMappings[
             DIMEN,
             "notification_big_picture_icon_width"
+        ]
+        offlineActionsVideoDeletedUndoSnackbarText = resourceMappings[
+            STRING,
+            "offline_actions_video_deleted_undo_snackbar_text"
         ]
         playerCollapseButton = resourceMappings[
             ID,

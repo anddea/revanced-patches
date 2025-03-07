@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_enable_swipe_speed_summary_off">Speed swipe is disabled.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">Speed swipe is enabled.</string>
+    <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
@@ -24,4 +27,7 @@
     <string name="revanced_shorts_custom_actions_speed_title">Show playback speed menu</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
+    <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
 </resources>

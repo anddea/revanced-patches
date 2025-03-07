@@ -85,10 +85,12 @@ Use dark colors if possible, as the app does not support light themes."</string>
 
 Find the official song if a music video is detected playing from an album.
 
-• Powered by Piped Instance API."</string>
+Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
     <string name="revanced_disable_player_gesture_summary">Disables swipe to change tracks in the player.</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
+    <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
+    <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="revanced_enable_compact_dialog_summary">"Enables the compact flyout menu on phones.
 
 Limitations:
@@ -108,7 +110,9 @@ Limitations:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Enable swipe to dismiss miniplayer</string>
-    <string name="revanced_enable_thick_seekbar_summary">Enables the thick seekbar.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Enables the thick seekbar.
+
+Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
     <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
 
@@ -204,7 +208,10 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Hides fullscreen ads.
+
+Limitations:
+• Sometimes you may see a blank black screen instead of the home feed."</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>

@@ -64,6 +64,18 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
 
     /**
      * Injection point.
+     * Skip response encryption in OnesiePlayerRequest.
+     */
+    public static boolean skipResponseEncryption(boolean original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+
+        return false;
+    }
+
+    /**
+     * Injection point.
      */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
         if (SPOOF_STREAMING_DATA) {
@@ -200,7 +212,7 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    BaseSettings.SPOOF_STREAMING_DATA_CLIENT.get() == ClientType.ANDROID_VR_NO_AUTH;
+                    BaseSettings.SPOOF_STREAMING_DATA_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 }

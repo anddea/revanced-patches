@@ -352,13 +352,16 @@ public class ReturnYouTubeDislike {
 
     private static String formatDislikeCount(long dislikeCount) {
         if (isSDKAbove(24)) {
-            synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
+            synchronized (ReturnYouTubeDislike.class) { // Number formatter is not thread safe.
                 if (dislikeCountFormatter == null) {
-                    Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().getLocales().get(0);
+                    // Must use default locale and not Utils context locale,
+                    // otherwise if using a different settings language then the
+                    // formatting will use that of the different language.
+                    Locale locale = Locale.getDefault();
                     dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
 
                     // YouTube disregards locale specific number characters
-                    // and instead shows english number characters everywhere.
+                    // and instead shows English number characters everywhere.
                     // To use the same behavior, override the digit characters to use English
                     // so languages such as Arabic will show "1.234" instead of the native "۱,۲۳٤"
                     if (isSDKAbove(28)) {
@@ -379,7 +382,7 @@ public class ReturnYouTubeDislike {
         if (isSDKAbove(24)) {
             synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
                 if (dislikePercentageFormatter == null) {
-                    Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().getLocales().get(0);
+                    Locale locale = Locale.getDefault();
                     dislikePercentageFormatter = NumberFormat.getPercentInstance(locale);
 
                     // Want to set the digit strings, and the simplest way is to cast to the implementation NumberFormat returns.
@@ -597,6 +600,15 @@ public class ReturnYouTubeDislike {
                 }
 
                 if (spanIsForLikes) {
+                    if (!Utils.containsNumber(original)) {
+                        if (!Settings.RYD_ESTIMATED_LIKE.get()) {
+                            Logger.printDebug(() -> "Likes are hidden");
+                            return original;
+                        } else {
+                            Logger.printDebug(() -> "Using estimated likes");
+                        }
+                    }
+
                     // Scrolling Shorts does not cause the Spans to be reloaded,
                     // so there is no need to cache the likes for this situations.
                     Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);

@@ -40,4 +40,3 @@ internal fun indexOfUriToStringInstruction(method: Method) =
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>().toString() == "Landroid/net/Uri;->toString()Ljava/lang/String;"
     }
-

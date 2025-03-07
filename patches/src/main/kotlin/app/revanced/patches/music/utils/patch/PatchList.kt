@@ -61,6 +61,10 @@ internal enum class PatchList(
         "Disable music video in album",
         "Adds option to redirect music videos from albums for non-premium users."
     ),
+    DISABLE_QUIC_PROTOCOL(
+        "Disable QUIC protocol",
+        "Adds an option to disable CronetEngine's QUIC protocol."
+    ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
         "Adds an option to enable the OPUS audio codec if the player response includes it."

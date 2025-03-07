@@ -1,0 +1,226 @@
+package app.revanced.extension.music.patches.misc.requests
+
+import android.annotation.SuppressLint
+import androidx.annotation.GuardedBy
+import app.revanced.extension.shared.patches.client.YouTubeAppClient
+import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
+import app.revanced.extension.shared.requests.Requester
+import app.revanced.extension.shared.utils.Logger
+import app.revanced.extension.shared.utils.Utils
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
+import java.net.SocketTimeoutException
+import java.util.Objects
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.Future
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
+
+class PlaylistRequest private constructor(
+    private val videoId: String,
+    private val playlistId: String,
+    private val playlistIndex: Int,
+) {
+    /**
+     * Time this instance and the fetch future was created.
+     */
+    private val timeFetched = System.currentTimeMillis()
+    private val future: Future<String> = Utils.submitOnBackgroundThread {
+        fetch(
+            videoId,
+            playlistId,
+            playlistIndex,
+        )
+    }
+
+    fun isExpired(now: Long): Boolean {
+        val timeSinceCreation = now - timeFetched
+        if (timeSinceCreation > CACHE_RETENTION_TIME_MILLISECONDS) {
+            return true
+        }
+
+        // Only expired if the fetch failed (API null response).
+        return (fetchCompleted() && stream.isEmpty())
+    }
+
+    /**
+     * @return if the fetch call has completed.
+     */
+    fun fetchCompleted(): Boolean {
+        return future.isDone
+    }
+
+    val stream: String
+        get() {
+            try {
+                return future[MAX_MILLISECONDS_TO_WAIT_FOR_FETCH, TimeUnit.MILLISECONDS]
+            } catch (ex: TimeoutException) {
+                Logger.printInfo(
+                    { "getStream timed out" },
+                    ex
+                )
+            } catch (ex: InterruptedException) {
+                Logger.printException(
+                    { "getStream interrupted" },
+                    ex
+                )
+                Thread.currentThread().interrupt() // Restore interrupt status flag.
+            } catch (ex: ExecutionException) {
+                Logger.printException(
+                    { "getStream failure" },
+                    ex
+                )
+            }
+
+            return ""
+        }
+
+    companion object {
+        /**
+         * How long to keep fetches until they are expired.
+         */
+        private const val CACHE_RETENTION_TIME_MILLISECONDS = 60 * 1000L // 1 Minute
+
+        private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 10 * 1000L // 10 seconds
+
+        @GuardedBy("itself")
+        private val cache: MutableMap<String, PlaylistRequest> = HashMap()
+
+        @JvmStatic
+        @SuppressLint("ObsoleteSdkInt")
+        fun fetchRequestIfNeeded(
+            videoId: String,
+            playlistId: String,
+            playlistIndex: Int,
+        ) {
+            Objects.requireNonNull(videoId)
+            synchronized(cache) {
+                val now = System.currentTimeMillis()
+                cache.values.removeIf { request: PlaylistRequest ->
+                    val expired = request.isExpired(now)
+                    if (expired) Logger.printDebug { "Removing expired stream: " + request.videoId }
+                    expired
+                }
+                if (!cache.containsKey(videoId)) {
+                    cache[videoId] = PlaylistRequest(
+                        videoId,
+                        playlistId,
+                        playlistIndex,
+                    )
+                }
+            }
+        }
+
+        @JvmStatic
+        fun getRequestForVideoId(videoId: String): PlaylistRequest? {
+            synchronized(cache) {
+                return cache[videoId]
+            }
+        }
+
+        private fun handleConnectionError(toastMessage: String, ex: Exception?) {
+            Logger.printInfo({ toastMessage }, ex)
+        }
+
+        private fun sendRequest(
+            videoId: String,
+            playlistId: String,
+        ): JSONObject? {
+            Objects.requireNonNull(videoId)
+
+            val startTime = System.currentTimeMillis()
+            val clientType = YouTubeAppClient.ClientType.ANDROID_VR
+            val clientTypeName = clientType.name
+            Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
+
+            try {
+                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
+                    PlayerRoutes.GET_PLAYLIST_PAGE,
+                    clientType
+                )
+                val requestBody =
+                    PlayerRoutes.createApplicationRequestBody(
+                        clientType = clientType,
+                        videoId = videoId,
+                        playlistId = playlistId
+                    )
+
+                connection.setFixedLengthStreamingMode(requestBody.size)
+                connection.outputStream.write(requestBody)
+
+                val responseCode = connection.responseCode
+                if (responseCode == 200) return Requester.parseJSONObject(connection)
+
+                handleConnectionError(
+                    (clientTypeName + " not available with response code: "
+                            + responseCode + " message: " + connection.responseMessage),
+                    null
+                )
+            } catch (ex: SocketTimeoutException) {
+                handleConnectionError("Connection timeout", ex)
+            } catch (ex: IOException) {
+                handleConnectionError("Network error", ex)
+            } catch (ex: Exception) {
+                Logger.printException({ "sendRequest failed" }, ex)
+            } finally {
+                Logger.printDebug { "video: " + videoId + " took: " + (System.currentTimeMillis() - startTime) + "ms" }
+            }
+
+            return null
+        }
+
+        private fun parseResponse(playlistJson: JSONObject, playlistIndex: Int): String {
+            try {
+                val singleColumnWatchNextResultsJsonObject: JSONObject =
+                    playlistJson
+                        .getJSONObject("contents")
+                        .getJSONObject("singleColumnWatchNextResults")
+
+                if (singleColumnWatchNextResultsJsonObject.has("playlist")) {
+                    val playlistJsonObject: JSONObject? =
+                        singleColumnWatchNextResultsJsonObject
+                            .getJSONObject("playlist")
+                            .getJSONObject("playlist")
+
+                    val currentStreamJsonObject = playlistJsonObject
+                        ?.getJSONArray("contents")
+                        ?.get(playlistIndex)
+
+                    if (currentStreamJsonObject is JSONObject) {
+                        val watchEndpointJsonObject: JSONObject? =
+                            currentStreamJsonObject
+                                .getJSONObject("playlistPanelVideoRenderer")
+                                .getJSONObject("navigationEndpoint")
+                                .getJSONObject("watchEndpoint")
+
+                        return watchEndpointJsonObject?.getString("videoId") + ""
+                    }
+                }
+            } catch (e: JSONException) {
+                Logger.printException(
+                    { "Fetch failed while processing response data for response: $playlistJson" },
+                    e
+                )
+            }
+
+            return ""
+        }
+
+        private fun fetch(
+            videoId: String,
+            playlistId: String,
+            playlistIndex: Int,
+        ): String {
+            val playlistJson = sendRequest(
+                videoId,
+                playlistId,
+            )
+            if (playlistJson != null) {
+                return parseResponse(playlistJson, playlistIndex)
+            }
+
+            return ""
+        }
+    }
+}

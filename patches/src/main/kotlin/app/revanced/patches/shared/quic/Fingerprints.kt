@@ -1,6 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
-package app.revanced.patches.youtube.misc.quic
+package app.revanced.patches.shared.quic
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags

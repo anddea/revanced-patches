@@ -92,14 +92,14 @@ class StreamingDataRequest private constructor(
             "X-GOOG-API-FORMAT-VERSION",
             VISITOR_ID_HEADER
         )
-        private val SPOOF_STREAMING_DATA_CLIENT: YouTubeAppClient.ClientType =
-            BaseSettings.SPOOF_STREAMING_DATA_CLIENT.get()
+        private val SPOOF_STREAMING_DATA_TYPE: YouTubeAppClient.ClientType =
+            BaseSettings.SPOOF_STREAMING_DATA_TYPE.get()
 
         private val CLIENT_ORDER_TO_USE: Array<YouTubeAppClient.ClientType> =
-            YouTubeAppClient.availableClientTypes(SPOOF_STREAMING_DATA_CLIENT)
+            YouTubeAppClient.availableClientTypes(SPOOF_STREAMING_DATA_TYPE)
 
         private val DEFAULT_CLIENT_IS_ANDROID_VR_NO_AUTH: Boolean =
-            SPOOF_STREAMING_DATA_CLIENT == YouTubeAppClient.ClientType.ANDROID_VR_NO_AUTH
+            SPOOF_STREAMING_DATA_TYPE == YouTubeAppClient.ClientType.ANDROID_VR_NO_AUTH
 
         private var lastSpoofedClientType: YouTubeAppClient.ClientType? = null
 

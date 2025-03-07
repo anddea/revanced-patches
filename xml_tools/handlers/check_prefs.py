@@ -85,6 +85,7 @@ def _get_default_key_only_check() -> list[str]:
         "revanced_custom_seekbar_color_primary",
         "revanced_custom_seekbar_color_accent",
         "revanced_override_youtube_music_button_about_prerequisite",
+        "revanced_swipe_volume_sensitivity",
         "revanced_whitelist_settings",
     ]
 

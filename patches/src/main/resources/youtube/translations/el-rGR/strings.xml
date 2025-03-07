@@ -83,12 +83,12 @@
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Εμφανίζονται εναλλαγές διακόπτη.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Εμφανίζονται εναλλαγές κειμένου.</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">Τύπος εναλλαγής ρυθμίσεων</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_off">Το χρώμα φόντου της γραμμής ειδοποιήσεων αλληλεπίδρασης δεν έχει αλλάξει.</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_on">Το χρώμα φόντου της γραμμής ειδοποιήσεων αλληλεπίδρασης έχει αλλάξει.</string>
-    <string name="revanced_change_server_side_snack_bar_background_title">Αλλαγή φόντου γραμμής ειδοποιήσεων αλληλεπίδρασης</string>
-    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Κάποιες γραμμές ειδοποιήσεων αλληλεπίδρασης χρησιμοποιούν ένα θέμα που έχει οριστεί στην πλευρά του διακομιστή, και όχι το θέμα της εφαρμογής.
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">Το χρώμα φόντου της γραμμής μηνυμάτων αλληλεπίδρασης από πλευρά του διακομιστή δεν έχει αλλάξει.</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">Το χρώμα φόντου της γραμμής μηνυμάτων αλληλεπίδρασης από πλευρά του διακομιστή έχει αλλάξει.</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">Αλλαγή φόντου γραμμής μηνυμάτων αλληλεπίδρασης</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Κάποιες γραμμές μηνυμάτων αλληλεπίδρασης χρησιμοποιούν ένα θέμα που έχει οριστεί στην πλευρά του διακομιστή, και όχι το θέμα της εφαρμογής.
 
-Αλλαγή χρώματος του φόντου αυτών των γραμμών.
+Θα γίνει αλλαγή χρώματος του φόντου αυτών των γραμμών.
 
 Αν υπάρξουν αλλαγές στην πλευρά του διακομιστή, το χρώμα φόντου της γραμμής ενδέχεται να μην αλλάξει."</string>
     <string name="revanced_change_share_sheet_summary_off">Χρησιμοποιείται το μενού κοινοποίηση της εφαρμογής.</string>
@@ -230,7 +230,7 @@
     <string name="revanced_disable_quic_protocol_title">Απενεργοποίηση πρωτοκόλλου QUIC</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">Η λειτουργία &lt;b&gt;«Συνέχιση παρακολούθησης»&lt;/b&gt; είναι ενεργοποιημένη κατά την εκκίνηση της εφαρμογής. &lt;br&gt;&lt;br&gt;Πληροφορίες:&lt;br&gt;• &lt;b&gt;Η λειτουργία &lt;b&gt;«Συνέχιση παρακολούθησης»&lt;b&gt; πρόκειται για λειτουργία YouTube Premium.&lt;br&gt;• Η τρέχουσα ρύθμιση δεν εξαναγκάζει την ενεργοποίηση της λειτουργίας &lt;b&gt;«Συνέχιση παρακολούθησης»&lt;/b&gt;.</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">Η λειτουργία &lt;b&gt;«Συνέχιση παρακολούθησης»&lt;/b&gt; είναι απενεργοποιημένη κατά την εκκίνηση της εφαρμογής.</string>
-    <string name="revanced_disable_resuming_miniplayer_title">Απενεργοποίηση συνέχισης αναπαραγωγής σε ελαχιστοποιημένη οθόνη</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Απενεργοποίηση συνέχισης αναπαραγωγής της ελαχιστοποιημένης οθόνης</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">Η αναπαραγωγή Shorts θα συνεχίζεται κατά την εκκίνηση της εφαρμογής.</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">Η αναπαραγωγή Shorts δε θα συνεχίζεται κατά την εκκίνηση της εφαρμογής.</string>
     <string name="revanced_disable_resuming_shorts_player_title">Απενεργοποίηση συνέχισης των Shorts</string>
@@ -462,19 +462,15 @@
     <string name="revanced_hide_album_card_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_album_card_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_album_card_title">Κάρτες άλμπουμ</string>
-    <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.
-
-Αφορά τις ενότητες: «Προτεινόμενα μέρη», Παιχνίδια, Μουσική και «Οι χρήστες ανέφεραν».</string>
-    <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.
-
-Αυτή η ενότητα αφορά τα «Προτεινόμενα μέρη», Παιχνίδια και Μουσικές ενότητες.</string>
-    <string name="revanced_hide_attributes_section_title">Ενότητα χαρακτηριστικών</string>
+    <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν».</string>
+    <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν».</string>
+    <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
     <string name="revanced_hide_autoplay_preview_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_autoplay_preview_summary_on">Κρυμμένη.</string>
     <string name="revanced_hide_autoplay_preview_title">Προεπισκόπηση αυτόματης αναπαραγωγής επόμενου βίντεο</string>
     <string name="revanced_hide_browse_store_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_browse_store_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_browse_store_button_title">Κουμπί περιήγησης στο κατάστημα</string>
+    <string name="revanced_hide_browse_store_button_title">Κουμπί «Επίσκεψη στο κατάστημα»</string>
     <string name="revanced_hide_carousel_shelf_summary">"Απόκρυψη ενοτήτων όπως:
 • Έκτακτη είδηση
 • Συνέχεια παρακολούθησης
@@ -531,7 +527,7 @@ Playlists
     <string name="revanced_hide_clip_button_title">Κουμπί «Κλιπ»</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_comment_create_shorts_button_summary_on">Κρυμμένο.</string>
-    <string name="revanced_hide_comment_create_shorts_button_title">Κουμπί δημιουργίας Shorts</string>
+    <string name="revanced_hide_comment_create_shorts_button_title">Κουμπί «Δημιουργία Short»</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_comment_highlighted_search_links_summary_on">Κρυμμένοι.</string>
     <string name="revanced_hide_comment_highlighted_search_links_title">Επισημασμένοι συνδέσμοι αναζήτησης</string>
@@ -580,7 +576,7 @@ Playlists
     <string name="revanced_hide_end_screen_cards_title">Κάρτες τελικής οθόνης</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος τελικής οθόνης</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
     <string name="revanced_hide_expandable_chip_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_expandable_chip_summary_on">Κρυμμένα.</string>
     <string name="revanced_hide_expandable_chip_title">Επεκτάσιμα πλαίσια κάτω από τα βίντεο</string>
@@ -651,7 +647,7 @@ Playlists
     <string name="revanced_hide_join_button_title">Κουμπί «Συμμετοχή»</string>
     <string name="revanced_hide_key_concepts_section_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_key_concepts_section_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_key_concepts_section_title">Ενότητα σχετιζόμενων εννοιών</string>
+    <string name="revanced_hide_key_concepts_section_title">Ενότητα «Βασικές έννοιες»</string>
     <string name="revanced_hide_keyword_content_about_summary">"Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη περιεχομένου που ταιριάζει με τις λέξεις-κλειδιά.
 
 Περιορισμοί:
@@ -838,7 +834,7 @@ Playlists
     <string name="revanced_hide_playlist_button_title">Κουμπί «Αποθήκευση»</string>
     <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_podcast_section_title">Ενότητα εκπομπής</string>
+    <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε του podcast»</string>
     <string name="revanced_hide_preview_comment_off">Εμφανίζεται.</string>
     <string name="revanced_hide_preview_comment_on">Κρυμμένη.</string>
     <string name="revanced_hide_preview_comment_title">Προεπισκόπηση σχολίου</string>
@@ -882,12 +878,8 @@ Playlists
 
 • Βίντεο με φράσεις όπως «Άλλοι χρήστες παρακολούθησαν επίσης» στο κάτω μέρος τους."</string>
     <string name="revanced_hide_recommended_video_title">Απόκρυψη προτεινόμενων βίντεο</string>
-    <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται.
-
-Αφορά την ενότητα περισσότερων βίντεο στις γρήγορες ενέργειες και το σχετιζόμενο βίντεο.</string>
-    <string name="revanced_hide_related_video_overlay_summary_on">Κρυμμένο.
-
-Αφορά την ενότητα περισσότερων βίντεο στις γρήγορες ενέργειες και το σχετιζόμενο βίντεο.</string>
+    <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται.\nΑφορά την ενότητα περισσότερων βίντεο στις γρήγορες ενέργειες και το σχετιζόμενο βίντεο.</string>
+    <string name="revanced_hide_related_video_overlay_summary_on">Κρυμμένο.\nΑφορά την ενότητα περισσότερων βίντεο στις γρήγορες ενέργειες και το σχετιζόμενο βίντεο.</string>
     <string name="revanced_hide_related_video_overlay_title">Σχετιζόμενο βίντεο</string>
     <string name="revanced_hide_related_videos_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_related_videos_summary_on">Κρυμμένα.</string>
@@ -927,7 +919,7 @@ Playlists
     <string name="revanced_hide_self_sponsor_cards_title">Κάρτες αυτοχρηματοδότησης</string>
     <string name="revanced_hide_server_side_snack_bar_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_server_side_snack_bar_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_server_side_snack_bar_title">Γραμμή ειδοποιήσεων αλληλεπίδρασης πλευράς του διακομιστή</string>
+    <string name="revanced_hide_server_side_snack_bar_title">Γραμμή μηνυμάτων αλληλεπίδρασης από πλευρά του διακομιστή</string>
     <string name="revanced_hide_settings_menu_about_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_settings_menu_about_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_settings_menu_about_title">Μενού «Σχετικά με»</string>
@@ -1135,8 +1127,8 @@ Playlists
     <string name="revanced_hide_show_more_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_show_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
     <string name="revanced_hide_snack_bar_summary_off">Εμφανίζονται.</string>
-    <string name="revanced_hide_snack_bar_summary_on">Κρυμμένα.</string>
-    <string name="revanced_hide_snack_bar_title">Μηνύματα αλληλεπίδρασης</string>
+    <string name="revanced_hide_snack_bar_summary_on">Κρυμμένη.</string>
+    <string name="revanced_hide_snack_bar_title">Γραμμή μηνυμάτων αλληλεπίδρασης</string>
     <string name="revanced_hide_start_trial_button_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_start_trial_button_summary_on">Κρυμμένο.</string>
     <string name="revanced_hide_start_trial_button_title">Κουμπί έναρξης δοκιμής</string>
@@ -1180,7 +1172,7 @@ Playlists
     <string name="revanced_hide_toolbar_notification_button_title">Κουμπί ειδοποιήσεων</string>
     <string name="revanced_hide_transcript_section_summary_off">Εμφανίζεται.</string>
     <string name="revanced_hide_transcript_section_summary_on">Κρυμμένη.</string>
-    <string name="revanced_hide_transcript_section_title">Ενότητα απομαγνητοφώνησης</string>
+    <string name="revanced_hide_transcript_section_title">Ενότητα «Μεταγραφή»</string>
     <string name="revanced_hide_video_ads_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_video_ads_summary_on">Κρυμμένες.</string>
     <string name="revanced_hide_video_ads_title">Διαφημίσεις βίντεο</string>
@@ -1225,7 +1217,7 @@ Playlists
 Αν ένα YouTube Doodle εμφανίζεται αυτή τη στιγμή στην περιοχή σας και αυτή η ρύθμιση απόκρυψης του είναι ενεργοποιημένη, τότε η γραμμή κατηγοριών κάτω από τη γραμμή αναζήτησης θα είναι κρυμμένη επίσης."</string>
     <string name="revanced_hide_zoom_overlay_summary_off">Εμφανίζονται.</string>
     <string name="revanced_hide_zoom_overlay_summary_on">Κρυμμένες.</string>
-    <string name="revanced_hide_zoom_overlay_title">Ειδοποιήσεις αλληλεπιδράσης διεπαφής ζουμ</string>
+    <string name="revanced_hide_zoom_overlay_title">Μηνύματα αλληλεπίδρασης διεπαφής ζουμ</string>
     <string name="revanced_icon_afn_blue">AFN Blue</string>
     <string name="revanced_icon_afn_red">AFN Red</string>
     <string name="revanced_icon_custom">Προσαρμοσμένο</string>
@@ -1234,9 +1226,9 @@ Playlists
     <string name="revanced_icon_revancify_blue">Revancify Blue</string>
     <string name="revanced_icon_revancify_red">Revancify Red</string>
     <string name="revanced_icon_youtube">YouTube</string>
-    <string name="revanced_invert_snack_bar_theme_summary_off">Το θέμα της γραμμής ειδοποιήσεων αλληλεπίδρασης δεν είναι ανεστραμμένο.</string>
-    <string name="revanced_invert_snack_bar_theme_summary_on">Το θέμα της γραμμής ειδοποιήσεων αλληλεπίδρασης είναι ανεστραμμένο.</string>
-    <string name="revanced_invert_snack_bar_theme_title">Αντιστροφή θέματος γραμμής ειδοποιήσεων αλληλεπίδρασης</string>
+    <string name="revanced_invert_snack_bar_theme_summary_off">Το θέμα της γραμμής μηνυμάτων αλληλεπίδρασης δεν είναι ανεστραμμένο.</string>
+    <string name="revanced_invert_snack_bar_theme_summary_on">Το θέμα της γραμμής μηνυμάτων αλληλεπίδρασης είναι ανεστραμμένο.</string>
+    <string name="revanced_invert_snack_bar_theme_title">Αντιστροφή θέματος γραμμής μηνυμάτων αλληλεπίδρασης</string>
     <string name="revanced_keep_landscape_mode_summary">Διατήρηση της οριζόντιας λειτουργίας στο κλείσιμο και άνοιγμα της οθόνης ενώ βρίσκεστε σε λειτουργία πλήρους οθόνης.</string>
     <string name="revanced_keep_landscape_mode_summary_off">Τα βίντεο αναπαράγονται σε κάθετη λειτουργία όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
     <string name="revanced_keep_landscape_mode_summary_on">Τα βίντεο συνεχίζουν να αναπαράγονται σε οριζόντια λειτουργία ακόμη και όταν κλείνεται και ξανανοίγεται η οθόνη.</string>
@@ -1477,7 +1469,7 @@ Playlists
     <string name="revanced_preference_screen_hook_buttons_title">Μετατροπή κουμπιών</string>
     <string name="revanced_preference_screen_import_export_summary">Εισαγωγή ή εξαγωγή των ρυθμίσεών RVX σας.</string>
     <string name="revanced_preference_screen_import_export_title">Εισαγωγή / Εξαγωγή ρυθμίσεων</string>
-    <string name="revanced_preference_screen_miniplayer_summary">Αλλαγή του στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής.</string>
+    <string name="revanced_preference_screen_miniplayer_summary">Απόκρυψη ή αλλαγή στοιχείων που σχετίζονται με την ελαχιστοποιημένη οθόνη αναπαραγωγής.</string>
     <string name="revanced_preference_screen_miniplayer_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
     <string name="revanced_preference_screen_misc_title">Διάφορα</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Απόκρυψη ή εμφάνιση των στοιχείων της γραμμής πλοήγησης.</string>
@@ -1499,8 +1491,8 @@ Playlists
     <string name="revanced_preference_screen_shorts_player_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts.</string>
     <string name="revanced_preference_screen_shorts_player_title">Οθόνη αναπαραγωγής Shorts</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
-    <string name="revanced_preference_screen_snack_bar_summary">Απόκρυψη ή αλλαγή στοιχείων που σχετίζονται με τη γραμμή ειδοποιήσεων αλληλεπίδρασης.</string>
-    <string name="revanced_preference_screen_snack_bar_title">Γραμμή ειδοποιήσεων αλληλεπίδρασης</string>
+    <string name="revanced_preference_screen_snack_bar_summary">Απόκρυψη ή αλλαγή στοιχείων που σχετίζονται με τη γραμμή μηνυμάτων αλληλεπίδρασης.</string>
+    <string name="revanced_preference_screen_snack_bar_title">Γραμμή μηνυμάτων αλληλεπίδρασης</string>
     <string name="revanced_preference_screen_spoof_streaming_data_summary">Παραποίηση των δεδομένων ροής για την αποφυγή προβλημάτων αναπαραγωγής.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">Παραποίηση δεδομένων ροής</string>
     <string name="revanced_preference_screen_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>
