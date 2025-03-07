@@ -426,9 +426,40 @@ public class PlayerPatch {
         imageView.setImageAlpha(PLAYER_OVERLAY_OPACITY_LEVEL);
     }
 
+    /**
+     * Used in YouTube 18.29.38 ~ 20.04.46.
+     */
+    private static boolean isAutoPopupPanel;
+
+    /**
+     * Used in YouTube 18.29.38 ~ 20.04.46.
+     */
+    public static boolean disableAutoPlayerPopupPanels(boolean isLiveChatOrPlaylistPanel) {
+        if (!Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get()) {
+            return false;
+        }
+        if (isLiveChatOrPlaylistPanel) {
+            return true;
+        }
+        return isAutoPopupPanel && ShortsPlayerState.getCurrent().isClosed();
+    }
+
+    /**
+     * Used in YouTube 18.29.38 ~ 20.04.46.
+     */
+    public static void setInitVideoPanel(boolean initVideoPanel) {
+        isAutoPopupPanel = initVideoPanel;
+    }
+
+    /**
+     * Used in YouTube 20.05.46+.
+     */
     @NonNull
     private static final AtomicBoolean newVideoStarted = new AtomicBoolean(false);
 
+    /**
+     * Used in YouTube 20.05.46+.
+     */
     public static boolean disableAutoPlayerPopupPanels(boolean isLiveChatOrPlaylistPanel, String panelId) {
         if (Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get()) {
             return isLiveChatOrPlaylistPanel || (panelId.equals("PAproduct_list") && newVideoStarted.get());
@@ -436,11 +467,14 @@ public class PlayerPatch {
         return false;
     }
 
+    /**
+     * Used in YouTube 20.05.46+.
+     */
     public static void disableAutoPlayerPopupPanels(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
                                                      @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
                                                      final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
         if (Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get() && newVideoStarted.compareAndSet(false, true)) {
-            Utils.runOnMainThreadDelayed(() -> newVideoStarted.compareAndSet(true, false), 1500L);
+            Utils.runOnMainThreadDelayed(() -> newVideoStarted.compareAndSet(true, false), 3000L);
         }
     }
 

@@ -291,9 +291,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 알려진 문제점: 
 • Cairo 테마가 알림 표시 점에도 적용됩니다."</string>
     <string name="revanced_enable_cairo_seekbar_title">Cairo 재생바 활성화하기</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 컨트롤 오버레이를 작게 표시하지 않습니다.</string>
-    <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 컨트롤 오버레이를 작게 표시합니다.</string>
-    <string name="revanced_enable_compact_controls_overlay_title">컴팩트 컨트롤 오버레이 활성화하기</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_off">전체 화면에서 컨트롤 오버레이가 좁아지지 않습니다.</string>
+    <string name="revanced_enable_compact_controls_overlay_summary_on">전체 화면에서 컨트롤 오버레이가 좁아집니다.</string>
+    <string name="revanced_enable_compact_controls_overlay_title">좁은 컨트롤 오버레이 활성화하기</string>
     <string name="revanced_enable_custom_playback_speed_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다.</string>
     <string name="revanced_enable_custom_playback_speed_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다.</string>
     <string name="revanced_enable_custom_playback_speed_title">사용자 정의 동영상 재생 속도 활성화하기</string>
@@ -491,7 +491,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 맞춤 실시간 스트림
 • 라이브 쇼핑
 • 보건 정보 출처 ..."</string>
-    <string name="revanced_hide_carousel_shelf_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc.</string>
+    <string name="revanced_hide_carousel_shelf_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처 ...</string>
     <string name="revanced_hide_carousel_shelf_summary_on">"다음 선반이 숨겨집니다:
 • 다시 듣기
 • 다시 시청하기
@@ -501,8 +501,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 주요 뉴스, 뉴스 속보
 • 맞춤 실시간 스트림
 • 라이브 쇼핑
-• 보건 정보 출처, etc."</string>
-    <string name="revanced_hide_carousel_shelf_title">회전형 선반 숨기기</string>
+• 보건 정보 출처 ..."</string>
+    <string name="revanced_hide_carousel_shelf_title">좌우 슬라이드형 선반 숨기기</string>
     <string name="revanced_hide_category_bar_in_feed_summary_off">피드에서 카테고리 바가 표시됩니다.</string>
     <string name="revanced_hide_category_bar_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다.</string>
     <string name="revanced_hide_category_bar_in_feed_title">피드에서 카테고리 바 숨기기</string>
@@ -664,7 +664,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_about_summary">"홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다.
 
 알려진 문제점:
-• 채널 이름으로 Shorts 동영상은 숨길 수 없습니다.
+• 채널 이름으로 Shorts를 숨길 수 없습니다.
 • 일부 화면 구성요소는 숨겨지지 않을 수 있습니다.
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다."</string>
     <string name="revanced_hide_keyword_content_about_title">키워드 필터링에 대한 정보</string>
@@ -1191,7 +1191,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"홈  / 구독 / 검색 결과가 필터링되어 조회수가 지정한 수보다 적거나 많은 동영상이 숨겨집니다.
 
 알려진 문제점:
-• Shorts 동영상은 숨길 수 없습니다.
+• Shorts를 숨길 수 없습니다.
 • 실시간 스트림과 '조회수 없음' 동영상은 숨길 수 없습니다."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">조회수 필터링에 대한 정보</string>
     <string name="revanced_hide_video_by_view_counts_home_summary_off">홈 피드에서 조회수 필터를 비활성화합니다.</string>
@@ -1373,18 +1373,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_open_links_externally_summary_off">앱 내에서 외부 링크를 열 때, 내부 브라우저를 사용합니다.</string>
     <string name="revanced_open_links_externally_summary_on">앱 내에서 외부 링크를 열 때, 외부 브라우저를 사용합니다.</string>
     <string name="revanced_open_links_externally_title">외부 브라우저 사용하기</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_off">일반 플레이어에서 Shorts 동영상을 재생하지 않습니다.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">일반 플레이어에서 Shorts 동영상을 재생합니다.\n\n• 하단바 Shorts 버튼을 눌러서는 일반 플레이어로 재생되지 않을 수 있습니다.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_off">일반 플레이어에서 Shorts를 재생하지 않습니다.</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">일반 플레이어에서 Shorts를 재생합니다.\n\n• 하단바 Shorts 버튼을 눌러서는 일반 플레이어로 재생되지 않을 수 있습니다.</string>
     <string name="revanced_open_shorts_in_regular_player_title">일반 플레이어에서 Shorts 재생하기</string>
     <string name="revanced_overlay_button">오버레이 버튼</string>
     <string name="revanced_overlay_button_always_repeat_summary">"버튼을 눌러서 동영상 반복재생으로 전환할 수 있습니다.
 길게 누르면 동영상이 끝나면 일시 정지로 전환됩니다."</string>
     <string name="revanced_overlay_button_always_repeat_title">동영상 반복재생 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_summary">"버튼을 눌러서 동영상 URL을 복사할 수 있습니다.
-길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다.
+길게 누르면 타임스탬프가 표기된 동영상 URL이 복사됩니다."</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_summary">"버튼을 눌러서 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다.
 길게 누르면 타임스탬프가 복사됩니다."</string>
-    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
+    <string name="revanced_overlay_button_copy_video_url_timestamp_title">타임스탬프가 표기된 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로더 버튼 표시하기</string>
@@ -1529,25 +1529,25 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_reject_av1_codec_title">AV1 코덱 응답 거부하기</string>
     <string name="revanced_reject_av1_codec_toast">Fallback 프로세스로 인하여 약 20초정도의 버퍼링이 발생합니다.</string>
     <string name="revanced_related_videos_offset_title">오프셋</string>
-    <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다.</string>
-    <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다.</string>
+    <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값을 변경하였을 때, 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">기본 동영상 재생 속도 값을 변경하였을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">팝업 메시지 표시하기</string>
-    <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s으로 변경합니다.</string>
-    <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다.</string>
-    <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다.</string>
+    <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다.</string>
+    <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">기본 동영상 화질 값을 변경하였을 때, 팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">기본 동영상 화질 값을 변경하였을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">팝업 메시지 표시하기</string>
-    <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_mobile">모바일 네트워크 이용 시 기본 동영상 화질 값을 %s 로 변경합니다.</string>
     <string name="revanced_remember_video_quality_none">동영상 화질을 설정할 수 없습니다.</string>
-    <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 화질 값을 %s로 변경합니다.</string>
+    <string name="revanced_remember_video_quality_wifi">Wi-Fi 이용 시 기본 동영상 화질 값을 %s 로 변경합니다.</string>
     <string name="revanced_remix_button_index_title">리믹스 버튼 인덱스</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"• 이 설정은 다이얼로그를 자동으로 허용하기만 하며, 연령 제한(성인인증 절차)을 우회할 수 없습니다.\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다.\n• '당신은 혼자가 아닙니다' 페이지는 제거할 수 없으며, 해당 페이지에서 '확인하기' 버튼이 표시되지 않는다면 이 설정이 아닌 플레이어 설정에서 '정보 패널 숨기기'를 비활성화해야 합니다."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">시청자 재량 다이얼로그 제거하기</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상 ...\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
     <string name="revanced_replace_av1_codec_summary">AV1 코덱을 VP9 코덱으로 변경합니다.</string>
     <string name="revanced_replace_av1_codec_title">AV1 코덱 변경하기</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다.</string>
@@ -1814,7 +1814,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_share_copy_timestamp_success">타임스탬프를 클립보드에 복사하였습니다. (%s)</string>
     <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다.</string>
-    <string name="revanced_share_copy_url_timestamp_success">타임스탬프를 표기한 URL을 클립보드에 복사하였습니다.</string>
+    <string name="revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다.</string>
     <string name="revanced_shorts_custom_actions_about_about_summary">"이 기능은 아직 실험 단계이므로, 완벽하게 작동한다는 보장은 없습니다.
 
 대부분의 버그는 클라이언트 측의 제한으로 인해 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
@@ -1920,14 +1920,15 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
 
 iOS를 기본 클라이언트로 사용하려는 경우에 이 값이 요구될 수 있습니다.
 
-PoToken과 VisitorData를 발급받는 방법 및 자세한 정보를 보려면 여기를 누르세요."</string>
+PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken &amp; VisitorData에 대한 정보</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 자동 오디오 트랙을 비활성화할 수 없습니다.
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
-• TV는 AV1 코덱이 지원되지 않습니다."</string>
+• TV는 AV1 코덱이 지원되지 않습니다.
+• VR은 화질 저하 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 자동 오디오 트랙을 비활성화할 수 없습니다.

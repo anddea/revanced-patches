@@ -13,7 +13,10 @@ import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_LAYOUT_COMPONENTS
+import app.revanced.patches.music.utils.playservice.is_6_39_or_greater
 import app.revanced.patches.music.utils.playservice.is_6_42_or_greater
+import app.revanced.patches.music.utils.playservice.is_6_48_or_greater
+import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.revanced.patches.music.utils.resourceid.playerOverlayChip
@@ -31,7 +34,6 @@ import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -61,8 +63,6 @@ val layoutComponentsPatch = bytecodePatch(
     )
 
     execute {
-        var notificationButtonIncluded = false
-        var soundSearchButtonIncluded = false
 
         // region patch for hide cast button
 
@@ -163,7 +163,6 @@ val layoutComponentsPatch = bytecodePatch(
                     "invoke-static {v$targetRegister}, $GENERAL_CLASS_DESCRIPTOR->hideNotificationButton(Landroid/view/View;)V"
                 )
             }
-            notificationButtonIncluded = true
         }
 
         // endregion
@@ -181,7 +180,7 @@ val layoutComponentsPatch = bytecodePatch(
         }
 
         // The lowest version supported by the patch does not have parent tool settings
-        if (parentToolMenuFingerprint.resolvable()) {
+        if (is_6_39_or_greater) {
             parentToolMenuFingerprint.matchOrThrow().let {
                 it.method.apply {
                     val index = it.patternMatch!!.startIndex + 1
@@ -201,12 +200,25 @@ val layoutComponentsPatch = bytecodePatch(
 
         // region patch for hide sound search button
 
-        if (soundSearchFingerprint.resolvable()) {
-            soundSearchFingerprint.injectLiteralInstructionBooleanCall(
-                45625491L,
-                "$GENERAL_CLASS_DESCRIPTOR->hideSoundSearchButton(Z)Z"
-            )
-            soundSearchButtonIncluded = true
+        if (is_6_48_or_greater) {
+            if (is_8_05_or_greater) {
+                soundSearchFingerprint.methodOrThrow(soundSearchConstructorFingerprint)
+                    .addInstructionsWithLabels(
+                        0, """
+                        invoke-static {}, $GENERAL_CLASS_DESCRIPTOR->hideSoundSearchButton()Z
+                        move-result v0
+                        if-eqz v0, :show
+                        return-void
+                        :show
+                        nop
+                        """
+                    )
+            } else {
+                soundSearchLegacyFingerprint.injectLiteralInstructionBooleanCall(
+                    SOUND_SEARCH_BUTTON_FEATURE_FLAG,
+                    "$GENERAL_CLASS_DESCRIPTOR->hideSoundSearchButton(Z)Z"
+                )
+            }
         }
 
         // endregion
@@ -329,7 +341,7 @@ val layoutComponentsPatch = bytecodePatch(
             "revanced_hide_history_button",
             "false"
         )
-        if (notificationButtonIncluded) {
+        if (is_6_42_or_greater) {
             addSwitchPreference(
                 CategoryType.GENERAL,
                 "revanced_hide_notification_button",
@@ -341,7 +353,7 @@ val layoutComponentsPatch = bytecodePatch(
             "revanced_hide_samples_shelf",
             "false"
         )
-        if (soundSearchButtonIncluded) {
+        if (is_6_48_or_greater) {
             addSwitchPreference(
                 CategoryType.GENERAL,
                 "revanced_hide_sound_search_button",
@@ -358,13 +370,14 @@ val layoutComponentsPatch = bytecodePatch(
             "revanced_hide_voice_search_button",
             "false"
         )
-
-        addSwitchPreference(
-            CategoryType.SETTINGS,
-            "revanced_hide_settings_menu_parent_tools",
-            "false",
-            false
-        )
+        if (is_6_39_or_greater) {
+            addSwitchPreference(
+                CategoryType.SETTINGS,
+                "revanced_hide_settings_menu_parent_tools",
+                "false",
+                false
+            )
+        }
         addSwitchPreference(
             CategoryType.SETTINGS,
             "revanced_hide_settings_menu_general",

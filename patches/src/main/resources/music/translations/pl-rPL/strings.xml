@@ -90,10 +90,12 @@ Jeśli to możliwe, użyj ciemnych kolorów, gdyż aplikacja nie obsługuje jasn
 
 Opcja znajduje oficjalny utwór, jeśli wykryje odtwarzanie teledysku z albumu.
 
-• Obsługiwane przez Piped Instance API."</string>
+Ograniczenie: utwory sklasyfikowane dla dzieci mogą nie być przekierowywane."</string>
     <string name="revanced_disable_music_video_in_album_title">Wyłącz teledyski w albumach</string>
     <string name="revanced_disable_player_gesture_summary">Wyłącza gest przesuwania, aby zmienić utwór w odtwarzaczu.</string>
     <string name="revanced_disable_player_gesture_title">Wyłącz gest w odtwarzaczu</string>
+    <string name="revanced_disable_quic_protocol_summary">"Wyłącza protokół QUIC od CronetEngine."</string>
+    <string name="revanced_disable_quic_protocol_title">Wyłącz protokół QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Włącza kompaktowe menu ustawień utworu na telefonie.
 
 Ograniczenia:
@@ -124,7 +126,9 @@ Informacje:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Włącz przesuwanie do zamykania miniodtwarzacza</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Włącza przesunięcie, by zamknąć miniodtwarzacz.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Włącz przesunięcie, by zamknąć miniodtwarzacz</string>
-    <string name="revanced_enable_thick_seekbar_summary">Włącza pogrubiony pasek postępu utworu.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Włącza pogrubiony pasek postępu utworu.
+
+Ograniczenie: segmenty SponsorBlocka nie są pokazywane na pasku."</string>
     <string name="revanced_enable_thick_seekbar_title">Włącz pogrubiony pasek postępu utworu</string>
     <string name="revanced_enable_trim_silence_summary">"Dodaje przycisk pomijania ciszy do menu od prędkości odtwarzania.
 
@@ -240,7 +244,10 @@ Pobierz %2$s ze strony."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Ukryj menu od subskrybowania / odsubskrybowywania</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ukryj odpinanie z menu szybkiego wybierania</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ukryj menu do autorów utworu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Ukrywa pełnoekranowe reklamy.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Ukrywa reklamy pełnoekranowe.
+
+Ograniczenie:
+• Czasem może pojawić się pusty czarny ekran zamiast strony głównej"</string>
     <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy pełnoekranowe</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ukrywa przycisk udostępniania w trybie pełnoekranowym.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ukryj przycisk udostępniania w trybie pełnoekranowym</string>

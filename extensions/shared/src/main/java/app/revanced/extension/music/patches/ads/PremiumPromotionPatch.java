@@ -1,6 +1,5 @@
 package app.revanced.extension.music.patches.ads;
 
-import static app.revanced.extension.music.patches.general.GeneralPatch.disableDimBehind;
 import static app.revanced.extension.shared.utils.StringRef.str;
 
 import android.app.Dialog;
@@ -46,15 +45,53 @@ public class PremiumPromotionPatch {
         }
     }
 
-    public static void hidePremiumPromotionDialog(Dialog dialog, View contentView) {
-        if (HIDE_PREMIUM_PROMOTION) {
-            disableDimBehind(dialog.getWindow());
-            dialog.setOnShowListener(DialogInterface::dismiss);
-            if (BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
-                Utils.showToastShort(str("revanced_hide_premium_promotion_closed_toast"));
-            }
-        } else {
-            dialog.setContentView(contentView);
+    /**
+     * YouTube Premium promotion dialog is shown under the following conditions:
+     * 1. Patch YouTube Music 7.28.51 or later.
+     * 2. Log in with a Non-Premium account.
+     * 3. Change the Default client (Spoof client) to Android Music 4.27.53 or 5.29.53.
+     * 4. Play music.
+     * 5. Switch to the background.
+     * 6. Turn off the screen and turn it back on.
+     * 7. Switch to the foreground.
+     * 8. YouTube Premium promotion dialog is shown.
+     * <p>
+     * In other words, if a dialog builder is called within 1000ms of the app being switched to the foreground,
+     * it is very likely a YouTube Premium promotion dialog.
+     */
+    private static volatile boolean promotionDialogShown = false;
+    private static long foregroundStartTime = -1L;
+
+    /**
+     * Injection point.
+     */
+    public static void onAppBackgrounded() {
+        if (HIDE_PREMIUM_PROMOTION && !promotionDialogShown) {
+            foregroundStartTime = 0L;
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void onAppForegrounded() {
+        if (HIDE_PREMIUM_PROMOTION && !promotionDialogShown && foregroundStartTime == 0L) {
+            foregroundStartTime = System.currentTimeMillis();
+        }
+    }
+
+    public static void hidePremiumPromotionDialog(Dialog dialog, View contentView) {
+        if (HIDE_PREMIUM_PROMOTION && !promotionDialogShown) {
+            final long foregroundTime = System.currentTimeMillis() - foregroundStartTime;
+            if (foregroundTime < 1000L) {
+                promotionDialogShown = true;
+                dialog.setOnShowListener(DialogInterface::dismiss);
+                if (BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
+                    Utils.showToastShort(str("revanced_hide_premium_promotion_closed_toast"));
+                }
+                return;
+            }
+        }
+        dialog.setContentView(contentView);
     }
 }

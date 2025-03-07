@@ -23,7 +23,8 @@ public class IntentUtils extends Utils {
         Context mContext = getActivity();
         if (mContext == null) {
             // Utils context is the application context, and not an activity context.
-            mContext = context;
+            mContext = getContext();
+            if (mContext == null) return;
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         mContext.startActivity(intent);

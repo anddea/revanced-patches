@@ -8,9 +8,7 @@ import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 
-/**
- * @noinspection ALL
- */
+@SuppressWarnings({"unused", "deprecation", "DiscouragedApi"})
 public class ResourceUtils extends Utils {
 
     private ResourceUtils() {

@@ -81,10 +81,12 @@ Use dark colors if possible, as the app does not support light themes."</string>
 
 Find the official song if a music video is detected playing from an album.
 
-• Powered by Piped Instance API."</string>
+Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
     <string name="revanced_disable_player_gesture_summary">Disables swipe to change tracks in the player.</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
+    <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
+    <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="revanced_enable_custom_navigation_bar_color_summary">Sets the navigation bar color.</string>
     <string name="revanced_enable_custom_navigation_bar_color_title">Enable custom navigation bar color</string>
     <string name="revanced_enable_debug_buffer_logging_summary">Includes the buffer in the debug log.</string>
@@ -93,7 +95,9 @@ Find the official song if a music video is detected playing from an album.
     <string name="revanced_enable_forced_miniplayer_title">Enable forced miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Enable swipe to dismiss miniplayer</string>
-    <string name="revanced_enable_thick_seekbar_summary">Enables the thick seekbar.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Enables the thick seekbar.
+
+Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
     <string name="revanced_extended_reset_to_default_toast">Reset to default values.</string>
     <string name="revanced_extended_settings_reset">Reset</string>

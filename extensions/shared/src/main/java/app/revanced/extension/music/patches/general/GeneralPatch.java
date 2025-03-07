@@ -79,6 +79,10 @@ public class GeneralPatch {
         }
     }
 
+    public static boolean hideSoundSearchButton() {
+        return Settings.HIDE_SOUND_SEARCH_BUTTON.get();
+    }
+
     public static boolean hideSoundSearchButton(boolean original) {
         if (!Settings.SETTINGS_INITIALIZED.get()) {
             return original;

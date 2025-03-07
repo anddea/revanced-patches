@@ -53,7 +53,8 @@ public class VideoUtils extends IntentUtils {
             return;
         }
 
-        if (context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
+        Context mContext = getContext();
+        if (mContext != null && mContext.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
             audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
         }
 
@@ -68,7 +69,10 @@ public class VideoUtils extends IntentUtils {
 
     public static void openInYouTubeMusic(@NonNull String songId) {
         final String url = String.format("vnd.youtube.music://%s", songId);
-        launchView(url, context.getPackageName());
+        Context mContext = getContext();
+        if (mContext != null) {
+            launchView(url, mContext.getPackageName());
+        }
     }
 
     /**

@@ -89,10 +89,12 @@
 
 Знайти офіційну пісню, якщо виявлено музичне відео з альбому. 
 
-• На базі Piped Instance API."</string>
+Обмеження: відео для дітей не можна переспрямовувати."</string>
     <string name="revanced_disable_music_video_in_album_title">Вимкнути музичні відео в альбомі</string>
     <string name="revanced_disable_player_gesture_summary">Вимикає жести перемикання треків у плеєрі.</string>
     <string name="revanced_disable_player_gesture_title">Вимкнути жести плеєра</string>
+    <string name="revanced_disable_quic_protocol_summary">"Вимикає протокол CronetEngine's QUIC."</string>
+    <string name="revanced_disable_quic_protocol_title">Вимкнути протокол QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Вмикає компактне спливаюче вікно на телефонах.
 
 Відомі проблеми:
@@ -123,7 +125,9 @@
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Увімкнути жест закриття мініплеєру</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Вмикає жест вниз для закриття мініплеєру.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Увімкнути жест закриття мініплеєру</string>
-    <string name="revanced_enable_thick_seekbar_summary">Вмикає товсту панель прогресу.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Вмикає товсту панель прогресу.
+
+Обмеження: сегменти SponsorBlock не показуються на панелі прогресу."</string>
     <string name="revanced_enable_thick_seekbar_title">Увімкнути товсту панель прогресу</string>
     <string name="revanced_enable_trim_silence_summary">"Додає перемикач \"Пропуск тиші\" у спливаючому меню швидкості відео.
 
@@ -237,7 +241,10 @@
     <string name="revanced_hide_flyout_menu_subscribe_title">Приховати \"Підписатися / Скасувати підписку\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Приховати \"Відкріпити від розділу Швидкий набір\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Приховати \"Переглянути авторів пісні\"</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Приховує повноекранну рекламу.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Приховує повноекранну рекламу.
+
+Обмеження:
+• Іноді замість головної стрічки ви можете побачити порожній чорний екран."</string>
     <string name="revanced_hide_fullscreen_ads_title">Приховати повноекранну рекламу</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Приховує кнопку \"Поділитися\" в повноекранному плеєрі.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Приховати \"Поділитися\" повноекранного режиму</string>

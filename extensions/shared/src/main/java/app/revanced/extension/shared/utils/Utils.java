@@ -53,9 +53,7 @@ import kotlin.text.Regex;
 public class Utils {
 
     private static WeakReference<Activity> activityRef = new WeakReference<>(null);
-
-    @SuppressLint("StaticFieldLeak")
-    public static Context context;
+    private static WeakReference<Context> contextRef = new WeakReference<>(null);
 
     protected Utils() {
     } // utility class
@@ -276,15 +274,17 @@ public class Utils {
     }
 
     public static Context getContext() {
-        if (context == null) {
+        Context mContext = contextRef.get();
+        if (mContext == null) {
             Logger.initializationException(Utils.class, "Context is null, returning null!", null);
         }
-        return context;
+        return mContext;
     }
 
     public static Resources getResources() {
-        if (context != null) {
-            return context.getResources();
+        Context mContext = contextRef.get();
+        if (mContext != null) {
+            return mContext.getResources();
         }
         Activity mActivity = activityRef.get();
         if (mActivity != null) {
@@ -346,36 +346,17 @@ public class Utils {
             return;
         }
 
-        context = appContext;
+        // Must initially set context to check the app language.
+        contextRef = new WeakReference<>(appContext);
+        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language != AppLanguage.DEFAULT) {
             // Create a new context with the desired language.
             Configuration config = appContext.getResources().getConfiguration();
             config.setLocale(language.getLocale());
-            context = appContext.createConfigurationContext(config);
+            contextRef = new WeakReference<>(appContext.createConfigurationContext(config));
         }
-
-        // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
-        // Calling the regular printDebug method here can cause a Settings context null pointer exception,
-        // even though the context is already set before the call.
-        //
-        // The initialization logger methods do not directly or indirectly
-        // reference the Context or any Settings and are unaffected by this problem.
-        //
-        // Info level also helps debug if a patch hook is called before
-        // the context is set since debug logging is off by default.
-        StringBuilder sb = new StringBuilder();
-        sb.append("Set context: ");
-        sb.append(appContext);
-        StackTraceElement[] stackTraceElement = Thread.currentThread().getStackTrace();
-        if (stackTraceElement.length > 3) {
-            sb.append("\n");
-            sb.append("Called from method: ");
-            sb.append(stackTraceElement[3]);
-        }
-
-        Logger.initializationInfo(Utils.class, sb.toString());
     }
 
     public static void setClipboard(@NonNull String text) {
@@ -383,16 +364,17 @@ public class Utils {
     }
 
     public static void setClipboard(@NonNull String text, @Nullable String toastMessage) {
-        if (!(context.getSystemService(Context.CLIPBOARD_SERVICE) instanceof ClipboardManager clipboard))
-            return;
-        android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
-        clipboard.setPrimaryClip(clip);
+        Context mContext = contextRef.get();
+        if (mContext != null && mContext.getSystemService(Context.CLIPBOARD_SERVICE) instanceof ClipboardManager clipboardManager) {
+            android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
+            clipboardManager.setPrimaryClip(clip);
 
-        // Do not show a toast if using Android 13+ as it shows it's own toast.
-        // But if the user copied with a timestamp then show a toast.
-        // Unfortunately this will show 2 toasts on Android 13+, but no way around this.
-        if (isSDKAbove(33) || toastMessage == null) return;
-        showToastShort(toastMessage);
+            // Do not show a toast if using Android 13+ as it shows it's own toast.
+            // But if the user copied with a timestamp then show a toast.
+            // Unfortunately this will show 2 toasts on Android 13+, but no way around this.
+            if (isSDKAbove(33) || toastMessage == null) return;
+            showToastShort(toastMessage);
+        }
     }
 
     public static String getFormattedTimeStamp(long videoTime) {
@@ -534,11 +516,21 @@ public class Utils {
     }
 
     public static int dpToPx(float dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+        Context mContext = contextRef.get();
+        if (mContext == null) {
+            return (int) dp;
+        } else {
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, mContext.getResources().getDisplayMetrics());
+        }
     }
 
     public static int dpToPx(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+        Context mContext = contextRef.get();
+        if (mContext == null) {
+            return dp;
+        } else {
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, mContext.getResources().getDisplayMetrics());
+        }
     }
 
     /**
@@ -558,18 +550,20 @@ public class Utils {
     private static void showToast(@NonNull String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
-                    if (context == null) {
-                        Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
-                    } else {
-                        Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                        Toast.makeText(context, messageToToast, toastDuration).show();
-                    }
-                }
-        );
+            Context mContext = contextRef.get();
+            if (mContext == null) {
+                Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
+            } else {
+                Logger.printDebug(() -> "Showing toast: " + messageToToast);
+                Toast.makeText(mContext, messageToToast, toastDuration).show();
+            }
+        });
     }
 
     public static boolean isLandscapeOrientation() {
-        final int orientation = context.getResources().getConfiguration().orientation;
+        Context mContext = contextRef.get();
+        if (mContext == null) return false;
+        final int orientation = mContext.getResources().getConfiguration().orientation;
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -660,7 +654,8 @@ public class Utils {
 
     @SuppressLint("MissingPermission") // permission already included in YouTube
     public static NetworkType getNetworkType() {
-        if (context == null || !(context.getSystemService(Context.CONNECTIVITY_SERVICE) instanceof ConnectivityManager cm))
+        Context mContext = contextRef.get();
+        if (mContext == null || !(mContext.getSystemService(Context.CONNECTIVITY_SERVICE) instanceof ConnectivityManager cm))
             return NetworkType.NONE;
 
         final NetworkInfo networkInfo = cm.getActiveNetworkInfo();
