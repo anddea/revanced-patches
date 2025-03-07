@@ -1,3 +1,10 @@
+# [3.5.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.4.0...v3.5.0-dev.1) (2025-03-07)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add horizontal swipe for playback speed control ([bbbffc1](https://github.com/anddea/revanced-patches/commit/bbbffc10fa5caaaeb294929ef5bfada208e7ad00))
+
 # [3.4.0](https://github.com/anddea/revanced-patches/compare/v3.3.0...v3.4.0) (2025-02-14)
 
 
