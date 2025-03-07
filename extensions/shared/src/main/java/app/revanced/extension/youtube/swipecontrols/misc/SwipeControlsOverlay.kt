@@ -20,7 +20,14 @@ interface SwipeControlsOverlay {
     fun onBrightnessChanged(brightness: Double)
 
     /**
-     * called when a new swipe- session has started
+     * called when the playback speed was changed
+     *
+     * @param speed the new playback speed
+     */
+    fun onSpeedChanged(speed: Float)
+
+    /**
+     * called when a new swipe-session has started
      */
     fun onEnterSwipeSession()
 }
