@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.swipecontrols.controller.gesture.core
 
 import android.content.Context
 import android.util.TypedValue
+import app.revanced.extension.youtube.patches.video.PlaybackSpeedPatch.userSelectedPlaybackSpeed
+import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.swipecontrols.controller.AudioVolumeController
 import app.revanced.extension.youtube.swipecontrols.controller.ScreenBrightnessController
 import app.revanced.extension.youtube.swipecontrols.misc.ScrollDistanceHelper
@@ -27,6 +29,13 @@ interface VolumeAndBrightnessScroller {
     fun scrollBrightness(distance: Double)
 
     /**
+     * submit a scroll for speed adjustment
+     *
+     * @param distance the scroll distance
+     */
+    fun scrollSpeed(distance: Double)
+
+    /**
      * reset all scroll distances to zero
      */
     fun resetScroller()
@@ -49,6 +58,7 @@ class VolumeAndBrightnessScrollerImpl(
     private val overlayController: SwipeControlsOverlay,
     volumeDistance: Float = 10.0f,
     brightnessDistance: Float = 1.0f,
+    speedDistance: Float = 10.0f,
 ) : VolumeAndBrightnessScroller {
 
     // region volume
@@ -66,9 +76,9 @@ class VolumeAndBrightnessScrollerImpl(
         }
 
     override fun scrollVolume(distance: Double) = volumeScroller.add(distance)
-    //endregion
+    // endregion
 
-    //region brightness
+    // region brightness
     private val brightnessScroller =
         ScrollDistanceHelper(
             brightnessDistance.applyDimension(
@@ -94,10 +104,29 @@ class VolumeAndBrightnessScrollerImpl(
         }
 
     override fun scrollBrightness(distance: Double) = brightnessScroller.add(distance)
-    //endregion
+    // endregion
+
+    // region speed
+    private val speedScroller = ScrollDistanceHelper(
+        speedDistance.applyDimension(
+            context,
+            TypedValue.COMPLEX_UNIT_DIP,
+        ),
+    ) { _, _, direction ->
+        val currentSpeed = VideoInformation.getPlaybackSpeed().toFloat()
+        val newSpeed = (currentSpeed - direction * 0.05f).coerceIn(0.05f, 8.0f)
+
+        VideoInformation.overridePlaybackSpeed(newSpeed)
+        userSelectedPlaybackSpeed(newSpeed)
+        overlayController.onSpeedChanged(newSpeed)
+    }
+
+    override fun scrollSpeed(distance: Double) = speedScroller.add(distance)
+    // endregion
 
     override fun resetScroller() {
         volumeScroller.reset()
         brightnessScroller.reset()
+        speedScroller.reset()
     }
 }
