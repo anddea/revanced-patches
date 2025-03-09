@@ -31,9 +31,10 @@ class ClassicSwipeController(
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
         val inVolumeZone = motionEvent.toPoint() in controller.zones.volume
         val inBrightnessZone = motionEvent.toPoint() in controller.zones.brightness
-        val inSpeedZone = motionEvent.toPoint() in controller.zones.speed
+        val inSpeedZone = controller.config.enableSpeedControl && (motionEvent.toPoint() in controller.zones.speed)
+        val inSeekZone = controller.config.enableSeekControl && (motionEvent.toPoint() in controller.zones.seek)
 
-        return inVolumeZone || inBrightnessZone || inSpeedZone
+        return inVolumeZone || inBrightnessZone || inSpeedZone || inSeekZone
     }
 
     override fun shouldDropMotion(motionEvent: MotionEvent): Boolean {
@@ -112,11 +113,21 @@ class ClassicSwipeController(
 
                 else -> false
             }
-        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL && controller.config.enableSpeedControl) {
+        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
             return when (from.toPoint()) {
                 in controller.zones.speed -> {
-                    scrollSpeed(distanceX)
-                    true
+                    if (config.enableSpeedControl) {
+                        scrollSpeed(distanceX)
+                        true
+                    }
+                    false
+                }
+                in controller.zones.seek -> {
+                    if (config.enableSeekControl) {
+                        scrollSeek(distanceX)
+                        true
+                    }
+                    false
                 }
 
                 else -> false

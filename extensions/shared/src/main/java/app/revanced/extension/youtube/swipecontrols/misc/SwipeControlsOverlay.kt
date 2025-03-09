@@ -27,6 +27,13 @@ interface SwipeControlsOverlay {
     fun onSpeedChanged(speed: Float)
 
     /**
+     * called when the seekbar position was changed
+     *
+     * @param seekAmount the seek amount
+     */
+    fun onSeekChanged(seekAmount: Int)
+
+    /**
      * called when a new swipe-session has started
      */
     fun onEnterSwipeSession()

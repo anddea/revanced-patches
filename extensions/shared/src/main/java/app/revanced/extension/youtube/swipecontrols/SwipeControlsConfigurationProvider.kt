@@ -21,7 +21,7 @@ class SwipeControlsConfigurationProvider(
      * should swipe controls be enabled? (global setting)
      */
     val enableSwipeControls: Boolean
-        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl || enableSpeedControl)
+        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl || enableSpeedControl || enableSeekControl)
 
     /**
      * should swipe controls for volume be enabled?
@@ -40,6 +40,12 @@ class SwipeControlsConfigurationProvider(
      */
     val enableSpeedControl: Boolean
         get() = Settings.ENABLE_SWIPE_SPEED.get()
+
+    /**
+     * should swipe controls for seeking be enabled?
+     */
+    val enableSeekControl: Boolean
+        get() = Settings.ENABLE_SWIPE_SEEK.get()
 
     /**
      * is the video player currently in fullscreen mode?
@@ -114,6 +120,17 @@ class SwipeControlsConfigurationProvider(
             1,
             1000,
             "revanced_swipe_speed_sensitivity_invalid_toast"
+        ).toFloat() / 100 * 10
+
+    /**
+     * swipe distances for seek
+     */
+    val seekDistance: Float
+        get() = validateValue(
+            Settings.SWIPE_SEEK_SENSITIVITY,
+            1,
+            1000,
+            "revanced_swipe_seek_sensitivity_invalid_toast"
         ).toFloat() / 100 * 10
 
     // endregion

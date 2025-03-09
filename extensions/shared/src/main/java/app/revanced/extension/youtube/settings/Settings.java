@@ -515,6 +515,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ENABLE_SWIPE_BRIGHTNESS = new BooleanSetting("revanced_enable_swipe_brightness", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_VOLUME = new BooleanSetting("revanced_enable_swipe_volume", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_SPEED = new BooleanSetting("revanced_enable_swipe_speed", TRUE, true);
+    public static final BooleanSetting ENABLE_SWIPE_SEEK = new BooleanSetting("revanced_enable_swipe_seek", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_LOWEST_VALUE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_enable_swipe_lowest_value_auto_brightness", TRUE, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting ENABLE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_enable_save_and_restore_brightness", TRUE, true, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting ENABLE_SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_enable_swipe_press_to_engage", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME));
@@ -529,6 +530,7 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting SWIPE_BRIGHTNESS_SENSITIVITY = new IntegerSetting("revanced_swipe_brightness_sensitivity", 100, true, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final IntegerSetting SWIPE_VOLUME_SENSITIVITY = new IntegerSetting("revanced_swipe_volume_sensitivity", 100, true, parent(ENABLE_SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_SPEED_SENSITIVITY = new IntegerSetting("revanced_swipe_speed_sensitivity", 100, true, parent(ENABLE_SWIPE_SPEED));
+    public static final IntegerSetting SWIPE_SEEK_SENSITIVITY = new IntegerSetting("revanced_swipe_seek_sensitivity", 100, true, parent(ENABLE_SWIPE_SEEK));
     /**
      * @noinspection DeprecatedIsStillUsed
      */

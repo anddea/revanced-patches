@@ -10,6 +10,7 @@ logger = logging.getLogger("xml_tools")
 BLACKLIST: set[str] = {
     "revanced_bypass_image_region_restrictions_domain",
     "revanced_enable_cairo_seekbar",
+    "revanced_enable_swipe_seek",
     "revanced_enable_swipe_speed",
     "revanced_external_downloader_package_name_video_long_press",
     "revanced_gms_show_dialog",
@@ -17,6 +18,7 @@ BLACKLIST: set[str] = {
     "revanced_gradient_seekbar_positions",
     "revanced_hide_shorts_comments_disabled_button",
     "revanced_shorts_custom_actions_speed",
+    "revanced_swipe_seek_sensitivity",
     "revanced_swipe_speed_sensitivity",
 }
 

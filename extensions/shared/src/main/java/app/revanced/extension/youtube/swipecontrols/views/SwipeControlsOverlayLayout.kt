@@ -14,6 +14,8 @@ import android.widget.TextView
 import app.revanced.extension.shared.utils.ResourceUtils.ResourceType
 import app.revanced.extension.shared.utils.ResourceUtils.getIdentifier
 import app.revanced.extension.shared.utils.StringRef.str
+import app.revanced.extension.shared.utils.Utils.getTimeStamp
+import app.revanced.extension.youtube.shared.VideoInformation
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
 import app.revanced.extension.youtube.swipecontrols.misc.applyDimension
@@ -40,6 +42,7 @@ class SwipeControlsOverlayLayout(
     private val mutedVolumeIcon: Drawable
     private val normalVolumeIcon: Drawable
     private val speedIcon: Drawable
+    private val seekIcon: Drawable
 
     private fun getDrawable(name: String, width: Int, height: Int): Drawable {
         return resources.getDrawable(
@@ -92,6 +95,7 @@ class SwipeControlsOverlayLayout(
         mutedVolumeIcon = getDrawable("ic_sc_volume_mute", iconHeight, iconHeight)
         normalVolumeIcon = getDrawable("ic_sc_volume_normal", iconHeight, iconHeight)
         speedIcon = getDrawable("ic_sc_speed", iconHeight, iconHeight)
+        seekIcon = getDrawable("ic_sc_seek", iconHeight, iconHeight)
     }
 
     private val feedbackHideHandler = Handler(Looper.getMainLooper())
@@ -142,6 +146,19 @@ class SwipeControlsOverlayLayout(
         showFeedbackView(
             String.format(Locale.US, "%.2fx", speed),
             speedIcon
+        )
+    }
+
+    override fun onSeekChanged(seekAmount: Int) {
+        val currentTime = VideoInformation.getVideoTime()
+        val totalTime = VideoInformation.getVideoLength()
+        val newTime = currentTime + seekAmount
+
+        val text = "${getTimeStamp(newTime)} / ${getTimeStamp(totalTime)}"
+
+        showFeedbackView(
+            text,
+            seekIcon
         )
     }
 

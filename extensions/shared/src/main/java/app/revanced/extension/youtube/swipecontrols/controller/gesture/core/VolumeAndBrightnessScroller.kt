@@ -9,6 +9,8 @@ import app.revanced.extension.youtube.swipecontrols.controller.ScreenBrightnessC
 import app.revanced.extension.youtube.swipecontrols.misc.ScrollDistanceHelper
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
 import app.revanced.extension.youtube.swipecontrols.misc.applyDimension
+import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 /**
  * describes a class that controls volume and brightness based on scrolling events
@@ -36,6 +38,13 @@ interface VolumeAndBrightnessScroller {
     fun scrollSpeed(distance: Double)
 
     /**
+     * submit a scroll for seek adjustment
+     *
+     * @param distance the scroll distance
+     */
+    fun scrollSeek(distance: Double)
+
+    /**
      * reset all scroll distances to zero
      */
     fun resetScroller()
@@ -59,6 +68,7 @@ class VolumeAndBrightnessScrollerImpl(
     volumeDistance: Float = 10.0f,
     brightnessDistance: Float = 1.0f,
     speedDistance: Float = 10.0f,
+    seekDistance: Float = 10.0f,
 ) : VolumeAndBrightnessScroller {
 
     // region volume
@@ -114,7 +124,16 @@ class VolumeAndBrightnessScrollerImpl(
         ),
     ) { _, _, direction ->
         val currentSpeed = VideoInformation.getPlaybackSpeed().toFloat()
-        val newSpeed = (currentSpeed - direction * 0.05f).coerceIn(0.05f, 8.0f)
+
+        // Convert current speed to an integer representation (multiply by 100)
+        // in order to fix a floating-point imprecision (1.04999 instead of 1.05)
+        val currentSpeedInt = (currentSpeed * 100).roundToInt()
+
+        // Calculate the new speed as an integer, incrementing by 5 (which represents 0.05)
+        val newSpeedInt = (currentSpeedInt - direction * 5).coerceIn(5, 800)
+
+        // Convert back to a float
+        val newSpeed = newSpeedInt / 100f
 
         VideoInformation.overridePlaybackSpeed(newSpeed)
         userSelectedPlaybackSpeed(newSpeed)
@@ -124,9 +143,26 @@ class VolumeAndBrightnessScrollerImpl(
     override fun scrollSpeed(distance: Double) = speedScroller.add(distance)
     // endregion
 
+    // region seek
+    private val seekScroller = ScrollDistanceHelper(
+        seekDistance.applyDimension(
+            context,
+            TypedValue.COMPLEX_UNIT_DIP,
+        ),
+    ) { _, _, direction ->
+        val seekAmountMillis = (direction * -500.0).roundToLong()
+
+        VideoInformation.seekToRelative(seekAmountMillis)
+        overlayController.onSeekChanged(seekAmountMillis.toInt())
+    }
+
+    override fun scrollSeek(distance: Double) = seekScroller.add(distance)
+    // endregion
+
     override fun resetScroller() {
         volumeScroller.reset()
         brightnessScroller.reset()
         speedScroller.reset()
+        seekScroller.reset()
     }
 }

@@ -15,8 +15,6 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.whitelist.Whitelist;
 
-import java.util.Locale;
-
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
     private static final boolean DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC =
@@ -117,9 +115,7 @@ public class PlaybackSpeedPatch {
                     if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get()) {
                         return;
                     }
-                    
-                    String formattedSpeed = String.format(Locale.US, "%.2f", finalPlaybackSpeed);
-                    Utils.showToastShort(str("revanced_remember_playback_speed_toast", (formattedSpeed + "x")));
+                    Utils.showToastShort(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
                 }, TOAST_DELAY_MILLISECONDS);
             }
         } catch (Exception ex) {
