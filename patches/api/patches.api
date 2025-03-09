@@ -574,6 +574,7 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 }
 
 public final class app/revanced/patches/shared/spoof/blockrequest/BlockRequestPatchKt {
+	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

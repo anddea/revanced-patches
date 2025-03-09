@@ -64,18 +64,6 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
 
     /**
      * Injection point.
-     * Skip response encryption in OnesiePlayerRequest.
-     */
-    public static boolean skipResponseEncryption(boolean original) {
-        if (!SPOOF_STREAMING_DATA) {
-            return original;
-        }
-
-        return false;
-    }
-
-    /**
-     * Injection point.
      */
     public static void fetchStreams(String url, Map<String, String> requestHeaders) {
         if (SPOOF_STREAMING_DATA) {
