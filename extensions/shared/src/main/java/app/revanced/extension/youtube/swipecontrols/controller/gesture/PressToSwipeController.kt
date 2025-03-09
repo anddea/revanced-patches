@@ -39,8 +39,18 @@ class PressToSwipeController(
         } else {
             false
         }
+        val inSpeedZone = if (controller.config.enableSpeedControl) {
+            (motionEvent.toPoint() in controller.zones.speed)
+        } else {
+            false
+        }
+        val inSeekZone = if (controller.config.enableSeekControl) {
+            (motionEvent.toPoint() in controller.zones.seek)
+        } else {
+            false
+        }
 
-        return inVolumeZone || inBrightnessZone
+        return inVolumeZone || inBrightnessZone || inSpeedZone || inSeekZone
     }
 
     override fun onUp(motionEvent: MotionEvent) {
@@ -84,11 +94,21 @@ class PressToSwipeController(
 
                 else -> false
             }
-        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL && controller.config.enableSpeedControl) {
+        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
             return when (from.toPoint()) {
                 in controller.zones.speed -> {
-                    scrollSpeed(distanceX)
-                    true
+                    if (config.enableSpeedControl) {
+                        scrollSpeed(distanceX)
+                        true
+                    }
+                    false
+                }
+                in controller.zones.seek -> {
+                    if (config.enableSeekControl) {
+                        scrollSeek(distanceX)
+                        true
+                    }
+                    false
                 }
 
                 else -> false

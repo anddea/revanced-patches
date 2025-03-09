@@ -25,6 +25,7 @@ abstract class BaseGestureController(
         controller.config.volumeDistance,
         controller.config.brightnessDistance,
         controller.config.speedDistance,
+        controller.config.seekDistance,
     ) {
 
     /**
