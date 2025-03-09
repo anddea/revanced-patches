@@ -1,3 +1,10 @@
+# [3.5.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.1...v3.5.0-dev.2) (2025-03-09)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add seek video gesture ([4e27bdb](https://github.com/anddea/revanced-patches/commit/4e27bdbe4ac7ea7d087667c0d1a2eecbd738a5af))
+
 # [3.5.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.4.0...v3.5.0-dev.1) (2025-03-07)
 
 
