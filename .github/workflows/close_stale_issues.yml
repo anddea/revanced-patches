@@ -1,0 +1,31 @@
+name: "Close Stale Issues"
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  stale:
+    if: github.repository_owner == 'anddea'
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@5bef64f19d7facfb25b37b414482c7164d639639 # v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: >
+            Hi there! 👋
+            <br><br>
+            This issue has been automatically marked as stale because it has been inactive for a while.
+            If this issue is still relevant and reproducible in the latest version of RVX patches, please add a comment letting us know.
+            We'll keep it open if we hear from you. If we don't hear back within 7 days, the issue will be automatically closed.
+            <br><br>
+            Thank you!
+          close-issue-message: "This issue has been automatically closed due to inactivity. If you're still experiencing this problem, please open a new issue and include a link to this one for reference."
+          days-before-stale: 120
+          days-before-close: 7
+          operations-per-run: 1000
+          ascending: true
+          enable-statistics: true
+          stale-issue-label: "Stale"
