@@ -89,7 +89,7 @@
 앨범에서 뮤직 비디오가 재생되는 것이 감지되면 정식 음원을 찾아줍니다.
 
 알려진 문제점:
-• Kids 동영상은 리디렉션되지 않을 수 있습니다."</string>
+• Kids 동영상은 리다이렉션되지 않을 수 있습니다."</string>
     <string name="revanced_disable_music_video_in_album_title">앨범에서 뮤직 비디오 비활성화</string>
     <string name="revanced_disable_player_gesture_summary">플레이어에서 스와이프하여 트랙을 변경할 수 없습니다.</string>
     <string name="revanced_disable_player_gesture_title">플레이어 제스처 비활성화</string>
@@ -352,6 +352,18 @@ YT Music 설정 메뉴뿐만 아니라 ReVanced Extended 설정 메뉴도 숨겨
     <string name="revanced_replace_flyout_menu_report_only_player_title">댓글에서 신고 메뉴 유지</string>
     <string name="revanced_replace_flyout_menu_report_summary">\'신고\' 메뉴를 \'재생 속도\' 메뉴로 변경합니다.</string>
     <string name="revanced_replace_flyout_menu_report_title">신고 메뉴 변경</string>
+    <string name="revanced_replace_navigation_button_about_summary">"이 기능은 실험 기능입니다.
+YouTube Music의 검색 및 설정과 같은 활동은 공개되지 않으므로 패치에는 구조적인 제한이 있습니다.
+
+알려진 문제:
+• 검색 및 설정과 같은 교체된 활동이 닫히면 앱 시작 페이지가 열립니다.
+
+앱 시작 페이지 설정을 열려면 여기를 누르세요."</string>
+    <string name="revanced_replace_navigation_button_about_title">버튼 변경에 대한 정보</string>
+    <string name="revanced_replace_navigation_samples_button_summary">샘플 버튼을 검색 버튼으로 변경합니다.</string>
+    <string name="revanced_replace_navigation_samples_button_title">샘플 버튼 변경</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">업그레이드 버튼을 설정 버튼으로 변경합니다.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">업그레이드 버튼 변경</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">이전 댓글 팝업 패널으로 복원합니다.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">이전 댓글 팝업 패널으로 복원</string>
     <string name="revanced_restore_old_player_background_summary">이전 플레이어 배경으로 복원합니다.</string>
@@ -472,6 +484,11 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">클라이언트 변경에 대한 기본 클라이언트를 정의할 수 있습니다.</string>
     <string name="revanced_spoof_client_type_title">기본 클라이언트</string>
+    <string name="revanced_spoof_player_parameter_summary">"플레이어 매개변수를 변경하여 재생 문제를 방지할 수 있습니다.
+
+알려진 문제점:
+• 자막이 플레이어 하단이 아닌 상단에 위치하는 경우가 있습니다."</string>
+    <string name="revanced_spoof_player_parameter_title">플레이어 매개변수 변경하기</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 동영상 통계에서 표시됩니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">동영상 통계에서 표시</string>
     <string name="revanced_spoof_streaming_data_summary">"스트리밍 데이터를 변경하여 재생 문제를 방지합니다.

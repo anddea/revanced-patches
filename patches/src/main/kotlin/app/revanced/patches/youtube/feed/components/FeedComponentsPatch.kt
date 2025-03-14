@@ -259,13 +259,7 @@ val feedComponentsPatch = bytecodePatch(
         elementParserFingerprint.matchOrThrow(elementParserParentFingerprint).let {
             it.method.apply {
                 val freeRegister = implementation!!.registerCount - parameters.size - 2
-                val insertIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
-
-                    reference?.parameterTypes?.size == 1 &&
-                            reference.parameterTypes.first() == "[B" &&
-                            reference.returnType.startsWith("L")
-                }
+                val insertIndex = indexOfBufferParserInstruction(this)
 
                 if (is_19_46_or_greater) {
                     val objectIndex = indexOfFirstInstructionReversedOrThrow(insertIndex,  Opcode.IGET_OBJECT)

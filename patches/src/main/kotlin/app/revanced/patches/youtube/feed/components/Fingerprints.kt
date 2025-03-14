@@ -11,9 +11,13 @@ import app.revanced.patches.youtube.utils.resourceid.filterBarHeight
 import app.revanced.patches.youtube.utils.resourceid.horizontalCardList
 import app.revanced.patches.youtube.utils.resourceid.relatedChipCloudMargin
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val breakingNewsFingerprint = legacyFingerprint(
     name = "breakingNewsFingerprint",
@@ -90,8 +94,18 @@ internal val elementParserFingerprint = legacyFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.RETURN_OBJECT
-    )
+    ),
+    customFingerprint = { method, _ ->
+        indexOfBufferParserInstruction(method) >= 0
+    }
 )
+
+internal fun indexOfBufferParserInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        reference?.parameterTypes?.firstOrNull() == "[B" &&
+                reference.returnType.startsWith("L")
+    }
 
 internal val elementParserParentFingerprint = legacyFingerprint(
     name = "elementParserParentFingerprint",

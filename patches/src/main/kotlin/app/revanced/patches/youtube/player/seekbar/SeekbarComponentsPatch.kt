@@ -113,7 +113,7 @@ val seekbarComponentsPatch = bytecodePatch(
     execute {
 
         val restoreOldSplashAnimationIncluded = CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included == true &&
-                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimationOption").value == true
+                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimation").value == true
 
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: PLAYER",
@@ -427,7 +427,7 @@ val seekbarComponentsPatch = bytecodePatch(
                 scaleNode.replaceChild(replacementNode, shapeNode)
             }
 
-        if (is_19_25_or_greater && !restoreOldSplashAnimationIncluded) {
+        if (is_19_25_or_greater) {
             // Add attribute and styles for splash screen custom color.
             // Using a style is the only way to selectively change just the seekbar fill color.
             //

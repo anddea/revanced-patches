@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.general.layoutswitch
+package app.revanced.patches.youtube.general.formfactor
 
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
@@ -11,20 +11,16 @@ internal val formFactorEnumConstructorFingerprint = legacyFingerprint(
     strings = listOf(
         "UNKNOWN_FORM_FACTOR",
         "SMALL_FORM_FACTOR",
-        "LARGE_FORM_FACTOR"
+        "LARGE_FORM_FACTOR",
+        "AUTOMOTIVE_FORM_FACTOR",
     )
 )
 
-internal val layoutSwitchFingerprint = legacyFingerprint(
-    name = "layoutSwitchFingerprint",
+internal val widthDpUIFingerprint = legacyFingerprint(
+    name = "widthDpUIFingerprint",
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
         Opcode.CONST_4,
         Opcode.RETURN,
@@ -41,6 +37,11 @@ internal val layoutSwitchFingerprint = legacyFingerprint(
         Opcode.CONST_4,
         Opcode.RETURN,
         Opcode.CONST_4,
-        Opcode.RETURN
+        Opcode.RETURN,
+    ),
+    literals = listOf(
+        480L,
+        600L,
+        720L
     )
 )

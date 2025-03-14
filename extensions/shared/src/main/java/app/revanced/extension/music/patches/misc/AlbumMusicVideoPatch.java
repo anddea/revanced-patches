@@ -159,7 +159,7 @@ public class AlbumMusicVideoPatch {
                 VideoUtils.openInYouTubeMusic(songId);
             }, 1000);
 
-            VideoUtils.runOnMainThreadDelayed(() -> isVideoLaunched.compareAndSet(true, false), 1500);
+            VideoUtils.runOnMainThreadDelayed(() -> isVideoLaunched.compareAndSet(true, false), 2500);
         } catch (Exception ex) {
             Logger.printException(() -> "openMusic failure", ex);
         }

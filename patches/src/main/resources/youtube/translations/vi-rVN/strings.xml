@@ -72,16 +72,26 @@ Nhấn và giữ để chuyển loại thông tin cần thêm vào."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Đang chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Đang bỏ qua chuyển hướng URL khi mở các liên kết xuất hiện trên YouTube.</string>
     <string name="revanced_bypass_url_redirects_title">Mở liên kết trực tiếp</string>
-    <string name="revanced_change_layout_entry_1">Gốc</string>
-    <string name="revanced_change_layout_entry_2">Điện thoại</string>
-    <string name="revanced_change_layout_entry_3">Điện thoại (Tối đa 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">Máy tính bảng</string>
-    <string name="revanced_change_layout_entry_5">Máy tính bảng (Tối thiểu 600 dp)</string>
-    <string name="revanced_change_layout_title">Thay đổi giao diện</string>
+    <string name="revanced_change_form_factor_entry_1">Mặc định</string>
+    <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
+    <string name="revanced_change_form_factor_entry_3">Điện thoại (Tối đa 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Máy tính bảng</string>
+    <string name="revanced_change_form_factor_entry_5">Máy tính bảng (Tối thiểu 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Màn hình ô tô</string>
+    <string name="revanced_change_form_factor_title">Hình thức bố cục</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Các thay đổi bao gồm:
+
+Bố cục máy tính bảng
+• Bài đăng cộng đồng bị ẩn.
+
+Bố cục màn hình ô tô
+• Video ngắn sẽ được mở trong trình phát thông thường.
+• Bảng tin được sắp xếp theo chủ đề và kênh.
+• Không thể mở mô tả video khi cài đặt \"Giả mạo luồng dữ liệu trực tuyến\" đang tắt."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Mở video đang phát trực tiếp khi nhấn vào vòng phát trực tiếp.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Mở kênh khi nhấn vào vòng phát trực tiếp.
 
-Hạn chế: Khi video ngắn phát trực tiếp được mở trong trình phát do cài đặt \"Mở video ngắn trong trình phát\", thì kênh sẽ không được mở."</string>
+Hạn chế: Khi video ngắn phát trực tiếp được mở trong trình phát thông thường do cài đặt \"Mở video ngắn trong trình phát\", thì kênh sẽ không được mở."</string>
     <string name="revanced_change_live_ring_click_action_title">Thay đổi thao tác nhấn vào vòng phát trực tiếp</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng công tắc.</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">Đang sử dụng kiểu bật/tắt tuỳ chọn dạng văn bản.</string>
@@ -1357,8 +1367,8 @@ Trình phát thu nhỏ có thể được kéo vào rìa bên trái hoặc phả
     <string name="revanced_open_links_externally_summary_on">Đang mở các liên kết xuất hiện trên YouTube bằng trình duyệt bên ngoài.</string>
     <string name="revanced_open_links_externally_title">Mở liên kết trong trình duyệt</string>
     <string name="revanced_open_shorts_in_regular_player_summary_off">Đang mở video ngắn trong trình phát Shorts.</string>
-    <string name="revanced_open_shorts_in_regular_player_summary_on">Đang mở video ngắn trong trình phát thay vì trình phát Shorts.</string>
-    <string name="revanced_open_shorts_in_regular_player_title">Mở video ngắn trong trình phát</string>
+    <string name="revanced_open_shorts_in_regular_player_summary_on">Đang mở video ngắn trong trình phát thông thường thay vì trình phát Shorts.</string>
+    <string name="revanced_open_shorts_in_regular_player_title">Mở video ngắn trong trình phát thông thường</string>
     <string name="revanced_overlay_button">Nút trên lớp phủ trình phát</string>
     <string name="revanced_overlay_button_always_repeat_summary">"Nhấn để luôn phát lặp lại video.
 Nhấn và giữ để dừng lại sau khi hết thời lượng video."</string>
@@ -1924,10 +1934,19 @@ Nhấp vào đây để biết thêm chi tiết."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Video có thể kết thúc sớm 1 giây.
 • Codec âm thanh opus có thể không được hỗ trợ."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Video có thể kết thúc sớm hơn 1 giây.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Phim hoặc video trả phí có thể không phát được.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Âm lượng ổn định không khả dụng.
+• Phim hoặc video trả phí có thể không phát được.
 • Video dành cho trẻ em có thể không phát được khi bạn đã đăng xuất hoặc bật chế độ ẩn danh."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Hạn chế</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video có thể không phát được.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Không bỏ qua mã hoá phản hồi Onesie.
+
+• Một số người dùng có thể gặp phải sự cố phát mới."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Bỏ qua mã hóa phản hồi Onesie.
+
+• Khắc phục sự cố phát mới mà một số người dùng đang gặp phải.
+• Codec AV1 có thể không khả dụng."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Bỏ qua mã hóa phản hồi Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ứng dụng khách sử dụng để nạp luồng dữ liệu trực tuyến đã ẩn trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ứng dụng khách sử dụng để nạp luồng dữ liệu trực tuyến được hiển thị trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>

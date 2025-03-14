@@ -8,12 +8,12 @@ import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACK
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.HIDE_NAVIGATION_BUTTONS
 import app.revanced.patches.reddit.utils.settings.is_2024_26_or_greater
+import app.revanced.patches.reddit.utils.settings.is_2025_06_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -34,17 +34,23 @@ val navigationButtonsPatch = bytecodePatch(
     execute {
 
         if (is_2024_26_or_greater) {
-            bottomNavScreenSetupBottomNavigationFingerprint.methodOrThrow().apply {
-                val arrayIndex = indexOfFirstInstructionReversedOrThrow(Opcode.FILLED_NEW_ARRAY)
-                val arrayRegister =
-                    getInstruction<OneRegisterInstruction>(arrayIndex + 1).registerA
+            val fingerprints = mutableListOf(bottomNavScreenSetupBottomNavigationFingerprint)
 
-                addInstructions(
-                    arrayIndex + 2, """
-                        invoke-static {v$arrayRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtons([Ljava/lang/Object;)[Ljava/lang/Object;
-                        move-result-object v$arrayRegister
-                        """
-                )
+            if (is_2025_06_or_greater) fingerprints += composeBottomNavScreenFingerprint
+
+            fingerprints.forEach { fingerprint ->
+                fingerprint.methodOrThrow().apply {
+                    val arrayIndex = indexOfButtonsArrayInstruction(this)
+                    val arrayRegister =
+                        getInstruction<OneRegisterInstruction>(arrayIndex + 1).registerA
+
+                    addInstructions(
+                        arrayIndex + 2, """
+                            invoke-static {v$arrayRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtons([Ljava/lang/Object;)[Ljava/lang/Object;
+                            move-result-object v$arrayRegister
+                            """
+                    )
+                }
             }
         } else {
             if (bottomNavScreenFingerprint.resolvable()) {

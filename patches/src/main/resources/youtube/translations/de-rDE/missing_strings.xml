@@ -4,6 +4,22 @@
     <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+    <string name="revanced_change_form_factor_entry_1">Default</string>
+    <string name="revanced_change_form_factor_entry_2">Phone</string>
+    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotive</string>
+    <string name="revanced_change_form_factor_title">Layout form factor</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+
+Tablet layout
+• Community posts are hidden.
+
+Automotive layout
+• Shorts open in the regular player.
+• Feed is organized by topics and channels.
+• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
 
@@ -450,10 +466,19 @@ Click to see more information."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Movies or paid videos may not play.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Stable volume is not available.
+• Movies or paid videos may not play.
 • Kids videos may not play when logged out or in incognito mode."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Spoofing side effects</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Video may not play.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
+
+• Some users may experience a new type of playback issue."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
+
+• Fixes a new type of playback issue that some users are experiencing.
+• AV1 codec may not be available."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client used to fetch streaming data is hidden in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client used to fetch streaming data is shown in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>

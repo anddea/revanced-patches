@@ -130,6 +130,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_UPGRADE_BUTTON = new BooleanSetting("revanced_hide_navigation_upgrade_button", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_LABEL = new BooleanSetting("revanced_hide_navigation_label", FALSE, true);
+    public static final BooleanSetting REPLACE_NAVIGATION_SAMPLES_BUTTON = new BooleanSetting("revanced_replace_navigation_samples_button", FALSE, true);
+    public static final BooleanSetting REPLACE_NAVIGATION_UPGRADE_BUTTON = new BooleanSetting("revanced_replace_navigation_upgrade_button", FALSE, true);
+    public static final BooleanSetting REPLACE_NAVIGATION_BUTTON_ABOUT = new BooleanSetting("revanced_replace_navigation_button_about", FALSE, false);
 
 
     // PreferenceScreen: Player
@@ -190,6 +193,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_DRC_AUDIO = new BooleanSetting("revanced_disable_drc_audio", FALSE, true);
     public static final BooleanSetting DISABLE_MUSIC_VIDEO_IN_ALBUM = new BooleanSetting("revanced_disable_music_video_in_album", FALSE, true);
     public static final EnumSetting<RedirectType> DISABLE_MUSIC_VIDEO_IN_ALBUM_REDIRECT_TYPE = new EnumSetting<>("revanced_disable_music_video_in_album_redirect_type", RedirectType.REDIRECT, true);
+    public static final BooleanSetting SPOOF_PLAYER_PARAMETER = new BooleanSetting("revanced_spoof_player_parameter", TRUE, true);
     public static final BooleanSetting SETTINGS_IMPORT_EXPORT = new BooleanSetting("revanced_extended_settings_import_export", FALSE, false);
 
     // PreferenceScreen: Return YouTube Dislike
@@ -276,6 +280,7 @@ public class Settings extends BaseSettings {
             RETURN_YOUTUBE_USERNAME_ABOUT.key,
             RETURN_YOUTUBE_USERNAME_DISPLAY_FORMAT.key,
             RETURN_YOUTUBE_USERNAME_YOUTUBE_DATA_API_V3_DEVELOPER_KEY.key,
+            REPLACE_NAVIGATION_BUTTON_ABOUT.key,
             SB_API_URL.key,
             SETTINGS_IMPORT_EXPORT.key,
             SPOOF_APP_VERSION_TARGET.key,

@@ -14,7 +14,8 @@ import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
 import app.revanced.patches.music.video.information.videoIdHook
 import app.revanced.patches.music.video.information.videoInformationPatch
-import app.revanced.patches.music.video.playerresponse.hookPlayerResponse
+import app.revanced.patches.music.video.playerresponse.Hook
+import app.revanced.patches.music.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.music.video.playerresponse.playerResponseMethodHookPatch
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -46,7 +47,11 @@ val albumMusicVideoPatch = bytecodePatch(
 
         // region hook player response
 
-        hookPlayerResponse("$EXTENSION_CLASS_DESCRIPTOR->newPlayerResponse(Ljava/lang/String;Ljava/lang/String;I)V")
+        addPlayerResponseMethodHook(
+            Hook.VideoIdAndPlaylistId(
+                "$EXTENSION_CLASS_DESCRIPTOR->newPlayerResponse(Ljava/lang/String;Ljava/lang/String;I)V"
+            ),
+        )
 
         // endregion
 

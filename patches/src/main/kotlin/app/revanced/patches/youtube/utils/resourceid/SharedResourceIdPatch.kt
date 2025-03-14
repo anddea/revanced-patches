@@ -213,6 +213,8 @@ var tapBloomView = -1L
     private set
 var titleAnchor = -1L
     private set
+var toolbarContainerId = -1L
+    private set
 var toolTipContentView = -1L
     private set
 var totalTime = -1L
@@ -655,6 +657,10 @@ internal val sharedResourceIdPatch = resourcePatch(
         titleAnchor = resourceMappings[
             ID,
             "title_anchor"
+        ]
+        toolbarContainerId = resourceMappings[
+            ID,
+            "toolbar_container"
         ]
         toolTipContentView = resourceMappings[
             LAYOUT,

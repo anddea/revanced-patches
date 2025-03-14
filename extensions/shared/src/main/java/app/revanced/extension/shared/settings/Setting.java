@@ -24,9 +24,6 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
 
-/**
- * @noinspection rawtypes
- */
 @SuppressWarnings("unused")
 public abstract class Setting<T> {
 
@@ -128,6 +125,7 @@ public abstract class Setting<T> {
 
     /**
      * @return All settings that have been created, sorted by keys.
+     * @noinspection Java8ListSort
      */
     @NonNull
     private static List<Setting<?>> allLoadedSettingsSorted() {
@@ -171,7 +169,6 @@ public abstract class Setting<T> {
 
     /**
      * Confirmation message to display, if the user tries to change the setting from the default value.
-     * Currently this works only for Boolean setting types.
      */
     @Nullable
     public final StringRef userDialogMessage;
@@ -271,6 +268,7 @@ public abstract class Setting<T> {
      * <p>
      * This method will be deleted in the future.
      */
+    @SuppressWarnings("rawtypes")
     public static void migrateFromOldPreferences(@NonNull SharedPrefCategory oldPrefs, @NonNull Setting setting, String settingKey) {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.
@@ -452,6 +450,7 @@ public abstract class Setting<T> {
 
             boolean rebootSettingChanged = false;
             int numberOfSettingsImported = 0;
+            //noinspection rawtypes
             for (Setting setting : SETTINGS) {
                 String key = setting.getImportExportKey();
                 if (json.has(key)) {

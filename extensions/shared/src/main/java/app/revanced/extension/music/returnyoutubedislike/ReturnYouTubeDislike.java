@@ -3,6 +3,7 @@ package app.revanced.extension.music.returnyoutubedislike;
 import static app.revanced.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
+import static app.revanced.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -281,15 +282,6 @@ public class ReturnYouTubeDislike {
                 Settings.RYD_DISLIKE_PERCENTAGE.get()
                         ? formatDislikePercentage(voteData.getDislikePercentage())
                         : formatDislikeCount(voteData.getDislikeCount()));
-    }
-
-    private static SpannableString newSpanUsingStylingOfAnotherSpan(@NonNull Spanned sourceStyle, @NonNull CharSequence newSpanText) {
-        SpannableString destination = new SpannableString(newSpanText);
-        Object[] spans = sourceStyle.getSpans(0, sourceStyle.length(), Object.class);
-        for (Object span : spans) {
-            destination.setSpan(span, 0, destination.length(), sourceStyle.getSpanFlags(span));
-        }
-        return destination;
     }
 
     private static String formatDislikeCount(long dislikeCount) {

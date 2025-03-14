@@ -1,6 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="revanced_change_form_factor_entry_2">Phone</string>
+    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotive</string>
+    <string name="revanced_change_form_factor_title">Layout form factor</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+
+Tablet layout
+• Community posts are hidden.
+
+Automotive layout
+• Shorts open in the regular player.
+• Feed is organized by topics and channels.
+• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
     <string name="revanced_enable_swipe_seek_summary_off">Seek swipe is disabled.</string>
     <string name="revanced_enable_swipe_seek_summary_on">Seek swipe is enabled.</string>
     <string name="revanced_enable_swipe_seek_title">Enable seek gesture</string>
@@ -40,6 +55,14 @@
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
+
+• Some users may experience a new type of playback issue."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
+
+• Fixes a new type of playback issue that some users are experiencing.
+• AV1 codec may not be available."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>

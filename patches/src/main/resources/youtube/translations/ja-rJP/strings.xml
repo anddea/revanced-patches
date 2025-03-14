@@ -69,12 +69,22 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_bypass_url_redirects_summary_off">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL リダイレクト (youtube.com/redirect) をバイパスします。</string>
     <string name="revanced_bypass_url_redirects_title">URL リダイレクトをバイパス</string>
-    <string name="revanced_change_layout_entry_1">オリジナル</string>
-    <string name="revanced_change_layout_entry_2">スマホ</string>
-    <string name="revanced_change_layout_entry_3">スマホ(最大 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">タブレット</string>
-    <string name="revanced_change_layout_entry_5">タブレット(最小 600 dp)</string>
-    <string name="revanced_change_layout_title">レイアウトを変更</string>
+    <string name="revanced_change_form_factor_entry_1">デフォルト</string>
+    <string name="revanced_change_form_factor_entry_2">スマホ</string>
+    <string name="revanced_change_form_factor_entry_3">スマホ(最大 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">タブレット</string>
+    <string name="revanced_change_form_factor_entry_5">タブレット(最小 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Android Auto</string>
+    <string name="revanced_change_form_factor_title">レイアウトの変更</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"注意:
+
+「タブレット」レイアウトを選択した場合:
+・コミュニティ投稿は非表示になります。
+
+「Android Auto」レイアウトを選択した場合:
+・ショートは通常のプレーヤーで開きます。
+・フィードはトピックとチャンネルごとに整理されます。
+・「ストリーミングデータを偽装」がオフの場合、動画の概要欄を開くことができません。"</string>
     <string name="revanced_change_live_ring_click_action_summary_off">現在の設定: 「ライブ」状態のアイコンをタップすると、ライブ配信が開きます。\n\n注意: 「通常のプレーヤーでショートを再生」設定を有効にしている場合、ショートのライブ配信を通常のプレーヤーで開くとチャンネルは開きません。</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"現在の設定: 「ライブ」状態のアイコンをタップすると、チャンネルが開きます。
 
@@ -1442,7 +1452,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_screen_channel_profile_title">チャンネルプロフィール</string>
     <string name="revanced_preference_screen_comments_summary">コメントセクションのコンポーネントを非表示または表示します。</string>
     <string name="revanced_preference_screen_comments_title">コメント</string>
-    <string name="revanced_preference_screen_community_posts_summary">フィードとチャンネルのコミュニティの投稿を非表示または表示します。</string>
+    <string name="revanced_preference_screen_community_posts_summary">フィードとチャンネルのコミュニティ投稿を非表示または表示します。</string>
     <string name="revanced_preference_screen_community_posts_title">コミュニティ投稿</string>
     <string name="revanced_preference_screen_custom_filter_summary">カスタムフィルターを使用してコンポーネントを非表示にします。</string>
     <string name="revanced_preference_screen_custom_filter_title">カスタムフィルター</string>
@@ -1482,7 +1492,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_preference_screen_shorts_title">ショート</string>
     <string name="revanced_preference_screen_snack_bar_summary">スナックバー(画質を変更した時などに下部に表示される白いバー)に関連するコンポーネントを非表示または変更します。</string>
     <string name="revanced_preference_screen_snack_bar_title">スナックバー</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">バッファリングの問題を防ぐためにストリーミングデータを偽装します。</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">動画が再生できない問題を防ぐためにストリーミングデータを偽装します。</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">ストリーミングデータを偽装</string>
     <string name="revanced_preference_screen_swipe_controls_title">スワイプコントロール</string>
     <string name="revanced_preference_screen_toolbar_summary">ツールバーのボタン、検索バー、ヘッダーなどのツールバーにあるコンポーネントを非表示または変更できます。</string>
@@ -1848,7 +1858,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">スキップ時にトーストを表示します。</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">スキップ時にトーストを表示します。</string>
     <string name="revanced_skip_preloaded_buffer_toast_title">スキップ時にトーストを表示</string>
-    <string name="revanced_skip_preloaded_buffer_user_dialog_message">この設定をオンにした場合、バッファリングの問題が発生する可能性があります。</string>
+    <string name="revanced_skip_preloaded_buffer_user_dialog_message">この設定をオンにした場合、動画が再生できない問題が発生する可能性があります。</string>
     <string name="revanced_skipped_preloaded_buffer">事前に読み込まれたバッファをスキップしました。</string>
     <string name="revanced_speed_overlay_value_invalid_toast">再生速度のオーバーレイの値は 0 ~ 8.0 の間でなければなりません。デフォルト値にリセットします。</string>
     <string name="revanced_speed_overlay_value_summary">再生速度のオーバーレイの値は 0 ~ 8.0 の間です。</string>
@@ -1900,7 +1910,7 @@ iOS クライアント選択する場合は、これらの値が必要になる�
 詳細についてはここをタップしてください。"</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">PoToken / VisitorData について</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"・「音声トラック」メニューは表示されません。
-・「一定音量」は使用できません。
+・「一定音量」は利用できません。
 ・「音声トラックの強制を無効化」は利用できません。
 ・ログインをしていない場合やシークレットモードでは、子供向け動画は再生できない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"・「音声トラック」メニューは表示されません。
@@ -1911,10 +1921,16 @@ iOS クライアント選択する場合は、これらの値が必要になる�
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"・動画が 1 秒早く終了する可能性があります。
 ・Opus オーディオコーデックはサポートされていない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">・動画が 1 秒早く終了する可能性があります。</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"・映画や有料動画は再生できない可能性があります。
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"・「一定音量」は利用できません。
+・映画や有料動画は再生できない可能性があります。
 ・ログインをしていない場合やシークレットモードでは、子供向け動画は再生できない可能性があります。"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">ストリーミングデータを偽装することによる副作用</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 動画が再生できない可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"ワンジーレスポンス暗号化をスキップします。これにより、一部のユーザーが遭遇している新しいタイプの「動画が再生できない」問題を修正します。\n\n注意: AV1 コーデックは利用できない可能性があります。"</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"ワンジーレスポンス暗号化をスキップします。これにより、一部のユーザーが遭遇している新しいタイプの「動画が再生できない」問題を修正します。
+
+注意: AV1 コーデックは利用できない可能性があります。"</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">ワンジーレスポンス暗号化をスキップ</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に偽装したクライアントを表示します。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に偽装したクライアントを表示します。</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に偽装したクライアントを表示</string>
@@ -1933,7 +1949,7 @@ iOS クライアント選択する場合は、これらの値が必要になる�
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
 <small>(Google アカウントへのログインが必要)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">偽装するクライアントの種類</string>
-    <string name="revanced_spoof_streaming_data_user_dialog_message">この設定をオフにした場合、バッファリングの問題が発生する可能性があります。</string>
+    <string name="revanced_spoof_streaming_data_user_dialog_message">この設定をオフにした場合、動画が再生できない問題が発生する可能性があります。</string>
     <string name="revanced_spoof_streaming_data_visitor_data_summary">信頼できるブラウザで BotGuard によって発行された VisitorData です。</string>
     <string name="revanced_spoof_streaming_data_visitor_data_title">使用する VisitorData を入力</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">感度は 1 ~ 1000 (%) の間でなければなりません。</string>

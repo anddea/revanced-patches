@@ -27,28 +27,28 @@ object YouTubeAppClient {
     private val CLIENT_VERSION_IOS = if (forceAVC())
         "17.40.5"
     else
-        "19.29.1"
+        "20.10.4"
 
     private const val DEVICE_MAKE_IOS = "Apple"
     private const val OS_NAME_IOS = "iOS"
 
     /**
-     * The device machine id for the iPhone 15 Pro Max (iPhone16,2),
+     * The device machine id for the iPhone 16 Pro Max (iPhone17,2),
      * used to get HDR with AV1 hardware decoding.
      * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
      */
     private val DEVICE_MODEL_IOS = if (forceAVC())
         "iPhone12,5" // 11 Pro Max. (last device with iOS 13)
     else
-        "iPhone16,2" // 15 Pro Max.
+        "iPhone17,2" // 16 Pro Max.
     private val OS_VERSION_IOS = if (forceAVC())
         "13.7.17H35" // Last release of iOS 13.
     else
-        "17.7.2.21H221"
+        "18.3.2.22D82"
     private val USER_AGENT_VERSION_IOS = if (forceAVC())
         "13_7"
     else
-        "17_7_2"
+        "18_3_2"
     private val USER_AGENT_IOS = iOSUserAgent(PACKAGE_NAME_IOS, CLIENT_VERSION_IOS)
 
 
@@ -69,7 +69,7 @@ object YouTubeAppClient {
     private val CLIENT_VERSION_IOS_UNPLUGGED = if (forceAVC())
         "6.45"
     else
-        "8.33"
+        "9.10"
     private val USER_AGENT_IOS_UNPLUGGED =
         iOSUserAgent(PACKAGE_NAME_IOS_UNPLUGGED, CLIENT_VERSION_IOS_UNPLUGGED)
 
@@ -92,35 +92,31 @@ object YouTubeAppClient {
      * Package name for YouTube VR (Meta Quests): com.google.android.apps.youtube.vr.oculus
      * Package name for YouTube VR (ByteDance Pico): com.google.android.apps.youtube.vr.pico
      */
-    private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.pico"
+    private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.oculus"
 
     /**
      * The hardcoded client version of the Android VR app used for InnerTube requests with this client.
      *
      * It can be extracted by getting the latest release version of the app on
-     * [the App Store page of the YouTube VR app](https://store-global.picoxr.com/en/detail/1/7270207384512020485/),
-     * in the `Information` section.
+     * [the App Store page of the YouTube app](https://www.meta.com/en-us/experiences/2002317119880945/),
+     * in the `Additional details` section.
      */
     private const val CLIENT_VERSION_ANDROID_VR = "1.62.27"
 
     /**
-     * The device machine id for the Pico 4 Ultra.
-     *
-     * For Pico 4 Ultra, there is no public firmware archive yet.
-     * The device machine id is taken from [this repository](https://github.com/Genymobile/scrcpy/issues/5659).
-     * The OS version and build ID are taken from [the signature key of OTA firmware](https://pico.crx.moe/docs/picoos-research/version-table#pico-4-ultra-series).
+     * The device machine id for the Meta Quest 3, used to get opus codec with the Android VR client.
+     * See [this GitLab](https://dumps.tadiphone.dev/dumps/oculus/eureka) for more information.
      */
-    private const val DEVICE_MODEL_ANDROID_VR = "A9210"
+    private const val DEVICE_MODEL_ANDROID_VR = "Quest 3"
+    private const val DEVICE_MAKE_ANDROID_VR = "Oculus"
+    private const val OS_VERSION_ANDROID_VR = "12"
+
     /**
-     * The manufacturer is 'ByteDance', but the build prop is marked as 'Pico'.
+     * The SDK version for Android 12 is 31,
+     * but for some reason the build.props for the `Quest 3` state that the SDK version is 32.
      */
-    private const val DEVICE_MAKE_ANDROID_VR = "Pico"
-    private const val OS_VERSION_ANDROID_VR = "14"
-    private const val ANDROID_SDK_VERSION_ANDROID_VR = "34"
-    /**
-     * PICO OS 5.12.6 (Android 14)
-     */
-    private const val BUILD_ID_ANDROID_VR = "UKQ1.240321.001"
+    private const val ANDROID_SDK_VERSION_ANDROID_VR = "32"
+    private const val BUILD_ID_ANDROID_VR = "SQ3A.220605.009.A1"
 
     private val USER_AGENT_ANDROID_VR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_VR,
@@ -137,7 +133,7 @@ object YouTubeAppClient {
      * Note: Audio track is not available
      */
     private const val PACKAGE_NAME_ANDROID_UNPLUGGED = "com.google.android.apps.youtube.unplugged"
-    private const val CLIENT_VERSION_ANDROID_UNPLUGGED = "8.16.0"
+    private const val CLIENT_VERSION_ANDROID_UNPLUGGED = "9.09.1"
 
     /**
      * The device machine id for the Chromecast with Google TV 4K.
@@ -147,8 +143,8 @@ object YouTubeAppClient {
     private const val DEVICE_MAKE_ANDROID_UNPLUGGED = "Google"
     private const val OS_VERSION_ANDROID_UNPLUGGED = "14"
     private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
-    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTT3.240625.001.K5"
-    private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244336107"
+    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTTK.241210.003"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244738119"
 
     private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_UNPLUGGED,
@@ -165,7 +161,7 @@ object YouTubeAppClient {
      * Note: Audio track is not available
      */
     private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
-    private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101"
+    private const val CLIENT_VERSION_ANDROID_CREATOR = "25.10.100"
 
     /**
      * The device machine id for the Google Pixel 9 Pro Fold.
@@ -176,7 +172,7 @@ object YouTubeAppClient {
     private const val OS_VERSION_ANDROID_CREATOR = "15"
     private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "35"
     private const val BUILD_ID_ANDROID_CREATOR = "AP3A.241005.015.A2"
-    private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "244738035"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "250932035"
 
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_CREATOR,
