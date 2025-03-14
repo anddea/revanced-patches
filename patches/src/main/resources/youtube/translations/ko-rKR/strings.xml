@@ -258,17 +258,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_splash_animation_summary_off">앱을 시작할 때, 스플래시 애니메이션을 활성화합니다.</string>
     <string name="revanced_disable_splash_animation_summary_on">앱을 시작할 때, 스플래시 애니메이션을 비활성화합니다.</string>
     <string name="revanced_disable_splash_animation_title">스플래시 애니메이션 비활성화하기</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">플레이어 하단에서 아래로 스와이프하여 전체 화면 모드로 들어갑니다.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">플레이어 하단에서 아래로 스와이프하여 전체 화면 모드로 들어가지 않습니다.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">스와이프 제스처로 전체 화면 모드 전환 비활성화하기 (플레이어 하단)</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">플레이어 내부에서 위로 스와이프하여 전체 화면 모드로 들어갑니다.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">플레이어 내부에서 위로 스와이프하여 전체 화면 모드로 들어가지 않습니다.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">스와이프 제스처로 전체 화면 모드 전환 비활성화하기 (플레이어 내부)</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">전체 화면에서 아래로 스와이프하여 전체 화면 모드를 나갑니다.</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">전체 화면에서 아래로 스와이프하여 전체 화면 모드를 나가지 않습니다.</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">스와이프 제스처로 전체 화면 모드 종료 비활성화하기</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">플레이어 하단에서 아래로 스와이프하여 전체 화면으로 들어갑니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">플레이어 하단에서 아래로 스와이프하여 전체 화면으로 들어가지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">스와이프 제스처로 전체 화면 전환 비활성화하기 (플레이어 하단)</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">플레이어 내부에서 위로 스와이프하여 전체 화면으로 들어갑니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">플레이어 내부에서 위로 스와이프하여 전체 화면으로 들어가지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">스와이프 제스처로 전체 화면 전환 비활성화하기 (플레이어 내부)</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">전체 화면에서 아래로 스와이프하여 전체 화면을 나갑니다.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">전체 화면에서 아래로 스와이프하여 전체 화면을 나가지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">스와이프 제스처로 전체 화면 종료 비활성화하기</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다.</string>
@@ -350,23 +350,29 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • Shorts 플레이어 배경을 누르면 모든 구성요소들이 숨겨졌다가 다시 누르면 다시 표시됩니다.
 • 이 기능은 Google에서 개발 단계에 있는 기능이므로 레이아웃이 깨질 수 있습니다."</string>
     <string name="revanced_enable_shorts_time_stamp_title">타임스탬프 활성화하기</string>
-    <string name="revanced_enable_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다.</string>
-    <string name="revanced_enable_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_brightness_summary_off">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절하지 않습니다.</string>
+    <string name="revanced_enable_swipe_brightness_summary_on">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절합니다.</string>
     <string name="revanced_enable_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_off">진동 피드백을 비활성화합니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_summary_on">진동 피드백을 활성화합니다.</string>
     <string name="revanced_enable_swipe_haptic_feedback_title">길게 눌러서 스와이프 제스처를 사용할 때, 진동 피드백 활성화하기</string>
-    <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화하지 않습니다.</string>
-    <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_on">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화합니다.</string>
+    <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다.</string>
+    <string name="revanced_enable_swipe_lowest_value_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다.</string>
     <string name="revanced_enable_swipe_lowest_value_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
-    <string name="revanced_enable_swipe_to_switch_video_summary_off">전체 화면에서 스와이프 제스처로 다음/이전 동영상으로 전환하지 않습니다.</string>
-    <string name="revanced_enable_swipe_to_switch_video_summary_on">전체 화면에서 스와이프 제스처로 다음/이전 동영상으로 전환합니다.</string>
+    <string name="revanced_enable_swipe_seek_summary_off">전체 화면 상단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색하지 않습니다.</string>
+    <string name="revanced_enable_swipe_seek_summary_on">전체 화면 상단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색합니다.</string>
+    <string name="revanced_enable_swipe_seek_title">스와이프 제스처로 동영상 탐색 활성화하기</string>
+    <string name="revanced_enable_swipe_speed_summary_off">전체 화면 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절하지 않습니다.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">전체 화면 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절합니다.</string>
+    <string name="revanced_enable_swipe_speed_title">스와이프 제스처로 속도 조절 활성화하기</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
+    <string name="revanced_enable_swipe_to_switch_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
     <string name="revanced_enable_swipe_to_switch_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
-    <string name="revanced_enable_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다.</string>
-    <string name="revanced_enable_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다.</string>
+    <string name="revanced_enable_swipe_volume_summary_off">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절하지 않습니다.</string>
+    <string name="revanced_enable_swipe_volume_summary_on">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다.</string>
     <string name="revanced_enable_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_off">하단바가 불투명합니다.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">하단바가 반투명합니다.</string>
@@ -395,17 +401,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_off">YouTube 헤더가 없는 넓은 검색창을 활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_with_header_summary_on">YouTube 헤더가 있는 넓은 검색창을 활성화합니다.</string>
     <string name="revanced_enable_wide_search_bar_with_header_title">헤더가 있는 넓은 검색창 활성화하기</string>
-    <string name="revanced_enter_fullscreen_summary_off">동영상이 시작할 때, 전체 화면 모드로 들어가지 않습니다.</string>
-    <string name="revanced_enter_fullscreen_summary_on">"동영상이 시작할 때, 전체 화면 모드로 들어갑니다.
+    <string name="revanced_enter_fullscreen_summary_off">동영상이 시작할 때, 전체 화면으로 들어가지 않습니다.</string>
+    <string name="revanced_enter_fullscreen_summary_on">"동영상이 시작할 때, 전체 화면으로 들어갑니다.
 
 알려진 문제점: 
 • 플레이어가 최소화되어 있거나 PIP 모드 또는 백그라운드 재생에 있는 경우에는 작동되지 않습니다."</string>
-    <string name="revanced_enter_fullscreen_title">동영상이 시작할 때, 전체 화면 모드로 들어가기</string>
+    <string name="revanced_enter_fullscreen_title">동영상이 시작할 때, 전체 화면으로 들어가기</string>
     <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
     <string name="revanced_exit_fullscreen_entry_2">세로 모드</string>
     <string name="revanced_exit_fullscreen_entry_3">가로 모드</string>
     <string name="revanced_exit_fullscreen_entry_4">세로 및 가로 모드</string>
-    <string name="revanced_exit_fullscreen_title">동영상이 종료할 때, 전체 화면 모드에서 나가기</string>
+    <string name="revanced_exit_fullscreen_title">동영상이 종료할 때, 전체 화면에서 나가기</string>
     <string name="revanced_expand_video_description_summary_off">동영상 설명이 수동으로 펼쳐집니다.</string>
     <string name="revanced_expand_video_description_summary_on">동영상 설명이 자동으로 펼쳐집니다.</string>
     <string name="revanced_expand_video_description_title">동영상 설명 펼치기</string>
@@ -679,7 +685,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_keyword_content_phrases_summary">"필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다.
 
 • 필터링 키워드는 채널 이름 또는 동영상 제목에 표시되는 모든 텍스트가 될 수 있습니다.
-• 가운데 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)."</string>
+• 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)."</string>
     <string name="revanced_hide_keyword_content_phrases_title">키워드 필터</string>
     <string name="revanced_hide_keyword_content_search_summary_off">검색 결과에서 키워드 필터를 비활성화합니다.</string>
     <string name="revanced_hide_keyword_content_search_summary_on">검색 결과에서 키워드 필터를 활성화합니다.</string>
@@ -1914,7 +1920,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
     <string name="revanced_spoof_streaming_data_language_title">Android VR 기본 오디오 스트림 언어</string>
-    <string name="revanced_spoof_streaming_data_po_token_summary">정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 PoToken을 등록할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_po_token_summary">\'신뢰할 수 있는 브라우저에서 BotGuard에 의해 발급된 PoToken\'을 등록할 수 있습니다.\n\n• PoToken 발급 방법은 \'PoToken &amp; VisitorData에 대한 정보\' 메뉴와 연결된 페이지에 나와있습니다.</string>
     <string name="revanced_spoof_streaming_data_po_token_title">PoToken 등록하기</string>
     <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"일부 클라이언트는 유효한 스트리밍 데이터 응답을 받기 위해 PoToken과 VisitorData가 요구됩니다.
 
@@ -1928,19 +1934,21 @@ PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세�
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
 • TV는 AV1 코덱이 지원되지 않습니다.
-• VR은 화질 저하 문제가 발생할 수 있습니다."</string>
+• 인증 없음: 사용자 로그인 정보를 사용하지 않음"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_unplugged">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 자동 오디오 트랙을 비활성화할 수 없습니다.
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
-• TV는 AV1 코덱이 지원되지 않습니다."</string>
+• TV는 AV1 코덱이 지원되지 않습니다.
+• 인증 없음: 사용자 로그인 정보를 사용하지 않음"</string>
     <string name="revanced_spoof_streaming_data_side_effects_android_vr">"• 오디오 트랙 메뉴가 표시되지 않습니다.
 • 안정적인 볼륨을 사용할 수 없습니다.
 • 자동 오디오 트랙을 비활성화할 수 없습니다.
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
-• TV는 AV1 코덱이 지원되지 않습니다."</string>
+• TV는 AV1 코덱이 지원되지 않습니다.
+• 인증 없음: 사용자 로그인 정보를 사용하지 않음"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
@@ -1971,14 +1979,14 @@ PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세�
 <small>(로그인이 요구됨)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">기본 클라이언트</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_summary">정보 메뉴와 연결된 페이지에 있는 사용법을 따라하여 발급받은 VisitorData를 등록할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_visitor_data_summary">\'신뢰할 수 있는 브라우저에서 BotGuard에 의해 발급된 VisitorData\'를 등록할 수 있습니다.\n\n• VisitorData 발급 방법은 \'PoToken &amp; VisitorData에 대한 정보\' 메뉴와 연결된 페이지에 나와있습니다.</string>
     <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData 등록하기</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">밝기 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">밝기 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 밝기 레벨이 더 빠르게 변경됩니다.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">밝기 스와이프 민감도</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_off">잠금 화면 모드에서 스와이프 제스처를 비활성화합니다.</string>
-    <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면 모드에서 스와이프 제스처를 활성화합니다.</string>
-    <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면 모드에서 스와이프 제스처 활성화하기</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_off">잠금 화면에서 스와이프 제스처를 비활성화합니다.</string>
+    <string name="revanced_swipe_gestures_lock_mode_summary_on">잠금 화면에서 스와이프 제스처를 활성화합니다.</string>
+    <string name="revanced_swipe_gestures_lock_mode_title">잠금 화면에서 스와이프 제스처 활성화하기</string>
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">자동</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있습니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
@@ -1991,6 +1999,12 @@ PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세�
     <string name="revanced_swipe_overlay_text_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다. (밀리초)</string>
     <string name="revanced_swipe_overlay_timeout_title">스와이프 오버레이 타임아웃</string>
+    <string name="revanced_swipe_seek_sensitivity_invalid_toast">탐색 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
+    <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">탐색 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)</string>
+    <string name="revanced_swipe_seek_sensitivity_title">탐색 스와이프 민감도</string>
+    <string name="revanced_swipe_speed_sensitivity_invalid_toast">속도 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
+    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">속도 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)</string>
+    <string name="revanced_swipe_speed_sensitivity_title">속도 스와이프 민감도</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 민감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
     <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
