@@ -199,6 +199,10 @@ public final class app/revanced/patches/music/utils/fix/fileprovider/FileProvide
 	public static final fun fileProviderPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/utils/fix/parameter/SpoofPlayerParameterPatchKt {
+	public static final fun getSpoofPlayerParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/utils/flyoutmenu/FlyoutMenuHookPatchKt {
 	public static final fun getFlyoutMenuHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -289,6 +293,10 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getTouchOutside ()J
 	public static final fun getTrimSilenceSwitch ()J
 	public static final fun getVarispeedUnavailableTitle ()J
+	public static final fun getYtFillSamples ()J
+	public static final fun getYtFillYouTubeMusic ()J
+	public static final fun getYtOutlineSamples ()J
+	public static final fun getYtOutlineYouTubeMusic ()J
 	public static final fun getYtmLogo ()J
 	public static final fun getYtmLogoRingo2 ()J
 	public static final fun isTablet ()J
@@ -334,10 +342,30 @@ public final class app/revanced/patches/music/video/playback/VideoPlaybackPatchK
 	public static final fun getVideoPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public abstract class app/revanced/patches/music/video/playerresponse/Hook {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/revanced/patches/music/video/playerresponse/Hook$PlayerParameter : app/revanced/patches/music/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/music/video/playerresponse/Hook$PlayerParameterBeforeVideoId : app/revanced/patches/music/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/music/video/playerresponse/Hook$VideoId : app/revanced/patches/music/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/music/video/playerresponse/Hook$VideoIdAndPlaylistId : app/revanced/patches/music/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
+}
+
 public final class app/revanced/patches/music/video/playerresponse/PlayerResponseMethodHookPatchKt {
+	public static final fun addPlayerResponseMethodHook (Lapp/revanced/patches/music/video/playerresponse/Hook;)V
 	public static final fun getPlayerResponseMethodHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun hookPlayerResponse (Ljava/lang/String;Z)V
-	public static synthetic fun hookPlayerResponse$default (Ljava/lang/String;ZILjava/lang/Object;)V
 }
 
 public final class app/revanced/patches/reddit/ad/AdsPatchKt {
@@ -425,6 +453,10 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 
 public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/reddit/utils/resourceid/SharedResourceIdPatchKt {
+	public static final fun getScreenShotShareBanner ()J
 }
 
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
@@ -574,7 +606,6 @@ public final class app/revanced/patches/shared/spoof/appversion/BaseSpoofAppVers
 }
 
 public final class app/revanced/patches/shared/spoof/blockrequest/BlockRequestPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getBlockRequestPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -647,8 +678,8 @@ public final class app/revanced/patches/youtube/general/downloads/DownloadAction
 	public static final fun getDownloadActionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/general/layoutswitch/LayoutSwitchPatchKt {
-	public static final fun getLayoutSwitchPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/general/formfactor/ChangeFormFactorPatchKt {
+	public static final fun getChangeFormFactorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/general/livering/OpenChannelOfLiveAvatarPatchKt {
@@ -996,6 +1027,7 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_04_or_greater ()Z
 	public static final fun is_19_09_or_greater ()Z
 	public static final fun is_19_15_or_greater ()Z
+	public static final fun is_19_16_or_greater ()Z
 	public static final fun is_19_17_or_greater ()Z
 	public static final fun is_19_23_or_greater ()Z
 	public static final fun is_19_25_or_greater ()Z
@@ -1014,6 +1046,7 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_02_or_greater ()Z
 	public static final fun is_20_03_or_greater ()Z
 	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_10_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -1126,6 +1159,7 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getTapBloomView ()J
 	public static final fun getTitleAnchor ()J
 	public static final fun getToolTipContentView ()J
+	public static final fun getToolbarContainerId ()J
 	public static final fun getTotalTime ()J
 	public static final fun getTouchArea ()J
 	public static final fun getVarispeedUnavailableTitle ()J

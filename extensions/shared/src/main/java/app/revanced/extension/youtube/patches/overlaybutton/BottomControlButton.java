@@ -25,8 +25,11 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 
 public abstract class BottomControlButton {
+    @Nullable
     private static final Animation fadeIn;
+    @Nullable
     private static final Animation fadeOut;
+    @Nullable
     private static final Animation fadeOutImmediate;
 
     private final ColorFilter cf =
@@ -40,29 +43,35 @@ public abstract class BottomControlButton {
 
     static {
         fadeIn = getAnimation("fade_in");
-        // android.R.integer.config_shortAnimTime, 200
-        fadeIn.setDuration(getInteger("fade_duration_fast"));
+        if (fadeIn != null) {
+            // android.R.integer.config_shortAnimTime, 200
+            fadeIn.setDuration(getInteger("fade_duration_fast"));
+        }
 
         fadeOut = getAnimation("fade_out");
-        // android.R.integer.config_mediumAnimTime, 400
-        fadeOut.setDuration(getInteger("fade_overlay_fade_duration"));
+        if (fadeOut != null) {
+            // android.R.integer.config_mediumAnimTime, 400
+            fadeOut.setDuration(getInteger("fade_overlay_fade_duration"));
+        }
 
         fadeOutImmediate = getAnimation("abc_fade_out");
-        // android.R.integer.config_shortAnimTime, 200
-        fadeOutImmediate.setDuration(getInteger("fade_duration_fast"));
+        if (fadeOutImmediate != null) {
+            // android.R.integer.config_shortAnimTime, 200
+            fadeOutImmediate.setDuration(getInteger("fade_duration_fast"));
+        }
     }
 
-    @NonNull
+    @Nullable
     public static Animation getButtonFadeIn() {
         return fadeIn;
     }
 
-    @NonNull
+    @Nullable
     public static Animation getButtonFadeOut() {
         return fadeOut;
     }
 
-    @NonNull
+    @Nullable
     public static Animation getButtonFadeOutImmediate() {
         return fadeOutImmediate;
     }
@@ -153,11 +162,15 @@ public abstract class BottomControlButton {
         imageView.clearAnimation();
         if (visible && setting.get()) {
             imageView.setVisibility(View.VISIBLE);
-            if (animation) imageView.startAnimation(fadeIn);
+            if (animation && fadeIn != null) {
+                imageView.startAnimation(fadeIn);
+            }
             return;
         }
         if (imageView.getVisibility() == View.VISIBLE) {
-            if (animation) imageView.startAnimation(fadeOut);
+            if (animation && fadeOut != null) {
+                imageView.startAnimation(fadeOut);
+            }
             imageView.setVisibility(View.GONE);
         }
     }
@@ -168,7 +181,9 @@ public abstract class BottomControlButton {
         if (!setting.get()) return;
 
         imageView.clearAnimation();
-        imageView.startAnimation(fadeOutImmediate);
+        if (fadeOutImmediate != null) {
+            imageView.startAnimation(fadeOutImmediate);
+        }
         imageView.setVisibility(View.GONE);
     }
 }

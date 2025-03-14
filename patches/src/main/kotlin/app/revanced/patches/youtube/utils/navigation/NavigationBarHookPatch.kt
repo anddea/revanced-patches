@@ -109,8 +109,7 @@ val navigationBarHookPatch = bytecodePatch(
         hookNavigationButtonCreated = { extensionClassDescriptor ->
             navigationBarHookCallbackFingerprint.methodOrThrow().addInstruction(
                 0,
-                "invoke-static { p0, p1 }, " +
-                        "$extensionClassDescriptor->navigationTabCreated" +
+                "invoke-static { p0, p1 }, $extensionClassDescriptor->navigationTabCreated" +
                         "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
         }

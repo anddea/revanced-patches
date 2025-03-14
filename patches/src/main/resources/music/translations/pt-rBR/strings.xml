@@ -85,14 +85,16 @@ Use cores escuras se possível, pois o aplicativo não suporta temas claros."</s
     <string name="revanced_disable_music_video_in_album_redirect_type_entry_redirect">Redirecionar</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_summary">Especifica como redirecionar para a música oficial.</string>
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Tipo de redirecionamento</string>
-    <string name="revanced_disable_music_video_in_album_summary">"Quando um usuário não premium toca uma música incluída em um álbum, o videoclipe às vezes é tocado em vez da música oficial.
+    <string name="revanced_disable_music_video_in_album_summary">"Quando um usuário não premium reproduz uma música incluída em um álbum, o vídeo da música é tocado às vezes em vez da música oficial.
 
-Encontre a música oficial se um videoclipe for detectado tocando de um álbum.
+Encontre a música oficial se um vídeo de música for detectado tocando de um álbum.
 
-• Desenvolvido pela API de instância do Piped."</string>
+Limitações: Vídeos infantis não podem ser redirecionados."</string>
     <string name="revanced_disable_music_video_in_album_title">Desativar vídeo da música no álbum</string>
     <string name="revanced_disable_player_gesture_summary">Desativa a função de deslizar para alterar faixa no reprodutor.</string>
     <string name="revanced_disable_player_gesture_title">Desativar gesto do reprodutor</string>
+    <string name="revanced_disable_quic_protocol_summary">"Desativa o protocolo QUIC da CronetEngine."</string>
+    <string name="revanced_disable_quic_protocol_title">Desativar protocolo QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Ativa o menu flutuante compacto em telefones.
 
 Limitações:
@@ -123,7 +125,9 @@ Informações:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Ativar deslizar para dispensar o mini reprodutor</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Ativa deslizar para baixo para fechar o mini reprodutor.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Ativar deslizar para dispensar o mini reprodutor</string>
-    <string name="revanced_enable_thick_seekbar_summary">"Ativa a barra de busca espessa."</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Ativar a barra de busca espessa.
+
+Limitações: segmentos de patrocinadores não são exibidos na barra de busca."</string>
     <string name="revanced_enable_thick_seekbar_title">Ativar barra de busca espessa</string>
     <string name="revanced_enable_trim_silence_summary">"Adiciona a opção Cortar silêncio ao menu flutuante de velocidade de reprodução.
 
@@ -240,7 +244,7 @@ Por favor, baixe %2$s do site."</string>
     <string name="revanced_hide_fullscreen_ads_summary">"Oculta anúncios de tela cheia.
 
 Limitações:
-• Às vezes você pode ver uma tela preta em branco ao invés da fonte inicial."</string>
+• Às vezes você pode ver uma tela preta em branco ao invés do feed inicial."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ocultar anúncios em tela cheia</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Oculta o botão Compartilhar no reprodutor de tela cheia.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ocultar botão Compartilhar em tela cheia</string>

@@ -3,9 +3,9 @@
 import logging
 import os
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
-from defusedxml import lxml
-from lxml import etree as et
+from defusedxml import ElementTree
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -81,7 +81,7 @@ def search_in_files(directories: list[str], name_values: set[str]) -> dict[str, 
         - Searches for both original names and their base forms (without suffixes)
 
     """
-    results = {name: [] for name in name_values}
+    results: dict[str, list[str]] = {name: [] for name in name_values}
 
     for directory in directories:
         abs_dir = Path(directory).resolve()
@@ -102,7 +102,7 @@ def search_in_files(directories: list[str], name_values: set[str]) -> dict[str, 
                         for name in name_values:
                             # Check both original name and base name
                             if name in content or get_base_name(name) in content:
-                                results[name].append(file_path)
+                                results[name].append(str(file_path))
                 except Exception:
                     logger.exception("Error reading %s: ", file_path)
 
@@ -154,11 +154,11 @@ def process_xml_file(file_path: Path, unused_names: set[str]) -> None:
         initial_count = len(strings_dict)
 
         # Create new root with only used strings
-        new_root = et.Element("resources")
+        new_root = ET.Element("resources")
         kept_strings = 0
         for name, data in sorted(strings_dict.items()):
             if not should_remove(name, unused_names):
-                string_elem = lxml.fromstring(data["text"].encode())
+                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
                 new_root.append(string_elem)
                 kept_strings += 1
 

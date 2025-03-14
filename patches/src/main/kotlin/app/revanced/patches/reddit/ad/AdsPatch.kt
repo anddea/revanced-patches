@@ -5,9 +5,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.HIDE_ADS
+import app.revanced.patches.reddit.utils.settings.is_2025_06_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
 import app.revanced.util.findMutableMethodOf
@@ -78,22 +80,33 @@ val adsPatch = bytecodePatch(
         }
 
         // region Filter comment ads
-        classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                if (method.isCommentAdsMethod()) {
-                    proxy(classDef)
-                        .mutableClass
-                        .findMutableMethodOf(method)
-                        .addInstructionsWithLabels(
-                            0, """
-                                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideCommentAds()Z
-                                move-result v0
-                                if-eqz v0, :show
-                                return-void
-                                :show
-                                nop
-                                """
-                        )
+        fun MutableMethod.hook() =
+            addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideCommentAds()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                    """
+            )
+        if (is_2025_06_or_greater) {
+            listOf(
+                commentAdCommentScreenAdViewFingerprint,
+                commentAdDetailListHeaderViewFingerprint
+            ).forEach { fingerprint ->
+                fingerprint.methodOrThrow().hook()
+            }
+        } else {
+            classes.forEach { classDef ->
+                classDef.methods.forEach { method ->
+                    if (method.isCommentAdsMethod()) {
+                        proxy(classDef)
+                            .mutableClass
+                            .findMutableMethodOf(method)
+                            .hook()
+                    }
                 }
             }
         }

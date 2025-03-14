@@ -72,12 +72,22 @@ Stuknij j przytrzymaj, by przełączać się pomiędzy typami wyświetlanej info
     <string name="revanced_bypass_url_redirects_summary_off">Nie</string>
     <string name="revanced_bypass_url_redirects_summary_on">Tak</string>
     <string name="revanced_bypass_url_redirects_title">Bezpośrednie otwieranie linków</string>
-    <string name="revanced_change_layout_entry_1">Oryginalny</string>
-    <string name="revanced_change_layout_entry_2">Telefonowy</string>
-    <string name="revanced_change_layout_entry_3">Telefonowy (max. 480 dpi)</string>
-    <string name="revanced_change_layout_entry_4">Tabletowy</string>
-    <string name="revanced_change_layout_entry_5">Tabletowy (max. 600 dpi)</string>
-    <string name="revanced_change_layout_title">Układ aplikacji</string>
+    <string name="revanced_change_form_factor_entry_1">Domyślny</string>
+    <string name="revanced_change_form_factor_entry_2">Telefonowy</string>
+    <string name="revanced_change_form_factor_entry_3">Telefonowy (max. 480 dpi)</string>
+    <string name="revanced_change_form_factor_entry_4">Tabletowy</string>
+    <string name="revanced_change_form_factor_entry_5">Tabletowy (max. 600 dpi)</string>
+    <string name="revanced_change_form_factor_entry_6">Samochodowy</string>
+    <string name="revanced_change_form_factor_title">Współczynik kształtu układu aplikacji</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Zmiany zawierają:
+
+Układ tabletowy:
+• Posty społeczności są ukryte
+
+Układ samochodowy:
+• Shortsy otwierają się w zwykłym odtwarzaczu
+• Strona główna jest sortowana po tematach i kanałach
+• Opis filmu nie może być otwarty po wyłączeniu 'Oszukuj strumień danych'"</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Otwarcie transmisji na żywo</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Otwarcie kanału
 
@@ -1923,10 +1933,19 @@ Kliknij, by zobaczyć więcej informacji."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Filmy mogą kończyć się o 1 sekundę wcześniej
 • Kodek audio opus może nie być wspierany"</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Filmy mogą kończyć się o 1 sekundę wcześniej</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Filmy kinowe lub płatne mogą się nie odtwarzać
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Stabilna głośność nie jest dostępna
+• Filmy kinowe lub płatne mogą się nie odtwarzać
 • Filmy dla dzieci mogą się nie odtwarzać będąc zalogowanym lub w trybie incognito"</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efekty uboczne oszukiwania</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Filmy mogą się nie odtwarzać</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Nie
+• Niektórzy użytkownicy mogą doświadczyć nowego typu problemów z odtwarzaniem
+"</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Tak
+
+• Naprawia nowy typ problemu z odtwarzaniem, którego doświadczają niektórzy użytkownicy
+• Kodek AV1 może nie być dostępny"</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Pomijaj szyfrowanie odpowiedzi Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ukryta</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Widoczna</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Informacja w statystykach dla nerdów</string>

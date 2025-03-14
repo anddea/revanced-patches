@@ -4,11 +4,12 @@ import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
 public class DrcAudioPatch {
+    private static final boolean DISABLE_DRC_AUDIO = Settings.DISABLE_DRC_AUDIO.get();
 
     public static float disableDrcAudio(float original) {
-        if (!Settings.DISABLE_DRC_AUDIO.get()) {
-            return original;
+        if (DISABLE_DRC_AUDIO) {
+            return 0f;
         }
-        return 0f;
+        return original;
     }
 }

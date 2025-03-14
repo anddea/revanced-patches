@@ -72,12 +72,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_url_redirects_summary_off">앱 내에서 외부 링크를 열 때, URL 리다이렉션(youtube.com/redirect)을 거쳐서 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_summary_on">앱 내에서 외부 링크를 열 때, URL 리다이렉션(youtube.com/redirect)을 거치지 않고 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
-    <string name="revanced_change_layout_entry_1">기기 기본값 사용</string>
-    <string name="revanced_change_layout_entry_2">폰</string>
-    <string name="revanced_change_layout_entry_3">폰 (최대 너비: 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">태블릿</string>
-    <string name="revanced_change_layout_entry_5">태블릿 (최소 너비: 600 dp)</string>
-    <string name="revanced_change_layout_title">레이아웃 변경하기</string>
+    <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
+    <string name="revanced_change_form_factor_entry_2">폰</string>
+    <string name="revanced_change_form_factor_entry_3">폰 (최대 너비: 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">태블릿</string>
+    <string name="revanced_change_form_factor_entry_5">태블릿 (최소 너비: 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">오토모티브</string>
+    <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"변경 사항:
+
+태블릿 레이아웃
+• 커뮤니티 게시물이 숨겨집니다.
+
+오토모티브 레이아웃
+• Shorts가 일반 플레이어에서 재생됩니다.
+• 피드가 주제와 채널별로 구성됩니다.
+• '스트리밍 데이터 변경하기'가 비활성화되어있으면 동영상 설명을 열 수 없습니다."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">라이브 링이 표시된 채널 아이콘을 누르면 실시간 스트림 동영상으로 연결됩니다.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"라이브 링이 표시된 채널 아이콘을 누르면 채널 프로필으로 연결됩니다.
 
@@ -267,8 +277,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">전체 화면에서 아래로 스와이프하여 전체 화면을 나갑니다.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">전체 화면에서 아래로 스와이프하여 전체 화면을 나가지 않습니다.</string>
     <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">스와이프 제스처로 전체 화면 종료 비활성화하기</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
     <string name="revanced_disable_swipe_to_switch_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다.</string>
@@ -1515,7 +1525,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_preference_screen_shorts_title">Shorts</string>
     <string name="revanced_preference_screen_snack_bar_summary">스낵바와 관련된 구성요소를 숨기거나 변경할 수 있습니다.</string>
     <string name="revanced_preference_screen_snack_bar_title">스낵바 (팝업메세지바)</string>
-    <string name="revanced_preference_screen_spoof_streaming_data_summary">스트리밍 데이터를 변경하여 재생 문제를 방지할 수 있습니다.</string>
+    <string name="revanced_preference_screen_spoof_streaming_data_summary">스트리밍 데이터를 변경하여 동영상 재생 문제를 방지할 수 있습니다.</string>
     <string name="revanced_preference_screen_spoof_streaming_data_title">스트리밍 데이터 변경하기</string>
     <string name="revanced_preference_screen_swipe_controls_title">스와이프 제스처</string>
     <string name="revanced_preference_screen_toolbar_summary">툴바에서 버튼, 검색창, 헤더와 같은 구성요소를 숨기거나 변경할 수 있습니다.</string>
@@ -1949,17 +1959,25 @@ PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세�
 • VR은 Kids // TV는 재생목록과 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
 • TV는 AV1 코덱이 지원되지 않습니다.
 • 인증 없음: 사용자 로그인 정보를 사용하지 않음"</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios">• 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios">• 동영상 재생 문제가 발생할 수 있습니다 (PoToken이 요구됨).\n• 영화, 유료, 비공개 그리고 연령 제한 동영상에서 다른 클라이언트가 사용될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• 동영상이 1초 일찍 종료될 수 있습니다.
 • OPUS 코덱이 지원되지 않을 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• 동영상이 1초 일찍 종료될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
-• 안정적인 볼륨을 사용할 수 없습니다.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• 안정적인 볼륨을 사용할 수 없습니다.
+• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 Kids 동영상이 재생되지 않을 수 있습니다.
 • 음악 동영상에서 다른 클라이언트가 사용될 수 있습니다.
 • AV1 코덱이 지원되지 않습니다."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">알려진 문제점</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Onesie 응답 암호화를 건너뛰지 않습니다.
+
+• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Onesie 응답 암호화를 건너뜁니다.
+
+• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 고쳐질 수 있습니다.
+• AV1 코덱을 사용하지 못할 수 있습니다."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Onesie 응답 암호화 건너뛰기</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
@@ -1972,7 +1990,7 @@ PoToken과 VisitorData를 발급받는 방법을 보려면 여기를 누르세�
 <small>(로그인이 요구됨)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr">Android VR</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_vr_no_auth">"Android VR
-<small>(미인증)</small>"</string>
+<small>(인증 없음)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
 <small>(PoToken이 요구됨)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV

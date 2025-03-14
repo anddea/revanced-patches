@@ -1,10 +1,10 @@
-"""Check strings in destination."""
+"""Sort strings in destination."""
 
 import logging
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
-from defusedxml import lxml
-from lxml import etree
+from defusedxml import ElementTree
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -20,19 +20,14 @@ def sort_file(path: Path) -> None:
 
     """
     try:
-        # Use defusedxml for parsing
         _, _, strings = XMLProcessor.parse_file(path)
+        new_root = ET.Element("resources")
 
-        # Create new root with sorted strings using lxml
-        new_root = etree.Element("resources")  # Use etree.Element from lxml
         for name in sorted(strings.keys()):
             data = strings[name]
-            # Parse the string representation into an element using defusedxml
-            # Use lxml.fromstring (which is patched by defusedxml)
-            string_elem = lxml.fromstring(data["text"].encode())  # encode to bytes
+            string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
             new_root.append(string_elem)
 
-        # Use lxml-based write_file for pretty-printing
         XMLProcessor.write_file(path, new_root)
         logger.info("Sorted strings in %s", path)
 

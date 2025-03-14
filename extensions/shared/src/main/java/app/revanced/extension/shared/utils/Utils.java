@@ -3,6 +3,8 @@ package app.revanced.extension.shared.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -13,11 +15,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,17 +48,18 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
-import kotlin.text.Regex;
 
 @SuppressWarnings("deprecation")
 public class Utils {
 
     private static WeakReference<Activity> activityRef = new WeakReference<>(null);
-    private static WeakReference<Context> contextRef = new WeakReference<>(null);
+    @SuppressLint("StaticFieldLeak")
+    private static volatile Context context;
 
     protected Utils() {
     } // utility class
@@ -274,17 +280,15 @@ public class Utils {
     }
 
     public static Context getContext() {
-        Context mContext = contextRef.get();
-        if (mContext == null) {
+        if (context == null) {
             Logger.initializationException(Utils.class, "Context is null, returning null!", null);
         }
-        return mContext;
+        return context;
     }
 
     public static Resources getResources() {
-        Context mContext = contextRef.get();
-        if (mContext != null) {
-            return mContext.getResources();
+        if (context != null) {
+            return context.getResources();
         }
         Activity mActivity = activityRef.get();
         if (mActivity != null) {
@@ -347,7 +351,7 @@ public class Utils {
         }
 
         // Must initially set context to check the app language.
-        contextRef = new WeakReference<>(appContext);
+        context = appContext;
         Logger.initializationInfo(Utils.class, "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
@@ -355,7 +359,7 @@ public class Utils {
             // Create a new context with the desired language.
             Configuration config = appContext.getResources().getConfiguration();
             config.setLocale(language.getLocale());
-            contextRef = new WeakReference<>(appContext.createConfigurationContext(config));
+            context = appContext.createConfigurationContext(config);
         }
     }
 
@@ -364,8 +368,7 @@ public class Utils {
     }
 
     public static void setClipboard(@NonNull String text, @Nullable String toastMessage) {
-        Context mContext = contextRef.get();
-        if (mContext != null && mContext.getSystemService(Context.CLIPBOARD_SERVICE) instanceof ClipboardManager clipboardManager) {
+        if (context != null && context.getSystemService(Context.CLIPBOARD_SERVICE) instanceof ClipboardManager clipboardManager) {
             android.content.ClipData clip = android.content.ClipData.newPlainText("ReVanced", text);
             clipboardManager.setPrimaryClip(clip);
 
@@ -508,6 +511,26 @@ public class Utils {
         return false;
     }
 
+    public static CharSequence newSpanUsingStylingOfAnotherSpan(@Nullable CharSequence sourceStyle, @NonNull CharSequence newSpanText) {
+        if (sourceStyle instanceof Spanned spanned) {
+            return newSpanUsingStylingOfAnotherSpan(spanned, newSpanText);
+        }
+        return sourceStyle;
+    }
+
+    public static SpannableString newSpanUsingStylingOfAnotherSpan(@NonNull Spanned sourceStyle, @NonNull CharSequence newSpanText) {
+        if (sourceStyle == newSpanText && sourceStyle instanceof SpannableString spannableString) {
+            return spannableString; // Nothing to do.
+        }
+        SpannableString destination = new SpannableString(newSpanText);
+        Object[] spans = sourceStyle.getSpans(0, sourceStyle.length(), Object.class);
+        for (Object span : spans) {
+            destination.setSpan(span, 0, destination.length(), sourceStyle.getSpanFlags(span));
+        }
+        return destination;
+    }
+
+
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
@@ -516,21 +539,94 @@ public class Utils {
     }
 
     public static int dpToPx(float dp) {
-        Context mContext = contextRef.get();
-        if (mContext == null) {
+        if (context == null) {
             return (int) dp;
         } else {
-            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, mContext.getResources().getDisplayMetrics());
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
         }
     }
 
     public static int dpToPx(int dp) {
-        Context mContext = contextRef.get();
-        if (mContext == null) {
+        if (context == null) {
             return dp;
         } else {
-            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, mContext.getResources().getDisplayMetrics());
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
         }
+    }
+
+
+    /**
+     * Ignore this class. It must be public to satisfy Android requirements.
+     */
+    public static final class DialogFragmentWrapper extends DialogFragment {
+
+        private Dialog dialog;
+        @Nullable
+        private DialogFragmentOnStartAction onStartAction;
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            // Do not call super method to prevent state saving.
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return dialog;
+        }
+
+        @Override
+        public void onStart() {
+            try {
+                super.onStart();
+
+                if (onStartAction != null) {
+                    onStartAction.onStart((AlertDialog) getDialog());
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "onStart failure: " + dialog.getClass().getSimpleName(), ex);
+            }
+        }
+    }
+
+    /**
+     * Interface for {@link #showDialog(Activity, AlertDialog, boolean, DialogFragmentOnStartAction)}.
+     */
+    @FunctionalInterface
+    public interface DialogFragmentOnStartAction {
+        void onStart(AlertDialog dialog);
+    }
+
+    public static void showDialog(Activity activity, AlertDialog dialog) {
+        showDialog(activity, dialog, true, null);
+    }
+
+    /**
+     * Utility method to allow showing an AlertDialog on top of other alert dialogs.
+     * Calling this will always display the dialog on top of all other dialogs
+     * previously called using this method.
+     * <br>
+     * Be aware the on start action can be called multiple times for some situations,
+     * such as the user switching apps without dismissing the dialog then switching back to this app.
+     *<br>
+     * This method is only useful during app startup and multiple patches may show their own dialog,
+     * and the most important dialog can be called last (using a delay) so it's always on top.
+     *<br>
+     * For all other situations it's better to not use this method and
+     * call {@link AlertDialog#show()} on the dialog.
+     */
+    public static void showDialog(Activity activity,
+                                  AlertDialog dialog,
+                                  boolean isCancelable,
+                                  @Nullable DialogFragmentOnStartAction onStartAction) {
+        verifyOnMainThread();
+
+        DialogFragmentWrapper fragment = new DialogFragmentWrapper();
+        fragment.dialog = dialog;
+        fragment.onStartAction = onStartAction;
+        fragment.setCancelable(isCancelable);
+
+        fragment.show(activity.getFragmentManager(), null);
     }
 
     /**
@@ -550,20 +646,18 @@ public class Utils {
     private static void showToast(@NonNull String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
-            Context mContext = contextRef.get();
-            if (mContext == null) {
+            if (context == null) {
                 Logger.initializationException(Utils.class, "Cannot show toast (context is null): " + messageToToast, null);
             } else {
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                Toast.makeText(mContext, messageToToast, toastDuration).show();
+                Toast.makeText(context, messageToToast, toastDuration).show();
             }
         });
     }
 
     public static boolean isLandscapeOrientation() {
-        Context mContext = contextRef.get();
-        if (mContext == null) return false;
-        final int orientation = mContext.getResources().getConfiguration().orientation;
+        if (context == null) return false;
+        final int orientation = context.getResources().getConfiguration().orientation;
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -654,8 +748,7 @@ public class Utils {
 
     @SuppressLint("MissingPermission") // permission already included in YouTube
     public static NetworkType getNetworkType() {
-        Context mContext = contextRef.get();
-        if (mContext == null || !(mContext.getSystemService(Context.CONNECTIVITY_SERVICE) instanceof ConnectivityManager cm))
+        if (context == null || !(context.getSystemService(Context.CONNECTIVITY_SERVICE) instanceof ConnectivityManager cm))
             return NetworkType.NONE;
 
         final NetworkInfo networkInfo = cm.getActiveNetworkInfo();
@@ -744,14 +837,14 @@ public class Utils {
         }
     }
 
-    private static final Regex punctuationRegex = new Regex("\\p{P}+");
+    private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
 
     /**
      * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
      */
     public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationRegex.replace(original, "").toLowerCase();
+        return punctuationPattern.matcher(original).replaceAll("").toLowerCase();
     }
 
     /**
@@ -762,7 +855,6 @@ public class Utils {
      * If a preference has no key or no {@link Sort} suffix,
      * then the preferences are left unsorted.
      */
-    @SuppressWarnings("deprecation")
     public static void sortPreferenceGroups(@NonNull PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         SortedMap<String, Preference> preferences = new TreeMap<>();
@@ -771,8 +863,8 @@ public class Utils {
             Preference preference = group.getPreference(i);
 
             final Sort preferenceSort;
-            if (preference instanceof PreferenceGroup preferenceGroup) {
-                sortPreferenceGroups(preferenceGroup);
+            if (preference instanceof PreferenceGroup subGroup) {
+                sortPreferenceGroups(subGroup);
                 preferenceSort = groupSort; // Sort value for groups is for it's content, not itself.
             } else {
                 // Allow individual preferences to set a key sorting.
@@ -782,13 +874,16 @@ public class Utils {
 
             final String sortValue;
             switch (preferenceSort) {
-                case BY_TITLE ->
-                        sortValue = removePunctuationConvertToLowercase(preference.getTitle());
-                case BY_KEY -> sortValue = preference.getKey();
-                case UNSORTED -> {
+                case BY_TITLE:
+                    sortValue = removePunctuationConvertToLowercase(preference.getTitle());
+                    break;
+                case BY_KEY:
+                    sortValue = preference.getKey();
+                    break;
+                case UNSORTED:
                     continue; // Keep original sorting.
-                }
-                default -> throw new IllegalStateException();
+                default:
+                    throw new IllegalStateException();
             }
 
             preferences.put(sortValue, preference);
@@ -798,13 +893,41 @@ public class Utils {
         for (Preference pref : preferences.values()) {
             int order = index++;
 
-            // If the preference is a PreferenceScreen or is an intent preference, move to the top.
+            // Move any screens, intents, and the one off About preference to the top.
             if (pref instanceof PreferenceScreen || pref.getIntent() != null) {
                 // Arbitrary high number.
                 order -= 1000;
             }
 
             pref.setOrder(order);
+        }
+    }
+
+    /**
+     * Set all preferences to multiline titles if the device is not using an English variant.
+     * The English strings are heavily scrutinized and all titles fit on screen
+     * except 2 or 3 preference strings and those do not affect readability.
+     * <p>
+     * Allowing multiline for those 2 or 3 English preferences looks weird and out of place,
+     * and visually it looks better to clip the text and keep all titles 1 line.
+     */
+    public static void setPreferenceTitlesToMultiLineIfNeeded(PreferenceGroup group) {
+        if (!isSDKAbove(26)) {
+            return;
+        }
+
+        String revancedLocale = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
+        if (revancedLocale.equals(Locale.ENGLISH.getLanguage())) {
+            return;
+        }
+
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference pref = group.getPreference(i);
+            pref.setSingleLineTitle(false);
+
+            if (pref instanceof PreferenceGroup subGroup) {
+                setPreferenceTitlesToMultiLineIfNeeded(subGroup);
+            }
         }
     }
 }

@@ -7,12 +7,15 @@ import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
+import app.revanced.extension.youtube.shared.RootView;
 
 @SuppressWarnings("unused")
 public final class DescriptionsFilter extends Filter {
     private final ByteArrayFilterGroupList macroMarkerShelfGroupList = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup howThisWasMadeSection;
+    private final StringFilterGroup horizontalShelf;
     private final StringFilterGroup infoCardsSection;
     private final StringFilterGroup macroMarkerShelf;
     private final StringFilterGroup shoppingLinks;
@@ -54,6 +57,13 @@ public final class DescriptionsFilter extends Filter {
                 "how_this_was_made_section.eml"
         );
 
+        // In the latest YouTube, the Attribute section has the same path as the Carousel shelf.
+        // To hide only the Attribute section, check if the Description panel is open.
+        horizontalShelf = new StringFilterGroup(
+                Settings.HIDE_ATTRIBUTES_SECTION,
+                "horizontal_shelf.eml"
+        );
+
         infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
                 "infocards_section.eml"
@@ -72,6 +82,7 @@ public final class DescriptionsFilter extends Filter {
 
         addPathCallbacks(
                 howThisWasMadeSection,
+                horizontalShelf,
                 infoCardsSection,
                 macroMarkerShelf,
                 shoppingLinks
@@ -102,6 +113,16 @@ public final class DescriptionsFilter extends Filter {
                 return false;
             }
             if (!macroMarkerShelfGroupList.check(protobufBufferArray).isFiltered()) {
+                return false;
+            }
+        } else if (matchedGroup == horizontalShelf) {
+            if (contentIndex != 0) {
+                return false;
+            }
+            if (!RootView.isPlayerActive()) {
+                return false;
+            }
+            if (!EngagementPanel.isDescription()) {
                 return false;
             }
         }

@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.extension.shared.utils.Logger;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "BooleanMethodIsAlwaysInverted"})
 public final class EngagementPanel {
     private static final AtomicReference<String> engagementPanelId = new AtomicReference<>("");
 

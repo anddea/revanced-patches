@@ -12,6 +12,7 @@ import static app.revanced.extension.music.settings.Settings.EXTERNAL_DOWNLOADER
 import static app.revanced.extension.music.settings.Settings.HIDE_ACCOUNT_MENU_FILTER_STRINGS;
 import static app.revanced.extension.music.settings.Settings.OPEN_DEFAULT_APP_SETTINGS;
 import static app.revanced.extension.music.settings.Settings.OPTIONAL_SPONSOR_BLOCK_SETTINGS_PREFIX;
+import static app.revanced.extension.music.settings.Settings.REPLACE_NAVIGATION_BUTTON_ABOUT;
 import static app.revanced.extension.music.settings.Settings.RETURN_YOUTUBE_USERNAME_ABOUT;
 import static app.revanced.extension.music.settings.Settings.SB_API_URL;
 import static app.revanced.extension.music.settings.Settings.SETTINGS_IMPORT_EXPORT;
@@ -161,6 +162,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                     importExportListDialogBuilder();
                 } else if (settings.equals(RETURN_YOUTUBE_USERNAME_ABOUT)) {
                     YouTubeDataAPIDialogBuilder.showDialog(mActivity);
+                } else if (settings.equals(REPLACE_NAVIGATION_BUTTON_ABOUT)) {
+                    ResettableListPreference.showDialog(mActivity, CHANGE_START_PAGE, 0);
                 } else {
                     Logger.printDebug(() -> "Failed to find the right value: " + dataString);
                 }

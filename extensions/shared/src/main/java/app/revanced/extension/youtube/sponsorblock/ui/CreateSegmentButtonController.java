@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 import static app.revanced.extension.shared.utils.Utils.getChildView;
 
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
@@ -45,7 +46,10 @@ public class CreateSegmentButtonController {
                 return;
             }
             if (animation) {
-                imageView.startAnimation(BottomControlButton.getButtonFadeIn());
+                Animation fadeIn = BottomControlButton.getButtonFadeIn();
+                if (fadeIn != null) {
+                    imageView.startAnimation(fadeIn);
+                }
             }
             imageView.setVisibility(View.VISIBLE);
             return;
@@ -53,7 +57,10 @@ public class CreateSegmentButtonController {
         if (imageView.getVisibility() == View.VISIBLE) {
             imageView.clearAnimation();
             if (animation) {
-                imageView.startAnimation(BottomControlButton.getButtonFadeOut());
+                Animation fadeOut = BottomControlButton.getButtonFadeOut();
+                if (fadeOut != null) {
+                    imageView.startAnimation(fadeOut);
+                }
             }
             imageView.setVisibility(View.GONE);
         }
@@ -65,7 +72,10 @@ public class CreateSegmentButtonController {
         if (!shouldBeShown()) return;
 
         imageView.clearAnimation();
-        imageView.startAnimation(BottomControlButton.getButtonFadeOutImmediate());
+        Animation fadeOutImmediate = BottomControlButton.getButtonFadeOutImmediate();
+        if (fadeOutImmediate != null) {
+            imageView.startAnimation(fadeOutImmediate);
+        }
         imageView.setVisibility(View.GONE);
     }
 

@@ -100,24 +100,24 @@ fun Pair<String, Fingerprint>.injectLiteralInstructionBooleanCall(
 ) {
     methodOrThrow().apply {
         val literalIndex = indexOfFirstLiteralInstruction(literal)
-        val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-        val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+        val register = getInstruction<OneRegisterInstruction>(index).registerA
 
         val smaliInstruction =
             if (descriptor.startsWith("0x")) """
-                const/16 v$targetRegister, $descriptor
+                const/16 v$register, $descriptor
                 """
             else if (descriptor.endsWith("(Z)Z")) """
-                invoke-static {v$targetRegister}, $descriptor
-                move-result v$targetRegister
+                invoke-static/range { v$register .. v$register }, $descriptor
+                move-result v$register
                 """
             else """
                 invoke-static {}, $descriptor
-                move-result v$targetRegister
+                move-result v$register
                 """
 
         addInstructions(
-            targetIndex + 1,
+            index + 1,
             smaliInstruction
         )
     }

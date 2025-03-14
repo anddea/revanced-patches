@@ -147,7 +147,7 @@ class ActionButtonRequest private constructor(
             } catch (ex: IOException) {
                 handleConnectionError("Network error", ex)
             } catch (ex: Exception) {
-                Logger.printException({ "sendApplicationRequest failed" }, ex)
+                Logger.printException({ "sendRequest failed" }, ex)
             } finally {
                 Logger.printDebug { "video: " + videoId + " took: " + (System.currentTimeMillis() - startTime) + "ms" }
             }

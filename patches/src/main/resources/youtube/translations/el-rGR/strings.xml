@@ -69,12 +69,22 @@
     <string name="revanced_bypass_url_redirects_summary_off">Οι ανακατευθύνσεις URL δεν παρακάμπτονται.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Οι ανακατευθύνσεις URL παρακάμπτονται.</string>
     <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
-    <string name="revanced_change_layout_entry_1">Προεπιλογή</string>
-    <string name="revanced_change_layout_entry_2">Κινητό</string>
-    <string name="revanced_change_layout_entry_3">Κινητό (Μέγιστο dp 480)</string>
-    <string name="revanced_change_layout_entry_4">Τάμπλετ</string>
-    <string name="revanced_change_layout_entry_5">Τάμπλετ (Μέγιστο dp 600)</string>
-    <string name="revanced_change_layout_title">Αλλαγή διεπαφής</string>
+    <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
+    <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
+    <string name="revanced_change_form_factor_entry_3">Τηλέφωνο (Μέγιστο dp 480)</string>
+    <string name="revanced_change_form_factor_entry_4">Τάμπλετ</string>
+    <string name="revanced_change_form_factor_entry_5">Τάμπλετ (Μέγιστο dp 600)</string>
+    <string name="revanced_change_form_factor_entry_6">Αυτοκίνητο</string>
+    <string name="revanced_change_form_factor_title">Αλλαγή μορφής διάταξης</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές περιλαμβάνουν:
+
+Διάταξη tablet
+• Οι δημοσιεύσεις κοινότητας δεν εμφανίζονται.
+
+Διάταξη αυτοκινήτου
+• Τα Shorts ανοίγουν στην κανονική οθόνη αναπαραγωγής.
+• Η ροή οργανώνεται ανά θέματα και κανάλια.
+• Η περιγραφή βίντεο δεν γίνεται να ανοιχτεί όταν η λειτουργία «Παραποίηση ροών βίντεο» είναι ενεργοποιημένη."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Η ζωντανή μετάδοση ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Το κανάλι ανοίγει όταν πατιέται ο δακτύλιος ζωντανής μετάδοσης.
 
@@ -1915,6 +1925,14 @@ Playlists
 • Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεμένοι ή σε λειτουργία ανώνυμης περιήγησης."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Παρενέργειες παραποίησης</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Τα βίντεο ενδέχεται να μην αναπαράγονται.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Δεν γίνεται παράλειψη απόκρισης κρυπτογράφησης Onesie.
+
+• Ορισμένοι χρήστες ενδέχεται να αντιμετωπίσουν ένα νέο πρόβλημα αναπαραγωγής."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Γίνεται παράλειψη απόκρισης κρυπτογράφησης Onesie.
+
+• Διόρθωση ενός νέου είδους προβλήματος αναπαραγωγής που επηρεάζει ορισμένους χρήστες.
+• Ο κωδικοποιητής AV1 μπορεί να μην είναι διαθέσιμος."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Παράλειψη απόκρισης κρυπτογράφησης Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη που χρησιμοποιείται για τη λήψη δεδομένων ροής εμφανίζεται στο μενού «Στατιστικά για σπασίκλες».</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο «Στατιστικά για σπασίκλες»</string>

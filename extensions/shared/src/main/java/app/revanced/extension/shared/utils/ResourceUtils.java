@@ -7,6 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 @SuppressWarnings({"unused", "deprecation", "DiscouragedApi"})
 public class ResourceUtils extends Utils {
@@ -100,13 +101,19 @@ public class ResourceUtils extends Utils {
         return getIdentifier(str, ResourceType.XML);
     }
 
+    @Nullable
     public static Animation getAnimation(@NonNull String str) {
-        int identifier = getAnimIdentifier(str);
-        if (identifier == 0) {
+        try {
+            int identifier = getAnimIdentifier(str);
+            if (identifier == 0) {
+                handleException(str, ResourceType.ANIM);
+                identifier = android.R.anim.fade_in;
+            }
+            return AnimationUtils.loadAnimation(getContext(), identifier);
+        } catch (Exception ex) {
             handleException(str, ResourceType.ANIM);
-            identifier = android.R.anim.fade_in;
         }
-        return AnimationUtils.loadAnimation(getContext(), identifier);
+        return null;
     }
 
     public static int getColor(@NonNull String str) {

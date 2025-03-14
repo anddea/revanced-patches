@@ -71,6 +71,18 @@ Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_hide_premium_promotion_closed_toast">Premium promotion popups are closed.</string>
     <string name="revanced_hide_song_video_toggle_summary">Hides the Song / Video toggle in the player.</string>
     <string name="revanced_hide_song_video_toggle_title">Hide Song / Video toggle</string>
+    <string name="revanced_replace_navigation_button_about_summary">"This feature is experimental.
+There are structural limitations of the patch, as Activities such as Search and Settings in YouTube Music are not public.
+
+Known issues:
+• When a replaced Activity such as Search and Settings is closed, the start page opens.
+
+Click to open the 'Change start page' settings."</string>
+    <string name="revanced_replace_navigation_button_about_title">About replace button</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Replaces the Samples button with the Search button.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Replace Samples button</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Replaces the Upgrade button with the Settings button.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Disable real-time lyrics</string>
     <string name="revanced_spoof_client_summary">Spoof the client to prevent playback issues.</string>
     <string name="revanced_spoof_client_title">Spoof client</string>
@@ -79,6 +91,11 @@ Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_6_21">iOS Music 6.21</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Defines a default client for spoofing.</string>
+    <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
+
+Side effect:
+• Sometimes the subtitles are located at the top of the player instead of the bottom."</string>
+    <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.

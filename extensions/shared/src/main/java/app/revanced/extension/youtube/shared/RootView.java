@@ -2,8 +2,47 @@ package app.revanced.extension.youtube.shared;
 
 import static app.revanced.extension.youtube.patches.components.RelatedVideoFilter.isActionBarVisible;
 
+import android.graphics.drawable.Drawable;
+import android.widget.FrameLayout;
+
+import java.lang.ref.WeakReference;
+
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
+
 @SuppressWarnings("unused")
 public final class RootView {
+
+    /**
+     * Interface to call obfuscated methods in AppCompat Toolbar class.
+     */
+    public interface AppCompatToolbarPatchInterface {
+        Drawable patch_getToolbarIcon();
+    }
+
+    private static volatile WeakReference<AppCompatToolbarPatchInterface> toolbarResultsRef
+            = new WeakReference<>(null);
+
+    /**
+     * Injection point.
+     */
+    public static void setToolbar(FrameLayout layout) {
+        AppCompatToolbarPatchInterface toolbar = Utils.getChildView(layout, false, (view) ->
+                view instanceof AppCompatToolbarPatchInterface
+        );
+
+        if (toolbar == null) {
+            Logger.printException(() -> "Could not find toolbar");
+            return;
+        }
+
+        toolbarResultsRef = new WeakReference<>(toolbar);
+    }
+
+    public static boolean isBackButtonVisible() {
+        AppCompatToolbarPatchInterface toolbar = toolbarResultsRef.get();
+        return toolbar != null && toolbar.patch_getToolbarIcon() != null;
+    }
 
     /**
      * @return If the search bar is on screen.  This includes if the player

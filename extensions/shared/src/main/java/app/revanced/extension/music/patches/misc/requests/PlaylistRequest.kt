@@ -5,6 +5,7 @@ import androidx.annotation.GuardedBy
 import app.revanced.extension.shared.patches.client.YouTubeAppClient
 import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
 import app.revanced.extension.shared.requests.Requester
+import app.revanced.extension.shared.settings.AppLanguage
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
 import org.json.JSONException
@@ -139,11 +140,24 @@ class PlaylistRequest private constructor(
                     PlayerRoutes.GET_PLAYLIST_PAGE,
                     clientType
                 )
+                /**
+                 * For some reason, the tracks in Top Songs have the playlistId of the album:
+                 * [ReVanced_Extended#2835](https://github.com/inotia00/ReVanced_Extended/issues/2835)
+                 *
+                 * We can work around this issue by checking the playlist title in the response.
+                 * Tracks played from an album have a playlist title that starts with 'Album',
+                 * Tracks played from Top Songs have a playlist title that starts with 'Song'.
+                 *
+                 * By default, the playlist title follows the app language,
+                 * So we can work around this by setting the language to English when sending the request.
+                 */
                 val requestBody =
                     PlayerRoutes.createApplicationRequestBody(
                         clientType = clientType,
                         videoId = videoId,
-                        playlistId = playlistId
+                        playlistId = playlistId,
+                        setLocale = true,
+                        language = AppLanguage.EN.language,
                     )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
@@ -183,18 +197,23 @@ class PlaylistRequest private constructor(
                             .getJSONObject("playlist")
                             .getJSONObject("playlist")
 
-                    val currentStreamJsonObject = playlistJsonObject
-                        ?.getJSONArray("contents")
-                        ?.get(playlistIndex)
+                    val playlistTitle = playlistJsonObject
+                        ?.getString("title") + ""
 
-                    if (currentStreamJsonObject is JSONObject) {
-                        val watchEndpointJsonObject: JSONObject? =
-                            currentStreamJsonObject
-                                .getJSONObject("playlistPanelVideoRenderer")
-                                .getJSONObject("navigationEndpoint")
-                                .getJSONObject("watchEndpoint")
+                    if (playlistTitle.startsWith("Album")) {
+                        val currentStreamJsonObject = playlistJsonObject
+                            ?.getJSONArray("contents")
+                            ?.get(playlistIndex)
 
-                        return watchEndpointJsonObject?.getString("videoId") + ""
+                        if (currentStreamJsonObject is JSONObject) {
+                            val watchEndpointJsonObject: JSONObject? =
+                                currentStreamJsonObject
+                                    .getJSONObject("playlistPanelVideoRenderer")
+                                    .getJSONObject("navigationEndpoint")
+                                    .getJSONObject("watchEndpoint")
+
+                            return watchEndpointJsonObject?.getString("videoId") + ""
+                        }
                     }
                 }
             } catch (e: JSONException) {

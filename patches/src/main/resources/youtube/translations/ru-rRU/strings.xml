@@ -68,12 +68,22 @@
     <string name="revanced_bypass_url_redirects_summary_off">Отключено.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Включено.</string>
     <string name="revanced_bypass_url_redirects_title">Обход URL переадресации</string>
-    <string name="revanced_change_layout_entry_1">Оригинал</string>
-    <string name="revanced_change_layout_entry_2">Телефон</string>
-    <string name="revanced_change_layout_entry_3">Телефон (Макс. 480 dip)</string>
-    <string name="revanced_change_layout_entry_4">Планшет</string>
-    <string name="revanced_change_layout_entry_5">Планшет (Мин. 600 dip)</string>
-    <string name="revanced_change_layout_title">Изменить макет</string>
+    <string name="revanced_change_form_factor_entry_1">Стандартный</string>
+    <string name="revanced_change_form_factor_entry_2">Телефон</string>
+    <string name="revanced_change_form_factor_entry_3">Телефон (Макс. 480 dip)</string>
+    <string name="revanced_change_form_factor_entry_4">Планшет</string>
+    <string name="revanced_change_form_factor_entry_5">Планшет (Мин. 600 dip)</string>
+    <string name="revanced_change_form_factor_entry_6">Автомобильный</string>
+    <string name="revanced_change_form_factor_title">Макет интерфейса</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Изменения включают:
+
+Макет для планшета
+• Сообщения сообщества скрыты.
+
+Автомобильный макет
+• Shorts открываются в обычном плеере.
+• Лента организована по темам и каналам.
+• Описание видео нельзя открыть, если «Подмена потоковых данных» отключена."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Открывается прямой эфир.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Открывается канал."</string>
     <string name="revanced_change_live_ring_click_action_title">Действие нажатия на точку прямого эфира</string>
@@ -1550,10 +1560,10 @@ Shorts
     <string name="revanced_restore_old_video_quality_menu_summary_off">Старое меню качества скрыто.</string>
     <string name="revanced_restore_old_video_quality_menu_summary_on">Старое меню качества отображено.</string>
     <string name="revanced_restore_old_video_quality_menu_title">Старое меню качества</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_off">Старый интерфейс проигрывателя отключен.</string>
-    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старый интерфейс проигрывателя включен.
-Без отступов сверху и снизу плеера."</string>
-    <string name="revanced_restore_shorts_old_player_layout_title">Старый интерфейс проигрывателя</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_off">Старый интерфейс плеера отключен.</string>
+    <string name="revanced_restore_shorts_old_player_layout_summary_on">"Старый макет плеера используется.
+Нет полей сверху и снизу плеера."</string>
+    <string name="revanced_restore_shorts_old_player_layout_title">Старый интерфейс плеера</string>
     <string name="revanced_return_youtube_username_display_format_handle_username">\@псевдоним (Имя пользователя)</string>
     <string name="revanced_return_youtube_username_display_format_title">Вид отображения</string>
     <string name="revanced_return_youtube_username_display_format_username_handle">Имя пользователя (@псевдоним)</string>
@@ -1915,6 +1925,14 @@ Shorts
 • Детские видео могут не воспроизводиться при выходе из системы или в режиме инкогнито."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Эффекты от подмены</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Видео может не воспроизводиться.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Шифрование ответа Onesie не пропускается.
+
+• Некоторые пользователи могут сталкиваться с новым типом проблемы воспроизведения."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Шифрование ответа Onesie пропускается.
+
+• Исправлен новый тип воспроизведения, с которыми сталкиваются некоторые пользователи.
+• Кодек AV1 может быть недоступен."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Пропустить шифрование ответа Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клиент потоковых данных скрыт в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Клиент потоковых данных отображается в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Статистике для сисадминов</string>

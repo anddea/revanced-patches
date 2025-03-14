@@ -2,9 +2,9 @@
 
 import logging
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
-from defusedxml import lxml
-from lxml import etree as et
+from defusedxml import ElementTree
 
 from config.settings import Settings
 from utils.xml_processor import XMLProcessor
@@ -25,16 +25,15 @@ def compare_and_update(source_path: Path, dest_path: Path, missing_path: Path) -
         # Parse source and destination files
         _, _, source_strings = XMLProcessor.parse_file(source_path)
         _, _, dest_strings = XMLProcessor.parse_file(dest_path)
-        _, _, missing_path_strings = XMLProcessor.parse_file(missing_path)
 
         # Find missing strings
         missing_strings = {name: data for name, data in source_strings.items() if name not in dest_strings}
 
         if missing_strings:
             # Create new root with missing strings
-            root = et.Element("resources")
+            root = ET.Element("resources")
             for _name, data in sorted(missing_strings.items()):
-                string_elem = lxml.fromstring(data["text"].encode())
+                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
                 root.append(string_elem)
 
             # Write missing strings file
