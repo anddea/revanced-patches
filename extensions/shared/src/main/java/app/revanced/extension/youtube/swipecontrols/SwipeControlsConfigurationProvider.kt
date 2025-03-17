@@ -150,22 +150,40 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * text size for the overlay, in sp
-     */
-    val overlayTextSize: Int
-        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-
-    /**
      * get the background color for text on the overlay, as a color int
      */
-    val overlayTextBackgroundColor: Int
+    val overlayBackgroundOpacity: Int
         get() = Color.argb(Settings.SWIPE_OVERLAY_BACKGROUND_ALPHA.get(), 0, 0, 0)
 
     /**
-     * get the foreground color for text on the overlay, as a color int
+     * The color of the progress overlay.
      */
-    val overlayForegroundColor: Int
+    val overlayProgressColor: Int
+        get() = 0xBFFFFFFF.toInt()
+
+    /**
+     * The color used for the background of the progress overlay fill.
+     */
+    val overlayFillBackgroundPaint: Int
+        get() = 0x80D3D3D3.toInt()
+
+    /**
+     * The color used for the text and icons in the overlay.
+     */
+    val overlayTextColor: Int
         get() = Color.WHITE
+
+    /**
+     * A flag that determines if the overlay should only show the icon.
+     */
+    val overlayShowOverlayMinimalStyle: Boolean
+        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
+
+    /**
+     * A flag that determines if the progress bar should be circular.
+     */
+    val isCircularProgressBar: Boolean
+        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
 
     // endregion
 
