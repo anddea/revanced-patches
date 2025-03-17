@@ -1,3 +1,15 @@
+# [3.5.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.2...v3.5.0-dev.3) (2025-03-17)
+
+
+### Features
+
+* **Reddit:** Add support for a wider range of versions (up to 2025.10) ([af42d9b](https://github.com/anddea/revanced-patches/commit/af42d9b6df83b70468597776b495e33a4759210c))
+* **YouTube Music - Navigation bar components:** Add `Replace Samples button` and `Replace Upgrade button` settings ([702c897](https://github.com/anddea/revanced-patches/commit/702c89724aaf9b15c1f2be24b114c1cbed2e2234))
+* **YouTube Music:** Add `Spoof player parameter` patch ([d61fd07](https://github.com/anddea/revanced-patches/commit/d61fd079f44b0b6eb38db49819909ab6207d54aa))
+* **YouTube Music:** Add support version `8.10.51` ([5ff2a6c](https://github.com/anddea/revanced-patches/commit/5ff2a6c4f166d0f2f55ad5a5807114a8356c5853))
+* **YouTube:** Add `Change form factor`, remove `Change layout` patch ([f2fb3fe](https://github.com/anddea/revanced-patches/commit/f2fb3fe49e3c1281f5e9d0874e86926910340e0d))
+* **YouTube:** Add support for a wider range of versions (up to 20.10) ([18509cd](https://github.com/anddea/revanced-patches/commit/18509cd85ddf9190d9c240baf8b758131462f71d))
+
 # [3.5.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.1...v3.5.0-dev.2) (2025-03-09)
 
 
