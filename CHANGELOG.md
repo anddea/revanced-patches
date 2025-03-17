@@ -1,3 +1,10 @@
+# [3.5.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.3...v3.5.0-dev.4) (2025-03-17)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Swipe controls UI improvements ([81a656b](https://github.com/anddea/revanced-patches/commit/81a656bcdd31c2449bd2582f4237ab1e94619691))
+
 # [3.5.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.2...v3.5.0-dev.3) (2025-03-17)
 
 
