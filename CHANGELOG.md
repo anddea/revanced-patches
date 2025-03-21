@@ -1,3 +1,10 @@
+# [3.5.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.4...v3.5.0-dev.5) (2025-03-21)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Horizontal swipe zones no longer disable internal player swipes ([0087614](https://github.com/anddea/revanced-patches/commit/00876147f7cbbde8f0bbdd36c586911b868fe721))
+
 # [3.5.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.3...v3.5.0-dev.4) (2025-03-17)
 
 
