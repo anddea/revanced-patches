@@ -31,10 +31,15 @@ class ClassicSwipeController(
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
         val inVolumeZone = motionEvent.toPoint() in controller.zones.volume
         val inBrightnessZone = motionEvent.toPoint() in controller.zones.brightness
-        val inSpeedZone = controller.config.enableSpeedControl && (motionEvent.toPoint() in controller.zones.speed)
-        val inSeekZone = controller.config.enableSeekControl && (motionEvent.toPoint() in controller.zones.seek)
+        return inVolumeZone || inBrightnessZone
+    }
 
-        return inVolumeZone || inBrightnessZone || inSpeedZone || inSeekZone
+    private fun isInHorizontalSwipeZone(motionEvent: MotionEvent): Boolean {
+        val inSpeedZone =
+            controller.config.enableSpeedControl && (motionEvent.toPoint() in controller.zones.speed)
+        val inSeekZone =
+            controller.config.enableSeekControl && (motionEvent.toPoint() in controller.zones.seek)
+        return inSpeedZone || inSeekZone
     }
 
     override fun shouldDropMotion(motionEvent: MotionEvent): Boolean {
@@ -59,7 +64,7 @@ class ClassicSwipeController(
         lastOnDownEvent = MotionEvent.obtain(motionEvent)
 
         // must be inside swipe zone
-        return isInSwipeZone(motionEvent)
+        return isInSwipeZone(motionEvent) || isInHorizontalSwipeZone(motionEvent)
     }
 
     override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {
