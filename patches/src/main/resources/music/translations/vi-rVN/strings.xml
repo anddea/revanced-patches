@@ -90,10 +90,12 @@ Nếu có thể, hãy sử dụng màu tối vì ứng dụng không hỗ trợ 
 
 Trong trường hợp đó, hệ thống sẽ tìm và chuyển hướng tới bài hát chính thức.
 
-• Được hỗ trợ bởi API của Piped Instance."</string>
+Hạn chế: Video dành cho trẻ em có thể không được chuyển hướng."</string>
     <string name="revanced_disable_music_video_in_album_title">Tắt video âm nhạc trong đĩa nhạc</string>
     <string name="revanced_disable_player_gesture_summary">Tắt vuốt để chuyển bài hát trong trình phát.</string>
     <string name="revanced_disable_player_gesture_title">Tắt cử chỉ trình phát</string>
+    <string name="revanced_disable_quic_protocol_summary">"Vô hiệu hoá giao thức QUIC của CronetEngine."</string>
+    <string name="revanced_disable_quic_protocol_title">Vô hiệu hoá giao thức QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Bật trình đơn tuỳ chọn dạng hộp thoại.
 
 Hạn chế:
@@ -124,8 +126,10 @@ Chi tiết:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Vuốt để đóng trình phát thu nhỏ</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Vuốt xuống để đóng trình phát thu nhỏ.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Vuốt để đóng trình phát thu nhỏ</string>
-    <string name="revanced_enable_thick_seekbar_summary">Bật thanh tiến trình dày.</string>
-    <string name="revanced_enable_thick_seekbar_title">Thanh tiến trình dày</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Bật thanh tiến trình lớn trong trình phát.
+
+Hạn chế: các phân đoạn SponsorBlock không được hiển thị trên thanh tiến tình."</string>
+    <string name="revanced_enable_thick_seekbar_title">Thanh tiến trình lớn</string>
     <string name="revanced_enable_trim_silence_summary">"Thêm tính năng Cắt bỏ khoảng lặng vào mục tuỳ chọn tốc độ phát.
 
  Chi tiết:
@@ -240,7 +244,9 @@ Chi tiết:
     <string name="revanced_hide_flyout_menu_subscribe_title">Ẩn mục Đăng ký/Huỷ đăng ký</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Ẩn mục Bỏ ghim khỏi kệ Phát nhanh</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Ẩn mục Xem thông tin ghi công của bài hát</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Ẩn quảng cáo toàn màn hình.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Ẩn quảng cáo toàn màn hình.
+
+Hạn chế: Đôi khi mở thẻ Trang chủ, bạn chỉ thấy một màn hình màu đen."</string>
     <string name="revanced_hide_fullscreen_ads_title">Ẩn quảng cáo toàn màn hình</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Ẩn nút Chia sẻ trong trình phát toàn màn hình.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Ẩn nút Chia sẻ trong trình phát toàn màn hình</string>
@@ -346,6 +352,18 @@ Khi bật không những ẩn mục Cài đặt YT Music, mà còn ẩn mục C�
     <string name="revanced_replace_flyout_menu_report_only_player_title">Báo vi phạm trong phần bình luận</string>
     <string name="revanced_replace_flyout_menu_report_summary">Thay thế mục Báo vi phạm bằng mục Tốc độ phát.</string>
     <string name="revanced_replace_flyout_menu_report_title">Thay thế mục Báo vi phạm</string>
+    <string name="revanced_replace_navigation_button_about_summary">"Hiện tính năng này đang trong giai đoạn thử nghiệm.
+Bản vá có một số hạn chế về mặt cấu trúc vì các hoạt động như Tìm kiếm và Cài đặt trong YouTube Music không được công khai.
+
+Các sự cố đã biết:
+• Khi một hoạt động thay thế như Tìm kiếm và Cài đặt bị đóng, trang khởi động sẽ được mở.
+
+Bạn có thể mở Thay đổi cài đặt trang khởi động bằng cách nhấp vào đây."</string>
+    <string name="revanced_replace_navigation_button_about_title">Về tính năng thay thế nút</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Thay thế nút Đoạn nhạc bằng nút Tìm kiếm.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Thay thế nút Đoạn nhạc</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Thay thế nút Nâng cấp bằng nút Cài đặt.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Thay thế nút Nâng cấp</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Khôi phục bảng bình luận kiểu cũ.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Bảng bình luận kiểu cũ</string>
     <string name="revanced_restore_old_player_background_summary">Khôi phục nền của trình phát về kiểu cũ.</string>
@@ -466,6 +484,11 @@ Nhấp vào đây để xem các bước phát hành khóa API."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Xác định ứng dụng khách mặc định để giả mạo.</string>
     <string name="revanced_spoof_client_type_title">Ứng dụng khách mặc định</string>
+    <string name="revanced_spoof_player_parameter_summary">"Giả mạo thông số trình phát để khắc phục sự cố phát.
+
+Hạn chế:
+• Đôi khi phụ đề hiển thị ở phía trên của trình phát thay vì ở phía dưới như thường lệ."</string>
+    <string name="revanced_spoof_player_parameter_title">Giả mạo thông số trình phát</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Hiển thị ứng dụng khách được sử dụng để nạp luồng dữ liệu trực tuyến trong Thống kê chi tiết.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Thống kê chi tiết</string>
     <string name="revanced_spoof_streaming_data_summary">"Giả mạo luồng dữ liệu trực tuyến nhằm khắc phục sự cố phát.

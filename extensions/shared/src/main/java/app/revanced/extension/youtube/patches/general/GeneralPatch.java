@@ -478,6 +478,10 @@ public class GeneralPatch {
         return Settings.HIDE_SEARCH_TERM_THUMBNAIL.get();
     }
 
+    public static boolean hideSearchTermThumbnail(boolean original) {
+        return !hideSearchTermThumbnail() && original;
+    }
+
     private static final boolean hideImageSearchButton = Settings.HIDE_IMAGE_SEARCH_BUTTON.get();
     private static final boolean hideVoiceSearchButton = Settings.HIDE_VOICE_SEARCH_BUTTON.get();
 

@@ -10,6 +10,7 @@ on:
 jobs:
   release:
     name: Release
+    if: github.repository_owner == 'anddea'
     permissions:
       contents: write
       issues: write

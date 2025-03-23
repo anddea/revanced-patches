@@ -23,16 +23,13 @@ import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 
-/**
- * @noinspection all
- */
+@SuppressWarnings("StringOperationCanBeSimplified")
 public class ExternalDownloaderPreference {
 
     private static final StringSetting settings = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME;
     private static final String[] mEntries = ResourceUtils.getStringArray("revanced_external_downloader_label");
     private static final String[] mEntryValues = ResourceUtils.getStringArray("revanced_external_downloader_package_name");
     private static final String[] mWebsiteEntries = ResourceUtils.getStringArray("revanced_external_downloader_website");
-    private static EditText mEditText;
     private static String packageName;
     private static int mClickedDialogEntryIndex;
 
@@ -50,7 +47,7 @@ public class ExternalDownloaderPreference {
     };
 
     public static void showDialog(Activity mActivity) {
-        packageName = settings.get().toString();
+        packageName = settings.get();
         mClickedDialogEntryIndex = Arrays.asList(mEntryValues).indexOf(packageName);
 
         AlertDialog.Builder builder = getDialogBuilder(mActivity);
@@ -61,7 +58,7 @@ public class ExternalDownloaderPreference {
 
         TableRow row = new TableRow(mActivity);
 
-        mEditText = new EditText(mActivity);
+        EditText mEditText = new EditText(mActivity);
         mEditText.setText(packageName);
         mEditText.addTextChangedListener(textWatcher);
         mEditText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 9);
@@ -94,10 +91,8 @@ public class ExternalDownloaderPreference {
         if (mClickedDialogEntryIndex >= 0) {
             appName = mEntries[mClickedDialogEntryIndex].toString();
             website = mWebsiteEntries[mClickedDialogEntryIndex].toString();
-            return showToastOrOpenWebsites(mActivity, appName, packageName, website);
-        } else {
-            return showToastOrOpenWebsites(mActivity, appName, packageName, website);
         }
+        return showToastOrOpenWebsites(mActivity, appName, packageName, website);
     }
 
     private static boolean showToastOrOpenWebsites(Activity mActivity, String appName, String packageName, String website) {

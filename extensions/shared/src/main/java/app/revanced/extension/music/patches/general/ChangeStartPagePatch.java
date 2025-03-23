@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
 import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.music.utils.ExtendedUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
@@ -40,27 +41,17 @@ public final class ChangeStartPagePatch {
         /**
          * Intent extra.
          */
-        SEARCH("", 1, "Eh4IBRDTnQEYmgMiEwiZn+H0r5WLAxVV5OcDHcHRBmPqpd25AQA=");
+        SEARCH("");
 
         @NonNull
         final String browseId;
 
-        final int shortcutType;
-
-        /**
-         * Unique identifier for shortcut (Base64).
-         */
-        @NonNull
-        final String shortcutId;
-
         StartPage(@NonNull String browseId) {
-            this(browseId, 0, "");
+            this.browseId = browseId;
         }
 
-        StartPage(@NonNull String browseId, int shortcutType, @NonNull String shortcutId) {
-            this.browseId = browseId;
-            this.shortcutType = shortcutType;
-            this.shortcutId = shortcutId;
+        public final String getBrowseId() {
+            return this.browseId;
         }
     }
 
@@ -68,12 +59,6 @@ public final class ChangeStartPagePatch {
      * Intent action when YouTube is cold started from the launcher.
      */
     private static final String ACTION_MAIN = "android.intent.action.MAIN";
-
-    private static final String SHORTCUT_ACTION = "com.google.android.youtube.music.action.shortcut";
-
-    private static final String SHORTCUT_CLASS_DESCRIPTOR = "com.google.android.apps.youtube.music.activities.InternalMusicActivity";
-
-    private static final String SHORTCUT_TYPE = "com.google.android.youtube.music.action.shortcut_type";
 
     private static final StartPage START_PAGE = Settings.CHANGE_START_PAGE.get();
 
@@ -96,20 +81,13 @@ public final class ChangeStartPagePatch {
                     " as the current activity is not the entry point of the application");
             return;
         }
-        final String overrideShortcutId = START_PAGE.shortcutId;
-        if (overrideShortcutId.isEmpty()) {
+        if (START_PAGE != StartPage.SEARCH) {
             return;
         }
         Activity mActivity = ResourceUtils.getActivity();
-        if (mActivity == null) {
-            return;
+        if (mActivity != null) {
+            Logger.printDebug(() -> "Changing intent action to " + START_PAGE.name());
+            ExtendedUtils.setSearchIntent(mActivity, intent);
         }
-
-        Logger.printDebug(() -> "Changing intent action to " + START_PAGE.name());
-        intent.setAction(SHORTCUT_ACTION);
-        intent.setClassName(mActivity, SHORTCUT_CLASS_DESCRIPTOR);
-        intent.setPackage(mActivity.getPackageName());
-        intent.putExtra(SHORTCUT_TYPE, START_PAGE.shortcutType);
-        intent.putExtra(SHORTCUT_ACTION, overrideShortcutId);
     }
 }

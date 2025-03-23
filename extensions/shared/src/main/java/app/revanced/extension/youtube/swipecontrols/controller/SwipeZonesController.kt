@@ -118,6 +118,32 @@ class SwipeZonesController(
         }
 
     /**
+     * the rectangle of the speed control zone (bottom half)
+     */
+    val speed: Rectangle
+        get() {
+            return Rectangle(
+                effectiveSwipeRect.left,
+                effectiveSwipeRect.top + effectiveSwipeRect.height / 2,
+                effectiveSwipeRect.width,
+                effectiveSwipeRect.height / 2
+            )
+        }
+
+    /**
+     * the rectangle of the seek control zone (top half)
+     */
+    val seek: Rectangle // Add seek zone
+        get() {
+            return Rectangle(
+                effectiveSwipeRect.left,
+                effectiveSwipeRect.top,
+                effectiveSwipeRect.width,
+                effectiveSwipeRect.height / 2
+            )
+        }
+
+    /**
      * try to attach a listener to the player_view and update the player rectangle.
      * once a listener is attached, this function does nothing
      */

@@ -242,10 +242,17 @@ val swipeControlsPatch = bytecodePatch(
             "youtube/swipecontrols",
             ResourceGroup(
                 "drawable",
-                "ic_sc_brightness_auto.xml",
-                "ic_sc_brightness_manual.xml",
-                "ic_sc_volume_mute.xml",
-                "ic_sc_volume_normal.xml"
+                "revanced_ic_sc_brightness_auto.xml",
+                "revanced_ic_sc_brightness_full.xml",
+                "revanced_ic_sc_brightness_high.xml",
+                "revanced_ic_sc_brightness_low.xml",
+                "revanced_ic_sc_brightness_medium.xml",
+                "revanced_ic_sc_seek.xml",
+                "revanced_ic_sc_speed.xml",
+                "revanced_ic_sc_volume_high.xml",
+                "revanced_ic_sc_volume_low.xml",
+                "revanced_ic_sc_volume_mute.xml",
+                "revanced_ic_sc_volume_normal.xml",
             )
         )
 

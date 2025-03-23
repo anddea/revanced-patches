@@ -80,7 +80,7 @@ public class ActionBarPatch {
                     !downloadButtonLabel.isEmpty() &&
                     map != null &&
                     map.get(ELEMENTS_SENDER_VIEW) instanceof ComponentHost componentHost &&
-                    componentHost.getContentDescription().toString().equals(downloadButtonLabel)
+                    downloadButtonLabel.equals(componentHost.getContentDescription() + "")
             ) {
                 if (!map.containsKey(EXTERNAL_DOWNLOADER_LAUNCHED)) {
                     map.put(EXTERNAL_DOWNLOADER_LAUNCHED, Boolean.TRUE);

@@ -8,7 +8,7 @@ import android.preference.Preference;
 import android.preference.SwitchPreference;
 
 import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.youtube.patches.general.LayoutSwitchPatch;
+import app.revanced.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
 import app.revanced.extension.youtube.patches.utils.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
@@ -82,7 +82,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
      */
     private static void TabletLayoutLinks() {
         final boolean isTablet = ExtendedUtils.isTablet() &&
-                !LayoutSwitchPatch.phoneLayoutEnabled();
+                !ChangeFormFactorPatch.phoneLayoutEnabled();
 
         enableDisablePreferences(
                 isTablet,

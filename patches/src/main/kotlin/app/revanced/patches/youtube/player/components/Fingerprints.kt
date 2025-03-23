@@ -2,12 +2,14 @@
 
 package app.revanced.patches.youtube.player.components
 
+import app.revanced.patches.youtube.utils.resourceid.componentLongClickListener
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.donationCompanion
 import app.revanced.patches.youtube.utils.resourceid.easySeekEduContainer
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutCircle
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutIcon
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutVideo
+import app.revanced.patches.youtube.utils.resourceid.offlineActionsVideoDeletedUndoSnackbarText
 import app.revanced.patches.youtube.utils.resourceid.scrubbing
 import app.revanced.patches.youtube.utils.resourceid.seekEasyHorizontalTouchOffsetToStartScrubbing
 import app.revanced.patches.youtube.utils.resourceid.suggestedAction
@@ -205,6 +207,30 @@ internal val layoutVideoFingerprint = legacyFingerprint(
         Opcode.CHECK_CAST,
     ),
     literals = listOf(endScreenElementLayoutVideo),
+)
+
+internal val lithoComponentOnClickListenerFingerprint = legacyFingerprint(
+    name = "lithoComponentOnClickListenerFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    literals = listOf(componentLongClickListener),
+)
+
+internal val engagementPanelPlaylistSyntheticFingerprint = legacyFingerprint(
+    name = "engagementPanelPlaylistSyntheticFingerprint",
+    strings = listOf("engagement-panel-playlist"),
+    customFingerprint = { _, classDef ->
+        classDef.interfaces.contains("Landroid/view/View${'$'}OnClickListener;")
+    }
+)
+
+internal val offlineActionsOnClickListenerFingerprint = legacyFingerprint(
+    name = "offlineActionsOnClickListenerFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Ljava/lang/String;"),
+    literals = listOf(offlineActionsVideoDeletedUndoSnackbarText),
 )
 
 internal val quickSeekOverlayFingerprint = legacyFingerprint(

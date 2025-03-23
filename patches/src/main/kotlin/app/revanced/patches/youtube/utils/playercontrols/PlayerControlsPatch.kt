@@ -201,25 +201,25 @@ private fun MutableMethod.initializeHook(classDescriptor: String) =
         "invoke-static {p0}, $classDescriptor->initialize(Landroid/view/View;)V"
     )
 
-private fun changeVisibilityHook(classDescriptor: String) =
+internal fun changeVisibilityHook(classDescriptor: String) =
     changeVisibilityMethod.addInstruction(
         0,
         "invoke-static {p0, p1}, $classDescriptor->changeVisibility(ZZ)V"
     )
 
-private fun changeVisibilityNegatedImmediateHook(classDescriptor: String) =
+internal fun changeVisibilityNegatedImmediateHook(classDescriptor: String) =
     changeVisibilityNegatedImmediatelyMethod.addInstruction(
         0,
         "invoke-static {}, $classDescriptor->changeVisibilityNegatedImmediate()V"
     )
 
-fun hookBottomControlButton(classDescriptor: String) {
+internal fun hookBottomControlButton(classDescriptor: String) {
     initializeBottomControlButtonMethod.initializeHook(classDescriptor)
     changeVisibilityHook(classDescriptor)
     changeVisibilityNegatedImmediateHook(classDescriptor)
 }
 
-fun hookTopControlButton(classDescriptor: String) {
+internal fun hookTopControlButton(classDescriptor: String) {
     initializeTopControlButtonMethod.initializeHook(classDescriptor)
     changeVisibilityHook(classDescriptor)
     changeVisibilityNegatedImmediateHook(classDescriptor)

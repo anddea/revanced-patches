@@ -1,5 +1,6 @@
 package app.revanced.patches.reddit.layout.navigation
 
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -8,6 +9,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val bottomNavScreenFingerprint = legacyFingerprint(
     name = "bottomNavScreenFingerprint",
@@ -62,13 +64,32 @@ internal val bottomNavScreenOnGlobalLayoutFingerprint = legacyFingerprint(
     }
 )
 
+private const val CHAT_BUTTON_MAGIC_NUMBER = 1906671695L
+
 internal val bottomNavScreenSetupBottomNavigationFingerprint = legacyFingerprint(
     name = "bottomNavScreenSetupBottomNavigationFingerprint",
-    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(Opcode.FILLED_NEW_ARRAY),
     customFingerprint = { method, classDef ->
-        classDef.type.startsWith("Lcom/reddit/launch/bottomnav/BottomNavScreen${'$'}setupBottomNavigation${'$'}") &&
-                method.name == "invoke"
+        method.containsLiteralInstruction(CHAT_BUTTON_MAGIC_NUMBER) &&
+                method.name == "invoke" &&
+                indexOfButtonsArrayInstruction(method) >= 0
     }
 )
+
+internal val composeBottomNavScreenFingerprint = legacyFingerprint(
+    name = "composeBottomNavScreenFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("Landroid/content/res/Resources;"),
+    opcodes = listOf(Opcode.FILLED_NEW_ARRAY),
+    customFingerprint = { method, classDef ->
+        classDef.type == "Lcom/reddit/launch/bottomnav/ComposeBottomNavScreen;" &&
+                indexOfButtonsArrayInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfButtonsArrayInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.FILLED_NEW_ARRAY &&
+                getReference<TypeReference>()?.type?.startsWith("[Lcom/reddit/widget/bottomnav/") == true
+    }

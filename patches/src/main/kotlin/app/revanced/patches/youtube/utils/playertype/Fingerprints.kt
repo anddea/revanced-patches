@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.utils.playertype
 
 import app.revanced.patches.youtube.utils.resourceid.reelWatchPlayer
+import app.revanced.patches.youtube.utils.resourceid.toolbarContainerId
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,6 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val browseIdClassFingerprint = legacyFingerprint(
     name = "browseIdClassFingerprint",
@@ -59,6 +61,34 @@ internal val searchQueryClassFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         indexOfStringIsEmptyInstruction(method) >= 0
     }
+)
+
+internal val toolbarLayoutFingerprint = legacyFingerprint(
+    name = "toolbarLayoutFingerprint",
+    literals = listOf(toolbarContainerId),
+    customFingerprint = { method, _ ->
+        method.name == "<init>" &&
+                indexOfMainCollapsingToolbarLayoutInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfMainCollapsingToolbarLayoutInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.CHECK_CAST &&
+                getReference<TypeReference>()?.type == "Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;"
+    }
+
+/**
+ * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
+ */
+internal val appCompatToolbarBackButtonFingerprint = legacyFingerprint(
+    name = "appCompatToolbarBackButtonFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Landroid/graphics/drawable/Drawable;",
+    parameters = emptyList(),
+    customFingerprint =  { _, classDef ->
+        classDef.type == "Landroid/support/v7/widget/Toolbar;"
+    },
 )
 
 internal val videoStateFingerprint = legacyFingerprint(

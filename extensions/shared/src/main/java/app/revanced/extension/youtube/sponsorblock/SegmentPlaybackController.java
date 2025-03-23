@@ -510,6 +510,7 @@ public class SegmentPlaybackController {
      * Removes all previously hidden segments that are no longer contained in the given video time.
      */
     private static void updateHiddenSegments(long currentVideoTime) {
+        // If you want to maintain compatibility with RVX Android 6, use Iterator.
         hiddenSkipSegmentsForCurrentVideoTime.removeIf(segment -> {
             if (!segment.containsTime(currentVideoTime)) {
                 Logger.printDebug(() -> "Resetting hide skip button: " + segment);
@@ -543,6 +544,14 @@ public class SegmentPlaybackController {
         SponsorBlockViewController.showSkipSegmentButton(segment);
     }
 
+    public static void changeVisibility(boolean showing, boolean animation) {
+        onPlayerControlsVisibilityChanged(showing, false);
+    }
+
+    public static void changeVisibilityNegatedImmediate() {
+        onPlayerControlsVisibilityChanged(false, true);
+    }
+
     /**
      * Handles changes in player control visibility and manages the skip segment button accordingly.
      *
@@ -551,17 +560,26 @@ public class SegmentPlaybackController {
      * the skip segment button when the controls are visible and schedule recursive checks
      * to hide the button after a defined duration.</p>
      *
-     * @param visible {@code true} if player controls are visible; {@code false} otherwise
+     * @param visible   if true, player controls are visible (The user touched the player when the player controls were invisible)
+     * @param immediate if true, player controls are invisible (The user touched the player when the player controls were visible)
      */
-    public static void onPlayerControlsVisibilityChanged(boolean visible) {
-        if (!Settings.SB_AUTO_HIDE_SKIP_BUTTON.get() || segmentCurrentlyPlaying == null) {
+    private static void onPlayerControlsVisibilityChanged(boolean visible, boolean immediate) {
+        if (!Settings.SB_ENABLED.get()
+                || !Settings.SB_AUTO_HIDE_SKIP_BUTTON.get()
+                || segmentCurrentlyPlaying == null
+                // When the player button appears after the skip button is hidden
+                || !hiddenSkipSegmentsForCurrentVideoTime.contains(segmentCurrentlyPlaying)) {
             return;
         }
 
         if (visible) {
             SponsorBlockViewController.showSkipSegmentButton(segmentCurrentlyPlaying);
-            skipSegmentButtonEndTime = System.currentTimeMillis() + DURATION_TO_SHOW_SKIP_BUTTON;
+            skipSegmentButtonEndTime = System.currentTimeMillis() + 2000; // Player buttons are hidden after 2000ms
             checkPlayerControlsVisibilityRecursive(segmentCurrentlyPlaying);
+        } else if (immediate) {
+            // Hide the skip segment button and reset the end time
+            skipSegmentButtonEndTime = 0;
+            SponsorBlockViewController.hideSkipSegmentButton();
         }
     }
 
@@ -575,8 +593,9 @@ public class SegmentPlaybackController {
      * @param segment the sponsor segment associated with the current check
      */
     private static void checkPlayerControlsVisibilityRecursive(SponsorSegment segment) {
-        // Stop recursion if the current segment has changed
-        if (segment != segmentCurrentlyPlaying) {
+        if (skipSegmentButtonEndTime == 0
+                // Stop recursion if the current segment has changed
+                || segment != segmentCurrentlyPlaying) {
             return;
         }
 

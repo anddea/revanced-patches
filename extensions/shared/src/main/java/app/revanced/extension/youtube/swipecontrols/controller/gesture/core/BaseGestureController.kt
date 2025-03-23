@@ -24,6 +24,8 @@ abstract class BaseGestureController(
         controller.overlay,
         controller.config.volumeDistance,
         controller.config.brightnessDistance,
+        controller.config.speedDistance,
+        controller.config.seekDistance,
     ) {
 
     /**
@@ -66,7 +68,7 @@ abstract class BaseGestureController(
         me.recycle()
 
         // do not consume dropped events
-        // or events outside of any swipe zone
+        // or events outside any swipe zone
         return !dropped && consumed && isInSwipeZone(me)
     }
 
@@ -118,7 +120,7 @@ abstract class BaseGestureController(
     }
 
     /**
-     * should [submitTouchEvent] force- intercept all touch events?
+     * should [submitTouchEvent] force-intercept all touch events?
      */
     abstract val shouldForceInterceptEvents: Boolean
 
@@ -132,7 +134,7 @@ abstract class BaseGestureController(
 
     /**
      * check if a touch event should be dropped.
-     * when a event is dropped, the gesture detector received a [MotionEvent.ACTION_CANCEL] event and the event is not consumed
+     * when an event is dropped, the gesture detector received a [MotionEvent.ACTION_CANCEL] event and the event is not consumed
      *
      * @param motionEvent the event to check
      * @return should the event be dropped?

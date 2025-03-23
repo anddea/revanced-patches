@@ -2,7 +2,6 @@ package app.revanced.patches.music.misc.codecs
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.music.utils.extension.Constants.MISC_PATH
 import app.revanced.patches.music.utils.patch.PatchList.ENABLE_OPUS_CODEC
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
@@ -18,10 +17,8 @@ val opusCodecPatch = resourcePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
-        baseOpusCodecsPatch(
-            "$MISC_PATH/OpusCodecPatch;->enableOpusCodec()Z"
-        ),
-        settingsPatch
+        settingsPatch,
+        baseOpusCodecsPatch(),
     )
 
     execute {
@@ -30,8 +27,6 @@ val opusCodecPatch = resourcePatch(
             "revanced_enable_opus_codec",
             "false"
         )
-
         updatePatchStatus(ENABLE_OPUS_CODEC)
-
     }
 }

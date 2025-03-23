@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
@@ -21,16 +22,22 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 private const val EXTENSION_PLAYER_TYPE_HOOK_CLASS_DESCRIPTOR =
     "$UTILS_PATH/PlayerTypeHookPatch;"
 
 private const val EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR =
     "$SHARED_PATH/RootView;"
+
+private const val EXTENSION_ROOT_VIEW_TOOLBAR_INTERFACE =
+    "$SHARED_PATH/RootView${'$'}AppCompatToolbarPatchInterface;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "$COMPONENTS_PATH/RelatedVideoFilter;"
@@ -159,6 +166,53 @@ val playerTypeHookPatch = bytecodePatch(
                     "searchQueryClass",
                     definingClass,
                     smaliInstructions
+                )
+            }
+        }
+
+        // endregion
+
+        // region patch for hook back button visibility
+
+        toolbarLayoutFingerprint.methodOrThrow().apply {
+            val index = indexOfMainCollapsingToolbarLayoutInstruction(this)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, $EXTENSION_ROOT_VIEW_HOOK_CLASS_DESCRIPTOR->setToolbar(Landroid/widget/FrameLayout;)V"
+            )
+        }
+
+        // Add interface for extensions code to call obfuscated methods.
+        appCompatToolbarBackButtonFingerprint.matchOrThrow().let {
+            it.classDef.apply {
+                interfaces.add(EXTENSION_ROOT_VIEW_TOOLBAR_INTERFACE)
+
+                val definingClass = type
+                val obfuscatedMethodName = it.originalMethod.name
+                val returnType = "Landroid/graphics/drawable/Drawable;"
+
+                methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        "patch_getToolbarIcon",
+                        listOf(),
+                        returnType,
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                 invoke-virtual { p0 }, $definingClass->$obfuscatedMethodName()$returnType
+                                 move-result-object v0
+                                 return-object v0
+                             """
+                        )
+                    }
                 )
             }
         }

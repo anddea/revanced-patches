@@ -13,6 +13,9 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 logger = logging.getLogger("xml_tools")
+BLACKLIST: set[str] = {
+    "revanced_swipe_overlay_text_size",
+}
 
 
 def extract_key_lines(path: Path) -> dict[str, str]:
@@ -82,9 +85,10 @@ def _get_default_key_only_check() -> list[str]:
     """
     return [
         "revanced_change_shorts_repeat_state",
-        "revanced_custom_seekbar_color_primary",
         "revanced_custom_seekbar_color_accent",
+        "revanced_custom_seekbar_color_primary",
         "revanced_override_youtube_music_button_about_prerequisite",
+        "revanced_swipe_volume_sensitivity",
         "revanced_whitelist_settings",
     ]
 
@@ -94,6 +98,7 @@ def _compare_key_lines(
     key_lines_2: dict[str, str],
     ignored_attributes: list[str],
     key_only_check: list[str],
+    blacklist: set[str],
 ) -> tuple[set[str], set[str], dict[str, dict[str, str]]]:
     """Compare key-value pairs from two XML files and identify differences.
 
@@ -102,6 +107,7 @@ def _compare_key_lines(
         key_lines_2: Extracted key-value pairs from the second file.
         ignored_attributes: List of attributes to ignore during comparison.
         key_only_check: List of keys where only existence matters, not content.
+        blacklist: A set of keys to ignore completely.
 
     Returns:
         A tuple containing:
@@ -111,6 +117,10 @@ def _compare_key_lines(
 
     """
     key_only_set: set[str] = set(key_only_check)
+
+    # Apply blacklist filtering
+    key_lines_1 = {k: v for k, v in key_lines_1.items() if k not in blacklist}
+    key_lines_2 = {k: v for k, v in key_lines_2.items() if k not in blacklist}
 
     missing_keys_all = set(key_lines_1.keys()) - set(key_lines_2.keys())
     missing_keys = missing_keys_all - key_only_set
@@ -200,6 +210,7 @@ def process(
     base_dir: Path,
     ignored_attributes: list[str] | None = None,
     key_only_check: list[str] | None = None,
+    blacklist: set[str] | None = None,
 ) -> None:
     """Process XML preference files and identify missing or differing preferences.
 
@@ -208,6 +219,7 @@ def process(
         base_dir: The base directory where RVX patches are located.
         ignored_attributes: Optional list of attributes to ignore during comparison.
         key_only_check: Optional list of keys for which only existence should be checked.
+        blacklist: Optional set of keys to completely ignore.
 
     Logs:
         Missing keys, keys with differences, or a message indicating no issues were found.
@@ -217,6 +229,7 @@ def process(
         ignored_attributes = _get_default_ignored_attributes()
     if key_only_check is None:
         key_only_check = _get_default_key_only_check()
+    blacklist = BLACKLIST if blacklist is None else blacklist.union(BLACKLIST)
 
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")
@@ -237,6 +250,7 @@ def process(
             key_lines_2,
             ignored_attributes,
             key_only_check,
+            blacklist,
         )
 
         _log_comparison_results(missing_keys, missing_key_only, different_lines, key_lines_1)

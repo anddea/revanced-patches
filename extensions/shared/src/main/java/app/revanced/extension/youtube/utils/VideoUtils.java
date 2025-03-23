@@ -194,7 +194,8 @@ public class VideoUtils extends IntentUtils {
      */
     @SuppressWarnings("deprecation")
     public static void pauseMedia() {
-        if (context != null && context.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
+        Context mContext = getContext();
+        if (mContext != null && mContext.getApplicationContext().getSystemService(Context.AUDIO_SERVICE) instanceof AudioManager audioManager) {
             audioManager.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
         }
     }

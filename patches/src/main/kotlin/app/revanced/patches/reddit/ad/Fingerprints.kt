@@ -27,6 +27,28 @@ internal val adPostFingerprint = legacyFingerprint(
     },
 )
 
+internal val commentAdCommentScreenAdViewFingerprint = legacyFingerprint(
+    name = "commentAdCommentScreenAdViewFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    strings = listOf("ad"),
+    customFingerprint = { _, classDef ->
+        classDef.type.endsWith("/CommentScreenAdView;")
+    },
+)
+
+internal val commentAdDetailListHeaderViewFingerprint = legacyFingerprint(
+    name = "commentAdDetailListHeaderViewFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    strings = listOf("ad"),
+    customFingerprint = { _, classDef ->
+        classDef.type.endsWith("/DetailListHeaderView;")
+    },
+)
+
 internal val newAdPostFingerprint = legacyFingerprint(
     name = "newAdPostFingerprint",
     returnType = "L",

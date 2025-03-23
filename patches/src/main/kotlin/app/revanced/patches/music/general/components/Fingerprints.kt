@@ -84,6 +84,9 @@ internal val mediaRouteButtonFingerprint = legacyFingerprint(
     strings = listOf("MediaRouteButton")
 )
 
+/**
+ * This fingerprint is compatible with YouTube Music 6.39.50+.
+ */
 internal val parentToolMenuFingerprint = legacyFingerprint(
     name = "parentToolMenuFingerprint",
     returnType = "V",
@@ -135,10 +138,39 @@ internal val searchBarParentFingerprint = legacyFingerprint(
     strings = listOf("web_search")
 )
 
+internal const val SOUND_SEARCH_BUTTON_FEATURE_FLAG = 45625491L
+
+/**
+ * This fingerprint is compatible with YouTube Music 6.48.52 ~ 8.04.53.
+ */
+internal val soundSearchLegacyFingerprint = legacyFingerprint(
+    name = "soundSearchLegacyFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    literals = listOf(SOUND_SEARCH_BUTTON_FEATURE_FLAG),
+)
+
+/**
+ * This fingerprint is compatible with YouTube Music 6.48.52+.
+ */
 internal val soundSearchFingerprint = legacyFingerprint(
     name = "soundSearchFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = emptyList(),
-    literals = listOf(45625491L),
+    opcodes = listOf(Opcode.INVOKE_INTERFACE),
+)
+
+/**
+ * This fingerprint is compatible with YouTube Music 6.48.52+.
+ */
+internal val soundSearchConstructorFingerprint = legacyFingerprint(
+    name = "soundSearchConstructorFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.STATIC or AccessFlags.CONSTRUCTOR,
+    parameters = emptyList(),
+    literals = listOf(208485L),
 )
 
 internal val tasteBuilderConstructorFingerprint = legacyFingerprint(

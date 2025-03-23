@@ -3,9 +3,13 @@ package app.revanced.patches.music.navigation.components
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.text1
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val tabLayoutFingerprint = legacyFingerprint(
     name = "tabLayoutFingerprint",
@@ -30,5 +34,22 @@ internal val tabLayoutTextFingerprint = legacyFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT
     ),
-    literals = listOf(text1)
+    strings = listOf("FEmusic_search"),
+    literals = listOf(text1),
+    customFingerprint = { method, _ ->
+        indexOfGetVisibilityInstruction(method) >= 0 &&
+                indexOfSetTextInstruction(method) >= 0
+    }
 )
+
+internal fun indexOfGetVisibilityInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "getVisibility"
+    }
+
+internal fun indexOfSetTextInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "setText"
+    }

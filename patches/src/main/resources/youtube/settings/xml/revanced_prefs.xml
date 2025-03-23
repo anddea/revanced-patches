@@ -146,11 +146,11 @@
         <!-- PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS -->
 
-        <!-- SETTINGS: CHANGE_LAYOUT
-        <ListPreference android:entries="@array/revanced_change_layout_entries" android:title="@string/revanced_change_layout_title" android:key="revanced_change_layout" android:entryValues="@array/revanced_change_layout_entry_values" />SETTINGS: CHANGE_LAYOUT -->
-
         <!-- SETTINGS: CHANGE_LIVE_RING_CLICK_ACTION
         <SwitchPreference android:title="@string/revanced_change_live_ring_click_action_title" android:key="revanced_change_live_ring_click_action" android:summaryOn="@string/revanced_change_live_ring_click_action_summary_on" android:summaryOff="@string/revanced_change_live_ring_click_action_summary_off" />SETTINGS: CHANGE_LIVE_RING_CLICK_ACTION -->
+
+        <!-- SETTINGS: CHANGE_FORM_FACTOR
+        <ListPreference android:entries="@array/revanced_change_form_factor_entries" android:title="@string/revanced_change_form_factor_title" android:key="revanced_change_form_factor" android:entryValues="@array/revanced_change_form_factor_entry_values" />SETTINGS: CHANGE_FORM_FACTOR -->
 
         <!-- SETTINGS: SPOOF_APP_VERSION
         <SwitchPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version" android:summaryOn="@string/revanced_spoof_app_version_summary_on" android:summaryOff="@string/revanced_spoof_app_version_summary_off" />
@@ -699,22 +699,27 @@
 
     <!-- PREFERENCE_SCREEN: SWIPE_CONTROLS
     <PreferenceScreen android:title="@string/revanced_preference_screen_swipe_controls_title" android:key="revanced_preference_screen_swipe_controls">
-        <SwitchPreference android:title="@string/revanced_enable_swipe_lowest_value_auto_brightness_title" android:key="revanced_enable_swipe_lowest_value_auto_brightness" android:summaryOn="@string/revanced_enable_swipe_lowest_value_auto_brightness_summary_on" android:summaryOff="@string/revanced_enable_swipe_lowest_value_auto_brightness_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_swipe_brightness_title" android:key="revanced_enable_swipe_brightness" android:summaryOn="@string/revanced_enable_swipe_brightness_summary_on" android:summaryOff="@string/revanced_enable_swipe_brightness_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_lowest_value_auto_brightness_title" android:key="revanced_enable_swipe_lowest_value_auto_brightness" android:summaryOn="@string/revanced_enable_swipe_lowest_value_auto_brightness_summary_on" android:summaryOff="@string/revanced_enable_swipe_lowest_value_auto_brightness_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_save_and_restore_brightness_title" android:key="revanced_enable_save_and_restore_brightness" android:summaryOn="@string/revanced_enable_save_and_restore_brightness_summary_on" android:summaryOff="@string/revanced_enable_save_and_restore_brightness_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_swipe_volume_title" android:key="revanced_enable_swipe_volume" android:summaryOn="@string/revanced_enable_swipe_volume_summary_on" android:summaryOff="@string/revanced_enable_swipe_volume_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_speed_title" android:key="revanced_enable_swipe_speed" android:summaryOn="@string/revanced_enable_swipe_speed_summary_on" android:summaryOff="@string/revanced_enable_swipe_speed_summary_off" />
+        <SwitchPreference android:title="@string/revanced_enable_swipe_seek_title" android:key="revanced_enable_swipe_seek" android:summaryOn="@string/revanced_enable_swipe_seek_summary_on" android:summaryOff="@string/revanced_enable_swipe_seek_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_swipe_press_to_engage_title" android:key="revanced_enable_swipe_press_to_engage" android:summaryOn="@string/revanced_enable_swipe_press_to_engage_summary_on" android:summaryOff="@string/revanced_enable_swipe_press_to_engage_summary_off" />
         <SwitchPreference android:title="@string/revanced_enable_swipe_haptic_feedback_title" android:key="revanced_enable_swipe_haptic_feedback" android:summaryOn="@string/revanced_enable_swipe_haptic_feedback_summary_on" android:summaryOff="@string/revanced_enable_swipe_haptic_feedback_summary_off" android:dependency="revanced_enable_swipe_press_to_engage" />
         <SwitchPreference android:title="@string/revanced_swipe_gestures_lock_mode_title" android:key="revanced_swipe_gestures_lock_mode" android:summaryOn="@string/revanced_swipe_gestures_lock_mode_summary_on" android:summaryOff="@string/revanced_swipe_gestures_lock_mode_summary_off" />
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_background_alpha_title" android:key="revanced_swipe_overlay_background_alpha" android:summary="@string/revanced_swipe_overlay_background_alpha_summary" android:inputType="number" />
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_magnitude_threshold_title" android:key="revanced_swipe_magnitude_threshold" android:summary="@string/revanced_swipe_magnitude_threshold_summary" android:inputType="number" />
-        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_text_size_title" android:key="revanced_swipe_overlay_text_size" android:summary="@string/revanced_swipe_overlay_text_size_summary" android:inputType="number" />
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_rect_size_title" android:key="revanced_swipe_overlay_rect_size" android:summary="@string/revanced_swipe_overlay_rect_size_summary" android:inputType="number" />
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_overlay_timeout_title" android:key="revanced_swipe_overlay_timeout" android:summary="@string/revanced_swipe_overlay_timeout_summary" android:inputType="number" />
+        <SwitchPreference android:title="@string/revanced_swipe_show_circular_overlay_title" android:key="revanced_swipe_show_circular_overlay" android:summaryOn="@string/revanced_swipe_show_circular_overlay_summary_on" android:summaryOff="@string/revanced_swipe_show_circular_overlay_summary_off" />
+        <SwitchPreference android:title="@string/revanced_swipe_overlay_minimal_style_title" android:key="revanced_swipe_overlay_minimal_style" android:summaryOn="@string/revanced_swipe_overlay_minimal_style_summary_on" android:summaryOff="@string/revanced_swipe_overlay_minimal_style_summary_off" />
 
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_brightness_sensitivity_title" android:key="revanced_swipe_brightness_sensitivity" android:summary="@string/revanced_swipe_brightness_sensitivity_summary" android:inputType="number" />
-        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_volume_sensitivity_title" android:key="revanced_swipe_volume_sensitivity" android:summary="@string/revanced_swipe_volume_sensitivity_summary" android:inputType="number" />PREFERENCE_SCREEN: SWIPE_CONTROLS -->
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_volume_sensitivity_title" android:key="revanced_swipe_volume_sensitivity" android:summary="@string/revanced_swipe_volume_sensitivity_summary" android:inputType="number" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_speed_sensitivity_title" android:key="revanced_swipe_speed_sensitivity" android:summary="@string/revanced_swipe_speed_sensitivity_summary" android:inputType="number" />
+        <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_swipe_seek_sensitivity_title" android:key="revanced_swipe_seek_sensitivity" android:summary="@string/revanced_swipe_seek_sensitivity_summary" android:inputType="number" />PREFERENCE_SCREEN: SWIPE_CONTROLS -->
 
         <!-- SETTINGS: DISABLE_HDR_BRIGHTNESS
         <SwitchPreference android:title="@string/revanced_disable_hdr_auto_brightness_title" android:key="revanced_disable_hdr_auto_brightness" android:summaryOn="@string/revanced_disable_hdr_auto_brightness_summary_on" android:summaryOff="@string/revanced_disable_hdr_auto_brightness_summary_off" />SETTINGS: DISABLE_HDR_BRIGHTNESS -->
@@ -837,10 +842,15 @@
         <!-- SETTINGS: SPOOF_STREAMING_DATA
         <PreferenceScreen android:title="@string/revanced_preference_screen_spoof_streaming_data_title" android:key="revanced_preference_screen_spoof_streaming_data" android:summary="@string/revanced_preference_screen_spoof_streaming_data_summary">
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_title" android:key="revanced_spoof_streaming_data" android:summaryOn="@string/revanced_spoof_streaming_data_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_summary_off" />
-            <ListPreference android:entries="@array/revanced_spoof_streaming_data_type_entries" android:title="@string/revanced_spoof_streaming_data_type_title" android:key="revanced_spoof_streaming_data_client" android:entryValues="@array/revanced_spoof_streaming_data_type_entry_values" android:dependency="revanced_spoof_streaming_data" />
+            <ListPreference android:entries="@array/revanced_spoof_streaming_data_type_entries" android:title="@string/revanced_spoof_streaming_data_type_title" android:key="revanced_spoof_streaming_data_type" android:entryValues="@array/revanced_spoof_streaming_data_type_entry_values" android:dependency="revanced_spoof_streaming_data" />
             <app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference android:title="@string/revanced_spoof_streaming_data_side_effects_title" />
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_ios_force_avc_title" android:key="revanced_spoof_streaming_data_ios_force_avc" android:summaryOn="@string/revanced_spoof_streaming_data_ios_force_avc_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_ios_force_avc_summary_off" android:dependency="revanced_spoof_streaming_data" />
-            <ListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_language_title" android:key="revanced_spoof_streaming_data_language" android:entryValues="@array/revanced_language_entry_values" android:dependency="revanced_spoof_streaming_data" />
+            <ListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_spoof_streaming_data_language_title" android:key="revanced_spoof_streaming_data_language" android:entryValues="@array/revanced_language_entry_values" android:dependency="revanced_spoof_streaming_data" />SETTINGS: SPOOF_STREAMING_DATA -->
+
+            <!-- SETTINGS: SKIP_RESPONSE_ENCRYPTION
+            <SwitchPreference android:title="@string/revanced_spoof_streaming_data_skip_response_encryption_title" android:key="revanced_spoof_streaming_data_skip_response_encryption" android:summaryOn="@string/revanced_spoof_streaming_data_skip_response_encryption_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_skip_response_encryption_summary_off" android:dependency="revanced_spoof_streaming_data" />SETTINGS: SKIP_RESPONSE_ENCRYPTION -->
+
+            <!-- SETTINGS: SPOOF_STREAMING_DATA
             <SwitchPreference android:title="@string/revanced_spoof_streaming_data_stats_for_nerds_title" android:key="revanced_spoof_streaming_data_stats_for_nerds" android:summaryOn="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_spoof_streaming_data_stats_for_nerds_summary_off" android:dependency="revanced_spoof_streaming_data" />
             <PreferenceCategory android:title="@string/revanced_preference_category_po_token_visitor_data" android:layout="@layout/revanced_settings_preferences_category" />
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_spoof_streaming_data_po_token_title" android:key="revanced_spoof_streaming_data_po_token" android:summary="@string/revanced_spoof_streaming_data_po_token_summary" android:inputType="text" android:dependency="revanced_spoof_streaming_data" />
@@ -915,7 +925,7 @@
             </PreferenceCategory>
 
             <PreferenceCategory android:title="@string/revanced_preference_screen_general_title" android:layout="@layout/revanced_settings_preferences_category">
-                <Preference android:title="Change layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+                <Preference android:title="Change form factor" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Change live ring click action" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Change start page" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Disable forced auto audio tracks" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

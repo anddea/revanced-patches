@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.utils.castbutton.hookToolBarCastButton
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
-import app.revanced.patches.youtube.utils.playservice.is_19_46_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_16_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
@@ -31,6 +31,7 @@ import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.doRecursively
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodCall
 import app.revanced.util.fingerprint.methodOrThrow
@@ -38,7 +39,6 @@ import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.Opcode
@@ -46,6 +46,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
@@ -266,34 +267,37 @@ val toolBarComponentsPatch = bytecodePatch(
         // region patch for hide search term thumbnail
 
         createSearchSuggestionsFingerprint.methodOrThrow().apply {
-            val literal = if (is_19_46_or_greater)
-                32L
-            else
-                40L
-            val relativeIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-            val replaceIndex = indexOfFirstInstructionReversedOrThrow(relativeIndex) {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.toString() == "Landroid/widget/ImageView;->setVisibility(I)V"
-            } - 1
-
-            val jumpIndex = indexOfFirstInstructionOrThrow(relativeIndex) {
+            val iteratorIndex = indexOfIteratorInstruction(this)
+            val replaceIndex = indexOfFirstInstructionOrThrow(iteratorIndex) {
+                opcode == Opcode.IGET_OBJECT &&
+                        getReference<FieldReference>()?.type == "Landroid/widget/ImageView;"
+            }
+            val jumpIndex = indexOfFirstInstructionOrThrow(replaceIndex) {
                 opcode == Opcode.INVOKE_STATIC &&
                         getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
             } + 4
-
             val replaceIndexInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
+            val freeRegister = replaceIndexInstruction.registerA
+            val classRegister = replaceIndexInstruction.registerB
             val replaceIndexReference =
                 getInstruction<ReferenceInstruction>(replaceIndex).reference
 
             addInstructionsWithLabels(
                 replaceIndex + 1, """
                     invoke-static { }, $GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail()Z
-                    move-result v${replaceIndexInstruction.registerA}
-                    if-nez v${replaceIndexInstruction.registerA}, :hidden
-                    iget-object v${replaceIndexInstruction.registerA}, v${replaceIndexInstruction.registerB}, $replaceIndexReference
+                    move-result v$freeRegister
+                    if-nez v$freeRegister, :hidden
+                    iget-object v$freeRegister, v$classRegister, $replaceIndexReference
                     """, ExternalLabel("hidden", getInstruction(jumpIndex))
             )
             removeInstruction(replaceIndex)
+        }
+
+        if (is_19_16_or_greater) {
+            searchFragmentFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                SEARCH_FRAGMENT_FEATURE_FLAG,
+                "$GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail(Z)Z"
+            )
         }
 
         // endregion

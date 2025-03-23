@@ -31,8 +31,15 @@ class ClassicSwipeController(
     override fun isInSwipeZone(motionEvent: MotionEvent): Boolean {
         val inVolumeZone = motionEvent.toPoint() in controller.zones.volume
         val inBrightnessZone = motionEvent.toPoint() in controller.zones.brightness
-
         return inVolumeZone || inBrightnessZone
+    }
+
+    private fun isInHorizontalSwipeZone(motionEvent: MotionEvent): Boolean {
+        val inSpeedZone =
+            controller.config.enableSpeedControl && (motionEvent.toPoint() in controller.zones.speed)
+        val inSeekZone =
+            controller.config.enableSeekControl && (motionEvent.toPoint() in controller.zones.seek)
+        return inSpeedZone || inSeekZone
     }
 
     override fun shouldDropMotion(motionEvent: MotionEvent): Boolean {
@@ -57,7 +64,7 @@ class ClassicSwipeController(
         lastOnDownEvent = MotionEvent.obtain(motionEvent)
 
         // must be inside swipe zone
-        return isInSwipeZone(motionEvent)
+        return isInSwipeZone(motionEvent) || isInHorizontalSwipeZone(motionEvent)
     }
 
     override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {
@@ -97,21 +104,40 @@ class ClassicSwipeController(
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked)
             return false
-        // cancel if not vertical
-        if (currentSwipe != SwipeDetector.SwipeDirection.VERTICAL)
-            return false
-        return when (from.toPoint()) {
-            in controller.zones.volume -> {
-                scrollVolume(distanceY)
-                true
-            }
+        if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
+            return when (from.toPoint()) {
+                in controller.zones.volume -> {
+                    scrollVolume(distanceY)
+                    true
+                }
 
-            in controller.zones.brightness -> {
-                scrollBrightness(distanceY)
-                true
-            }
+                in controller.zones.brightness -> {
+                    scrollBrightness(distanceY)
+                    true
+                }
 
-            else -> false
+                else -> false
+            }
+        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
+            return when (from.toPoint()) {
+                in controller.zones.speed -> {
+                    if (config.enableSpeedControl) {
+                        scrollSpeed(distanceX)
+                        true
+                    }
+                    false
+                }
+                in controller.zones.seek -> {
+                    if (config.enableSeekControl) {
+                        scrollSeek(distanceX)
+                        true
+                    }
+                    false
+                }
+
+                else -> false
+            }
         }
+        return false
     }
 }

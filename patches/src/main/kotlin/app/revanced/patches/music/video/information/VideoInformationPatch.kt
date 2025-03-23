@@ -13,6 +13,9 @@ import app.revanced.patches.music.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.music.utils.playbackSpeedFingerprint
 import app.revanced.patches.music.utils.playbackSpeedParentFingerprint
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.music.video.playerresponse.Hook
+import app.revanced.patches.music.video.playerresponse.addPlayerResponseMethodHook
+import app.revanced.patches.music.video.playerresponse.playerResponseMethodHookPatch
 import app.revanced.patches.shared.mdxPlayerDirectorSetVideoStageFingerprint
 import app.revanced.patches.shared.videoLengthFingerprint
 import app.revanced.util.addStaticFieldToExtension
@@ -71,7 +74,10 @@ private var videoTimeConstructorInsertIndex = 2
 val videoInformationPatch = bytecodePatch(
     description = "videoInformationPatch",
 ) {
-    dependsOn(sharedResourceIdPatch)
+    dependsOn(
+        playerResponseMethodHookPatch,
+        sharedResourceIdPatch
+    )
 
     execute {
         fun addSeekInterfaceMethods(
@@ -241,7 +247,18 @@ val videoInformationPatch = bytecodePatch(
          * Set current video id
          */
         videoIdHook("$EXTENSION_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V")
-
+        addPlayerResponseMethodHook(
+            Hook.VideoId(
+                "$EXTENSION_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;)V"
+            ),
+        )
+        // Call before any other video id hooks,
+        // so they can use VideoInformation and check if the video id is for a Short.
+        addPlayerResponseMethodHook(
+            Hook.PlayerParameterBeforeVideoId(
+                "$EXTENSION_CLASS_DESCRIPTOR->newPlayerResponseParameter(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+            )
+        )
         /**
          * Hook current playback speed
          */

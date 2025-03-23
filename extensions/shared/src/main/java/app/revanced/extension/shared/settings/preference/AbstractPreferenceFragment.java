@@ -12,6 +12,7 @@ import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -21,6 +22,9 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.Objects;
+
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
@@ -48,10 +52,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
-            if (str == null) {
-                return;
-            }
-            Setting<?> setting = Setting.getSettingFromPath(str);
+            Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
             if (setting == null) {
                 return;
             }
@@ -59,24 +60,23 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             if (pref == null) {
                 return;
             }
+            Logger.printDebug(() -> "Preference changed: " + setting.key);
+
+            if (!settingImportInProgress && !showingUserDialogMessage) {
+                if (setting.userDialogMessage != null && !prefIsSetToDefault(pref, setting)) {
+                    // Do not change the setting yet, to allow preserving whatever
+                    // list/text value was previously set if it needs to be reverted.
+                    showSettingUserDialogConfirmation(pref, setting);
+                    return;
+                } else if (setting.rebootApp) {
+                    showRestartDialog(getContext());
+                }
+            }
 
             // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
             updatePreference(pref, setting, true, settingImportInProgress);
             // Update any other preference availability that may now be different.
             updateUIAvailability();
-
-            if (settingImportInProgress) {
-                return;
-            }
-
-            if (!showingUserDialogMessage) {
-                if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
-                    showSettingUserDialogConfirmation((SwitchPreference) pref, (BooleanSetting) setting);
-                } else if (setting.rebootApp) {
-                    showRestartDialog(getActivity());
-                }
-            }
-
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
@@ -90,14 +90,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * so all app specific {@link Setting} instances are loaded before this method returns.
      */
     protected void initialize() {
-        final int id = getXmlIdentifier("revanced_prefs");
+        final int identifier = getXmlIdentifier("revanced_prefs");
+        if (identifier == 0) return;
+        addPreferencesFromResource(identifier);
 
-        if (id == 0) return;
-        addPreferencesFromResource(id);
-        Utils.sortPreferenceGroups(getPreferenceScreen());
+        PreferenceScreen screen = getPreferenceScreen();
+        Utils.sortPreferenceGroups(screen);
+        Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
     }
 
-    private void showSettingUserDialogConfirmation(SwitchPreference switchPref, BooleanSetting setting) {
+    private void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) {
         Utils.verifyOnMainThread();
 
         final var context = getActivity();
@@ -107,12 +109,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 .setTitle(android.R.string.dialog_alert_title)
                 .setMessage(setting.userDialogMessage.toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                    // User confirmed, save to the Setting.
+                    updatePreference(pref, setting, true, false);
+
+                    // Update availability of other preferences that may be changed.
+                    updateUIAvailability();
+
                     if (setting.rebootApp) {
                         showRestartDialog(context);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    switchPref.setChecked(setting.defaultValue); // Recursive call that resets the Setting value.
+                    // Restore whatever the setting was before the change.
+                    updatePreference(pref, setting, true, true);
                 })
                 .setOnDismissListener(dialog -> showingUserDialogMessage = false)
                 .setCancelable(false)
@@ -123,7 +132,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Updates all Preferences values and their availability using the current values in {@link Setting}.
      */
     protected void updateUIToSettingValues() {
-        updatePreferenceScreen(getPreferenceScreen(), true, true);
+        updatePreferenceScreen(getPreferenceScreen(), true,true);
     }
 
     /**
@@ -134,23 +143,47 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     }
 
     /**
+     * @return If the preference is currently set to the default value of the Setting.
+     */
+    protected boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        if (pref instanceof SwitchPreference switchPref) {
+            return switchPref.isChecked() == (Boolean) setting.defaultValue;
+        }
+        if (pref instanceof EditTextPreference editPreference) {
+            return editPreference.getText().equals(setting.defaultValue.toString());
+        }
+        if (pref instanceof ListPreference listPref) {
+            return listPref.getValue().equals(setting.defaultValue.toString());
+        }
+
+        throw new IllegalStateException("Must override method to handle "
+                + "preference type: " + pref.getClass());
+    }
+
+
+    /**
      * Syncs all UI Preferences to any {@link Setting} they represent.
      */
-    private void updatePreferenceScreen(@NonNull PreferenceScreen screen,
+    private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
         // Alternatively this could iterate thru all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
-        for (int i = 0, prefCount = screen.getPreferenceCount(); i < prefCount; i++) {
-            Preference pref = screen.getPreference(i);
-            if (pref instanceof PreferenceScreen preferenceScreen) {
-                updatePreferenceScreen(preferenceScreen, syncSettingValue, applySettingToPreference);
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof PreferenceGroup subGroup) {
+                updatePreferenceScreen(subGroup, syncSettingValue, applySettingToPreference);
             } else if (pref.hasKey()) {
                 String key = pref.getKey();
                 Setting<?> setting = Setting.getSettingFromPath(key);
+
                 if (setting != null) {
                     updatePreference(pref, setting, syncSettingValue, applySettingToPreference);
+                } else if (BaseSettings.ENABLE_DEBUG_LOGGING.get() && (pref instanceof SwitchPreference
+                        || pref instanceof EditTextPreference || pref instanceof ListPreference)) {
+                    // Probably a typo in the patches preference declaration.
+                    Logger.printException(() -> "Preference key has no setting: " + key);
                 }
             }
         }
@@ -166,26 +199,26 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     protected void syncSettingWithPreference(@NonNull Preference pref,
                                              @NonNull Setting<?> setting,
                                              boolean applySettingToPreference) {
-        if (pref instanceof SwitchPreference switchPreference) {
+        if (pref instanceof SwitchPreference switchPref) {
             BooleanSetting boolSetting = (BooleanSetting) setting;
             if (applySettingToPreference) {
-                switchPreference.setChecked(boolSetting.get());
+                switchPref.setChecked(boolSetting.get());
             } else {
-                BooleanSetting.privateSetValue(boolSetting, switchPreference.isChecked());
+                BooleanSetting.privateSetValue(boolSetting, switchPref.isChecked());
             }
-        } else if (pref instanceof EditTextPreference editTextPreference) {
+        } else if (pref instanceof EditTextPreference editPreference) {
             if (applySettingToPreference) {
-                editTextPreference.setText(setting.get().toString());
+                editPreference.setText(setting.get().toString());
             } else {
-                Setting.privateSetValueFromString(setting, editTextPreference.getText());
+                Setting.privateSetValueFromString(setting, editPreference.getText());
             }
-        } else if (pref instanceof ListPreference listPreference) {
+        } else if (pref instanceof ListPreference listPref) {
             if (applySettingToPreference) {
-                listPreference.setValue(setting.get().toString());
+                listPref.setValue(setting.get().toString());
             } else {
-                Setting.privateSetValueFromString(setting, listPreference.getValue());
+                Setting.privateSetValueFromString(setting, listPref.getValue());
             }
-            updateListPreferenceSummary(listPreference, setting);
+            updateListPreferenceSummary(listPref, setting);
         } else {
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
@@ -194,7 +227,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Updates a UI Preference with the {@link Setting} that backs it.
      *
-     * @param syncSetting              If the UI should be synced {@link Setting} <-> Preference
+     * @param syncSetting If the UI should be synced {@link Setting} <-> Preference
      * @param applySettingToPreference If true, then apply {@link Setting} -> Preference.
      *                                 If false, then apply {@link Setting} <- Preference.
      */

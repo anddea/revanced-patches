@@ -6,9 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.extension.Constants.SPOOF_PATH
 import app.revanced.util.fingerprint.methodOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-const val EXTENSION_CLASS_DESCRIPTOR =
+private const val EXTENSION_CLASS_DESCRIPTOR =
     "$SPOOF_PATH/BlockRequestPatch;"
 
 val blockRequestPatch = bytecodePatch(
