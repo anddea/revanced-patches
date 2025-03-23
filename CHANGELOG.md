@@ -1,3 +1,23 @@
+# [3.5.0](https://github.com/anddea/revanced-patches/compare/v3.4.0...v3.5.0) (2025-03-23)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Horizontal swipe zones no longer disable internal player swipes ([0087614](https://github.com/anddea/revanced-patches/commit/00876147f7cbbde8f0bbdd36c586911b868fe721))
+
+
+### Features
+
+* **Reddit:** Add support for a wider range of versions (up to 2025.10) ([af42d9b](https://github.com/anddea/revanced-patches/commit/af42d9b6df83b70468597776b495e33a4759210c))
+* **YouTube - Swipe controls:** Add horizontal swipe for playback speed control ([bbbffc1](https://github.com/anddea/revanced-patches/commit/bbbffc10fa5caaaeb294929ef5bfada208e7ad00))
+* **YouTube - Swipe controls:** Add seek video gesture ([4e27bdb](https://github.com/anddea/revanced-patches/commit/4e27bdbe4ac7ea7d087667c0d1a2eecbd738a5af))
+* **YouTube - Swipe controls:** Swipe controls UI improvements ([81a656b](https://github.com/anddea/revanced-patches/commit/81a656bcdd31c2449bd2582f4237ab1e94619691))
+* **YouTube Music - Navigation bar components:** Add `Replace Samples button` and `Replace Upgrade button` settings ([702c897](https://github.com/anddea/revanced-patches/commit/702c89724aaf9b15c1f2be24b114c1cbed2e2234))
+* **YouTube Music:** Add `Spoof player parameter` patch ([d61fd07](https://github.com/anddea/revanced-patches/commit/d61fd079f44b0b6eb38db49819909ab6207d54aa))
+* **YouTube Music:** Add support version `8.10.51` ([5ff2a6c](https://github.com/anddea/revanced-patches/commit/5ff2a6c4f166d0f2f55ad5a5807114a8356c5853))
+* **YouTube:** Add `Change form factor`, remove `Change layout` patch ([f2fb3fe](https://github.com/anddea/revanced-patches/commit/f2fb3fe49e3c1281f5e9d0874e86926910340e0d))
+* **YouTube:** Add support for a wider range of versions (up to 20.10) ([18509cd](https://github.com/anddea/revanced-patches/commit/18509cd85ddf9190d9c240baf8b758131462f71d))
+
 # [3.5.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.5.0-dev.4...v3.5.0-dev.5) (2025-03-21)
 
 
