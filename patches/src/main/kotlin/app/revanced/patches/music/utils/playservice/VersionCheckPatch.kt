@@ -9,9 +9,13 @@ var is_6_27_or_greater = false
     private set
 var is_6_36_or_greater = false
     private set
+var is_6_39_or_greater = false
+    private set
 var is_6_42_or_greater = false
     private set
 var is_6_43_or_greater = false
+    private set
+var is_6_48_or_greater = false
     private set
 var is_7_03_or_greater = false
     private set
@@ -39,6 +43,8 @@ var is_7_33_or_greater = false
     private set
 var is_8_03_or_greater = false
     private set
+var is_8_05_or_greater = false
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "versionCheckPatch",
@@ -56,8 +62,10 @@ val versionCheckPatch = resourcePatch(
         // All bug fix releases always seem to use the same play store version as the minor version.
         is_6_27_or_greater = 234412000 <= playStoreServicesVersion
         is_6_36_or_greater = 240399000 <= playStoreServicesVersion
+        is_6_39_or_greater = 240699000 <= playStoreServicesVersion
         is_6_42_or_greater = 240999000 <= playStoreServicesVersion
         is_6_43_or_greater = 241099000 <= playStoreServicesVersion
+        is_6_48_or_greater = 241599000 <= playStoreServicesVersion
         is_7_03_or_greater = 242199000 <= playStoreServicesVersion
         is_7_06_or_greater = 242499000 <= playStoreServicesVersion
         is_7_13_or_greater = 243199000 <= playStoreServicesVersion
@@ -71,5 +79,6 @@ val versionCheckPatch = resourcePatch(
         is_7_29_or_greater = 244799000 <= playStoreServicesVersion
         is_7_33_or_greater = 245199000 <= playStoreServicesVersion
         is_8_03_or_greater = 250399000 <= playStoreServicesVersion
+        is_8_05_or_greater = 250599000 <= playStoreServicesVersion
     }
 }

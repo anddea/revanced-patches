@@ -22,11 +22,24 @@ public final class VideoInformation {
     private static final float DEFAULT_YOUTUBE_MUSIC_PLAYBACK_SPEED = 1.0f;
     private static final int DEFAULT_YOUTUBE_MUSIC_VIDEO_QUALITY = -2;
     private static final String DEFAULT_YOUTUBE_MUSIC_VIDEO_QUALITY_STRING = getString("quality_auto");
+    /**
+     * Prefix present in all Age-restricted music player parameters signature.
+     */
+    private static final String AGE_RESTRICTED_PLAYER_PARAMETER = "ygYQ";
+    /**
+     * Prefix present in all Sample player parameters signature.
+     */
+    private static final String SAMPLES_PLAYER_PARAMETERS = "8AEB";
+
     @NonNull
     private static String videoId = "";
 
     private static long videoLength = 0;
     private static long videoTime = -1;
+
+    @NonNull
+    private static volatile String playerResponseVideoId = "";
+    private static volatile boolean playerResponseVideoIdIsSample;
 
     /**
      * The current playback speed
@@ -83,6 +96,65 @@ public final class VideoInformation {
         }
         Logger.printDebug(() -> "New video id: " + newlyLoadedVideoId);
         videoId = newlyLoadedVideoId;
+    }
+
+    /**
+     * Differs from {@link #videoId} as this is the video id for the
+     * last player response received, which may not be the last video opened.
+     * <p>
+     * If Shorts are loading the background, this commonly will be
+     * different from the Short that is currently on screen.
+     * <p>
+     * For most use cases, you should instead use {@link #getVideoId()}.
+     *
+     * @return The id of the last video loaded, or an empty string if no videos have been loaded yet.
+     */
+    @NonNull
+    public static String getPlayerResponseVideoId() {
+        return playerResponseVideoId;
+    }
+
+    /**
+     * @return If the last player response video id was a Sample.
+     */
+    public static boolean lastPlayerResponseIsSample() {
+        return playerResponseVideoIdIsSample;
+    }
+
+    /**
+     * Injection point.  Called off the main thread.
+     *
+     * @param videoId The id of the last video loaded.
+     */
+    public static void setPlayerResponseVideoId(@NonNull String videoId) {
+        if (!playerResponseVideoId.equals(videoId)) {
+            playerResponseVideoId = videoId;
+        }
+    }
+
+    /**
+     * @return If the player parameter is for a Age-restricted video.
+     */
+    public static boolean parameterIsAgeRestricted(@Nullable String parameter) {
+        return parameter != null && parameter.startsWith(AGE_RESTRICTED_PLAYER_PARAMETER);
+    }
+
+    /**
+     * @return If the player parameter is for a Sample.
+     */
+    public static boolean parameterIsSample(@Nullable String parameter) {
+        return parameter != null && parameter.startsWith(SAMPLES_PLAYER_PARAMETERS);
+    }
+
+    /**
+     * Injection point.
+     */
+    @Nullable
+    public static String newPlayerResponseParameter(@NonNull String videoId, @Nullable String playerParameter) {
+        playerResponseVideoIdIsSample = parameterIsSample(playerParameter);
+        Logger.printDebug(() -> "videoId: " + videoId + ", playerParameter: " + playerParameter);
+
+        return playerParameter; // Return the original value since we are observing and not modifying.
     }
 
     /**

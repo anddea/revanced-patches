@@ -69,12 +69,20 @@ Tocca e tieni premuto l'informazione mostrata per cambiare il tipo."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Il reindirizzamento degli URL non è bypassato.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Il reindirizzamento degli URL è bypassato.</string>
     <string name="revanced_bypass_url_redirects_title">Bypassa il reindirizzamento degli URL</string>
-    <string name="revanced_change_layout_entry_1">Originale</string>
-    <string name="revanced_change_layout_entry_2">Telefono</string>
-    <string name="revanced_change_layout_entry_3">Telefono (Massimo 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">Tablet</string>
-    <string name="revanced_change_layout_entry_5">Tablet (Minimo 600 dp)</string>
-    <string name="revanced_change_layout_title">Cambia l\'interfaccia</string>
+    <string name="revanced_change_form_factor_entry_1">Predefinito</string>
+    <string name="revanced_change_form_factor_entry_2">Telefono</string>
+    <string name="revanced_change_form_factor_entry_3">Telefono (massimo 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (minimo 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Semovente</string>
+    <string name="revanced_change_form_factor_title">Fattore di forma dell\'interfaccia</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Le modifiche dell'interfaccia:
+Tablet: i post della community sono nascosti.
+
+Semovente:
+• Gli Shorts verranno aperti nel riproduttore normale.
+• Il feed è organizzato per argomenti e canali.
+• La descrizione dei video non può essere aperta quando \"Camuffa i dati in streaming\" è disattivato."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">Video live</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"Canale
 
@@ -1906,10 +1914,18 @@ Tocca per vedere maggiori informazioni."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• I video potrebbero terminare 1 secondo prima.
 • Il codec audio Opus potrebbe non funzionare."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• I video potrebbero terminare 1 secondo prima.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• I film o i video a pagamento potrebbero non essere riproducibili.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Il volume stabile non funziona.
+• I film o i video a pagamento potrebbero non essere riproducibili.
 • I video per bambini potrebbero non essere riprodotti se si è disconnessi o navigando in incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effetti collaterali del camuffamento</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Il video potrebbe non essere riprodotto.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"La crittografia di risposta Onesie non è saltata."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"La crittografia di risposta Onesie è saltata.
+
+Note:
+• Risolve un nuovo tipo di problema di riproduzione che alcuni utenti stanno riscontrando.
+• Il codec AV1 potrebbe non funzionare."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Salta la crittografia di risposta Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client usato per recuperare i dati in streaming è nascosto nelle statistiche per nerd.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il client usato per recuperare i dati in streaming è visibile nelle statistiche per nerd.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
@@ -1942,6 +1958,9 @@ Tocca per vedere maggiori informazioni."</string>
     <string name="revanced_swipe_magnitude_threshold_title">Il limite di ampiezza del trascinamento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante il trascinamento.</string>
     <string name="revanced_swipe_overlay_background_alpha_title">La visibilità dello sfondo del trascinamento</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_off">Lo stile di sovrapposizione minimale è disabilitato</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_on">Lo stile di sovrapposizione minimale è abilitato</string>
+    <string name="revanced_swipe_overlay_minimal_style_title">Abilita stile minimale</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">La dimensione dell\'area trascinabile non può essere superiore a 50</string>
     <string name="revanced_swipe_overlay_rect_size_summary">La percentuale dell\'area trascinabile.\n\nNota: questo modificherà anche la dimensione dell\'area dello schermo del gesto Doppio Tocco.</string>
     <string name="revanced_swipe_overlay_rect_size_title">La dimensione dello schermo in sovrapposizione del trascinamento</string>
@@ -1949,6 +1968,9 @@ Tocca per vedere maggiori informazioni."</string>
     <string name="revanced_swipe_overlay_text_size_title">La dimensione del testo del trascinamento</string>
     <string name="revanced_swipe_overlay_timeout_summary">Il tempo in millisecondi per cui la sovrapposizione del trascinamento è visibile.</string>
     <string name="revanced_swipe_overlay_timeout_title">La durata della sovrapposizione del trascinamento</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_off">La sovrapposizione orizzontale viene mostrata</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_on">La sovrapposizione circolare viene mostrata</string>
+    <string name="revanced_swipe_show_circular_overlay_title">Mostra sovrapposizione circolare</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilità del gesto del volume deve essere tra 1 e 1000 (%)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configura la distanza minima per scorrere il volume tra 1 e 1000 (%).\n\nPiù breve è la distanza minima, più velocemente cambia il volume.\n\nLa sensibilità consigliata è del 100% a incrementi di 15 volumi e del 10% a incrementi di 150 volumi.</string>
     <string name="revanced_swipe_volume_sensitivity_title">La sensibilità del gesto del volume</string>

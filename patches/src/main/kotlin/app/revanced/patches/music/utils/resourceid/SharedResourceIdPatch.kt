@@ -105,6 +105,14 @@ var trimSilenceSwitch = -1L
     private set
 var varispeedUnavailableTitle = -1L
     private set
+var ytFillSamples = -1L
+    private set
+var ytFillYouTubeMusic = -1L
+    private set
+var ytOutlineSamples = -1L
+    private set
+var ytOutlineYouTubeMusic = -1L
+    private set
 var ytmLogo = -1L
     private set
 var ytmLogoRingo2 = -1L
@@ -299,6 +307,22 @@ internal val sharedResourceIdPatch = resourcePatch(
         varispeedUnavailableTitle = resourceMappings[
             STRING,
             "varispeed_unavailable_title"
+        ]
+        ytFillSamples = resourceMappings[
+            DRAWABLE,
+            "yt_fill_samples_vd_theme_24",
+        ]
+        ytFillYouTubeMusic = resourceMappings[
+            DRAWABLE,
+            "yt_fill_youtube_music_vd_theme_24",
+        ]
+        ytOutlineSamples = resourceMappings[
+            DRAWABLE,
+            "yt_outline_samples_vd_theme_24",
+        ]
+        ytOutlineYouTubeMusic = resourceMappings[
+            DRAWABLE,
+            "yt_outline_youtube_music_vd_theme_24",
         ]
         ytmLogo = resourceMappings[
             DRAWABLE,

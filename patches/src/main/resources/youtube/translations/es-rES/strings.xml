@@ -66,12 +66,22 @@ Pulsa aquí para saber más sobre DeArrow."</string>
     <string name="revanced_bypass_url_redirects_summary_off">No se omiten las redirecciones de URL.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones de URL.</string>
     <string name="revanced_bypass_url_redirects_title">Omitir redirecciones de URL</string>
-    <string name="revanced_change_layout_entry_1">Original</string>
-    <string name="revanced_change_layout_entry_2">Teléfono</string>
-    <string name="revanced_change_layout_entry_3">Teléfono (máx. 480 dpi)</string>
-    <string name="revanced_change_layout_entry_4">Tablet</string>
-    <string name="revanced_change_layout_entry_5">Tablet (min. 600 dpi)</string>
-    <string name="revanced_change_layout_title">Cambiar diseño</string>
+    <string name="revanced_change_form_factor_entry_1">Por defecto</string>
+    <string name="revanced_change_form_factor_entry_2">Teléfono</string>
+    <string name="revanced_change_form_factor_entry_3">Teléfono (máx. 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (min. 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automóvil</string>
+    <string name="revanced_change_form_factor_title">Factor de forma del diseño</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Los cambios incluyen:
+
+Diseño para tablet
+• Las publicaciones de la comunidad están ocultas.
+
+Diseño para automóvil
+• Los Shorts se abren en el reproductor normal.
+• El feed está organizado por temas y canales.
+• La descripción del vídeo no se puede abrir cuando está desactivado \"Falsificar datos de transmisión\"."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">El directo se abre al pulsar en el anillo del directo.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"El canal se abre al pulsar en el anillo del directo."</string>
     <string name="revanced_change_live_ring_click_action_title">Cambiar acción de pulsación en anillo del directo</string>
@@ -726,9 +736,9 @@ Las palabras con letras mayúsculas en el medio deben introducirse con las mayú
     <string name="revanced_hide_paid_promotion_label_summary_off">La etiqueta de promoción pagada está visible.</string>
     <string name="revanced_hide_paid_promotion_label_summary_on">La etiqueta de promoción pagada está oculta.</string>
     <string name="revanced_hide_paid_promotion_label_title">Ocultar etiqueta de promoción pagada</string>
-    <string name="revanced_hide_playables_summary_off">Los reproducibles están visibles.</string>
-    <string name="revanced_hide_playables_summary_on">Los reproducibles están ocultos.</string>
-    <string name="revanced_hide_playables_title">Ocultar reproducibles</string>
+    <string name="revanced_hide_playables_summary_off">Los jugables están visibles.</string>
+    <string name="revanced_hide_playables_summary_on">Los jugables están ocultos.</string>
+    <string name="revanced_hide_playables_title">Ocultar jugables</string>
     <string name="revanced_hide_player_autoplay_button_summary_off">El botón de reproducción automática está visible.</string>
     <string name="revanced_hide_player_autoplay_button_summary_on">El botón de reproducción automática está oculto.</string>
     <string name="revanced_hide_player_autoplay_button_title">Ocultar botón de reproducción automática</string>
@@ -1878,6 +1888,14 @@ Pulsa aquí para ver más información."</string>
 • Es posible que los vídeos infantiles no se reproduzcan al cerrar la sesión o en modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efectos secundarios de falsificación</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• El vídeo no puede reproducirse.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"No omite el cifrado de respuesta de Onesie.
+
+• Algunos usuarios pueden experimentar un nuevo tipo de problema de reproducción."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Omite el cifrado de respuesta de Onesie.
+
+• Corrige un nuevo tipo de problema de reproducción que algunos usuarios están experimentando.
+• El código AV1 puede no estar disponible."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Omitir cifrado de respuesta de Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente utilizado para obtener datos de transmisión no se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El cliente utilizado para obtener datos de transmisión se muestra en estadísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en estadísticas para nerds</string>
@@ -1910,6 +1928,9 @@ Pulsa aquí para ver más información."</string>
     <string name="revanced_swipe_magnitude_threshold_title">Umbral de magnitud de deslizamiento</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">La visibilidad del fondo de superposición de deslizamiento.</string>
     <string name="revanced_swipe_overlay_background_alpha_title">Visibilidad de fondo de deslizamiento</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_off">El estilo de superposición mínima está desactivado</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_on">El estilo de superposición mínima está habilitado</string>
+    <string name="revanced_swipe_overlay_minimal_style_title">Habilitar estilo minimalista</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">El tamaño del área deslizable no puede ser superior a 50. Restablezca al valor predeterminado.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Porcentaje de área de pantalla deslizable.\n\nNota: esto también cambiará el tamaño del área de pantalla para el gesto de doble toque para desplazarse.</string>
     <string name="revanced_swipe_overlay_rect_size_title">Tamaño de pantalla de superposición deslizante</string>
@@ -1917,6 +1938,9 @@ Pulsa aquí para ver más información."</string>
     <string name="revanced_swipe_overlay_text_size_title">Tamaño del texto de superposición de deslizamiento</string>
     <string name="revanced_swipe_overlay_timeout_summary">La cantidad de milisegundos que la superposición es visible.</string>
     <string name="revanced_swipe_overlay_timeout_title">Tiempo de espera de superposición de deslizamiento</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_off">Se muestra la superposición horizontal</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_on">Se muestra la superposición circular</string>
+    <string name="revanced_swipe_show_circular_overlay_title">Mostrar superposición circular</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">La sensibilidad de deslizamiento del volumen debe estar entre 1-1000 (%).</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Configura la distancia mínima para el deslizamiento del volumen entre 1 y 1000 (%).\n\nCuanto menor sea la distancia mínima, más rápido cambiará el nivel de brillo.\n\nSe recomienda una sensibilidad de deslizamiento del volumen del 100% en pasos de 15 niveles de volumen y del 10% en pasos de 150 niveles de volumen.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Sensibilidad de deslizamiento de volumen</string>

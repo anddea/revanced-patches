@@ -6,26 +6,38 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.music.general.startpage.changeStartPagePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.NAVIGATION_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.NAVIGATION_BAR_COMPONENTS
+import app.revanced.patches.music.utils.playservice.is_6_27_or_greater
+import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.colorGrey
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.text1
+import app.revanced.patches.music.utils.resourceid.ytFillSamples
+import app.revanced.patches.music.utils.resourceid.ytFillYouTubeMusic
+import app.revanced.patches.music.utils.resourceid.ytOutlineSamples
+import app.revanced.patches.music.utils.resourceid.ytOutlineYouTubeMusic
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
+import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.replaceLiteralInstructionCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val FLAG = "android:layout_weight"
@@ -56,9 +68,11 @@ val navigationBarComponentsPatch = bytecodePatch(
     compatibleWith(COMPATIBLE_PACKAGE)
 
     dependsOn(
+        changeStartPagePatch,
         navigationBarComponentsResourcePatch,
         sharedResourceIdPatch,
         settingsPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -105,27 +119,71 @@ val navigationBarComponentsPatch = bytecodePatch(
          */
         tabLayoutTextFingerprint.matchOrThrow().let {
             it.method.apply {
+                val stringIndex = it.stringMatches!!.first().index
+                val browseIdIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/String;"
+                }
+                val browseIdReference = getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference
+                val fieldName = browseIdReference.name
+                val componentIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.toString() == browseIdReference.toString()
+                }
+                val browseIdRegister = getInstruction<TwoRegisterInstruction>(componentIndex).registerA
+                val componentRegister = getInstruction<TwoRegisterInstruction>(componentIndex).registerB
+
                 val enumIndex = it.patternMatch!!.startIndex + 3
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
                 val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
 
-                val pivotTabIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.name == "getVisibility"
-                }
+                val pivotTabIndex = indexOfGetVisibilityInstruction(this)
                 val pivotTabRegister =
                     getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
+
+                val spannedIndex = indexOfSetTextInstruction(this)
+                val spannedRegister =
+                    getInstruction<FiveRegisterInstruction>(spannedIndex).registerD
 
                 addInstruction(
                     pivotTabIndex,
                     "invoke-static {v$pivotTabRegister}, $NAVIGATION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
                 )
 
+                addInstructions(
+                    componentIndex + 1, """
+                        const-string v$enumRegister, "$fieldName"
+                        invoke-static {v$componentRegister, v$browseIdRegister, v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceBrowseId(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$browseIdRegister
+                        """
+                )
+
+                addInstructions(
+                    spannedIndex, """
+                        invoke-static {v$spannedRegister}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationLabel(Landroid/text/Spanned;)Landroid/text/Spanned;
+                        move-result-object v$spannedRegister
+                        """
+                )
+
                 addInstruction(
                     insertEnumIndex,
-                    "sput-object v$enumRegister, $NAVIGATION_CLASS_DESCRIPTOR->lastPivotTab:Ljava/lang/Enum;"
+                    "invoke-static {v$enumRegister}, $NAVIGATION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
                 )
             }
+        }
+
+        val smaliInstruction = """
+            invoke-static {v$REGISTER_TEMPLATE_REPLACEMENT}, $NAVIGATION_CLASS_DESCRIPTOR->replaceNavigationIcon(I)I
+            move-result v$REGISTER_TEMPLATE_REPLACEMENT
+            """
+
+        arrayOf(
+            ytFillSamples,
+            ytFillYouTubeMusic,
+            ytOutlineSamples,
+            ytOutlineYouTubeMusic,
+        ).forEach { literal ->
+            replaceLiteralInstructionCall(literal, smaliInstruction)
         }
 
         addSwitchPreference(
@@ -172,6 +230,22 @@ val navigationBarComponentsPatch = bytecodePatch(
             CategoryType.NAVIGATION,
             "revanced_hide_navigation_label",
             "false"
+        )
+        if (is_6_27_or_greater) {
+            addSwitchPreference(
+                CategoryType.NAVIGATION,
+                "revanced_replace_navigation_samples_button",
+                "false"
+            )
+        }
+        addSwitchPreference(
+            CategoryType.NAVIGATION,
+            "revanced_replace_navigation_upgrade_button",
+            "false"
+        )
+        addPreferenceWithIntent(
+            CategoryType.NAVIGATION,
+            "revanced_replace_navigation_button_about"
         )
 
         updatePatchStatus(NAVIGATION_BAR_COMPONENTS)

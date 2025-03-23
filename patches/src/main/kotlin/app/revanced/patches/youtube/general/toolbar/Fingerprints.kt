@@ -91,7 +91,25 @@ internal val createSearchSuggestionsFingerprint = legacyFingerprint(
     returnType = "Landroid/view/View;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I", "Landroid/view/View;", "Landroid/view/ViewGroup;"),
-    strings = listOf("ss_rds")
+    strings = listOf("ss_rds"),
+    customFingerprint = { method, _ ->
+        indexOfIteratorInstruction(method) >= 0
+    }
+)
+
+internal fun indexOfIteratorInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_INTERFACE &&
+                getReference<MethodReference>()?.toString() == "Ljava/util/Iterator;->next()Ljava/lang/Object;"
+    }
+
+// Flag is present in YouTube 19.16, but was not used until YouTube 19.43.
+// Related issue: https://github.com/inotia00/ReVanced_Extended/issues/2784
+internal const val SEARCH_FRAGMENT_FEATURE_FLAG = 45353159L
+
+internal val searchFragmentFeatureFlagFingerprint = legacyFingerprint(
+    name = "searchFragmentFeatureFlagFingerprint",
+    literals = listOf(SEARCH_FRAGMENT_FEATURE_FLAG),
 )
 
 internal val drawerContentViewConstructorFingerprint = legacyFingerprint(

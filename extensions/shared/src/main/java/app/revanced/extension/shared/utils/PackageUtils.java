@@ -31,7 +31,7 @@ public class PackageUtils extends Utils {
 
     public static boolean isPackageEnabled(@NonNull String packageName) {
         try {
-            return context.getPackageManager().getApplicationInfo(packageName, 0).enabled;
+            return getContext().getPackageManager().getApplicationInfo(packageName, 0).enabled;
         } catch (PackageManager.NameNotFoundException ignored) {
         }
 
@@ -43,7 +43,7 @@ public class PackageUtils extends Utils {
     }
 
     public static int getSmallestScreenWidthDp() {
-        return context.getResources().getConfiguration().smallestScreenWidthDp;
+        return getContext().getResources().getConfiguration().smallestScreenWidthDp;
     }
 
     // utils
@@ -51,7 +51,7 @@ public class PackageUtils extends Utils {
     private static PackageInfo getPackageInfo() {
         try {
             final PackageManager packageManager = getPackageManager();
-            final String packageName = context.getPackageName();
+            final String packageName = getContext().getPackageName();
             return isSDKAbove(33)
                     ? packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
                     : packageManager.getPackageInfo(packageName, 0);
@@ -63,7 +63,7 @@ public class PackageUtils extends Utils {
 
     @NonNull
     private static PackageManager getPackageManager() {
-        return context.getPackageManager();
+        return getContext().getPackageManager();
     }
 
     public static boolean isVersionToLessThan(@NonNull String compareVersion, @NonNull String targetVersion) {

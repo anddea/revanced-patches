@@ -8,6 +8,7 @@ import app.revanced.patches.music.navigation.components.navigationBarComponentsP
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ADS_PATH
 import app.revanced.patches.music.utils.extension.Constants.COMPONENTS_PATH
+import app.revanced.patches.music.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.music.utils.navigation.navigationBarHookPatch
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ADS
 import app.revanced.patches.music.utils.playservice.is_7_28_or_greater
@@ -26,6 +27,8 @@ import app.revanced.patches.shared.ads.hookLithoFullscreenAds
 import app.revanced.patches.shared.ads.hookNonLithoFullscreenAds
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
+import app.revanced.patches.shared.mainactivity.onStartMethod
+import app.revanced.patches.shared.mainactivity.onStopMethod
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
@@ -63,6 +66,7 @@ val adsPatch = bytecodePatch(
         navigationBarHookPatch,
         sharedResourceIdPatch,
         versionCheckPatch,
+        mainActivityResolvePatch,
     )
 
     execute {
@@ -94,8 +98,19 @@ val adsPatch = bytecodePatch(
             )
         }
 
+
         // get premium dialog in player
         if (is_7_28_or_greater) {
+            mapOf(
+                onStartMethod to "onAppForegrounded",
+                onStopMethod to "onAppBackgrounded"
+            ).forEach { (method, name) ->
+                method.addInstruction(
+                    0,
+                    "invoke-static {}, $PREMIUM_PROMOTION_POP_UP_CLASS_DESCRIPTOR->$name()V"
+                )
+            }
+
             getPremiumDialogFingerprint
                 .methodOrThrow(getPremiumDialogParentFingerprint)
                 .apply {
@@ -179,7 +194,7 @@ val adsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.ADS,
             "revanced_hide_fullscreen_ads",
-            "true"
+            "false"
         )
         addSwitchPreference(
             CategoryType.ADS,

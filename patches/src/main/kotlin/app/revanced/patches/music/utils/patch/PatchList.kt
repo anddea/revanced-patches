@@ -61,6 +61,10 @@ internal enum class PatchList(
         "Disable music video in album",
         "Adds option to redirect music videos from albums for non-premium users."
     ),
+    DISABLE_QUIC_PROTOCOL(
+        "Disable QUIC protocol",
+        "Adds an option to disable CronetEngine's QUIC protocol."
+    ),
     ENABLE_OPUS_CODEC(
         "Enable OPUS codec",
         "Adds an option to enable the OPUS audio codec if the player response includes it."
@@ -152,6 +156,10 @@ internal enum class PatchList(
     SPOOF_CLIENT(
         "Spoof client",
         "Adds options to spoof the client to allow playback."
+    ),
+    SPOOF_PLAYER_PARAMETER(
+        "Spoof player parameter",
+        "Adds options to spoof player parameter to allow playback."
     ),
     TRANSLATIONS_FOR_YOUTUBE_MUSIC(
         "Translations for YouTube Music",

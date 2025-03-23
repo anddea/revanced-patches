@@ -21,9 +21,9 @@ internal enum class PatchList(
         "Bypass URL redirects",
         "Adds an option to bypass URL redirects and open the original URL directly."
     ),
-    CHANGE_LAYOUT(
-        "Change layout",
-        "Adds an option to change the dp in order to use a tablet or phone layout."
+    CHANGE_FORM_FACTOR(
+        "Change form factor",
+        "Adds an option to change the UI appearance to a phone, tablet, or automotive device."
     ),
     CHANGE_LIVE_RING_CLICK_ACTION(
         "Change live ring click action",

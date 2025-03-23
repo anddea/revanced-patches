@@ -4,6 +4,7 @@ import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.videoHasSegments;
 
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
@@ -47,7 +48,10 @@ public class VotingButtonController {
                 return;
             }
             if (animation) {
-                imageView.startAnimation(BottomControlButton.getButtonFadeIn());
+                Animation fadeIn = BottomControlButton.getButtonFadeIn();
+                if (fadeIn != null) {
+                    imageView.startAnimation(fadeIn);
+                }
             }
             imageView.setVisibility(View.VISIBLE);
             return;
@@ -55,7 +59,10 @@ public class VotingButtonController {
         if (imageView.getVisibility() == View.VISIBLE) {
             imageView.clearAnimation();
             if (animation) {
-                imageView.startAnimation(BottomControlButton.getButtonFadeOut());
+                Animation fadeOut = BottomControlButton.getButtonFadeOut();
+                if (fadeOut != null) {
+                    imageView.startAnimation(fadeOut);
+                }
             }
             imageView.setVisibility(View.GONE);
         }
@@ -68,7 +75,10 @@ public class VotingButtonController {
 
 
         imageView.clearAnimation();
-        imageView.startAnimation(BottomControlButton.getButtonFadeOutImmediate());
+        Animation fadeOutImmediate = BottomControlButton.getButtonFadeOutImmediate();
+        if (fadeOutImmediate != null) {
+            imageView.startAnimation(fadeOutImmediate);
+        }
         imageView.setVisibility(View.GONE);
     }
 

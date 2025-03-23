@@ -64,7 +64,8 @@ private const val CLIENT_INFO_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
     SPOOF_CLIENT.title,
-    SPOOF_CLIENT.summary
+    SPOOF_CLIENT.summary,
+    false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
@@ -359,7 +360,7 @@ val spoofClientPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.MISC,
             "revanced_spoof_client",
-            "true"
+            "false"
         )
         addPreferenceWithIntent(
             CategoryType.MISC,

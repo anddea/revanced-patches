@@ -11,8 +11,7 @@ private val PLAYER_PARAMETER_STARTS_WITH_PARAMETER_LIST = listOf(
     "[B",
     "Ljava/lang/String;", // Player parameters proto buffer.
     "Ljava/lang/String;", // PlaylistId.
-    "I",                  // PlaylistIndex.
-    "I"
+    "I"                  // PlaylistIndex.
 )
 
 /**
@@ -30,7 +29,7 @@ internal val playerParameterBuilderFingerprint = legacyFingerprint(
             return@custom false
         }
 
-        val startsWithMethodParameterList = parameterTypes.slice(0..5)
+        val startsWithMethodParameterList = parameterTypes.slice(0..4)
 
         parametersEqual(
             PLAYER_PARAMETER_STARTS_WITH_PARAMETER_LIST,

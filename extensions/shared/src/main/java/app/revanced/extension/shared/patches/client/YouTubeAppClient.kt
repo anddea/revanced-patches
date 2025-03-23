@@ -27,28 +27,28 @@ object YouTubeAppClient {
     private val CLIENT_VERSION_IOS = if (forceAVC())
         "17.40.5"
     else
-        "19.29.1"
+        "20.10.4"
 
     private const val DEVICE_MAKE_IOS = "Apple"
     private const val OS_NAME_IOS = "iOS"
 
     /**
-     * The device machine id for the iPhone 15 Pro Max (iPhone16,2),
+     * The device machine id for the iPhone 16 Pro Max (iPhone17,2),
      * used to get HDR with AV1 hardware decoding.
      * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
      */
     private val DEVICE_MODEL_IOS = if (forceAVC())
         "iPhone12,5" // 11 Pro Max. (last device with iOS 13)
     else
-        "iPhone16,2" // 15 Pro Max.
+        "iPhone17,2" // 16 Pro Max.
     private val OS_VERSION_IOS = if (forceAVC())
         "13.7.17H35" // Last release of iOS 13.
     else
-        "17.7.2.21H221"
+        "18.3.2.22D82"
     private val USER_AGENT_VERSION_IOS = if (forceAVC())
         "13_7"
     else
-        "17_7_2"
+        "18_3_2"
     private val USER_AGENT_IOS = iOSUserAgent(PACKAGE_NAME_IOS, CLIENT_VERSION_IOS)
 
 
@@ -69,7 +69,7 @@ object YouTubeAppClient {
     private val CLIENT_VERSION_IOS_UNPLUGGED = if (forceAVC())
         "6.45"
     else
-        "8.33"
+        "9.10"
     private val USER_AGENT_IOS_UNPLUGGED =
         iOSUserAgent(PACKAGE_NAME_IOS_UNPLUGGED, CLIENT_VERSION_IOS_UNPLUGGED)
 
@@ -90,7 +90,7 @@ object YouTubeAppClient {
      *
      * Package name for YouTube VR (Google DayDream): com.google.android.apps.youtube.vr (Deprecated)
      * Package name for YouTube VR (Meta Quests): com.google.android.apps.youtube.vr.oculus
-     * Package name for YouTube VR (ByteDance Pico 4): com.google.android.apps.youtube.vr.pico
+     * Package name for YouTube VR (ByteDance Pico): com.google.android.apps.youtube.vr.pico
      */
     private const val PACKAGE_NAME_ANDROID_VR = "com.google.android.apps.youtube.vr.oculus"
 
@@ -133,7 +133,7 @@ object YouTubeAppClient {
      * Note: Audio track is not available
      */
     private const val PACKAGE_NAME_ANDROID_UNPLUGGED = "com.google.android.apps.youtube.unplugged"
-    private const val CLIENT_VERSION_ANDROID_UNPLUGGED = "8.16.0"
+    private const val CLIENT_VERSION_ANDROID_UNPLUGGED = "9.09.1"
 
     /**
      * The device machine id for the Chromecast with Google TV 4K.
@@ -143,8 +143,8 @@ object YouTubeAppClient {
     private const val DEVICE_MAKE_ANDROID_UNPLUGGED = "Google"
     private const val OS_VERSION_ANDROID_UNPLUGGED = "14"
     private const val ANDROID_SDK_VERSION_ANDROID_UNPLUGGED = "34"
-    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTT3.240625.001.K5"
-    private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244336107"
+    private const val BUILD_ID_ANDROID_UNPLUGGED = "UTTK.241210.003"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_UNPLUGGED = "244738119"
 
     private val USER_AGENT_ANDROID_UNPLUGGED = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_UNPLUGGED,
@@ -161,7 +161,7 @@ object YouTubeAppClient {
      * Note: Audio track is not available
      */
     private const val PACKAGE_NAME_ANDROID_CREATOR = "com.google.android.apps.youtube.creator"
-    private const val CLIENT_VERSION_ANDROID_CREATOR = "23.47.101"
+    private const val CLIENT_VERSION_ANDROID_CREATOR = "25.10.100"
 
     /**
      * The device machine id for the Google Pixel 9 Pro Fold.
@@ -172,7 +172,7 @@ object YouTubeAppClient {
     private const val OS_VERSION_ANDROID_CREATOR = "15"
     private const val ANDROID_SDK_VERSION_ANDROID_CREATOR = "35"
     private const val BUILD_ID_ANDROID_CREATOR = "AP3A.241005.015.A2"
-    private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "244738035"
+    private const val GMS_CORE_VERSION_CODE_ANDROID_CREATOR = "250932035"
 
     private val USER_AGENT_ANDROID_CREATOR = androidUserAgent(
         packageName = PACKAGE_NAME_ANDROID_CREATOR,
@@ -382,12 +382,12 @@ object YouTubeAppClient {
 
         companion object {
             val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
-                IOS_UNPLUGGED,
+                ANDROID_VR_NO_AUTH,
                 ANDROID_UNPLUGGED,
                 ANDROID_CREATOR,
+                IOS_UNPLUGGED,
                 IOS,
                 ANDROID_VR,
-                ANDROID_VR_NO_AUTH,
             )
         }
     }

@@ -234,7 +234,8 @@ internal val youtubeControlsOverlayFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = emptyList(),
     literals = listOf(
-        fadeDurationFast,
+        // Removed in YouTube 20.09.40+
+        // fadeDurationFast,
         insetOverlayViewLayout,
         scrimOverlay,
         // Removed in YouTube 20.02.38+

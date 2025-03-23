@@ -3,6 +3,7 @@ package app.revanced.extension.music.returnyoutubedislike;
 import static app.revanced.extension.shared.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
+import static app.revanced.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -283,23 +284,13 @@ public class ReturnYouTubeDislike {
                         : formatDislikeCount(voteData.getDislikeCount()));
     }
 
-    private static SpannableString newSpanUsingStylingOfAnotherSpan(@NonNull Spanned sourceStyle, @NonNull CharSequence newSpanText) {
-        SpannableString destination = new SpannableString(newSpanText);
-        Object[] spans = sourceStyle.getSpans(0, sourceStyle.length(), Object.class);
-        for (Object span : spans) {
-            destination.setSpan(span, 0, destination.length(), sourceStyle.getSpanFlags(span));
-        }
-        return destination;
-    }
-
     private static String formatDislikeCount(long dislikeCount) {
         if (isSDKAbove(24)) {
             if (dislikeCountFormatter == null) {
-                // Note: Java number formatters will use the locale specific number characters.
-                // such as Arabic which formats "1.234" into "۱,۲۳٤"
-                // But YouTube disregards locale specific number characters
-                // and instead shows english number characters everywhere.
-                Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().getLocales().get(0);
+                // Must use default locale and not Utils context locale,
+                // otherwise if using a different settings language then the
+                // formatting will use that of the different language.
+                Locale locale = Locale.getDefault();
                 Logger.printDebug(() -> "Locale: " + locale);
                 dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
             }
@@ -313,7 +304,7 @@ public class ReturnYouTubeDislike {
         if (isSDKAbove(24)) {
             synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
                 if (dislikePercentageFormatter == null) {
-                    Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().getLocales().get(0);
+                    Locale locale = Locale.getDefault();
                     Logger.printDebug(() -> "Locale: " + locale);
                     dislikePercentageFormatter = NumberFormat.getPercentInstance(locale);
                 }

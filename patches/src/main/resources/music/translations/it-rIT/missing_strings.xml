@@ -81,10 +81,12 @@ Use dark colors if possible, as the app does not support light themes."</string>
 
 Find the official song if a music video is detected playing from an album.
 
-• Powered by Piped Instance API."</string>
+Limitations: Kids videos may not redirected."</string>
     <string name="revanced_disable_music_video_in_album_title">Disable music video in album</string>
     <string name="revanced_disable_player_gesture_summary">Disables swipe to change tracks in the player.</string>
     <string name="revanced_disable_player_gesture_title">Disable player gesture</string>
+    <string name="revanced_disable_quic_protocol_summary">"Disables CronetEngine's QUIC protocol."</string>
+    <string name="revanced_disable_quic_protocol_title">Disable QUIC protocol</string>
     <string name="revanced_enable_compact_dialog_summary">"Enables the compact flyout menu on phones.
 
 Limitations:
@@ -104,7 +106,9 @@ Limitations:
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Enable swipe to dismiss miniplayer</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Enables swipe down to dismiss miniplayer.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Enable swipe to dismiss miniplayer</string>
-    <string name="revanced_enable_thick_seekbar_summary">Enables the thick seekbar.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Enables the thick seekbar.
+
+Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
     <string name="revanced_enable_trim_silence_summary">"Adds a Trim silence switch to the playback speed flyout menu.
 
@@ -194,7 +198,10 @@ Please download %2$s from the website."</string>
     <string name="revanced_hide_flyout_menu_subscribe_title">Hide Subscribe / Unsubscribe menu</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Hide Unpin from Speed dial menu</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Hide View song credits menu</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Hides fullscreen ads.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Hides fullscreen ads.
+
+Limitations:
+• Sometimes you may see a blank black screen instead of the home feed."</string>
     <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Hides the Share button in the fullscreen player.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Hide fullscreen Share button</string>
@@ -290,6 +297,18 @@ This does not bypass the age restriction. It just accepts it automatically."</st
     <string name="revanced_replace_flyout_menu_report_only_player_title">Keep Report in comments</string>
     <string name="revanced_replace_flyout_menu_report_summary">Replaces the Report menu with the Playback speed menu.</string>
     <string name="revanced_replace_flyout_menu_report_title">Replace Report menu</string>
+    <string name="revanced_replace_navigation_button_about_summary">"This feature is experimental.
+There are structural limitations of the patch, as Activities such as Search and Settings in YouTube Music are not public.
+
+Known issues:
+• When a replaced Activity such as Search and Settings is closed, the start page opens.
+
+Click to open the 'Change start page' settings."</string>
+    <string name="revanced_replace_navigation_button_about_title">About replace button</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Replaces the Samples button with the Search button.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Replace Samples button</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Replaces the Upgrade button with the Settings button.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Restores the comments popup panels to the old style.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Restore old comments popup panels</string>
     <string name="revanced_restore_old_player_background_summary">Restores the player background to the old style.</string>
@@ -401,6 +420,11 @@ Click to see how to issue an API key."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Defines a default client for spoofing.</string>
     <string name="revanced_spoof_client_type_title">Default client</string>
+    <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
+
+Side effect:
+• Sometimes the subtitles are located at the top of the player instead of the bottom."</string>
+    <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Shows the client used to fetch streaming data in Stats for nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Spoof the streaming data to prevent playback issues.

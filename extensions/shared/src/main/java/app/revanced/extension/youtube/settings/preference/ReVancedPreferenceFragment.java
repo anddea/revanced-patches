@@ -70,7 +70,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
             if (str == null) return;
-            Setting<?> setting = Setting.getSettingFromPath(str);
+            Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
 
             if (setting == null) return;
 

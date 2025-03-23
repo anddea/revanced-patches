@@ -20,8 +20,8 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 const val AUDIO_VIDEO_SWITCH_TOGGLE_VISIBILITY =
     "/AudioVideoSwitcherToggleView;->setVisibility(I)V"
@@ -44,7 +44,6 @@ internal val audioVideoSwitchToggleFingerprint = legacyFingerprint(
 internal val engagementPanelHeightFingerprint = legacyFingerprint(
     name = "engagementPanelHeightFingerprint",
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     // In YouTube Music 7.21.50+, there are two methods with similar structure, so this Opcode pattern must be used.
     opcodes = listOf(
         Opcode.IGET_OBJECT,
@@ -54,6 +53,7 @@ internal val engagementPanelHeightFingerprint = legacyFingerprint(
     ),
     parameters = emptyList(),
     customFingerprint = { method, _ ->
+        AccessFlags.FINAL.isSet(method.accessFlags) &&
         method.containsLiteralInstruction(1) &&
                 method.indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_VIRTUAL &&
@@ -65,7 +65,6 @@ internal val engagementPanelHeightFingerprint = legacyFingerprint(
 internal val engagementPanelHeightParentFingerprint = legacyFingerprint(
     name = "engagementPanelHeightParentFingerprint",
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(Opcode.NEW_ARRAY),
     parameters = emptyList(),
     customFingerprint = custom@{ method, _ ->
@@ -75,9 +74,12 @@ internal val engagementPanelHeightParentFingerprint = legacyFingerprint(
         if (method.returnType == "Ljava/lang/Object;") {
             return@custom false
         }
+        if (!AccessFlags.FINAL.isSet(method.accessFlags)) {
+            return@custom false
+        }
         method.indexOfFirstInstruction {
             opcode == Opcode.CHECK_CAST &&
-                    (this as? ReferenceInstruction)?.reference?.toString() == "Lcom/google/android/libraries/youtube/engagementpanel/size/EngagementPanelSizeBehavior;"
+                    getReference<TypeReference>()?.type == "Lcom/google/android/libraries/youtube/engagementpanel/size/EngagementPanelSizeBehavior;"
         } >= 0
     }
 )

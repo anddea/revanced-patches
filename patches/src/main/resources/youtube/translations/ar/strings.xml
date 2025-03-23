@@ -71,12 +71,22 @@
     <string name="revanced_bypass_url_redirects_summary_off">لا يتم تجاوز عمليات إعادة توجيه عناوين URL.</string>
     <string name="revanced_bypass_url_redirects_summary_on">تم تجاوز عمليات إعادة توجيه عناوين URL.</string>
     <string name="revanced_bypass_url_redirects_title">تجاوز عمليات إعادة توجيه عناوين URL</string>
-    <string name="revanced_change_layout_entry_1">الأساسي</string>
-    <string name="revanced_change_layout_entry_2">الجوّال</string>
-    <string name="revanced_change_layout_entry_3">الجوّال (الحد الأقصى 480 dp)</string>
-    <string name="revanced_change_layout_entry_4">الجهاز اللوحي</string>
-    <string name="revanced_change_layout_entry_5">الجهاز اللوحي (الحد الأدنى 600 dp)</string>
-    <string name="revanced_change_layout_title">تغيير التخطيط</string>
+    <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
+    <string name="revanced_change_form_factor_entry_2">الجوّال</string>
+    <string name="revanced_change_form_factor_entry_3">الجوّال (الحد الأقصى 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">الجهاز اللوحي</string>
+    <string name="revanced_change_form_factor_entry_5">الجهاز اللوحي (الحد الأدنى 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotive</string>
+    <string name="revanced_change_form_factor_title">عامل شكل التخطيط</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
+
+تصميم الجهاز اللوحي
+• إخفاء منشورات المجتمع.
+
+تصميم Automotive
+• فتح فيديوهات Shorts في المشغل العادي.
+• تنظيم الخلاصة حسب المواضيع والقنوات.
+• لا يمكن فتح وصف الفيديو عند إيقاف تشغيل Spoof' Streaming Data'."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">يتم فتح البث المباشر عند النقر على الحلقة المباشرة.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"يتم فتح القناة عند النقر على الحلقة المباشرة.
 
@@ -1889,10 +1899,20 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • مستوى الصوت الثابت غير متوفر."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• قد تكون هناك مشكلات في التشغيل (يتطلب PoToken).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• مستوى الصوت الثابت غير متوفر.
+• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة.
 • قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو في وضع التصفح المتخفي."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">التأثيرات الجانبية للتزييف</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• قد لا يتم تشغيل الفيديو.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"لا تتخطى تشفير استجابة Onesie.
+
+• قد يواجه بعض المستخدمين مشكلة جديدة في التشغيل."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"تخطي تشفير استجابة Onesie.
+
+• إصلاح نوع جديد من مشاكل التشغيل التي يواجهها بعض المستخدمين.
+
+• قد لا يتوفر برنامج ترميز AV1."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">تخطي تشفير استجابة Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض العميل المستخدم لجلب بيانات البث في إحصاءات تقنية.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>

@@ -88,6 +88,7 @@ object PlayerRoutes {
         botGuardPoToken: String = "",
         visitorId: String = "",
         setLocale: Boolean = false,
+        language: String = BaseSettings.SPOOF_STREAMING_DATA_LANGUAGE.get().language,
     ): ByteArray {
         val innerTubeBody = JSONObject()
 
@@ -108,7 +109,7 @@ object PlayerRoutes {
             client.put(
                 "hl",
                 if (setLocale) {
-                    BaseSettings.SPOOF_STREAMING_DATA_LANGUAGE.get().language
+                    language
                 } else {
                     LOCALE_LANGUAGE
                 }

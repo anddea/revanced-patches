@@ -1,9 +1,32 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
-    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
+    <string name="revanced_change_form_factor_entry_1">Default</string>
+    <string name="revanced_change_form_factor_entry_2">Phone</string>
+    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotive</string>
+    <string name="revanced_change_form_factor_title">Layout form factor</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+
+Tablet layout
+• Community posts are hidden.
+
+Automotive layout
+• Shorts open in the regular player.
+• Feed is organized by topics and channels.
+• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
+    <string name="revanced_enable_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
+    <string name="revanced_enable_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
+
+Seek the video by swiping horizontally on the top half of the screen."</string>
+    <string name="revanced_enable_swipe_seek_title">Enable seek gesture</string>
+    <string name="revanced_enable_swipe_speed_summary_off">Fullscreen speed swipe is disabled.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">"Fullscreen speed swipe is enabled.
+
+Adjust speed by swiping horizontally on the bottom half of the screen."</string>
+    <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
@@ -40,5 +63,19 @@
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
+
+• Some users may experience a new type of playback issue."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
+
+• Fixes a new type of playback issue that some users are experiencing.
+• AV1 codec may not be available."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_seek_sensitivity_title">Seek swipe sensitivity</string>
+    <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
+    <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
 </resources>

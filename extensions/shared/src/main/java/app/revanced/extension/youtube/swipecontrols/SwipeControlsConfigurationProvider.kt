@@ -21,7 +21,7 @@ class SwipeControlsConfigurationProvider(
      * should swipe controls be enabled? (global setting)
      */
     val enableSwipeControls: Boolean
-        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl)
+        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl || enableSpeedControl || enableSeekControl)
 
     /**
      * should swipe controls for volume be enabled?
@@ -34,6 +34,18 @@ class SwipeControlsConfigurationProvider(
      */
     val enableBrightnessControl: Boolean
         get() = Settings.ENABLE_SWIPE_BRIGHTNESS.get()
+
+    /**
+     * should swipe controls for speed be enabled?
+     */
+    val enableSpeedControl: Boolean
+        get() = Settings.ENABLE_SWIPE_SPEED.get()
+
+    /**
+     * should swipe controls for seeking be enabled?
+     */
+    val enableSeekControl: Boolean
+        get() = Settings.ENABLE_SWIPE_SEEK.get()
 
     /**
      * is the video player currently in fullscreen mode?
@@ -99,6 +111,28 @@ class SwipeControlsConfigurationProvider(
             "revanced_swipe_volume_sensitivity_invalid_toast"
         ).toFloat() / 100 * 10 // 10f
 
+    /**
+     * swipe distances for speed
+     */
+    val speedDistance: Float
+        get() = validateValue(
+            Settings.SWIPE_SPEED_SENSITIVITY,
+            1,
+            1000,
+            "revanced_swipe_speed_sensitivity_invalid_toast"
+        ).toFloat() / 100 * 10
+
+    /**
+     * swipe distances for seek
+     */
+    val seekDistance: Float
+        get() = validateValue(
+            Settings.SWIPE_SEEK_SENSITIVITY,
+            1,
+            1000,
+            "revanced_swipe_seek_sensitivity_invalid_toast"
+        ).toFloat() / 100 * 10
+
     // endregion
 
     // region overlay adjustments
@@ -116,22 +150,40 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * text size for the overlay, in sp
-     */
-    val overlayTextSize: Int
-        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-
-    /**
      * get the background color for text on the overlay, as a color int
      */
-    val overlayTextBackgroundColor: Int
+    val overlayBackgroundOpacity: Int
         get() = Color.argb(Settings.SWIPE_OVERLAY_BACKGROUND_ALPHA.get(), 0, 0, 0)
 
     /**
-     * get the foreground color for text on the overlay, as a color int
+     * The color of the progress overlay.
      */
-    val overlayForegroundColor: Int
+    val overlayProgressColor: Int
+        get() = 0xBFFFFFFF.toInt()
+
+    /**
+     * The color used for the background of the progress overlay fill.
+     */
+    val overlayFillBackgroundPaint: Int
+        get() = 0x80D3D3D3.toInt()
+
+    /**
+     * The color used for the text and icons in the overlay.
+     */
+    val overlayTextColor: Int
         get() = Color.WHITE
+
+    /**
+     * A flag that determines if the overlay should only show the icon.
+     */
+    val overlayShowOverlayMinimalStyle: Boolean
+        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
+
+    /**
+     * A flag that determines if the progress bar should be circular.
+     */
+    val isCircularProgressBar: Boolean
+        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
 
     // endregion
 

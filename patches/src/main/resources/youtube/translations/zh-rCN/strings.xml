@@ -64,12 +64,6 @@
     <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始图像主机\n\n启用此功能可以修复在某些地区被阻止的缺失图像</string>
     <string name="revanced_bypass_image_region_restrictions_summary_on">使用图像主机 yt4.ggpht.com</string>
     <string name="revanced_bypass_image_region_restrictions_title">绕过图像区域限制</string>
-    <string name="revanced_change_layout_entry_1">原版</string>
-    <string name="revanced_change_layout_entry_2">手机</string>
-    <string name="revanced_change_layout_entry_3">手机 (最大 480 dip)</string>
-    <string name="revanced_change_layout_entry_4">平板</string>
-    <string name="revanced_change_layout_entry_5">平板 (最小 600 dip)</string>
-    <string name="revanced_change_layout_title">调整布局</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">使用开关切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_on">使用文本切换</string>
     <string name="revanced_change_player_flyout_menu_toggle_title">更改切换类型</string>
@@ -1679,6 +1673,9 @@ Note:
     <string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层背景透明度</string>
     <string name="revanced_swipe_overlay_background_alpha_title">滑动背景透明度</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_off">已停用最小叠加层样式</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_on">已启用极简叠加样式</string>
+    <string name="revanced_swipe_overlay_minimal_style_title">启用极简样式</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑动区域大小不能超过50 重置为默认值</string>
     <string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比\n\n注意：这也会改变双击搜索手势的屏幕区域大小</string>
     <string name="revanced_swipe_overlay_rect_size_title">滑动叠加层大小</string>
@@ -1686,6 +1683,9 @@ Note:
     <string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
     <string name="revanced_swipe_overlay_timeout_title">滑动叠加层时长</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_off">水平叠加层已显示</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_on">圆形叠加层已显示</string>
+    <string name="revanced_swipe_show_circular_overlay_title">显示圆形叠加层</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">音量滑动灵敏度必须介于 1-1000 之间 (%)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">配置音量滑动的最小距离范围为 1 到 1000 (%)\n\n最小距离越短，音量等级变化越快\n\n推荐的音量滑动灵敏度：在 15 级音量调节为 100%，在 150 级音量调节为 10%</string>
     <string name="revanced_swipe_volume_sensitivity_title">音量滑动灵敏度</string>

@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.misc;
+package app.revanced.extension.shared.patches;
 
 import app.revanced.extension.shared.settings.BaseSettings;
 

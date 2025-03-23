@@ -37,11 +37,18 @@ val playerResponseMethodHookPatch = bytecodePatch(
             ?: playerParameterBuilderLegacyFingerprint.methodOrThrow()
 
         playerResponseMethod.apply {
-            parameterIsShortAndOpeningOrPlaying = parameterTypes.indexOfFirst { it == "Z" } + 1
+            val setIndex = parameterTypes.indexOfFirst { it == "Ljava/util/Set;" }
+            val parameterSize = parameterTypes.size
+            val relativeIndex = parameterTypes.subList(setIndex, parameterSize - 1).indexOfFirst { it == "Z" }
+
+            // YouTube 18.29 ~ 19.22 : p11
+            // YouTube 19.23 ~ 20.09 : p12
+            // YouTube 20.10 ~ : p13
+            parameterIsShortAndOpeningOrPlaying = setIndex + relativeIndex + 1
             // On some app targets the method has too many registers pushing the parameters past v15.
             // If needed, move the parameters to 4-bit registers so they can be passed to extension.
             playerResponseMethodCopyRegisters = implementation!!.registerCount -
-                    parameterTypes.size + parameterIsShortAndOpeningOrPlaying > 15
+                    parameterSize + parameterIsShortAndOpeningOrPlaying > 15
         }
 
         if (playerResponseMethodCopyRegisters) {

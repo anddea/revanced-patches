@@ -39,8 +39,18 @@ class PressToSwipeController(
         } else {
             false
         }
+        val inSpeedZone = if (controller.config.enableSpeedControl) {
+            (motionEvent.toPoint() in controller.zones.speed)
+        } else {
+            false
+        }
+        val inSeekZone = if (controller.config.enableSeekControl) {
+            (motionEvent.toPoint() in controller.zones.seek)
+        } else {
+            false
+        }
 
-        return inVolumeZone || inBrightnessZone
+        return inVolumeZone || inBrightnessZone || inSpeedZone || inSeekZone
     }
 
     override fun onUp(motionEvent: MotionEvent) {
@@ -67,24 +77,43 @@ class PressToSwipeController(
         // cancel if locked
         if (!config.enableSwipeControlsLockMode && config.isScreenLocked)
             return false
-        // cancel if not in swipe session or vertical
-        if (!isInSwipeSession || currentSwipe != SwipeDetector.SwipeDirection.VERTICAL)
-            return false
         // ignore gestures when engagement overlay is visible
-        if (isEngagementOverlayVisible())
+        if (!isInSwipeSession || isEngagementOverlayVisible())
             return false
-        return when (from.toPoint()) {
-            in controller.zones.volume -> {
-                scrollVolume(distanceY)
-                true
-            }
+        if (currentSwipe == SwipeDetector.SwipeDirection.VERTICAL) {
+            return when (from.toPoint()) {
+                in controller.zones.volume -> {
+                    scrollVolume(distanceY)
+                    true
+                }
 
-            in controller.zones.brightness -> {
-                scrollBrightness(distanceY)
-                true
-            }
+                in controller.zones.brightness -> {
+                    scrollBrightness(distanceY)
+                    true
+                }
 
-            else -> false
+                else -> false
+            }
+        } else if (currentSwipe == SwipeDetector.SwipeDirection.HORIZONTAL) {
+            return when (from.toPoint()) {
+                in controller.zones.speed -> {
+                    if (config.enableSpeedControl) {
+                        scrollSpeed(distanceX)
+                        true
+                    }
+                    false
+                }
+                in controller.zones.seek -> {
+                    if (config.enableSeekControl) {
+                        scrollSeek(distanceX)
+                        true
+                    }
+                    false
+                }
+
+                else -> false
+            }
         }
+        return false
     }
 }

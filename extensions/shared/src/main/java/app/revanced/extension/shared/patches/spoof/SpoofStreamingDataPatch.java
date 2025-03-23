@@ -23,6 +23,8 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
             BaseSettings.SPOOF_STREAMING_DATA_PO_TOKEN.get();
     private static final String VISITOR_DATA =
             BaseSettings.SPOOF_STREAMING_DATA_VISITOR_DATA.get();
+    private static final boolean SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION =
+            SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION.get();
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
@@ -60,6 +62,18 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
             return original;
         }
         return false;
+    }
+
+    /**
+     * Injection point.
+     * Skip response encryption in OnesiePlayerRequest.
+     */
+    public static boolean skipResponseEncryption(boolean original) {
+        if (SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION) {
+            return false;
+        }
+
+        return original;
     }
 
     /**
@@ -200,7 +214,7 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
         @Override
         public boolean isAvailable() {
             return BaseSettings.SPOOF_STREAMING_DATA.get() &&
-                    BaseSettings.SPOOF_STREAMING_DATA_CLIENT.get() == ClientType.ANDROID_VR_NO_AUTH;
+                    BaseSettings.SPOOF_STREAMING_DATA_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 }

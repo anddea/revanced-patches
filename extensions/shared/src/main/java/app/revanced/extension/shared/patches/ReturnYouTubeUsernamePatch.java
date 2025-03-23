@@ -3,8 +3,7 @@ package app.revanced.extension.shared.patches;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-import android.text.SpannableString;
-import android.text.Spanned;
+import static app.revanced.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 
 import androidx.annotation.NonNull;
 
@@ -73,22 +72,9 @@ public class ReturnYouTubeUsernamePatch {
                 Logger.printDebug(() -> "ChannelRequest Stream is null, handle:" + handle);
                 return original;
             }
-            return copySpannableString(original, userName);
+            return newSpanUsingStylingOfAnotherSpan(original, userName);
         } catch (Exception ex) {
             Logger.printException(() -> "onLithoTextLoaded failure", ex);
-        }
-        return original;
-    }
-
-    private static CharSequence copySpannableString(CharSequence original, String userName) {
-        if (original instanceof Spanned spanned) {
-            SpannableString newString = new SpannableString(userName);
-            Object[] spans = spanned.getSpans(0, spanned.length(), Object.class);
-            for (Object span : spans) {
-                int flags = spanned.getSpanFlags(span);
-                newString.setSpan(span, 0, newString.length(), flags);
-            }
-            return newString;
         }
         return original;
     }

@@ -85,12 +85,14 @@
     <string name="revanced_disable_music_video_in_album_redirect_type_title">Тип перенаправления</string>
     <string name="revanced_disable_music_video_in_album_summary">"Когда пользователь без премиума воспроизводит песню из альбома, иногда вместо официальной песни воспроизводится музыкальное видео.
 
-Если будет обнаружено воспроизведение музыкального видео, будет перенаправлено на официальную песню.
+Найти официальную песню, если обнаружено музыкальное видео из альбома.
 
-• Используется \"Piped Instance\", но в некоторых регионах API может быть недоступен."</string>
+Ограничение: видео для детей нельзя перенаправить."</string>
     <string name="revanced_disable_music_video_in_album_title">Отключить музыкальные видео в альбоме</string>
     <string name="revanced_disable_player_gesture_summary">Отключает свайп для переключения треков в плеере.</string>
     <string name="revanced_disable_player_gesture_title">Отключить жест плеера</string>
+    <string name="revanced_disable_quic_protocol_summary">"Выключает протокол CronetEngine's QUIC."</string>
+    <string name="revanced_disable_quic_protocol_title">Выключить протокол QUIC</string>
     <string name="revanced_enable_compact_dialog_summary">"Включает компактное всплывающее меню на телефонах.
 
 Известные проблемы:
@@ -121,7 +123,7 @@
     <string name="revanced_enable_swipe_to_dismiss_mini_player_title">Включить жест скрытия миниплеера</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_summary">Включает жест вниз для закрытия миниплеера.</string>
     <string name="revanced_enable_swipe_to_dismiss_miniplayer_title">Включить жест закрытия миниплеера</string>
-    <string name="revanced_enable_thick_seekbar_summary">Включает толстую панель прогресса.</string>
+    <string name="revanced_enable_thick_seekbar_summary">"Включает толстую панель прогресса."</string>
     <string name="revanced_enable_thick_seekbar_title">Включить толстую панель прогресса</string>
     <string name="revanced_enable_trim_silence_summary">"Включает переключатель \"Обрезать тишину\" во всплывающем меню скорости воспроизведения.
 
@@ -235,7 +237,10 @@
     <string name="revanced_hide_flyout_menu_subscribe_title">Скрыть пункт \"Подписаться / Отменить подписку\"</string>
     <string name="revanced_hide_flyout_menu_unpin_from_speed_dial_title">Скрыть \"Открепить из быстрого выбора\"</string>
     <string name="revanced_hide_flyout_menu_view_song_credit_title">Скрыть пункт \"Участники и создатели\"</string>
-    <string name="revanced_hide_fullscreen_ads_summary">Скрывает полноэкранную рекламу.</string>
+    <string name="revanced_hide_fullscreen_ads_summary">"Скрывает полноэкранную рекламу.
+
+Ограничение:
+• Иногда вместо главной ленты можно увидеть пустой черный экран."</string>
     <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
     <string name="revanced_hide_fullscreen_share_button_summary">Скрывает кнопку \"Поделиться\" в полноэкранном проигрывателе.</string>
     <string name="revanced_hide_fullscreen_share_button_title">Скрыть кнопку \"Поделиться\" в полноэкранном режиме</string>
@@ -341,6 +346,18 @@
     <string name="revanced_replace_flyout_menu_report_only_player_title">Сохранить пункт \"Пожаловаться\"</string>
     <string name="revanced_replace_flyout_menu_report_summary">Заменяет \"Пожаловаться\" на \"Скорость воспроизведения\".</string>
     <string name="revanced_replace_flyout_menu_report_title">Заменить \"Пожаловаться\"</string>
+    <string name="revanced_replace_navigation_button_about_summary">"Эта функция является экспериментальной.
+Такие действия, как Поиск и Настройки в YouTube Music, не являются общедоступными, поэтому патч имеет структурные ограничения.
+
+Известные проблемы:
+• При закрытии замененных действий, таких как Поиск и Настройки, открывается начальная страница.
+
+Нажмите, чтобы открыть \"Изменить начальную страницу\"."</string>
+    <string name="revanced_replace_navigation_button_about_title">О замене кнопки</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Заменяет кнопку \"Сэмпли\" на кнопку \"Поиск\".</string>
+    <string name="revanced_replace_navigation_samples_button_title">Замена кнопки \"Сэмплы\"</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Заменяет кнопку \"Обновить\" на кнопку \"Настройки\".</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Замена кнопки \"Обновить\"</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Возвращает всплывающие панели комментариев к старому стилю.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Восстановить старые всплывающие панели комментариев</string>
     <string name="revanced_restore_old_player_background_summary">Возвращает фон проигрывателя к старому стилю.</string>
@@ -461,6 +478,11 @@
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Определяет клиент по умолчанию для подмены.</string>
     <string name="revanced_spoof_client_type_title">Клиент по умолчанию</string>
+    <string name="revanced_spoof_player_parameter_summary">"Подменяет параметр плеера, чтобы предотвратить проблемы с воспроизведением.
+
+Побочный эффект:
+• Иногда субтитры располагаются в верхней части плеера, а не в нижней."</string>
+    <string name="revanced_spoof_player_parameter_title">Подменить параметр плеера</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Показывает клиент, используемый для получения потоковых данных в Статистике для сисадминов.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показывать в \"Статистике для сисадминов\"</string>
     <string name="revanced_spoof_streaming_data_summary">"Подделать потоковые данные, чтобы предотвратить проблемы с воспроизведением.

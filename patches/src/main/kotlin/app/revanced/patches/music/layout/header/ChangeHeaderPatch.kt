@@ -185,7 +185,7 @@ val changeHeaderPatch = resourcePatch(
 
         val isPath = customHeader != DEFAULT_HEADER_VALUE
         val customBrandingIconType = getIconType()
-        val customBrandingIconIncluded = customBrandingIconType != "default"
+        val customBrandingIconIncluded = customBrandingIconType != "youtube_music"
         customHeader = customHeaderOption.valueOrThrow()
 
         val warnings = "Invalid header path: $customHeader. Does not apply patches."
@@ -206,7 +206,8 @@ val changeHeaderPatch = resourcePatch(
             printWarn(warnings)
         }
 
-        if (is_7_27_or_greater) {
+        val isLegacyLogoExists = get("res").resolve("drawable-xxhdpi").resolve("ytm_logo.png").exists()
+        if (is_7_27_or_greater && isLegacyLogoExists) {
             document("res/layout/signin_fragment.xml").use { document ->
                 document.doRecursively node@{ node ->
                     if (node !is Element) return@node
