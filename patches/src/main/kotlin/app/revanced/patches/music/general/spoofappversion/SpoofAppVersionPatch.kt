@@ -32,25 +32,32 @@ private val spoofAppVersionBytecodePatch = bytecodePatch(
     )
 
     execute {
-        if (!is_6_43_or_greater || is_7_25_or_greater) {
+        if (!is_6_43_or_greater) {
             return@execute
         }
-        if (is_7_17_or_greater) {
-            findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
-                name == "SpoofAppVersionDefaultString"
-            }.replaceInstruction(
-                0,
-                "const-string v0, \"7.16.53\""
-            )
+        var defaultVersionString = "6.42.55"
+
+        if (is_7_17_or_greater && !is_7_25_or_greater) {
+            defaultVersionString = "7.16.53"
+            defaultValue = "true"
+
             findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
                 name == "SpoofAppVersionDefaultBoolean"
             }.replaceInstruction(
                 0,
                 "const/4 v0, 0x1"
             )
-
-            defaultValue = "true"
         }
+        if (is_7_25_or_greater) {
+            defaultVersionString = "7.17.52"
+        }
+
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "SpoofAppVersionDefaultString"
+        }.replaceInstruction(
+            0,
+            "const-string v0, \"$defaultVersionString\""
+        )
     }
 }
 
@@ -63,6 +70,9 @@ val spoofAppVersionPatch = resourcePatch(
         YOUTUBE_MUSIC_PACKAGE_NAME(
             "6.51.53",
             "7.16.53",
+            "7.25.53",
+            "8.05.51",
+            "8.10.52",
         ),
     )
 
@@ -73,12 +83,18 @@ val spoofAppVersionPatch = resourcePatch(
     )
 
     execute {
-        if (!is_6_43_or_greater || is_7_25_or_greater) {
-            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.43.53 ~ 7.24.51.")
+        if (!is_6_43_or_greater) {
+            printWarn("\"${SPOOF_APP_VERSION.title}\" is not supported in this version. Use YouTube Music 6.51.53 or later.")
             return@execute
         }
-        if (is_7_17_or_greater) {
+        if (!is_7_17_or_greater) {
+            appendAppVersion("6.42.55")
+        }
+        if (is_7_17_or_greater && !is_7_25_or_greater) {
             appendAppVersion("7.16.53")
+        }
+        if (is_7_25_or_greater) {
+            appendAppVersion("7.17.52")
         }
 
         addSwitchPreference(

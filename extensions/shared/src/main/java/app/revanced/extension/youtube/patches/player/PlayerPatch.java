@@ -24,7 +24,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
-import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
@@ -34,7 +33,6 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.RootView;
-import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
@@ -441,7 +439,7 @@ public class PlayerPatch {
         if (isLiveChatOrPlaylistPanel) {
             return true;
         }
-        return isAutoPopupPanel && ShortsPlayerState.getCurrent().isClosed();
+        return isAutoPopupPanel && !RootView.isShortsActive();
     }
 
     /**
@@ -471,8 +469,8 @@ public class PlayerPatch {
      * Used in YouTube 20.05.46+.
      */
     public static void disableAutoPlayerPopupPanels(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
-                                                     @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
-                                                     final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
+                                                    @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
+                                                    final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
         if (Settings.DISABLE_AUTO_PLAYER_POPUP_PANELS.get() && newVideoStarted.compareAndSet(false, true)) {
             Utils.runOnMainThreadDelayed(() -> newVideoStarted.compareAndSet(true, false), 3000L);
         }
@@ -518,6 +516,12 @@ public class PlayerPatch {
         return SPEED_OVERLAY_VALUE;
     }
 
+    public static float speedOverlayRelativeValue(float original) {
+        return SPEED_OVERLAY_VALUE != 2.0f
+                ? 0f
+                : original;
+    }
+
     public static boolean hideChannelWatermark(boolean original) {
         return !Settings.HIDE_CHANNEL_WATERMARK.get() && original;
     }
@@ -538,6 +542,10 @@ public class PlayerPatch {
 
     public static boolean hideFilmstripOverlay() {
         return Settings.HIDE_FILMSTRIP_OVERLAY.get();
+    }
+
+    public static boolean hideFilmstripOverlay(boolean original) {
+        return !Settings.HIDE_FILMSTRIP_OVERLAY.get() && original;
     }
 
     public static boolean hideInfoCard(boolean original) {

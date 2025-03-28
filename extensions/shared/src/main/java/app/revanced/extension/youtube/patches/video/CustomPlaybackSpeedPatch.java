@@ -75,30 +75,30 @@ public class CustomPlaybackSpeedPatch {
         return isCustomPlaybackSpeedEnabled() ? 0 : original;
     }
 
-    public static String[] getListEntries() {
+    public static String[] getEntries() {
         return isCustomPlaybackSpeedEnabled()
                 ? customSpeedEntries
                 : defaultSpeedEntries;
     }
 
-    public static String[] getListEntryValues() {
+    public static String[] getEntryValues() {
         return isCustomPlaybackSpeedEnabled()
                 ? customSpeedEntryValues
                 : defaultSpeedEntryValues;
     }
 
-    public static String[] getTrimmedListEntries() {
+    public static String[] getTrimmedEntries() {
         if (playbackSpeedEntries == null) {
-            final String[] playbackSpeedWithAutoEntries = getListEntries();
+            final String[] playbackSpeedWithAutoEntries = getEntries();
             playbackSpeedEntries = Arrays.copyOfRange(playbackSpeedWithAutoEntries, 1, playbackSpeedWithAutoEntries.length);
         }
 
         return playbackSpeedEntries;
     }
 
-    public static String[] getTrimmedListEntryValues() {
+    public static String[] getTrimmedEntryValues() {
         if (playbackSpeedEntryValues == null) {
-            final String[] playbackSpeedWithAutoEntryValues = getListEntryValues();
+            final String[] playbackSpeedWithAutoEntryValues = getEntryValues();
             playbackSpeedEntryValues = Arrays.copyOfRange(playbackSpeedWithAutoEntryValues, 1, playbackSpeedWithAutoEntryValues.length);
         }
 

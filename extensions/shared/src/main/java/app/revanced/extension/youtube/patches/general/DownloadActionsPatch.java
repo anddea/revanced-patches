@@ -1,18 +1,34 @@
 package app.revanced.extension.youtube.patches.general;
 
-import app.revanced.extension.shared.settings.BooleanSetting;
+import static app.revanced.extension.youtube.utils.VideoUtils.launchPlaylistExternalDownloader;
+import static app.revanced.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
+
+import android.view.View;
+
+import androidx.annotation.Nullable;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Map;
+
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.youtube.patches.utils.PlaylistPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
-public final class DownloadActionsPatch extends VideoUtils {
+public final class DownloadActionsPatch {
 
-    private static final BooleanSetting overrideVideoDownloadButton =
-            Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON;
+    private static final boolean OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON =
+            Settings.OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON.get();
 
-    private static final BooleanSetting overridePlaylistDownloadButton =
-            Settings.OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON;
+    private static final boolean OVERRIDE_VIDEO_DOWNLOAD_BUTTON =
+            Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON.get();
+
+    private static final boolean OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER =
+            OVERRIDE_VIDEO_DOWNLOAD_BUTTON && Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER.get();
+
+    private static final String ELEMENTS_SENDER_VIEW =
+            "com.google.android.libraries.youtube.rendering.elements.sender_view";
 
     /**
      * Injection point.
@@ -23,17 +39,21 @@ public final class DownloadActionsPatch extends VideoUtils {
      * <p>
      * Appears to always be called from the main thread.
      */
-    public static boolean inAppVideoDownloadButtonOnClick(String videoId) {
+    public static boolean inAppVideoDownloadButtonOnClick(@Nullable Map<Object, Object> map, Object offlineVideoEndpointOuterClass,
+                                                          @Nullable String videoId) {
         try {
-            if (!overrideVideoDownloadButton.get()) {
-                return false;
-            }
-            if (videoId == null || videoId.isEmpty()) {
-                return false;
-            }
-            launchVideoExternalDownloader(videoId);
+            if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(videoId)) {
+                if (OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER) {
+                    if (map != null && map.get(ELEMENTS_SENDER_VIEW) instanceof View view) {
+                        PlaylistPatch.setContext(view.getContext());
+                    }
+                    PlaylistPatch.prepareDialogBuilder(videoId);
+                } else {
+                    launchVideoExternalDownloader(videoId);
+                }
 
-            return true;
+                return true;
+            }
         } catch (Exception ex) {
             Logger.printException(() -> "inAppVideoDownloadButtonOnClick failure", ex);
         }
@@ -49,15 +69,10 @@ public final class DownloadActionsPatch extends VideoUtils {
      */
     public static String inAppPlaylistDownloadButtonOnClick(String playlistId) {
         try {
-            if (!overridePlaylistDownloadButton.get()) {
-                return playlistId;
+            if (OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
+                launchPlaylistExternalDownloader(playlistId);
+                return "";
             }
-            if (playlistId == null || playlistId.isEmpty()) {
-                return playlistId;
-            }
-            launchPlaylistExternalDownloader(playlistId);
-
-            return "";
         } catch (Exception ex) {
             Logger.printException(() -> "inAppPlaylistDownloadButtonOnClick failure", ex);
         }
@@ -73,15 +88,10 @@ public final class DownloadActionsPatch extends VideoUtils {
      */
     public static boolean inAppPlaylistDownloadMenuOnClick(String playlistId) {
         try {
-            if (!overridePlaylistDownloadButton.get()) {
-                return false;
+            if (OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON && StringUtils.isNotEmpty(playlistId)) {
+                launchPlaylistExternalDownloader(playlistId);
+                return true;
             }
-            if (playlistId == null || playlistId.isEmpty()) {
-                return false;
-            }
-            launchPlaylistExternalDownloader(playlistId);
-
-            return true;
         } catch (Exception ex) {
             Logger.printException(() -> "inAppPlaylistDownloadMenuOnClick failure", ex);
         }
@@ -92,7 +102,7 @@ public final class DownloadActionsPatch extends VideoUtils {
      * Injection point.
      */
     public static boolean overridePlaylistDownloadButtonVisibility() {
-        return overridePlaylistDownloadButton.get();
+        return OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON;
     }
 
 }

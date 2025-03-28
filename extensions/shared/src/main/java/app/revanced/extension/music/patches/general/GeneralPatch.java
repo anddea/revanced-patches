@@ -9,13 +9,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.shared.utils.ResourceUtils;
 
-/**
- * @noinspection ALL
- */
 @SuppressWarnings("unused")
 public class GeneralPatch {
 
@@ -79,6 +77,13 @@ public class GeneralPatch {
         }
     }
 
+    public static void hideSearchButton(View view) {
+        if (Settings.HIDE_SEARCH_BUTTON.get()) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams);
+        }
+    }
+
     public static boolean hideSoundSearchButton() {
         return Settings.HIDE_SOUND_SEARCH_BUTTON.get();
     }
@@ -123,7 +128,7 @@ public class GeneralPatch {
      * <p>
      * The {@link AlertDialog#getButton(int)} method must be used after {@link AlertDialog#show()} is called.
      * Otherwise {@link AlertDialog#getButton(int)} method will always return null.
-     * https://stackoverflow.com/a/4604145
+     * <a href="https://stackoverflow.com/a/4604145">Reference</a>
      * <p>
      * That's why {@link AlertDialog#show()} is absolutely necessary.
      * Instead, use two tricks to hide Alertdialog.

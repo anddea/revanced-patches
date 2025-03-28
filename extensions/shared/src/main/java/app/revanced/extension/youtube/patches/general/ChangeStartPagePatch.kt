@@ -6,7 +6,6 @@ import app.revanced.extension.shared.settings.Setting.Availability
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.youtube.settings.Settings
 import org.apache.commons.lang3.StringUtils
-import kotlin.Boolean
 
 @Suppress("unused")
 object ChangeStartPagePatch {
@@ -44,7 +43,7 @@ object ChangeStartPagePatch {
         }
         appLaunched = true
 
-        Logger.printDebug{ "Changing browseId to $browseId" }
+        Logger.printDebug { "Changing browseId to $browseId" }
         return browseId
     }
 

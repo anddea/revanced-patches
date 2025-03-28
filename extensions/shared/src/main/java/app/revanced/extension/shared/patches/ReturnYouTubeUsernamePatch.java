@@ -2,7 +2,6 @@ package app.revanced.extension.shared.patches;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-
 import static app.revanced.extension.shared.utils.Utils.newSpanUsingStylingOfAnotherSpan;
 
 import androidx.annotation.NonNull;

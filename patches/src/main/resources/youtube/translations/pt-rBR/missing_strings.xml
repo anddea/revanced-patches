@@ -1,25 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_change_form_factor_entry_1">Default</string>
-    <string name="revanced_change_form_factor_entry_2">Phone</string>
-    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
-    <string name="revanced_change_form_factor_entry_4">Tablet</string>
-    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
-    <string name="revanced_change_form_factor_entry_6">Automotive</string>
-    <string name="revanced_change_form_factor_title">Layout form factor</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+    <string name="revanced_default_playback_speed_shorts_title">Default playback speed on Shorts</string>
+    <string name="revanced_default_video_quality_mobile_shorts_title">Default Shorts quality on mobile network</string>
+    <string name="revanced_default_video_quality_wifi_shorts_title">Default Shorts quality on Wi-Fi network</string>
+    <string name="revanced_disable_layout_updates_user_dialog_message">"App layout reverts to the layout it was using when it was first installed.
 
-Tablet layout
-• Community posts are hidden.
+Some server-side layouts may not revert.
 
-Automotive layout
-• Shorts open in the regular player.
-• Feed is organized by topics and channels.
-• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
+Changes include:
+• Components in the player flyout menu (or related settings) may not work.
+• Rolling numbers are not animated.
+• The Library tab is used.
+• The Music section of video description may not work.
+• Account switch button may not appear on the Library tab. Use the 'Enable wide search bar in You tab' setting."</string>
     <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
     <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
-    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
+    <string name="revanced_disable_translucent_status_bar_user_dialog_message">For some manufacturer ROMs running Android 12+, enabling this feature may make the system navigation bar transparent.</string>
     <string name="revanced_enable_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_enable_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
@@ -54,27 +51,67 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_language_AM">"Amharic
+<small>አማርኛ</small>"</string>
+    <string name="revanced_language_BE">"Belarusian
+<small>беларуская</small>"</string>
+    <string name="revanced_language_HE">"Hebrew
+<small>עברי</small>"</string>
+    <string name="revanced_language_SQ">"Albanian
+<small>Shqip</small>"</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Instead of launching an external downloader, open the queue manager.</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_title">Queue manager</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">Playback speed changes only apply to the current Short.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"Playback speed changes apply to all Shorts.
+
+Info:
+• The only way to change the playback speed in the Shorts player is to use the 'Speed ​​dialog' in 'Custom actions'.
+• If you didn't include the 'Shorts components' patch, this wouldn't be available."</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_title">Remember playback speed changes on Shorts</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default playback speed on Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default playback speed on Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Show a toast</string>
+    <string name="revanced_remember_playback_speed_toast_shorts">Changed default Shorts playback speed to: %s.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">Quality changes only apply to the current Short.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">Quality changes apply to all Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_title">Remember Shorts quality changes</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">A toast will not be shown when changing the default Shorts quality.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">A toast will be shown when changing the default Shorts quality.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Show a toast</string>
+    <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s.</string>
+    <string name="revanced_remember_video_quality_toast_shorts">Changed Shorts %1$s quality to: %2$s.</string>
+    <string name="revanced_sb_color_opacity_label">Opacity:</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
     <string name="revanced_sb_new_segment_forward">Forward by Specified Time (Default: 150ms)</string>
     <string name="revanced_sb_new_segment_publish">Publish Created Segment</string>
     <string name="revanced_sb_new_segment_rewind">Rewind by Specified Time (Default: 150ms)</string>
+    <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_label">Speed dialog</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">Speed dialog menu is hidden.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Speed dialog menu is shown.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_title">Show speed dialog menu</string>
     <string name="revanced_shorts_custom_actions_speed_label">Playback speed</string>
     <string name="revanced_shorts_custom_actions_speed_summary_off">Playback speed menu is hidden.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_summary_on">Playback speed menu is shown.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_title">Show playback speed menu</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Could not fetch any client streams.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">You may not be logged in.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
-
-• Some users may experience a new type of playback issue."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
-
-• Fixes a new type of playback issue that some users are experiencing.
-• AV1 codec may not be available."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Whole ASNs/IP ranges may be blocked by the server.</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_deprecated">"iOS
+<small>(Deprecated)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"When requesting YouTube API endpoints using iOS, you will need the Auth tokens issued by the iOS device and the PoTokens issued by iOSGuard.
+
+This means that streaming requests via iOS will be missing both the Auth tokens and the PoTokens, and the server may consider the user as a bot and block the entire ASN/IP range.
+
+USE AT YOUR OWN RISK!"</string>
+    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100.</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100.</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_title">Seek swipe sensitivity</string>

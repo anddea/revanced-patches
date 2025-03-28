@@ -285,6 +285,8 @@ Limitações:
     <string name="revanced_hide_promotion_alert_banner_title">Ocultar banner de alerta de promoção</string>
     <string name="revanced_hide_samples_shelf_summary">Oculta o painel Descobertas no feed.</string>
     <string name="revanced_hide_samples_shelf_title">Ocultar painel Descobertas</string>
+    <string name="revanced_hide_search_button_summary">Oculta o botão de pesquisa na barra de ferramentas.</string>
+    <string name="revanced_hide_search_button_title">Ocultar botão de pesquisa</string>
     <string name="revanced_hide_settings_menu_about_title">Ocultar menu Sobre o YouTube Music</string>
     <string name="revanced_hide_settings_menu_data_saving_title">Ocultar menu Economia de dados</string>
     <string name="revanced_hide_settings_menu_downloads_and_storage_title">Ocultar menu Downloads e armazenamento</string>
@@ -350,6 +352,18 @@ Isso não ignora a restrição de idade, apenas aceita isso automaticamente."</s
     <string name="revanced_replace_flyout_menu_report_only_player_title">Manter Denunciar nos comentários</string>
     <string name="revanced_replace_flyout_menu_report_summary">Substitui o menu Denunciar pelo menu Velocidade de Reprodução.</string>
     <string name="revanced_replace_flyout_menu_report_title">Substituir menu Denunciar</string>
+    <string name="revanced_replace_navigation_button_about_summary">"Este recurso é experimental.
+Existem limitações estruturais do patch, pois atividades como Pesquisa e Configurações no YouTube Music não são públicas.
+
+Problemas conhecidos:
+• Quando uma atividade substituída, como Pesquisa e Configurações é fechada, a página inicial se abre.
+
+Clique para abrir as configurações de 'Alterar página inicial'."</string>
+    <string name="revanced_replace_navigation_button_about_title">Sobre a substituição de botão</string>
+    <string name="revanced_replace_navigation_samples_button_summary">Substitui o botão Descobertas pelo botão de Pesquisa.</string>
+    <string name="revanced_replace_navigation_samples_button_title">Substituir botão Descobertas</string>
+    <string name="revanced_replace_navigation_upgrade_button_summary">Substitui o botão Upgrade pelo botão de Configurações.</string>
+    <string name="revanced_replace_navigation_upgrade_button_title">Substituir botão Upgrade</string>
     <string name="revanced_restore_old_comments_popup_panels_summary">Restaura os painéis pop-up de comentários ao estilo antigo.</string>
     <string name="revanced_restore_old_comments_popup_panels_title">Restaurar antigo painel pop-up de comentários</string>
     <string name="revanced_restore_old_player_background_summary">Restaura o fundo do reprodutor para o estilo antigo.</string>
@@ -459,6 +473,8 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_app_version_target_entry_6_11_52">6.11.52 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_6_42_55">6.42.55 - Desativar letras em tempo real</string>
     <string name="revanced_spoof_app_version_target_entry_7_16_53">7.16.53 - Restaurar barra de ação antiga</string>
+    <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - A seção de comentários não aparece no feed inicial</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Selecione a versão do app para falsificação.</string>
     <string name="revanced_spoof_app_version_target_title">Versão da falsificação do aplicativo</string>
     <string name="revanced_spoof_app_version_title">Falsificar a versão do aplicativo</string>
@@ -470,6 +486,11 @@ Clique para ver como emitir uma chave de API."</string>
     <string name="revanced_spoof_client_type_entry_ios_music_7_04">iOS Music 7.04</string>
     <string name="revanced_spoof_client_type_summary">Define um cliente padrão para falsificar.</string>
     <string name="revanced_spoof_client_type_title">Cliente padrão</string>
+    <string name="revanced_spoof_player_parameter_summary">"Falsificar o parâmetro de reprodutor para evitar problemas de reprodução.
+
+Efeito lateral:
+• Às vezes as legendas estão localizadas na parte superior do reprodutor ao invés da parte inferior."</string>
+    <string name="revanced_spoof_player_parameter_title">Falsificação de parâmetro do reprodutor</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary">Exibir o cliente usado para buscar dados de streaming em estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
     <string name="revanced_spoof_streaming_data_summary">"Falsifique os dados de streaming para evitar problemas de reprodução.

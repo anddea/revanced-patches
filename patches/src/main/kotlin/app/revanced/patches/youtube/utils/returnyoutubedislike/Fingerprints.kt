@@ -7,6 +7,7 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 /**
  * This fingerprint is compatible with YouTube v18.30.xx+
@@ -54,7 +55,14 @@ internal val rollingNumberMeasureTextParentFingerprint = legacyFingerprint(
 internal val rollingNumberSetterFingerprint = legacyFingerprint(
     name = "rollingNumberSetterFingerprint",
     opcodes = listOf(Opcode.CHECK_CAST),
-    literals = listOf(45427773L),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CONST_STRING &&
+                    getReference<StringReference>()
+                        ?.string.toString()
+                        .startsWith("RollingNumberType required properties missing! Need")
+        } >= 0
+    }
 )
 
 internal val shortsTextViewFingerprint = legacyFingerprint(

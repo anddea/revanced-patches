@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
@@ -60,10 +61,21 @@ val spoofStreamingDataPatch = bytecodePatch(
         versionCheckPatch,
     )
 
+    val useIOSClient by booleanOption(
+        key = "useIOSClient",
+        default = false,
+        title = "Use iOS client",
+        description = "Add setting to set iOS client (Deprecated) as default client.",
+    )
+
     execute {
 
         var settingArray = arrayOf(
             "SETTINGS: SPOOF_STREAMING_DATA"
+        )
+
+        var patchStatusArray = arrayOf(
+            "SpoofStreamingData"
         )
 
         // region Get replacement streams at player requests.
@@ -343,14 +355,21 @@ val spoofStreamingDataPatch = bytecodePatch(
             settingArray += "SETTINGS: SKIP_RESPONSE_ENCRYPTION"
         }
 
+        if (useIOSClient == true) {
+            settingArray += "SETTINGS: USE_IOS_DEPRECATED"
+            patchStatusArray += "SpoofStreamingDataIOS"
+        }
+
         // endregion
 
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofStreamingData"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
+        patchStatusArray.forEach { methodName ->
+            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+                name == methodName
+            }.replaceInstruction(
+                0,
+                "const/4 v0, 0x1"
+            )
+        }
 
         addPreference(
             settingArray,

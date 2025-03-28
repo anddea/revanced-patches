@@ -20,6 +20,7 @@ import app.revanced.patches.music.utils.playservice.is_8_05_or_greater
 import app.revanced.patches.music.utils.playservice.versionCheckPatch
 import app.revanced.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.revanced.patches.music.utils.resourceid.playerOverlayChip
+import app.revanced.patches.music.utils.resourceid.searchButton
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.resourceid.topBarMenuItemImageView
 import app.revanced.patches.music.utils.settings.CategoryType
@@ -198,6 +199,23 @@ val layoutComponentsPatch = bytecodePatch(
 
         // endregion
 
+        // region patch for hide search button
+
+        searchActionViewFingerprint.methodOrThrow().apply {
+            val constIndex =
+                indexOfFirstLiteralInstructionOrThrow(searchButton)
+            val targetIndex =
+                indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT_OBJECT)
+            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstruction(
+                targetIndex + 1,
+                "invoke-static {v$targetRegister}, $GENERAL_CLASS_DESCRIPTOR->hideSearchButton(Landroid/view/View;)V"
+            )
+        }
+
+        // endregion
+
         // region patch for hide sound search button
 
         if (is_6_48_or_greater) {
@@ -351,6 +369,11 @@ val layoutComponentsPatch = bytecodePatch(
         addSwitchPreference(
             CategoryType.GENERAL,
             "revanced_hide_samples_shelf",
+            "false"
+        )
+        addSwitchPreference(
+            CategoryType.GENERAL,
+            "revanced_hide_search_button",
             "false"
         )
         if (is_6_48_or_greater) {

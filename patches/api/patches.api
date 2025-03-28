@@ -6,6 +6,10 @@ public final class app/revanced/patches/all/misc/connectivity/wifi/spoof/SpoofWi
 	public static final fun getSpoofWifiPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/display/edgetoedge/EdgeToEdgeDisplayPatchKt {
+	public static final fun getEdgeToEdgeDisplayPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
 	public abstract fun getDefinedClassName ()Ljava/lang/String;
 	public abstract fun getMethodName ()Ljava/lang/String;
@@ -254,6 +258,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getBottomSheetRecyclerView ()J
 	public static final fun getButtonContainer ()J
 	public static final fun getButtonIconPaddingMedium ()J
+	public static final fun getChannelHandle ()J
 	public static final fun getChipCloud ()J
 	public static final fun getColorGrey ()J
 	public static final fun getDarkBackground ()J
@@ -282,6 +287,7 @@ public final class app/revanced/patches/music/utils/resourceid/SharedResourceIdP
 	public static final fun getPrivacyTosFooter ()J
 	public static final fun getQualityAuto ()J
 	public static final fun getRemixGenericButtonSize ()J
+	public static final fun getSearchButton ()J
 	public static final fun getSlidingDialogAnimation ()J
 	public static final fun getTapBloomView ()J
 	public static final fun getText1 ()J
@@ -553,10 +559,9 @@ public final class app/revanced/patches/shared/mapping/ResourceElement {
 }
 
 public final class app/revanced/patches/shared/mapping/ResourceMappingPatchKt {
-	public static final fun get (Ljava/util/List;Lapp/revanced/patches/shared/mapping/ResourceType;Ljava/lang/String;)J
-	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
+	public static final fun getResourceId (Lapp/revanced/patches/shared/mapping/ResourceType;Ljava/lang/String;)J
+	public static final fun getResourceId (Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-	public static final fun getResourceMappings ()Ljava/util/List;
 }
 
 public final class app/revanced/patches/shared/mapping/ResourceType : java/lang/Enum {
@@ -638,6 +643,38 @@ public final class app/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutPa
 	public static final fun getViewGroupMarginLayoutParamsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/extended/branding/name/CustomBrandingNamePatchKt {
+	public static final fun getCustomBrandingNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/spotify/extended/branding/name/RemoveCreateTabPatchKt {
+	public static final fun getRemoveCreateTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt {
+	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
+	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
+	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
+	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
+	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/ads/general/AdsPatchKt {
 	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -716,6 +753,10 @@ public final class app/revanced/patches/youtube/general/startpage/ChangeStartPag
 
 public final class app/revanced/patches/youtube/general/toolbar/ToolBarComponentsPatchKt {
 	public static final fun getToolBarComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/general/updates/LayoutUpdatesPatchKt {
+	public static final fun getLayoutUpdatesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/actionbuttons/ShortsActionButtonsPatchKt {
@@ -1016,6 +1057,10 @@ public final class app/revanced/patches/youtube/utils/playertype/PlayerTypeHookP
 	public static final fun getPlayerTypeHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/playlist/PlaylistPatchKt {
+	public static final fun getPlaylistPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPatchKt {
 	public static final fun getVersionCheckPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun is_18_31_or_greater ()Z
@@ -1023,12 +1068,15 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_18_39_or_greater ()Z
 	public static final fun is_18_42_or_greater ()Z
 	public static final fun is_18_49_or_greater ()Z
+	public static final fun is_19_01_or_greater ()Z
 	public static final fun is_19_02_or_greater ()Z
 	public static final fun is_19_04_or_greater ()Z
+	public static final fun is_19_05_or_greater ()Z
 	public static final fun is_19_09_or_greater ()Z
 	public static final fun is_19_15_or_greater ()Z
 	public static final fun is_19_16_or_greater ()Z
 	public static final fun is_19_17_or_greater ()Z
+	public static final fun is_19_18_or_greater ()Z
 	public static final fun is_19_23_or_greater ()Z
 	public static final fun is_19_25_or_greater ()Z
 	public static final fun is_19_26_or_greater ()Z
@@ -1046,7 +1094,9 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_02_or_greater ()Z
 	public static final fun is_20_03_or_greater ()Z
 	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_09_or_greater ()Z
 	public static final fun is_20_10_or_greater ()Z
+	public static final fun is_20_12_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -1148,7 +1198,6 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getRelatedChipCloudMargin ()J
 	public static final fun getRightComment ()J
 	public static final fun getScrimOverlay ()J
-	public static final fun getScrubbing ()J
 	public static final fun getSeekEasyHorizontalTouchOffsetToStartScrubbing ()J
 	public static final fun getSeekUndoEduOverlayStub ()J
 	public static final fun getSettingsFragment ()J
@@ -1163,13 +1212,17 @@ public final class app/revanced/patches/youtube/utils/resourceid/SharedResourceI
 	public static final fun getTotalTime ()J
 	public static final fun getTouchArea ()J
 	public static final fun getVarispeedUnavailableTitle ()J
+	public static final fun getVerticalTouchOffsetToEnterFineScrubbing ()J
+	public static final fun getVerticalTouchOffsetToStartFineScrubbing ()J
 	public static final fun getVideoQualityBottomSheet ()J
 	public static final fun getVideoQualityUnavailableAnnouncement ()J
 	public static final fun getVideoZoomSnapIndicator ()J
 	public static final fun getVoiceSearch ()J
 	public static final fun getYouTubeControlsOverlaySubtitleButton ()J
 	public static final fun getYouTubeLogo ()J
+	public static final fun getYtCallToAction ()J
 	public static final fun getYtFillBell ()J
+	public static final fun getYtOutlineLibrary ()J
 	public static final fun getYtOutlineMoonZ ()J
 	public static final fun getYtOutlinePictureInPictureWhite ()J
 	public static final fun getYtOutlineVideoCamera ()J

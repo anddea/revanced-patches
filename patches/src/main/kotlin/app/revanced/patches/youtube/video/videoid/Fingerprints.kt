@@ -29,7 +29,7 @@ internal val videoIdFingerprint = legacyFingerprint(
             ?: return@custom false
         val instructions = implementation.instructions
         val instructionCount = instructions.count()
-        if (instructionCount < 30) {
+        if (instructionCount < 25) {
             return@custom false
         }
 
