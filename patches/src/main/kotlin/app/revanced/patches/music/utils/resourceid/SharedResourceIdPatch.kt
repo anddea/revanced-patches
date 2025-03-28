@@ -24,6 +24,8 @@ var buttonContainer = -1L
     private set
 var buttonIconPaddingMedium = -1L
     private set
+var channelHandle = -1L
+    private set
 var chipCloud = -1L
     private set
 var colorGrey = -1L
@@ -131,6 +133,7 @@ internal val sharedResourceIdPatch = resourcePatch(
         bottomSheetRecyclerView = getResourceId(LAYOUT, "bottom_sheet_recycler_view")
         buttonContainer = getResourceId(ID, "button_container")
         buttonIconPaddingMedium = getResourceId(DIMEN, "button_icon_padding_medium")
+        channelHandle = getResourceId(ID, "channel_handle")
         chipCloud = getResourceId(LAYOUT, "chip_cloud")
         colorGrey = getResourceId(COLOR, "ytm_color_grey_12")
         darkBackground = getResourceId(ID, "dark_background")

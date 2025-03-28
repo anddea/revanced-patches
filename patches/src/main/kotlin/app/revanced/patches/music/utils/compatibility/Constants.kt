@@ -16,7 +16,7 @@ internal object Constants {
             "7.16.53", // This is the latest version that supports the 'Spoof app version' patch.
             "7.25.53", // This is the last supported version for 2024.
             "8.05.51", // This was the latest version supported by the previous RVX patch.
-            "8.10.52", // This is the latest version supported by the RVX patch.
+            "8.12.53", // This is the latest version supported by the RVX patch.
         )
     )
 }
