@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.utils.resourceid.totalTime
 import app.revanced.patches.youtube.utils.resourceid.varispeedUnavailableTitle
 import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -23,6 +24,7 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val bottomSheetMenuItemBuilderFingerprint = legacyFingerprint(
@@ -107,24 +109,25 @@ internal val qualityMenuViewInflateFingerprint = legacyFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L", "L"),
-    opcodes = listOf(
-        Opcode.INVOKE_SUPER,
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_16,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST
-    ),
-    literals = listOf(videoQualityBottomSheet),
+    customFingerprint = custom@{ method, _ ->
+        if (!method.containsLiteralInstruction(videoQualityBottomSheet)) {
+            return@custom false
+        }
+        if (indexOfAddHeaderViewInstruction(method) < 0) {
+            return@custom false
+        }
+        val implementation = method.implementation
+            ?: return@custom false
+
+        implementation.instructions.elementAt(0).opcode == Opcode.INVOKE_SUPER
+    }
 )
+
+internal fun indexOfAddHeaderViewInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                getReference<MethodReference>()?.name == "addHeaderView"
+    }
 
 internal val rollingNumberTextViewAnimationUpdateFingerprint = legacyFingerprint(
     name = "rollingNumberTextViewAnimationUpdateFingerprint",
@@ -217,6 +220,29 @@ internal val videoEndFingerprint = legacyFingerprint(
     name = "videoEndFingerprint",
     strings = listOf("Attempting to seek during an ad"),
     literals = listOf(45368273L),
+)
+
+/**
+ * This fingerprint is compatible with all versions of YouTube starting from v18.29.38 to supported versions.
+ * This method is invoked only in Shorts.
+ * Accurate video information is invoked even when the user moves Shorts upward or downward.
+ */
+internal val videoIdFingerprintShorts = legacyFingerprint(
+    name = "videoIdFingerprintShorts",
+    returnType = "V",
+    parameters = listOf(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR),
+    opcodes = listOf(
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT
+    ),
+    customFingerprint = custom@{ method, _ ->
+        if (method.containsLiteralInstruction(45365621L))
+            return@custom true
+
+        method.indexOfFirstInstruction {
+            getReference<FieldReference>()?.name == "reelWatchEndpoint"
+        } >= 0
+    }
 )
 
 /**

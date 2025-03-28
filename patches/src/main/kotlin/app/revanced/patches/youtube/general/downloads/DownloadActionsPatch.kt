@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_PATH
 import app.revanced.patches.youtube.utils.patch.PatchList.HOOK_DOWNLOAD_ACTIONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
+import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -41,6 +42,7 @@ val downloadActionsPatch = bytecodePatch(
 
     dependsOn(
         pipStateHookPatch,
+        playlistPatch,
         sharedResourceIdPatch,
         settingsPatch,
     )
@@ -52,7 +54,7 @@ val downloadActionsPatch = bytecodePatch(
         offlineVideoEndpointFingerprint.methodOrThrow().apply {
             addInstructionsWithLabels(
                 0, """
-                    invoke-static/range {p3 .. p3}, $EXTENSION_CLASS_DESCRIPTOR->inAppVideoDownloadButtonOnClick(Ljava/lang/String;)Z
+                    invoke-static/range {p1 .. p3}, $EXTENSION_CLASS_DESCRIPTOR->inAppVideoDownloadButtonOnClick(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/String;)Z
                     move-result v0
                     if-eqz v0, :show_native_downloader
                     return-void

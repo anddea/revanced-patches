@@ -7,9 +7,13 @@ import app.revanced.patches.youtube.utils.resourceid.ytTextSecondary
 import app.revanced.patches.youtube.utils.resourceid.ytYoutubeMagenta
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import kotlin.collections.listOf
 
 internal val shortsSeekbarColorFingerprint = legacyFingerprint(
@@ -137,26 +141,20 @@ internal val seekbarTappingFingerprint = legacyFingerprint(
     name = "seekbarTappingFingerprint",
     returnType = "Z",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.INT_TO_FLOAT,
-        Opcode.INT_TO_FLOAT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
-    ),
-    customFingerprint = { method, _ -> method.name == "onTouchEvent" }
+    parameters = listOf("Landroid/view/MotionEvent;"),
+    customFingerprint = { method, classDef ->
+        classDef.interfaces.contains("Landroid/view/View${'$'}OnLayoutChangeListener;") &&
+                classDef.fields.find { it.type == "[Lcom/google/android/libraries/youtube/player/features/overlay/timebar/TimelineMarker;" } != null &&
+                method.name == "onTouchEvent" &&
+                indexOfPointInstruction(method) >= 0
+    }
 )
+
+internal fun indexOfPointInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        opcode == Opcode.INVOKE_DIRECT &&
+                getReference<MethodReference>()?.toString() == "Landroid/graphics/Point;-><init>(II)V"
+    }
 
 internal val seekbarThumbnailsQualityFingerprint = legacyFingerprint(
     name = "seekbarThumbnailsQualityFingerprint",

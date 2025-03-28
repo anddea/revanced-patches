@@ -28,6 +28,8 @@ import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.DeArrowAvailability;
 import app.revanced.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.extension.youtube.patches.alternativethumbnails.AlternativeThumbnailsPatch.ThumbnailOption;
@@ -148,7 +150,6 @@ public class Settings extends BaseSettings {
             new ChangeStartPagePatch.ChangeStartPageTypeAvailability());
     public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", FALSE);
     public static final BooleanSetting DISABLE_SPLASH_ANIMATION = new BooleanSetting("revanced_disable_splash_animation", PatchStatus.SplashAnimation(), true);
-    public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", TRUE, true);
     public static final BooleanSetting ENABLE_GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_enable_gradient_loading_screen", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE = new BooleanSetting("revanced_hide_floating_microphone", TRUE, true);
     public static final BooleanSetting HIDE_GRAY_SEPARATOR = new BooleanSetting("revanced_hide_gray_separator", TRUE);
@@ -156,6 +157,8 @@ public class Settings extends BaseSettings {
 
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
     public static final BooleanSetting CHANGE_LIVE_RING_CLICK_ACTION = new BooleanSetting("revanced_change_live_ring_click_action", FALSE, true);
+    public static final BooleanSetting DISABLE_LAYOUT_UPDATES = new BooleanSetting("revanced_disable_layout_updates", false, true, "revanced_disable_layout_updates_user_dialog_message");
+    public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true, "revanced_disable_translucent_status_bar_user_dialog_message");
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", false, true, "revanced_spoof_app_version_user_dialog_message");
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", PatchStatus.SpoofAppVersionDefaultString(), true, parent(SPOOF_APP_VERSION));
 
@@ -179,12 +182,14 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_SUBSCRIPTIONS_BUTTON = new BooleanSetting("revanced_hide_navigation_subscriptions_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_LABEL = new BooleanSetting("revanced_hide_navigation_label", FALSE, true);
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true, "revanced_switch_create_with_notifications_button_user_dialog_message");
-    public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", FALSE, true, "revanced_enable_translucent_navigation_bar_user_dialog_message");
+    public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
 
     // PreferenceScreen: General - Override buttons
-    public static final BooleanSetting OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_playlist_download_button", FALSE);
-    public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_video_download_button", FALSE);
+    public static final BooleanSetting OVERRIDE_PLAYLIST_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_playlist_download_button", FALSE, true);
+    public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON = new BooleanSetting("revanced_override_video_download_button", FALSE, true);
+    public static final BooleanSetting OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER = new BooleanSetting("revanced_override_video_download_button_queue_manager", FALSE, true,
+            "revanced_queue_manager_user_dialog_message", parent(OVERRIDE_VIDEO_DOWNLOAD_BUTTON));
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_PLAYLIST = new StringSetting("revanced_external_downloader_package_name_playlist", "com.deniscerri.ytdl");
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO = new StringSetting("revanced_external_downloader_package_name_video", "com.deniscerri.ytdl");
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME_VIDEO_LONG_PRESS = new StringSetting("revanced_external_downloader_package_name_video_long_press", "com.junkfood.seal");
@@ -333,7 +338,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_YT_MUSIC = new BooleanSetting("revanced_hide_player_flyout_menu_listen_with_youtube_music", TRUE);
 
     // PreferenceScreen: Player - Fullscreen
-    public static final BooleanSetting DISABLE_ENGAGEMENT_PANEL = new BooleanSetting("revanced_disable_engagement_panel", FALSE);
+    public static final BooleanSetting DISABLE_ENGAGEMENT_PANEL = new BooleanSetting("revanced_disable_engagement_panel", FALSE, true);
     public static final BooleanSetting ENTER_FULLSCREEN = new BooleanSetting("revanced_enter_fullscreen", FALSE);
     public static final EnumSetting<FullscreenMode> EXIT_FULLSCREEN = new EnumSetting<>("revanced_exit_fullscreen", FullscreenMode.DISABLED);
     public static final BooleanSetting SHOW_VIDEO_TITLE_SECTION = new BooleanSetting("revanced_show_video_title_section", TRUE, true, parent(DISABLE_ENGAGEMENT_PANEL));
@@ -395,6 +400,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting OVERLAY_BUTTON_COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_overlay_button_copy_video_url_timestamp", FALSE);
     public static final BooleanSetting OVERLAY_BUTTON_MUTE_VOLUME = new BooleanSetting("revanced_overlay_button_mute_volume", FALSE);
     public static final BooleanSetting OVERLAY_BUTTON_EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_overlay_button_external_downloader", FALSE);
+    public static final BooleanSetting OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER = new BooleanSetting("revanced_overlay_button_external_downloader_queue_manager", FALSE, true,
+            "revanced_queue_manager_user_dialog_message", parent(OVERLAY_BUTTON_EXTERNAL_DOWNLOADER));
     public static final BooleanSetting OVERLAY_BUTTON_SPEED_DIALOG = new BooleanSetting("revanced_overlay_button_speed_dialog", FALSE);
     public static final BooleanSetting OVERLAY_BUTTON_PLAY_ALL = new BooleanSetting("revanced_overlay_button_play_all", FALSE);
     public static final EnumSetting<PlaylistIdPrefix> OVERLAY_BUTTON_PLAY_ALL_TYPE = new EnumSetting<>("revanced_overlay_button_play_all_type", PlaylistIdPrefix.ALL_CONTENTS_WITH_TIME_ASCENDING);
@@ -494,12 +501,13 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_shorts_custom_actions_copy_video_url_timestamp", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER = new BooleanSetting("revanced_shorts_custom_actions_external_downloader", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO = new BooleanSetting("revanced_shorts_custom_actions_open_video", FALSE, true);
+    public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG = new BooleanSetting("revanced_shorts_custom_actions_speed_dialog", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", FALSE, true);
 
     public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU = new BooleanSetting("revanced_enable_shorts_custom_actions_flyout_menu", FALSE, true,
-            parentsAny(SHORTS_CUSTOM_ACTIONS_SPEED, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
+            parentsAny(SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
     public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR = new BooleanSetting("revanced_enable_shorts_custom_actions_toolbar", FALSE, true,
-            parentsAny(SHORTS_CUSTOM_ACTIONS_SPEED, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
+            parentsAny(SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
 
     // Experimental Flags
     public static final BooleanSetting ENABLE_TIME_STAMP = new BooleanSetting("revanced_enable_shorts_time_stamp", FALSE, true);
@@ -522,7 +530,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ENABLE_SWIPE_HAPTIC_FEEDBACK = new BooleanSetting("revanced_enable_swipe_haptic_feedback", TRUE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
     public static final BooleanSetting SWIPE_LOCK_MODE = new BooleanSetting("revanced_swipe_gestures_lock_mode", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
     public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_magnitude_threshold", 0, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
-    public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
+    public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
     public static final IntegerSetting SWIPE_OVERLAY_RECT_SIZE = new IntegerSetting("revanced_swipe_overlay_rect_size", 20, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
     public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
 
@@ -546,30 +554,38 @@ public class Settings extends BaseSettings {
     public static final FloatSetting SWIPE_BRIGHTNESS_VALUE = new FloatSetting("revanced_swipe_brightness_value", -1.0f, false, false);
 
 
-    // PreferenceScreen: Video
-    public static final FloatSetting DEFAULT_PLAYBACK_SPEED = new FloatSetting("revanced_default_playback_speed", -2.0f);
-    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_MOBILE = new IntegerSetting("revanced_default_video_quality_mobile", -2);
-    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_WIFI = new IntegerSetting("revanced_default_video_quality_wifi", -2);
+    // PreferenceScreen: Video - Codec
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE, true);
+    public static final BooleanSetting DISABLE_VP9_CODEC = new BooleanSetting("revanced_disable_vp9_codec", FALSE, true);
+    public static final BooleanSetting REPLACE_AV1_CODEC = new BooleanSetting("revanced_replace_av1_codec", FALSE, true);
+
+    // PreferenceScreen: Video - Playback speed
+    public static final FloatSetting DEFAULT_PLAYBACK_SPEED = new FloatSetting("revanced_default_playback_speed", -2.0f);
+    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", TRUE);
+    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_playback_speed_last_selected_toast", TRUE, parent(REMEMBER_PLAYBACK_SPEED_LAST_SELECTED));
+    public static final FloatSetting DEFAULT_PLAYBACK_SPEED_SHORTS = new FloatSetting("revanced_default_playback_speed_shorts", -2.0f);
+    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_shorts_last_selected", TRUE);
+    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_playback_speed_shorts_last_selected_toast", TRUE, parent(REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED));
     public static final BooleanSetting ENABLE_CUSTOM_PLAYBACK_SPEED = new BooleanSetting("revanced_enable_custom_playback_speed", FALSE, true);
     public static final BooleanSetting CUSTOM_PLAYBACK_SPEED_MENU_TYPE = new BooleanSetting("revanced_custom_playback_speed_menu_type", TRUE, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds", "0.25\n0.5\n0.75\n1.0\n1.25\n1.5\n1.75\n2.0\n2.25\n2.5", true, parent(ENABLE_CUSTOM_PLAYBACK_SPEED));
-    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", TRUE);
-    public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_playback_speed_last_selected_toast", TRUE, parent(REMEMBER_PLAYBACK_SPEED_LAST_SELECTED));
+
+    // PreferenceScreen: Video - Video quality
+    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_MOBILE = new IntegerSetting("revanced_default_video_quality_mobile", -2);
+    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_WIFI = new IntegerSetting("revanced_default_video_quality_wifi", -2);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", TRUE);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_video_quality_last_selected_toast", TRUE, parent(REMEMBER_VIDEO_QUALITY_LAST_SELECTED));
+    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_MOBILE_SHORTS = new IntegerSetting("revanced_default_video_quality_mobile_shorts", -2, true);
+    public static final IntegerSetting DEFAULT_VIDEO_QUALITY_WIFI_SHORTS = new IntegerSetting("revanced_default_video_quality_wifi_shorts", -2, true);
+    public static final BooleanSetting REMEMBER_VIDEO_QUALITY_SHORTS_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_shorts_last_selected", TRUE);
+    public static final BooleanSetting REMEMBER_VIDEO_QUALITY_SHORTS_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_video_quality_shorts_last_selected_toast", TRUE, parent(REMEMBER_VIDEO_QUALITY_SHORTS_LAST_SELECTED));
     public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE, true);
-    // Experimental Flags
-    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC = new BooleanSetting("revanced_disable_default_playback_speed_music", TRUE, true);
-    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE = new BooleanSetting("revanced_disable_default_playback_speed_music_type", FALSE, true, parent(DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC));
-    public static final BooleanSetting ENABLE_DEFAULT_PLAYBACK_SPEED_SHORTS = new BooleanSetting("revanced_enable_default_playback_speed_shorts", TRUE);
     public static final BooleanSetting SKIP_PRELOADED_BUFFER = new BooleanSetting("revanced_skip_preloaded_buffer", FALSE, true, "revanced_skip_preloaded_buffer_user_dialog_message");
     public static final BooleanSetting SKIP_PRELOADED_BUFFER_TOAST = new BooleanSetting("revanced_skip_preloaded_buffer_toast", TRUE);
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true);
-    public static final BooleanSetting DISABLE_VP9_CODEC = new BooleanSetting("revanced_disable_vp9_codec", FALSE, true);
-    public static final BooleanSetting REPLACE_AV1_CODEC = new BooleanSetting("revanced_replace_av1_codec", FALSE, true);
-    public static final BooleanSetting REJECT_AV1_CODEC = new BooleanSetting("revanced_reject_av1_codec", FALSE, true);
 
+    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC = new BooleanSetting("revanced_disable_default_playback_speed_music", FALSE, true);
+    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE = new BooleanSetting("revanced_disable_default_playback_speed_music_type", FALSE, true, parent(DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC));
 
     // PreferenceScreen: Miscellaneous
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
@@ -621,24 +637,34 @@ public class Settings extends BaseSettings {
 
     public static final StringSetting SB_CATEGORY_SPONSOR = new StringSetting("sb_sponsor", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_SPONSOR_COLOR = new StringSetting("sb_sponsor_color", "#00D400");
+    public static final FloatSetting SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_SELF_PROMO = new StringSetting("sb_selfpromo", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_SELF_PROMO_COLOR = new StringSetting("sb_selfpromo_color", "#FFFF00");
+    public static final FloatSetting  SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_INTERACTION = new StringSetting("sb_interaction", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_INTERACTION_COLOR = new StringSetting("sb_interaction_color", "#CC00FF");
+    public static final FloatSetting  SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_HIGHLIGHT = new StringSetting("sb_highlight", MANUAL_SKIP.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_HIGHLIGHT_COLOR = new StringSetting("sb_highlight_color", "#FF1684");
+    public static final FloatSetting  SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_INTRO = new StringSetting("sb_intro", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_INTRO_COLOR = new StringSetting("sb_intro_color", "#00FFFF");
+    public static final FloatSetting  SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_OUTRO = new StringSetting("sb_outro", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_OUTRO_COLOR = new StringSetting("sb_outro_color", "#0202ED");
+    public static final FloatSetting  SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("sb_outro_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_PREVIEW = new StringSetting("sb_preview", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_PREVIEW_COLOR = new StringSetting("sb_preview_color", "#008FD6");
+    public static final FloatSetting  SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("sb_preview_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_FILLER = new StringSetting("sb_filler", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_FILLER_COLOR = new StringSetting("sb_filler_color", "#7300FF");
+    public static final FloatSetting  SB_CATEGORY_FILLER_OPACITY = new FloatSetting("sb_filler_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC = new StringSetting("sb_music_offtopic", MANUAL_SKIP.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC_COLOR = new StringSetting("sb_music_offtopic_color", "#FF9900");
+    public static final FloatSetting  SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("sb_music_offtopic_opacity", 0.8f);
     public static final StringSetting SB_CATEGORY_UNSUBMITTED = new StringSetting("sb_unsubmitted", SKIP_AUTOMATICALLY.reVancedKeyValue);
     public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("sb_unsubmitted_color", "#FFFFFF");
+    public static final FloatSetting  SB_CATEGORY_UNSUBMITTED_OPACITY = new FloatSetting("sb_unsubmitted_opacity", 1.0f);
 
     // SB Setting not exported
     public static final LongSetting SB_LAST_VIP_CHECK = new LongSetting("sb_last_vip_check", 0L, false, false);
@@ -647,6 +673,16 @@ public class Settings extends BaseSettings {
 
     static {
         // region Migration initialized
+
+        // Old spoof versions that no longer work reliably.
+        String spoofAppVersionTarget = SPOOF_APP_VERSION_TARGET.get();
+        if (spoofAppVersionTarget.compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
+            Utils.showToastShort(str("revanced_spoof_app_version_target_invalid_toast", spoofAppVersionTarget));
+            Utils.showToastShort(str("revanced_extended_reset_to_default_toast"));
+            Logger.printInfo(() -> "Resetting spoof app version target");
+            SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
+
         // Categories were previously saved without a 'sb_' key prefix, so they need an additional adjustment.
         Set<Setting<?>> sbCategories = new HashSet<>(Arrays.asList(
                 SB_CATEGORY_SPONSOR,

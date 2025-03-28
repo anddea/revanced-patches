@@ -1,11 +1,11 @@
 package app.revanced.extension.shared.patches.spoof;
 
-import app.revanced.extension.shared.patches.client.MusicAppClient.ClientType;
-import app.revanced.extension.music.settings.Settings;
+import app.revanced.extension.shared.innertube.client.YouTubeMusicAppClient.ClientType;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings("unused")
 public class SpoofClientPatch extends BlockRequestPatch {
-    private static final ClientType CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
+    private static final ClientType CLIENT_TYPE = BaseSettings.SPOOF_CLIENT_TYPE.get();
 
     /**
      * Injection point.

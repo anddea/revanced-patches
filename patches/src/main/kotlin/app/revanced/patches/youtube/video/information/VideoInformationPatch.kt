@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -19,12 +18,14 @@ import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.videoEndFingerprint
+import app.revanced.patches.youtube.utils.videoIdFingerprintShorts
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.cloneMutable
 import app.revanced.util.findMethodOrThrow
@@ -92,6 +93,8 @@ private var mdxConstructorInsertIndex = -1
 
 private lateinit var videoTimeConstructorMethod: MutableMethod
 private var videoTimeConstructorInsertIndex = 2
+
+private lateinit var setPlaybackSpeedMethodReference: MethodReference
 
 // Used by other patches.
 internal lateinit var speedSelectionInsertMethod: MutableMethod
@@ -395,12 +398,13 @@ val videoInformationPatch = bytecodePatch(
                         Opcode.IGET_OBJECT
                     )
                 val setPlaybackSpeedContainerClassFieldReference =
-                    getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference.toString()
+                    getInstruction<ReferenceInstruction>(setPlaybackSpeedContainerClassFieldIndex).reference
 
                 val setPlaybackSpeedClassFieldReference =
-                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
-                val setPlaybackSpeedMethodReference =
-                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference.toString()
+                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference
+
+                setPlaybackSpeedMethodReference =
+                    getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
 
                 // add override playback speed method
                 it.classDef.methods.add(
@@ -449,39 +453,91 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        playbackSpeedClassFingerprint.matchOrThrow().let { result ->
-            result.method.apply {
-                val index = result.patternMatch!!.endIndex
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-                val playbackSpeedClass = this.returnType
-
-                // set playback speed class
-                replaceInstruction(
-                    index,
-                    "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass"
-                )
-                addInstruction(
-                    index + 1,
-                    "return-object v$register"
-                )
+        videoIdFingerprintShorts.matchOrThrow().let {
+            it.method.apply {
+                val shortsPlaybackSpeedClassField = it.classDef.fields.find { field ->
+                    field.type == setPlaybackSpeedMethodReference.definingClass
+                } ?: throw PatchException("Failed to find hook field")
 
                 val smaliInstructions =
                     """
                         if-eqz v0, :ignore
-                        invoke-virtual {v0, p0}, $playbackSpeedClass->overridePlaybackSpeed(F)V
+                        invoke-virtual {v0, p0}, $definingClass->overridePlaybackSpeed(F)V
                         :ignore
                         return-void
-                    """
+                        """
 
                 addStaticFieldToExtension(
                     EXTENSION_CLASS_DESCRIPTOR,
                     "overridePlaybackSpeed",
-                    "playbackSpeedClass",
-                    playbackSpeedClass,
-                    smaliInstructions,
-                    false
+                    "playbackSpeedShortsClass",
+                    definingClass,
+                    smaliInstructions
+                )
+
+                // add override playback speed method
+                it.classDef.methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        "overridePlaybackSpeed",
+                        listOf(ImmutableMethodParameter("F", annotations, null)),
+                        "V",
+                        AccessFlags.PUBLIC or AccessFlags.PUBLIC,
+                        annotations,
+                        null,
+                        ImmutableMethodImplementation(
+                            3, """
+                                # Check if the playback speed is not auto (-2.0f)
+                                const/4 v0, 0x0
+                                cmpg-float v0, v2, v0
+                                if-lez v0, :ignore
+                                
+                                # Get the container class field.
+                                iget-object v0, v1, $shortsPlaybackSpeedClassField  
+
+                                # For some reason, in YouTube 19.44.39 this value is sometimes null.
+                                if-eqz v0, :ignore
+                                
+                                # Invoke setPlaybackSpeed on that class.
+                                invoke-virtual {v0, v2}, $setPlaybackSpeedMethodReference
+
+                                :ignore
+                                return-void
+                                """.toInstructions(), null, null
+                        )
+                    ).toMutable()
                 )
             }
+        }
+
+        playbackSpeedClassFingerprint.methodOrThrow().apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+            val playbackSpeedClass = this.returnType
+
+            // set playback speed class
+            addInstructionsAtControlFlowLabel(
+                index,
+                "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass"
+            )
+
+            val smaliInstructions =
+                """
+                    if-eqz v0, :ignore
+                    invoke-virtual {v0, p0}, $playbackSpeedClass->overridePlaybackSpeed(F)V
+                    return-void
+                    :ignore
+                    nop
+                    """
+
+            addStaticFieldToExtension(
+                EXTENSION_CLASS_DESCRIPTOR,
+                "overridePlaybackSpeed",
+                "playbackSpeedClass",
+                playbackSpeedClass,
+                smaliInstructions,
+                false
+            )
         }
 
         /**

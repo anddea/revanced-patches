@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.player;
 
+import static app.revanced.extension.youtube.patches.player.ActionButtonsPatch.ActionButton.REMIX;
+
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -7,8 +9,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import static app.revanced.extension.youtube.patches.player.ActionButtonsPatch.ActionButton.*;
 
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.utils.Logger;
@@ -106,8 +106,8 @@ public class ActionButtonsPatch {
     /**
      * Injection point.
      *
-     * @param list          Type list of litho components
-     * @param identifier    Identifier of litho components
+     * @param list       Type list of litho components
+     * @param identifier Identifier of litho components
      */
     public static List<Object> hideActionButtonByIndex(@Nullable List<Object> list, @Nullable String identifier) {
         try {

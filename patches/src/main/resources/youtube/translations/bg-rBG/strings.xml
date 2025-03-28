@@ -256,9 +256,6 @@
     <string name="revanced_enable_debug_logging_summary_off">Отчетите за грешки са изключени.</string>
     <string name="revanced_enable_debug_logging_summary_on">Дневникът за остраняване на грешки е активиран.</string>
     <string name="revanced_enable_debug_logging_title">Активиране на регистрирането на грешки</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Скоростта на възпроизвеждане по подразбиране не се прилага за Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Скоростта на възпроизвеждане по подразбиране се прилага за Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Променете скоростта на възпроизвеждане на Shorts</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Екранът за зареждане с градиент е деактивиран.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Екранът за зареждане с градиент е активиран.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Градиентен екрана за зареждане</string>
@@ -1307,7 +1304,6 @@ Note:
     <string name="revanced_preference_category_others">Други</string>
     <string name="revanced_preference_category_overlay_buttons">Добавете бутони към екрана за възпроизвеждане</string>
     <string name="revanced_preference_category_patch_information">Информация за корекции</string>
-    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
     <string name="revanced_preference_category_quick_actions">Бързи действия</string>
     <string name="revanced_preference_category_recommended_video">Препоръчани видеоклипове</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts рафтове</string>
@@ -1382,13 +1378,10 @@ Note:
     <string name="revanced_preference_screen_video_title">Видео</string>
     <string name="revanced_preference_screen_watch_history_summary">Променя настройките, за хронологията на гледане.</string>
     <string name="revanced_preference_screen_watch_history_title">История на гледане</string>
+    <string name="revanced_queue_manager_add_to_queue">Добави към опашката</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Височината трябва да е между 0-32, нулиране.</string>
     <string name="revanced_quick_actions_top_margin_summary">Промяна на височината на лентата за прогрес, стойности между 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Височина на лентата за напредък</string>
-    <string name="revanced_reject_av1_codec_summary">"Принудително отхвърляне на софтуерния кодек AV1 
-След приблизително 20 секунди буфериране ще бъде приложен друг кодек."</string>
-    <string name="revanced_reject_av1_codec_title">Отхвърлете софтуерния кодек AV1</string>
-    <string name="revanced_reject_av1_codec_toast">Буфериране поради софтуерен кодек Av1 (прибл. 20 сек.).</string>
     <string name="revanced_related_videos_offset_title">Компенсиране</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Промените в скоростта на възпроизвеждане се отнасят само за текущия видеоклип.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Промените в скоростта на възпроизвеждане се отнасят за всички видеоклипове.</string>
@@ -1760,14 +1753,6 @@ Note:
 
 AVC има максимална разделителна способност от 1080p, аудио кодекът Opus не е наличен, а видеовъзпроизвеждането ще използва повече интернет данни от VP9 или AV1."</string>
     <string name="revanced_spoof_streaming_data_language_title">VR език по подразбиране на аудиопотока</string>
-    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken се пуска с BotGuard в доверен браузър.</string>
-    <string name="revanced_spoof_streaming_data_po_token_title">PoToken</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Някои клиенти изискват PoToken и VisitorData, за да получат валиден отговор на поточни данни.
-
-Ако се опитвате да използвате iOS като клиент по подразбиране, може да имате нужда от тези стойности.
-
-Щракнете, за да видите повече информация."</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">За PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Липсва менюто за аудио запис.
 • Не е наличен стабилен звук.
 • Деактивиране на принудителни автоматични аудио записи не е налично.
@@ -1797,8 +1782,6 @@ AVC има максимална разделителна способност о
 <small>(Необходим вход)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_title">Клиент по подразбиране</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането на видео.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData, издадени от BotGuard в доверен браузър.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чувствителността на плъзгане за яркост трябва да бъде между 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Конфигурирайте минималното разстояние за плъзгане на яркостта между 1 и 1000 (%).\nКолкото по-късо е минималното разстояние, толкова по-бързо се променя нивото на яркост.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Чувствителност при плъзгане на яркост</string>

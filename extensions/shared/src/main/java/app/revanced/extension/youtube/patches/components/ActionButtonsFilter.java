@@ -6,7 +6,6 @@ import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
-import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")

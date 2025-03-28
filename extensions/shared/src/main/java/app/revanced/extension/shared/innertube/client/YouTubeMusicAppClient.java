@@ -1,10 +1,10 @@
-package app.revanced.extension.shared.patches.client;
+package app.revanced.extension.shared.innertube.client;
 
 import android.os.Build;
 
 import java.util.Locale;
 
-public class MusicAppClient {
+public class YouTubeMusicAppClient {
 
     // Response to the '/next' request is 'Please update to continue using the app':
     // https://github.com/inotia00/ReVanced_Extended/issues/2743
@@ -46,7 +46,7 @@ public class MusicAppClient {
     private static final String DEVICE_MAKE_IOS_MUSIC = "Apple";
     private static final String OS_NAME_IOS_MUSIC = "iOS";
 
-    private MusicAppClient() {
+    private YouTubeMusicAppClient() {
     }
 
     private static String androidUserAgent(String clientVersion) {

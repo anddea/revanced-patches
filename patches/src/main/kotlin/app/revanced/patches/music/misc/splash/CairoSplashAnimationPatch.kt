@@ -41,7 +41,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
             "7.16.53",
             "7.25.53",
             "8.05.51",
-            "8.10.51",
+            "8.10.52",
         ),
     )
 

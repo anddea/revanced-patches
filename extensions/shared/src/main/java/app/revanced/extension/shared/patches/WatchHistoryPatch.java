@@ -2,8 +2,8 @@ package app.revanced.extension.shared.patches;
 
 import android.net.Uri;
 
-import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.utils.Logger;
 
 @SuppressWarnings("unused")
 public final class WatchHistoryPatch {

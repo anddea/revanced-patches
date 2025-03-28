@@ -1,25 +1,15 @@
 package app.revanced.extension.youtube.patches.shorts;
 
 import static app.revanced.extension.shared.utils.ResourceUtils.getString;
-import static app.revanced.extension.shared.utils.Utils.dpToPx;
 import static app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter.isShortsFlyoutMenuVisible;
+import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
 import static app.revanced.extension.youtube.utils.ExtendedUtils.isSpoofingToLessThan;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -41,8 +31,7 @@ import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.ShortsPlayerState;
-import app.revanced.extension.youtube.utils.ThemeUtils;
+import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
@@ -66,7 +55,7 @@ public final class CustomActionsPatch {
         if (!SHORTS_CUSTOM_ACTIONS_TOOLBAR_ENABLED) {
             return;
         }
-        if (ShortsPlayerState.getCurrent().isClosed()) {
+        if (!isShortsActive()) {
             return;
         }
         if (!isMoreButton(enumString)) {
@@ -90,105 +79,28 @@ public final class CustomActionsPatch {
         }), 0);
     }
 
-    private static void showMoreButtonDialog(Context context) {
-        ScrollView scrollView = new ScrollView(context);
-        LinearLayout container = new LinearLayout(context);
+    private static void showMoreButtonDialog(Context mContext) {
+        ScrollView mScrollView = new ScrollView(mContext);
+        LinearLayout mLinearLayout = new LinearLayout(mContext);
+        mLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        mLinearLayout.setPadding(0, 0, 0, 0);
 
-        container.setOrientation(LinearLayout.VERTICAL);
-        container.setPadding(0, 0, 0, 0);
-
-        Map<LinearLayout, Runnable> toolbarMap = new LinkedHashMap<>(arrSize);
+        Map<LinearLayout, Runnable> actionsMap = new LinkedHashMap<>(arrSize);
 
         for (CustomAction customAction : CustomAction.values()) {
             if (customAction.settings.get()) {
                 String title = customAction.getLabel();
                 int iconId = customAction.getDrawableId();
                 Runnable action = customAction.getOnClickAction();
-                LinearLayout itemLayout = createItemLayout(context, title, iconId);
-                toolbarMap.putIfAbsent(itemLayout, action);
-                container.addView(itemLayout);
+                LinearLayout itemLayout = ExtendedUtils.createItemLayout(mContext, title, iconId);
+                actionsMap.putIfAbsent(itemLayout, action);
+                mLinearLayout.addView(itemLayout);
             }
         }
 
-        scrollView.addView(container);
+        mScrollView.addView(mLinearLayout);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(scrollView);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-
-        toolbarMap.forEach((view, action) ->
-                view.setOnClickListener(v -> {
-                    action.run();
-                    dialog.dismiss();
-                })
-        );
-        toolbarMap.clear();
-
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-
-        // round corners
-        GradientDrawable dialogBackground = new GradientDrawable();
-        dialogBackground.setCornerRadius(32);
-        window.setBackgroundDrawable(dialogBackground);
-
-        // fit screen width
-        int dialogWidth = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
-        window.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        // move dialog to bottom
-        WindowManager.LayoutParams layoutParams = window.getAttributes();
-        layoutParams.gravity = Gravity.BOTTOM;
-
-        // adjust the vertical offset
-        layoutParams.y = dpToPx(5);
-
-        window.setAttributes(layoutParams);
-    }
-
-    private static LinearLayout createItemLayout(Context context, String title, int iconId) {
-        // Item Layout
-        LinearLayout itemLayout = new LinearLayout(context);
-        itemLayout.setOrientation(LinearLayout.HORIZONTAL);
-        itemLayout.setPadding(dpToPx(16), dpToPx(12), dpToPx(16), dpToPx(12));
-        itemLayout.setGravity(Gravity.CENTER_VERTICAL);
-        itemLayout.setClickable(true);
-        itemLayout.setFocusable(true);
-
-        // Create a StateListDrawable for the background
-        StateListDrawable background = new StateListDrawable();
-        ColorDrawable pressedDrawable = new ColorDrawable(ThemeUtils.getPressedElementColor());
-        ColorDrawable defaultDrawable = new ColorDrawable(ThemeUtils.getBackgroundColor());
-        background.addState(new int[]{android.R.attr.state_pressed}, pressedDrawable);
-        background.addState(new int[]{}, defaultDrawable);
-        itemLayout.setBackground(background);
-
-        // Icon
-        ColorFilter cf = new PorterDuffColorFilter(ThemeUtils.getForegroundColor(), PorterDuff.Mode.SRC_ATOP);
-        ImageView iconView = new ImageView(context);
-        iconView.setImageResource(iconId);
-        iconView.setColorFilter(cf);
-        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dpToPx(24), dpToPx(24));
-        iconParams.setMarginEnd(dpToPx(16));
-        iconView.setLayoutParams(iconParams);
-        itemLayout.addView(iconView);
-
-        // Text container
-        LinearLayout textContainer = new LinearLayout(context);
-        textContainer.setOrientation(LinearLayout.VERTICAL);
-        TextView titleView = new TextView(context);
-        titleView.setText(title);
-        titleView.setTextSize(16);
-        titleView.setTextColor(ThemeUtils.getForegroundColor());
-        textContainer.addView(titleView);
-
-        itemLayout.addView(textContainer);
-
-        return itemLayout;
+        ExtendedUtils.showBottomSheetDialog(mContext, mScrollView, actionsMap);
     }
 
     private static boolean isMoreButton(String enumString) {
@@ -206,7 +118,7 @@ public final class CustomActionsPatch {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
         }
-        if (ShortsPlayerState.getCurrent().isClosed()) {
+        if (!isShortsActive()) {
             return;
         }
         if (bottomSheetMenuObject == null) {
@@ -224,7 +136,7 @@ public final class CustomActionsPatch {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
         }
-        if (ShortsPlayerState.getCurrent().isClosed()) {
+        if (!isShortsActive()) {
             return;
         }
         for (CustomAction customAction : CustomAction.values()) {
@@ -252,7 +164,7 @@ public final class CustomActionsPatch {
         }
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
-                if (ShortsPlayerState.getCurrent().isClosed()) {
+                if (!isShortsActive()) {
                     return;
                 }
                 contextRef = new WeakReference<>(recyclerView.getContext());
@@ -333,11 +245,6 @@ public final class CustomActionsPatch {
     }
 
     public enum CustomAction {
-        SPEED(
-                Settings.SHORTS_CUSTOM_ACTIONS_SPEED,
-                "yt_outline_play_arrow_half_circle_black_24",
-                () -> VideoUtils.showShortsPlaybackSpeedDialog(contextRef.get())
-        ),
         COPY_URL(
                 Settings.SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL,
                 "yt_outline_link_black_24",
@@ -388,6 +295,11 @@ public final class CustomActionsPatch {
                         ShortsCustomActionsFilter.getShortsVideoId(),
                         true
                 )
+        ),
+        SPEED_DIALOG(
+                Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG,
+                "yt_outline_play_arrow_half_circle_black_24",
+                () -> VideoUtils.showPlaybackSpeedDialog(contextRef.get())
         ),
         REPEAT_STATE(
                 Settings.SHORTS_CUSTOM_ACTIONS_REPEAT_STATE,

@@ -233,6 +233,7 @@ public class SponsorBlockSettingsPreference extends ReVancedPreferenceFragment {
         statsCategory = new PreferenceCategory(mActivity);
         statsCategory.setLayoutResource(preferencesCategoryLayout);
         statsCategory.setTitle(str("revanced_sb_stats"));
+        statsCategory.setEnabled(Settings.SB_ENABLED.get());
         mPreferenceScreen.addPreference(statsCategory);
         fetchAndDisplayStats();
 
@@ -261,7 +262,6 @@ public class SponsorBlockSettingsPreference extends ReVancedPreferenceFragment {
                 final String key = category.keyValue;
                 if (mPreferenceManager.findPreference(key) instanceof SegmentCategoryListPreference segmentCategoryListPreference) {
                     segmentCategoryListPreference.setTitle(category.getTitleWithColorDot());
-                    segmentCategoryListPreference.setEnabled(Settings.SB_ENABLED.get());
                 }
             }
         } catch (Exception ex) {

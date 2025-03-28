@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_28_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
@@ -25,6 +26,7 @@ import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -56,6 +58,14 @@ private val navigationBarComponentsResourcePatch = resourcePatch(
                     )
                 )
             }
+
+            copyResources(
+                "youtube/navigationbuttons",
+                ResourceGroup(
+                    "drawable-xxxhdpi",
+                    "yt_outline_library_cairo_black_24.png"
+                )
+            )
         }
     }
 }
@@ -201,6 +211,18 @@ val navigationBarComponentsPatch = bytecodePatch(
                     enumMapIndex + 1, """
                         sget-object v$enumRegister, $cairoNotificationEnumReference
                         invoke-static {v$enumMapRegister, v$enumRegister}, $GENERAL_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                        """
+                )
+            }
+
+            setEnumMapSecondaryFingerprint.methodOrThrow().apply {
+                val index = indexOfFirstLiteralInstructionOrThrow(ytOutlineLibrary)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1, """
+                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getLibraryDrawableId(I)I
+                        move-result v$register
                         """
                 )
             }

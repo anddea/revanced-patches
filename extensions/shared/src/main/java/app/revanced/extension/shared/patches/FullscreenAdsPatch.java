@@ -37,7 +37,7 @@ public class FullscreenAdsPatch {
      * Therefore, make sure that the dialog contains the ads at the beginning of the Method
      *
      * @param bytes proto buffer array
-     * @param type dialog type (similar to {@link Enum#ordinal()})
+     * @param type  dialog type (similar to {@link Enum#ordinal()})
      */
     public static void checkDialog(byte[] bytes, int type) {
         if (!HIDE_FULLSCREEN_ADS) {

@@ -608,10 +608,10 @@ public class Utils {
      * <br>
      * Be aware the on start action can be called multiple times for some situations,
      * such as the user switching apps without dismissing the dialog then switching back to this app.
-     *<br>
+     * <br>
      * This method is only useful during app startup and multiple patches may show their own dialog,
      * and the most important dialog can be called last (using a delay) so it's always on top.
-     *<br>
+     * <br>
      * For all other situations it's better to not use this method and
      * call {@link AlertDialog#show()} on the dialog.
      */
