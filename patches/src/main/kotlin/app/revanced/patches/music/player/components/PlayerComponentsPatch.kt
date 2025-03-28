@@ -746,15 +746,21 @@ val playerComponentsPatch = bytecodePatch(
                     val freeRegister =
                         getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
+                    val getFieldIndex = bottomSheetBehaviorIndex - 2
+                    val getFieldReference = getInstruction<ReferenceInstruction>(getFieldIndex).reference
+                    val getFieldInstruction = getInstruction<TwoRegisterInstruction>(getFieldIndex)
+
                     addInstructionsWithLabels(
-                        bottomSheetBehaviorIndex - 2,
+                        getFieldIndex + 1,
                         """
                             invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSwipeToDismissMiniPlayer()Z
                             move-result v$freeRegister
                             if-nez v$freeRegister, :dismiss
+                            iget-object v${getFieldInstruction.registerA}, v${getFieldInstruction.registerB}, $getFieldReference
                             """,
                         ExternalLabel("dismiss", getInstruction(bottomSheetBehaviorIndex + 1))
                     )
+                    removeInstruction(getFieldIndex)
                 } ?: throw PatchException("Could not find targetMethod")
             }
 
