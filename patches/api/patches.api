@@ -643,12 +643,12 @@ public final class app/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutPa
 	public static final fun getViewGroupMarginLayoutParamsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/extended/branding/name/CustomBrandingNamePatchKt {
-	public static final fun getCustomBrandingNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/spotify/extended/RemoveCreateTabPatchKt {
+	public static final fun getRemoveCreateTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/extended/branding/name/RemoveCreateTabPatchKt {
-	public static final fun getRemoveCreateTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/spotify/extended/branding/name/CustomBrandingNamePatchKt {
+	public static final fun getCustomBrandingNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt {

@@ -1,14 +1,17 @@
-package app.revanced.patches.spotify.extended.branding.name // Or your desired package
+package app.revanced.patches.spotify.extended
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.mapping.getResourceId
+import app.revanced.patches.shared.mapping.ResourceType.STRING
+import app.revanced.patches.shared.mapping.resourceMappingPatch
 import app.revanced.util.containsLiteralInstruction
 
 internal val addCreateTabMethodFingerprint = fingerprint {
     returns("V")
      custom { method, _ ->
-        method.containsLiteralInstruction(0x7f130299L)
+        method.containsLiteralInstruction(getResourceId(STRING, "bottom_navigation_bar_create_tab_title"))
      }
 }
 
@@ -19,6 +22,7 @@ val removeCreateTabPatch = bytecodePatch(
     false,
 ) {
     compatibleWith("com.spotify.music")
+    dependsOn(resourceMappingPatch)
 
     execute {
         addCreateTabMethodFingerprint.method.addInstruction(0, "return-void")
