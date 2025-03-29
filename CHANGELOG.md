@@ -1,3 +1,10 @@
+# [3.6.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.1...v3.6.0-dev.2) (2025-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Fix wrong key causing app crash ([62b0f5c](https://github.com/anddea/revanced-patches/commit/62b0f5c2b1aca9f5e17526f4381fe073bb83feaf))
+
 # [3.6.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0-dev.1) (2025-03-29)
 
 
