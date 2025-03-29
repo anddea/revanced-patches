@@ -29,7 +29,10 @@ public class ExternalDownload extends BottomControlButton {
                         VideoUtils.launchVideoExternalDownloader();
                     }
                 },
-                null
+                view -> {
+                    VideoUtils.launchLongPressVideoExternalDownloader();
+                    return true;
+                }
         );
     }
 
