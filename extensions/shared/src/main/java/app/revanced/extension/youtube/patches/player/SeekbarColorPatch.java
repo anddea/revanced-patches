@@ -47,7 +47,7 @@ public class SeekbarColorPatch {
     /**
      * Empty seekbar gradient, if hide seekbar in feed is enabled.
      */
-    private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = { 0x0, 0x0 };
+    private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = {0x0, 0x0};
 
     /**
      * Default YouTube seekbar color brightness.

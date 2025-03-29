@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -74,6 +75,7 @@ val overlayButtonsPatch = resourcePatch(
         cfBottomUIPatch,
         pipStateHookPatch,
         playerControlsPatch,
+        playlistPatch,
         sharedResourceIdPatch,
         settingsPatch,
     )

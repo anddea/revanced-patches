@@ -20,6 +20,7 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import kotlin.collections.listOf
 
@@ -70,6 +71,41 @@ internal val reelEnumStaticFingerprint = legacyFingerprint(
     parameters = listOf("I"),
     returnType = "L"
 )
+
+/**
+ * YouTube 18.49.36 ~
+ */
+internal val reelPlaybackRepeatFingerprint = legacyFingerprint(
+    name = "reelPlaybackRepeatFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    strings = listOf("YoutubePlayerState is in throwing an Error.")
+)
+
+internal val reelPlaybackFingerprint = legacyFingerprint(
+    name = "reelPlaybackFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("J"),
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfMilliSecondsInstruction(method) >= 0 &&
+                indexOfInitializationInstruction(method) >= 0
+    }
+)
+
+private fun indexOfMilliSecondsInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<FieldReference>()?.name == "MILLISECONDS"
+    }
+
+internal fun indexOfInitializationInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_DIRECT &&
+                reference?.name == "<init>" &&
+                reference.parameterTypes.size == 3 &&
+                reference.parameterTypes.firstOrNull() == "I"
+    }
 
 internal const val SHORTS_HUD_FEATURE_FLAG = 45644023L
 

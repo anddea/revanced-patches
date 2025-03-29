@@ -1,32 +1,14 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.utils.StringRef.sf;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.text.Html;
-import android.text.Spanned;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,44 +16,46 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
+import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings({"deprecation", "StaticFieldLeak"})
+@SuppressWarnings("StaticFieldLeak")
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("revanced_sb_segments_sponsor"), sf("revanced_sb_skip_button_sponsor"), sf("revanced_sb_skipped_sponsor"),
-            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR),
+            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR, SB_CATEGORY_SPONSOR_OPACITY),
     SELF_PROMO("selfpromo", sf("revanced_sb_segments_selfpromo"), sf("revanced_sb_skip_button_selfpromo"), sf("revanced_sb_skipped_selfpromo"),
-            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR),
+            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR, SB_CATEGORY_SELF_PROMO_OPACITY),
     INTERACTION("interaction", sf("revanced_sb_segments_interaction"), sf("revanced_sb_skip_button_interaction"), sf("revanced_sb_skipped_interaction"),
-            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR),
+            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR, SB_CATEGORY_INTERACTION_OPACITY),
     /**
      * Unique category that is treated differently than the rest.
      */
     HIGHLIGHT("poi_highlight", sf("revanced_sb_segments_highlight"), sf("revanced_sb_skip_button_highlight"), sf("revanced_sb_skipped_highlight"),
-            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR),
+            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR, SB_CATEGORY_HIGHLIGHT_OPACITY),
     INTRO("intro", sf("revanced_sb_segments_intro"),
             sf("revanced_sb_skip_button_intro_beginning"), sf("revanced_sb_skip_button_intro_middle"), sf("revanced_sb_skip_button_intro_end"),
             sf("revanced_sb_skipped_intro_beginning"), sf("revanced_sb_skipped_intro_middle"), sf("revanced_sb_skipped_intro_end"),
-            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR),
+            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR, SB_CATEGORY_INTRO_OPACITY),
     OUTRO("outro", sf("revanced_sb_segments_outro"), sf("revanced_sb_skip_button_outro"), sf("revanced_sb_skipped_outro"),
-            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR),
+            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR, SB_CATEGORY_OUTRO_OPACITY),
     PREVIEW("preview", sf("revanced_sb_segments_preview"),
             sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_middle"), sf("revanced_sb_skip_button_preview_end"),
             sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_middle"), sf("revanced_sb_skipped_preview_end"),
-            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR),
+            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR, SB_CATEGORY_PREVIEW_OPACITY),
     FILLER("filler", sf("revanced_sb_segments_filler"), sf("revanced_sb_skip_button_filler"), sf("revanced_sb_skipped_filler"),
-            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR),
+            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR, SB_CATEGORY_FILLER_OPACITY),
     MUSIC_OFFTOPIC("music_offtopic", sf("revanced_sb_segments_nomusic"), sf("revanced_sb_skip_button_nomusic"), sf("revanced_sb_skipped_nomusic"),
-            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR),
+            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY),
     UNSUBMITTED("unsubmitted", StringRef.empty, sf("revanced_sb_skip_button_unsubmitted"), sf("revanced_sb_skipped_unsubmitted"),
-            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR),
+            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR, SB_CATEGORY_UNSUBMITTED_OPACITY);
     ;
 
     private static final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
@@ -111,12 +95,10 @@ public enum SegmentCategory {
             mValuesMap.put(value.keyValue, value);
     }
 
-    @NonNull
     public static SegmentCategory[] categoriesWithoutUnsubmitted() {
         return categoriesWithoutUnsubmitted;
     }
 
-    @NonNull
     public static SegmentCategory[] categoriesWithoutHighlights() {
         return categoriesWithoutHighlights;
     }
@@ -127,7 +109,7 @@ public enum SegmentCategory {
     }
 
     /**
-     * Must be called if behavior of any category is changed
+     * Must be called if behavior of any category is changed.
      */
     public static void updateEnabledCategories() {
         Utils.verifyOnMainThread();
@@ -154,30 +136,32 @@ public enum SegmentCategory {
         updateEnabledCategories();
     }
 
-    @NonNull
-    public final String keyValue;
-    @NonNull
-    public final StringSetting behaviorSetting;
-    @NonNull
-    private final StringSetting colorSetting;
+    public static int applyOpacityToColor(int color, float opacity) {
+        if (opacity < 0 || opacity > 1.0f) {
+            throw new IllegalArgumentException("Invalid opacity: " + opacity);
+        }
+        final int opacityInt = (int) (255 * opacity);
+        return (color & 0x00FFFFFF) | (opacityInt << 24);
+    }
 
-    @NonNull
+    public final String keyValue;
+    public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
+    private final StringSetting colorSetting;
+    private final FloatSetting opacitySetting;
+
     public final StringRef title;
 
     /**
      * Skip button text, if the skip occurs in the first quarter of the video
      */
-    @NonNull
     public final StringRef skipButtonTextBeginning;
     /**
      * Skip button text, if the skip occurs in the middle half of the video
      */
-    @NonNull
     public final StringRef skipButtonTextMiddle;
     /**
      * Skip button text, if the skip occurs in the last quarter of the video
      */
-    @NonNull
     public final StringRef skipButtonTextEnd;
     /**
      * Skipped segment toast, if the skip occurred in the first quarter of the video
@@ -198,10 +182,7 @@ public enum SegmentCategory {
     @NonNull
     public final Paint paint;
 
-    /**
-     * Value must be changed using {@link #setColor(String)}.
-     */
-    public int color;
+    private int color;
 
     /**
      * Value must be changed using {@link #setBehaviour(CategoryBehaviour)}.
@@ -213,17 +194,20 @@ public enum SegmentCategory {
     SegmentCategory(String keyValue, StringRef title,
                     StringRef skipButtonText,
                     StringRef skippedToastText,
-                    StringSetting behavior, StringSetting color) {
+                    StringSetting behavior,
+                    StringSetting color, FloatSetting opacity) {
         this(keyValue, title,
                 skipButtonText, skipButtonText, skipButtonText,
                 skippedToastText, skippedToastText, skippedToastText,
-                behavior, color);
+                behavior,
+                color, opacity);
     }
 
     SegmentCategory(String keyValue, StringRef title,
                     StringRef skipButtonTextBeginning, StringRef skipButtonTextMiddle, StringRef skipButtonTextEnd,
                     StringRef skippedToastBeginning, StringRef skippedToastMiddle, StringRef skippedToastEnd,
-                    StringSetting behavior, StringSetting color) {
+                    StringSetting behavior,
+                    StringSetting color, FloatSetting opacity) {
         this.keyValue = Objects.requireNonNull(keyValue);
         this.title = Objects.requireNonNull(title);
         this.skipButtonTextBeginning = Objects.requireNonNull(skipButtonTextBeginning);
@@ -234,6 +218,7 @@ public enum SegmentCategory {
         this.skippedToastEnd = Objects.requireNonNull(skippedToastEnd);
         this.behaviorSetting = Objects.requireNonNull(behavior);
         this.colorSetting = Objects.requireNonNull(color);
+        this.opacitySetting = Objects.requireNonNull(opacity);
         this.paint = new Paint();
         loadFromSettings();
     }
@@ -250,11 +235,14 @@ public enum SegmentCategory {
         this.behaviour = savedBehavior;
 
         String colorString = colorSetting.get();
+        final float opacity = opacitySetting.get();
         try {
             setColor(colorString);
+            setOpacity(opacity);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString, ex);
+            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
             colorSetting.resetToDefault();
+            opacitySetting.resetToDefault();
             loadFromSettings();
         }
     }
@@ -264,45 +252,77 @@ public enum SegmentCategory {
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
 
-    /**
-     * @return HTML color format string
-     */
-    @NonNull
-    public String colorString() {
-        return String.format("#%06X", color);
-    }
-
-    public void setColor(@NonNull String colorString) throws IllegalArgumentException {
-        final int color = Color.parseColor(colorString) & 0xFFFFFF;
-        this.color = color;
+    private void updateColor() {
+        color = applyOpacityToColor(color, opacitySetting.get());
         paint.setColor(color);
-        paint.setAlpha(255);
-        colorSetting.save(colorString); // Save after parsing.
     }
 
-    public void resetColor() {
+    /**
+     * @param opacity Segment color opacity between [0, 1].
+     */
+    public void setOpacity(float opacity) throws IllegalArgumentException {
+        if (opacity < 0 || opacity > 1) {
+            throw new IllegalArgumentException("Invalid opacity: " + opacity);
+        }
+
+        opacitySetting.save(opacity);
+        updateColor();
+    }
+
+    public float getOpacity() {
+        return opacitySetting.get();
+    }
+
+    public void resetColorAndOpacity() {
         setColor(colorSetting.defaultValue);
+        setOpacity(opacitySetting.defaultValue);
     }
 
-    @NonNull
-    private static String getCategoryColorDotHTML(int color) {
-        color &= 0xFFFFFF;
-        return String.format("<big><font color=\"#%06X\">⬤</font></big>", color);
+    /**
+     * @param colorString Segment color with #RRGGBB format.
+     */
+    public void setColor(String colorString) throws IllegalArgumentException {
+        color = Color.parseColor(colorString);
+        colorSetting.save(colorString);
+
+        updateColor();
     }
 
-    @NonNull
-    public static Spanned getCategoryColorDot(int color) {
-        return Html.fromHtml(getCategoryColorDotHTML(color));
+    /**
+     * @return Integer color of #RRGGBB format.
+     */
+    public int getColorNoOpacity() {
+        return color & 0x00FFFFFF;
     }
 
-    @NonNull
-    public Spanned getCategoryColorDot() {
+    /**
+     * @return Hex color string of #RRGGBB format with no opacity level.
+     */
+    public String getColorString() {
+        return String.format(Locale.US, "#%06X", getColorNoOpacity());
+    }
+
+    private static SpannableString getCategoryColorDotSpan(String text, int color) {
+        SpannableString dotSpan = new SpannableString('⬤' + text);
+        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return dotSpan;
+    }
+
+    public static SpannableString getCategoryColorDot(int color) {
+        return getCategoryColorDotSpan("", color);
+    }
+
+    public SpannableString getCategoryColorDot() {
         return getCategoryColorDot(color);
     }
 
-    @NonNull
-    public Spanned getTitleWithColorDot() {
-        return Html.fromHtml(getCategoryColorDotHTML(color) + " " + title);
+    public SpannableString getTitleWithColorDot(int categoryColor) {
+        return getCategoryColorDotSpan(" " + title, categoryColor);
+    }
+
+    public SpannableString getTitleWithColorDot() {
+        return getTitleWithColorDot(color);
     }
 
     /**
@@ -310,7 +330,6 @@ public enum SegmentCategory {
      * @param videoLength      length of the video
      * @return the skip button text
      */
-    @NonNull
     StringRef getSkipButtonText(long segmentStartTime, long videoLength) {
         if (Settings.SB_COMPACT_SKIP_BUTTON.get()) {
             return (this == SegmentCategory.HIGHLIGHT)
@@ -319,7 +338,7 @@ public enum SegmentCategory {
         }
 
         if (videoLength == 0) {
-            return skipButtonTextBeginning; // video is still loading.  Assume it's the beginning
+            return skipButtonTextBeginning; // Video is still loading. Assume it's the beginning.
         }
         final float position = segmentStartTime / (float) videoLength;
         if (position < 0.25f) {
@@ -335,10 +354,9 @@ public enum SegmentCategory {
      * @param videoLength      length of the video
      * @return 'skipped segment' toast message
      */
-    @NonNull
     StringRef getSkippedToastText(long segmentStartTime, long videoLength) {
         if (videoLength == 0) {
-            return skippedToastBeginning; // video is still loading.  Assume it's the beginning
+            return skippedToastBeginning; // Video is still loading. Assume it's the beginning.
         }
         final float position = segmentStartTime / (float) videoLength;
         if (position < 0.25f) {

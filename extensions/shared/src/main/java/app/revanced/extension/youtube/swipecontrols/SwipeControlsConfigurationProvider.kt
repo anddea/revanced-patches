@@ -150,10 +150,21 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * get the background color for text on the overlay, as a color int
+     * Gets the opacity value (0-100%) is converted to an alpha value (0-255) for transparency.
+     * If the opacity value is out of range, it resets to the default and displays a warning message.
      */
     val overlayBackgroundOpacity: Int
-        get() = Color.argb(Settings.SWIPE_OVERLAY_BACKGROUND_ALPHA.get(), 0, 0, 0)
+        get() {
+            var opacity = validateValue(
+                Settings.SWIPE_OVERLAY_BACKGROUND_OPACITY,
+                0,
+                100,
+                "revanced_swipe_overlay_background_opacity_invalid_toast"
+            )
+
+            opacity = opacity * 255 / 100
+            return Color.argb(opacity, 0, 0, 0)
+        }
 
     /**
      * The color of the progress overlay.

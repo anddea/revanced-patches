@@ -25,6 +25,7 @@ internal object ResourceUtils {
     const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
     const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
 
+    var restoreOldSplashAnimationIncluded = false
     var youtubeMusicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
     var youtubePackageName = YOUTUBE_PACKAGE_NAME
 

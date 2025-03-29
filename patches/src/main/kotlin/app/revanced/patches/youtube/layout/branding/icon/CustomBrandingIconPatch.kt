@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
 import app.revanced.patches.youtube.utils.settings.getBytecodeContext
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -221,6 +222,8 @@ val customBrandingIconPatch: ResourcePatch = resourcePatch(
 
             // Change splash screen.
             if (restoreOldSplashAnimationOption == true) {
+                restoreOldSplashAnimationIncluded = true
+
                 oldSplashAnimationResourceGroups.let { resourceGroups ->
                     resourceGroups.forEach {
                         copyResources("$appIconResourcePath/splash", it)

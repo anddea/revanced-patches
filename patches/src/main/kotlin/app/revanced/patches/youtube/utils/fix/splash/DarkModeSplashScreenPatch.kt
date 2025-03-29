@@ -1,32 +1,45 @@
 package app.revanced.patches.youtube.utils.fix.splash
 
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patches.youtube.layout.branding.icon.customBrandingIconPatch
-import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.util.getBooleanOptionValue
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.youtubePackageName
+import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
 
+/**
+ * Fix the splash screen dark mode background color.
+ * In earlier versions of the app this is white and makes no sense for dark mode.
+ * This is only required for 19.32 and greater, but is applied to all targets.
+ * Only dark mode needs this fix as light mode correctly uses the custom color.
+ *
+ * This is a bug in unpatched YouTube.
+ * Should always be applied even if the `Theme` patch is excluded.
+ */
 val darkModeSplashScreenPatch = resourcePatch(
     description = "darkModeSplashScreenPatch"
 ) {
     dependsOn(versionCheckPatch)
 
     finalize {
-        val restoreOldSplashAnimationIncluded = is_19_32_or_greater &&
-                CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included == true &&
-                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimation").value == true
+        if (!is_19_32_or_greater) {
+            return@finalize
+        }
 
-        /**
-         * Fix the splash screen dark mode background color.
-         * In earlier versions of the app this is white and makes no sense for dark mode.
-         * This is only required for 19.32 and greater, but is applied to all targets.
-         * Only dark mode needs this fix as light mode correctly uses the custom color.
-         *
-         * This is a bug in unpatched YouTube.
-         * Should always be applied even if the `Theme` patch is excluded.
-         */
+        // GmsCore support included
+        if (youtubePackageName != YOUTUBE_PACKAGE_NAME) {
+            document("AndroidManifest.xml").use { document ->
+                val mainActivityElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    "android:name",
+                    "com.google.android.apps.youtube.app.watchwhile.MainActivity",
+                )
+
+                mainActivityElement.setAttribute("android:launchMode", "singleTask")
+            }
+        }
+
         if (restoreOldSplashAnimationIncluded) {
             document("res/values-night/styles.xml").use { document ->
                 val resourcesNode = document.getElementsByTagName("resources").item(0) as Element

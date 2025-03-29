@@ -3,10 +3,10 @@ package app.revanced.extension.shared.settings;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+import app.revanced.extension.shared.innertube.client.YouTubeAppClient;
+import app.revanced.extension.shared.innertube.client.YouTubeMusicAppClient;
 import app.revanced.extension.shared.patches.ReturnYouTubeUsernamePatch.DisplayFormat;
 import app.revanced.extension.shared.patches.WatchHistoryPatch.WatchHistoryType;
-import app.revanced.extension.shared.patches.client.MusicAppClient;
-import app.revanced.extension.shared.patches.client.YouTubeAppClient;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch.AudioStreamLanguageOverrideAvailability;
 
 /**
@@ -32,7 +32,7 @@ public class BaseSettings {
      * Some patches are in a shared path, so they are declared here.
      */
     public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", FALSE, true);
-    public static final EnumSetting<MusicAppClient.ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", MusicAppClient.ClientType.IOS_MUSIC_6_21, true);
+    public static final EnumSetting<YouTubeMusicAppClient.ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", YouTubeMusicAppClient.ClientType.IOS_MUSIC_6_21, true);
 
     /**
      * These settings are used by YouTube.
@@ -44,11 +44,9 @@ public class BaseSettings {
             "revanced_spoof_streaming_data_ios_force_avc_user_dialog_message");
     public static final BooleanSetting SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION = new BooleanSetting("revanced_spoof_streaming_data_skip_response_encryption", TRUE, true);
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE);
+    public static final BooleanSetting SPOOF_STREAMING_DATA_TYPE_IOS = new BooleanSetting("revanced_spoof_streaming_data_type_ios", FALSE, true, "revanced_spoof_streaming_data_type_ios_user_dialog_message");
     // Client type must be last spoof setting due to cyclic references.
-    public static final EnumSetting<YouTubeAppClient.ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", YouTubeAppClient.ClientType.ANDROID_UNPLUGGED, true);
-
-    public static final StringSetting SPOOF_STREAMING_DATA_PO_TOKEN = new StringSetting("revanced_spoof_streaming_data_po_token", "", true);
-    public static final StringSetting SPOOF_STREAMING_DATA_VISITOR_DATA = new StringSetting("revanced_spoof_streaming_data_visitor_data", "", true);
+    public static final EnumSetting<YouTubeAppClient.ClientType> SPOOF_STREAMING_DATA_TYPE = new EnumSetting<>("revanced_spoof_streaming_data_type", YouTubeAppClient.ClientType.ANDROID_VR, true);
 
     /**
      * These settings are used by YouTube and YouTube Music.

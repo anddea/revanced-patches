@@ -59,4 +59,12 @@ enum class ShortsPlayerState {
     fun isClosed(): Boolean {
         return this == CLOSED
     }
+
+    /**
+     * Check if the shorts player is [OPEN].
+     * Useful for checking if a shorts player is open.
+     */
+    fun isOpen(): Boolean {
+        return this == OPEN
+    }
 }

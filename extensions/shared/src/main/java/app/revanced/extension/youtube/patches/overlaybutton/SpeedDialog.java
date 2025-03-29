@@ -28,11 +28,13 @@ public class SpeedDialog extends BottomControlButton {
                     if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
                             VideoInformation.getPlaybackSpeed() == Settings.DEFAULT_PLAYBACK_SPEED.get()) {
                         VideoInformation.overridePlaybackSpeed(1.0f);
-                        showToastShort(str("revanced_overlay_button_speed_dialog_reset", "1.0"));
+                        if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get())
+                            showToastShort(str("revanced_overlay_button_speed_dialog_reset", "1.0"));
                     } else {
                         float defaultSpeed = Settings.DEFAULT_PLAYBACK_SPEED.get();
                         VideoInformation.overridePlaybackSpeed(defaultSpeed);
-                        showToastShort(str("revanced_overlay_button_speed_dialog_reset", defaultSpeed));
+                        if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED_TOAST.get())
+                            showToastShort(str("revanced_overlay_button_speed_dialog_reset", defaultSpeed));
                     }
 
                     return true;

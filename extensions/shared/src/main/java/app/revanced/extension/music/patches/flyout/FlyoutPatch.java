@@ -108,13 +108,13 @@ public class FlyoutPatch {
         if (REPLACE_FLYOUT_MENU_DISMISS_QUEUE.get() &&
                 textView.getParent() instanceof ViewGroup clickAbleArea) {
             runOnMainThreadDelayed(() -> {
-                textView.setText(str("revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label"));
-                imageView.setImageResource(getIdentifier("yt_outline_youtube_logo_icon_vd_theme_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
-                clickAbleArea.setOnClickListener(view -> {
-                    clickView(touchOutSideViewRef.get());
-                    VideoUtils.openInYouTube();
-                });
-                }, 0L
+                        textView.setText(str("revanced_replace_flyout_menu_dismiss_queue_watch_on_youtube_label"));
+                        imageView.setImageResource(getIdentifier("yt_outline_youtube_logo_icon_vd_theme_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                        clickAbleArea.setOnClickListener(view -> {
+                            clickView(touchOutSideViewRef.get());
+                            VideoUtils.openInYouTube();
+                        });
+                    }, 0L
             );
         }
     }
@@ -126,14 +126,14 @@ public class FlyoutPatch {
                 textView.getParent() instanceof ViewGroup clickAbleArea
         ) {
             runOnMainThreadDelayed(() -> {
-                textView.setText(str("playback_rate_title"));
-                imageView.setImageResource(getIdentifier("yt_outline_play_arrow_half_circle_black_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
-                imageView.setColorFilter(cf);
-                clickAbleArea.setOnClickListener(view -> {
-                    clickView(touchOutSideViewRef.get());
-                    VideoUtils.showPlaybackSpeedFlyoutMenu();
-                });
-                }, 0L
+                        textView.setText(str("playback_rate_title"));
+                        imageView.setImageResource(getIdentifier("yt_outline_play_arrow_half_circle_black_24", ResourceType.DRAWABLE, clickAbleArea.getContext()));
+                        imageView.setColorFilter(cf);
+                        clickAbleArea.setOnClickListener(view -> {
+                            clickView(touchOutSideViewRef.get());
+                            VideoUtils.showPlaybackSpeedFlyoutMenu();
+                        });
+                    }, 0L
             );
         }
     }

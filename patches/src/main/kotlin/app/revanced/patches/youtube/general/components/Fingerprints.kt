@@ -6,6 +6,7 @@ import app.revanced.patches.youtube.utils.resourceid.compactListItem
 import app.revanced.patches.youtube.utils.resourceid.editSettingsAction
 import app.revanced.patches.youtube.utils.resourceid.fab
 import app.revanced.patches.youtube.utils.resourceid.toolTipContentView
+import app.revanced.patches.youtube.utils.resourceid.ytCallToAction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -19,13 +20,7 @@ internal val accountListFingerprint = legacyFingerprint(
     name = "accountListFingerprint",
     returnType = "V",
     accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL or AccessFlags.SYNTHETIC,
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET
-    )
+    literals = listOf(ytCallToAction),
 )
 
 internal val accountListParentFingerprint = legacyFingerprint(

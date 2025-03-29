@@ -63,9 +63,11 @@ private const val CLIENT_INFO_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
-    SPOOF_CLIENT.title,
-    SPOOF_CLIENT.summary,
-    false,
+    // Removed from the patch list to avoid user confusion:
+    // https://github.com/inotia00/ReVanced_Extended/issues/2832#issuecomment-2745941171
+    // SPOOF_CLIENT.title,
+    // SPOOF_CLIENT.summary,
+    // false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 

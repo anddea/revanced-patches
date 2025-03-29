@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCR
 import app.revanced.patches.youtube.utils.patch.PatchList.DESCRIPTION_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.utils.playservice.is_18_49_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_19_02_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_05_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
@@ -93,8 +93,7 @@ val descriptionComponentsPatch = bytecodePatch(
 
         // region patch for disable video description interaction and expand video description
 
-        // since these patches are still A/B tested, they are classified as 'Experimental flags'.
-        if (is_19_02_or_greater) {
+        if (is_19_05_or_greater) {
             textViewComponentFingerprint.methodOrThrow().apply {
                 val insertIndex = indexOfTextIsSelectableInstruction(this)
                 val insertInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)

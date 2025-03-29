@@ -66,6 +66,22 @@ Toque aqui para saber mais sobre o DeArrow."</string>
     <string name="revanced_bypass_url_redirects_summary_off">Os redirecionamentos de URL não são ignorados.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Os redirecionamentos de URL são ignorados.</string>
     <string name="revanced_bypass_url_redirects_title">Ignorar redirecionamentos de URL</string>
+    <string name="revanced_change_form_factor_entry_1">Padrão</string>
+    <string name="revanced_change_form_factor_entry_2">Telefone</string>
+    <string name="revanced_change_form_factor_entry_3">Telefone (Máximo 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">Tablet</string>
+    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">Automotivo</string>
+    <string name="revanced_change_form_factor_title">Fator de forma de layout</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"As alterações incluem:
+
+Tablet layout
+• Os posts da comunidade estão ocultos.
+
+Automotivo layout
+• Shorts abertos no reprodutor regular.
+• O feed é organizado por tópicos e canais.
+• A descrição do vídeo não pode ser aberta quando o 'Falsificar dados de reprodução' está desligado."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">A transmissão ao vivo é aberta quando o anel ao vivo é clicado.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"O canal é aberto quando o anel ao vivo é clicado."</string>
     <string name="revanced_change_live_ring_click_action_title">Alterar ação de clique do anel ao vivo</string>
@@ -210,11 +226,15 @@ Configurações → Reprodução automática → Reprodução automática do pr�
     <string name="revanced_disable_landscape_mode_summary_off">A orientação do vídeo segue as configurações do dispositivo em tela cheia.</string>
     <string name="revanced_disable_landscape_mode_summary_on">A orientação do vídeo é o modo retrato em tela cheia.</string>
     <string name="revanced_disable_landscape_mode_title">Desativar modo paisagem</string>
+    <string name="revanced_disable_layout_updates_summary_off">O layout será atualizado pelo servidor.</string>
+    <string name="revanced_disable_layout_updates_summary_on">O layout não será atualizado pelo servidor.</string>
+    <string name="revanced_disable_layout_updates_title">Desativar atualizações de layout</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Os botões Like e Dislike brilharão quando pressionados.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Os botões Like e Dislike não brilharão quando pressionados.</string>
     <string name="revanced_disable_like_dislike_glow_title">Desativar brilho do botão Like e Dislike</string>
     <string name="revanced_disable_quic_protocol_summary">"Desativar o protocolo QUIC do CronetEngine."</string>
     <string name="revanced_disable_quic_protocol_title">Desativar protocolo QUIC</string>
+    <string name="revanced_disable_resuming_miniplayer_title">Desativar retomada do mini reprodutor</string>
     <string name="revanced_disable_resuming_shorts_player_summary_off">O shorts irá continuar reproduzindo ao iniciar o aplicativo</string>
     <string name="revanced_disable_resuming_shorts_player_summary_on">O shorts não irá continuar reproduzindo ao iniciar o aplicativo</string>
     <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>
@@ -286,9 +306,6 @@ Efeito colateral: o tema Cairo também é aplicado aos pontos de notificação."
     <string name="revanced_enable_debug_logging_summary_off">O registro de depuração está desativado.</string>
     <string name="revanced_enable_debug_logging_summary_on">O registro de depuração está ativado.</string>
     <string name="revanced_enable_debug_logging_title">Ativar o registro de depuração</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">A velocidade de reprodução padrão não se aplica ao Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">A velocidade de reprodução padrão se aplica ao Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Ativar velocidade de reprodução padrão no Shorts</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">A tela de carregamento gradiente está desativada.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">A tela de carregamento gradiente está ativada.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Ativar tela de carregamento gradiente</string>
@@ -349,7 +366,6 @@ Problema conhecido: como se trata de um recurso em fase de desenvolvimento pelo 
     <string name="revanced_enable_translucent_navigation_bar_summary_off">A barra de navegação está opaca.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">A barra de navegação está transparente.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Ativar barra de navegação transparente</string>
-    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">Em certas versões do YouTube, esta configuração pode tornar a barra de navegação do sistema transparente ou o layout pode ser quebrado no modo PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está desativado.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Entrar em tela cheia quando deslizar para baixo do reprodutor de vídeo está ativado.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Ativar gestos no painel de exibição</string>
@@ -1212,7 +1228,8 @@ Se um Doodle do YouTube estiver sendo exibido na sua região e essa configuraç�
     <string name="revanced_language_ET">Estoniano</string>
     <string name="revanced_language_FA">Persa</string>
     <string name="revanced_language_FI">Finlandês</string>
-    <string name="revanced_language_FR">Francês</string>
+    <string name="revanced_language_FR">"Francês
+<small>Français</small>"</string>
     <string name="revanced_language_GU">Guzerate</string>
     <string name="revanced_language_HI">Hindu</string>
     <string name="revanced_language_HR">Croata</string>
@@ -1233,9 +1250,12 @@ Se um Doodle do YouTube estiver sendo exibido na sua região e essa configuraç�
     <string name="revanced_language_OR">Odia</string>
     <string name="revanced_language_PA">Punjabi</string>
     <string name="revanced_language_PL">Polonês</string>
-    <string name="revanced_language_PT">Português</string>
-    <string name="revanced_language_RO">Romeno</string>
-    <string name="revanced_language_RU">Russo</string>
+    <string name="revanced_language_PT">"Português
+<small>Português</small>"</string>
+    <string name="revanced_language_RO">"Romeno
+<small>Română</small>"</string>
+    <string name="revanced_language_RU">"Russo
+<small>Русский</small>"</string>
     <string name="revanced_language_SK">Eslovaco</string>
     <string name="revanced_language_SL">Esloveno</string>
     <string name="revanced_language_SR">Sérvio</string>
@@ -1360,6 +1380,9 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_override_playlist_download_button_summary_off">O botão de download de playlist nativo abre o download nativo do aplicativo.</string>
     <string name="revanced_override_playlist_download_button_summary_on">O botão de download de playlist nativo abre seu aplicativo de download externo.</string>
     <string name="revanced_override_playlist_download_button_title">Substituir o botão de download da playlist</string>
+    <string name="revanced_override_video_download_button_queue_manager_summary_off">O botão de download de vídeo nativo abre seu aplicativo de download externo.</string>
+    <string name="revanced_override_video_download_button_queue_manager_summary_on">O botão nativo de download de vídeo abre o gerenciador de filas.</string>
+    <string name="revanced_override_video_download_button_queue_manager_title">Gerenciador de Filas</string>
     <string name="revanced_override_video_download_button_summary_off">O botão de download de vídeo nativo abre o download nativo do aplicativo.</string>
     <string name="revanced_override_video_download_button_summary_on">O botão de download de vídeo nativo abre seu aplicativo de download externo.</string>
     <string name="revanced_override_video_download_button_title">Substituir o botão de download de vídeo</string>
@@ -1374,6 +1397,7 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_category_action_buttons">Botões de ação</string>
     <string name="revanced_preference_category_additional_settings">Configurações adicionais</string>
     <string name="revanced_preference_category_animation_feedback">Animação / Feedback</string>
+    <string name="revanced_preference_category_codec">Codec</string>
     <string name="revanced_preference_category_custom_actions">Ações personalizadas</string>
     <string name="revanced_preference_category_download_button">Botão de download</string>
     <string name="revanced_preference_category_experimental_flag">Sinalizadores experimentais</string>
@@ -1384,12 +1408,13 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_category_others">Outros</string>
     <string name="revanced_preference_category_overlay_buttons">Botões de ação rápida</string>
     <string name="revanced_preference_category_patch_information">Informações do patch</string>
-    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
+    <string name="revanced_preference_category_playback_speed">Velocidade de reprodução</string>
     <string name="revanced_preference_category_quick_actions">Ações rápidas</string>
     <string name="revanced_preference_category_recommended_video">Vídeo recomendado</string>
     <string name="revanced_preference_category_shorts_shelf">Painel de shorts</string>
     <string name="revanced_preference_category_suggested_actions">Ações sugeridas</string>
     <string name="revanced_preference_category_tool_used">Ferramenta usada</string>
+    <string name="revanced_preference_category_video_quality">Qualidade do vídeo</string>
     <string name="revanced_preference_category_view_counts_filter">Filtro por contagem de visualização</string>
     <string name="revanced_preference_screen_account_menu_summary">Ocultar ou mostrar elementos no menu de contas e na aba Você.</string>
     <string name="revanced_preference_screen_account_menu_title">Menu da Conta</string>
@@ -1459,13 +1484,41 @@ Toque e segure para abrir a caixa de diálogo de configuração da lista branca.
     <string name="revanced_preference_screen_video_title">Vídeo</string>
     <string name="revanced_preference_screen_watch_history_summary">Altere as configurações relacionadas ao histórico de exibição.</string>
     <string name="revanced_preference_screen_watch_history_title">Histórico de exibição</string>
+    <string name="revanced_queue_manager_add_to_queue">Adicionar à fila</string>
+    <string name="revanced_queue_manager_add_to_queue_and_open_queue">Adicionar à fila e abrir a fila</string>
+    <string name="revanced_queue_manager_add_to_queue_and_play_video">Adicionar à fila e reproduzir o vídeo</string>
+    <string name="revanced_queue_manager_check_failed_auth">Login obrigatório</string>
+    <string name="revanced_queue_manager_check_failed_generic">Gerenciador de filas indisponível (%s).</string>
+    <string name="revanced_queue_manager_check_failed_playlist_id">Não foi possível identificar a playlist</string>
+    <string name="revanced_queue_manager_check_failed_queue">A fila está vazia</string>
+    <string name="revanced_queue_manager_check_failed_video_id">Não foi possível identificar vídeo</string>
+    <string name="revanced_queue_manager_external_downloader">Download externo</string>
+    <string name="revanced_queue_manager_fetch_failed_add">Falha ao adicionar vídeo.</string>
+    <string name="revanced_queue_manager_fetch_failed_create">Falha ao criar fila.</string>
+    <string name="revanced_queue_manager_fetch_failed_delete">Falha ao excluir fila.</string>
+    <string name="revanced_queue_manager_fetch_failed_remove">Falha ao remover o vídeo.</string>
+    <string name="revanced_queue_manager_fetch_failed_save">Falha ao salvar fila.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_add">Vídeo adicionado com sucesso.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_create">Fila criada com sucesso.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_delete">Fila excluída com sucesso.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_remove">Vídeo removido com sucesso.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_save">Fila salva com sucesso em \'%s\'.</string>
+    <string name="revanced_queue_manager_open_queue">Abrir fila</string>
+    <string name="revanced_queue_manager_queue">Fila</string>
+    <string name="revanced_queue_manager_remove_from_queue">Remover da lista</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Remover da fila e abrir a fila</string>
+    <string name="revanced_queue_manager_remove_queue">Remover fila</string>
+    <string name="revanced_queue_manager_save_queue">Salvar fila</string>
+    <string name="revanced_queue_manager_user_dialog_message">"Em vez de abrir um aplicativo de download externo, abra a caixa de diálogo do gerenciador de filas.
+
+Você também pode abrir o gerenciador de filas pressionando e segurando o botão Voltar na barra de navegação.
+
+Este recurso ainda está em andamento, então a maioria dos recursos pode não funcionar.
+
+Use-o apenas para fins de depuração."</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">A margem superior das ações rápidas deve ser entre 0-32. Redefinir para os valores padrão.</string>
     <string name="revanced_quick_actions_top_margin_summary">Configure o espaçamento da barra de progresso para o contêiner de ação rápida, entre 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Margem superior das ações rápidas</string>
-    <string name="revanced_reject_av1_codec_summary">"Rejeita à força a resposta do codec AV1 do software.
-Após cerca de 20 segundos de buffer, muda para um codec diferente."</string>
-    <string name="revanced_reject_av1_codec_title">Rejeitar resposta do codec AV1 do software</string>
-    <string name="revanced_reject_av1_codec_toast">O processo de fallback causa cerca de 20 segundos de buffer.</string>
     <string name="revanced_related_videos_offset_title">Desvio</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">As alterações de velocidade de reprodução só se aplicam ao vídeo atual.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">As alterações de velocidade de reprodução aplicam-se a todos os vídeos.</string>
@@ -1480,7 +1533,7 @@ Após cerca de 20 segundos de buffer, muda para um codec diferente."</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Uma notificação flutuante não será exibida quando mudar a qualidade padrão de vídeo.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Uma notificação flutuante será exibida quando mudar a qualidade padrão de vídeo.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Mostrar uma notificação flutuante</string>
-    <string name="revanced_remember_video_quality_mobile">Alterando a qualidade padrão de dados móveis para %s.</string>
+    <string name="revanced_remember_video_quality_mobile">móvel</string>
     <string name="revanced_remember_video_quality_none">Falha ao definir a qualidade de vídeo.</string>
     <string name="revanced_remember_video_quality_wifi">Alterando a qualidade padrão do Wi-Fi para %s.</string>
     <string name="revanced_remix_button_index_title">Índice do botão remix</string>
@@ -1823,10 +1876,12 @@ Limitação: Título do vídeo desaparece quando clicado."</string>
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - Restaurar barra de ação antiga do shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Restaurar antigo comportamento padrão de qualidade de vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Desativa a atualização em tempo real de \'visualizações\' e \'curtidas\'</string>
+    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Desativar interação com descrição do vídeo</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Restaura as animações de números de rolagem do antigo estilo</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Desativar ícone do Cairo na barra de navegação e de ferramentas</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Restaurar painel flutuante antigo de velocidade de reprodução</string>
     <string name="revanced_spoof_app_version_target_entry_title">Versão da falsificação do aplicativo</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Versão da falsificação do app inválida: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Digite a versão do app para falsificação</string>
     <string name="revanced_spoof_app_version_target_title">Editar versão de falsificação do app</string>
     <string name="revanced_spoof_app_version_title">Falsificar versão do aplicativo</string>
@@ -1845,14 +1900,6 @@ A alta qualidade pode ser desbloqueada em alguns vídeos que exigem dimensões e
 
 O AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível e a reprodução de vídeo usará mais dados da internet do que VP9 ou AV1."</string>
     <string name="revanced_spoof_streaming_data_language_title">Idioma padrão de áudio do VR</string>
-    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken emitido pelo BotGuard em um navegador confiável.</string>
-    <string name="revanced_spoof_streaming_data_po_token_title">PoToken a ser utilizado</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Alguns clientes exigem PoToken e VisitorData para obter uma resposta de dados de streaming válida.
-
-Se você estiver tentando usar o iOS como cliente padrão, pode precisar desses valores.
-
-Clique para ver mais informações."</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Sobre o PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• O menu de faixa de áudio está faltando.
 • Volume estável não está disponível.
 • Desativar faixas de áudio automático forçadas não estão disponíveis.
@@ -1865,6 +1912,14 @@ Clique para ver mais informações."</string>
 • Os vídeos para crianças podem não ser reproduzidos quando desconectado ou em modo incógnito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Efeitos colaterais da falsificação</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• O vídeo pode não reproduzir.</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Não pule a criptografia de resposta Onesie.
+
+• Alguns usuários podem experimentar um novo tipo de problema de reprodução."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Pular criptografia de resposta Onesie.
+
+• Corrige um novo tipo de problema de reprodução que alguns usuários estão enfrentando.
+• O codec AV1 pode não estar disponível."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Pular criptografia de resposta Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente usado para buscar dados de streaming está oculto em Estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O cliente usado para buscar dados de streaming é mostrado em Estatísticas para nerds.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Exibir em Estatísticas para nerds</string>
@@ -1881,10 +1936,13 @@ Clique para ver mais informações."</string>
 <small>(requer PoToken)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
 <small>(é necessário logar)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_ios_summary_off">Cliente iOS não adicionado aos clientes disponíveis.</string>
+    <string name="revanced_spoof_streaming_data_type_ios_summary_on">"Cliente iOS adicionado aos clientes disponíveis.
+
+AVISO: cliente iOS está obsoleto. Quaisquer problemas que surjam ao usá-lo estão por sua conta e risco."</string>
+    <string name="revanced_spoof_streaming_data_type_ios_title">Usar cliente iOS</string>
     <string name="revanced_spoof_streaming_data_type_title">Cliente padrão</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_summary">Dados de visitante emitido pelo BotGuard em um navegador confiável.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_title">Dados de visitante a ser utilizado</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">A sensibilidade de deslizamento de brilho deve estar entre 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Configure a sensibilidade do deslize para o brilho entre 1 e 1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Sensibilidade de deslizar brilho</string>
@@ -1894,8 +1952,6 @@ Clique para ver mais informações."</string>
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">Automático</string>
     <string name="revanced_swipe_magnitude_threshold_summary">A quantidade de limite para que o deslize ocorra.</string>
     <string name="revanced_swipe_magnitude_threshold_title">Limite de magnitude de deslize</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo da sobreposição de gestos.</string>
-    <string name="revanced_swipe_overlay_background_alpha_title">Visibilidade do fundo de gestos</string>
     <string name="revanced_swipe_overlay_minimal_style_summary_off">O estilo de sobreposição mínima está desativado</string>
     <string name="revanced_swipe_overlay_minimal_style_summary_on">O estilo de sobreposição mínima está ativado</string>
     <string name="revanced_swipe_overlay_minimal_style_title">Ativar estilo mínimo</string>

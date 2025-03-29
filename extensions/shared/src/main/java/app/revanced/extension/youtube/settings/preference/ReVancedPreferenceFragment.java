@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.settings.preference;
 
 import static com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity.setToolbarLayoutParams;
+import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
 import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
@@ -9,6 +10,7 @@ import static app.revanced.extension.shared.utils.Utils.getChildView;
 import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import static app.revanced.extension.shared.utils.Utils.showToastShort;
 import static app.revanced.extension.youtube.settings.Settings.DEFAULT_PLAYBACK_SPEED;
+import static app.revanced.extension.youtube.settings.Settings.DEFAULT_PLAYBACK_SPEED_SHORTS;
 import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT;
 import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT_TYPE;
 
@@ -32,6 +34,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -50,12 +53,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
+import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
@@ -69,14 +77,19 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     @SuppressLint("SuspiciousIndentation")
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
-            if (str == null) return;
-            Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
+            if (str == null) {
+                return;
+            }
 
-            if (setting == null) return;
+            Setting<?> setting = Setting.getSettingFromPath(str);
+            if (setting == null) {
+                return;
+            }
 
             Preference mPreference = findPreference(str);
-
-            if (mPreference == null) return;
+            if (mPreference == null) {
+                return;
+            }
 
             if (mPreference instanceof SwitchPreference switchPreference) {
                 BooleanSetting boolSetting = (BooleanSetting) setting;
@@ -103,9 +116,13 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 } else {
                     Setting.privateSetValueFromString(setting, listPreference.getValue());
                 }
-                if (setting.equals(DEFAULT_PLAYBACK_SPEED)) {
-                    listPreference.setEntries(CustomPlaybackSpeedPatch.getListEntries());
-                    listPreference.setEntryValues(CustomPlaybackSpeedPatch.getListEntryValues());
+                if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
+                    listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
+                    listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
+                }
+                if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
+                    listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
+                    listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                 }
                 if (!(mPreference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
                     updateListPreferenceSummary(listPreference, setting);
@@ -117,18 +134,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
             ReVancedSettingsPreference.initializeReVancedSettings();
 
-            if (settingImportInProgress) {
-                return;
-            }
-
-            if (!showingUserDialogMessage) {
+            if (!settingImportInProgress && !showingUserDialogMessage) {
                 final Context context = getActivity();
 
-                if (setting.userDialogMessage != null
-                        && mPreference instanceof SwitchPreference switchPreference
-                        && setting.defaultValue instanceof Boolean defaultValue
-                        && switchPreference.isChecked() != defaultValue) {
-                    showSettingUserDialogConfirmation(context, switchPreference, (BooleanSetting) setting);
+                if (setting.userDialogMessage != null && !prefIsSetToDefault(mPreference, setting)) {
+                    showSettingUserDialogConfirmation(context, mPreference, setting);
                 } else if (setting.rebootApp) {
                     showRestartDialog(context);
                 }
@@ -138,25 +148,56 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     };
 
-    private void showSettingUserDialogConfirmation(Context context, SwitchPreference switchPreference, BooleanSetting setting) {
+    /**
+     * @return If the preference is currently set to the default value of the Setting.
+     */
+    private boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        Object defaultValue = setting.defaultValue;
+        if (pref instanceof SwitchPreference switchPref) {
+            return switchPref.isChecked() == (Boolean) defaultValue;
+        }
+        String defaultValueString = defaultValue.toString();
+        if (pref instanceof EditTextPreference editPreference) {
+            return editPreference.getText().equals(defaultValueString);
+        }
+        if (pref instanceof ListPreference listPref) {
+            return listPref.getValue().equals(defaultValueString);
+        }
+
+        throw new IllegalStateException("Must override method to handle "
+                + "preference type: " + pref.getClass());
+    }
+
+    private void showSettingUserDialogConfirmation(Context context, Preference pref, Setting<?> setting) {
         Utils.verifyOnMainThread();
 
-        showingUserDialogMessage = true;
-        assert setting.userDialogMessage != null;
-        new AlertDialog.Builder(context)
-                .setTitle(str("revanced_extended_confirm_user_dialog_title"))
-                .setMessage(setting.userDialogMessage.toString())
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                    if (setting.rebootApp) {
-                        showRestartDialog(context);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    switchPreference.setChecked(setting.defaultValue); // Recursive call that resets the Setting value.
-                })
-                .setOnDismissListener(dialog -> showingUserDialogMessage = false)
-                .setCancelable(false)
-                .show();
+        final StringRef userDialogMessage = setting.userDialogMessage;
+        if (context != null && userDialogMessage != null) {
+            showingUserDialogMessage = true;
+
+            new AlertDialog.Builder(context)
+                    .setTitle(str("revanced_extended_confirm_user_dialog_title"))
+                    .setMessage(userDialogMessage.toString())
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                        if (setting.rebootApp) {
+                            showRestartDialog(context);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
+                        // Restore whatever the setting was before the change.
+                        if (setting instanceof BooleanSetting booleanSetting &&
+                                pref instanceof SwitchPreference switchPreference) {
+                            switchPreference.setChecked(booleanSetting.defaultValue);
+                        } else if (setting instanceof EnumSetting<?> enumSetting &&
+                                pref instanceof ListPreference listPreference) {
+                            listPreference.setValue(enumSetting.defaultValue.toString());
+                            updateListPreferenceSummary(listPreference, setting);
+                        }
+                    })
+                    .setOnDismissListener(dialog -> showingUserDialogMessage = false)
+                    .setCancelable(false)
+                    .show();
+        }
     }
 
     static PreferenceManager mPreferenceManager;
@@ -192,6 +233,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             }
         }
 
+        Integer targetSDKVersion = ExtendedUtils.getTargetSDKVersion(getContext().getPackageName());
+        boolean isEdgeToEdgeSupported = isSDKAbove(35) && targetSDKVersion != null && targetSDKVersion >= 35;
+
         for (PreferenceScreen mPreferenceScreen : preferenceScreenMap.values()) {
             mPreferenceScreen.setOnPreferenceClickListener(
                     preferenceScreen -> {
@@ -200,11 +244,24 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                                 .findViewById(android.R.id.content)
                                 .getParent();
 
-                        // Fix required for Android 15
-                        if (isSDKAbove(35)) {
+                        // Edge-to-edge is enforced if the following conditions are met:
+                        // 1. targetSDK is 35 or greater (YouTube 19.44.39 or greater).
+                        // 2. user is using Android 15 or greater.
+                        //
+                        // Related Issues:
+                        // https://github.com/ReVanced/revanced-patches/issues/3976
+                        // https://github.com/ReVanced/revanced-patches/issues/4606
+                        //
+                        // Docs:
+                        // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
+                        //
+                        // Since ReVanced Settings Activity do not use AndroidX libraries,
+                        // You will need to manually fix the layout breakage caused by edge-to-edge.
+                        if (isEdgeToEdgeSupported) {
                             rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                 Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                v.setPadding(0, statusInsets.top, 0, 0);
+                                Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
+                                v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
                                 return insets;
                             });
                         }
@@ -806,9 +863,13 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 } else if (preference instanceof EditTextPreference editTextPreference) {
                     editTextPreference.setText(setting.get().toString());
                 } else if (preference instanceof ListPreference listPreference) {
-                    if (setting.equals(DEFAULT_PLAYBACK_SPEED)) {
-                        listPreference.setEntries(CustomPlaybackSpeedPatch.getListEntries());
-                        listPreference.setEntryValues(CustomPlaybackSpeedPatch.getListEntryValues());
+                    if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
+                        listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
+                        listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
+                    }
+                    if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
+                        listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
+                        listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
                     }
                     if (!(preference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
                         updateListPreferenceSummary(listPreference, setting);
@@ -821,6 +882,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
 
             originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getActivity());
             copyPreferences(getPreferenceScreen(), originalPreferenceScreen);
+
+            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
+            sortPreferenceListMenu(Settings.SPOOF_STREAMING_DATA_LANGUAGE);
+            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
         } catch (Exception th) {
             Logger.printException(() -> "Error during onCreate()", th);
         }
@@ -839,7 +904,66 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Retrieves all preferences from a PreferenceGroup.
+     * Sorts a preference list by menu entries, but preserves the first value as the first entry.
+     *
+     * @noinspection SameParameterValue
+     */
+    private static void sortListPreferenceByValues(ListPreference listPreference, int firstEntriesToPreserve) {
+        CharSequence[] entries = listPreference.getEntries();
+        CharSequence[] entryValues = listPreference.getEntryValues();
+        final int entrySize = entries.length;
+
+        if (entrySize != entryValues.length) {
+            // Xml array declaration has a missing/extra entry.
+            throw new IllegalStateException();
+        }
+
+        // Since the text of Preference is Spanned, CharSequence#toString() should not be used.
+        // If CharSequence#toString() is used, Spanned styling, such as HTML syntax, will be broken.
+        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
+        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
+
+        for (int i = 0; i < entrySize; i++) {
+            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
+            if (i < firstEntriesToPreserve) {
+                firstPairs.add(pair);
+            } else {
+                pairsToSort.add(pair);
+            }
+        }
+
+        pairsToSort.sort((pair1, pair2)
+                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
+
+        CharSequence[] sortedEntries = new CharSequence[entrySize];
+        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
+
+        int i = 0;
+        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
+
+        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
+
+        listPreference.setEntries(sortedEntries);
+        listPreference.setEntryValues(sortedEntryValues);
+    }
+
+    private void sortPreferenceListMenu(EnumSetting<?> setting) {
+        Preference preference = findPreference(setting.key);
+        if (preference instanceof ListPreference languagePreference) {
+            sortListPreferenceByValues(languagePreference, 1);
+        }
+    }
+
+    /**
+     * Recursively stores all preferences and their dependencies grouped by their parent PreferenceGroup.
      *
      * @param preferenceGroup The PreferenceGroup to retrieve preferences from.
      * @return A list of preferences.

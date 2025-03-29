@@ -5,6 +5,8 @@ import app.revanced.patches.music.utils.resourceid.mainActivityLaunchAnimation
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.indexOfFirstLiteralInstruction
 
+internal const val CAIRO_SPLASH_ANIMATION_FEATURE_FLAG = 45635386L
+
 /**
  * This fingerprint is compatible with YouTube Music v7.06.53+
  */
@@ -20,7 +22,7 @@ internal val cairoSplashAnimationConfigFingerprint = legacyFingerprint(
         if (is_7_20_or_greater) {
             method.indexOfFirstLiteralInstruction(mainActivityLaunchAnimation) >= 0
         } else {
-            method.indexOfFirstLiteralInstruction(45635386) >= 0
+            method.indexOfFirstLiteralInstruction(CAIRO_SPLASH_ANIMATION_FEATURE_FLAG) >= 0
         }
     }
 )
