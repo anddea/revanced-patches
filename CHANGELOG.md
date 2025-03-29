@@ -1,3 +1,10 @@
+# [3.6.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.2...v3.6.0-dev.3) (2025-03-29)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** Fix patch not working ([c56bc72](https://github.com/anddea/revanced-patches/commit/c56bc723f284ad8b66d94dc4d961bc31204b5b32))
+
 # [3.6.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.1...v3.6.0-dev.2) (2025-03-29)
 
 

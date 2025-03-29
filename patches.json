@@ -2340,7 +2340,9 @@
     "name": "Remove Create tab",
     "description": "Removes the \u0027Create\u0027 (Plus) tab from the bottom navigation bar.",
     "use": false,
-    "dependencies": [],
+    "dependencies": [
+      "ResourcePatch"
+    ],
     "compatiblePackages": {
       "com.spotify.music": null
     },
