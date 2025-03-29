@@ -1,3 +1,10 @@
+# [3.6.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.3...v3.6.0-dev.4) (2025-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix long press external downloader ([da0fa86](https://github.com/anddea/revanced-patches/commit/da0fa860b88bf467598269b550a82833c5ca0f49))
+
 # [3.6.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.2...v3.6.0-dev.3) (2025-03-29)
 
 
