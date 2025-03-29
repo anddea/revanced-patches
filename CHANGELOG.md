@@ -1,3 +1,20 @@
+# [3.6.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0-dev.1) (2025-03-29)
+
+
+### Features
+
+* **Reddit:** Add support version `2025.12.0` ([6460360](https://github.com/anddea/revanced-patches/commit/6460360781589fa4733b3278801bd4d111a475fb))
+* **Spotify:** Add Spotify patches ([0e58253](https://github.com/anddea/revanced-patches/commit/0e582531e9a1f0bc4c5cd1530ec92b955191be3b))
+* **Universal:** Add `Disable edge-to-edge display` patch ([cdae664](https://github.com/anddea/revanced-patches/commit/cdae664d91b5a8be6e7435b007084f697e93e732))
+* **YouTube - Hook download actions, Overlay buttons:** Add `Queue manager` setting (Experimental) ([d081d7b](https://github.com/anddea/revanced-patches/commit/d081d7b845aa8e925231370b2ae50e2d2f38555b))
+* **YouTube - Navigation bar components:** Add Cairo icon (Library tab) ([8d16ee5](https://github.com/anddea/revanced-patches/commit/8d16ee52b322443ff8576ed32ff23d42654b1396))
+* **YouTube - Spoof streaming data:** Add `Use iOS client` patch option ([60d9072](https://github.com/anddea/revanced-patches/commit/60d9072996e54fea30d9c12282852335d4d525fe))
+* **YouTube Music - Hide layout components:** Add `Hide search button` setting ([3b419aa](https://github.com/anddea/revanced-patches/commit/3b419aa910ba10efbab3066b6261688d0a34c351))
+* **YouTube Music:** Add support version `8.12.53` ([414dac9](https://github.com/anddea/revanced-patches/commit/414dac974061e2c0a237972ce6b9920d1810cf16))
+* **YouTube:** Add `Disable layout updates` patch ([090acb7](https://github.com/anddea/revanced-patches/commit/090acb774845d8c4c0ba18e317edeb5849dae5e4))
+* **YouTube:** Add support for a wider range of versions (up to 20.12) ([242cdc9](https://github.com/anddea/revanced-patches/commit/242cdc976a999b20e031b6c68a9c47d4dcef2afb))
+* **YouTube:** Add support version `20.03.43` ([8d56e2e](https://github.com/anddea/revanced-patches/commit/8d56e2ea123cdfd81bd78460e164f4ad87ae6434))
+
 # [3.5.0](https://github.com/anddea/revanced-patches/compare/v3.4.0...v3.5.0) (2025-03-23)
 
 
