@@ -97,11 +97,11 @@ private val settingsBytecodePatch = bytecodePatch(
     }
 }
 
-private const val DEFAULT_ELEMENT = "@string/about_key"
+private const val DEFAULT_ELEMENT = "@string/parent_tools_key"
 private const val DEFAULT_LABEL = "RVX"
 
 private val SETTINGS_ELEMENTS_MAP = mapOf(
-    "Parent settings" to "@string/parent_tools_key",
+    "Parent settings" to DEFAULT_ELEMENT,
     "General" to "@string/general_key",
     "Account" to "@string/account_switcher_key",
     "Data saving" to "@string/data_saving_settings_key",
@@ -122,7 +122,7 @@ private val SETTINGS_ELEMENTS_MAP = mapOf(
     "Live chat" to "@string/live_chat_key",
     "Captions" to "@string/captions_key",
     "Accessibility" to "@string/accessibility_settings_key",
-    "About" to DEFAULT_ELEMENT
+    "About" to "@string/about_key"
 )
 
 private lateinit var settingsLabel: String
