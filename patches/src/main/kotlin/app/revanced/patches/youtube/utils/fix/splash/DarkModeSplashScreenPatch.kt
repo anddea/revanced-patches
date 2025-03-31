@@ -1,8 +1,11 @@
 package app.revanced.patches.youtube.utils.fix.splash
 
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.youtubePackageName
+import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
 
 /**
@@ -25,31 +28,55 @@ val darkModeSplashScreenPatch = resourcePatch(
         }
 
         arrayOf(
-            "values-night" to "@style/Base.V23.Theme.YouTube.Home",
-            "values-night-v27" to "@style/Base.V27.Theme.YouTube.Home",
-        ).forEach { (directory, parent) ->
+            "values-night",
+            "values-night-v27",
+        ).forEach { directory ->
             document("res/$directory/styles.xml").use { document ->
-                // Create a night mode specific override for the splash screen background.
-                val style = document.createElement("style")
-                style.setAttribute("name", "Theme.YouTube.Home")
-                style.setAttribute("parent", parent)
-
-                val colorSplashBackgroundColor = "@color/yt_black1"
-                arrayOf(
-                    "android:navigationBarColor" to colorSplashBackgroundColor,
-                    "android:windowBackground" to colorSplashBackgroundColor,
-                    "android:colorBackground" to colorSplashBackgroundColor,
-                    "colorPrimaryDark" to colorSplashBackgroundColor,
-                    "android:windowLightStatusBar" to "false",
-                ).forEach { (name, value) ->
-                    val styleItem = document.createElement("item")
-                    styleItem.setAttribute("name", name)
-                    styleItem.textContent = value
-                    style.appendChild(styleItem)
-                }
-
                 val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-                resourcesNode.appendChild(style)
+                val childNodes = resourcesNode.childNodes
+
+                for (i in 0 until childNodes.length) {
+                    val node = childNodes.item(i) as? Element ?: continue
+                    val nodeAttributeName = node.getAttribute("name")
+                    if (nodeAttributeName.startsWith("Theme.YouTube.Launcher")) {
+                        val nodeAttributeParent = node.getAttribute("parent")
+
+                        val style = document.createElement("style")
+                        style.setAttribute("name", "Theme.YouTube.Home")
+                        style.setAttribute("parent", nodeAttributeParent)
+
+                        val colorSplashBackgroundColor = "@color/yt_black1"
+                        arrayOf(
+                            "android:navigationBarColor" to colorSplashBackgroundColor,
+                            "android:windowBackground" to colorSplashBackgroundColor,
+                            "android:colorBackground" to colorSplashBackgroundColor,
+                            "colorPrimaryDark" to colorSplashBackgroundColor,
+                            "android:windowLightStatusBar" to "false",
+                        ).forEach { (name, value) ->
+                            val styleItem = document.createElement("item")
+                            styleItem.setAttribute("name", name)
+                            styleItem.textContent = value
+                            style.appendChild(styleItem)
+                        }
+
+                        resourcesNode.removeChild(node)
+                        resourcesNode.appendChild(style)
+                    }
+                }
+            }
+        }
+    }
+
+    finalize {
+        // GmsCore support included
+        if (youtubePackageName != YOUTUBE_PACKAGE_NAME) {
+            document("AndroidManifest.xml").use { document ->
+                val mainActivityElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    "android:name",
+                    "com.google.android.apps.youtube.app.watchwhile.MainActivity",
+                )
+
+                mainActivityElement.setAttribute("android:launchMode", "singleTask")
             }
         }
     }

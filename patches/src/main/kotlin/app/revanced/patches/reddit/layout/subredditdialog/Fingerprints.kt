@@ -1,5 +1,6 @@
 package app.revanced.patches.reddit.layout.subredditdialog
 
+import app.revanced.patches.reddit.utils.resourceid.nsfwDialogTitle
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,6 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val frequentUpdatesSheetScreenFingerprint = legacyFingerprint(
     name = "frequentUpdatesSheetScreenFingerprint",
@@ -52,6 +54,13 @@ fun listOfIsLoggedInInstruction(method: Method) =
         ?.reversed()
         ?: emptyList()
 
+fun indexOfGetOverInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_VIRTUAL &&
+                reference?.name == "getOver18"
+    }
+
 internal val nsfwAlertEmitFingerprint = legacyFingerprint(
     name = "nsfwAlertEmitFingerprint",
     returnType = "Ljava/lang/Object;",
@@ -59,17 +68,32 @@ internal val nsfwAlertEmitFingerprint = legacyFingerprint(
     strings = listOf("reddit://reddit/r/", "nsfwAlertDelegate"),
     customFingerprint = { method, _ ->
         method.name == "emit" &&
-                indexOfHasBeenVisitedInstruction(method) >= 0
+                indexOfGetOverInstruction(method) >= 0
     }
 )
 
-fun indexOfHasBeenVisitedInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                reference?.name == "getHasBeenVisited" &&
-                reference.returnType == "Z"
+internal val nsfwAlertObserverFingerprint = legacyFingerprint(
+    name = "nsfwAlertObserverFingerprint",
+    returnType = "Ljava/lang/Object;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    strings = listOf("nsfwAlertDelegate"),
+    customFingerprint = { method, _ ->
+        method.name == "invokeSuspend" &&
+                indexOfGetOverInstruction(method) >= 0 &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            getReference<TypeReference>()?.type?.startsWith("Lcom/reddit/frontpage/presentation/detail/DetailHolderPresenter\$showDialogIfNeverVisitedOrSubscribed\$") == true
+                } >= 0
     }
+)
+
+internal val nsfwAlertBuilderFingerprint = legacyFingerprint(
+    name = "nsfwAlertBuilderFingerprint",
+    literals = listOf(nsfwDialogTitle),
+    customFingerprint = { method, _ ->
+        method.definingClass.startsWith("Lcom/reddit/screen/nsfw")
+    }
+)
 
 internal val redditAlertDialogsFingerprint = legacyFingerprint(
     name = "redditAlertDialogsFingerprint",

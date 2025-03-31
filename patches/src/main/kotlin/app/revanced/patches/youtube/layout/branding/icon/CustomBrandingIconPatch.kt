@@ -232,16 +232,31 @@ val customBrandingIconPatch: ResourcePatch = resourcePatch(
 
                 val avdAnimPath = get("res").resolve("drawable").resolve("avd_anim.xml")
                 if (avdAnimPath.exists()) {
-                    val styleMap = mutableMapOf<String, String>()
-                    styleMap["Base.Theme.YouTube.Launcher"] =
-                        "@style/Theme.AppCompat.DayNight.NoActionBar"
+                    val styleList = mutableListOf(
+                        Triple(
+                            "values-v31",
+                            "Base.Theme.YouTube.Launcher",
+                            "@style/Theme.AppCompat.DayNight.NoActionBar"
+                        ),
+                    )
 
                     if (is_19_32_or_greater) {
-                        styleMap["Theme.YouTube.Home"] = "@style/Base.V27.Theme.YouTube.Home"
+                        styleList += listOf(
+                            Triple(
+                                "values-night-v31",
+                                "Theme.YouTube.Home",
+                                "@style/Base.V27.Theme.YouTube.Home"
+                            ),
+                            Triple(
+                                "values-v31",
+                                "Theme.YouTube.Home",
+                                "@style/Base.V27.Theme.YouTube.Home"
+                            ),
+                        )
                     }
 
-                    styleMap.forEach { (nodeAttributeName, nodeAttributeParent) ->
-                        document("res/values-v31/styles.xml").use { document ->
+                    styleList.forEach { (directory, nodeAttributeName, nodeAttributeParent) ->
+                        document("res/$directory/styles.xml").use { document ->
                             val resourcesNode =
                                 document.getElementsByTagName("resources").item(0) as Element
 
@@ -249,21 +264,27 @@ val customBrandingIconPatch: ResourcePatch = resourcePatch(
                             style.setAttribute("name", nodeAttributeName)
                             style.setAttribute("parent", nodeAttributeParent)
 
-                            val primaryItem = document.createElement("item")
-                            primaryItem.setAttribute("name", "android:windowSplashScreenAnimatedIcon")
-                            primaryItem.textContent = "@drawable/avd_anim"
-                            val secondaryItem = document.createElement("item")
-                            secondaryItem.setAttribute(
+                            val splashScreenAnimatedIcon = document.createElement("item")
+                            splashScreenAnimatedIcon.setAttribute(
+                                "name",
+                                "android:windowSplashScreenAnimatedIcon"
+                            )
+                            splashScreenAnimatedIcon.textContent = "@drawable/avd_anim"
+
+                            // Deprecated in Android 13+
+                            val splashScreenAnimationDuration = document.createElement("item")
+                            splashScreenAnimationDuration.setAttribute(
                                 "name",
                                 "android:windowSplashScreenAnimationDuration"
                             )
-                            secondaryItem.textContent = if (appIcon.startsWith("revancify"))
-                                "1500"
-                            else
-                                "1000"
+                            splashScreenAnimationDuration.textContent =
+                                if (appIcon.startsWith("revancify"))
+                                    "1500"
+                                else
+                                    "1000"
 
-                            style.appendChild(primaryItem)
-                            style.appendChild(secondaryItem)
+                            style.appendChild(splashScreenAnimatedIcon)
+                            style.appendChild(splashScreenAnimationDuration)
 
                             resourcesNode.appendChild(style)
                         }
