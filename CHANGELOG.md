@@ -1,3 +1,10 @@
+# [3.6.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.4...v3.6.0-dev.5) (2025-03-31)
+
+
+### Features
+
+* **YouTube:** Remove support version `20.03.43` ([c83ed0b](https://github.com/anddea/revanced-patches/commit/c83ed0be9019059b573e72adebcc7d6baf607edd))
+
 # [3.6.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.3...v3.6.0-dev.4) (2025-03-29)
 
 
