@@ -1,3 +1,11 @@
+# [3.6.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.5...v3.6.0-dev.6) (2025-03-31)
+
+
+### Features
+
+* **YouTube - Hook download actions, Overlay buttons:** Add `Add to queue and reload video` and `Remove from queue and reload video` settings, fixed a bug where the queue was unavailable under certain conditions ([d6b6ded](https://github.com/anddea/revanced-patches/commit/d6b6deda56f7b32e8f6eef01ff993ac93bbdccfb))
+* **YouTube - Settings:** Add `App name`, `App version` and `Patched date` to patch information ([025d9ff](https://github.com/anddea/revanced-patches/commit/025d9ff7f54d091748ad03f4ef4037423c99f63c))
+
 # [3.6.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.4...v3.6.0-dev.5) (2025-03-31)
 
 

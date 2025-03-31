@@ -1113,7 +1113,8 @@
     "description": "Adds an option to disable the popup that appears when taking a screenshot.",
     "use": true,
     "dependencies": [
-      "Settings for Reddit"
+      "Settings for Reddit",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.reddit.frontpage": [
@@ -2345,7 +2346,8 @@
     "description": "Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically.",
     "use": true,
     "dependencies": [
-      "Settings for Reddit"
+      "Settings for Reddit",
+      "ResourcePatch"
     ],
     "compatiblePackages": {
       "com.reddit.frontpage": [
