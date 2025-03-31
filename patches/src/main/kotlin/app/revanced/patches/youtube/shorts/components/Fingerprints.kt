@@ -22,7 +22,34 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import kotlin.collections.listOf
+
+internal val bottomSheetMenuDismissFingerprint = legacyFingerprint(
+    name = "bottomSheetMenuDismissFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        indexOfDismissInstruction(method) >= 0
+    }
+)
+
+fun indexOfDismissInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        reference?.name == "dismiss" &&
+                reference.returnType == "V" &&
+                reference.parameterTypes.isEmpty()
+    }
+
+internal val bottomSheetMenuItemClickFingerprint = legacyFingerprint(
+    name = "bottomSheetMenuItemClickFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Landroid/widget/AdapterView;", "Landroid/view/View;", "I", "J"),
+    customFingerprint = { method, _ ->
+        method.name == "onItemClick"
+    }
+)
 
 internal val bottomSheetMenuListBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuListBuilderFingerprint",

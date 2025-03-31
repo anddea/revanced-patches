@@ -25,6 +25,7 @@ class EditPlaylistRequest private constructor(
     private val playlistId: String,
     private val setVideoId: String?,
     private val requestHeader: Map<String, String>,
+    private val dataSyncId: String,
 ) {
     private val future: Future<String> = Utils.submitOnBackgroundThread {
         fetch(
@@ -32,6 +33,7 @@ class EditPlaylistRequest private constructor(
             playlistId,
             setVideoId,
             requestHeader,
+            dataSyncId,
         )
     }
 
@@ -92,7 +94,8 @@ class EditPlaylistRequest private constructor(
             videoId: String,
             playlistId: String,
             setVideoId: String?,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ) {
             Objects.requireNonNull(videoId)
             synchronized(cache) {
@@ -101,7 +104,8 @@ class EditPlaylistRequest private constructor(
                         videoId,
                         playlistId,
                         setVideoId,
-                        requestHeader
+                        requestHeader,
+                        dataSyncId,
                     )
                 }
             }
@@ -122,7 +126,8 @@ class EditPlaylistRequest private constructor(
             videoId: String,
             playlistId: String,
             setVideoId: String?,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(videoId)
 
@@ -136,7 +141,8 @@ class EditPlaylistRequest private constructor(
                 val connection = getInnerTubeResponseConnectionFromRoute(
                     EDIT_PLAYLIST,
                     clientType,
-                    requestHeader
+                    requestHeader,
+                    dataSyncId
                 )
 
                 val requestBody = editPlaylistRequestBody(
@@ -199,9 +205,16 @@ class EditPlaylistRequest private constructor(
             videoId: String,
             playlistId: String,
             setVideoId: String?,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): String? {
-            val json = sendRequest(videoId, playlistId, setVideoId, requestHeader)
+            val json = sendRequest(
+                videoId,
+                playlistId,
+                setVideoId,
+                requestHeader,
+                dataSyncId,
+            )
             if (json != null) {
                 return parseResponse(json, StringUtils.isNotEmpty(setVideoId))
             }

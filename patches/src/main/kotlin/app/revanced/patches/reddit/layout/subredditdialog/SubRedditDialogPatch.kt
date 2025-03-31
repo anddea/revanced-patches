@@ -42,7 +42,8 @@ val subRedditDialogPatch = bytecodePatch(
                 .apply {
                     listOfIsLoggedInInstruction(this)
                         .forEach { index ->
-                            val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                            val register =
+                                getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                             addInstructions(
                                 index + 2, """

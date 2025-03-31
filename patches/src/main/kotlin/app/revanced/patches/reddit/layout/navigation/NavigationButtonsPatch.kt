@@ -56,7 +56,8 @@ val navigationButtonsPatch = bytecodePatch(
             if (bottomNavScreenFingerprint.resolvable()) {
                 val bottomNavScreenMutableClass = with(bottomNavScreenFingerprint.methodOrThrow()) {
                     val startIndex = indexOfGetDimensionPixelSizeInstruction(this)
-                    val targetIndex = indexOfFirstInstructionOrThrow(startIndex, Opcode.NEW_INSTANCE)
+                    val targetIndex =
+                        indexOfFirstInstructionOrThrow(startIndex, Opcode.NEW_INSTANCE)
                     val targetReference =
                         getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
 
@@ -65,7 +66,9 @@ val navigationButtonsPatch = bytecodePatch(
                         ?: throw ClassNotFoundException("Failed to find class $targetReference")
                 }
 
-                bottomNavScreenOnGlobalLayoutFingerprint.second.matchOrNull(bottomNavScreenMutableClass)
+                bottomNavScreenOnGlobalLayoutFingerprint.second.matchOrNull(
+                    bottomNavScreenMutableClass
+                )
                     ?.let {
                         it.method.apply {
                             val startIndex = it.patternMatch!!.startIndex
@@ -82,7 +85,8 @@ val navigationButtonsPatch = bytecodePatch(
                 // Legacy method.
                 bottomNavScreenHandlerFingerprint.methodOrThrow().apply {
                     val targetIndex = indexOfGetItemsInstruction(this) + 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                    val targetRegister =
+                        getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
                         targetIndex + 1, """

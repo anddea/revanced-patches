@@ -34,8 +34,10 @@ val playlistPatch = bytecodePatch(
     execute {
         // In Incognito mode, sending a request always seems to fail.
         accountIdentityFingerprint.methodOrThrow().addInstructions(
-            1,
-            "invoke-static/range {p4 .. p4}, $EXTENSION_CLASS_DESCRIPTOR->setIncognitoStatus(Z)V"
+            1, """
+                sput-object p3, $EXTENSION_CLASS_DESCRIPTOR->dataSyncId:Ljava/lang/String;
+                sput-boolean p4, $EXTENSION_CLASS_DESCRIPTOR->isIncognito:Z
+                """
         )
 
         // Get the header to use the auth token.
@@ -54,7 +56,7 @@ val playlistPatch = bytecodePatch(
                     """
             )
 
-        val setVideoIdReference = with (playlistEndpointFingerprint.methodOrThrow()) {
+        val setVideoIdReference = with(playlistEndpointFingerprint.methodOrThrow()) {
             val setVideoIdIndex = indexOfSetVideoIdInstruction(this)
             getInstruction<ReferenceInstruction>(setVideoIdIndex).reference as FieldReference
         }
@@ -65,14 +67,16 @@ val playlistPatch = bytecodePatch(
             .let {
                 it.method.apply {
                     val castIndex = it.patternMatch!!.startIndex
-                    val castClass = getInstruction<ReferenceInstruction>(castIndex).reference.toString()
+                    val castClass =
+                        getInstruction<ReferenceInstruction>(castIndex).reference.toString()
 
                     if (castClass != setVideoIdReference.definingClass) {
                         throw PatchException("Method signature parameter did not match: $castClass")
                     }
                     val castRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
                     val insertIndex = castIndex + 1
-                    val insertRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """

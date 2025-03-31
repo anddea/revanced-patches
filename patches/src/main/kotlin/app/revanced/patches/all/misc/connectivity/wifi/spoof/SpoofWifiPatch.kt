@@ -152,7 +152,10 @@ private enum class MethodCall(
     RegisterNetworkCallback1(
         "Landroid/net/ConnectivityManager;",
         "registerNetworkCallback",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf(
+            "Landroid/net/NetworkRequest;",
+            "Landroid/net/ConnectivityManager\$NetworkCallback;"
+        ),
         "V",
     ),
     RegisterNetworkCallback2(
@@ -174,13 +177,20 @@ private enum class MethodCall(
     RequestNetwork1(
         "Landroid/net/ConnectivityManager;",
         "requestNetwork",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf(
+            "Landroid/net/NetworkRequest;",
+            "Landroid/net/ConnectivityManager\$NetworkCallback;"
+        ),
         "V",
     ),
     RequestNetwork2(
         "Landroid/net/ConnectivityManager;",
         "requestNetwork",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "I"),
+        arrayOf(
+            "Landroid/net/NetworkRequest;",
+            "Landroid/net/ConnectivityManager\$NetworkCallback;",
+            "I"
+        ),
         "V",
     ),
     RequestNetwork3(

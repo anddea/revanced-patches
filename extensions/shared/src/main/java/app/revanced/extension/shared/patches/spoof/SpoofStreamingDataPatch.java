@@ -69,11 +69,21 @@ public class SpoofStreamingDataPatch extends BlockRequestPatch {
      * Skip response encryption in OnesiePlayerRequest.
      */
     public static boolean skipResponseEncryption(boolean original) {
-        if (SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION) {
-            return false;
+        if (!SPOOF_STREAMING_DATA_SKIP_RESPONSE_ENCRYPTION) {
+            return original;
         }
+        return false;
+    }
 
-        return original;
+    /**
+     * Injection point.
+     * Turns off a feature flag that interferes with video playback.
+     */
+    public static boolean usePlaybackStartFeatureFlag(boolean original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+        return false;
     }
 
     /**

@@ -1630,7 +1630,7 @@ Info :
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Un message ne sera pas affiché lorsque vous modifiez la qualité vidéo par défaut.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Un message sera affiché lorsque vous modifiez la qualité vidéo par défaut.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Afficher un message</string>
-    <string name="revanced_remember_video_quality_mobile">Mobiles</string>
+    <string name="revanced_remember_video_quality_mobile">mobile</string>
     <string name="revanced_remember_video_quality_none">Impossible de définir la qualité vidéo.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">La modification de la résolution est appliqué pour ce Short.</string>
     <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">La modification de la résolution est appliqué pour tous les Shorts.</string>
@@ -1964,8 +1964,9 @@ Limitation : Le titre de la vidéo disparaît lorsque vous cliquez dessus."</str
     <string name="revanced_skip_preloaded_buffer_summary">"Passe le tampon préchargé au début de la vidéo pour appliquer immédiatement la qualité vidéo.
 
 Info :
-• Au démarrage de la vidéo, il y a un délai d'environ 0.3 seconde.
-• Ne s'applique pas aux vidéos HDR, aux diffusions en direct et aux vidéos de moins de 15 secondes."</string>
+• Au démarrage de la vidéo, il y a un délai d'environ 0.3 secondes.
+• Ne s'applique pas aux vidéos HDR, aux diffusions en direct et aux vidéos de moins de 15 secondes.
+• Le paramètre 'Falsifier les données de lecture en direct' supprime également les tampons préchargés, ce paramètre n'est donc pas nécessaire si vous l'utilisez."</string>
     <string name="revanced_skip_preloaded_buffer_title">Tampon préchargé</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Le message est masqué.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Le message est affiché.</string>
@@ -2005,11 +2006,10 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
     <string name="revanced_spoof_device_dimensions_summary">"Falsifie les dimensions de l'appareil à la valeur maximale.
 
 Info :
-• Une qualité élevée peut être déverrouillée sur certaines vidéos qui nécessitent des dimensions d'appareil élevées, mais pas toutes les vidéos.
-
+• La haute qualité peut être débloquée sur certaines vidéos qui nécessitent des dimensions d'appareil élevées, mais pas sur toutes les vidéos.
 • Ce paramètre n'est pas disponible si l'option 'Falsifier les données de lecture en direct' est activée."</string>
     <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
-    <string name="revanced_spoof_streaming_data_failed_forbidden">Ne peut pas récupérer les flux des clients.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Impossible de récupérer les flux du client.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Vous n\'êtes peut-être pas connecté.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Le codec vidéo est forcé sur AVC (H.264).</string>
@@ -2028,18 +2028,19 @@ AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponibl
 • Le volume stable n'es pas disponible."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Il peut y avoir des problèmes de lecture (PoToken required).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Des plages entières d\'ASN/adresses IP peuvent être bloquées par le serveur.</string>
-    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Les films ou vidéos payantes peut ne pas être lus.
+    <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Le volume stable n'es pas disponible.
+• Les films ou vidéos payantes peut ne pas être lus.
 • Les vidéos pour enfants peuvent ne pas être lues en cas de déconnexion ou en mode incognito."</string>
     <string name="revanced_spoof_streaming_data_side_effects_title">Effets inconnus de la falsification</string>
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• Les vidéos peuvent ne pas être lus.</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Ne pas passer le chiffrement de réponse Onesie
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Ne pas ignorer le cryptage de la réponse d'Onesie.
 
-• Certains utilisateurs peuvent rencontrer un nouveau type de problème de lecture."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Passer le chiffrement de réponse Onesie
+- Certains utilisateurs peuvent rencontrer un nouveau type de problème de lecture."</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Ignorer le chiffrement de réponse Onesie
 
-• Résout un nouveau type de problème de lecture que certains utilisateurs rencontrent.
+• Corrige un nouveau type de problème de lecture rencontré par certains utilisateurs.
 • Le codec AV1 peut ne pas être disponible."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Passer le chiffrement de réponse Onesie</string>
+    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Ignorer le chiffrement de réponse Onesie</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client utilisé pour récupérer les données de lecture en direct est masqué dans \'Statistiques pour les nerds\'.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le client utilisé pour récupérer les données de lecture en direct est affiché dans \'Statistiques pour les nerds\'.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans \'Statistiques pour les nerds\'</string>

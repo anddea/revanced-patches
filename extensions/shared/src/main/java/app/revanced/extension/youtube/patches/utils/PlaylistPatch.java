@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.utils;
 
+import static app.revanced.extension.shared.utils.StringRef.str;
+
 import android.content.Context;
 import android.view.KeyEvent;
 import android.widget.LinearLayout;
@@ -47,43 +49,52 @@ public class PlaylistPatch extends VideoUtils {
 
     private static Context mContext;
     private static volatile String authorization = "";
-    private static volatile boolean isIncognito = false;
+    public static volatile String dataSyncId = "";
+    public static volatile boolean isIncognito = false;
     private static volatile Map<String, String> requestHeader;
     private static volatile String playlistId = "";
     private static volatile String videoId = "";
 
-    private static final String checkFailedAuth =
-            ResourceUtils.getString("revanced_queue_manager_check_failed_auth");
-    private static final String checkFailedPlaylistId =
-            ResourceUtils.getString("revanced_queue_manager_check_failed_playlist_id");
-    private static final String checkFailedQueue =
-            ResourceUtils.getString("revanced_queue_manager_check_failed_queue");
-    private static final String checkFailedVideoId =
-            ResourceUtils.getString("revanced_queue_manager_check_failed_video_id");
-    private static final String checkFailedGeneric =
-            ResourceUtils.getString("revanced_queue_manager_check_failed_generic");
+    private static String checkFailedAuth;
+    private static String checkFailedPlaylistId;
+    private static String checkFailedQueue;
+    private static String checkFailedVideoId;
+    private static String checkFailedGeneric;
 
-    private static final String fetchFailedAdd =
-            ResourceUtils.getString("revanced_queue_manager_fetch_failed_add");
-    private static final String fetchFailedCreate =
-            ResourceUtils.getString("revanced_queue_manager_fetch_failed_create");
-    private static final String fetchFailedDelete =
-            ResourceUtils.getString("revanced_queue_manager_fetch_failed_delete");
-    private static final String fetchFailedRemove =
-            ResourceUtils.getString("revanced_queue_manager_fetch_failed_remove");
-    private static final String fetchFailedSave =
-            ResourceUtils.getString("revanced_queue_manager_fetch_failed_save");
+    private static String fetchFailedAdd;
+    private static String fetchFailedCreate;
+    private static String fetchFailedDelete;
+    private static String fetchFailedRemove;
+    private static String fetchFailedSave;
 
-    private static final String fetchSucceededAdd =
-            ResourceUtils.getString("revanced_queue_manager_fetch_succeeded_add");
-    private static final String fetchSucceededCreate =
-            ResourceUtils.getString("revanced_queue_manager_fetch_succeeded_create");
-    private static final String fetchSucceededDelete =
-            ResourceUtils.getString("revanced_queue_manager_fetch_succeeded_delete");
-    private static final String fetchSucceededRemove =
-            ResourceUtils.getString("revanced_queue_manager_fetch_succeeded_remove");
-    private static final String fetchSucceededSave =
-            ResourceUtils.getString("revanced_queue_manager_fetch_succeeded_save");
+    private static String fetchSucceededAdd;
+    private static String fetchSucceededCreate;
+    private static String fetchSucceededDelete;
+    private static String fetchSucceededRemove;
+    private static String fetchSucceededSave;
+
+    static {
+        Context mContext = Utils.getContext();
+        if (mContext != null && mContext.getResources() != null) {
+            checkFailedAuth = str("revanced_queue_manager_check_failed_auth");
+            checkFailedPlaylistId = str("revanced_queue_manager_check_failed_playlist_id");
+            checkFailedQueue = str("revanced_queue_manager_check_failed_queue");
+            checkFailedVideoId = str("revanced_queue_manager_check_failed_video_id");
+            checkFailedGeneric = str("revanced_queue_manager_check_failed_generic");
+
+            fetchFailedAdd = str("revanced_queue_manager_fetch_failed_add");
+            fetchFailedCreate = str("revanced_queue_manager_fetch_failed_create");
+            fetchFailedDelete = str("revanced_queue_manager_fetch_failed_delete");
+            fetchFailedRemove = str("revanced_queue_manager_fetch_failed_remove");
+            fetchFailedSave = str("revanced_queue_manager_fetch_failed_save");
+
+            fetchSucceededAdd = str("revanced_queue_manager_fetch_succeeded_add");
+            fetchSucceededCreate = str("revanced_queue_manager_fetch_succeeded_create");
+            fetchSucceededDelete = str("revanced_queue_manager_fetch_succeeded_delete");
+            fetchSucceededRemove = str("revanced_queue_manager_fetch_succeeded_remove");
+            fetchSucceededSave = str("revanced_queue_manager_fetch_succeeded_save");
+        }
+    }
 
     @GuardedBy("itself")
     private static final BidiMap<String, String> lastVideoIds = new DualHashBidiMap<>();
@@ -115,15 +126,6 @@ public class PlaylistPatch extends VideoUtils {
                     EditPlaylistRequest.clearVideoId(videoId);
                 }
             }
-        }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setIncognitoStatus(boolean incognito) {
-        if (QUEUE_MANAGER) {
-            isIncognito = incognito;
         }
     }
 
@@ -171,7 +173,7 @@ public class PlaylistPatch extends VideoUtils {
      * Invoked by extension.
      */
     public static void prepareDialogBuilder(@NonNull String currentVideoId) {
-        if (authorization.isEmpty() || isIncognito) {
+        if (authorization.isEmpty() || (dataSyncId.isEmpty() && isIncognito)) {
             handleCheckError(checkFailedAuth);
             return;
         }
@@ -217,7 +219,7 @@ public class PlaylistPatch extends VideoUtils {
             String currentVideoId = videoId;
             synchronized (lastVideoIds) {
                 if (currentPlaylistId.isEmpty()) { // Queue is empty, create new playlist.
-                    CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, requestHeader);
+                    CreatePlaylistRequest.fetchRequestIfNeeded(currentVideoId, requestHeader, dataSyncId);
                     runOnMainThreadDelayed(() -> {
                         CreatePlaylistRequest request = CreatePlaylistRequest.getRequestForVideoId(currentVideoId);
                         if (request != null) {
@@ -241,7 +243,7 @@ public class PlaylistPatch extends VideoUtils {
                     }, 1000);
                 } else { // Queue is not empty, add or remove video.
                     String setVideoId = lastVideoIds.get(currentVideoId);
-                    EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, requestHeader);
+                    EditPlaylistRequest.fetchRequestIfNeeded(currentVideoId, currentPlaylistId, setVideoId, requestHeader, dataSyncId);
 
                     runOnMainThreadDelayed(() -> {
                         EditPlaylistRequest request = EditPlaylistRequest.getRequestForVideoId(currentVideoId);
@@ -286,7 +288,7 @@ public class PlaylistPatch extends VideoUtils {
             return;
         }
         try {
-            GetPlaylistsRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader);
+            GetPlaylistsRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader, dataSyncId);
             runOnMainThreadDelayed(() -> {
                 GetPlaylistsRequest request = GetPlaylistsRequest.getRequestForPlaylistId(currentPlaylistId);
                 if (request != null) {
@@ -328,7 +330,7 @@ public class PlaylistPatch extends VideoUtils {
                 handleCheckError(checkFailedPlaylistId);
                 return;
             }
-            SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, requestHeader);
+            SavePlaylistRequest.fetchRequestIfNeeded(playlistId, libraryId, requestHeader, dataSyncId);
 
             runOnMainThreadDelayed(() -> {
                 SavePlaylistRequest request = SavePlaylistRequest.getRequestForLibraryId(libraryId);
@@ -354,7 +356,7 @@ public class PlaylistPatch extends VideoUtils {
             return;
         }
         try {
-            DeletePlaylistRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader);
+            DeletePlaylistRequest.fetchRequestIfNeeded(currentPlaylistId, requestHeader, dataSyncId);
             runOnMainThreadDelayed(() -> {
                 DeletePlaylistRequest request = DeletePlaylistRequest.getRequestForPlaylistId(currentPlaylistId);
                 if (request != null) {

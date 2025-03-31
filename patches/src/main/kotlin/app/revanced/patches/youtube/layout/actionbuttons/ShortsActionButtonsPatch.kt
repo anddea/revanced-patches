@@ -86,7 +86,11 @@ val shortsActionButtonsPatch = resourcePatch(
 
                     // Some directory is missing in the bundles.
                     if (inputStreamForLegacy != null && fromFileResolved.exists()) {
-                        Files.copy(inputStreamForLegacy, fromFileResolved.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                        Files.copy(
+                            inputStreamForLegacy,
+                            fromFileResolved.toPath(),
+                            StandardCopyOption.REPLACE_EXISTING
+                        )
                     }
 
                     if (is_19_36_or_greater) {
@@ -95,7 +99,11 @@ val shortsActionButtonsPatch = resourcePatch(
 
                         // Some directory is missing in the bundles.
                         if (inputStreamForNew != null && toFileResolved.exists()) {
-                            Files.copy(inputStreamForNew, toFileResolved.toPath(), StandardCopyOption.REPLACE_EXISTING)
+                            Files.copy(
+                                inputStreamForNew,
+                                toFileResolved.toPath(),
+                                StandardCopyOption.REPLACE_EXISTING
+                            )
                         }
                     }
                 }

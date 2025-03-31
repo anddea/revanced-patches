@@ -88,7 +88,7 @@ val accountComponentsPatch = bytecodePatch(
         }
 
         // account switcher
-        val textViewField = with (
+        val textViewField = with(
             channelHandleFingerprint
                 .methodOrThrow(namesInactiveAccountThumbnailSizeFingerprint)
         ) {
@@ -117,7 +117,8 @@ val accountComponentsPatch = bytecodePatch(
                 .forEach { index ->
                     val insertIndex = index - 1
                     if (!hook && getInstruction(insertIndex).opcode == Opcode.IF_NEZ) {
-                        val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                         addInstructions(
                             insertIndex, """

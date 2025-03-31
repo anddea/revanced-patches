@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.utils.fix.cairo
 
+import app.revanced.patches.youtube.utils.resourceid.settingsFragment
+import app.revanced.patches.youtube.utils.resourceid.settingsFragmentCairo
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patches.youtube.utils.resourceid.settingsFragment
-import app.revanced.patches.youtube.utils.resourceid.settingsFragmentCairo
 import com.android.tools.smali.dexlib2.Opcode
 
 /**

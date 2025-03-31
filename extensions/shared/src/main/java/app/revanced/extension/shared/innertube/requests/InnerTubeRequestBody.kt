@@ -279,6 +279,7 @@ object InnerTubeRequestBody {
         route: CompiledRoute,
         clientType: YouTubeAppClient.ClientType,
         requestHeader: Map<String, String>? = null,
+        dataSyncId: String? = null,
         connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
         readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
     ) = getInnerTubeResponseConnectionFromRoute(
@@ -288,6 +289,7 @@ object InnerTubeRequestBody {
         clientVersion = clientType.clientVersion,
         supportsCookies = clientType.supportsCookies,
         requestHeader = requestHeader,
+        dataSyncId = dataSyncId,
         connectTimeout = connectTimeout,
         readTimeout = readTimeout,
     )
@@ -297,6 +299,7 @@ object InnerTubeRequestBody {
         route: CompiledRoute,
         clientType: YouTubeWebClient.ClientType,
         requestHeader: Map<String, String>? = null,
+        dataSyncId: String? = null,
         connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
         readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
     ) = getInnerTubeResponseConnectionFromRoute(
@@ -305,6 +308,7 @@ object InnerTubeRequestBody {
         clientId = clientType.id.toString(),
         clientVersion = clientType.clientVersion,
         requestHeader = requestHeader,
+        dataSyncId = dataSyncId,
         connectTimeout = connectTimeout,
         readTimeout = readTimeout,
     )
@@ -317,6 +321,7 @@ object InnerTubeRequestBody {
         clientVersion: String,
         supportsCookies: Boolean = true,
         requestHeader: Map<String, String>? = null,
+        dataSyncId: String? = null,
         connectTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
         readTimeout: Int = CONNECTION_TIMEOUT_MILLISECONDS,
     ): HttpURLConnection {
@@ -346,6 +351,11 @@ object InnerTubeRequestBody {
                     connection.setRequestProperty(key, value)
                 }
             }
+        }
+
+        // Used to identify brand accounts
+        if (dataSyncId != null && dataSyncId.isNotEmpty()) {
+            connection.setRequestProperty("X-Goog-PageId", dataSyncId)
         }
 
         return connection

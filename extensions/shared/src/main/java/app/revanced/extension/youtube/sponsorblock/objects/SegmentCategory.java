@@ -1,7 +1,36 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.utils.StringRef.sf;
-import static app.revanced.extension.youtube.settings.Settings.*;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_OPACITY;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -56,7 +85,6 @@ public enum SegmentCategory {
             SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY),
     UNSUBMITTED("unsubmitted", StringRef.empty, sf("revanced_sb_skip_button_unsubmitted"), sf("revanced_sb_skipped_unsubmitted"),
             SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR, SB_CATEGORY_UNSUBMITTED_OPACITY);
-    ;
 
     private static final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
     private static final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_skip_button_compact_highlight");

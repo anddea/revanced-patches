@@ -129,9 +129,11 @@ private val speedOverlayPatch = bytecodePatch(
 
             // region patch for Custom speed overlay float value
 
-            val speedFieldReference = with (speedOverlayFloatValueFingerprint.methodOrThrow()) {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(SPEED_OVERLAY_LEGACY_FEATURE_FLAG)
-                val floatIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
+            val speedFieldReference = with(speedOverlayFloatValueFingerprint.methodOrThrow()) {
+                val literalIndex =
+                    indexOfFirstLiteralInstructionOrThrow(SPEED_OVERLAY_LEGACY_FEATURE_FLAG)
+                val floatIndex =
+                    indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
                 val floatRegister = getInstruction<TwoRegisterInstruction>(floatIndex).registerA
 
                 addInstructions(
@@ -604,7 +606,9 @@ val playerComponentsPatch = bytecodePatch(
         )
 
         if (is_20_12_or_greater) {
-            filmStripOverlayMotionEventPrimaryFingerprint.matchOrThrow(filmStripOverlayStartParentFingerprint).let {
+            filmStripOverlayMotionEventPrimaryFingerprint.matchOrThrow(
+                filmStripOverlayStartParentFingerprint
+            ).let {
                 it.method.apply {
                     val index = it.patternMatch!!.startIndex
                     val register = getInstruction<TwoRegisterInstruction>(index).registerA
@@ -613,7 +617,9 @@ val playerComponentsPatch = bytecodePatch(
                 }
             }
 
-            filmStripOverlayMotionEventSecondaryFingerprint.matchOrThrow(filmStripOverlayStartParentFingerprint).let {
+            filmStripOverlayMotionEventSecondaryFingerprint.matchOrThrow(
+                filmStripOverlayStartParentFingerprint
+            ).let {
                 it.method.apply {
                     val index = it.patternMatch!!.startIndex + 2
                     val register = getInstruction<OneRegisterInstruction>(index).registerA

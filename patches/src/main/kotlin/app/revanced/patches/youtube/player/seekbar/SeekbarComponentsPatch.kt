@@ -134,7 +134,8 @@ val seekbarComponentsPatch = bytecodePatch(
                         reference?.returnType == "V" &&
                         reference.parameterTypes.isEmpty()
             }
-            val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
+            val thisInstanceRegister =
+                getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
 
             val tapSeekClass = getInstruction(tapSeekIndex)
                 .getReference<MethodReference>()!!
@@ -269,7 +270,10 @@ val seekbarComponentsPatch = bytecodePatch(
                 playerSeekbarHandleColorPrimaryFingerprint,
                 playerSeekbarHandleColorSecondaryFingerprint
             ).forEach {
-                it.methodOrThrow().addColorChangeInstructions(ytStaticBrandRed, "getVideoPlayerSeekbarColorAccent")
+                it.methodOrThrow().addColorChangeInstructions(
+                    ytStaticBrandRed,
+                    "getVideoPlayerSeekbarColorAccent"
+                )
             }
             // If hiding feed seekbar thumbnails, then turn off the cairo gradient
             // of the watch history menu items as they use the same gradient as the

@@ -316,9 +316,11 @@ internal val sharedResourceIdPatch = resourcePatch(
         fullScreenEngagementPanel = getResourceId(ID, "fullscreen_engagement_panel_holder")
         horizontalCardList = getResourceId(LAYOUT, "horizontal_card_list")
         imageOnlyTab = getResourceId(LAYOUT, "image_only_tab")
-        inlineTimeBarColorizedBarPlayedColorDark = getResourceId(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
+        inlineTimeBarColorizedBarPlayedColorDark =
+            getResourceId(COLOR, "inline_time_bar_colorized_bar_played_color_dark")
         inlineTimeBarLiveSeekAbleRange = getResourceId(COLOR, "inline_time_bar_live_seekable_range")
-        inlineTimeBarPlayedNotHighlightedColor = getResourceId(COLOR, "inline_time_bar_played_not_highlighted_color")
+        inlineTimeBarPlayedNotHighlightedColor =
+            getResourceId(COLOR, "inline_time_bar_played_not_highlighted_color")
         insetOverlayViewLayout = getResourceId(ID, "inset_overlay_view_layout")
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         insetElementsWrapper = getResourceId(LAYOUT, "inset_elements_wrapper")
@@ -328,14 +330,19 @@ internal val sharedResourceIdPatch = resourcePatch(
         modernMiniPlayerClose = getResourceId(ID, "modern_miniplayer_close")
         modernMiniPlayerExpand = getResourceId(ID, "modern_miniplayer_expand")
         modernMiniPlayerForwardButton = getResourceId(ID, "modern_miniplayer_forward_button")
-        modernMiniPlayerOverlayActionButton = getResourceId(ID, "modern_miniplayer_overlay_action_button")
+        modernMiniPlayerOverlayActionButton =
+            getResourceId(ID, "modern_miniplayer_overlay_action_button")
         modernMiniPlayerRewindButton = getResourceId(ID, "modern_miniplayer_rewind_button")
         musicAppDeeplinkButtonView = getResourceId(ID, "music_app_deeplink_button_view")
-        notificationBigPictureIconWidth = getResourceId(DIMEN, "notification_big_picture_icon_width")
-        offlineActionsVideoDeletedUndoSnackbarText = getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
+        notificationBigPictureIconWidth =
+            getResourceId(DIMEN, "notification_big_picture_icon_width")
+        offlineActionsVideoDeletedUndoSnackbarText =
+            getResourceId(STRING, "offline_actions_video_deleted_undo_snackbar_text")
         playerCollapseButton = getResourceId(ID, "player_collapse_button")
-        playerControlPreviousButtonTouchArea = getResourceId(ID, "player_control_previous_button_touch_area")
-        playerControlNextButtonTouchArea = getResourceId(ID, "player_control_next_button_touch_area")
+        playerControlPreviousButtonTouchArea =
+            getResourceId(ID, "player_control_previous_button_touch_area")
+        playerControlNextButtonTouchArea =
+            getResourceId(ID, "player_control_next_button_touch_area")
         playerVideoTitleView = getResourceId(ID, "player_video_title_view")
         posterArtWidthDefault = getResourceId(DIMEN, "poster_art_width_default")
         qualityAuto = getResourceId(STRING, "quality_auto")
@@ -356,7 +363,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         relatedChipCloudMargin = getResourceId(LAYOUT, "related_chip_cloud_reduced_margins")
         rightComment = getResourceId(DRAWABLE, "ic_right_comment_32c")
         scrimOverlay = getResourceId(ID, "scrim_overlay")
-        seekEasyHorizontalTouchOffsetToStartScrubbing = getResourceId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
+        seekEasyHorizontalTouchOffsetToStartScrubbing =
+            getResourceId(DIMEN, "seek_easy_horizontal_touch_offset_to_start_scrubbing")
         seekUndoEduOverlayStub = getResourceId(ID, "seek_undo_edu_overlay_stub")
         settingsFragment = getResourceId(XML, "settings_fragment")
         settingsFragmentCairo = getResourceId(XML, "settings_fragment_cairo")
@@ -369,20 +377,26 @@ internal val sharedResourceIdPatch = resourcePatch(
         toolTipContentView = getResourceId(LAYOUT, "tooltip_content_view")
         totalTime = getResourceId(STRING, "total_time")
         touchArea = getResourceId(ID, "touch_area")
-        videoQualityBottomSheet = getResourceId(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
+        videoQualityBottomSheet =
+            getResourceId(LAYOUT, "video_quality_bottom_sheet_list_fragment_title")
         varispeedUnavailableTitle = getResourceId(STRING, "varispeed_unavailable_title")
-        verticalTouchOffsetToEnterFineScrubbing = getResourceId(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
-        verticalTouchOffsetToStartFineScrubbing = getResourceId(DIMEN, "vertical_touch_offset_to_start_fine_scrubbing")
-        videoQualityUnavailableAnnouncement = getResourceId(STRING, "video_quality_unavailable_announcement")
+        verticalTouchOffsetToEnterFineScrubbing =
+            getResourceId(DIMEN, "vertical_touch_offset_to_enter_fine_scrubbing")
+        verticalTouchOffsetToStartFineScrubbing =
+            getResourceId(DIMEN, "vertical_touch_offset_to_start_fine_scrubbing")
+        videoQualityUnavailableAnnouncement =
+            getResourceId(STRING, "video_quality_unavailable_announcement")
         videoZoomSnapIndicator = getResourceId(ID, "video_zoom_snap_indicator")
         voiceSearch = getResourceId(ID, "voice_search")
-        youTubeControlsOverlaySubtitleButton = getResourceId(LAYOUT, "youtube_controls_overlay_subtitle_button")
+        youTubeControlsOverlaySubtitleButton =
+            getResourceId(LAYOUT, "youtube_controls_overlay_subtitle_button")
         youTubeLogo = getResourceId(ID, "youtube_logo")
         ytCallToAction = getResourceId(ATTR, "ytCallToAction")
         ytFillBell = getResourceId(DRAWABLE, "yt_fill_bell_black_24")
         ytOutlineLibrary = getResourceId(DRAWABLE, "yt_outline_library_black_24")
         ytOutlineMoonZ = getResourceId(DRAWABLE, "yt_outline_moon_z_vd_theme_24")
-        ytOutlinePictureInPictureWhite = getResourceId(DRAWABLE, "yt_outline_picture_in_picture_white_24")
+        ytOutlinePictureInPictureWhite =
+            getResourceId(DRAWABLE, "yt_outline_picture_in_picture_white_24")
         ytOutlineVideoCamera = getResourceId(DRAWABLE, "yt_outline_video_camera_black_24")
         ytOutlineXWhite = getResourceId(DRAWABLE, "yt_outline_x_white_24")
         ytPremiumWordMarkHeader = getResourceId(ATTR, "ytPremiumWordmarkHeader")

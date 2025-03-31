@@ -22,11 +22,13 @@ import java.util.concurrent.TimeoutException
 class DeletePlaylistRequest private constructor(
     private val playlistId: String,
     private val requestHeader: Map<String, String>,
+    private val dataSyncId: String,
 ) {
     private val future: Future<Boolean> = Utils.submitOnBackgroundThread {
         fetch(
             playlistId,
             requestHeader,
+            dataSyncId,
         )
     }
 
@@ -78,14 +80,16 @@ class DeletePlaylistRequest private constructor(
         @JvmStatic
         fun fetchRequestIfNeeded(
             playlistId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ) {
             Objects.requireNonNull(playlistId)
             synchronized(cache) {
                 if (!cache.containsKey(playlistId)) {
                     cache[playlistId] = DeletePlaylistRequest(
                         playlistId,
-                        requestHeader
+                        requestHeader,
+                        dataSyncId,
                     )
                 }
             }
@@ -104,7 +108,8 @@ class DeletePlaylistRequest private constructor(
 
         private fun sendRequest(
             playlistId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(playlistId)
 
@@ -118,7 +123,8 @@ class DeletePlaylistRequest private constructor(
                 val connection = getInnerTubeResponseConnectionFromRoute(
                     DELETE_PLAYLIST,
                     clientType,
-                    requestHeader
+                    requestHeader,
+                    dataSyncId
                 )
 
                 val requestBody = deletePlaylistRequestBody(playlistId)
@@ -163,9 +169,14 @@ class DeletePlaylistRequest private constructor(
 
         private fun fetch(
             playlistId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): Boolean? {
-            val json = sendRequest(playlistId, requestHeader)
+            val json = sendRequest(
+                playlistId,
+                requestHeader,
+                dataSyncId,
+            )
             if (json != null) {
                 return parseResponse(json)
             }

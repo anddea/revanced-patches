@@ -178,7 +178,7 @@ public class PlaybackSpeedPatch {
                         }
                     }, TOAST_DELAY_MILLISECONDS);
                 }
-            } else if (!isShorts){
+            } else if (!isShorts) {
                 lastSelectedPlaybackSpeed = playbackSpeed;
             }
         } catch (Exception ex) {

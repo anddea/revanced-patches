@@ -37,7 +37,6 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
 
 /**
  * Not thread safe. All fields/methods must be accessed from the main thread.
- *
  */
 public class SponsorBlockUtils {
     private static final int LOCKED_COLOR = Color.parseColor("#FFC83D");

@@ -10,11 +10,11 @@ import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutCircl
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutIcon
 import app.revanced.patches.youtube.utils.resourceid.endScreenElementLayoutVideo
 import app.revanced.patches.youtube.utils.resourceid.offlineActionsVideoDeletedUndoSnackbarText
-import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToEnterFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.seekEasyHorizontalTouchOffsetToStartScrubbing
 import app.revanced.patches.youtube.utils.resourceid.suggestedAction
 import app.revanced.patches.youtube.utils.resourceid.tapBloomView
 import app.revanced.patches.youtube.utils.resourceid.touchArea
+import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToEnterFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.verticalTouchOffsetToStartFineScrubbing
 import app.revanced.patches.youtube.utils.resourceid.videoZoomSnapIndicator
 import app.revanced.util.fingerprint.legacyFingerprint
