@@ -1,16 +1,19 @@
 package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEncodedValue
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_PATH
 import app.revanced.patches.shared.mainactivity.injectConstructorMethodCall
 import app.revanced.patches.shared.mainactivity.injectOnCreateMethodCall
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.attributes.themeAttributesPatch
@@ -26,11 +29,13 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.removeStringsElements
 import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import org.w3c.dom.Element
 import java.nio.file.Files
 import java.util.jar.Manifest
@@ -81,6 +86,13 @@ private val settingsBytecodePatch = bytecodePatch(
         injectConstructorMethodCall(
             EXTENSION_UTILS_CLASS_DESCRIPTOR,
             "setActivity"
+        )
+
+        findMethodOrThrow(PATCH_STATUS_CLASS_DESCRIPTOR) {
+            name == "PatchedTime"
+        }.replaceInstruction(
+            0,
+            "const-wide v0, ${MutableLongEncodedValue(ImmutableLongEncodedValue(System.currentTimeMillis()))}L"
         )
     }
 }

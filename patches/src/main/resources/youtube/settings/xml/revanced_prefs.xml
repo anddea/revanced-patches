@@ -922,10 +922,12 @@
 
         <PreferenceCategory android:title="@string/revanced_preference_category_patch_information" android:layout="@layout/revanced_settings_preferences_category"/>
         <PreferenceScreen android:title="@string/revanced_preference_screen_patch_information_title"  android:key="revanced_preference_screen_patch_information" android:summary="@string/revanced_preference_screen_patch_information_summary" >
-            <PreferenceCategory android:title="@string/revanced_preference_category_tool_used" android:layout="@layout/revanced_settings_preferences_category" >
+            <PreferenceCategory android:title="@string/revanced_preference_category_app_info" android:layout="@layout/revanced_settings_preferences_category" >
+                <Preference android:title="@string/revanced_app_name_title" android:key="revanced_app_name" android:selectable="false" />
+                <Preference android:title="@string/revanced_app_version_title" android:key="revanced_app_version" android:selectable="false" />
                 <Preference android:title="ReVanced Patches" android:selectable="false" android:summary="" />
+                <Preference android:title="@string/revanced_patched_date_title" android:key="revanced_patched_date" android:selectable="false" />
             </PreferenceCategory>
-
             <PreferenceCategory android:title="@string/revanced_preference_screen_ads_title" android:layout="@layout/revanced_settings_preferences_category">
                 <Preference android:title="Hide ads" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             </PreferenceCategory>
@@ -1010,7 +1012,6 @@
                 <Preference android:title="Hide Shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide shortcuts" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Icon" android:summary="@string/revanced_icon_default" android:selectable="false"/>
-                <Preference android:title="Label" android:summary="@string/revanced_label_default" android:selectable="false"/>
                 <Preference android:title="Return YouTube Dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Return YouTube Username" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="SponsorBlock" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
