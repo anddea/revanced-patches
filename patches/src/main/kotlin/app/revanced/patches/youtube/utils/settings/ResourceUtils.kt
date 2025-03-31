@@ -88,9 +88,6 @@ internal object ResourceUtils {
         updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
     }
 
-    fun updatePatchStatusLabel(appName: String) =
-        updatePatchStatusSettings("Label", appName)
-
     fun updatePatchStatusTheme(themeName: String) =
         updatePatchStatusSettings("Theme", themeName)
 

@@ -4,7 +4,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_NAME_FOR_YOUTUBE
-import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusLabel
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.removeStringsElements
 import app.revanced.util.valueOrThrow
@@ -53,8 +52,6 @@ val customBrandingNamePatch = resourcePatch(
             document.getElementsByTagName("resources").item(0)
                 .appendChild(stringElement)
         }
-
-        updatePatchStatusLabel(appName)
 
     }
 }

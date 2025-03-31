@@ -6,6 +6,8 @@ import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
 import android.preference.Preference;
 import android.preference.SwitchPreference;
 
+import java.util.Date;
+
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.patches.general.ChangeFormFactorPatch;
 import app.revanced.extension.youtube.patches.utils.PatchStatus;
@@ -44,6 +46,7 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
         AmbientModePreferenceLinks();
         FullScreenPanelPreferenceLinks();
         NavigationPreferenceLinks();
+        PatchInformationPreferenceLinks();
         RYDPreferenceLinks();
         SeekBarPreferenceLinks();
         ShortsPreferenceLinks();
@@ -141,6 +144,26 @@ public class ReVancedSettingsPreference extends ReVancedPreferenceFragment {
                 !isSDKAbove(31),
                 Settings.ENABLE_TRANSLUCENT_NAVIGATION_BAR
         );
+    }
+
+    /**
+     * Set patch information preference summary
+     */
+    private static void PatchInformationPreferenceLinks() {
+        Preference appNamePreference = mPreferenceManager.findPreference("revanced_app_name");
+        if (appNamePreference != null) {
+            appNamePreference.setSummary(ExtendedUtils.getAppLabel());
+        }
+        Preference appVersionPreference = mPreferenceManager.findPreference("revanced_app_version");
+        if (appVersionPreference != null) {
+            appVersionPreference.setSummary(ExtendedUtils.getAppVersionName());
+        }
+        Preference patchedDatePreference = mPreferenceManager.findPreference("revanced_patched_date");
+        if (patchedDatePreference != null) {
+            long patchedTime = PatchStatus.PatchedTime();
+            Date date = new Date(patchedTime);
+            patchedDatePreference.setSummary(date.toLocaleString());
+        }
     }
 
     /**
