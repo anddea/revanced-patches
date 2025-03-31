@@ -31,15 +31,20 @@ import app.revanced.extension.shared.utils.PackageUtils;
 import app.revanced.extension.youtube.settings.Settings;
 
 public class ExtendedUtils extends PackageUtils {
+
+    private static boolean isVersionOrGreater(String version) {
+        return getAppVersionName().compareTo(version) >= 0;
+    }
+
     @SuppressWarnings("unused")
-    public static final boolean IS_19_17_OR_GREATER = getAppVersionName().compareTo("19.17.00") >= 0;
-    public static final boolean IS_19_20_OR_GREATER = getAppVersionName().compareTo("19.20.00") >= 0;
-    public static final boolean IS_19_21_OR_GREATER = getAppVersionName().compareTo("19.21.00") >= 0;
-    public static final boolean IS_19_26_OR_GREATER = getAppVersionName().compareTo("19.26.00") >= 0;
-    public static final boolean IS_19_28_OR_GREATER = getAppVersionName().compareTo("19.28.00") >= 0;
-    public static final boolean IS_19_29_OR_GREATER = getAppVersionName().compareTo("19.29.00") >= 0;
-    public static final boolean IS_19_34_OR_GREATER = getAppVersionName().compareTo("19.34.00") >= 0;
-    public static final boolean IS_20_09_OR_GREATER = getAppVersionName().compareTo("20.09.00") >= 0;
+    public static final boolean IS_19_17_OR_GREATER = isVersionOrGreater("19.17.00");
+    public static final boolean IS_19_20_OR_GREATER = isVersionOrGreater("19.20.00");
+    public static final boolean IS_19_21_OR_GREATER = isVersionOrGreater("19.21.00");
+    public static final boolean IS_19_26_OR_GREATER = isVersionOrGreater("19.26.00");
+    public static final boolean IS_19_28_OR_GREATER = isVersionOrGreater("19.28.00");
+    public static final boolean IS_19_29_OR_GREATER = isVersionOrGreater("19.29.00");
+    public static final boolean IS_19_34_OR_GREATER = isVersionOrGreater("19.34.00");
+    public static final boolean IS_20_09_OR_GREATER = isVersionOrGreater("20.09.00");
 
     public static int validateValue(IntegerSetting settings, int min, int max, String message) {
         int value = settings.get();

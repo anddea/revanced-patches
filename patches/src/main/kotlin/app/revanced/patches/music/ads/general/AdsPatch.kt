@@ -115,7 +115,8 @@ val adsPatch = bytecodePatch(
                 .methodOrThrow(getPremiumDialogParentFingerprint)
                 .apply {
                     val setContentViewIndex = indexOfSetContentViewInstruction(this)
-                    val dialogInstruction = getInstruction<FiveRegisterInstruction>(setContentViewIndex)
+                    val dialogInstruction =
+                        getInstruction<FiveRegisterInstruction>(setContentViewIndex)
                     val dialogRegister = dialogInstruction.registerC
                     val viewRegister = dialogInstruction.registerD
 

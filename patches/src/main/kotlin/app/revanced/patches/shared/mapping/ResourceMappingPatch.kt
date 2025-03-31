@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.mapping
 
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 

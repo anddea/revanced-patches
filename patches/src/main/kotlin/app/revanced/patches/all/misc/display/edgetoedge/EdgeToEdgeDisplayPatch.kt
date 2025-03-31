@@ -19,7 +19,8 @@ val edgeToEdgeDisplayPatch = resourcePatch(
             // Instead, it checks compileSdkVersion and prints a warning.
             try {
                 val manifestElement = document.getNode("manifest") as Element
-                val compileSdkVersion = Integer.parseInt(manifestElement.getAttribute("android:compileSdkVersion"))
+                val compileSdkVersion =
+                    Integer.parseInt(manifestElement.getAttribute("android:compileSdkVersion"))
                 if (compileSdkVersion < 35) {
                     printWarn("This app may not be forcing edge to edge display (compileSdkVersion: $compileSdkVersion)")
                 }

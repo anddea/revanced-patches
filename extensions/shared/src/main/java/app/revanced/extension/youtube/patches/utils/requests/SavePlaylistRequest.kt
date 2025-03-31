@@ -23,12 +23,14 @@ class SavePlaylistRequest private constructor(
     private val playlistId: String,
     private val libraryId: String,
     private val requestHeader: Map<String, String>,
+    private val dataSyncId: String,
 ) {
     private val future: Future<Boolean> = Utils.submitOnBackgroundThread {
         fetch(
             playlistId,
             libraryId,
             requestHeader,
+            dataSyncId,
         )
     }
 
@@ -81,14 +83,16 @@ class SavePlaylistRequest private constructor(
         fun fetchRequestIfNeeded(
             playlistId: String,
             libraryId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ) {
             Objects.requireNonNull(playlistId)
             synchronized(cache) {
                 cache[libraryId] = SavePlaylistRequest(
                     playlistId,
                     libraryId,
-                    requestHeader
+                    requestHeader,
+                    dataSyncId,
                 )
             }
         }
@@ -107,7 +111,8 @@ class SavePlaylistRequest private constructor(
         private fun sendRequest(
             playlistId: String,
             libraryId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): JSONObject? {
             Objects.requireNonNull(playlistId)
             Objects.requireNonNull(libraryId)
@@ -122,7 +127,8 @@ class SavePlaylistRequest private constructor(
                 val connection = getInnerTubeResponseConnectionFromRoute(
                     EDIT_PLAYLIST,
                     clientType,
-                    requestHeader
+                    requestHeader,
+                    dataSyncId
                 )
 
                 val requestBody = savePlaylistRequestBody(libraryId, playlistId)
@@ -168,9 +174,15 @@ class SavePlaylistRequest private constructor(
         private fun fetch(
             playlistId: String,
             libraryId: String,
-            requestHeader: Map<String, String>
+            requestHeader: Map<String, String>,
+            dataSyncId: String,
         ): Boolean? {
-            val json = sendRequest(playlistId, libraryId, requestHeader)
+            val json = sendRequest(
+                playlistId,
+                libraryId,
+                requestHeader,
+                dataSyncId,
+            )
             if (json != null) {
                 return parseResponse(json)
             }

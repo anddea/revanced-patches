@@ -14,7 +14,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import kotlin.collections.listOf
 
 internal val shortsSeekbarColorFingerprint = legacyFingerprint(
     name = "shortsSeekbarColorFingerprint",

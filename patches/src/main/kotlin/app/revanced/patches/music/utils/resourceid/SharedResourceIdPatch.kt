@@ -142,7 +142,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         endButtonsContainer = getResourceId(ID, "end_buttons_container")
         floatingLayout = getResourceId(ID, "floating_layout")
         historyMenuItem = getResourceId(ID, "history_menu_item")
-        inlineTimeBarAdBreakMarkerColor = getResourceId(COLOR, "inline_time_bar_ad_break_marker_color")
+        inlineTimeBarAdBreakMarkerColor =
+            getResourceId(COLOR, "inline_time_bar_ad_break_marker_color")
         inlineTimeBarProgressColor = getResourceId(COLOR, "inline_time_bar_progress_color")
         interstitialsContainer = getResourceId(ID, "interstitials_container")
         isTablet = getResourceId(BOOL, "is_tablet")
@@ -156,7 +157,8 @@ internal val sharedResourceIdPatch = resourcePatch(
         modernDialogBackground = getResourceId(DRAWABLE, "modern_dialog_background")
         musicNotifierShelf = getResourceId(LAYOUT, "music_notifier_shelf")
         musicTasteBuilderShelf = getResourceId(LAYOUT, "music_tastebuilder_shelf")
-        namesInactiveAccountThumbnailSize = getResourceId(DIMEN, "names_inactive_account_thumbnail_size")
+        namesInactiveAccountThumbnailSize =
+            getResourceId(DIMEN, "names_inactive_account_thumbnail_size")
         offlineSettingsMenuItem = getResourceId(ID, "offline_settings_menu_item")
         playerOverlayChip = getResourceId(ID, "player_overlay_chip")
         playerViewPager = getResourceId(ID, "player_view_pager")

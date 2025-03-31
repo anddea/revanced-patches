@@ -240,7 +240,11 @@ class StreamingDataRequest private constructor(
             }
 
             handleConnectionError(str("revanced_spoof_streaming_data_failed_forbidden"), null, true)
-            handleConnectionError(str("revanced_spoof_streaming_data_failed_forbidden_suggestion"), null, true)
+            handleConnectionError(
+                str("revanced_spoof_streaming_data_failed_forbidden_suggestion"),
+                null,
+                true
+            )
             return null
         }
     }

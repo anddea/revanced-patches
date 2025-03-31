@@ -158,6 +158,34 @@ public final class CustomActionsPatch {
     /**
      * Injection point.
      */
+    public static boolean onBottomSheetMenuItemClick(View view) {
+        try {
+            if (view instanceof ViewGroup viewGroup) {
+                TextView textView = Utils.getChildView(viewGroup, v -> v instanceof TextView);
+                if (textView != null) {
+                    String menuTitle = textView.getText().toString();
+                    for (CustomAction customAction : CustomAction.values()) {
+                        if (customAction.getLabel().equals(menuTitle)) {
+                            View.OnLongClickListener onLongClick = customAction.getOnLongClickListener();
+                            if (onLongClick != null) {
+                                view.setOnLongClickListener(onLongClick);
+                            }
+                            customAction.getOnClickAction().run();
+                            return true;
+                        }
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onBottomSheetMenuItemClick failed");
+        }
+
+        return false;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void onFlyoutMenuCreate(final RecyclerView recyclerView) {
         if (!SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU_ENABLED) {
             return;
@@ -179,8 +207,9 @@ public final class CustomActionsPatch {
                     if (recyclerView.getChildAt(childCount - i - 1) instanceof ViewGroup parentViewGroup) {
                         childCount = recyclerView.getChildCount();
                         if (childCount > 3 && parentViewGroup.getChildAt(1) instanceof TextView textView) {
+                            String menuTitle = textView.getText().toString();
                             for (CustomAction customAction : CustomAction.values()) {
-                                if (customAction.getLabel().equals(textView.getText().toString())) {
+                                if (customAction.getLabel().equals(menuTitle)) {
                                     View.OnClickListener onClick = customAction.getOnClickListener();
                                     View.OnLongClickListener onLongClick = customAction.getOnLongClickListener();
                                     recyclerViewRef = new WeakReference<>(recyclerView);

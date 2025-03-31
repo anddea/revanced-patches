@@ -239,7 +239,8 @@ val miniplayerPatch = bytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
-                    targetIndex + 1, """
+                    targetIndex + 1,
+                    """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
                         """,

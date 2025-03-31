@@ -63,6 +63,7 @@ internal val miniplayerResponseModelSizeCheckFingerprint = legacyFingerprint(
 // region modern miniplayer
 
 internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
+
 // In later targets this feature flag does nothing and is dead code.
 internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
 internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L

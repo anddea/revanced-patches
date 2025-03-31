@@ -747,7 +747,8 @@ val playerComponentsPatch = bytecodePatch(
                         getInstruction<FiveRegisterInstruction>(bottomSheetBehaviorIndex).registerD
 
                     val getFieldIndex = bottomSheetBehaviorIndex - 2
-                    val getFieldReference = getInstruction<ReferenceInstruction>(getFieldIndex).reference
+                    val getFieldReference =
+                        getInstruction<ReferenceInstruction>(getFieldIndex).reference
                     val getFieldInstruction = getInstruction<TwoRegisterInstruction>(getFieldIndex)
 
                     addInstructionsWithLabels(

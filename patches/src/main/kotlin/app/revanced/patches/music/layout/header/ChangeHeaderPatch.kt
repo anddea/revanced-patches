@@ -206,7 +206,8 @@ val changeHeaderPatch = resourcePatch(
             printWarn(warnings)
         }
 
-        val isLegacyLogoExists = get("res").resolve("drawable-xxhdpi").resolve("ytm_logo.png").exists()
+        val isLegacyLogoExists =
+            get("res").resolve("drawable-xxhdpi").resolve("ytm_logo.png").exists()
         if (is_7_27_or_greater && isLegacyLogoExists) {
             document("res/layout/signin_fragment.xml").use { document ->
                 document.doRecursively node@{ node ->

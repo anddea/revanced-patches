@@ -510,9 +510,9 @@
     <string name="revanced_hide_category_bar_in_related_videos_summary_off">在相關影片中顯示</string>
     <string name="revanced_hide_category_bar_in_related_videos_summary_on">在相關影片中隱藏</string>
     <string name="revanced_hide_category_bar_in_related_videos_title">隱藏相關影片</string>
-    <string name="revanced_hide_category_bar_in_search_summary_off">在搜尋結果中顯示</string>
-    <string name="revanced_hide_category_bar_in_search_summary_on">搜尋結果中已隱藏</string>
-    <string name="revanced_hide_category_bar_in_search_title">在搜尋結果中隱藏</string>
+    <string name="revanced_hide_category_bar_in_search_summary_off">顯示在搜尋結果中。</string>
+    <string name="revanced_hide_category_bar_in_search_summary_on">隱藏在搜尋結果中。</string>
+    <string name="revanced_hide_category_bar_in_search_title">在搜尋結果中隱蔵</string>
     <string name="revanced_hide_channel_guidelines_summary_off">頻道指南已顯示</string>
     <string name="revanced_hide_channel_guidelines_summary_on">頻道指南已隱藏</string>
     <string name="revanced_hide_channel_guidelines_title">隱藏頻道指南</string>
@@ -661,12 +661,12 @@
     <string name="revanced_hide_key_concepts_section_summary_off">關鍵概念部分已顯示。</string>
     <string name="revanced_hide_key_concepts_section_summary_on">關鍵概念部分被隱藏。</string>
     <string name="revanced_hide_key_concepts_section_title">隱藏關鍵概念部分</string>
-    <string name="revanced_hide_keyword_content_about_summary">"搜尋、首頁、訂閱和留言會篩選隱藏包含關鍵字詞的內容
+    <string name="revanced_hide_keyword_content_about_summary">"搜尋、首頁、訂閱和留言會篩選隱藏包含關鍵字詞的內容。
 
 限制：
- • 部分 Shorts 可能不會隱藏
- • 部分介面元件可能不會隱藏
- • 搜尋關鍵字可能不會顯示任何結果"</string>
+ • 短影音無法透過頻道名稱隱藏。
+ • 部分介面元件可能無法隱藏。
+ • 搜尋關鍵字可能不會顯示任何結果。"</string>
     <string name="revanced_hide_keyword_content_about_title">關於關鍵詞篩選</string>
     <string name="revanced_hide_keyword_content_about_whole_words_summary">用雙引號將關鍵字/短語括起來將防止影片標題和頻道名稱部分匹配。&lt;br&gt;&lt;/b&gt;例如,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;將隱藏影片:&lt;b&gt;人工智慧是如何運作的?&lt;/b&gt;&lt;br&gt; 但不會隱藏: &lt;b&gt;合理使用是什麼意思?&lt;/b&gt;</string>
     <string name="revanced_hide_keyword_content_about_whole_words_title">匹配整個單字</string>
@@ -676,8 +676,11 @@
     <string name="revanced_hide_keyword_content_home_summary_off">首頁訂閱內容的關鍵字篩選已停用</string>
     <string name="revanced_hide_keyword_content_home_summary_on">首頁訂閱內容的關鍵字篩選已啟用</string>
     <string name="revanced_hide_keyword_content_home_title">依關鍵字隱藏首頁影片</string>
-    <string name="revanced_hide_keyword_content_phrases_summary">"需要隱藏的關鍵字和詞組，請用新行分隔。
-具有中間大寫字母的單詞必須依照大小寫輸入（例如：iPhone、TikTok、LeBlanc）。"</string>
+    <string name="revanced_hide_keyword_content_phrases_summary">"要隱藏的關鍵字和短語，用換行符分隔。
+
+關鍵字可以是頻道名稱或影片標題中顯示的任何文字。
+
+中間有大寫字母的詞必須保持原有大小寫（例如：iPhone, TikTok, LeBlanc）。"</string>
     <string name="revanced_hide_keyword_content_phrases_title">要隱藏的關鍵詞</string>
     <string name="revanced_hide_keyword_content_search_summary_off">搜尋結果未篩選</string>
     <string name="revanced_hide_keyword_content_search_summary_on">搜尋結果按關鍵字進行篩選</string>
@@ -1080,8 +1083,8 @@
     <string name="revanced_hide_shorts_shelf_search_summary_off">顯示在搜尋結果中。</string>
     <string name="revanced_hide_shorts_shelf_search_summary_on">隱藏在搜尋結果中。</string>
     <string name="revanced_hide_shorts_shelf_search_title">在搜尋結果中隱藏</string>
-    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">在訂閱內容動態中顯示。</string>
-    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">在訂閱內容動態中隱藏。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_off">顯示在訂閱內容動態中。</string>
+    <string name="revanced_hide_shorts_shelf_subscriptions_summary_on">隱藏在訂閱內容動態中。</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">在訂閱內容動態中隱藏</string>
     <string name="revanced_hide_shorts_shelf_summary">"隱藏短影音專區
 

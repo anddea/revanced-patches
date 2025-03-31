@@ -22,7 +22,6 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
@@ -31,6 +30,7 @@ import app.revanced.patches.shared.indexOfBrandInstruction
 import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
+import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow

@@ -162,13 +162,15 @@ val videoPlaybackPatch = bytecodePatch(
         loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
             it.method.apply {
                 val targetIndex = it.patternMatch!!.endIndex
-                val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
+                val targetReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
 
                 findMethodOrThrow(definingClass) {
                     name == targetReference.name
                 }.apply {
                     val insertIndex = implementation!!.instructions.lastIndex
-                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
