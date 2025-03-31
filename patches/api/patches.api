@@ -417,7 +417,7 @@ public final class app/revanced/patches/reddit/layout/screenshotpopup/Screenshot
 }
 
 public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
-	public static final fun indexOfHasBeenVisitedInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfGetOverInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun listOfIsLoggedInInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/util/List;
 }
@@ -459,6 +459,12 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 
 public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/reddit/utils/resourceid/SharedResourceIdPatchKt {
+	public static final fun getActionShare ()J
+	public static final fun getNsfwDialogTitle ()J
+	public static final fun getScreenShotShareBanner ()J
 }
 
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
@@ -938,6 +944,10 @@ public final class app/revanced/patches/youtube/utils/controlsoverlay/ControlsOv
 	public static final fun getControlsOverlayConfigPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/utils/dismiss/DismissPlayerHookPatchKt {
+	public static final fun getDismissPlayerHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/utils/engagement/EngagementPanelHookPatchKt {
 	public static final fun getEngagementPanelHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1085,6 +1095,7 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_19_34_or_greater ()Z
 	public static final fun is_19_36_or_greater ()Z
 	public static final fun is_19_41_or_greater ()Z
+	public static final fun is_19_42_or_greater ()Z
 	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_44_or_greater ()Z
 	public static final fun is_19_46_or_greater ()Z

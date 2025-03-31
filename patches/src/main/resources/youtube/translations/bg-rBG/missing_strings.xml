@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
+    <string name="revanced_app_name_title">App name</string>
+    <string name="revanced_app_version_title">App version</string>
     <string name="revanced_bypass_image_region_restrictions_domain_summary">The domain to fetch images from.\nNote: Only enter the domain name, i.e., without the \"https\:\/\/\" prefix.</string>
     <string name="revanced_bypass_image_region_restrictions_domain_title">Alternative domain</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
@@ -148,11 +150,14 @@ Swipe to expand or close."</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Native video download button opens your external downloader.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Native video download button opens the queue manager.</string>
     <string name="revanced_override_video_download_button_queue_manager_title">Queue manager</string>
+    <string name="revanced_patched_date_title">Patched date</string>
+    <string name="revanced_preference_category_app_info">App info</string>
     <string name="revanced_preference_category_codec">Codec</string>
     <string name="revanced_preference_category_playback_speed">Playback speed</string>
     <string name="revanced_preference_category_video_quality">Video quality</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Add to queue and open queue</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Add to queue and play video</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Add to queue and reload video</string>
     <string name="revanced_queue_manager_check_failed_auth">Login required</string>
     <string name="revanced_queue_manager_check_failed_generic">Queue manager unavailable (%s).</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Could not identify playlist</string>
@@ -173,6 +178,7 @@ Swipe to expand or close."</string>
     <string name="revanced_queue_manager_queue">Queue</string>
     <string name="revanced_queue_manager_remove_from_queue">Remove from queue</string>
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Remove from queue and open queue</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Remove from queue and reload video</string>
     <string name="revanced_queue_manager_remove_queue">Remove queue</string>
     <string name="revanced_queue_manager_save_queue">Save queue</string>
     <string name="revanced_queue_manager_user_dialog_message">"Instead of opening an external downloader, open the queue manager dialog.

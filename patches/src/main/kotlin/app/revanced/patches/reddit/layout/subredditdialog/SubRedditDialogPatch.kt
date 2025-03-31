@@ -2,19 +2,26 @@ package app.revanced.patches.reddit.layout.subredditdialog
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
+import app.revanced.patches.reddit.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.reddit.utils.settings.is_2024_41_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_01_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_05_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_06_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
+import app.revanced.util.findFreeRegister
 import app.revanced.util.fingerprint.methodOrThrow
+import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -32,7 +39,10 @@ val subRedditDialogPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 
-    dependsOn(settingsPatch)
+    dependsOn(
+        settingsPatch,
+        sharedResourceIdPatch,
+    )
 
     execute {
 
@@ -70,17 +80,52 @@ val subRedditDialogPatch = bytecodePatch(
         }
 
         if (is_2025_01_or_greater) {
-            nsfwAlertEmitFingerprint.methodOrThrow().apply {
-                val hasBeenVisitedIndex = indexOfHasBeenVisitedInstruction(this)
-                val hasBeenVisitedRegister =
-                    getInstruction<OneRegisterInstruction>(hasBeenVisitedIndex + 1).registerA
+            arrayOf(
+                nsfwAlertEmitFingerprint,
+                nsfwAlertObserverFingerprint
+            ).forEach { fingerprint ->
+                fingerprint.methodOrThrow().apply {
+                    val getOverIndex = indexOfGetOverInstruction(this)
+                    val getOverRegister = getInstruction<FiveRegisterInstruction>(getOverIndex).registerC
+                    val freeRegister = findFreeRegister(getOverIndex, getOverRegister)
 
-                addInstructions(
-                    hasBeenVisitedIndex + 2, """
-                        invoke-static {v$hasBeenVisitedRegister}, $EXTENSION_CLASS_DESCRIPTOR->spoofHasBeenVisitedStatus(Z)Z
-                        move-result v$hasBeenVisitedRegister
-                        """
-                )
+                    val returnIndex = indexOfFirstInstructionOrThrow(getOverIndex, Opcode.RETURN_OBJECT)
+                    val jumpIndex = indexOfFirstInstructionReversedOrThrow(returnIndex, Opcode.SGET_OBJECT)
+
+                    addInstructionsWithLabels(
+                        getOverIndex, """
+                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->removeNSFWDialog()Z
+                            move-result v$freeRegister
+                            if-nez v$freeRegister, :jump
+                            """, ExternalLabel("jump", getInstruction(jumpIndex))
+                    )
+                }
+            }
+
+            var hookCount = 0
+
+            nsfwAlertBuilderFingerprint.mutableClassOrThrow().let {
+                it.methods.forEach { method ->
+                    method.apply {
+                        val showIndex = indexOfFirstInstruction {
+                            opcode == Opcode.INVOKE_VIRTUAL &&
+                                    getReference<MethodReference>()?.name == "show"
+                        }
+                        if (showIndex >= 0) {
+                            val dialogRegister = getInstruction<OneRegisterInstruction>(showIndex + 1).registerA
+
+                            addInstruction(
+                                showIndex + 2,
+                                "invoke-static {v$dialogRegister}, $EXTENSION_CLASS_DESCRIPTOR->dismissNSFWDialog(Ljava/lang/Object;)V"
+                            )
+                            hookCount++
+                        }
+                    }
+                }
+            }
+
+            if (hookCount == 0) {
+                throw PatchException("Failed to find hook method")
             }
         }
 

@@ -10,6 +10,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val fullScreenEngagementOverlayFingerprint = legacyFingerprint(
@@ -113,11 +114,17 @@ internal val playerGestureConfigSyntheticFingerprint = legacyFingerprint(
         // This method is always called "a" because this kind of class always has a single method.
         method.name == "a" &&
                 classDef.methods.count() == 2 &&
-                method.indexOfFirstInstruction {
-                    val reference = getReference<MethodReference>()
-                    reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;" &&
-                            reference.parameterTypes.isEmpty() &&
-                            reference.returnType == "Z"
-                } >= 0
+                indexOfPlayerConfigModelBooleanInstruction(method) >= 0
     },
 )
+
+internal fun indexOfPlayerConfigModelBooleanInstruction(
+    method: Method,
+    startIndex: Int = 0
+) = method.indexOfFirstInstruction(startIndex) {
+    val reference = getReference<MethodReference>()
+    opcode == Opcode.INVOKE_VIRTUAL &&
+            reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;" &&
+            reference.parameterTypes.isEmpty() &&
+            reference.returnType == "Z"
+}
