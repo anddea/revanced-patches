@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.youtubePackageName
 import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
@@ -22,16 +23,25 @@ val darkModeSplashScreenPatch = resourcePatch(
 ) {
     dependsOn(versionCheckPatch)
 
-    execute {
+    finalize {
         if (!is_19_32_or_greater) {
-            return@execute
+            return@finalize
         }
 
-        arrayOf(
-            "values-night",
-            "values-night-v27",
-        ).forEach { directory ->
-            document("res/$directory/styles.xml").use { document ->
+        // GmsCore support included
+        if (youtubePackageName != YOUTUBE_PACKAGE_NAME) {
+            document("AndroidManifest.xml").use { document ->
+                val mainActivityElement = document.childNodes.findElementByAttributeValueOrThrow(
+                    "android:name",
+                    "com.google.android.apps.youtube.app.watchwhile.MainActivity",
+                )
+
+                mainActivityElement.setAttribute("android:launchMode", "singleTask")
+            }
+        }
+
+        if (restoreOldSplashAnimationIncluded) {
+            document("res/values-night/styles.xml").use { document ->
                 val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
                 val childNodes = resourcesNode.childNodes
 
@@ -45,38 +55,41 @@ val darkModeSplashScreenPatch = resourcePatch(
                         style.setAttribute("name", "Theme.YouTube.Home")
                         style.setAttribute("parent", nodeAttributeParent)
 
-                        val colorSplashBackgroundColor = "@color/yt_black1"
-                        arrayOf(
-                            "android:navigationBarColor" to colorSplashBackgroundColor,
-                            "android:windowBackground" to colorSplashBackgroundColor,
-                            "android:colorBackground" to colorSplashBackgroundColor,
-                            "colorPrimaryDark" to colorSplashBackgroundColor,
-                            "android:windowLightStatusBar" to "false",
-                        ).forEach { (name, value) ->
-                            val styleItem = document.createElement("item")
-                            styleItem.setAttribute("name", name)
-                            styleItem.textContent = value
-                            style.appendChild(styleItem)
-                        }
+                        val windowItem = document.createElement("item")
+                        windowItem.setAttribute("name", "android:windowBackground")
+                        windowItem.textContent = "@color/yt_black1"
+                        style.appendChild(windowItem)
 
                         resourcesNode.removeChild(node)
                         resourcesNode.appendChild(style)
                     }
                 }
             }
-        }
-    }
+        } else {
+            document("res/values-night-v27/styles.xml").use { document ->
+                // Create a night mode specific override for the splash screen background.
+                val style = document.createElement("style")
+                style.setAttribute("name", "Theme.YouTube.Home")
+                style.setAttribute("parent", "@style/Base.V27.Theme.YouTube.Home")
 
-    finalize {
-        // GmsCore support included
-        if (youtubePackageName != YOUTUBE_PACKAGE_NAME) {
-            document("AndroidManifest.xml").use { document ->
-                val mainActivityElement = document.childNodes.findElementByAttributeValueOrThrow(
-                    "android:name",
-                    "com.google.android.apps.youtube.app.watchwhile.MainActivity",
-                )
+                // Fix status and navigation bar showing white on some Android devices,
+                // such as SDK 28 Android 10 medium tablet.
+                val colorSplashBackgroundColor = "@color/yt_black1"
+                arrayOf(
+                    "android:navigationBarColor" to colorSplashBackgroundColor,
+                    "android:windowBackground" to colorSplashBackgroundColor,
+                    "android:colorBackground" to colorSplashBackgroundColor,
+                    "colorPrimaryDark" to colorSplashBackgroundColor,
+                    "android:windowLightStatusBar" to "false",
+                ).forEach { (name, value) ->
+                    val styleItem = document.createElement("item")
+                    styleItem.setAttribute("name", name)
+                    styleItem.textContent = value
+                    style.appendChild(styleItem)
+                }
 
-                mainActivityElement.setAttribute("android:launchMode", "singleTask")
+                val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+                resourcesNode.appendChild(style)
             }
         }
     }
