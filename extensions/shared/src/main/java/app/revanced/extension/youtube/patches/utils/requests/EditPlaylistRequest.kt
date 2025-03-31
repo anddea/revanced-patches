@@ -8,7 +8,6 @@ import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.EDIT_PLA
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -216,7 +215,7 @@ class EditPlaylistRequest private constructor(
                 dataSyncId,
             )
             if (json != null) {
-                return parseResponse(json, StringUtils.isNotEmpty(setVideoId))
+                return parseResponse(json, setVideoId != null && setVideoId.isNotEmpty())
             }
 
             return null

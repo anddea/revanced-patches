@@ -154,13 +154,25 @@ public class VideoUtils extends IntentUtils {
     }
 
     public static void openPlaylist(@NonNull String playlistId, @NonNull String videoId) {
+        openPlaylist(playlistId, videoId, false);
+    }
+
+    public static void openPlaylist(@NonNull String playlistId, @NonNull String videoId, boolean withTimestamp) {
         final StringBuilder sb = new StringBuilder();
         if (videoId.isEmpty()) {
             sb.append(getPlaylistUrl(playlistId));
         } else {
-            sb.append(getVideoScheme(videoId, false));
-            sb.append("&list=");
+            sb.append(VIDEO_URL);
+            sb.append(videoId);
+            sb.append("?list=");
             sb.append(playlistId);
+            if (withTimestamp) {
+                final long currentVideoTimeInSeconds = VideoInformation.getVideoTimeInSeconds();
+                if (currentVideoTimeInSeconds > 0) {
+                    sb.append("&t=");
+                    sb.append(currentVideoTimeInSeconds);
+                }
+            }
         }
         launchView(sb.toString(), getContext().getPackageName());
     }
@@ -289,6 +301,13 @@ public class VideoUtils extends IntentUtils {
      */
     public static boolean getExternalDownloaderLaunchedState(boolean original) {
         return !isExternalDownloaderLaunched.get() && original;
+    }
+
+    /**
+     * Rest of the implementation added by patch.
+     */
+    public static void dismissPlayer() {
+        Logger.printDebug(() -> "Dismiss player");
     }
 
     /**
