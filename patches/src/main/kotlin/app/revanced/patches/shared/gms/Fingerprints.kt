@@ -106,3 +106,8 @@ internal val primesLifecycleEventFingerprint = legacyFingerprint(
         } >= 0
     }
 )
+
+internal val primeMethodFingerprint = legacyFingerprint(
+    name = "primesLifecycleEventFingerprint",
+    strings = listOf("com.google.android.GoogleCamera", "com.android.vending")
+)
