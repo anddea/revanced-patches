@@ -417,7 +417,7 @@ public final class app/revanced/patches/reddit/layout/screenshotpopup/Screenshot
 }
 
 public final class app/revanced/patches/reddit/layout/subredditdialog/FingerprintsKt {
-	public static final fun indexOfGetOverInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+	public static final fun indexOfHasBeenVisitedInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun indexOfSetBackgroundTintListInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 	public static final fun listOfIsLoggedInInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/util/List;
 }
@@ -462,9 +462,7 @@ public final class app/revanced/patches/reddit/utils/extension/SharedExtensionPa
 }
 
 public final class app/revanced/patches/reddit/utils/resourceid/SharedResourceIdPatchKt {
-	public static final fun getActionShare ()J
 	public static final fun getNsfwDialogTitle ()J
-	public static final fun getScreenShotShareBanner ()J
 }
 
 public final class app/revanced/patches/reddit/utils/settings/SettingsPatchKt {
@@ -930,6 +928,10 @@ public final class app/revanced/patches/youtube/swipe/controls/SwipeControlsPatc
 public final class app/revanced/patches/youtube/utils/FingerprintsKt {
 	public static final field PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun indexOfSpannedCharSequenceInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
+}
+
+public final class app/revanced/patches/youtube/utils/auth/AuthHookPatchKt {
+	public static final fun getAuthHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/utils/bottomsheet/BottomSheetHookPatchKt {

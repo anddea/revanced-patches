@@ -33,6 +33,10 @@ public class RemoveSubRedditDialogPatch {
         clickViewDelayed(cancelButtonView);
     }
 
+    public static boolean spoofHasBeenVisitedStatus(boolean hasBeenVisited) {
+        return Settings.REMOVE_NSFW_DIALOG.get() || hasBeenVisited;
+    }
+
     public static void dismissNSFWDialog(Object customDialog) {
         if (Settings.REMOVE_NSFW_DIALOG.get() &&
                 customDialog instanceof Dialog dialog) {

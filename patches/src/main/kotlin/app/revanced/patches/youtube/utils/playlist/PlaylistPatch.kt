@@ -7,13 +7,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.mainactivity.getMainActivityMethod
+import app.revanced.patches.youtube.utils.auth.authHookPatch
 import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.utils.request.buildRequestPatch
-import app.revanced.patches.youtube.utils.request.hookBuildRequest
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -34,21 +33,10 @@ val playlistPatch = bytecodePatch(
         dismissPlayerHookPatch,
         playerTypeHookPatch,
         videoInformationPatch,
-        buildRequestPatch,
+        authHookPatch,
     )
 
     execute {
-        // In Incognito mode, sending a request always seems to fail.
-        accountIdentityFingerprint.methodOrThrow().addInstructions(
-            1, """
-                sput-object p3, $EXTENSION_CLASS_DESCRIPTOR->dataSyncId:Ljava/lang/String;
-                sput-boolean p4, $EXTENSION_CLASS_DESCRIPTOR->isIncognito:Z
-                """
-        )
-
-        // Get the header to use the auth token.
-        hookBuildRequest("$EXTENSION_CLASS_DESCRIPTOR->setRequestHeaders(Ljava/lang/String;Ljava/util/Map;)V")
-
         // Open the queue manager by pressing and holding the back button.
         getMainActivityMethod("onKeyLongPress")
             .addInstructionsWithLabels(

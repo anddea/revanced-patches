@@ -1,6 +1,10 @@
 package app.revanced.extension.youtube.patches.utils;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.runOnMainThreadDelayed;
+import static app.revanced.extension.youtube.utils.VideoUtils.dismissPlayer;
+import static app.revanced.extension.youtube.utils.VideoUtils.launchVideoExternalDownloader;
+import static app.revanced.extension.youtube.utils.VideoUtils.openPlaylist;
 
 import android.content.Context;
 import android.view.KeyEvent;
@@ -32,30 +36,18 @@ import app.revanced.extension.youtube.patches.utils.requests.SavePlaylistRequest
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.VideoInformation;
+import app.revanced.extension.youtube.utils.AuthUtils;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
-import app.revanced.extension.youtube.utils.VideoUtils;
 import kotlin.Pair;
 
 // TODO: Implement sync queue and clean up code.
 @SuppressWarnings({"unused", "StaticFieldLeak"})
-public class PlaylistPatch extends VideoUtils {
-    private static final String AUTHORIZATION_HEADER = "Authorization";
-    private static final String[] REQUEST_HEADER_KEYS = {
-            AUTHORIZATION_HEADER,
-            "X-GOOG-API-FORMAT-VERSION",
-            "X-Goog-Visitor-Id"
-    };
+public class PlaylistPatch extends AuthUtils {
     private static final boolean QUEUE_MANAGER =
             Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER.get()
                     || Settings.OVERRIDE_VIDEO_DOWNLOAD_BUTTON_QUEUE_MANAGER.get();
 
     private static Context mContext;
-    private static volatile String authorization = "";
-    public static volatile String dataSyncId = "";
-    public static volatile boolean isIncognito = false;
-    private static volatile Map<String, String> requestHeader;
-    private static volatile String playlistId = "";
-    private static volatile String videoId = "";
 
     private static String checkFailedAuth;
     private static String checkFailedPlaylistId;
@@ -138,30 +130,6 @@ public class PlaylistPatch extends VideoUtils {
     public static void setPivotBar(PivotBar view) {
         if (QUEUE_MANAGER) {
             mContext = view.getContext();
-        }
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void setRequestHeaders(String url, Map<String, String> requestHeaders) {
-        if (QUEUE_MANAGER) {
-            try {
-                // Save requestHeaders whenever an account is switched.
-                String auth = requestHeaders.get(AUTHORIZATION_HEADER);
-                if (auth == null || authorization.equals(auth)) {
-                    return;
-                }
-                for (String key : REQUEST_HEADER_KEYS) {
-                    if (requestHeaders.get(key) == null) {
-                        return;
-                    }
-                }
-                authorization = auth;
-                requestHeader = requestHeaders;
-            } catch (Exception ex) {
-                Logger.printException(() -> "setRequestHeaders failure", ex);
-            }
         }
     }
 

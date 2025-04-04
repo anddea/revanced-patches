@@ -2,11 +2,9 @@ package app.revanced.patches.reddit.layout.subredditdialog
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.reddit.utils.extension.Constants.PATCHES_PATH
 import app.revanced.patches.reddit.utils.patch.PatchList.REMOVE_SUBREDDIT_DIALOG
@@ -17,7 +15,6 @@ import app.revanced.patches.reddit.utils.settings.is_2025_05_or_greater
 import app.revanced.patches.reddit.utils.settings.is_2025_06_or_greater
 import app.revanced.patches.reddit.utils.settings.settingsPatch
 import app.revanced.patches.reddit.utils.settings.updatePatchStatus
-import app.revanced.util.findFreeRegister
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
@@ -80,26 +77,17 @@ val subRedditDialogPatch = bytecodePatch(
         }
 
         if (is_2025_01_or_greater) {
-            arrayOf(
-                nsfwAlertEmitFingerprint,
-                nsfwAlertObserverFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.methodOrThrow().apply {
-                    val getOverIndex = indexOfGetOverInstruction(this)
-                    val getOverRegister = getInstruction<FiveRegisterInstruction>(getOverIndex).registerC
-                    val freeRegister = findFreeRegister(getOverIndex, getOverRegister)
+            nsfwAlertEmitFingerprint.methodOrThrow().apply {
+                val hasBeenVisitedIndex = indexOfHasBeenVisitedInstruction(this)
+                val hasBeenVisitedRegister =
+                    getInstruction<OneRegisterInstruction>(hasBeenVisitedIndex + 1).registerA
 
-                    val returnIndex = indexOfFirstInstructionOrThrow(getOverIndex, Opcode.RETURN_OBJECT)
-                    val jumpIndex = indexOfFirstInstructionReversedOrThrow(returnIndex, Opcode.SGET_OBJECT)
-
-                    addInstructionsWithLabels(
-                        getOverIndex, """
-                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->removeNSFWDialog()Z
-                            move-result v$freeRegister
-                            if-nez v$freeRegister, :jump
-                            """, ExternalLabel("jump", getInstruction(jumpIndex))
-                    )
-                }
+                addInstructions(
+                    hasBeenVisitedIndex + 2, """
+                        invoke-static {v$hasBeenVisitedRegister}, $EXTENSION_CLASS_DESCRIPTOR->spoofHasBeenVisitedStatus(Z)Z
+                        move-result v$hasBeenVisitedRegister
+                        """
+                )
             }
 
             var hookCount = 0

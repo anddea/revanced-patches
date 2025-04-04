@@ -3,12 +3,14 @@ package app.revanced.patches.youtube.utils.dismiss
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.EXTENSION_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -20,6 +22,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/utils/VideoUtils;"
+
+private lateinit var dismissMethod: MutableMethod
 
 val dismissPlayerHookPatch = bytecodePatch(
     description = "dismissPlayerHookPatch"
@@ -36,6 +40,21 @@ val dismissPlayerHookPatch = bytecodePatch(
                         reference?.returnType == "V" &&
                         reference.parameterTypes.isEmpty()
             }
+
+            getWalkerMethod(dismissPlayerIndex).apply {
+                val jumpIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.returnType == "V"
+                }
+                getWalkerMethod(jumpIndex).apply {
+                    val jumpIndex = indexOfFirstInstructionReversedOrThrow {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.returnType == "V"
+                    }
+                    dismissMethod = getWalkerMethod(jumpIndex)
+                }
+            }
+
             val dismissPlayerReference =
                 getInstruction<ReferenceInstruction>(dismissPlayerIndex).reference as MethodReference
             val dismissPlayerClass = dismissPlayerReference.definingClass
@@ -81,3 +100,12 @@ val dismissPlayerHookPatch = bytecodePatch(
         }
     }
 }
+
+/**
+ * This method is called when the video is closed.
+ */
+internal fun hookDismissObserver(descriptor: String) =
+    dismissMethod.addInstruction(
+        0,
+        "invoke-static {}, $descriptor"
+    )
