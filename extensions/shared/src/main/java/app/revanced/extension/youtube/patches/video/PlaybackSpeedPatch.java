@@ -3,9 +3,13 @@ package app.revanced.extension.youtube.patches.video;
 import static app.revanced.extension.shared.utils.StringRef.str;
 import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
 
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.BooleanUtils;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.FloatSetting;
@@ -28,48 +32,61 @@ public class PlaybackSpeedPatch {
             Settings.DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC.get();
     private static final long TOAST_DELAY_MILLISECONDS = 750;
     private static long lastTimeSpeedChanged;
+
+    /**
+     * The last used playback speed.
+     * This value is used when the default playback speed is 'Auto'.
+     */
     private static float lastSelectedPlaybackSpeed = 1.0f;
+    private static float lastSelectedShortsPlaybackSpeed = 1.0f;
 
-    private static volatile String channelId = "";
-    private static volatile String videoId = "";
-    private static boolean isLiveStream;
+    /**
+     * The last regular video id.
+     */
+    private static String videoId = "";
 
-    private static volatile String channelIdShorts = "";
-    private static volatile String videoIdShorts = "";
-    private static boolean isLiveStreamShorts;
+    @GuardedBy("itself")
+    private static final Map<String, Float> ignoredPlaybackSpeedVideoIds = new LinkedHashMap<>() {
+        private static final int NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK = 3;
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry eldest) {
+            return size() > NUMBER_OF_LAST_VIDEO_IDS_TO_TRACK;
+        }
+    };
 
     /**
      * Injection point.
+     * This method is used to reset the playback speed to 1.0 when a general video is started, whether it is a live stream, music, or whitelist.
      */
     public static void newVideoStarted(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
                                        @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
                                        final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
         if (isShortsActive()) {
-            channelIdShorts = newlyLoadedChannelId;
-            videoIdShorts = newlyLoadedVideoId;
-            isLiveStreamShorts = newlyLoadedLiveStreamValue;
-
-            Logger.printDebug(() -> "newVideoStarted: " + newlyLoadedVideoId);
-        } else {
-            channelId = newlyLoadedChannelId;
-            videoId = newlyLoadedVideoId;
-            isLiveStream = newlyLoadedLiveStreamValue;
-
-            Logger.printDebug(() -> "newShortsVideoStarted: " + newlyLoadedVideoId);
+            return;
         }
-    }
+        if (videoId.equals(newlyLoadedVideoId)) {
+            return;
+        }
+        videoId = newlyLoadedVideoId;
 
-    /**
-     * Injection point.
-     */
-    public static void newShortsVideoStarted(@NonNull String newlyLoadedChannelId, @NonNull String newlyLoadedChannelName,
-                                             @NonNull String newlyLoadedVideoId, @NonNull String newlyLoadedVideoTitle,
-                                             final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
-        channelIdShorts = newlyLoadedChannelId;
-        videoIdShorts = newlyLoadedVideoId;
-        isLiveStreamShorts = newlyLoadedLiveStreamValue;
+        boolean isMusic = isMusic(newlyLoadedVideoId);
+        boolean isWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedVideoId);
 
-        Logger.printDebug(() -> "newShortsVideoStarted: " + newlyLoadedVideoId);
+        if (newlyLoadedLiveStreamValue || isMusic || isWhitelisted) {
+            synchronized(ignoredPlaybackSpeedVideoIds) {
+                if (!ignoredPlaybackSpeedVideoIds.containsKey(newlyLoadedVideoId)) {
+                    lastSelectedPlaybackSpeed = 1.0f;
+                    ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, lastSelectedPlaybackSpeed);
+
+                    VideoInformation.setPlaybackSpeed(lastSelectedPlaybackSpeed);
+                    VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+
+                    Logger.printDebug(() -> "changing playback speed to: 1.0, isLiveStream: " + newlyLoadedLiveStreamValue +
+                            ", isMusic: " + isMusic + ", isWhitelisted: " + isWhitelisted);
+                }
+            }
+        }
     }
 
     /**
@@ -98,32 +115,29 @@ public class PlaybackSpeedPatch {
 
     /**
      * Injection point.
+     * This method is called every second for regular videos and Shorts.
      */
     public static float getPlaybackSpeed(float playbackSpeed) {
         boolean isShorts = isShortsActive();
-        String currentChannelId = isShorts ? channelIdShorts : channelId;
-        String currentVideoId = isShorts ? videoIdShorts : videoId;
-        boolean currentVideoIsLiveStream = isShorts ? isLiveStreamShorts : isLiveStream;
-        boolean currentVideoIsWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(currentChannelId);
-        boolean currentVideoIsMusic = !isShorts && isMusic();
-
-        if (currentVideoIsLiveStream || currentVideoIsWhitelisted || currentVideoIsMusic) {
-            Logger.printDebug(() -> "changing playback speed to: 1.0");
-            VideoInformation.setPlaybackSpeed(1.0f);
-            return 1.0f;
-        }
-
         float defaultPlaybackSpeed = isShorts ? DEFAULT_PLAYBACK_SPEED_SHORTS.get() : DEFAULT_PLAYBACK_SPEED.get();
 
-        if (defaultPlaybackSpeed < 0) {
-            float finalPlaybackSpeed = isShorts ? playbackSpeed : lastSelectedPlaybackSpeed;
+        if (defaultPlaybackSpeed < 0) { // If the default playback speed is 'Auto', it will be overridden to the last used playback speed.
+            float finalPlaybackSpeed = isShorts ? lastSelectedShortsPlaybackSpeed : lastSelectedPlaybackSpeed;
             VideoInformation.overridePlaybackSpeed(finalPlaybackSpeed);
             Logger.printDebug(() -> "changing playback speed to: " + finalPlaybackSpeed);
             return finalPlaybackSpeed;
-        } else {
-            if (isShorts) {
-                VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
+        } else { // Otherwise the default playback speed is used.
+            synchronized (ignoredPlaybackSpeedVideoIds) {
+                if (isShorts) {
+                    // For Shorts, the VideoInformation.overridePlaybackSpeed() method is not used, so manually save the playback speed in VideoInformation.
+                    VideoInformation.setPlaybackSpeed(defaultPlaybackSpeed);
+                } else if (ignoredPlaybackSpeedVideoIds.containsKey(videoId)) {
+                    // For general videos, check whether the default video playback speed should not be applied.
+                    Logger.printDebug(() -> "changing playback speed to: 1.0");
+                    return 1.0f;
+                }
             }
+
             Logger.printDebug(() -> "changing playback speed to: " + defaultPlaybackSpeed);
             return defaultPlaybackSpeed;
         }
@@ -138,6 +152,19 @@ public class PlaybackSpeedPatch {
     public static void userSelectedPlaybackSpeed(float playbackSpeed) {
         try {
             boolean isShorts = isShortsActive();
+
+            // Saves the user-selected playback speed in the method.
+            if (isShorts) {
+                lastSelectedShortsPlaybackSpeed = playbackSpeed;
+            } else {
+                lastSelectedPlaybackSpeed = playbackSpeed;
+                // If the user has manually changed the playback speed, the whitelist has already been applied.
+                // If there is a videoId on the map, it will be removed.
+                synchronized (ignoredPlaybackSpeedVideoIds) {
+                    ignoredPlaybackSpeedVideoIds.remove(videoId);
+                }
+            }
+
             if (PatchStatus.RememberPlaybackSpeed()) {
                 BooleanSetting rememberPlaybackSpeedLastSelectedSetting = isShorts
                         ? Settings.REMEMBER_PLAYBACK_SPEED_SHORTS_LAST_SELECTED
@@ -178,15 +205,23 @@ public class PlaybackSpeedPatch {
                         }
                     }, TOAST_DELAY_MILLISECONDS);
                 }
-            } else if (!isShorts) {
-                lastSelectedPlaybackSpeed = playbackSpeed;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "userSelectedPlaybackSpeed failure", ex);
         }
     }
 
-    private static boolean isMusic() {
+    /**
+     * Injection point.
+     */
+    public static void onDismiss() {
+        synchronized (ignoredPlaybackSpeedVideoIds) {
+            ignoredPlaybackSpeedVideoIds.remove(videoId);
+            videoId = "";
+        }
+    }
+
+    private static boolean isMusic(String videoId) {
         if (DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC && !videoId.isEmpty()) {
             try {
                 MusicRequest request = MusicRequest.getRequestForVideoId(videoId);

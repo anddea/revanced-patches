@@ -50,6 +50,8 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Конец видео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Время захвата миниатюры</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Подписки</string>
+    <string name="revanced_app_name_title">Имя приложения</string>
+    <string name="revanced_app_version_title">Версия приложения</string>
     <string name="revanced_append_time_stamp_information_summary_off">Информация метки времени отключена.</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Информация метки времени включена."</string>
     <string name="revanced_append_time_stamp_information_title">Информация метки времени</string>
@@ -1458,7 +1460,7 @@ Shorts
     <string name="revanced_overlay_button_play_all_summary">"Коснитесь, чтобы создать список просмотра всех видео из канала.
 Коснитесь и удерживайте, для отмены.
 
-Инфо:
+Информация:
 • Может не работать в прямых трансляциях."</string>
     <string name="revanced_overlay_button_play_all_title">Кнопка воспроизвести все</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">Все (сорт. по времени, по возрастанию)</string>
@@ -1497,12 +1499,14 @@ Shorts
     <string name="revanced_override_youtube_music_button_summary_off">Кнопка YouTube Music открывает встроенное приложение.</string>
     <string name="revanced_override_youtube_music_button_summary_on">Кнопка YouTube Music открывает RVX Music.</string>
     <string name="revanced_override_youtube_music_button_title">Переопределить кнопку YouTube Music</string>
+    <string name="revanced_patched_date_title">Дата применения патчей</string>
     <string name="revanced_patches_excluded">Не применён</string>
     <string name="revanced_patches_included">Применён</string>
     <string name="revanced_playback_speed_normal">Обычная</string>
     <string name="revanced_preference_category_action_buttons">Кнопки действий</string>
     <string name="revanced_preference_category_additional_settings">Дополнительные настройки</string>
     <string name="revanced_preference_category_animation_feedback">Анимация / Обратная связь</string>
+    <string name="revanced_preference_category_app_info">О приложении</string>
     <string name="revanced_preference_category_codec">Кодек</string>
     <string name="revanced_preference_category_custom_actions">Пользовательские действия</string>
     <string name="revanced_preference_category_download_button">Кнопка \"Скачать\"</string>
@@ -1592,6 +1596,7 @@ Shorts
     <string name="revanced_queue_manager_add_to_queue">Добавить в очередь</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Добавить в очередь и открыть очередь</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Добавить в очередь и посмотреть</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Добавить в очередь и обновить</string>
     <string name="revanced_queue_manager_check_failed_auth">Требуется авторизация</string>
     <string name="revanced_queue_manager_check_failed_generic">Управление очередью недоступно (%s).</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Не определился список просмотра</string>
@@ -1612,6 +1617,7 @@ Shorts
     <string name="revanced_queue_manager_queue">Очередь</string>
     <string name="revanced_queue_manager_remove_from_queue">Удалить из очереди</string>
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Удалить из очереди и открыть очередь</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Удалить из очереди и обновить</string>
     <string name="revanced_queue_manager_remove_queue">Удалить очередь</string>
     <string name="revanced_queue_manager_save_queue">Сохранить очередь</string>
     <string name="revanced_queue_manager_user_dialog_message">"Вместо открытия внешнего загрузчика открывается диалог управления очередью.
@@ -2087,7 +2093,7 @@ Shorts
     <string name="revanced_spoof_streaming_data_type_ios_summary_off">Клиент iOS не добавлен к доступным клиентам.</string>
     <string name="revanced_spoof_streaming_data_type_ios_summary_on">"Клиент iOS добавлен к доступным клиентам.
 
-ВНИМАНИЕ: Клиент iOS устаревший. Любые проблемы, возникающие при его использовании, на свой страх и риск."</string>
+ПРЕДУПРЕЖДЕНИЕ: Клиент iOS устаревший. Любые проблемы, возникающие при его использовании, на свой страх и риск."</string>
     <string name="revanced_spoof_streaming_data_type_ios_title">Использовать клиент iOS</string>
     <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"При запросе конечных точек YouTube API с помощью iOS требуются токены Auth, выданные устройством iOS, и токены PoToken, выданные iOSGuard.
 

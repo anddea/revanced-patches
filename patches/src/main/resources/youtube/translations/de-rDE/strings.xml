@@ -49,6 +49,8 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren."</string>
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Ende eines Videos</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Videozeit von der Stand-Aufnahmen aufgenommen werden</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Abonnements</string>
+    <string name="revanced_app_name_title">App Name</string>
+    <string name="revanced_app_version_title">App Version</string>
     <string name="revanced_append_time_stamp_information_summary_off">Das Anhängen von Zeitstempelinformationen ist deaktiviert</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Zeitstempelinformationen anhängen ist aktiviert"</string>
     <string name="revanced_append_time_stamp_information_title">Zeitstempelinformationen anhängen</string>
@@ -165,6 +167,7 @@ Einschränkung: Zurück-Taste in der Symbolleiste funktioniert möglicherweise n
     <string name="revanced_custom_seekbar_color_primary_title">Benutzerdefinierte Suchleisten-Primärfarbe</string>
     <string name="revanced_default_app_settings_summary">Um RVX in einem externen Browser zu öffnen, aktivieren Sie \'Unterstützte Links öffnen\' und aktivieren Sie die unterstützen Web-Adressen</string>
     <string name="revanced_default_app_settings_title">Standard-App-Einstellungen öffnen</string>
+    <string name="revanced_default_playback_speed_shorts_title">Standard Wiedergabegeschwindigkeit bei Shorts</string>
     <string name="revanced_default_playback_speed_title">Standard Wiedergabegeschwindigkeit</string>
     <string name="revanced_default_video_quality_mobile_title">Standard Videoqualität im Mobilfunk</string>
     <string name="revanced_default_video_quality_wifi_title">Standard-Videoqualität im Wlan</string>
@@ -580,7 +583,7 @@ Store"</string>
     <string name="revanced_hide_end_screen_cards_title">Endbildschirmkarten ausblenden</string>
     <string name="revanced_hide_end_screen_store_banner_summary_off">Store-Banner wird angezeigt.</string>
     <string name="revanced_hide_end_screen_store_banner_summary_on">Store-Banner ist ausgeblendet.</string>
-    <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
+    <string name="revanced_hide_end_screen_store_banner_title">Abspann Store Banner ausblenden</string>
     <string name="revanced_hide_expandable_chip_summary_off">Erweiterbare Chips werden angezeigt</string>
     <string name="revanced_hide_expandable_chip_summary_on">Erweiterbare Chips sind versteckt</string>
     <string name="revanced_hide_expandable_chip_title">Erweiterbaren Chip unter Videos ausblenden</string>
@@ -1135,7 +1138,7 @@ Instead, use the 'Settings → Autoplay → Autoplay next video' setting.
 
 Note:
 • If you have any issues with 'Suggested video end screen', try restarting the app."</string>
-    <string name="revanced_hide_suggested_video_end_screen_summary_off">Empfohlene Video-Endbildschirm wird angezeigt.</string>
+    <string name="revanced_hide_suggested_video_end_screen_summary_off">Empfohlene Videos Endbildschirm wird angezeigt.</string>
     <string name="revanced_hide_suggested_video_end_screen_summary_on">"Der Endbildschirm für vorgeschlagene Videos ist ausgeblendet, wenn die Autoplay-Funktion deaktiviert ist.
 
 Autoplay kann in den YouTube-Einstellungen geändert werden:
@@ -1409,12 +1412,15 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_override_youtube_music_button_summary_off">YouTube Musik-Button öffnet die native App.</string>
     <string name="revanced_override_youtube_music_button_summary_on">YouTube Music Button öffnet RVX Music.</string>
     <string name="revanced_override_youtube_music_button_title">YouTube Musik-Button überschreiben</string>
+    <string name="revanced_patched_date_title">Patch Datum</string>
     <string name="revanced_patches_excluded">ausgeschlossen</string>
     <string name="revanced_patches_included">Enthalten</string>
     <string name="revanced_playback_speed_normal">Normal</string>
     <string name="revanced_preference_category_action_buttons">Aktionsschaltflächen</string>
     <string name="revanced_preference_category_additional_settings">Additional settings</string>
     <string name="revanced_preference_category_animation_feedback">Animation / Feedback</string>
+    <string name="revanced_preference_category_app_info">App Info</string>
+    <string name="revanced_preference_category_codec">Codec</string>
     <string name="revanced_preference_category_custom_actions">Benutzerdefinierte Aktionen</string>
     <string name="revanced_preference_category_download_button">Herunterladen-Button</string>
     <string name="revanced_preference_category_experimental_flag">Experimentelle Flags</string>
@@ -1425,10 +1431,12 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_preference_category_others">Andere</string>
     <string name="revanced_preference_category_overlay_buttons">Overlay buttons</string>
     <string name="revanced_preference_category_patch_information">Patch-Informationen</string>
+    <string name="revanced_preference_category_playback_speed">Wiedergabegeschwindigkeit</string>
     <string name="revanced_preference_category_quick_actions">Schnelle Aktionen</string>
     <string name="revanced_preference_category_recommended_video">Empfohlene Videos</string>
     <string name="revanced_preference_category_shorts_shelf">Shorts Regale</string>
     <string name="revanced_preference_category_suggested_actions">Vorgeschlagene Maßnahmen</string>
+    <string name="revanced_preference_category_video_quality">Videoqualität</string>
     <string name="revanced_preference_category_view_counts_filter">Zählerfilter anzeigen</string>
     <string name="revanced_preference_screen_account_menu_summary">Zeige oder verstecke Element im Account Menü und mein YouTube.</string>
     <string name="revanced_preference_screen_account_menu_title">Account Menü</string>
@@ -1460,11 +1468,11 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_preference_screen_haptic_feedback_title">Haptisches Feedback</string>
     <string name="revanced_preference_screen_hook_buttons_summary">Überschreibt die Klick-Aktion von In-App-Tasten.</string>
     <string name="revanced_preference_screen_hook_buttons_title">Hook Buttons</string>
-    <string name="revanced_preference_screen_import_export_summary">Einstellungen importieren / exportieren</string>
+    <string name="revanced_preference_screen_import_export_summary">Importieren / Exportieren der RVX Einstellungen.</string>
     <string name="revanced_preference_screen_import_export_title">Einstellungen importieren / exportieren</string>
     <string name="revanced_preference_screen_miniplayer_summary">Ändern Sie den Stil des in App minimierten Players.</string>
     <string name="revanced_preference_screen_miniplayer_title">Miniplayer</string>
-    <string name="revanced_preference_screen_misc_title">PreferenceScreen: Sonstiges</string>
+    <string name="revanced_preference_screen_misc_title">Sonstiges</string>
     <string name="revanced_preference_screen_navigation_bar_summary">Komponenten der Navigationsleiste ausblenden oder anzeigen.</string>
     <string name="revanced_preference_screen_navigation_bar_title">Navigationsleiste</string>
     <string name="revanced_preference_screen_patch_information_summary">Informationen über angewandte Patches</string>
@@ -1501,6 +1509,7 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_queue_manager_add_to_queue">Zur Warteschlange hinzufügen</string>
     <string name="revanced_queue_manager_add_to_queue_and_open_queue">Zur Warteschlange hinzufügen &amp; öffnen</string>
     <string name="revanced_queue_manager_add_to_queue_and_play_video">Zur Warteschlange hinzufügen und Video abspielen</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Zur Warteschlange hinzufügen und Video neu laden</string>
     <string name="revanced_queue_manager_check_failed_auth">Anmeldung erforderlich</string>
     <string name="revanced_queue_manager_check_failed_generic">Warteschlange Manager nicht verfügbar (%s).</string>
     <string name="revanced_queue_manager_check_failed_playlist_id">Playlist konnte nicht identifiziert werden</string>
@@ -1521,6 +1530,7 @@ Tippen und halten Sie, um den Einstellungsdialog für die Whitelist anzuzeigen.<
     <string name="revanced_queue_manager_queue">Warteschlange</string>
     <string name="revanced_queue_manager_remove_from_queue">Aus der Warteschlange entfernen</string>
     <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Aus der Warteschlange entfernen und die Warteschlange öffnen</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Aus der Warteschlange entfernen und Video neu laden</string>
     <string name="revanced_queue_manager_remove_queue">Warteschlange löschen</string>
     <string name="revanced_queue_manager_save_queue">Warteschlange speichern</string>
     <string name="revanced_queue_manager_user_dialog_message">"Öffnen Sie statt eines externen Downloaders den Warteschlangenmanager.
@@ -1840,6 +1850,10 @@ Die meisten Fehler können aufgrund von Client-seitigen Einschränkungen nicht b
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Statusmenü wiederholen ist ausgeblendet.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Das Statusmenü wird angezeigt.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">Zeige Wiederholungsstatus Menü</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_label">Geschwindigkeitsdialog</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">Das „Geschwindigkeitsdialogmenü“ ist ausgeblendet.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Das Dialogmenü „Geschwindigkeit“ wird angezeigt.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_title">Menü „Geschwindigkeitsdialog anzeigen“</string>
     <string name="revanced_shorts_custom_actions_toolbar_dialog_title">Benutzerdefinierte Aktionen</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_1">Original</string>
     <string name="revanced_shorts_double_tap_to_like_animation_entry_2">Mag ich</string>

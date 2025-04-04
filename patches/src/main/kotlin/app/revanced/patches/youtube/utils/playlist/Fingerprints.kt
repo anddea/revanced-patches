@@ -9,15 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val accountIdentityFingerprint = legacyFingerprint(
-    name = "accountIdentityFingerprint",
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { method, _ ->
-        method.definingClass.endsWith("${'$'}AutoValue_AccountIdentity;")
-    }
-)
-
 internal val editPlaylistConstructorFingerprint = legacyFingerprint(
     name = "editPlaylistConstructorFingerprint",
     returnType = "V",

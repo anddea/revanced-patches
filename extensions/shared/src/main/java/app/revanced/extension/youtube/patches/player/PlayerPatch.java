@@ -183,8 +183,8 @@ public class PlayerPatch {
         // The type of descriptionView can be either ViewGroup or TextView. (A/B tests)
         // If the type of descriptionView is TextView, longer delay is required.
         final long delayMillis = descriptionView instanceof TextView
-                ? 500
-                : 100;
+                ? 750
+                : 200;
 
         Utils.runOnMainThreadDelayed(() -> Utils.clickView(descriptionView), delayMillis);
     }

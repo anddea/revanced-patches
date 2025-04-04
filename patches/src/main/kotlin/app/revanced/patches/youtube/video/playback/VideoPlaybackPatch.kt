@@ -11,6 +11,8 @@ import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.VIDEO_PATH
@@ -25,7 +27,6 @@ import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
-import app.revanced.patches.youtube.video.information.hookShortsVideoInformation
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.speedSelectionInsertMethod
@@ -87,6 +88,7 @@ val videoPlaybackPatch = bytecodePatch(
         ),
         flyoutMenuHookPatch,
         lithoFilterPatch,
+        dismissPlayerHookPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
         shortsPlaybackPatch,
@@ -183,9 +185,9 @@ val videoPlaybackPatch = bytecodePatch(
         }
 
         hookBackgroundPlayVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
-        hookShortsVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newShortsVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookPlayerResponseVideoId("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->fetchMusicRequest(Ljava/lang/String;Z)V")
+        hookDismissObserver("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onDismiss()V")
 
         updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "RememberPlaybackSpeed")
 
