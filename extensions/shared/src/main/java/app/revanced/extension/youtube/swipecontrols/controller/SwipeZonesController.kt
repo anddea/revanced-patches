@@ -9,6 +9,7 @@ import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.swipecontrols.misc.Rectangle
 import app.revanced.extension.youtube.swipecontrols.misc.applyDimension
 import app.revanced.extension.youtube.utils.ExtendedUtils.validateValue
+import kotlin.math.max
 import kotlin.math.min
 
 /**
@@ -27,14 +28,24 @@ import kotlin.math.min
  *        v
  * -------- screenHeight
  *
- * X- Axis:
+ * X- Axis (Vertical Controls - Brightness/Volume):
  *  0    xBrigStart    xBrigEnd    xVolStart     xVolEnd   screenWidth
  *  |          |            |          |            |          |
- *  |   20dp   |    3/8     |    2/8   |    3/8     |   20dp   |
- *  | <------> |  <------>  | <------> |  <------>  | <------> |
- *  |   dead   | brightness |   dead   |   volume   |   dead   |
+ *  |   20dp   |  zoneWidth |  <-----> |  zoneWidth |   20dp   |
+ *  | <------> |  <------>  |   Dead   |  <------>  | <------> |
+ *  |   dead   | brightness |          |   volume   |   dead   |
  *             | <--------------------------------> |
- *                              1/1
+ *                         effectiveSwipeRect.width
+ *
+ * X- Axis (Horizontal Controls - Seek/Speed):
+ *  0        effectiveSwipeRect.left + 40dp        effectiveSwipeRect.right - 40dp       screenWidth
+ *  |                 |                                            |                 |
+ *  |   20dp + 40dp   | <------------ swipeable area ------------> |   40dp + 20dp   |
+ *  | <-------------> |                                            | <-------------> |
+ *  |      dead       | Seek/Speed (top half, based on setting)    |      dead       |
+ *  |      dead       | Speed/Seek (bottom half, based on setting) |      dead       |
+ *                    | <----------------------------------------> |
+ *                                effectiveSwipeRect.width - (2 * 40dp)
  */
 @Suppress("PrivatePropertyName")
 class SwipeZonesController(
@@ -48,6 +59,11 @@ class SwipeZonesController(
         50,
         "revanced_swipe_overlay_rect_size_invalid_toast"
     )
+
+    /**
+     * Setting to control if `Seek` and `Speed` zones are swapped vertically
+     */
+    private val switchSpeedAndSeek = Settings.SWIPE_SWITCH_SPEED_AND_SEEK.get()
 
     /**
      * 20dp, in pixels
@@ -75,71 +91,108 @@ class SwipeZonesController(
     private var playerRect: Rectangle? = null
 
     /**
-     * rectangle of the area that is effectively usable for swipe controls
+     * rectangle of the area that is effectively usable for swipe controls,
+     * after applying the initial screen-edge dead zones.
      */
     private val effectiveSwipeRect: Rectangle
         get() {
             maybeAttachPlayerBoundsListener()
-            val p = if (playerRect != null) playerRect!! else fallbackScreenRect()
+            val p = playerRect ?: fallbackScreenRect()
+            val effectiveLeft = p.x + _20dp
+            val effectiveTop = p.y + _40dp
+            // Ensure width isn't negative if _20dp * 2 > p.width
+            val effectiveWidth = max(0, p.width - (_20dp * 2))
+            // Ensure height isn't negative if _40dp + _80dp > p.height
+            val effectiveHeight = max(0, p.height - _40dp - _80dp)
+
             return Rectangle(
-                p.x + _20dp,
-                p.y + _40dp,
-                p.width - _20dp,
-                p.height - _20dp - _80dp,
+                effectiveLeft,
+                effectiveTop,
+                effectiveWidth,
+                effectiveHeight,
             )
         }
 
     /**
-     * the rectangle of the volume control zone
+     * the rectangle of the volume control zone (vertical swipe)
      */
     val volume: Rectangle
         get() {
-            val zoneWidth = effectiveSwipeRect.width * overlayRectSize / 100
+            val effectiveRect = effectiveSwipeRect // Cache for performance
+            val zoneWidth = effectiveRect.width * overlayRectSize / 100
             return Rectangle(
-                effectiveSwipeRect.right - zoneWidth,
-                effectiveSwipeRect.top,
+                effectiveRect.right - zoneWidth,
+                effectiveRect.top,
                 zoneWidth,
-                effectiveSwipeRect.height,
+                effectiveRect.height,
             )
         }
 
     /**
-     * the rectangle of the screen brightness control zone
+     * the rectangle of the screen brightness control zone (vertical swipe)
      */
     val brightness: Rectangle
         get() {
-            val zoneWidth = effectiveSwipeRect.width * overlayRectSize / 100
+            val effectiveRect = effectiveSwipeRect // Cache for performance
+            val zoneWidth = effectiveRect.width * overlayRectSize / 100
             return Rectangle(
-                effectiveSwipeRect.left,
-                effectiveSwipeRect.top,
+                effectiveRect.left,
+                effectiveRect.top,
                 zoneWidth,
-                effectiveSwipeRect.height,
+                effectiveRect.height,
             )
         }
 
+    private val horizontalDeadZone = _40dp
+    private val horizontalZoneEffectiveLeft get() = effectiveSwipeRect.left + horizontalDeadZone
+    private val horizontalZoneEffectiveWidth get() = max(0, effectiveSwipeRect.width - (horizontalDeadZone * 2))
+    private val horizontalZoneHeight get() = max(0, effectiveSwipeRect.height / 2)
+    private val topHorizontalZoneTop get() = effectiveSwipeRect.top
+    private val bottomHorizontalZoneTop get() = effectiveSwipeRect.top + horizontalZoneHeight
+
     /**
-     * the rectangle of the speed control zone (bottom half)
+     * the rectangle of the speed control zone (horizontal swipe).
+     * Position (top/bottom half) depends on [Settings.SWIPE_SWITCH_SPEED_AND_SEEK].
+     * Includes additional horizontal dead zones for gestures.
      */
     val speed: Rectangle
         get() {
+            val zoneTop = if (switchSpeedAndSeek) {
+                // If switched, speed is in the top half
+                topHorizontalZoneTop
+            } else {
+                // Default, speed is in the bottom half
+                bottomHorizontalZoneTop
+            }
+
             return Rectangle(
-                effectiveSwipeRect.left,
-                effectiveSwipeRect.top + effectiveSwipeRect.height / 2,
-                effectiveSwipeRect.width,
-                effectiveSwipeRect.height / 2
+                horizontalZoneEffectiveLeft,
+                zoneTop,
+                horizontalZoneEffectiveWidth,
+                horizontalZoneHeight
             )
         }
 
     /**
-     * the rectangle of the seek control zone (top half)
+     * the rectangle of the seek control zone (horizontal swipe).
+     * Position (top/bottom half) depends on [Settings.SWIPE_SWITCH_SPEED_AND_SEEK].
+     * Includes additional horizontal dead zones for gestures.
      */
-    val seek: Rectangle // Add seek zone
+    val seek: Rectangle
         get() {
+            val zoneTop = if (switchSpeedAndSeek) {
+                // If switched, seek is in the bottom half
+                bottomHorizontalZoneTop
+            } else {
+                // Default, seek is in the top half
+                topHorizontalZoneTop
+            }
+
             return Rectangle(
-                effectiveSwipeRect.left,
-                effectiveSwipeRect.top,
-                effectiveSwipeRect.width,
-                effectiveSwipeRect.height / 2
+                horizontalZoneEffectiveLeft,
+                zoneTop,
+                horizontalZoneEffectiveWidth,
+                horizontalZoneHeight
             )
         }
 
@@ -150,9 +203,13 @@ class SwipeZonesController(
     private fun maybeAttachPlayerBoundsListener() {
         if (playerRect != null) return
         host.findViewById<ViewGroup>(playerViewId)?.let {
-            onPlayerViewLayout(it)
-            it.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
-                onPlayerViewLayout(it)
+            onPlayerViewLayout(it) // Get initial layout
+            // Add listener for subsequent layout changes
+            it.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+                // Only update if bounds actually changed to avoid unnecessary recalculations
+                if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
+                    onPlayerViewLayout(it)
+                }
             }
         }
     }
@@ -169,11 +226,29 @@ class SwipeZonesController(
             // and use that width for the player rectangle size
             // this automatically excludes any engagement panel from the rect
             val playerWidthWithPadding = playerSurface.width + (playerSurface.x.toInt() * 2)
+            // Use the minimum of the view's width and the calculated surface width with padding
+            // This handles cases where the surface + padding might theoretically exceed the view bounds
+            val actualWidth = min(playerView.width, playerWidthWithPadding)
+            // Ensure coordinates and dimensions are non-negative
+            // Using playerView.left/top is more robust than playerView.x/y if the view is nested
+            val viewX = max(0, playerView.left)
+            val viewY = max(0, playerView.top)
+            val viewHeight = max(0, playerView.height)
+
             playerRect = Rectangle(
-                playerView.x.toInt(),
-                playerView.y.toInt(),
-                min(playerView.width, playerWidthWithPadding),
-                playerView.height,
+                viewX,
+                viewY,
+                max(0, actualWidth), // Ensure width is not negative
+                viewHeight,
+            )
+        } ?: run {
+            // Fallback if playerSurface is not available (e.g., during initialization)
+            // Use playerView bounds directly, applying max(0, ...)
+            playerRect = Rectangle(
+                max(0, playerView.left),
+                max(0, playerView.top),
+                max(0, playerView.width),
+                max(0, playerView.height),
             )
         }
     }

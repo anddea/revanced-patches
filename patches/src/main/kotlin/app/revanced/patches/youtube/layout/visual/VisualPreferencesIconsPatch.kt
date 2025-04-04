@@ -439,6 +439,7 @@ private val emptyTitles = setOf(
     "revanced_skip_preloaded_buffer",
     "revanced_skip_preloaded_buffer_toast",
     "revanced_spoof_device_dimensions",
+    "revanced_swipe_switch_speed_and_seek",
     "revanced_whitelist_settings",
     "sb_create_new_segment_step",
 )
