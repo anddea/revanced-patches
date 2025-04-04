@@ -524,6 +524,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ENABLE_SWIPE_VOLUME = new BooleanSetting("revanced_enable_swipe_volume", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_SPEED = new BooleanSetting("revanced_enable_swipe_speed", TRUE, true);
     public static final BooleanSetting ENABLE_SWIPE_SEEK = new BooleanSetting("revanced_enable_swipe_seek", TRUE, true);
+    public static final BooleanSetting SWIPE_SWITCH_SPEED_AND_SEEK = new BooleanSetting("revanced_swipe_switch_speed_and_seek", FALSE, true);
     public static final BooleanSetting ENABLE_SWIPE_LOWEST_VALUE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_enable_swipe_lowest_value_auto_brightness", TRUE, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting ENABLE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_enable_save_and_restore_brightness", TRUE, true, parent(ENABLE_SWIPE_BRIGHTNESS));
     public static final BooleanSetting ENABLE_SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_enable_swipe_press_to_engage", FALSE, true, parentsAny(ENABLE_SWIPE_BRIGHTNESS, ENABLE_SWIPE_VOLUME, ENABLE_SWIPE_SPEED, ENABLE_SWIPE_SEEK));
