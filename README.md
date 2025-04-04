@@ -136,19 +136,19 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Change package name` | Changes the package name for Reddit to the name specified in patch options. | 2024.17.0 ~ 2025.12.0 |
-| `Custom branding name for Reddit` | Changes the Reddit app name to the name specified in patch options. | 2024.17.0 ~ 2025.12.0 |
-| `Disable screenshot popup` | Adds an option to disable the popup that appears when taking a screenshot. | 2024.17.0 ~ 2025.12.0 |
-| `Hide Recently Visited shelf` | Adds an option to hide the Recently Visited shelf in the sidebar. | 2024.17.0 ~ 2025.12.0 |
-| `Hide ads` | Adds options to hide ads. | 2024.17.0 ~ 2025.12.0 |
-| `Hide navigation buttons` | Adds options to hide buttons in the navigation bar. | 2024.17.0 ~ 2025.12.0 |
-| `Hide recommended communities shelf` | Adds an option to hide the recommended communities shelves in subreddits. | 2024.17.0 ~ 2025.12.0 |
-| `Open links directly` | Adds an option to skip over redirection URLs in external links. | 2024.17.0 ~ 2025.12.0 |
-| `Open links externally` | Adds an option to always open links in your browser instead of in the in-app-browser. | 2024.17.0 ~ 2025.12.0 |
-| `Premium icon` | Unlocks premium app icons. | 2024.17.0 ~ 2025.12.0 |
-| `Remove subreddit dialog` | Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically. | 2024.17.0 ~ 2025.12.0 |
-| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 2024.17.0 ~ 2025.12.0 |
-| `Settings for Reddit` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 2024.17.0 ~ 2025.12.0 |
+| `Change package name` | Changes the package name for Reddit to the name specified in patch options. | 2024.17.0 ~ 2025.12.1 |
+| `Custom branding name for Reddit` | Changes the Reddit app name to the name specified in patch options. | 2024.17.0 ~ 2025.12.1 |
+| `Disable screenshot popup` | Adds an option to disable the popup that appears when taking a screenshot. | 2024.17.0 ~ 2025.12.1 |
+| `Hide Recently Visited shelf` | Adds an option to hide the Recently Visited shelf in the sidebar. | 2024.17.0 ~ 2025.12.1 |
+| `Hide ads` | Adds options to hide ads. | 2024.17.0 ~ 2025.12.1 |
+| `Hide navigation buttons` | Adds options to hide buttons in the navigation bar. | 2024.17.0 ~ 2025.12.1 |
+| `Hide recommended communities shelf` | Adds an option to hide the recommended communities shelves in subreddits. | 2024.17.0 ~ 2025.12.1 |
+| `Open links directly` | Adds an option to skip over redirection URLs in external links. | 2024.17.0 ~ 2025.12.1 |
+| `Open links externally` | Adds an option to always open links in your browser instead of in the in-app-browser. | 2024.17.0 ~ 2025.12.1 |
+| `Premium icon` | Unlocks premium app icons. | 2024.17.0 ~ 2025.12.1 |
+| `Remove subreddit dialog` | Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically. | 2024.17.0 ~ 2025.12.1 |
+| `Sanitize sharing links` | Adds an option to sanitize sharing links by removing tracking query parameters. | 2024.17.0 ~ 2025.12.1 |
+| `Settings for Reddit` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 2024.17.0 ~ 2025.12.1 |
 </details>
 
 ### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
@@ -156,7 +156,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `Custom theme` | Applies a custom theme. | ALL |
+| `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
 | `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
 | `Spoof signature` | Spoofs the signature of the app to fix various functions of the app. | ALL |
 | `Unlock Spotify Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
@@ -221,7 +221,7 @@ Example:
       "com.reddit.frontpage": [
         "2024.17.0",
         "2025.05.1",
-        "2025.12.0"
+        "2025.12.1"
       ]
     },
     "options": []
