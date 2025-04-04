@@ -9,9 +9,8 @@ import app.revanced.patches.shared.mapping.ResourceType.ID
 import app.revanced.patches.shared.mapping.ResourceType.LAYOUT
 import app.revanced.patches.shared.mapping.ResourceType.STRING
 import app.revanced.patches.shared.mapping.ResourceType.STYLE
-import app.revanced.patches.shared.mapping.get
+import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
-import app.revanced.patches.shared.mapping.resourceMappings
 
 var accountSwitcherAccessibility = -1L
     private set
@@ -24,6 +23,8 @@ var bottomSheetRecyclerView = -1L
 var buttonContainer = -1L
     private set
 var buttonIconPaddingMedium = -1L
+    private set
+var channelHandle = -1L
     private set
 var chipCloud = -1L
     private set
@@ -83,6 +84,8 @@ var qualityAuto = -1L
     private set
 var remixGenericButtonSize = -1L
     private set
+var searchButton = -1L
+    private set
 var slidingDialogAnimation = -1L
     private set
 var tapBloomView = -1L
@@ -124,213 +127,61 @@ internal val sharedResourceIdPatch = resourcePatch(
     dependsOn(resourceMappingPatch)
 
     execute {
-        accountSwitcherAccessibility = resourceMappings[
-            STRING,
-            "account_switcher_accessibility_label",
-        ]
-        actionBarLogo = resourceMappings[
-            DRAWABLE,
-            "action_bar_logo",
-        ]
-        actionBarLogoRingo2 = resourceMappings[
-            DRAWABLE,
-            "action_bar_logo_ringo2",
-        ]
-        bottomSheetRecyclerView = resourceMappings[
-            LAYOUT,
-            "bottom_sheet_recycler_view"
-        ]
-        buttonContainer = resourceMappings[
-            ID,
-            "button_container"
-        ]
-        buttonIconPaddingMedium = resourceMappings[
-            DIMEN,
-            "button_icon_padding_medium"
-        ]
-        chipCloud = resourceMappings[
-            LAYOUT,
-            "chip_cloud"
-        ]
-        colorGrey = resourceMappings[
-            COLOR,
-            "ytm_color_grey_12"
-        ]
-        darkBackground = resourceMappings[
-            ID,
-            "dark_background"
-        ]
-        designBottomSheetDialog = resourceMappings[
-            LAYOUT,
-            "design_bottom_sheet_dialog"
-        ]
-        elementsContainer = resourceMappings[
-            ID,
-            "elements_container"
-        ]
-        endButtonsContainer = resourceMappings[
-            ID,
-            "end_buttons_container"
-        ]
-        floatingLayout = resourceMappings[
-            ID,
-            "floating_layout"
-        ]
-        historyMenuItem = resourceMappings[
-            ID,
-            "history_menu_item"
-        ]
-        inlineTimeBarAdBreakMarkerColor = resourceMappings[
-            COLOR,
-            "inline_time_bar_ad_break_marker_color"
-        ]
-        inlineTimeBarProgressColor = resourceMappings[
-            COLOR,
-            "inline_time_bar_progress_color"
-        ]
-        interstitialsContainer = resourceMappings[
-            ID,
-            "interstitials_container"
-        ]
-        isTablet = resourceMappings[
-            BOOL,
-            "is_tablet"
-        ]
-        likeDislikeContainer = resourceMappings[
-            ID,
-            "like_dislike_container"
-        ]
-        mainActivityLaunchAnimation = resourceMappings[
-            LAYOUT,
-            "main_activity_launch_animation"
-        ]
-        menuEntry = resourceMappings[
-            LAYOUT,
-            "menu_entry"
-        ]
-        miniPlayerDefaultText = resourceMappings[
-            STRING,
-            "mini_player_default_text"
-        ]
-        miniPlayerMdxPlaying = resourceMappings[
-            STRING,
-            "mini_player_mdx_playing"
-        ]
-        miniPlayerPlayPauseReplayButton = resourceMappings[
-            ID,
-            "mini_player_play_pause_replay_button"
-        ]
-        miniPlayerViewPager = resourceMappings[
-            ID,
-            "mini_player_view_pager"
-        ]
-        modernDialogBackground = resourceMappings[
-            DRAWABLE,
-            "modern_dialog_background"
-        ]
-        musicNotifierShelf = resourceMappings[
-            LAYOUT,
-            "music_notifier_shelf"
-        ]
-        musicTasteBuilderShelf = resourceMappings[
-            LAYOUT,
-            "music_tastebuilder_shelf"
-        ]
-        namesInactiveAccountThumbnailSize = resourceMappings[
-            DIMEN,
-            "names_inactive_account_thumbnail_size"
-        ]
-        offlineSettingsMenuItem = resourceMappings[
-            ID,
-            "offline_settings_menu_item"
-        ]
-        playerOverlayChip = resourceMappings[
-            ID,
-            "player_overlay_chip"
-        ]
-        playerViewPager = resourceMappings[
-            ID,
-            "player_view_pager"
-        ]
-        privacyTosFooter = resourceMappings[
-            ID,
-            "privacy_tos_footer"
-        ]
-        qualityAuto = resourceMappings[
-            STRING,
-            "quality_auto"
-        ]
-        remixGenericButtonSize = resourceMappings[
-            DIMEN,
-            "remix_generic_button_size"
-        ]
-        slidingDialogAnimation = resourceMappings[
-            STYLE,
-            "SlidingDialogAnimation"
-        ]
-        tapBloomView = resourceMappings[
-            ID,
-            "tap_bloom_view"
-        ]
-        text1 = resourceMappings[
-            ID,
-            "text1"
-        ]
-        toolTipContentView = resourceMappings[
-            LAYOUT,
-            "tooltip_content_view"
-        ]
-        topEnd = resourceMappings[
-            ID,
-            "TOP_END"
-        ]
-        topStart = resourceMappings[
-            ID,
-            "TOP_START"
-        ]
-        topBarMenuItemImageView = resourceMappings[
-            ID,
-            "top_bar_menu_item_image_view"
-        ]
-        tosFooter = resourceMappings[
-            ID,
-            "tos_footer"
-        ]
-        touchOutside = resourceMappings[
-            ID,
-            "touch_outside"
-        ]
-        trimSilenceSwitch = resourceMappings[
-            ID,
-            "trim_silence_switch"
-        ]
-        varispeedUnavailableTitle = resourceMappings[
-            STRING,
-            "varispeed_unavailable_title"
-        ]
-        ytFillSamples = resourceMappings[
-            DRAWABLE,
-            "yt_fill_samples_vd_theme_24",
-        ]
-        ytFillYouTubeMusic = resourceMappings[
-            DRAWABLE,
-            "yt_fill_youtube_music_vd_theme_24",
-        ]
-        ytOutlineSamples = resourceMappings[
-            DRAWABLE,
-            "yt_outline_samples_vd_theme_24",
-        ]
-        ytOutlineYouTubeMusic = resourceMappings[
-            DRAWABLE,
-            "yt_outline_youtube_music_vd_theme_24",
-        ]
-        ytmLogo = resourceMappings[
-            DRAWABLE,
-            "ytm_logo",
-        ]
-        ytmLogoRingo2 = resourceMappings[
-            DRAWABLE,
-            "ytm_logo_ringo2",
-        ]
+        accountSwitcherAccessibility = getResourceId(STRING, "account_switcher_accessibility_label")
+        actionBarLogo = getResourceId(DRAWABLE, "action_bar_logo")
+        actionBarLogoRingo2 = getResourceId(DRAWABLE, "action_bar_logo_ringo2")
+        bottomSheetRecyclerView = getResourceId(LAYOUT, "bottom_sheet_recycler_view")
+        buttonContainer = getResourceId(ID, "button_container")
+        buttonIconPaddingMedium = getResourceId(DIMEN, "button_icon_padding_medium")
+        channelHandle = getResourceId(ID, "channel_handle")
+        chipCloud = getResourceId(LAYOUT, "chip_cloud")
+        colorGrey = getResourceId(COLOR, "ytm_color_grey_12")
+        darkBackground = getResourceId(ID, "dark_background")
+        designBottomSheetDialog = getResourceId(LAYOUT, "design_bottom_sheet_dialog")
+        elementsContainer = getResourceId(ID, "elements_container")
+        endButtonsContainer = getResourceId(ID, "end_buttons_container")
+        floatingLayout = getResourceId(ID, "floating_layout")
+        historyMenuItem = getResourceId(ID, "history_menu_item")
+        inlineTimeBarAdBreakMarkerColor =
+            getResourceId(COLOR, "inline_time_bar_ad_break_marker_color")
+        inlineTimeBarProgressColor = getResourceId(COLOR, "inline_time_bar_progress_color")
+        interstitialsContainer = getResourceId(ID, "interstitials_container")
+        isTablet = getResourceId(BOOL, "is_tablet")
+        likeDislikeContainer = getResourceId(ID, "like_dislike_container")
+        mainActivityLaunchAnimation = getResourceId(LAYOUT, "main_activity_launch_animation")
+        menuEntry = getResourceId(LAYOUT, "menu_entry")
+        miniPlayerDefaultText = getResourceId(STRING, "mini_player_default_text")
+        miniPlayerMdxPlaying = getResourceId(STRING, "mini_player_mdx_playing")
+        miniPlayerPlayPauseReplayButton = getResourceId(ID, "mini_player_play_pause_replay_button")
+        miniPlayerViewPager = getResourceId(ID, "mini_player_view_pager")
+        modernDialogBackground = getResourceId(DRAWABLE, "modern_dialog_background")
+        musicNotifierShelf = getResourceId(LAYOUT, "music_notifier_shelf")
+        musicTasteBuilderShelf = getResourceId(LAYOUT, "music_tastebuilder_shelf")
+        namesInactiveAccountThumbnailSize =
+            getResourceId(DIMEN, "names_inactive_account_thumbnail_size")
+        offlineSettingsMenuItem = getResourceId(ID, "offline_settings_menu_item")
+        playerOverlayChip = getResourceId(ID, "player_overlay_chip")
+        playerViewPager = getResourceId(ID, "player_view_pager")
+        privacyTosFooter = getResourceId(ID, "privacy_tos_footer")
+        qualityAuto = getResourceId(STRING, "quality_auto")
+        remixGenericButtonSize = getResourceId(DIMEN, "remix_generic_button_size")
+        searchButton = getResourceId(LAYOUT, "search_button")
+        slidingDialogAnimation = getResourceId(STYLE, "SlidingDialogAnimation")
+        tapBloomView = getResourceId(ID, "tap_bloom_view")
+        text1 = getResourceId(ID, "text1")
+        toolTipContentView = getResourceId(LAYOUT, "tooltip_content_view")
+        topEnd = getResourceId(ID, "TOP_END")
+        topStart = getResourceId(ID, "TOP_START")
+        topBarMenuItemImageView = getResourceId(ID, "top_bar_menu_item_image_view")
+        tosFooter = getResourceId(ID, "tos_footer")
+        touchOutside = getResourceId(ID, "touch_outside")
+        trimSilenceSwitch = getResourceId(ID, "trim_silence_switch")
+        varispeedUnavailableTitle = getResourceId(STRING, "varispeed_unavailable_title")
+        ytFillSamples = getResourceId(DRAWABLE, "yt_fill_samples_vd_theme_24")
+        ytFillYouTubeMusic = getResourceId(DRAWABLE, "yt_fill_youtube_music_vd_theme_24")
+        ytOutlineSamples = getResourceId(DRAWABLE, "yt_outline_samples_vd_theme_24")
+        ytOutlineYouTubeMusic = getResourceId(DRAWABLE, "yt_outline_youtube_music_vd_theme_24")
+        ytmLogo = getResourceId(DRAWABLE, "ytm_logo")
+        ytmLogoRingo2 = getResourceId(DRAWABLE, "ytm_logo_ringo2")
     }
 }

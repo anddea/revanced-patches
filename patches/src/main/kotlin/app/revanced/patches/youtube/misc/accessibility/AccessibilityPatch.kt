@@ -32,8 +32,10 @@ val accessibilityPatch = bytecodePatch(
             .methods
             .first { method -> method.name == "<init>" }
             .apply {
-                val lifecycleObserverIndex = indexOfFirstInstructionReversedOrThrow(Opcode.NEW_INSTANCE)
-                val lifecycleObserverClass = getInstruction<ReferenceInstruction>(lifecycleObserverIndex).reference.toString()
+                val lifecycleObserverIndex =
+                    indexOfFirstInstructionReversedOrThrow(Opcode.NEW_INSTANCE)
+                val lifecycleObserverClass =
+                    getInstruction<ReferenceInstruction>(lifecycleObserverIndex).reference.toString()
 
                 findMethodOrThrow(lifecycleObserverClass) {
                     accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&

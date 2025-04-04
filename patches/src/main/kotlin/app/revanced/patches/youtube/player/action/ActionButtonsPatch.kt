@@ -57,20 +57,26 @@ val actionButtonsPatch = bytecodePatch(
                 findMethodOrThrow(parameters[1].type) {
                     name == "toString"
                 }
-            val identifierReference = with (conversionContextToStringMethod) {
+            val identifierReference = with(conversionContextToStringMethod) {
                 val identifierStringIndex =
                     indexOfFirstStringInstructionOrThrow(", identifierProperty=")
                 val identifierStringAppendIndex =
                     indexOfFirstInstructionOrThrow(identifierStringIndex, Opcode.INVOKE_VIRTUAL)
-                val identifierStringAppendIndexRegister = getInstruction<FiveRegisterInstruction>(identifierStringAppendIndex).registerD
+                val identifierStringAppendIndexRegister =
+                    getInstruction<FiveRegisterInstruction>(identifierStringAppendIndex).registerD
                 val identifierAppendIndex =
-                    indexOfFirstInstructionOrThrow(identifierStringAppendIndex + 1, Opcode.INVOKE_VIRTUAL)
-                val identifierRegister = getInstruction<FiveRegisterInstruction>(identifierAppendIndex).registerD
-                val identifierIndex = indexOfFirstInstructionReversedOrThrow(identifierAppendIndex) {
-                    opcode == Opcode.IGET_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
-                            (this as? TwoRegisterInstruction)?.registerA == identifierRegister
-                }
+                    indexOfFirstInstructionOrThrow(
+                        identifierStringAppendIndex + 1,
+                        Opcode.INVOKE_VIRTUAL
+                    )
+                val identifierRegister =
+                    getInstruction<FiveRegisterInstruction>(identifierAppendIndex).registerD
+                val identifierIndex =
+                    indexOfFirstInstructionReversedOrThrow(identifierAppendIndex) {
+                        opcode == Opcode.IGET_OBJECT &&
+                                getReference<FieldReference>()?.type == "Ljava/lang/String;" &&
+                                (this as? TwoRegisterInstruction)?.registerA == identifierRegister
+                    }
                 getInstruction<ReferenceInstruction>(identifierIndex).reference
             }
 

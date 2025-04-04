@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
@@ -19,6 +20,7 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.compatibility.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.utils.patch.PatchList.SPOOF_STREAMING_DATA
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_50_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.request.buildRequestPatch
@@ -60,10 +62,21 @@ val spoofStreamingDataPatch = bytecodePatch(
         versionCheckPatch,
     )
 
+    val useIOSClient by booleanOption(
+        key = "useIOSClient",
+        default = false,
+        title = "Use iOS client",
+        description = "Add setting to set iOS client (Deprecated) as default client.",
+    )
+
     execute {
 
         var settingArray = arrayOf(
             "SETTINGS: SPOOF_STREAMING_DATA"
+        )
+
+        var patchStatusArray = arrayOf(
+            "SpoofStreamingData"
         )
 
         // region Get replacement streams at player requests.
@@ -333,24 +346,38 @@ val spoofStreamingDataPatch = bytecodePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->skipResponseEncryption(Z)Z"
             )
 
-            if (is_20_10_or_greater) {
-                onesieEncryptionAlternativeFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
-                    ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG,
-                    "$EXTENSION_CLASS_DESCRIPTOR->skipResponseEncryption(Z)Z"
+            if (is_19_50_or_greater) {
+                playbackStartDescriptorFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                    PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG,
+                    "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
                 )
+
+                if (is_20_10_or_greater) {
+                    onesieEncryptionAlternativeFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                        ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG,
+                        "$EXTENSION_CLASS_DESCRIPTOR->skipResponseEncryption(Z)Z"
+                    )
+                }
             }
 
             settingArray += "SETTINGS: SKIP_RESPONSE_ENCRYPTION"
         }
 
+        if (useIOSClient == true) {
+            settingArray += "SETTINGS: USE_IOS_DEPRECATED"
+            patchStatusArray += "SpoofStreamingDataIOS"
+        }
+
         // endregion
 
-        findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
-            name == "SpoofStreamingData"
-        }.replaceInstruction(
-            0,
-            "const/4 v0, 0x1"
-        )
+        patchStatusArray.forEach { methodName ->
+            findMethodOrThrow("$PATCHES_PATH/PatchStatus;") {
+                name == methodName
+            }.replaceInstruction(
+                0,
+                "const/4 v0, 0x1"
+            )
+        }
 
         addPreference(
             settingArray,

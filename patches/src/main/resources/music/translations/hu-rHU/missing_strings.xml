@@ -2,10 +2,8 @@
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
     <string name="revanced_add_miniplayer_next_button_summary">Adds a next track button to the miniplayer.</string>
-    <string name="revanced_add_miniplayer_next_button_title">Add miniplayer next button</string>
     <string name="revanced_add_miniplayer_previous_button_summary">Adds a previous track button to the miniplayer.</string>
     <string name="revanced_add_miniplayer_previous_button_title">Add miniplayer previous button</string>
-    <string name="revanced_change_action_bar_position_summary">Moves the action bar below the play button.</string>
     <string name="revanced_change_action_bar_position_title">Change action bar position</string>
     <string name="revanced_change_miniplayer_color_summary">Changes the miniplayer color to match the fullscreen player.</string>
     <string name="revanced_change_miniplayer_color_title">Change miniplayer color</string>
@@ -34,28 +32,15 @@ Use dark colors if possible, as the app does not support light themes."</string>
 
 Limitations: SponsorBlock segments are not shown in the seekbar."</string>
     <string name="revanced_enable_thick_seekbar_title">Enable thick seekbar</string>
-    <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
-    <string name="revanced_hide_action_button_song_video_summary">"Hides the Song / Video button.
-(This button is only available to some users)"</string>
     <string name="revanced_hide_action_button_song_video_title">Hide Song / Video button</string>
-    <string name="revanced_hide_flyout_menu_not_interested_title">Hide Not interested menu</string>
-    <string name="revanced_hide_premium_promotion_closed_toast">Premium promotion popups are closed.</string>
+    <string name="revanced_hide_search_button_summary">Hides the search button in the toolbar.</string>
+    <string name="revanced_hide_search_button_title">Hide search button</string>
     <string name="revanced_hide_song_video_toggle_summary">Hides the Song / Video toggle in the player.</string>
     <string name="revanced_hide_song_video_toggle_title">Hide Song / Video toggle</string>
-    <string name="revanced_replace_navigation_button_about_summary">"This feature is experimental.
-There are structural limitations of the patch, as Activities such as Search and Settings in YouTube Music are not public.
-
-Known issues:
-• When a replaced Activity such as Search and Settings is closed, the start page opens.
-
-Click to open the 'Change start page' settings."</string>
-    <string name="revanced_replace_navigation_button_about_title">About replace button</string>
-    <string name="revanced_replace_navigation_samples_button_summary">Replaces the Samples button with the Search button.</string>
-    <string name="revanced_replace_navigation_samples_button_title">Replace Samples button</string>
-    <string name="revanced_replace_navigation_upgrade_button_summary">Replaces the Upgrade button with the Settings button.</string>
-    <string name="revanced_replace_navigation_upgrade_button_title">Replace Upgrade button</string>
+    <string name="revanced_spoof_app_version_target_entry_7_17_52">7.17.52 - Comments section does not appear in home feed</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Invalid spoof app version: %s.</string>
     <string name="revanced_spoof_player_parameter_summary">"Spoof the player parameter to prevent playback issues.
 
 Side effect:

@@ -11,4 +11,8 @@ public class PatchStatus {
         // Replace this with true If the Spoof streaming data patch succeeds in YouTube.
         return false;
     }
+
+    public static boolean SpoofStreamingDataIOS() {
+        return false;
+    }
 }

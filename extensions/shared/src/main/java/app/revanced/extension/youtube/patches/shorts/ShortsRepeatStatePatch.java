@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches.shorts;
 
 import android.app.Activity;
 
+import androidx.annotation.Nullable;
+
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -29,10 +31,15 @@ public class ShortsRepeatStatePatch {
 
         static void setYTEnumValue(Enum<?> ytBehavior) {
             for (ShortsLoopBehavior rvBehavior : values()) {
-                if (ytBehavior.name().endsWith(rvBehavior.name())) {
-                    rvBehavior.ytEnumValue = ytBehavior;
-
-                    Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytBehavior.name());
+                String ytName = ytBehavior.name();
+                if (ytName.endsWith(rvBehavior.name())) {
+                    if (rvBehavior.ytEnumValue != null) {
+                        Logger.printException(() -> "Conflicting behavior names: " + rvBehavior
+                                + " ytBehavior: " + ytName);
+                    } else {
+                        rvBehavior.ytEnumValue = ytBehavior;
+                        Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytName);
+                    }
                     return;
                 }
             }
@@ -77,25 +84,39 @@ public class ShortsRepeatStatePatch {
     /**
      * Injection point.
      */
-    public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
+    @Nullable
+    public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
         try {
-            final ShortsLoopBehavior behavior = ExtendedUtils.IS_19_34_OR_GREATER &&
+            ShortsLoopBehavior behavior = ExtendedUtils.IS_19_34_OR_GREATER &&
                     isAppInBackgroundPiPMode()
                     ? Settings.CHANGE_SHORTS_BACKGROUND_REPEAT_STATE.get()
                     : Settings.CHANGE_SHORTS_REPEAT_STATE.get();
+            Enum<?> overrideBehavior = behavior.ytEnumValue;
 
-            if (behavior != ShortsLoopBehavior.UNKNOWN && behavior.ytEnumValue != null) {
-                Logger.printDebug(() -> behavior.ytEnumValue == original
-                        ? "Changing Shorts repeat behavior from: " + original.name() + " to: " + behavior.ytEnumValue
-                        : "Behavior setting is same as original. Using original: " + original.name()
-                );
+            if (behavior != ShortsLoopBehavior.UNKNOWN && overrideBehavior != null) {
+                Logger.printDebug(() -> {
+                    String name = original == null ? "unknown (null)" : original.name();
+                    return overrideBehavior == original
+                            ? "Behavior setting is same as original. Using original: " + name
+                            : "Changing Shorts repeat behavior from: " + name + " to: " + overrideBehavior.name();
+                });
 
-                return behavior.ytEnumValue;
+                // For some reason, in YouTube 20.09+, 'UNKNOWN' functions as 'Pause'.
+                return ExtendedUtils.IS_20_09_OR_GREATER && behavior == ShortsLoopBehavior.END_SCREEN
+                        ? ShortsLoopBehavior.UNKNOWN.ytEnumValue
+                        : overrideBehavior;
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "changeShortsRepeatState failure", ex);
+            Logger.printException(() -> "changeShortsRepeatBehavior failure", ex);
         }
 
         return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isAutoPlay(@Nullable Enum<?> original) {
+        return ShortsLoopBehavior.SINGLE_PLAY.ytEnumValue == original;
     }
 }

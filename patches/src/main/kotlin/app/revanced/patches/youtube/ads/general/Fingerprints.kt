@@ -57,8 +57,6 @@ internal val showDialogCommandFingerprint = legacyFingerprint(
     name = "showDialogCommandFingerprint",
     returnType = "V",
     opcodes = listOf(
-        Opcode.IF_EQ,
-        Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET, // get dialog code
     ),

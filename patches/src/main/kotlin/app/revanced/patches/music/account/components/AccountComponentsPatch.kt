@@ -4,23 +4,27 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.music.utils.extension.Constants.ACCOUNT_CLASS_DESCRIPTOR
 import app.revanced.patches.music.utils.patch.PatchList.HIDE_ACCOUNT_COMPONENTS
+import app.revanced.patches.music.utils.resourceid.channelHandle
 import app.revanced.patches.music.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.music.utils.settings.CategoryType
 import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -84,17 +88,50 @@ val accountComponentsPatch = bytecodePatch(
         }
 
         // account switcher
-        namesInactiveAccountThumbnailSizeFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val targetIndex = it.patternMatch!!.startIndex
-                val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        val textViewField = with(
+            channelHandleFingerprint
+                .methodOrThrow(namesInactiveAccountThumbnailSizeFingerprint)
+        ) {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(channelHandle)
+            getInstruction(
+                indexOfFirstInstructionOrThrow(literalIndex) {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Landroid/widget/TextView;"
+                },
+            ).getReference<FieldReference>()
+        }
 
-                addInstructions(
-                    targetIndex, """
-                        invoke-static {v$targetRegister}, $ACCOUNT_CLASS_DESCRIPTOR->hideHandle(Z)Z
-                        move-result v$targetRegister
-                        """
-                )
+        namesInactiveAccountThumbnailSizeFingerprint.methodOrThrow().apply {
+            var hook = false
+
+            implementation!!.instructions
+                .withIndex()
+                .filter { (_, instruction) ->
+                    val reference =
+                        (instruction as? ReferenceInstruction)?.reference
+                    instruction.opcode == Opcode.IGET_OBJECT &&
+                            reference is FieldReference &&
+                            reference == textViewField
+                }
+                .map { (index, _) -> index }
+                .forEach { index ->
+                    val insertIndex = index - 1
+                    if (!hook && getInstruction(insertIndex).opcode == Opcode.IF_NEZ) {
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                        addInstructions(
+                            insertIndex, """
+                                invoke-static {v$insertRegister}, $ACCOUNT_CLASS_DESCRIPTOR->hideHandle(Z)Z
+                                move-result v$insertRegister
+                                """
+                        )
+                        hook = true
+                    }
+                }
+
+            if (!hook) {
+                throw PatchException("Could not find TextUtils.isEmpty() index")
             }
         }
 

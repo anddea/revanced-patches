@@ -29,10 +29,20 @@ public class PackageUtils extends Utils {
         }
     }
 
+    @Nullable
+    public static Integer getTargetSDKVersion(@NonNull String packageName) {
+        ApplicationInfo applicationInfo = getApplicationInfo(packageName);
+        if (applicationInfo != null) {
+            return applicationInfo.targetSdkVersion;
+        }
+
+        return null;
+    }
+
     public static boolean isPackageEnabled(@NonNull String packageName) {
-        try {
-            return getContext().getPackageManager().getApplicationInfo(packageName, 0).enabled;
-        } catch (PackageManager.NameNotFoundException ignored) {
+        ApplicationInfo applicationInfo = getApplicationInfo(packageName);
+        if (applicationInfo != null) {
+            return applicationInfo.enabled;
         }
 
         return false;
@@ -47,6 +57,16 @@ public class PackageUtils extends Utils {
     }
 
     // utils
+    @Nullable
+    private static ApplicationInfo getApplicationInfo(@NonNull String packageName) {
+        try {
+            return getContext().getPackageManager().getApplicationInfo(packageName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            Logger.printException(() -> "Failed to get application Info!" + e);
+        }
+        return null;
+    }
+
     @Nullable
     private static PackageInfo getPackageInfo() {
         try {

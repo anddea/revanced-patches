@@ -7,6 +7,20 @@ from pathlib import Path
 from config.settings import Settings
 
 logger = logging.getLogger("xml_tools")
+BLACKLIST: set[str] = {
+    # Not merged from RVX
+    "revanced_swipe_overlay_alternative_ui_summary_off",
+    "revanced_swipe_overlay_alternative_ui_summary_on",
+    "revanced_swipe_overlay_alternative_ui_title",
+    # Removed
+    "revanced_preference_category_po_token_visitor_data",
+    "revanced_spoof_streaming_data_po_token_summary",
+    "revanced_spoof_streaming_data_po_token_title",
+    "revanced_spoof_streaming_data_po_token_visitor_data_about_summary",
+    "revanced_spoof_streaming_data_po_token_visitor_data_about_title",
+    "revanced_spoof_streaming_data_visitor_data_summary",
+    "revanced_spoof_streaming_data_visitor_data_title",
+}
 
 
 def extract_keys(path: Path) -> set[str]:
@@ -50,7 +64,7 @@ def process(app: str, base_dir: Path) -> None:
     keys_2 = extract_keys(prefs_path_2)
 
     # Find missing keys
-    missing_keys = keys_1 - keys_2
+    missing_keys = keys_1 - keys_2 - BLACKLIST
 
     # Log results
     if missing_keys:

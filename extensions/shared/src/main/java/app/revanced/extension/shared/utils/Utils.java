@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -60,6 +61,7 @@ public class Utils {
     private static WeakReference<Activity> activityRef = new WeakReference<>(null);
     @SuppressLint("StaticFieldLeak")
     private static volatile Context context;
+    private static Locale contextLocale;
 
     protected Utils() {
     } // utility class
@@ -308,34 +310,51 @@ public class Utils {
      * @return Context with locale applied.
      */
     public static Context getLocalizedContext(Context mContext) {
-        Activity mActivity = activityRef.get();
-        if (mActivity == null) {
-            return mContext;
+        try {
+            Activity mActivity = activityRef.get();
+            if (mActivity != null && mContext != null) {
+                AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+
+                // Locale of Application.
+                Locale applicationLocale = language == AppLanguage.DEFAULT
+                        ? mActivity.getResources().getConfiguration().locale
+                        : language.getLocale();
+
+                // Locale of Context.
+                Locale contextLocale = mContext.getResources().getConfiguration().locale;
+
+                // If they are different, overrides the Locale of the Context and resource.
+                if (applicationLocale != contextLocale) {
+                    Utils.contextLocale = contextLocale;
+
+                    // If they are different, overrides the Locale of the Context and resource.
+                    Locale.setDefault(applicationLocale);
+                    Configuration configuration = new Configuration(mContext.getResources().getConfiguration());
+                    configuration.setLocale(applicationLocale);
+                    return mContext.createConfigurationContext(configuration);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "getLocalizedContext failed", ex);
         }
-        if (mContext == null) {
-            return null;
+
+        return mContext;
+    }
+
+    public static void resetLocalizedContext() {
+        try {
+            if (contextLocale != null) {
+                Locale.setDefault(contextLocale);
+                Context mContext = getContext();
+                if (mContext != null) {
+                    Configuration config = mContext.getResources().getConfiguration();
+                    config.setLocale(contextLocale);
+                    setContext(mContext.createConfigurationContext(config));
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "resetLocalizedContext failed", ex);
         }
-
-        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
-
-        // Locale of Application.
-        Locale applicationLocale = language == AppLanguage.DEFAULT
-                ? mActivity.getResources().getConfiguration().locale
-                : language.getLocale();
-
-        // Locale of Context.
-        Locale contextLocale = mContext.getResources().getConfiguration().locale;
-
-        // If they are identical, no need to override them.
-        if (applicationLocale == contextLocale) {
-            return mContext;
-        }
-
-        // If they are different, overrides the Locale of the Context and resource.
-        Locale.setDefault(applicationLocale);
-        Configuration configuration = new Configuration(mContext.getResources().getConfiguration());
-        configuration.setLocale(applicationLocale);
-        return mContext.createConfigurationContext(configuration);
     }
 
     public static void setActivity(Activity mainActivity) {
@@ -353,14 +372,6 @@ public class Utils {
         // Must initially set context to check the app language.
         context = appContext;
         Logger.initializationInfo(Utils.class, "Set context: " + appContext);
-
-        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
-        if (language != AppLanguage.DEFAULT) {
-            // Create a new context with the desired language.
-            Configuration config = appContext.getResources().getConfiguration();
-            config.setLocale(language.getLocale());
-            context = appContext.createConfigurationContext(config);
-        }
     }
 
     public static void setClipboard(@NonNull String text) {
@@ -538,14 +549,6 @@ public class Utils {
         return Build.VERSION.SDK_INT >= sdk;
     }
 
-    public static int dpToPx(float dp) {
-        if (context == null) {
-            return (int) dp;
-        } else {
-            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
-        }
-    }
-
     public static int dpToPx(int dp) {
         if (context == null) {
             return dp;
@@ -608,10 +611,10 @@ public class Utils {
      * <br>
      * Be aware the on start action can be called multiple times for some situations,
      * such as the user switching apps without dismissing the dialog then switching back to this app.
-     *<br>
+     * <br>
      * This method is only useful during app startup and multiple patches may show their own dialog,
      * and the most important dialog can be called last (using a delay) so it's always on top.
-     *<br>
+     * <br>
      * For all other situations it's better to not use this method and
      * call {@link AlertDialog#show()} on the dialog.
      */
@@ -929,5 +932,35 @@ public class Utils {
                 setPreferenceTitlesToMultiLineIfNeeded(subGroup);
             }
         }
+    }
+
+    /**
+     * @return zero, if the resource is not found
+     */
+    @SuppressLint("DiscouragedApi")
+    public static int getResourceIdentifier(@NonNull Context context, @NonNull String resourceIdentifierName, @NonNull String type) {
+        return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
+    }
+
+    /**
+     * @return zero, if the resource is not found
+     */
+    public static int getResourceIdentifier(@NonNull String resourceIdentifierName, @NonNull String type) {
+        return getResourceIdentifier(getContext(), resourceIdentifierName, type);
+    }
+
+    public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+        //noinspection deprecation
+        return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
+    }
+
+    /**
+     * Parse a color resource or hex code to an int representation of the color.
+     */
+    public static int getColorFromString(String colorString) throws IllegalArgumentException, Resources.NotFoundException {
+        if (colorString.startsWith("#")) {
+            return Color.parseColor(colorString);
+        }
+        return getResourceColor(colorString);
     }
 }

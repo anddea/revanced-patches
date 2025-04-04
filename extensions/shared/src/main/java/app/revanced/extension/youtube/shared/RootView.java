@@ -58,6 +58,10 @@ public final class RootView {
         return PlayerType.getCurrent().isMaximizedOrFullscreen() || isActionBarVisible.get();
     }
 
+    public static boolean isShortsActive() {
+        return ShortsPlayerState.getCurrent().isOpen();
+    }
+
     /**
      * Get current BrowseId.
      * Rest of the implementation added by patch.

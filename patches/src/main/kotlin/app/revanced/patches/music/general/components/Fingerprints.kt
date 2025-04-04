@@ -5,6 +5,7 @@ import app.revanced.patches.music.utils.resourceid.historyMenuItem
 import app.revanced.patches.music.utils.resourceid.musicTasteBuilderShelf
 import app.revanced.patches.music.utils.resourceid.offlineSettingsMenuItem
 import app.revanced.patches.music.utils.resourceid.playerOverlayChip
+import app.revanced.patches.music.utils.resourceid.searchButton
 import app.revanced.patches.music.utils.resourceid.toolTipContentView
 import app.revanced.patches.music.utils.resourceid.topBarMenuItemImageView
 import app.revanced.util.fingerprint.legacyFingerprint
@@ -115,6 +116,17 @@ internal val preferenceScreenFingerprint = legacyFingerprint(
     customFingerprint = { method, _ ->
         method.definingClass == "Lcom/google/android/apps/youtube/music/settings/fragment/SettingsHeadersFragment;" &&
                 method.name == "onCreatePreferences"
+    }
+)
+
+internal val searchActionViewFingerprint = legacyFingerprint(
+    name = "searchActionViewFingerprint",
+    returnType = "Landroid/view/View;",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    literals = listOf(searchButton),
+    customFingerprint = { _, classDef ->
+        classDef.type.endsWith("/SearchActionProvider;")
     }
 )
 

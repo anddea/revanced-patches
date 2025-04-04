@@ -86,7 +86,7 @@ internal val appCompatToolbarBackButtonFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/graphics/drawable/Drawable;",
     parameters = emptyList(),
-    customFingerprint =  { _, classDef ->
+    customFingerprint = { _, classDef ->
         classDef.type == "Landroid/support/v7/widget/Toolbar;"
     },
 )

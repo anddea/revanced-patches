@@ -8,6 +8,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val adPostFingerprint = legacyFingerprint(
     name = "adPostFingerprint",
@@ -46,6 +47,20 @@ internal val commentAdDetailListHeaderViewFingerprint = legacyFingerprint(
     strings = listOf("ad"),
     customFingerprint = { _, classDef ->
         classDef.type.endsWith("/DetailListHeaderView;")
+    },
+)
+
+internal val commentsViewModelFingerprint = legacyFingerprint(
+    name = "commentsViewModelFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L", "Z", "L", "I"),
+    customFingerprint = { method, classDef ->
+        classDef.superclass == "Lcom/reddit/screen/presentation/CompositionViewModel;" &&
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.NEW_INSTANCE &&
+                            getReference<TypeReference>()?.type?.startsWith("Lcom/reddit/postdetail/comment/refactor/CommentsViewModel\$LoadAdsSeparately\$") == true
+                } >= 0
     },
 )
 

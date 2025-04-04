@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.youtube.patches.utils.PlaylistPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
 
 @SuppressWarnings("unused")
@@ -19,7 +21,14 @@ public class ExternalDownload extends BottomControlButton {
                 bottomControlsViewGroup,
                 "external_download_button",
                 Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER,
-                view -> VideoUtils.launchVideoExternalDownloader(),
+                view -> {
+                    if (Settings.OVERLAY_BUTTON_EXTERNAL_DOWNLOADER_QUEUE_MANAGER.get()) {
+                        PlaylistPatch.setContext(view.getContext());
+                        PlaylistPatch.prepareDialogBuilder(VideoInformation.getVideoId());
+                    } else {
+                        VideoUtils.launchVideoExternalDownloader();
+                    }
+                },
                 view -> {
                     VideoUtils.launchLongPressVideoExternalDownloader();
                     return true;

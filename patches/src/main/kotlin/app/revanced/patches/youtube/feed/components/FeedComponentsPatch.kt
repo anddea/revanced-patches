@@ -262,8 +262,10 @@ val feedComponentsPatch = bytecodePatch(
                 val insertIndex = indexOfBufferParserInstruction(this)
 
                 if (is_19_46_or_greater) {
-                    val objectIndex = indexOfFirstInstructionReversedOrThrow(insertIndex,  Opcode.IGET_OBJECT)
-                    val objectRegister = getInstruction<TwoRegisterInstruction>(objectIndex).registerA
+                    val objectIndex =
+                        indexOfFirstInstructionReversedOrThrow(insertIndex, Opcode.IGET_OBJECT)
+                    val objectRegister =
+                        getInstruction<TwoRegisterInstruction>(objectIndex).registerA
 
                     addInstructionsWithLabels(
                         insertIndex, """
@@ -275,7 +277,8 @@ val feedComponentsPatch = bytecodePatch(
                     )
                 } else {
                     val objectIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT)
-                    val objectRegister = getInstruction<TwoRegisterInstruction>(objectIndex).registerA
+                    val objectRegister =
+                        getInstruction<TwoRegisterInstruction>(objectIndex).registerA
                     val jumpIndex = it.patternMatch!!.startIndex
 
                     addInstructionsWithLabels(

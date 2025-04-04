@@ -2,8 +2,10 @@ package app.revanced.extension.music.patches.misc.requests
 
 import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.YouTubeAppClient
-import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
+import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_PLAYLIST_PAGE
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.settings.AppLanguage
 import app.revanced.extension.shared.utils.Logger
@@ -136,10 +138,11 @@ class PlaylistRequest private constructor(
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
-                    PlayerRoutes.GET_PLAYLIST_PAGE,
+                val connection = getInnerTubeResponseConnectionFromRoute(
+                    GET_PLAYLIST_PAGE,
                     clientType
                 )
+
                 /**
                  * For some reason, the tracks in Top Songs have the playlistId of the album:
                  * [ReVanced_Extended#2835](https://github.com/inotia00/ReVanced_Extended/issues/2835)
@@ -152,7 +155,7 @@ class PlaylistRequest private constructor(
                  * So we can work around this by setting the language to English when sending the request.
                  */
                 val requestBody =
-                    PlayerRoutes.createApplicationRequestBody(
+                    createApplicationRequestBody(
                         clientType = clientType,
                         videoId = videoId,
                         playlistId = playlistId,

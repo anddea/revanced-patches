@@ -1,8 +1,10 @@
 package app.revanced.extension.youtube.patches.player.requests
 
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.YouTubeAppClient
-import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
+import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_VIDEO_ACTION_BUTTON
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
@@ -20,10 +22,10 @@ import java.util.concurrent.TimeoutException
 
 class ActionButtonRequest private constructor(
     private val videoId: String,
-    private val playerHeaders: Map<String, String>,
+    private val requestHeader: Map<String, String>,
 ) {
     private val future: Future<Array<ActionButton>> = Utils.submitOnBackgroundThread {
-        fetch(videoId, playerHeaders)
+        fetch(videoId, requestHeader)
     }
 
     val array: Array<ActionButton>
@@ -52,14 +54,6 @@ class ActionButtonRequest private constructor(
         }
 
     companion object {
-        /**
-         * TCP connection and HTTP read timeout.
-         */
-        private const val HTTP_TIMEOUT_MILLISECONDS = 10 * 1000
-
-        /**
-         * Any arbitrarily large value, but must be at least twice [HTTP_TIMEOUT_MILLISECONDS]
-         */
         private const val MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000
 
         @GuardedBy("itself")
@@ -73,11 +67,11 @@ class ActionButtonRequest private constructor(
             })
 
         @JvmStatic
-        fun fetchRequestIfNeeded(videoId: String, playerHeaders: Map<String, String>) {
+        fun fetchRequestIfNeeded(videoId: String, requestHeader: Map<String, String>) {
             Objects.requireNonNull(videoId)
             synchronized(cache) {
                 if (!cache.containsKey(videoId)) {
-                    cache[videoId] = ActionButtonRequest(videoId, playerHeaders)
+                    cache[videoId] = ActionButtonRequest(videoId, requestHeader)
                 }
             }
         }
@@ -93,43 +87,28 @@ class ActionButtonRequest private constructor(
             Logger.printInfo({ toastMessage }, ex)
         }
 
-        private val REQUEST_HEADER_KEYS = arrayOf(
-            "Authorization",  // Available only to logged-in users.
-            "X-GOOG-API-FORMAT-VERSION",
-            "X-Goog-Visitor-Id"
-        )
-
-        private fun sendRequest(videoId: String, playerHeaders: Map<String, String>): JSONObject? {
+        private fun sendRequest(videoId: String, requestHeader: Map<String, String>): JSONObject? {
             Objects.requireNonNull(videoId)
 
             val startTime = System.currentTimeMillis()
-            // '/next' request does not require PoToken.
+            // '/next' endpoint does not require PoToken.
             val clientType = YouTubeAppClient.ClientType.ANDROID
             val clientTypeName = clientType.name
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
-                    PlayerRoutes.GET_VIDEO_ACTION_BUTTON,
-                    clientType
-                )
-                connection.connectTimeout = HTTP_TIMEOUT_MILLISECONDS
-                connection.readTimeout = HTTP_TIMEOUT_MILLISECONDS
-
                 // Since [THANKS] button and [CLIP] button are shown only with the logged in,
                 // Set the [Authorization] field to property to get the correct action buttons.
-                for (key in REQUEST_HEADER_KEYS) {
-                    var value = playerHeaders[key]
-                    if (value != null) {
-                        connection.setRequestProperty(key, value)
-                    }
-                }
+                val connection = getInnerTubeResponseConnectionFromRoute(
+                    GET_VIDEO_ACTION_BUTTON,
+                    clientType,
+                    requestHeader,
+                )
 
-                val requestBody =
-                    PlayerRoutes.createApplicationRequestBody(
-                        clientType = clientType,
-                        videoId = videoId
-                    )
+                val requestBody = createApplicationRequestBody(
+                    clientType = clientType,
+                    videoId = videoId
+                )
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)
@@ -214,8 +193,11 @@ class ActionButtonRequest private constructor(
             return emptyArray()
         }
 
-        private fun fetch(videoId: String, playerHeaders: Map<String, String>): Array<ActionButton> {
-            val json = sendRequest(videoId, playerHeaders)
+        private fun fetch(
+            videoId: String,
+            requestHeader: Map<String, String>
+        ): Array<ActionButton> {
+            val json = sendRequest(videoId, requestHeader)
             if (json != null) {
                 return parseResponse(json)
             }

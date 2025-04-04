@@ -1,6 +1,7 @@
-package app.revanced.extension.shared.patches.client
+package app.revanced.extension.shared.innertube.client
 
 import android.os.Build
+import app.revanced.extension.shared.patches.PatchStatus
 import app.revanced.extension.shared.settings.BaseSettings
 import app.revanced.extension.shared.utils.PackageUtils
 import org.apache.commons.lang3.ArrayUtils
@@ -212,8 +213,15 @@ object YouTubeAppClient {
         return BaseSettings.SPOOF_STREAMING_DATA_IOS_FORCE_AVC.get()
     }
 
+    private fun useIOS(): Boolean {
+        return PatchStatus.SpoofStreamingDataIOS() && BaseSettings.SPOOF_STREAMING_DATA_TYPE_IOS.get()
+    }
+
     fun availableClientTypes(preferredClient: ClientType): Array<ClientType> {
-        val availableClientTypes = ClientType.CLIENT_ORDER_TO_USE_YOUTUBE
+        val availableClientTypes = if (useIOS())
+            ClientType.CLIENT_ORDER_TO_USE_IOS
+        else
+            ClientType.CLIENT_ORDER_TO_USE
 
         if (ArrayUtils.contains(availableClientTypes, preferredClient)) {
             val clientToUse: Array<ClientType?> = arrayOfNulls(availableClientTypes.size)
@@ -230,7 +238,7 @@ object YouTubeAppClient {
         }
     }
 
-    @Suppress("DEPRECATION")
+    @Suppress("DEPRECATION", "unused")
     enum class ClientType(
         /**
          * [YouTube client type](https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients)
@@ -278,10 +286,6 @@ object YouTubeAppClient {
          * If true, 'Authorization' must be included.
          */
         val requireAuth: Boolean = false,
-        /**
-         * Whether a poToken is required to get playback for more than 1 minute.
-         */
-        val requirePoToken: Boolean = false,
         /**
          * Client name for innertube body.
          */
@@ -363,7 +367,7 @@ object YouTubeAppClient {
             else
                 "iOS TV"
         ),
-        IOS(
+        IOS_DEPRECATED(
             id = 5,
             deviceMake = DEVICE_MAKE_IOS,
             deviceModel = DEVICE_MODEL_IOS,
@@ -372,7 +376,6 @@ object YouTubeAppClient {
             userAgent = USER_AGENT_IOS,
             clientVersion = CLIENT_VERSION_IOS,
             supportsCookies = false,
-            requirePoToken = true,
             clientName = "IOS",
             friendlyName = if (forceAVC())
                 "iOS Force AVC"
@@ -381,12 +384,20 @@ object YouTubeAppClient {
         );
 
         companion object {
-            val CLIENT_ORDER_TO_USE_YOUTUBE: Array<ClientType> = arrayOf(
+            val CLIENT_ORDER_TO_USE: Array<ClientType> = arrayOf(
                 ANDROID_VR_NO_AUTH,
                 ANDROID_UNPLUGGED,
                 ANDROID_CREATOR,
                 IOS_UNPLUGGED,
-                IOS,
+                ANDROID_VR,
+            )
+
+            val CLIENT_ORDER_TO_USE_IOS: Array<ClientType> = arrayOf(
+                ANDROID_VR_NO_AUTH,
+                ANDROID_UNPLUGGED,
+                ANDROID_CREATOR,
+                IOS_UNPLUGGED,
+                IOS_DEPRECATED,
                 ANDROID_VR,
             )
         }

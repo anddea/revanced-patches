@@ -80,7 +80,8 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
         bottomUiContainerThemeFingerprint.matchOrThrow().let {
             it.method.apply {
                 val darkThemeIndex = it.patternMatch!!.startIndex + 2
-                val darkThemeReference = getInstruction<ReferenceInstruction>(darkThemeIndex).reference.toString()
+                val darkThemeReference =
+                    getInstruction<ReferenceInstruction>(darkThemeIndex).reference.toString()
 
                 implementation!!.instructions
                     .withIndex()
@@ -91,7 +92,8 @@ private val snackBarComponentsBytecodePatch = bytecodePatch(
                     .map { (index, _) -> index }
                     .reversed()
                     .forEach { index ->
-                        val appThemeIndex = indexOfFirstInstructionReversedOrThrow(index, Opcode.MOVE_RESULT_OBJECT)
+                        val appThemeIndex =
+                            indexOfFirstInstructionReversedOrThrow(index, Opcode.MOVE_RESULT_OBJECT)
                         val appThemeRegister =
                             getInstruction<OneRegisterInstruction>(appThemeIndex).registerA
                         val darkThemeRegister =

@@ -30,7 +30,6 @@ import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
 import app.revanced.util.getReference
@@ -212,14 +211,17 @@ val swipeControlsPatch = bytecodePatch(
 
         // region patch for disable swipe to enter fullscreen mode (in the player) and disable swipe to exit fullscreen mode
 
-        playerGestureConfigSyntheticFingerprint.matchOrThrow().let {
-            val endIndex = it.patternMatch!!.endIndex
+        playerGestureConfigSyntheticFingerprint.methodOrThrow().apply {
+            val disableSwipeToExitFullscreenModeIndex =
+                indexOfPlayerConfigModelBooleanInstruction(this)
+            val disableSwipeToEnterFullscreenModeInThePlayerIndex =
+                indexOfPlayerConfigModelBooleanInstruction(this, disableSwipeToExitFullscreenModeIndex + 1)
 
             mapOf(
-                3 to "disableSwipeToEnterFullscreenModeInThePlayer",
-                9 to "disableSwipeToExitFullscreenMode"
-            ).forEach { (offSet, methodName) ->
-                it.getWalkerMethod(endIndex - offSet).apply {
+                disableSwipeToExitFullscreenModeIndex to "disableSwipeToExitFullscreenMode",
+                disableSwipeToEnterFullscreenModeInThePlayerIndex to "disableSwipeToEnterFullscreenModeInThePlayer"
+            ).forEach { (walkerIndex, methodName) ->
+                getWalkerMethod(walkerIndex).apply {
                     val index = implementation!!.instructions.lastIndex
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 

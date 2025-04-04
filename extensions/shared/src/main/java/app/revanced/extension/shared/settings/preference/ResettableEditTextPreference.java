@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
 import app.revanced.extension.shared.settings.Setting;
@@ -18,6 +20,12 @@ import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ResettableEditTextPreference extends EditTextPreference {
+
+    /**
+     * Setting to reset.
+     */
+    @Nullable
+    private Setting<?> setting;
 
     public ResettableEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -35,6 +43,10 @@ public class ResettableEditTextPreference extends EditTextPreference {
         super(context);
     }
 
+    public void setSetting(@Nullable Setting<?> setting) {
+        this.setting = setting;
+    }
+
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         Utils.setEditTextDialogTheme(builder);
@@ -44,7 +56,12 @@ public class ResettableEditTextPreference extends EditTextPreference {
         if (title != null) {
             builder.setTitle(getTitle());
         }
-        final Setting<?> setting = Setting.getSettingFromPath(getKey());
+        if (setting == null) {
+            String key = getKey();
+            if (key != null) {
+                setting = Setting.getSettingFromPath(key);
+            }
+        }
         if (setting != null) {
             builder.setNeutralButton(str("revanced_extended_settings_reset"), null);
         }
@@ -65,8 +82,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
         }
         button.setOnClickListener(v -> {
             try {
-                Setting<?> setting = Objects.requireNonNull(Setting.getSettingFromPath(getKey()));
-                String defaultStringValue = setting.defaultValue.toString();
+                String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
                 EditText editText = getEditText();
                 editText.setText(defaultStringValue);
                 editText.setSelection(defaultStringValue.length()); // move cursor to end of text

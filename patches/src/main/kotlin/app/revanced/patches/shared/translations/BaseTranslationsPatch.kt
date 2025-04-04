@@ -147,7 +147,8 @@ fun ResourcePatchContext.baseTranslationsPatch(
                     val length = text.length
                     if (!text.endsWith("DEFAULT") &&
                         length >= 2 &&
-                        text.subSequence(length - 2, length) !in filteredAppLanguages) {
+                        text.subSequence(length - 2, length) !in filteredAppLanguages
+                    ) {
                         nodesToRemove.add(item)
                     }
                 }

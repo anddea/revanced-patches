@@ -2,9 +2,12 @@ package app.revanced.patches.youtube.video.playback
 
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val av1CodecFingerprint = legacyFingerprint(
     name = "av1CodecFingerprint",
@@ -15,29 +18,6 @@ internal val av1CodecFingerprint = legacyFingerprint(
         method.returnType != "Ljava/util/List;" &&
                 method.containsLiteralInstruction(1987076931L)
     }
-)
-
-internal val byteBufferArrayFingerprint = legacyFingerprint(
-    name = "byteBufferArrayFingerprint",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "I",
-    parameters = emptyList(),
-    opcodes = listOf(
-        Opcode.SHL_INT_LIT8,
-        Opcode.SHL_INT_LIT8,
-        Opcode.OR_INT_2ADDR,
-        Opcode.SHL_INT_LIT8,
-        Opcode.OR_INT_2ADDR,
-        Opcode.OR_INT_2ADDR,
-        Opcode.RETURN
-    )
-)
-
-internal val byteBufferArrayParentFingerprint = legacyFingerprint(
-    name = "byteBufferArrayParentFingerprint",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    returnType = "C",
-    parameters = listOf("Ljava/nio/charset/Charset;", "[C")
 )
 
 internal val deviceDimensionsModelToStringFingerprint = legacyFingerprint(
@@ -61,27 +41,37 @@ internal val playbackSpeedChangedFromRecyclerViewFingerprint = legacyFingerprint
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IGET,
         Opcode.INVOKE_VIRTUAL
+    ),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.IGET &&
+                    getReference<FieldReference>()?.type == "F"
+        } >= 0
+    }
+)
+
+internal val loadVideoParamsFingerprint = legacyFingerprint(
+    name = "loadVideoParamsFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT,
+        Opcode.IPUT,
+        Opcode.INVOKE_INTERFACE,
     )
 )
 
-internal val playbackSpeedInitializeFingerprint = legacyFingerprint(
-    name = "playbackSpeedInitializeFingerprint",
-    returnType = "F",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
-        Opcode.IGET,
-        Opcode.RETURN
-    )
+internal val loadVideoParamsParentFingerprint = legacyFingerprint(
+    name = "loadVideoParamsParentFingerprint",
+    returnType = "Z",
+    parameters = listOf("J"),
+    strings = listOf("LoadVideoParams.playerListener = null")
 )
 
 internal val qualityChangedFromRecyclerViewFingerprint = legacyFingerprint(

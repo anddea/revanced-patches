@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -74,6 +75,7 @@ val overlayButtonsPatch = resourcePatch(
         cfBottomUIPatch,
         pipStateHookPatch,
         playerControlsPatch,
+        playlistPatch,
         sharedResourceIdPatch,
         settingsPatch,
     )
@@ -254,7 +256,8 @@ val overlayButtonsPatch = resourcePatch(
                             width != "0.0dip",
                         )
 
-                        val isButton = id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
+                        val isButton =
+                            id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
 
                         // Adjust TimeBar and Chapter bottom padding
                         val timBarItem = mutableMapOf(
@@ -284,7 +287,10 @@ val overlayButtonsPatch = resourcePatch(
                         if (id.equals("@+id/bottom_margin")) {
                             node.setAttribute("android:layout_height", marginBottom)
                         } else if (id.equals("@id/time_bar_reference_view")) {
-                            node.setAttribute("yt:layout_constraintBottom_toTopOf", "@id/quick_actions_container")
+                            node.setAttribute(
+                                "yt:layout_constraintBottom_toTopOf",
+                                "@id/quick_actions_container"
+                            )
                         }
                     }
                 }

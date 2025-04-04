@@ -62,7 +62,7 @@ fun baseAdsPatch(
                 )
         }
 
-        val getAdvertisingIdMethod = with (advertisingIdFingerprint.methodOrThrow()) {
+        val getAdvertisingIdMethod = with(advertisingIdFingerprint.methodOrThrow()) {
             val getAdvertisingIdIndex = indexOfGetAdvertisingIdInstruction(this)
             getWalkerMethod(getAdvertisingIdIndex)
         }

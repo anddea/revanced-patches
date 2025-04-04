@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.accountSwitcherAccessibility
 import app.revanced.patches.youtube.utils.resourceid.fab
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
+import app.revanced.patches.youtube.utils.resourceid.ytCallToAction
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
@@ -102,6 +103,7 @@ val layoutComponentsPatch = bytecodePatch(
                 "$GENERAL_CLASS_DESCRIPTOR->disableTranslucentStatusBar(Z)Z"
             )
 
+            settingArray += "PREFERENCE_CATEGORY: GENERAL_EXPERIMENTAL_FLAGS"
             settingArray += "SETTINGS: DISABLE_TRANSLUCENT_STATUS_BAR"
         }
 
@@ -122,17 +124,19 @@ val layoutComponentsPatch = bytecodePatch(
         // region patch for hide account menu
 
         // for you tab
-        accountListFingerprint.matchOrThrow(accountListParentFingerprint).let {
-            it.method.apply {
-                val targetIndex = it.patternMatch!!.startIndex + 3
-                val targetInstruction = getInstruction<FiveRegisterInstruction>(targetIndex)
-
-                addInstruction(
-                    targetIndex,
-                    "invoke-static {v${targetInstruction.registerC}, v${targetInstruction.registerD}}, " +
-                            "$GENERAL_CLASS_DESCRIPTOR->hideAccountList(Landroid/view/View;Ljava/lang/CharSequence;)V"
-                )
+        accountListFingerprint.methodOrThrow(accountListParentFingerprint).apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(ytCallToAction)
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.name == "setText"
             }
+            val targetInstruction = getInstruction<FiveRegisterInstruction>(targetIndex)
+
+            addInstruction(
+                targetIndex,
+                "invoke-static {v${targetInstruction.registerC}, v${targetInstruction.registerD}}, " +
+                        "$GENERAL_CLASS_DESCRIPTOR->hideAccountList(Landroid/view/View;Ljava/lang/CharSequence;)V"
+            )
         }
 
         // for tablet and old clients

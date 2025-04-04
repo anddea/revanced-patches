@@ -1,29 +1,19 @@
 package app.revanced.patches.youtube.layout.branding.icon
 
-import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
-import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.updatePatchStatusIcon
-import app.revanced.patches.youtube.utils.settings.getBytecodeContext
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.*
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.copyAdaptiveIcon
-import app.revanced.util.copyFile
-import app.revanced.util.copyResources
-import app.revanced.util.getResourceGroup
-import app.revanced.util.underBarOrThrow
-import app.revanced.util.updatePatchStatus
-import app.revanced.util.valueOrThrow
 import org.w3c.dom.Element
 
 private const val ADAPTIVE_ICON_BACKGROUND_FILE_NAME =
@@ -105,7 +95,8 @@ private val splashIconResourceGroups =
 private val oldSplashAnimationResourceGroups =
     listOf("drawable").getResourceGroup(oldSplashAnimationResourceFileNames)
 
-val customBrandingIconPatch: ResourcePatch = resourcePatch(
+@Suppress("unused")
+val customBrandingIconPatch = resourcePatch(
     CUSTOM_BRANDING_ICON_FOR_YOUTUBE.title,
     CUSTOM_BRANDING_ICON_FOR_YOUTUBE.summary,
     false,
@@ -509,16 +500,10 @@ val customBrandingIconPatch: ResourcePatch = resourcePatch(
                         }
                     }
                 }
-
-                getBytecodeContext().apply {
-                    updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "OldSplashAnimation")
-                }
             }
 
             updatePatchStatusIcon(appIcon)
         }
-
-        CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included = true
 
         // region fix app icon
 

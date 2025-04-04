@@ -22,7 +22,6 @@ import app.revanced.patches.music.utils.settings.ResourceUtils.updatePatchStatus
 import app.revanced.patches.music.utils.settings.addPreferenceWithIntent
 import app.revanced.patches.music.utils.settings.addSwitchPreference
 import app.revanced.patches.music.utils.settings.settingsPatch
-import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.patches.shared.createPlayerRequestBodyWithModelFingerprint
 import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.extension.Constants.PATCHES_PATH
@@ -31,6 +30,7 @@ import app.revanced.patches.shared.indexOfBrandInstruction
 import app.revanced.patches.shared.indexOfManufacturerInstruction
 import app.revanced.patches.shared.indexOfModelInstruction
 import app.revanced.patches.shared.indexOfReleaseInstruction
+import app.revanced.patches.shared.spoof.blockrequest.blockRequestPatch
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
@@ -63,9 +63,11 @@ private const val CLIENT_INFO_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val spoofClientPatch = bytecodePatch(
-    SPOOF_CLIENT.title,
-    SPOOF_CLIENT.summary,
-    false,
+    // Removed from the patch list to avoid user confusion:
+    // https://github.com/inotia00/ReVanced_Extended/issues/2832#issuecomment-2745941171
+    // SPOOF_CLIENT.title,
+    // SPOOF_CLIENT.summary,
+    // false,
 ) {
     compatibleWith(COMPATIBLE_PACKAGE)
 

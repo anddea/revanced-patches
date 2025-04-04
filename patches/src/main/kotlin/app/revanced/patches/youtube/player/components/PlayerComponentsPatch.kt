@@ -24,12 +24,15 @@ import app.revanced.patches.youtube.utils.engagement.engagementPanelIdRegister
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
+import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.suggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.utils.playservice.is_19_18_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_03_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_20_05_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_12_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.darkBackground
 import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
@@ -45,23 +48,27 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
 import app.revanced.util.Utils.printWarn
 import app.revanced.util.findMethodOrThrow
+import app.revanced.util.findMutableMethodOf
 import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.fingerprint.resolvable
 import app.revanced.util.getReference
 import app.revanced.util.getWalkerMethod
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.or
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -70,7 +77,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private val speedOverlayPatch = bytecodePatch(
     description = "speedOverlayPatch"
 ) {
-    dependsOn(sharedResourceIdPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        sharedResourceIdPatch,
+        versionCheckPatch,
+    )
 
     execute {
         fun MutableMethod.hookSpeedOverlay(
@@ -87,11 +98,19 @@ private val speedOverlayPatch = bytecodePatch(
             )
         }
 
-        val resolvable = restoreSlideToSeekBehaviorFingerprint.resolvable() &&
-                speedOverlayFingerprint.resolvable() &&
-                speedOverlayFloatValueFingerprint.resolvable()
+        fun MutableMethod.hookRelativeSpeedValue(startIndex: Int) {
+            val relativeIndex = indexOfFirstInstructionOrThrow(startIndex, Opcode.CMPL_FLOAT)
+            val relativeRegister = getInstruction<ThreeRegisterInstruction>(relativeIndex).registerB
 
-        if (resolvable) {
+            addInstructions(
+                relativeIndex, """
+                    invoke-static {v$relativeRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayRelativeValue(F)F
+                    move-result v$relativeRegister
+                    """
+            )
+        }
+
+        if (!is_19_18_or_greater) {
             // Used on YouTube 18.29.38 ~ YouTube 19.17.41
 
             // region patch for Disable speed overlay (Enable slide to seek)
@@ -110,17 +129,53 @@ private val speedOverlayPatch = bytecodePatch(
 
             // region patch for Custom speed overlay float value
 
-            speedOverlayFloatValueFingerprint.matchOrThrow().let {
-                it.method.apply {
-                    val index = it.patternMatch!!.startIndex
-                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+            val speedFieldReference = with(speedOverlayFloatValueFingerprint.methodOrThrow()) {
+                val literalIndex =
+                    indexOfFirstLiteralInstructionOrThrow(SPEED_OVERLAY_LEGACY_FEATURE_FLAG)
+                val floatIndex =
+                    indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
+                val floatRegister = getInstruction<TwoRegisterInstruction>(floatIndex).registerA
 
-                    addInstructions(
-                        index + 1, """
-                        invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
-                        move-result v$register
+                addInstructions(
+                    floatIndex + 1, """
+                        invoke-static {v$floatRegister}, $PLAYER_CLASS_DESCRIPTOR->speedOverlayValue(F)F
+                        move-result v$floatRegister
                         """
-                    )
+                )
+
+                val speedFieldIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                    opcode == Opcode.IPUT &&
+                            getReference<FieldReference>()?.type == "F"
+                }
+
+                getInstruction<ReferenceInstruction>(speedFieldIndex).reference.toString()
+            }
+
+            fun indexOfFirstSpeedFieldInstruction(method: Method) =
+                method.indexOfFirstInstruction {
+                    opcode == Opcode.IGET &&
+                            getReference<FieldReference>()?.toString() == speedFieldReference
+                }
+
+            val isSyntheticMethod: Method.() -> Boolean = {
+                name == "run" &&
+                        accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                        parameterTypes.isEmpty() &&
+                        indexOfFirstSpeedFieldInstruction(this) >= 0 &&
+                        indexOfFirstInstruction(Opcode.CMPL_FLOAT) >= 0
+            }
+
+            classes.forEach { classDef ->
+                classDef.methods.forEach { method ->
+                    if (method.isSyntheticMethod()) {
+                        proxy(classDef)
+                            .mutableClass
+                            .findMutableMethodOf(method)
+                            .apply {
+                                val speedFieldIndex = indexOfFirstSpeedFieldInstruction(this)
+                                hookRelativeSpeedValue(speedFieldIndex)
+                            }
+                    }
                 }
             }
 
@@ -241,6 +296,8 @@ private val speedOverlayPatch = bytecodePatch(
                         move-result v$speedOverlayFloatValueRegister
                         """
                 )
+
+                hookRelativeSpeedValue(speedOverlayFloatValueIndex)
             }
 
             // Removed in YouTube 20.03+
@@ -343,18 +400,6 @@ val playerComponentsPatch = bytecodePatch(
                 return "const/16 v$constRegister, $constValue"
             }
             return ""
-        }
-
-        fun MutableMethod.hookFilmstripOverlay() {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay()Z
-                    move-result v0
-                    if-eqz v0, :shown
-                    const/4 v0, 0x0
-                    return v0
-                    """, ExternalLabel("shown", getInstruction(0))
-            )
         }
 
         // region patch for custom player overlay opacity
@@ -527,16 +572,76 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for hide filmstrip overlay
 
-        arrayOf(
-            filmStripOverlayConfigFingerprint,
-            filmStripOverlayInteractionFingerprint,
-            filmStripOverlayPreviewFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.methodOrThrow(filmStripOverlayParentFingerprint).hookFilmstripOverlay()
+        fun MutableMethod.hookFilmstripOverlay(
+            index: Int = 0,
+            register: Int = 0
+        ) {
+            val stringInstructions = if (returnType == "Z")
+                """
+                    const/4 v$register, 0x0
+                    return v$register
+                """
+            else if (returnType == "V")
+                """
+                    return-void
+                """
+            else
+                throw Exception("This case should never happen.")
+
+            addInstructionsWithLabels(
+                index, """
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay()Z
+                    move-result v$register
+                    if-eqz v$register, :shown
+                    """ + stringInstructions + """
+                        :shown
+                        nop
+                    """
+            )
         }
 
-        // Removed in YouTube 20.05+
-        if (!is_20_05_or_greater) {
+        val filmStripOverlayFingerprints = mutableListOf(
+            filmStripOverlayInteractionFingerprint,
+            filmStripOverlayPreviewFingerprint
+        )
+
+        if (is_20_12_or_greater) {
+            filmStripOverlayMotionEventPrimaryFingerprint.matchOrThrow(
+                filmStripOverlayStartParentFingerprint
+            ).let {
+                it.method.apply {
+                    val index = it.patternMatch!!.startIndex
+                    val register = getInstruction<TwoRegisterInstruction>(index).registerA
+
+                    hookFilmstripOverlay(index, register)
+                }
+            }
+
+            filmStripOverlayMotionEventSecondaryFingerprint.matchOrThrow(
+                filmStripOverlayStartParentFingerprint
+            ).let {
+                it.method.apply {
+                    val index = it.patternMatch!!.startIndex + 2
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructions(
+                        index, """
+                            invoke-static {v$register}, $PLAYER_CLASS_DESCRIPTOR->hideFilmstripOverlay(Z)Z
+                            move-result v$register
+                            """
+                    )
+                }
+            }
+        } else {
+            filmStripOverlayFingerprints += filmStripOverlayConfigFingerprint
+        }
+
+        filmStripOverlayFingerprints.forEach { fingerprint ->
+            fingerprint.methodOrThrow(filmStripOverlayEnterParentFingerprint).hookFilmstripOverlay()
+        }
+
+        // Removed in YouTube 20.03+
+        if (!is_20_03_or_greater) {
             youtubeControlsOverlayFingerprint.methodOrThrow().apply {
                 val constIndex = indexOfFirstLiteralInstructionOrThrow(fadeDurationFast)
                 val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
@@ -564,7 +669,7 @@ val playerComponentsPatch = bytecodePatch(
                 )
                 removeInstruction(insertIndex)
             }
-        } else {
+        } else if (is_20_05_or_greater) {
             // This is a new film strip overlay added to YouTube 20.05+
             // Disabling this flag is not related to the operation of the patch.
             filmStripOverlayConfigV2Fingerprint.injectLiteralInstructionBooleanCall(
