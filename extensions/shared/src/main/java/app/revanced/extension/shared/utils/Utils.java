@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -931,5 +932,35 @@ public class Utils {
                 setPreferenceTitlesToMultiLineIfNeeded(subGroup);
             }
         }
+    }
+
+    /**
+     * @return zero, if the resource is not found
+     */
+    @SuppressLint("DiscouragedApi")
+    public static int getResourceIdentifier(@NonNull Context context, @NonNull String resourceIdentifierName, @NonNull String type) {
+        return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
+    }
+
+    /**
+     * @return zero, if the resource is not found
+     */
+    public static int getResourceIdentifier(@NonNull String resourceIdentifierName, @NonNull String type) {
+        return getResourceIdentifier(getContext(), resourceIdentifierName, type);
+    }
+
+    public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+        //noinspection deprecation
+        return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
+    }
+
+    /**
+     * Parse a color resource or hex code to an int representation of the color.
+     */
+    public static int getColorFromString(String colorString) throws IllegalArgumentException, Resources.NotFoundException {
+        if (colorString.startsWith("#")) {
+            return Color.parseColor(colorString);
+        }
+        return getResourceColor(colorString);
     }
 }
