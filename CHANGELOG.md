@@ -1,3 +1,16 @@
+# [3.6.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.6...v3.6.0-dev.7) (2025-04-04)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Override more color resources ([0af8762](https://github.com/anddea/revanced-patches/commit/0af8762d14c3ee75b508c56ebd3f00782f9a7901))
+
+
+### Features
+
+* **GmsCore support:** Add `Patch all manifest components` patch option ([203a22f](https://github.com/anddea/revanced-patches/commit/203a22f06b33262fb73f0be6576cd420157da64f))
+* **YouTube - Swipe controls:** Add `Switch speed and seek gestures` setting ([71c8b5b](https://github.com/anddea/revanced-patches/commit/71c8b5b444b2cedb66c38be36da30ea2a1dd197a))
+
 # [3.6.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.5...v3.6.0-dev.6) (2025-03-31)
 
 
