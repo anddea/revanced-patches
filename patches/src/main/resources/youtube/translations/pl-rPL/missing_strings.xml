@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_cancel">Cancel</string>
+    <string name="revanced_copy">Copy</string>
+    <string name="revanced_gemini_cancelled">Summarization cancelled</string>
+    <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API request failed: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Gemini API Key not set in ReVanced Extended settings.</string>
+    <string name="revanced_gemini_error_no_video">Could not get video URL.</string>
+    <string name="revanced_gemini_loading">Summarizing the video...</string>
+    <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
+    <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
+    <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
+Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>

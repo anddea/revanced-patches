@@ -17,6 +17,8 @@ BLACKLIST: set[str] = {
     "revanced_gradient_seekbar_colors",
     "revanced_gradient_seekbar_positions",
     "revanced_hide_shorts_comments_disabled_button",
+    "revanced_overlay_button_gemini_summarize_api_key",
+    "revanced_overlay_button_gemini_summarize",
     "revanced_shorts_custom_actions_speed",
     "revanced_swipe_overlay_minimal_style",
     "revanced_swipe_seek_sensitivity",

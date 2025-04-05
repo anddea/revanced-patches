@@ -153,7 +153,8 @@ val overlayButtonsPatch = resourcePatch(
             "ExternalDownload;",
             "PlayAll;",
             "SpeedDialog;",
-            "Whitelists;"
+            "Whitelists;",
+            "GeminiSummarize;"
         ).forEach { className ->
             hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
         }
@@ -192,6 +193,7 @@ val overlayButtonsPatch = resourcePatch(
                     "revanced_download_button.png",
                     "revanced_play_all_button.png",
                     "revanced_speed_button.png",
+                    "revanced_gemini_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
                     "revanced_whitelist_button.png",
@@ -235,7 +237,7 @@ val overlayButtonsPatch = resourcePatch(
                         node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/fullscreen_button") {
-                                    attribute.textContent = "@+id/speed_dialog_button"
+                                    attribute.textContent = "@+id/gemini_summarize_button"
                                 }
                             }
 
