@@ -387,11 +387,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다.</string>
     <string name="revanced_enable_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
-    <string name="revanced_enable_swipe_seek_summary_off">전체 화면 상단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색하지 않습니다.</string>
-    <string name="revanced_enable_swipe_seek_summary_on">전체 화면 상단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색합니다.</string>
+    <string name="revanced_enable_swipe_seek_summary_off">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색하지 않습니다.</string>
+    <string name="revanced_enable_swipe_seek_summary_on">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 동영상 탐색합니다.</string>
     <string name="revanced_enable_swipe_seek_title">스와이프 제스처로 동영상 탐색 활성화하기</string>
-    <string name="revanced_enable_swipe_speed_summary_off">전체 화면 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절하지 않습니다.</string>
-    <string name="revanced_enable_swipe_speed_summary_on">전체 화면 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절합니다.</string>
+    <string name="revanced_enable_swipe_speed_summary_off">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절하지 않습니다.</string>
+    <string name="revanced_enable_swipe_speed_summary_on">전체 화면 상단 또는 하단에서 왼쪽으로/오른쪽으로 스와이프하여 속도 조절합니다.</string>
     <string name="revanced_enable_swipe_speed_title">스와이프 제스처로 속도 조절 활성화하기</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
     <string name="revanced_enable_swipe_to_switch_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
@@ -2178,6 +2178,9 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_speed_sensitivity_invalid_toast">속도 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">속도 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)</string>
     <string name="revanced_swipe_speed_sensitivity_title">속도 스와이프 민감도</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">탐색 스와이프 영역은 상단에, 속도 스와이프 영역은 하단에 위치합니다.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">속도 스와이프 영역은 상단에, 탐색 스와이프 영역은 하단에 위치합니다.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">속도와 탐색 스와이프 영역 교환하기</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 민감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
     <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
