@@ -74,6 +74,7 @@ Tap and hold to toggle the appended information type."</string>
     <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+    <string name="revanced_cancel">Cancel</string>
     <string name="revanced_change_form_factor_entry_1">Default</string>
     <string name="revanced_change_form_factor_entry_2">Phone</string>
     <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
@@ -150,6 +151,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_change_youtube_header_summary_off">Generic header is enabled.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium header is enabled.</string>
     <string name="revanced_change_youtube_header_title">Change YouTube header</string>
+    <string name="revanced_copy">Copy</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
     <string name="revanced_custom_filter_strings_title">Custom filter</string>
     <string name="revanced_custom_filter_summary_off">Custom filter is disabled.</string>
@@ -477,6 +479,14 @@ Please download %2$s from the website."</string>
     <string name="revanced_external_downloader_package_name_video_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Video downloader package name</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
+    <string name="revanced_gemini_cancelled">Summarization cancelled</string>
+    <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API request failed: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Gemini API Key not set in ReVanced Extended settings.</string>
+    <string name="revanced_gemini_error_no_video">Could not get video URL.</string>
+    <string name="revanced_gemini_loading">Summarizing the video...</string>
+    <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
+    <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
@@ -1464,6 +1474,12 @@ Tap and hold to copy video timestamp."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Queue manager</string>
     <string name="revanced_overlay_button_external_downloader_summary">Tap to launch external downloader.</string>
     <string name="revanced_overlay_button_external_downloader_title">Show external downloader button</string>
+    <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
+Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_overlay_button_mute_volume_summary">Tap to mute volume of the current video. Tap again to unmute.</string>
     <string name="revanced_overlay_button_mute_volume_title">Show mute volume button</string>
     <string name="revanced_overlay_button_not_allowed_warning">Tap and hold to change button state.</string>

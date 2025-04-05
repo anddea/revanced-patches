@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+    <string name="revanced_cancel">Cancel</string>
+    <string name="revanced_copy">Copy</string>
     <string name="revanced_enable_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_enable_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
@@ -10,6 +12,14 @@ Seek the video by swiping horizontally on the top half of the screen."</string>
 
 Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
+    <string name="revanced_gemini_cancelled">Summarization cancelled</string>
+    <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API request failed: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Gemini API Key not set in ReVanced Extended settings.</string>
+    <string name="revanced_gemini_error_no_video">Could not get video URL.</string>
+    <string name="revanced_gemini_loading">Summarizing the video...</string>
+    <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
+    <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
     <string name="revanced_gradient_seekbar_positions_summary">Gradient start and end positions from 0 to 1 separated by comma.</string>
     <string name="revanced_gradient_seekbar_positions_title">Gradient seekbar bounds</string>
@@ -19,6 +29,12 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
+Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_shorts_custom_actions_speed_label">Playback speed</string>
     <string name="revanced_shorts_custom_actions_speed_summary_off">Playback speed menu is hidden.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>
     <string name="revanced_shorts_custom_actions_speed_summary_on">Playback speed menu is shown.\n\nInfo:\n• Shorts default playback speed should be enabled.\n• The selected speed will be applied to the next video.</string>

@@ -8,6 +8,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
     <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
     <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
+    <string name="revanced_cancel">Cancel</string>
     <string name="revanced_change_form_factor_entry_1">Default</string>
     <string name="revanced_change_form_factor_entry_2">Phone</string>
     <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
@@ -35,6 +36,7 @@ If there are server-side changes, the background color of the snack bar may not 
     <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
     <string name="revanced_change_start_page_entry_playlists">Playlists</string>
     <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
+    <string name="revanced_copy">Copy</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
     <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
@@ -73,6 +75,14 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
     <string name="revanced_fullscreen_ads_closed_toast">Fullscreen ads are closed.</string>
+    <string name="revanced_gemini_cancelled">Summarization cancelled</string>
+    <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API request failed: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Gemini API Key not set in ReVanced Extended settings.</string>
+    <string name="revanced_gemini_error_no_video">Could not get video URL.</string>
+    <string name="revanced_gemini_loading">Summarizing the video...</string>
+    <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
+    <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
@@ -147,6 +157,12 @@ Swipe to expand or close."</string>
     <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Instead of launching an external downloader, open the queue manager.</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Queue manager</string>
+    <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
+Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_off">Native video download button opens your external downloader.</string>
     <string name="revanced_override_video_download_button_queue_manager_summary_on">Native video download button opens the queue manager.</string>
     <string name="revanced_override_video_download_button_queue_manager_title">Queue manager</string>
