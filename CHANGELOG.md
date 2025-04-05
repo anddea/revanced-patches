@@ -1,3 +1,11 @@
+# [3.6.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.7...v3.6.0-dev.8) (2025-04-05)
+
+
+### Features
+
+* **Spotify:** Remove ads sections from home ([aa45158](https://github.com/anddea/revanced-patches/commit/aa451582ed797b9a33ef02a9823be40d36b5352e))
+* **YouTube - Overlay buttons:** Add `Gemini` to summarize video ([ef2987b](https://github.com/anddea/revanced-patches/commit/ef2987bdb0796dedcc92ec943033861c467ede57))
+
 # [3.6.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.6...v3.6.0-dev.7) (2025-04-04)
 
 
