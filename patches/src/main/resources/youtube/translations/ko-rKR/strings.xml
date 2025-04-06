@@ -74,6 +74,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_bypass_url_redirects_summary_off">앱 내에서 외부 링크를 열 때, URL 리다이렉션(youtube.com/redirect)을 거쳐서 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_summary_on">앱 내에서 외부 링크를 열 때, URL 리다이렉션(youtube.com/redirect)을 거치지 않고 연결됩니다.</string>
     <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
+    <string name="revanced_cancel">취소하기</string>
     <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
     <string name="revanced_change_form_factor_entry_2">폰</string>
     <string name="revanced_change_form_factor_entry_3">폰 (최대 너비: 480 dp)</string>
@@ -152,6 +153,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_youtube_header_summary_off">일반 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_title">YouTube 헤더 변경하기</string>
+    <string name="revanced_copy">복사하기</string>
     <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다.\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
@@ -472,6 +474,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_external_downloader_package_name_video_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명을 설정하세요.</string>
     <string name="revanced_external_downloader_package_name_video_title">동영상 외부 다운로더 앱 패키지명</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
+    <string name="revanced_gemini_cancelled">요약을 취소하였습니다.</string>
+    <string name="revanced_gemini_copy_success">요약을 클립보드에 복사하였습니다.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API 요청을 할 수 없습니다: %s</string>
+    <string name="revanced_gemini_error_no_api_key">RVX 설정에서 Gemini API Key가 설정되어 있지 않습니다.</string>
+    <string name="revanced_gemini_error_no_video">동영상 URL을 가져올 수 없습니다.</string>
+    <string name="revanced_gemini_loading">동영상을 요약하는 중 ...</string>
+    <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
+    <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시하기</string>
     <string name="revanced_gradient_seekbar_positions_reset">Cairo 재생바의 경계를 기본값으로 초기화합니다.</string>
@@ -520,7 +530,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 주요 뉴스, 뉴스 속보
 • 맞춤 실시간 스트림
 • 라이브 쇼핑
-• 보건 정보 출처 ..."</string>
+• 보건 정보 출처, etc."</string>
     <string name="revanced_hide_carousel_shelf_summary_off">다음 선반이 표시됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc.</string>
     <string name="revanced_hide_carousel_shelf_summary_on">"다음 선반이 숨겨집니다:
 • 다시 듣기
@@ -1478,6 +1488,12 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">현재 재생목록 관리자</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로더 버튼 표시하기</string>
+    <string name="revanced_overlay_button_gemini_summarize">요약하기</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Gemini API Key는 웹사이트(https://aistudio.google.com/apikey)에서 발급받을 수 있습니다."</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API Key 등록하기</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"버튼을 눌러서 Gemini를 사용하여 동영상을 요약할 수 있습니다.
+동영상 길이에 따라 분석하는 데 많은 시간이 소요됩니다."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Gemini 버튼 표시하기</string>
     <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
     <string name="revanced_overlay_button_not_allowed_warning">버튼을 길게 눌러서 버튼 상태를 변경할 수 있습니다.</string>
@@ -2109,14 +2125,16 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Onesie 응답 암호화를 건너뛰지 않습니다.
 
-• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다."</string>
+• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Onesie 응답 암호화를 건너뜁니다.
 
-• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 고쳐질 수 있습니다.
-• AV1 코덱을 사용하지 못할 수 있습니다."</string>
+• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 해결될 수 있습니다.
+• AV1 코덱을 사용하지 못할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Onesie 응답 암호화 건너뛰기</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n•만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
     <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
@@ -2180,7 +2198,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_speed_sensitivity_title">속도 스와이프 민감도</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">탐색 스와이프 영역은 상단에, 속도 스와이프 영역은 하단에 위치합니다.</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">속도 스와이프 영역은 상단에, 탐색 스와이프 영역은 하단에 위치합니다.</string>
-    <string name="revanced_swipe_switch_speed_and_seek_title">속도 스와이프 영역과 탐색 스와이프 영역 교환하기</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">속도 스와이프 영역과 탐색 스와이프 영역 위치 교환하기</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 민감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
     <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
