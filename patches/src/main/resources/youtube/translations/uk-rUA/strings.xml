@@ -70,6 +70,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">Перенаправлення посилань не обходяться.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Перенаправлення посилань обходяться.</string>
     <string name="revanced_bypass_url_redirects_title">Обходити перенаправлення посилань</string>
+    <string name="revanced_cancel">Скасувати</string>
     <string name="revanced_change_form_factor_entry_1">Стандартний</string>
     <string name="revanced_change_form_factor_entry_2">Телефонний</string>
     <string name="revanced_change_form_factor_entry_3">Телефонний (Макс 480 dp)</string>
@@ -146,6 +147,7 @@
     <string name="revanced_change_youtube_header_summary_off">Звичний заголовок увімкнено.</string>
     <string name="revanced_change_youtube_header_summary_on">Заголовок Premium увімкнено.</string>
     <string name="revanced_change_youtube_header_title">Змінити заголовок YouTube</string>
+    <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
     <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено.</string>
@@ -465,6 +467,14 @@
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
+    <string name="revanced_gemini_cancelled">Підсумування скасовано</string>
+    <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
+    <string name="revanced_gemini_error_api_failed">Не вдався запит до Gemini API: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Ключ API Gemini не заданий у налаштуваннях.</string>
+    <string name="revanced_gemini_error_no_video">Не вдалося отримати посилання відео.</string>
+    <string name="revanced_gemini_loading">Підсумування відео...</string>
+    <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
+    <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
     <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для GMSCore при кожному запуску програми.</string>
     <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Позиції градієнта скинуто.</string>
@@ -1462,6 +1472,12 @@
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Керування чергою</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантажувача</string>
+    <string name="revanced_overlay_button_gemini_summarize">Підсумок</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Отримайте ключ API https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключ API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео з Gemini.
+Розбір відео може зайняти деякий час залежно від його довжини."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Показувати кнопку Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
