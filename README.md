@@ -158,6 +158,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 |:--------:|:--------------:|:-----------------:|
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
 | `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
+| `Sanitize sharing links` | Removes the '?si=' tracking parameter from shared links (e.g., Copy Link, Share to...). | ALL |
 | `Spoof signature` | Spoofs the signature of the app to fix various functions of the app. | ALL |
 | `Unlock Spotify Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
 </details>

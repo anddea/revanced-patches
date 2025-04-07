@@ -1,3 +1,10 @@
+# [3.6.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.8...v3.6.0-dev.9) (2025-04-07)
+
+
+### Features
+
+* **Spotify:** Add `Sanitize sharing links` patch ([dfd7461](https://github.com/anddea/revanced-patches/commit/dfd7461ad6e0b93ffa5b3cfb8181c12c5a35e8a2))
+
 # [3.6.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.7...v3.6.0-dev.8) (2025-04-05)
 
 
