@@ -29,7 +29,7 @@ import kotlin.math.min
  * -------- screenHeight
  *
  * X- Axis (Vertical Controls - Brightness/Volume):
- *  0    xBrigStart    xBrigEnd    xVolStart     xVolEnd   screenWidth
+ *  0    xBrigStart    xBrigEnd    xVolStart     xVolEnd   playerRect.width (dynamic)
  *  |          |            |          |            |          |
  *  |   20dp   |  zoneWidth |  <-----> |  zoneWidth |   20dp   |
  *  | <------> |  <------>  |   Dead   |  <------>  | <------> |
@@ -38,7 +38,7 @@ import kotlin.math.min
  *                         effectiveSwipeRect.width
  *
  * X- Axis (Horizontal Controls - Seek/Speed):
- *  0        effectiveSwipeRect.left + 40dp        effectiveSwipeRect.right - 40dp       screenWidth
+ *  playerRect.x + 20dp + 40dp        playerRect.right - 20dp - 40dp       playerRect.right
  *  |                 |                                            |                 |
  *  |   20dp + 40dp   | <------------ swipeable area ------------> |   40dp + 20dp   |
  *  | <-------------> |                                            | <-------------> |
@@ -92,17 +92,19 @@ class SwipeZonesController(
 
     /**
      * rectangle of the area that is effectively usable for swipe controls,
-     * after applying the initial screen-edge dead zones.
+     * after applying the initial screen-edge dead zones (top, bottom, left, right).
+     * This rectangle shrinks dynamically if the playerRect shrinks.
      */
     private val effectiveSwipeRect: Rectangle
         get() {
             maybeAttachPlayerBoundsListener()
             val p = playerRect ?: fallbackScreenRect()
+
             val effectiveLeft = p.x + _20dp
             val effectiveTop = p.y + _40dp
-            // Ensure width isn't negative if _20dp * 2 > p.width
+            // Ensure width isn't negative: Base Width - Left Dead Zone - Right Dead Zone
             val effectiveWidth = max(0, p.width - (_20dp * 2))
-            // Ensure height isn't negative if _40dp + _80dp > p.height
+            // Ensure height isn't negative: Base Height - Top Dead Zone - Bottom Dead Zone
             val effectiveHeight = max(0, p.height - _40dp - _80dp)
 
             return Rectangle(
@@ -143,9 +145,19 @@ class SwipeZonesController(
             )
         }
 
-    private val horizontalDeadZone = _40dp
-    private val horizontalZoneEffectiveLeft get() = effectiveSwipeRect.left + horizontalDeadZone
-    private val horizontalZoneEffectiveWidth get() = max(0, effectiveSwipeRect.width - (horizontalDeadZone * 2))
+    /**
+     * Additional dead zone applied *inside* the `effectiveSwipeRect` for horizontal swipes
+     * to avoid conflicting with system back gestures.
+     */
+    private val horizontalInnerDeadZone = _40dp // Use 40dp for inner horizontal dead zone
+
+    /** The effective starting X-coordinate for horizontal swipe zones (Seek/Speed). */
+    private val horizontalZoneEffectiveLeft get() = effectiveSwipeRect.left + horizontalInnerDeadZone
+
+    /** The effective width available for horizontal swipe zones after applying inner dead zones. */
+    private val horizontalZoneEffectiveWidth get() = max(0, effectiveSwipeRect.width - (horizontalInnerDeadZone * 2))
+
+    /** The height for each horizontal zone (top/bottom half). */
     private val horizontalZoneHeight get() = max(0, effectiveSwipeRect.height / 2)
     private val topHorizontalZoneTop get() = effectiveSwipeRect.top
     private val bottomHorizontalZoneTop get() = effectiveSwipeRect.top + horizontalZoneHeight
@@ -197,40 +209,59 @@ class SwipeZonesController(
         }
 
     /**
-     * try to attach a listener to the player_view and update the player rectangle.
-     * once a listener is attached, this function does nothing
+     * Tries to attach a listener to the player_view and update the player rectangle.
+     * Once a listener is attached, this function does nothing more.
+     * Uses a flag to prevent attaching multiple listeners.
      */
+    private var listenerAttached = false
+    private val listenerLock = Any() // Lock for thread safety when attaching listener
+
     private fun maybeAttachPlayerBoundsListener() {
-        if (playerRect != null) return
-        host.findViewById<ViewGroup>(playerViewId)?.let {
-            onPlayerViewLayout(it) // Get initial layout
-            // Add listener for subsequent layout changes
-            it.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
-                // Only update if bounds actually changed to avoid unnecessary recalculations
-                if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
-                    onPlayerViewLayout(it)
+        // Quick check without lock first
+        if (listenerAttached) return
+
+        synchronized(listenerLock) {
+            // Double-check after acquiring lock
+            if (listenerAttached) return
+
+            host.findViewById<ViewGroup>(playerViewId)?.let { playerViewGroup ->
+                onPlayerViewLayout(playerViewGroup) // Get initial layout immediately
+
+                // Add listener for subsequent layout changes
+                playerViewGroup.addOnLayoutChangeListener { view, _, _, _, _, _, _, _, _ ->
+                    // Always recalculate playerRect based on the playerSurface's potential changes,
+                    // even if the playerView's own bounds haven't changed. This handles internal panels correctly.
+                    // We expect view to be the playerViewGroup we attached the listener to.
+                    if (view is ViewGroup) {
+                        onPlayerViewLayout(view)
+                    }
                 }
+                listenerAttached = true
             }
         }
     }
 
     /**
-     * update the player rectangle on player_view layout
+     * Updates the `playerRect` based on the current layout of the `player_view` and its first child (`playerSurface`).
+     * This calculation determines the actual available area for the video content, excluding overlays like description panels.
      *
      * @param playerView the player view
      */
     private fun onPlayerViewLayout(playerView: ViewGroup) {
+        // Try to get the actual video surface view (usually the first child)
         playerView.getChildAt(0)?.let { playerSurface ->
-            // the player surface is centered in the player view
-            // figure out the width of the surface including the padding (same on the left and right side)
-            // and use that width for the player rectangle size
-            // this automatically excludes any engagement panel from the rect
+            // Calculate the effective width occupied by the player surface, including any horizontal padding/margins
+            // that center it within the playerView. This correctly accounts for side panels shrinking the surface.
+            // playerSurface.x is the offset of the surface relative to its parent (playerView).
+            // Assuming padding is equal on both sides if centered.
             val playerWidthWithPadding = playerSurface.width + (playerSurface.x.toInt() * 2)
-            // Use the minimum of the view's width and the calculated surface width with padding
-            // This handles cases where the surface + padding might theoretically exceed the view bounds
+
+            // The actual width used for the playerRect should be the *minimum* of the container's width
+            // and the calculated surface width including padding. This prevents the rect from exceeding the container.
             val actualWidth = min(playerView.width, playerWidthWithPadding)
-            // Ensure coordinates and dimensions are non-negative
-            // Using playerView.left/top is more robust than playerView.x/y if the view is nested
+
+            // Use playerView's screen coordinates (left/top) for robustness with nested layouts.
+            // Ensure all coordinates and dimensions are non-negative.
             val viewX = max(0, playerView.left)
             val viewY = max(0, playerView.top)
             val viewHeight = max(0, playerView.height)
@@ -238,12 +269,12 @@ class SwipeZonesController(
             playerRect = Rectangle(
                 viewX,
                 viewY,
-                max(0, actualWidth), // Ensure width is not negative
+                max(0, actualWidth),
                 viewHeight,
             )
         } ?: run {
-            // Fallback if playerSurface is not available (e.g., during initialization)
-            // Use playerView bounds directly, applying max(0, ...)
+            // Fallback: If playerSurface (child 0) isn't available (e.g., during initialization phases),
+            // use the playerView's bounds directly as a less accurate estimate.
             playerRect = Rectangle(
                 max(0, playerView.left),
                 max(0, playerView.top),
