@@ -1,73 +1,73 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="revanced_bypass_url_redirects_summary_off">URL redirects are not bypassed.</string>
-    <string name="revanced_bypass_url_redirects_summary_on">URL redirects are bypassed.</string>
-    <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>
-    <string name="revanced_change_form_factor_entry_1">Default</string>
-    <string name="revanced_change_form_factor_entry_2">Phone</string>
-    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
-    <string name="revanced_change_form_factor_entry_4">Tablet</string>
-    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
-    <string name="revanced_change_form_factor_entry_6">Automotive</string>
-    <string name="revanced_change_form_factor_title">Layout form factor</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+    <string name="revanced_bypass_url_redirects_summary_off">绕过 URL 重定向已关闭。</string>
+    <string name="revanced_bypass_url_redirects_summary_on">绕过 URL 重定向已开启。</string>
+    <string name="revanced_bypass_url_redirects_title">绕过 URL 重定向</string>
+    <string name="revanced_change_form_factor_entry_1">默认</string>
+    <string name="revanced_change_form_factor_entry_2">手机</string>
+    <string name="revanced_change_form_factor_entry_3">手机 (最大 480 dp)</string>
+    <string name="revanced_change_form_factor_entry_4">平板</string>
+    <string name="revanced_change_form_factor_entry_5">平板 (最小 600 dp)</string>
+    <string name="revanced_change_form_factor_entry_6">车机</string>
+    <string name="revanced_change_form_factor_title">布局形式</string>
+    <string name="revanced_change_form_factor_user_dialog_message">"更改内容包括：
 
-Tablet layout
-• Community posts are hidden.
+平板布局  
+• 社区帖子已隐藏。
 
-Automotive layout
-• Shorts open in the regular player.
-• Feed is organized by topics and channels.
-• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
-    <string name="revanced_change_live_ring_click_action_summary_off">Live stream opens when the live ring is clicked.</string>
-    <string name="revanced_change_live_ring_click_action_summary_on">"Channel opens when the live ring is clicked.
+车载布局  
+• Shorts 在常规播放器中打开。  
+• 信息流按主题和频道组织。  
+• 当“伪装流数据”关闭时，无法打开视频描述。"</string>
+    <string name="revanced_change_live_ring_click_action_summary_off">点击直播键时将打开直播。</string>
+    <string name="revanced_change_live_ring_click_action_summary_on">"点击直播键时将打开频道。
 
-Limitation: When the Shorts live stream is opened in regular player due to the 'Open Shorts in regular player' setting, channel does not open."</string>
-    <string name="revanced_change_live_ring_click_action_title">Change live ring click action</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_off">Background color of the server-side snackbar has not changed.</string>
-    <string name="revanced_change_server_side_snack_bar_background_summary_on">Background color of the server-side snackbar has changed.</string>
-    <string name="revanced_change_server_side_snack_bar_background_title">Change server-side snack bar background</string>
-    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"Some snack bars use a theme defined on the server side, not the app theme.
+限制：由于开启了“在常规播放器中打开 Shorts”设置，当 Shorts 直播在常规播放器中打开时，频道不会打开。"</string>
+    <string name="revanced_change_live_ring_click_action_title">更改直播键点击操作</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_off">服务器端 snackbar 的背景颜色未更改。</string>
+    <string name="revanced_change_server_side_snack_bar_background_summary_on">服务器端 snackbar 的背景颜色已更改。</string>
+    <string name="revanced_change_server_side_snack_bar_background_title">更改服务器端 snackbar 的背景颜色</string>
+    <string name="revanced_change_server_side_snack_bar_background_user_dialog_message">"某些 snackbar 使用的是服务器端定义的主题，而不是应用主题。
 
-Change the background color of these snack bars.
+请更改这些 snackbar 的背景颜色。
 
-If there are server-side changes, the background color of the snack bar may not change."</string>
-    <string name="revanced_change_shorts_background_repeat_state_title">Change Shorts background repeat state</string>
-    <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
-    <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
-    <string name="revanced_change_start_page_entry_news">News</string>
-    <string name="revanced_change_start_page_entry_notifications">Notifications</string>
-    <string name="revanced_change_start_page_entry_playlists">Playlists</string>
-    <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
-    <string name="revanced_change_start_page_entry_shopping">Shopping</string>
-    <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
-    <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
-    <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
-    <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
-    <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
-    <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
-    <string name="revanced_disable_default_playback_speed_music_type_off">Default playback speed is disabled for videos playable on YouTube Music.</string>
-    <string name="revanced_disable_default_playback_speed_music_type_on">Default playback speed is disabled if the video category is Music.</string>
-    <string name="revanced_disable_default_playback_speed_music_type_title">Validate using categories</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;Continue watching&lt;/b&gt; will resume on app startup.&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;Continue watching&lt;/b&gt; is the YouTube Premium feature.&lt;br&gt;• This setting does not force &lt;b&gt;Continue watching&lt;/b&gt; to be enabled.</string>
-    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;Continue watching&lt;/b&gt; will not resume on app startup.</string>
-    <string name="revanced_disable_resuming_miniplayer_title">Disable resuming Miniplayer</string>
-    <string name="revanced_disable_shorts_background_playback_summary_off">Shorts background play is enabled.</string>
-    <string name="revanced_disable_shorts_background_playback_summary_on">Shorts background play is disabled.</string>
-    <string name="revanced_disable_shorts_background_playback_title">Disable Shorts background play</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">Swiping down below the player will enter fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">Swiping down below the player will not enter fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">Disable swipe to enter fullscreen mode (below the player)</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">Swiping up in the player will enter fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">Swiping up in the player will not enter fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">Disable swipe to enter fullscreen mode (in the player)</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">Swiping down in fullscreen will exit fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">Swiping down in fullscreen will not exit fullscreen mode.</string>
-    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">Disable swipe to exit fullscreen mode</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_off">Swiping up / down in fullscreen mode will change to the next / previous video.</string>
-    <string name="revanced_disable_swipe_to_switch_video_summary_on">Swiping up / down in fullscreen mode will not change to the next / previous video.</string>
-    <string name="revanced_disable_swipe_to_switch_video_title">Disable swipe to change video</string>
+如果存在服务器端的更改，snackbar 的背景颜色可能不会发生变化。"</string>
+    <string name="revanced_change_shorts_background_repeat_state_title">更改 Shorts 的背景重复状态。</string>
+    <string name="revanced_change_start_page_entry_all_subscriptions">所有订阅</string>
+    <string name="revanced_change_start_page_entry_fashion">时尚与美妆</string>
+    <string name="revanced_change_start_page_entry_news">新闻</string>
+    <string name="revanced_change_start_page_entry_notifications">通知</string>
+    <string name="revanced_change_start_page_entry_playlists">播放列表</string>
+    <string name="revanced_change_start_page_entry_podcasts">播客</string>
+    <string name="revanced_change_start_page_entry_shopping">购物</string>
+    <string name="revanced_change_start_page_entry_virtual_reality">虚拟现实</string>
+    <string name="revanced_change_start_page_entry_your_clips">您的剪辑</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">请输入 seekbar 强调色的十六进制代码。</string>
+    <string name="revanced_custom_seekbar_color_accent_title">自定义 seekbar 强调色</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">无效的 seekbar 颜色。</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">请输入 seekbar 主色的十六进制代码。</string>
+    <string name="revanced_custom_seekbar_color_primary_title">自定义 seekbar 主色</string>
+    <string name="revanced_disable_default_playback_speed_music_type_off">YouTube Music 上可播放的视频默认播放速度已禁用。</string>
+    <string name="revanced_disable_default_playback_speed_music_type_on">如果视频类别是音乐，默认播放速度将被禁用。</string>
+    <string name="revanced_disable_default_playback_speed_music_type_title">使用类别进行验证</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_off">&lt;b&gt;继续观看&lt;/b&gt; 将在应用程序启动时恢复。&lt;br&gt;&lt;br&gt;Info:&lt;br&gt;• &lt;b&gt;继续观看&lt;/b&gt; 是YouTube Premium的功能.&lt;br&gt;• 此设置不会强制 &lt;b&gt;继续观看&lt;/b&gt; 启用。</string>
+    <string name="revanced_disable_resuming_miniplayer_summary_on">&lt;b&gt;继续观看&lt;/b&gt; 将不会在应用程序启动时恢复。</string>
+    <string name="revanced_disable_resuming_miniplayer_title">禁用恢复迷你播放器</string>
+    <string name="revanced_disable_shorts_background_playback_summary_off">已启用 Shorts 背景播放。</string>
+    <string name="revanced_disable_shorts_background_playback_summary_on">未启用 Shorts 背景播放。</string>
+    <string name="revanced_disable_shorts_background_playback_title">Shorts 背景播放</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_off">在播放器下方向下滑动将进入全屏模式。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_summary_on">在播放器下方向下滑动将不会进入全屏模式。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_below_the_player_title">禁用滑动进入全屏模式（播放器下方）</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_off">在播放器中向上滑动将进入全屏模式。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_summary_on">在播放器中向上滑动将不会进入全屏模式。</string>
+    <string name="revanced_disable_swipe_to_enter_fullscreen_mode_in_the_player_title">禁用在播放器中滑动进入全屏模式</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_off">在全屏模式下向下滑动将退出全屏模式。</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_summary_on">在全屏模式下向下滑动将不会退出全屏模式。</string>
+    <string name="revanced_disable_swipe_to_exit_fullscreen_mode_title">禁用滑动退出全屏模式</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_off">在全屏模式下向上/下滑动将切换到下一个/上一个视频。</string>
+    <string name="revanced_disable_swipe_to_switch_video_summary_on">在全屏模式下向上/下滑动将不会切换到下一个/上一个视频。</string>
+    <string name="revanced_disable_swipe_to_switch_video_title">禁用滑动切换视频</string>
     <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque.</string>
     <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
