@@ -25,7 +25,8 @@ val videoTypeHookPatch = bytecodePatch(
 
         videoTypeFingerprint.methodOrThrow(videoTypeParentFingerprint).apply {
             val getEnumIndex = indexOfGetEnumInstruction(this)
-            val enumClass = (getInstruction<ReferenceInstruction>(getEnumIndex).reference as MethodReference).definingClass
+            val enumClass =
+                (getInstruction<ReferenceInstruction>(getEnumIndex).reference as MethodReference).definingClass
             val referenceIndex = indexOfFirstInstructionOrThrow(getEnumIndex) {
                 opcode == Opcode.SGET_OBJECT &&
                         getReference<FieldReference>()?.type == enumClass

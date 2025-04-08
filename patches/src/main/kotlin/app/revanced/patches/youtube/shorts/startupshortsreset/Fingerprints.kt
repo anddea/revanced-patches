@@ -1,41 +1,17 @@
 package app.revanced.patches.youtube.shorts.startupshortsreset
 
 import app.revanced.util.fingerprint.legacyFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 /**
- * YouTube v18.15.40 ~ YouTube 19.46.42
+ * YouTube v18.15.40+
  */
-internal val userWasInShortsABConfigFingerprint = legacyFingerprint(
+internal val userWasInShortsConfigFingerprint = legacyFingerprint(
     name = "userWasInShortsABConfigFingerprint",
-    returnType = "V",
-    strings = listOf("Failed to get offline response: "),
-    customFingerprint = { method, _ ->
-        indexOfOptionalInstruction(method) >= 0
-    }
-)
-
-internal fun indexOfOptionalInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_STATIC &&
-                getReference<MethodReference>().toString() == "Lj${'$'}/util/Optional;->of(Ljava/lang/Object;)Lj${'$'}/util/Optional;"
-    }
-
-/**
- * YouTube 19.47.53 ~
- */
-internal val userWasInShortsABConfigAlternativeFingerprint = legacyFingerprint(
-    name = "userWasInShortsABConfigAlternativeFingerprint",
-    returnType = "V",
-    parameters = listOf("I"),
-    opcodes = listOf(Opcode.OR_INT_LIT8),
-    strings = listOf("alias", "null"),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "Z",
+    literals = listOf(45358360L)
 )
 
 /**

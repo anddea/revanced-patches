@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.utils.patch.PatchList.OVERLAY_BUTTONS
 import app.revanced.patches.youtube.utils.pip.pipStateHookPatch
 import app.revanced.patches.youtube.utils.playercontrols.hookBottomControlButton
 import app.revanced.patches.youtube.utils.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.utils.playlist.playlistPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
@@ -74,6 +75,7 @@ val overlayButtonsPatch = resourcePatch(
         cfBottomUIPatch,
         pipStateHookPatch,
         playerControlsPatch,
+        playlistPatch,
         sharedResourceIdPatch,
         settingsPatch,
     )
@@ -151,7 +153,8 @@ val overlayButtonsPatch = resourcePatch(
             "ExternalDownload;",
             "PlayAll;",
             "SpeedDialog;",
-            "Whitelists;"
+            "Whitelists;",
+            "GeminiSummarize;"
         ).forEach { className ->
             hookBottomControlButton("$OVERLAY_BUTTONS_PATH/$className")
         }
@@ -190,6 +193,7 @@ val overlayButtonsPatch = resourcePatch(
                     "revanced_download_button.png",
                     "revanced_play_all_button.png",
                     "revanced_speed_button.png",
+                    "revanced_gemini_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
                     "revanced_whitelist_button.png",
@@ -233,7 +237,7 @@ val overlayButtonsPatch = resourcePatch(
                         node.getAttributeNode("yt:layout_constraintRight_toLeftOf")
                             ?.let { attribute ->
                                 if (attribute.textContent == "@id/fullscreen_button") {
-                                    attribute.textContent = "@+id/speed_dialog_button"
+                                    attribute.textContent = "@+id/gemini_summarize_button"
                                 }
                             }
 
@@ -254,7 +258,8 @@ val overlayButtonsPatch = resourcePatch(
                             width != "0.0dip",
                         )
 
-                        val isButton = id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
+                        val isButton =
+                            id.endsWith("_button") && id != "@id/multiview_button" || id == "@id/youtube_controls_fullscreen_button_stub"
 
                         // Adjust TimeBar and Chapter bottom padding
                         val timBarItem = mutableMapOf(
@@ -284,7 +289,10 @@ val overlayButtonsPatch = resourcePatch(
                         if (id.equals("@+id/bottom_margin")) {
                             node.setAttribute("android:layout_height", marginBottom)
                         } else if (id.equals("@id/time_bar_reference_view")) {
-                            node.setAttribute("yt:layout_constraintBottom_toTopOf", "@id/quick_actions_container")
+                            node.setAttribute(
+                                "yt:layout_constraintBottom_toTopOf",
+                                "@id/quick_actions_container"
+                            )
                         }
                     }
                 }

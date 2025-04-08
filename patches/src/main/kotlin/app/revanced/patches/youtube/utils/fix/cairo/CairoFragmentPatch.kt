@@ -116,7 +116,7 @@ val cairoFragmentPatch = resourcePatch(
                 ?.let { node ->
                     node.insertNode("Preference", node) {
                         for (index in 0 until node.attributes.length) {
-                            with (node.attributes.item(index)) {
+                            with(node.attributes.item(index)) {
                                 setAttribute(nodeName, nodeValue)
                             }
                         }

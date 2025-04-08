@@ -71,7 +71,8 @@ val playerResponseMethodHookPatch = bytecodePatch(
         val beforeVideoIdHooks =
             hooks.filterIsInstance<Hook.PlayerParameterBeforeVideoId>().asReversed()
         val videoIdHooks = hooks.filterIsInstance<Hook.VideoId>().asReversed()
-        val videoIdAndPlaylistIdHooks = hooks.filterIsInstance<Hook.VideoIdAndPlaylistId>().asReversed()
+        val videoIdAndPlaylistIdHooks =
+            hooks.filterIsInstance<Hook.VideoIdAndPlaylistId>().asReversed()
         val afterVideoIdHooks = hooks.filterIsInstance<Hook.PlayerParameter>().asReversed()
 
         // Add the hooks in this specific order as they insert instructions at the beginning of the method.

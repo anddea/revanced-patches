@@ -26,7 +26,8 @@ val playbackStartDescriptorPatch = bytecodePatch(
                         && reference.returnType == "Ljava/lang/String;"
             }
 
-            playbackStartVideoIdReference = getInstruction<ReferenceInstruction>(stringMethodIndex).reference
+            playbackStartVideoIdReference =
+                getInstruction<ReferenceInstruction>(stringMethodIndex).reference
         }
     }
 }

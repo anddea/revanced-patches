@@ -1,7 +1,9 @@
 package com.google.android.apps.youtube.app.settings.videoquality;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -23,8 +25,8 @@ import app.revanced.extension.youtube.utils.ThemeUtils;
 @SuppressWarnings("deprecation")
 public class VideoQualitySettingsActivity extends Activity {
 
-    private static final String rvxSettingsLabel = ResourceUtils.getString("revanced_extended_settings_title");
-    private static final String searchLabel = ResourceUtils.getString("revanced_extended_settings_search_title");
+    private static String rvxSettingsLabel;
+    private static String searchLabel;
     private static WeakReference<SearchView> searchViewRef = new WeakReference<>(null);
     private ReVancedPreferenceFragment fragment;
 
@@ -80,6 +82,10 @@ public class VideoQualitySettingsActivity extends Activity {
                 return;
             }
 
+            // Set label
+            rvxSettingsLabel = getString("revanced_extended_settings_title");
+            searchLabel = getString("revanced_extended_settings_search_title");
+
             // Set toolbar
             setToolbar();
 
@@ -92,6 +98,14 @@ public class VideoQualitySettingsActivity extends Activity {
         } catch (Exception ex) {
             Logger.printException(() -> "onCreate failure", ex);
         }
+    }
+
+    @SuppressLint("DiscouragedApi")
+    private String getString(String str) {
+        Context baseContext = getBaseContext();
+        Resources resources = baseContext.getResources();
+        int identifier = resources.getIdentifier(str, "string", baseContext.getPackageName());
+        return resources.getString(identifier);
     }
 
     private void filterPreferences(String query) {

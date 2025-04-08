@@ -7,7 +7,6 @@ import app.revanced.patches.youtube.utils.resourceid.quickActionsElementContaine
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal val broadcastReceiverFingerprint = legacyFingerprint(
     name = "broadcastReceiverFingerprint",

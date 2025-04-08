@@ -22,16 +22,16 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.Objects;
-
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings({"unused", "deprecation"})
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
+
     /**
      * Indicates that if a preference changes,
      * to apply the change from the Setting to the UI component.
@@ -39,7 +39,11 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     public static boolean settingImportInProgress;
 
     /**
-     * Confirm and restart dialog button text and title.
+     * Prevents recursive calls during preference <-> UI syncing from showing extra dialogs.
+     */
+    private static boolean updatingPreference;
+
+    /**
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
@@ -52,7 +56,14 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
-            Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
+            if (updatingPreference) {
+                Logger.printDebug(() -> "Ignoring preference change as sync is in progress");
+                return;
+            }
+            if (str == null) {
+                return;
+            }
+            Setting<?> setting = Setting.getSettingFromPath(str);
             if (setting == null) {
                 return;
             }
@@ -73,10 +84,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 }
             }
 
+            updatingPreference = true;
             // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
+            // Updating here can can cause a recursive call back into this same method.
             updatePreference(pref, setting, true, settingImportInProgress);
             // Update any other preference availability that may now be different.
             updateUIAvailability();
+            updatingPreference = false;
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
@@ -103,36 +117,39 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         Utils.verifyOnMainThread();
 
         final var context = getActivity();
-        showingUserDialogMessage = true;
-        assert setting.userDialogMessage != null;
-        new AlertDialog.Builder(context)
-                .setTitle(android.R.string.dialog_alert_title)
-                .setMessage(setting.userDialogMessage.toString())
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                    // User confirmed, save to the Setting.
-                    updatePreference(pref, setting, true, false);
+        final StringRef userDialogMessage = setting.userDialogMessage;
+        if (context != null && userDialogMessage != null) {
+            showingUserDialogMessage = true;
 
-                    // Update availability of other preferences that may be changed.
-                    updateUIAvailability();
+            new AlertDialog.Builder(context)
+                    .setTitle(android.R.string.dialog_alert_title)
+                    .setMessage(userDialogMessage.toString())
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                        // User confirmed, save to the Setting.
+                        updatePreference(pref, setting, true, false);
 
-                    if (setting.rebootApp) {
-                        showRestartDialog(context);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    // Restore whatever the setting was before the change.
-                    updatePreference(pref, setting, true, true);
-                })
-                .setOnDismissListener(dialog -> showingUserDialogMessage = false)
-                .setCancelable(false)
-                .show();
+                        // Update availability of other preferences that may be changed.
+                        updateUIAvailability();
+
+                        if (setting.rebootApp) {
+                            showRestartDialog(context);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
+                        // Restore whatever the setting was before the change.
+                        updatePreference(pref, setting, true, true);
+                    })
+                    .setOnDismissListener(dialog -> showingUserDialogMessage = false)
+                    .setCancelable(false)
+                    .show();
+        }
     }
 
     /**
      * Updates all Preferences values and their availability using the current values in {@link Setting}.
      */
     protected void updateUIToSettingValues() {
-        updatePreferenceScreen(getPreferenceScreen(), true,true);
+        updatePreferenceScreen(getPreferenceScreen(), true, true);
     }
 
     /**
@@ -146,14 +163,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * @return If the preference is currently set to the default value of the Setting.
      */
     protected boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        Object defaultValue = setting.defaultValue;
         if (pref instanceof SwitchPreference switchPref) {
-            return switchPref.isChecked() == (Boolean) setting.defaultValue;
+            return switchPref.isChecked() == (Boolean) defaultValue;
         }
+        String defaultValueString = defaultValue.toString();
         if (pref instanceof EditTextPreference editPreference) {
-            return editPreference.getText().equals(setting.defaultValue.toString());
+            return editPreference.getText().equals(defaultValueString);
         }
         if (pref instanceof ListPreference listPref) {
-            return listPref.getValue().equals(setting.defaultValue.toString());
+            return listPref.getValue().equals(defaultValueString);
         }
 
         throw new IllegalStateException("Must override method to handle "
@@ -227,7 +246,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Updates a UI Preference with the {@link Setting} that backs it.
      *
-     * @param syncSetting If the UI should be synced {@link Setting} <-> Preference
+     * @param syncSetting              If the UI should be synced {@link Setting} <-> Preference
      * @param applySettingToPreference If true, then apply {@link Setting} -> Preference.
      *                                 If false, then apply {@link Setting} <- Preference.
      */
@@ -258,18 +277,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         listPreference.setSummary(objectStringValue);
     }
 
-    public static void showRestartDialog(@NonNull final Context context) {
+    public static void showRestartDialog(@NonNull Context context) {
         if (restartDialogMessage == null) {
             restartDialogMessage = str("revanced_extended_restart_message");
         }
+
         showRestartDialog(context, restartDialogMessage);
     }
 
-    public static void showRestartDialog(@NonNull final Context context, String message) {
+    public static void showRestartDialog(@NonNull Context context, String message) {
         showRestartDialog(context, message, 0);
     }
 
-    public static void showRestartDialog(@NonNull final Context context, String message, long delay) {
+    public static void showRestartDialog(@NonNull Context context, String message, long delay) {
         Utils.verifyOnMainThread();
 
         new AlertDialog.Builder(context)

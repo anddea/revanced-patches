@@ -1,3 +1,84 @@
+# [3.6.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.8...v3.6.0-dev.9) (2025-04-07)
+
+
+### Features
+
+* **Spotify:** Add `Sanitize sharing links` patch ([dfd7461](https://github.com/anddea/revanced-patches/commit/dfd7461ad6e0b93ffa5b3cfb8181c12c5a35e8a2))
+
+# [3.6.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.7...v3.6.0-dev.8) (2025-04-05)
+
+
+### Features
+
+* **Spotify:** Remove ads sections from home ([aa45158](https://github.com/anddea/revanced-patches/commit/aa451582ed797b9a33ef02a9823be40d36b5352e))
+* **YouTube - Overlay buttons:** Add `Gemini` to summarize video ([ef2987b](https://github.com/anddea/revanced-patches/commit/ef2987bdb0796dedcc92ec943033861c467ede57))
+
+# [3.6.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.6...v3.6.0-dev.7) (2025-04-04)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Override more color resources ([0af8762](https://github.com/anddea/revanced-patches/commit/0af8762d14c3ee75b508c56ebd3f00782f9a7901))
+
+
+### Features
+
+* **GmsCore support:** Add `Patch all manifest components` patch option ([203a22f](https://github.com/anddea/revanced-patches/commit/203a22f06b33262fb73f0be6576cd420157da64f))
+* **YouTube - Swipe controls:** Add `Switch speed and seek gestures` setting ([71c8b5b](https://github.com/anddea/revanced-patches/commit/71c8b5b444b2cedb66c38be36da30ea2a1dd197a))
+
+# [3.6.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.5...v3.6.0-dev.6) (2025-03-31)
+
+
+### Features
+
+* **YouTube - Hook download actions, Overlay buttons:** Add `Add to queue and reload video` and `Remove from queue and reload video` settings, fixed a bug where the queue was unavailable under certain conditions ([d6b6ded](https://github.com/anddea/revanced-patches/commit/d6b6deda56f7b32e8f6eef01ff993ac93bbdccfb))
+* **YouTube - Settings:** Add `App name`, `App version` and `Patched date` to patch information ([025d9ff](https://github.com/anddea/revanced-patches/commit/025d9ff7f54d091748ad03f4ef4037423c99f63c))
+
+# [3.6.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.4...v3.6.0-dev.5) (2025-03-31)
+
+
+### Features
+
+* **YouTube:** Remove support version `20.03.43` ([c83ed0b](https://github.com/anddea/revanced-patches/commit/c83ed0be9019059b573e72adebcc7d6baf607edd))
+
+# [3.6.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.3...v3.6.0-dev.4) (2025-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix long press external downloader ([da0fa86](https://github.com/anddea/revanced-patches/commit/da0fa860b88bf467598269b550a82833c5ca0f49))
+
+# [3.6.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.2...v3.6.0-dev.3) (2025-03-29)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** Fix patch not working ([c56bc72](https://github.com/anddea/revanced-patches/commit/c56bc723f284ad8b66d94dc4d961bc31204b5b32))
+
+# [3.6.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.6.0-dev.1...v3.6.0-dev.2) (2025-03-29)
+
+
+### Bug Fixes
+
+* **YouTube - Visual preferences icons:** Fix wrong key causing app crash ([62b0f5c](https://github.com/anddea/revanced-patches/commit/62b0f5c2b1aca9f5e17526f4381fe073bb83feaf))
+
+# [3.6.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0-dev.1) (2025-03-29)
+
+
+### Features
+
+* **Reddit:** Add support version `2025.12.0` ([6460360](https://github.com/anddea/revanced-patches/commit/6460360781589fa4733b3278801bd4d111a475fb))
+* **Spotify:** Add Spotify patches ([0e58253](https://github.com/anddea/revanced-patches/commit/0e582531e9a1f0bc4c5cd1530ec92b955191be3b))
+* **Universal:** Add `Disable edge-to-edge display` patch ([cdae664](https://github.com/anddea/revanced-patches/commit/cdae664d91b5a8be6e7435b007084f697e93e732))
+* **YouTube - Hook download actions, Overlay buttons:** Add `Queue manager` setting (Experimental) ([d081d7b](https://github.com/anddea/revanced-patches/commit/d081d7b845aa8e925231370b2ae50e2d2f38555b))
+* **YouTube - Navigation bar components:** Add Cairo icon (Library tab) ([8d16ee5](https://github.com/anddea/revanced-patches/commit/8d16ee52b322443ff8576ed32ff23d42654b1396))
+* **YouTube - Spoof streaming data:** Add `Use iOS client` patch option ([60d9072](https://github.com/anddea/revanced-patches/commit/60d9072996e54fea30d9c12282852335d4d525fe))
+* **YouTube Music - Hide layout components:** Add `Hide search button` setting ([3b419aa](https://github.com/anddea/revanced-patches/commit/3b419aa910ba10efbab3066b6261688d0a34c351))
+* **YouTube Music:** Add support version `8.12.53` ([414dac9](https://github.com/anddea/revanced-patches/commit/414dac974061e2c0a237972ce6b9920d1810cf16))
+* **YouTube:** Add `Disable layout updates` patch ([090acb7](https://github.com/anddea/revanced-patches/commit/090acb774845d8c4c0ba18e317edeb5849dae5e4))
+* **YouTube:** Add support for a wider range of versions (up to 20.12) ([242cdc9](https://github.com/anddea/revanced-patches/commit/242cdc976a999b20e031b6c68a9c47d4dcef2afb))
+* **YouTube:** Add support version `20.03.43` ([8d56e2e](https://github.com/anddea/revanced-patches/commit/8d56e2ea123cdfd81bd78460e164f4ad87ae6434))
+
 # [3.5.0](https://github.com/anddea/revanced-patches/compare/v3.4.0...v3.5.0) (2025-03-23)
 
 

@@ -43,8 +43,8 @@ public final class OpenChannelOfLiveAvatarPatch {
     /**
      * Injection point.
      *
-     * @param playbackStartDescriptorMap    map containing information about PlaybackStartDescriptor
-     * @param newlyLoadedVideoId            id of the current video
+     * @param playbackStartDescriptorMap map containing information about PlaybackStartDescriptor
+     * @param newlyLoadedVideoId         id of the current video
      */
     public static void fetchChannelId(@NonNull Map<Object, Object> playbackStartDescriptorMap, String newlyLoadedVideoId) {
         try {

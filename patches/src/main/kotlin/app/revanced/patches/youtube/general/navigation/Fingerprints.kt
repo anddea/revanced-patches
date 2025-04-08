@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.general.navigation
 
 import app.revanced.patches.youtube.utils.resourceid.ytFillBell
+import app.revanced.patches.youtube.utils.resourceid.ytOutlineLibrary
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -72,6 +73,11 @@ internal val pivotBarStyleFingerprint = legacyFingerprint(
 internal val setEnumMapFingerprint = legacyFingerprint(
     name = "setEnumMapFingerprint",
     literals = listOf(ytFillBell),
+)
+
+internal val setEnumMapSecondaryFingerprint = legacyFingerprint(
+    name = "setEnumMapSecondaryFingerprint",
+    literals = listOf(ytOutlineLibrary),
 )
 
 internal const val TRANSLUCENT_NAVIGATION_BAR_FEATURE_FLAG = 45630927L

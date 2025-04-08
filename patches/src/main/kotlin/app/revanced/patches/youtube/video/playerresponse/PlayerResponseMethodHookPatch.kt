@@ -39,7 +39,8 @@ val playerResponseMethodHookPatch = bytecodePatch(
         playerResponseMethod.apply {
             val setIndex = parameterTypes.indexOfFirst { it == "Ljava/util/Set;" }
             val parameterSize = parameterTypes.size
-            val relativeIndex = parameterTypes.subList(setIndex, parameterSize - 1).indexOfFirst { it == "Z" }
+            val relativeIndex =
+                parameterTypes.subList(setIndex, parameterSize - 1).indexOfFirst { it == "Z" }
 
             // YouTube 18.29 ~ 19.22 : p11
             // YouTube 19.23 ~ 20.09 : p12

@@ -14,6 +14,7 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("xml_tools")
 BLACKLIST: set[str] = {
+    "revanced_swipe_overlay_alternative_ui",
     "revanced_swipe_overlay_text_size",
 }
 
@@ -87,6 +88,8 @@ def _get_default_key_only_check() -> list[str]:
         "revanced_change_shorts_repeat_state",
         "revanced_custom_seekbar_color_accent",
         "revanced_custom_seekbar_color_primary",
+        "revanced_overlay_button_external_downloader_queue_manager",
+        "revanced_override_video_download_button_queue_manager",
         "revanced_override_youtube_music_button_about_prerequisite",
         "revanced_swipe_volume_sensitivity",
         "revanced_whitelist_settings",

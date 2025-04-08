@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
@@ -22,6 +23,7 @@ val playbackSpeedWhilePlayingPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
+        engagementPanelHookPatch,
         playerTypeHookPatch,
         versionCheckPatch,
     )

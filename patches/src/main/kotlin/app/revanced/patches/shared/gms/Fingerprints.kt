@@ -6,8 +6,6 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -107,4 +105,9 @@ internal val primesLifecycleEventFingerprint = legacyFingerprint(
                         .startsWith("Primes did not observe lifecycle events in the expected order.")
         } >= 0
     }
+)
+
+internal val primeMethodFingerprint = legacyFingerprint(
+    name = "primesLifecycleEventFingerprint",
+    strings = listOf("com.google.android.GoogleCamera", "com.android.vending")
 )

@@ -13,7 +13,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NEW_POST_ADS = new BooleanSetting("revanced_hide_new_post_ads", TRUE, true);
 
     // Layout
-    public static final BooleanSetting DISABLE_SCREENSHOT_POPUP = new BooleanSetting("revanced_disable_screenshot_popup", TRUE);
+    public static final BooleanSetting DISABLE_SCREENSHOT_POPUP = new BooleanSetting("revanced_disable_screenshot_popup", TRUE, true);
     public static final BooleanSetting HIDE_CHAT_BUTTON = new BooleanSetting("revanced_hide_chat_button", FALSE, true);
     public static final BooleanSetting HIDE_CREATE_BUTTON = new BooleanSetting("revanced_hide_create_button", FALSE, true);
     public static final BooleanSetting HIDE_DISCOVER_BUTTON = new BooleanSetting("revanced_hide_discover_button", FALSE, true);

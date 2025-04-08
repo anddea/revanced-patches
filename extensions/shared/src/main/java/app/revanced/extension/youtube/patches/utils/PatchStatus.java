@@ -9,6 +9,11 @@ public class PatchStatus {
         return false;
     }
 
+    // Modified by a patch. Do not touch.
+    public static boolean OldSeekbarThumbnailsDefaultBoolean() {
+        return false;
+    }
+
     public static boolean OldSplashAnimation() {
         // Replace this with true if the Restore old splash animation (Custom branding icon) succeeds
         return false;
@@ -40,23 +45,22 @@ public class PatchStatus {
         return false;
     }
 
-    public static String SpoofAppVersionDefaultString() {
-        return "18.17.43";
-    }
-
     public static boolean ToolBarComponents() {
         // Replace this with true if the Toolbar components patch succeeds
         return false;
     }
 
-    // Modified by a patch. Do not touch.
-    public static String RVXMusicPackageName() {
-        return "com.google.android.apps.youtube.music";
+    public static long PatchedTime() {
+        return 0L;
+    }
+
+    public static String SpoofAppVersionDefaultString() {
+        return "18.17.43";
     }
 
     // Modified by a patch. Do not touch.
-    public static boolean OldSeekbarThumbnailsDefaultBoolean() {
-        return false;
+    public static String RVXMusicPackageName() {
+        return "com.google.android.apps.youtube.music";
     }
 
 }

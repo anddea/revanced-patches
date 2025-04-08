@@ -16,7 +16,7 @@ internal object FilesCompat {
         // Check for the existence of java.nio.file.Files class
         Class.forName("java.nio.file.Files")
         false
-    } catch (_ : ClassNotFoundException) {
+    } catch (_: ClassNotFoundException) {
         // Under Android 8.0
         true
     }

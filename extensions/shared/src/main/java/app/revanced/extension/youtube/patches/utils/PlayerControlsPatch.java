@@ -10,7 +10,6 @@ import java.lang.ref.WeakReference;
 
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
-import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 
 /**
  * @noinspection ALL
@@ -32,6 +31,7 @@ public class PlayerControlsPatch {
         // SpeedDialog.initialize(bottomControlsViewGroup);
         // TimeOrderedPlaylist.initialize(bottomControlsViewGroup);
         // Whitelists.initialize(bottomControlsViewGroup);
+        // GeminiSummarize.initialize(bottomControlsViewGroup);
     }
 
     /**
@@ -66,6 +66,7 @@ public class PlayerControlsPatch {
         // SpeedDialog.changeVisibility(showing, animation);
         // TimeOrderedPlaylist.changeVisibility(showing, animation);
         // Whitelists.changeVisibility(showing, animation);
+        // GeminiSummarize.changeVisibility(showing, animation);
 
         // CreateSegmentButtonController.changeVisibility(showing, animation);
         // VotingButtonController.changeVisibility(showing, animation);
@@ -117,6 +118,7 @@ public class PlayerControlsPatch {
         // SpeedDialog.changeVisibilityNegatedImmediate();
         // TimeOrderedPlaylist.changeVisibilityNegatedImmediate();
         // Whitelists.changeVisibilityNegatedImmediate();
+        // GeminiSummarize.changeVisibilityNegatedImmediate();
 
         // CreateSegmentButtonController.changeVisibilityNegatedImmediate();
         // VotingButtonController.changeVisibilityNegatedImmediate();

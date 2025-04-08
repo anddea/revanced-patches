@@ -27,14 +27,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "$PATCHES_PATH/GeneralAdsPatch;"
 
-private val isCommentAdsMethod: Method.() -> Boolean = {
-    parameterTypes.size == 1 &&
-            parameterTypes.first().startsWith("Lcom/reddit/ads/conversation/") &&
-            accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
-            returnType == "V" &&
-            indexOfFirstStringInstruction("ad") >= 0
-}
-
 @Suppress("unused")
 val adsPatch = bytecodePatch(
     HIDE_ADS.title,
@@ -94,11 +86,20 @@ val adsPatch = bytecodePatch(
         if (is_2025_06_or_greater) {
             listOf(
                 commentAdCommentScreenAdViewFingerprint,
-                commentAdDetailListHeaderViewFingerprint
+                commentAdDetailListHeaderViewFingerprint,
+                commentsViewModelFingerprint
             ).forEach { fingerprint ->
                 fingerprint.methodOrThrow().hook()
             }
         } else {
+            val isCommentAdsMethod: Method.() -> Boolean = {
+                parameterTypes.size == 1 &&
+                        parameterTypes.first().startsWith("Lcom/reddit/ads/conversation/") &&
+                        accessFlags == AccessFlags.PUBLIC or AccessFlags.FINAL &&
+                        returnType == "V" &&
+                        indexOfFirstStringInstruction("ad") >= 0
+            }
+
             classes.forEach { classDef ->
                 classDef.methods.forEach { method ->
                     if (method.isCommentAdsMethod()) {

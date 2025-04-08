@@ -20,8 +20,36 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import kotlin.collections.listOf
+
+internal val bottomSheetMenuDismissFingerprint = legacyFingerprint(
+    name = "bottomSheetMenuDismissFingerprint",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    customFingerprint = { method, _ ->
+        indexOfDismissInstruction(method) >= 0
+    }
+)
+
+fun indexOfDismissInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        reference?.name == "dismiss" &&
+                reference.returnType == "V" &&
+                reference.parameterTypes.isEmpty()
+    }
+
+internal val bottomSheetMenuItemClickFingerprint = legacyFingerprint(
+    name = "bottomSheetMenuItemClickFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("Landroid/widget/AdapterView;", "Landroid/view/View;", "I", "J"),
+    customFingerprint = { method, _ ->
+        method.name == "onItemClick"
+    }
+)
 
 internal val bottomSheetMenuListBuilderFingerprint = legacyFingerprint(
     name = "bottomSheetMenuListBuilderFingerprint",
@@ -70,6 +98,41 @@ internal val reelEnumStaticFingerprint = legacyFingerprint(
     parameters = listOf("I"),
     returnType = "L"
 )
+
+/**
+ * YouTube 18.49.36 ~
+ */
+internal val reelPlaybackRepeatFingerprint = legacyFingerprint(
+    name = "reelPlaybackRepeatFingerprint",
+    returnType = "V",
+    parameters = listOf("L"),
+    strings = listOf("YoutubePlayerState is in throwing an Error.")
+)
+
+internal val reelPlaybackFingerprint = legacyFingerprint(
+    name = "reelPlaybackFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("J"),
+    returnType = "V",
+    customFingerprint = { method, _ ->
+        indexOfMilliSecondsInstruction(method) >= 0 &&
+                indexOfInitializationInstruction(method) >= 0
+    }
+)
+
+private fun indexOfMilliSecondsInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        getReference<FieldReference>()?.name == "MILLISECONDS"
+    }
+
+internal fun indexOfInitializationInstruction(method: Method) =
+    method.indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        opcode == Opcode.INVOKE_DIRECT &&
+                reference?.name == "<init>" &&
+                reference.parameterTypes.size == 3 &&
+                reference.parameterTypes.firstOrNull() == "I"
+    }
 
 internal const val SHORTS_HUD_FEATURE_FLAG = 45644023L
 

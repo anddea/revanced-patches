@@ -11,6 +11,8 @@ import app.revanced.patches.shared.customspeed.customPlaybackSpeedPatch
 import app.revanced.patches.shared.litho.addLithoFilter
 import app.revanced.patches.shared.litho.lithoFilterPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
+import app.revanced.patches.youtube.utils.dismiss.dismissPlayerHookPatch
+import app.revanced.patches.youtube.utils.dismiss.hookDismissObserver
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.VIDEO_PATH
@@ -24,7 +26,6 @@ import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverP
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.patches.youtube.utils.videoEndFingerprint
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.onCreateHook
@@ -44,6 +45,7 @@ import app.revanced.util.indexOfFirstStringInstructionOrThrow
 import app.revanced.util.updatePatchStatus
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -86,6 +88,7 @@ val videoPlaybackPatch = bytecodePatch(
         ),
         flyoutMenuHookPatch,
         lithoFilterPatch,
+        dismissPlayerHookPatch,
         playerTypeHookPatch,
         recyclerViewTreeObserverPatch,
         shortsPlaybackPatch,
@@ -158,22 +161,33 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        playbackSpeedInitializeFingerprint.matchOrThrow(videoEndFingerprint).let {
+        loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
             it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val targetIndex = it.patternMatch!!.endIndex
+                val targetReference =
+                    getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
 
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeedInShorts(F)F
-                        move-result v$insertRegister
-                        """
-                )
+                findMethodOrThrow(definingClass) {
+                    name == targetReference.name
+                }.apply {
+                    val insertIndex = implementation!!.instructions.lastIndex
+                    val insertRegister =
+                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex, """
+                            invoke-static {v$insertRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
+                            move-result v$insertRegister
+                            """
+                    )
+                }
             }
         }
 
         hookBackgroundPlayVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
+        hookVideoInformation("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->newVideoStarted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZ)V")
         hookPlayerResponseVideoId("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->fetchMusicRequest(Ljava/lang/String;Z)V")
+        hookDismissObserver("$EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->onDismiss()V")
 
         updatePatchStatus(PATCH_STATUS_CLASS_DESCRIPTOR, "RememberPlaybackSpeed")
 
@@ -293,25 +307,6 @@ val videoPlaybackPatch = bytecodePatch(
             }
             settingArray += "SETTINGS: REPLACE_AV1_CODEC"
         }
-
-        // reject av1 codec response
-
-        byteBufferArrayFingerprint.matchOrThrow(byteBufferArrayParentFingerprint).let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
-                val insertRegister =
-                    getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex, """
-                        invoke-static {v$insertRegister}, $EXTENSION_AV1_CODEC_CLASS_DESCRIPTOR->rejectResponse(I)I
-                        move-result v$insertRegister
-                        """
-                )
-            }
-        }
-
-        // endregion
 
         // region patch for disable VP9 codec
 

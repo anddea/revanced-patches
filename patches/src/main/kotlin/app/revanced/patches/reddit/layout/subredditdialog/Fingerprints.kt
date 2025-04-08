@@ -1,5 +1,6 @@
 package app.revanced.patches.reddit.layout.subredditdialog
 
+import app.revanced.patches.reddit.utils.resourceid.nsfwDialogTitle
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -70,6 +71,14 @@ fun indexOfHasBeenVisitedInstruction(method: Method) =
                 reference?.name == "getHasBeenVisited" &&
                 reference.returnType == "Z"
     }
+
+internal val nsfwAlertBuilderFingerprint = legacyFingerprint(
+    name = "nsfwAlertBuilderFingerprint",
+    literals = listOf(nsfwDialogTitle),
+    customFingerprint = { method, _ ->
+        method.definingClass.startsWith("Lcom/reddit/screen/nsfw")
+    }
+)
 
 internal val redditAlertDialogsFingerprint = legacyFingerprint(
     name = "redditAlertDialogsFingerprint",

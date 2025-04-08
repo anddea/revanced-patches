@@ -1,22 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="gms_core_dialog_dismiss_text">Don\'t show again</string>
-    <string name="revanced_change_form_factor_entry_1">Default</string>
-    <string name="revanced_change_form_factor_entry_2">Phone</string>
-    <string name="revanced_change_form_factor_entry_3">Phone (Max 480 dp)</string>
-    <string name="revanced_change_form_factor_entry_4">Tablet</string>
-    <string name="revanced_change_form_factor_entry_5">Tablet (Min 600 dp)</string>
-    <string name="revanced_change_form_factor_entry_6">Automotive</string>
-    <string name="revanced_change_form_factor_title">Layout form factor</string>
-    <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
-
-Tablet layout
-• Community posts are hidden.
-
-Automotive layout
-• Shorts open in the regular player.
-• Feed is organized by topics and channels.
-• Video description cannot be opened when 'Spoof streaming data' is turned off."</string>
+    <string name="revanced_cancel">Cancel</string>
+    <string name="revanced_copy">Copy</string>
     <string name="revanced_enable_swipe_seek_summary_off">Fullscreen seek swipe is disabled.</string>
     <string name="revanced_enable_swipe_seek_summary_on">"Fullscreen seek swipe is enabled.
 
@@ -29,6 +15,14 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_enable_swipe_speed_title">Enable speed gesture</string>
     <string name="revanced_external_downloader_package_name_video_long_press_summary">Package name of your installed external downloader app, such as NewPipe or YTDLnis, on long press.</string>
     <string name="revanced_external_downloader_package_name_video_long_press_title">Long press video downloader package name</string>
+    <string name="revanced_gemini_cancelled">Summarization cancelled</string>
+    <string name="revanced_gemini_copy_success">Summary copied to clipboard.</string>
+    <string name="revanced_gemini_error_api_failed">Gemini API request failed: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Gemini API Key not set in ReVanced Extended settings.</string>
+    <string name="revanced_gemini_error_no_video">Could not get video URL.</string>
+    <string name="revanced_gemini_loading">Summarizing the video...</string>
+    <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
+    <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gms_show_dialog_summary">Displays the optimization dialog for GMSCore at each application startup.</string>
     <string name="revanced_gms_show_dialog_title">Show optimization dialog for GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Gradient positions reset to default.</string>
@@ -50,6 +44,12 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_icon_xisr_special">Xisr Special</string>
     <string name="revanced_icon_xisr_yellow">Xisr Yellow</string>
     <string name="revanced_icon_youtube_black">YouTube Black</string>
+    <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
+Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_sb_new_segment_adjust">Adjust: Mark Start and End Time for segment</string>
     <string name="revanced_sb_new_segment_compare">Verify the Segment</string>
     <string name="revanced_sb_new_segment_edit">Edit the Segment</string>
@@ -63,14 +63,6 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Videos may end 1 second early.
 • OPUS audio codec may not be supported."</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Videos may end 1 second early.</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Do not skip Onesie response encryption.
-
-• Some users may experience a new type of playback issue."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Skip Onesie response encryption.
-
-• Fixes a new type of playback issue that some users are experiencing.
-• AV1 codec may not be available."</string>
-    <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Skip Onesie response encryption</string>
     <string name="revanced_spoof_streaming_data_type_entry_android_creator">Android Creator</string>
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">Seek swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Configure the minimum distance for seek swiping between 1 and 1000 (%).</string>
@@ -78,4 +70,7 @@ Adjust speed by swiping horizontally on the bottom half of the screen."</string>
     <string name="revanced_swipe_speed_sensitivity_invalid_toast">Speed swipe sensitivity must be between 1-1000 (%).</string>
     <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Configure the minimum distance for speed swiping between 1 and 1000 (%).</string>
     <string name="revanced_swipe_speed_sensitivity_title">Speed swipe sensitivity</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">The seek swipe gesture zone is at the top, the speed zone is at the bottom.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">The speed swipe gesture zone is at the top, the seek zone is at the bottom.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Switch speed and seek gestures</string>
 </resources>
