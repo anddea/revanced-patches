@@ -50,6 +50,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstructio
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -145,10 +146,15 @@ val miniplayerPatch = bytecodePatch(
         // region Legacy tablet Miniplayer hooks.
 
         miniplayerOverrideFingerprint.matchOrThrow().let {
-            val appNameStringIndex = it.stringMatches!!.first().index + 2
-
             it.method.apply {
-                val walkerMethod = getWalkerMethod(appNameStringIndex)
+                val stringIndex = it.stringMatches!!.first().index
+                val walkerIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                    val reference = getReference<MethodReference>()
+                    reference?.returnType == "Z" &&
+                            reference.parameterTypes.size == 1 &&
+                            reference.parameterTypes.firstOrNull() == "Landroid/content/Context;"
+                }
+                val walkerMethod = getWalkerMethod(walkerIndex)
 
                 walkerMethod.apply {
                     findReturnIndicesReversed().forEach { index ->
@@ -233,7 +239,8 @@ val miniplayerPatch = bytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
-                    targetIndex + 1, """
+                    targetIndex + 1,
+                    """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
                         """,

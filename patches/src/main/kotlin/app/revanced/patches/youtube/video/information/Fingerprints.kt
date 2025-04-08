@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.information
 import app.revanced.patches.youtube.utils.PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.resourceid.notificationBigPictureIconWidth
 import app.revanced.patches.youtube.utils.resourceid.qualityAuto
-import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -132,29 +131,6 @@ fun indexOfPlayerResponseModelInterfaceInstruction(methodDef: Method) =
         opcode == Opcode.INVOKE_INTERFACE &&
                 getReference<MethodReference>()?.definingClass == PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR
     }
-
-/**
- * This fingerprint is compatible with all versions of YouTube starting from v18.29.38 to supported versions.
- * This method is invoked only in Shorts.
- * Accurate video information is invoked even when the user moves Shorts upward or downward.
- */
-internal val videoIdFingerprintShorts = legacyFingerprint(
-    name = "videoIdFingerprintShorts",
-    returnType = "V",
-    parameters = listOf(PLAYER_RESPONSE_MODEL_CLASS_DESCRIPTOR),
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT
-    ),
-    customFingerprint = custom@{ method, _ ->
-        if (method.containsLiteralInstruction(45365621L))
-            return@custom true
-
-        method.indexOfFirstInstruction {
-            getReference<FieldReference>()?.name == "reelWatchEndpoint"
-        } >= 0
-    }
-)
 
 internal val videoQualityListFingerprint = legacyFingerprint(
     name = "videoQualityListFingerprint",

@@ -25,6 +25,7 @@ internal object ResourceUtils {
     const val RVX_PREFERENCE_PATH = "res/xml/revanced_prefs.xml"
     const val YOUTUBE_SETTINGS_PATH = "res/xml/settings_fragment.xml"
 
+    var restoreOldSplashAnimationIncluded = false
     var youtubeMusicPackageName = YOUTUBE_MUSIC_PACKAGE_NAME
     var youtubePackageName = YOUTUBE_PACKAGE_NAME
 
@@ -86,9 +87,6 @@ internal object ResourceUtils {
         iconType = iconName
         updatePatchStatusSettings("Icon", "@string/revanced_icon_$iconName")
     }
-
-    fun updatePatchStatusLabel(appName: String) =
-        updatePatchStatusSettings("Label", appName)
 
     fun updatePatchStatusTheme(themeName: String) =
         updatePatchStatusSettings("Theme", themeName)

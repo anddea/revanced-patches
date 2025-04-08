@@ -24,7 +24,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_METHOD_DESCRIPTOR =
@@ -41,7 +41,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
             "7.16.53",
             "7.25.53",
             "8.05.51",
-            "8.10.51",
+            "8.12.53",
         ),
     )
 
@@ -57,7 +57,7 @@ val cairoSplashAnimationPatch = bytecodePatch(
             return@execute
         } else if (!is_7_20_or_greater) {
             cairoSplashAnimationConfigFingerprint.injectLiteralInstructionBooleanCall(
-                45635386L,
+                CAIRO_SPLASH_ANIMATION_FEATURE_FLAG,
                 EXTENSION_METHOD_DESCRIPTOR
             )
         } else {
@@ -69,18 +69,13 @@ val cairoSplashAnimationPatch = bytecodePatch(
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.name == "setContentView"
                 } + 1
-                val viewStubFindViewByIdIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                    val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.name == "findViewById" &&
-                            reference.definingClass != "Landroid/view/View;"
-                }
+                val freeIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST)
                 val freeRegister =
-                    getInstruction<FiveRegisterInstruction>(viewStubFindViewByIdIndex).registerD
-                val jumpIndex = indexOfFirstInstructionReversedOrThrow(
-                    viewStubFindViewByIdIndex,
-                    Opcode.IGET_OBJECT
-                )
+                    getInstruction<OneRegisterInstruction>(freeIndex).registerA
+                val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/Runnable;"
+                } + 1
 
                 addInstructionsWithLabels(
                     insertIndex, """

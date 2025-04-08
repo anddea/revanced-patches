@@ -2,9 +2,13 @@ package app.revanced.extension.youtube.patches.video.requests
 
 import android.annotation.SuppressLint
 import androidx.annotation.GuardedBy
-import app.revanced.extension.shared.patches.client.YouTubeAppClient
-import app.revanced.extension.shared.patches.client.YouTubeWebClient
-import app.revanced.extension.shared.patches.spoof.requests.PlayerRoutes
+import app.revanced.extension.shared.innertube.client.YouTubeAppClient
+import app.revanced.extension.shared.innertube.client.YouTubeWebClient
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createApplicationRequestBody
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.createWebInnertubeBody
+import app.revanced.extension.shared.innertube.requests.InnerTubeRequestBody.getInnerTubeResponseConnectionFromRoute
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_CATEGORY
+import app.revanced.extension.shared.innertube.requests.InnerTubeRoutes.GET_PLAYLIST_PAGE
 import app.revanced.extension.shared.requests.Requester
 import app.revanced.extension.shared.utils.Logger
 import app.revanced.extension.shared.utils.Utils
@@ -124,12 +128,12 @@ class MusicRequest private constructor(
             Logger.printDebug { "Fetching playlist request for: $videoId, using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
-                    PlayerRoutes.GET_PLAYLIST_PAGE,
+                val connection = getInnerTubeResponseConnectionFromRoute(
+                    GET_PLAYLIST_PAGE,
                     clientType
                 )
                 val requestBody =
-                    PlayerRoutes.createApplicationRequestBody(
+                    createApplicationRequestBody(
                         clientType = clientType,
                         videoId = videoId,
                         playlistId = "RD$videoId"
@@ -168,12 +172,11 @@ class MusicRequest private constructor(
             Logger.printDebug { "Fetching microformat request for: $videoId, using client: $clientTypeName" }
 
             try {
-                val connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(
-                    PlayerRoutes.GET_CATEGORY,
+                val connection = getInnerTubeResponseConnectionFromRoute(
+                    GET_CATEGORY,
                     clientType
                 )
-                val requestBody =
-                    PlayerRoutes.createWebInnertubeBody(clientType, videoId)
+                val requestBody = createWebInnertubeBody(clientType, videoId)
 
                 connection.setFixedLengthStreamingMode(requestBody.size)
                 connection.outputStream.write(requestBody)

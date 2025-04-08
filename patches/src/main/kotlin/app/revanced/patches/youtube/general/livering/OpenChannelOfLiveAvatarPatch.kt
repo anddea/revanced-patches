@@ -90,7 +90,8 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
             )
 
             val playbackStartIndex = indexOfPlaybackStartDescriptorInstruction(this) + 1
-            val playbackStartRegister = getInstruction<OneRegisterInstruction>(playbackStartIndex).registerA
+            val playbackStartRegister =
+                getInstruction<OneRegisterInstruction>(playbackStartIndex).registerA
 
             val mapIndex = indexOfFirstInstructionOrThrow(playbackStartIndex) {
                 val reference = getReference<MethodReference>()
@@ -169,15 +170,24 @@ val openChannelOfLiveAvatarPatch = bytecodePatch(
                 val playbackStartIndex = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.returnType == PLAYBACK_START_DESCRIPTOR_CLASS_DESCRIPTOR
                 }
-                val mapIndex = indexOfFirstInstructionReversedOrThrow(playbackStartIndex, Opcode.IPUT)
+                val mapIndex =
+                    indexOfFirstInstructionReversedOrThrow(playbackStartIndex, Opcode.IPUT)
                 val mapRegister = getInstruction<TwoRegisterInstruction>(mapIndex).registerA
-                val playbackStartRegister = getInstruction<OneRegisterInstruction>(playbackStartIndex + 1).registerA
-                val videoIdRegister = getInstruction<FiveRegisterInstruction>(playbackStartIndex).registerC
+                val playbackStartRegister =
+                    getInstruction<OneRegisterInstruction>(playbackStartIndex + 1).registerA
+                val videoIdRegister =
+                    getInstruction<FiveRegisterInstruction>(playbackStartIndex).registerC
 
                 addInstructionsWithLabels(
                     playbackStartIndex + 2, """
                         move-object/from16 v$mapRegister, p2
-                        ${fetchChannelIdInstructions(playbackStartRegister, mapRegister, videoIdRegister)}
+                        ${
+                        fetchChannelIdInstructions(
+                            playbackStartRegister,
+                            mapRegister,
+                            videoIdRegister
+                        )
+                    }
                         """
                 )
             }

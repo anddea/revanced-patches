@@ -37,7 +37,6 @@ import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.Utils.printWarn
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -313,8 +312,6 @@ val fullscreenComponentsPatch = bytecodePatch(
             }
 
             settingArray += "SETTINGS: KEEP_LANDSCAPE_MODE"
-        } else {
-            printWarn("\"Keep landscape mode\" is not supported in this version. Use YouTube 19.16.39 or earlier.")
         }
 
         // endregion

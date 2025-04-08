@@ -85,17 +85,19 @@ val backgroundPlaybackPatch = bytecodePatch(
                 backgroundPlaybackManagerCairoFragmentPrimaryFingerprint,
                 backgroundPlaybackManagerCairoFragmentSecondaryFingerprint
             ).forEach { fingerprint ->
-                fingerprint.matchOrThrow(backgroundPlaybackManagerCairoFragmentParentFingerprint).let {
-                    it.method.apply {
-                        val insertIndex = it.patternMatch!!.startIndex + 4
-                        val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                fingerprint.matchOrThrow(backgroundPlaybackManagerCairoFragmentParentFingerprint)
+                    .let {
+                        it.method.apply {
+                            val insertIndex = it.patternMatch!!.startIndex + 4
+                            val insertRegister =
+                                getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                        addInstruction(
-                            insertIndex,
-                            "const/4 v$insertRegister, 0x0"
-                        )
+                            addInstruction(
+                                insertIndex,
+                                "const/4 v$insertRegister, 0x0"
+                            )
+                        }
                     }
-                }
             }
 
             pipInputConsumerFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(

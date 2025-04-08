@@ -11,14 +11,12 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.drawable.addDrawableColorHook
 import app.revanced.patches.shared.drawable.drawableColorHookPatch
 import app.revanced.patches.shared.mainactivity.onCreateMethod
-import app.revanced.patches.youtube.layout.branding.icon.customBrandingIconPatch
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.extension.Constants.PATCH_STATUS_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_PATH
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
-import app.revanced.patches.youtube.utils.patch.PatchList.CUSTOM_BRANDING_ICON_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.patch.PatchList.SEEKBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playerButtonsResourcesFingerprint
 import app.revanced.patches.youtube.utils.playerButtonsVisibilityFingerprint
@@ -37,6 +35,7 @@ import app.revanced.patches.youtube.utils.seekbarFingerprint
 import app.revanced.patches.youtube.utils.seekbarOnDrawFingerprint
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.getContext
+import app.revanced.patches.youtube.utils.settings.ResourceUtils.restoreOldSplashAnimationIncluded
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.totalTimeFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
@@ -47,6 +46,10 @@ import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
 import app.revanced.util.fingerprint.resolvable
+import app.revanced.util.getReference
+import app.revanced.util.getWalkerMethod
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
@@ -112,9 +115,6 @@ val seekbarComponentsPatch = bytecodePatch(
 
     execute {
 
-        val restoreOldSplashAnimationIncluded = CUSTOM_BRANDING_ICON_FOR_YOUTUBE.included == true &&
-                customBrandingIconPatch.getBooleanOptionValue("restoreOldSplashAnimation").value == true
-
         var settingArray = arrayOf(
             "PREFERENCE_SCREEN: PLAYER",
             "SETTINGS: SEEKBAR_COMPONENTS"
@@ -122,60 +122,71 @@ val seekbarComponentsPatch = bytecodePatch(
 
         // region patch for enable seekbar tapping patch
 
-        seekbarTappingFingerprint.matchOrThrow().let {
-            it.method.apply {
-                val tapSeekIndex = it.patternMatch!!.startIndex + 1
-                val tapSeekClass = getInstruction(tapSeekIndex)
-                    .getReference<MethodReference>()!!
-                    .definingClass
+        seekbarTappingFingerprint.methodOrThrow().apply {
+            val pointIndex = indexOfPointInstruction(this)
+            val pointInstruction = getInstruction<FiveRegisterInstruction>(pointIndex)
+            val freeRegister = pointInstruction.registerE
+            val xAxisRegister = pointInstruction.registerD
 
-                val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
-                var pMethodCall = ""
-                var oMethodCall = ""
-
-                for (method in tapSeekMethods) {
-                    if (method.implementation == null)
-                        continue
-
-                    val instructions = method.implementation!!.instructions
-                    // here we make sure we actually find the method because it has more than 7 instructions
-                    if (instructions.count() != 10)
-                        continue
-
-                    // we know that the 7th instruction has the opcode CONST_4
-                    val instruction = instructions.elementAt(6)
-                    if (instruction.opcode != Opcode.CONST_4)
-                        continue
-
-                    // the literal for this instruction has to be either 1 or 2
-                    val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
-
-                    // method founds
-                    if (literal == 1)
-                        pMethodCall = "${method.definingClass}->${method.name}(I)V"
-                    else if (literal == 2)
-                        oMethodCall = "${method.definingClass}->${method.name}(I)V"
-                }
-
-                if (pMethodCall.isEmpty()) {
-                    throw PatchException("pMethod not found")
-                }
-                if (oMethodCall.isEmpty()) {
-                    throw PatchException("oMethod not found")
-                }
-
-                val insertIndex = it.patternMatch!!.startIndex + 2
-
-                addInstructionsWithLabels(
-                    insertIndex, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
-                        move-result v0
-                        if-eqz v0, :disabled
-                        invoke-virtual { p0, v2 }, $pMethodCall
-                        invoke-virtual { p0, v2 }, $oMethodCall
-                        """, ExternalLabel("disabled", getInstruction(insertIndex))
-                )
+            val tapSeekIndex = indexOfFirstInstructionOrThrow(pointIndex) {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        reference?.returnType == "V" &&
+                        reference.parameterTypes.isEmpty()
             }
+            val thisInstanceRegister =
+                getInstruction<FiveRegisterInstruction>(tapSeekIndex).registerC
+
+            val tapSeekClass = getInstruction(tapSeekIndex)
+                .getReference<MethodReference>()!!
+                .definingClass
+
+            val tapSeekMethods = findMethodsOrThrow(tapSeekClass)
+            var pMethodCall = ""
+            var oMethodCall = ""
+
+            for (method in tapSeekMethods) {
+                if (method.implementation == null)
+                    continue
+
+                val instructions = method.implementation!!.instructions
+                // here we make sure we actually find the method because it has more than 7 instructions
+                if (instructions.count() != 10)
+                    continue
+
+                // we know that the 7th instruction has the opcode CONST_4
+                val instruction = instructions.elementAt(6)
+                if (instruction.opcode != Opcode.CONST_4)
+                    continue
+
+                // the literal for this instruction has to be either 1 or 2
+                val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
+
+                // method founds
+                if (literal == 1)
+                    pMethodCall = "${method.definingClass}->${method.name}(I)V"
+                else if (literal == 2)
+                    oMethodCall = "${method.definingClass}->${method.name}(I)V"
+            }
+
+            if (pMethodCall.isEmpty()) {
+                throw PatchException("pMethod not found")
+            }
+            if (oMethodCall.isEmpty()) {
+                throw PatchException("oMethod not found")
+            }
+
+            val insertIndex = tapSeekIndex + 1
+
+            addInstructionsWithLabels(
+                insertIndex, """
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->enableSeekbarTapping()Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :disabled
+                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $pMethodCall
+                    invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethodCall
+                    """, ExternalLabel("disabled", getInstruction(insertIndex))
+            )
         }
 
         // endregion
@@ -259,7 +270,10 @@ val seekbarComponentsPatch = bytecodePatch(
                 playerSeekbarHandleColorPrimaryFingerprint,
                 playerSeekbarHandleColorSecondaryFingerprint
             ).forEach {
-                it.methodOrThrow().addColorChangeInstructions(ytStaticBrandRed, "getVideoPlayerSeekbarColorAccent")
+                it.methodOrThrow().addColorChangeInstructions(
+                    ytStaticBrandRed,
+                    "getVideoPlayerSeekbarColorAccent"
+                )
             }
             // If hiding feed seekbar thumbnails, then turn off the cairo gradient
             // of the watch history menu items as they use the same gradient as the

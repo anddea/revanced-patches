@@ -22,7 +22,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import kotlin.collections.mutableListOf
 
 private const val EXTENSION_VIDEO_UTILS_CLASS_DESCRIPTOR =
     "$EXTENSION_PATH/utils/VideoUtils;"
@@ -59,7 +58,10 @@ val fullscreenButtonHookPatch = bytecodePatch(
                                     getReference<MethodReference>()?.name == "addListener"
                         }
                         val animatorListenerAdapterClass = getInstruction<ReferenceInstruction>(
-                            indexOfFirstInstructionReversedOrThrow(addListenerIndex, Opcode.NEW_INSTANCE)
+                            indexOfFirstInstructionReversedOrThrow(
+                                addListenerIndex,
+                                Opcode.NEW_INSTANCE
+                            )
                         ).reference.toString()
                         return Pair(
                             findMethodOrThrow(animatorListenerAdapterClass) { parameters.isEmpty() },

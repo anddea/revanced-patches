@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.Constants.SHARED_PATH
+import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.findMethodOrThrow
 import app.revanced.util.fingerprint.methodOrThrow
@@ -29,7 +30,10 @@ internal var engagementPanelIdRegister = 0
 val engagementPanelHookPatch = bytecodePatch(
     description = "engagementPanelHookPatch"
 ) {
-    dependsOn(sharedResourceIdPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        sharedResourceIdPatch,
+    )
 
     execute {
         fun Method.setFreeIndex(startIndex: Int) {

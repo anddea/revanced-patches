@@ -40,6 +40,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -101,6 +102,34 @@ public class GeneralPatch {
         ArrayList<Object> defaultFormatStreamModelArray = formatStreamModelArray;
         formatStreamModelArray = null;
         return defaultFormatStreamModelArray;
+    }
+
+    // endregion
+
+    // region [Disable layout updates] patch
+
+    private static final String[] REQUEST_HEADER_KEYS = {
+            "X-Youtube-Cold-Config-Data",
+            "X-Youtube-Cold-Hash-Data",
+            "X-Youtube-Hot-Config-Data",
+            "X-Youtube-Hot-Hash-Data"
+    };
+
+    private static final boolean DISABLE_LAYOUT_UPDATES =
+            Settings.DISABLE_LAYOUT_UPDATES.get();
+
+    /**
+     * @param key   Keys to be added to the header of CronetBuilder.
+     * @param value Values to be added to the header of CronetBuilder.
+     * @return Empty value if setting is enabled.
+     */
+    public static String disableLayoutUpdates(String key, String value) {
+        if (DISABLE_LAYOUT_UPDATES && StringUtils.equalsAny(key, REQUEST_HEADER_KEYS)) {
+            Logger.printDebug(() -> "Blocking: " + key);
+            return "";
+        }
+
+        return value;
     }
 
     // endregion
@@ -232,6 +261,17 @@ public class GeneralPatch {
             // That's why 'EnumMap.putIfAbsent()' is used instead of 'EnumMap.put()'.
             enumMap.putIfAbsent(tabActivityCairo, Integer.valueOf(fillBellCairoBlack));
         }
+    }
+
+    public static int getLibraryDrawableId(int original) {
+        if (ExtendedUtils.IS_19_26_OR_GREATER &&
+                !ExtendedUtils.isSpoofingToLessThan("19.27.00")) {
+            int libraryCairoId = ResourceUtils.getDrawableIdentifier("yt_outline_library_cairo_black_24");
+            if (libraryCairoId != 0) {
+                return libraryCairoId;
+            }
+        }
+        return original;
     }
 
     public static boolean switchCreateWithNotificationButton(boolean original) {

@@ -61,8 +61,10 @@ val sharedThemePatch = resourcePatch(
                                     0 -> when (nodeAttributeName) {
                                         "Base.Theme.YouTube.Launcher.Dark",
                                         "Base.Theme.YouTube.Launcher.Cairo.Dark" -> "@color/yt_black1"
+
                                         "Base.Theme.YouTube.Launcher.Light",
                                         "Base.Theme.YouTube.Launcher.Cairo.Light" -> "@color/yt_white1"
+
                                         else -> "null"
                                     }
 

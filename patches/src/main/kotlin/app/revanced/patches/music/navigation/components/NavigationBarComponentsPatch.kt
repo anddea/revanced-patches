@@ -124,14 +124,17 @@ val navigationBarComponentsPatch = bytecodePatch(
                     opcode == Opcode.IGET_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/String;"
                 }
-                val browseIdReference = getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference
+                val browseIdReference =
+                    getInstruction<ReferenceInstruction>(browseIdIndex).reference as FieldReference
                 val fieldName = browseIdReference.name
                 val componentIndex = indexOfFirstInstructionOrThrow(stringIndex) {
                     opcode == Opcode.IGET_OBJECT &&
                             getReference<FieldReference>()?.toString() == browseIdReference.toString()
                 }
-                val browseIdRegister = getInstruction<TwoRegisterInstruction>(componentIndex).registerA
-                val componentRegister = getInstruction<TwoRegisterInstruction>(componentIndex).registerB
+                val browseIdRegister =
+                    getInstruction<TwoRegisterInstruction>(componentIndex).registerA
+                val componentRegister =
+                    getInstruction<TwoRegisterInstruction>(componentIndex).registerB
 
                 val enumIndex = it.patternMatch!!.startIndex + 3
                 val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA

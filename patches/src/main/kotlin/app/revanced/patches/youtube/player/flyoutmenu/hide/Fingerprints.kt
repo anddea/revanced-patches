@@ -1,8 +1,10 @@
 package app.revanced.patches.youtube.player.flyoutmenu.hide
 
+import app.revanced.patches.youtube.utils.indexOfAddHeaderViewInstruction
 import app.revanced.patches.youtube.utils.resourceid.bottomSheetFooterText
 import app.revanced.patches.youtube.utils.resourceid.subtitleMenuSettingsFooterInfo
 import app.revanced.patches.youtube.utils.resourceid.videoQualityBottomSheet
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -18,33 +20,18 @@ internal val advancedQualityBottomSheetFingerprint = legacyFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L", "L"),
-    opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CONST_16,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CONST_STRING
-    ),
-    literals = listOf(videoQualityBottomSheet),
+    customFingerprint = custom@{ method, _ ->
+        if (!method.containsLiteralInstruction(videoQualityBottomSheet)) {
+            return@custom false
+        }
+        if (indexOfAddHeaderViewInstruction(method) < 0) {
+            return@custom false
+        }
+        val implementation = method.implementation
+            ?: return@custom false
+
+        implementation.instructions.elementAt(0).opcode == Opcode.IGET_OBJECT
+    }
 )
 
 internal val captionsBottomSheetFingerprint = legacyFingerprint(

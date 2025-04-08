@@ -54,7 +54,7 @@ internal val engagementPanelHeightFingerprint = legacyFingerprint(
     parameters = emptyList(),
     customFingerprint = { method, _ ->
         AccessFlags.FINAL.isSet(method.accessFlags) &&
-        method.containsLiteralInstruction(1) &&
+                method.containsLiteralInstruction(1) &&
                 method.indexOfFirstInstruction {
                     opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.name == "booleanValue"

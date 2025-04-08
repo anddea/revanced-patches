@@ -153,3 +153,18 @@ internal val onesieEncryptionAlternativeFeatureFlagFingerprint = legacyFingerpri
     name = "onesieEncryptionAlternativeFeatureFlagFingerprint",
     literals = listOf(ONESIE_ENCRYPTION_ALTERNATIVE_FEATURE_FLAG),
 )
+
+// Feature flag that enables different code for parsing and starting video playback,
+// but it's exact purpose is not known. If this flag is enabled while stream spoofing
+// then videos will never start playback and load forever.
+// Flag does not seem to affect playback if spoofing is off.
+// YouTube 19.50 ~
+internal const val PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG = 45665455L
+
+internal val playbackStartDescriptorFeatureFlagFingerprint = legacyFingerprint(
+    name = "playbackStartDescriptorFeatureFlagFingerprint",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    returnType = ("Z"),
+    literals = listOf(PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG)
+)

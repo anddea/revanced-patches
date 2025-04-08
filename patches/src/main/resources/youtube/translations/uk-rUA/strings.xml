@@ -48,6 +48,8 @@
     <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
     <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
     <string name="revanced_alt_thumbnail_subscriptions_title">Вкладка Підписки</string>
+    <string name="revanced_app_name_title">Назва додатка</string>
+    <string name="revanced_app_version_title">Версія додатка</string>
     <string name="revanced_append_time_stamp_information_summary_off">Інформацію не додається до мітки часу.</string>
     <string name="revanced_append_time_stamp_information_summary_on">"Інформацію додається до мітки часу.
 
@@ -68,6 +70,7 @@
     <string name="revanced_bypass_url_redirects_summary_off">Перенаправлення посилань не обходяться.</string>
     <string name="revanced_bypass_url_redirects_summary_on">Перенаправлення посилань обходяться.</string>
     <string name="revanced_bypass_url_redirects_title">Обходити перенаправлення посилань</string>
+    <string name="revanced_cancel">Скасувати</string>
     <string name="revanced_change_form_factor_entry_1">Стандартний</string>
     <string name="revanced_change_form_factor_entry_2">Телефонний</string>
     <string name="revanced_change_form_factor_entry_3">Телефонний (Макс 480 dp)</string>
@@ -144,6 +147,7 @@
     <string name="revanced_change_youtube_header_summary_off">Звичний заголовок увімкнено.</string>
     <string name="revanced_change_youtube_header_summary_on">Заголовок Premium увімкнено.</string>
     <string name="revanced_change_youtube_header_title">Змінити заголовок YouTube</string>
+    <string name="revanced_copy">Скопіювати</string>
     <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
     <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
     <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено.</string>
@@ -167,8 +171,11 @@
     <string name="revanced_custom_seekbar_color_primary_title">Користувацький основний колір смуги прогресу</string>
     <string name="revanced_default_app_settings_summary">Щоб відкривати додаток у зовнішньому перегляді, увімкніть Відкривати всі підтримувані посилання та підтримувані вебадреси.</string>
     <string name="revanced_default_app_settings_title">Відкрити налаштування</string>
+    <string name="revanced_default_playback_speed_shorts_title">Типова швидкість відтворення Shorts</string>
     <string name="revanced_default_playback_speed_title">Типова швидкість відтворення</string>
+    <string name="revanced_default_video_quality_mobile_shorts_title">Типова якість Shorts в мобільній мережі</string>
     <string name="revanced_default_video_quality_mobile_title">Типова якість відео в мобільній мережі</string>
+    <string name="revanced_default_video_quality_wifi_shorts_title">Типова якість Shorts в Wi-Fi мережі</string>
     <string name="revanced_default_video_quality_wifi_title">Типова якість відео в Wi-Fi мережі</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary">Вимикається кінематографічне освітлення в повноекранному режимі</string>
     <string name="revanced_disable_ambient_mode_in_fullscreen_summary_off">Кінематографічне освітлення увімкнено у повноекранному режимі.</string>
@@ -230,6 +237,19 @@
     <string name="revanced_disable_landscape_mode_summary_off">Орієнтація відео згідно налаштувань пристрою в повноекранному режимі.</string>
     <string name="revanced_disable_landscape_mode_summary_on">Орієнтація відео портретна в повноекранному режимі.</string>
     <string name="revanced_disable_landscape_mode_title">Вимкнути ландшафтний режим</string>
+    <string name="revanced_disable_layout_updates_summary_off">Макет оновлюватиметься сервером.</string>
+    <string name="revanced_disable_layout_updates_summary_on">Макет не оновлюватиметься сервером.</string>
+    <string name="revanced_disable_layout_updates_title">Вимкнути оновлення макета</string>
+    <string name="revanced_disable_layout_updates_user_dialog_message">"Макет програми повертається до макета, який використовувався при першому встановленні.
+
+Деякі серверні макети можуть не повернутися.
+
+Зміни включають:
+• Компоненти у випадаючому меню плеєра (чи пов'язані налаштування) можуть не працювати.
+• Лічильники не анімовані.
+• Використовується вкладку Бібліотека.
+• Секція Музика опису відео може не працювати.
+• Кнопка перемикання облікового запису може не з'являтися у вкладці Бібліотека. Використовуйте налаштування 'Увімкнути широку панель пошуку у вкладці Ви'."</string>
     <string name="revanced_disable_like_dislike_glow_summary_off">Кнопки Подобається та Не подобається відблискуватимуть при згадуванні.</string>
     <string name="revanced_disable_like_dislike_glow_summary_on">Кнопки Подобається та Не подобається не відблискуватимуть при згадуванні.</string>
     <string name="revanced_disable_like_dislike_glow_title">Вимкнути відблиск кнопки Подобається та Не подобається</string>
@@ -277,6 +297,7 @@
     <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий чи напівпрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий.</string>
     <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
+    <string name="revanced_disable_translucent_status_bar_user_dialog_message">Для прошивок деяких розробників Android 12+, увімкнення цієї функції може зробити панель навігації системи прозорою.</string>
     <string name="revanced_disable_video_description_interaction_summary">"Вимикається такі взаємодії під час розгортання опису відео:
 
 • Натисніть, щоб прокрутити.
@@ -285,6 +306,7 @@
     <string name="revanced_disable_vp9_codec_summary_off">Кодек VP9 увімкнено.</string>
     <string name="revanced_disable_vp9_codec_summary_on">"Кодек VP9 вимкнено.
 
+Інформація:
 • Максимальна роздільна здатність - 1080p.
 • Відтворення відео використовуватиме більше інтернет даних ніж VP9.
 • Кодек VP9 все ще використовується для HDR відео."</string>
@@ -309,9 +331,6 @@
     <string name="revanced_enable_debug_logging_summary_off">Журнали налагодження вимкнено.</string>
     <string name="revanced_enable_debug_logging_summary_on">Журнали налагодження увімкнено.</string>
     <string name="revanced_enable_debug_logging_title">Увімкнути журнал налагодження</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_off">Типову швидкість відтворення не застосовується для Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_summary_on">Типову швидкість відтворення застосовується для Shorts.</string>
-    <string name="revanced_enable_default_playback_speed_shorts_title">Увімкнути типову швидкість відтворення Shorts</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">Градієнт екрану завантаження вимкнено.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">Градієнт екрану завантаження увімкнено.</string>
     <string name="revanced_enable_gradient_loading_screen_title">Увімкнути градієнт екрану завантаження</string>
@@ -338,7 +357,6 @@
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_summary_on">"Спеціальні дії увімкнено у висувному меню.
 
 Застереження:
-• Не працює, якщо версію програми підроблено на 18.49.37 чи нижче.
 • Не працює з прямими трансляціями."</string>
     <string name="revanced_enable_shorts_custom_actions_flyout_menu_title">Увімкнути спеціальні дії у висувному меню</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">Спеціальні дії вимкнено в панелі інструментів.</string>
@@ -380,7 +398,6 @@
     <string name="revanced_enable_translucent_navigation_bar_summary_off">Панель навігації непрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">Панель навігації напівпрозора.</string>
     <string name="revanced_enable_translucent_navigation_bar_title">Увімкнути напівпрозорість панелі навігації</string>
-    <string name="revanced_enable_translucent_navigation_bar_user_dialog_message">У певних версіях YouTube цей параметр може зробити панель навігації прозорою або порушити макет у режимі PIP.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_off">Перехід на повний екран при проведенні вниз під відеоплеєром вимкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_summary_on">Перехід на повний екран при проведенні вниз під відеоплеєром увімкнено.</string>
     <string name="revanced_enable_watch_panel_gestures_title">Увімкнути жести панелі перегляду</string>
@@ -450,6 +467,14 @@
     <string name="revanced_external_downloader_package_name_video_summary">Ім\'я пакета встановленого зовнішнього завантажувача, наприклад NewPipe або YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Ім\'я пакета завантажувача відео</string>
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
+    <string name="revanced_gemini_cancelled">Підсумування скасовано</string>
+    <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
+    <string name="revanced_gemini_error_api_failed">Не вдався запит до Gemini API: %s</string>
+    <string name="revanced_gemini_error_no_api_key">Ключ API Gemini не заданий у налаштуваннях.</string>
+    <string name="revanced_gemini_error_no_video">Не вдалося отримати посилання відео.</string>
+    <string name="revanced_gemini_loading">Підсумування відео...</string>
+    <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
+    <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
     <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для GMSCore при кожному запуску програми.</string>
     <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Позиції градієнта скинуто.</string>
@@ -1258,59 +1283,117 @@
     <string name="revanced_keep_landscape_mode_timeout_summary">Кількість мілісекунд примусового ландшафтного режиму.</string>
     <string name="revanced_keep_landscape_mode_timeout_title">Скільки зберігати ландшафтний режим</string>
     <string name="revanced_keep_landscape_mode_title">Зберігати ландшафтний режим</string>
-    <string name="revanced_label_default">Стандартна</string>
-    <string name="revanced_language_AR">Арабська</string>
-    <string name="revanced_language_AZ">Азербайджанська</string>
-    <string name="revanced_language_BG">Болгарська</string>
-    <string name="revanced_language_BN">Бенгальська</string>
-    <string name="revanced_language_CA">Каталонська</string>
-    <string name="revanced_language_CS">Чеська</string>
-    <string name="revanced_language_DA">Данська</string>
-    <string name="revanced_language_DE">Німецька</string>
+    <string name="revanced_language_AM">"Амхарська
+<small>አማርኛ</small>"</string>
+    <string name="revanced_language_AR">"Арабська
+<small>العربية</small>"</string>
+    <string name="revanced_language_AZ">"Азербайджанська
+<small>Azərbaycan</small>"</string>
+    <string name="revanced_language_BE">"Білоруська
+<small>Беларуская</small>"</string>
+    <string name="revanced_language_BG">"Болгарська
+<small>Български</small>"</string>
+    <string name="revanced_language_BN">"Бенгальська
+<small>বাংলা</small>"</string>
+    <string name="revanced_language_CA">"Каталонська
+<small>Català</small>"</string>
+    <string name="revanced_language_CS">"Чеська
+<small>Čeština</small>"</string>
+    <string name="revanced_language_DA">"Данська
+<small>Dansk</small>"</string>
+    <string name="revanced_language_DE">"Німецька
+<small>Deutsch</small>"</string>
     <string name="revanced_language_DEFAULT">Мова додатка</string>
-    <string name="revanced_language_EL">Грецька</string>
-    <string name="revanced_language_EN">Англійська</string>
-    <string name="revanced_language_ES">Іспанська</string>
-    <string name="revanced_language_ET">Естонська</string>
-    <string name="revanced_language_FA">Перська</string>
-    <string name="revanced_language_FI">Фінська</string>
-    <string name="revanced_language_FR">Французька</string>
-    <string name="revanced_language_GU">Гуджаратська</string>
-    <string name="revanced_language_HI">Хінді</string>
-    <string name="revanced_language_HR">Хорватська</string>
-    <string name="revanced_language_HU">Угорська</string>
-    <string name="revanced_language_ID">Індонезійська</string>
-    <string name="revanced_language_IT">Італійська</string>
-    <string name="revanced_language_JA">Японська</string>
-    <string name="revanced_language_KK">Казахська</string>
-    <string name="revanced_language_KO">Корейська</string>
-    <string name="revanced_language_LT">Литовська</string>
-    <string name="revanced_language_LV">Латвійська</string>
-    <string name="revanced_language_MK">Македонська</string>
-    <string name="revanced_language_MN">Монгольська</string>
-    <string name="revanced_language_MR">Маратхі</string>
-    <string name="revanced_language_MS">Малайська</string>
-    <string name="revanced_language_MY">Бірманська</string>
-    <string name="revanced_language_NL">Голландська</string>
-    <string name="revanced_language_OR">Одія</string>
-    <string name="revanced_language_PA">Пенджабі</string>
-    <string name="revanced_language_PL">Польська</string>
-    <string name="revanced_language_PT">Португальська</string>
-    <string name="revanced_language_RO">Румунська</string>
-    <string name="revanced_language_RU">Російська</string>
-    <string name="revanced_language_SK">Словацька</string>
-    <string name="revanced_language_SL">Словенська</string>
-    <string name="revanced_language_SR">Сербська</string>
-    <string name="revanced_language_SV">Шведська</string>
-    <string name="revanced_language_SW">Суахілі</string>
-    <string name="revanced_language_TA">Тамільська</string>
-    <string name="revanced_language_TE">Телуґу</string>
-    <string name="revanced_language_TH">Тайська</string>
-    <string name="revanced_language_TR">Турецька</string>
-    <string name="revanced_language_UK">Українська</string>
-    <string name="revanced_language_UR">Урду</string>
-    <string name="revanced_language_VI">В’єтнамська</string>
-    <string name="revanced_language_ZH">Китайська</string>
+    <string name="revanced_language_EL">"Грецька
+<small>Ελληνικά</small>"</string>
+    <string name="revanced_language_EN">"Англійська
+<small>English</small>"</string>
+    <string name="revanced_language_ES">"Іспанська
+<small>Español</small>"</string>
+    <string name="revanced_language_ET">"Естонська
+<small>Eesti</small>"</string>
+    <string name="revanced_language_FA">"Перська
+<small>فارسی</small>"</string>
+    <string name="revanced_language_FI">"Фінська
+<small>Suomi</small>"</string>
+    <string name="revanced_language_FR">"Французька
+<small>Français</small>"</string>
+    <string name="revanced_language_GU">"Гуджараті
+<small>ગુજરાતી</small>"</string>
+    <string name="revanced_language_HE">"Іврит
+<small>עברי</small>"</string>
+    <string name="revanced_language_HI">"Хінді
+<small>हिन्दी</small>"</string>
+    <string name="revanced_language_HR">"Хорватська
+<small>Hrvatski</small>"</string>
+    <string name="revanced_language_HU">"Угорська
+<small>Magyar</small>"</string>
+    <string name="revanced_language_ID">"Індонезійська
+<small>Indonesia</small>"</string>
+    <string name="revanced_language_IT">"Італійська
+<small>Italiano</small>"</string>
+    <string name="revanced_language_JA">"Японська
+<small>日本語</small>"</string>
+    <string name="revanced_language_KK">"Казахська
+<small>Қазақ тілі</small>"</string>
+    <string name="revanced_language_KO">"Корейська
+<small>한국어</small>"</string>
+    <string name="revanced_language_LT">"Литовська
+<small>Lietuvių</small>"</string>
+    <string name="revanced_language_LV">"Латвійська
+<small>Latviešu</small>"</string>
+    <string name="revanced_language_MK">"Македонська
+<small>Македонски</small>"</string>
+    <string name="revanced_language_MN">"Монгольська
+<small>Монгол</small>"</string>
+    <string name="revanced_language_MR">"Маратхі
+<small>मराठी</small>"</string>
+    <string name="revanced_language_MS">"Малайська
+<small>Melayu</small>"</string>
+    <string name="revanced_language_MY">"Бірманська
+<small>ဗမာ</small>"</string>
+    <string name="revanced_language_NL">"Нідерландська
+<small>Nederlands</small>"</string>
+    <string name="revanced_language_OR">"Одія
+<small>ଓଡ଼ିଆ</small>"</string>
+    <string name="revanced_language_PA">"Пенджабі
+<small>ਪੰਜਾਬੀ</small>"</string>
+    <string name="revanced_language_PL">"Польська
+<small>Polski</small>"</string>
+    <string name="revanced_language_PT">"Португальська
+<small>Português</small>"</string>
+    <string name="revanced_language_RO">"Румунська
+<small>Română</small>"</string>
+    <string name="revanced_language_RU">"Російська
+<small>Русский</small>"</string>
+    <string name="revanced_language_SK">"Словацька
+<small>Slovenčina</small>"</string>
+    <string name="revanced_language_SL">"Словенська
+<small>Slovenščina</small>"</string>
+    <string name="revanced_language_SQ">"Албанська
+<small>Shqip</small>"</string>
+    <string name="revanced_language_SR">"Сербська
+<small>Српски</small>"</string>
+    <string name="revanced_language_SV">"Шведська
+<small>Svenska</small>"</string>
+    <string name="revanced_language_SW">"Суахілі
+<small>Kiswahili</small>"</string>
+    <string name="revanced_language_TA">"Тамільська
+<small>தமிழ்</small>"</string>
+    <string name="revanced_language_TE">"Телуґу
+<small>తెలుగు</small>"</string>
+    <string name="revanced_language_TH">"Тайська
+<small>ไทย</small>"</string>
+    <string name="revanced_language_TR">"Турецька
+<small>Türkçe</small>"</string>
+    <string name="revanced_language_UK">"Українська
+<small>Українська</small>"</string>
+    <string name="revanced_language_UR">"Урду
+<small>اردو</small>"</string>
+    <string name="revanced_language_VI">"В'єтнамська
+<small>Tiếng Việt</small>"</string>
+    <string name="revanced_language_ZH">"Китайська
+<small>中文</small>"</string>
     <string name="revanced_language_title">Мова RVX</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та щипок для зміни розміру вимкнено.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та щипок для зміни розміру увімкнено.
@@ -1385,8 +1468,16 @@
 Натисніть і утримуйте, щоб скопіювати мітку часу відео."</string>
     <string name="revanced_overlay_button_copy_video_url_timestamp_title">Показувати кнопку копіювання URL із міткою часу</string>
     <string name="revanced_overlay_button_copy_video_url_title">Показувати кнопку копіювання URL відео</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Замість запуску зовнішнього завантажувача відкриває керування чергою.</string>
+    <string name="revanced_overlay_button_external_downloader_queue_manager_title">Керування чергою</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантажувача</string>
+    <string name="revanced_overlay_button_gemini_summarize">Підсумок</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Отримайте ключ API https://aistudio.google.com/apikey"</string>
+    <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключ API Gemini</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео з Gemini.
+Розбір відео може зайняти деякий час залежно від його довжини."</string>
+    <string name="revanced_overlay_button_gemini_summarize_title">Показувати кнопку Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
     <string name="revanced_overlay_button_not_allowed_warning">Натисніть і утримуйте, щоб змінити стан кнопки.</string>
@@ -1421,6 +1512,9 @@
     <string name="revanced_override_playlist_download_button_summary_off">Кнопка вбудованого завантаження списку відтворення відкриває вбудований завантажувач, якщо показується.</string>
     <string name="revanced_override_playlist_download_button_summary_on">Кнопка вбудованого завантаження списку відтворення завжди показується, і в публічних списках відтворення відкриває зовнішній завантажувач.</string>
     <string name="revanced_override_playlist_download_button_title">Перевизначити кнопку завантаження списку відтворення</string>
+    <string name="revanced_override_video_download_button_queue_manager_summary_off">Кнопка завантаження відео відкриває зовнішній завантажувач.</string>
+    <string name="revanced_override_video_download_button_queue_manager_summary_on">Кнопка завантаження відео відкриває керування чергою.</string>
+    <string name="revanced_override_video_download_button_queue_manager_title">Керування чергою</string>
     <string name="revanced_override_video_download_button_summary_off">Кнопка завантаження відео відкриває вбудований завантажувач.</string>
     <string name="revanced_override_video_download_button_summary_on">Кнопка завантаження відео відкриває зовнішній завантажувач.</string>
     <string name="revanced_override_video_download_button_title">Перевизначити кнопку завантаження відео</string>
@@ -1429,12 +1523,15 @@
     <string name="revanced_override_youtube_music_button_summary_off">Кнопка YouTube Music відкриває стандартний додаток.</string>
     <string name="revanced_override_youtube_music_button_summary_on">Кнопка YouTube Music відкриває RVX Music.</string>
     <string name="revanced_override_youtube_music_button_title">Перевизначити кнопку YouTube Music</string>
+    <string name="revanced_patched_date_title">Дата пропатчування</string>
     <string name="revanced_patches_excluded">Виключено</string>
     <string name="revanced_patches_included">Включено</string>
     <string name="revanced_playback_speed_normal">Стандартна</string>
     <string name="revanced_preference_category_action_buttons">Кнопки дії</string>
     <string name="revanced_preference_category_additional_settings">Додаткові налаштування</string>
     <string name="revanced_preference_category_animation_feedback">Анімація / Відгук</string>
+    <string name="revanced_preference_category_app_info">Інформація про додаток</string>
+    <string name="revanced_preference_category_codec">Кодек</string>
     <string name="revanced_preference_category_custom_actions">Спеціальні дії</string>
     <string name="revanced_preference_category_download_button">Кнопка завантаження</string>
     <string name="revanced_preference_category_experimental_flag">Експериментальні опції</string>
@@ -1445,12 +1542,12 @@
     <string name="revanced_preference_category_others">Інше</string>
     <string name="revanced_preference_category_overlay_buttons">Накладання кнопок</string>
     <string name="revanced_preference_category_patch_information">Інформація про патчі</string>
-    <string name="revanced_preference_category_po_token_visitor_data">PoToken / VisitorData</string>
+    <string name="revanced_preference_category_playback_speed">Швидкість відтворення</string>
     <string name="revanced_preference_category_quick_actions">Швидкі дії</string>
     <string name="revanced_preference_category_recommended_video">Рекомендовані відео</string>
     <string name="revanced_preference_category_shorts_shelf">Полиця Shorts</string>
     <string name="revanced_preference_category_suggested_actions">Пропоновані дії</string>
-    <string name="revanced_preference_category_tool_used">Використано інструменти</string>
+    <string name="revanced_preference_category_video_quality">Якість відео</string>
     <string name="revanced_preference_category_view_counts_filter">Фільтр за кількістю переглядів</string>
     <string name="revanced_preference_screen_account_menu_summary">Приховувати чи показувати елементи меню облікового запису і вкладки Ви.</string>
     <string name="revanced_preference_screen_account_menu_title">Меню облікового запису</string>
@@ -1520,13 +1617,43 @@
     <string name="revanced_preference_screen_video_title">Відео</string>
     <string name="revanced_preference_screen_watch_history_summary">Змінити налаштування пов\'язані з історією перегляду.</string>
     <string name="revanced_preference_screen_watch_history_title">Історія перегляду</string>
+    <string name="revanced_queue_manager_add_to_queue">Додати до черги</string>
+    <string name="revanced_queue_manager_add_to_queue_and_open_queue">Додати до черги й відкрити чергу</string>
+    <string name="revanced_queue_manager_add_to_queue_and_play_video">Додати до черги й відтворити відео</string>
+    <string name="revanced_queue_manager_add_to_queue_and_reload_video">Додати до черги та перевантажити відео</string>
+    <string name="revanced_queue_manager_check_failed_auth">Необхідна авторизація</string>
+    <string name="revanced_queue_manager_check_failed_generic">Керування чергою недоступне (%s).</string>
+    <string name="revanced_queue_manager_check_failed_playlist_id">Не вдалося ідентифікувати список відтворення</string>
+    <string name="revanced_queue_manager_check_failed_queue">Черга порожня</string>
+    <string name="revanced_queue_manager_check_failed_video_id">Не вдалося ідентифікувати відео</string>
+    <string name="revanced_queue_manager_external_downloader">Зовнішній завантажувач</string>
+    <string name="revanced_queue_manager_fetch_failed_add">Не вдалося додати відео.</string>
+    <string name="revanced_queue_manager_fetch_failed_create">Не вдалося створити чергу.</string>
+    <string name="revanced_queue_manager_fetch_failed_delete">Не вдалося видалити чергу.</string>
+    <string name="revanced_queue_manager_fetch_failed_remove">Не вдалося вилучити відео.</string>
+    <string name="revanced_queue_manager_fetch_failed_save">Не вдалося зберегти чергу.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_add">Відео додано успішно.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_create">Чергу створено успішно.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_delete">Чергу видалено успішно.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_remove">Відео вилучено успішно.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_save">Чергу збережено успішно до: \'%s\'.</string>
+    <string name="revanced_queue_manager_open_queue">Відкрити чергу</string>
+    <string name="revanced_queue_manager_queue">Черга</string>
+    <string name="revanced_queue_manager_remove_from_queue">Видалити з черги</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">Вилучити з черги й відкрити чергу</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">Видалити з черги та перевантажити відео</string>
+    <string name="revanced_queue_manager_remove_queue">Вилучити чергу</string>
+    <string name="revanced_queue_manager_save_queue">Зберегти чергу</string>
+    <string name="revanced_queue_manager_user_dialog_message">"Замість відкривання зовнішнього завантажувача відкриває діалог керування чергою.
+
+Також можливо відкрити керування чергою натисканням та утриманням кнопки назад на панелі навігації.
+
+Ця функція все ще перебуває в процесі розробки, тому більшість функцій не працюють.
+
+Будь ласка, використовуйте її лише для налагодження."</string>
     <string name="revanced_quick_actions_top_margin_invalid_toast">Верхній відступ швидких дій повинен бути в межах 0-32.</string>
     <string name="revanced_quick_actions_top_margin_summary">Налаштуйте відстань від панелі прогресу до контейнера швидких дій, діапазон 0-32.</string>
     <string name="revanced_quick_actions_top_margin_title">Верхній відступ швидких дій</string>
-    <string name="revanced_reject_av1_codec_summary">"Примусово відкидається відповідь програмного кодека AV1.
-Приблизно через 20 секунд буферизації перемикається на інший кодек."</string>
-    <string name="revanced_reject_av1_codec_title">Відкинути відповідь програмного кодека AV1</string>
-    <string name="revanced_reject_av1_codec_toast">Процес спричиняє приблизно 20 секунд буферизації.</string>
     <string name="revanced_related_videos_offset_title">Зміщення</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного відео.</string>
     <string name="revanced_remember_playback_speed_last_selected_summary_on">Зміни швидкості відтворення застосовуються до всіх відео.</string>
@@ -1534,16 +1661,35 @@
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової швидкості відтворення.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">Тост показуватиметься при зміні типової швидкості відтворення.</string>
     <string name="revanced_remember_playback_speed_last_selected_toast_title">Показувати тост</string>
-    <string name="revanced_remember_playback_speed_toast">Зміна типової швидкості на %s.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_off">Зміни швидкості відтворення застосовуються лише до поточного Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_summary_on">"Зміни швидкості відтворення застосовуються до всіх Shorts.
+
+Інформація:
+• Єдиним спосіб змінити швидкість відтворення у плеєрі Shorts є використання 'Діалог швидкості' у 'Спеціальні дії'.
+• Якщо не включити патч 'Shorts components', це буде недоступно."</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_title">Запам\'ятовувати зміни швидкості відтворення Shorts</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової швидкості відтворення Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_summary_on">Тост показуватиметься при зміні типової швидкості відтворення Shorts.</string>
+    <string name="revanced_remember_playback_speed_shorts_last_selected_toast_title">Показувати тост</string>
+    <string name="revanced_remember_playback_speed_toast">Типову швидкість відтворення змінено на: %s.</string>
+    <string name="revanced_remember_playback_speed_toast_shorts">Типову швидкість відтворення Shorts змінено на: %s.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео.</string>
     <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео.</string>
     <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової якості відео.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_summary_on">Тост показуватиметься при зміні типової якості відео.</string>
     <string name="revanced_remember_video_quality_last_selected_toast_title">Показувати тост</string>
-    <string name="revanced_remember_video_quality_mobile">Зміна типової якості при мобільному з\'єднанні на %s.</string>
+    <string name="revanced_remember_video_quality_mobile">мобільна</string>
     <string name="revanced_remember_video_quality_none">Не вдалося встановити якість відео.</string>
-    <string name="revanced_remember_video_quality_wifi">Зміна типової якості при Wi-Fi на %s.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_off">Зміни якості застосовуються лише до поточного Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_summary_on">Зміни якості застосовуються до всіх Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_off">Тост не показуватиметься при зміні типової якості Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_summary_on">Тост показуватиметься при зміні типової якості Shorts.</string>
+    <string name="revanced_remember_video_quality_shorts_last_selected_toast_title">Показувати тост</string>
+    <string name="revanced_remember_video_quality_toast">Зміна типової якості %1$s на: %2$s.</string>
+    <string name="revanced_remember_video_quality_toast_shorts">Зміна якості Shorts %1$s на: %2$s.</string>
+    <string name="revanced_remember_video_quality_wifi">wifi</string>
     <string name="revanced_remix_button_index_title">Індекс кнопки Ремікс</string>
     <string name="revanced_remove_viewer_discretion_dialog_summary">"Вилучається діалогове вікно.
 Це не обходить вікові обмеження, а просто приймається автоматично."</string>
@@ -1635,6 +1781,7 @@
     <string name="revanced_sb_color_changed">Колір змінено</string>
     <string name="revanced_sb_color_dot_label">Колір:</string>
     <string name="revanced_sb_color_invalid">Невірний код кольору</string>
+    <string name="revanced_sb_color_opacity_label">Непрозорість:</string>
     <string name="revanced_sb_color_reset">Колір скинуто</string>
     <string name="revanced_sb_create_segment_category">Створити нові сегменти</string>
     <string name="revanced_sb_diff_segments">Змінити поведінку сегмента</string>
@@ -1809,6 +1956,7 @@
     <string name="revanced_sb_vote_failed_timeout">Не вдалося проголосувати за сегмент (закінчився час API).</string>
     <string name="revanced_sb_vote_failed_unknown_error">Не вдалося проголосувати за сегмент (статус: %1$d %2$s)</string>
     <string name="revanced_sb_vote_no_segments">Немає сегментів для голосування</string>
+    <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
     <string name="revanced_sb_vote_upvote">Проголосувати «за»</string>
     <string name="revanced_share_copy_settings_success">Налаштування скопійовано до буфера обміну.</string>
     <string name="revanced_share_copy_timestamp_success">Мітку часу скопійовано в буфер обміну. (%s)</string>
@@ -1841,6 +1989,10 @@
     <string name="revanced_shorts_custom_actions_repeat_state_summary_off">Меню Стан повторення приховано.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_summary_on">Меню Стан повторення показується.</string>
     <string name="revanced_shorts_custom_actions_repeat_state_title">Показувати меню Стан повторення</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_label">Діалог швидкості</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_off">Меню Діалог швидкості приховано.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_summary_on">Меню Діалог швидкості показується.</string>
+    <string name="revanced_shorts_custom_actions_speed_dialog_title">Показувати меню Діалог швидкості</string>
     <string name="revanced_shorts_custom_actions_speed_label">Швидкість відтворення</string>
     <string name="revanced_shorts_custom_actions_speed_summary_off">Меню швидкості відтворення приховано.\n\nІнформація:\n• Повинна бути увімкнена типова швидкість відтворення Shorts.\n• Вибрана швидкість застосується до наступного відео.</string>
     <string name="revanced_shorts_custom_actions_speed_summary_on">Меню швидкості відтворення показується.\n\nІнформація:\n• Повинна бути увімкнена типова швидкість відтворення Shorts.\n• Вибрана швидкість застосується до наступного відео.</string>
@@ -1868,10 +2020,12 @@
     <string name="revanced_skip_autoplay_countdown_summary_off">Якщо автовідтворення увімкнено, наступне відео відтворюватиметься після закінчення відліку.</string>
     <string name="revanced_skip_autoplay_countdown_summary_on">Якщо автовідтворення увімкнено, наступне відео відтворюватиметься без відліку.</string>
     <string name="revanced_skip_autoplay_countdown_title">Пропустити відлік автовідтворення</string>
-    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск перед вантаженого буфера під час запуску відео для обходу затримки примусового застосування типової якості відео.
+    <string name="revanced_skip_preloaded_buffer_summary">"Пропуск передвантаженого буфера під час запуску відео для обходу затримки примусового застосування типової якості відео.
 
-• Під час запуску відео є затримка приблизно 0.3 секунди, але типова якість відео застосовується відразу.
-• Не застосовується на відео HDR, прямі трансляції, менші ніж 15 секунд."</string>
+Інформація:
+• Під час запуску відео є затримка приблизно 0.3 секунди.
+• Не застосовується на Shorts, відео HDR, прямі трансляції, менші ніж 15 секунд.
+• Налаштування 'Підробити дані трансляції' також вилучає передвантажений буфер, отже це налаштування не потрібне якщо використовуєте те."</string>
     <string name="revanced_skip_preloaded_buffer_title">Пропустити перед вантажений буфер</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">Тост не показується.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">Тост показується.</string>
@@ -1894,10 +2048,12 @@
     <string name="revanced_spoof_app_version_target_entry_18_33_40">18.33.40 - відновлення старої панелі дій Shorts</string>
     <string name="revanced_spoof_app_version_target_entry_18_38_45">18.38.45 - Відновлення старої поведінки типової якості відео</string>
     <string name="revanced_spoof_app_version_target_entry_18_48_39">18.48.39 - Виключає \'переглянуті\' та \'вподобані\' з оновлення в режимі реального часу</string>
+    <string name="revanced_spoof_app_version_target_entry_19_01_34">19.01.34 - Вимикання взаємодії з описом відео</string>
     <string name="revanced_spoof_app_version_target_entry_19_13_37">19.13.37 - Відновлення старого стилю анімації лічильників</string>
     <string name="revanced_spoof_app_version_target_entry_19_26_42">19.26.42 - Вимикання значка Каїр в панелі навігації та інструментів</string>
     <string name="revanced_spoof_app_version_target_entry_19_33_37">19.33.37 - Відновлення старої висувної панелі швидкості відтворення</string>
     <string name="revanced_spoof_app_version_target_entry_title">Підробити цільову версію програми</string>
+    <string name="revanced_spoof_app_version_target_invalid_toast">Недійсне підроблення версії програми: %s.</string>
     <string name="revanced_spoof_app_version_target_summary">Введіть цільову версію підробки програми</string>
     <string name="revanced_spoof_app_version_target_title">Підробити цільову версію програми</string>
     <string name="revanced_spoof_app_version_title">Підробити версію програми</string>
@@ -1907,8 +2063,13 @@
 
 Якщо пізніше вимкнути, рекомендується очистити дані додатка, щоб запобігти помилкам інтерфейсу."</string>
     <string name="revanced_spoof_device_dimensions_summary">"Підробка розмірів пристрою до максимального значення.
-Високу якість може бути розблоковано для деяких відео, які вимагають великих розмірів пристрою, але не для всіх відео."</string>
+
+Інформація:
+• Високі якості можуть розблокуватися на деяких відео, які потребують великих розмірів пристрою, але не на всіх відео.
+• Це налаштування недоступне якщо увімкнене 'Підробити дані трансляції'."</string>
     <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden">Не вдалося отримати які-небудь трансляції клієнта.</string>
+    <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">Не можливо авторизуватися.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Відеокодек визначається автоматично.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Примусово увімкнено відеокодек AVC (H.264).</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">Примусово AVC (H.264) iOS</string>
@@ -1916,14 +2077,6 @@
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж кодек VP9 чи AV1."</string>
     <string name="revanced_spoof_streaming_data_language_title">Мова звукової доріжки для VR</string>
-    <string name="revanced_spoof_streaming_data_po_token_summary">PoToken виданий BotGuard в довіреному браузері.</string>
-    <string name="revanced_spoof_streaming_data_po_token_title">PoToken для використання</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_summary">"Деякі клієнти вимагають PoToken і VisitorData для отримання коректної відповіді даних трансляції.
-
-Якщо намагаєтеся використовувати клієнт iOS, можуть знадобитися ці значення.
-
-Натисніть, щоб переглянути більше інформації."</string>
-    <string name="revanced_spoof_streaming_data_po_token_visitor_data_about_title">Про PoToken / VisitorData</string>
     <string name="revanced_spoof_streaming_data_side_effects_android">"• Меню звукової доріжки відсутнє.
 • Стабілізація гучності недоступна.
 • Вимкнення примусових авто звукових доріжок недоступне.
@@ -1935,6 +2088,7 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_spoof_streaming_data_side_effects_ios">• Можуть бути проблеми з відтворенням (Потрібен PoToken).</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_compatibility">"• Відео можуть закінчуватися на 1 секунду раніше.
 • Аудіокодек OPUS може не підтримуватися."</string>
+    <string name="revanced_spoof_streaming_data_side_effects_ios_deprecated">• Цілі діапазони ASN/IP можуть блокуватися сервером.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_skip_livestream_playback">• Відео можуть закінчуватися на 1 секунду раніше.</string>
     <string name="revanced_spoof_streaming_data_side_effects_ios_unplugged">"• Стабілізація гучності недоступна.
 • Фільми та платні відео можуть не відтворюватися.
@@ -1964,12 +2118,22 @@ AVC має максимальну роздільну здатність 1080p, �
 <small>(Без авторизації)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios">"iOS
 <small>(Потрібен PoToken)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_entry_ios_deprecated">"iOS
+<small>(Застаріла)</small>"</string>
     <string name="revanced_spoof_streaming_data_type_entry_ios_unplugged">"iOS TV
 <small>(Потрібна авторизація)</small>"</string>
+    <string name="revanced_spoof_streaming_data_type_ios_summary_off">Клієнт iOS не доданий до доступних клієнтів.</string>
+    <string name="revanced_spoof_streaming_data_type_ios_summary_on">"Клієнт iOS доданий до доступних клієнтів.
+
+ЗАУВАЖЕННЯ: Клієнт iOS застарілий. Будь-які проблеми, які виникають під час його використання, на власний ризик."</string>
+    <string name="revanced_spoof_streaming_data_type_ios_title">Використовувати клієнт iOS</string>
+    <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"Під час запиту кінцевих точок YouTube API за допомогою iOS потрібні токени Auth, видані пристроєм iOS, і токени PoToken, видані iOSGuard.
+
+Це означає, що в запитах трансляції через iOS не буде ані токенів Auth, ані токенів PoToken, і сервер може вважати користувача ботом і заблокувати цілий діапазон ASN/IP.
+
+ВИКОРИСТОВУЙТЕ НА ВЛАСНИЙ РИЗИК!"</string>
     <string name="revanced_spoof_streaming_data_type_title">Основний клієнт</string>
     <string name="revanced_spoof_streaming_data_user_dialog_message">Вимикання цього налаштування може призвести до проблем відтворення відео.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_summary">VisitorData виданий BotGuard в довіреному браузері.</string>
-    <string name="revanced_spoof_streaming_data_visitor_data_title">VisitorData для використання</string>
     <string name="revanced_swipe_brightness_sensitivity_invalid_toast">Чутливість жесту яскравості повинна бути в межах 1-1000 (%).</string>
     <string name="revanced_swipe_brightness_sensitivity_summary">Налаштуйте мінімальну відстань жесту яскравості від 1 до 1000 (%).\nЧим менша мінімальна відстань, тим швидше змінюється рівень яскравості.</string>
     <string name="revanced_swipe_brightness_sensitivity_title">Чутливість жесту яскравості</string>
@@ -1979,10 +2143,11 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">Авто</string>
     <string name="revanced_swipe_magnitude_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
     <string name="revanced_swipe_magnitude_threshold_title">Поріг величини жесту</string>
-    <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону панелі при жесті</string>
-    <string name="revanced_swipe_overlay_background_alpha_title">Видимість фону при жесті</string>
-    <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль індикатора вимкнено</string>
-    <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль індикатора увімкнено</string>
+    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Затемнення при жесті повинно бути в межах 0-100.</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення в межах 0-100.</string>
+    <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі під час жесту</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль вимкнено.</string>
+    <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль увімкнено.</string>
     <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">Розмір площі для проведення не може бути більшим ніж 50.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">Відсоток площі екрана для проведення.\n\nЗауваження: це також змінить розмір площі екрану для жесту перемотування подвійним натисканням.</string>
@@ -1994,12 +2159,15 @@ AVC має максимальну роздільну здатність 1080p, �
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">Чутливість жесту наремотування повинна бути в межах 1-1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">Налаштуйте мінімальну відстань для жесту наремотування від 1 до 1000 (%).</string>
     <string name="revanced_swipe_seek_sensitivity_title">Чутливість жесту наремотування</string>
-    <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
-    <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_off">Показується лінійний індикатор.</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор.</string>
     <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
     <string name="revanced_swipe_speed_sensitivity_invalid_toast">Чутливість жесту швидкості повинна бути в межах 1-1000 (%).</string>
     <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">Налаштуйте мінімальну відстань для жесту швидкості від 1 до 1000 (%).</string>
     <string name="revanced_swipe_speed_sensitivity_title">Чутливість жесту швидкості</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_off">Зона жесту перемотування вверху, а швидкості внизу.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_summary_on">Зона жесту швидкості вверху, а перемотування внизу.</string>
+    <string name="revanced_swipe_switch_speed_and_seek_title">Поміняти жести швидкості й перемотування</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">Чутливість жесту гучності повинна бути в межах 1-1000 (%).</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">Налаштуйте мінімальну відстань жесту гучності від 1 до 1000 (%).\n\nЧим менша мінімальна відстань, тим швидше змінюється рівень гучності.\n\nРекомендована чутливість жесту гучності 100% при 15 поділках і 10% при 150 поділках.</string>
     <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>

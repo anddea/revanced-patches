@@ -7,15 +7,12 @@ import androidx.annotation.NonNull;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import app.revanced.extension.music.patches.misc.requests.PlaylistRequest;
 import app.revanced.extension.music.settings.Settings;
 import app.revanced.extension.music.shared.VideoInformation;
 import app.revanced.extension.music.utils.VideoUtils;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.Utils;
 
 @SuppressWarnings("unused")
 public class AlbumMusicVideoPatch {
@@ -40,7 +37,7 @@ public class AlbumMusicVideoPatch {
 
     private static final String YOUTUBE_MUSIC_ALBUM_PREFIX = "OLAK";
 
-    private static final AtomicBoolean isVideoLaunched = new AtomicBoolean(false);
+    private static volatile boolean isVideoLaunched = false;
 
     @NonNull
     private static volatile String playerResponseVideoId = "";
@@ -100,14 +97,6 @@ public class AlbumMusicVideoPatch {
             if (request == null) {
                 return;
             }
-            // This hook is always called off the main thread,
-            // but this can later be called for the same video id from the main thread.
-            // This is not a concern, since the fetch will always be finished
-            // and never block the main thread.
-            // But if debugging, then still verify this is the situation.
-            if (BaseSettings.ENABLE_DEBUG_LOGGING.get() && !request.fetchCompleted() && Utils.isCurrentlyOnMainThread()) {
-                Logger.printException(() -> "Error: Blocking main thread");
-            }
             String songId = request.getStream();
             if (songId.isEmpty()) {
                 Logger.printDebug(() -> "Official song not found, videoId: " + videoId);
@@ -149,17 +138,16 @@ public class AlbumMusicVideoPatch {
 
     private static void openMusic(@NonNull String songId) {
         try {
-            isVideoLaunched.compareAndSet(false, true);
-
             // The newly opened video is not a music video.
             // To prevent fetch requests from being sent, set the video id to the newly opened video
             VideoUtils.runOnMainThreadDelayed(() -> {
+                isVideoLaunched = true;
                 playerResponseVideoId = songId;
                 currentVideoId = songId;
                 VideoUtils.openInYouTubeMusic(songId);
-            }, 1000);
+                VideoUtils.runOnMainThreadDelayed(() -> isVideoLaunched = false, 3000);
+            }, 1500);
 
-            VideoUtils.runOnMainThreadDelayed(() -> isVideoLaunched.compareAndSet(true, false), 2500);
         } catch (Exception ex) {
             Logger.printException(() -> "openMusic failure", ex);
         }
@@ -191,7 +179,7 @@ public class AlbumMusicVideoPatch {
      * Injection point.
      */
     public static boolean hideSnackBar() {
-        return DISABLE_MUSIC_VIDEO_IN_ALBUM && isVideoLaunched.get();
+        return DISABLE_MUSIC_VIDEO_IN_ALBUM && isVideoLaunched;
     }
 
 }
