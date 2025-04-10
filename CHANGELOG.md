@@ -1,3 +1,10 @@
+# [3.7.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.6.0...v3.7.0-dev.1) (2025-04-10)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini Transcription on long press & add Gemini Summary to Shorts custom actions ([917d02d](https://github.com/anddea/revanced-patches/commit/917d02d4711034165d3f2f3a0809f9c2b6f33731))
+
 # [3.6.0](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0) (2025-04-08)
 
 
