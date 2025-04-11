@@ -1,3 +1,24 @@
+# [3.7.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.2...v3.7.0-dev.3) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Open the link to get a Gemini API key by clicking the About preference ([56974dc](https://github.com/anddea/revanced-patches/commit/56974dce34ff47e860699bdebd643ade0b6e5c55))
+
+# [3.7.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.1...v3.7.0-dev.2) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix small Gemini issues ([d44664c](https://github.com/anddea/revanced-patches/commit/d44664c12e0e13144240137ebd7f40a899531df9))
+
+# [3.7.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.6.0...v3.7.0-dev.1) (2025-04-10)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini Transcription on long press & add Gemini Summary to Shorts custom actions ([917d02d](https://github.com/anddea/revanced-patches/commit/917d02d4711034165d3f2f3a0809f9c2b6f33731))
+
 # [3.6.0](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0) (2025-04-08)
 
 
