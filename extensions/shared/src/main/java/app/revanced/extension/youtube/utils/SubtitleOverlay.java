@@ -16,13 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.shared.utils.ResourceUtils; // For R class access
+import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.youtube.settings.Settings;
 
 import java.util.Objects;
 
 import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.utils.Utils.showToastShort;
+import static app.revanced.extension.shared.utils.Utils.showToastLong;
 
 /**
  * Basic conceptual implementation of a subtitle overlay using WindowManager.
@@ -123,7 +123,7 @@ public class SubtitleOverlay {
                 Logger.printDebug(() -> "Subtitle overlay added to window.");
             } catch (WindowManager.BadTokenException e) {
                 Logger.printException(()-> "WindowManager BadTokenException - Can't add overlay view. Check SYSTEM_ALERT_WINDOW permission?", e);
-                showToastShort(str("revanced_gemini_transcribe_bad_token_exception"));
+                showToastLong(str("revanced_gemini_transcribe_bad_token_exception"));
             } catch (Exception e) {
                 Logger.printException(() -> "Failed to add subtitle overlay view", e);
             }
@@ -153,7 +153,7 @@ public class SubtitleOverlay {
             if (!isShowing || subtitleTextView == null) return;
             // Update visibility based on text presence
             if (text == null || text.isEmpty()) {
-                subtitleTextView.setVisibility(View.GONE);
+                subtitleTextView.setVisibility(View.INVISIBLE);
             } else {
                 subtitleTextView.setText(text);
                 subtitleTextView.setVisibility(View.VISIBLE);
