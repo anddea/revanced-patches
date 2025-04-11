@@ -48,7 +48,7 @@ public class GeminiUtils {
 
     public static void getVideoTranscription(@NonNull String videoUrl, @NonNull String apiKey, @NonNull Callback callback) {
         String langName = getLanguageName(); // Use language Name to get full language name
-        String prompt = "Transcribe this video precisely in " + langName + ", including spoken words and significant sounds. Provide timestamps for each segment in the format [HH:MM:SS.mmm - HH:MM:SS.mmm]: Text. Skip any preamble, intro phrases, or explanations — output only the transcription.";
+        String prompt = "Transcribe this video precisely in " + langName + ", including spoken words, written words in the video and significant sounds. Provide timestamps for each segment in the format [HH:MM:SS.mmm - HH:MM:SS.mmm]: Text. Skip any preamble, intro phrases, or explanations — output only the transcription.";
         Logger.printDebug(() -> "GeminiUtils (TRANSCRIPTION): Sending JSON Payload (Prompt): " + prompt);
         generateContent(TRANSCRIPTION_MODEL, videoUrl, apiKey, prompt, callback);
     }

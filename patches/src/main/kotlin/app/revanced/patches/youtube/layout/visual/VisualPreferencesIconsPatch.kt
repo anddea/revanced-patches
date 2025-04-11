@@ -426,6 +426,7 @@ private val emptyTitles = setOf(
     "revanced_hide_player_flyout_menu_quality_footer",
     "revanced_hide_shorts_comments_disabled_button",
     "revanced_overlay_button_external_downloader_queue_manager",
+    "revanced_overlay_button_gemini_about",
     "revanced_overlay_button_gemini_summarize_api_key",
     "revanced_overlay_button_play_all_type",
     "revanced_override_video_download_button_queue_manager",
