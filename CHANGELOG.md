@@ -1,3 +1,10 @@
+# [3.7.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.2...v3.7.0-dev.3) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Open the link to get a Gemini API key by clicking the About preference ([56974dc](https://github.com/anddea/revanced-patches/commit/56974dce34ff47e860699bdebd643ade0b6e5c55))
+
 # [3.7.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.1...v3.7.0-dev.2) (2025-04-11)
 
 
