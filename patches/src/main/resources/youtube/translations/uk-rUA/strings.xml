@@ -481,7 +481,7 @@
     <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
     <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Увімкніть \"Показ поверх інших програм\", щоб показувати у вигляді субтитрів</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Вікно субтитрів може зображатися поверх інших програм , потрібно увімкнути \'Показ поверх інших програм\' для YouTube. Щоб приховати вікно субтитрів, просто натисніть на нього.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Розмір шрифту субтитрів</string>
     <string name="revanced_gemini_transcription_parse_button">Субтитри</string>
     <string name="revanced_gemini_transcription_parse_success">Розбір субтитрів виконано успішно</string>
@@ -1484,11 +1484,18 @@
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Керування чергою</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантажувача</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Розбір відео може зайняти деякий час залежно від його довжини. Транскрибування довгих відео може перевищити ліміти Gemini.
+
+Відповіді, згенеровані ШІ, можуть містити недостовірну інформацію.
+
+Натисніть тут, щоб отримати ключ API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">Про Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Підсумок</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Отримайте ключ API https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключ API Gemini</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео з Gemini.
-Розбір відео може зайняти деякий час залежно від його довжини."</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео. Натисніть і утримуйте, щоб транскрибувати.
+
+Результати підсумування і транскрибування зберігаються, якщо ви не закрили програму або не використовували Gemini на іншому відео. Натисніть кнопку ще раз для перегляду результатів."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Показувати кнопку Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
