@@ -1,3 +1,10 @@
+# [3.7.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.1...v3.7.0-dev.2) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix small Gemini issues ([d44664c](https://github.com/anddea/revanced-patches/commit/d44664c12e0e13144240137ebd7f40a899531df9))
+
 # [3.7.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.6.0...v3.7.0-dev.1) (2025-04-10)
 
 
