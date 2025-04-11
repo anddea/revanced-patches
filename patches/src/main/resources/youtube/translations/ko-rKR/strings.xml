@@ -476,12 +476,23 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
     <string name="revanced_gemini_cancelled">요약을 취소하였습니다.</string>
     <string name="revanced_gemini_copy_success">요약을 클립보드에 복사하였습니다.</string>
+     <string name="revanced_gemini_error_already_running_summarize">요약이 이미 진행 중입니다.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">필사가 이미 진행 중입니다.</string>
     <string name="revanced_gemini_error_api_failed">Gemini API 요청을 할 수 없습니다: %s</string>
     <string name="revanced_gemini_error_no_api_key">RVX 설정에서 Gemini API Key가 설정되어 있지 않습니다.</string>
     <string name="revanced_gemini_error_no_video">동영상 URL을 가져올 수 없습니다.</string>
+    <string name="revanced_gemini_error_transcription_parse">필사 데이터를 분석할 수 없습니다.</string>
+    <string name="revanced_gemini_error_unknown">알 수 없는 문제점이 발생하였습니다.</string>
+    <string name="revanced_gemini_loading_transcribe">동영상을 필사하는 중 ...</string>
     <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중 ...</string>
     <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
     <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">자막으로 표시하려면 \'다른 앱 위에 표시\'를 활성화하세요.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">자막 폰트 사이즈</string>
+    <string name="revanced_gemini_transcription_parse_button">자막</string>
+    <string name="revanced_gemini_transcription_parse_success">자막을 성공적으로 분석하였습니다</string>
+    <string name="revanced_gemini_transcription_result_title">Gemini 동영상 필사</string>
     <string name="revanced_gms_show_dialog_summary">앱을 시작할 때마다 GmsCore에 대한 배터리 최적화 다이얼로그를 표시합니다.</string>
     <string name="revanced_gms_show_dialog_title">GmsCore 배터리 최적화 다이얼로그 표시하기</string>
     <string name="revanced_gradient_seekbar_positions_reset">Cairo 재생바의 경계를 기본값으로 초기화합니다.</string>
@@ -1488,11 +1499,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">현재 재생목록 관리자</string>
     <string name="revanced_overlay_button_external_downloader_summary">버튼을 눌러서 외부 다운로더를 실행할 수 있습니다.</string>
     <string name="revanced_overlay_button_external_downloader_title">외부 다운로더 버튼 표시하기</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"동영상 구문 분석은 동영상 길이에 따라 어느 정도의 시간이 걸릴 수 있습니다. 너무 긴 동영상을 필사하게 되면 Gemini의 한계를 초과할 수 있습니다.
+
+AI가 생성한 동영상 요약에는 부정확한 정보가 포함될 수 있습니다.
+
+API 키를 발급받으려면 여기를 누르세요"</string>
+    <string name="revanced_overlay_button_gemini_about_title">Gemini에 대한 정보</string>
     <string name="revanced_overlay_button_gemini_summarize">요약하기</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Gemini API Key는 웹사이트(https://aistudio.google.com/apikey)에서 발급받을 수 있습니다."</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API Key 등록하기</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">"버튼을 눌러서 Gemini를 사용하여 동영상을 요약할 수 있습니다.
-동영상 길이에 따라 분석하는 데 어느 정도의 시간이 소요됩니다."</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"버튼을 누르면 동영상을 요약할 수 있습니다. 길게 누르면 필사됩니다.
+
+앱을 닫거나 다른 동영상에서 Gemini를 사용하지 않는 한 요약 또는 필사된 결과는 저장됩니다. 결과를 보려면 버튼을 다시 누르세요."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Gemini 버튼 표시하기</string>
     <string name="revanced_overlay_button_mute_volume_summary">버튼을 눌러서 재생 중인 동영상을 음소거할 수 있습니다.\n다시 누르면 음소거가 해제됩니다.</string>
     <string name="revanced_overlay_button_mute_volume_title">음소거 버튼 표시하기</string>
@@ -1997,6 +2015,10 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">외부 다운로더 실행 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">외부 다운로더 실행 메뉴가 표시됩니다.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">외부 다운로더 실행 메뉴 표시하기</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Gemini 요약</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini 요약 메뉴가 숨겨집니다.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini 요약 메뉴가 표시됩니다.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Gemini 요약 메뉴 표시하기</string>
     <string name="revanced_shorts_custom_actions_open_video_label">일반 플레이어에서 재생</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">일반 플레이어에서 재생 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">일반 플레이어에서 재생 메뉴가 표시됩니다.</string>
