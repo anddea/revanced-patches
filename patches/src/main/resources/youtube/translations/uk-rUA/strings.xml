@@ -469,12 +469,23 @@
     <string name="revanced_fullscreen_ads_closed_toast">Повноекранну рекламу закрито.</string>
     <string name="revanced_gemini_cancelled">Підсумування скасовано</string>
     <string name="revanced_gemini_copy_success">Підсумок скопійовано в буфер обміну.</string>
+    <string name="revanced_gemini_error_already_running_summarize">Виконується підсумування.</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Виконується транскрибування.</string>
     <string name="revanced_gemini_error_api_failed">Не вдався запит до Gemini API: %s</string>
     <string name="revanced_gemini_error_no_api_key">Ключ API Gemini не заданий у налаштуваннях.</string>
     <string name="revanced_gemini_error_no_video">Не вдалося отримати посилання відео.</string>
+    <string name="revanced_gemini_error_transcription_parse">Не вдалося розібрати дані транскрибування.</string>
+    <string name="revanced_gemini_error_unknown">Виникла невідома помилка.</string>
     <string name="revanced_gemini_loading_summarize">Підсумування відео...</string>
+    <string name="revanced_gemini_loading_transcribe">Транскрибування відео...</string>
     <string name="revanced_gemini_summary_title">Підсумок відео Gemini</string>
     <string name="revanced_gemini_time_taken">(Тривало %d секунд)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Увімкніть \"Показ поверх інших програм\", щоб показувати у вигляді субтитрів</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Розмір шрифту транскрибованих субтитрів відео. Вікно субтитрів може зображатися поверх інших програм, потрібно увімкнути \'Показ поверх інших програм\' для YouTube. Щоб приховати вікно субтитрів, просто натисніть на нього.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Розмір шрифту субтитрів</string>
+    <string name="revanced_gemini_transcription_parse_button">Субтитри</string>
+    <string name="revanced_gemini_transcription_parse_success">Розбір субтитрів виконано успішно</string>
+    <string name="revanced_gemini_transcription_result_title">Транскрибування відео Gemini</string>
     <string name="revanced_gms_show_dialog_summary">Показ діалога оптимізації для GMSCore при кожному запуску програми.</string>
     <string name="revanced_gms_show_dialog_title">Показувати діалог оптимізації для GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Позиції градієнта скинуто.</string>
@@ -1395,6 +1406,7 @@
     <string name="revanced_language_ZH">"Китайська
 <small>中文</small>"</string>
     <string name="revanced_language_title">Мова RVX</string>
+    <string name="revanced_minimize">Згорнути</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та щипок для зміни розміру вимкнено.</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Подвійне натискання та щипок для зміни розміру увімкнено.
 
@@ -1472,11 +1484,18 @@
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Керування чергою</string>
     <string name="revanced_overlay_button_external_downloader_summary">Натисніть для запуску зовнішнього завантажувача</string>
     <string name="revanced_overlay_button_external_downloader_title">Показувати кнопку зовнішнього завантажувача</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Розбір відео може зайняти деякий час залежно від його довжини. Транскрибування довгих відео може перевищити ліміти Gemini.
+
+Відповіді, згенеровані ШІ, можуть містити недостовірну інформацію.
+
+Натисніть тут, щоб отримати ключ API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">Про Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Підсумок</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Отримайте ключ API https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Ключ API Gemini</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео з Gemini.
-Розбір відео може зайняти деякий час залежно від його довжини."</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Натисніть, щоб підсумувати відео. Натисніть і утримуйте, щоб транскрибувати.
+
+Результати підсумування і транскрибування зберігаються, якщо ви не закрили програму або не використовували Gemini на іншому відео. Натисніть кнопку ще раз для перегляду результатів."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Показувати кнопку Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Натисніть, щоб вимкнути звук поточного відео. Натисніть знову, щоб увімкнути.</string>
     <string name="revanced_overlay_button_mute_volume_title">Показувати кнопку вимкнення звуку</string>
@@ -1981,6 +2000,10 @@
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Меню зовнішнього завантажувача приховано.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Меню зовнішнього завантажувача показується.</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Показувати меню зовнішнього завантажувача</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Підсумок Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Меню Підсумок Gemini приховано.</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Меню Підсумок Gemini показується.</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Показувати меню Підсумок Gemini </string>
     <string name="revanced_shorts_custom_actions_open_video_label">Відкрити відео</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Меню Відкрити відео приховано.</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Меню Відкрити відео показується.</string>

@@ -164,7 +164,7 @@ Limitation: Does not work if the player is minimized, in PiP mode, or in the bac
     <string name="revanced_gemini_summary_title">Gemini Video Summary</string>
     <string name="revanced_gemini_time_taken">(Took %d seconds)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Enable \"Display over other apps\" to show as subtitles</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">The font size of the transcribed video subtitles.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">The font size of the transcribed video subtitles. Subtitle box can be displayed over other apps, you need to enable \'Display over other apps\' for YouTube. To hide subtitle box, just tap on it.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Subtitles font size</string>
     <string name="revanced_gemini_transcription_parse_button">Subtitles</string>
     <string name="revanced_gemini_transcription_parse_success">Subtitle parsed successfully</string>
@@ -299,11 +299,18 @@ If a YouTube Doodle is currently showing in your region and this setting is on, 
     <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_summary">Instead of launching an external downloader, open the queue manager.</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Queue manager</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Parsing the video may take a while depending on its length. Transcribing long videos may exceed Gemini's limits.
+
+AI-generated responses may contain inaccurate information.
+
+Tap here to get API key."</string>
+    <string name="revanced_overlay_button_gemini_about_title">About Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Summarize</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Get API key at https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API key</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video with Gemini.
-Parsing the video may take a while depending on its length."</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Tap to summarize the video. Tap and hold to transcribe.
+
+Summarized and transcribed results are saved unless you closed the app or used Gemini on another video. Tap the button again to view results."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Show Gemini button</string>
     <string name="revanced_overlay_button_play_all_not_available_toast">Unable to generate playlist due to channel id mismatch.</string>
     <string name="revanced_overlay_button_play_all_type_entry_0">All contents (Sort by time, Ascending)</string>
