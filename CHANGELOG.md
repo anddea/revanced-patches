@@ -1,3 +1,10 @@
+# [3.7.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.3...v3.7.0-dev.4) (2025-04-12)
+
+
+### Features
+
+* **Spotify:** Add `Lyrics search` patch ([b45f417](https://github.com/anddea/revanced-patches/commit/b45f4175b73833a838526e66b111192f501e0d4b))
+
 # [3.7.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.2...v3.7.0-dev.3) (2025-04-11)
 
 
