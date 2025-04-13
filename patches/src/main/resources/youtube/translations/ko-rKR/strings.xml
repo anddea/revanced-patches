@@ -1308,7 +1308,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때, 가로 모드를 유지합니다.</string>
     <string name="revanced_keep_landscape_mode_summary_off">화면을 껐다 켜면 동영상을 세로 모드에서 재생합니다.</string>
     <string name="revanced_keep_landscape_mode_summary_on">화면을 껐다 켜도 동영상을 가로 모드에서 계속 재생합니다.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">화면이 켜진 후에 가로 모드가 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
     <string name="revanced_keep_landscape_mode_title">가로 모드 유지하기</string>
     <string name="revanced_language_AM">"암하라어
@@ -1423,6 +1423,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_language_ZH">"중국어
 <small>中文</small>"</string>
     <string name="revanced_language_title">RVX 언어</string>
+    <string name="revanced_minimize">최소화</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 누르기 동작\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"'두 번 누르기 동작' 및 '핀치하여 크기 조정'을 활성화합니다
 
@@ -2147,14 +2148,16 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Onesie 응답 암호화를 건너뛰지 않습니다.
 
-• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다."</string>
+• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Onesie 응답 암호화를 건너뜁니다.
 
-• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 고쳐질 수 있습니다.
-• AV1 코덱을 사용하지 못할 수 있습니다."</string>
+• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 해결될 수 있습니다.
+• AV1 코덱을 사용하지 못할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Onesie 응답 암호화 건너뛰기</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
     <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
