@@ -3,12 +3,13 @@ package app.revanced.extension.youtube.utils;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,22 +23,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicReference;
 
-import app.revanced.extension.shared.utils.Logger;
-
 public class GeminiUtils {
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
     private static final String SUMMARY_MODEL = "gemini-1.5-flash-latest";
     private static final String TRANSCRIPTION_MODEL = "gemini-1.5-flash-latest";
     private static final String ACTION = ":generateContent?key=";
-
-    public interface Callback {
-        void onSuccess(String result);
-        void onFailure(String error);
-    }
-
-    private static volatile HttpURLConnection currentConnection = null;
     private static final AtomicReference<Future<?>> currentTask = new AtomicReference<>(null);
+    private static volatile HttpURLConnection currentConnection = null;
 
     public static void getVideoSummary(@NonNull String videoUrl, @NonNull String apiKey, @NonNull Callback callback) {
         String langName = getLanguageName(); // Use Language Name to get full language name
@@ -72,7 +65,7 @@ public class GeminiUtils {
                 connection.setRequestProperty("Accept", "application/json");
                 connection.setDoOutput(true);
                 connection.setConnectTimeout(30000);
-                connection.setReadTimeout(600000);
+                connection.setReadTimeout(6000000);
 
                 JSONObject fileData = new JSONObject()
                         .put("mimeType", "video/mp4")
@@ -98,7 +91,7 @@ public class GeminiUtils {
 
                 String jsonInputString = requestBody.toString();
 
-                Logger.printDebug(() -> "GeminiUtils ("+ modelName +"): Sending JSON Payload: " + jsonInputString.substring(0, Math.min(jsonInputString.length(), 500)) + "...");
+                Logger.printDebug(() -> "GeminiUtils (" + modelName + "): Sending JSON Payload: " + jsonInputString.substring(0, Math.min(jsonInputString.length(), 500)) + "...");
 
                 try (OutputStream os = connection.getOutputStream()) {
                     byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
@@ -169,8 +162,8 @@ public class GeminiUtils {
                 }
 
             } catch (java.net.SocketTimeoutException e) {
-                Logger.printException(() -> "Gemini API request timed out ("+ modelName + ")", e);
-                callback.onFailure("Request timed out after " + (connection != null ? connection.getReadTimeout()/1000 : "?") + " seconds.");
+                Logger.printException(() -> "Gemini API request timed out (" + modelName + ")", e);
+                callback.onFailure("Request timed out after " + (connection != null ? connection.getReadTimeout() / 1000 : "?") + " seconds.");
             } catch (InterruptedException e) {
                 Logger.printInfo(() -> "Gemini task explicitly cancelled.");
                 callback.onFailure("Operation cancelled.");
@@ -180,11 +173,11 @@ public class GeminiUtils {
                     Logger.printInfo(() -> "Gemini task explicitly cancelled (IOException).");
                     callback.onFailure("Operation cancelled.");
                 } else {
-                    Logger.printException(() -> "Gemini API request IO failed ("+ modelName + ")", e);
+                    Logger.printException(() -> "Gemini API request IO failed (" + modelName + ")", e);
                     callback.onFailure(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
                 }
             } catch (Exception e) {
-                Logger.printException(() -> "Gemini API request failed ("+ modelName + ")", e);
+                Logger.printException(() -> "Gemini API request failed (" + modelName + ")", e);
                 callback.onFailure(e.getMessage() != null ? e.getMessage() : "Unknown error during request setup");
             } finally {
                 if (connection != null) {
@@ -202,7 +195,7 @@ public class GeminiUtils {
     public static void cancelCurrentTask() {
         Future<?> taskToCancel = currentTask.getAndSet(null);
         if (taskToCancel != null) {
-            Logger.printDebug(()-> "Attempting to cancel current Gemini task.");
+            Logger.printDebug(() -> "Attempting to cancel current Gemini task.");
             taskToCancel.cancel(true);
         }
 
@@ -215,7 +208,7 @@ public class GeminiUtils {
                 executor.execute(() -> {
                     try {
                         conn.disconnect();
-                        Logger.printDebug(()-> "Disconnected current Gemini connection.");
+                        Logger.printDebug(() -> "Disconnected current Gemini connection.");
                     } catch (Exception e) {
                         /* ignore disconnect errors */
                         Logger.printException(() -> "Error disconnecting Gemini connection", e);
@@ -364,7 +357,7 @@ public class GeminiUtils {
                 return locale.getDisplayLanguage(Locale.ENGLISH);
             }
         } catch (Exception e) {
-            Logger.printException(()-> "Failed to get language code from settings, using system default.", e);
+            Logger.printException(() -> "Failed to get language code from settings, using system default.", e);
         }
 
         // Fallback to system default locale
@@ -374,10 +367,16 @@ public class GeminiUtils {
                 return defaultLocale.getDisplayLanguage(Locale.ENGLISH);
             }
         } catch (Exception e) {
-            Logger.printException(()-> "Failed to get system default language code, using 'English'.", e);
+            Logger.printException(() -> "Failed to get system default language code, using 'English'.", e);
         }
 
         // Absolute fallback
         return "English";
+    }
+
+    public interface Callback {
+        void onSuccess(String result);
+
+        void onFailure(String error);
     }
 }
