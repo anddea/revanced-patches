@@ -741,9 +741,18 @@
         "values": null
       },
       {
+        "key": "overridePlayerGradientColor",
+        "title": "Override player gradient color",
+        "description": "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "backgroundColorSecondary",
         "title": "Secondary background color",
-        "description": "The secondary background color. (e.g. playlist list, player arist, credits). Can be a hex color or a resource reference.",
+        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
         "required": true,
         "type": "kotlin.String",
         "default": "#FF121212",
