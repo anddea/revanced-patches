@@ -1,3 +1,17 @@
+# [3.7.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.4...v3.7.0-dev.5) (2025-04-14)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** New method to remove the Create tab ([a06bf40](https://github.com/anddea/revanced-patches/commit/a06bf408bddf46a17382e3b0d12236a1401cff4a))
+* **Spotify - Unlock Spotify Premium:** Remove premium restriction for 'Spotify Connect' ([83bd376](https://github.com/anddea/revanced-patches/commit/83bd376fc32fed8be7007ff81431704b070f14db))
+* **Spotify - Unlock Spotify Premium:** Remove restrictions for Google voice assistant ([13d4a42](https://github.com/anddea/revanced-patches/commit/13d4a42b9274816a5dbd50e5e3aa30a17d254169))
+
+
+### Features
+
+* **Spotify - Custom theme:** Add option to use unmodified player background gradient ([913d371](https://github.com/anddea/revanced-patches/commit/913d37134d5926005f4024b4666362239ac709e8))
+
 # [3.7.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.3...v3.7.0-dev.4) (2025-04-12)
 
 
