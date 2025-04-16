@@ -1,3 +1,11 @@
+# [3.7.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.5...v3.7.0-dev.6) (2025-04-16)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Minimize the `Search Lyrics` panel into a draggable floating button when the close button is clicked ([23f689f](https://github.com/anddea/revanced-patches/commit/23f689f5dfbd2f220c3b55bf83e615b1c67840ef))
+* **Spotify:** Fix login by replacing `Spoof signature` patch with new `Spoof package info` patch ([06b96db](https://github.com/anddea/revanced-patches/commit/06b96dbd96460088a49c6b18c1e4f7f5f41622b5))
+
 # [3.7.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.4...v3.7.0-dev.5) (2025-04-14)
 
 
