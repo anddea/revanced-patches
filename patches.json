@@ -3023,6 +3023,16 @@
     "options": []
   },
   {
+    "name": "Spoof package info",
+    "description": "Spoofs the package info of the app to fix various functions of the app.",
+    "use": true,
+    "dependencies": [],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
+  },
+  {
     "name": "Spoof player parameter",
     "description": "Adds options to spoof player parameter to allow playback.",
     "use": true,
@@ -3042,16 +3052,6 @@
         "8.05.51",
         "8.12.53"
       ]
-    },
-    "options": []
-  },
-  {
-    "name": "Spoof signature",
-    "description": "Spoofs the signature of the app to fix various functions of the app.",
-    "use": true,
-    "dependencies": [],
-    "compatiblePackages": {
-      "com.spotify.music": null
     },
     "options": []
   },
