@@ -157,7 +157,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
-| `Lyrics search` | Displays a "Search Lyrics" button in the Main Activity that searches for lyrics on Google. The button appears on every playback action change (play, pause, next/previous track, etc.). The activity is set to SpotifyMainActivity, so the "Search Lyrics" button won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
+| `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
 | `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
 | `Sanitize sharing links` | Removes the '?si=' tracking parameter from shared links (e.g., Copy Link, Share to...). | ALL |
 | `Spoof package info` | Spoofs the package info of the app to fix various functions of the app. | ALL |
