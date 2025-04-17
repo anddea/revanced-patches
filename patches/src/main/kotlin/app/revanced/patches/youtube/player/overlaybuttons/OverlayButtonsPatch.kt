@@ -191,9 +191,9 @@ val overlayButtonsPatch = resourcePatch(
                     "revanced_copy_button.png",
                     "revanced_copy_timestamp_button.png",
                     "revanced_download_button.png",
+                    "revanced_gemini_button.png",
                     "revanced_play_all_button.png",
                     "revanced_speed_button.png",
-                    "revanced_gemini_button.png",
                     "revanced_volume_muted_button.png",
                     "revanced_volume_unmuted_button.png",
                     "revanced_whitelist_button.png",
@@ -214,6 +214,14 @@ val overlayButtonsPatch = resourcePatch(
                 )
             )
         }
+
+        copyResources(
+            "youtube/overlaybuttons/shared/host",
+            ResourceGroup(
+                "layout",
+                "revanced_subtitle_overlay_layout.xml"
+            )
+        )
 
         // Merge XML nodes from the host to their respective XML files.
         copyXmlNode(
