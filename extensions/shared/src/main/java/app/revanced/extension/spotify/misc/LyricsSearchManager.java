@@ -2,6 +2,7 @@ package app.revanced.extension.spotify.misc;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,236 +26,239 @@ import java.nio.charset.StandardCharsets;
 /**
  * Manages the display and interaction of a floating lyrics search overlay
  * within the Spotify application. Allows minimizing, expanding, and dragging.
- * The minimized state snaps to the left or right edge, preserving vertical position.
- * The expanded state always appears centered horizontally near the bottom.
- * It listens for track metadata updates and provides buttons to search for
- * lyrics on Google or minimize/expand the overlay.
+ * Provides buttons to search lyrics on Google and Songtell.
  */
 @SuppressWarnings("unused")
 public class LyricsSearchManager {
 
-    private static final String TAG = "LyricsSearchManager";
+    private static final String TAG = "LyricsSearch";
     private static final Object buttonLock = new Object();
-    private static final int EDGE_PADDING_DP = 8; // Padding from screen edge when snapped
+
+    // --- Configuration ---
+    private static final int EDGE_PADDING_DP = 8;
     private static final int DEFAULT_BOTTOM_MARGIN_DP = 50;
+    private static final int ICON_BUTTON_SIZE_DP = 40;
+    private static final int BUTTON_HEIGHT_DP = 40;
+    private static final int EXPANDED_LAYOUT_PADDING_DP = 5;
+    private static final int BUTTON_INTERNAL_PADDING_DP = 8;
+    private static final int BUTTON_CORNER_RADIUS_DP = 20; // For main search button
+    private static final int ICON_BUTTON_MARGIN_DP = 5; // Margin between icons
+
+    private static final String COLOR_PRIMARY_ACCENT = "#1ED760"; // Spotify Green
+    private static final String COLOR_DARK_BACKGROUND = "#282828"; // Dark Gray bg (ARGB: 200, 40, 40, 40)
+    private static final String COLOR_ICON_BACKGROUND = "#404040"; // Slightly lighter gray for icon bg
+    private static final String COLOR_TEXT_ON_ACCENT = "#000000"; // Black text on green button
+    private static final String COLOR_ICON_TINT = "#B3B3B3"; // White icons
+
+    // --- State Variables ---
     private static String currentSearchTitle = null;
     private static String currentSearchArtist = null;
+
     @SuppressLint("StaticFieldLeak")
     private static volatile FrameLayout lyricsButtonContainer = null;
     @SuppressLint("StaticFieldLeak")
     private static volatile LinearLayout expandedLayout = null;
     @SuppressLint("StaticFieldLeak")
+    private static volatile Button googleSearchButton = null;
+    @SuppressLint("StaticFieldLeak")
+    private static volatile ImageButton songtellButton = null;
+    @SuppressLint("StaticFieldLeak")
     private static volatile ImageButton minimizeButton = null;
     @SuppressLint("StaticFieldLeak")
-    private static volatile Button searchButton = null;
-    @SuppressLint("StaticFieldLeak")
     private static volatile ImageButton expandButton = null;
-    private static volatile OverlayState currentOverlayState = OverlayState.EXPANDED;
+
+    private static volatile OverlayState currentOverlayState = OverlayState.MINIMIZED;
     private static volatile SnapEdge lastSnappedEdge = SnapEdge.RIGHT;
     private static volatile boolean isDragging = false;
     private static volatile float initialTouchX, initialTouchY;
     private static volatile int initialX, initialY;
     private static volatile int lastKnownTopMarginForMinimized = -1;
+    private static volatile int screenHeight = -1;
 
     /**
-     * Safely updates the current track information and triggers the display
-     * or removal of the lyrics button overlay based on the validity of the data.
-     * This method is expected to be called when track metadata or player state changes.
+     * Processes track metadata updates. Shows, hides, or updates the overlay content.
+     * Ensures the overlay is correctly displayed even after app restarts from recents.
      *
-     * @param titleObj  The potential title of the track (expected String).
-     * @param artistObj The potential artist of the track (expected String).
+     * @param titleObj  The track title (expected String).
+     * @param artistObj The track artist (expected String).
      */
     public static void processTrackMetadata(Object titleObj, Object artistObj) {
-        String title = null;
-        if (titleObj instanceof String tempTitle && !tempTitle.isEmpty()) {
-            title = tempTitle;
-        }
+        String title = titleObj instanceof String tempTitle && !tempTitle.isEmpty() ? tempTitle : null;
+        String artist = artistObj instanceof String tempArtist && !tempArtist.isEmpty() ? tempArtist : null;
 
-        String artist = null;
-        if (artistObj instanceof String tempArtist && !tempArtist.isEmpty()) {
-            artist = tempArtist;
-        }
+        synchronized (buttonLock) {
+            boolean hasValidMetadata = title != null && artist != null;
+            boolean metadataChanged = hasValidMetadata && (!title.equals(currentSearchTitle) || !artist.equals(currentSearchArtist));
 
-        if (title != null && artist != null) {
-            synchronized (buttonLock) {
-                boolean metadataChanged = !title.equals(currentSearchTitle) || !artist.equals(currentSearchArtist);
+            if (hasValidMetadata) {
                 currentSearchTitle = title;
                 currentSearchArtist = artist;
 
-                if (metadataChanged) {
-                    String finalTitle = title;
-                    String finalArtist = artist;
-                    Logger.printDebug(() -> TAG + "Updated track info: Title=[" + finalTitle + "], Artist=[" + finalArtist + "]");
-                    Utils.runOnMainThreadNowOrLater(LyricsSearchManager::showOrUpdateOverlay);
-                } else {
-                    Logger.printDebug(() -> TAG + "Track info same, ensuring overlay state.");
-                    Utils.runOnMainThreadNowOrLater(LyricsSearchManager::ensureOverlayState);
-                }
-            }
-        } else {
-            Logger.printInfo(() -> TAG + "safePrintMetadata received invalid title or artist. Removing button.");
-            Utils.runOnMainThreadNowOrLater(LyricsSearchManager::removeOverlay);
-            synchronized (buttonLock) {
-                lastSnappedEdge = SnapEdge.RIGHT;
-                lastKnownTopMarginForMinimized = -1;
-                currentOverlayState = OverlayState.EXPANDED;
-            }
-        }
-    }
-
-    /**
-     * Ensures the overlay is in the correct state (visibility, position)
-     * without necessarily recreating it. Called when metadata hasn't changed,
-     * but we want to ensure it's displayed correctly (e.g., after rotation).
-     */
-    private static void ensureOverlayState() {
-        synchronized (buttonLock) {
-            if (lyricsButtonContainer != null && lyricsButtonContainer.getParent() != null) {
-                Logger.printDebug(() -> TAG + "Ensuring overlay state is correct.");
-                updateVisibilityBasedOnState();
-                applyLayoutParamsForState();
-            } else if (lyricsButtonContainer != null) {
-                // Existed but not attached, re-attach using showOrUpdate
-                Logger.printDebug(() -> TAG + "Ensure state found detached overlay, re-attaching.");
-                showOrUpdateOverlay();
+                Logger.printDebug(() -> TAG + ": Valid metadata received. Title=[" + currentSearchTitle + "], Artist=[" + currentSearchArtist + "]. Ensuring overlay.");
+                Utils.runOnMainThreadNowOrLater(LyricsSearchManager::showOrUpdateOverlay);
             } else {
-                // Doesn't exist, maybe it was removed previously. Recreate if metadata is valid
-                if (currentSearchTitle != null && currentSearchArtist != null) {
-                    Logger.printDebug(() -> TAG + "Ensure state found no overlay, recreating.");
-                    showOrUpdateOverlay();
+                // Metadata is invalid or missing
+                if (currentSearchTitle != null || currentSearchArtist != null) {
+                    Logger.printInfo(() -> TAG + ": Received invalid title or artist. Removing overlay.");
+                    currentSearchTitle = null;
+                    currentSearchArtist = null;
+                    Utils.runOnMainThreadNowOrLater(LyricsSearchManager::removeOverlayInternal);
+                } else {
+                    // Already removed or never shown, do nothing
+                    Logger.printDebug(() -> TAG + ": Received invalid metadata, overlay likely already hidden.");
                 }
             }
         }
     }
 
     /**
-     * Creates and displays/updates the overlay on the current Activity's DecorView.
+     * Creates, updates, or re-attaches the overlay to the current Activity's DecorView.
+     * Handles cases where the overlay might exist but be detached (e.g., after activity recreation).
      * This method MUST be called on the main UI thread.
      */
     @SuppressLint({"SetTextI18n", "ClickableViewAccessibility"})
     private static void showOrUpdateOverlay() {
         Activity currentActivity = Utils.getActivity();
         if (currentActivity == null) {
-            Logger.printInfo(() -> TAG + "Cannot show overlay: No current Activity available.");
-            removeOverlayInternal();
+            Logger.printInfo(() -> TAG + ": Cannot show overlay: No current Activity available.");
+            return;
+        }
+
+        ViewGroup decorView = getDecorView(currentActivity);
+        if (decorView == null) {
+            Logger.printException(() -> TAG + ": Cannot show overlay: Failed to get DecorView.");
             return;
         }
 
         synchronized (buttonLock) {
-            if (lyricsButtonContainer != null && lyricsButtonContainer.getParent() == null) {
-                Logger.printDebug(() -> TAG + "Overlay existed but wasn't attached. Re-attaching.");
-                ViewGroup decorView = getDecorView(currentActivity);
-                if (decorView != null) {
-                    try {
-                        FrameLayout.LayoutParams params = getLayoutParamsForCurrentState(decorView.getContext());
-                        decorView.addView(lyricsButtonContainer, params);
-                        Logger.printInfo(() -> TAG + "Lyrics overlay re-added to DecorView.");
-                        updateVisibilityBasedOnState();
-                    } catch (Exception e) {
-                        Logger.printException(() -> TAG + "Error re-adding overlay to DecorView", e);
-                        removeOverlayInternal();
-                    }
-                } else {
-                    removeOverlayInternal();
-                }
-                return;
-
-            } else if (lyricsButtonContainer != null) {
-
-                Logger.printDebug(() -> TAG + "Overlay already visible. Ensuring state.");
-                ensureOverlayState();
-                return;
+            if (screenHeight <= 0) {
+                DisplayMetrics displayMetrics = currentActivity.getResources().getDisplayMetrics();
+                screenHeight = displayMetrics.heightPixels;
+                Logger.printDebug(() -> TAG + ": Screen height initialized: " + screenHeight);
             }
 
-            Logger.printDebug(() -> TAG + "Creating and adding lyrics overlay to DecorView...");
+            boolean needsCreation = lyricsButtonContainer == null;
+            boolean needsReattaching = !needsCreation && (lyricsButtonContainer.getParent() != decorView || !lyricsButtonContainer.isAttachedToWindow());
 
-            lyricsButtonContainer = new FrameLayout(currentActivity);
+            if (needsReattaching) {
+                Logger.printDebug(() -> TAG + ": Overlay exists but needs re-attaching.");
+                removeOverlayInternal();
+                needsCreation = true;
+            }
 
-            expandedLayout = new LinearLayout(currentActivity);
+            if (needsCreation) {
+                Logger.printDebug(() -> TAG + ": Creating and adding lyrics overlay to DecorView...");
+                createOverlayViews(currentActivity);
+                if (lyricsButtonContainer == null) return;
+
+                // --- Add the Container to the Activity's Decor View ---
+                FrameLayout.LayoutParams containerParams = getLayoutParamsForCurrentState(currentActivity);
+                try {
+                    decorView.addView(lyricsButtonContainer, containerParams);
+                    Logger.printInfo(() -> TAG + ": Lyrics overlay added to DecorView (State: " + currentOverlayState + ")");
+                    updateVisibilityBasedOnState();
+                } catch (Exception e) {
+                    Logger.printException(() -> TAG + ": Error adding lyrics overlay to DecorView", e);
+                    removeOverlayInternal();
+                }
+            } else {
+                // Already exists and attached, just ensure state
+                Logger.printDebug(() -> TAG + ": Overlay already attached. Ensuring state.");
+                ensureOverlayState();
+            }
+        }
+    }
+
+    /**
+     * Creates all the views for the overlay (container, expanded layout, buttons).
+     * This method assumes it's called within the buttonLock synchronized block.
+     * Must be called on the Main thread.
+     *
+     * @param context Context for creating views.
+     */
+    @SuppressLint({"ClickableViewAccessibility", "SetTextI18n"})
+    private static void createOverlayViews(Context context) {
+        try {
+            lyricsButtonContainer = new FrameLayout(context);
+
+            // --- Expanded Layout ---
+            expandedLayout = new LinearLayout(context);
             expandedLayout.setOrientation(LinearLayout.HORIZONTAL);
             expandedLayout.setGravity(Gravity.CENTER_VERTICAL);
 
             GradientDrawable expandedBg = new GradientDrawable();
-            expandedBg.setColor(Color.argb(200, 40, 40, 40));
-            expandedBg.setCornerRadius(Utils.dpToPx(25));
+            expandedBg.setColor(Color.parseColor(COLOR_DARK_BACKGROUND));
+            expandedBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP));
             expandedLayout.setBackground(expandedBg);
-            expandedLayout.setPadding(Utils.dpToPx(5), Utils.dpToPx(5), Utils.dpToPx(5), Utils.dpToPx(5));
+            int expandedPaddingPx = Utils.dpToPx(EXPANDED_LAYOUT_PADDING_DP);
+            expandedLayout.setPadding(expandedPaddingPx, expandedPaddingPx, expandedPaddingPx, expandedPaddingPx);
 
-            int buttonHeightPx = Utils.dpToPx(40);
-            int iconButtonSizePx = Utils.dpToPx(40);
+            int buttonHeightPx = Utils.dpToPx(BUTTON_HEIGHT_DP);
+            int iconButtonSizePx = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
+            int iconPaddingPx = Utils.dpToPx(BUTTON_INTERNAL_PADDING_DP);
+            int iconMarginPx = Utils.dpToPx(ICON_BUTTON_MARGIN_DP);
 
-            searchButton = new Button(currentActivity);
-            searchButton.setText("Search Lyrics");
-            searchButton.setAllCaps(false);
-            searchButton.setTextColor(Color.BLACK);
-            searchButton.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
+            // --- Google Search Button ---
+            googleSearchButton = new Button(context);
+            googleSearchButton.setText("Search Lyrics");
+            googleSearchButton.setAllCaps(false);
+            googleSearchButton.setTextColor(Color.parseColor(COLOR_TEXT_ON_ACCENT));
+            googleSearchButton.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             GradientDrawable searchBg = new GradientDrawable();
             searchBg.setShape(GradientDrawable.RECTANGLE);
-            searchBg.setColor(Color.parseColor("#1ED760"));
-            searchBg.setCornerRadius(Utils.dpToPx(20));
-            searchButton.setBackground(searchBg);
+            searchBg.setColor(Color.parseColor(COLOR_PRIMARY_ACCENT));
+            searchBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP));
+            googleSearchButton.setBackground(searchBg);
             LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    buttonHeightPx
-            );
-            searchButton.setLayoutParams(searchParams);
-            searchButton.setOnClickListener(v -> {
-                Logger.printDebug(() -> TAG + "Search Lyrics button clicked.");
-                synchronized (buttonLock) {
-                    if (currentSearchTitle != null && currentSearchArtist != null) {
-                        launchLyricsSearch(currentSearchTitle, currentSearchArtist);
-                    } else {
-                        Logger.printInfo(() -> TAG + "Search button clicked but title/artist info missing.");
-                        Utils.showToastShort("Track info not available.");
-                    }
-                }
-            });
+                    ViewGroup.LayoutParams.WRAP_CONTENT, buttonHeightPx);
+            googleSearchButton.setLayoutParams(searchParams);
+            googleSearchButton.setOnClickListener(v -> handleSearchClick(SearchProvider.GOOGLE));
 
-            minimizeButton = new ImageButton(currentActivity);
-            minimizeButton.setImageResource(android.R.drawable.ic_menu_close_clear_cancel);
-            minimizeButton.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
-            int paddingPx = Utils.dpToPx(8);
-            minimizeButton.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
-            GradientDrawable minimizeBg = new GradientDrawable();
-            minimizeBg.setShape(GradientDrawable.OVAL);
-            minimizeBg.setColor(Color.parseColor("#404040"));
-            minimizeBg.setSize(iconButtonSizePx, iconButtonSizePx);
-            minimizeButton.setBackground(minimizeBg);
-            LinearLayout.LayoutParams minimizeParams = new LinearLayout.LayoutParams(
-                    iconButtonSizePx,
-                    iconButtonSizePx
-            );
-            minimizeParams.setMarginStart(Utils.dpToPx(5));
+            // --- Songtell Button ---
+            int meaningIconId = ResourceUtils.getDrawableIdentifier("encore_icon_enhance_24");
+            if (meaningIconId == 0) meaningIconId = android.R.drawable.ic_menu_search;
+
+            songtellButton = createCircularImageButton(context,
+                    meaningIconId, iconButtonSizePx, iconPaddingPx, COLOR_ICON_BACKGROUND, COLOR_ICON_TINT);
+            songtellButton.setOnClickListener(v -> handleSearchClick(SearchProvider.SONGTELL));
+            LinearLayout.LayoutParams songtellParams = new LinearLayout.LayoutParams(iconButtonSizePx, iconButtonSizePx);
+            songtellParams.setMarginStart(iconMarginPx);
+            songtellButton.setLayoutParams(songtellParams);
+
+            // --- Minimize Button (X) ---
+            int minimizeIconId = ResourceUtils.getDrawableIdentifier("encore_icon_x_24");
+            if (minimizeIconId == 0) minimizeIconId = android.R.drawable.ic_menu_close_clear_cancel;
+
+            minimizeButton = createCircularImageButton(context,
+                    minimizeIconId, iconButtonSizePx, iconPaddingPx, COLOR_ICON_BACKGROUND, COLOR_ICON_TINT);
+            minimizeButton.setOnClickListener(v -> minimizeOverlay());
+            LinearLayout.LayoutParams minimizeParams = new LinearLayout.LayoutParams(iconButtonSizePx, iconButtonSizePx);
+            minimizeParams.setMarginStart(iconMarginPx);
             minimizeButton.setLayoutParams(minimizeParams);
-            minimizeButton.setOnClickListener(v -> {
-                Logger.printDebug(() -> TAG + "Minimize button clicked.");
-                minimizeOverlay();
-            });
 
-            expandedLayout.addView(searchButton);
+            // Add buttons to expanded layout in order
+            expandedLayout.addView(googleSearchButton);
+            expandedLayout.addView(songtellButton);
             expandedLayout.addView(minimizeButton);
 
+            // --- Expand Button (Floating Search Icon) ---
             int searchIconId = ResourceUtils.getDrawableIdentifier("encore_icon_search_24");
+            if (searchIconId == 0) searchIconId = android.R.drawable.ic_menu_search;
 
-            expandButton = new ImageButton(currentActivity);
-            expandButton.setImageResource(searchIconId);
-            expandButton.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN);
-            expandButton.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
-            GradientDrawable expandBg = new GradientDrawable();
-            expandBg.setShape(GradientDrawable.OVAL);
-            expandBg.setColor(Color.parseColor("#1ED760"));
-            expandBg.setSize(iconButtonSizePx, iconButtonSizePx);
-            expandButton.setBackground(expandBg);
+            expandButton = createCircularImageButton(context,
+                    searchIconId,
+                    iconButtonSizePx, iconPaddingPx, COLOR_PRIMARY_ACCENT, COLOR_TEXT_ON_ACCENT);
 
-            final ViewConfiguration viewConfig = ViewConfiguration.get(currentActivity);
+            // Add touch listener for dragging/expanding
+            final ViewConfiguration viewConfig = ViewConfiguration.get(context);
             final int touchSlop = viewConfig.getScaledTouchSlop();
 
             expandButton.setOnTouchListener((view, event) -> {
-
-                if (currentOverlayState != OverlayState.MINIMIZED) return false;
+                // Only allow interaction when minimized
+                if (currentOverlayState != OverlayState.MINIMIZED || lyricsButtonContainer == null) return false;
 
                 final FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) lyricsButtonContainer.getLayoutParams();
-                final ViewGroup parentView = getDecorView(Utils.getActivity());
+                final ViewGroup parentView = (ViewGroup) lyricsButtonContainer.getParent();
                 if (parentView == null) return false;
 
                 final int action = event.getActionMasked();
@@ -267,9 +271,7 @@ public class LyricsSearchManager {
                         initialTouchX = event.getRawX();
                         initialTouchY = event.getRawY();
                         isDragging = false;
-                        if (lyricsButtonContainer.getParent() != null) {
-                            lyricsButtonContainer.getParent().requestDisallowInterceptTouchEvent(true);
-                        }
+                        parentView.requestDisallowInterceptTouchEvent(true);
                         return true;
 
                     case MotionEvent.ACTION_MOVE:
@@ -278,84 +280,115 @@ public class LyricsSearchManager {
 
                         if (!isDragging && (Math.abs(dx) > touchSlop || Math.abs(dy) > touchSlop)) {
                             isDragging = true;
-                            Logger.printDebug(() -> TAG + "Dragging started.");
+                            Logger.printDebug(() -> TAG + ": Dragging started.");
                         }
 
                         if (isDragging) {
                             int newY = initialY + (int) dy;
                             int newX = initialX + (int) dx;
 
-                            // Clamp vertical position within parent bounds
                             int viewHeight = lyricsButtonContainer.getHeight();
+                            if (viewHeight <= 0)
+                                viewHeight = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
                             newY = Math.max(edgePaddingPx, Math.min(newY, parentView.getHeight() - viewHeight - edgePaddingPx));
 
-                            // Update margins directly for smooth dragging
                             params.topMargin = newY;
                             params.leftMargin = newX;
                             params.gravity = Gravity.NO_GRAVITY;
                             lyricsButtonContainer.setLayoutParams(params);
+
                             lastKnownTopMarginForMinimized = newY;
                         }
                         return true;
 
                     case MotionEvent.ACTION_UP:
-                        if (lyricsButtonContainer.getParent() != null) {
-                            lyricsButtonContainer.getParent().requestDisallowInterceptTouchEvent(false);
-                        }
-                        if (!isDragging) {
-                            // Treat as a click -> Expand
-                            Logger.printDebug(() -> TAG + "Expand button clicked (no drag).");
-                            expandOverlay();
-                        } else {
-                            // Drag finished -> Snap to Edge horizontally, keep vertical pos
-                            Logger.printDebug(() -> TAG + "Dragging finished. Snapping to edge.");
+                        parentView.requestDisallowInterceptTouchEvent(false);
+                        if (isDragging) {
+                            // Drag finished -> Snap to nearest edge horizontally
+                            Logger.printDebug(() -> TAG + ": Dragging finished. Snapping to edge.");
                             snapToNearestEdge(lyricsButtonContainer, parentView, params);
+                        } else {
+                            // Treat as a click -> Expand
+                            Logger.printDebug(() -> TAG + ": Expand button clicked (no drag).");
+                            expandOverlay();
                         }
                         isDragging = false;
                         return true;
 
                     case MotionEvent.ACTION_CANCEL:
-                        if (lyricsButtonContainer.getParent() != null) {
-                            lyricsButtonContainer.getParent().requestDisallowInterceptTouchEvent(false);
+                        parentView.requestDisallowInterceptTouchEvent(false);
+                        if (isDragging) {
+                            // Snap back if dragging was cancelled mid-drag
+                            Logger.printDebug(() -> TAG + ": Dragging cancelled. Snapping to edge.");
+                            snapToNearestEdge(lyricsButtonContainer, parentView, params);
                         }
                         isDragging = false;
-                        // Snap back if dragging was cancelled
-                        snapToNearestEdge(lyricsButtonContainer, parentView, params);
                         return true;
                 }
                 return false;
             });
 
-            // --- Add Views to Container ---
+            // --- Add Views to Container FrameLayout ---
+            // Expanded layout sits inside the container
             FrameLayout.LayoutParams expandedParams = new FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
             expandedParams.gravity = Gravity.CENTER;
             lyricsButtonContainer.addView(expandedLayout, expandedParams);
 
-            FrameLayout.LayoutParams minimizedParams = new FrameLayout.LayoutParams(
-                    iconButtonSizePx, iconButtonSizePx);
+            // Minimized button also sits inside, centered (visibility toggled later)
+            FrameLayout.LayoutParams minimizedParams = new FrameLayout.LayoutParams(iconButtonSizePx, iconButtonSizePx);
             minimizedParams.gravity = Gravity.CENTER;
             lyricsButtonContainer.addView(expandButton, minimizedParams);
 
-            // --- Add the Container to the Activity's Decor View ---
-            ViewGroup decorView = getDecorView(currentActivity);
-            if (decorView == null) {
-                Logger.printException(() -> TAG + "Could not get Decor View!");
-                removeOverlayInternal();
-                return;
+            // Set initial position if not previously set
+            if (lastKnownTopMarginForMinimized == -1 && screenHeight > 0) {
+                int buttonSize = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
+                // Position roughly 2x bottom margin + button size up from bottom
+                int safeBottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP * 2);
+                lastKnownTopMarginForMinimized = screenHeight - buttonSize - safeBottomMargin;
+                Logger.printDebug(() -> TAG + ": Initial minimized Y position set to: " + lastKnownTopMarginForMinimized);
             }
 
-            // Set initial state (EXPANDED by default now)
-            FrameLayout.LayoutParams containerParams = getLayoutParamsForCurrentState(currentActivity);
+        } catch (Exception e) {
+            Logger.printException(() -> TAG + ": Failed to create overlay views", e);
+            // Ensure cleanup if something goes wrong during creation
+            removeOverlayInternal();
+        }
+    }
 
-            try {
-                decorView.addView(lyricsButtonContainer, containerParams);
-                Logger.printInfo(() -> TAG + "Lyrics overlay added to DecorView (Initial state: " + currentOverlayState + ").");
+    /**
+     * Helper to create a circular ImageButton with consistent styling.
+     */
+    private static ImageButton createCircularImageButton(Context context, int iconResId, int sizePx, int paddingPx, String bgColor, String tintColor) {
+        ImageButton button = new ImageButton(context);
+        if (iconResId != 0) {
+            button.setImageResource(iconResId);
+        }
+        button.setColorFilter(Color.parseColor(tintColor), PorterDuff.Mode.SRC_IN);
+        button.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
+
+        GradientDrawable background = new GradientDrawable();
+        background.setShape(GradientDrawable.OVAL);
+        background.setColor(Color.parseColor(bgColor));
+        background.setSize(sizePx, sizePx); // Ensure the oval is a circle
+        button.setBackground(background);
+
+        return button;
+    }
+
+    /**
+     * Ensures the overlay is in the correct state (visibility, position)
+     * without changing the current minimized/expanded state. Called when overlay exists.
+     */
+    private static void ensureOverlayState() {
+        synchronized (buttonLock) {
+            if (lyricsButtonContainer != null && lyricsButtonContainer.isAttachedToWindow()) {
+                Logger.printDebug(() -> TAG + ": Ensuring overlay state is correct (Visibility).");
                 updateVisibilityBasedOnState();
-            } catch (Exception e) {
-                Logger.printException(() -> TAG + "Error adding lyrics overlay to DecorView", e);
-                removeOverlayInternal();
+            } else {
+                // Not attached or null, attempt to show/update which handles re-attachment
+                Logger.printDebug(() -> TAG + ": Ensure state found detached/null overlay, triggering show/update.");
+                showOrUpdateOverlay();
             }
         }
     }
@@ -363,92 +396,107 @@ public class LyricsSearchManager {
     private static ViewGroup getDecorView(Activity activity) {
         if (activity == null || activity.getWindow() == null) return null;
         View decor = activity.getWindow().getDecorView();
-        return (decor instanceof ViewGroup) ? (ViewGroup) decor : null;
+        if (decor instanceof FrameLayout) {
+            return (ViewGroup) decor;
+        } else if (decor instanceof ViewGroup) {
+            Logger.printInfo(() -> TAG + ": DecorView is not a FrameLayout, but a " + decor.getClass().getSimpleName());
+            return (ViewGroup) decor;
+        }
+        Logger.printException(() -> TAG + ": DecorView is not a ViewGroup!");
+        return null;
     }
 
     /**
-     * Gets appropriate LayoutParams based on the current state (Minimized/Snapped or Expanded/Centered-Bottom)
+     * Gets appropriate LayoutParams based on the current state (Minimized/Snapped or Expanded/Centered-Bottom).
      */
     private static FrameLayout.LayoutParams getLayoutParamsForCurrentState(Context context) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        int iconSizePx = Utils.dpToPx(40);
+        int iconSizePx = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
         int edgePaddingPx = Utils.dpToPx(EDGE_PADDING_DP);
-        int defaultTopMarginMinimized = Utils.dpToPx(100);
 
-        // Get screen width for snapping logic
-        int parentWidth;
-        ViewGroup decorView = getDecorView(Utils.getActivity());
-        if (decorView != null && decorView.getWidth() > 0) {
-            parentWidth = decorView.getWidth();
-        } else if (context != null) {
-            // Fallback to display metrics if DecorView width isn't available
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            parentWidth = displayMetrics.widthPixels;
-        } else {
-            // Last resort guess (avoid division by zero)
-            parentWidth = 1080;
-            int finalParentWidth1 = parentWidth;
-            Logger.printInfo(() -> TAG + "Could not get accurate parent width, using default: " + finalParentWidth1);
+        if (lastKnownTopMarginForMinimized <= edgePaddingPx) {
+            if (screenHeight > 0) {
+                int safeBottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP * 2);
+                lastKnownTopMarginForMinimized = Math.max(edgePaddingPx, screenHeight - iconSizePx - safeBottomMargin);
+            } else {
+                lastKnownTopMarginForMinimized = Utils.dpToPx(400); // Fallback if screen height unknown
+            }
+            Logger.printDebug(() -> TAG + ": Default minimized Y position recalculated: " + lastKnownTopMarginForMinimized);
         }
 
         if (currentOverlayState == OverlayState.MINIMIZED) {
             // --- MINIMIZED STATE ---
-            // Position based on last known drag position (vertical) and snapped edge (horizontal)
             params.width = iconSizePx;
             params.height = iconSizePx;
             params.gravity = Gravity.NO_GRAVITY;
 
-            // Use last known vertical position, or a default
-            int currentTopMargin = (lastKnownTopMarginForMinimized != -1) ? lastKnownTopMarginForMinimized : defaultTopMarginMinimized;
-            params.topMargin = Math.max(edgePaddingPx, currentTopMargin);
+            // Use saved vertical position (clamped)
+            params.topMargin = Math.max(edgePaddingPx, lastKnownTopMarginForMinimized);
+
+            // Get parent width for horizontal snapping
+            int parentWidth = getParentWidth(context);
 
             // Snap horizontally to last known edge
             if (lastSnappedEdge == SnapEdge.LEFT) {
                 params.leftMargin = edgePaddingPx;
-                Logger.printDebug(() -> TAG + "Layout Params: Minimized, Snap LEFT, Top: " + params.topMargin);
             } else {
                 params.leftMargin = Math.max(edgePaddingPx, parentWidth - iconSizePx - edgePaddingPx);
-                Logger.printDebug(() -> TAG + "Layout Params: Minimized, Snap RIGHT (ParentW: " + parentWidth + "), Top: " + params.topMargin);
             }
+            Logger.printDebug(() -> TAG + ": Layout Params: Minimized, Snap " + lastSnappedEdge + ", Top: " + params.topMargin + ", Left: " + params.leftMargin);
 
-            params.bottomMargin = 0;
         } else {
             // --- EXPANDED STATE ---
-            // Always position centered horizontally near the bottom, ignore drag position
             params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
             params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             params.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
             params.bottomMargin = Utils.dpToPx(DEFAULT_BOTTOM_MARGIN_DP);
 
-            // Clear margins as gravity handles positioning
+            // Reset margins as gravity handles positioning
             params.leftMargin = 0;
             params.topMargin = 0;
-
-            Logger.printDebug(() -> TAG + "Layout Params: Expanded, Bottom Center");
+            Logger.printDebug(() -> TAG + ": Layout Params: Expanded, Bottom Center, BottomMargin: " + params.bottomMargin);
         }
 
         return params;
     }
 
     /**
-     * Snaps the container to the nearest edge (left or right) based on its center point, preserving vertical position
+     * Safely gets the parent width, falling back to screen width if needed.
+     */
+    private static int getParentWidth(Context context) {
+        ViewGroup decorView = getDecorView(Utils.getActivity());
+        if (decorView != null && decorView.getWidth() > 0) {
+            return decorView.getWidth();
+        } else if (context != null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            Logger.printInfo(() -> TAG + ": Using screen width as parent width fallback.");
+            return displayMetrics.widthPixels;
+        } else {
+            Logger.printException(() -> TAG + ": Could not get parent width, using default 1080.");
+            return 1080; // Last resort
+        }
+    }
+
+    /**
+     * Snaps the container to the nearest edge (left or right) after dragging, preserving vertical position.
      */
     private static void snapToNearestEdge(FrameLayout container, ViewGroup parentView, FrameLayout.LayoutParams params) {
         if (container == null || parentView == null || params == null || currentOverlayState != OverlayState.MINIMIZED)
             return;
 
         int parentWidth = parentView.getWidth();
-        if (parentWidth <= 0 && container.getContext() != null) {
-            parentWidth = container.getContext().getResources().getDisplayMetrics().widthPixels;
-        }
         if (parentWidth <= 0) {
-            Logger.printInfo(() -> TAG + "Cannot snap, parent width is zero.");
-            return;
+            parentWidth = getParentWidth(container.getContext());
+            if (parentWidth <= 0) {
+                Logger.printException(() -> TAG + ": Cannot snap, parent width is zero or unavailable.");
+                return;
+            }
         }
 
         int viewWidth = container.getWidth();
+        if (viewWidth <= 0) viewWidth = Utils.dpToPx(ICON_BUTTON_SIZE_DP);
 
         int currentLeftMargin = params.leftMargin;
         int viewCenterX = currentLeftMargin + viewWidth / 2;
@@ -456,38 +504,38 @@ public class LyricsSearchManager {
 
         params.gravity = Gravity.NO_GRAVITY;
 
-        params.topMargin = lastKnownTopMarginForMinimized;
-        params.bottomMargin = 0;
-
-        // Determine nearest edge
+        // Determine nearest edge based on center point
         if (viewCenterX < parentWidth / 2) {
-            // Snap Left
             params.leftMargin = edgePaddingPx;
             lastSnappedEdge = SnapEdge.LEFT;
-            Logger.printDebug(() -> TAG + "Snapped to LEFT edge. Top: " + params.topMargin);
         } else {
-            // Snap Right
             params.leftMargin = Math.max(edgePaddingPx, parentWidth - viewWidth - edgePaddingPx);
             lastSnappedEdge = SnapEdge.RIGHT;
-            Logger.printDebug(() -> TAG + "Snapped to RIGHT edge. Top: " + params.topMargin);
         }
+        Logger.printDebug(() -> TAG + ": Snapped to " + lastSnappedEdge + " edge. Top: " + params.topMargin + ", Left: " + params.leftMargin);
 
         container.setLayoutParams(params);
     }
 
     /**
-     * Re-applies the layout params based on the current state
+     * Re-applies the layout params based on the current state, updating position/size.
+     * Should be called after state change (minimize/expand) or when position needs refresh.
      */
     private static void applyLayoutParamsForState() {
         Utils.runOnMainThreadNowOrLater(() -> {
             synchronized (buttonLock) {
                 if (lyricsButtonContainer != null && lyricsButtonContainer.getParent() != null) {
                     Context context = lyricsButtonContainer.getContext();
-                    FrameLayout.LayoutParams params = getLayoutParamsForCurrentState(context);
-                    lyricsButtonContainer.setLayoutParams(params);
-                    Logger.printDebug(() -> TAG + "Applied layout params for state: " + currentOverlayState);
-
-                    lyricsButtonContainer.requestLayout();
+                    if (context != null) {
+                        FrameLayout.LayoutParams params = getLayoutParamsForCurrentState(context);
+                        lyricsButtonContainer.setLayoutParams(params);
+                        Logger.printDebug(() -> TAG + ": Applied layout params for state: " + currentOverlayState);
+                        lyricsButtonContainer.requestLayout();
+                    } else {
+                        Logger.printException(() -> TAG + ": Cannot apply layout params, context is null.");
+                    }
+                } else {
+                    Logger.printDebug(() -> TAG + ": Cannot apply layout params, container or parent is null.");
                 }
             }
         });
@@ -495,8 +543,8 @@ public class LyricsSearchManager {
 
     private static void minimizeOverlay() {
         synchronized (buttonLock) {
-            if (currentOverlayState == OverlayState.MINIMIZED) return;
-            Logger.printDebug(() -> TAG + "Minimizing overlay...");
+            if (currentOverlayState == OverlayState.MINIMIZED || lyricsButtonContainer == null) return;
+            Logger.printDebug(() -> TAG + ": Minimizing overlay...");
 
             currentOverlayState = OverlayState.MINIMIZED;
             updateVisibilityBasedOnState();
@@ -506,115 +554,164 @@ public class LyricsSearchManager {
 
     private static void expandOverlay() {
         synchronized (buttonLock) {
-            if (currentOverlayState == OverlayState.EXPANDED) return;
-            Logger.printDebug(() -> TAG + "Expanding overlay...");
+            if (currentOverlayState == OverlayState.EXPANDED || lyricsButtonContainer == null) return;
+            Logger.printDebug(() -> TAG + ": Expanding overlay...");
+
             currentOverlayState = OverlayState.EXPANDED;
             updateVisibilityBasedOnState();
             applyLayoutParamsForState();
         }
     }
 
+    /**
+     * Updates visibility of internal components based on the current OverlayState.
+     */
     private static void updateVisibilityBasedOnState() {
         if (lyricsButtonContainer == null) return;
 
         Utils.runOnMainThreadNowOrLater(() -> {
             synchronized (buttonLock) {
-                if (expandedLayout == null || expandButton == null) return;
-
-                if (currentOverlayState == OverlayState.EXPANDED) {
-                    expandedLayout.setVisibility(View.VISIBLE);
-                    expandButton.setVisibility(View.GONE);
-                    lyricsButtonContainer.setOnTouchListener(null);
-                } else {
-                    expandedLayout.setVisibility(View.GONE);
-                    expandButton.setVisibility(View.VISIBLE);
+                if (expandedLayout == null || expandButton == null) {
+                    Logger.printException(() -> TAG + ": Cannot update visibility, views are null.");
+                    return;
                 }
-                Logger.printDebug(() -> TAG + "Visibility updated for state: " + currentOverlayState);
+
+                final boolean isExpanded = currentOverlayState == OverlayState.EXPANDED;
+
+                expandedLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+                expandButton.setVisibility(isExpanded ? View.GONE : View.VISIBLE);
+
+                lyricsButtonContainer.setOnTouchListener(null);
+
+                Logger.printDebug(() -> TAG + ": Visibility updated for state: " + currentOverlayState);
             }
         });
     }
 
     /**
      * Schedules the removal of the lyrics overlay from the UI thread.
+     * Public entry point for removal.
      */
     public static void removeOverlay() {
         Utils.runOnMainThreadNowOrLater(LyricsSearchManager::removeOverlayInternal);
     }
 
     /**
-     * Removes the lyrics overlay from its parent view immediately.
+     * Removes the lyrics overlay from its parent view immediately and nullifies view references.
      * This method MUST be called on the main UI thread.
      */
     private static void removeOverlayInternal() {
         synchronized (buttonLock) {
-            View containerToRemove = lyricsButtonContainer;
-            if (containerToRemove != null && containerToRemove.getParent() instanceof ViewGroup parent) {
-                Logger.printDebug(() -> TAG + "Removing lyrics overlay from parent: " + parent.getClass().getName());
-                try {
-                    parent.removeView(containerToRemove);
-                    Logger.printInfo(() -> TAG + "Lyrics overlay removed.");
-                } catch (Exception e) {
-                    Logger.printException(() -> TAG + "Error removing lyrics overlay", e);
-                }
-            } else if (containerToRemove != null) {
-                Logger.printDebug(() -> TAG + "Overlay found but parent is null or not ViewGroup. Already removed?");
-            }
+            FrameLayout containerToRemove = lyricsButtonContainer;
 
             lyricsButtonContainer = null;
             expandedLayout = null;
-            searchButton = null;
+            googleSearchButton = null;
+            songtellButton = null;
             minimizeButton = null;
             expandButton = null;
+            // Do NOT reset state like currentOverlayState, lastKnownTopMarginForMinimized, lastSnappedEdge
+            // to preserve user's last known state and position.
+            // Do NOT reset currentSearchTitle/Artist here, let processTrackMetadata manage them.
+
+            if (containerToRemove != null && containerToRemove.getParent() instanceof ViewGroup parent) {
+                Logger.printDebug(() -> TAG + ": Removing lyrics overlay from parent: " + parent.getClass().getName());
+                try {
+                    parent.removeView(containerToRemove);
+                    Logger.printInfo(() -> TAG + ": Lyrics overlay removed successfully.");
+                } catch (Exception e) {
+                    // This might happen if the parent is already gone or view is detached
+                    Logger.printException(() -> TAG + ": Error removing lyrics overlay view, might be already detached.", e);
+                }
+            } else if (containerToRemove != null) {
+                Logger.printDebug(() -> TAG + ": Overlay container found but has no parent. Already removed or detached.");
+            } else {
+                Logger.printDebug(() -> TAG + ": removeOverlayInternal called but container was already null.");
+            }
         }
     }
 
     /**
-     * Launches a browser intent to search Google for lyrics of the given track.
-     *
-     * @param title  The track title.
-     * @param artist The track artist.
+     * Handles click events for search buttons
      */
-    private static void launchLyricsSearch(String title, String artist) {
-        Context context = Utils.getContext();
+    private static void handleSearchClick(SearchProvider provider) {
+        Logger.printDebug(() -> TAG + ": " + provider + " search button clicked.");
+        synchronized (buttonLock) {
+            if (currentSearchTitle != null && currentSearchArtist != null) {
+                String query = currentSearchArtist + " - " + currentSearchTitle;
+                String url;
+                switch (provider) {
+                    case SONGTELL:
+                        url = "https://songtell.com/search?q=";
+                        break;
+                    case GOOGLE:
+                    default:
+                        url = "https://www.google.com/search?q=";
+                        query += " lyrics";
+                        break;
+                }
+                launchWebSearch(url, query);
+            } else {
+                Logger.printException(() -> TAG + ": Search button clicked but title/artist info missing.");
+                Utils.showToastShort("Track info not available.");
+            }
+        }
+    }
+
+    /**
+     * Launches a browser intent for the given base URL and query.
+     *
+     * @param baseUrl Base search URL (e.g., "<a href="https://www.google.com/search?q=">https://www.google.com/search?q=</a>")
+     * @param query   The search term (will be URL-encoded).
+     */
+    private static void launchWebSearch(String baseUrl, String query) {
+        Context context = Utils.getContext(); // Try application context first
         if (context == null) {
-            Activity act = Utils.getActivity();
+            Activity act = Utils.getActivity(); // Fallback to activity context
             if (act != null) context = act;
         }
 
         if (context == null) {
-            Logger.printException(() -> TAG + "Cannot launch browser: Context is null.");
+            Logger.printException(() -> TAG + ": Cannot launch browser: Context is null.");
             Utils.showToastShort("Cannot open browser.");
             return;
         }
 
         try {
-            String query = artist + " - " + title + " lyrics";
-            String encodedQuery = null;
+            String encodedQuery = "";
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
             }
-            String url = "https://www.google.com/search?q=" + encodedQuery;
+
+            String url = baseUrl + encodedQuery;
 
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             context.startActivity(intent);
-            Logger.printDebug(() -> TAG + "Launched browser for URL: " + url);
+            Logger.printDebug(() -> TAG + ": Launched browser for URL: " + url);
 
-        } catch (android.content.ActivityNotFoundException e) {
-            Logger.printException(() -> TAG + "Cannot launch browser: No activity found to handle ACTION_VIEW Intent.", e);
+        } catch (ActivityNotFoundException e) {
+            Logger.printException(() -> TAG + ": Cannot launch browser: No activity found to handle ACTION_VIEW Intent.", e);
             Utils.showToastShort("No browser found.");
         } catch (Exception e) {
-            Logger.printException(() -> TAG + "Failed to launch lyrics search due to an exception.", e);
+            Logger.printException(() -> TAG + ": Failed to launch web search due to an unexpected exception.", e);
             Utils.showToastShort("Failed to start search.");
         }
     }
 
-    private enum OverlayState {
-        EXPANDED, MINIMIZED
-    }
+    /**
+     * Enum for different search providers
+     */
+    private enum SearchProvider {GOOGLE, SONGTELL}
 
-    private enum SnapEdge {
-        LEFT, RIGHT
-    }
+    /**
+     * Represents the visibility state of the overlay
+     */
+    private enum OverlayState {EXPANDED, MINIMIZED}
+
+    /**
+     * Represents the edge the minimized overlay snaps to
+     */
+    private enum SnapEdge {LEFT, RIGHT}
 }
