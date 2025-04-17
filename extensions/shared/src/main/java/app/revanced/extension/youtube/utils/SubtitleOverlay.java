@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
@@ -11,12 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 import java.util.Objects;
@@ -32,16 +31,18 @@ import static app.revanced.extension.shared.utils.Utils.showToastLong;
 @SuppressWarnings("deprecation")
 public class SubtitleOverlay {
 
-    private final Context context;
+    final Activity context;
     private final WindowManager windowManager;
-    @Nullable private View overlayView;
-    @Nullable private TextView subtitleTextView;
     private final WindowManager.LayoutParams params;
-    private boolean isShowing = false;
     private final Handler mainHandler;
+    @Nullable
+    private View overlayView;
+    @Nullable
+    private TextView subtitleTextView;
+    private boolean isShowing = false;
 
-    public SubtitleOverlay(@NonNull Context context) {
-        this.context = context.getApplicationContext();
+    public SubtitleOverlay() {
+        this.context = Utils.getActivity();
         this.windowManager = (WindowManager) this.context.getSystemService(Context.WINDOW_SERVICE);
         this.mainHandler = new Handler(Looper.getMainLooper());
 
@@ -59,14 +60,14 @@ public class SubtitleOverlay {
     }
 
     private int getOverlayType() {
-        // Choose appropriate overlay type based on Android version
+        // Choose the appropriate overlay type based on an Android version
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Requires SYSTEM_ALERT_WINDOW permission
-            return WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+            return WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
         } else {
             // Deprecated but works on older versions (might still need permission)
             // TYPE_SYSTEM_ALERT or TYPE_PHONE based on needs/permissions
-            return WindowManager.LayoutParams.TYPE_PHONE; // Often requires permission
+            return WindowManager.LayoutParams.TYPE_PHONE;
         }
     }
 
@@ -108,7 +109,9 @@ public class SubtitleOverlay {
         }
     }
 
-    /** Displays the overlay window */
+    /**
+     * Displays the overlay window
+     */
     public void show() {
         mainHandler.post(() -> {
             if (isShowing) return;
@@ -122,7 +125,7 @@ public class SubtitleOverlay {
                 isShowing = true;
                 Logger.printDebug(() -> "Subtitle overlay added to window.");
             } catch (WindowManager.BadTokenException e) {
-                Logger.printException(()-> "WindowManager BadTokenException - Can't add overlay view. Check SYSTEM_ALERT_WINDOW permission?", e);
+                Logger.printException(() -> "WindowManager BadTokenException - Can't add overlay view. Check SYSTEM_ALERT_WINDOW permission?", e);
                 showToastLong(str("revanced_gemini_transcribe_bad_token_exception"));
             } catch (Exception e) {
                 Logger.printException(() -> "Failed to add subtitle overlay view", e);
@@ -130,7 +133,9 @@ public class SubtitleOverlay {
         });
     }
 
-    /** Hides the overlay window */
+    /**
+     * Hides the overlay window
+     */
     public void hide() {
         mainHandler.post(() -> {
             if (!isShowing || overlayView == null || windowManager == null) return;
@@ -147,7 +152,9 @@ public class SubtitleOverlay {
         });
     }
 
-    /** Updates the text displayed in the subtitle overlay */
+    /**
+     * Updates the text displayed in the subtitle overlay
+     */
     public void updateText(@Nullable final String text) {
         mainHandler.post(() -> {
             if (!isShowing || subtitleTextView == null) return;
@@ -161,11 +168,24 @@ public class SubtitleOverlay {
         });
     }
 
-    // Optional: Method to fully release resources if needed
+    /**
+     * Destroys the overlay window
+     */
     public void destroy() {
         hide();
         overlayView = null;
         subtitleTextView = null;
-        Logger.printDebug(()-> "Subtitle overlay resources released.");
+        Logger.printDebug(() -> "Subtitle overlay resources released.");
+    }
+
+    /**
+     * Returns the root view of the overlay.
+     * Used by GeminiManager for direct removal.
+     *
+     * @return The overlay view, or null if not inflated.
+     */
+    @Nullable
+    public View getOverlayView() {
+        return overlayView;
     }
 }

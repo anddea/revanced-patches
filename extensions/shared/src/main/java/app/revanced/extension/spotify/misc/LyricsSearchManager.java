@@ -188,7 +188,7 @@ public class LyricsSearchManager {
 
             GradientDrawable expandedBg = new GradientDrawable();
             expandedBg.setColor(Color.parseColor(COLOR_DARK_BACKGROUND));
-            expandedBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP));
+            expandedBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP * 2));
             expandedLayout.setBackground(expandedBg);
             int expandedPaddingPx = Utils.dpToPx(EXPANDED_LAYOUT_PADDING_DP);
             expandedLayout.setPadding(expandedPaddingPx, expandedPaddingPx, expandedPaddingPx, expandedPaddingPx);

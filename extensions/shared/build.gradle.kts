@@ -27,5 +27,7 @@ dependencies {
     implementation(libs.collections4)
     implementation(libs.lang3)
 
+    implementation(libs.okhttp)
+
     compileOnly(project(":extensions:shared:stub"))
 }

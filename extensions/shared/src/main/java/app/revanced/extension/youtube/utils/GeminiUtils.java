@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.utils;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,27 +28,54 @@ import java.util.concurrent.atomic.AtomicReference;
 public class GeminiUtils {
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
     private static final String BASE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
-    private static final String SUMMARY_MODEL = "gemini-1.5-flash-latest";
-    private static final String TRANSCRIPTION_MODEL = "gemini-1.5-flash-latest";
+    private static final String GEMINI_MODEL = "gemini-2.5-flash-preview-04-17";
     private static final String ACTION = ":generateContent?key=";
     private static final AtomicReference<Future<?>> currentTask = new AtomicReference<>(null);
+    private static final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
     private static volatile HttpURLConnection currentConnection = null;
 
+    /**
+     * Initiates an asynchronous request to the Gemini API to generate a summary for the given video URL.
+     * Cancels any previous ongoing task before starting.
+     *
+     * @param videoUrl The publicly accessible URL of the video to summarize.
+     * @param apiKey   The Gemini API key.
+     * @param callback The {@link Callback} to receive the summary result or an error message.
+     */
     public static void getVideoSummary(@NonNull String videoUrl, @NonNull String apiKey, @NonNull Callback callback) {
         String langName = getLanguageName(); // Use Language Name to get full language name
         String prompt = "Summarize the key points of this video in " + langName + ". Skip any preamble, intro phrases, or explanations — output only the summary.";
         Logger.printDebug(() -> "GeminiUtils (SUMMARY): Sending JSON Payload (Prompt): " + prompt);
-        generateContent(SUMMARY_MODEL, videoUrl, apiKey, prompt, callback);
+        generateContent(videoUrl, apiKey, prompt, callback);
     }
 
+    /**
+     * Initiates an asynchronous request to the Gemini API to generate a transcription for the given video URL.
+     * Cancels any previous ongoing task before starting.
+     *
+     * @param videoUrl The publicly accessible URL of the video to transcribe.
+     * @param apiKey   The Gemini API key.
+     * @param callback The {@link Callback} to receive the transcription result or an error message.
+     */
     public static void getVideoTranscription(@NonNull String videoUrl, @NonNull String apiKey, @NonNull Callback callback) {
         String langName = getLanguageName(); // Use language Name to get full language name
         String prompt = "Transcribe this video precisely in " + langName + ", including spoken words, written words in the video and significant sounds. Provide timestamps for each segment in the format [HH:MM:SS.mmm - HH:MM:SS.mmm]: Text. Skip any preamble, intro phrases, or explanations — output only the transcription.";
         Logger.printDebug(() -> "GeminiUtils (TRANSCRIPTION): Sending JSON Payload (Prompt): " + prompt);
-        generateContent(TRANSCRIPTION_MODEL, videoUrl, apiKey, prompt, callback);
+        generateContent(videoUrl, apiKey, prompt, callback);
     }
 
-    private static void generateContent(@NonNull String modelName, @NonNull String videoUrl, @NonNull String apiKey, @NonNull String textPrompt, @NonNull Callback callback) {
+    /**
+     * Makes an asynchronous POST request to the Gemini API's generateContent endpoint.
+     * Constructs the JSON payload including the video URI and text prompt.
+     * Handles the API response, parsing the result or error.
+     * Manages the task lifecycle and cancellation via {@link #currentTask} and {@link #currentConnection}.
+     *
+     * @param videoUrl   The publicly accessible URL of the video.
+     * @param apiKey     The Gemini API key.
+     * @param textPrompt The specific text prompt to send along with the video.
+     * @param callback   The {@link Callback} to handle the success or failure response.
+     */
+    private static void generateContent(@NonNull String videoUrl, @NonNull String apiKey, @NonNull String textPrompt, @NonNull Callback callback) {
         cancelCurrentTask();
 
         final AtomicReference<Future<?>> taskRef = new AtomicReference<>();
@@ -56,10 +85,11 @@ public class GeminiUtils {
             Future<?> taskBeingRun = taskRef.get();
 
             try {
-                URL url = new URL(BASE_API_URL + modelName + ACTION + apiKey);
+                URL url = new URL(BASE_API_URL + GEMINI_MODEL + ACTION + apiKey);
 
                 connection = (HttpURLConnection) url.openConnection();
                 currentConnection = connection;
+
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json; utf-8");
                 connection.setRequestProperty("Accept", "application/json");
@@ -85,13 +115,20 @@ public class GeminiUtils {
                         .put(safetySetting_sex)
                         .put(safetySetting_danger);
 
+                JSONObject thinkingConfig = new JSONObject()
+                        .put("thinkingBudget", 0); // Budget 0 to disable thinking
+
+                JSONObject generationConfig = new JSONObject()
+                        .put("thinkingConfig", thinkingConfig);
+
                 JSONObject requestBody = new JSONObject()
                         .put("contents", new JSONArray().put(contents))
-                        .put("safetySettings", safetySettingsArray);
+                        .put("safetySettings", safetySettingsArray)
+                        .put("generationConfig", generationConfig);
 
                 String jsonInputString = requestBody.toString();
 
-                Logger.printDebug(() -> "GeminiUtils (" + modelName + "): Sending JSON Payload: " + jsonInputString.substring(0, Math.min(jsonInputString.length(), 500)) + "...");
+                Logger.printDebug(() -> "GeminiUtils (" + GEMINI_MODEL + "): Sending JSON Payload: " + jsonInputString.substring(0, Math.min(jsonInputString.length(), 500)) + "...");
 
                 try (OutputStream os = connection.getOutputStream()) {
                     byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
@@ -120,11 +157,9 @@ public class GeminiUtils {
                     try {
                         if (!jsonResponse.has("candidates") || jsonResponse.getJSONArray("candidates").length() == 0) {
                             String blockReason = extractBlockReason(jsonResponse);
-                            if (blockReason != null) {
-                                callback.onFailure("Content blocked: " + blockReason);
-                            } else {
-                                callback.onFailure("API response missing 'candidates'. Full Response: " + responseString.substring(0, Math.min(responseString.length(), 500)) + "...");
-                            }
+                            final String finalBlockReason = blockReason != null ? "Content blocked: " + blockReason :
+                                    "API response missing 'candidates'. Full Response: " + responseString.substring(0, Math.min(responseString.length(), 500)) + "...";
+                            mainThreadHandler.post(() -> callback.onFailure(finalBlockReason));
                             return;
                         }
 
@@ -134,15 +169,14 @@ public class GeminiUtils {
                                 .getJSONArray("parts")
                                 .getJSONObject(0)
                                 .getString("text");
-                        callback.onSuccess(resultText.trim());
+                        final String finalResult = resultText.trim();
+                        mainThreadHandler.post(() -> callback.onSuccess(finalResult));
                     } catch (JSONException jsonEx) {
                         Logger.printException(() -> "Gemini API Response JSON Parsing Error. Full Response: " + responseString.substring(0, Math.min(responseString.length(), 500)) + "...", jsonEx);
                         String blockReason = extractBlockReason(jsonResponse);
-                        if (blockReason != null) {
-                            callback.onFailure("Content blocked: " + blockReason);
-                        } else {
-                            callback.onFailure("Failed to parse result from API response. Check logs.");
-                        }
+                        final String finalError = blockReason != null ? "Content blocked: " + blockReason :
+                                "Failed to parse result from API response. Check logs.";
+                        mainThreadHandler.post(() -> callback.onFailure(finalError));
                     }
                 } else {
                     String errorMessage = "HTTP Error: " + responseCode;
@@ -158,27 +192,31 @@ public class GeminiUtils {
                         errorMessage += errorMessage1;
                     }
                     Logger.printException(() -> "Gemini API Error (" + responseCode + "). Response: " + responseString);
-                    callback.onFailure(errorMessage);
+                    final String finalError = errorMessage;
+                    mainThreadHandler.post(() -> callback.onFailure(finalError));
                 }
 
             } catch (java.net.SocketTimeoutException e) {
-                Logger.printException(() -> "Gemini API request timed out (" + modelName + ")", e);
-                callback.onFailure("Request timed out after " + (connection != null ? connection.getReadTimeout() / 1000 : "?") + " seconds.");
+                Logger.printException(() -> "Gemini API request timed out (" + GEMINI_MODEL + ")", e);
+                final String timeoutMsg = "Request timed out after " + (connection != null ? connection.getReadTimeout() / 1000 : "?") + " seconds.";
+                mainThreadHandler.post(() -> callback.onFailure(timeoutMsg));
             } catch (InterruptedException e) {
                 Logger.printInfo(() -> "Gemini task explicitly cancelled.");
-                callback.onFailure("Operation cancelled.");
+                mainThreadHandler.post(() -> callback.onFailure("Operation cancelled."));
                 Thread.currentThread().interrupt();
             } catch (IOException e) {
                 if (Thread.currentThread().isInterrupted() || (e.getCause() instanceof InterruptedException)) {
                     Logger.printInfo(() -> "Gemini task explicitly cancelled (IOException).");
-                    callback.onFailure("Operation cancelled.");
+                    mainThreadHandler.post(() -> callback.onFailure("Operation cancelled."));
                 } else {
-                    Logger.printException(() -> "Gemini API request IO failed (" + modelName + ")", e);
-                    callback.onFailure(e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error");
+                    Logger.printException(() -> "Gemini API request IO failed (" + GEMINI_MODEL + ")", e);
+                    final String ioErrorMsg = e.getMessage() != null ? "Network error: " + e.getMessage() : "Unknown network error";
+                    mainThreadHandler.post(() -> callback.onFailure(ioErrorMsg));
                 }
             } catch (Exception e) {
-                Logger.printException(() -> "Gemini API request failed (" + modelName + ")", e);
-                callback.onFailure(e.getMessage() != null ? e.getMessage() : "Unknown error during request setup");
+                Logger.printException(() -> "Gemini API request failed (" + GEMINI_MODEL + ")", e);
+                final String genericErrorMsg = e.getMessage() != null ? e.getMessage() : "Unknown error during request setup";
+                mainThreadHandler.post(() -> callback.onFailure(genericErrorMsg));
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -192,6 +230,10 @@ public class GeminiUtils {
         currentTask.set(newTask);
     }
 
+    /**
+     * Attempts to cancel the currently running Gemini API task, if any.
+     * It cancels the {@link Future} associated with the task and attempts to disconnect the underlying {@link HttpURLConnection}.
+     */
     public static void cancelCurrentTask() {
         Future<?> taskToCancel = currentTask.getAndSet(null);
         if (taskToCancel != null) {
@@ -221,6 +263,16 @@ public class GeminiUtils {
         currentConnection = null;
     }
 
+    /**
+     * Gets a {@link BufferedReader} for reading the response from an {@link HttpURLConnection}.
+     * Handles both successful (2xx) and error responses by choosing the appropriate input stream
+     * ({@link HttpURLConnection#getInputStream()} or {@link HttpURLConnection#getErrorStream()}).
+     *
+     * @param responseCode The HTTP response code received from the connection.
+     * @param connection   The active {@link HttpURLConnection}.
+     * @return A {@link BufferedReader} ready to read the response body using UTF-8 encoding.
+     * @throws IOException If an I/O error occurs while getting the stream, or if no stream is available for an error code.
+     */
     @NotNull
     private static BufferedReader getBufferedReader(int responseCode, HttpURLConnection connection) throws IOException {
         InputStreamReader reader;
@@ -244,6 +296,13 @@ public class GeminiUtils {
         return new BufferedReader(reader);
     }
 
+    /**
+     * Attempts to extract a block reason or other relevant failure information from a Gemini API JSON response.
+     * Checks various fields like `promptFeedback`, `candidates.finishReason`, and `safetyRatings`.
+     *
+     * @param jsonResponse The parsed JSONObject of the Gemini API response.
+     * @return A string describing the block reason or failure, or null if no specific reason is found.
+     */
     @Nullable
     private static String extractBlockReason(JSONObject jsonResponse) {
         try {
@@ -305,6 +364,16 @@ public class GeminiUtils {
         return null;
     }
 
+    /**
+     * Extracts the most severe safety concern details (Category and Probability/Blocked status)
+     * from a JSONArray of safety ratings provided by the Gemini API.
+     * Prioritizes explicitly blocked ratings, then HIGH probability, then MEDIUM probability.
+     *
+     * @param safetyRatings The JSONArray containing safety rating objects.
+     * @return A string detailing the most severe safety issue found (e.g., "HARM_CATEGORY_HARASSMENT - BLOCKED",
+     * "HARM_CATEGORY_HATE_SPEECH - HIGH"), or null if no ratings indicate MEDIUM, HIGH, or BLOCKED status.
+     * @throws JSONException If parsing the safety rating objects fails.
+     */
     @Nullable
     private static String getSafetyBlockDetail(JSONArray safetyRatings) throws JSONException {
         String mostSevereCategory = null;
@@ -349,6 +418,13 @@ public class GeminiUtils {
         return null;
     }
 
+    /**
+     * Gets the display name of the language currently selected in the ReVanced settings,
+     * falling back to the system default language, and finally to "English" if needed.
+     * The language name is returned in English (e.g., "Spanish", "German").
+     *
+     * @return The non-null display name of the language in English.
+     */
     @NonNull
     public static String getLanguageName() {
         try {
@@ -374,9 +450,23 @@ public class GeminiUtils {
         return "English";
     }
 
+    /**
+     * Callback interface for Gemini API operations (summary, transcription).
+     * Defines methods to handle successful results or failures.
+     */
     public interface Callback {
+        /**
+         * Called when the Gemini API request completes successfully.
+         *
+         * @param result The generated text (summary or transcription) from the API.
+         */
         void onSuccess(String result);
 
+        /**
+         * Called when the Gemini API request fails.
+         *
+         * @param error A message describing the error that occurred.
+         */
         void onFailure(String error);
     }
 }
