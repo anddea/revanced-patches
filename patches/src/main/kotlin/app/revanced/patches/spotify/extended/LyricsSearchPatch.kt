@@ -35,7 +35,7 @@ val mediaSessionMetadataConstructorFingerprint = fingerprint {
 @Suppress("unused")
 val lyricsSearchPatch = bytecodePatch(
     name = "Lyrics search",
-    description = "Displays a \"Search Lyrics\" button in the Main Activity that searches for lyrics on Google. The button appears on every playback action change (play, pause, next/previous track, etc.). The activity is set to SpotifyMainActivity, so the \"Search Lyrics\" button won't be shown in NowPlayingActivity (Player view) or possibly other activities.",
+    description = "Displays a \"Search Lyrics\" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the \"Search Lyrics\" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities.",
 ) {
     compatibleWith("com.spotify.music")
     dependsOn(setActivityContextPatch)
