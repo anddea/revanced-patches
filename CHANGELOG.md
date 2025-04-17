@@ -1,3 +1,10 @@
+# [3.7.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.6...v3.7.0-dev.7) (2025-04-17)
+
+
+### Features
+
+* **Spotify - Lyrics search:** Add a button to search for song meanings on Songtell, and make the `Lyrics Search` panel less intrusive ([9e8b87f](https://github.com/anddea/revanced-patches/commit/9e8b87fb3af5779697cf1880552ab98feac5de61))
+
 # [3.7.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.5...v3.7.0-dev.6) (2025-04-16)
 
 
