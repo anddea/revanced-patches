@@ -1,32 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="revanced_gemini_error_already_running_summarize">Summarization already in progress.</string>
-    <string name="revanced_gemini_error_already_running_transcribe">Transcription already in progress.</string>
     <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex transcription already running.</string>
     <string name="revanced_gemini_error_overlay_display">Failed to display subtitle overlay</string>
     <string name="revanced_gemini_error_transcription_no_raw_data">No raw transcription data to parse</string>
-    <string name="revanced_gemini_error_transcription_parse">Failed to parse transcription data.</string>
-    <string name="revanced_gemini_error_unknown">An unknown error occurred.</string>
-    <string name="revanced_gemini_loading_summarize">Summarizing the video...</string>
-    <string name="revanced_gemini_loading_transcribe">Transcribing the video...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Getting subtitles…</string>
-    <string name="revanced_gemini_transcribe_bad_token_exception">Enable \"Display over other apps\" to show as subtitles</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">The font size of the transcribed video subtitles. To hide subtitle box, just tap on it.</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Subtitles font size</string>
-    <string name="revanced_gemini_transcription_parse_button">Subtitles</string>
-    <string name="revanced_gemini_transcription_parse_success">Subtitle parsed successfully</string>
-    <string name="revanced_gemini_transcription_result_title">Gemini Video Transcription</string>
-    <string name="revanced_minimize">Minimize</string>
-    <string name="revanced_overlay_button_gemini_about_summary">"Parsing the video may take a while depending on its length. Transcribing long videos may exceed Gemini's limits.
-
-AI-generated responses may contain inaccurate information.
-
-Tap here to get an API key."</string>
-    <string name="revanced_overlay_button_gemini_about_title">About Gemini</string>
-    <string name="revanced_shorts_custom_actions_gemini_label">Gemini summary</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini summary menu is hidden.</string>
-    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini summary menu is shown.</string>
-    <string name="revanced_shorts_custom_actions_gemini_title">Show Gemini summary menu</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Internal Error: Chosen track has no URL</string>
     <string name="revanced_yandex_error_internal_null_subs_response">Internal error: Failed to get final subtitles</string>
     <string name="revanced_yandex_error_language_not_supported_transcribe">Unsupported language selected: %s. Please choose \'ru\' or \'en\'.</string>

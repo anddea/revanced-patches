@@ -8,13 +8,8 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.patch.PatchList.VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.ResourceGroup
+import app.revanced.util.*
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.copyResources
-import app.revanced.util.copyResourcesWithRename
-import app.revanced.util.doRecursively
-import app.revanced.util.getStringOptionValue
-import app.revanced.util.underBarOrThrow
 import org.w3c.dom.Element
 
 private const val DEFAULT_ICON = "extension"
@@ -446,5 +441,7 @@ private val emptyTitles = setOf(
     "revanced_spoof_device_dimensions",
     "revanced_swipe_switch_speed_and_seek",
     "revanced_whitelist_settings",
+    "revanced_yandex_transcribe_subtitles",
+    "revanced_yandex_transcribe_subtitles_language",
     "sb_create_new_segment_step",
 )
