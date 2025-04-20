@@ -1,3 +1,10 @@
+# [3.7.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.7...v3.7.0-dev.8) (2025-04-20)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Update Gemini to 2.5 Flash (CoT disabled) & add `Yandex transcription` setting for Gemini button ([9b84670](https://github.com/anddea/revanced-patches/commit/9b846701de4ce0c4ec47665704728834a03f6359))
+
 # [3.7.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.6...v3.7.0-dev.7) (2025-04-17)
 
 
