@@ -475,7 +475,7 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
     <string name="revanced_fullscreen_ads_closed_toast">Zamknięto pełnoreklamowe reklamy.</string>
-    <string name="revanced_gemini_cancelled">Podsumowanie anulowane</string>
+    <string name="revanced_gemini_cancelled">Anulowane</string>
     <string name="revanced_gemini_copy_success">Podsumowanie skopiowane do schowka</string>
     <string name="revanced_gemini_error_already_running_summarize">Podsumowanie jest już w toku</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transkrypcja jest już w toku</string>
@@ -489,7 +489,7 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_gemini_summary_title">Podsumowanie filmu przez Gemini</string>
     <string name="revanced_gemini_time_taken">(Zajęło %d s)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Włącz \"Wyświetlanie nad innymi aplikacjami,\" aby wyświetlić napisy</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Rozmiar czcionki napisów w transkrybowanym filmie. Aby wyświetlić pole z napisami nad innymi aplikacjami, włącz opcję \„Wyświetlanie nad innymi aplikacjami\” w informacjach o aplikacji YouTube w ustawieniach urządzenia. Aby ukryć pole z napisami, wystarczy w nie stuknąć.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Rozmiar czcionki napisów w transkrybowanym filmie. Aby ukryć pole z napisami, wystarczy w nie stuknąć.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">Rozmiar czcionki napisów</string>
     <string name="revanced_gemini_transcription_parse_button">Napisy</string>
     <string name="revanced_gemini_transcription_parse_success">Pomyślnie przetworzono napisy</string>
@@ -2246,4 +2246,29 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Transkrypcja Yandex jest już uruchomiona.</string>
+    <string name="revanced_gemini_error_overlay_display">Nie udało się wyświetlić nakładki napisów</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">Brak surowych danych transkrypcji do przeanalizowania</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Pobieranie napisów…</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Błąd wewnętrzny: wybrany utwór nie ma adresu URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Błąd wewnętrzny: nie udało się pobrać napisów końcowych</string>
+    <string name="revanced_yandex_error_language_not_supported_transcribe">Wybrano nieobsługiwany język: %s. Wybierz \'ru\' lub \'en\'.</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Błąd sieci podczas pobierania pliku napisów</string>
+    <string name="revanced_yandex_error_no_subs_for_language">Napisy nie są dostępne w %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">Brak dostępnych ścieżek napisów</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Błąd wewnętrzny: przetwarzanie napisów nie powiodło się</string>
+    <string name="revanced_yandex_error_translation_failed">Tłumaczenie nie powiodło się</string>
+    <string name="revanced_yandex_error_unknown">Nieznany błąd</string>
+    <string name="revanced_yandex_status_fetching_subs">Tłumaczenie zakończone, pobieranie napisów...</string>
+    <string name="revanced_yandex_status_processing_hour">Pozostała ponad godzina...</string>
+    <string name="revanced_yandex_status_processing_minute">Pozostała około minuta...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Pozostało %d min...</string>
+    <string name="revanced_yandex_status_processing_short">Przetwarzanie...</string>
+    <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
+    <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
+    <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en) i rosyjskim (ru).</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Użyj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy. Obsługiwane są wyłącznie języki angielski i rosyjski. Klucz API nie jest wymagany.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>
 </resources>
