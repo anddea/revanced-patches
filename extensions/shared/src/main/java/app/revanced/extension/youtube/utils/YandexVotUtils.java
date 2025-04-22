@@ -113,6 +113,12 @@ public class YandexVotUtils {
 
     /**
      * Performs the actual network request to create a new Yandex API session.
+     * <p>
+     * HTTP Method: POST
+     * <br>
+     * Endpoint: /session/create (PATH_SESSION_CREATE)
+     * <br>
+     * Purpose: Creates a new authenticated session with the Yandex API.
      *
      * @return The newly created {@link SessionInfo}.
      * @throws IOException              If a network error occurs or the response is invalid.
@@ -177,8 +183,13 @@ public class YandexVotUtils {
 
     /**
      * Get Subtitle Tracks (Called AFTER translation is confirmed done OR for initial check).
-     * Calls the /video-subtitles/get-subtitles endpoint.
      * Used to check for existing subtitles or fetch final translated subtitles.
+     * <p>
+     * HTTP Method: POST
+     * <br>
+     * Endpoint: /video-subtitles/get-subtitles (PATH_GET_SUBTITLES)
+     * <br>
+     * Purpose: Fetches the list of available original and translated subtitle tracks for a video, usually after the translation process is confirmed complete or to check for pre-existing subtitles.
      *
      * @param videoUrl The URL of the video.
      * @param session  The current valid {@link SessionInfo}.
@@ -238,23 +249,33 @@ public class YandexVotUtils {
     /**
      * Initiates the asynchronous workflow to get Yandex translated subtitles for a given video URL.
      * This method handles session management, checking for existing subtitles, requesting translation if needed,
-     * polling for status, and finally fetching and parsing the subtitles.
+     * polling for status, and finally fetching and parsing the subtitles OR returning raw intermediate JSON.
      * Ensures only one workflow runs per URL at a time.
      *
-     * @param videoUrl        The URL of the YouTube video.
-     * @param videoTitle      The title of the video (optional, used in translation request).
-     * @param durationSeconds The duration of the video in seconds (used in translation request).
-     * @param targetLang      The desired target language code (e.g., "en", "es").
-     * @param callback        The {@link SubtitleWorkflowCallback} to report progress, success, or failure.
+     * @param videoUrl           The URL of the YouTube video.
+     * @param videoTitle         The title of the video (optional, used in translation request).
+     * @param durationSeconds    The duration of the video in seconds (used in translation request).
+     * @param originalTargetLang The user's desired final target language code (e.g., "en", "es", "de").
+     * @param callback           The {@link SubtitleWorkflowCallback} to report progress, success (intermediate or final), or failure.
      */
     public static void getYandexSubtitlesWorkflowAsync(
             final String videoUrl,
             @Nullable final String videoTitle,
             final double durationSeconds,
-            final String targetLang,
+            final String originalTargetLang,
             final SubtitleWorkflowCallback callback
     ) {
-        Logger.printInfo(() -> "VOT: Starting Async Workflow for URL: " + videoUrl + ", TargetLang: " + targetLang);
+        Logger.printInfo(() -> "VOT: Starting Async Workflow for URL: " + videoUrl + ", OriginalTargetLang: " + originalTargetLang);
+
+        final String yandexTargetLang;
+
+        if ("en".equals(originalTargetLang) || "ru".equals(originalTargetLang) || "kk".equals(originalTargetLang)) {
+            yandexTargetLang = originalTargetLang;
+            Logger.printDebug(() -> "VOT: Yandex supports target language directly: " + yandexTargetLang);
+        } else {
+            yandexTargetLang = "en";
+            Logger.printInfo(() -> "VOT: Yandex does not support " + originalTargetLang + ". Requesting intermediate '" + yandexTargetLang + "' for secondary translation.");
+        }
 
         AtomicBoolean lock = urlWorkflowLocks.computeIfAbsent(videoUrl, k -> new AtomicBoolean(false));
         if (!lock.compareAndSet(false, true)) {
@@ -268,65 +289,103 @@ public class YandexVotUtils {
             @Override
             public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles) {
                 if (finalCalled.compareAndSet(false, true)) {
-                    Logger.printDebug(() -> "VOT: Workflow final success for " + videoUrl + ". Releasing lock.");
-                    callback.onFinalSuccess(parsedSubtitles);
-                    lock.set(false);
+                    Logger.printDebug(() -> "VOT: Workflow final success for " + videoUrl + ". Releasing lock via finalCallback.");
+                    try {
+                        callback.onFinalSuccess(parsedSubtitles);
+                    } finally {
+                        urlWorkflowLocks.remove(videoUrl); // Release lock
+                    }
                 }
+            }
+
+            @Override
+            public void onIntermediateSuccess(String rawIntermediateJson, String intermediateLang) {
+                Logger.printDebug(() -> "VOT: Workflow intermediate success for " + videoUrl + " (Lang: " + intermediateLang + "). Caller handles next step.");
+                callback.onIntermediateSuccess(rawIntermediateJson, intermediateLang);
+                // DO NOT release lock here
             }
 
             @Override
             public void onFinalFailure(String errorMessage) {
                 if (finalCalled.compareAndSet(false, true)) {
-                    Logger.printDebug(() -> "VOT: Workflow final failure for " + videoUrl + ". Releasing lock.");
-                    callback.onFinalFailure(errorMessage);
-                    lock.set(false);
+                    Logger.printDebug(() -> "VOT: Workflow final failure for " + videoUrl + ". Releasing lock via finalCallback.");
+                    try {
+                        callback.onFinalFailure(errorMessage);
+                    } finally {
+                        urlWorkflowLocks.remove(videoUrl); // Release lock
+                    }
                 }
             }
 
             @Override
             public void onProcessingStarted(String statusMessage) {
-                callback.onProcessingStarted(statusMessage);
+                if (!finalCalled.get()) {
+                    callback.onProcessingStarted(statusMessage);
+                }
             }
         };
 
         new Thread(() -> {
-            SessionInfo session;
-            long workflowStartTime = System.currentTimeMillis();
-
             try {
-                Logger.printInfo(() -> "VOT: Step 1/5 - Ensuring Session...");
-                session = ensureSession();
-                postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_session_ok")));
-                Logger.printDebug(() -> "VOT: Step 1/5 - Session OK.");
+                SessionInfo session;
+                long workflowStartTime = System.currentTimeMillis();
 
-                Logger.printInfo(() -> "VOT: Step 2/5 - Checking for existing subtitles...");
-                ManualSubtitlesResponse initialSubsResponse = null;
                 try {
-                    initialSubsResponse = getFinalSubtitleTracks(videoUrl, session);
-                } catch (Exception e) {
-                    Logger.printException(() -> "VOT: Initial subtitle check failed, proceeding to request translation.", e);
-                }
+                    Logger.printInfo(() -> "VOT: Step 1/5 - Ensuring Session...");
+                    session = ensureSession();
+                    postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_session_ok")));
+                    Logger.printDebug(() -> "VOT: Step 1/5 - Session OK.");
 
-                if (initialSubsResponse != null && initialSubsResponse.subtitles != null && !initialSubsResponse.waiting) {
-                    ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(initialSubsResponse.subtitles, targetLang);
-                    String subtitleUrl = (chosenSub != null) ? determineSubtitleUrl(chosenSub, targetLang) : null;
-
-                    if (chosenSub != null && !TextUtils.isEmpty(subtitleUrl)) {
-                        Logger.printInfo(() -> "VOT: Step 2/5 - Found existing suitable subtitle track for " + targetLang + ". Skipping translation.");
-                        postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_subs_found")));
-                        processAndFetchFinalSubtitles(initialSubsResponse, targetLang, finalCallback);
-                        return;
+                    Logger.printInfo(() -> "VOT: Step 2/5 - Checking for existing subtitles (for Yandex target: " + yandexTargetLang + ")...");
+                    ManualSubtitlesResponse initialSubsResponse = null;
+                    try {
+                        initialSubsResponse = getFinalSubtitleTracks(videoUrl, session);
+                    } catch (Exception e) {
+                        Logger.printException(() -> "VOT: Initial subtitle check failed, proceeding to request translation.", e);
                     }
+
+                    if (initialSubsResponse != null && initialSubsResponse.subtitles != null && !initialSubsResponse.waiting) {
+                        ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(initialSubsResponse.subtitles, yandexTargetLang);
+                        String subtitleUrl = (chosenSub != null) ? determineSubtitleUrl(chosenSub, yandexTargetLang) : null;
+
+                        if (chosenSub != null && !TextUtils.isEmpty(subtitleUrl)) {
+                            Logger.printInfo(() -> "VOT: Step 2/5 - Found existing suitable subtitle track for Yandex target " + yandexTargetLang + ". Skipping translation request.");
+                            postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_subs_found")));
+                            processAndFetchFinalSubtitles(initialSubsResponse, originalTargetLang, yandexTargetLang, finalCallback);
+                            // Note: execution continues in processAndFetchFinalSubtitles's async callback
+                            return; // Exit this thread's main path after starting async fetch
+                        }
+                    }
+
+                    Logger.printInfo(() -> "VOT: Step 3/5 - No suitable existing subtitles found for Yandex target " + yandexTargetLang + ". Requesting translation...");
+                    postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_requesting_translation")));
+                    pollTranslationStatusAsync(videoUrl, originalTargetLang, yandexTargetLang, session, true, videoTitle, durationSeconds, workflowStartTime, finalCallback, 1);
+                    // Note: execution continues in pollTranslationStatusAsync's async callback
+
+                } catch (Exception e) {
+                    Logger.printException(() -> "VOT: Workflow FAILED during initial setup phase!", e);
+                    String userMessage = (e instanceof IOException || e instanceof GeneralSecurityException)
+                            ? (e.getMessage() != null ? e.getMessage() : str("revanced_yandex_error_network_generic"))
+                            : str("revanced_yandex_error_unknown") + ": " + e.getMessage();
+                    // Report failure through the wrapper, which will release the lock
+                    postToMainThread(() -> finalCallback.onFinalFailure(userMessage));
                 }
-
-                Logger.printInfo(() -> "VOT: Step 3/5 - No suitable subtitles found initially or check failed. Requesting translation...");
-                postToMainThread(() -> finalCallback.onProcessingStarted(str("revanced_yandex_status_requesting_translation")));
-
-                pollTranslationStatusAsync(videoUrl, targetLang, session, true, videoTitle, durationSeconds, workflowStartTime, finalCallback, 1);
-            } catch (Exception e) {
-                Logger.printException(() -> "VOT: Workflow FAILED during initial setup!", e);
-                String userMessage = (e instanceof IOException || e instanceof GeneralSecurityException) ? e.getMessage() : str("revanced_yandex_error_unknown") + ": " + e.getMessage();
-                postToMainThread(() -> finalCallback.onFinalFailure(userMessage));
+                // The background thread often finishes here, letting async callbacks complete the work.
+                // The finally block below ensures cleanup even if an unexpected error occurs later
+                // or if the thread is terminated/interrupted before finalCallback is called.
+            } finally {
+                // Ensure lock is released if thread exits unexpectedly ---
+                // This acts as a safety net. If the finalCallback's success/failure methods
+                // are called, they already remove the lock. This finally block handles cases
+                // where the thread might terminate *without* calling those (e.g., uncaught RuntimeException
+                // in async tasks, or external interruption if not handled properly).
+                AtomicBoolean lockState = urlWorkflowLocks.get(videoUrl);
+                if (lockState != null && lockState.get()) {
+                    Logger.printInfo(() -> "VOT: Releasing workflow lock for " + videoUrl + " in finally block (thread terminated unexpectedly?).");
+                    urlWorkflowLocks.remove(videoUrl);
+                } else {
+                    Logger.printDebug(() -> "VOT: Workflow lock for " + videoUrl + " already released or not present in finally block.");
+                }
             }
         }).start();
     }
@@ -335,20 +394,28 @@ public class YandexVotUtils {
      * Performs an asynchronous request to the Yandex translate endpoint, either initiating the translation
      * or polling for its status. Handles the response and schedules the next poll if necessary,
      * or proceeds to fetch subtitles on success. Handles session expiry and refreshes if needed.
+     * <p>
+     * HTTP Method: POST
+     * <br>
+     * Endpoint: /video-translation/translate (PATH_TRANSLATE)
+     * <br>
+     * Purpose: Initiates the translation process (if firstRequest is true) or polls for the current status of an ongoing translation (if firstRequest is false).
      *
-     * @param videoUrl          The URL of the video.
-     * @param targetLang        The target language for translation.
-     * @param session           The current session information (might be refreshed internally).
-     * @param isFirstRequest    True if this is the initial request to start translation, false if polling.
-     * @param videoTitle        The title of the video (optional).
-     * @param durationSeconds   The duration of the video.
-     * @param workflowStartTime The timestamp when the overall workflow started (for timeout).
-     * @param callback          The callback for reporting progress and final results.
-     * @param pollCount         The current poll attempt number.
+     * @param videoUrl           The URL of the video.
+     * @param originalTargetLang The user's final desired language.
+     * @param yandexTargetLang   The target language for the Yandex API request ('en', 'ru', 'kk').
+     * @param session            The current session information (might be refreshed internally).
+     * @param isFirstRequest     True if this is the initial request to start translation, false if polling.
+     * @param videoTitle         The title of the video (optional).
+     * @param durationSeconds    The duration of the video.
+     * @param workflowStartTime  The timestamp when the overall workflow started (for timeout).
+     * @param callback           The callback for reporting progress and final results.
+     * @param pollCount          The current poll attempt number.
      */
     private static void pollTranslationStatusAsync(
             final String videoUrl,
-            final String targetLang,
+            final String originalTargetLang,
+            final String yandexTargetLang,
             final SessionInfo session,
             final boolean isFirstRequest,
             @Nullable final String videoTitle,
@@ -360,22 +427,22 @@ public class YandexVotUtils {
         if (System.currentTimeMillis() - workflowStartTime >= WORKFLOW_TIMEOUT_MS) {
             Logger.printException(() -> "VOT: Workflow timeout exceeded before polling attempt #" + pollCount);
             long timeoutSec = WORKFLOW_TIMEOUT_MS / 1000;
-            postToMainThread(() -> callback.onFinalFailure("Translation workflow timed out after " + timeoutSec + "s (before poll #" + pollCount + ")"));
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_timeout_poll", timeoutSec, pollCount)));
             return;
         }
 
         if (isFirstRequest) {
-            Logger.printInfo(() -> "VOT: Calling " + PATH_TRANSLATE + " (Async Initial Request) URL: " + videoUrl + ", Target: " + targetLang);
+            Logger.printInfo(() -> "VOT: Calling " + PATH_TRANSLATE + " (Async Initial Request) URL: " + videoUrl + ", Yandex Target: " + yandexTargetLang);
         } else {
-            Logger.printDebug(() -> "VOT: Calling " + PATH_TRANSLATE + " (Async Polling Status #" + pollCount + ") URL: " + videoUrl);
+            Logger.printDebug(() -> "VOT: Calling " + PATH_TRANSLATE + " (Async Polling Status #" + pollCount + ") URL: " + videoUrl + ", Yandex Target: " + yandexTargetLang);
         }
 
         ManualVideoTranslationRequest requestProto = new ManualVideoTranslationRequest();
         requestProto.url = videoUrl;
         requestProto.firstRequest = isFirstRequest;
         requestProto.duration = (durationSeconds > 0) ? durationSeconds : DEFAULT_VIDEO_DURATION_SECONDS;
-        requestProto.language = "auto";
-        requestProto.responseLanguage = targetLang;
+        requestProto.language = "auto"; // Source language
+        requestProto.responseLanguage = yandexTargetLang; // Target for Yandex API
         requestProto.unknown0 = 1;
         requestProto.unknown1 = 0;
         requestProto.unknown2 = 0;
@@ -386,10 +453,11 @@ public class YandexVotUtils {
 
         byte[] requestBodyBytes;
         Headers headers;
+        SessionInfo currentValidSession = session; // Use local variable for thread safety
+
         try {
-            SessionInfo currentValidSession = session;
             if (!currentValidSession.isValid()) {
-                Logger.printInfo(() -> "VOT: Session expired before poll request #" + pollCount + ". Attempting refresh.");
+                Logger.printInfo(() -> "VOT: Session potentially expired before poll #" + pollCount + ". Attempting refresh.");
                 try {
                     currentValidSession = ensureSession();
                     if (!currentValidSession.isValid()) {
@@ -408,9 +476,11 @@ public class YandexVotUtils {
             headers = buildRequestHeaders(currentValidSession, requestBodyBytes, PATH_TRANSLATE, VTRANS_PREFIX);
         } catch (IOException | GeneralSecurityException e) {
             Logger.printException(() -> "VOT: Failed to build request for poll #" + pollCount, e);
-            postToMainThread(() -> callback.onFinalFailure("Internal error building request: " + e.getMessage()));
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_internal_request_build") + ": " + e.getMessage()));
             return;
         }
+
+        final SessionInfo sessionForCallback = currentValidSession;
 
         Request request = new Request.Builder()
                 .url(BASE_URL + PATH_TRANSLATE)
@@ -427,24 +497,6 @@ public class YandexVotUtils {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) {
-                SessionInfo checkedSession = session;
-                if (!checkedSession.isValid()) {
-                    Logger.printInfo(() -> "VOT: Session potentially expired before processing poll #" + pollCount + " response. Attempting refresh.");
-                    try {
-                        checkedSession = ensureSession();
-                        if (!checkedSession.isValid()) {
-                            Logger.printException(() -> "VOT: Session refresh failed or still invalid after poll #" + pollCount + " response.");
-                            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_session_expired")));
-                            return;
-                        }
-                        Logger.printInfo(() -> "VOT: Session refreshed successfully after poll #" + pollCount + " response.");
-                    } catch (Exception e) {
-                        Logger.printException(() -> "VOT: Error refreshing session after poll #" + pollCount + " response.", e);
-                        postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_session_refresh_failed")));
-                        return;
-                    }
-                }
-                final SessionInfo finalSession = checkedSession;
 
                 try (ResponseBody responseBody = response.body()) {
                     if (!response.isSuccessful() || responseBody == null) {
@@ -470,8 +522,8 @@ public class YandexVotUtils {
                     switch (transResponse.status) {
                         case STATUS_SUCCESS:
                         case STATUS_PART_CONTENT:
-                            Logger.printInfo(() -> "VOT: Step 4/5 - SUCCESS! Translation finished after " + pollCount + " polls.");
-                            getFinalSubtitleTracksAsync(videoUrl, finalSession, targetLang, workflowStartTime, callback);
+                            Logger.printInfo(() -> "VOT: Step 4/5 - SUCCESS! Yandex translation finished after " + pollCount + " polls (for lang " + yandexTargetLang + ").");
+                            getFinalSubtitleTracksAsync(videoUrl, sessionForCallback, originalTargetLang, yandexTargetLang, workflowStartTime, callback);
                             break;
 
                         case STATUS_AUDIO_REQUESTED:
@@ -485,19 +537,18 @@ public class YandexVotUtils {
                                 return;
                             }
 
-                            // Send the PUT requests asynchronously. We don't strictly need to wait for them
-                            // before scheduling the next poll, but we should handle their potential failure.
+                            // Send PUTs asynchronously
                             sendFailAudioJsRequestAsync(videoUrl);
-                            sendAudioRequestAsync(videoUrl, translationId, finalSession);
+                            sendAudioRequestAsync(videoUrl, translationId, sessionForCallback);
 
-                            // Continue polling as usual after sending the PUTs
-                            scheduleNextPoll(videoUrl, targetLang, finalSession, videoTitle, durationSeconds,
+                            // Continue polling
+                            scheduleNextPoll(videoUrl, originalTargetLang, yandexTargetLang, sessionForCallback, videoTitle, durationSeconds,
                                     workflowStartTime, callback, pollCount, transResponse.remainingTime);
                             break;
 
                         case STATUS_PROCESSING:
                         case STATUS_LONG_PROCESSING:
-                            scheduleNextPoll(videoUrl, targetLang, finalSession, videoTitle, durationSeconds,
+                            scheduleNextPoll(videoUrl, originalTargetLang, yandexTargetLang, sessionForCallback, videoTitle, durationSeconds,
                                     workflowStartTime, callback, pollCount, transResponse.remainingTime);
                             break;
 
@@ -525,18 +576,19 @@ public class YandexVotUtils {
      * Schedules the next poll request after a calculated delay based on the API response.
      * Posts the task to the main thread handler.
      *
-     * @param videoUrl          The URL of the video.
-     * @param targetLang        The target language.
-     * @param session           The session info to use for the next poll.
-     * @param videoTitle        The video title (optional).
-     * @param durationSeconds   The video duration.
-     * @param workflowStartTime The start time of the workflow for timeout checking.
-     * @param callback          The callback for reporting progress.
-     * @param currentPollCount  The count of the poll just completed.
-     * @param remainingTimeSecs The estimated remaining time from the API response (in seconds).
+     * @param videoUrl           The URL of the video.
+     * @param originalTargetLang The user's final desired language.
+     * @param yandexTargetLang   The target language for the Yandex API request.
+     * @param session            The session info to use for the next poll.
+     * @param videoTitle         The video title (optional).
+     * @param durationSeconds    The video duration.
+     * @param workflowStartTime  The start time of the workflow for timeout checking.
+     * @param callback           The callback for reporting progress.
+     * @param currentPollCount   The count of the poll just completed.
+     * @param remainingTimeSecs  The estimated remaining time from the API response (in seconds).
      */
     private static void scheduleNextPoll(
-            final String videoUrl, final String targetLang, final SessionInfo session,
+            final String videoUrl, final String originalTargetLang, final String yandexTargetLang, final SessionInfo session,
             @Nullable final String videoTitle, final double durationSeconds,
             final long workflowStartTime, final SubtitleWorkflowCallback callback,
             final int currentPollCount, int remainingTimeSecs
@@ -544,7 +596,7 @@ public class YandexVotUtils {
         if (System.currentTimeMillis() - workflowStartTime >= WORKFLOW_TIMEOUT_MS) {
             Logger.printException(() -> "VOT: Workflow timeout exceeded before scheduling poll #" + (currentPollCount + 1));
             long timeoutSec = WORKFLOW_TIMEOUT_MS / 1000;
-            postToMainThread(() -> callback.onFinalFailure("Translation workflow timed out after " + timeoutSec + "s (during processing)"));
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_timeout_processing", timeoutSec)));
             return;
         }
 
@@ -554,12 +606,11 @@ public class YandexVotUtils {
                         (remainingMs >= 0 ? remainingMs : MIN_POLLING_INTERVAL_MS) + POLLING_TIME_BUFFER_MS));
 
         String waitMsg = secsToStrTime(remainingTimeSecs);
-        Logger.printDebug(() -> "VOT: Poll #" + currentPollCount + " - Still processing. Wait estimate: " + waitMsg + ". Scheduling next poll in " + (sleepTimeMs / 1000.0) + "s.");
-
+        Logger.printDebug(() -> "VOT: Poll #" + currentPollCount + " - Still processing Yandex request for " + yandexTargetLang + ". Wait estimate: " + waitMsg + ". Scheduling next poll in " + (sleepTimeMs / 1000.0) + "s.");
         postToMainThread(() -> callback.onProcessingStarted(waitMsg));
 
         mainThreadHandler.postDelayed(() -> pollTranslationStatusAsync(
-                videoUrl, targetLang, session, false,
+                videoUrl, originalTargetLang, yandexTargetLang, session, false,
                 videoTitle, durationSeconds, workflowStartTime, callback, currentPollCount + 1
         ), sleepTimeMs);
     }
@@ -567,24 +618,32 @@ public class YandexVotUtils {
     /**
      * Fetches the final list of available subtitle tracks asynchronously after translation is confirmed complete.
      * Handles session expiry and refreshes if needed.
+     * <p>
+     * HTTP Method: POST
+     * <br>
+     * Endpoint: /video-subtitles/get-subtitles (PATH_GET_SUBTITLES)
+     * <br>
+     * Purpose: Fetches the list of available original and translated subtitle tracks for a video, usually after the translation process is confirmed complete or to check for pre-existing subtitles.
      *
-     * @param videoUrl          The URL of the video.
-     * @param session           The current session information (might be refreshed internally).
-     * @param targetLang        The desired target language.
-     * @param workflowStartTime The start time of the overall workflow for timeout checks.
-     * @param callback          The callback to report success or failure.
+     * @param videoUrl           The URL of the video.
+     * @param session            The current session information (might be refreshed internally).
+     * @param originalTargetLang The user's final desired language.
+     * @param yandexTargetLang   The language that was requested from Yandex.
+     * @param workflowStartTime  The start time of the overall workflow for timeout checks.
+     * @param callback           The callback to report success or failure.
      */
     private static void getFinalSubtitleTracksAsync(
             final String videoUrl,
             final SessionInfo session,
-            final String targetLang,
+            final String originalTargetLang,
+            final String yandexTargetLang,
             final long workflowStartTime,
             final SubtitleWorkflowCallback callback
     ) {
         if (System.currentTimeMillis() - workflowStartTime >= WORKFLOW_TIMEOUT_MS) {
             Logger.printException(() -> "VOT: Workflow timeout exceeded before fetching final subtitle list.");
             long timeoutSec = WORKFLOW_TIMEOUT_MS / 1000;
-            postToMainThread(() -> callback.onFinalFailure("Translation workflow timed out after " + timeoutSec + "s (before final sub fetch)"));
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_timeout_final_fetch", timeoutSec)));
             return;
         }
 
@@ -593,12 +652,13 @@ public class YandexVotUtils {
 
         ManualSubtitlesRequest requestProto = new ManualSubtitlesRequest();
         requestProto.url = videoUrl;
-        requestProto.language = "auto";
+        requestProto.language = "auto"; // Request all available
 
         byte[] requestBodyBytes;
         Headers headers;
+        SessionInfo currentValidSession = session;
+
         try {
-            SessionInfo currentValidSession = session;
             if (!currentValidSession.isValid()) {
                 Logger.printInfo(() -> "VOT: Session expired before final subtitle fetch. Attempting refresh.");
                 try {
@@ -619,7 +679,7 @@ public class YandexVotUtils {
             headers = buildRequestHeaders(currentValidSession, requestBodyBytes, PATH_GET_SUBTITLES, VSUBS_PREFIX);
         } catch (IOException | GeneralSecurityException e) {
             Logger.printException(() -> "VOT: Failed to build request for final subtitle fetch", e);
-            postToMainThread(() -> callback.onFinalFailure("Internal error building request: " + e.getMessage()));
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_internal_request_build") + ": " + e.getMessage()));
             return;
         }
 
@@ -664,7 +724,7 @@ public class YandexVotUtils {
                     }
 
                     Logger.printInfo(() -> "VOT: Step 6/5 - Processing final subtitle list and fetching content...");
-                    processAndFetchFinalSubtitles(finalSubsResponse, targetLang, callback);
+                    processAndFetchFinalSubtitles(finalSubsResponse, originalTargetLang, yandexTargetLang, callback);
 
                 } catch (IOException e) {
                     Logger.printException(() -> "VOT: IOException reading response body on final sub fetch", e);
@@ -678,6 +738,12 @@ public class YandexVotUtils {
      * Sends an asynchronous PUT request to the /video-translation/fail-audio-js endpoint.
      * This is part of the handling specific to YouTube videos when receiving status code 6.
      * Failures in this request are logged but generally do not halt the main translation workflow.
+     * <p>
+     * HTTP Method: PUT
+     * <br>
+     * Endpoint: /video-translation/fail-audio-js (PATH_FAIL_AUDIO_JS)
+     * <br>
+     * Purpose: Part of the specific handling for YouTube videos when the API returns STATUS_AUDIO_REQUESTED (Status 6). Sends a specific signal related to audio processing failure.
      *
      * @param videoUrl The URL of the video.
      */
@@ -741,6 +807,12 @@ public class YandexVotUtils {
      * This is part of the handling specific to YouTube videos when receiving status code 6.
      * This request uses the standard protobuf format and session authentication headers.
      * Failures in this request are logged but generally do not halt the main translation workflow.
+     * <p>
+     * HTTP Method: PUT
+     * <br>
+     * Endpoint: /video-translation/audio (PATH_SEND_AUDIO)
+     * <br>
+     * Purpose: Also part of the handling for YouTube STATUS_AUDIO_REQUESTED (Status 6). Sends a protobuf message containing video details and an empty audio buffer object with a specific file ID, signaling readiness or interaction related to audio processing.
      *
      * @param videoUrl      The URL of the video.
      * @param translationId The translation ID received in the status 6 response.
@@ -800,14 +872,19 @@ public class YandexVotUtils {
 
     /**
      * Processes the response containing the list of final subtitle tracks.
-     * It selects the best track for the target language, determines the correct URL,
-     * and initiates the download of the subtitle content.
+     * It selects the best track for the *Yandex target language*, determines the correct URL,
+     * and initiates the download. It then decides whether to parse the result or pass the raw JSON.
      *
-     * @param response   The {@link ManualSubtitlesResponse} received from the API. Can be null.
-     * @param targetLang The desired target language code.
-     * @param callback   The callback to report success or failure.
+     * @param response           The {@link ManualSubtitlesResponse} received from the API. Can be null.
+     * @param originalTargetLang The user's final desired language code.
+     * @param yandexTargetLang   The language code that was requested from Yandex ('en', 'ru', 'kk').
+     * @param callback           The callback to report success (intermediate or final) or failure.
      */
-    private static void processAndFetchFinalSubtitles(@Nullable ManualSubtitlesResponse response, String targetLang, SubtitleWorkflowCallback callback) {
+    private static void processAndFetchFinalSubtitles(
+            @Nullable ManualSubtitlesResponse response,
+            String originalTargetLang,
+            String yandexTargetLang,
+            SubtitleWorkflowCallback callback) {
         if (response == null) {
             Logger.printException(() -> "VOT: processAndFetchFinalSubtitles received null response!");
             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_internal_null_subs_response")));
@@ -815,7 +892,7 @@ public class YandexVotUtils {
         }
 
         if (response.waiting) {
-            Logger.printInfo(() -> "VOT: Subtitle check still shows 'waiting'. Cannot proceed to fetch content.");
+            Logger.printInfo(() -> "VOT: Subtitle check unexpectedly still shows 'waiting' after polling success. Treating as error.");
             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_subs_stuck_processing")));
             return;
         }
@@ -832,31 +909,31 @@ public class YandexVotUtils {
                         + (!TextUtils.isEmpty(s.translatedLanguage)
                         ? (",Trans:" + s.translatedLanguage + (TextUtils.isEmpty(s.translatedUrl) ? "(X)" : "")) : "") + "}")
                 .collect(Collectors.joining(", "));
-        Logger.printInfo(() -> "VOT: Processing final tracks. Target: " + targetLang + ". Available: [" + log + "]");
+        Logger.printInfo(() -> "VOT: Processing final tracks. Original Target: " + originalTargetLang + ", Yandex Target: " + yandexTargetLang + ". Available: [" + log + "]");
 
-        ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(availableSubs, targetLang);
+        ManualSubtitlesObject chosenSub = findBestSubtitleForLanguage(availableSubs, yandexTargetLang);
 
         if (chosenSub == null) {
-            Logger.printInfo(() -> "VOT: No suitable track found matching target language: " + targetLang);
-            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_no_subs_for_language", targetLang)));
+            Logger.printInfo(() -> "VOT: No suitable Yandex track found matching Yandex target language: " + yandexTargetLang);
+            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_no_subs_for_language", yandexTargetLang)));
             return;
         }
 
-        Logger.printInfo(() -> "VOT: Chosen track - Original: " + chosenSub.language
+        Logger.printInfo(() -> "VOT: Chosen track for Yandex target " + yandexTargetLang + " - Original: " + chosenSub.language
                 + ", Translated: " + chosenSub.translatedLanguage
                 + ", Has Orig URL: " + !TextUtils.isEmpty(chosenSub.url)
                 + ", Has Trans URL: " + !TextUtils.isEmpty(chosenSub.translatedUrl));
 
-        String subtitleUrl = determineSubtitleUrl(chosenSub, targetLang);
+        String subtitleUrl = determineSubtitleUrl(chosenSub, yandexTargetLang);
 
         if (TextUtils.isEmpty(subtitleUrl)) {
-            Logger.printException(() -> "VOT: Chosen subtitle track has no valid URL!");
+            Logger.printException(() -> "VOT: Chosen subtitle track for Yandex target " + yandexTargetLang + " has no valid URL!");
             postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_internal_no_chosen_url")));
             return;
         }
 
-        Logger.printInfo(() -> "VOT: Final subtitle URL selected: " + subtitleUrl);
-        fetchSubtitleContent(subtitleUrl, callback);
+        Logger.printInfo(() -> "VOT: Final subtitle URL selected (for lang " + yandexTargetLang + "): " + subtitleUrl);
+        fetchSubtitleContent(subtitleUrl, originalTargetLang, yandexTargetLang, callback);
     }
 
     /**
@@ -961,14 +1038,23 @@ public class YandexVotUtils {
 
     /**
      * Fetches the actual subtitle content from the given URL asynchronously.
-     * Parses the content upon successful download and reports the result via the callback.
+     * Parses the content upon successful download IF the language matches the original target,
+     * otherwise calls the intermediate success callback with the raw JSON.
+     * <p>
+     * HTTP Method: GET
+     * <br>
+     * Endpoint: <subtitle_file_url> (Dynamic URL, e.g., from sub.url or sub.translatedUrl fields in the /video-subtitles/get-subtitles response)
+     * <br>
+     * Purpose: Downloads the actual subtitle content (in JSON format) from the URL provided by the API in the subtitle track list. This URL is typically not under the /api.browser.yandex.ru/ base path but points directly to the file, often on a CDN.
      *
-     * @param url      The URL of the subtitle file (JSON format expected).
-     * @param callback The callback to report the final parsed subtitles or an error.
+     * @param url                The URL of the subtitle file (JSON format expected).
+     * @param originalTargetLang The user's final desired language.
+     * @param yandexTargetLang   The language of the content being fetched from the URL.
+     * @param callback           The callback to report the final parsed subtitles, intermediate JSON, or an error.
      */
-    private static void fetchSubtitleContent(String url, final SubtitleWorkflowCallback callback) {
+    private static void fetchSubtitleContent(String url, final String originalTargetLang, final String yandexTargetLang, final SubtitleWorkflowCallback callback) {
         Request request = new Request.Builder().url(url).get().build();
-        Logger.printInfo(() -> "VOT: Fetching final subtitle content from: " + url);
+        Logger.printInfo(() -> "VOT: Fetching final subtitle content (Lang: " + yandexTargetLang + ") from: " + url);
 
         httpClient.newCall(request).enqueue(new Callback() {
             @Override
@@ -986,11 +1072,10 @@ public class YandexVotUtils {
                     String message = response.message();
                     try {
                         if (response.body() != null) {
-                            bodyPreview = response.body().source().peek().readString(StandardCharsets.UTF_8);
-                            if (bodyPreview.length() > 200) bodyPreview = bodyPreview.substring(0, 200) + "...";
+                            bodyPreview = response.body().source().peek().readString(1024, StandardCharsets.UTF_8); // Read up to 1KB
+                            if (bodyPreview.length() >= 1024) bodyPreview += "...";
                         }
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored) {}
                     response.close();
                     final String finalBodyPreview = bodyPreview;
                     Logger.printException(() -> "VOT: Failed download subtitle file: " + code + " Msg: " + message + " Preview: " + finalBodyPreview);
@@ -998,22 +1083,42 @@ public class YandexVotUtils {
                     postToMainThread(() -> callback.onFinalFailure(errorMsg));
                     return;
                 }
+
                 try (ResponseBody body = response.body()) {
-                    String subtitleText = body.string();
-                    Logger.printInfo(() -> "VOT: Subtitle content fetched (" + subtitleText.length() + " chars). Parsing...");
-                    TreeMap<Long, Pair<Long, String>> parsedData = parseYandexJsonSubtitles(subtitleText);
-                    if (parsedData == null || parsedData.isEmpty()) {
-                        if (subtitleText.trim().isEmpty()) {
-                            Logger.printInfo(() -> "VOT: Fetched subtitle content was empty or whitespace.");
-                            postToMainThread(() -> callback.onFinalSuccess(new TreeMap<>()));
+                    String subtitleText = body.string(); // Read the full content
+                    Logger.printInfo(() -> "VOT: Subtitle content fetched (Lang: " + yandexTargetLang + ", " + subtitleText.length() + " chars). Processing...");
+
+                    boolean needsSecondaryTranslation = !originalTargetLang.equals(yandexTargetLang);
+
+                    if (needsSecondaryTranslation) {
+                        Logger.printInfo(() -> "VOT: Passing raw JSON (Lang: " + yandexTargetLang + ") for secondary translation to " + originalTargetLang);
+                        postToMainThread(() -> callback.onIntermediateSuccess(subtitleText, yandexTargetLang));
+                    } else {
+                        Logger.printInfo(() -> "VOT: Parsing final subtitle content (Lang: " + originalTargetLang + ")");
+                        TreeMap<Long, Pair<Long, String>> parsedData = parseYandexJsonSubtitles(subtitleText);
+                        if (parsedData == null) {
+                            Logger.printException(() -> "VOT: Failed to parse non-empty subtitle JSON for " + originalTargetLang + " from " + url);
+                            postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_subs_parsing_failed")));
                             return;
                         }
-                        throw new IOException("Parsed subtitle data is null or empty after fetching non-empty content");
+                        if (parsedData.isEmpty() && !subtitleText.trim().isEmpty()) {
+                            Logger.printInfo(() -> "VOT: Parsed JSON for " + originalTargetLang + " resulted in zero entries from non-empty content.");
+                            postToMainThread(() -> callback.onFinalSuccess(parsedData));
+                            return;
+                        }
+
+                        if (parsedData.isEmpty() && subtitleText.trim().isEmpty()) {
+                            Logger.printInfo(() -> "VOT: Fetched subtitle content for " + originalTargetLang + " was empty or whitespace.");
+                            postToMainThread(() -> callback.onFinalSuccess(parsedData));
+                            return;
+                        }
+
+                        Logger.printInfo(() -> "VOT: SUCCESS! Subtitle content parsed (Lang: " + originalTargetLang + ", " + parsedData.size() + " entries). Workflow complete.");
+                        postToMainThread(() -> callback.onFinalSuccess(parsedData));
                     }
-                    Logger.printInfo(() -> "VOT: SUCCESS! Subtitle content parsed (" + parsedData.size() + " entries). Workflow complete.");
-                    postToMainThread(() -> callback.onFinalSuccess(parsedData));
+
                 } catch (Exception e) {
-                    Logger.printException(() -> "VOT: Error processing/parsing subtitle content from " + url, e);
+                    Logger.printException(() -> "VOT: Error processing/parsing subtitle content from " + url + " for lang " + yandexTargetLang, e);
                     postToMainThread(() -> callback.onFinalFailure(str("revanced_yandex_error_subs_processing_failed") + ": " + e.getMessage()));
                 }
             }
@@ -1032,7 +1137,7 @@ public class YandexVotUtils {
      * @throws JSONException If the input string is not valid JSON or doesn't conform to the expected structure.
      */
     @Nullable
-    private static TreeMap<Long, Pair<Long, String>> parseYandexJsonSubtitles(String jsonContent) throws JSONException {
+    static TreeMap<Long, Pair<Long, String>> parseYandexJsonSubtitles(String jsonContent) throws JSONException {
         if (TextUtils.isEmpty(jsonContent)) {
             Logger.printInfo(() -> "VOT: parseYandexJsonSubtitles received empty content.");
             return null;
@@ -1220,6 +1325,28 @@ public class YandexVotUtils {
         return String.format(str("revanced_yandex_status_processing_minutes_plural"), minutes);
     }
 
+    /**
+     * Forces the release of the workflow lock for a specific video URL.
+     * This should ONLY be called externally when an operation associated with
+     * this URL is explicitly cancelled by the managing component (e.g., GeminiManager).
+     * Note: This does NOT stop the background thread if it's still running, but it
+     * allows a new workflow for the same URL to start immediately.
+     *
+     * @param videoUrl The URL for which to release the lock.
+     */
+    public static void forceReleaseWorkflowLock(@Nullable String videoUrl) {
+        if (videoUrl == null) return;
+
+        AtomicBoolean lock = urlWorkflowLocks.remove(videoUrl);
+        if (lock != null) {
+            // Optionally, set the AtomicBoolean to false, though removing is usually sufficient
+            // lock.set(false);
+            Logger.printInfo(() -> "VOT: Force-released workflow lock for URL: " + videoUrl + " due to external cancellation request.");
+        } else {
+            Logger.printDebug(() -> "VOT: Attempted to force-release lock for URL: " + videoUrl + ", but no lock was found (already released or never existed?).");
+        }
+    }
+
     // endregion Utils
 
     // --- Interfaces and Inner Classes ---
@@ -1227,10 +1354,31 @@ public class YandexVotUtils {
     /**
      * Callback interface for the asynchronous Yandex subtitle workflow.
      * Provides methods to report the final result (success or failure)
-     * and intermediate processing status updates.
+     * and intermediate processing status updates. If the requested language
+     * requires a secondary translation step (e.g., via Gemini),
+     * onIntermediateSuccess is called with the raw JSON from Yandex.
      */
     public interface SubtitleWorkflowCallback {
+        /**
+         * Called when the workflow completes successfully AND the result is
+         * in the final desired language (either directly from Yandex or after
+         * a secondary translation step handled by the caller).
+         *
+         * @param parsedSubtitles The final parsed subtitle data.
+         */
         void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedSubtitles);
+
+        /**
+         * Called when the workflow successfully retrieves subtitles from Yandex,
+         * but these subtitles are in an intermediate language (e.g., 'en') and
+         * require a secondary translation step by the caller to reach the user's
+         * originally requested language.
+         *
+         * @param rawIntermediateJson The raw JSON string content of the subtitles
+         *                            in the intermediate language (e.g., 'en', 'ru', 'kk').
+         * @param intermediateLang    The language code of the rawIntermediateJson (e.g., "en").
+         */
+        void onIntermediateSuccess(String rawIntermediateJson, String intermediateLang);
 
         void onFinalFailure(String errorMessage);
 
