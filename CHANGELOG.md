@@ -1,3 +1,10 @@
+# [3.7.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.8...v3.7.0-dev.9) (2025-04-22)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini translation for languages not supported by Yandex transcription ([ac016e5](https://github.com/anddea/revanced-patches/commit/ac016e5bdd80f462873d1ff713c915755430eaa7))
+
 # [3.7.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.7...v3.7.0-dev.8) (2025-04-20)
 
 
