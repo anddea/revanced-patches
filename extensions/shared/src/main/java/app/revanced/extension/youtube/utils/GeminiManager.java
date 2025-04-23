@@ -14,11 +14,13 @@ import android.widget.TextView;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
@@ -48,6 +50,7 @@ public final class GeminiManager {
     );
     private static final long SUBTITLE_UPDATE_INTERVAL_MS = 250; // How often to check for subtitle text updates
     private static final String EMPTY_SUBTITLE_PLACEHOLDER = "..."; // Displayed when no subtitle text is active
+    private static final String APP_LANGUAGE_SETTING_KEY = "app"; // Keyword for using app language in Yandex setting
 
     // --- Singleton Instance ---
     private static volatile GeminiManager instance;
@@ -73,6 +76,13 @@ public final class GeminiManager {
     private volatile boolean isWaitingForYandexRetry = false;
     @Nullable
     private String lastYandexStatusMessage = null;
+    // Store the final target language code determined at the start of transcription
+    @Nullable
+    private volatile String determinedTargetLanguageCode = null;
+    // Store the intermediate language if Gemini translation is needed
+    @Nullable
+    private volatile String intermediateLanguageCode = null;
+
 
     // --- Caches ---
     @Nullable
@@ -209,6 +219,9 @@ public final class GeminiManager {
     /**
      * Initiates the video transcription workflow using either Yandex VOT or Gemini API.
      * <p>
+     * Determines target language based on settings (including "app" keyword).
+     * Routes to Yandex (potentially with Gemini translation step) or direct Gemini transcription.
+     * <p>
      * Checks cache first (parsed data for Yandex, raw text for Gemini).
      * If not cached, check if busy with the *same* task.
      * If not busy or busy with a different task, prepare for the new operation (cancelling any old one).
@@ -228,23 +241,24 @@ public final class GeminiManager {
 
             hideTranscriptionOverlayInternal();
 
-            final boolean useYandex = Settings.YANDEX_TRANSCRIBE_SUBTITLES.get();
-            final String targetLang = Settings.YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE.get();
-
+            // --- Cache Check (Checks for final parsed result) ---
             if (Objects.equals(videoUrl, cachedTranscriptionVideoUrl)) {
                 boolean cacheDisplayed = false;
-                if (useYandex && parsedTranscription != null && !parsedTranscription.isEmpty()) {
-                    Logger.printDebug(() -> "Attempting display cached Yandex transcription overlay: " + videoUrl);
+                // Check for previously parsed result (could be from Yandex direct or Yandex+Gemini)
+                if (parsedTranscription != null && !parsedTranscription.isEmpty()) {
+                    Logger.printDebug(() -> "Attempting display cached transcription overlay: " + videoUrl);
                     if (displayTranscriptionOverlayInternal()) {
-                        Logger.printDebug(() -> "Cached Yandex overlay display succeeded.");
+                        Logger.printDebug(() -> "Cached transcription overlay display succeeded.");
                         showToastShort(str("revanced_gemini_transcription_parse_success"));
                         cacheDisplayed = true;
                     } else {
-                        Logger.printException(() -> "Failed to display cached Yandex overlay!", null);
+                        Logger.printException(() -> "Failed to display cached transcription overlay!", null);
                         showToastLong(str("revanced_gemini_error_overlay_display"));
-                        resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+                        clearTranscriptionCacheAndHideOverlay();
                     }
-                } else if (!useYandex && cachedRawTranscription != null) {
+                }
+                // Check for raw Gemini result (only relevant if Yandex was OFF last time)
+                else if (!Settings.YANDEX_TRANSCRIBE_SUBTITLES.get() && cachedRawTranscription != null) {
                     Logger.printDebug(() -> "Displaying cached Gemini raw transcription dialog: " + videoUrl);
                     showTranscriptionResultDialogInternal(context, cachedRawTranscription, totalTranscriptionTimeSeconds);
                     cacheDisplayed = true;
@@ -261,54 +275,134 @@ public final class GeminiManager {
 
             prepareForNewOperationInternal(OperationType.TRANSCRIBE, videoUrl);
 
-            // Start the appropriate workflow (Yandex or Gemini)
-            if (useYandex) {
-                startYandexTranscriptionWorkflow(context, videoUrl, videoTitle, durationSeconds, targetLang);
+            // --- Determine Target Language ---
+            String targetLangCode;
+            final String yandexSettingValue = Settings.YANDEX_TRANSCRIBE_SUBTITLES_LANGUAGE.get();
+
+            if (APP_LANGUAGE_SETTING_KEY.equalsIgnoreCase(yandexSettingValue)) {
+                // User wants app language, get code from main app language setting
+                try {
+                    AppLanguage appLangEnum = Settings.REVANCED_LANGUAGE.get();
+                    targetLangCode = appLangEnum.getLanguage();
+                    String finalTargetLangCode = targetLangCode;
+                    Logger.printInfo(() -> "Yandex target language set to 'app', using app language code: " + finalTargetLangCode);
+                } catch (Exception e) {
+                    Logger.printException(() -> "Failed to get app language code when Yandex setting was 'app'. Falling back to English.", e);
+                    targetLangCode = "en"; // Fallback if reading app language fails
+                }
             } else {
+                // Use the code directly from the Yandex setting
+                targetLangCode = yandexSettingValue;
+                String finalTargetLangCode1 = targetLangCode;
+                Logger.printInfo(() -> "Using Yandex target language code from setting: " + finalTargetLangCode1);
+            }
+
+            // Validate the determined language code
+            if (TextUtils.isEmpty(targetLangCode)) {
+                showToastLong(str("revanced_yandex_error_no_language_selected"));
+                resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+                return;
+            }
+
+            // Store the final determined target code for use in callbacks
+            determinedTargetLanguageCode = targetLangCode;
+            intermediateLanguageCode = null; // Reset intermediate state
+
+            // --- Determine Workflow ---
+            final boolean useYandex = Settings.YANDEX_TRANSCRIBE_SUBTITLES.get();
+
+            if (useYandex) {
+                startYandexTranscriptionWorkflow(context, videoUrl, videoTitle, durationSeconds, Objects.requireNonNull(determinedTargetLanguageCode));
+            } else {
+                // Use direct Gemini transcription (will use app language via getLanguageName())
                 startGeminiTranscriptionWorkflow(context, videoUrl);
             }
         });
     }
 
+    // endregion Public API Methods
+
+    // region Internal State Management & Workflow Logic
+
     /**
      * Starts the Yandex VOT transcription workflow.
-     * Assumes preparation (prepareForNewOperationInternal) has already occurred.
+     * This method now simply passes the determined target language code to YandexVotUtils,
+     * which handles the logic for direct vs. intermediate language requests.
      * Must be called on the Main Thread.
      *
-     * @param context         UI Context.
-     * @param videoUrl        Video URL.
-     * @param videoTitle      Video Title.
-     * @param durationSeconds Video duration.
-     * @param targetLang      Target language code (raw from settings).
+     * @param context             UI Context.
+     * @param videoUrl            Video URL.
+     * @param videoTitle          Video Title.
+     * @param durationSeconds     Video duration.
+     * @param finalTargetLangCode The final language code the user wants (e.g., "en", "es", "de").
      */
     @MainThread
-    private void startYandexTranscriptionWorkflow(@NonNull Context context, @NonNull String videoUrl, @Nullable String videoTitle, double durationSeconds, @NonNull String targetLang) {
-        Logger.printInfo(() -> "Starting new Yandex workflow: " + videoUrl);
+    private void startYandexTranscriptionWorkflow(@NonNull Context context, @NonNull String videoUrl, @Nullable String videoTitle, double durationSeconds, @NonNull String finalTargetLangCode) {
+        Logger.printInfo(() -> "Starting new Yandex workflow: " + videoUrl + " (Final Target: " + finalTargetLangCode + ")");
 
-        if (!targetLang.equals("en") && !targetLang.equals("ru")) {
-            showToastLong(str("revanced_yandex_error_language_not_supported_transcribe", targetLang));
-            resetOperationStateInternal(OperationType.TRANSCRIBE, true);
-            return;
-        }
 
         showProgressDialogInternal(context, OperationType.TRANSCRIBE);
 
         YandexVotUtils.getYandexSubtitlesWorkflowAsync(
-                videoUrl, videoTitle, durationSeconds, targetLang,
+                videoUrl, videoTitle, durationSeconds, finalTargetLangCode,
                 new YandexVotUtils.SubtitleWorkflowCallback() {
                     @Override
                     public void onProcessingStarted(String statusMessage) {
-                        handleYandexStatusUpdate(context, videoUrl, statusMessage);
+                        ensureMainThread(() -> handleYandexStatusUpdate(context, videoUrl, statusMessage));
+                    }
+
+                    @Override
+                    public void onIntermediateSuccess(String rawIntermediateJson, String receivedIntermediateLang) {
+                        // Yandex returned intermediate (likely English) JSON, need Gemini translation
+                        ensureMainThread(() -> {
+                            if (!isOperationRelevant(OperationType.TRANSCRIBE, videoUrl)) {
+                                handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, true); // Yandex part succeeded
+                                return;
+                            }
+                            Logger.printInfo(() -> "Yandex intermediate success (Lang: " + receivedIntermediateLang + "). Starting Gemini translation step to " + determinedTargetLanguageCode);
+
+                            intermediateLanguageCode = receivedIntermediateLang; // Store the intermediate language
+
+                            Locale targetLocale = getLocaleFromCode(determinedTargetLanguageCode); // Helper to get Locale from code
+                            String targetLangName = getLanguageNameFromLocale(targetLocale); // Helper to get name from Locale
+
+                            baseLoadingMessage = str("revanced_gemini_status_translating", targetLangName);
+                            updateTimerMessageInternal();
+
+                            final String apiKey = Settings.GEMINI_API_KEY.get();
+                            if (isEmptyApiKey(apiKey)) {
+                                resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+                                return;
+                            }
+
+                            // Call Gemini for translation
+                            GeminiUtils.translateYandexJson(
+                                    rawIntermediateJson,
+                                    targetLangName,
+                                    apiKey,
+                                    new GeminiUtils.Callback() {
+                                        @Override
+                                        public void onSuccess(String translatedJson) {
+                                            handleGeminiTranslationSuccess(videoUrl, translatedJson);
+                                        }
+
+                                        @Override
+                                        public void onFailure(String error) {
+                                            handleGeminiTranslationFailure(videoUrl, error);
+                                        }
+                                    }
+                            );
+                        });
                     }
 
                     @Override
                     public void onFinalSuccess(TreeMap<Long, Pair<Long, String>> parsedData) {
-                        handleYandexSuccess(videoUrl, parsedData);
+                        ensureMainThread(() -> handleYandexDirectSuccess(videoUrl, parsedData));
                     }
 
                     @Override
                     public void onFinalFailure(String errorMessage) {
-                        handleYandexFailure(videoUrl, errorMessage);
+                        ensureMainThread(() -> handleYandexWorkflowFailure(videoUrl, errorMessage));
                     }
                 });
     }
@@ -330,6 +424,12 @@ public final class GeminiManager {
                 return;
             }
 
+            if (intermediateLanguageCode != null) {
+                Logger.printDebug(() -> "Yandex status update ignored, Gemini translation step is active.");
+                return;
+            }
+
+            // Only update UI if message changed and not translating
             if (!Objects.equals(statusMessage, lastYandexStatusMessage)) {
                 lastYandexStatusMessage = statusMessage;
                 isWaitingForYandexRetry = true;
@@ -339,58 +439,150 @@ public final class GeminiManager {
                 if (progressDialog != null && progressDialog.isShowing() && !isProgressDialogMinimized) {
                     updateTimerMessageInternal();
                 } else if (progressDialog == null && !isProgressDialogMinimized) {
-                    // Dialog might have been dismissed unexpectedly, try showing again
+                    Logger.printDebug(() -> "Yandex status update: Progress dialog was null/hidden, attempting to show again.");
                     showProgressDialogInternal(context, OperationType.TRANSCRIBE);
                 }
             } else {
                 // Even if the message is the same, update baseLoadingMessage in case dialog is re-shown later
-                baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + " (" + statusMessage + ")";
+                // Only update if not translating
+                if (intermediateLanguageCode == null) {
+                    baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + " (" + statusMessage + ")";
+                }
                 Logger.printDebug(() -> "Yandex status update (no UI change needed): " + statusMessage);
             }
         });
     }
 
     /**
-     * Handles the successful completion of the Yandex transcription workflow.
+     * Handles the successful result from the Gemini JSON translation step.
+     * Parses the translated JSON, caches, displays overlay, and resets state.
+     * Must run on the Main Thread.
+     *
+     * @param videoUrl       The video URL for which the translation applies.
+     * @param translatedJson The JSON string returned by Gemini, expected to be in the Yandex format.
+     */
+    @MainThread
+    private void handleGeminiTranslationSuccess(@NonNull String videoUrl, @NonNull String translatedJson) {
+        ensureMainThread(() -> {
+            if (!isOperationRelevant(OperationType.TRANSCRIBE, videoUrl)) {
+                handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, true); // Gemini part succeeded technically
+                return;
+            }
+            Logger.printInfo(() -> "Gemini translation SUCCESS. Parsing translated JSON for lang " + determinedTargetLanguageCode);
+            dismissProgressDialogInternal();
+
+            // Parse the *translated* JSON using Yandex parser
+            try {
+                // Use the public static parser from YandexVotUtils
+                TreeMap<Long, Pair<Long, String>> finalParsedData = YandexVotUtils.parseYandexJsonSubtitles(translatedJson);
+
+                // Validate parsing result
+                if (finalParsedData == null) {
+                    // Handle cases where Gemini returns invalid/unparseable JSON
+                    Logger.printException(() -> "Gemini returned unparseable JSON after translation.", null);
+                    showToastLong(str("revanced_gemini_error_translation_parse_failed"));
+                    resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+                    return;
+                }
+                // Optional: Check if parsing yielded empty map from non-empty JSON
+                if (finalParsedData.isEmpty() && !translatedJson.trim().isEmpty() && !(translatedJson.trim().equals("[]") || translatedJson.trim().equals("{}"))) {
+                    Logger.printInfo(() -> "Gemini translation resulted in empty parsed data from potentially non-empty JSON input. Raw: " + translatedJson.substring(0, Math.min(200, translatedJson.length())));
+                    // Proceed with empty data, could be valid (e.g., no text found in source).
+                }
+
+                // Cache the final translated & parsed result
+                parsedTranscription = finalParsedData;
+                cachedTranscriptionVideoUrl = videoUrl;
+                cachedRawTranscription = null; // Not applicable here
+                totalTranscriptionTimeSeconds = calculateElapsedTimeSeconds(); // Total time for Yandex + Gemini
+
+                Logger.printDebug(() -> "Attempting display final translated overlay...");
+                if (displayTranscriptionOverlayInternal()) {
+                    Logger.printDebug(() -> "Final translated overlay display succeeded.");
+                    resetOperationStateInternal(OperationType.TRANSCRIBE, false);
+                    showToastShort(str("revanced_gemini_transcription_parse_success"));
+                } else {
+                    Logger.printException(() -> "Failed to display final translated overlay!", null);
+                    showToastLong(str("revanced_gemini_error_overlay_display"));
+                    resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+                }
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to parse Gemini's translated JSON response.", e);
+                showToastLong(str("revanced_gemini_error_translation_parse_failed"));
+                resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+            }
+        });
+    }
+
+    /**
+     * Handles the failure result from the Gemini JSON translation step.
+     * Shows an error toast and resets state.
+     * Must run on the Main Thread.
+     *
+     * @param videoUrl The video URL for which the translation applies.
+     * @param error    The error message from GeminiUtils.
+     */
+    @MainThread
+    private void handleGeminiTranslationFailure(@NonNull String videoUrl, @NonNull String error) {
+        ensureMainThread(() -> {
+            if (!isOperationRelevant(OperationType.TRANSCRIBE, videoUrl)) {
+                handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, false); // Gemini part failed
+                return;
+            }
+            Logger.printException(() -> "Gemini translation FAILED: " + error, null);
+            dismissProgressDialogInternal();
+            showToastLong(str("revanced_gemini_error_translation_failed", error));
+            resetOperationStateInternal(OperationType.TRANSCRIBE, true);
+        });
+    }
+
+    /**
+     * Handles the successful completion of the Yandex transcription workflow
+     * when the result is already in the final desired language (en/ru/kk).
      * Caches the result, displays the overlay, and resets state.
      * Must run on the Main Thread.
      *
      * @param videoUrl   The URL for which the success applies.
-     * @param parsedData The successfully parsed subtitle data.
+     * @param parsedData The successfully parsed subtitle data in the final language.
      */
     @MainThread
-    private void handleYandexSuccess(@NonNull String videoUrl, @Nullable TreeMap<Long, Pair<Long, String>> parsedData) {
+    private void handleYandexDirectSuccess(@NonNull String videoUrl, @Nullable TreeMap<Long, Pair<Long, String>> parsedData) {
         ensureMainThread(() -> {
             lastYandexStatusMessage = null;
             isWaitingForYandexRetry = false;
+            intermediateLanguageCode = null; // Ensure intermediate state is clear
 
             if (!isOperationRelevant(OperationType.TRANSCRIBE, videoUrl)) {
                 handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, true);
                 return;
             }
-            Logger.printInfo(() -> "Yandex Workflow SUCCEEDED for " + videoUrl);
+            Logger.printInfo(() -> "Yandex Workflow SUCCEEDED directly for " + videoUrl + " (Lang: " + determinedTargetLanguageCode + ")");
 
             dismissProgressDialogInternal();
 
-            if (parsedData == null || parsedData.isEmpty()) {
-                Logger.printException(() -> "Yandex success callback received null/empty data!", null);
-                handleYandexFailure(videoUrl, str("revanced_yandex_error_internal_empty_data"));
+            if (parsedData == null) {
+                Logger.printException(() -> "Yandex success callback received null data (parse failed?)!", null);
+                handleYandexWorkflowFailure(videoUrl, str("revanced_yandex_error_subs_parsing_failed"));
                 return;
             }
+            if (parsedData.isEmpty()) {
+                Logger.printInfo(() -> "Yandex success callback received empty subtitle map for " + determinedTargetLanguageCode);
+                // Proceed to show empty overlay
+            }
 
-            // Cache the successful Yandex result
+            // Cache the successful Yandex result (which is the final result here)
             parsedTranscription = parsedData;
             cachedTranscriptionVideoUrl = videoUrl;
-            cachedRawTranscription = null; // Yandex provides parsed data directly
-            totalTranscriptionTimeSeconds = calculateElapsedTimeSeconds();
+            cachedRawTranscription = null;
+            totalTranscriptionTimeSeconds = calculateElapsedTimeSeconds(); // Yandex time only
 
-            Logger.printDebug(() -> "Attempting display Yandex overlay...");
+            Logger.printDebug(() -> "Attempting display final Yandex overlay...");
             if (displayTranscriptionOverlayInternal()) {
-                Logger.printDebug(() -> "Yandex display overlay succeeded.");
+                Logger.printDebug(() -> "Final Yandex overlay display succeeded.");
                 resetOperationStateInternal(OperationType.TRANSCRIBE, false);
                 showToastShort(str("revanced_gemini_transcription_parse_success"));
             } else {
-                Logger.printException(() -> "Failed to display Yandex overlay after success!", null);
+                Logger.printException(() -> "Failed to display final Yandex overlay after success!", null);
                 showToastLong(str("revanced_gemini_error_overlay_display"));
                 resetOperationStateInternal(OperationType.TRANSCRIBE, true);
             }
@@ -398,7 +590,7 @@ public final class GeminiManager {
     }
 
     /**
-     * Handles the failure of the Yandex transcription workflow.
+     * Handles the failure of the Yandex transcription workflow (at any stage before Gemini translation).
      * Shows an error toast and resets state.
      * Must run on the Main Thread.
      *
@@ -406,10 +598,11 @@ public final class GeminiManager {
      * @param errorMessage The error message describing the failure.
      */
     @MainThread
-    private void handleYandexFailure(@NonNull String videoUrl, @NonNull String errorMessage) {
+    private void handleYandexWorkflowFailure(@NonNull String videoUrl, @NonNull String errorMessage) {
         ensureMainThread(() -> {
             lastYandexStatusMessage = null;
             isWaitingForYandexRetry = false;
+            intermediateLanguageCode = null; // Ensure intermediate state is clear
 
             if (!isOperationRelevant(OperationType.TRANSCRIBE, videoUrl)) {
                 handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, false);
@@ -418,13 +611,13 @@ public final class GeminiManager {
             Logger.printException(() -> "Yandex Workflow FAILED for " + videoUrl + ": " + errorMessage, null);
 
             dismissProgressDialogInternal();
-            showToastLong(errorMessage); // Show specific Yandex error
+            showToastLong(errorMessage); // Show specific Yandex/workflow error
             resetOperationStateInternal(OperationType.TRANSCRIBE, true);
         });
     }
 
     /**
-     * Starts the Gemini API transcription workflow.
+     * Starts the Gemini API transcription workflow (direct, without Yandex).
      * Assumes preparation (prepareForNewOperationInternal) has already occurred.
      * Must be called on the Main Thread.
      *
@@ -433,7 +626,7 @@ public final class GeminiManager {
      */
     @MainThread
     private void startGeminiTranscriptionWorkflow(@NonNull Context context, @NonNull String videoUrl) {
-        Logger.printInfo(() -> "Starting new Gemini transcription workflow: " + videoUrl);
+        Logger.printInfo(() -> "Starting new Gemini direct transcription workflow: " + videoUrl);
 
         final String apiKey = Settings.GEMINI_API_KEY.get();
         if (isEmptyApiKey(apiKey)) {
@@ -485,6 +678,7 @@ public final class GeminiManager {
                 showProgressDialogInternal(context, requestedOp); // Re-show dialog
             } else if (isWaitingForYandexRetry && progressDialog != null && progressDialog.isShowing()) {
                 // Yandex task is active and dialog visible, ensure timer updates continue
+                Logger.printDebug(() -> "Yandex task active and dialog showing, ensuring timer update.");
                 updateTimerMessageInternal();
             }
             return true; // Indicate busy with this task
@@ -499,23 +693,38 @@ public final class GeminiManager {
 
     /**
      * Rebuilds the {@link #baseLoadingMessage} based on the current operation type and state,
-     * used when re-showing a minimized dialog.
+     * including the Gemini translation step if active.
      * Must be called on the Main Thread.
      *
      * @param opType The operation type the dialog is for.
      */
     @MainThread
     private void rebuildBaseLoadingMessage(@NonNull OperationType opType) {
-        boolean isYandex = opType == OperationType.TRANSCRIBE && Settings.YANDEX_TRANSCRIBE_SUBTITLES.get();
-        if (isYandex) {
-            // Include the last known Yandex status if polling was active
-            baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe")
-                    + (isWaitingForYandexRetry && lastYandexStatusMessage != null ? " (" + lastYandexStatusMessage + ")" : "");
+        if (opType == OperationType.TRANSCRIBE) {
+            boolean isUsingYandex = Settings.YANDEX_TRANSCRIBE_SUBTITLES.get();
+            // Check if we are in the intermediate state (Yandex finished, waiting for Gemini)
+            boolean isTranslating = isUsingYandex && intermediateLanguageCode != null && determinedTargetLanguageCode != null;
+
+            if (isTranslating) {
+                // We are in the Gemini translation phase
+                Locale targetLocale = getLocaleFromCode(determinedTargetLanguageCode);
+                String targetLangName = getLanguageNameFromLocale(targetLocale);
+                baseLoadingMessage = str("revanced_gemini_status_translating", targetLangName);
+            } else if (isUsingYandex) {
+                // Yandex polling phase (intermediateLanguageCode is null)
+                baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe")
+                        + (isWaitingForYandexRetry && lastYandexStatusMessage != null ? " (" + lastYandexStatusMessage + ")" : "");
+            } else {
+                // Direct Gemini transcription phase
+                baseLoadingMessage = str("revanced_gemini_loading_transcribe");
+            }
+        } else if (opType == OperationType.SUMMARIZE) {
+            // Simple message for Gemini Summarize
+            baseLoadingMessage = str("revanced_gemini_loading_summarize");
         } else {
-            // Simple message for Gemini Summarize or Transcribe
-            String key = "revanced_gemini_loading_" + opType.name().toLowerCase();
-            baseLoadingMessage = str(key);
+            baseLoadingMessage = str("revanced_gemini_loading_default");
         }
+        Logger.printDebug(() -> "Rebuilt baseLoadingMessage: " + baseLoadingMessage);
     }
 
     /**
@@ -546,6 +755,8 @@ public final class GeminiManager {
         isWaitingForYandexRetry = false;
         lastYandexStatusMessage = null;
         baseLoadingMessage = null;
+        determinedTargetLanguageCode = null;
+        intermediateLanguageCode = null;
 
         currentOperation = newOperationType;
         currentVideoUrl = newVideoUrl;
@@ -555,7 +766,8 @@ public final class GeminiManager {
     }
 
     /**
-     * Handles the result (success or failure) from the Gemini API callback.
+     * Handles the result (success or failure) from the *direct* Gemini API callback
+     * (used for Summarize or direct Transcribe when Yandex is OFF).
      * Assumes the callback runs on the Main Thread.
      *
      * @param context  UI Context.
@@ -570,19 +782,19 @@ public final class GeminiManager {
             handleIrrelevantResponseInternal(opType, videoUrl, result != null);
             return;
         }
-        Logger.printDebug(() -> "Handling relevant Gemini response for " + opType + ".");
+        Logger.printDebug(() -> "Handling relevant direct Gemini response for " + opType + ".");
 
         dismissProgressDialogInternal();
 
         if (error != null) {
-            Logger.printException(() -> "Gemini " + opType + " failed for " + videoUrl + ": " + error, null);
+            Logger.printException(() -> "Direct Gemini " + opType + " failed for " + videoUrl + ": " + error, null);
             showToastLong(str("revanced_gemini_error_api_failed", error));
             resetOperationStateInternal(opType, true);
             return;
         }
 
         if (result != null) {
-            Logger.printInfo(() -> "Gemini " + opType + " success for " + videoUrl);
+            Logger.printInfo(() -> "Direct Gemini " + opType + " success for " + videoUrl);
             int time = calculateElapsedTimeSeconds();
 
             hideTranscriptionOverlayInternal();
@@ -603,7 +815,7 @@ public final class GeminiManager {
             }
         } else {
             // Should not happen if error is null, but handle defensively
-            Logger.printException(() -> "Gemini " + opType + " received null response without error for " + videoUrl, null);
+            Logger.printException(() -> "Direct Gemini " + opType + " received null response without error for " + videoUrl, null);
             showToastLong(str("revanced_gemini_error_unknown"));
             resetOperationStateInternal(opType, true);
         }
@@ -621,11 +833,12 @@ public final class GeminiManager {
     private void handleIrrelevantResponseInternal(@NonNull OperationType opType, @NonNull String videoUrl, boolean wasSuccess) {
         String status = wasSuccess ? "succeeded" : "failed";
         String source = (opType == OperationType.SUMMARIZE) ? "Gemini Summary" :
-                (opType == OperationType.TRANSCRIBE && Settings.YANDEX_TRANSCRIBE_SUBTITLES.get()) ? "Yandex Transcription" :
+                (opType == OperationType.TRANSCRIBE && Settings.YANDEX_TRANSCRIBE_SUBTITLES.get()) ? "Yandex/Gemini Transcription" :
                         "Gemini Transcription";
 
         String reason = isCancelled ? "operation was cancelled" :
-                "new operation (" + currentOperation + " for " + currentVideoUrl + ") started";
+                (currentOperation != OperationType.NONE ? "new operation (" + currentOperation + " for " + currentVideoUrl + ") started" : "operation finished/reset");
+
 
         Logger.printDebug(() -> "Ignoring irrelevant " + source + " response (" + status + ") for " + videoUrl + " because " + reason + ".");
         // No state changes needed here, the relevant reset happened during cancellation or preparation for the new task.
@@ -651,17 +864,16 @@ public final class GeminiManager {
         stopTimerInternal();
 
         // Only reset core state flags if the operation being reset IS the currently active one.
-        // This prevents a late callback from an old operation resetting the state of a new one.
         if (currentOperation == opBeingReset) {
             Logger.printDebug(() -> "Resetting core flags (currentOp=NONE) as opBeingReset matches currentOperation.");
             isCancelled = false;
             isProgressDialogMinimized = false;
-            isWaitingForYandexRetry = false;
-            lastYandexStatusMessage = null;
             currentOperation = OperationType.NONE;
             currentVideoUrl = null;
             startTimeMillis = -1;
             baseLoadingMessage = null;
+            determinedTargetLanguageCode = null;
+            intermediateLanguageCode = null;
         } else {
             Logger.printDebug(() -> "Skipping core flag reset - current logical operation (" + currentOperation + ") differs from opBeingReset (" + opBeingReset + ").");
         }
@@ -678,12 +890,14 @@ public final class GeminiManager {
             if (opBeingReset == OperationType.TRANSCRIBE || opBeingReset == OperationType.NONE) {
                 clearTranscriptionCacheAndHideOverlay();
             }
+
+            // This ensures a cancelled Yandex poll doesn't leave stale state for the next operation,
+            // even if currentOperation was quickly changed by a new request.
+            isWaitingForYandexRetry = false;
+            lastYandexStatusMessage = null;
+            Logger.printDebug(() -> "Unconditionally reset Yandex polling state flags due to clearCacheAndUI=true.");
         } else {
             Logger.printDebug(() -> "clearCacheAndUI=false: Preserving caches and potentially visible UI (overlay).");
-            // If opBeingReset was TRANSCRIBE and clearCacheAndUI is false (i.e., success case leaving overlay visible),
-            // the overlay instance (`subtitleOverlay`) and its showing flag (`isSubtitleOverlayShowing`) remain untouched here.
-            // They are managed by display/hide calls. The core state (currentOperation=NONE) indicates the *manager* is idle,
-            // even if the overlay UI persists from the last successful operation.
         }
     }
 
@@ -780,6 +994,66 @@ public final class GeminiManager {
         }
     }
 
+    /**
+     * Gets a Locale object from a language code string (e.g., "en", "es", "pt-BR").
+     * Handles potential exceptions during Locale creation.
+     *
+     * @param langCode The language code string.
+     * @return A Locale object, or Locale.ENGLISH as a fallback if the code is invalid/null.
+     */
+    @NonNull
+    private Locale getLocaleFromCode(@Nullable String langCode) {
+        if (TextUtils.isEmpty(langCode)) {
+            Logger.printDebug(() -> "getLocaleFromCode: received empty code, returning Locale.ENGLISH");
+            return Locale.ENGLISH;
+        }
+        try {
+            // Use Locale.Builder for better BCP 47 tag handling
+            return new Locale.Builder().setLanguageTag(langCode.replace("_", "-")).build();
+        } catch (Exception e) {
+            Logger.printException(() -> "Could not create Locale from language tag: " + langCode + ". Returning Locale.ENGLISH.", e);
+        }
+        return Locale.ENGLISH; // Fallback on error
+    }
+
+    /**
+     * Gets the display name for a given Locale, in English.
+     * Uses standard Locale methods.
+     *
+     * @param locale The Locale object.
+     * @return The display name in English (e.g., "Spanish", "German"), or the language code as fallback.
+     */
+    @NonNull
+    private String getLanguageNameFromLocale(@Nullable Locale locale) {
+        if (locale == null) {
+            Logger.printDebug(() -> "getLanguageNameFromLocale: received null locale, returning 'English'");
+            return "English"; // Default name for null locale
+        }
+        try {
+            String displayName = locale.getDisplayLanguage(Locale.ENGLISH);
+            // Return display name if it's valid and different from the code (more user-friendly)
+            if (!TextUtils.isEmpty(displayName) && !displayName.equalsIgnoreCase(locale.getLanguage())) {
+                return displayName;
+            } else {
+                // If display name is empty or just the code, return the code capitalized
+                String langCode = locale.getLanguage();
+                if (!TextUtils.isEmpty(langCode)) {
+                    return langCode.substring(0, 1).toUpperCase(Locale.ENGLISH) + langCode.substring(1);
+                }
+                Logger.printInfo(() -> "getLanguageNameFromLocale: Could not get valid display name or code for locale: " + locale);
+            }
+        } catch (Exception e) {
+            Logger.printException(() -> "Failed to get display name for locale " + locale + ". Returning code.", e);
+            String langCode = locale.getLanguage();
+            if (!TextUtils.isEmpty(langCode)) {
+                return langCode; // Return code on error
+            }
+        }
+        Logger.printInfo(() -> "getLanguageNameFromLocale: Reached absolute fallback, returning 'English'");
+        return "English"; // Absolute fallback
+    }
+
+
     // endregion Utility Methods
 
     // region UI Methods: Dialogs
@@ -818,40 +1092,59 @@ public final class GeminiManager {
 
         // Cancel Button
         builder.setNegativeButton(str("revanced_cancel"), (d, w) -> {
-            final OperationType opAtClick = opType;
+            final OperationType opAtClick = currentOperation;
             final String urlAtClick = currentVideoUrl;
-            ensureMainThread(() -> {
-                assert urlAtClick != null;
-                if (isOperationRelevant(opAtClick, urlAtClick)) {
-                    Logger.printInfo(() -> currentOperation + " cancelled by user for " + currentVideoUrl);
-                    isCancelled = true;
-                    isWaitingForYandexRetry = false; // Stop potential Yandex polling state
 
-                    if (currentOperation == OperationType.SUMMARIZE || (currentOperation == OperationType.TRANSCRIBE && !Settings.YANDEX_TRANSCRIBE_SUBTITLES.get())) {
+            ensureMainThread(() -> {
+                if (urlAtClick == null) {
+                    Logger.printInfo(() -> "Cancel clicked but urlAtClick was null.");
+                    try {d.dismiss();} catch (Exception ignored) {}
+                    return;
+                }
+
+                // Check relevance *at the time of the click*
+                if (isOperationRelevant(opAtClick, urlAtClick)) {
+                    Logger.printInfo(() -> opAtClick + " cancelled by user for " + urlAtClick);
+                    isCancelled = true;
+
+                    if (opAtClick == OperationType.TRANSCRIBE && Settings.YANDEX_TRANSCRIBE_SUBTITLES.get()) {
+                        YandexVotUtils.forceReleaseWorkflowLock(urlAtClick);
+                    }
+
+                    if (opAtClick == OperationType.SUMMARIZE || (opAtClick == OperationType.TRANSCRIBE && !Settings.YANDEX_TRANSCRIBE_SUBTITLES.get())) {
                         GeminiUtils.cancelCurrentTask();
                     }
 
+                    isWaitingForYandexRetry = false;
+                    lastYandexStatusMessage = null;
+
+                    // Note: Yandex workflow cancellation needs to be handled within YandexVotUtils if possible,
+                    // otherwise, we just rely on the isOperationRelevant checks in its callbacks.
+
                     // Reset state fully on manual cancel (clears UI, cache)
-                    resetOperationStateInternal(currentOperation, true);
+                    resetOperationStateInternal(opAtClick, true);
                     showToastShort(str("revanced_gemini_cancelled"));
                 } else {
                     Logger.printDebug(() -> "Cancel button clicked for irrelevant dialog. Dismissing.");
                     try {d.dismiss();} catch (Exception ignored) {}
+                    // Do not reset state here, as the *current* operation might be valid
                 }
             });
         });
 
         // Minimize Button
         builder.setNeutralButton(str("revanced_minimize"), (d, w) -> {
-            final OperationType opAtClick = opType;
+            final OperationType opAtClick = currentOperation;
             final String urlAtClick = currentVideoUrl;
+
             ensureMainThread(() -> {
                 assert urlAtClick != null;
                 if (isOperationRelevant(opAtClick, urlAtClick) && !isProgressDialogMinimized) {
-                    Logger.printInfo(() -> currentOperation + " progress dialog minimized for " + currentVideoUrl);
+                    Logger.printInfo(() -> opAtClick + " progress dialog minimized for " + urlAtClick);
                     isProgressDialogMinimized = true;
                     stopTimerInternal(); // Stop UI updates while minimized
                     dismissProgressDialogInternal();
+                    // State remains active, just UI is hidden
                 } else {
                     Logger.printDebug(() -> "Minimize button clicked for irrelevant or already minimized dialog. Dismissing.");
                     try {d.dismiss();} catch (Exception ignored) {}
@@ -872,10 +1165,10 @@ public final class GeminiManager {
                 if (isOperationRelevant(opType, Objects.requireNonNull(currentVideoUrl))) {
                     showToastLong(str("revanced_gemini_error_dialog_show") + ": " + e.getMessage());
                     isCancelled = true;
-                    if (currentOperation == OperationType.SUMMARIZE || (currentOperation == OperationType.TRANSCRIBE && !Settings.YANDEX_TRANSCRIBE_SUBTITLES.get())) {
+                    if (opType == OperationType.SUMMARIZE || (opType == OperationType.TRANSCRIBE && !Settings.YANDEX_TRANSCRIBE_SUBTITLES.get())) {
                         GeminiUtils.cancelCurrentTask();
                     }
-                    resetOperationStateInternal(currentOperation, true);
+                    resetOperationStateInternal(opType, true);
                 }
             });
         }
@@ -890,18 +1183,20 @@ public final class GeminiManager {
     private void dismissProgressDialogInternal() {
         stopTimerInternal();
 
-        if (progressDialog != null) {
-            if (progressDialog.isShowing()) {
+        AlertDialog dialog = this.progressDialog; // Use local copy for thread safety
+        if (dialog != null) {
+            if (dialog.isShowing()) {
                 try {
-                    progressDialog.dismiss();
+                    dialog.dismiss();
                     Logger.printDebug(() -> "Progress dialog dismissed.");
                 } catch (Exception e) {
                     Logger.printException(() -> "Error dismissing progress dialog", e);
                 }
             }
-            progressDialog = null;
+            this.progressDialog = null;
         }
-        // Do NOT reset isProgressDialogMinimized here. It's reset when showing or fully resetting state.
+        // Do NOT reset isProgressDialogMinimized here. That flag indicates the *logical* state,
+        // managed by the minimize button and prepare/reset methods.
     }
 
     /**
@@ -928,6 +1223,7 @@ public final class GeminiManager {
     /**
      * Displays the raw Gemini transcription result in an AlertDialog.
      * Includes options to copy or attempt to parse and show as an overlay.
+     * This is primarily used when Yandex subtitles are OFF.
      * Must be called on the Main Thread.
      *
      * @param context          Context for creating the dialog.
@@ -941,7 +1237,7 @@ public final class GeminiManager {
         String msg = rawTranscription + timeMsg;
 
         final String dialogVideoUrl = currentVideoUrl;
-        final OperationType dialogOpType = currentOperation; // Should be "TRANSCRIBE"
+        final OperationType dialogOpType = OperationType.TRANSCRIBE;
 
         new AlertDialog.Builder(context)
                 .setTitle(str("revanced_gemini_transcription_result_title"))
@@ -952,8 +1248,7 @@ public final class GeminiManager {
                 .setNeutralButton(str("revanced_gemini_transcription_parse_button"), (dialog, which) -> {
                     // Ensure this action is still relevant when the button is clicked
                     ensureMainThread(() -> {
-                        assert dialogVideoUrl != null;
-                        if (!isOperationRelevant(dialogOpType, dialogVideoUrl)) {
+                        if (!isOperationRelevant(dialogOpType, Objects.requireNonNull(dialogVideoUrl))) {
                             Logger.printDebug(() -> "Parse button click ignored, operation no longer relevant.");
                             String busyMsg = (currentOperation != OperationType.NONE)
                                     ? str("revanced_gemini_error_already_running_" + currentOperation.name().toLowerCase())
@@ -987,37 +1282,50 @@ public final class GeminiManager {
     /**
      * Attempts to parse the cached raw Gemini transcription data ({@link #cachedRawTranscription})
      * and, if successful, displays it using the subtitle overlay.
-     * Ensures any previous overlay is hidden first.
+     * Ensures any previous overlay is hidden first. Used only when Yandex is OFF.
      * Must be called on the Main Thread.
      *
      * @return {@code true} if parsing and displaying were successful, {@code false} otherwise.
      */
     @MainThread
     private boolean attemptParseAndDisplayCachedTranscriptionInternal() {
-        Logger.printDebug(() -> "Attempting parse/display cached Gemini transcription...");
+        Logger.printDebug(() -> "Attempting parse/display cached RAW Gemini transcription...");
 
         if (TextUtils.isEmpty(cachedRawTranscription)) {
-            Logger.printException(() -> "Cannot parse, cached raw Gemini data is empty.", null);
+            Logger.printException(() -> "Cannot parse raw Gemini data, cache is empty.", null);
             showToastLong(str("revanced_gemini_error_transcription_no_raw_data"));
             hideTranscriptionOverlayInternal();
             return false;
         }
 
-        TreeMap<Long, Pair<Long, String>> parsedData = null;
+        TreeMap<Long, Pair<Long, String>> parsedData;
         try {
             parsedData = parseGeminiTranscriptionInternal(cachedRawTranscription);
         } catch (Exception e) {
-            Logger.printException(() -> "Failed to parse cached Gemini data.", e);
-        }
-
-        if (parsedData == null || parsedData.isEmpty()) {
-            Logger.printException(() -> "Parsed Gemini data is null or empty after parsing raw text.", null);
-            showToastLong(str("revanced_gemini_error_transcription_parse"));
-            parsedTranscription = null;
+            Logger.printException(() -> "Failed to parse cached raw Gemini data.", e);
+            showToastLong(str("revanced_gemini_error_transcription_parse") + ": " + e.getMessage());
             hideTranscriptionOverlayInternal();
+            parsedTranscription = null;
             return false;
         }
 
+        // Check if parsing succeeded but yielded no results
+        if (parsedData.isEmpty()) {
+            // Check if the raw text was actually empty vs. parsing failed to find entries
+            if (cachedRawTranscription.trim().isEmpty()) {
+                Logger.printInfo(() -> "Raw Gemini transcription was empty, parsed to empty map.");
+            } else {
+                Logger.printException(() -> "Parsed Gemini data is null or empty after parsing non-empty raw text.", null);
+                showToastLong(str("revanced_gemini_error_transcription_parse"));
+            }
+            parsedTranscription = parsedData;
+            hideTranscriptionOverlayInternal();
+            // Return true if raw text was empty, false if parsing failed on non-empty text?
+            // Let's return false if parsing non-empty text yielded nothing.
+            return cachedRawTranscription.trim().isEmpty();
+        }
+
+        // Successfully parsed Gemini data
         TreeMap<Long, Pair<Long, String>> finalParsedData = parsedData;
         Logger.printDebug(() -> "Successfully parsed " + finalParsedData.size() + " Gemini entries.");
 
@@ -1041,7 +1349,6 @@ public final class GeminiManager {
      * @param rawText The raw transcription string.
      * @return A TreeMap mapping start times (ms) to Pairs of end times (ms) and subtitle text.
      * Returns an empty map if the input is empty or no valid lines are found.
-     * Returns null only if a critical error occurs during parsing setup (unlikely).
      */
     @NotNull
     private TreeMap<Long, Pair<Long, String>> parseGeminiTranscriptionInternal(@NonNull String rawText) {
@@ -1083,10 +1390,12 @@ public final class GeminiManager {
                     if (et > st && !trimmedText.isEmpty()) {
                         map.put(st, new Pair<>(et, trimmedText));
                     } else {
-                        Logger.printDebug(() -> "Skipping invalid Gemini line (timing or empty text): " + trimmedLine);
+                        Logger.printDebug(() -> "Skipping invalid Gemini line (timing=" + (et > st) + ", emptyText=" + trimmedText.isEmpty() + "): " + trimmedLine);
                     }
                 } catch (NumberFormatException e) {
                     Logger.printException(() -> "Number format error parsing Gemini line: " + trimmedLine, e);
+                } catch (NullPointerException e) {
+                    Logger.printException(() -> "Regex group missing in Gemini line (unexpected format): " + trimmedLine, e);
                 } catch (Exception e) {
                     Logger.printException(() -> "Unexpected error processing Gemini line: " + trimmedLine, e);
                 }
@@ -1120,13 +1429,20 @@ public final class GeminiManager {
             if (cleanedMs.isEmpty()) return 0L;
             if (cleanedMs.length() > 3) {
                 cleanedMs = cleanedMs.substring(0, 3);
+                String finalCleanedMs = cleanedMs;
+                Logger.printInfo(() -> "Millisecond string longer than 3 digits, truncated: " + msString + " -> " + finalCleanedMs);
             }
 
             long ms = Long.parseLong(cleanedMs);
 
-            if (msString.length() == 1) return ms * 100;
-            if (msString.length() == 2) return ms * 10;
-            return ms;
+            int originalLength = msString.length();
+            if (originalLength == 1) {
+                return ms * 100; // "1" -> 100
+            } else if (originalLength == 2) {
+                return ms * 10;  // "12" -> 120
+            } else {
+                return ms;     // "123" -> 123
+            }
         } catch (NumberFormatException e) {
             Logger.printException(() -> "Could not parse millisecond string: " + msString, e);
             return 0L;
@@ -1144,10 +1460,15 @@ public final class GeminiManager {
     private boolean displayTranscriptionOverlayInternal() {
         Logger.printDebug(() -> "Attempting display transcription overlay...");
 
-        if (parsedTranscription == null || parsedTranscription.isEmpty()) {
-            Logger.printInfo(() -> "No parsed transcription data available to display overlay.");
+        // Check if we have parsed data (could be from Yandex direct, Yandex+Gemini, or Gemini direct)
+        if (parsedTranscription == null) {
+            Logger.printInfo(() -> "No parsed transcription data available to display overlay (parsedTranscription is null).");
             hideTranscriptionOverlayInternal();
             return false;
+        }
+        if (parsedTranscription.isEmpty()) {
+            Logger.printInfo(() -> "Parsed transcription data is empty. Displaying overlay with placeholder.");
+            // Proceed to show overlay, it will just display "..."
         }
 
         hideTranscriptionOverlayInternal();
@@ -1194,15 +1515,20 @@ public final class GeminiManager {
             stopSubtitleUpdaterInternal();
 
             final SubtitleOverlay overlayInstance = this.subtitleOverlay;
-            final View viewToRemove = (overlayInstance != null) ? overlayInstance.getOverlayView() : null;
 
             if (overlayInstance != null) {
                 Logger.printInfo(() -> "Hiding and cleaning up transcription overlay instance.");
+                final View viewToRemove = overlayInstance.getOverlayView();
 
+                // Nullify references immediately
+                this.isSubtitleOverlayShowing = false;
+                this.subtitleOverlay = null;
+
+                // Attempt to remove the view
                 if (viewToRemove != null) {
                     try {
+                        // Get WindowManager using the context stored in the overlay instance
                         WindowManager wm = (WindowManager) overlayInstance.context.getSystemService(Context.WINDOW_SERVICE);
-                        // OR pass the manager's context if reliable
                         if (wm != null) {
                             Logger.printDebug(() -> "Attempting removeViewImmediate directly from GeminiManager...");
                             wm.removeViewImmediate(viewToRemove);
@@ -1211,7 +1537,7 @@ public final class GeminiManager {
                             Logger.printException(() -> "WindowManager was null when attempting removal from manager.");
                         }
                     } catch (IllegalArgumentException e) {
-                        // This is expected if the view was somehow already removed (e.g., user clicked just before this ran)
+                        // View might already be removed if user action was faster or if destroy() was called first
                         Logger.printInfo(() -> "Manager's direct removal attempt failed (IllegalArgumentException - view likely already gone or never properly added).");
                     } catch (Exception e) {
                         Logger.printException(() -> "Manager's direct removal attempt failed unexpectedly.", e);
@@ -1220,12 +1546,11 @@ public final class GeminiManager {
                     Logger.printDebug(() -> "Manager skipping direct removal attempt (view was null in the tracked overlay instance).");
                 }
 
-                this.isSubtitleOverlayShowing = false;
-                this.subtitleOverlay = null;
-
+                // Finally, call destroy on the original instance to release its resources
                 overlayInstance.destroy();
             } else {
                 if (isSubtitleOverlayShowing) {
+                    Logger.printDebug(() -> "hideTranscriptionOverlayInternal: Overlay instance was null, ensuring flag is false.");
                     isSubtitleOverlayShowing = false;
                 }
             }
@@ -1239,22 +1564,25 @@ public final class GeminiManager {
      */
     @MainThread
     private void startSubtitleUpdaterInternal() {
-        if (!isSubtitleOverlayShowing || parsedTranscription == null || parsedTranscription.isEmpty() || subtitleOverlay == null) {
-            Logger.printInfo(() -> "Subtitle updater preconditions not met. Stopping.");
+        if (!isSubtitleOverlayShowing || parsedTranscription == null || subtitleOverlay == null) {
+            Logger.printInfo(() -> "Subtitle updater preconditions not met. Stopping. isShowing=" + isSubtitleOverlayShowing + ", parsedDataNull=" + (parsedTranscription == null) + ", overlayNull=" + (subtitleOverlay == null));
             stopSubtitleUpdaterInternal();
             return;
         }
 
-        Logger.printDebug(() -> "Starting subtitle updater.");
         stopSubtitleUpdaterInternal();
+        Logger.printDebug(() -> "Starting subtitle updater.");
 
         subtitleUpdateRunnable = new Runnable() {
             private String lastTextSentToOverlay = null; // Track last text to avoid redundant UI updates
 
             @Override
             public void run() {
-                if (!isSubtitleOverlayShowing || parsedTranscription == null || subtitleOverlay == null) {
-                    Logger.printDebug(() -> "Stopping updater in runnable: state invalid.");
+                SubtitleOverlay currentOverlay = subtitleOverlay;
+                TreeMap<Long, Pair<Long, String>> currentParsedData = parsedTranscription;
+
+                if (!isSubtitleOverlayShowing || currentParsedData == null || currentOverlay == null) {
+                    Logger.printDebug(() -> "Stopping updater in runnable: state became invalid. isShowing=" + isSubtitleOverlayShowing + ", parsedDataNull=" + (currentParsedData == null) + ", overlayNull=" + (currentOverlay == null));
                     subtitleUpdateRunnable = null;
                     return;
                 }
@@ -1275,7 +1603,7 @@ public final class GeminiManager {
                 // Only call updateText on the overlay if the text actually changed
                 if (!Objects.equals(textToShow, lastTextSentToOverlay)) {
                     try {
-                        subtitleOverlay.updateText(textToShow);
+                        currentOverlay.updateText(textToShow);
                         lastTextSentToOverlay = textToShow;
                     } catch (Exception e) {
                         Logger.printException(() -> "CRITICAL - Error updating overlay text view.", e);
@@ -1321,17 +1649,20 @@ public final class GeminiManager {
      */
     @NonNull
     private String findSubtitleTextForTimeInternal(long currentTimeMillis) {
-        if (parsedTranscription == null || parsedTranscription.isEmpty() || currentTimeMillis < 0) {
+        TreeMap<Long, Pair<Long, String>> currentParsed = this.parsedTranscription;
+        if (currentParsed == null || currentParsed.isEmpty() || currentTimeMillis < 0) {
             return EMPTY_SUBTITLE_PLACEHOLDER;
         }
 
         // Find the latest entry whose start time is less than or equal to the current time
-        Map.Entry<Long, Pair<Long, String>> entry = parsedTranscription.floorEntry(currentTimeMillis);
+        Map.Entry<Long, Pair<Long, String>> entry = currentParsed.floorEntry(currentTimeMillis);
 
         if (entry != null) {
+            // No need to read key/value again, use entry directly
             long startTime = entry.getKey();
-            long endTime = entry.getValue().first;
-            String text = entry.getValue().second;
+            Pair<Long, String> value = entry.getValue();
+            long endTime = value.first;
+            String text = value.second;
 
             if (currentTimeMillis >= startTime && currentTimeMillis < endTime) {
                 return !TextUtils.isEmpty(text) ? text : EMPTY_SUBTITLE_PLACEHOLDER;
@@ -1357,17 +1688,19 @@ public final class GeminiManager {
             return;
         }
 
-        Logger.printDebug(() -> "Starting progress timer.");
         stopTimerInternal();
+        Logger.printDebug(() -> "Starting progress timer.");
+
 
         timerRunnable = new Runnable() {
             @Override
             public void run() {
-                if (currentOperation != OperationType.NONE && !isCancelled && !isProgressDialogMinimized && startTimeMillis > 0 && progressDialog != null && progressDialog.isShowing()) {
+                AlertDialog currentDialog = progressDialog;
+                if (currentOperation != OperationType.NONE && !isCancelled && !isProgressDialogMinimized && startTimeMillis > 0 && currentDialog != null && currentDialog.isShowing()) {
                     updateTimerMessageInternal();
                     timerHandler.postDelayed(this, 1000);
                 } else {
-                    Logger.printDebug(() -> "Stopping timer in runnable: state invalid.");
+                    Logger.printDebug(() -> "Stopping timer in runnable: state became invalid. Op=" + currentOperation + ", cancelled=" + isCancelled + ", minimized=" + isProgressDialogMinimized + ", dialogNull=" + (currentDialog == null));
                     timerRunnable = null;
                     // Do not call stopTimerInternal() from here to avoid potential recursion if state check fails repeatedly
                 }
@@ -1398,7 +1731,9 @@ public final class GeminiManager {
      */
     @MainThread
     private void updateTimerMessageInternal() {
-        if (progressDialog != null && progressDialog.isShowing() && !isCancelled && !isProgressDialogMinimized && startTimeMillis > 0) {
+        AlertDialog currentDialog = this.progressDialog;
+
+        if (currentDialog != null && currentDialog.isShowing() && !isCancelled && !isProgressDialogMinimized && startTimeMillis > 0) {
             int sec = calculateElapsedTimeSeconds();
             if (sec < 0) return;
 
@@ -1409,13 +1744,14 @@ public final class GeminiManager {
             String msg = base + time;
 
             try {
-                // Try direct TextView access (potentially slightly faster)
-                TextView tv = progressDialog.findViewById(android.R.id.message);
+                // Try direct TextView access (potentially slightly faster if ID is reliable)
+                TextView tv = currentDialog.findViewById(android.R.id.message);
                 if (tv != null) {
                     tv.setText(msg);
                 } else {
-                    // Fallback if direct access fails
-                    progressDialog.setMessage(msg);
+                    // Fallback to standard setMessage if TextView ID fails
+                    Logger.printDebug(() -> "Could not find TextView with android.R.id.message, using dialog.setMessage().");
+                    currentDialog.setMessage(msg);
                 }
             } catch (Exception e) {
                 Logger.printException(() -> "Error updating progress dialog timer message", e);
