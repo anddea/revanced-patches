@@ -19,7 +19,7 @@ GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
     <string name="gms_core_settings_summary">RVX 알림 수신을 위한 클라우드 메시징 설정을 할 수 있습니다.</string>
     <string name="gms_core_settings_title">GmsCore 설정 열기</string>
     <string name="gms_core_toast_not_installed_message">GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
-    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다. 
+    <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다.
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다.
 
@@ -94,7 +94,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_live_ring_click_action_summary_off">라이브 링이 표시된 채널 아이콘을 누르면 실시간 스트림 동영상으로 연결됩니다.</string>
     <string name="revanced_change_live_ring_click_action_summary_on">"라이브 링이 표시된 채널 아이콘을 누르면 채널 프로필으로 연결됩니다.
 
-알려진 문제점: 
+알려진 문제점:
 • '일반 플레이어에서 Shorts 재생하기' 설정으로 인하여 일반 플레이어에서 Shorts 실시간 스트림이 재생된다면, 채널 프로필으로 연결되지 않을 수 있습니다."</string>
     <string name="revanced_change_live_ring_click_action_title">라이브 링 누르기 동작 변경하기</string>
     <string name="revanced_change_player_flyout_menu_toggle_summary_off">스위치 토글으로 표시합니다.</string>
@@ -154,6 +154,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_title">YouTube 헤더 변경하기</string>
     <string name="revanced_copy">복사</string>
+    <string name="revanced_copy_error">텍스트를 복사할 수 없습니다.</string>
     <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다.\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다.</string>
     <string name="revanced_custom_filter_strings_title">사용자 정의 필터 편집하기</string>
     <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다.</string>
@@ -172,7 +173,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_custom_player_overlay_opacity_title">사용자 정의 플레이어 오버레이 불투명도</string>
     <string name="revanced_custom_seekbar_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_accent_title">사용자 정의 재생바 보조 색상</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">잘못된 재생바 색상입니다.</string>
+    <string name="revanced_custom_seekbar_color_invalid_toast">잘못된 재생바 헥스 코드입니다.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요.</string>
     <string name="revanced_custom_seekbar_color_primary_title">사용자 정의 재생바 메인 색상</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 RVX로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
@@ -368,7 +369,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_off">툴바에서 사용자 정의 동작을 비활성화합니다.</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_summary_on">"툴바에서 사용자 정의 동작을 활성화합니다.
 
-'더보기' 버튼을 길게 누르면, 사용자 정의 동작 다이얼로그가 표시됩니다."</string>
+• '더보기' 버튼을 길게 누르면, 사용자 정의 동작 다이얼로그가 표시됩니다."</string>
     <string name="revanced_enable_shorts_custom_actions_toolbar_title">툴바에서 사용자 정의 동작 활성화하기</string>
     <string name="revanced_enable_shorts_time_stamp_summary_off">타임스탬프를 비활성화합니다.</string>
     <string name="revanced_enable_shorts_time_stamp_summary_on">"타임스탬프를 활성화합니다.
@@ -430,7 +431,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enter_fullscreen_summary_off">동영상이 시작할 때, 전체 화면으로 들어가지 않습니다.</string>
     <string name="revanced_enter_fullscreen_summary_on">"동영상이 시작할 때, 전체 화면으로 들어갑니다.
 
-알려진 문제점: 
+알려진 문제점:
 • 플레이어가 최소화되어 있거나 PIP 모드 또는 백그라운드 재생에 있는 경우에는 작동되지 않습니다."</string>
     <string name="revanced_enter_fullscreen_title">동영상이 시작할 때, 전체 화면으로 들어가기</string>
     <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
@@ -474,21 +475,30 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_external_downloader_package_name_video_summary">NewPipe 또는 YTDLnis와 같은 설치된 외부 다운로더 앱 패키지명을 설정하세요.</string>
     <string name="revanced_external_downloader_package_name_video_title">동영상 외부 다운로더 앱 패키지명</string>
     <string name="revanced_fullscreen_ads_closed_toast">전체 화면 광고가 닫아졌습니다.</string>
-    <string name="revanced_gemini_cancelled">요약을 취소하였습니다.</string>
+    <string name="revanced_gemini_cancelled">취소하였습니다.</string>
     <string name="revanced_gemini_copy_success">요약을 클립보드에 복사하였습니다.</string>
     <string name="revanced_gemini_error_already_running_summarize">요약이 이미 진행 중입니다.</string>
     <string name="revanced_gemini_error_already_running_transcribe">필사가 이미 진행 중입니다.</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex 필사기가 이미 실행 중입니다.</string>
     <string name="revanced_gemini_error_api_failed">Gemini API 요청을 할 수 없습니다: %s</string>
+    <string name="revanced_gemini_error_dialog_show">다이얼로그를 표시할 수 없습니다.</string>
     <string name="revanced_gemini_error_no_api_key">RVX 설정에서 Gemini API Key가 설정되어 있지 않습니다.</string>
     <string name="revanced_gemini_error_no_video">동영상 URL을 가져올 수 없습니다.</string>
+    <string name="revanced_gemini_error_overlay_display">자막 오버레이를 표시할 수 없습니다.</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">구문 분석할 처리되지 않은 필사 데이터가 없습니다.</string>
     <string name="revanced_gemini_error_transcription_parse">필사 데이터를 분석할 수 없습니다.</string>
+    <string name="revanced_gemini_error_translation_failed">Gemini가 번역할 수 없습니다.</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Gemini가 번역 분석을 할 수 없습니다.</string>
     <string name="revanced_gemini_error_unknown">알 수 없는 문제점이 발생하였습니다.</string>
+    <string name="revanced_gemini_loading_default">불러오는 중 ...</string>
     <string name="revanced_gemini_loading_summarize">동영상을 요약하는 중 ...</string>
     <string name="revanced_gemini_loading_transcribe">동영상을 필사하는 중 ...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: 자막을 가져오는 중 …</string>
+    <string name="revanced_gemini_status_translating">Gemini로 번역하는 중 ...\n\n⚠️ Gemini가 지침을 무시하거나 한계에 도달하면 이 단계가 실패할 수 있습니다.</string>
     <string name="revanced_gemini_summary_title">Gemini 동영상 요약</string>
     <string name="revanced_gemini_time_taken">(%d 초가 소요되었습니다.)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">자막으로 표시하려면 \'다른 앱 위에 표시\' 권한을 활성화하세요.</string>
-    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n자막 상자는 다른 앱 위에 표시할 수 있으며, RVX에서 \'다른 앱 위에 표시\' 권한을 활성화해야 합니다. 자막 상자를 숨기려면 자막 상자를 누르세요.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">필사된 동영상 자막의 폰트 사이즈를 지정할 수 있습니다.\n\n• 자막 상자를 숨기려면 자막 상자를 누르세요.</string>
     <string name="revanced_gemini_transcribe_subtitles_font_size_title">자막 폰트 사이즈</string>
     <string name="revanced_gemini_transcription_parse_button">자막</string>
     <string name="revanced_gemini_transcription_parse_success">자막을 성공적으로 분석하였습니다.</string>
@@ -663,8 +673,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_feed_survey_summary_off">피드 설문 조사가 표시됩니다.</string>
     <string name="revanced_hide_feed_survey_summary_on">피드 설문 조사가 숨겨집니다.</string>
     <string name="revanced_hide_feed_survey_title">피드 설문 조사 숨기기</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">필름 스트립 오버레이가 표시됩니다.\n• 
-세밀하게 보면서 탐색 제스처</string>
+    <string name="revanced_hide_filmstrip_overlay_summary_off">필름 스트립 오버레이가 표시됩니다.\n• 세밀하게 보면서 탐색 제스처</string>
     <string name="revanced_hide_filmstrip_overlay_summary_on">필름 스트립 오버레이가 숨겨집니다.\n• 세밀하게 보면서 탐색 제스처</string>
     <string name="revanced_hide_filmstrip_overlay_title">필름 스트립 오버레이 숨기기</string>
     <string name="revanced_hide_floating_button_summary_off">플로팅 버튼이 표시됩니다.</string>
@@ -755,8 +764,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_live_chat_messages_summary_off">실시간 채팅 메시지가 표시됩니다.\n\n이 설정은 Shorts 실시간 스트림에도 적용됩니다.</string>
     <string name="revanced_hide_live_chat_messages_summary_on">실시간 채팅 메시지가 숨겨집니다.\n\n이 설정은 Shorts 실시간 스트림에도 적용됩니다.</string>
     <string name="revanced_hide_live_chat_messages_title">실시간 채팅 메시지 숨기기</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_off">실시간 채팅 다시보기 버튼이 표시됩니다.\n\n이 버튼은 전체 화면에서 실시간 채팅이 종료되었을 때, 오른쪽 하단에서 표시됩니다.</string>
-    <string name="revanced_hide_live_chat_replay_button_summary_on">실시간 채팅 다시보기 버튼이 숨겨집니다.\n\n이 버튼은 전체 화면에서 실시간 채팅이 종료되었을 때, 오른쪽 하단에서 표시됩니다.</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_off">실시간 채팅 다시보기 버튼이 표시됩니다.\n\n• 이 버튼은 전체 화면에서 실시간 채팅이 종료되었을 때, 오른쪽 하단에서 표시됩니다.</string>
+    <string name="revanced_hide_live_chat_replay_button_summary_on">실시간 채팅 다시보기 버튼이 숨겨집니다.\n\n• 이 버튼은 전체 화면에서 실시간 채팅이 종료되었을 때, 오른쪽 하단에서 표시됩니다.</string>
     <string name="revanced_hide_live_chat_replay_button_title">실시간 채팅 다시보기 버튼 숨기기</string>
     <string name="revanced_hide_live_chat_summary_summary_off">채팅 요약이 표시됩니다.</string>
     <string name="revanced_hide_live_chat_summary_summary_on">채팅 요약이 숨겨집니다.</string>
@@ -1139,7 +1148,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_hide_shorts_shelf_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
     <string name="revanced_hide_shorts_shelf_summary">"Shorts 선반이 숨겨집니다.
 
-알려진 문제점: 
+알려진 문제점:
 검색 결과에서 다음 헤더가 숨겨집니다.
 • 아티스트 또는 크리에이터의 최신 동영상
 • 이전에 시청한 동영상
@@ -1308,7 +1317,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_keep_landscape_mode_summary">자동 회전 모드를 켜지 않고, 전체 화면으로 시청 중 화면을 껐다 켰을 때, 가로 모드를 유지합니다.</string>
     <string name="revanced_keep_landscape_mode_summary_off">화면을 껐다 켜면 동영상을 세로 모드에서 재생합니다.</string>
     <string name="revanced_keep_landscape_mode_summary_on">화면을 껐다 켜도 동영상을 가로 모드에서 계속 재생합니다.</string>
-    <string name="revanced_keep_landscape_mode_timeout_summary">가로 모드로 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)\n\n화면을 끄고 이 시간이 지나고 다시 켰을 때는 세로 모드로 적용됩니다.</string>
+    <string name="revanced_keep_landscape_mode_timeout_summary">화면이 켜진 후에 가로 모드가 강제로 유지되는 시간을 지정할 수 있습니다. (밀리초)</string>
     <string name="revanced_keep_landscape_mode_timeout_title">가로 모드 유지하기 제한 시간</string>
     <string name="revanced_keep_landscape_mode_title">가로 모드 유지하기</string>
     <string name="revanced_language_AM">"암하라어
@@ -2002,8 +2011,8 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 • 대부분의 버그는 클라이언트 측의 제한으로 인해 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
     <string name="revanced_shorts_custom_actions_about_summary">"이 설정은 아직 실험 기능이므로 완벽하게 작동한다는 보장은 없습니다.
 
-대부분의 버그는 클라이언트 측의 제한으로 인하여 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
-    <string name="revanced_shorts_custom_actions_about_title">사용자 정의 동작 정보</string>
+• 대부분의 버그는 클라이언트 측의 제한으로 인하여 수정할 수 없으므로 테스트 목적으로만 사용하세요."</string>
+    <string name="revanced_shorts_custom_actions_about_title">사용자 정의 동작에 대한 정보</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_label">동영상 URL 복사</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_off">동영상 URL 복사 메뉴가 숨겨집니다.</string>
     <string name="revanced_shorts_custom_actions_copy_video_url_summary_on">동영상 URL 복사 메뉴가 표시됩니다.</string>
@@ -2054,7 +2063,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_shorts_time_stamp_change_repeat_state_title">타임스탬프 길게 누르기 동작</string>
     <string name="revanced_show_video_title_section_summary">"전체 화면에서 동영상 제목 섹션을 표시합니다.
 
-알려진 문제점: 
+알려진 문제점:
 • 동영상 제목을 누르면 사라집니다."</string>
     <string name="revanced_show_video_title_section_title">동영상 제목 섹션 표시하기</string>
     <string name="revanced_skip_autoplay_countdown_summary_off">자동재생이 활성화되어 있으면, 카운트다운 종료 후에 다음 동영상을 재생합니다</string>
@@ -2148,14 +2157,16 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_spoof_streaming_data_side_effects_unknown">• 동영상이 재생되지 않을 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_off">"Onesie 응답 암호화를 건너뛰지 않습니다.
 
-• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다."</string>
+• 일부 사용자에게 새로운 유형의 동영상 재생 문제가 발생할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_summary_on">"Onesie 응답 암호화를 건너뜁니다.
 
-• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 고쳐질 수 있습니다.
-• AV1 코덱을 사용하지 못할 수 있습니다."</string>
+• 일부 사용자에게 발생되는 새로운 유형의 동영상 재생 문제가 해결될 수 있습니다.
+• AV1 코덱을 사용하지 못할 수 있습니다.
+• 새로운 유형의 동영상 재생 문제는 특정 앱 버전(19.43+)에서 동영상을 재생하면 1분 정도 후에 버퍼링이 생기고 클라이언트가 unknown으로 바뀌면서 화질이 저하되거나 재생할 수 없는 문제를 말합니다."</string>
     <string name="revanced_spoof_streaming_data_skip_response_encryption_title">Onesie 응답 암호화 건너뛰기</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 클라이언트 재생 문제가 발생하면, 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 숨겨집니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다.\n\n• 만약 선택한 기본 클라이언트가 재생할 수 없는 동영상을 재생하려하거나 서버로부터 403 상태코드(클라이언트의 요청 거부)를 받았을 경우에 그 문제를 해결하기 위해 다른 클라이언트가 사용되는 경우도 있기 때문에 전문 통계에서 다르게 표시될 수 있습니다.</string>
     <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
     <string name="revanced_spoof_streaming_data_summary_off">"스트리밍 데이터를 변경하지 않습니다.\n동영상 재생 문제가 발생할 수 있습니다."</string>
     <string name="revanced_spoof_streaming_data_summary_on">스트리밍 데이터를 변경합니다.</string>
@@ -2176,7 +2187,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_spoof_streaming_data_type_ios_summary_off">사용 가능한 클라이언트에 iOS 클라이언트가 추가되지 않습니다.</string>
     <string name="revanced_spoof_streaming_data_type_ios_summary_on">"사용 가능한 클라이언트에 iOS 클라이언트가 추가되었습니다.
 
-경고: 
+경고:
 • iOS 클라이언트는 폐기될 예정입니다. 사용 중 발생하는 모든 문제는 사용자의 책임입니다."</string>
     <string name="revanced_spoof_streaming_data_type_ios_title">iOS 클라이언트 사용하기</string>
     <string name="revanced_spoof_streaming_data_type_ios_user_dialog_message">"iOS를 사용하여 YouTube API 엔드포인트를 요청할 때는 iOS 기기에서 발급된 Auth Token과 iOSGuard에 의해 발급된 PoTokens가 필요합니다.
@@ -2211,7 +2222,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">탐색 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">탐색 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)</string>
     <string name="revanced_swipe_seek_sensitivity_title">탐색 스와이프 민감도</string>
-    <string name="revanced_swipe_show_circular_overlay_summary_off">바형 오버레이를 표시합니다.</string>
+    <string name="revanced_swipe_show_circular_overlay_summary_off">가로 오버레이를 표시합니다.</string>
     <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다.</string>
     <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
     <string name="revanced_swipe_speed_sensitivity_invalid_toast">속도 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
@@ -2268,4 +2279,44 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_whitelist_settings_summary">화이트리스트에 추가된 채널을 확인 또는 제거할 수 있습니다.</string>
     <string name="revanced_whitelist_settings_title">채널 화이트리스트</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_api_final_subs">최종 자막을 가져오는 중에 Yandex API 오류가 발생하였습니다. (상태 코드: %1$d)</string>
+    <string name="revanced_yandex_error_api_poll">투표하는 중에 Yandex API 오류가 발생하였습니다. (상태 코드: %1$d)</string>
+    <string name="revanced_yandex_error_download_subs_failed">자막 파일을 다운로드할 수 없습니다. (상태 코트: %1$d)</string>
+    <string name="revanced_yandex_error_internal_missing_translation_id">내부 오류: 번역 ID가 누락되었습니다.</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">내부 오류: 선택한 트랙에 URL이 없습니다.</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">내부 오류: 최종 자막을 가져올 수 없습니다.</string>
+    <string name="revanced_yandex_error_internal_request_build">요청을 생성하는 중에 내부 오류가 발생하였습니다</string>
+    <string name="revanced_yandex_error_network_final_subs">최종 자막을 가져오는 중에 네트워크 오류가 발생하였습니다.</string>
+    <string name="revanced_yandex_error_network_generic">네트워크 오류가 발생하였습니다.</string>
+    <string name="revanced_yandex_error_network_poll">투표하는 중에 네트워크 오류가 발생하였습니다.</string>
+    <string name="revanced_yandex_error_network_subs_fetch">자막 파일 가져오는 중에 네트워크 오류가 발생하였습니다.</string>
+    <string name="revanced_yandex_error_no_language_selected">선택된 언어가 없습니다.</string>
+    <string name="revanced_yandex_error_no_subs_for_language">%s 에서 자막을 사용할 수 없습니다.</string>
+    <string name="revanced_yandex_error_no_subs_returned">사용할 수 있는 자막 트랙이 없습니다.</string>
+    <string name="revanced_yandex_error_parsing_final_subs">최종 Yandex 번역 목록을 분석할 수 없습니다.</string>
+    <string name="revanced_yandex_error_parsing_poll">Yandes 투표 응답을 분석할 수 없습니다.</string>
+    <string name="revanced_yandex_error_reading_response">API 응답을 로드할 수 없습니다.</string>
+    <string name="revanced_yandex_error_session_expired">Yandex 세션이 만료되었습니다.</string>
+    <string name="revanced_yandex_error_session_refresh_failed">Yandex 세션을 새로고침할 수 없습니다.</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">자막 JSON 콘텐츠를 분석할 수 없습니다.</string>
+    <string name="revanced_yandex_error_subs_processing_failed">자막 콘텐츠를 처리하는 중에 오류가 발생하였습니다.</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">내부 오류: 자막 처리가 중단되었습니다.</string>
+    <string name="revanced_yandex_error_timeout_final_fetch">%1$d 초 후에 최종 자막을 가져올 수 있는 시간이 초과됩니다.</string>
+    <string name="revanced_yandex_error_timeout_poll">%1$d 초 후 번역 대기 시간이 초과됩니다. (투표 #%2$d)</string>
+    <string name="revanced_yandex_error_timeout_processing">1$d 초 후 번역 처리 시간이 초과됩니다.</string>
+    <string name="revanced_yandex_error_translation_failed">번역을 할 수 없습니다.</string>
+    <string name="revanced_yandex_error_unknown">알 수 없는 문제점</string>
+    <string name="revanced_yandex_status_fetching_subs">번역을 완료하였습니다. 자막을 가져오는 중입니다 ...</string>
+    <string name="revanced_yandex_status_processing_hour">한 시간 이상 남았습니다 ...</string>
+    <string name="revanced_yandex_status_processing_minute">대략 1분 정도 남았습니다 ...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">%d 분 남았습니다 ...</string>
+    <string name="revanced_yandex_status_processing_short">처리 중 ...</string>
+    <string name="revanced_yandex_status_requesting_translation">번역을 요청하는 중입니다.</string>
+    <string name="revanced_yandex_status_session_ok">세션을 확인하였습니다.</string>
+    <string name="revanced_yandex_status_subs_found">자막이 발견되었습니다, 가져오는 중입니다 ...</string>
+    <string name="revanced_yandex_status_youtube_specific">YouTube 오디오 요청 처리 중 ...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex는 모든 언어의 동영상을 텍스트로 필사할 수 있지만 출력은 영어(en), 러시아어(ru), 카자흐어(kk)로만 가능합니다. 다른 언어 코드 또는 앱의 기본 언어를 의미하는 \'app\'을 입력하면 Gemini에게 번역을 요청합니다. (API Key가 요구됨)</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 언어</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Gemini 대신에 Yandex 필사기를 사용할 수 있습니다. Yandex는 더 빠르고 안정적일 수 있습니다. API Key가 필요하지 않습니다.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Yandex 필사기</string>
 </resources>
