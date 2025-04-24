@@ -475,14 +475,29 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_external_downloader_package_name_video_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji od pobierania, takiej jak NewPipe lub YTDLnis.</string>
     <string name="revanced_external_downloader_package_name_video_title">Nazwa pakietu aplikacji od pobierania (filmy)</string>
     <string name="revanced_fullscreen_ads_closed_toast">Zamknięto pełnoreklamowe reklamy.</string>
-    <string name="revanced_gemini_cancelled">Podsumowanie anulowane</string>
+    <string name="revanced_gemini_cancelled">Anulowane</string>
     <string name="revanced_gemini_copy_success">Podsumowanie skopiowane do schowka</string>
+    <string name="revanced_gemini_error_already_running_summarize">Podsumowanie jest już w toku</string>
+    <string name="revanced_gemini_error_already_running_transcribe">Transkrypcja jest już w toku</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Transkrypcja Yandex jest już uruchomiona.</string>
     <string name="revanced_gemini_error_api_failed">Żądanie API Gemini nie powiodło się: %s</string>
     <string name="revanced_gemini_error_no_api_key">Klucz API Gemini nie został ustawiony w ustawieniach ReVanced Extended</string>
     <string name="revanced_gemini_error_no_video">Nie udało się uzyskać adresu URL filmu</string>
-    <string name="revanced_gemini_loading">Podsumowanie filmu...</string>
+    <string name="revanced_gemini_error_overlay_display">Nie udało się wyświetlić nakładki napisów</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">Brak surowych danych transkrypcji do przeanalizowania</string>
+    <string name="revanced_gemini_error_transcription_parse">Nie udało się przetworzyć danych transkrypcyjnych</string>
+    <string name="revanced_gemini_error_unknown">Wystąpił nieznany błąd</string>
+    <string name="revanced_gemini_loading_summarize">Podsumowanie filmu...</string>
+    <string name="revanced_gemini_loading_transcribe">Transkrypcja filmu...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Pobieranie napisów…</string>
     <string name="revanced_gemini_summary_title">Podsumowanie filmu przez Gemini</string>
     <string name="revanced_gemini_time_taken">(Zajęło %d s)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">Włącz \"Wyświetlanie nad innymi aplikacjami,\" aby wyświetlić napisy</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">Rozmiar czcionki napisów w transkrybowanym filmie. Aby ukryć pole z napisami, wystarczy w nie stuknąć.</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">Rozmiar czcionki napisów</string>
+    <string name="revanced_gemini_transcription_parse_button">Napisy</string>
+    <string name="revanced_gemini_transcription_parse_success">Pomyślnie przetworzono napisy</string>
+    <string name="revanced_gemini_transcription_result_title">Transkrypcja filmu przez Gemini</string>
     <string name="revanced_gms_show_dialog_summary">Wyświetla okno o optymalizacji GMSCore przy każdym uruchomieniu aplikacji.</string>
     <string name="revanced_gms_show_dialog_title">Pokaż okno o optymalizacji dla GMSCore</string>
     <string name="revanced_gradient_seekbar_positions_reset">Zresetowano pozycje kolorowego paska do domyślnych.</string>
@@ -1400,6 +1415,7 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_language_ZH">"Chiński
 <small>中文</small>"</string>
     <string name="revanced_language_title">Język RVX</string>
+    <string name="revanced_minimize">Minimalizuj</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączony</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"Włączony
 
@@ -1477,11 +1493,18 @@ Stuknij i przytrzymaj, by skopiować czas filmu."</string>
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">Menedżer kolejki</string>
     <string name="revanced_overlay_button_external_downloader_summary">Stuknij, by otworzyć aplikacje od pobierania.</string>
     <string name="revanced_overlay_button_external_downloader_title">Przycisk do pobierania</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"Przetwarzanie filmu może zająć trochę czasu w zależności od jego długości. Transkrypcja długich filmów może przekroczyć limity Gemini.
+
+Odpowiedzi generowane przez sztuczną inteligencję mogą zawierać niedokładne informacje.
+
+Stuknij tutaj, aby uzyskać klucz API."</string>
+    <string name="revanced_overlay_button_gemini_about_title">O Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">Podsumuj</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">"Uzyskaj klucz API na https://aistudio.google.com/apikey"</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Klucz API Gemini</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">Stuknij, aby podsumować film za pośrednictwem Gemini.
-Analizowanie filmu może chwilę potrwać w zależności od jego długości.</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">"Stuknij, aby uzyskać podsumowanie filmu. Stuknij i przytrzymaj, aby zobaczyć transkrypcję.
+
+Podsumowania i transkrypcje są zapisywane, dopóki nie zamkniesz aplikacji lub nie użyjesz Gemini na innym filmie. Stuknij ponownie, aby wyświetlić zapisane wyniki."</string>
     <string name="revanced_overlay_button_gemini_summarize_title">Przycisk Gemini</string>
     <string name="revanced_overlay_button_mute_volume_summary">Stuknij, by wyciszyć bieżący film. Stuknij ponownie, by odciszyć film.</string>
     <string name="revanced_overlay_button_mute_volume_title">Przycisk od wyciszania</string>
@@ -1986,6 +2009,10 @@ Większość błędów nie może być naprawiona w skutek ograniczeń po stronie
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">Widoczne</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">Menu od zewnętrznej aplikacji do pobierania</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Podsumowanie przez Gemini</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Ukryte</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Widoczne</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">Menu podsumowania Gemini</string>
     <string name="revanced_shorts_custom_actions_open_video_label">Otwórz film</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">Ukryte</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">Widoczne</string>
@@ -2223,4 +2250,24 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">Błąd wewnętrzny: wybrany utwór nie ma adresu URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">Błąd wewnętrzny: nie udało się pobrać napisów końcowych</string>
+    <string name="revanced_yandex_error_network_subs_fetch">Błąd sieci podczas pobierania pliku napisów</string>
+    <string name="revanced_yandex_error_no_subs_for_language">Napisy nie są dostępne w %s</string>
+    <string name="revanced_yandex_error_no_subs_returned">Brak dostępnych ścieżek napisów</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">Błąd wewnętrzny: przetwarzanie napisów nie powiodło się</string>
+    <string name="revanced_yandex_error_translation_failed">Tłumaczenie nie powiodło się</string>
+    <string name="revanced_yandex_error_unknown">Nieznany błąd</string>
+    <string name="revanced_yandex_status_fetching_subs">Tłumaczenie zakończone, pobieranie napisów...</string>
+    <string name="revanced_yandex_status_processing_hour">Pozostała ponad godzina...</string>
+    <string name="revanced_yandex_status_processing_minute">Pozostała około minuta...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">Pozostało %d min...</string>
+    <string name="revanced_yandex_status_processing_short">Przetwarzanie...</string>
+    <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
+    <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
+    <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en) i rosyjskim (ru).</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">Użyj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy. Obsługiwane są wyłącznie języki angielski i rosyjski. Klucz API nie jest wymagany.</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>
 </resources>

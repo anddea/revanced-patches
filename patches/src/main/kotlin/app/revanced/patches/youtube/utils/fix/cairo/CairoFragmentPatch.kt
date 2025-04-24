@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_19_32_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.util.Utils.printWarn
@@ -34,9 +34,9 @@ private val cairoFragmentBytecodePatch = bytecodePatch(
 
     execute {
         /**
-         * Cairo fragment have been widely rolled out in YouTube 19.34+.
+         * Cairo fragment have been widely rolled out in YouTube 19.32+.
          */
-        if (!is_19_34_or_greater) {
+        if (!is_19_32_or_greater) {
             return@execute
         }
 
@@ -95,9 +95,9 @@ val cairoFragmentPatch = resourcePatch(
 
     execute {
         /**
-         * Cairo fragment have been widely rolled out in YouTube 19.34+.
+         * Cairo fragment have been widely rolled out in YouTube 19.32+.
          */
-        if (!is_19_34_or_greater) {
+        if (!is_19_32_or_greater) {
             return@execute
         }
 

@@ -8,13 +8,8 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.patch.PatchList.VISUAL_PREFERENCES_ICONS_FOR_YOUTUBE
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.util.ResourceGroup
+import app.revanced.util.*
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.copyResources
-import app.revanced.util.copyResourcesWithRename
-import app.revanced.util.doRecursively
-import app.revanced.util.getStringOptionValue
-import app.revanced.util.underBarOrThrow
 import org.w3c.dom.Element
 
 private const val DEFAULT_ICON = "extension"
@@ -384,6 +379,7 @@ private val rvxPreferenceKey = mapOf(
     "revanced_shorts_custom_actions_copy_video_url" to "revanced_overlay_button_copy_video_url",
     "revanced_shorts_custom_actions_copy_video_url_timestamp" to "revanced_overlay_button_copy_video_url_timestamp",
     "revanced_shorts_custom_actions_external_downloader" to "revanced_overlay_button_external_downloader",
+    "revanced_shorts_custom_actions_gemini" to "revanced_overlay_button_gemini_summarize",
     "revanced_shorts_custom_actions_open_video" to "revanced_preference_screen_player",
     "revanced_shorts_custom_actions_repeat_state" to "revanced_overlay_button_always_repeat",
     "revanced_shorts_custom_actions_speed_dialog" to "revanced_overlay_button_speed_dialog",
@@ -419,11 +415,13 @@ private val emptyTitles = setOf(
     "revanced_external_downloader_package_name_playlist",
     "revanced_external_downloader_package_name_video",
     "revanced_external_downloader_package_name_video_long_press",
+    "revanced_gemini_transcribe_subtitles_font_size",
     "revanced_gms_show_dialog",
     "revanced_hide_player_flyout_menu_captions_footer",
     "revanced_hide_player_flyout_menu_quality_footer",
     "revanced_hide_shorts_comments_disabled_button",
     "revanced_overlay_button_external_downloader_queue_manager",
+    "revanced_overlay_button_gemini_about",
     "revanced_overlay_button_gemini_summarize_api_key",
     "revanced_overlay_button_play_all_type",
     "revanced_override_video_download_button_queue_manager",
@@ -443,5 +441,7 @@ private val emptyTitles = setOf(
     "revanced_spoof_device_dimensions",
     "revanced_swipe_switch_speed_and_seek",
     "revanced_whitelist_settings",
+    "revanced_yandex_transcribe_subtitles",
+    "revanced_yandex_transcribe_subtitles_language",
     "sb_create_new_segment_step",
 )

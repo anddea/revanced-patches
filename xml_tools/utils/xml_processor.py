@@ -37,6 +37,10 @@ class XMLProcessor:
             root = tree.getroot()
 
             strings: dict[str, dict[str, str]] = {}
+            if root is None:
+                error_msg = f"Internal error: XML root is None after successful parse for {path}. Expected ET.Element."
+                logger.error(error_msg)
+                raise TypeError(error_msg)
             for elem in root.findall(".//*[@name]"):
                 name = elem.get("name")
                 if name:

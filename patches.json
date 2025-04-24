@@ -741,9 +741,18 @@
         "values": null
       },
       {
+        "key": "overridePlayerGradientColor",
+        "title": "Override player gradient color",
+        "description": "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+        "required": false,
+        "type": "kotlin.Boolean",
+        "default": false,
+        "values": null
+      },
+      {
         "key": "backgroundColorSecondary",
         "title": "Secondary background color",
-        "description": "The secondary background color. (e.g. playlist list, player arist, credits). Can be a hex color or a resource reference.",
+        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
         "required": true,
         "type": "kotlin.String",
         "default": "#FF121212",
@@ -2032,6 +2041,18 @@
     "options": []
   },
   {
+    "name": "Lyrics search",
+    "description": "Displays a \"Search Lyrics\" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the \"Search Lyrics\" panel won\u0027t be shown in NowPlayingActivity (Player view) or possibly other activities.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
+  },
+  {
     "name": "MaterialYou",
     "description": "Applies the MaterialYou theme for Android 12+ devices.",
     "use": false,
@@ -3002,6 +3023,16 @@
     "options": []
   },
   {
+    "name": "Spoof package info",
+    "description": "Spoofs the package info of the app to fix various functions of the app.",
+    "use": true,
+    "dependencies": [],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
+  },
+  {
     "name": "Spoof player parameter",
     "description": "Adds options to spoof player parameter to allow playback.",
     "use": true,
@@ -3021,16 +3052,6 @@
         "8.05.51",
         "8.12.53"
       ]
-    },
-    "options": []
-  },
-  {
-    "name": "Spoof signature",
-    "description": "Spoofs the signature of the app to fix various functions of the app.",
-    "use": true,
-    "dependencies": [],
-    "compatiblePackages": {
-      "com.spotify.music": null
     },
     "options": []
   },

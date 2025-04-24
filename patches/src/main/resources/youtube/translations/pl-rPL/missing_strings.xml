@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="revanced_copy_error">Failed to copy text</string>
+    <string name="revanced_gemini_error_dialog_show">Error showing dialog</string>
+    <string name="revanced_gemini_error_translation_failed">Gemini translation failed</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Gemini translation parsing failed</string>
+    <string name="revanced_gemini_loading_default">Loading...</string>
+    <string name="revanced_gemini_status_translating">Translating with Gemini...\n\n⚠️ This step may fail if Gemini ignores the instructions or hits the limit.</string>
+    <string name="revanced_yandex_error_api_final_subs">Yandex API error fetching final subtitles (Code: %1$d)</string>
+    <string name="revanced_yandex_error_api_poll">Yandex API error during poll (Code: %1$d)</string>
+    <string name="revanced_yandex_error_download_subs_failed">Failed to download subtitle file (Code: %1$d)</string>
+    <string name="revanced_yandex_error_internal_missing_translation_id">Internal error: Missing translation ID</string>
+    <string name="revanced_yandex_error_internal_request_build">Internal error building request</string>
+    <string name="revanced_yandex_error_network_final_subs">Network error fetching final subtitles</string>
+    <string name="revanced_yandex_error_network_generic">Network error</string>
+    <string name="revanced_yandex_error_network_poll">Network error during poll</string>
+    <string name="revanced_yandex_error_no_language_selected">No language selected</string>
+    <string name="revanced_yandex_error_parsing_final_subs">Failed to parse final Yandex subtitles list</string>
+    <string name="revanced_yandex_error_parsing_poll">Failed to parse Yandex poll response</string>
+    <string name="revanced_yandex_error_reading_response">Error reading API response</string>
+    <string name="revanced_yandex_error_session_expired">Yandex session expired</string>
+    <string name="revanced_yandex_error_session_refresh_failed">Failed to refresh Yandex session</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Failed to parse subtitle JSON content</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Error processing subtitle content</string>
+    <string name="revanced_yandex_error_timeout_final_fetch">Timed out before fetching final subtitles after %1$d seconds</string>
+    <string name="revanced_yandex_error_timeout_poll">Timed out waiting for translation after %1$d seconds (Poll #%2$d)</string>
+    <string name="revanced_yandex_error_timeout_processing">Timed out during translation processing after %1$d seconds</string>
+    <string name="revanced_yandex_status_youtube_specific">Handling YouTube audio request...</string>
+</resources>

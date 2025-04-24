@@ -643,6 +643,11 @@ public final class app/revanced/patches/shared/viewgroup/ViewGroupMarginLayoutPa
 	public static final fun getViewGroupMarginLayoutParamsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/extended/LyricsSearchPatchKt {
+	public static final fun getLyricsSearchPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getMediaSessionMetadataConstructorFingerprint ()Lapp/revanced/patcher/Fingerprint;
+}
+
 public final class app/revanced/patches/spotify/extended/RemoveCreateTabPatchKt {
 	public static final fun getRemoveCreateTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -650,6 +655,11 @@ public final class app/revanced/patches/spotify/extended/RemoveCreateTabPatchKt 
 public final class app/revanced/patches/spotify/extended/SanitizeSharingLinksKt {
 	public static final fun getRemoveShareTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getShareLinkFingerprint ()Lapp/revanced/patcher/Fingerprint;
+}
+
+public final class app/revanced/patches/spotify/extended/SetActivityContextPatchKt {
+	public static final fun getMainActivityOnCreateFingerprint ()Lapp/revanced/patcher/Fingerprint;
+	public static final fun getSetActivityContextPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/extended/branding/name/CustomBrandingNamePatchKt {
@@ -670,6 +680,10 @@ public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
 
 public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt {
+	public static final fun getSpoofPackageInfoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {

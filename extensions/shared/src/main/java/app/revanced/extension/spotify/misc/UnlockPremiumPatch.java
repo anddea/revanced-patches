@@ -4,7 +4,6 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 import app.revanced.extension.shared.utils.Logger;
-import com.spotify.remoteconfig.internal.AccountAttribute;
 import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.List;
@@ -13,6 +12,25 @@ import java.util.Objects;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
+
+    private static final String SPOTIFY_MAIN_ACTIVITY_LEGACY = "com.spotify.music.MainActivity";
+
+    /**
+     * If the app target is 8.6.98.900.
+     */
+    private static final boolean IS_SPOTIFY_LEGACY_APP_TARGET;
+
+    static {
+        boolean legacy;
+        try {
+            Class.forName(SPOTIFY_MAIN_ACTIVITY_LEGACY);
+            legacy = true;
+        } catch (ClassNotFoundException ex) {
+            legacy = false;
+        }
+
+        IS_SPOTIFY_LEGACY_APP_TARGET = legacy;
+    }
 
     private static class OverrideAttribute {
         /**
@@ -54,13 +72,16 @@ public final class UnlockPremiumPatch {
             // Make sure playing songs is not disabled remotely and playlists show up.
             new OverrideAttribute("streaming", TRUE),
             // Allows adding songs to queue and removes the smart shuffle mode restriction,
-            // allowing to pick any of the other modes.
-            new OverrideAttribute("pick-and-shuffle", FALSE),
+            // allowing to pick any of the other modes. Flag is not present in legacy app target.
+            new OverrideAttribute("pick-and-shuffle", FALSE, !IS_SPOTIFY_LEGACY_APP_TARGET),
             // Disables shuffle-mode streaming-rule, which forces songs to be played shuffled
             // and breaks the player when other patches are applied.
             new OverrideAttribute("streaming-rules", ""),
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             new OverrideAttribute("nft-disabled", "1"),
+            // Enable Spotify Connect and disable other premium related UI, like buying premium.
+            // It also removes the download button.
+            new OverrideAttribute("type", "premium"),
             // Enable Spotify Car Thing hardware device.
             // Device is discontinued and no longer works with the latest releases,
             // but it might still work with older app targets.
@@ -75,9 +96,9 @@ public final class UnlockPremiumPatch {
     );
 
     /**
-     * Override attributes injection point.
+     * Injection point. Override account attributes.
      */
-    public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
+    public static void overrideAttribute(Map<String, /*AccountAttribute*/ Object> attributes) {
         try {
             for (var override : OVERRIDES) {
                 var attribute = attributes.get(override.key);
@@ -86,7 +107,12 @@ public final class UnlockPremiumPatch {
                         Logger.printException(() -> "'" + override.key + "' expected but not found");
                     }
                 } else {
-                    attribute.value_ = override.overrideValue;
+                    Object overrideValue = override.overrideValue;
+                    if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+                        ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
+                    } else {
+                        ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
+                    }
                 }
             }
         } catch (Exception ex) {
@@ -95,7 +121,14 @@ public final class UnlockPremiumPatch {
     }
 
     /**
-     * Remove ads sections from home injection point.
+     * Injection point. Remove station data from Google assistant URI.
+     */
+    public static String removeStationString(String spotifyUriOrUrl) {
+        return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
+    }
+
+    /**
+     * Injection point. Remove ads sections from home.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
