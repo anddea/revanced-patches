@@ -9,6 +9,7 @@ annotation = "1.9.1"
 collections4 = "4.5.0-M3"
 lang3 = "3.17.0"
 preference = "1.2.1"
+okhttp = "4.12.0"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -16,6 +17,7 @@ annotation = { module = "androidx.annotation:annotation", version.ref = "annotat
 collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "collections4" }
 lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "lang3" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }

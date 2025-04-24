@@ -20,6 +20,7 @@ from handlers import (
     remove_unused_strings,
     replace_strings,
     sort_strings,
+    update_strings,
 )
 from utils import GitClient
 
@@ -50,6 +51,8 @@ def get_rvx_base_dir(logger: Logger) -> str:
 
 def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
     """Determine if rvx_base_dir validation is needed based on options."""
+    # Update operation doesn't strictly need RVX dir unless source keys could come from there
+    # For now, assume it only uses local host strings.xml
     return any(options.get(key) for key in ["run_all", "replace", "prefs", "reverse", "check"])
 
 
@@ -63,10 +66,16 @@ def is_rvx_dir_needed(options: dict[str, Any]) -> bool:
 @click.option("-s", "--sort", is_flag=True, help="Sort strings in XML files")
 @click.option("-c", "--check", is_flag=True, help="Run missing strings check")
 @click.option("-p", "--prefs", is_flag=True, help="Run missing preferences check")
-@click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check")
+@click.option("-pr", "--reverse", is_flag=True, help="Run missing preferences check (reverse)")
+# Add the new option for the update command
+@click.option(
+    "--update-file",
+    type=click.Path(exists=True, dir_okay=False, readable=True, path_type=Path),
+    help="Create updated_strings.xml from keys listed in the specified file.",
+)
 @click.option("--youtube/--music", default=True, help="Process YouTube or Music strings")
 @click.pass_context
-def cli(ctx: click.Context, **kwargs: dict[str, bool | str | None]) -> None:
+def cli(ctx: click.Context, **kwargs: dict[str, Any]) -> None:  # Adjusted type hint for kwargs
     """CLI tool for processing XML commands."""
     log_file = kwargs.get("log_file")
     log_file = log_file if isinstance(log_file, str) else None
@@ -88,20 +97,30 @@ def cli(ctx: click.Context, **kwargs: dict[str, bool | str | None]) -> None:
         logger=logger,
     )
 
+    # Check if any specific command was run, including the new update_file
+    # Note: kwargs will contain update_file key with Path object if provided, or None otherwise
+    # So checking if ANY flag/option (other than log/rvx/youtube) is set is needed.
+    command_flags = ["run_all", "missing", "replace", "remove", "sort", "check", "prefs", "reverse", "update_file"]
     if kwargs.get("run_all"):
         process_all(ctx.obj)
-    else:
+    elif any(kwargs.get(flag) for flag in command_flags):
         handle_individual_operations(ctx.obj, kwargs)
+    else:
+        # If no command flag/option is provided, show help
+        click.echo(ctx.get_help())
+        sys.exit(0)  # Exit cleanly after showing help
 
 
 def process_all(config: CLIConfig) -> None:
     """Run all operations in sequence."""
+    # Note: The 'update_strings' command requires a specific input file,
+    # so it's generally NOT included in 'run_all'. Keep it this way unless
+    # there's a standard input file path to use.
     logger = config.logger
     base_dir = config.rvx_base_dir  # This can be None, handlers need to check
 
-    # Ensure base_dir is a Path before using GitClient, if base_dir is needed.
     if base_dir is None:
-        logger.error("Base directory is required for this operation.")
+        logger.error("Base directory (RVX_BASE_DIR) is required for '--all' operation.")
         sys.exit(1)
 
     git = GitClient(base_dir)
@@ -125,7 +144,13 @@ def process_all(config: CLIConfig) -> None:
 
     for name, handler, args in handlers:
         log_process(logger, name)
-        handler(*args)
+        # Ensure arguments are correctly passed (Path objects vs strings)
+        typed_args = [arg if isinstance(arg, Path) else str(arg) for arg in args]
+        try:
+            handler(*typed_args)  # Pass arguments correctly
+        except Exception:
+            logger.exception("Error during process step '%s': ", name)
+            sys.exit(1)
 
 
 def handle_operation(
@@ -137,6 +162,7 @@ def handle_operation(
     """Handle a single operation, including logging and error handling."""
     log_process(config.logger, operation_name)
     try:
+        # Ensure Path arguments are passed correctly if needed
         handler(*args)
     except Exception:
         config.logger.exception("Error during %s: ", operation_name)
@@ -149,6 +175,8 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
     app = config.app
     git = GitClient(base_dir) if base_dir else None
 
+    # Adjusted operations list: Use the actual option key from click
+    # The fourth element in the tuple now directly uses values from 'options' dict
     operations: list[tuple[str, str, Callable[..., Any], tuple[Any, ...]]] = [
         ("missing", "Missing Strings Check", missing_strings.process, (app,)),
         ("remove", "Remove Unused Strings", remove_unused_strings.process, (app,)),
@@ -157,20 +185,50 @@ def handle_individual_operations(config: CLIConfig, options: dict[str, Any]) -> 
         ("check", "Check Strings", check_strings.process, (app, base_dir)),
         ("prefs", "Check Preferences", check_prefs.process, (app, base_dir)),
         ("reverse", "Check Preferences (Reverse)", check_prefs_reverse.process, (app, base_dir)),
+        # Add the new update operation
+        ("update_file", "Update Strings from File", update_strings.process, (app, options.get("update_file"))),
     ]
 
+    something_processed = False
     for option_key, operation_name, handler, args in operations:
+        # Check if the option exists and is either a True flag or has a non-None value (for options with args)
         if options.get(option_key):
+            something_processed = True
+            # Validation for operations requiring base_dir
             if option_key in ("replace", "check", "prefs", "reverse") and base_dir is None:
-                config.logger.error("Base directory is required for %s operation.", operation_name.lower())
+                config.logger.error(
+                    "Base directory (RVX_BASE_DIR) is required for %s operation.",
+                    operation_name.lower(),
+                )
                 sys.exit(1)
+
+            # Special handling for 'replace' which needs git sync
             if option_key == "replace":
-                if git is not None and git.sync_repository():
-                    handle_operation(config, operation_name, handler, *args)
-                else:  # Exit since the sync failed
+                if git is not None:
+                    if git.sync_repository():
+                        # Pass arguments correctly, ensuring Path objects are included
+                        handle_operation(config, operation_name, handler, *args)
+                    else:  # Exit if git sync fails
+                        sys.exit(1)
+                else:  # Should have exited above if base_dir was None, but double-check
+                    config.logger.error("Git client could not be initialized (base_dir missing?).")
                     sys.exit(1)
-            else:
+            elif option_key == "update_file":
+                # The file path is already the second element in args tuple
+                if args[1] is None:  # Should not happen if triggered by options.get(), but good practice
+                    config.logger.error("Input file path is missing for update operation.")
+                    sys.exit(1)
                 handle_operation(config, operation_name, handler, *args)
+            # Handle other operations
+            else:
+                # Pass arguments correctly
+                handle_operation(config, operation_name, handler, *args)
+
+    # If the function was called but no specific operation flag was matched
+    # (e.g., only --youtube or --log-file provided without a command)
+    # This check might be redundant now due to the check in cli() but kept for clarity.
+    if not something_processed and not options.get("run_all"):
+        config.logger.info("No specific operation requested. Use --help for options.")
 
 
 if __name__ == "__main__":

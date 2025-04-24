@@ -460,6 +460,15 @@ public final class VideoInformation {
     }
 
     /**
+     * Title of the current video playing.  Includes Shorts.
+     *
+     * @return The title of the video.
+     */
+    public static String getVideoTitle() {
+        return videoTitle;
+    }
+
+    /**
      * Length of the current video playing.  Includes Shorts.
      *
      * @return The length of the video in milliseconds.

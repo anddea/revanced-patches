@@ -1,19 +1,25 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -34,7 +40,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Override the attributes map in the getter method.
-        with(productStateProtoFingerprint.method) {
+        productStateProtoFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -45,25 +51,74 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
+
         // Add the query parameter trackRows to show popular tracks in the artist page.
-        with(buildQueryParametersFingerprint) {
+        buildQueryParametersFingerprint.apply {
             val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
                 stringMatches!!.first().index, Opcode.IF_EQZ
             )
+
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
+
+        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+            return@execute Logger.getLogger(this::class.java.name).warning(
+                "Patching a legacy Spotify version. Patch functionality may be limited."
+            )
+        }
+
+
+        // Enable choosing a specific song/artist via Google Assistant.
+        contextFromJsonFingerprint.method.apply {
+            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            // Both the URI and URL need to be modified.
+            val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+            val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
+
+            val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
+                    "removeStationString(Ljava/lang/String;)Ljava/lang/String;"
+
+            addInstructions(
+                insertIndex,
+                """
+                    invoke-static { v$registerUrl }, $extensionMethodDescriptor
+                    move-result-object v$registerUrl
+                    invoke-static { v$registerUri }, $extensionMethodDescriptor
+                    move-result-object v$registerUri
+                """
+            )
+        }
+
+
+        // Disable forced shuffle when asking for an album/playlist via Google Assistant.
+        readPlayerOptionOverridesFingerprint.method.apply {
+            val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "shufflingContext"
+            }
+
+            val registerBool = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
+            addInstruction(
+                shufflingContextCallIndex,
+                "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
+            )
+        }
+
+
         // Disable the "Spotify Premium" upsell experiment in context menus.
-        with(contextMenuExperimentsFingerprint) {
+        contextMenuExperimentsFingerprint.apply {
             val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
                 stringMatches!!.first().index, Opcode.MOVE_RESULT
             )
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
+
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
+            // Add public flag and remove private.
             accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
         }
 
@@ -82,7 +137,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
-        with(protobufListRemoveFingerprint.method) {
+        protobufListRemoveFingerprint.method.apply {
             val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_VIRTUAL &&
@@ -94,7 +149,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Remove ads sections from home.
-        with(homeStructureFingerprint.method) {
+        homeStructureFingerprint.method.apply {
             val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 

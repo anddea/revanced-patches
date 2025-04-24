@@ -1,3 +1,74 @@
+# [3.7.0-dev.9](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.8...v3.7.0-dev.9) (2025-04-22)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini translation for languages not supported by Yandex transcription ([ac016e5](https://github.com/anddea/revanced-patches/commit/ac016e5bdd80f462873d1ff713c915755430eaa7))
+
+# [3.7.0-dev.8](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.7...v3.7.0-dev.8) (2025-04-20)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Update Gemini to 2.5 Flash (CoT disabled) & add `Yandex transcription` setting for Gemini button ([9b84670](https://github.com/anddea/revanced-patches/commit/9b846701de4ce0c4ec47665704728834a03f6359))
+
+# [3.7.0-dev.7](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.6...v3.7.0-dev.7) (2025-04-17)
+
+
+### Features
+
+* **Spotify - Lyrics search:** Add a button to search for song meanings on Songtell, and make the `Lyrics Search` panel less intrusive ([9e8b87f](https://github.com/anddea/revanced-patches/commit/9e8b87fb3af5779697cf1880552ab98feac5de61))
+
+# [3.7.0-dev.6](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.5...v3.7.0-dev.6) (2025-04-16)
+
+
+### Bug Fixes
+
+* **Spotify - Lyrics search:** Minimize the `Search Lyrics` panel into a draggable floating button when the close button is clicked ([23f689f](https://github.com/anddea/revanced-patches/commit/23f689f5dfbd2f220c3b55bf83e615b1c67840ef))
+* **Spotify:** Fix login by replacing `Spoof signature` patch with new `Spoof package info` patch ([06b96db](https://github.com/anddea/revanced-patches/commit/06b96dbd96460088a49c6b18c1e4f7f5f41622b5))
+
+# [3.7.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.4...v3.7.0-dev.5) (2025-04-14)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** New method to remove the Create tab ([a06bf40](https://github.com/anddea/revanced-patches/commit/a06bf408bddf46a17382e3b0d12236a1401cff4a))
+* **Spotify - Unlock Spotify Premium:** Remove premium restriction for 'Spotify Connect' ([83bd376](https://github.com/anddea/revanced-patches/commit/83bd376fc32fed8be7007ff81431704b070f14db))
+* **Spotify - Unlock Spotify Premium:** Remove restrictions for Google voice assistant ([13d4a42](https://github.com/anddea/revanced-patches/commit/13d4a42b9274816a5dbd50e5e3aa30a17d254169))
+
+
+### Features
+
+* **Spotify - Custom theme:** Add option to use unmodified player background gradient ([913d371](https://github.com/anddea/revanced-patches/commit/913d37134d5926005f4024b4666362239ac709e8))
+
+# [3.7.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.3...v3.7.0-dev.4) (2025-04-12)
+
+
+### Features
+
+* **Spotify:** Add `Lyrics search` patch ([b45f417](https://github.com/anddea/revanced-patches/commit/b45f4175b73833a838526e66b111192f501e0d4b))
+
+# [3.7.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.2...v3.7.0-dev.3) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Open the link to get a Gemini API key by clicking the About preference ([56974dc](https://github.com/anddea/revanced-patches/commit/56974dce34ff47e860699bdebd643ade0b6e5c55))
+
+# [3.7.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.7.0-dev.1...v3.7.0-dev.2) (2025-04-11)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Fix small Gemini issues ([d44664c](https://github.com/anddea/revanced-patches/commit/d44664c12e0e13144240137ebd7f40a899531df9))
+
+# [3.7.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.6.0...v3.7.0-dev.1) (2025-04-10)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Add Gemini Transcription on long press & add Gemini Summary to Shorts custom actions ([917d02d](https://github.com/anddea/revanced-patches/commit/917d02d4711034165d3f2f3a0809f9c2b6f33731))
+
 # [3.6.0](https://github.com/anddea/revanced-patches/compare/v3.5.0...v3.6.0) (2025-04-08)
 
 
