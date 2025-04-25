@@ -4,11 +4,11 @@
     <string name="accessibility_settings_edu_opt_out_text">ユーザー補助サービスが有効になっているため、操作方法が変わります。</string>
     <string name="gms_core_dialog_continue_text">続行</string>
     <string name="gms_core_dialog_dismiss_text">今後表示しない</string>
-    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで実行する権限がありません。
+    <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore はバックグラウンドで実行する権限がありません。
 
-あなたの端末の \"Don't kill my app\"のガイドに従って、MicroG のインストールに適用してください。
+お使いのデバイスの「Don't kill my app!」ガイドに従い、GmsCore のインストール手順を適用してください。
 
-これはアプリが動作するために必要です。"</string>
+これはアプリが正常に動作するために必要です。"</string>
     <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためには、GmsCore の電池の最適化を無効にする必要があります。
 
 GmsCore の電池の最適化を無効にしても、バッテリーの使用に悪影響を及ぼすことはありません。
@@ -412,8 +412,8 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_enable_translucent_navigation_bar_summary_off">ナビゲーションバー (ホーム、登録チャンネルなどのボタン) を半透明にします。</string>
     <string name="revanced_enable_translucent_navigation_bar_summary_on">ナビゲーションバー (ホーム、登録チャンネルなどのボタン) を半透明にします。</string>
     <string name="revanced_enable_translucent_navigation_bar_title">半透明のナビゲーションバーを有効化</string>
-    <string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
-    <string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域をスワイプして全画面に切り替えれるようにします。</string>
+    <string name="revanced_enable_watch_panel_gestures_summary_off">プレーヤーの一番下の領域を下スワイプして全画面に切り替えれるようにします。</string>
+    <string name="revanced_enable_watch_panel_gestures_summary_on">プレーヤーの一番下の領域を下スワイプして全画面に切り替えれるようにします。</string>
     <string name="revanced_enable_watch_panel_gestures_title">スワイプして全画面に切り替えを有効化</string>
     <string name="revanced_enable_wide_search_bar_in_you_tab_summary">"この設定を有効にすると、[マイページ] タブ内の設定ボタンが無効になります。
 
@@ -487,7 +487,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
     <string name="revanced_gemini_copy_success">要約をクリップボードにコピーしました。</string>
     <string name="revanced_gemini_error_already_running_summarize">要約はすでに進行中です。</string>
     <string name="revanced_gemini_error_already_running_transcribe">文字起こしはすでに進行中です。</string>
-    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex 文字起こしは既に実行中です</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex 文字起こしはすでに実行中です</string>
     <string name="revanced_gemini_error_api_failed">Gemini API リクエストに失敗しました: %s</string>
     <string name="revanced_gemini_error_dialog_show">ダイアログの表示エラー</string>
     <string name="revanced_gemini_error_no_api_key">ReVanced Extended 設定で Gemini API キーが設定されていません。</string>
@@ -2207,7 +2207,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_yandex_error_internal_request_build">リクエスト構築中に内部エラーが発生しました</string>
     <string name="revanced_yandex_error_network_final_subs">最終字幕の取得中にネットワークエラーが発生しました</string>
     <string name="revanced_yandex_error_network_generic">ネットワークエラー</string>
-    <string name="revanced_yandex_error_network_poll">投票中にネットワークエラーが発生しました</string>
+    <string name="revanced_yandex_error_network_poll">ポーリング中にネットワークエラーが発生しました</string>
     <string name="revanced_yandex_error_network_subs_fetch">字幕ファイルの取得中にネットワークエラーが発生しました</string>
     <string name="revanced_yandex_error_no_language_selected">言語が選択されていません</string>
     <string name="revanced_yandex_error_no_subs_for_language">%s には字幕がありません</string>
@@ -2221,7 +2221,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_yandex_error_subs_processing_failed">字幕コンテンツの処理中にエラーが発生しました</string>
     <string name="revanced_yandex_error_subs_stuck_processing">内部エラー: 字幕処理が停止しました</string>
     <string name="revanced_yandex_error_timeout_final_fetch">最終字幕の取得前にタイムアウトしました(%1$d 秒経過)</string>
-    <string name="revanced_yandex_error_timeout_poll">翻訳の待機中にタイムアウトしました(%1$d 秒経過、Poll #%2$d)</string>
+    <string name="revanced_yandex_error_timeout_poll">翻訳の待機中にタイムアウトしました(%1$d 秒経過、ポーリング試行回数#%2$d)</string>
     <string name="revanced_yandex_error_timeout_processing">翻訳処理がタイムアウトしました( %1$d 秒経過)</string>
     <string name="revanced_yandex_error_translation_failed">翻訳に失敗しました</string>
     <string name="revanced_yandex_error_unknown">不明なエラー</string>
@@ -2234,7 +2234,7 @@ API キーの発行方法については、ここをタップしてください�
     <string name="revanced_yandex_status_session_ok">セッション OK</string>
     <string name="revanced_yandex_status_subs_found">字幕が見つかりました。取得中…</string>
     <string name="revanced_yandex_status_youtube_specific">YouTube のオーディオリクエストを処理しています…</string>
-    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex はあらゆる言語の動画を文字起こしできますが、出力は英語(en)、ロシア語(ru)、カザフ語(kk)のみとなります。その他の言語コードを入力するか、「app」(アプリのデフォルト言語)を使用すると、Gemini が翻訳を要求します(API キーが必要です)。"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex はあらゆる言語の動画を文字起こしできますが、出力可能な言語は英語(en)、ロシア語(ru)、カザフ語(kk)のみです。他の言語コードを入力するか「app」(アプリのデフォルト言語を意味します)と入力した場合、Gemini による翻訳がリクエストされます(API キーが必要です)。"</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex 文字起こしの言語</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Gemini の代わりに Yandex の文字起こしを使用します。Yandex はより高速で信頼性が高く、API キーは不要です。</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Yandex 文字起こし</string>
