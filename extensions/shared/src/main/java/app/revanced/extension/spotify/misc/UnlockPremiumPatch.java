@@ -121,7 +121,7 @@ public final class UnlockPremiumPatch {
     }
 
     /**
-     * Injection point. Remove station data from Google assistant URI.
+     * Injection point. Remove station data from Google Assistant URI.
      */
     public static String removeStationString(String spotifyUriOrUrl) {
         return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
@@ -129,6 +129,7 @@ public final class UnlockPremiumPatch {
 
     /**
      * Injection point. Remove ads sections from home.
+     * Depends on patching protobuf list remove method.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
