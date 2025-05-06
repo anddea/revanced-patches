@@ -1,19 +1,5 @@
 package app.revanced.extension.youtube.settings.preference;
 
-import static com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity.setToolbarLayoutParams;
-import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
-import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
-import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
-import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
-import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.utils.Utils.getChildView;
-import static app.revanced.extension.shared.utils.Utils.isSDKAbove;
-import static app.revanced.extension.shared.utils.Utils.showToastShort;
-import static app.revanced.extension.youtube.settings.Settings.DEFAULT_PLAYBACK_SPEED;
-import static app.revanced.extension.youtube.settings.Settings.DEFAULT_PLAYBACK_SPEED_SHORTS;
-import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT;
-import static app.revanced.extension.youtube.settings.Settings.HIDE_PREVIEW_COMMENT_TYPE;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,35 +10,16 @@ import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.graphics.Insets;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.preference.*;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.stream.Collectors;
-
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
@@ -63,236 +30,33 @@ import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.StringRef;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
+import app.revanced.extension.youtube.settings.ClickablePreferenceCategory;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.ThemeUtils;
+import com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity;
+import org.jetbrains.annotations.NotNull;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
+import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
+import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.updateListPreferenceSummary;
+import static app.revanced.extension.shared.utils.ResourceUtils.getXmlIdentifier;
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.*;
+import static app.revanced.extension.youtube.settings.Settings.*;
+import static com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity.*;
 
 @SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends PreferenceFragment {
     private static final int READ_REQUEST_CODE = 42;
     private static final int WRITE_REQUEST_CODE = 43;
-    static boolean settingImportInProgress = false;
-    static boolean showingUserDialogMessage;
-
-    @SuppressLint("SuspiciousIndentation")
-    private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
-        try {
-            if (str == null) {
-                return;
-            }
-
-            Setting<?> setting = Setting.getSettingFromPath(str);
-            if (setting == null) {
-                return;
-            }
-
-            Preference mPreference = findPreference(str);
-            if (mPreference == null) {
-                return;
-            }
-
-            if (mPreference instanceof SwitchPreference switchPreference) {
-                BooleanSetting boolSetting = (BooleanSetting) setting;
-                if (settingImportInProgress) {
-                    switchPreference.setChecked(boolSetting.get());
-                } else {
-                    BooleanSetting.privateSetValue(boolSetting, switchPreference.isChecked());
-                }
-
-                if (ExtendedUtils.anyMatchSetting(setting)) {
-                    ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
-                } else if (setting.equals(HIDE_PREVIEW_COMMENT) || setting.equals(HIDE_PREVIEW_COMMENT_TYPE)) {
-                    ExtendedUtils.setCommentPreviewSettings();
-                }
-            } else if (mPreference instanceof EditTextPreference editTextPreference) {
-                if (settingImportInProgress) {
-                    editTextPreference.setText(setting.get().toString());
-                } else {
-                    Setting.privateSetValueFromString(setting, editTextPreference.getText());
-                }
-            } else if (mPreference instanceof ListPreference listPreference) {
-                if (settingImportInProgress) {
-                    listPreference.setValue(setting.get().toString());
-                } else {
-                    Setting.privateSetValueFromString(setting, listPreference.getValue());
-                }
-                if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
-                    listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
-                    listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
-                }
-                if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
-                    listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
-                    listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
-                }
-                if (!(mPreference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
-                    updateListPreferenceSummary(listPreference, setting);
-                }
-            } else {
-                Logger.printException(() -> "Setting cannot be handled: " + mPreference.getClass() + " " + mPreference);
-                return;
-            }
-
-            ReVancedSettingsPreference.initializeReVancedSettings();
-
-            if (!settingImportInProgress && !showingUserDialogMessage) {
-                final Context context = getActivity();
-
-                if (setting.userDialogMessage != null && !prefIsSetToDefault(mPreference, setting)) {
-                    showSettingUserDialogConfirmation(context, mPreference, setting);
-                } else if (setting.rebootApp) {
-                    showRestartDialog(context);
-                }
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
-        }
-    };
-
-    /**
-     * @return If the preference is currently set to the default value of the Setting.
-     */
-    private boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
-        Object defaultValue = setting.defaultValue;
-        if (pref instanceof SwitchPreference switchPref) {
-            return switchPref.isChecked() == (Boolean) defaultValue;
-        }
-        String defaultValueString = defaultValue.toString();
-        if (pref instanceof EditTextPreference editPreference) {
-            return editPreference.getText().equals(defaultValueString);
-        }
-        if (pref instanceof ListPreference listPref) {
-            return listPref.getValue().equals(defaultValueString);
-        }
-
-        throw new IllegalStateException("Must override method to handle "
-                + "preference type: " + pref.getClass());
-    }
-
-    private void showSettingUserDialogConfirmation(Context context, Preference pref, Setting<?> setting) {
-        Utils.verifyOnMainThread();
-
-        final StringRef userDialogMessage = setting.userDialogMessage;
-        if (context != null && userDialogMessage != null) {
-            showingUserDialogMessage = true;
-
-            new AlertDialog.Builder(context)
-                    .setTitle(str("revanced_extended_confirm_user_dialog_title"))
-                    .setMessage(userDialogMessage.toString())
-                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                        if (setting.rebootApp) {
-                            showRestartDialog(context);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                        // Restore whatever the setting was before the change.
-                        if (setting instanceof BooleanSetting booleanSetting &&
-                                pref instanceof SwitchPreference switchPreference) {
-                            switchPreference.setChecked(booleanSetting.defaultValue);
-                        } else if (setting instanceof EnumSetting<?> enumSetting &&
-                                pref instanceof ListPreference listPreference) {
-                            listPreference.setValue(enumSetting.defaultValue.toString());
-                            updateListPreferenceSummary(listPreference, setting);
-                        }
-                    })
-                    .setOnDismissListener(dialog -> showingUserDialogMessage = false)
-                    .setCancelable(false)
-                    .show();
-        }
-    }
-
-    static PreferenceManager mPreferenceManager;
-    private SharedPreferences mSharedPreferences;
-
-    private PreferenceScreen originalPreferenceScreen;
-
-    public ReVancedPreferenceFragment() {
-        // Required empty public constructor
-    }
-
-    private void putPreferenceScreenMap(SortedMap<String, PreferenceScreen> preferenceScreenMap, PreferenceGroup preferenceGroup) {
-        if (preferenceGroup instanceof PreferenceScreen mPreferenceScreen) {
-            preferenceScreenMap.put(mPreferenceScreen.getKey(), mPreferenceScreen);
-        }
-    }
-
-    private void setPreferenceScreenToolbar() {
-        SortedMap<String, PreferenceScreen> preferenceScreenMap = new TreeMap<>();
-
-        PreferenceScreen rootPreferenceScreen = getPreferenceScreen();
-        for (Preference preference : getAllPreferencesBy(rootPreferenceScreen)) {
-            if (!(preference instanceof PreferenceGroup preferenceGroup)) continue;
-            putPreferenceScreenMap(preferenceScreenMap, preferenceGroup);
-            for (Preference childPreference : getAllPreferencesBy(preferenceGroup)) {
-                if (!(childPreference instanceof PreferenceGroup nestedPreferenceGroup)) continue;
-                putPreferenceScreenMap(preferenceScreenMap, nestedPreferenceGroup);
-                for (Preference nestedPreference : getAllPreferencesBy(nestedPreferenceGroup)) {
-                    if (!(nestedPreference instanceof PreferenceGroup childPreferenceGroup))
-                        continue;
-                    putPreferenceScreenMap(preferenceScreenMap, childPreferenceGroup);
-                }
-            }
-        }
-
-        Integer targetSDKVersion = ExtendedUtils.getTargetSDKVersion(getContext().getPackageName());
-        boolean isEdgeToEdgeSupported = isSDKAbove(35) && targetSDKVersion != null && targetSDKVersion >= 35;
-
-        for (PreferenceScreen mPreferenceScreen : preferenceScreenMap.values()) {
-            mPreferenceScreen.setOnPreferenceClickListener(
-                    preferenceScreen -> {
-                        Dialog preferenceScreenDialog = mPreferenceScreen.getDialog();
-                        ViewGroup rootView = (ViewGroup) preferenceScreenDialog
-                                .findViewById(android.R.id.content)
-                                .getParent();
-
-                        // Edge-to-edge is enforced if the following conditions are met:
-                        // 1. targetSDK is 35 or greater (YouTube 19.44.39 or greater).
-                        // 2. user is using Android 15 or greater.
-                        //
-                        // Related Issues:
-                        // https://github.com/ReVanced/revanced-patches/issues/3976
-                        // https://github.com/ReVanced/revanced-patches/issues/4606
-                        //
-                        // Docs:
-                        // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
-                        //
-                        // Since ReVanced Settings Activity do not use AndroidX libraries,
-                        // You will need to manually fix the layout breakage caused by edge-to-edge.
-                        if (isEdgeToEdgeSupported) {
-                            rootView.setOnApplyWindowInsetsListener((v, insets) -> {
-                                Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
-                                return insets;
-                            });
-                        }
-
-                        Toolbar toolbar = new Toolbar(preferenceScreen.getContext());
-
-                        toolbar.setTitle(preferenceScreen.getTitle());
-                        toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable());
-                        toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
-
-                        int margin = (int) TypedValue.applyDimension(
-                                TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
-                        );
-
-                        toolbar.setTitleMargin(margin, 0, margin, 0);
-
-                        TextView toolbarTextView = getChildView(toolbar, TextView.class::isInstance);
-                        if (toolbarTextView != null) {
-                            toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
-                        }
-
-                        setToolbarLayoutParams(toolbar);
-
-                        rootView.addView(toolbar, 0);
-                        return false;
-                    }
-            );
-        }
-    }
-
-    // region Search Fragment: Constants
 
     /**
      * XML tag name for PreferenceScreen.
@@ -323,9 +87,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      */
     private static final String TITLE_ATTRIBUTE = "title";
 
-    // endregion
+    static boolean settingImportInProgress = false;
+    static boolean showingUserDialogMessage;
+    static PreferenceManager mPreferenceManager;
 
-    // region Search Fragment: Variables
+    // region Search-related fields
 
     /**
      * Stores dependencies between preferences.
@@ -399,7 +165,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * Stores custom dependencies defined in the preferences XML file with {@link #DEPENDENCY_ATTRIBUTE}.
      * <p>
      * <b>Key:</b> <i>A string representing the category and key of a preference in the format "Category:Key".
-     *                The category is derived from the title of the parent PreferenceScreen.</i><br>
+     * The category is derived from the title of the parent PreferenceScreen.</i><br>
      * <b>Value:</b> <i>The key of the preference on which the key preference depends.</i>
      * <p>
      * Example: For preferences <pre>{@code
@@ -418,9 +184,397 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      */
     private final Map<String, String> customDependencyMap = new HashMap<>();
 
-    // endregion
+    // endregion Search-related fields
 
-    // region Search Fragment: Initialization
+    @SuppressLint("SuspiciousIndentation")
+    private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
+        try {
+            if (str == null) {
+                return;
+            }
+
+            Setting<?> setting = Setting.getSettingFromPath(str);
+            if (setting == null) {
+                return;
+            }
+
+            Preference mPreference = findPreference(str);
+            if (mPreference == null) {
+                return;
+            }
+
+            if (mPreference instanceof SwitchPreference switchPreference) {
+                BooleanSetting boolSetting = (BooleanSetting) setting;
+                Logger.printDebug(() -> "SwitchPreference: " + str + ", checked: " + switchPreference.isChecked());
+                if (settingImportInProgress) {
+                    switchPreference.setChecked(boolSetting.get());
+                } else {
+                    BooleanSetting.privateSetValue(boolSetting, switchPreference.isChecked());
+                }
+
+                if (ExtendedUtils.anyMatchSetting(setting)) {
+                    ExtendedUtils.setPlayerFlyoutMenuAdditionalSettings();
+                } else if (setting.equals(HIDE_PREVIEW_COMMENT) || setting.equals(HIDE_PREVIEW_COMMENT_TYPE)) {
+                    ExtendedUtils.setCommentPreviewSettings();
+                }
+            } else if (mPreference instanceof EditTextPreference editTextPreference) {
+                if (settingImportInProgress) {
+                    editTextPreference.setText(setting.get().toString());
+                } else {
+                    Setting.privateSetValueFromString(setting, editTextPreference.getText());
+                }
+            } else if (mPreference instanceof ListPreference listPreference) {
+                if (settingImportInProgress) {
+                    listPreference.setValue(setting.get().toString());
+                } else {
+                    Setting.privateSetValueFromString(setting, listPreference.getValue());
+                }
+                if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
+                    listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
+                    listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
+                }
+                if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
+                    listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
+                    listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
+                }
+                if (!(mPreference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
+                    updateListPreferenceSummary(listPreference, setting);
+                }
+            } else {
+                Logger.printException(() -> "Setting cannot be handled: " + mPreference.getClass() + " " + mPreference);
+                return;
+            }
+
+            ReVancedSettingsPreference.initializeReVancedSettings();
+
+            if (!settingImportInProgress && !showingUserDialogMessage) {
+                final Context context = getActivity();
+
+                if (setting.userDialogMessage != null && !prefIsSetToDefault(mPreference, setting)) {
+                    showSettingUserDialogConfirmation(context, mPreference, setting);
+                } else if (setting.rebootApp) {
+                    showRestartDialog(context);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
+        }
+    };
+
+    public Stack<PreferenceScreen> preferenceScreenStack = new Stack<>();
+    public PreferenceScreen rootPreferenceScreen;
+    private PreferenceScreen originalPreferenceScreen;
+    private SharedPreferences mSharedPreferences;
+
+    public ReVancedPreferenceFragment() {
+        // Required empty public constructor
+    }
+
+    // region Preference Management
+
+    // region [Preference Management] Preference Logic
+
+    /**
+     * Sorts the entries of a {@link ListPreference} alphabetically by their display text, while preserving
+     * the specified number of initial entries in their original order.
+     *
+     * @param listPreference The {@link ListPreference} to sort.
+     * @throws IllegalStateException If the number of entries and entry values do not match.
+     */
+    private static void sortListPreferenceByValues(ListPreference listPreference) {
+        CharSequence[] entries = listPreference.getEntries();
+        CharSequence[] entryValues = listPreference.getEntryValues();
+        final int entrySize = entries.length;
+
+        if (entrySize != entryValues.length) {
+            // Xml array declaration has a missing/extra entry.
+            throw new IllegalStateException();
+        }
+
+        // Since the text of Preference is Spanned, CharSequence#toString() should not be used.
+        // If CharSequence#toString() is used, Spanned styling, such as HTML syntax, will be broken.
+        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(1);
+        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
+
+        for (int i = 0; i < entrySize; i++) {
+            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
+            if (i < 1) {
+                firstPairs.add(pair);
+            } else {
+                pairsToSort.add(pair);
+            }
+        }
+
+        pairsToSort.sort((pair1, pair2)
+                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
+
+        CharSequence[] sortedEntries = new CharSequence[entrySize];
+        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
+
+        int i = 0;
+        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
+
+        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
+
+        listPreference.setEntries(sortedEntries);
+        listPreference.setEntryValues(sortedEntryValues);
+    }
+
+    /**
+     * Constructs a string representing the full hierarchical path of a PreferenceGroup,
+     * from the root to the current group, using titles separated by " › ".
+     * Includes both PreferenceScreen and PreferenceCategory titles for display purposes.
+     *
+     * @param group The PreferenceGroup for which to build the path.
+     * @return A string representing the full path of titles, or an empty string if no titles are found.
+     */
+    private String getFullPath(PreferenceGroup group) {
+        List<String> titles = new ArrayList<>();
+        PreferenceGroup current = group;
+
+        while (current != null) {
+            CharSequence currentTitle = current.getTitle();
+            if (currentTitle != null) {
+                String titleStr = currentTitle.toString().trim();
+                if (!titleStr.isEmpty()) {
+                    titles.add(0, titleStr);
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                current = current.getParent();
+                if (current == null) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+
+        return String.join(" > ", titles);
+    }
+
+    /**
+     * Finds the closest parent PreferenceScreen for a given PreferenceGroup.
+     * If the group is a PreferenceScreen, it returns that group. Otherwise, it traverses up the hierarchy.
+     *
+     * @param group The PreferenceGroup to start from.
+     * @return The closest PreferenceScreen, or null if none is found.
+     */
+    private PreferenceScreen findClosestPreferenceScreen(PreferenceGroup group) {
+        PreferenceGroup current = group;
+        while (current != null) {
+            if (current instanceof PreferenceScreen) {
+                return (PreferenceScreen) current;
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                current = current.getParent();
+            } else {
+                break;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @return If the preference is currently set to the default value of the Setting.
+     */
+    private boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        Object defaultValue = setting.defaultValue;
+        if (pref instanceof SwitchPreference switchPref) {
+            return switchPref.isChecked() == (Boolean) defaultValue;
+        }
+        String defaultValueString = defaultValue.toString();
+        if (pref instanceof EditTextPreference editPreference) {
+            return editPreference.getText().equals(defaultValueString);
+        }
+        if (pref instanceof ListPreference listPref) {
+            return listPref.getValue().equals(defaultValueString);
+        }
+
+        throw new IllegalStateException("Must override method to handle "
+                + "preference type: " + pref.getClass());
+    }
+
+    /**
+     * Displays a confirmation dialog for a setting change when the setting has a user dialog message
+     * and is not set to its default value. Allows the user to confirm or revert the change.
+     *
+     * @param context The context used to create the dialog.
+     * @param pref    The {@link Preference} associated with the setting.
+     * @param setting The {@link Setting} that was changed.
+     */
+    private void showSettingUserDialogConfirmation(Context context, Preference pref, Setting<?> setting) {
+        Utils.verifyOnMainThread();
+
+        final StringRef userDialogMessage = setting.userDialogMessage;
+        if (context != null && userDialogMessage != null) {
+            showingUserDialogMessage = true;
+
+            new AlertDialog.Builder(context)
+                    .setTitle(str("revanced_extended_confirm_user_dialog_title"))
+                    .setMessage(userDialogMessage.toString())
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                        if (setting.rebootApp) {
+                            showRestartDialog(context);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
+                        // Restore whatever the setting was before the change.
+                        if (setting instanceof BooleanSetting booleanSetting &&
+                                pref instanceof SwitchPreference switchPreference) {
+                            switchPreference.setChecked(booleanSetting.defaultValue);
+                        } else if (setting instanceof EnumSetting<?> enumSetting &&
+                                pref instanceof ListPreference listPreference) {
+                            listPreference.setValue(enumSetting.defaultValue.toString());
+                            updateListPreferenceSummary(listPreference, setting);
+                        }
+                    })
+                    .setOnDismissListener(dialog -> showingUserDialogMessage = false)
+                    .setCancelable(false)
+                    .show();
+        }
+    }
+
+    private void sortPreferenceListMenu(EnumSetting<?> setting) {
+        Preference preference = findPreference(setting.key);
+        if (preference instanceof ListPreference languagePreference) {
+            sortListPreferenceByValues(languagePreference);
+        }
+    }
+
+    private void copyPreferences(PreferenceScreen source, PreferenceScreen destination) {
+        for (Preference preference : getAllPreferencesBy(source)) {
+            destination.addPreference(preference);
+        }
+    }
+
+    /**
+     * Recursively stores all preferences and their dependencies grouped by their parent PreferenceGroup.
+     *
+     * @param preferenceGroup The PreferenceGroup to retrieve preferences from.
+     * @return A list of preferences.
+     */
+    private List<Preference> getAllPreferencesBy(PreferenceGroup preferenceGroup) {
+        List<Preference> preferences = new ArrayList<>();
+        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
+            preferences.add(preferenceGroup.getPreference(i));
+        }
+        return preferences;
+    }
+
+    // endregion [Preference Management] Preference Logic
+
+    // region [Preference Management] UI Setup
+
+    /**
+     * Configures toolbars for all {@link PreferenceScreen} instances in the preference hierarchy,
+     * setting up navigation, titles, and edge-to-edge display support for API 35+.
+     */
+    private void setPreferenceScreenToolbar() {
+        SortedMap<String, PreferenceScreen> preferenceScreenMap = new TreeMap<>();
+
+        PreferenceScreen rootPreferenceScreen = getPreferenceScreen();
+        for (Preference preference : getAllPreferencesBy(rootPreferenceScreen)) {
+            if (!(preference instanceof PreferenceGroup preferenceGroup)) continue;
+            putPreferenceScreenMap(preferenceScreenMap, preferenceGroup);
+            for (Preference childPreference : getAllPreferencesBy(preferenceGroup)) {
+                if (!(childPreference instanceof PreferenceGroup nestedPreferenceGroup)) continue;
+                putPreferenceScreenMap(preferenceScreenMap, nestedPreferenceGroup);
+                for (Preference nestedPreference : getAllPreferencesBy(nestedPreferenceGroup)) {
+                    if (!(nestedPreference instanceof PreferenceGroup childPreferenceGroup)) continue;
+                    putPreferenceScreenMap(preferenceScreenMap, childPreferenceGroup);
+                }
+            }
+        }
+
+        Integer targetSDKVersion = ExtendedUtils.getTargetSDKVersion(getContext().getPackageName());
+        boolean isEdgeToEdgeSupported = isSDKAbove(35) && targetSDKVersion != null && targetSDKVersion >= 35;
+
+        for (PreferenceScreen mPreferenceScreen : preferenceScreenMap.values()) {
+            mPreferenceScreen.setOnPreferenceClickListener(
+                    preferenceScreen -> {
+                        Dialog preferenceScreenDialog = mPreferenceScreen.getDialog();
+                        ViewGroup rootView = (ViewGroup) preferenceScreenDialog
+                                .findViewById(android.R.id.content)
+                                .getParent();
+
+                        if (isEdgeToEdgeSupported) {
+                            rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+                                Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
+                                Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
+                                v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
+                                return insets;
+                            });
+                        }
+
+                        Toolbar toolbar = getToolbar(preferenceScreen, preferenceScreenDialog);
+
+                        int margin = (int) TypedValue.applyDimension(
+                                TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
+                        );
+                        toolbar.setTitleMargin(margin, 0, margin, 0);
+
+                        TextView toolbarTextView = getChildView(toolbar, TextView.class::isInstance);
+                        if (toolbarTextView != null) {
+                            toolbarTextView.setTextColor(ThemeUtils.getForegroundColor());
+                        }
+
+                        setToolbarLayoutParams(toolbar);
+                        rootView.addView(toolbar, 0);
+
+                        // Update the main activity's toolbar title
+                        Activity activity = getActivity();
+                        if (activity instanceof VideoQualitySettingsActivity) {
+                            ((VideoQualitySettingsActivity) activity).updateToolbarTitle(preferenceScreen.getTitle().toString());
+                        }
+
+                        return false;
+                    }
+            );
+        }
+    }
+
+    private void putPreferenceScreenMap(SortedMap<String, PreferenceScreen> preferenceScreenMap, PreferenceGroup preferenceGroup) {
+        if (preferenceGroup instanceof PreferenceScreen mPreferenceScreen) {
+            preferenceScreenMap.put(mPreferenceScreen.getKey(), mPreferenceScreen);
+        }
+    }
+
+    @NotNull
+    private Toolbar getToolbar(Preference preferenceScreen, Dialog preferenceScreenDialog) {
+        Toolbar toolbar = new Toolbar(preferenceScreen.getContext());
+        toolbar.setTitle(preferenceScreen.getTitle());
+        toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable());
+        toolbar.setNavigationOnClickListener(view -> {
+            SearchView searchView = searchViewRef.get();
+            String searchQuery = (searchView != null) ? searchView.getQuery().toString() : "";
+            preferenceScreenDialog.dismiss();
+            if (!searchQuery.isEmpty()) {
+                filterPreferences(searchQuery); // Restore search results
+                Activity activity = getActivity();
+                if (activity instanceof VideoQualitySettingsActivity) {
+                    ((VideoQualitySettingsActivity) activity).updateToolbarTitle(searchLabel);
+                }
+            }
+        });
+        return toolbar;
+    }
+
+    // endregion [Preference Management] UI Setup
+
+    // endregion Preference Management
+
+    // region Search
+
+    // region [Search] Initialize and Store Preferences
 
     /**
      * Initializes the {@link #customDependencyMap} by parsing the preferences XML resource.
@@ -508,10 +662,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         return null;
     }
 
-    // endregion
-
-    // region Search Fragment: Preference Storage
-
     /**
      * Recursively scans a PreferenceGroup and stores all its preferences, including those in nested groups,
      * into the {@link #groupedPreferences} map. It also populates the {@link #dependencyMap} with
@@ -520,13 +670,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param preferenceGroup The PreferenceGroup to scan.
      */
     private void storeAllPreferences(PreferenceGroup preferenceGroup) {
-        // Determine if this is the root PreferenceScreen.
-        boolean isRootScreen = preferenceGroup == getPreferenceScreen();
-        // Use a special top-level group for the root screen, otherwise use the given group.
-        PreferenceGroup groupKey = isRootScreen ? createTopLevelGroup(preferenceGroup.getContext()) : preferenceGroup;
-
         // Get the list of preferences for this group, creating it if it doesn't exist.
-        List<Preference> currentGroupPreferences = groupedPreferences.computeIfAbsent(groupKey, k -> new ArrayList<>());
+        List<Preference> currentGroupPreferences = groupedPreferences.computeIfAbsent(preferenceGroup, k -> new ArrayList<>());
 
         // Iterate through all preferences in the group.
         for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
@@ -550,106 +695,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
-    /**
-     * Creates a special top-level PreferenceGroup to represent the root PreferenceScreen
-     * in the {@link #groupedPreferences} map. This allows treating the root screen like
-     * any other PreferenceGroup for easier processing.
-     *
-     * @param context The application context.
-     * @return A new PreferenceCategory representing the top-level group, titled "ReVanced Extended".
-     */
-    private PreferenceGroup createTopLevelGroup(Context context) {
-        PreferenceCategory topLevelGroup = new PreferenceCategory(context);
-        topLevelGroup.setTitle(ResourceUtils.getString("revanced_extended_settings_title"));
-        return topLevelGroup;
-    }
+    // endregion [Search] Initialize and Store Preferences
 
-    // endregion
-
-    // region Search Fragment: Dependency Handling
-
-    /**
-     * Retrieves the custom dependency key for a given preference, if one is defined in the {@link #customDependencyMap}.
-     *
-     * @param preference The preference for which to find the custom dependency.
-     * @param group      The PreferenceGroup containing the preference.
-     * @return The custom dependency key (which is the key of another preference) if found, otherwise null.
-     */
-    private String getCustomDependency(Preference preference, PreferenceGroup group) {
-        // Construct the category key based on the preference group's title and the preference's key.
-        String categoryTitle = (group == null || group.getTitle() == null) ? "" : group.getTitle().toString();
-        String categoryKey = categoryTitle + ":" + preference.getKey();
-
-        // Return the custom dependency key from the map.
-        return customDependencyMap.get(categoryKey);
-    }
-
-    /**
-     * Determines the dependency key for a given preference. It first checks for a custom dependency
-     * (app:searchDependency), and if none is found, it falls back to the standard Android dependency
-     * (android:dependency) attribute.
-     *
-     * @param preference The preference for which to find the dependency key.
-     * @param group      The PreferenceGroup containing the preference.
-     * @return The dependency key (which is the key of another preference), or null if no dependency is found.
-     */
-    private String getDependencyKey(Preference preference, PreferenceGroup group) {
-        // First, try to get a custom dependency.
-        String dependencyKey = getCustomDependency(preference, group);
-        // If no custom dependency is found, fall back to the standard dependency.
-        if (dependencyKey == null) {
-            dependencyKey = preference.getDependency();
-        }
-        return dependencyKey;
-    }
-
-    /**
-     * Recursively adds a preference and its dependencies to the set of keys to include in the search results.
-     * It handles both forward dependencies (preferences that depend on this one) and backward dependencies
-     * (preferences on which this one depends).
-     *
-     * @param preference    The preference to add.
-     * @param keysToInclude The set of keys to be included in the search results.
-     *                      A key is added to this set only if it hasn't been added before, ensuring uniqueness.
-     * @param dependencyKey The dependency key of the preference, which could be a custom dependency or a standard one.
-     * @param group         The PreferenceGroup containing the preference.
-     */
-    private void addPreferenceAndDependencies(Preference preference, Set<String> keysToInclude, String dependencyKey, PreferenceGroup group) {
-        String key = preference.getKey();
-        // Add the preference's key to the set only if it's not already present.
-        if (key != null && keysToInclude.add(group.getTitle() + ":" + key)) {
-            // Add the parent preference on which this preference depends on
-            if (dependencyKey != null) {
-                Preference dependency = findPreferenceInAllGroups(dependencyKey);
-                if (dependency != null) {
-                    addPreferenceAndDependencies(dependency, keysToInclude, getDependencyKey(dependency, group), group);
-                }
-            }
-
-            // Recursively add preferences that depend on this one.
-            if (dependencyMap.containsKey(key)) {
-                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceAndDependencies(dependentPreference, keysToInclude, getDependencyKey(dependentPreference, group), group));
-            }
-        }
-    }
-
-    /**
-     * Finds a preference within all the stored preference groups based on its key.
-     *
-     * @param key The key of the preference to search for.
-     * @return The found Preference object, or null if no preference with the given key is found.
-     */
-    private Preference findPreferenceInAllGroups(String key) {
-        return groupedPreferences.values().stream()
-                .flatMap(List::stream)
-                .filter(preference -> preference.getKey() != null && preference.getKey().equals(key))
-                .findFirst()
-                .orElse(null);
-    }
-
-    // endregion
-
-    // region Search Fragment: Search Filtering
+    // region [Search] Filter Preferences
 
     /**
      * Filters the preferences based on a given search query.
@@ -666,57 +714,52 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param query The search query string.
      */
     public void filterPreferences(String query) {
-        // If the query is empty, reset the preference screen to its original state.
         if (query == null || query.isEmpty()) {
             resetPreferences();
             return;
         }
 
-        // Get the root PreferenceScreen.
         PreferenceScreen preferenceScreen = getPreferenceScreen();
-        // Remove all existing preferences from the screen.
         preferenceScreen.removeAll();
-        // Clear the set of added preferences.
         addedPreferences.clear();
 
         String finalQuery = query.toLowerCase();
-        // This map will hold the preferences that match the search query, grouped by their parent group.
         Map<PreferenceGroup, List<Preference>> matchedGroupPreferences = new LinkedHashMap<>();
-        // This set will hold the unique keys of preferences to be included in the results.
-        Set<String> keysToInclude = new HashSet<>();
 
-        // First pass: Identify preferences that match the query and their dependencies.
-        groupedPreferences.forEach((group, preferences) -> preferences.stream()
-                .filter(preference -> preferenceMatches(preference, finalQuery))
-                .forEach(preference -> {
-                    String dependencyKey = getDependencyKey(preference, group);
-                    // Add the matching preference and its dependencies to keysToInclude.
-                    addPreferenceAndDependencies(preference, keysToInclude, dependencyKey, group);
-                }));
-
-        // Second pass: Build the matchedGroupPreferences map using the identified keys.
+        // Find matched preferences
         groupedPreferences.forEach((group, preferences) -> {
-            List<Preference> matchedPreferences = preferences.stream()
-                    .filter(preference -> keysToInclude.contains(group.getTitle() + ":" + preference.getKey()))
+            List<Preference> matchedPrefs = preferences.stream()
+                    .filter(pref -> preferenceMatches(pref, finalQuery))
+                    .filter(pref -> {
+                        String dependencyKey = getDependencyKey(pref, group);
+                        Set<String> keysToInclude = new HashSet<>();
+                        addPreferenceAndDependencies(pref, keysToInclude, dependencyKey, group);
+                        return keysToInclude.contains(group.getTitle() + ":" + pref.getKey());
+                    })
                     .collect(Collectors.toList());
-            if (!matchedPreferences.isEmpty()) {
-                matchedGroupPreferences.put(group, matchedPreferences);
+            if (!matchedPrefs.isEmpty()) {
+                matchedGroupPreferences.put(group, matchedPrefs);
             }
         });
 
-        // Add the matched preferences to the screen, maintaining the original order.
+        // Add matched preferences to the search results
         matchedGroupPreferences.forEach((group, matchedPreferences) -> {
-            // Create a new PreferenceCategory for each group.
-            PreferenceCategory category = new PreferenceCategory(preferenceScreen.getContext());
-            category.setTitle(group.getTitle());
-            preferenceScreen.addPreference(category);
-
-            // Add each matched preference to the category.
-            matchedPreferences.forEach(preference -> {
-                String dependencyKey = getDependencyKey(preference, group);
-                addPreferenceWithDependencies(category, preference, dependencyKey);
-            });
+            PreferenceGroup targetGroup;
+            if (group == rootPreferenceScreen) {
+                // Top-level preferences go directly into the PreferenceScreen
+                targetGroup = preferenceScreen;
+            } else {
+                // Nested preferences go into a ClickablePreferenceCategory
+                PreferenceScreen targetScreen = findClosestPreferenceScreen(group);
+                ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, targetScreen);
+                category.setTitle(getFullPath(group));
+                preferenceScreen.addPreference(category);
+                targetGroup = category;
+            }
+            addPreferencesToGroup(targetGroup, matchedPreferences, group);
         });
+
+        Logger.printDebug(() -> "Search results displayed with " + matchedGroupPreferences.size() + " groups");
     }
 
     /**
@@ -771,6 +814,64 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
+     * Adds a list of preferences and their dependencies to the target PreferenceGroup.
+     *
+     * @param targetGroup The PreferenceGroup (PreferenceScreen or ClickablePreferenceCategory) to add preferences to.
+     * @param preferences The list of preferences to add.
+     * @param group       The original PreferenceGroup containing the preferences (for dependency lookup).
+     */
+    private void addPreferencesToGroup(PreferenceGroup targetGroup, List<Preference> preferences, PreferenceGroup group) {
+        preferences.forEach(preference -> {
+            String dependencyKey = getDependencyKey(preference, group);
+            addPreferenceWithDependencies(targetGroup, preference, dependencyKey);
+            Logger.printDebug(() -> "Added preference: " + preference.getKey() +
+                    " to group: " + (group == rootPreferenceScreen ? "top-level" : group.getTitle()));
+        });
+    }
+
+    /**
+     * Recursively adds a preference and its dependencies to the specified {@link PreferenceGroup}.
+     * Ensures that:
+     * <ul>
+     *   <li>Dependencies are added before dependent preferences to avoid display issues or crashes.</li>
+     *   <li>Each preference is added only once, using a set of visited preferences to prevent duplicates.</li>
+     * </ul>
+     *
+     * @param preferenceGroup    The {@link PreferenceGroup} to which the preference and its dependencies are added.
+     * @param preference         The {@link Preference} to add.
+     * @param dependencyKey      The key of the preference on which this preference depends, or null if none.
+     * @param visitedPreferences A {@link Set} tracking unique preference keys to avoid duplicate additions.
+     */
+    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey, Set<String> visitedPreferences) {
+        String key = preference.getKey();
+        String uniqueKey = preferenceGroup.getTitle() + ":" + key;
+
+        // Only add the preference if it hasn't been added or visited already
+        if (key != null && !visitedPreferences.contains(uniqueKey) && addedPreferences.add(uniqueKey)) {
+            visitedPreferences.add(uniqueKey); // Mark as visited
+
+            // Add dependencies first to avoid possible crashes
+            if (dependencyKey != null) {
+                Preference dependency = findPreferenceInAllGroups(dependencyKey);
+                if (dependency != null) {
+                    addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup), visitedPreferences);
+                } else {
+                    return;
+                }
+            }
+
+            // Add the preference itself
+            preferenceGroup.addPreference(preference);
+
+            // Recursively add preferences that depend on this one
+            if (dependencyMap.containsKey(key)) {
+                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference ->
+                        addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, preferenceGroup), visitedPreferences));
+            }
+        }
+    }
+
+    /**
      * Recursively adds a preference and its dependencies to the given PreferenceGroup.
      * This method ensures that:<p>
      * 1. Dependencies are added before the preferences that depend on them to prevent display issues and crashes.<br>
@@ -781,201 +882,110 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param dependencyKey   The dependency key of the preference.
      */
     private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey) {
-        String key = preference.getKey();
-        String uniqueKey = preferenceGroup.getTitle() + ":" + key;
+        addPreferenceWithDependencies(preferenceGroup, preference, dependencyKey, new HashSet<>());
+    }
 
-        // Only add the preference if it hasn't been added already.
-        if (key != null && addedPreferences.add(uniqueKey)) {
-            // Add dependencies first to avoid possible crashes.
-            // Recursively add the preference on which this one depends.
+    /**
+     * Recursively adds a preference and its dependencies to the set of keys to include in the search results.
+     * It handles both forward dependencies (preferences that depend on this one) and backward dependencies
+     * (preferences on which this one depends).
+     *
+     * @param preference    The preference to add.
+     * @param keysToInclude The set of keys to be included in the search results.
+     *                      A key is added to this set only if it hasn't been added before, ensuring uniqueness.
+     * @param dependencyKey The dependency key of the preference, which could be a custom dependency or a standard one.
+     * @param group         The PreferenceGroup containing the preference.
+     */
+    private void addPreferenceAndDependencies(Preference preference, Set<String> keysToInclude, String dependencyKey, PreferenceGroup group) {
+        String key = preference.getKey();
+        // Add the preference's key to the set only if it's not already present.
+        if (key != null && keysToInclude.add(group.getTitle() + ":" + key)) {
+            // Add the parent preference on which this preference depends on
             if (dependencyKey != null) {
                 Preference dependency = findPreferenceInAllGroups(dependencyKey);
                 if (dependency != null) {
-                    addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup));
-                } else {
-                    return;
+                    addPreferenceAndDependencies(dependency, keysToInclude, getDependencyKey(dependency, group), group);
                 }
             }
-
-            // Add the preference itself.
-            preferenceGroup.addPreference(preference);
 
             // Recursively add preferences that depend on this one.
             if (dependencyMap.containsKey(key)) {
-                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, preferenceGroup)));
+                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceAndDependencies(dependentPreference, keysToInclude, getDependencyKey(dependentPreference, group), group));
             }
         }
     }
 
-    // endregion
-
-    // region Search Fragment: Resetting
+    /**
+     * Retrieves the custom dependency key for a given preference, if one is defined in the {@link #customDependencyMap}.
+     *
+     * @param preference The preference for which to find the custom dependency.
+     * @param group      The PreferenceGroup containing the preference.
+     * @return The custom dependency key (which is the key of another preference) if found, otherwise null.
+     */
+    private String getCustomDependency(Preference preference, PreferenceGroup group) {
+        String categoryTitle = (group == null || group.getTitle() == null) ? "" : group.getTitle().toString();
+        String categoryKey = categoryTitle + ":" + preference.getKey();
+        return customDependencyMap.get(categoryKey);
+    }
 
     /**
-     * Resets the preference screen to its original state, removing any search results and restoring
-     * all preferences to their default positions.
+     * Determines the dependency key for a given preference. It first checks for a custom dependency
+     * (app:searchDependency), and if none is found, it falls back to the standard Android dependency
+     * (android:dependency) attribute.
+     *
+     * @param preference The preference for which to find the dependency key.
+     * @param group      The PreferenceGroup containing the preference.
+     * @return The dependency key (which is the key of another preference), or null if no dependency is found.
+     */
+    private String getDependencyKey(Preference preference, PreferenceGroup group) {
+        // First, try to get a custom dependency.
+        String dependencyKey = getCustomDependency(preference, group);
+        // If no custom dependency is found, fall back to the standard dependency.
+        if (dependencyKey == null) {
+            dependencyKey = preference.getDependency();
+        }
+        return dependencyKey;
+    }
+
+    /**
+     * Finds a preference within all the stored preference groups based on its key.
+     *
+     * @param key The key of the preference to search for.
+     * @return The found Preference object, or null if no preference with the given key is found.
+     */
+    private Preference findPreferenceInAllGroups(String key) {
+        return groupedPreferences.values().stream()
+                .flatMap(List::stream)
+                .filter(preference -> preference.getKey() != null && preference.getKey().equals(key))
+                .findFirst()
+                .orElse(null);
+    }
+
+    /**
+     * Resets the {@link PreferenceScreen} to its original state, restoring all preferences
+     * from the {@link #originalPreferenceScreen} and clearing search results.
      */
     public void resetPreferences() {
-        // Get the root PreferenceScreen.
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        // Remove all preferences from the screen.
-        preferenceScreen.removeAll();
-        // Re-add all preferences from the original screen.
-        getAllPreferencesBy(originalPreferenceScreen).forEach(preferenceScreen::addPreference);
+        PreferenceScreen current = getPreferenceScreen();
+        if (current != rootPreferenceScreen) {
+            super.setPreferenceScreen(rootPreferenceScreen);
+        }
+        rootPreferenceScreen.removeAll();
+        getAllPreferencesBy(originalPreferenceScreen).forEach(rootPreferenceScreen::addPreference);
+
+        Activity activity = getActivity();
+        if (activity instanceof VideoQualitySettingsActivity) {
+            ((VideoQualitySettingsActivity) activity).updateToolbarTitle(rvxSettingsLabel);
+        }
+
+        Logger.printDebug(() -> "resetPreferences: Refreshed and reset PreferenceScreen for UI update");
     }
 
-    // endregion
+    // endregion [Search] Filter Preferences
 
-    @SuppressLint("ResourceType")
-    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        try {
-            mPreferenceManager = getPreferenceManager();
-            mPreferenceManager.setSharedPreferencesName(Setting.preferences.name);
-            mSharedPreferences = mPreferenceManager.getSharedPreferences();
-            addPreferencesFromResource(getXmlIdentifier("revanced_prefs"));
+    // endregion Search
 
-            // Initialize toolbars and other UI elements
-            setPreferenceScreenToolbar();
-
-            // Initialize ReVanced settings
-            ReVancedSettingsPreference.initializeReVancedSettings();
-            SponsorBlockSettingsPreference.init(getActivity());
-
-            // Import/export
-            setBackupRestorePreference();
-
-            // Store all preferences and their dependencies
-            initializeCustomDependencies();
-            storeAllPreferences(getPreferenceScreen());
-
-            // Load and set initial preferences states
-            for (Setting<?> setting : Setting.allLoadedSettings()) {
-                final Preference preference = mPreferenceManager.findPreference(setting.key);
-                if (preference != null && isSDKAbove(26)) {
-                    preference.setSingleLineTitle(false);
-                }
-
-                if (preference instanceof SwitchPreference switchPreference) {
-                    BooleanSetting boolSetting = (BooleanSetting) setting;
-                    switchPreference.setChecked(boolSetting.get());
-                } else if (preference instanceof EditTextPreference editTextPreference) {
-                    editTextPreference.setText(setting.get().toString());
-                } else if (preference instanceof ListPreference listPreference) {
-                    if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
-                        listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
-                        listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
-                    }
-                    if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
-                        listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
-                        listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
-                    }
-                    if (!(preference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
-                        updateListPreferenceSummary(listPreference, setting);
-                    }
-                }
-            }
-
-            // Register preference change listener
-            mSharedPreferences.registerOnSharedPreferenceChangeListener(listener);
-
-            originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getActivity());
-            copyPreferences(getPreferenceScreen(), originalPreferenceScreen);
-
-            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
-            sortPreferenceListMenu(Settings.SPOOF_STREAMING_DATA_LANGUAGE);
-            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
-        } catch (Exception th) {
-            Logger.printException(() -> "Error during onCreate()", th);
-        }
-    }
-
-    private void copyPreferences(PreferenceScreen source, PreferenceScreen destination) {
-        for (Preference preference : getAllPreferencesBy(source)) {
-            destination.addPreference(preference);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        mSharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
-        Utils.resetLocalizedContext();
-        super.onDestroy();
-    }
-
-    /**
-     * Sorts a preference list by menu entries, but preserves the first value as the first entry.
-     *
-     * @noinspection SameParameterValue
-     */
-    private static void sortListPreferenceByValues(ListPreference listPreference, int firstEntriesToPreserve) {
-        CharSequence[] entries = listPreference.getEntries();
-        CharSequence[] entryValues = listPreference.getEntryValues();
-        final int entrySize = entries.length;
-
-        if (entrySize != entryValues.length) {
-            // Xml array declaration has a missing/extra entry.
-            throw new IllegalStateException();
-        }
-
-        // Since the text of Preference is Spanned, CharSequence#toString() should not be used.
-        // If CharSequence#toString() is used, Spanned styling, such as HTML syntax, will be broken.
-        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
-        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
-
-        for (int i = 0; i < entrySize; i++) {
-            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
-            if (i < firstEntriesToPreserve) {
-                firstPairs.add(pair);
-            } else {
-                pairsToSort.add(pair);
-            }
-        }
-
-        pairsToSort.sort((pair1, pair2)
-                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
-
-        CharSequence[] sortedEntries = new CharSequence[entrySize];
-        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
-
-        int i = 0;
-        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
-            i++;
-        }
-
-        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
-            i++;
-        }
-
-        listPreference.setEntries(sortedEntries);
-        listPreference.setEntryValues(sortedEntryValues);
-    }
-
-    private void sortPreferenceListMenu(EnumSetting<?> setting) {
-        Preference preference = findPreference(setting.key);
-        if (preference instanceof ListPreference languagePreference) {
-            sortListPreferenceByValues(languagePreference, 1);
-        }
-    }
-
-    /**
-     * Recursively stores all preferences and their dependencies grouped by their parent PreferenceGroup.
-     *
-     * @param preferenceGroup The PreferenceGroup to retrieve preferences from.
-     * @return A list of preferences.
-     */
-    private List<Preference> getAllPreferencesBy(PreferenceGroup preferenceGroup) {
-        List<Preference> preferences = new ArrayList<>();
-        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-            preferences.add(preferenceGroup.getPreference(i));
-        }
-        return preferences;
-    }
+    // region Import/Export
 
     /**
      * Add Preference to Import/Export settings submenu
@@ -1018,20 +1028,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType(isSDKAbove(29) ? "text/plain" : "*/*");
         startActivityForResult(intent, READ_REQUEST_CODE);
-    }
-
-    /**
-     * Activity should be done within the lifecycle of PreferenceFragment
-     */
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == WRITE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            exportText(data.getData());
-        } else if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            importText(data.getData());
-        }
     }
 
     private void exportText(Uri uri) {
@@ -1090,5 +1086,109 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         } finally {
             settingImportInProgress = false;
         }
+    }
+
+    // endregion Import/Export
+
+    @SuppressLint("ResourceType")
+    @Override
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        try {
+            mPreferenceManager = getPreferenceManager();
+            mPreferenceManager.setSharedPreferencesName(Setting.preferences.name);
+            mSharedPreferences = mPreferenceManager.getSharedPreferences();
+            addPreferencesFromResource(getXmlIdentifier("revanced_prefs"));
+
+            rootPreferenceScreen = getPreferenceScreen();
+
+            // Initialize toolbars and other UI elements
+            setPreferenceScreenToolbar();
+
+            // Initialize ReVanced settings
+            ReVancedSettingsPreference.initializeReVancedSettings();
+            SponsorBlockSettingsPreference.init(getActivity());
+
+            // Import/export
+            setBackupRestorePreference();
+
+            // Store all preferences and their dependencies
+            initializeCustomDependencies();
+            storeAllPreferences(getPreferenceScreen());
+
+            // Load and set initial preferences states
+            for (Setting<?> setting : Setting.allLoadedSettings()) {
+                final Preference preference = mPreferenceManager.findPreference(setting.key);
+                if (preference != null && isSDKAbove(26)) {
+                    preference.setSingleLineTitle(false);
+                }
+
+                if (preference instanceof SwitchPreference switchPreference) {
+                    BooleanSetting boolSetting = (BooleanSetting) setting;
+                    switchPreference.setChecked(boolSetting.get());
+                } else if (preference instanceof EditTextPreference editTextPreference) {
+                    editTextPreference.setText(setting.get().toString());
+                } else if (preference instanceof ListPreference listPreference) {
+                    if (setting.equals(DEFAULT_PLAYBACK_SPEED) || setting.equals(DEFAULT_PLAYBACK_SPEED_SHORTS)) {
+                        listPreference.setEntries(CustomPlaybackSpeedPatch.getEntries());
+                        listPreference.setEntryValues(CustomPlaybackSpeedPatch.getEntryValues());
+                    }
+                    if (setting.equals(SPOOF_STREAMING_DATA_TYPE)) {
+                        listPreference.setEntries(SpoofStreamingDataPatch.getEntries());
+                        listPreference.setEntryValues(SpoofStreamingDataPatch.getEntryValues());
+                    }
+                    if (!(preference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
+                        updateListPreferenceSummary(listPreference, setting);
+                    }
+                }
+            }
+
+            // Register preference change listener
+            mSharedPreferences.registerOnSharedPreferenceChangeListener(listener);
+
+            originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getActivity());
+            copyPreferences(getPreferenceScreen(), originalPreferenceScreen);
+
+            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
+            sortPreferenceListMenu(Settings.SPOOF_STREAMING_DATA_LANGUAGE);
+            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
+        } catch (Exception th) {
+            Logger.printException(() -> "Error during onCreate()", th);
+        }
+    }
+
+    @Override
+    public void setPreferenceScreen(PreferenceScreen preferenceScreen) {
+        if (getPreferenceScreen() != null && getPreferenceScreen() != preferenceScreen) {
+            preferenceScreenStack.push(getPreferenceScreen());
+        }
+        super.setPreferenceScreen(preferenceScreen);
+        if (preferenceScreen != null && preferenceScreen.getTitle() != null) {
+            Activity activity = getActivity();
+            if (activity instanceof VideoQualitySettingsActivity) {
+                ((VideoQualitySettingsActivity) activity).updateToolbarTitle(preferenceScreen.getTitle().toString());
+            }
+        }
+    }
+
+    /**
+     * Activity should be done within the lifecycle of PreferenceFragment
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == WRITE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            exportText(data.getData());
+        } else if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+            importText(data.getData());
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        mSharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
+        Utils.resetLocalizedContext();
+        super.onDestroy();
     }
 }

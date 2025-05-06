@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.PreferenceScreen;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -12,37 +13,45 @@ import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
-
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.utils.ThemeUtils;
 
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
+
 @SuppressWarnings("deprecation")
 public class VideoQualitySettingsActivity extends Activity {
 
-    private static String rvxSettingsLabel;
-    private static String searchLabel;
-    private static WeakReference<SearchView> searchViewRef = new WeakReference<>(null);
+    public static String searchLabel;
+    public static WeakReference<SearchView> searchViewRef = new WeakReference<>(null);
+    public static String rvxSettingsLabel;
+    private static ViewGroup.LayoutParams lp;
+    private Toolbar toolbar;
     private ReVancedPreferenceFragment fragment;
-
     private final OnQueryTextListener onQueryTextListener = new OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            filterPreferences(query);
+            fragment.setPreferenceScreen(fragment.rootPreferenceScreen);
+            fragment.filterPreferences(query);
             return true;
         }
 
         @Override
         public boolean onQueryTextChange(String newText) {
-            filterPreferences(newText);
+            fragment.setPreferenceScreen(fragment.rootPreferenceScreen);
+            fragment.filterPreferences(newText);
             return true;
         }
     };
+
+    public static void setToolbarLayoutParams(Toolbar toolbar) {
+        if (lp != null) {
+            toolbar.setLayoutParams(lp);
+        }
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -51,13 +60,28 @@ public class VideoQualitySettingsActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (fragment != null && searchViewRef.get() != null && !searchViewRef.get().getQuery().toString().isEmpty()) {
-            // Reset the preferences only if a search query is active
-            fragment.resetPreferences();
-            searchViewRef.get().setQuery("", false); // Clear the search query
-            searchViewRef.get().clearFocus(); // Remove focus from the search view
+        SearchView searchView = searchViewRef.get();
+        String currentQuery = (searchView != null) ? searchView.getQuery().toString() : "";
+
+        if (fragment.getPreferenceScreen() == fragment.rootPreferenceScreen) {
+            if (!currentQuery.isEmpty()) {
+                searchView.setQuery("", false);
+                searchView.clearFocus();
+                fragment.resetPreferences(); // Reset to original preferences
+            } else {
+                super.onBackPressed();
+            }
         } else {
-            super.onBackPressed();
+            // Handle sub-screen navigation
+            if (!fragment.preferenceScreenStack.isEmpty()) {
+                PreferenceScreen previous = fragment.preferenceScreenStack.pop();
+                fragment.setPreferenceScreen(previous);
+                if (!currentQuery.isEmpty()) {
+                    fragment.filterPreferences(currentQuery); // Restore search results
+                }
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -108,19 +132,6 @@ public class VideoQualitySettingsActivity extends Activity {
         return resources.getString(identifier);
     }
 
-    private void filterPreferences(String query) {
-        if (fragment == null) return;
-        fragment.filterPreferences(query);
-    }
-
-    private static ViewGroup.LayoutParams lp;
-
-    public static void setToolbarLayoutParams(Toolbar toolbar) {
-        if (lp != null) {
-            toolbar.setLayoutParams(lp);
-        }
-    }
-
     private void setToolbar() {
         ViewGroup toolBarParent = findViewById(ResourceUtils.getIdIdentifier("revanced_toolbar_parent"));
 
@@ -129,7 +140,7 @@ public class VideoQualitySettingsActivity extends Activity {
         lp = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
 
-        Toolbar toolbar = new Toolbar(toolBarParent.getContext());
+        toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(ThemeUtils.getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ThemeUtils.getBackButtonDrawable());
         toolbar.setNavigationOnClickListener(view -> VideoQualitySettingsActivity.this.onBackPressed());
@@ -201,6 +212,12 @@ public class VideoQualitySettingsActivity extends Activity {
 
         // Keep a weak reference to the SearchView
         searchViewRef = new WeakReference<>(searchView);
+    }
+
+    public void updateToolbarTitle(String title) {
+        if (toolbar != null) {
+            toolbar.setTitle(title);
+        }
     }
 
     @Override
