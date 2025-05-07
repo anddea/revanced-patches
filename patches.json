@@ -2564,13 +2564,25 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Removes the \u0027?si\u003d\u0027 tracking parameter from shared links (e.g., Copy Link, Share to...).",
+    "description": "Removes the tracking query parameters from links before they are shared.",
     "use": true,
-    "dependencies": [],
+    "dependencies": [
+      "BytecodePatch"
+    ],
     "compatiblePackages": {
       "com.spotify.music": null
     },
-    "options": []
+    "options": [
+      {
+        "key": "shareParameters",
+        "title": "Parameters to remove",
+        "description": "A list of parameters to be removed from sharing links, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "si, utm_source, context",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Sanitize sharing links",
