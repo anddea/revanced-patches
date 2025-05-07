@@ -1,3 +1,16 @@
+# [3.8.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.7.0...v3.8.0-dev.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([f4088ae](https://github.com/anddea/revanced-patches/commit/f4088aef5a3dda2fd91b322872dfabf87e8ce3fb))
+* **YouTube - Overlay buttons:** Use Gemini 2.0 Flash model for summaries to prevent 'Deadline expired' errors ([237673b](https://github.com/anddea/revanced-patches/commit/237673be32c108aa755be4ed8a287364a9ac4634))
+
+
+### Features
+
+* **YouTube - Settings:** Make categories clickable in search results ([569731c](https://github.com/anddea/revanced-patches/commit/569731c2dc91bdac81e0a0599bba8fb2d29e432b))
+
 # [3.7.0](https://github.com/anddea/revanced-patches/compare/v3.6.0...v3.7.0) (2025-04-24)
 
 
