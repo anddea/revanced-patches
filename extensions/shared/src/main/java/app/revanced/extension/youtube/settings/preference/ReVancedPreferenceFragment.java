@@ -20,6 +20,7 @@ import android.view.WindowInsets;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
+import androidx.annotation.NonNull;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
@@ -42,7 +43,6 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
@@ -113,27 +113,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     private final Map<String, List<Preference>> dependencyMap = new HashMap<>();
 
     /**
-     * Keeps track of preferences that have already been added to the search results.
-     * <p>
-     * This prevents duplicate entries when a preference is matched multiple times
-     * due to dependencies or multiple search criteria.
-     * <p>
-     * Example: For preferences <pre>{@code
-     * <PreferenceScreen ... android:title="@string/preference_screen_title" ...>
-     *     <Preference android:key="preference_key_1" ...>
-     *     <Preference android:key="preference_key_2" ...>
-     *     ...
-     * </PreferenceScreen>
-     * ...
-     * }</pre>
-     * <p>
-     * addedPreferences will be <pre>{@code
-     * addedPreferences = [preference_screen_title:preference_key_1, preference_screen_title:preference_key_2, ...]
-     * }</pre>
-     */
-    private final Set<String> addedPreferences = new HashSet<>();
-
-    /**
      * Stores preferences grouped by their parent PreferenceGroup (or PreferenceScreen).
      * <p>
      * <b>Key:</b> <i>The parent PreferenceGroup. The root PreferenceScreen is represented by a special top-level group.</i><br>
@@ -159,7 +138,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * groupedPreferences = {preference_screen_top_level_title=[preference_screen_1_title, preference_screen_2_title, ...], preference_screen_1_title=[preference_screen_1_preference_title_1, preference_screen_1_preference_title_2, ...], ...}
      * }</pre>
      */
-    private final Map<PreferenceGroup, List<Preference>> groupedPreferences = new LinkedHashMap<>();
+    private final Map<PreferenceGroup, LinkedHashSet<Preference>> groupedPreferences = new LinkedHashMap<>();
 
     /**
      * Stores custom dependencies defined in the preferences XML file with {@link #DEPENDENCY_ATTRIBUTE}.
@@ -261,6 +240,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     };
 
+    private final List<PreferenceInfo> preferenceList = new ArrayList<>();
+    private final Map<String, List<Integer>> dependencyCache = new HashMap<>();
     public Stack<PreferenceScreen> preferenceScreenStack = new Stack<>();
     public PreferenceScreen rootPreferenceScreen;
     private PreferenceScreen originalPreferenceScreen;
@@ -337,27 +318,17 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return A string representing the full path of titles, or an empty string if no titles are found.
      */
     private String getFullPath(PreferenceGroup group) {
-        List<String> titles = new ArrayList<>();
-        PreferenceGroup current = group;
-
-        while (current != null) {
-            CharSequence currentTitle = current.getTitle();
-            if (currentTitle != null) {
-                String titleStr = currentTitle.toString().trim();
-                if (!titleStr.isEmpty()) {
-                    titles.add(0, titleStr);
-                }
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                current = current.getParent();
-                if (current == null) {
-                    break;
-                }
-            } else {
-                break;
+        Deque<String> titles = new ArrayDeque<>();
+        for (PreferenceGroup current = group;
+             current != null;
+             current = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? current.getParent() : null
+        ) {
+            CharSequence title = current.getTitle();
+            if (title != null) {
+                String t = title.toString().trim();
+                if (!t.isEmpty()) titles.addFirst(t);
             }
         }
-
         return String.join(" > ", titles);
     }
 
@@ -384,7 +355,12 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * @return If the preference is currently set to the default value of the Setting.
+     * Checks if the preference is currently set to the default value of the associated Setting.
+     *
+     * @param pref   The {@link Preference} to check.
+     * @param setting The {@link Setting} associated with the preference.
+     * @return True if the preference is set to the default value, false otherwise.
+     * @throws IllegalStateException If the preference type is not supported.
      */
     private boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
         Object defaultValue = setting.defaultValue;
@@ -443,6 +419,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
+    /**
+     * Sorts the entries of a ListPreference associated with an EnumSetting alphabetically.
+     *
+     * @param setting The {@link EnumSetting} whose associated ListPreference should be sorted.
+     */
     private void sortPreferenceListMenu(EnumSetting<?> setting) {
         Preference preference = findPreference(setting.key);
         if (preference instanceof ListPreference languagePreference) {
@@ -450,6 +431,12 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
+    /**
+     * Copies all preferences from a source PreferenceScreen to a destination PreferenceScreen.
+     *
+     * @param source      The source {@link PreferenceScreen} containing the preferences to copy.
+     * @param destination The destination {@link PreferenceScreen} to receive the copied preferences.
+     */
     private void copyPreferences(PreferenceScreen source, PreferenceScreen destination) {
         for (Preference preference : getAllPreferencesBy(source)) {
             destination.addPreference(preference);
@@ -530,24 +517,31 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                         setToolbarLayoutParams(toolbar);
                         rootView.addView(toolbar, 0);
 
-                        // Update the main activity's toolbar title
-                        Activity activity = getActivity();
-                        if (activity instanceof VideoQualitySettingsActivity) {
-                            ((VideoQualitySettingsActivity) activity).updateToolbarTitle(preferenceScreen.getTitle().toString());
-                        }
-
                         return false;
                     }
             );
         }
     }
 
+    /**
+     * Adds a PreferenceGroup to a sorted map if it is a PreferenceScreen.
+     *
+     * @param preferenceScreenMap The sorted map to store PreferenceScreen instances.
+     * @param preferenceGroup    The PreferenceGroup to check and potentially add.
+     */
     private void putPreferenceScreenMap(SortedMap<String, PreferenceScreen> preferenceScreenMap, PreferenceGroup preferenceGroup) {
         if (preferenceGroup instanceof PreferenceScreen mPreferenceScreen) {
             preferenceScreenMap.put(mPreferenceScreen.getKey(), mPreferenceScreen);
         }
     }
 
+    /**
+     * Creates and configures a Toolbar for a PreferenceScreen dialog.
+     *
+     * @param preferenceScreen      The {@link PreferenceScreen} associated with the toolbar.
+     * @param preferenceScreenDialog The dialog containing the PreferenceScreen.
+     * @return A configured {@link Toolbar} instance.
+     */
     @NotNull
     private Toolbar getToolbar(Preference preferenceScreen, Dialog preferenceScreenDialog) {
         Toolbar toolbar = new Toolbar(preferenceScreen.getContext());
@@ -557,13 +551,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             SearchView searchView = searchViewRef.get();
             String searchQuery = (searchView != null) ? searchView.getQuery().toString() : "";
             preferenceScreenDialog.dismiss();
-            if (!searchQuery.isEmpty()) {
-                filterPreferences(searchQuery); // Restore search results
-                Activity activity = getActivity();
-                if (activity instanceof VideoQualitySettingsActivity) {
-                    ((VideoQualitySettingsActivity) activity).updateToolbarTitle(searchLabel);
-                }
-            }
+            if (!searchQuery.isEmpty()) filterPreferences(searchQuery);
         });
         return toolbar;
     }
@@ -585,7 +573,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * The dependencies are stored in the {@link #customDependencyMap}.
      */
     private void initializeCustomDependencies() {
-        // Get the XML resource ID.
         int xmlId = ResourceUtils.getXmlIdentifier("revanced_prefs");
         if (xmlId == 0) {
             Logger.printException(() -> "Could not find XML resource: revanced_prefs");
@@ -593,38 +580,14 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
 
         try (XmlResourceParser parser = getResources().getXml(xmlId)) {
-            // Stack to store the titles of PreferenceScreens, representing the category hierarchy.
             Stack<String> categoryTitleStack = new Stack<>();
             int eventType = parser.getEventType();
 
-            // Iterate through the XML document.
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
-                    String tagName = parser.getName();
-
-                    // Handle PreferenceScreen tags to track the category hierarchy.
-                    if (PREFERENCE_SCREEN_TAG.equals(tagName)) {
-                        String screenTitle = getAttributeValue(parser, TITLE_ATTRIBUTE);
-                        if (screenTitle != null) {
-                            // Push the category title onto the stack. Assume titles start with "@" (e.g., "@string/title").
-                            categoryTitleStack.push(ResourceUtils.getString(screenTitle.substring(1)));
-                        }
-                    }
-
-                    // Extract key and custom dependency attributes.
-                    String key = getAttributeValue(parser, KEY_ATTRIBUTE);
-                    String dependency = getAttributeValue(parser, DEPENDENCY_ATTRIBUTE);
-
-                    // If both key and custom dependency are present, add them to the map.
-                    if (key != null && dependency != null) {
-                        // Build the category key (e.g., "Category:Key").
-                        String categoryKey = buildCategoryKey(categoryTitleStack) + ":" + key;
-                        // Store the custom dependency.
-                        customDependencyMap.put(categoryKey, dependency);
-                    }
-                } else if (eventType == XmlPullParser.END_TAG) {
-                    // Pop the category title from the stack when exiting a PreferenceScreen.
-                    if (PREFERENCE_SCREEN_TAG.equals(parser.getName()) && !categoryTitleStack.isEmpty()) {
+                    handleStartTag(parser, categoryTitleStack);
+                } else if (eventType == XmlPullParser.END_TAG && PREFERENCE_SCREEN_TAG.equals(parser.getName())) {
+                    if (!categoryTitleStack.isEmpty()) {
                         categoryTitleStack.pop();
                     }
                 }
@@ -636,14 +599,27 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     /**
-     * Builds a string representing the current category hierarchy.
+     * Handles a start tag in the XML parser, updating the category stack and dependency map.
      *
-     * @param categoryTitleStack The stack containing the title of the parent PreferenceScreen.
-     *                           The top of the stack represents the most immediate parent category.
-     * @return A string representing the most immediate parent title, or an empty string if the stack is empty.
+     * @param parser             The XML parser.
+     * @param categoryTitleStack The stack of category titles.
      */
-    private String buildCategoryKey(Stack<String> categoryTitleStack) {
-        return categoryTitleStack.isEmpty() ? "" : categoryTitleStack.peek();
+    private void handleStartTag(XmlResourceParser parser, Stack<String> categoryTitleStack) {
+        String tagName = parser.getName();
+        if (PREFERENCE_SCREEN_TAG.equals(tagName)) {
+            String screenTitle = getAttributeValue(parser, TITLE_ATTRIBUTE);
+            if (screenTitle != null) {
+                categoryTitleStack.push(ResourceUtils.getString(screenTitle.substring(1)));
+            }
+            return;
+        }
+
+        String key = getAttributeValue(parser, KEY_ATTRIBUTE);
+        String dependency = getAttributeValue(parser, DEPENDENCY_ATTRIBUTE);
+        if (key != null && dependency != null) {
+            String categoryKey = categoryTitleStack.isEmpty() ? "" : categoryTitleStack.peek() + ":" + key;
+            customDependencyMap.put(categoryKey, dependency);
+        }
     }
 
     /**
@@ -667,32 +643,125 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * into the {@link #groupedPreferences} map. It also populates the {@link #dependencyMap} with
      * dependency relationships based on custom dependencies.
      *
-     * @param preferenceGroup The PreferenceGroup to scan.
+     * @param group The PreferenceGroup to scan.
      */
-    private void storeAllPreferences(PreferenceGroup preferenceGroup) {
-        // Get the list of preferences for this group, creating it if it doesn't exist.
-        List<Preference> currentGroupPreferences = groupedPreferences.computeIfAbsent(preferenceGroup, k -> new ArrayList<>());
+    private void storeAllPreferences(PreferenceGroup group) {
+        Set<Preference> prefs = groupedPreferences.computeIfAbsent(group, k -> new LinkedHashSet<>());
 
-        // Iterate through all preferences in the group.
-        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
-            Preference preference = preferenceGroup.getPreference(i);
+        for (int i = 0, n = group.getPreferenceCount(); i < n; i++) {
+            Preference pref = group.getPreference(i);
+            prefs.add(pref);
 
-            // Add the preference to the group's list if it's not already present.
-            if (!currentGroupPreferences.contains(preference)) {
-                currentGroupPreferences.add(preference);
+            // Only add non-PreferenceGroup preferences to dependencyMap
+            if (!(pref instanceof PreferenceGroup)) {
+                String depKey = getCustomDependency(pref, group);
+                if (depKey != null) {
+                    dependencyMap.computeIfAbsent(depKey, k -> new ArrayList<>()).add(pref);
+                }
             }
 
-            // Check for custom dependencies and update the dependencyMap.
-            String dependencyKey = getCustomDependency(preference, preferenceGroup);
-            if (dependencyKey != null) {
-                dependencyMap.computeIfAbsent(dependencyKey, k -> new ArrayList<>()).add(preference);
-            }
-
-            // Recursively process nested PreferenceGroups.
-            if (preference instanceof PreferenceGroup) {
-                storeAllPreferences((PreferenceGroup) preference);
+            if (pref instanceof PreferenceGroup) {
+                storeAllPreferences((PreferenceGroup) pref);
             }
         }
+    }
+
+    /**
+     * Asynchronously builds the dependency cache for preferences to optimize search performance.
+     * No real need to use it, but keep it for now.
+     */
+    @SuppressWarnings("unused")
+    private void buildDependencyCacheAsync() {
+        new Thread(() -> {
+            buildDependencyCache();
+            Logger.printDebug(() -> "Dependency cache built successfully");
+        }).start();
+    }
+
+    /**
+     * Builds a cache mapping each preference's cache key to a list of indices of related preferences.
+     */
+    private void buildDependencyCache() {
+        preferenceList.clear();
+        dependencyCache.clear();
+
+        // Populate preferenceList with PreferenceInfo objects
+        for (var entry : groupedPreferences.entrySet()) {
+            PreferenceGroup group = entry.getKey();
+            String groupTitle = group.getTitle() != null ? group.getTitle().toString() : "";
+            for (Preference pref : entry.getValue()) {
+                if (pref.getKey() != null) {
+                    preferenceList.add(new PreferenceInfo(pref, groupTitle));
+                }
+            }
+        }
+
+        // Build dependency cache
+        for (int index = 0; index < preferenceList.size(); index++) {
+            PreferenceInfo info = preferenceList.get(index);
+            if (info.key == null) continue;
+            List<Integer> relatedIndices = new ArrayList<>();
+            addPreferenceAndDependenciesToCache(relatedIndices, index);
+            dependencyCache.put(info.cacheKey, relatedIndices);
+        }
+    }
+
+    /**
+     * Recursively collects indices of a preference and its dependencies.
+     *
+     * @param relatedIndices The list to store indices of related preferences.
+     * @param currentIndex   The index of the current preference in preferenceList.
+     */
+    private void addPreferenceAndDependenciesToCache(List<Integer> relatedIndices, int currentIndex) {
+        Set<Integer> visited = new HashSet<>();  // Tracks visited indices to prevent cycles
+        Stack<Integer> stack = new Stack<>();
+        stack.push(currentIndex);
+
+        while (!stack.isEmpty()) {
+            int index = stack.pop();
+            if (visited.contains(index)) continue;
+            visited.add(index);
+            relatedIndices.add(index);
+
+            PreferenceInfo currentInfo = preferenceList.get(index);
+            PreferenceGroup group = groupedPreferences.keySet().stream()
+                    .filter(g -> g.getTitle() != null && g.getTitle().toString().equals(currentInfo.groupTitle))
+                    .findFirst().orElse(null);
+            String currentDependencyKey = getDependencyKey(currentInfo.preference, group);
+
+            // Handle direct dependency
+            if (currentDependencyKey != null) {
+                int depIndex = findPreferenceIndexByKey(currentDependencyKey);
+                if (depIndex >= 0 && !visited.contains(depIndex)) {
+                    stack.push(depIndex);
+                }
+            }
+
+            // Handle dependent preferences
+            if (dependencyMap.containsKey(currentInfo.key)) {
+                for (Preference depPref : Objects.requireNonNull(dependencyMap.get(currentInfo.key))) {
+                    int depIndex = findPreferenceIndexByKey(depPref.getKey());
+                    if (depIndex >= 0 && !visited.contains(depIndex)) {
+                        stack.push(depIndex);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Finds the index of a preference in preferenceList by its key.
+     *
+     * @param key The preference key to search for.
+     * @return The index, or -1 if not found.
+     */
+    private int findPreferenceIndexByKey(String key) {
+        for (int i = 0; i < preferenceList.size(); i++) {
+            if (key.equals(preferenceList.get(i).key)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     // endregion [Search] Initialize and Store Preferences
@@ -713,53 +782,106 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      *
      * @param query The search query string.
      */
-    public void filterPreferences(String query) {
-        if (query == null || query.isEmpty()) {
+    public void filterPreferences(@NonNull String query) {
+        if (query.isEmpty() || groupedPreferences.isEmpty()) {
             resetPreferences();
+            Logger.printInfo(() -> "No preferences available or query empty");
             return;
         }
 
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        preferenceScreen.removeAll();
-        addedPreferences.clear();
+        PreferenceScreen screen = getPreferenceScreen();
+        if (screen == null) {
+            Logger.printException(() -> "PreferenceScreen is null");
+            return;
+        }
+        screen.removeAll();
 
-        String finalQuery = query.toLowerCase();
-        Map<PreferenceGroup, List<Preference>> matchedGroupPreferences = new LinkedHashMap<>();
+        String lowerQuery = query.toLowerCase();
+        Map<PreferenceGroup, List<Preference>> matchedGroups = new LinkedHashMap<>();
 
-        // Find matched preferences
-        groupedPreferences.forEach((group, preferences) -> {
-            List<Preference> matchedPrefs = preferences.stream()
-                    .filter(pref -> preferenceMatches(pref, finalQuery))
-                    .filter(pref -> {
-                        String dependencyKey = getDependencyKey(pref, group);
-                        Set<String> keysToInclude = new HashSet<>();
-                        addPreferenceAndDependencies(pref, keysToInclude, dependencyKey, group);
-                        return keysToInclude.contains(group.getTitle() + ":" + pref.getKey());
-                    })
-                    .collect(Collectors.toList());
-            if (!matchedPrefs.isEmpty()) {
-                matchedGroupPreferences.put(group, matchedPrefs);
-            }
+        for (var entry : groupedPreferences.entrySet()) {
+            processGroup(entry.getKey(), entry.getValue(), lowerQuery, matchedGroups);
+        }
+
+        matchedGroups.forEach((group, matches) -> {
+            PreferenceGroup targetGroup = group == rootPreferenceScreen ? screen : createCategoryGroup(screen, group);
+            addPreferencesToGroup(targetGroup, matches, group);
         });
 
-        // Add matched preferences to the search results
-        matchedGroupPreferences.forEach((group, matchedPreferences) -> {
-            PreferenceGroup targetGroup;
-            if (group == rootPreferenceScreen) {
-                // Top-level preferences go directly into the PreferenceScreen
-                targetGroup = preferenceScreen;
-            } else {
-                // Nested preferences go into a ClickablePreferenceCategory
-                PreferenceScreen targetScreen = findClosestPreferenceScreen(group);
-                ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, targetScreen);
-                category.setTitle(getFullPath(group));
-                preferenceScreen.addPreference(category);
-                targetGroup = category;
-            }
-            addPreferencesToGroup(targetGroup, matchedPreferences, group);
-        });
+        int totalPreferences = matchedGroups.values().stream().mapToInt(List::size).sum();
+        Logger.printDebug(() -> "Filtered '" + query + "': " + matchedGroups.size() + " groups, " + totalPreferences + " preferences");
+    }
 
-        Logger.printDebug(() -> "Search results displayed with " + matchedGroupPreferences.size() + " groups");
+    /**
+     * Processes a preference group to find matches for the search query.
+     *
+     * @param group         The PreferenceGroup to process.
+     * @param preferences   The preferences in the group.
+     * @param lowerQuery    The lowercase search query.
+     * @param matchedGroups The map to store matched groups and preferences.
+     */
+    private void processGroup(PreferenceGroup group, Set<Preference> preferences, String lowerQuery,
+                              Map<PreferenceGroup, List<Preference>> matchedGroups) {
+        CharSequence title = group.getTitle() != null ? group.getTitle() : "";
+        Set<String> keysToInclude = new LinkedHashSet<>();
+        List<Preference> matches = new ArrayList<>();
+
+        for (Preference pref : preferences) {
+            boolean isRootGroup = group == rootPreferenceScreen;
+            boolean isPreferenceGroup = pref instanceof PreferenceGroup;
+            if (shouldIncludePreference(pref, lowerQuery, title, keysToInclude) &&
+                    (!isPreferenceGroup || isRootGroup)) {
+                matches.add(pref);
+            }
+        }
+
+        if (!matches.isEmpty()) {
+            matchedGroups.put(group, matches);
+        }
+    }
+
+    /**
+     * Creates a ClickablePreferenceCategory for a group and adds it to the screen.
+     *
+     * @param screen The PreferenceScreen to add the category to.
+     * @param group  The PreferenceGroup to create a category for.
+     * @return The created ClickablePreferenceCategory.
+     */
+    private PreferenceGroup createCategoryGroup(PreferenceScreen screen, PreferenceGroup group) {
+        ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, findClosestPreferenceScreen(group));
+        category.setTitle(getFullPath(group));
+        screen.addPreference(category);
+        return category;
+    }
+
+    /**
+     * Determines if a preference should be included in search results based on the query and dependencies.
+     *
+     * @param pref          The preference to evaluate.
+     * @param lowerQuery    The lowercase search query.
+     * @param groupTitle    The title of the preference's group.
+     * @param keysToInclude The set to store keys of related preferences.
+     * @return True if the preference should be included, false otherwise.
+     */
+    private boolean shouldIncludePreference(@NonNull Preference pref, @NonNull String lowerQuery,
+                                            @NonNull CharSequence groupTitle, @NonNull Set<String> keysToInclude) {
+
+        if (!preferenceMatches(pref, lowerQuery)) return false;
+
+        String key = pref.getKey();
+        if (key == null) return true;
+
+        String cacheKey = groupTitle + ":" + key;
+        List<Integer> cachedIndices = dependencyCache.get(cacheKey);
+
+        if (cachedIndices != null) {
+            for (int index : cachedIndices) keysToInclude.add(preferenceList.get(index).cacheKey);
+        } else {
+            Logger.printDebug(() -> "Missing cache for key: " + cacheKey);
+            keysToInclude.add(cacheKey);
+        }
+
+        return true;
     }
 
     /**
@@ -788,9 +910,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return True if the SwitchPreference matches the query, false otherwise.
      */
     private boolean matchesSwitchPreference(Preference preference, String query) {
-        // Only check if it's a SwitchPreference.
         if (!(preference instanceof SwitchPreference switchPreference)) return false;
-        // Check if the query is in the "summary on" or "summary off" text.
         return (switchPreference.getSummaryOn() != null && switchPreference.getSummaryOn().toString().toLowerCase().contains(query)) ||
                 (switchPreference.getSummaryOff() != null && switchPreference.getSummaryOff().toString().toLowerCase().contains(query));
     }
@@ -804,13 +924,23 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return True if the ListPreference matches the query, false otherwise.
      */
     private boolean matchesListPreference(Preference preference, String query) {
-        // Only check if it's a ListPreference.
         if (!(preference instanceof ListPreference listPreference)) return false;
-        // Check if the query is in any of the entry titles or entry values.
-        return listPreference.getEntries() != null &&
-                Arrays.stream(listPreference.getEntries()).anyMatch(entry -> entry.toString().toLowerCase().contains(query)) ||
-                listPreference.getEntryValues() != null &&
-                        Arrays.stream(listPreference.getEntryValues()).anyMatch(entryValue -> entryValue.toString().toLowerCase().contains(query));
+        return hasMatchingEntries(listPreference.getEntries(), query) ||
+                hasMatchingEntries(listPreference.getEntryValues(), query);
+    }
+
+    /**
+     * Checks if any entry in a CharSequence array matches the query.
+     *
+     * @param entries The array of entries to check.
+     * @param query   The lowercase search query.
+     * @return True if any entry matches, false otherwise.
+     */
+    private boolean hasMatchingEntries(CharSequence[] entries, String query) {
+        if (entries == null) return false;
+        for (CharSequence entry : entries)
+            if (entry.toString().toLowerCase().contains(query)) return true;
+        return false;
     }
 
     /**
@@ -821,12 +951,48 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param group       The original PreferenceGroup containing the preferences (for dependency lookup).
      */
     private void addPreferencesToGroup(PreferenceGroup targetGroup, List<Preference> preferences, PreferenceGroup group) {
-        preferences.forEach(preference -> {
+        for (Preference preference : preferences) {
+            if (preference instanceof PreferenceCategory && targetGroup instanceof PreferenceScreen) {
+                handleCategoryPreference(targetGroup, (PreferenceCategory) preference, group);
+            } else {
+                addSinglePreference(targetGroup, preference, group);
+            }
+        }
+    }
+
+    /**
+     * Handles adding preferences from a PreferenceCategory to a target group.
+     *
+     * @param targetGroup The target PreferenceGroup.
+     * @param category    The PreferenceCategory to process.
+     * @param group       The original PreferenceGroup.
+     */
+    private void handleCategoryPreference(PreferenceGroup targetGroup, PreferenceCategory category, PreferenceGroup group) {
+        for (int i = 0; i < category.getPreferenceCount(); i++) {
+            Preference childPref = category.getPreference(i);
+            addSinglePreference(targetGroup, childPref, group);
+        }
+    }
+
+    /**
+     * Adds a single preference to a target group, handling dependencies.
+     *
+     * @param targetGroup The target PreferenceGroup.
+     * @param preference  The preference to add.
+     * @param group       The original PreferenceGroup.
+     */
+    private void addSinglePreference(PreferenceGroup targetGroup, Preference preference, PreferenceGroup group) {
+        String key = preference.getKey();
+
+        if (key != null) {
             String dependencyKey = getDependencyKey(preference, group);
             addPreferenceWithDependencies(targetGroup, preference, dependencyKey);
-            Logger.printDebug(() -> "Added preference: " + preference.getKey() +
-                    " to group: " + (group == rootPreferenceScreen ? "top-level" : group.getTitle()));
-        });
+        } else {
+            targetGroup.addPreference(preference);
+        }
+
+        Logger.printDebug(() -> "Added preference: " + (key != null ? key : "No Key") +
+                " to group: " + (group == rootPreferenceScreen ? "top-level" : group.getTitle()));
     }
 
     /**
@@ -842,31 +1008,70 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param dependencyKey      The key of the preference on which this preference depends, or null if none.
      * @param visitedPreferences A {@link Set} tracking unique preference keys to avoid duplicate additions.
      */
-    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey, Set<String> visitedPreferences) {
+    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference,
+                                               String dependencyKey, Set<String> visitedPreferences) {
         String key = preference.getKey();
-        String uniqueKey = preferenceGroup.getTitle() + ":" + key;
+        String uniqueKey = (preferenceGroup.getTitle() != null ? preferenceGroup.getTitle().toString() : "") + ":" + key;
+        if (key == null || visitedPreferences.contains(uniqueKey)) {
+            return;
+        }
+        visitedPreferences.add(uniqueKey);
 
-        // Only add the preference if it hasn't been added or visited already
-        if (key != null && !visitedPreferences.contains(uniqueKey) && addedPreferences.add(uniqueKey)) {
-            visitedPreferences.add(uniqueKey); // Mark as visited
+        String groupTitle = preferenceGroup.getTitle() != null ? preferenceGroup.getTitle().toString() : "Unknown Group";
+        if (!canAddPreference(preference, dependencyKey, groupTitle, preferenceGroup, visitedPreferences)) {
+            return;
+        }
 
-            // Add dependencies first to avoid possible crashes
-            if (dependencyKey != null) {
-                Preference dependency = findPreferenceInAllGroups(dependencyKey);
-                if (dependency != null) {
-                    addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup), visitedPreferences);
-                } else {
-                    return;
-                }
+        preferenceGroup.addPreference(preference);
+        addDependentPreferences(preferenceGroup, key, preferenceGroup, visitedPreferences);
+    }
+
+    /**
+     * Checks if a preference can be added based on its dependencies.
+     *
+     * @param preference         The preference to check.
+     * @param dependencyKey      The custom dependency key.
+     * @param groupTitle         The title of the preference group.
+     * @param preferenceGroup    The target PreferenceGroup.
+     * @param visitedPreferences The set of visited preference keys.
+     * @return True if the preference can be added, false otherwise.
+     */
+    private boolean canAddPreference(Preference preference, String dependencyKey, String groupTitle,
+                                     PreferenceGroup preferenceGroup, Set<String> visitedPreferences) {
+        if (dependencyKey != null) {
+            Preference dependency = findPreferenceInAllGroups(dependencyKey);
+            if (dependency == null) {
+                Logger.printDebug(() -> "Skipping preference '" + preference.getKey() + "' in group '" + groupTitle +
+                        "' due to missing custom dependency: " + dependencyKey);
+                return false;
             }
+            // Pass visitedPreferences to prevent cycles
+            addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup), visitedPreferences);
+        }
 
-            // Add the preference itself
-            preferenceGroup.addPreference(preference);
+        String standardDependency = preference.getDependency();
+        if (standardDependency != null && findPreference(standardDependency) == null) {
+            Logger.printDebug(() -> "Skipping preference '" + preference.getKey() + "' in group '" + groupTitle +
+                    "' because standard dependency '" + standardDependency + "' not found");
+            return false;
+        }
+        return true;
+    }
 
-            // Recursively add preferences that depend on this one
-            if (dependencyMap.containsKey(key)) {
-                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference ->
-                        addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, preferenceGroup), visitedPreferences));
+    /**
+     * Adds preferences that depend on a given key to the target group.
+     *
+     * @param preferenceGroup    The target PreferenceGroup.
+     * @param key                The key of the preference with dependents.
+     * @param group              The original PreferenceGroup.
+     * @param visitedPreferences The set of visited preference keys.
+     */
+    private void addDependentPreferences(PreferenceGroup preferenceGroup, String key, PreferenceGroup group,
+                                         Set<String> visitedPreferences) {
+        List<Preference> dependents = dependencyMap.get(key);
+        if (dependents != null) {
+            for (Preference dependentPreference : dependents) {
+                addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, group), visitedPreferences);
             }
         }
     }
@@ -883,36 +1088,6 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      */
     private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey) {
         addPreferenceWithDependencies(preferenceGroup, preference, dependencyKey, new HashSet<>());
-    }
-
-    /**
-     * Recursively adds a preference and its dependencies to the set of keys to include in the search results.
-     * It handles both forward dependencies (preferences that depend on this one) and backward dependencies
-     * (preferences on which this one depends).
-     *
-     * @param preference    The preference to add.
-     * @param keysToInclude The set of keys to be included in the search results.
-     *                      A key is added to this set only if it hasn't been added before, ensuring uniqueness.
-     * @param dependencyKey The dependency key of the preference, which could be a custom dependency or a standard one.
-     * @param group         The PreferenceGroup containing the preference.
-     */
-    private void addPreferenceAndDependencies(Preference preference, Set<String> keysToInclude, String dependencyKey, PreferenceGroup group) {
-        String key = preference.getKey();
-        // Add the preference's key to the set only if it's not already present.
-        if (key != null && keysToInclude.add(group.getTitle() + ":" + key)) {
-            // Add the parent preference on which this preference depends on
-            if (dependencyKey != null) {
-                Preference dependency = findPreferenceInAllGroups(dependencyKey);
-                if (dependency != null) {
-                    addPreferenceAndDependencies(dependency, keysToInclude, getDependencyKey(dependency, group), group);
-                }
-            }
-
-            // Recursively add preferences that depend on this one.
-            if (dependencyMap.containsKey(key)) {
-                Objects.requireNonNull(dependencyMap.get(key)).forEach(dependentPreference -> addPreferenceAndDependencies(dependentPreference, keysToInclude, getDependencyKey(dependentPreference, group), group));
-            }
-        }
     }
 
     /**
@@ -938,13 +1113,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return The dependency key (which is the key of another preference), or null if no dependency is found.
      */
     private String getDependencyKey(Preference preference, PreferenceGroup group) {
-        // First, try to get a custom dependency.
-        String dependencyKey = getCustomDependency(preference, group);
-        // If no custom dependency is found, fall back to the standard dependency.
-        if (dependencyKey == null) {
-            dependencyKey = preference.getDependency();
-        }
-        return dependencyKey;
+        String customDependency = getCustomDependency(preference, group);
+        return customDependency != null ? customDependency : preference.getDependency();
     }
 
     /**
@@ -954,11 +1124,14 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return The found Preference object, or null if no preference with the given key is found.
      */
     private Preference findPreferenceInAllGroups(String key) {
-        return groupedPreferences.values().stream()
-                .flatMap(List::stream)
-                .filter(preference -> preference.getKey() != null && preference.getKey().equals(key))
-                .findFirst()
-                .orElse(null);
+        for (Set<Preference> preferences : groupedPreferences.values()) {
+            for (Preference preference : preferences) {
+                if (preference.getKey() != null && preference.getKey().equals(key)) {
+                    return preference;
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -1030,6 +1203,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         startActivityForResult(intent, READ_REQUEST_CODE);
     }
 
+    /**
+     * Exports settings to a text file using the provided URI.
+     *
+     * @param uri The URI of the file to write settings to.
+     */
     private void exportText(Uri uri) {
         final Context context = this.getActivity();
 
@@ -1053,6 +1231,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     }
 
+    /**
+     * Imports settings from a text file using the provided URI.
+     *
+     * @param uri The URI of the file to read settings from.
+     */
     private void importText(Uri uri) {
         final Context context = this.getActivity();
         StringBuilder sb = new StringBuilder();
@@ -1115,6 +1298,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             // Store all preferences and their dependencies
             initializeCustomDependencies();
             storeAllPreferences(getPreferenceScreen());
+            // buildDependencyCacheAsync();
+            buildDependencyCache();
 
             // Load and set initial preferences states
             for (Setting<?> setting : Setting.allLoadedSettings()) {
@@ -1188,7 +1373,26 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     @Override
     public void onDestroy() {
         mSharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
+        dependencyCache.clear();
+        preferenceList.clear();
         Utils.resetLocalizedContext();
         super.onDestroy();
+    }
+
+    /**
+     * Stores metadata for a preference to avoid repeated string operations.
+     */
+    private static class PreferenceInfo {
+        final Preference preference;
+        final String key;
+        final String groupTitle;
+        final String cacheKey;
+
+        PreferenceInfo(Preference preference, String groupTitle) {
+            this.preference = preference;
+            this.key = preference.getKey();
+            this.groupTitle = groupTitle != null ? groupTitle : "";
+            this.cacheKey = this.groupTitle + ":" + this.key;
+        }
     }
 }
