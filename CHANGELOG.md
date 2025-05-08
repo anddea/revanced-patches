@@ -1,3 +1,10 @@
+# [3.8.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.8.0-dev.1...v3.8.0-dev.2) (2025-05-08)
+
+
+### Features
+
+* **YouTube - Overlay buttons:** Disable safety settings for Gemini ([9439b1f](https://github.com/anddea/revanced-patches/commit/9439b1fb6be59a4e8b9635844db05569fef29e97))
+
 # [3.8.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.7.0...v3.8.0-dev.1) (2025-05-07)
 
 
