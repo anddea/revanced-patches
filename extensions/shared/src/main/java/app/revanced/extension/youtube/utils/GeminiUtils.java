@@ -174,6 +174,7 @@ public class GeminiUtils {
                 contentsArray.put(content);
                 requestBody.put("contents", contentsArray);
 
+                /* Uncomment to enable safety settings
                 JSONObject safetySetting_harassment = new JSONObject().put("category", "HARM_CATEGORY_HARASSMENT").put("threshold", "BLOCK_MEDIUM_AND_ABOVE");
                 JSONObject safetySetting_hate = new JSONObject().put("category", "HARM_CATEGORY_HATE_SPEECH").put("threshold", "BLOCK_MEDIUM_AND_ABOVE");
                 JSONObject safetySetting_sex = new JSONObject().put("category", "HARM_CATEGORY_SEXUALLY_EXPLICIT").put("threshold", "BLOCK_MEDIUM_AND_ABOVE");
@@ -184,6 +185,7 @@ public class GeminiUtils {
                         .put(safetySetting_sex)
                         .put(safetySetting_danger);
                 requestBody.put("safetySettings", safetySettingsArray);
+                */
 
                 // Include generationConfig only for models that support thinkingConfig (e.g., transcription model)
                 if (model.equals(TRANSCRIPTION_GEMINI_MODEL)) {
