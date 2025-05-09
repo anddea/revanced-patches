@@ -850,7 +850,7 @@
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_min_duration" android:key="sb_min_segment_duration" android:summary="@string/revanced_sb_general_min_duration_sum" android:inputType="numberDecimal" />
         <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_sb_general_uuid" android:key="sb_private_user_id_Do_Not_Share" android:summary="@string/revanced_sb_general_uuid_sum" android:inputType="textMultiLine" />
         <Preference android:title="@string/revanced_sb_general_api_url" android:key="sb_api_url" android:summary="@string/revanced_sb_general_api_url_sum" android:dependency="sb_enabled" />
-        <app.revanced.extension.youtube.settings.preference.SponsorBlockImportExportPreference android:title="@string/revanced_sb_settings_ie" android:summary="@string/revanced_sb_settings_ie_sum" android:inputType="textMultiLine" android:dependency="sb_enabled" />
+        <app.revanced.extension.youtube.settings.preference.SponsorBlockImportExportPreference android:key="revanced_sb_import_export_pref" android:title="@string/revanced_sb_settings_ie" android:summary="@string/revanced_sb_settings_ie_sum" android:inputType="textMultiLine" android:dependency="sb_enabled" />
     </PreferenceScreen>PREFERENCE_SCREEN: SPONSOR_BLOCK -->
 
     <PreferenceScreen android:title="@string/revanced_preference_screen_misc_title" android:key="revanced_preference_screen_misc">
@@ -1014,7 +1014,6 @@
             <PreferenceCategory android:title="@string/revanced_preference_category_others" android:layout="@layout/revanced_settings_preferences_category">
                 <Preference android:title="Custom double tap length" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Custom Shorts action buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-                <Preference android:title="Force snackbar theme" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="GmsCore support" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide accessibility controls dialog" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
                 <Preference android:title="Hide Shorts dimming" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>

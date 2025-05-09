@@ -25,14 +25,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.MethodParameter
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
@@ -41,7 +34,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.EnumSet
+import java.util.*
 
 const val REGISTER_TEMPLATE_REPLACEMENT: String = "REGISTER_INDEX"
 
@@ -137,8 +130,10 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
 
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                        "$startIndex excluding: $registersToExclude"
+            )
         }
 
         if (instruction.opcode in branchOpcodes) {
@@ -170,6 +165,15 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     // Cannot be reached since a branch or return statement will
     // be encountered before the end of the method.
     throw IllegalStateException()
+}
+
+/**
+ * Adds public [AccessFlags] and removes private and protected flags (if present).
+ */
+internal fun Int.toPublicAccessFlags(): Int {
+    return this.or(AccessFlags.PUBLIC.value)
+        .and(AccessFlags.PROTECTED.value.inv())
+        .and(AccessFlags.PRIVATE.value.inv())
 }
 
 /**
