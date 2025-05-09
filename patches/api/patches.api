@@ -652,11 +652,6 @@ public final class app/revanced/patches/spotify/extended/RemoveCreateTabPatchKt 
 	public static final fun getRemoveCreateTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/extended/SanitizeSharingLinksKt {
-	public static final fun getRemoveShareTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getShareLinkFingerprint ()Lapp/revanced/patcher/Fingerprint;
-}
-
 public final class app/revanced/patches/spotify/extended/SetActivityContextPatchKt {
 	public static final fun getMainActivityOnCreateFingerprint ()Lapp/revanced/patcher/Fingerprint;
 	public static final fun getSetActivityContextPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
@@ -688,6 +683,10 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
