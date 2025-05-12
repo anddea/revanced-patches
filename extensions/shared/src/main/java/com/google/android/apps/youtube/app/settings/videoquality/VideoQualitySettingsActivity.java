@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceScreen;
 import android.util.TypedValue;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
@@ -34,8 +35,26 @@ public class VideoQualitySettingsActivity extends Activity {
     private final OnQueryTextListener onQueryTextListener = new OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            fragment.setPreferenceScreen(fragment.rootPreferenceScreen);
-            fragment.filterPreferences(query);
+            Logger.printDebug(() -> "onQueryTextSubmit called with: " + query);
+            String queryTrimmed = query.trim();
+            if (!queryTrimmed.isEmpty()) {
+                fragment.setPreferenceScreen(fragment.rootPreferenceScreen);
+                fragment.filterPreferences(queryTrimmed);
+                fragment.addToSearchHistory(queryTrimmed);
+                Logger.printDebug(() -> "Added to search history: " + queryTrimmed);
+            }
+
+            // Hide keyboard and remove focus
+            SearchView searchView = searchViewRef.get();
+            if (searchView != null) {
+                searchView.clearFocus();
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                }
+            }
+
             return true;
         }
 
@@ -209,6 +228,13 @@ public class VideoQualitySettingsActivity extends Activity {
 
         // Set the listener for query text changes
         searchView.setOnQueryTextListener(onQueryTextListener);
+
+        searchView.setOnQueryTextFocusChangeListener((view, hasFocus) -> {
+            Logger.printDebug(() -> "SearchView focus changed: " + hasFocus);
+            if (hasFocus) {
+                fragment.filterPreferences(""); // Show history when focused
+            }
+        });
 
         // Keep a weak reference to the SearchView
         searchViewRef = new WeakReference<>(searchView);

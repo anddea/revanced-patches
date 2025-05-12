@@ -152,6 +152,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_change_youtube_header_summary_on">Premium</string>
     <string name="revanced_change_youtube_header_title">Zmień nagłówek YouTube</string>
     <string name="revanced_copy">Kopiuj</string>
+    <string name="revanced_copy_error">Nie udało się skopiować tekstu</string>
     <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, która musi być oddzielona nowymi liniami.</string>
     <string name="revanced_custom_filter_strings_title">Własny filtr</string>
     <string name="revanced_custom_filter_summary_off">Wyłączony</string>
@@ -170,7 +171,6 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_custom_player_overlay_opacity_title">Niestandardowa przezroczystość nakładki</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Wpisz kod hex akcentu paska postępu filmu.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Niestandardowy kolor akcentu</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">Nieprawidłowy kolor paska postępu filmu.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Wpisz kod hex pierwszorzędnego koloru paska postępu filmu.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Niestandardowy kolor pierwszorzędny</string>
     <string name="revanced_default_app_settings_summary">Aby otwierać linki YouTube w RVX, przejdź do opcji obsługiwanych linków w ustawieniach i włącz obsługiwane adresy internetowe dla RVX.</string>
@@ -481,15 +481,20 @@ Pobierz %2$s ze strony internetowej."</string>
     <string name="revanced_gemini_error_already_running_transcribe">Transkrypcja jest już w toku</string>
     <string name="revanced_gemini_error_already_running_yandex_transcribe">Transkrypcja Yandex jest już uruchomiona.</string>
     <string name="revanced_gemini_error_api_failed">Żądanie API Gemini nie powiodło się: %s</string>
+    <string name="revanced_gemini_error_dialog_show">Błąd wyświetlania okna dialogowego</string>
     <string name="revanced_gemini_error_no_api_key">Klucz API Gemini nie został ustawiony w ustawieniach ReVanced Extended</string>
     <string name="revanced_gemini_error_no_video">Nie udało się uzyskać adresu URL filmu</string>
     <string name="revanced_gemini_error_overlay_display">Nie udało się wyświetlić nakładki napisów</string>
     <string name="revanced_gemini_error_transcription_no_raw_data">Brak surowych danych transkrypcji do przeanalizowania</string>
     <string name="revanced_gemini_error_transcription_parse">Nie udało się przetworzyć danych transkrypcyjnych</string>
+    <string name="revanced_gemini_error_translation_failed">Tłumaczenie Gemini nie powiodło się</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Błąd przetwarzania tłumaczenia Gemini</string>
     <string name="revanced_gemini_error_unknown">Wystąpił nieznany błąd</string>
+    <string name="revanced_gemini_loading_default">Ładowanie...</string>
     <string name="revanced_gemini_loading_summarize">Podsumowanie filmu...</string>
     <string name="revanced_gemini_loading_transcribe">Transkrypcja filmu...</string>
     <string name="revanced_gemini_loading_yandex_transcribe">Yandex: Pobieranie napisów…</string>
+    <string name="revanced_gemini_status_translating">Tłumaczenie z Gemini...\n\n⚠️ Ten krok może zakończyć się niepowodzeniem, jeśli Gemini zignoruje instrukcje lub przekroczy limit.</string>
     <string name="revanced_gemini_summary_title">Podsumowanie filmu przez Gemini</string>
     <string name="revanced_gemini_time_taken">(Zajęło %d s)</string>
     <string name="revanced_gemini_transcribe_bad_token_exception">Włącz \"Wyświetlanie nad innymi aplikacjami,\" aby wyświetlić napisy</string>
@@ -1289,7 +1294,6 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
     <string name="revanced_icon_squid_game">Squid Game</string>
     <string name="revanced_icon_vanced_black">Czarna Vanced</string>
     <string name="revanced_icon_vanced_light">Jasna Vanced</string>
-    <string name="revanced_icon_xisr_holiday">Świąteczna Xisr</string>
     <string name="revanced_icon_xisr_special">Specjalna Xisr</string>
     <string name="revanced_icon_xisr_yellow">Żółta Xisr</string>
     <string name="revanced_icon_youtube">YouTube</string>
@@ -1427,15 +1431,6 @@ Jeśli YouTube Doodles pojawiają się obecnie w Twoim regionie, a opcja ukrywan
 
 Miniodtwarzacz można przeciągnąć do dowolnego rogu ekranu."</string>
     <string name="revanced_miniplayer_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Wyłączone</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_summary_on">"Włączone
-
-• Podwójne kliknięcie zmienia zminimalizowany film do większego rozmiaru
-• Ponowne podwójne kliknięcie przywraca film do oryginalnego rozmiaru"</string>
-    <string name="revanced_miniplayer_enable_double_tap_action_title">Akcje po podwójnym kliknięciu</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Wyłączony</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Włączony</string>
-    <string name="revanced_miniplayer_enable_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Widoczne</string>
     <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Ukryte
 
@@ -2250,12 +2245,31 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_whitelist_settings_summary">Sprawdź lub usuń listę kanałów dodanych do białej listy</string>
     <string name="revanced_whitelist_settings_title">Biała lista kanałów</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_api_final_subs">Błąd API Yandex podczas pobierania napisów końcowych (Kod: %1$d)</string>
+    <string name="revanced_yandex_error_api_poll">Błąd API Yandex podczas ankiety (Kod: %1$d)</string>
+    <string name="revanced_yandex_error_download_subs_failed">Nie udało się pobrać pliku z napisami (Kod: %1$d)</string>
+    <string name="revanced_yandex_error_internal_missing_translation_id">Błąd wewnętrzny: Brak identyfikatora tłumaczenia</string>
     <string name="revanced_yandex_error_internal_no_chosen_url">Błąd wewnętrzny: wybrany utwór nie ma adresu URL</string>
     <string name="revanced_yandex_error_internal_null_subs_response">Błąd wewnętrzny: nie udało się pobrać napisów końcowych</string>
+    <string name="revanced_yandex_error_internal_request_build">Błąd wewnętrzny żądania tworzenia</string>
+    <string name="revanced_yandex_error_network_final_subs">Błąd sieci podczas pobierania napisów końcowych</string>
+    <string name="revanced_yandex_error_network_generic">Błąd sieci</string>
+    <string name="revanced_yandex_error_network_poll">Błąd sieci podczas ankiety</string>
     <string name="revanced_yandex_error_network_subs_fetch">Błąd sieci podczas pobierania pliku napisów</string>
+    <string name="revanced_yandex_error_no_language_selected">Nie wybrano języka</string>
     <string name="revanced_yandex_error_no_subs_for_language">Napisy nie są dostępne w %s</string>
     <string name="revanced_yandex_error_no_subs_returned">Brak dostępnych ścieżek napisów</string>
+    <string name="revanced_yandex_error_parsing_final_subs">Nie udało się przetworzyć końcowej listy napisów Yandex</string>
+    <string name="revanced_yandex_error_parsing_poll">Nie udało się przetworzyć odpowiedzi w ankiecie Yandex</string>
+    <string name="revanced_yandex_error_reading_response">Błąd odczytu odpowiedzi API</string>
+    <string name="revanced_yandex_error_session_expired">Sesja Yandex wygasła</string>
+    <string name="revanced_yandex_error_session_refresh_failed">Nie udało się odświeżyć sesji Yandex</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">Nie udało się przetworzyć treści napisów w formacie JSON</string>
+    <string name="revanced_yandex_error_subs_processing_failed">Błąd przetwarzania treści napisów</string>
     <string name="revanced_yandex_error_subs_stuck_processing">Błąd wewnętrzny: przetwarzanie napisów nie powiodło się</string>
+    <string name="revanced_yandex_error_timeout_final_fetch">Upłynął limit czasu przed pobraniem napisów końcowych po %1$d s</string>
+    <string name="revanced_yandex_error_timeout_poll">Upłynął czas oczekiwania na tłumaczenie po %1$d s (zapytanie #%2$d)</string>
+    <string name="revanced_yandex_error_timeout_processing">Upłynął limit czasu podczas przetwarzania tłumaczenia po %1$d s</string>
     <string name="revanced_yandex_error_translation_failed">Tłumaczenie nie powiodło się</string>
     <string name="revanced_yandex_error_unknown">Nieznany błąd</string>
     <string name="revanced_yandex_status_fetching_subs">Tłumaczenie zakończone, pobieranie napisów...</string>
@@ -2266,34 +2280,9 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
     <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
+    <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
     <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en), rosyjskim (ru) i kazachskim (kk). Jeśli wprowadzisz inny kod języka lub użyjesz „Język aplikacji” (co stanowi domyślny język aplikacji), Gemini zostanie poproszone o przetłumaczenie (wymagany jest klucz API).</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Używaj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy i bardziej rzetelny. Klucz API nie jest wymagany.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>
-    <string name="revanced_copy_error">Nie udało się skopiować tekstu</string>
-    <string name="revanced_gemini_error_dialog_show">Błąd wyświetlania okna dialogowego</string>
-    <string name="revanced_gemini_error_translation_failed">Tłumaczenie Gemini nie powiodło się</string>
-    <string name="revanced_gemini_error_translation_parse_failed">Błąd przetwarzania tłumaczenia Gemini</string>
-    <string name="revanced_gemini_loading_default">Ładowanie...</string>
-    <string name="revanced_gemini_status_translating">Tłumaczenie z Gemini...\n\n⚠️ Ten krok może zakończyć się niepowodzeniem, jeśli Gemini zignoruje instrukcje lub przekroczy limit.</string>
-    <string name="revanced_yandex_error_api_final_subs">Błąd API Yandex podczas pobierania napisów końcowych (Kod: %1$d)</string>
-    <string name="revanced_yandex_error_api_poll">Błąd API Yandex podczas ankiety (Kod: %1$d)</string>
-    <string name="revanced_yandex_error_download_subs_failed">Nie udało się pobrać pliku z napisami (Kod: %1$d)</string>
-    <string name="revanced_yandex_error_internal_missing_translation_id">Błąd wewnętrzny: Brak identyfikatora tłumaczenia</string>
-    <string name="revanced_yandex_error_internal_request_build">Błąd wewnętrzny żądania tworzenia</string>
-    <string name="revanced_yandex_error_network_final_subs">Błąd sieci podczas pobierania napisów końcowych</string>
-    <string name="revanced_yandex_error_network_generic">Błąd sieci</string>
-    <string name="revanced_yandex_error_network_poll">Błąd sieci podczas ankiety</string>
-    <string name="revanced_yandex_error_no_language_selected">Nie wybrano języka</string>
-    <string name="revanced_yandex_error_parsing_final_subs">Nie udało się przetworzyć końcowej listy napisów Yandex</string>
-    <string name="revanced_yandex_error_parsing_poll">Nie udało się przetworzyć odpowiedzi w ankiecie Yandex</string>
-    <string name="revanced_yandex_error_reading_response">Błąd odczytu odpowiedzi API</string>
-    <string name="revanced_yandex_error_session_expired">Sesja Yandex wygasła</string>
-    <string name="revanced_yandex_error_session_refresh_failed">Nie udało się odświeżyć sesji Yandex</string>
-    <string name="revanced_yandex_error_subs_parsing_failed">Nie udało się przetworzyć treści napisów w formacie JSON</string>
-    <string name="revanced_yandex_error_subs_processing_failed">Błąd przetwarzania treści napisów</string>
-    <string name="revanced_yandex_error_timeout_final_fetch">Upłynął limit czasu przed pobraniem napisów końcowych po %1$d s</string>
-    <string name="revanced_yandex_error_timeout_poll">Upłynął czas oczekiwania na tłumaczenie po %1$d s (zapytanie #%2$d)</string>
-    <string name="revanced_yandex_error_timeout_processing">Upłynął limit czasu podczas przetwarzania tłumaczenia po %1$d s</string>
-    <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
 </resources>

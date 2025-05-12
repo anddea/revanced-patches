@@ -46,22 +46,22 @@ public class GeminiSummarize extends BottomControlButton {
         GeminiManager.getInstance().startTranscription(context, videoUrl);
     }
 
+    /**
+     * Injection point.
+     */
     public static void initialize(View bottomControlsViewGroup) {
         try {
             if (bottomControlsViewGroup instanceof ViewGroup viewGroup) {
-                if (instance == null) {
-                    instance = new GeminiSummarize(viewGroup);
-                    Logger.printDebug(() -> "GeminiSummarize button initialized (with long click).");
-                } else {
-                    Logger.printInfo(() -> "GeminiSummarize initialize called multiple times.");
-                }
+                instance = new GeminiSummarize(viewGroup);
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "GeminiSummarize.initialize failure", ex);
-            instance = null;
+            Logger.printException(() -> "initialize failure", ex);
         }
     }
 
+    /**
+     * Injection point.
+     */
     public static void changeVisibility(boolean showing, boolean animation) {
         if (instance != null) instance.setVisibility(showing, animation);
     }
