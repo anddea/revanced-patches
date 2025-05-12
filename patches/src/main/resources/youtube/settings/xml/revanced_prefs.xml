@@ -27,7 +27,7 @@
             <app.revanced.extension.youtube.settings.preference.ExternalDownloaderPlaylistPreference android:title="@string/revanced_external_downloader_package_name_playlist_title" android:key="revanced_external_downloader_package_name_playlist" android:summary="@string/revanced_external_downloader_package_name_playlist_summary" android:dependency="revanced_override_playlist_download_button" />
             <SwitchPreference android:title="@string/revanced_override_video_download_button_title" android:key="revanced_override_video_download_button" android:summaryOn="@string/revanced_override_video_download_button_summary_on" android:summaryOff="@string/revanced_override_video_download_button_summary_off" />
             <app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" android:dependency="revanced_override_video_download_button" />
-            <SwitchPreference android:title="@string/revanced_override_video_download_button_queue_manager_title" android:key="revanced_override_video_download_button_queue_manager" android:summaryOn="@string/revanced_override_video_download_button_queue_manager_summary_on" android:summaryOff="@string/revanced_override_video_download_button_queue_manager_summary_off" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
+            <SwitchPreference android:title="@string/revanced_override_video_download_button_queue_manager_title" android:key="revanced_override_video_download_button_queue_manager" android:summaryOn="@string/revanced_override_video_download_button_queue_manager_summary_on" android:summaryOff="@string/revanced_override_video_download_button_queue_manager_summary_off" android:dependency="revanced_override_video_download_button" />SETTINGS: HOOK_DOWNLOAD_ACTIONS -->
 
             <!-- SETTINGS: HOOK_YOUTUBE_MUSIC_ACTIONS
             <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category" />
@@ -232,7 +232,7 @@
         <!-- SETTINGS: HIDE_FEED_FLYOUT_MENU
         <PreferenceScreen android:title="@string/revanced_preference_screen_feed_flyout_menu_title" android:key="revanced_preference_screen_feed_flyout_menu" android:summary="@string/revanced_preference_screen_feed_flyout_menu_summary">
             <SwitchPreference android:title="@string/revanced_hide_feed_flyout_menu_title" android:key="revanced_hide_feed_flyout_menu" android:summaryOn="@string/revanced_hide_feed_flyout_menu_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_menu_summary_off" />
-            <app.revanced.extension.shared.settings.preference.HtmlSwitchPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_type_title" android:key="revanced_hide_feed_flyout_menu_filter_type" android:summaryOn="@string/revanced_hide_feed_flyout_menu_filter_type_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_menu_filter_type_summary_off" />
+            <app.revanced.extension.shared.settings.preference.HtmlSwitchPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_type_title" android:key="revanced_hide_feed_flyout_menu_filter_type" android:summaryOn="@string/revanced_hide_feed_flyout_menu_filter_type_summary_on" android:summaryOff="@string/revanced_hide_feed_flyout_menu_filter_type_summary_off" app:searchDependency="revanced_hide_feed_flyout_menu" />
             <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_hide_feed_flyout_menu_filter_strings_title" android:key="revanced_hide_feed_flyout_menu_filter_strings" android:summary="@string/revanced_hide_feed_flyout_menu_filter_strings_summary" android:inputType="textMultiLine" app:searchDependency="revanced_hide_feed_flyout_menu" />
         </PreferenceScreen>SETTINGS: HIDE_FEED_FLYOUT_MENU -->
 
@@ -324,7 +324,7 @@
             <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_title" android:key="revanced_overlay_button_external_downloader" android:summary="@string/revanced_overlay_button_external_downloader_summary" />
             <app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoPreference android:title="@string/revanced_external_downloader_package_name_video_title" android:key="revanced_external_downloader_package_name_video" android:summary="@string/revanced_external_downloader_package_name_video_summary" android:dependency="revanced_overlay_button_external_downloader" />
             <app.revanced.extension.youtube.settings.preference.ExternalDownloaderVideoLongPressPreference android:title="@string/revanced_external_downloader_package_name_video_long_press_title" android:key="revanced_external_downloader_package_name_video_long_press" android:summary="@string/revanced_external_downloader_package_name_video_long_press_summary" android:dependency="revanced_overlay_button_external_downloader" />
-            <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_queue_manager_title" android:key="revanced_overlay_button_external_downloader_queue_manager" android:summary="@string/revanced_overlay_button_external_downloader_queue_manager_summary" />SETTINGS: OVERLAY_BUTTONS -->
+            <SwitchPreference android:title="@string/revanced_overlay_button_external_downloader_queue_manager_title" android:key="revanced_overlay_button_external_downloader_queue_manager" android:summary="@string/revanced_overlay_button_external_downloader_queue_manager_summary" android:dependency="revanced_overlay_button_external_downloader" />SETTINGS: OVERLAY_BUTTONS -->
 
         <!-- PREFERENCE_SCREENS: PLAYER_BUTTONS
         </PreferenceScreen>PREFERENCE_SCREENS: PLAYER_BUTTONS -->
@@ -476,34 +476,34 @@
             <ListPreference android:entries="@array/revanced_miniplayer_type_20_03_entries" android:title="@string/revanced_miniplayer_type_title" android:key="revanced_miniplayer_type" android:entryValues="@array/revanced_miniplayer_type_20_03_entry_values" />SETTINGS: MINIPLAYER_TYPE_20_03 -->
 
             <!-- SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION
-            <SwitchPreference android:title="@string/revanced_miniplayer_double_tap_action_title" android:key="revanced_miniplayer_double_tap_action" android:summaryOn="@string/revanced_miniplayer_double_tap_action_summary_on" android:summaryOff="@string/revanced_miniplayer_double_tap_action_summary_off" />SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_double_tap_action_title" android:key="revanced_miniplayer_double_tap_action" android:summaryOn="@string/revanced_miniplayer_double_tap_action_summary_on" android:summaryOff="@string/revanced_miniplayer_double_tap_action_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_DOUBLE_TAP_ACTION -->
 
             <!-- SETTINGS: MINIPLAYER_DRAG_AND_DROP
-            <SwitchPreference android:title="@string/revanced_miniplayer_drag_and_drop_title" android:key="revanced_miniplayer_drag_and_drop" android:summaryOn="@string/revanced_miniplayer_drag_and_drop_summary_on" android:summaryOff="@string/revanced_miniplayer_drag_and_drop_summary_off" />SETTINGS: MINIPLAYER_DRAG_AND_DROP -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_drag_and_drop_title" android:key="revanced_miniplayer_drag_and_drop" android:summaryOn="@string/revanced_miniplayer_drag_and_drop_summary_on" android:summaryOff="@string/revanced_miniplayer_drag_and_drop_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_DRAG_AND_DROP -->
 
             <!-- SETTINGS: MINIPLAYER_HORIZONTAL_DRAG
-            <SwitchPreference android:title="@string/revanced_miniplayer_horizontal_drag_title" android:key="revanced_miniplayer_horizontal_drag" android:summaryOn="@string/revanced_miniplayer_horizontal_drag_summary_on" android:summaryOff="@string/revanced_miniplayer_horizontal_drag_summary_off" />SETTINGS: MINIPLAYER_HORIZONTAL_DRAG -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_horizontal_drag_title" android:key="revanced_miniplayer_horizontal_drag" android:summaryOn="@string/revanced_miniplayer_horizontal_drag_summary_on" android:summaryOff="@string/revanced_miniplayer_horizontal_drag_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_HORIZONTAL_DRAG -->
 
             <!-- SETTINGS: MINIPLAYER_ROUNDED_CORNERS
-            <SwitchPreference android:title="@string/revanced_miniplayer_rounded_corners_title" android:key="revanced_miniplayer_rounded_corners" android:summaryOn="@string/revanced_miniplayer_rounded_corners_summary_on" android:summaryOff="@string/revanced_miniplayer_rounded_corners_summary_off" />SETTINGS: MINIPLAYER_ROUNDED_CORNERS -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_rounded_corners_title" android:key="revanced_miniplayer_rounded_corners" android:summaryOn="@string/revanced_miniplayer_rounded_corners_summary_on" android:summaryOff="@string/revanced_miniplayer_rounded_corners_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_ROUNDED_CORNERS -->
 
             <!-- SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_off" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25 -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_legacy_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_25 -->
 
             <!-- SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_summary_off" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26 -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_overlay_buttons_title" android:key="revanced_miniplayer_hide_overlay_buttons" android:summaryOn="@string/revanced_miniplayer_hide_overlay_buttons_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_overlay_buttons_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_OVERLAY_BUTTONS_19_26 -->
 
             <!-- SETTINGS: MINIPLAYER_REWIND_FORWARD
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_rewind_forward_title" android:key="revanced_miniplayer_hide_rewind_forward" android:summaryOn="@string/revanced_miniplayer_hide_rewind_forward_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_rewind_forward_summary_off" />SETTINGS: MINIPLAYER_REWIND_FORWARD -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_rewind_forward_title" android:key="revanced_miniplayer_hide_rewind_forward" android:summaryOn="@string/revanced_miniplayer_hide_rewind_forward_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_rewind_forward_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_REWIND_FORWARD -->
 
             <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
-            <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
+            <SwitchPreference android:title="@string/revanced_miniplayer_hide_subtext_title" android:key="revanced_miniplayer_hide_subtext" android:summaryOn="@string/revanced_miniplayer_hide_subtext_summary_on" android:summaryOff="@string/revanced_miniplayer_hide_subtext_summary_off" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
 
             <!-- SETTINGS: MINIPLAYER_WIDTH_DIP
-            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_width_dip_title" android:key="revanced_miniplayer_width_dip" android:summary="@string/revanced_miniplayer_width_dip_summary" android:inputType="number" />SETTINGS: MINIPLAYER_WIDTH_DIP -->
+            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_width_dip_title" android:key="revanced_miniplayer_width_dip" android:summary="@string/revanced_miniplayer_width_dip_summary" android:inputType="number" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_WIDTH_DIP -->
 
             <!-- SETTINGS: MINIPLAYER_TYPE_MODERN
-            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_opacity_title" android:key="revanced_miniplayer_opacity" android:summary="@string/revanced_miniplayer_opacity_summary" android:inputType="number" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
+            <app.revanced.extension.shared.settings.preference.ResettableEditTextPreference android:title="@string/revanced_miniplayer_opacity_title" android:key="revanced_miniplayer_opacity" android:summary="@string/revanced_miniplayer_opacity_summary" android:inputType="number" app:searchDependency="revanced_miniplayer_type" />SETTINGS: MINIPLAYER_TYPE_MODERN -->
 
         <!-- SETTINGS: MINIPLAYER_COMPONENTS
         </PreferenceScreen>SETTINGS: MINIPLAYER_COMPONENTS -->
@@ -918,6 +918,12 @@
         <SwitchPreference android:title="@string/revanced_gms_show_dialog_title" android:key="revanced_gms_show_dialog" android:summary="@string/revanced_gms_show_dialog_summary" app:searchDependency="gms_core_settings" />PREFERENCE: GMS_CORE_SETTINGS -->
 
         <ListPreference android:entries="@array/revanced_language_entries" android:title="@string/revanced_language_title" android:key="revanced_language" android:entryValues="@array/revanced_language_entry_values" />
+
+        <PreferenceCategory android:title="@string/revanced_search_settings_category_title">
+            <SwitchPreference android:key="revanced_settings_search_history" android:title="@string/revanced_settings_search_history_title" android:summary="@string/revanced_settings_search_history_summary" />
+            <SwitchPreference android:key="revanced_settings_search_highlight" android:title="@string/revanced_settings_search_highlight_title" android:summary="@string/revanced_settings_search_highlight_summary" />
+            <app.revanced.extension.shared.settings.preference.ColorPreference android:key="revanced_settings_search_highlight_color" android:title="@string/revanced_settings_search_highlight_color_title" android:summary="@string/revanced_settings_search_highlight_color_summary" android:dependency="revanced_settings_search_highlight" />
+        </PreferenceCategory>
 
         <!-- PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS
         <PreferenceCategory android:title="@string/revanced_preference_category_experimental_flag" android:layout="@layout/revanced_settings_preferences_category"/>PREFERENCE_CATEGORY: MISC_EXPERIMENTAL_FLAGS -->

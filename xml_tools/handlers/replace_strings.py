@@ -1,9 +1,11 @@
-"""Get strings from provided source and replace strings in destination."""
+"""Module for updating XML strings from source to target files."""
 
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING
+import shutil
+from pathlib import Path
+from typing import TYPE_CHECKING, Any
 
 from defusedxml import ElementTree
 
@@ -14,7 +16,6 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 logger = logging.getLogger("xml_tools")
-# ruff: noqa: ERA001
 
 
 def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] | None = None) -> None:
@@ -27,7 +28,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
                      If None, all strings are updated (subject to blacklist).
 
     """
-    blacklist = {
+    blacklist: set[str] = {
         "revanced_enable_swipe_brightness_summary_off",
         "revanced_enable_swipe_brightness_summary_on",
         "revanced_enable_swipe_volume_summary_off",
@@ -47,7 +48,11 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
             return
 
         # Create a dictionary of existing elements
-        existing_elements = {elem.get("name"): elem for elem in target_root.findall(".//string")}
+        existing_elements: dict[str, Any] = {
+            elem.get("name"): elem  # type: ignore[dict-item]
+            for elem in target_root.findall(".//string")
+            if elem.get("name") is not None
+        }
 
         # Update existing strings or add new ones
         for name, data in source_strings.items():
@@ -60,8 +65,8 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
 
             if name in existing_elements:
                 # Update existing element
-                existing_elem = existing_elements[name]
-                new_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                existing_elem: Any = existing_elements[name]
+                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
                 # Replace attributes and children
                 existing_elem.attrib.clear()
                 existing_elem.attrib.update(new_elem.attrib)
@@ -70,7 +75,7 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
                 existing_elem.tail = new_elem.tail
             elif name not in blacklist and (filter_keys is None or name in filter_keys):
                 # Add new element (only if not blacklisted and passes filter)
-                new_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                new_elem: Any = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
                 target_root.append(new_elem)
 
         # Write updated file
@@ -82,44 +87,76 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
 
 
 def process(app: str, base_dir: Path) -> None:
-    """Process all files to replace strings.
+    """Process files to update strings and copy new translation folders.
 
     Args:
-        app: Application name (youtube/music)
-        base_dir: Base directory of RVX patches operations
+        app: Application name (youtube/music).
+        base_dir: Base directory of RVX patches operations.
 
     """
     settings = Settings()
     base_path = settings.get_resource_path(app, "settings")
-    source_path = base_path / "host/values/strings.xml"
-    translations = settings.get_resource_path(app, "translations")
-
-    # First update base strings file from RVX
+    translations_path = settings.get_resource_path(app, "translations")
     rvx_base_path = base_dir / "src/main/resources" / app
+
+    # Update base strings file
+    update_base_strings(base_path, rvx_base_path)
+
+    # Handle translations
+    additional_keys: set[str] | None = None
+    # ruff: noqa: ERA001
+    # {
+    #     "revanced_hide_ask_section_title",
+    #     "revanced_hide_ask_section_summary_on",
+    #     "revanced_hide_ask_section_summary_off",
+    # }
+
+    if additional_keys:
+        update_translations_with_keys(translations_path, base_dir, additional_keys)
+    else:
+        sync_translations(translations_path, rvx_base_path)
+
+
+def update_base_strings(base_path: Path, rvx_base_path: Path) -> None:
+    """Update the base strings.xml file from RVX source."""
+    source_path = base_path / "host/values/strings.xml"
     rvx_source_path = rvx_base_path / "settings/host/values/strings.xml"
     if rvx_source_path.exists():
         update_strings(source_path, rvx_source_path)
 
-    # Process translation files
-    for lang_dir in translations.iterdir():
-        if lang_dir.is_dir():
-            target_path = lang_dir / "strings.xml"
-            additional_keys = None
-            # {
-            #     "revanced_swipe_show_circular_overlay_title",
-            #     "revanced_swipe_show_circular_overlay_summary_on",
-            #     "revanced_swipe_show_circular_overlay_summary_off",
-            #     "revanced_swipe_overlay_minimal_style_title",
-            #     "revanced_swipe_overlay_minimal_style_summary_on",
-            #     "revanced_swipe_overlay_minimal_style_summary_off",
-            # }
 
-            if additional_keys:
-                rvx_lang_path = base_dir / "src/main/resources/addresources" / f"values-{lang_dir.name}" / "strings.xml"
-                # Pass the filter set to update_strings
-                if rvx_lang_path.exists():
-                    update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
-            else:
-                rvx_lang_path = rvx_base_path / "translations" / lang_dir.name / "strings.xml"
-                if rvx_lang_path.exists():
-                    update_strings(target_path, rvx_lang_path)
+def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:
+    """Sync translation folders and strings from RVX source."""
+    rvx_translations = rvx_base_path / "translations"
+    if not rvx_translations.exists():
+        return
+
+    # Create new translation folders if they don't exist
+    for lang_dir in rvx_translations.iterdir():
+        if not lang_dir.is_dir():
+            continue
+        lang = lang_dir.name
+        dest_lang_dir = translations_path / lang
+        dest_strings_path = dest_lang_dir / "strings.xml"
+        source_strings_path = lang_dir / "strings.xml"
+
+        if not dest_lang_dir.exists() and source_strings_path.exists():
+            dest_lang_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source_strings_path, dest_strings_path)
+            logger.info("Created new translation folder %s and copied strings.xml", lang)
+
+        # Update existing translation strings
+        if source_strings_path.exists() and dest_strings_path.exists():
+            update_strings(dest_strings_path, source_strings_path)
+
+
+def update_translations_with_keys(translations_path: Path, base_dir: Path, additional_keys: set[str]) -> None:
+    """Update translation strings with specific keys."""
+    for lang_dir in translations_path.iterdir():
+        if not lang_dir.is_dir():
+            continue
+        target_path = lang_dir / "strings.xml"
+        rvx_lang_path = base_dir / "src/main/resources/addresources" / f"values-{lang_dir.name}" / "strings.xml"
+        if rvx_lang_path.exists():
+            logger.info("Path: %s", rvx_lang_path)
+            update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
