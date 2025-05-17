@@ -52,6 +52,11 @@ public final class DescriptionsFilter extends Filter {
                 videoSummarySection
         );
 
+        final StringFilterGroup askSection = new StringFilterGroup(
+                Settings.HIDE_ASK_SECTION,
+                "youchat_entrypoint.eml"
+        );
+
         howThisWasMadeSection = new StringFilterGroup(
                 Settings.HIDE_CONTENTS_SECTION,
                 "how_this_was_made_section.eml"
@@ -81,6 +86,7 @@ public final class DescriptionsFilter extends Filter {
         );
 
         addPathCallbacks(
+                askSection,
                 howThisWasMadeSection,
                 horizontalShelf,
                 infoCardsSection,
