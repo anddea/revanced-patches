@@ -1,3 +1,17 @@
+# [3.9.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.8.1-dev.1...v3.9.0-dev.1) (2025-05-17)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Whitelisted channels could not be imported or exported ([966a84b](https://github.com/anddea/revanced-patches/commit/966a84bf5b3d34800d83706e62cf73d0c095e43f))
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/anddea/revanced-patches/issues/4893)) ([eb72ee6](https://github.com/anddea/revanced-patches/commit/eb72ee67de2128cd52b3817898015c1e5e8f1a50))
+* **YouTube - Hide description components:** Add `Hide Ask section` setting ([b187e6f](https://github.com/anddea/revanced-patches/commit/b187e6f8712c8c3039d20fd279c8fe9a9485f125))
+* **YouTube - Settings:** Add search history and result highlighting to the settings search ([d82f279](https://github.com/anddea/revanced-patches/commit/d82f279a75415405d3e0480fc71c9a42a87bd862))
+
 ## [3.8.1-dev.1](https://github.com/anddea/revanced-patches/compare/v3.8.0...v3.8.1-dev.1) (2025-05-10)
 
 
