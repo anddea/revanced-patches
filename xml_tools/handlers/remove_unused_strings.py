@@ -180,6 +180,108 @@ def process_xml_file(file_path: Path, unused_names: set[str]) -> None:
         logger.exception("Error processing %s: ", file_path)
 
 
+def find_string_usage(string_name: str) -> None:
+    """Search for a specific string in files and print where it is found.
+
+    Args:
+        string_name (str): The string name to search for.
+
+    """
+    search_results = search_in_files(SEARCH_DIRECTORIES, {string_name})
+    files = search_results.get(string_name, [])
+    if files:
+        logger.info("String '%s' found in: %s", string_name, files)
+    else:
+        logger.info("String '%s' not found in any files.", string_name)
+
+
+def validate_translation_strings(app: str) -> None:
+    """Check if strings in translation directories exist in the main strings.xml.
+
+    Args:
+        app (str): The application identifier to process.
+
+    """
+    settings = Settings()
+    base_path = settings.get_resource_path(app, "settings")
+    source_path = base_path / "host/values/strings.xml"
+    translations = settings.get_resource_path(app, "translations")
+
+    try:
+        # Get source strings from main strings.xml
+        _, _, source_strings = XMLProcessor.parse_file(source_path)
+        source_keys = set(source_strings.keys())
+
+        # Check each translation file
+        for lang_dir in translations.iterdir():
+            if lang_dir.is_dir():
+                trans_path = lang_dir / "strings.xml"
+                if trans_path.exists():
+                    _, _, trans_strings = XMLProcessor.parse_file(trans_path)
+                    trans_keys = set(trans_strings.keys())
+                    extra_strings = trans_keys - source_keys
+                    if extra_strings:
+                        logger.info(
+                            "Translation file %s contains strings not in main strings.xml: %s",
+                            trans_path,
+                            sorted(extra_strings),
+                        )
+                    else:
+                        logger.info("All strings in %s exist in main strings.xml", trans_path)
+    except Exception:
+        logger.exception("Error during translation validation: ")
+
+
+def remove_extra_translation_strings(app: str) -> None:
+    """Remove strings in translation directories that don't exist in the main strings.xml.
+
+    Args:
+        app (str): The application identifier to process.
+
+    """
+    logger.info("Starting process: Remove Unused Strings (Extra Validation)")
+
+    settings = Settings()
+    base_path = settings.get_resource_path(app, "settings")
+    source_path = base_path / "host/values/strings.xml"
+    translations = settings.get_resource_path(app, "translations")
+
+    try:
+        # Get source strings from main strings.xml
+        _, _, source_strings = XMLProcessor.parse_file(source_path)
+        source_keys = set(source_strings.keys())
+
+        # Check and update each translation file
+        for lang_dir in translations.iterdir():
+            if lang_dir.is_dir():
+                trans_path = lang_dir / "strings.xml"
+                if trans_path.exists():
+                    _, _, trans_strings = XMLProcessor.parse_file(trans_path)
+                    trans_keys = set(trans_strings.keys())
+                    extra_strings = trans_keys - source_keys
+                    if extra_strings:
+                        # Create new root with only valid strings
+                        new_root = ET.Element("resources")
+                        kept_strings = 0
+                        for name, data in sorted(trans_strings.items()):
+                            if name in source_keys:
+                                string_elem = ElementTree.fromstring(data["text"])  # type: ignore[reportUnknownMemberType]
+                                new_root.append(string_elem)
+                                kept_strings += 1
+                        # Write updated file
+                        XMLProcessor.write_file(trans_path, new_root)
+                        logger.info(
+                            "Updated %s: removed %s strings, kept %s strings",
+                            trans_path,
+                            len(extra_strings),
+                            kept_strings,
+                        )
+                    else:
+                        logger.info("No extra strings to remove in %s", trans_path)
+    except Exception:
+        logger.exception("Error during translation string removal: ")
+
+
 def process(app: str) -> None:
     """Remove unused strings from XML files for a given application.
 
@@ -197,6 +299,9 @@ def process(app: str) -> None:
     base_path = settings.get_resource_path(app, "settings")
     source_path = base_path / "host/values/strings.xml"
     translations = settings.get_resource_path(app, "translations")
+
+    # find_string_usage("")  # noqa: ERA001
+    # validate_translation_strings(app)  # noqa: ERA001
 
     try:
         # Get source strings
@@ -216,6 +321,8 @@ def process(app: str) -> None:
                 dest_path = lang_dir / "strings.xml"
                 if dest_path.exists():
                     process_xml_file(dest_path, unused_names)
+
+        remove_extra_translation_strings(app)
 
     except Exception:
         logger.exception("Error during processing: ")

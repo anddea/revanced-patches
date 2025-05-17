@@ -541,7 +541,6 @@ public class Utils {
         return destination;
     }
 
-
     /**
      * @return whether the device's API level is higher than a specific SDK version.
      */
@@ -549,14 +548,18 @@ public class Utils {
         return Build.VERSION.SDK_INT >= sdk;
     }
 
+    /**
+     * Converts a dimension in density-independent pixels (dp) to actual pixels (px) based
+     * on the device's display metrics. If the context is null, the input dp value is returned
+     * unchanged.
+     *
+     * @param dp The dimension in density-independent pixels to convert.
+     * @return The equivalent dimension in pixels, or the input dp value if the context is null.
+     */
     public static int dpToPx(int dp) {
-        if (context == null) {
-            return dp;
-        } else {
-            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
-        }
+        if (context == null) return dp;
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
-
 
     /**
      * Ignore this class. It must be public to satisfy Android requirements.

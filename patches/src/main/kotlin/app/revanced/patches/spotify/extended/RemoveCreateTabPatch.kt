@@ -1,6 +1,5 @@
 package app.revanced.patches.spotify.extended
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -15,12 +14,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-
-internal val addCreateTabMethodFingerprint = fingerprint {
-    custom { method, _ ->
-        method.containsLiteralInstruction(getResourceId(STRING, "bottom_navigation_bar_create_tab_title"))
-    }
-}
 
 internal val removeCreateTabMethodFingerprint = fingerprint {
     custom { method, _ ->
@@ -37,8 +30,6 @@ val removeCreateTabPatch = bytecodePatch(
     dependsOn(resourceMappingPatch)
 
     execute {
-        addCreateTabMethodFingerprint.method.addInstruction(0, "return-void")
-
         val targetMethod = removeCreateTabMethodFingerprint.method
 
         val lastInstructionIndex = targetMethod.instructions.count() - 1

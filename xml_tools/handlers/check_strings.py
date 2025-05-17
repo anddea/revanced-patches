@@ -13,6 +13,7 @@ BLACKLIST: set[str] = {
     "revanced_swipe_overlay_alternative_ui_summary_on",
     "revanced_swipe_overlay_alternative_ui_title",
     # Removed
+    "revanced_custom_seekbar_color_invalid_toast",
     "revanced_preference_category_po_token_visitor_data",
     "revanced_spoof_streaming_data_po_token_summary",
     "revanced_spoof_streaming_data_po_token_title",
