@@ -153,6 +153,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_change_youtube_header_summary_off">일반 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium 헤더를 활성화합니다.</string>
     <string name="revanced_change_youtube_header_title">YouTube 헤더 변경하기</string>
+    <string name="revanced_color_invalid_toast">잘못된 색상입니다.</string>
     <string name="revanced_copy">복사</string>
     <string name="revanced_copy_error">텍스트를 복사할 수 없습니다.</string>
     <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다.\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다.</string>
@@ -309,7 +310,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 눌러서 스크롤하기
 • 길게 눌러서 텍스트 선택하기"</string>
     <string name="revanced_disable_video_description_interaction_title">동영상 설명 상호 작용 비활성화하기</string>
-    <string name="revanced_disable_vp9_codec_summary_off">VP9 코덱을 활성화합니다.\n• 예전에 업로드된 동영상에서 일부 화질 값들이 제거되어 360p와 1080p(Premium 기능)만 선택할 수 있거나 화질 메뉴를 선택하지 못할 수 있습니다.</string>
+    <string name="revanced_disable_vp9_codec_summary_off">VP9 코덱을 활성화합니다.\n• 예전에 업로드된 동영상에서 일부 화질 값들이 삭제되어 360p와 1080p(Premium 기능)만 선택할 수 있거나 화질 메뉴를 선택하지 못할 수 있습니다.</string>
     <string name="revanced_disable_vp9_codec_summary_on">"VP9 코덱을 비활성화합니다.
 • 재생 문제가 없는 계정이거나 VR 또는 iOS 클라이언트는 AV1 코덱까지 지원되기 때문에 2160p까지 재생될 수 있고, 나머지 클라이언트는 VP9 코덱까지만 지원되기 때문에 1080p까지 재생될 수 있습니다.
 • AVC 코덱 동영상을 재생했을 경우에는 VP9보다 더 많은 데이터가 사용되오니 주의하세요.
@@ -1666,20 +1667,20 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_queue_manager_external_downloader">외부 다운로더</string>
     <string name="revanced_queue_manager_fetch_failed_add">동영상을 추가할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_create">현재 재생목록을 만들 수 없습니다.</string>
-    <string name="revanced_queue_manager_fetch_failed_delete">현재 재생목록을 제거할 수 없습니다.</string>
-    <string name="revanced_queue_manager_fetch_failed_remove">동영상을 제거할 수 없습니다.</string>
+    <string name="revanced_queue_manager_fetch_failed_delete">현재 재생목록을 삭제할 수 없습니다.</string>
+    <string name="revanced_queue_manager_fetch_failed_remove">동영상을 삭제할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_failed_save">현재 재생목록을 저장할 수 없습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_add">동영상을 성공적으로 추가하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_create">현재 재생목록을 성공적으로 만들었습니다.</string>
-    <string name="revanced_queue_manager_fetch_succeeded_delete">현재 재생목록을 성공적으로 제거하였습니다.</string>
-    <string name="revanced_queue_manager_fetch_succeeded_remove">동영상을 성공적으로 제거하였습니다.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_delete">현재 재생목록을 성공적으로 삭제하였습니다.</string>
+    <string name="revanced_queue_manager_fetch_succeeded_remove">동영상을 성공적으로 삭제하였습니다.</string>
     <string name="revanced_queue_manager_fetch_succeeded_save">현재 재생목록을 \'%s\'에 성공적으로 저장하였습니다.</string>
     <string name="revanced_queue_manager_open_queue">현재 재생목록 열기</string>
     <string name="revanced_queue_manager_queue">현재 재생목록</string>
-    <string name="revanced_queue_manager_remove_from_queue">현재 재생목록에서 제거</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">현재 재생목록에서 제거하고 현재 재생목록 열기</string>
-    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">현재 재생목록에서 제거하고 동영상 다시 로드</string>
-    <string name="revanced_queue_manager_remove_queue">현재 재생목록 제거</string>
+    <string name="revanced_queue_manager_remove_from_queue">현재 재생목록에서 삭제</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_open_queue">현재 재생목록에서 삭제하고 현재 재생목록 열기</string>
+    <string name="revanced_queue_manager_remove_from_queue_and_reload_video">현재 재생목록에서 삭제하고 동영상 다시 로드</string>
+    <string name="revanced_queue_manager_remove_queue">현재 재생목록 삭제</string>
     <string name="revanced_queue_manager_save_queue">현재 재생목록 저장</string>
     <string name="revanced_queue_manager_user_dialog_message">"외부 다운로더가 아닌 현재 재생목록 관리자 다이얼로그를 실행할 수 있습니다.
 
@@ -1728,8 +1729,8 @@ Gemini API Key를 발급받으려면 여기를 누르세요."</string>
     <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질 값을 %2$s 로 변경하였습니다.</string>
     <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
     <string name="revanced_remix_button_index_title">리믹스 버튼 인덱스</string>
-    <string name="revanced_remove_viewer_discretion_dialog_summary">"다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
-    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
+    <string name="revanced_remove_viewer_discretion_dialog_summary">"다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.\n\n이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다."</string>
+    <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 삭제하기</string>
     <string name="revanced_replace_av1_codec_summary">AV1 코덱을 VP9 코덱으로 변경합니다.</string>
     <string name="revanced_replace_av1_codec_title">AV1 코덱 변경하기</string>
     <string name="revanced_replace_channel_handle_summary_off">채널 핸들(@채널 아이디)을 사용합니다.</string>
@@ -1803,8 +1804,8 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다.</string>
     <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
     <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
-    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 제거합니다. (URL의 뒷부분 \'?si=...\' 이 제거됨.)</string>
-    <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
+    <string name="revanced_sanitize_sharing_links_summary">링크를 공유할 때, URL에서 추적 쿼리 매개변수를 삭제합니다. (URL의 뒷부분 \'?si=...\' 이 삭제됨.)</string>
+    <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 삭제한 링크 공유하기</string>
     <string name="revanced_sanitize_video_subtitle_summary_off">"제목 하단에서 다음 문구들이 표시됩니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품, 더빙,\n인기 급상승 동영상 #순위, 회원 전용, etc."</string>
     <string name="revanced_sanitize_video_subtitle_summary_on">"제목 하단에서 다음 문구들이 숨겨집니다:\n#(해시태그), 모금 행사, 쇼핑, n개 제품, 더빙,\n인기 급상승 동영상 #순위, 회원 전용, etc."</string>
     <string name="revanced_sanitize_video_subtitle_title">동영상 제목 하단 정리하기</string>
@@ -1995,6 +1996,25 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_sb_vote_no_segments">투표할 구간이 없습니다.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
     <string name="revanced_sb_vote_upvote">좋아요</string>
+    <string name="revanced_search_clear_confirm_message">전체 검색 기록을 지우시겠습니까?</string>
+    <string name="revanced_search_clear_confirm_title">검색 기록 지우기</string>
+    <string name="revanced_search_clear_history_title">검색 기록 지우기</string>
+    <string name="revanced_search_delete_confirm_message">검색 기록에서 \"%1$s\"를 삭제하시겠습니까?</string>
+    <string name="revanced_search_delete_confirm_title">검색 항목 삭제하기</string>
+    <string name="revanced_search_delete_entry">검색 항목 삭제하기</string>
+    <string name="revanced_search_history_title">최근 검색어</string>
+    <string name="revanced_search_no_history_summary">검색 기록이 여기에 표시됩니다. 검색어를 검색 기록에 저장하려면 엔터키를 눌러야 합니다.</string>
+    <string name="revanced_search_no_history_title">최근 검색어가 없습니다.</string>
+    <string name="revanced_search_settings_category_title">설정 검색</string>
+    <string name="revanced_search_settings_no_results_summary">다른 키워드를 검색해 보세요.</string>
+    <string name="revanced_search_settings_no_results_title">\"%1$s\"에 대한 검색 결과를 찾을 수 없습니다.</string>
+    <string name="revanced_search_title">검색</string>
+    <string name="revanced_settings_search_highlight_color_summary">검색 결과에서 검색어와 일치되는 텍스트의 강조 색상을 설정할 수 있습니다.</string>
+    <string name="revanced_settings_search_highlight_color_title">검색 강조 색상</string>
+    <string name="revanced_settings_search_highlight_summary">검색 결과에서 선택된 색상으로 검색어와 일치하는 텍스트를 강조할 수 있습니다.</string>
+    <string name="revanced_settings_search_highlight_title">검색 강조 활성화하기</string>
+    <string name="revanced_settings_search_history_summary">검색창이 비어 있을 경우에 검색 기록이 표시될 수 있도록 최근 검색 쿼리를 저장합니다.</string>
+    <string name="revanced_settings_search_history_title">검색 기록 활성화하기</string>
     <string name="revanced_share_copy_settings_success">설정을 클립보드에 복사하였습니다.</string>
     <string name="revanced_share_copy_timestamp_success">타임스탬프를 클립보드에 복사하였습니다. (%s)</string>
     <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다.</string>
@@ -2067,7 +2087,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
 알림:
 • 동영상이 시작되면 약 0.3초의 지연이 발생합니다.
 • Shorts 동영상, HDR 동영상, 실시간 스트리밍 동영상 또는 15초 미만의 동영상에는 적용되지 않습니다.
-• ‘스트리밍 데이터 변경하기’ 기능은 미리 로드된 버퍼도 제거하므로 사용하는 경우에는 이 기능이 필요하지 않습니다."</string>
+• ‘스트리밍 데이터 변경하기’ 기능은 미리 로드된 버퍼도 삭제하므로 사용하는 경우에는 이 기능이 필요하지 않습니다."</string>
     <string name="revanced_skip_preloaded_buffer_title">미리 로드된 버퍼 건너뛰기</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_off">팝업 메시지를 표시하지 않습니다.</string>
     <string name="revanced_skip_preloaded_buffer_toast_summary_on">팝업 메시지를 표시합니다.</string>
@@ -2108,8 +2128,8 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden">클라이언트 스트림을 가져올 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_failed_forbidden_suggestion">로그인하지 않았을 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 제거되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다.</string>
-    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다.\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다.\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 삭제되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다.</string>
+    <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다.\n\n• 일부 VP9 코덱 동영상에서 삭제되었던 화질 값이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다.</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
     <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
 
@@ -2266,10 +2286,10 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_whitelist_failure_generic">채널 정보를 불러오지 못하였습니다.</string>
     <string name="revanced_whitelist_included">화이트리스트에 추가하였습니다.</string>
     <string name="revanced_whitelist_playback_speed">재생 속도</string>
-    <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하시겠습니까?</string>
-    <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거할 수 없습니다.</string>
-    <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 제거하였습니다.</string>
-    <string name="revanced_whitelist_settings_summary">화이트리스트에 추가된 채널을 확인 또는 제거할 수 있습니다.</string>
+    <string name="revanced_whitelist_remove_dialog_message">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제하시겠습니까?</string>
+    <string name="revanced_whitelist_remove_failed">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제할 수 없습니다.</string>
+    <string name="revanced_whitelist_removed">\'%1$s\' 채널을 %2$s 화이트리스트에서 삭제하였습니다.</string>
+    <string name="revanced_whitelist_settings_summary">화이트리스트에 추가된 채널을 확인 또는 삭제할 수 있습니다.</string>
     <string name="revanced_whitelist_settings_title">채널 화이트리스트</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
     <string name="revanced_yandex_error_api_final_subs">최종 자막을 가져오는 중에 Yandex API 오류가 발생하였습니다. (상태 코드: %1$d)</string>
