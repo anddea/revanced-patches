@@ -153,6 +153,12 @@ public class ColorPreference extends Preference {
             colorPreviewDot.setMinimumHeight(size);
             colorPreviewDot.setOnClickListener(v -> onClick());
         }
+
+        // Remove colorPreviewDot from its current parent, if it has one
+        if (colorPreviewDot.getParent() != null) {
+            ((ViewGroup) colorPreviewDot.getParent()).removeView(colorPreviewDot);
+        }
+
         updateColorDot();
 
         ViewGroup widgetFrame = view.findViewById(android.R.id.widget_frame);
