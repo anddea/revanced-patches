@@ -23,12 +23,13 @@ class GitClient:
         """
         self.repo_path = repo_path
         try:
-            self.repo = git.Repo(repo_path, search_parent_directories=True)
+            self.repo = git.Repo(str(repo_path), search_parent_directories=True)
         except git.InvalidGitRepositoryError as e:
             msg = f"Invalid Git repository at path: {repo_path}"
             raise ValueError(msg) from e
 
-    def _handle_git_error(self, operation: str, exception: Exception) -> tuple[int, str, str]:
+    @staticmethod
+    def _handle_git_error(operation: str, exception: Exception) -> tuple[int, str, str]:
         """Handle GitPython exceptions.
 
         Args:
@@ -66,7 +67,7 @@ class GitClient:
             return 0, f"Switched to branch {branch_name}", ""
 
     def fetch(self) -> tuple[int, str, str]:
-        """Fetche updates from remote.
+        """Fetch updates from remote.
 
         Returns:
             A tuple containing:
@@ -74,7 +75,7 @@ class GitClient:
                 - Command output (success message or empty)
                 - Error output (empty string on success, error message on failure)
 
-        """  # noqa: D401
+        """
         try:
             self.repo.remotes.origin.fetch()
         except git.GitCommandError as e:
