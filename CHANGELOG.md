@@ -1,3 +1,11 @@
+# [3.9.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.9.0-dev.1...v3.9.0-dev.2) (2025-05-21)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Resolve patch failure for some icons ([2c4e604](https://github.com/anddea/revanced-patches/commit/2c4e6044ff96bdfb545d04551f873ed080c39eaa))
+* **YouTube - Settings:** Potential crash related to color preferences ([89dd672](https://github.com/anddea/revanced-patches/commit/89dd672f024d0edb743ae183fe1468be10b57c6f))
+
 # [3.9.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.8.1-dev.1...v3.9.0-dev.1) (2025-05-17)
 
 
