@@ -106,9 +106,15 @@ def process(app: str, base_dir: Path) -> None:
     additional_keys: set[str] | None = None
     # ruff: noqa: ERA001
     # {
-    #     "revanced_hide_ask_section_title",
-    #     "revanced_hide_ask_section_summary_on",
     #     "revanced_hide_ask_section_summary_off",
+    #     "revanced_hide_ask_section_summary_on",
+    #     "revanced_hide_ask_section_title",
+    #     "revanced_swipe_overlay_minimal_style_summary_off",
+    #     "revanced_swipe_overlay_minimal_style_summary_on",
+    #     "revanced_swipe_overlay_minimal_style_title",
+    #     "revanced_swipe_show_circular_overlay_summary_off",
+    #     "revanced_swipe_show_circular_overlay_summary_on",
+    #     "revanced_swipe_show_circular_overlay_title",
     # }
 
     if additional_keys:

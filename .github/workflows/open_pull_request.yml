@@ -9,6 +9,10 @@ on:
 env:
   MESSAGE: Merge branch `${{ github.head_ref || github.ref_name }}` to `main`
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   pull-request:
     name: Open pull request
@@ -25,5 +29,4 @@ jobs:
           pr_title: 'chore: ${{ env.MESSAGE }}'
           pr_body: |
             This pull request will ${{ env.MESSAGE }}.
-
           pr_draft: true
