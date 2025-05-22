@@ -9,23 +9,27 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.XmlResourceParser;
 import android.graphics.Insets;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toolbar;
+import android.widget.*;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.patches.spoof.SpoofStreamingDataPatch;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.EnumSetting;
-import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.*;
+import app.revanced.extension.shared.settings.preference.ColorPreference;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.StringRef;
@@ -43,6 +47,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.regex.Pattern;
 
 import static app.revanced.extension.shared.settings.BaseSettings.SPOOF_STREAMING_DATA_TYPE;
 import static app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment.showRestartDialog;
@@ -86,9 +92,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * Example: <pre>{@code <Preference ... android:title="@string/preference_title" ...>}</pre>
      */
     private static final String TITLE_ATTRIBUTE = "title";
-
+    private static final String SEARCH_HISTORY_DELIMITER = "|";
+    private static final int MAX_SEARCH_HISTORY_SIZE = 50; // Same as YouTube search history size
     static boolean settingImportInProgress = false;
-    static boolean showingUserDialogMessage;
     static PreferenceManager mPreferenceManager;
 
     // region Search-related fields
@@ -162,8 +168,17 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * }</pre>
      */
     private final Map<String, String> customDependencyMap = new HashMap<>();
+    private final Map<String, HistoryPreference> historyViewPreferenceCache = new HashMap<>();
+    private final Map<String, Preference> allPreferencesByKey = new HashMap<>();
+    private final Map<PreferenceGroup, String> groupFullPaths = new HashMap<>();
+    private final Map<Preference, PreferenceGroup> preferenceToParentGroupMap = new HashMap<>();
+    private final Map<Preference, PreferenceInfo> preferenceInfoMap = new HashMap<>();
 
     // endregion Search-related fields
+
+    public Stack<PreferenceScreen> preferenceScreenStack = new Stack<>();
+    public PreferenceScreen rootPreferenceScreen;
+    private boolean showingUserDialogMessage = false;
 
     @SuppressLint("SuspiciousIndentation")
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
@@ -219,6 +234,10 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 if (!(mPreference instanceof app.revanced.extension.youtube.settings.preference.SegmentCategoryListPreference)) {
                     updateListPreferenceSummary(listPreference, setting);
                 }
+            } else if (mPreference instanceof ColorPreference) {
+                if (!settingImportInProgress) {
+                    Logger.printDebug(() -> "StringSetting preference updated: " + str + ", value: " + setting.get());
+                }
             } else {
                 Logger.printException(() -> "Setting cannot be handled: " + mPreference.getClass() + " " + mPreference);
                 return;
@@ -240,10 +259,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         }
     };
 
-    private final List<PreferenceInfo> preferenceList = new ArrayList<>();
-    private final Map<String, List<Integer>> dependencyCache = new HashMap<>();
-    public Stack<PreferenceScreen> preferenceScreenStack = new Stack<>();
-    public PreferenceScreen rootPreferenceScreen;
+    private List<String> searchHistoryCache = null;
     private PreferenceScreen originalPreferenceScreen;
     private SharedPreferences mSharedPreferences;
 
@@ -357,7 +373,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     /**
      * Checks if the preference is currently set to the default value of the associated Setting.
      *
-     * @param pref   The {@link Preference} to check.
+     * @param pref    The {@link Preference} to check.
      * @param setting The {@link Setting} associated with the preference.
      * @return True if the preference is set to the default value, false otherwise.
      * @throws IllegalStateException If the preference type is not supported.
@@ -374,9 +390,11 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         if (pref instanceof ListPreference listPref) {
             return listPref.getValue().equals(defaultValueString);
         }
+        if (pref instanceof ColorPreference) {
+            return setting.get().equals(defaultValueString);
+        }
 
-        throw new IllegalStateException("Must override method to handle "
-                + "preference type: " + pref.getClass());
+        throw new IllegalStateException("Must override method to handle preference type: " + pref.getClass());
     }
 
     /**
@@ -527,7 +545,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * Adds a PreferenceGroup to a sorted map if it is a PreferenceScreen.
      *
      * @param preferenceScreenMap The sorted map to store PreferenceScreen instances.
-     * @param preferenceGroup    The PreferenceGroup to check and potentially add.
+     * @param preferenceGroup     The PreferenceGroup to check and potentially add.
      */
     private void putPreferenceScreenMap(SortedMap<String, PreferenceScreen> preferenceScreenMap, PreferenceGroup preferenceGroup) {
         if (preferenceGroup instanceof PreferenceScreen mPreferenceScreen) {
@@ -538,7 +556,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     /**
      * Creates and configures a Toolbar for a PreferenceScreen dialog.
      *
-     * @param preferenceScreen      The {@link PreferenceScreen} associated with the toolbar.
+     * @param preferenceScreen       The {@link PreferenceScreen} associated with the toolbar.
      * @param preferenceScreenDialog The dialog containing the PreferenceScreen.
      * @return A configured {@link Toolbar} instance.
      */
@@ -651,9 +669,14 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
         for (int i = 0, n = group.getPreferenceCount(); i < n; i++) {
             Preference pref = group.getPreference(i);
             prefs.add(pref);
+            preferenceToParentGroupMap.put(pref, group);
 
-            // Only add non-PreferenceGroup preferences to dependencyMap
-            if (!(pref instanceof PreferenceGroup)) {
+            if (pref.getKey() != null) {
+                allPreferencesByKey.put(pref.getKey(), pref); // Store for O(1) lookup
+            }
+
+            // Store dependency for non-PreferenceGroup preferences with a key
+            if (!(pref instanceof PreferenceGroup) && pref.getKey() != null) {
                 String depKey = getCustomDependency(pref, group);
                 if (depKey != null) {
                     dependencyMap.computeIfAbsent(depKey, k -> new ArrayList<>()).add(pref);
@@ -664,104 +687,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 storeAllPreferences((PreferenceGroup) pref);
             }
         }
-    }
 
-    /**
-     * Asynchronously builds the dependency cache for preferences to optimize search performance.
-     * No real need to use it, but keep it for now.
-     */
-    @SuppressWarnings("unused")
-    private void buildDependencyCacheAsync() {
-        new Thread(() -> {
-            buildDependencyCache();
-            Logger.printDebug(() -> "Dependency cache built successfully");
-        }).start();
-    }
-
-    /**
-     * Builds a cache mapping each preference's cache key to a list of indices of related preferences.
-     */
-    private void buildDependencyCache() {
-        preferenceList.clear();
-        dependencyCache.clear();
-
-        // Populate preferenceList with PreferenceInfo objects
-        for (var entry : groupedPreferences.entrySet()) {
-            PreferenceGroup group = entry.getKey();
-            String groupTitle = group.getTitle() != null ? group.getTitle().toString() : "";
-            for (Preference pref : entry.getValue()) {
-                if (pref.getKey() != null) {
-                    preferenceList.add(new PreferenceInfo(pref, groupTitle));
-                }
-            }
-        }
-
-        // Build dependency cache
-        for (int index = 0; index < preferenceList.size(); index++) {
-            PreferenceInfo info = preferenceList.get(index);
-            if (info.key == null) continue;
-            List<Integer> relatedIndices = new ArrayList<>();
-            addPreferenceAndDependenciesToCache(relatedIndices, index);
-            dependencyCache.put(info.cacheKey, relatedIndices);
-        }
-    }
-
-    /**
-     * Recursively collects indices of a preference and its dependencies.
-     *
-     * @param relatedIndices The list to store indices of related preferences.
-     * @param currentIndex   The index of the current preference in preferenceList.
-     */
-    private void addPreferenceAndDependenciesToCache(List<Integer> relatedIndices, int currentIndex) {
-        Set<Integer> visited = new HashSet<>();  // Tracks visited indices to prevent cycles
-        Stack<Integer> stack = new Stack<>();
-        stack.push(currentIndex);
-
-        while (!stack.isEmpty()) {
-            int index = stack.pop();
-            if (visited.contains(index)) continue;
-            visited.add(index);
-            relatedIndices.add(index);
-
-            PreferenceInfo currentInfo = preferenceList.get(index);
-            PreferenceGroup group = groupedPreferences.keySet().stream()
-                    .filter(g -> g.getTitle() != null && g.getTitle().toString().equals(currentInfo.groupTitle))
-                    .findFirst().orElse(null);
-            String currentDependencyKey = getDependencyKey(currentInfo.preference, group);
-
-            // Handle direct dependency
-            if (currentDependencyKey != null) {
-                int depIndex = findPreferenceIndexByKey(currentDependencyKey);
-                if (depIndex >= 0 && !visited.contains(depIndex)) {
-                    stack.push(depIndex);
-                }
-            }
-
-            // Handle dependent preferences
-            if (dependencyMap.containsKey(currentInfo.key)) {
-                for (Preference depPref : Objects.requireNonNull(dependencyMap.get(currentInfo.key))) {
-                    int depIndex = findPreferenceIndexByKey(depPref.getKey());
-                    if (depIndex >= 0 && !visited.contains(depIndex)) {
-                        stack.push(depIndex);
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Finds the index of a preference in preferenceList by its key.
-     *
-     * @param key The preference key to search for.
-     * @return The index, or -1 if not found.
-     */
-    private int findPreferenceIndexByKey(String key) {
-        for (int i = 0; i < preferenceList.size(); i++) {
-            if (key.equals(preferenceList.get(i).key)) {
-                return i;
-            }
-        }
-        return -1;
+        groupFullPaths.put(group, getFullPath(group));
     }
 
     // endregion [Search] Initialize and Store Preferences
@@ -783,60 +710,85 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param query The search query string.
      */
     public void filterPreferences(@NonNull String query) {
-        if (query.isEmpty() || groupedPreferences.isEmpty()) {
-            resetPreferences();
-            Logger.printInfo(() -> "No preferences available or query empty");
-            return;
-        }
+        long startTime = System.nanoTime();
 
         PreferenceScreen screen = getPreferenceScreen();
-        if (screen == null) {
-            Logger.printException(() -> "PreferenceScreen is null");
-            return;
-        }
+        if (screen == null) return;
         screen.removeAll();
 
-        String lowerQuery = query.toLowerCase();
-        Map<PreferenceGroup, List<Preference>> matchedGroups = new LinkedHashMap<>();
+        // Clear all previous highlights and reset highlighting state
+        for (PreferenceInfo info : preferenceInfoMap.values()) clearHighlighting(info);
 
-        for (var entry : groupedPreferences.entrySet()) {
-            processGroup(entry.getKey(), entry.getValue(), lowerQuery, matchedGroups);
+        if (query.isEmpty() && Settings.SETTINGS_SEARCH_HISTORY.get()) {
+            displaySearchHistory(screen);
+        } else if (query.isEmpty() || groupedPreferences.isEmpty()) {
+            resetPreferences();
+        } else {
+            filterAndDisplayPreferences(screen, query.toLowerCase());
         }
 
-        matchedGroups.forEach((group, matches) -> {
-            PreferenceGroup targetGroup = group == rootPreferenceScreen ? screen : createCategoryGroup(screen, group);
-            addPreferencesToGroup(targetGroup, matches, group);
-        });
-
-        int totalPreferences = matchedGroups.values().stream().mapToInt(List::size).sum();
-        Logger.printDebug(() -> "Filtered '" + query + "': " + matchedGroups.size() + " groups, " + totalPreferences + " preferences");
+        long endTime = System.nanoTime();
+        Logger.printDebug(() -> "filterPreferences took " + ((endTime - startTime) / 1_000_000.0) + " ms");
     }
 
     /**
-     * Processes a preference group to find matches for the search query.
+     * Filters preferences based on a query and displays them on the provided screen.
      *
-     * @param group         The PreferenceGroup to process.
-     * @param preferences   The preferences in the group.
-     * @param lowerQuery    The lowercase search query.
-     * @param matchedGroups The map to store matched groups and preferences.
+     * @param screen     The PreferenceScreen to display filtered preferences.
+     * @param lowerQuery The lowercase query string to match against preference titles/keys.
      */
-    private void processGroup(PreferenceGroup group, Set<Preference> preferences, String lowerQuery,
-                              Map<PreferenceGroup, List<Preference>> matchedGroups) {
-        CharSequence title = group.getTitle() != null ? group.getTitle() : "";
-        Set<String> keysToInclude = new LinkedHashSet<>();
-        List<Preference> matches = new ArrayList<>();
-
-        for (Preference pref : preferences) {
-            boolean isRootGroup = group == rootPreferenceScreen;
-            boolean isPreferenceGroup = pref instanceof PreferenceGroup;
-            if (shouldIncludePreference(pref, lowerQuery, title, keysToInclude) &&
-                    (!isPreferenceGroup || isRootGroup)) {
-                matches.add(pref);
-            }
+    private void filterAndDisplayPreferences(PreferenceScreen screen, String lowerQuery) {
+        if (screen == null || lowerQuery == null) {
+            throw new IllegalArgumentException("Screen and query must not be null");
         }
 
-        if (!matches.isEmpty()) {
-            matchedGroups.put(group, matches);
+        // Map of groups to their directly matched preferences
+        Map<PreferenceGroup, List<Preference>> matchedPreferencesByGroup = new LinkedHashMap<>();
+        // This set tracks keyed preferences that have been fully processed (added along with their dependencies)
+        // during *this specific search operation* to prevent redundant processing and cycles.
+        Set<String> processedKeyedItemsForSearch = new HashSet<>();
+
+        // Find direct matches
+        findDirectMatches(lowerQuery, matchedPreferencesByGroup);
+
+        // Display matches or show "No results"
+        if (matchedPreferencesByGroup.isEmpty()) {
+            screen.addPreference(new NoResultsPreference(screen.getContext(), lowerQuery, false));
+        } else {
+            matchedPreferencesByGroup.forEach((xmlParentOfMatchedItem, listOfDirectlyMatchedItems) -> {
+                PreferenceGroup displayGroupForMatchedItems = xmlParentOfMatchedItem == rootPreferenceScreen
+                        ? screen
+                        : createCategoryGroup(screen, xmlParentOfMatchedItem);
+
+                for (Preference directlyMatchedItem : listOfDirectlyMatchedItems) {
+                    applyHighlighting(directlyMatchedItem, lowerQuery);
+                    addPreferenceWithDependencies(
+                            displayGroupForMatchedItems,
+                            directlyMatchedItem,
+                            getDependencyKey(directlyMatchedItem, xmlParentOfMatchedItem),
+                            processedKeyedItemsForSearch
+                    );
+                }
+            });
+        }
+    }
+
+    /**
+     * Finds preferences that match the query and organizes them by their original group.
+     *
+     * @param lowerQuery                The lowercase query string to match against preference fields.
+     * @param matchedPreferencesByGroup The map to store matched preferences.
+     */
+    private void findDirectMatches(String lowerQuery, Map<PreferenceGroup, List<Preference>> matchedPreferencesByGroup) {
+        for (Map.Entry<PreferenceGroup, LinkedHashSet<Preference>> entry : groupedPreferences.entrySet()) {
+            PreferenceGroup parentOfPref = entry.getKey();
+            for (Preference pref : entry.getValue()) {
+                if (preferenceMatches(pref, lowerQuery)) {
+                    if (!(pref instanceof PreferenceCategory)) {
+                        matchedPreferencesByGroup.computeIfAbsent(parentOfPref, k -> new ArrayList<>()).add(pref);
+                    }
+                }
+            }
         }
     }
 
@@ -849,39 +801,9 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      */
     private PreferenceGroup createCategoryGroup(PreferenceScreen screen, PreferenceGroup group) {
         ClickablePreferenceCategory category = new ClickablePreferenceCategory(this, findClosestPreferenceScreen(group));
-        category.setTitle(getFullPath(group));
+        category.setTitle(groupFullPaths.get(group));
         screen.addPreference(category);
         return category;
-    }
-
-    /**
-     * Determines if a preference should be included in search results based on the query and dependencies.
-     *
-     * @param pref          The preference to evaluate.
-     * @param lowerQuery    The lowercase search query.
-     * @param groupTitle    The title of the preference's group.
-     * @param keysToInclude The set to store keys of related preferences.
-     * @return True if the preference should be included, false otherwise.
-     */
-    private boolean shouldIncludePreference(@NonNull Preference pref, @NonNull String lowerQuery,
-                                            @NonNull CharSequence groupTitle, @NonNull Set<String> keysToInclude) {
-
-        if (!preferenceMatches(pref, lowerQuery)) return false;
-
-        String key = pref.getKey();
-        if (key == null) return true;
-
-        String cacheKey = groupTitle + ":" + key;
-        List<Integer> cachedIndices = dependencyCache.get(cacheKey);
-
-        if (cachedIndices != null) {
-            for (int index : cachedIndices) keysToInclude.add(preferenceList.get(index).cacheKey);
-        } else {
-            Logger.printDebug(() -> "Missing cache for key: " + cacheKey);
-            keysToInclude.add(cacheKey);
-        }
-
-        return true;
     }
 
     /**
@@ -889,16 +811,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * is found in the preference's title, summary, or (for SwitchPreferences and ListPreferences) specific fields.
      *
      * @param preference The preference to check.
-     * @param query      The search query (already converted to lowercase).
+     * @param lowerQuery The lowercase query string to match against preference fields.
      * @return True if the preference matches the query, false otherwise.
      */
-    private boolean preferenceMatches(Preference preference, String query) {
-        // Check if the query is in the title or summary.
-        return preference.getTitle().toString().toLowerCase().contains(query) ||
-                (preference.getSummary() != null && preference.getSummary().toString().toLowerCase().contains(query)) ||
-                // Check specific fields for SwitchPreferences and ListPreferences.
-                matchesSwitchPreference(preference, query) ||
-                matchesListPreference(preference, query);
+    private boolean preferenceMatches(Preference preference, String lowerQuery) {
+        String title = preference.getTitle() != null ? preference.getTitle().toString().toLowerCase() : "";
+        String summary = preference.getSummary() != null ? preference.getSummary().toString().toLowerCase() : "";
+        return title.contains(lowerQuery) || summary.contains(lowerQuery) ||
+                matchesSwitchPreference(preference, lowerQuery) ||
+                matchesListPreference(preference, lowerQuery);
     }
 
     /**
@@ -906,13 +827,14 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * is found in the preference's "summary on" or "summary off" text.
      *
      * @param preference The SwitchPreference to check.
-     * @param query      The search query (already converted to lowercase).
+     * @param lowerQuery The lowercase query string to match against the summaries.
      * @return True if the SwitchPreference matches the query, false otherwise.
      */
-    private boolean matchesSwitchPreference(Preference preference, String query) {
+    private boolean matchesSwitchPreference(Preference preference, String lowerQuery) {
         if (!(preference instanceof SwitchPreference switchPreference)) return false;
-        return (switchPreference.getSummaryOn() != null && switchPreference.getSummaryOn().toString().toLowerCase().contains(query)) ||
-                (switchPreference.getSummaryOff() != null && switchPreference.getSummaryOff().toString().toLowerCase().contains(query));
+        String summaryOn = switchPreference.getSummaryOn() != null ? switchPreference.getSummaryOn().toString().toLowerCase() : "";
+        String summaryOff = switchPreference.getSummaryOff() != null ? switchPreference.getSummaryOff().toString().toLowerCase() : "";
+        return summaryOn.contains(lowerQuery) || summaryOff.contains(lowerQuery);
     }
 
     /**
@@ -920,79 +842,27 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * is found in any of the preference's entry titles or entry values.
      *
      * @param preference The ListPreference to check.
-     * @param query      The search query (already converted to lowercase).
+     * @param lowerQuery The lowercase query string to match against the entries.
      * @return True if the ListPreference matches the query, false otherwise.
      */
-    private boolean matchesListPreference(Preference preference, String query) {
+    private boolean matchesListPreference(Preference preference, String lowerQuery) {
         if (!(preference instanceof ListPreference listPreference)) return false;
-        return hasMatchingEntries(listPreference.getEntries(), query) ||
-                hasMatchingEntries(listPreference.getEntryValues(), query);
+        return hasMatchingEntries(listPreference.getEntries(), lowerQuery) ||
+                hasMatchingEntries(listPreference.getEntryValues(), lowerQuery);
     }
 
     /**
      * Checks if any entry in a CharSequence array matches the query.
      *
-     * @param entries The array of entries to check.
-     * @param query   The lowercase search query.
+     * @param entries    The array of entries to check.
+     * @param lowerQuery The lowercase query string to match against the entries.
      * @return True if any entry matches, false otherwise.
      */
-    private boolean hasMatchingEntries(CharSequence[] entries, String query) {
+    private boolean hasMatchingEntries(CharSequence[] entries, String lowerQuery) {
         if (entries == null) return false;
         for (CharSequence entry : entries)
-            if (entry.toString().toLowerCase().contains(query)) return true;
+            if (entry != null && entry.toString().toLowerCase().contains(lowerQuery)) return true;
         return false;
-    }
-
-    /**
-     * Adds a list of preferences and their dependencies to the target PreferenceGroup.
-     *
-     * @param targetGroup The PreferenceGroup (PreferenceScreen or ClickablePreferenceCategory) to add preferences to.
-     * @param preferences The list of preferences to add.
-     * @param group       The original PreferenceGroup containing the preferences (for dependency lookup).
-     */
-    private void addPreferencesToGroup(PreferenceGroup targetGroup, List<Preference> preferences, PreferenceGroup group) {
-        for (Preference preference : preferences) {
-            if (preference instanceof PreferenceCategory && targetGroup instanceof PreferenceScreen) {
-                handleCategoryPreference(targetGroup, (PreferenceCategory) preference, group);
-            } else {
-                addSinglePreference(targetGroup, preference, group);
-            }
-        }
-    }
-
-    /**
-     * Handles adding preferences from a PreferenceCategory to a target group.
-     *
-     * @param targetGroup The target PreferenceGroup.
-     * @param category    The PreferenceCategory to process.
-     * @param group       The original PreferenceGroup.
-     */
-    private void handleCategoryPreference(PreferenceGroup targetGroup, PreferenceCategory category, PreferenceGroup group) {
-        for (int i = 0; i < category.getPreferenceCount(); i++) {
-            Preference childPref = category.getPreference(i);
-            addSinglePreference(targetGroup, childPref, group);
-        }
-    }
-
-    /**
-     * Adds a single preference to a target group, handling dependencies.
-     *
-     * @param targetGroup The target PreferenceGroup.
-     * @param preference  The preference to add.
-     * @param group       The original PreferenceGroup.
-     */
-    private void addSinglePreference(PreferenceGroup targetGroup, Preference preference, PreferenceGroup group) {
-        String key = preference.getKey();
-
-        if (key != null) {
-            String dependencyKey = getDependencyKey(preference, group);
-            addPreferenceWithDependencies(targetGroup, preference, dependencyKey);
-        } else {
-            targetGroup.addPreference(preference);
-        }
-
-        Logger.printDebug(() -> "Added preference: " + (key != null ? key : "No Key") +
-                " to group: " + (group == rootPreferenceScreen ? "top-level" : group.getTitle()));
     }
 
     /**
@@ -1008,99 +878,105 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @param dependencyKey      The key of the preference on which this preference depends, or null if none.
      * @param visitedPreferences A {@link Set} tracking unique preference keys to avoid duplicate additions.
      */
-    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference,
-                                               String dependencyKey, Set<String> visitedPreferences) {
-        String key = preference.getKey();
-        String uniqueKey = (preferenceGroup.getTitle() != null ? preferenceGroup.getTitle().toString() : "") + ":" + key;
-        if (key == null || visitedPreferences.contains(uniqueKey)) {
-            return;
+    private void addPreferenceWithDependencies(
+            PreferenceGroup preferenceGroup,
+            Preference preference,
+            String dependencyKey,
+            Set<String> visitedPreferences
+    ) {
+        String preferenceKey = preference.getKey();
+
+        if (preferenceKey == null) {
+            // Handle keyless preference (e.g., <Preference title="foo"/>)
+            // These don't have dependencies in the same way keyed items do.
+            // Just add it to the search results under the appropriate preferenceGroup.
+            // Ensure it's not a duplicate instance in that specific preferenceGroup.
+            boolean alreadyAdded = false;
+            for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
+                if (preferenceGroup.getPreference(i) == preference) {
+                    alreadyAdded = true;
+                    break;
+                }
+            }
+            if (!alreadyAdded) {
+                try {
+                    preferenceGroup.addPreference(preference);
+                } catch (Exception e) {
+                    Logger.printException(() -> "Failed to add keyless matched item: " + (preference.getTitle() != null ? preference.getTitle() : "Untitled"), e);
+                }
+            }
+            return; // Done with keyless preferences for this path
         }
-        visitedPreferences.add(uniqueKey);
 
-        String groupTitle = preferenceGroup.getTitle() != null ? preferenceGroup.getTitle().toString() : "Unknown Group";
-        if (!canAddPreference(preference, dependencyKey, groupTitle, preferenceGroup, visitedPreferences)) {
-            return;
+        // Handle keyed preference
+        if (visitedPreferences.contains(preferenceKey)) {
+            // This item's dependency chain has been (or is being) processed.
+            // However, it might need to be visually added to *this specific* preferenceGroup
+            // if it wasn't already (e.g., if it's a dependency reached via another path).
+            boolean alreadyInThisGroup = false;
+            for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
+                Preference p = preferenceGroup.getPreference(i);
+                if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
+                    alreadyInThisGroup = true;
+                    break;
+                }
+            }
+            if (!alreadyInThisGroup) {
+                try {
+                    preferenceGroup.addPreference(preference);
+                } catch (Exception e) {
+                    Logger.printException(() -> "Failed to re-add keyed item to a different group: " + preferenceKey, e);
+                }
+            }
+            return; // Already processed, just ensure it's in the current group if needed.
         }
+        visitedPreferences.add(preferenceKey); // Mark as processed for this search operation
 
-        preferenceGroup.addPreference(preference);
-        addDependentPreferences(preferenceGroup, key, preferenceGroup, visitedPreferences);
-    }
-
-    /**
-     * Checks if a preference can be added based on its dependencies.
-     *
-     * @param preference         The preference to check.
-     * @param dependencyKey      The custom dependency key.
-     * @param groupTitle         The title of the preference group.
-     * @param preferenceGroup    The target PreferenceGroup.
-     * @param visitedPreferences The set of visited preference keys.
-     * @return True if the preference can be added, false otherwise.
-     */
-    private boolean canAddPreference(Preference preference, String dependencyKey, String groupTitle,
-                                     PreferenceGroup preferenceGroup, Set<String> visitedPreferences) {
+        // Resolve and add its main dependency (dependencyKey refers to android:dependency or app:searchDependency parent)
         if (dependencyKey != null) {
             Preference dependency = findPreferenceInAllGroups(dependencyKey);
-            if (dependency == null) {
-                Logger.printDebug(() -> "Skipping preference '" + preference.getKey() + "' in group '" + groupTitle +
-                        "' due to missing custom dependency: " + dependencyKey);
-                return false;
+            if (dependency != null) {
+                PreferenceGroup dependencyParent = findParentGroup(dependency);
+                addPreferenceWithDependencies(preferenceGroup, dependency,
+                        getDependencyKey(dependency, dependencyParent),
+                        visitedPreferences);
+            } else {
+                Logger.printDebug(() -> "Dependency " + dependencyKey + " for " + preferenceKey + " not found.");
             }
-            // Pass visitedPreferences to prevent cycles
-            addPreferenceWithDependencies(preferenceGroup, dependency, getDependencyKey(dependency, preferenceGroup), visitedPreferences);
         }
 
-        String standardDependency = preference.getDependency();
-        if (standardDependency != null && findPreference(standardDependency) == null) {
-            Logger.printDebug(() -> "Skipping preference '" + preference.getKey() + "' in group '" + groupTitle +
-                    "' because standard dependency '" + standardDependency + "' not found");
-            return false;
+        // Add the preference itself to the preferenceGroup
+        // Ensure it's not already visually there (e.g. if it was added as a dependency of something else)
+        boolean alreadyInThisGroup = false;
+        for (int i = 0; i < preferenceGroup.getPreferenceCount(); i++) {
+            Preference p = preferenceGroup.getPreference(i);
+            // Check by instance and by key
+            if (p == preference || (p.getKey() != null && p.getKey().equals(preferenceKey))) {
+                alreadyInThisGroup = true;
+                break;
+            }
         }
-        return true;
-    }
+        if (!alreadyInThisGroup) {
+            try {
+                preferenceGroup.addPreference(preference);
+            } catch (Exception e) {
+                Logger.printException(() -> "Failed to add keyed item: " + preferenceKey, e);
+                visitedPreferences.remove(preferenceKey);
+                return;
+            }
+        }
 
-    /**
-     * Adds preferences that depend on a given key to the target group.
-     *
-     * @param preferenceGroup    The target PreferenceGroup.
-     * @param key                The key of the preference with dependents.
-     * @param group              The original PreferenceGroup.
-     * @param visitedPreferences The set of visited preference keys.
-     */
-    private void addDependentPreferences(PreferenceGroup preferenceGroup, String key, PreferenceGroup group,
-                                         Set<String> visitedPreferences) {
-        List<Preference> dependents = dependencyMap.get(key);
+        // Resolve and add items that have 'preference' as their app:searchDependency parent.
+        // dependencyMap stores: parentKey -> List<prefs that have app:searchDependency="parentKey">
+        List<Preference> dependents = dependencyMap.get(preferenceKey);
         if (dependents != null) {
-            for (Preference dependentPreference : dependents) {
-                addPreferenceWithDependencies(preferenceGroup, dependentPreference, getDependencyKey(dependentPreference, group), visitedPreferences);
+            for (Preference dependentPref : dependents) {
+                PreferenceGroup dependentParent = findParentGroup(dependentPref);
+                addPreferenceWithDependencies(preferenceGroup, dependentPref,
+                        getDependencyKey(dependentPref, dependentParent),
+                        visitedPreferences);
             }
         }
-    }
-
-    /**
-     * Recursively adds a preference and its dependencies to the given PreferenceGroup.
-     * This method ensures that:<p>
-     * 1. Dependencies are added before the preferences that depend on them to prevent display issues and crashes.<br>
-     * 2. A preference is added only once, even if it's a dependency of multiple other preferences.
-     *
-     * @param preferenceGroup The PreferenceGroup to which the preference should be added.
-     * @param preference      The preference to add.
-     * @param dependencyKey   The dependency key of the preference.
-     */
-    private void addPreferenceWithDependencies(PreferenceGroup preferenceGroup, Preference preference, String dependencyKey) {
-        addPreferenceWithDependencies(preferenceGroup, preference, dependencyKey, new HashSet<>());
-    }
-
-    /**
-     * Retrieves the custom dependency key for a given preference, if one is defined in the {@link #customDependencyMap}.
-     *
-     * @param preference The preference for which to find the custom dependency.
-     * @param group      The PreferenceGroup containing the preference.
-     * @return The custom dependency key (which is the key of another preference) if found, otherwise null.
-     */
-    private String getCustomDependency(Preference preference, PreferenceGroup group) {
-        String categoryTitle = (group == null || group.getTitle() == null) ? "" : group.getTitle().toString();
-        String categoryKey = categoryTitle + ":" + preference.getKey();
-        return customDependencyMap.get(categoryKey);
     }
 
     /**
@@ -1109,12 +985,58 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * (android:dependency) attribute.
      *
      * @param preference The preference for which to find the dependency key.
-     * @param group      The PreferenceGroup containing the preference.
+     * @param group      The PreferenceGroup containing the preference. Can be null, in which case
+     *                   customDependency lookup might be less specific or skipped if it relies on group title.
      * @return The dependency key (which is the key of another preference), or null if no dependency is found.
      */
-    private String getDependencyKey(Preference preference, PreferenceGroup group) {
+    @Nullable
+    private String getDependencyKey(Preference preference, @Nullable PreferenceGroup group) {
+        // Try custom dependency first
         String customDependency = getCustomDependency(preference, group);
-        return customDependency != null ? customDependency : preference.getDependency();
+        if (customDependency != null) {
+            return customDependency;
+        }
+        // Fallback to standard android:dependency
+        return preference.getDependency();
+    }
+
+    /**
+     * Retrieves the custom dependency key for a given preference, if one is defined in the {@link #customDependencyMap}.
+     *
+     * @param preference The preference for which to find the custom dependency.
+     * @param group      The PreferenceGroup containing the preference. Can be null.
+     * @return The custom dependency key (which is the key of another preference) if found, otherwise null.
+     */
+    @Nullable
+    private String getCustomDependency(Preference preference, @Nullable PreferenceGroup group) {
+        if (preference.getKey() == null) return null;
+
+        String categoryTitle = (group == null || group.getTitle() == null) ? "" : group.getTitle().toString();
+        String categoryKey;
+
+        if (group == rootPreferenceScreen || group == null) {
+            if (categoryTitle.isEmpty()) {
+                String directKeyLookup = customDependencyMap.get(preference.getKey());
+                if (directKeyLookup != null) return directKeyLookup;
+            }
+        }
+
+        // Original formation
+        categoryKey = categoryTitle + ":" + preference.getKey();
+        String dep = customDependencyMap.get(categoryKey);
+        if (dep != null) return dep;
+
+        // Fallback if the category was derived from a full path and customDependencyMap uses simpler keys
+        if (group != null && group.getTitle() != null) {
+            String immediateParentTitle = group.getTitle().toString();
+            if (!immediateParentTitle.equals(categoryTitle) && !immediateParentTitle.isEmpty()) {
+                categoryKey = immediateParentTitle + ":" + preference.getKey();
+                dep = customDependencyMap.get(categoryKey);
+                return dep;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -1124,14 +1046,19 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      * @return The found Preference object, or null if no preference with the given key is found.
      */
     private Preference findPreferenceInAllGroups(String key) {
-        for (Set<Preference> preferences : groupedPreferences.values()) {
-            for (Preference preference : preferences) {
-                if (preference.getKey() != null && preference.getKey().equals(key)) {
-                    return preference;
-                }
-            }
-        }
-        return null;
+        return allPreferencesByKey.get(key);
+    }
+
+    /**
+     * Finds the original XML parent PreferenceGroup of a given Preference.
+     *
+     * @param pref The preference whose XML parent is sought.
+     * @return The parent PreferenceGroup, or null if not found as a child in groupedPreferences
+     * (e.g., if pref is a top-level PreferenceScreen itself and is a key in groupedPreferences).
+     */
+    @Nullable
+    private PreferenceGroup findParentGroup(Preference pref) {
+        return preferenceToParentGroupMap.get(pref);
     }
 
     /**
@@ -1155,6 +1082,356 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     }
 
     // endregion [Search] Filter Preferences
+
+    // region [Search] Highlight Filtered Preferences
+
+    /**
+     * Applies text highlighting to a preference's fields (title, summary, etc.) based on a search query.
+     * Highlighting is applied only if the {@link Settings#SETTINGS_SEARCH_HIGHLIGHT} setting is enabled.
+     * The method processes the preference's title, summary, and, for specific preference types like
+     * {@link SwitchPreference} or {@link ListPreference}, additional fields like summaryOn/summaryOff or entries.
+     * <p>
+     * FIXME: Highlighting does not work for SponsorBlock segment summaries, and maybe in some other areas (unknown).
+     *        Mostly works as expected.
+     *
+     * @param preference The preference to apply highlighting to.
+     * @param lowerQuery The lowercase search query string for matching and highlighting.
+     */
+    private void applyHighlighting(Preference preference, String lowerQuery) {
+        PreferenceInfo info = findOrCreatePreferenceInfo(preference);
+        if (!Settings.SETTINGS_SEARCH_HIGHLIGHT.get() || TextUtils.isEmpty(lowerQuery)) return;
+
+        boolean wasChanged = false;
+        int highlightColor = ThemeUtils.getHighlightColor(); // Compute once per preference
+
+        // Define fields to highlight
+        List<FieldHighlightInfo> fields = Arrays.asList(
+                new FieldHighlightInfo(info.originalTitle, preference::setTitle),
+                new FieldHighlightInfo(info.originalSummary, preference::setSummary),
+                new FieldHighlightInfo(
+                        preference instanceof SwitchPreference ? ((SwitchPreference) preference).getSummaryOn() : null,
+                        text -> { if (preference instanceof SwitchPreference) ((SwitchPreference) preference).setSummaryOn(text); }
+                ),
+                new FieldHighlightInfo(
+                        preference instanceof SwitchPreference ? ((SwitchPreference) preference).getSummaryOff() : null,
+                        text -> { if (preference instanceof SwitchPreference) ((SwitchPreference) preference).setSummaryOff(text); }
+                )
+        );
+
+        // Highlight text fields
+        for (FieldHighlightInfo field : fields) {
+            if (field.text != null && field.text.toString().toLowerCase().contains(lowerQuery)) {
+                field.setter.accept(highlightText(field.text, lowerQuery, highlightColor));
+                wasChanged = true;
+            } else if (field.text != null) {
+                field.setter.accept(field.text); // Restore original
+            }
+        }
+
+        // Handle ListPreference entries
+        if (preference instanceof ListPreference lp && info.originalEntries != null) {
+            wasChanged |= highlightListEntries(lp, info.originalEntries, lowerQuery, highlightColor);
+        }
+
+        info.highlightingApplied = wasChanged;
+    }
+
+    /**
+     * Highlights the entries of a {@link ListPreference} if they contain the search query.
+     * The original entries are preserved in the {@link PreferenceInfo}, and highlighted versions
+     * are applied to the preference if a match is found.
+     *
+     * @param lp              The {@link ListPreference} whose entries are to be highlighted.
+     * @param originalEntries The original entries of the preference, stored in {@link PreferenceInfo}.
+     * @param lowerQuery      The lowercase search query string for highlighting matched text.
+     * @param highlightColor  The precomputed highlight color to apply.
+     * @return {@code true} if any entry was highlighted, {@code false} otherwise.
+     */
+    private boolean highlightListEntries(ListPreference lp, CharSequence[] originalEntries, String lowerQuery, int highlightColor) {
+        CharSequence[] processedEntries = new CharSequence[originalEntries.length];
+        boolean changed = false;
+
+        for (int i = 0; i < originalEntries.length; i++) {
+            CharSequence entry = originalEntries[i];
+            if (entry != null && entry.toString().toLowerCase().contains(lowerQuery)) {
+                processedEntries[i] = highlightText(entry, lowerQuery, highlightColor);
+                changed = true;
+            } else {
+                processedEntries[i] = entry;
+            }
+        }
+
+        if (changed) lp.setEntries(processedEntries);
+        return changed;
+    }
+
+    /**
+     * Highlights occurrences of a search query in the provided text by applying a background color.
+     * Highlighting is only applied if {@link Settings#SETTINGS_SEARCH_HIGHLIGHT} is enabled.
+     *
+     * @param text           The text to highlight.
+     * @param lowerQuery     The lowercase search query string for matching.
+     * @param highlightColor The precomputed highlight color to apply.
+     * @return A {@link SpannableStringBuilder} with highlighted text, or the original text if
+     * highlighting is disabled or the text is empty.
+     */
+    private CharSequence highlightText(CharSequence text, String lowerQuery, int highlightColor) {
+        if (TextUtils.isEmpty(text) || !Settings.SETTINGS_SEARCH_HIGHLIGHT.get() || TextUtils.isEmpty(lowerQuery)) {
+            return text;
+        }
+
+        SpannableStringBuilder spannable = new SpannableStringBuilder(text);
+        String textString = text.toString().toLowerCase();
+
+        int lastIndex = 0;
+        while (lastIndex < textString.length()) {
+            int foundAtIndex = textString.indexOf(lowerQuery, lastIndex);
+            if (foundAtIndex != -1) {
+                int endIndex = foundAtIndex + lowerQuery.length();
+                spannable.setSpan(
+                        new BackgroundColorSpan(highlightColor),
+                        foundAtIndex,
+                        endIndex,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+                lastIndex = endIndex;
+            } else {
+                break;
+            }
+        }
+
+        return spannable;
+    }
+
+    /**
+     * Clears highlighting from a preference by restoring its original text fields.
+     * The original values are retrieved from the {@link PreferenceInfo} and applied to the
+     * preference's title, summary, and, for specific types like {@link SwitchPreference} or
+     * {@link ListPreference}, additional fields like summaryOn/summaryOff or entries.
+     *
+     * @param info The {@link PreferenceInfo} containing the preference and its original values.
+     */
+    private void clearHighlighting(PreferenceInfo info) {
+        Preference preference = info.preference;
+
+        // Restore preference's text fields to their original states stored in PreferenceInfo.
+        preference.setTitle(info.originalTitle);
+        preference.setSummary(info.originalSummary);
+
+        if (preference instanceof SwitchPreference sp) {
+            sp.setSummaryOn(info.originalSummaryOn);
+            sp.setSummaryOff(info.originalSummaryOff);
+        }
+        if (preference instanceof ListPreference lp && info.originalEntries != null) {
+            lp.setEntries(info.originalEntries);
+        }
+        info.highlightingApplied = false;
+    }
+
+    /**
+     * Retrieves or creates a {@link PreferenceInfo} object for a given preference.
+     * If a matching {@link PreferenceInfo} exists in the {@code preferenceList}, it is returned.
+     * Otherwise, a new {@link PreferenceInfo} is created, added to the list, and returned.
+     *
+     * @param preference The preference for which to find or create a {@link PreferenceInfo}.
+     * @return The existing or newly created {@link PreferenceInfo} for the preference.
+     */
+    private PreferenceInfo findOrCreatePreferenceInfo(Preference preference) {
+        return preferenceInfoMap.computeIfAbsent(preference, p -> {
+            PreferenceInfo info = new PreferenceInfo(p, getGroupTitle(p));
+            Logger.printDebug(() -> "Created new PreferenceInfo for: " + p.getKey());
+            return info;
+        });
+    }
+
+    /**
+     * Retrieves the title of the preference group containing the specified preference.
+     * Iterates through the {@code groupedPreferences} map to find the group that includes
+     * the preference and returns its title.
+     *
+     * @param preference The preference whose group title is to be retrieved.
+     * @return The title of the group containing the preference, or an empty string if not found.
+     */
+    private String getGroupTitle(Preference preference) {
+        return groupedPreferences.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(preference))
+                .map(entry -> entry.getKey().getTitle() != null ? entry.getKey().getTitle().toString() : "")
+                .findFirst()
+                .orElse("");
+    }
+
+    // endregion [Search] Highlight Filtered Preferences
+
+    // region [Search] Search History
+
+    /**
+     * Adds a search query to the search history, removing duplicates and enforcing a maximum size.
+     * Inserts the query at the beginning of the history and removes any existing instance to prevent
+     * duplication. Trims older entries if the history exceeds {@link #MAX_SEARCH_HISTORY_SIZE}.
+     * Takes no action if the {@link Settings#SETTINGS_SEARCH_HISTORY} setting is disabled or the query
+     * is empty or contains only whitespace.
+     *
+     * @param query The search query to add to the history.
+     */
+    public void addToSearchHistory(String query) {
+        Logger.printDebug(() -> "addToSearchHistory called with: " + query);
+        if (!Settings.SETTINGS_SEARCH_HISTORY.get() || query.trim().isEmpty()) {
+            return;
+        }
+        List<String> history = loadSearchHistory();
+        history.remove(query); // Remove duplicates, move to front
+        history.add(0, query); // Add to the beginning
+        if (history.size() > MAX_SEARCH_HISTORY_SIZE) {
+            history = history.subList(0, MAX_SEARCH_HISTORY_SIZE); // Trim to max size
+        }
+        saveSearchHistory(history);
+    }
+
+    /**
+     * Loads the search history from the settings as a list of search queries.
+     * Returns an empty list if the {@link Settings#SETTINGS_SEARCH_HISTORY} setting is disabled
+     * or if the stored history is empty.
+     *
+     * @return A {@link List} of search query strings, or an empty list if no history is available.
+     */
+    private List<String> loadSearchHistory() {
+        if (!Settings.SETTINGS_SEARCH_HISTORY.get()) {
+            return new ArrayList<>();
+        }
+
+        if (searchHistoryCache != null) {
+            return new ArrayList<>(searchHistoryCache);
+        }
+
+        String historyString = Settings.SETTINGS_SEARCH_HISTORY_ENTRIES.get();
+        if (historyString.isEmpty()) {
+            searchHistoryCache = new ArrayList<>();
+        } else {
+            searchHistoryCache = new ArrayList<>(Arrays.asList(historyString.split(Pattern.quote(SEARCH_HISTORY_DELIMITER))));
+        }
+        return new ArrayList<>(searchHistoryCache);
+    }
+
+    /**
+     * Saves the provided search history to the settings.
+     * The history is converted to a single string using {@link #SEARCH_HISTORY_DELIMITER} as a separator
+     * and stored in {@link Settings#SETTINGS_SEARCH_HISTORY_ENTRIES}. No action is taken if
+     * the {@link Settings#SETTINGS_SEARCH_HISTORY} setting is disabled.
+     *
+     * @param history The list of search query strings to save.
+     */
+    private void saveSearchHistory(List<String> history) {
+        if (!Settings.SETTINGS_SEARCH_HISTORY.get()) {
+            searchHistoryCache = null; // Clear cache if history is disabled
+            return;
+        }
+        String historyString = String.join(SEARCH_HISTORY_DELIMITER, history);
+        Settings.SETTINGS_SEARCH_HISTORY_ENTRIES.save(historyString);
+        searchHistoryCache = new ArrayList<>(history); // Update cache
+        historyViewPreferenceCache.clear(); // Clear view cache on save to force re-creation on next display
+    }
+
+    /**
+     * Displays the search history on the provided {@link PreferenceScreen}.
+     * The screen is cleared and populated with a {@link PreferenceCategory} containing
+     * {@link HistoryPreference} entries for each search query in the history.
+     * If the history is empty, a {@link NoResultsPreference} is displayed.
+     * A "Clear History" preference is added to allow clearing the search history.
+     *
+     * @param screen The {@link PreferenceScreen} to display the search history on.
+     */
+    private void displaySearchHistory(PreferenceScreen screen) {
+        long startTime = System.nanoTime();
+        Activity activity = getActivity();
+        if (activity instanceof VideoQualitySettingsActivity) {
+            ((VideoQualitySettingsActivity) activity).updateToolbarTitle(str("revanced_search_title"));
+        }
+
+        List<String> history = loadSearchHistory();
+        screen.removeAll(); // Clear screen to avoid duplicates
+
+        if (history.isEmpty()) {
+            Preference noHistoryPref = new NoResultsPreference(getContext(), "", true);
+            screen.addPreference(noHistoryPref);
+        } else {
+            PreferenceCategory historyCategory = new PreferenceCategory(getContext());
+            historyCategory.setTitle(str("revanced_search_history_title"));
+            screen.addPreference(historyCategory);
+
+            for (String searchQuery : history) {
+                HistoryPreference historyPref = getHistoryPreference(searchQuery);
+                historyCategory.addPreference(historyPref);
+            }
+
+            Preference clearPref = new Preference(getContext());
+            clearPref.setKey("clear_history");
+            clearPref.setTitle(str("revanced_search_clear_history_title"));
+            clearPref.setOnPreferenceClickListener(pref -> {
+                new AlertDialog.Builder(getContext())
+                        .setTitle(str("revanced_search_clear_confirm_title"))
+                        .setMessage(str("revanced_search_clear_confirm_message"))
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                            saveSearchHistory(new ArrayList<>());
+                            filterPreferences(""); // Refresh history
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+                return true;
+            });
+            screen.addPreference(clearPref);
+        }
+
+        long endTime = System.nanoTime();
+        Logger.printDebug(() -> "displaySearchHistory took " + ((endTime - startTime) / 1_000_000.0) + " ms");
+    }
+
+    /**
+     * Creates a {@link HistoryPreference} for a given search query.
+     * The preference allows the user to re-run the search query by clicking it or delete it
+     * via a confirmation dialog.
+     *
+     * @param searchQuery The search query for which to create the preference.
+     * @return A configured {@link HistoryPreference} for the search query.
+     */
+    @NotNull
+    private HistoryPreference getHistoryPreference(String searchQuery) {
+        if (historyViewPreferenceCache.containsKey(searchQuery)) {
+            return Objects.requireNonNull(historyViewPreferenceCache.get(searchQuery));
+        }
+
+        HistoryPreference historyPref = new HistoryPreference(getContext(), searchQuery, this::showDeleteHistoryDialog);
+        historyPref.setOnPreferenceClickListener(pref -> {
+            SearchView searchView = VideoQualitySettingsActivity.searchViewRef.get();
+            if (searchView != null) {
+                searchView.setQuery(searchQuery, true); // Trigger search
+            }
+            return true;
+        });
+        historyViewPreferenceCache.put(searchQuery, historyPref);
+        return historyPref;
+    }
+
+    /**
+     * Displays a confirmation dialog to delete a specific search query from the search history.
+     *
+     * @param query The search query to be deleted from the history.
+     */
+    private void showDeleteHistoryDialog(String query) {
+        if (getContext() == null) return;
+        new AlertDialog.Builder(getContext())
+                .setTitle(str("revanced_search_delete_confirm_title"))
+                .setMessage(str("revanced_search_delete_confirm_message", query))
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    List<String> updatedHistory = loadSearchHistory();
+                    updatedHistory.remove(query);
+                    saveSearchHistory(updatedHistory);
+                    filterPreferences(""); // Refresh history
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    // endregion [Search] Search History
 
     // endregion Search
 
@@ -1295,11 +1572,17 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
             // Import/export
             setBackupRestorePreference();
 
-            // Store all preferences and their dependencies
+            // Store all preferences and their dependencies for search
             initializeCustomDependencies();
             storeAllPreferences(getPreferenceScreen());
-            // buildDependencyCacheAsync();
-            buildDependencyCache();
+
+            // Log sizes of all relevant collections for search
+            Logger.printDebug(() -> "allPreferencesByKey size: " + allPreferencesByKey.size());
+            Logger.printDebug(() -> "customDependencyMap size: " + customDependencyMap.size());
+            Logger.printDebug(() -> "dependencyMap size: " + dependencyMap.size());
+            Logger.printDebug(() -> "groupFullPaths size: " + groupFullPaths.size());
+            Logger.printDebug(() -> "groupedPreferences size: " + groupedPreferences.size());
+            Logger.printDebug(() -> "preferenceToParentGroupMap size: " + preferenceToParentGroupMap.size());
 
             // Load and set initial preferences states
             for (Setting<?> setting : Setting.allLoadedSettings()) {
@@ -1373,26 +1656,279 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     @Override
     public void onDestroy() {
         mSharedPreferences.unregisterOnSharedPreferenceChangeListener(listener);
-        dependencyCache.clear();
-        preferenceList.clear();
+        mPreferenceManager = null;
+
+        // Clear all cached collections
+        preferenceInfoMap.clear();
+        allPreferencesByKey.clear();
+        groupFullPaths.clear();
+        preferenceToParentGroupMap.clear();
+        groupedPreferences.values().forEach(Set::clear);
+        groupedPreferences.clear();
+        dependencyMap.values().forEach(List::clear);
+        dependencyMap.clear();
+        customDependencyMap.clear();
+        preferenceScreenStack.clear();
+        searchHistoryCache = null;
+        historyViewPreferenceCache.clear();
+
         Utils.resetLocalizedContext();
         super.onDestroy();
     }
 
     /**
-     * Stores metadata for a preference to avoid repeated string operations.
+     * Encapsulates information about a field to be highlighted, including the text content,
+     * the search query, and a setter to apply the highlighted or original text.
+     *
+     * @param text   The text content of the field (e.g., title, summary).
+     * @param setter A consumer that applies the highlighted or original text to the field.
+     */
+    private record FieldHighlightInfo(CharSequence text, Consumer<CharSequence> setter) {}
+
+    /**
+     * A helper class to store metadata about a {@link Preference}, including its original text fields
+     * and highlighting state. This class is used to manage the state of a preference during search
+     * highlighting, preserving original values for restoration and tracking whether highlighting
+     * has been applied.
      */
     private static class PreferenceInfo {
+        /**
+         * The preference associated with this info.
+         */
         final Preference preference;
+        /**
+         * The key of the preference, used for identification.
+         */
         final String key;
+        /**
+         * The title of the preference's group, or an empty string if none.
+         */
         final String groupTitle;
+        /**
+         * A unique cache key combining group title and preference key.
+         */
         final String cacheKey;
+        /**
+         * The original title of the preference, possibly null.
+         */
+        @Nullable
+        CharSequence originalTitle;
+        /**
+         * The original summary of the preference, possibly null.
+         */
+        @Nullable
+        CharSequence originalSummary;
+        /**
+         * The original summaryOn text for a {@link SwitchPreference}, possibly null.
+         */
+        @Nullable
+        CharSequence originalSummaryOn;
+        /**
+         * The original summaryOff text for a {@link SwitchPreference}, possibly null.
+         */
+        @Nullable
+        CharSequence originalSummaryOff;
+        /**
+         * The original entries for a {@link ListPreference}, possibly null.
+         */
+        @Nullable
+        CharSequence[] originalEntries;
+        /**
+         * Tracks whether highlighting has been applied to this preference.
+         */
+        boolean highlightingApplied;
 
+        /**
+         * Constructs a {@link PreferenceInfo} for the given preference, capturing its original state.
+         * The original title, summary, and, for specific preference types like {@link SwitchPreference}
+         * or {@link ListPreference}, additional fields like summaryOn/summaryOff or entries are stored.
+         * A copy of the entries array is made to prevent unintended modifications.
+         *
+         * @param preference The preference to store information for.
+         * @param groupTitle The title of the preference's group, or null if none.
+         */
         PreferenceInfo(Preference preference, String groupTitle) {
             this.preference = preference;
             this.key = preference.getKey();
             this.groupTitle = groupTitle != null ? groupTitle : "";
             this.cacheKey = this.groupTitle + ":" + this.key;
+
+            // Store original state AS-IS, without stripping spans.
+            this.originalTitle = preference.getTitle();
+            this.originalSummary = preference.getSummary();
+
+            if (preference instanceof SwitchPreference switchPref) {
+                this.originalSummaryOn = switchPref.getSummaryOn();
+                this.originalSummaryOff = switchPref.getSummaryOff();
+            }
+            if (preference instanceof ListPreference listPref) {
+                // It's good practice to copy arrays if they might be modified elsewhere,
+                // or if the highlighting modifies entries in-place (which highlightText shouldn't).
+                // CharSequence elements themselves are often immutable (like String) or new
+                // SpannableStringBuilders are created by highlightText.
+                this.originalEntries = listPref.getEntries() != null ? Arrays.copyOf(listPref.getEntries(), listPref.getEntries().length) : null;
+            }
+            this.highlightingApplied = false; // Initialize
+        }
+    }
+
+    /**
+     * A custom {@link Preference} representing a single search history entry.
+     * Displays the search query as the title, an icon, and a close button to delete the entry.
+     * Clicking the preference re-runs the search query, while clicking the close button triggers
+     * a confirmation dialog to remove the entry from history.
+     */
+    private static class HistoryPreference extends Preference {
+        /**
+         * The search query associated with this history entry.
+         */
+        private final String query;
+        /**
+         * The action to run when the close button is clicked, typically showing a deletion dialog.
+         */
+        private final Consumer<String> onDeleteRequest;
+
+        /**
+         * Constructs a {@link HistoryPreference} for a search query.
+         * The preference is initialized with the query as its title and a key based on the query.
+         * No default widget is used, and the close button's action is set via the provided runnable.
+         *
+         * @param context         The context used to initialize the preference.
+         * @param query           The search query for this history entry.
+         * @param onDeleteRequest The action to perform when the close button is clicked.
+         */
+        HistoryPreference(Context context, String query, Consumer<String> onDeleteRequest) {
+            super(context);
+            this.query = query;
+            this.onDeleteRequest = onDeleteRequest;
+            setKey("history_" + query);
+            setTitle(query);
+            setWidgetLayoutResource(0); // No default widget
+        }
+
+        /**
+         * Binds the preference's view, customizing its appearance to include an icon, the search query
+         * as the title, and a close button. The default widget frame is cleared, and a custom
+         * {@link LinearLayout} is used to arrange the components. The layout is left-to-right, and
+         * the title, icon, and close button are styled for consistency with the application theme.
+         *
+         * @param view The view to bind to the preference.
+         */
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+            ViewGroup container = (ViewGroup) view;
+            LinearLayout layout = new LinearLayout(getContext());
+            layout.setOrientation(LinearLayout.HORIZONTAL);
+            // layout.setPadding(dpToPx(4), dpToPx(4), dpToPx(4), dpToPx(4));
+            layout.setGravity(Gravity.CENTER_VERTICAL);
+
+            // Clear existing widget frame to avoid overlap
+            LinearLayout widgetFrame = container.findViewById(android.R.id.widget_frame);
+            if (widgetFrame != null) {
+                widgetFrame.removeAllViews();
+                widgetFrame.setVisibility(View.GONE);
+            }
+
+            // Icon (yt_outline_arrow_time_vd_theme_24)
+            ImageView iconView = new ImageView(getContext());
+            Drawable iconDrawable = ResourceUtils.getDrawable("yt_outline_arrow_time_vd_theme_24");
+            if (iconDrawable != null) {
+                iconDrawable.setTint(ThemeUtils.getForegroundColor());
+                iconView.setImageDrawable(iconDrawable);
+                int iconSize = dpToPx(24);
+                LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(iconSize, iconSize);
+                iconParams.setMargins(0, 0, dpToPx(8), 0); // Margin between icon and title
+                iconView.setLayoutParams(iconParams);
+                layout.addView(iconView);
+            } else {
+                // Fallback to a generic drawable with tint
+                iconView.setImageResource(android.R.drawable.ic_menu_recent_history);
+                iconView.setColorFilter(ThemeUtils.getForegroundColor());
+                Logger.printException(() -> "Failed to load drawable: yt_outline_arrow_time_vd_theme_24, using fallback");
+            }
+
+            // Title
+            TextView titleView = new TextView(getContext());
+            titleView.setText(query);
+            titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            titleView.setTextColor(ThemeUtils.getForegroundColor());
+            LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+            layout.addView(titleView, titleParams);
+
+            // Close button
+            ImageView closeButton = new ImageView(getContext());
+            closeButton.setImageDrawable(ThemeUtils.getTrashButtonDrawable());
+            closeButton.setContentDescription(str("revanced_search_delete_entry"));
+            int size = dpToPx(24);
+            LinearLayout.LayoutParams closeParams = new LinearLayout.LayoutParams(size, size);
+            closeButton.setLayoutParams(closeParams);
+            closeButton.setOnClickListener(v -> {
+                if (onDeleteRequest != null) {
+                    onDeleteRequest.accept(query);
+                }
+            });
+            layout.addView(closeButton);
+
+            // Add layout to container
+            container.removeAllViews();
+            container.addView(layout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        }
+    }
+
+    /**
+     * A custom {@link Preference} displayed when no search results or history entries are found.
+     * Shows a title and summary indicating no results, with centered text and no selectable behavior.
+     */
+    private static class NoResultsPreference extends Preference {
+
+        /**
+         * Constructs a {@link NoResultsPreference}.
+         *
+         * @param context                  The context used to initialize the preference.
+         * @param query                    The search query that yielded no results. Used if not in "empty history" mode.
+         * @param isForEmptyHistoryContext True if this preference should display "no history" messages,
+         *                                 false if it should display "no results for query" messages.
+         */
+        NoResultsPreference(Context context, String query, boolean isForEmptyHistoryContext) {
+            super(context);
+            if (isForEmptyHistoryContext) {
+                setKey("no_history");
+                setTitle(str("revanced_search_no_history_title"));
+                setSummary(str("revanced_search_no_history_summary"));
+            } else {
+                setKey("no_results_" + query);
+                setTitle(str("revanced_search_settings_no_results_title", query));
+                setSummary(str("revanced_search_settings_no_results_summary"));
+            }
+            setSelectable(false);
+        }
+
+        /**
+         * Binds the preference's view, centering the title and summary text horizontally.
+         * The title and summary views are adjusted to span the full width of the preference.
+         *
+         * @param view The view to bind to the preference.
+         */
+        @Override
+        protected void onBindView(View view) {
+            super.onBindView(view);
+
+            TextView titleView = view.findViewById(android.R.id.title);
+            if (titleView != null) {
+                titleView.setGravity(Gravity.CENTER);
+                ViewGroup.LayoutParams params = titleView.getLayoutParams();
+                params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                titleView.setLayoutParams(params);
+            }
+
+            TextView summaryView = view.findViewById(android.R.id.summary);
+            if (summaryView != null) {
+                summaryView.setGravity(Gravity.CENTER);
+                ViewGroup.LayoutParams params = summaryView.getLayoutParams();
+                params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                summaryView.setLayoutParams(params);
+            }
         }
     }
 }

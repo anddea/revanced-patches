@@ -6,6 +6,9 @@ on:
     branches:
       - dev
 
+permissions:
+  contents: read
+
 jobs:
   release:
     name: Build

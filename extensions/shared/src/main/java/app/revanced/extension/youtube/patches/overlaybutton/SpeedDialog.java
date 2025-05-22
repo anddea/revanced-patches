@@ -1,17 +1,15 @@
 package app.revanced.extension.youtube.patches.overlaybutton;
 
-import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.shared.utils.Utils.showToastShort;
-
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
+
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.shared.utils.Utils.showToastShort;
 
 @SuppressWarnings("unused")
 public class SpeedDialog extends BottomControlButton {
@@ -65,6 +63,4 @@ public class SpeedDialog extends BottomControlButton {
     public static void changeVisibilityNegatedImmediate() {
         if (instance != null) instance.setVisibilityNegatedImmediate();
     }
-
-
 }

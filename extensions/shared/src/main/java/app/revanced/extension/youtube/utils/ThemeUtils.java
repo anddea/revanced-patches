@@ -1,42 +1,52 @@
 package app.revanced.extension.youtube.utils;
 
-import static app.revanced.extension.shared.utils.ResourceUtils.getColor;
-import static app.revanced.extension.shared.utils.ResourceUtils.getDrawable;
-import static app.revanced.extension.shared.utils.ResourceUtils.getStyleIdentifier;
-import static app.revanced.extension.shared.utils.Utils.getResources;
-
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-
+import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.youtube.settings.Settings;
+
+import java.util.regex.Pattern;
+
+import static app.revanced.extension.shared.utils.Utils.getResources;
 
 @SuppressWarnings({"unused", "SameParameterValue"})
 public class ThemeUtils extends BaseThemeUtils {
+    // Static pattern for validating hex colors (#FFFFFF or #000000)
+    private static final Pattern INVALID_HEX_PATTERN = Pattern.compile("^#?(FFFFFF|000000)$", Pattern.CASE_INSENSITIVE);
+
+    // Cached background colors for light and dark themes
+    @Nullable
+    private static Integer lightThemeColor;
+    @Nullable
+    private static Integer darkThemeColor;
+    // Cached highlight color
+    @Nullable
+    private static Integer cachedHighlightColor;
+    private static boolean lastThemeWasDark; // Tracks the last theme to detect changes
 
     public static int getThemeId() {
         final String themeName = isDarkTheme()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-
-        return getStyleIdentifier(themeName);
+        return ResourceUtils.getStyleIdentifier(themeName);
     }
 
     public static Drawable getBackButtonDrawable() {
         final String drawableName = isDarkTheme()
                 ? "yt_outline_arrow_left_white_24"
                 : "yt_outline_arrow_left_black_24";
-
-        return getDrawable(drawableName);
+        return ResourceUtils.getDrawable(drawableName);
     }
 
     public static Drawable getTrashButtonDrawable() {
         final String drawableName = isDarkTheme()
                 ? "yt_outline_trash_can_white_24"
                 : "yt_outline_trash_can_black_24";
-
-        return getDrawable(drawableName);
+        return ResourceUtils.getDrawable(drawableName);
     }
 
     /**
@@ -47,80 +57,129 @@ public class ThemeUtils extends BaseThemeUtils {
      */
     public static int getToolbarBackgroundColor() {
         final String colorName = isDarkTheme()
-                ? "yt_black3"   // Color names used in the light theme
-                : "yt_white1";  // Color names used in the dark theme
+                ? "yt_black3"
+                : "yt_white1";
+        return ResourceUtils.getColor(colorName);
+    }
 
-        return getColor(colorName);
+    /**
+     * Gets the background color for the current theme, using cached values if available.
+     * Caches the color for both light and dark themes to avoid repeated resource lookups.
+     *
+     * @return The background color for the current theme.
+     */
+    public static int getBackgroundColor() {
+        boolean isDark = isDarkTheme();
+        // Check if theme has changed to invalidate cache if needed
+        if (lastThemeWasDark != isDark) {
+            lightThemeColor = null;
+            darkThemeColor = null;
+            cachedHighlightColor = null;
+            lastThemeWasDark = isDark;
+        }
+
+        if (isDark) {
+            if (darkThemeColor == null) {
+                darkThemeColor = ResourceUtils.getColor("yt_black3");
+                Logger.printDebug(() -> "Cached dark theme color: " + darkThemeColor);
+            }
+            return darkThemeColor;
+        } else {
+            if (lightThemeColor == null) {
+                lightThemeColor = ResourceUtils.getColor("yt_white1");
+                Logger.printDebug(() -> "Cached light theme color: " + lightThemeColor);
+            }
+            return lightThemeColor;
+        }
+    }
+
+    /**
+     * Clears the cached theme colors, forcing a refresh on the next call to getBackgroundColor()
+     * and getHighlightColor(). Call this when the theme changes or settings are updated.
+     */
+    public static void clearThemeCache() {
+        lightThemeColor = null;
+        darkThemeColor = null;
+        cachedHighlightColor = null;
+        Logger.printDebug(() -> "Cleared theme color cache");
     }
 
     public static int getPressedElementColor() {
-        String colorHex = isDarkTheme()
-                ? lightenColor(getBackgroundColorHexString(), 15)
-                : darkenColor(getBackgroundColorHexString(), 15);
-        return Color.parseColor(colorHex);
+        int baseColor = getBackgroundColor();
+        float factor = isDarkTheme() ? 1.15f : 0.85f;
+        return adjustColorBrightness(baseColor, factor);
     }
 
     public static GradientDrawable getSearchViewShape() {
         GradientDrawable shape = new GradientDrawable();
-
-        String currentHex = getBackgroundColorHexString();
-        String defaultHex = isDarkTheme() ? "#1A1A1A" : "#E5E5E5";
-
-        String finalHex;
-        if (currentThemeColorIsBlackOrWhite()) {
-            shape.setColor(Color.parseColor(defaultHex)); // stock black/white color
-            finalHex = defaultHex;
-        } else {
-            // custom color theme
-            String adjustedColor = isDarkTheme()
-                    ? lightenColor(currentHex, 15)
-                    : darkenColor(currentHex, 15);
-            shape.setColor(Color.parseColor(adjustedColor));
-            finalHex = adjustedColor;
-        }
-        Logger.printDebug(() -> "searchbar color: " + finalHex);
-
+        int baseColor = getBackgroundColor();
+        int adjustedColor = isDarkTheme()
+                ? adjustColorBrightness(baseColor, 1.15f)
+                : adjustColorBrightness(baseColor, 0.85f);
+        shape.setColor(adjustedColor);
         shape.setCornerRadius(30 * getResources().getDisplayMetrics().density);
-
         return shape;
     }
 
-    private static boolean currentThemeColorIsBlackOrWhite() {
-        final int color = isDarkTheme()
-                ? getDarkColor()
-                : getLightColor();
-
-        return getBackgroundColor() == color;
+    /**
+     * Gets the highlight color for search, caching it to avoid repeated calculations.
+     * Uses SETTINGS_SEARCH_HIGHLIGHT_COLOR, falling back to the background color if the setting
+     * is invalid or set to #FFFFFF/#000000. Adjusts brightness based on the current theme.
+     *
+     * @return The highlight color in ARGB format.
+     */
+    public static int getHighlightColor() {
+        if (cachedHighlightColor == null) {
+            String hexColor = Settings.SETTINGS_SEARCH_HIGHLIGHT_COLOR.get();
+            int baseColor;
+            if (INVALID_HEX_PATTERN.matcher(hexColor).matches()) {
+                baseColor = getBackgroundColor();
+            } else {
+                try {
+                    baseColor = Color.parseColor(hexColor);
+                } catch (IllegalArgumentException e) {
+                    baseColor = getBackgroundColor();
+                    Logger.printDebug(() -> "Invalid highlight color: " + hexColor + ", using background color");
+                }
+            }
+            float factor = isDarkTheme() ? 1.30f : 0.90f; // Match new code's factors
+            cachedHighlightColor = adjustColorBrightness(baseColor, factor);
+            Logger.printDebug(() -> "Cached highlight color: " + cachedHighlightColor);
+        }
+        return cachedHighlightColor;
     }
 
-    // Convert HEX to RGB
-    private static int[] hexToRgb(String hex) {
-        int r = Integer.valueOf(hex.substring(1, 3), 16);
-        int g = Integer.valueOf(hex.substring(3, 5), 16);
-        int b = Integer.valueOf(hex.substring(5, 7), 16);
-        return new int[]{r, g, b};
-    }
+    /**
+     * Adjusts the brightness of a color by lightening or darkening it.
+     *
+     * @param color  The input color in ARGB format.
+     * @param factor The adjustment factor (>1.0f to lighten, <=1.0f to darken).
+     * @return The adjusted color in ARGB format.
+     */
+    private static int adjustColorBrightness(int color, float factor) {
+        int alpha = Color.alpha(color);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
 
-    // Convert RGB to HEX
-    private static String rgbToHex(int r, int g, int b) {
-        return String.format("#%02x%02x%02x", r, g, b);
-    }
+        if (factor > 1.0f) {
+            // Lighten: Interpolate toward white
+            float t = 1.0f - (1.0f / factor);
+            red = Math.round(red + (255 - red) * t);
+            green = Math.round(green + (255 - green) * t);
+            blue = Math.round(blue + (255 - blue) * t);
+        } else {
+            // Darken: Scale toward black
+            red = Math.round(red * factor);
+            green = Math.round(green * factor);
+            blue = Math.round(blue * factor);
+        }
 
-    // Darken color by percentage
-    private static String darkenColor(String hex, double percentage) {
-        int[] rgb = hexToRgb(hex);
-        int r = (int) (rgb[0] * (1 - percentage / 100));
-        int g = (int) (rgb[1] * (1 - percentage / 100));
-        int b = (int) (rgb[2] * (1 - percentage / 100));
-        return rgbToHex(r, g, b);
-    }
+        // Clamp values to [0, 255]
+        red = Math.max(0, Math.min(255, red));
+        green = Math.max(0, Math.min(255, green));
+        blue = Math.max(0, Math.min(255, blue));
 
-    // Lighten color by percentage
-    private static String lightenColor(String hex, double percentage) {
-        int[] rgb = hexToRgb(hex);
-        int r = (int) (rgb[0] + (255 - rgb[0]) * (percentage / 100));
-        int g = (int) (rgb[1] + (255 - rgb[1]) * (percentage / 100));
-        int b = (int) (rgb[2] + (255 - rgb[2]) * (percentage / 100));
-        return rgbToHex(r, g, b);
+        return Color.argb(alpha, red, green, blue);
     }
 }

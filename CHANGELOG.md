@@ -1,3 +1,33 @@
+# [3.9.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.9.0-dev.1...v3.9.0-dev.2) (2025-05-21)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding icon:** Resolve patch failure for some icons ([2c4e604](https://github.com/anddea/revanced-patches/commit/2c4e6044ff96bdfb545d04551f873ed080c39eaa))
+* **YouTube - Settings:** Potential crash related to color preferences ([89dd672](https://github.com/anddea/revanced-patches/commit/89dd672f024d0edb743ae183fe1468be10b57c6f))
+
+# [3.9.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.8.1-dev.1...v3.9.0-dev.1) (2025-05-17)
+
+
+### Bug Fixes
+
+* **YouTube - Overlay buttons:** Whitelisted channels could not be imported or exported ([966a84b](https://github.com/anddea/revanced-patches/commit/966a84bf5b3d34800d83706e62cf73d0c095e43f))
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/anddea/revanced-patches/issues/4893)) ([eb72ee6](https://github.com/anddea/revanced-patches/commit/eb72ee67de2128cd52b3817898015c1e5e8f1a50))
+* **YouTube - Hide description components:** Add `Hide Ask section` setting ([b187e6f](https://github.com/anddea/revanced-patches/commit/b187e6f8712c8c3039d20fd279c8fe9a9485f125))
+* **YouTube - Settings:** Add search history and result highlighting to the settings search ([d82f279](https://github.com/anddea/revanced-patches/commit/d82f279a75415405d3e0480fc71c9a42a87bd862))
+
+## [3.8.1-dev.1](https://github.com/anddea/revanced-patches/compare/v3.8.0...v3.8.1-dev.1) (2025-05-10)
+
+
+### Bug Fixes
+
+* **Spotify - Remove Create tab:** Remove old instruction that no longer relevant to fix issues with notification player ([ae1e806](https://github.com/anddea/revanced-patches/commit/ae1e8068e7cd9be356a1d12453f741dc429d8478))
+* **YouTube - Overlay buttons:** Fix Whitelist not working for playback speed ([bc95be1](https://github.com/anddea/revanced-patches/commit/bc95be1c6895e9f47425223b13c0a16ee8c6eeed))
+
 # [3.8.0](https://github.com/anddea/revanced-patches/compare/v3.7.0...v3.8.0) (2025-05-09)
 
 
