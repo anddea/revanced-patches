@@ -151,6 +151,7 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_change_youtube_header_summary_off">Generic header is enabled.</string>
     <string name="revanced_change_youtube_header_summary_on">Premium header is enabled.</string>
     <string name="revanced_change_youtube_header_title">Change YouTube header</string>
+    <string name="revanced_color_invalid_toast">Invalid color</string>
     <string name="revanced_copy">Copy</string>
     <string name="revanced_copy_error">Failed to copy text</string>
     <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter, separated by new lines.</string>
@@ -171,7 +172,6 @@ Limitation: Back button on the toolbar may not work."</string>
     <string name="revanced_custom_player_overlay_opacity_title">Custom player overlay opacity</string>
     <string name="revanced_custom_seekbar_color_accent_summary">Type the hex code of the seekbar accent color.</string>
     <string name="revanced_custom_seekbar_color_accent_title">Custom seekbar accent color</string>
-    <string name="revanced_custom_seekbar_color_invalid_toast">Invalid seekbar color.</string>
     <string name="revanced_custom_seekbar_color_primary_summary">Type the hex code of the seekbar primary color.</string>
     <string name="revanced_custom_seekbar_color_primary_title">Custom seekbar primary color</string>
     <string name="revanced_default_app_settings_summary">To open YouTube links in RVX, enable Open supported links and enable all the Supported web addresses.</string>
@@ -538,6 +538,9 @@ Info:
     <string name="revanced_hide_album_card_summary_off">Album cards are shown.</string>
     <string name="revanced_hide_album_card_summary_on">Album cards are hidden.</string>
     <string name="revanced_hide_album_card_title">Hide album cards</string>
+    <string name="revanced_hide_ask_section_summary_off">Ask section is shown</string>
+    <string name="revanced_hide_ask_section_summary_on">Ask section is hidden</string>
+    <string name="revanced_hide_ask_section_title">Hide Ask section</string>
     <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music and People mentioned sections are shown.</string>
     <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music and People mentioned sections are hidden.</string>
     <string name="revanced_hide_attributes_section_title">Hide Attributes section</string>
@@ -722,7 +725,7 @@ Store"</string>
     <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
     <string name="revanced_hide_keyword_content_about_summary">"Home / Subscription / Search results are filtered to hide content that matches keyword phrases.
 
-Limitations: 
+Limitations:
 • Shorts cannot be hidden by channel name.
 • Some UI components may not be hidden.
 • Searching for a keyword may show no results."</string>
@@ -1245,7 +1248,7 @@ Settings → Autoplay / Playback → Autoplay next video"</string>
     <string name="revanced_hide_video_ads_title">Hide video ads</string>
     <string name="revanced_hide_video_by_view_counts_about_summary">"Home / Subscription / Search results are filtered to hide videos with views less or greater than a specified number.
 
-Limitations: 
+Limitations:
 • Shorts cannot be hidden.
 • Videos with 0 views are not filtered."</string>
     <string name="revanced_hide_video_by_view_counts_about_title">About view count filtering</string>
@@ -1989,6 +1992,25 @@ Limitation: Dislikes may not appear if the user is not logged in or in incognito
     <string name="revanced_sb_vote_no_segments">There are no segments to vote for.</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
     <string name="revanced_sb_vote_upvote">Upvote</string>
+    <string name="revanced_search_clear_confirm_message">Are you sure you want to clear your entire search history?</string>
+    <string name="revanced_search_clear_confirm_title">Clear Search History</string>
+    <string name="revanced_search_clear_history_title">Clear History</string>
+    <string name="revanced_search_delete_confirm_message">Are you sure you want to delete \"%1$s\" from your search history?</string>
+    <string name="revanced_search_delete_confirm_title">Delete Search Entry</string>
+    <string name="revanced_search_delete_entry">Delete search entry</string>
+    <string name="revanced_search_history_title">Recent Searches</string>
+    <string name="revanced_search_no_history_summary">Your search history will appear here. To save a search query to your search history, you must press Enter/Return.</string>
+    <string name="revanced_search_no_history_title">No recent searches</string>
+    <string name="revanced_search_settings_category_title">Search settings</string>
+    <string name="revanced_search_settings_no_results_summary">Try a different search term.</string>
+    <string name="revanced_search_settings_no_results_title">No results found for \"%1$s\"</string>
+    <string name="revanced_search_title">Search</string>
+    <string name="revanced_settings_search_highlight_color_summary">Set the highlight color for matched text in search results.</string>
+    <string name="revanced_settings_search_highlight_color_title">Search highlight color</string>
+    <string name="revanced_settings_search_highlight_summary">Highlight matched text in search results with the selected color.</string>
+    <string name="revanced_settings_search_highlight_title">Enable search highlighting</string>
+    <string name="revanced_settings_search_history_summary">Save recent search queries to show them when the search bar is empty.</string>
+    <string name="revanced_settings_search_history_title">Enable search history</string>
     <string name="revanced_share_copy_settings_success">Settings copied to clipboard.</string>
     <string name="revanced_share_copy_timestamp_success">Timestamp copied to clipboard. (%s)</string>
     <string name="revanced_share_copy_url_success">URL copied to clipboard.</string>

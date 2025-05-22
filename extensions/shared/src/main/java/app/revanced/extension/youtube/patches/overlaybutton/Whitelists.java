@@ -2,9 +2,7 @@ package app.revanced.extension.youtube.patches.overlaybutton;
 
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.Nullable;
-
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.settings.preference.WhitelistedChannelsPreference;

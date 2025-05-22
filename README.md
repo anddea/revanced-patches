@@ -157,6 +157,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
+| `Fix third party launchers widgets` | Fixes Spotify widgets not working in third party launchers, like Nova Launcher. | ALL |
 | `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
 | `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
 | `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | ALL |
