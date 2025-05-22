@@ -223,55 +223,60 @@ val customBrandingIconPatch = resourcePatch(
                     }
                 }
 
-                val styleList = mutableListOf(
-                    Pair(
-                        "Base.Theme.YouTube.Launcher",
-                        "@style/Theme.AppCompat.DayNight.NoActionBar"
-                    ),
-                )
-
-                if (is_19_32_or_greater) {
-                    styleList += listOf(
+                val avdAnimPath = get("res").resolve("drawable").resolve("avd_anim.xml")
+                if (avdAnimPath.exists()) {
+                    val styleList = mutableListOf(
                         Pair(
-                            "Theme.YouTube.Home",
-                            "@style/Base.V27.Theme.YouTube.Home"
+                            "Base.Theme.YouTube.Launcher",
+                            "@style/Theme.AppCompat.DayNight.NoActionBar"
                         ),
                     )
-                }
 
-                styleList.forEach { (nodeAttributeName, nodeAttributeParent) ->
-                    document("res/values-v31/styles.xml").use { document ->
-                        val resourcesNode =
-                            document.getElementsByTagName("resources").item(0) as Element
-
-                        val style = document.createElement("style")
-                        style.setAttribute("name", nodeAttributeName)
-                        style.setAttribute("parent", nodeAttributeParent)
-
-                        val splashScreenAnimatedIcon = document.createElement("item")
-                        splashScreenAnimatedIcon.setAttribute(
-                            "name",
-                            "android:windowSplashScreenAnimatedIcon"
+                    if (is_19_32_or_greater) {
+                        styleList += listOf(
+                            Pair(
+                                "Theme.YouTube.Home",
+                                "@style/Base.V27.Theme.YouTube.Home"
+                            ),
                         )
-                        splashScreenAnimatedIcon.textContent = "@drawable/avd_anim"
-
-                        // Deprecated in Android 13+
-                        val splashScreenAnimationDuration = document.createElement("item")
-                        splashScreenAnimationDuration.setAttribute(
-                            "name",
-                            "android:windowSplashScreenAnimationDuration"
-                        )
-                        splashScreenAnimationDuration.textContent =
-                            if (appIcon.startsWith("revancify"))
-                                "1500"
-                            else
-                                "1000"
-
-                        style.appendChild(splashScreenAnimatedIcon)
-                        style.appendChild(splashScreenAnimationDuration)
-
-                        resourcesNode.appendChild(style)
                     }
+
+                    styleList.forEach { (nodeAttributeName, nodeAttributeParent) ->
+                        document("res/values-v31/styles.xml").use { document ->
+                            val resourcesNode =
+                                document.getElementsByTagName("resources").item(0) as Element
+
+                            val style = document.createElement("style")
+                            style.setAttribute("name", nodeAttributeName)
+                            style.setAttribute("parent", nodeAttributeParent)
+
+                            val splashScreenAnimatedIcon = document.createElement("item")
+                            splashScreenAnimatedIcon.setAttribute(
+                                "name",
+                                "android:windowSplashScreenAnimatedIcon"
+                            )
+                            splashScreenAnimatedIcon.textContent = "@drawable/avd_anim"
+
+                            // Deprecated in Android 13+
+                            val splashScreenAnimationDuration = document.createElement("item")
+                            splashScreenAnimationDuration.setAttribute(
+                                "name",
+                                "android:windowSplashScreenAnimationDuration"
+                            )
+                            splashScreenAnimationDuration.textContent =
+                                if (appIcon.startsWith("revancify"))
+                                    "1500"
+                                else
+                                    "1000"
+
+                            style.appendChild(splashScreenAnimatedIcon)
+                            style.appendChild(splashScreenAnimationDuration)
+
+                            resourcesNode.appendChild(style)
+                        }
+                    }
+                } else {
+                    printWarn("Splash animation is not available for \"$appIcon\".")
                 }
 
                 getBytecodeContext().apply {
