@@ -594,7 +594,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SKIP_PRELOADED_BUFFER_TOAST = new BooleanSetting("revanced_skip_preloaded_buffer_toast", TRUE);
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true);
 
-    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC = new BooleanSetting("revanced_disable_default_playback_speed_music", FALSE, true);
+    public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC = new BooleanSetting("revanced_disable_default_playback_speed_music", TRUE, true);
     public static final BooleanSetting DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC_TYPE = new BooleanSetting("revanced_disable_default_playback_speed_music_type", FALSE, true, parent(DISABLE_DEFAULT_PLAYBACK_SPEED_MUSIC));
 
     // PreferenceScreen: Miscellaneous

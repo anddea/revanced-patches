@@ -665,10 +665,6 @@ public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt 
 	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
-	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
 	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -683,6 +679,10 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
+	public static final fun getFixFacebookLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
@@ -1131,6 +1131,10 @@ public final class app/revanced/patches/youtube/utils/playservice/VersionCheckPa
 	public static final fun is_20_09_or_greater ()Z
 	public static final fun is_20_10_or_greater ()Z
 	public static final fun is_20_12_or_greater ()Z
+	public static final fun is_20_13_or_greater ()Z
+	public static final fun is_20_14_or_greater ()Z
+	public static final fun is_20_15_or_greater ()Z
+	public static final fun is_20_16_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/utils/recyclerview/RecyclerViewTreeObserverPatchKt {
@@ -1305,6 +1309,10 @@ public final class app/revanced/patches/youtube/video/information/FingerprintsKt
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/playback/FingerprintsKt {
+	public static final fun getPcmGetterMethodFingerprint ()Lkotlin/Pair;
 }
 
 public final class app/revanced/patches/youtube/video/playback/VideoPlaybackPatchKt {
