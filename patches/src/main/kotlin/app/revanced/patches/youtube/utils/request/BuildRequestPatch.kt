@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.revanced.util.fingerprint.methodOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
@@ -19,7 +20,8 @@ val buildRequestPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        buildRequestFingerprint.methodOrThrow().apply {
+        val fingerprint = if (is_20_16_or_greater) buildRequestFingerprint2016 else buildRequestFingerprint
+        fingerprint.methodOrThrow().apply {
             buildRequestMethod = this
 
             val newRequestBuilderIndex = indexOfNewUrlRequestBuilderInstruction(this)

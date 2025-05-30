@@ -15,13 +15,9 @@ import app.revanced.patches.youtube.utils.layoutConstructorFingerprint
 import app.revanced.patches.youtube.utils.patch.PatchList.HIDE_PLAYER_BUTTONS
 import app.revanced.patches.youtube.utils.playservice.is_18_31_or_greater
 import app.revanced.patches.youtube.utils.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_13_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.resourceid.autoNavToggle
-import app.revanced.patches.youtube.utils.resourceid.fullScreenButton
-import app.revanced.patches.youtube.utils.resourceid.playerCollapseButton
-import app.revanced.patches.youtube.utils.resourceid.playerControlPreviousButtonTouchArea
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.titleAnchor
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.util.fingerprint.matchOrThrow
@@ -79,18 +75,25 @@ val playerButtonsPatch = bytecodePatch(
 
         if (is_18_31_or_greater) {
             lithoSubtitleButtonConfigFingerprint.methodOrThrow().apply {
-                val insertIndex = implementation!!.instructions.lastIndex
-                val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                val (insertIndex, insertRegister) = when {
+                    is_20_13_or_greater -> {
+                        val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+                        index + 1 to getInstruction<OneRegisterInstruction>(index).registerA
+                    }
+                    else -> {
+                        val index = implementation!!.instructions.lastIndex
+                        index to getInstruction<OneRegisterInstruction>(index).registerA
+                    }
+                }
 
                 addInstructions(
                     insertIndex, """
                         invoke-static {v$insertRegister}, $PLAYER_CLASS_DESCRIPTOR->hideCaptionsButton(Z)Z
                         move-result v$insertRegister
-                        """
+                    """
                 )
             }
         }
-
 
         youtubeControlsOverlaySubtitleButtonFingerprint.methodOrThrow().apply {
             val insertIndex = implementation!!.instructions.lastIndex

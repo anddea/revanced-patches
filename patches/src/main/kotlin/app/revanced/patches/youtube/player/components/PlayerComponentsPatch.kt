@@ -16,11 +16,7 @@ import app.revanced.patches.shared.spans.inclusiveSpanPatch
 import app.revanced.patches.shared.startVideoInformerFingerprint
 import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PACKAGE
 import app.revanced.patches.youtube.utils.controlsoverlay.controlsOverlayConfigPatch
-import app.revanced.patches.youtube.utils.engagement.engagementPanelBuilderMethod
-import app.revanced.patches.youtube.utils.engagement.engagementPanelFreeRegister
-import app.revanced.patches.youtube.utils.engagement.engagementPanelHookPatch
-import app.revanced.patches.youtube.utils.engagement.engagementPanelIdIndex
-import app.revanced.patches.youtube.utils.engagement.engagementPanelIdRegister
+import app.revanced.patches.youtube.utils.engagement.*
 import app.revanced.patches.youtube.utils.extension.Constants.COMPONENTS_PATH
 import app.revanced.patches.youtube.utils.extension.Constants.PLAYER_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.extension.Constants.SPANS_PATH
@@ -28,49 +24,20 @@ import app.revanced.patches.youtube.utils.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.utils.fix.suggestedvideoendscreen.suggestedVideoEndScreenPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.PLAYER_COMPONENTS
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.utils.playservice.is_19_18_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_02_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_03_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_05_or_greater
-import app.revanced.patches.youtube.utils.playservice.is_20_12_or_greater
-import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.resourceid.darkBackground
-import app.revanced.patches.youtube.utils.resourceid.fadeDurationFast
-import app.revanced.patches.youtube.utils.resourceid.scrimOverlay
-import app.revanced.patches.youtube.utils.resourceid.seekUndoEduOverlayStub
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.tapBloomView
+import app.revanced.patches.youtube.utils.playservice.*
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.youtubeControlsOverlayFingerprint
 import app.revanced.patches.youtube.video.information.hookVideoInformation
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
+import app.revanced.util.*
 import app.revanced.util.Utils.printWarn
-import app.revanced.util.findMethodOrThrow
-import app.revanced.util.findMutableMethodOf
-import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.injectLiteralInstructionViewCall
-import app.revanced.util.fingerprint.matchOrThrow
-import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.or
+import app.revanced.util.fingerprint.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -576,17 +543,18 @@ val playerComponentsPatch = bytecodePatch(
             index: Int = 0,
             register: Int = 0
         ) {
-            val stringInstructions = if (returnType == "Z")
-                """
-                    const/4 v$register, 0x0
-                    return v$register
-                """
-            else if (returnType == "V")
-                """
-                    return-void
-                """
-            else
-                throw Exception("This case should never happen.")
+            val stringInstructions = when (returnType) {
+                "Z" -> """
+                            const/4 v$register, 0x0
+                            return v$register
+                        """
+
+                "V" -> """
+                            return-void
+                        """
+
+                else -> throw Exception("This case should never happen.")
+            }
 
             addInstructionsWithLabels(
                 index, """
@@ -701,15 +669,29 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for hide seek message
 
-        seekEduContainerFingerprint.methodOrThrow().apply {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
-                    move-result v0
-                    if-eqz v0, :default
-                    return-void
+        if (!is_20_14_or_greater || (is_20_15_or_greater && !is_20_16_or_greater)) {
+            seekEduContainerFingerprint.methodOrThrow().apply {
+                addInstructionsWithLabels(
+                    0, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
+                        move-result v0
+                        if-eqz v0, :default
+                        return-void
                     """, ExternalLabel("default", getInstruction(0))
-            )
+                )
+            }
+        } else {
+            seekEduContainerFingerprint.methodOrThrow().apply {
+                val originalInstructionAfterSuper = getInstruction(1)
+                addInstructionsWithLabels(
+                    1, """
+                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
+                        move-result v0
+                        if-eqz v0, :continue_constructor_normally
+                        return-void
+                    """, ExternalLabel("continue_constructor_normally", originalInstructionAfterSuper)
+                )
+            }
         }
 
         // Removed in YouTube 20.02+
