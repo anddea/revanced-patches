@@ -20,29 +20,18 @@ import app.revanced.patches.youtube.utils.fix.shortsplayback.shortsPlaybackPatch
 import app.revanced.patches.youtube.utils.flyoutmenu.flyoutMenuHookPatch
 import app.revanced.patches.youtube.utils.patch.PatchList.VIDEO_PLAYBACK
 import app.revanced.patches.youtube.utils.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.utils.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.utils.qualityMenuViewInflateFingerprint
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverHook
 import app.revanced.patches.youtube.utils.recyclerview.recyclerViewTreeObserverPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.settingsPatch
-import app.revanced.patches.youtube.video.information.hookBackgroundPlayVideoInformation
-import app.revanced.patches.youtube.video.information.hookVideoInformation
-import app.revanced.patches.youtube.video.information.onCreateHook
-import app.revanced.patches.youtube.video.information.speedSelectionInsertMethod
-import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.patches.youtube.video.information.*
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.findMethodOrThrow
-import app.revanced.util.fingerprint.definingClassOrThrow
-import app.revanced.util.fingerprint.matchOrThrow
-import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.resolvable
-import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstStringInstructionOrThrow
-import app.revanced.util.updatePatchStatus
+import app.revanced.util.*
+import app.revanced.util.fingerprint.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -161,25 +150,61 @@ val videoPlaybackPatch = bytecodePatch(
             }
         }
 
-        loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
-            it.method.apply {
-                val targetIndex = it.patternMatch!!.endIndex
-                val targetReference =
-                    getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
+        if (is_20_14_or_greater) {
+            // This should match all previous versions
+            // The obfuscated method names like "a" and "f" have been consistent for playback speed
+            // across several observed app versions.
+            // These names are obfuscated and *could* change, but we are leveraging their
+            // observed stability for a simpler patch.
+            pcmGetterMethodFingerprint.mutableClassOrThrow().let {
+                val targetMethod =
+                    it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() && method.name == "a" }
+                        ?: throw PatchException("Method returning playback speed not found in class $it.")
 
-                findMethodOrThrow(definingClass) {
-                    name == targetReference.name
-                }.apply {
+                targetMethod.apply {
                     val insertIndex = implementation!!.instructions.lastIndex
-                    val insertRegister =
-                        getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex, """
+                        invoke-static {v$insertRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
+                        move-result v$insertRegister
+                        """
+                    )
+                }
+            }
+
+            // This fingerprint works for some previous versions too
+            // Shorts playback speed is not set immediately, video should be changed for speed to apply
+            // playbackSpeedSetterFingerprint.methodOrThrow().apply {
+            //     addInstructions(
+            //         0, """
+            //         invoke-static {p1}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
+            //         move-result p1
+            //         """
+            //     )
+            // }
+        } else {
+            loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
+                it.method.apply {
+                    val targetIndex = it.patternMatch!!.endIndex
+                    val targetReference =
+                        getInstruction<ReferenceInstruction>(targetIndex).reference as MethodReference
+
+                    findMethodOrThrow(definingClass) {
+                        name == targetReference.name
+                    }.apply {
+                        val insertIndex = implementation!!.instructions.lastIndex
+                        val insertRegister =
+                            getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                        addInstructions(
+                            insertIndex, """
                             invoke-static {v$insertRegister}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
                             move-result v$insertRegister
                             """
-                    )
+                        )
+                    }
                 }
             }
         }

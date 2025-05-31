@@ -21,6 +21,20 @@ internal val buildRequestFingerprint = legacyFingerprint(
     }
 )
 
+internal val buildRequestFingerprint2016 = legacyFingerprint(
+    name = "buildRequestFingerprint",
+    customFingerprint = { method, _ ->
+        method.implementation != null &&
+                // indexOfRequestFinishedListenerInstruction(method) >= 0 &&
+                !method.definingClass.startsWith("Lorg/") &&
+                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
+                // Earlier targets
+                (indexOfEntrySetInstruction(method) >= 0 ||
+                        // Later targets
+                        method.parameters[1].type == "Ljava/util/Map;")
+    }
+)
+
 internal fun indexOfRequestFinishedListenerInstruction(method: Method) =
     method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_VIRTUAL &&

@@ -16,32 +16,16 @@ import app.revanced.patches.youtube.utils.compatibility.Constants.COMPATIBLE_PAC
 import app.revanced.patches.youtube.utils.extension.Constants.GENERAL_CLASS_DESCRIPTOR
 import app.revanced.patches.youtube.utils.patch.PatchList.TOOLBAR_COMPONENTS
 import app.revanced.patches.youtube.utils.playservice.is_19_16_or_greater
+import app.revanced.patches.youtube.utils.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
-import app.revanced.patches.youtube.utils.resourceid.actionBarRingoBackground
-import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.patches.youtube.utils.resourceid.ytOutlineVideoCamera
-import app.revanced.patches.youtube.utils.resourceid.ytPremiumWordMarkHeader
-import app.revanced.patches.youtube.utils.resourceid.ytWordMarkHeader
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.addPreference
 import app.revanced.patches.youtube.utils.settings.ResourceUtils.getContext
 import app.revanced.patches.youtube.utils.settings.settingsPatch
 import app.revanced.patches.youtube.utils.toolbar.hookToolBar
 import app.revanced.patches.youtube.utils.toolbar.toolBarHookPatch
-import app.revanced.util.REGISTER_TEMPLATE_REPLACEMENT
-import app.revanced.util.doRecursively
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.findMethodOrThrow
-import app.revanced.util.fingerprint.injectLiteralInstructionBooleanCall
-import app.revanced.util.fingerprint.matchOrThrow
-import app.revanced.util.fingerprint.methodCall
-import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.fingerprint.mutableClassOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.getWalkerMethod
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.replaceLiteralInstructionCall
+import app.revanced.util.*
+import app.revanced.util.fingerprint.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -267,63 +251,67 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // region patch for hide search term thumbnail
 
-        createSearchSuggestionsFingerprint.methodOrThrow().apply {
-            val iteratorIndex = indexOfIteratorInstruction(this)
-            val replaceIndex = indexOfFirstInstruction(iteratorIndex) {
-                opcode == Opcode.IGET_OBJECT &&
-                        getReference<FieldReference>()?.type == "Landroid/widget/ImageView;"
-            }
-            if (replaceIndex > -1) {
-            val uriIndex = indexOfFirstInstructionOrThrow(replaceIndex) {
-                opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
-            }
-            val jumpIndex = indexOfFirstInstructionOrThrow(uriIndex, Opcode.CONST_4)
-            val replaceIndexInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
-            val freeRegister = replaceIndexInstruction.registerA
-            val classRegister = replaceIndexInstruction.registerB
-            val replaceIndexReference =
-                getInstruction<ReferenceInstruction>(replaceIndex).reference
+        if (!is_20_15_or_greater) {
+            createSearchSuggestionsFingerprint.methodOrThrow().apply {
+                val iteratorIndex = indexOfIteratorInstruction(this)
+                val replaceIndex = indexOfFirstInstruction(iteratorIndex) {
+                    opcode == Opcode.IGET_OBJECT &&
+                            getReference<FieldReference>()?.type == "Landroid/widget/ImageView;"
+                }
+                if (replaceIndex > -1) {
+                    val uriIndex = indexOfFirstInstructionOrThrow(replaceIndex) {
+                        opcode == Opcode.INVOKE_STATIC &&
+                                getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
+                    }
+                    val jumpIndex = indexOfFirstInstructionOrThrow(uriIndex, Opcode.CONST_4)
+                    val replaceIndexInstruction = getInstruction<TwoRegisterInstruction>(replaceIndex)
+                    val freeRegister = replaceIndexInstruction.registerA
+                    val classRegister = replaceIndexInstruction.registerB
+                    val replaceIndexReference =
+                        getInstruction<ReferenceInstruction>(replaceIndex).reference
 
-            addInstructionsWithLabels(
-                replaceIndex + 1, """
+                    addInstructionsWithLabels(
+                        replaceIndex + 1, """
                     invoke-static { }, $GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail()Z
                     move-result v$freeRegister
                     if-nez v$freeRegister, :hidden
                     iget-object v$freeRegister, v$classRegister, $replaceIndexReference
                     """, ExternalLabel("hidden", getInstruction(jumpIndex))
-            )
-            removeInstruction(replaceIndex)
-            } else { // only for YT 20.03
-                val insertIndex = indexOfFirstInstructionOrThrow(iteratorIndex) {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.toString() == "Landroid/widget/ImageView;->setVisibility(I)V"
-                } - 1
-                if (getInstruction(insertIndex).opcode != Opcode.CONST_4) {
-                    throw PatchException("Failed to find insert index")
-                }
-                val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-                val uriIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                    opcode == Opcode.INVOKE_STATIC &&
-                            getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
-                }
-                val jumpIndex = indexOfFirstInstructionOrThrow(uriIndex, Opcode.CONST_4)
+                    )
+                    removeInstruction(replaceIndex)
+                } else { // only for YT 20.03
+                    val insertIndex = indexOfFirstInstructionOrThrow(iteratorIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.toString() == "Landroid/widget/ImageView;->setVisibility(I)V"
+                    } - 1
+                    if (getInstruction(insertIndex).opcode != Opcode.CONST_4) {
+                        throw PatchException("Failed to find insert index")
+                    }
+                    val freeRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+                    val uriIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                        opcode == Opcode.INVOKE_STATIC &&
+                                getReference<MethodReference>()?.toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"
+                    }
+                    val jumpIndex = indexOfFirstInstructionOrThrow(uriIndex, Opcode.CONST_4)
 
-                addInstructionsWithLabels(
-                    insertIndex, """
+                    addInstructionsWithLabels(
+                        insertIndex, """
                         invoke-static { }, $GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail()Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :hidden
                         """, ExternalLabel("hidden", getInstruction(jumpIndex))
+                    )
+                }
+            }
+
+            if (is_19_16_or_greater) {
+                searchFragmentFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
+                    SEARCH_FRAGMENT_FEATURE_FLAG,
+                    "$GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail(Z)Z"
                 )
             }
-        }
 
-        if (is_19_16_or_greater) {
-            searchFragmentFeatureFlagFingerprint.injectLiteralInstructionBooleanCall(
-                SEARCH_FRAGMENT_FEATURE_FLAG,
-                "$GENERAL_CLASS_DESCRIPTOR->hideSearchTermThumbnail(Z)Z"
-            )
+            settingArray += "SETTINGS: HIDE_SEARCH_TERM_THUMBNAIL"
         }
 
         // endregion

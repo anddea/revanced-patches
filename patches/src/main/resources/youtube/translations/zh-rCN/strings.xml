@@ -146,7 +146,9 @@
     <string name="revanced_change_youtube_header_summary_off">默认标题已启用</string>
     <string name="revanced_change_youtube_header_summary_on">高级标题已启用</string>
     <string name="revanced_change_youtube_header_title">更改 YouTube 标题</string>
+    <string name="revanced_color_invalid_toast">颜色无效</string>
     <string name="revanced_copy">复制</string>
+    <string name="revanced_copy_error">复制文本失败</string>
     <string name="revanced_custom_filter_strings_summary">按行分隔的名称筛选组件</string>
     <string name="revanced_custom_filter_strings_title">编辑自定义筛选</string>
     <string name="revanced_custom_filter_summary_off">自定义筛选已禁用</string>
@@ -468,13 +470,34 @@
     <string name="revanced_external_downloader_package_name_video_summary">已安装的外部下载器应用的包名，例如 NewPipe 或 YTDLnis</string>
     <string name="revanced_external_downloader_package_name_video_title">视频下载器应用包名</string>
     <string name="revanced_fullscreen_ads_closed_toast">全屏广告已关闭。</string>
-    <string name="revanced_gemini_cancelled">摘要已取消</string>
+    <string name="revanced_gemini_cancelled">已取消</string>
     <string name="revanced_gemini_copy_success">摘要已复制到剪贴板。</string>
+    <string name="revanced_gemini_error_already_running_summarize">总结功能正在进行中。</string>
+    <string name="revanced_gemini_error_already_running_transcribe">转录功能正在进行中。</string>
+    <string name="revanced_gemini_error_already_running_yandex_transcribe">Yandex转录功能正在运行。</string>
     <string name="revanced_gemini_error_api_failed">Gemini API 请求失败：%s</string>
+    <string name="revanced_gemini_error_dialog_show">显示对话框时出错</string>
     <string name="revanced_gemini_error_no_api_key">Gemini API 密钥未在 ReVanced Extended 设置中配置。</string>
     <string name="revanced_gemini_error_no_video">无法获取视频 URL。</string>
+    <string name="revanced_gemini_error_overlay_display">无法显示字幕叠加层</string>
+    <string name="revanced_gemini_error_transcription_no_raw_data">没有原始转录数据可供解析</string>
+    <string name="revanced_gemini_error_transcription_parse">解析转录数据失败。</string>
+    <string name="revanced_gemini_error_translation_failed">Gemini翻译失败</string>
+    <string name="revanced_gemini_error_translation_parse_failed">Gemini翻译解析失败</string>
+    <string name="revanced_gemini_error_unknown">发生了未知错误。</string>
+    <string name="revanced_gemini_loading_default">加载中...</string>
+    <string name="revanced_gemini_loading_summarize">正在总结视频内容...</string>
+    <string name="revanced_gemini_loading_transcribe">正在转录视频内容...</string>
+    <string name="revanced_gemini_loading_yandex_transcribe">Yandex：正在获取字幕...</string>
+    <string name="revanced_gemini_status_translating">正在使用Gemini翻译...\n\n⚠️ 如果Gemini忽略指令或达到限制，此步骤可能会失败。</string>
     <string name="revanced_gemini_summary_title">Gemini 视频摘要</string>
     <string name="revanced_gemini_time_taken">(耗时 %d 秒)</string>
+    <string name="revanced_gemini_transcribe_bad_token_exception">启用"在其他应用上层显示"以显示为字幕</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_summary">转录视频字幕的字体大小。要隐藏字幕框，只需点击它。</string>
+    <string name="revanced_gemini_transcribe_subtitles_font_size_title">字幕字体大小</string>
+    <string name="revanced_gemini_transcription_parse_button">字幕</string>
+    <string name="revanced_gemini_transcription_parse_success">字幕解析成功</string>
+    <string name="revanced_gemini_transcription_result_title">Gemini视频转录</string>
     <string name="revanced_gms_show_dialog_summary">每次启动应用时显示 GMSCore 的优化对话框</string>
     <string name="revanced_gms_show_dialog_title">显示 GMSCore 优化对话框</string>
     <string name="revanced_gradient_seekbar_positions_reset">渐变位置已重置为默认。</string>
@@ -1347,6 +1370,7 @@ Note:
     <string name="revanced_language_VI">越南语</string>
     <string name="revanced_language_ZH">中文</string>
     <string name="revanced_language_title">RVX 语言</string>
+    <string name="revanced_minimize">最小化</string>
     <string name="revanced_miniplayer_double_tap_action_summary_off">双击操作和捏合缩放已禁用。</string>
     <string name="revanced_miniplayer_double_tap_action_summary_on">"双击操作和捏合缩放已启用。
 
@@ -1415,11 +1439,18 @@ Note:
     <string name="revanced_overlay_button_external_downloader_queue_manager_title">队列管理器</string>
     <string name="revanced_overlay_button_external_downloader_summary">点击以打开外部下载器</string>
     <string name="revanced_overlay_button_external_downloader_title">外部下载按钮</string>
+    <string name="revanced_overlay_button_gemini_about_summary">"解析视频可能需要一段时间，具体取决于视频长度。转录长视频可能会超出Gemini的限制。
+
+AI生成的回复可能包含不准确的信息。
+
+点击此处获取API密钥。"</string>
+    <string name="revanced_overlay_button_gemini_about_title">关于Gemini</string>
     <string name="revanced_overlay_button_gemini_summarize">总结</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_summary">“在 https://aistudio.google.com/apikey 获取 API 密钥”</string>
     <string name="revanced_overlay_button_gemini_summarize_api_key_title">Gemini API 密钥</string>
-    <string name="revanced_overlay_button_gemini_summarize_summary">“点击以使用 Gemini 总结视频。
-解析视频可能需要一些时间，具体取决于视频长度。”</string>
+    <string name="revanced_overlay_button_gemini_summarize_summary">点按以汇总视频。长按可转录。
+
+除非您关闭应用程序或在另一个视频中使用 Gemini，否则将保存汇总和转录的结果。再次点击该按钮可查看结果。</string>
     <string name="revanced_overlay_button_gemini_summarize_title">显示 Gemini 按钮</string>
     <string name="revanced_overlay_button_mute_volume_summary">点击以静音当前视频 再次点击取消静音</string>
     <string name="revanced_overlay_button_mute_volume_title">显示静音按钮</string>
@@ -1899,6 +1930,25 @@ Note:
     <string name="revanced_sb_vote_no_segments">没有可供投票的片段</string>
     <string name="revanced_sb_vote_segment_time_to_from">%1$s 到 %2$s</string>
     <string name="revanced_sb_vote_upvote">赞成</string>
+    <string name="revanced_search_clear_confirm_message">您确定要清除整个搜索历史记录吗？</string>
+    <string name="revanced_search_clear_confirm_title">清除搜索历史</string>
+    <string name="revanced_search_clear_history_title">清除历史</string>
+    <string name="revanced_search_delete_confirm_message">您确定要从搜索历史中删除"%1$s"吗？</string>
+    <string name="revanced_search_delete_confirm_title">删除搜索条目</string>
+    <string name="revanced_search_delete_entry">删除搜索条目</string>
+    <string name="revanced_search_history_title">最近搜索</string>
+    <string name="revanced_search_no_history_summary">您的搜索历史将显示在此处。要将搜索查询保存到搜索历史中，您必须按回车键。</string>
+    <string name="revanced_search_no_history_title">没有最近搜索</string>
+    <string name="revanced_search_settings_category_title">搜索设置</string>
+    <string name="revanced_search_settings_no_results_summary">尝试不同的搜索词。</string>
+    <string name="revanced_search_settings_no_results_title">未找到"%1$s"的结果</string>
+    <string name="revanced_search_title">搜索</string>
+    <string name="revanced_settings_search_highlight_color_summary">设置搜索结果中匹配文本的高亮颜色。</string>
+    <string name="revanced_settings_search_highlight_color_title">搜索高亮颜色</string>
+    <string name="revanced_settings_search_highlight_summary">在搜索结果中用选定颜色高亮显示匹配的文本。</string>
+    <string name="revanced_settings_search_highlight_title">启用搜索高亮</string>
+    <string name="revanced_settings_search_history_summary">保存最近的搜索查询，在搜索栏为空时显示它们。</string>
+    <string name="revanced_settings_search_history_title">启用搜索历史</string>
     <string name="revanced_share_copy_settings_success">设置已复制到剪贴板</string>
     <string name="revanced_share_copy_timestamp_success">时间戳已复制到剪贴板 (%s)</string>
     <string name="revanced_share_copy_url_success">URL 已复制到剪贴板</string>
@@ -1922,6 +1972,10 @@ Note:
     <string name="revanced_shorts_custom_actions_external_downloader_summary_off">外部下载器菜单已隐藏。</string>
     <string name="revanced_shorts_custom_actions_external_downloader_summary_on">外部下载器菜单已显示。</string>
     <string name="revanced_shorts_custom_actions_external_downloader_title">显示外部下载器菜单</string>
+    <string name="revanced_shorts_custom_actions_gemini_label">Gemini总结</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_off">Gemini总结菜单已隐藏。</string>
+    <string name="revanced_shorts_custom_actions_gemini_summary_on">Gemini总结菜单已显示。</string>
+    <string name="revanced_shorts_custom_actions_gemini_title">显示Gemini总结菜单</string>
     <string name="revanced_shorts_custom_actions_open_video_label">打开视频</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_off">打开视频菜单已隐藏。</string>
     <string name="revanced_shorts_custom_actions_open_video_summary_on">打开视频菜单已显示。</string>
@@ -2076,34 +2130,37 @@ AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频�
     <string name="revanced_swipe_gestures_lock_mode_summary_off">在“锁定屏幕”模式下禁用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">在“锁定屏幕”模式下启用滑动手势</string>
     <string name="revanced_swipe_gestures_lock_mode_title">在“锁定屏幕”模式下滑动手势</string>
-    <string name="revanced_swipe_lowest_value_auto_brightness_overlay_text">自动</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自动</string>
     <string name="revanced_swipe_magnitude_threshold_summary">防误触的滑动幅度阈值</string>
     <string name="revanced_swipe_magnitude_threshold_title">滑动幅度阈值</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动透明度必须在 0 到 100 之间。</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">透明度值应在 0 到 100 之间。</string>
     <string name="revanced_swipe_overlay_background_opacity_title">滑动覆盖背景透明度</string>
-    <string name="revanced_swipe_overlay_minimal_style_summary_off">已停用最小叠加层样式</string>
-    <string name="revanced_swipe_overlay_minimal_style_summary_on">已启用极简叠加样式</string>
-    <string name="revanced_swipe_overlay_minimal_style_title">启用极简样式</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">可滑动区域大小不能超过50 重置为默认值</string>
     <string name="revanced_swipe_overlay_rect_size_summary">可滑动屏幕区域的百分比\n\n注意：这也会改变双击搜索手势的屏幕区域大小</string>
     <string name="revanced_swipe_overlay_rect_size_title">滑动叠加层大小</string>
-    <string name="revanced_swipe_overlay_text_size_summary">滑动叠加层上的文本大小</string>
-    <string name="revanced_swipe_overlay_text_size_title">滑动叠加层上的文本大小</string>
+    <string name="revanced_swipe_overlay_style_entry_1">水平提示层</string>
+    <string name="revanced_swipe_overlay_style_entry_2">水平提示层 (极简 - 顶部)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">水平提示层 (极简 - 中心)</string>
+    <string name="revanced_swipe_overlay_style_entry_4">圆形提示层</string>
+    <string name="revanced_swipe_overlay_style_entry_5">圆形提示层 (极简)</string>
+    <string name="revanced_swipe_overlay_style_entry_6">垂直提示层</string>
+    <string name="revanced_swipe_overlay_style_entry_7">垂直提示层 (极简)</string>
+    <string name="revanced_swipe_overlay_style_title">滑动提示层样式</string>
     <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
     <string name="revanced_swipe_overlay_timeout_title">滑动叠加层时长</string>
     <string name="revanced_swipe_seek_sensitivity_invalid_toast">跳跃滑动灵敏度必须在 1-1000(%)之间。</string>
     <string name="revanced_swipe_seek_sensitivity_summary" formatted="false">配置跳跃滑动的最小距离，范围为 1 到 1000(%)。</string>
     <string name="revanced_swipe_seek_sensitivity_title">跳跃滑动灵敏度</string>
-    <string name="revanced_swipe_show_circular_overlay_summary_off">水平叠加层已显示</string>
-    <string name="revanced_swipe_show_circular_overlay_summary_on">圆形叠加层已显示</string>
-    <string name="revanced_swipe_show_circular_overlay_title">显示圆形叠加层</string>
     <string name="revanced_swipe_speed_sensitivity_invalid_toast">速度滑动灵敏度必须在 1-1000(%)之间。</string>
     <string name="revanced_swipe_speed_sensitivity_summary" formatted="false">配置速度滑动的最小距离，范围为 1 到 1000(%)。</string>
     <string name="revanced_swipe_speed_sensitivity_title">速度滑动灵敏度</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_off">快进滑动手势区域位于顶部，播放速度区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">播放速度滑动手势区域位于顶部，快进区域位于底部。</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">切换播放速度和快进手势</string>
+    <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
+    <string name="revanced_swipe_text_overlay_size_summary">滑动提示层的文字大小，范围为 1-30</string>
+    <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">音量滑动灵敏度必须介于 1-1000 之间 (%)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">配置音量滑动的最小距离范围为 1 到 1000 (%)\n\n最小距离越短，音量等级变化越快\n\n推荐的音量滑动灵敏度：在 15 级音量调节为 100%，在 150 级音量调节为 10%</string>
     <string name="revanced_swipe_volume_sensitivity_title">音量滑动灵敏度</string>
@@ -2152,4 +2209,44 @@ AVC 最大分辨率为 1080p，Opus 音频编解码器不可用，并且视频�
     <string name="revanced_whitelist_settings_summary">检查或删除添加到白名单的频道列表</string>
     <string name="revanced_whitelist_settings_title">频道白名单</string>
     <string name="revanced_whitelist_sponsor_block">SponsorBlock</string>
+    <string name="revanced_yandex_error_api_final_subs">Yandex API获取最终字幕时出错（代码：%1$d）</string>
+    <string name="revanced_yandex_error_api_poll">Yandex API轮询时出错（代码：%1$d）</string>
+    <string name="revanced_yandex_error_download_subs_failed">下载字幕文件失败（代码：%1$d）</string>
+    <string name="revanced_yandex_error_internal_missing_translation_id">内部错误：缺少翻译ID</string>
+    <string name="revanced_yandex_error_internal_no_chosen_url">内部错误：选定的轨道没有URL</string>
+    <string name="revanced_yandex_error_internal_null_subs_response">内部错误：无法获取最终字幕</string>
+    <string name="revanced_yandex_error_internal_request_build">构建请求时发生内部错误</string>
+    <string name="revanced_yandex_error_network_final_subs">获取最终字幕时网络错误</string>
+    <string name="revanced_yandex_error_network_generic">网络错误</string>
+    <string name="revanced_yandex_error_network_poll">轮询时网络错误</string>
+    <string name="revanced_yandex_error_network_subs_fetch">获取字幕文件时网络错误</string>
+    <string name="revanced_yandex_error_no_language_selected">未选择语言</string>
+    <string name="revanced_yandex_error_no_subs_for_language">%s语言的字幕不可用</string>
+    <string name="revanced_yandex_error_no_subs_returned">没有可用的字幕轨道</string>
+    <string name="revanced_yandex_error_parsing_final_subs">解析最终Yandex字幕列表失败</string>
+    <string name="revanced_yandex_error_parsing_poll">解析Yandex轮询响应失败</string>
+    <string name="revanced_yandex_error_reading_response">读取API响应时出错</string>
+    <string name="revanced_yandex_error_session_expired">Yandex会话已过期</string>
+    <string name="revanced_yandex_error_session_refresh_failed">刷新Yandex会话失败</string>
+    <string name="revanced_yandex_error_subs_parsing_failed">解析字幕JSON内容失败</string>
+    <string name="revanced_yandex_error_subs_processing_failed">处理字幕内容时出错</string>
+    <string name="revanced_yandex_error_subs_stuck_processing">内部错误：字幕处理卡住</string>
+    <string name="revanced_yandex_error_timeout_final_fetch">在%1$d秒后获取最终字幕超时</string>
+    <string name="revanced_yandex_error_timeout_poll">等待翻译%1$d秒后超时（轮询#%2$d）</string>
+    <string name="revanced_yandex_error_timeout_processing">翻译处理%1$d秒后超时</string>
+    <string name="revanced_yandex_error_translation_failed">翻译失败</string>
+    <string name="revanced_yandex_error_unknown">未知错误</string>
+    <string name="revanced_yandex_status_fetching_subs">翻译完成，正在获取字幕...</string>
+    <string name="revanced_yandex_status_processing_hour">还有一个多小时...</string>
+    <string name="revanced_yandex_status_processing_minute">大约还有一分钟...</string>
+    <string name="revanced_yandex_status_processing_minutes_plural">还有%d分钟...</string>
+    <string name="revanced_yandex_status_processing_short">处理中...</string>
+    <string name="revanced_yandex_status_requesting_translation">正在请求翻译</string>
+    <string name="revanced_yandex_status_session_ok">会话正常</string>
+    <string name="revanced_yandex_status_subs_found">找到字幕，正在获取...</string>
+    <string name="revanced_yandex_status_youtube_specific">正在处理YouTube音频请求...</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_summary">"Yandex可以转录任何语言的视频，但输出仅支持英语(en)、俄语(ru)和哈萨克语(kk)。如果您输入任何其他语言代码或使用'app'（代表应用的默认语言），将要求Gemini进行翻译（需要API密钥）。"</string>
+    <string name="revanced_yandex_transcribe_subtitles_language_title">Yandex语言</string>
+    <string name="revanced_yandex_transcribe_subtitles_summary">使用Yandex转录代替Gemini。Yandex更快更可靠。不需要API密钥。</string>
+    <string name="revanced_yandex_transcribe_subtitles_title">Yandex转录</string>
 </resources>

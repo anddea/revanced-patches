@@ -1,18 +1,7 @@
 package app.revanced.patches.youtube.shorts.components
 
-import app.revanced.patches.youtube.utils.resourceid.badgeLabel
-import app.revanced.patches.youtube.utils.resourceid.metaPanel
-import app.revanced.patches.youtube.utils.resourceid.reelDynRemix
-import app.revanced.patches.youtube.utils.resourceid.reelDynShare
-import app.revanced.patches.youtube.utils.resourceid.reelFeedbackLike
-import app.revanced.patches.youtube.utils.resourceid.reelFeedbackPause
-import app.revanced.patches.youtube.utils.resourceid.reelFeedbackPlay
-import app.revanced.patches.youtube.utils.resourceid.reelForcedMuteButton
-import app.revanced.patches.youtube.utils.resourceid.reelPlayerFooter
-import app.revanced.patches.youtube.utils.resourceid.reelRightDislikeIcon
-import app.revanced.patches.youtube.utils.resourceid.reelRightLikeIcon
-import app.revanced.patches.youtube.utils.resourceid.reelVodTimeStampsContainer
-import app.revanced.patches.youtube.utils.resourceid.rightComment
+import app.revanced.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -20,6 +9,7 @@ import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -107,6 +97,47 @@ internal val reelPlaybackRepeatFingerprint = legacyFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     strings = listOf("YoutubePlayerState is in throwing an Error.")
+)
+
+/**
+ * YouTube 20.16+
+ */
+// internal val reelPlaybackRepeatFingerprint2016 = fingerprint {
+//     returns("V")
+//     parameters("L")
+//     opcodes(
+//         Opcode.INVOKE_STATIC,
+//         Opcode.MOVE_RESULT_OBJECT,
+//         Opcode.IPUT_OBJECT
+//     )
+//     custom { _, classDef ->
+//         classDef.methods.any { classMethod ->
+//             classMethod.instructionsOrNull?.any { instruction ->
+//                 instruction.opcode == Opcode.CONST_STRING &&
+//                         (instruction as? ReferenceInstruction)?.reference?.toString() == "Reels[%s] Playback Time: %d ms"
+//             } == true
+//         }
+//     }
+// }
+
+internal val reelPlaybackRepeatFingerprint2016 = legacyFingerprint(
+    name = "reelPlaybackRepeatFingerprint2016",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = listOf("L"),
+    returnType = "V",
+    opcodes = listOf(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IPUT_OBJECT
+    ),
+    customFingerprint = { _, classDef ->
+        classDef.methods.any { classMethod ->
+            classMethod.instructionsOrNull?.any { instruction ->
+                instruction.opcode == Opcode.CONST_STRING &&
+                        (instruction as? ReferenceInstruction)?.reference?.toString() == "Reels[%s] Playback Time: %d ms"
+            } == true
+        }
+    }
 )
 
 internal val reelPlaybackFingerprint = legacyFingerprint(
