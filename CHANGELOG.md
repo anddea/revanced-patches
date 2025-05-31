@@ -1,3 +1,12 @@
+# [3.10.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.9.0...v3.10.0-dev.1) (2025-05-31)
+
+
+### Features
+
+* **Spotify:** Add `Fix Facebook login` patch ([ef1aff8](https://github.com/anddea/revanced-patches/commit/ef1aff87effe7a32a8305a6d4828f9f54f8bbd48))
+* **YouTube - Swipe controls:** Add more customizations ([f1519ad](https://github.com/anddea/revanced-patches/commit/f1519ad099fa74565f68923c1efb4b9a443c7af1))
+* **YouTube:** Add support for a wider range of versions (up to 20.16) ([568261e](https://github.com/anddea/revanced-patches/commit/568261e315a3a639129c790430f8dabacf2322ba))
+
 # [3.9.0](https://github.com/anddea/revanced-patches/compare/v3.8.0...v3.9.0) (2025-05-22)
 
 

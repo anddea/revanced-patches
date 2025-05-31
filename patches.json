@@ -529,7 +529,9 @@
     "description": "Changes the Spotify app name to the name specified in patch options.",
     "use": false,
     "dependencies": [],
-    "compatiblePackages": null,
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
     "options": [
       {
         "key": "appName",
@@ -1275,12 +1277,12 @@
     "options": []
   },
   {
-    "name": "Enable on demand",
-    "description": "Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.",
+    "name": "Fix Facebook login",
+    "description": "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.lite": null
+      "com.spotify.music": null
     },
     "options": []
   },
