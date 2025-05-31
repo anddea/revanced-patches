@@ -156,21 +156,15 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `Custom branding name for Spotify` | Changes the Spotify app name to the name specified in patch options. | ALL |
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
+| `Fix Facebook login` | Fix logging in with Facebook when the app is patched by always opening the login in a web browser window. | ALL |
 | `Fix third party launchers widgets` | Fixes Spotify widgets not working in third party launchers, like Nova Launcher. | ALL |
 | `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
 | `Remove Create tab` | Removes the 'Create' (Plus) tab from the bottom navigation bar. | ALL |
 | `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | ALL |
 | `Spoof package info` | Spoofs the package info of the app to fix various functions of the app. | ALL |
 | `Unlock Spotify Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
-</details>
-
-### [📦 `com.spotify.lite`](https://play.google.com/store/apps/details?id=com.spotify.lite)
-<details>
-
-| 💊 Patch | 📜 Description | 🏹 Target Version |
-|:--------:|:--------------:|:-----------------:|
-| `Enable on demand` | Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads. | ALL |
 </details>
 
 
