@@ -170,7 +170,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">플레이어 오버레이 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다.</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다. (투명: 0)</string>
     <string name="revanced_custom_player_overlay_opacity_title">사용자 정의 플레이어 오버레이 불투명도</string>
     <string name="revanced_custom_seekbar_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다.</string>
     <string name="revanced_custom_seekbar_color_accent_title">사용자 정의 재생바 보조 색상</string>
@@ -1466,7 +1466,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다."</string>
     <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">미니 플레이어 오버레이 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_miniplayer_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다.</string>
+    <string name="revanced_miniplayer_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다. (투명: 0)</string>
     <string name="revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다.</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다.</string>
@@ -2220,7 +2220,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있습니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 지정할 수 있습니다 (0-100).</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 0-100 사이에서 지정할 수 있습니다.</string>
     <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
     <string name="revanced_swipe_overlay_progress_seek_color_summary">탐색 조절바 색상을 지정할 수 있습니다.</string>
     <string name="revanced_swipe_overlay_progress_seek_color_title">스와이프 오버레이 탐색 조절바 색상</string>
@@ -2253,7 +2253,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">속도 스와이프 영역은 상단에, 탐색 스와이프 영역은 하단에 위치합니다.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">속도 스와이프 영역과 탐색 스와이프 영역 위치 교환하기</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
-    <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
+    <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 1-30 사이에서 지정할 수 있습니다</string>
     <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 민감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
