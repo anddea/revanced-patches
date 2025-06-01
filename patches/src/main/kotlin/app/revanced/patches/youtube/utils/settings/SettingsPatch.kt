@@ -2,11 +2,7 @@ package app.revanced.patches.youtube.utils.settings
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.patch.*
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEncodedValue
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.extension.Constants.EXTENSION_UTILS_PATH
@@ -22,17 +18,11 @@ import app.revanced.patches.youtube.utils.fix.playbackspeed.playbackSpeedWhilePl
 import app.revanced.patches.youtube.utils.fix.splash.darkModeSplashScreenPatch
 import app.revanced.patches.youtube.utils.mainactivity.mainActivityResolvePatch
 import app.revanced.patches.youtube.utils.patch.PatchList.SETTINGS_FOR_YOUTUBE
+import app.revanced.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.revanced.patches.youtube.utils.playservice.versionCheckPatch
 import app.revanced.patches.youtube.utils.resourceid.sharedResourceIdPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.copyResources
-import app.revanced.util.copyXmlNode
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.findMethodOrThrow
+import app.revanced.util.*
 import app.revanced.util.fingerprint.methodOrThrow
-import app.revanced.util.removeStringsElements
-import app.revanced.util.valueOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
@@ -294,6 +284,31 @@ val settingsPatch = resourcePatch(
                     .mainAttributes
                     .getValue("Version") + ""
             )
+
+        if (is_20_16_or_greater) {
+            document("AndroidManifest.xml").use { document ->
+                val applicationNode = document.getElementsByTagName("application").item(0)
+
+                // Add VideoQualitySettingsActivity
+                applicationNode.adoptChild("activity") {
+                    setAttribute("android:configChanges", "keyboardHidden")
+                    setAttribute("android:exported", "false")
+                    setAttribute("android:label", "@string/settings")
+                    setAttribute("android:name", "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity")
+                    setAttribute("android:theme", "@style/Theme.YouTube.Settings")
+
+                    // Add intent-filter for the activity
+                    adoptChild("intent-filter") {
+                        adoptChild("action") {
+                            setAttribute("android:name", "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettings")
+                        }
+                        adoptChild("category") {
+                            setAttribute("android:name", "android.intent.category.DEFAULT")
+                        }
+                    }
+                }
+            }
+        }
     }
 
     finalize {

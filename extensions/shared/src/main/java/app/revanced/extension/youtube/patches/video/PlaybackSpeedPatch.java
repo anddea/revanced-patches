@@ -1,16 +1,7 @@
 package app.revanced.extension.youtube.patches.video;
 
-import static app.revanced.extension.shared.utils.StringRef.str;
-import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
-
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
-
-import org.apache.commons.lang3.BooleanUtils;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.utils.Logger;
@@ -20,6 +11,13 @@ import app.revanced.extension.youtube.patches.video.requests.MusicRequest;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.whitelist.Whitelist;
+import org.apache.commons.lang3.BooleanUtils;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import static app.revanced.extension.shared.utils.StringRef.str;
+import static app.revanced.extension.youtube.shared.RootView.isShortsActive;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedPatch {
@@ -74,7 +72,7 @@ public class PlaybackSpeedPatch {
         boolean isWhitelisted = Whitelist.isChannelWhitelistedPlaybackSpeed(newlyLoadedChannelId);
 
         if (newlyLoadedLiveStreamValue || isMusic || isWhitelisted) {
-            synchronized(ignoredPlaybackSpeedVideoIds) {
+            synchronized (ignoredPlaybackSpeedVideoIds) {
                 if (!ignoredPlaybackSpeedVideoIds.containsKey(newlyLoadedVideoId)) {
                     lastSelectedPlaybackSpeed = 1.0f;
                     ignoredPlaybackSpeedVideoIds.put(newlyLoadedVideoId, lastSelectedPlaybackSpeed);
@@ -123,7 +121,11 @@ public class PlaybackSpeedPatch {
 
         if (defaultPlaybackSpeed < 0) { // If the default playback speed is 'Auto', it will be overridden to the last used playback speed.
             float finalPlaybackSpeed = isShorts ? lastSelectedShortsPlaybackSpeed : lastSelectedPlaybackSpeed;
-            VideoInformation.overridePlaybackSpeed(finalPlaybackSpeed);
+            if (isShorts) {
+                VideoInformation.setPlaybackSpeed(lastSelectedShortsPlaybackSpeed);
+            } else {
+                VideoInformation.overridePlaybackSpeed(lastSelectedPlaybackSpeed);
+            }
             Logger.printDebug(() -> "changing playback speed to: " + finalPlaybackSpeed);
             return finalPlaybackSpeed;
         } else { // Otherwise the default playback speed is used.

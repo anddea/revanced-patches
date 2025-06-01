@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.mainactivity.injectOnBackPressedMethodCall
 import app.revanced.patches.youtube.utils.extension.Constants.UTILS_PATH
+import app.revanced.patches.youtube.utils.playservice.is_20_16_or_greater
 import app.revanced.patches.youtube.utils.scrollTopParentFingerprint
 import app.revanced.util.fingerprint.matchOrThrow
 import app.revanced.util.getWalkerMethod
@@ -46,9 +47,9 @@ val doubleBackToClosePatch = bytecodePatch(
         /**
          * Inject the methods which stop of ScrollView
          */
-        scrollTopFingerprint.matchOrThrow(scrollTopParentFingerprint).let {
+        val fingerprint = if (is_20_16_or_greater) scrollTopFingerprint2016 else scrollTopFingerprint
+        fingerprint.matchOrThrow(scrollTopParentFingerprint).let {
             val insertIndex = it.patternMatch!!.endIndex
-
             it.method.injectScrollView(insertIndex, "onStopScrollView")
         }
     }
