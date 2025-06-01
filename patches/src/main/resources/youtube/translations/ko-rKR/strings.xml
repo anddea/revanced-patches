@@ -167,14 +167,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_custom_playback_speed_menu_type_title">사용자 정의 동영상 재생 속도 메뉴 유형</string>
     <string name="revanced_custom_playback_speeds_invalid">사용자 정의 재생 속도는 %s 배속보다 작아야 합니다.</string>
     <string name="revanced_custom_playback_speeds_parse_exception">잘못된 재생 속도 값입니다.</string>
-    <string name="revanced_custom_playback_speeds_summary">사용하고 싶은 동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
+    <string name="revanced_custom_playback_speeds_summary">동영상 재생 속도 값을 추가 또는 변경할 수 있습니다.</string>
     <string name="revanced_custom_playback_speeds_title">사용자 정의 동영상 재생 속도 편집하기</string>
     <string name="revanced_custom_player_overlay_opacity_invalid_toast">플레이어 오버레이 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_custom_player_overlay_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다.</string>
+    <string name="revanced_custom_player_overlay_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다. (투명: 0)</string>
     <string name="revanced_custom_player_overlay_opacity_title">사용자 정의 플레이어 오버레이 불투명도</string>
-    <string name="revanced_custom_seekbar_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요.</string>
+    <string name="revanced_custom_seekbar_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다.</string>
     <string name="revanced_custom_seekbar_color_accent_title">사용자 정의 재생바 보조 색상</string>
-    <string name="revanced_custom_seekbar_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요.</string>
+    <string name="revanced_custom_seekbar_color_primary_summary">재생바 메인 색상을 지정할 수 있습니다.</string>
     <string name="revanced_custom_seekbar_color_primary_title">사용자 정의 재생바 메인 색상</string>
     <string name="revanced_default_app_settings_summary">다른 앱에서 YouTube 링크를 RVX로 열려면 \'지원되는 링크 열기\'를 활성화하고 지원되는 링크를 추가하세요. 링크 추가가 잠겨있다면 순정 YouTube 앱 정보 → \'기본적으로 열기\'에서 \'지원되는 링크 열기\'를 비활성화한 후에 추가할 수 있습니다.</string>
     <string name="revanced_default_app_settings_title">기본 앱 설정 열기</string>
@@ -335,8 +335,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
     <string name="revanced_enable_debug_buffer_logging_summary_off">디버그 로그에 버퍼를 포함하지 않습니다.</string>
     <string name="revanced_enable_debug_buffer_logging_summary_on">디버그 로그에 버퍼를 포함합니다.</string>
     <string name="revanced_enable_debug_buffer_logging_title">디버그 버퍼 로깅 활성화하기</string>
-    <string name="revanced_enable_debug_logging_summary_off">디버그 로그를 출력하지 않습니다.</string>
-    <string name="revanced_enable_debug_logging_summary_on">디버그 로그를 출력합니다.</string>
+    <string name="revanced_enable_debug_logging_summary_off">디버그 로깅을 비활성화합니다.</string>
+    <string name="revanced_enable_debug_logging_summary_on">디버그 로깅을 활성화합니다.</string>
     <string name="revanced_enable_debug_logging_title">디버그 로깅 활성화하기</string>
     <string name="revanced_enable_gradient_loading_screen_summary_off">그라데이션 색상 로딩 화면을 비활성화합니다.</string>
     <string name="revanced_enable_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다.</string>
@@ -1466,7 +1466,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요."</string>
 • 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다."</string>
     <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
     <string name="revanced_miniplayer_opacity_invalid_toast">미니 플레이어 오버레이 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_miniplayer_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다.</string>
+    <string name="revanced_miniplayer_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다. (투명: 0)</string>
     <string name="revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
     <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다.</string>
     <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다.</string>
@@ -1818,7 +1818,7 @@ API Key를 발급받는 방법을 보려면 여기를 누르세요."</string>
     <string name="revanced_sb_appearance_category">레이아웃</string>
     <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다.</string>
     <string name="revanced_sb_color_dot_label">색상:</string>
-    <string name="revanced_sb_color_invalid">잘못된 헥스 코드입니다.</string>
+    <string name="revanced_sb_color_invalid">잘못된 색상입니다.</string>
     <string name="revanced_sb_color_opacity_label">불투명도:</string>
     <string name="revanced_sb_color_reset">색상을 초기화하였습니다.</string>
     <string name="revanced_sb_create_segment_category">새로운 구간 추가하기</string>
@@ -2219,12 +2219,16 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">자동</string>
     <string name="revanced_swipe_magnitude_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있습니다.</string>
     <string name="revanced_swipe_magnitude_threshold_title">스와이프 한계치</string>
-    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다.</string>
-    <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다.</string>
+    <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 배경 불투명도 값은 0-100 사이여야 합니다.</string>
+    <string name="revanced_swipe_overlay_background_opacity_summary">배경 불투명도 값을 0-100 사이에서 지정할 수 있습니다.</string>
     <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
-    <string name="revanced_swipe_overlay_progress_brightness_color_summary">스와이프 오버레이 밝기 조절바 색상을 변경할 수 있습니다</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">탐색 조절바 색상을 지정할 수 있습니다.</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">스와이프 오버레이 탐색 조절바 색상</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">속도 조절바 색상을 지정할 수 있습니다.</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">스와이프 오버레이 속도 조절바 색상</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_summary">밝기 조절바 색상을 지정할 수 있습니다</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">스와이프 오버레이 밝기 조절바 색상</string>
-    <string name="revanced_swipe_overlay_progress_volume_color_summary">스와이프 오버레이 볼륨 조절바 색상을 변경할 수 있습니다</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_summary">볼륨 조절바 색상을 지정할 수 있습니다</string>
     <string name="revanced_swipe_overlay_progress_volume_color_title">스와이프 오버레이 볼륨 조절바 색상</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">스와이프 영역 크기는 50 보다 클 수 없습니다.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">스와이프를 할 수 있는 화면 영역 크기를 지정할 수 있습니다. (백분율)\n\n알림: \'두 번 탭하여 탐색\' 제스처의 화면 영역 크기도 변경됩니다.</string>
@@ -2249,7 +2253,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
     <string name="revanced_swipe_switch_speed_and_seek_summary_on">속도 스와이프 영역은 상단에, 탐색 스와이프 영역은 하단에 위치합니다.</string>
     <string name="revanced_swipe_switch_speed_and_seek_title">속도 스와이프 영역과 탐색 스와이프 영역 위치 교환하기</string>
     <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
-    <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
+    <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 1-30 사이에서 지정할 수 있습니다</string>
     <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">볼륨 스와이프 민감도는 1-1000 사이여야 합니다. (백분율)</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">볼륨 스와이프의 최소 거리를 1-1000 사이에서 지정할 수 있습니다. (백분율)\n\n최소 거리가 짧을수록 볼륨 레벨이 더 빠르게 변경됩니다.\n\n권장 볼륨 스와이프 민감도는 15단계 볼륨에서 100%, 150단계 볼륨에서 10%입니다.</string>
