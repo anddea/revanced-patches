@@ -1,4 +1,4 @@
-@file:Suppress("CONTEXT_RECEIVERS_DEPRECATED")
+@file:Suppress("CONTEXT_RECEIVERS_DEPRECATED", "RemoveRedundantCallsOfConversionMethods", "RemoveRedundantQualifierName")
 
 package app.revanced.util
 
@@ -17,8 +17,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.mapping.getResourceId
 import app.revanced.patches.shared.mapping.resourceMappingPatch
+import app.revanced.util.InstructionUtils.Companion.branchOpcodes
+import app.revanced.util.InstructionUtils.Companion.returnOpcodes
+import app.revanced.util.InstructionUtils.Companion.writeOpcodes
 import app.revanced.util.Utils.printWarn
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -52,10 +56,10 @@ fun parametersEqual(
 
 /**
  * Starting from and including the instruction at index [startIndex],
- * finds the next register that is wrote to and not read from. If a return instruction
+ * finds the next register that is written to and not read from. If a return instruction
  * is encountered, then the lowest unused register is returned.
  *
- * This method can return a non 4-bit register, and the calling code may need to temporarily
+ * This method can return a non-4-bit register, and the calling code may need to temporarily
  * swap register contents if a 4-bit register is required.
  *
  * @param startIndex Inclusive starting index.
@@ -64,49 +68,13 @@ fun parametersEqual(
  * @throws IllegalArgumentException If a branch or conditional statement is encountered
  *                                  before a suitable register is found.
  */
-internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
+fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
     if (startIndex < 0 || startIndex >= instructions.count()) {
         throw IllegalArgumentException("startIndex out of bounds: $startIndex")
     }
-
-    // All registers used by an instruction.
-    fun Instruction.getRegistersUsed() = when (this) {
-        is FiveRegisterInstruction -> listOf(registerC, registerD, registerE, registerF, registerG)
-        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
-        is TwoRegisterInstruction -> listOf(registerA, registerB)
-        is OneRegisterInstruction -> listOf(registerA)
-        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
-        else -> emptyList()
-    }
-
-    // Register that is written to by an instruction.
-    fun Instruction.getRegisterWritten() = when (this) {
-        is ThreeRegisterInstruction -> registerA
-        is TwoRegisterInstruction -> registerA
-        is OneRegisterInstruction -> registerA
-        else -> throw IllegalStateException("Not a write instruction: $this")
-    }
-
-    val writeOpcodes = EnumSet.of(
-        NEW_INSTANCE, NEW_ARRAY,
-        MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
-        MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
-        IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
-        SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
-    )
-
-    val branchOpcodes = EnumSet.of(
-        GOTO, GOTO_16, GOTO_32,
-        IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
-        IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-    )
-
-    val returnOpcodes = EnumSet.of(
-        RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT,
-    )
 
     // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
     val maxRegister4Bits = 16
@@ -115,9 +83,39 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
 
     for (i in startIndex until instructions.count()) {
         val instruction = getInstruction(i)
+        val instructionRegisters = instruction.registersUsed
 
-        if (instruction.opcode in returnOpcodes) {
-            // Method returns. Use lowest register that hasn't been encountered.
+        val writeRegister = instruction.writeRegister
+        if (writeRegister != null) {
+            if (writeRegister !in usedRegisters) {
+                // Verify the register is only used for write and not also as a parameter.
+                // If the instruction uses the write register once then it's not also a read register.
+                if (instructionRegisters.count { register -> register == writeRegister } == 1) {
+                    if (writeRegister < maxRegister4Bits) {
+                        // Found an ideal register.
+                        return writeRegister
+                    }
+
+                    // Continue searching for a 4-bit register if available.
+                    if (bestFreeRegisterFound == null || writeRegister < bestFreeRegisterFound) {
+                        bestFreeRegisterFound = writeRegister
+                    }
+                }
+            }
+        }
+
+        usedRegisters.addAll(instructionRegisters)
+
+        if (instruction.isBranchInstruction) {
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+            // This method is simple and does not follow branching.
+            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+        }
+
+        if (instruction.isReturnInstruction) {
+            // Use the lowest register that hasn't been encountered.
             val freeRegister = (0 until implementation!!.registerCount).find {
                 it !in usedRegisters
             }
@@ -125,47 +123,72 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
                 return freeRegister
             }
             if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
+                return bestFreeRegisterFound
             }
 
-            // Somehow every method register was read from before any register was wrote to.
+            // Somehow every method register was read from before any register was written to.
             // In practice this never occurs.
             throw IllegalArgumentException(
                 "Could not find a free register from startIndex: " +
                         "$startIndex excluding: $registersToExclude"
             )
         }
-
-        if (instruction.opcode in branchOpcodes) {
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
-            }
-            // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
-        }
-
-        if (instruction.opcode in writeOpcodes) {
-            val freeRegister = instruction.getRegisterWritten()
-            if (freeRegister !in usedRegisters) {
-                if (freeRegister < maxRegister4Bits) {
-                    // Found an ideal register.
-                    return freeRegister
-                }
-
-                // Continue searching for a 4-bit register if available.
-                if (bestFreeRegisterFound == null || freeRegister < bestFreeRegisterFound) {
-                    bestFreeRegisterFound = freeRegister
-                }
-            }
-        }
-
-        usedRegisters.addAll(instruction.getRegistersUsed())
     }
 
-    // Cannot be reached since a branch or return statement will
-    // be encountered before the end of the method.
-    throw IllegalStateException()
+    // Some methods can have array payloads at the end of the method after a return statement.
+    // But in normal usage this cannot be reached since a branch or return statement
+    // will be encountered before the end of the method.
+    throw IllegalArgumentException("Start index is outside the range of normal control flow: $startIndex")
 }
+
+/**
+ * @return The registers used by this instruction.
+ */
+internal val Instruction.registersUsed: List<Int>
+    get() = when (this) {
+        is FiveRegisterInstruction -> {
+            when (registerCount) {
+                1 -> listOf(registerC)
+                2 -> listOf(registerC, registerD)
+                3 -> listOf(registerC, registerD, registerE)
+                4 -> listOf(registerC, registerD, registerE, registerF)
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
+            }
+        }
+
+        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+        is TwoRegisterInstruction -> listOf(registerA, registerB)
+        is OneRegisterInstruction -> listOf(registerA)
+        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+        else -> emptyList()
+    }
+
+/**
+ * @return The register that is written to by this instruction,
+ *         or NULL if this is not a write opcode.
+ */
+internal val Instruction.writeRegister: Int?
+    get() {
+        if (this.opcode !in writeOpcodes) {
+            return null
+        }
+        if (this !is OneRegisterInstruction) {
+            throw IllegalStateException("Not a write instruction: $this")
+        }
+        return registerA
+    }
+
+/**
+ * @return If this instruction is an unconditional or conditional branch opcode.
+ */
+internal val Instruction.isBranchInstruction: Boolean
+    get() = this.opcode in branchOpcodes
+
+/**
+ * @return If this instruction returns or throws.
+ */
+internal val Instruction.isReturnInstruction: Boolean
+    get() = this.opcode in returnOpcodes
 
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
@@ -217,7 +240,7 @@ fun MutableMethod.injectHideViewCall(
 
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
- * Inserted instructions can have it's own control flow labels as well.
+ * Inserted instructions can have its own control flow labels as well.
  *
  * Effectively this changes the code from:
  * :label
@@ -228,16 +251,36 @@ fun MutableMethod.injectHideViewCall(
  * (patch code)
  * (original code)
  */
-internal fun MutableMethod.addInstructionsAtControlFlowLabel(
+@Suppress("RemoveExplicitTypeArguments")
+fun MutableMethod.addInstructionsAtControlFlowLabel(
+    insertIndex: Int,
+    instructions: String
+) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
+
+/**
+ * Inserts instructions at a given index, using the existing control flow label at that index.
+ * Inserted instructions can have its own control flow labels as well.
+ *
+ * Effectively this changes the code from:
+ * :label
+ * (original code)
+ *
+ * Into:
+ * :label
+ * (patch code)
+ * (original code)
+ */
+fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
+    vararg externalLabels: ExternalLabel
 ) {
     // Duplicate original instruction and add to +1 index.
     addInstruction(insertIndex + 1, getInstruction(insertIndex))
 
     // Add patch code at same index as duplicated instruction,
     // so it uses the original instruction control flow label.
-    addInstructionsWithLabels(insertIndex + 1, instructions)
+    addInstructionsWithLabels(insertIndex + 1, instructions, *externalLabels)
 
     // Remove original non duplicated instruction.
     removeInstruction(insertIndex)
@@ -283,7 +326,7 @@ fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
 }
 
 /**
- * Find the index of the first literal instruction with the given value.
+ * Find the index of the first literal instruction with the given long value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
@@ -295,14 +338,56 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
 } ?: -1
 
 /**
- * Find the index of the first literal instruction with the given value,
+ * Find the index of the first literal instruction with the given long value,
  * or throw an exception if not found.
  *
  * @return the first literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given float value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Float) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find float literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given double value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Double) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find double literal: $literal")
     return index
 }
 
@@ -319,14 +404,56 @@ fun Method.indexOfFirstLiteralInstructionReversed(literal: Long) = implementatio
 } ?: -1
 
 /**
- * Find the index of the last wide literal instruction with the given value,
+ * Find the index of the last wide literal instruction with the given long value,
  * or throw an exception if not found.
  *
  * @return the last literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstructionReversed(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the last literal instruction with the given float value.
+ *
+ * @return the last literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the last wide literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the last literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstructionReversed(literal)
+    if (index < 0) throw PatchException("Could not find float literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the last literal instruction with the given double value.
+ *
+ * @return the last literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the last wide literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the last literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstructionReversed(literal)
+    if (index < 0) throw PatchException("Could not find double literal: $literal")
     return index
 }
 
@@ -346,12 +473,25 @@ fun Method.indexOfFirstStringInstructionOrThrow(str: String): Int {
 }
 
 /**
- * Check if the method contains a literal with the given value.
+ * Check if the method contains a literal with the given long value.
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsLiteralInstruction(literal: Long) =
-    indexOfFirstLiteralInstruction(literal) >= 0
+fun Method.containsLiteralInstruction(literal: Long) = indexOfFirstLiteralInstruction(literal) >= 0
+
+/**
+ * Check if the method contains a literal with the given float value.
+ *
+ * @return if the method contains a literal with the given value.
+ */
+fun Method.containsLiteralInstruction(literal: Float) = indexOfFirstLiteralInstruction(literal) >= 0
+
+/**
+ * Check if the method contains a literal with the given double value.
+ *
+ * @return if the method contains a literal with the given value.
+ */
+fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInstruction(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -359,10 +499,7 @@ fun Method.containsLiteralInstruction(literal: Long) =
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodePatchContext.traverseClassHierarchy(
-    targetClass: MutableClass,
-    callback: MutableClass.() -> Unit
-) {
+fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
     callback(targetClass)
 
     targetClass.superclass ?: return
@@ -453,15 +590,13 @@ fun BytecodePatchContext.replaceLiteralInstructionCall(
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
-inline fun <reified T : Reference> Instruction.getReference() =
-    (this as? ReferenceInstruction)?.reference as? T
+inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
 
 /**
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int =
-    indexOfFirstInstruction(0, targetOpcode)
+fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int = indexOfFirstInstruction(0, targetOpcode)
 
 /**
  * @param startIndex Optional starting index to start searching from.
@@ -481,10 +616,7 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): I
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, filter: Instruction.() -> Boolean): Int {
-    if (implementation == null) {
-        return -1
-    }
-    var instructions = this.implementation!!.instructions
+    var instructions = this.implementation?.instructions ?: return -1
     if (startIndex != 0) {
         instructions = instructions.drop(startIndex)
     }
@@ -502,8 +634,7 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, filter: Instruction.() -
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int =
-    indexOfFirstInstructionOrThrow(0, targetOpcode)
+fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(0, targetOpcode)
 
 /**
  * @return The index of the first opcode specified, starting from the index specified.
@@ -518,14 +649,11 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opc
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
- * @return the index of the instruction
+ * @return The index of the instruction.
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(
-    startIndex: Int = 0,
-    filter: Instruction.() -> Boolean
-): Int {
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instruction.() -> Boolean): Int {
     val index = indexOfFirstInstruction(startIndex, filter)
     if (index < 0) {
         throw PatchException("Could not find instruction index")
@@ -555,14 +683,8 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(
-    startIndex: Int? = null,
-    filter: Instruction.() -> Boolean
-): Int {
-    if (implementation == null) {
-        return -1
-    }
-    var instructions = this.implementation!!.instructions
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
+    var instructions = this.implementation?.instructions ?: return -1
     if (startIndex != null) {
         instructions = instructions.take(startIndex + 1)
     }
@@ -570,37 +692,48 @@ fun Method.indexOfFirstInstructionReversed(
     return instructions.indexOfLast(filter)
 }
 
-fun Method.indexOfFirstInstructionReversedOrThrow(opcode: Opcode): Int =
-    indexOfFirstInstructionReversedOrThrow(null, opcode)
+/**
+ * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfFirstInstructionReversed {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
- * @return -1 if the instruction is not found.
+ * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(
-    startIndex: Int? = null,
-    targetOpcode: Opcode
-): Int =
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
     indexOfFirstInstructionReversedOrThrow(startIndex) {
         opcode == targetOpcode
     }
 
 /**
  * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow {
+    opcode == targetOpcode
+}
+
+/**
+ * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
- * @return -1 if the instruction is not found.
+ * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(
-    startIndex: Int? = null,
-    filter: Instruction.() -> Boolean
-): Int {
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
     val index = indexOfFirstInstructionReversed(startIndex, filter)
 
     if (index < 0) {
@@ -615,12 +748,11 @@ fun Method.indexOfFirstInstructionReversedOrThrow(
  *  _Returns an empty list if no indices are found_
  *  @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> =
-    instructions
-        .withIndex()
-        .filter { (_, instruction) -> filter(instruction) }
-        .map { (index, _) -> index }
-        .asReversed()
+fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> = instructions
+    .withIndex()
+    .filter { (_, instruction) -> filter(instruction) }
+    .map { (index, _) -> index }
+    .asReversed()
 
 /**
  * @return An immutable list of indices of the instructions in reverse order.
@@ -655,27 +787,6 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 fun Method.referenceMatchesOrThrow(targetIndex: Int, reference: String) {
     val targetReference = getInstruction<ReferenceInstruction>(targetIndex).reference.toString()
     if (reference != targetReference) throw PatchException("References do not match. Expected: '$reference', Found: '$targetReference'")
-}
-
-/**
- * Called for _all_ instructions with the given literal value.
- */
-fun BytecodePatchContext.forEachLiteralValueInstruction(
-    literal: Long,
-    block: MutableMethod.(literalInstructionIndex: Int) -> Unit,
-) {
-    classes.forEach { classDef ->
-        classDef.methods.forEach { method ->
-            method.implementation?.instructions?.forEachIndexed { index, instruction ->
-                if (instruction.opcode == Opcode.CONST &&
-                    (instruction as WideLiteralInstruction).wideLiteral == literal
-                ) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
-                    block.invoke(mutableMethod, index)
-                }
-            }
-        }
-    }
 }
 
 context(BytecodePatchContext)
@@ -849,6 +960,160 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
     addInstructions(0, stringInstructions)
 }
 
+private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
+
+/**
+ * Overrides all return statements with a constant `Boolean` value.
+ * All method code is executed the same as unpatched.
+ *
+ * For methods that return an object or any array type, calling this method with `false`
+ * will force the method to return a `null` value.
+ *
+ * @see returnEarly
+ */
+fun MutableMethod.returnLate(value: Boolean) {
+    val returnType = returnType.first()
+    if (returnType == 'V') {
+        error("Cannot return late for Method of void type")
+    }
+    check(returnType == 'Z' || (!value && returnType in setOf('L', '['))) { RETURN_TYPE_MISMATCH }
+
+    overrideReturnValue(value.toHexString(), true)
+}
+
+// /**
+//  * Overrides all return statements with a constant `Byte` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Byte) {
+//     check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Short` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Short) {
+//     check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Char` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Char) {
+//     check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.code.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Int` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Int) {
+//     check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Long` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Long) {
+//     check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Float` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Float) {
+//     check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+//
+// /**
+//  * Overrides all return statements with a constant `Double` value.
+//  * All method code is executed the same as unpatched.
+//  *
+//  * @see returnEarly
+//  */
+// fun MutableMethod.returnLate(value: Double) {
+//     check(returnType.first() == 'D') { RETURN_TYPE_MISMATCH }
+//     overrideReturnValue(value.toString(), true)
+// }
+
+private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
+    val instructions = when (returnType.first()) {
+        // If return type is an object, always return null.
+        'L', '[' -> {
+            """
+                const/4 v0, 0x0
+                return-object v0
+            """
+        }
+
+        'V' -> {
+            "return-void"
+        }
+
+        'B', 'Z' -> {
+            """
+                const/4 v0, $value
+                return v0
+            """
+        }
+
+        'S', 'C' -> {
+            """
+                const/16 v0, $value
+                return v0
+            """
+        }
+
+        'I', 'F' -> {
+            """
+                const v0, $value
+                return v0
+            """
+        }
+
+        'J', 'D' -> {
+            """
+                const-wide v0, $value
+                return-wide v0
+            """
+        }
+
+        else -> throw Exception("Return type is not supported: $this")
+    }
+
+    if (returnLate) {
+        findInstructionIndicesReversed {
+            opcode == RETURN || opcode == RETURN_OBJECT
+        }.forEach { index ->
+            addInstructionsAtControlFlowLabel(index, instructions)
+        }
+    } else {
+        addInstructions(0, instructions)
+    }
+}
+
 /**
  * Set the custom condition for this fingerprint to check for a literal value.
  *
@@ -858,6 +1123,61 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())
+    }
+}
+
+private class InstructionUtils {
+    companion object {
+        val branchOpcodes: EnumSet<Opcode> = EnumSet.of(
+            GOTO, GOTO_16, GOTO_32,
+            IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
+            IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+        )
+
+        val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
+            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
+            THROW
+        )
+
+        val writeOpcodes: EnumSet<Opcode> = EnumSet.of(
+            ARRAY_LENGTH,
+            INSTANCE_OF,
+            NEW_INSTANCE, NEW_ARRAY,
+            MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
+            MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
+            CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
+            CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
+            IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
+            IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
+            SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
+            SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
+            AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
+            // Arithmetic and logical operations.
+            ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
+            ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
+            AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
+            DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
+            DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
+            DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
+            FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
+            INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
+            LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
+            MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
+            MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
+            NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
+            NOT_INT, NOT_LONG,
+            OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
+            REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
+            REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
+            RSUB_INT_LIT8, RSUB_INT,
+            SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
+            SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
+            SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
+            SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
+            USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
+            XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
+        )
     }
 }
 
@@ -881,3 +1201,5 @@ infix fun AccessFlags.or(other: AccessFlags) = value or other.value
  * @param other The [AccessFlags] to perform the operation with.
  */
 infix fun AccessFlags.or(other: Int) = value or other
+
+internal fun Boolean.toHexString(): String = if (this) "0x1" else "0x0"

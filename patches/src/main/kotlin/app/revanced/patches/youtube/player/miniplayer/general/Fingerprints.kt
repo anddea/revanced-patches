@@ -77,7 +77,6 @@ internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 internal val miniplayerModernConstructorFingerprint = legacyFingerprint(
     name = "miniplayerModernConstructorFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("L"),
     literals = listOf(45623000L),
 )
 
@@ -85,7 +84,7 @@ internal val miniplayerModernViewParentFingerprint = legacyFingerprint(
     name = "miniplayerModernViewParentFingerprint",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Ljava/lang/String;",
-    parameters = listOf(),
+    parameters = emptyList(),
     strings = listOf("player_overlay_modern_mini_player_controls")
 )
 

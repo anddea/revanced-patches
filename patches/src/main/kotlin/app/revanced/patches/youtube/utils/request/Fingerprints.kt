@@ -1,54 +1,58 @@
 package app.revanced.patches.youtube.utils.request
 
-import app.revanced.util.fingerprint.legacyFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val buildRequestFingerprint = legacyFingerprint(
-    name = "buildRequestFingerprint",
-    customFingerprint = { method, _ ->
-        method.implementation != null &&
-                indexOfRequestFinishedListenerInstruction(method) >= 0 &&
-                !method.definingClass.startsWith("Lorg/") &&
-                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
-                // Earlier targets
-                (indexOfEntrySetInstruction(method) >= 0 ||
-                        // Later targets
-                        method.parameters[1].type == "Ljava/util/Map;")
-    }
-)
+internal val buildRequestFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
+    custom { methodDef, _ ->
+        // Different targets have slightly different parameters
 
-internal val buildRequestFingerprint2016 = legacyFingerprint(
-    name = "buildRequestFingerprint",
-    customFingerprint = { method, _ ->
-        method.implementation != null &&
-                // indexOfRequestFinishedListenerInstruction(method) >= 0 &&
-                !method.definingClass.startsWith("Lorg/") &&
-                indexOfNewUrlRequestBuilderInstruction(method) >= 0 &&
-                // Earlier targets
-                (indexOfEntrySetInstruction(method) >= 0 ||
-                        // Later targets
-                        method.parameters[1].type == "Ljava/util/Map;")
-    }
-)
+        // Earlier targets have parameters:
+        // L
+        // Ljava/util/Map;
+        // [B
+        // L
+        // L
+        // L
+        // Lorg/chromium/net/UrlRequest$Callback;
+        // Later targets have parameters:
+        // L
+        // Ljava/util/Map;
+        // [B
+        // L
+        // L
+        // L
+        // Lorg/chromium/net/UrlRequest\$Callback;
+        // L
 
-internal fun indexOfRequestFinishedListenerInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "setRequestFinishedListener"
+        // 20.16+ uses a refactored and extracted method:
+        // L
+        // Ljava/util/Map;
+        // [B
+        // L
+        // Lorg/chromium/net/UrlRequest$Callback;
+        // L
+
+        val parameterTypes = methodDef.parameterTypes
+        val parameterTypesSize = parameterTypes.size
+        (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
+                parameterTypes[1] == "Ljava/util/Map;"
+
+        methodDef.implementation != null &&
+                !methodDef.definingClass.startsWith("Lorg/") &&
+                indexOfNewUrlRequestBuilderInstruction(methodDef) >= 0
     }
+}
 
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) =
     method.indexOfFirstInstruction {
         opcode == Opcode.INVOKE_VIRTUAL &&
                 getReference<MethodReference>().toString() == "Lorg/chromium/net/CronetEngine;->newUrlRequestBuilder(Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;Ljava/util/concurrent/Executor;)Lorg/chromium/net/UrlRequest${'$'}Builder;"
-    }
-
-internal fun indexOfEntrySetInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_INTERFACE &&
-                getReference<MethodReference>().toString() == "Ljava/util/Map;->entrySet()Ljava/util/Set;"
     }

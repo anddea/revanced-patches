@@ -673,6 +673,7 @@ val shortsComponentPatch = bytecodePatch(
             reversed: Boolean
         ) =
             methodOrThrow().apply {
+                if (is_20_18_or_greater) return@apply
                 val constIndex = indexOfFirstLiteralInstructionOrThrow(id)
                 val insertIndex = if (reversed)
                     indexOfFirstInstructionReversedOrThrow(constIndex, Opcode.CHECK_CAST)
@@ -728,6 +729,7 @@ val shortsComponentPatch = bytecodePatch(
         // region patch for hide dislike button (non-litho)
 
         shortsButtonFingerprint.methodOrThrow().apply {
+            if (is_20_18_or_greater) return@apply
             val constIndex =
                 indexOfFirstLiteralInstructionOrThrow(reelRightDislikeIcon)
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
@@ -749,6 +751,7 @@ val shortsComponentPatch = bytecodePatch(
         // region patch for hide like button (non-litho)
 
         shortsButtonFingerprint.methodOrThrow().apply {
+            if (is_20_18_or_greater) return@apply
             val insertIndex = indexOfFirstLiteralInstructionOrThrow(reelRightLikeIcon)
             val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
             val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.CONST_CLASS) + 2

@@ -638,7 +638,7 @@ val playerComponentsPatch = bytecodePatch(
                 removeInstruction(insertIndex)
             }
         } else if (is_20_05_or_greater) {
-            // This is a new film strip overlay added to YouTube 20.05+
+            // This is a new filmstrip overlay added to YouTube 20.05+
             // Disabling this flag is not related to the operation of the patch.
             filmStripOverlayConfigV2Fingerprint.injectLiteralInstructionBooleanCall(
                 FILM_STRIP_OVERLAY_V2_FEATURE_FLAG,
@@ -669,29 +669,31 @@ val playerComponentsPatch = bytecodePatch(
 
         // region patch for hide seek message
 
-        if (!is_20_14_or_greater || (is_20_15_or_greater && !is_20_16_or_greater)) {
-            seekEduContainerFingerprint.methodOrThrow().apply {
-                addInstructionsWithLabels(
-                    0, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
-                        move-result v0
-                        if-eqz v0, :default
-                        return-void
-                    """, ExternalLabel("default", getInstruction(0))
-                )
+        seekEduContainerFingerprint.methodOrThrow().apply {
+            val (register, condition, insertIndex) = when {
+                is_20_18_or_greater && !is_20_19_or_greater -> {
+                    Triple("v2", "if-nez", 0)
+                }
+
+                !is_20_14_or_greater || (is_20_15_or_greater && !is_20_16_or_greater) -> {
+                    Triple("v0", "if-eqz", 0)
+                }
+
+                else -> {
+                    Triple("v0", "if-eqz", 1)
+                }
             }
-        } else {
-            seekEduContainerFingerprint.methodOrThrow().apply {
-                val originalInstructionAfterSuper = getInstruction(1)
-                addInstructionsWithLabels(
-                    1, """
-                        invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
-                        move-result v0
-                        if-eqz v0, :continue_constructor_normally
-                        return-void
-                    """, ExternalLabel("continue_constructor_normally", originalInstructionAfterSuper)
-                )
-            }
+            val labelInstruction = getInstruction(insertIndex)
+            addInstructionsWithLabels(
+                insertIndex,
+                """
+                    invoke-static {}, $PLAYER_CLASS_DESCRIPTOR->hideSeekMessage()Z
+                    move-result $register
+                    $condition $register, :default
+                    return-void
+                """,
+                ExternalLabel("default", labelInstruction)
+            )
         }
 
         // Removed in YouTube 20.02+

@@ -61,6 +61,5 @@ val shareSheetPatch = bytecodePatch(
         )
 
         updatePatchStatus(CHANGE_SHARE_SHEET)
-
     }
 }
