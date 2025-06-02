@@ -151,14 +151,9 @@ val videoPlaybackPatch = bytecodePatch(
         }
 
         if (is_20_14_or_greater) {
-            // This should match all previous versions
-            // The obfuscated method names like "a" and "f" have been consistent for playback speed
-            // across several observed app versions.
-            // These names are obfuscated and *could* change, but we are leveraging their
-            // observed stability for a simpler patch.
             pcmGetterMethodFingerprint.mutableClassOrThrow().let {
                 val targetMethod =
-                    it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() && method.name == "a" }
+                    it.methods.find { method -> method.returnType == "F" && method.parameters.isEmpty() }
                         ?: throw PatchException("Method returning playback speed not found in class $it.")
 
                 targetMethod.apply {
@@ -173,17 +168,6 @@ val videoPlaybackPatch = bytecodePatch(
                     )
                 }
             }
-
-            // This fingerprint works for some previous versions too
-            // Shorts playback speed is not set immediately, video should be changed for speed to apply
-            // playbackSpeedSetterFingerprint.methodOrThrow().apply {
-            //     addInstructions(
-            //         0, """
-            //         invoke-static {p1}, $EXTENSION_PLAYBACK_SPEED_CLASS_DESCRIPTOR->getPlaybackSpeed(F)F
-            //         move-result p1
-            //         """
-            //     )
-            // }
         } else {
             loadVideoParamsFingerprint.matchOrThrow(loadVideoParamsParentFingerprint).let {
                 it.method.apply {
@@ -222,13 +206,16 @@ val videoPlaybackPatch = bytecodePatch(
 
         qualityChangedFromRecyclerViewFingerprint.matchOrThrow().let {
             it.method.apply {
-                val index = it.patternMatch!!.startIndex
+                val newInstanceIndex = implementation?.instructions!!.indexOfFirst { instruction ->
+                    instruction.opcode == Opcode.NEW_INSTANCE &&
+                            (instruction as? ReferenceInstruction)?.reference?.toString() == "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
+                }
+                if (newInstanceIndex == -1) throw IllegalStateException("VideoQuality new-instance not found")
 
                 addInstruction(
-                    index + 1,
+                    newInstanceIndex + 1,
                     "invoke-static {}, $EXTENSION_VIDEO_QUALITY_CLASS_DESCRIPTOR->userSelectedVideoQuality()V"
                 )
-
             }
         }
 

@@ -110,7 +110,7 @@ internal object ResourceUtils {
 
     fun addPreferenceFragment(key: String, insertKey: String) = context.apply {
         val targetClass =
-            "com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity"
+            "com.google.android.libraries.social.licenses.LicenseActivity"
 
         document(YOUTUBE_SETTINGS_PATH).use { document ->
             with(document) {

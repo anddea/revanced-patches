@@ -1,22 +1,104 @@
 package app.revanced.patches.shared.litho
 
+import app.revanced.patcher.fingerprint
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literal
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-internal const val BUFFER_UPD_FEATURE_FLAG = 45419603L
+internal val componentContextParserFingerprint = fingerprint {
+    strings(
+        "TreeNode result must be set.",
+        // String is a partial match and changed slightly in 20.03+
+        "it was removed due to duplicate converter bindings."
+    )
+}
 
-internal val bufferUpbFeatureFlagFingerprint = legacyFingerprint(
-    name = "bufferUpbFeatureFlagFingerprint",
+/**
+ * Resolves to the class found in [componentContextParserFingerprint].
+ * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
+ */
+internal val componentContextSubParserFingerprint = fingerprint {
+    strings(
+        "Number of bits must be positive"
+    )
+}
+
+internal val lithoFilterFingerprint = fingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    custom { _, classDef ->
+        classDef.endsWith("/LithoFilterPatch;")
+    }
+}
+
+internal val protobufBufferReferenceFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("I", "Ljava/nio/ByteBuffer;")
+    opcodes(
+        Opcode.IPUT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.SUB_INT_2ADDR,
+    )
+}
+
+internal val emptyComponentFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
+    parameters()
+    strings("EmptyComponent")
+    custom { _, classDef ->
+        classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
+    }
+}
+
+internal val emptyComponentsFingerprint = legacyFingerprint(
+    name = "emptyComponentsFingerprint",
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    parameters = listOf("L"),
-    literals = listOf(BUFFER_UPD_FEATURE_FLAG),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    opcodes = listOf(
+        Opcode.INVOKE_INTERFACE,
+        Opcode.INVOKE_STATIC_RANGE,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT,
+    ),
+    customFingerprint = { method, _ ->
+        method.indexOfFirstInstruction {
+            opcode == Opcode.CONST_STRING &&
+                    getReference<StringReference>()
+                        ?.string.toString()
+                        .startsWith("Error while converting")
+        } >= 0
+    }
 )
+
+internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal { 45631264L }
+}
+
+internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
+    returns("L")
+    literal { 45419603L }
+}
+
+internal val conversionContextFingerprintToString = fingerprint {
+    parameters()
+    strings(
+        "ConversionContext{containerInternal=",
+        ", widthConstraint=",
+        ", heightConstraint=",
+        ", templateLoggerFactory=",
+        ", rootDisposableContainer=",
+        ", identifierProperty="
+    )
+}
 
 internal val byteBufferFingerprint = legacyFingerprint(
     name = "byteBufferFingerprint",
@@ -48,26 +130,6 @@ internal val byteBufferFingerprint = legacyFingerprint(
     },
 )
 
-internal val emptyComponentsFingerprint = legacyFingerprint(
-    name = "emptyComponentsFingerprint",
-    returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.INVOKE_STATIC_RANGE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-    ),
-    customFingerprint = { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.CONST_STRING &&
-                    getReference<StringReference>()
-                        ?.string.toString()
-                        .startsWith("Error while converting")
-        } >= 0
-    }
-)
-
 /**
  * Since YouTube v19.18.41 and YT Music 7.01.53, pathBuilder is being handled by a different Method.
  */
@@ -75,6 +137,16 @@ internal val pathBuilderFingerprint = legacyFingerprint(
     name = "pathBuilderFingerprint",
     returnType = "L",
     strings = listOf("Number of bits must be positive"),
+)
+
+internal const val BUFFER_UPD_FEATURE_FLAG = 45419603L
+
+internal val bufferUpbFeatureFlagFingerprint = legacyFingerprint(
+    name = "bufferUpbFeatureFlagFingerprint",
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L"),
+    literals = listOf(BUFFER_UPD_FEATURE_FLAG),
 )
 
 internal const val PATH_UPD_FEATURE_FLAG = 45631264L
