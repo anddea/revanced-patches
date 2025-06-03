@@ -1,14 +1,12 @@
 package app.revanced.extension.youtube.patches.components;
 
 import androidx.annotation.Nullable;
-
-import org.apache.commons.lang3.StringUtils;
-
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.components.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.components.Filter;
 import app.revanced.extension.shared.patches.components.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
 
@@ -99,6 +97,20 @@ public final class ShortsButtonFilter extends Filter {
                 "reel_player_disclosure.eml"
         );
 
+        StringFilterGroup likeButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_LIKE_BUTTON,
+                "shorts_like_button.eml",
+                "reel_like_button.eml",
+                "reel_like_toggled_button"
+        );
+
+        StringFilterGroup dislikeButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_DISLIKE_BUTTON,
+                "shorts_dislike_button.eml",
+                "reel_dislike_button.eml",
+                "reel_dislike_toggled_button"
+        );
+
         metaPanelButton = new StringFilterGroup(
                 null,
                 "|ContainerType|button.eml|"
@@ -127,7 +139,8 @@ public final class ShortsButtonFilter extends Filter {
         addPathCallbacks(
                 suggestedAction, actionButton, joinButton, subscribeButton, metaPanelButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, fullVideoLinkLabel,
-                videoTitle, reelSoundMetadata, infoPanel, liveHeader, stickers
+                videoTitle, reelSoundMetadata, infoPanel, liveHeader, stickers,
+                likeButton, dislikeButton
         );
 
         //
@@ -143,26 +156,31 @@ public final class ShortsButtonFilter extends Filter {
                 // This also appears as the path item 'shorts_like_button.eml'
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_LIKE_BUTTON,
+                        "shorts_like_button.eml",
                         "reel_like_button",
                         "reel_like_toggled_button"
                 ),
                 // This also appears as the path item 'shorts_dislike_button.eml'
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_DISLIKE_BUTTON,
+                        "shorts_dislike_button.eml",
                         "reel_dislike_button",
                         "reel_dislike_toggled_button"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
-                        "reel_comment_button"
+                        "reel_comment_button",
+                        "youtube_shorts_comment_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHARE_BUTTON,
-                        "reel_share_button"
+                        "reel_share_button",
+                        "youtube_shorts_share_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_REMIX_BUTTON,
-                        "reel_remix_button"
+                        "reel_remix_button",
+                        "youtube_shorts_remix_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.DISABLE_SHORTS_LIKE_BUTTON_FOUNTAIN_ANIMATION,
