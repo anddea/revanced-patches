@@ -552,6 +552,11 @@ public class ReturnYouTubeDislikePatch {
             if (videoId.equals(lastPrefetchedVideoId)) {
                 return;
             }
+            if (Utils.isNetworkNotConnected()) {
+                Logger.printDebug(() -> "Cannot pre-fetch RYD, network is not connected");
+                lastPrefetchedVideoId = null;
+                return;
+            }
 
             final boolean videoIdIsShort = VideoInformation.lastPlayerResponseIsShort();
             // Shorts shelf in home and subscription feed causes player response hook to be called,
@@ -608,6 +613,12 @@ public class ReturnYouTubeDislikePatch {
                 return;
             }
             Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
+
+            if (Utils.isNetworkNotConnected()) {
+                Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
+                currentVideoData = null;
+                return;
+            }
 
             ReturnYouTubeDislike data = ReturnYouTubeDislike.getFetchForVideoId(videoId);
             // Pre-emptively set the data to short status.

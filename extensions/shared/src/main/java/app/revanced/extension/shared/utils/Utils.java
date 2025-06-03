@@ -28,6 +28,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -556,8 +558,8 @@ public class Utils {
      * @param dp The dimension in density-independent pixels to convert.
      * @return The equivalent dimension in pixels, or the input dp value if the context is null.
      */
-    public static int dpToPx(int dp) {
-        if (context == null) return dp;
+    public static int dpToPx(float dp) {
+        if (context == null) return (int) dp;
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
     }
 
@@ -955,6 +957,15 @@ public class Utils {
     public static int getResourceColor(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
         return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
+    }
+
+    public static int getResourceInteger(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+        return getContext().getResources().getInteger(getResourceIdentifier(resourceIdentifierName, "integer"));
+    }
+
+    @NonNull
+    public static Animation getResourceAnimation(@NonNull String resourceIdentifierName) throws Resources.NotFoundException {
+        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(resourceIdentifierName, "anim"));
     }
 
     /**

@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.BaseThemeUtils;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
+import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 import java.util.regex.Pattern;
@@ -47,6 +48,14 @@ public class ThemeUtils extends BaseThemeUtils {
                 ? "yt_outline_trash_can_white_24"
                 : "yt_outline_trash_can_black_24";
         return ResourceUtils.getDrawable(drawableName);
+    }
+
+    public static int getDialogBackgroundColor() {
+        final String colorName = isDarkTheme()
+                ? "yt_black1"
+                : "yt_white1";
+
+        return Utils.getColorFromString(colorName);
     }
 
     /**
@@ -156,7 +165,7 @@ public class ThemeUtils extends BaseThemeUtils {
      * @param factor The adjustment factor (>1.0f to lighten, <=1.0f to darken).
      * @return The adjusted color in ARGB format.
      */
-    private static int adjustColorBrightness(int color, float factor) {
+    public static int adjustColorBrightness(int color, float factor) {
         int alpha = Color.alpha(color);
         int red = Color.red(color);
         int green = Color.green(color);
