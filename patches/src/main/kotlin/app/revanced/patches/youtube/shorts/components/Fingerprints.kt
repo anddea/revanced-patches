@@ -1,10 +1,12 @@
 package app.revanced.patches.youtube.shorts.components
 
 import app.revanced.patcher.extensions.InstructionExtensions.instructionsOrNull
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literal
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -294,3 +296,21 @@ internal val shortsFullscreenFeatureFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(FULLSCREEN_FEATURE_FLAG),
 )
+
+internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45677719L
+    }
+}
+
+internal val renderNextUIFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal {
+        45649743L
+    }
+}
