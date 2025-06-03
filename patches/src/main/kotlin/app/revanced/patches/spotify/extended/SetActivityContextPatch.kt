@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val UTILS_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/utils/Utils;"
 private const val MAIN_ACTIVITY_DESCRIPTOR = "Lcom/spotify/music/SpotifyMainActivity;"
-private const val NOW_PLAYING_ACTIVITY_DESCRIPTOR = "Lcom/spotify/nowplaying/musicinstallation/NowPlayingActivity;"
+// private const val NOW_PLAYING_ACTIVITY_DESCRIPTOR = "Lcom/spotify/nowplaying/musicinstallation/NowPlayingActivity;"
 
 val mainActivityOnCreateFingerprint = fingerprint {
     custom { method, classDef ->

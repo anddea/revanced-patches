@@ -9,6 +9,9 @@ import java.util.Set;
 
 @SuppressWarnings("unused")
 public final class SanitizeSharingLinksPatch {
+    /**
+     * Injection point.
+     */
     public static String sanitizeUrl(String url, String parameters) {
         try {
             Uri uri = Uri.parse(url);
@@ -24,10 +27,11 @@ public final class SanitizeSharingLinksPatch {
                 }
             }
 
-            return builder.build().toString();
+            String sanitizedUrl = builder.build().toString();
+            Logger.printInfo(() -> "Sanitized url " + url + " to " + sanitizedUrl);
+            return sanitizedUrl;
         } catch (Exception ex) {
-            Logger.printException(() -> "sanitizeUrl failure", ex);
-
+            Logger.printException(() -> "sanitizeUrl failure with " + url, ex);
             return url;
         }
     }
