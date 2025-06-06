@@ -1,3 +1,18 @@
+# [3.10.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.1...v3.10.0-dev.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Support A/B Shorts layout for RYD and component hiding ([1bc7eac](https://github.com/anddea/revanced-patches/commit/1bc7eac9a19ab7ce82935bf0bf232fc234be2630))
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add "Hide preview comment" option ([cb94178](https://github.com/anddea/revanced-patches/commit/cb94178be4ff5a11ac3a7692fe83d655ad589675))
+* **YouTube - Playback Speed:** Use modern custom speed dialog ([556a6f0](https://github.com/anddea/revanced-patches/commit/556a6f012b7cd0097fd492e867c6701022c36777))
+* **YouTube Music:** Add support for a wider range of versions (up to 8.18) ([a6ae82f](https://github.com/anddea/revanced-patches/commit/a6ae82f7381f9e61e6b98b1d3123da9984999e5c))
+* **YouTube:** Add support for a wider range of versions (up to 20.21) ([3a726b3](https://github.com/anddea/revanced-patches/commit/3a726b3556dca35ed186c6f10c115079345a8eef))
+
 # [3.10.0-dev.1](https://github.com/anddea/revanced-patches/compare/v3.9.0...v3.10.0-dev.1) (2025-05-31)
 
 

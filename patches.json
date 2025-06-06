@@ -754,7 +754,7 @@
       {
         "key": "backgroundColorSecondary",
         "title": "Secondary background color",
-        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
+        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.\",",
         "required": true,
         "type": "kotlin.String",
         "default": "#FF121212",
@@ -771,11 +771,11 @@
       },
       {
         "key": "accentColorPressed",
-        "title": "Pressed dark theme accent color",
+        "title": "Pressed accent color",
         "description": "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference.",
         "required": true,
         "type": "kotlin.String",
-        "default": "#FF169C46",
+        "default": "#FF1ABC54",
         "values": null
       }
     ]
@@ -1538,6 +1538,18 @@
         "values": null
       }
     ]
+  },
+  {
+    "name": "Hide Create button",
+    "description": "Hides the \"Create\" button in the navigation bar.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
   },
   {
     "name": "Hide Recently Visited shelf",
@@ -2337,18 +2349,6 @@
         "2025.05.1",
         "2025.12.1"
       ]
-    },
-    "options": []
-  },
-  {
-    "name": "Remove Create tab",
-    "description": "Removes the \u0027Create\u0027 (Plus) tab from the bottom navigation bar.",
-    "use": true,
-    "dependencies": [
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
     },
     "options": []
   },
@@ -3331,7 +3331,7 @@
     ]
   },
   {
-    "name": "Unlock Spotify Premium",
+    "name": "Unlock Premium",
     "description": "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
     "use": true,
     "dependencies": [
