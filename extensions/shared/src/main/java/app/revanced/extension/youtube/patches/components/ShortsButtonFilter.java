@@ -128,6 +128,7 @@ public final class ShortsButtonFilter extends Filter {
 
         actionButton = new StringFilterGroup(
                 null,
+                "reel_action_button.eml",
                 "shorts_video_action_button.eml"
         );
 
@@ -169,16 +170,19 @@ public final class ShortsButtonFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
+                        "ic_right_comment",
                         "reel_comment_button",
                         "youtube_shorts_comment_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHARE_BUTTON,
+                        "ic_right_share",
                         "reel_share_button",
                         "youtube_shorts_share_outline"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_REMIX_BUTTON,
+                        "ic_remix_filled",
                         "reel_remix_button",
                         "youtube_shorts_remix_outline"
                 ),
@@ -245,7 +249,12 @@ public final class ShortsButtonFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_GREEN_SCREEN_BUTTON,
+                        "greenscreen_temp",
                         "shorts_green_screen"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_NEW_POSTS_BUTTON,
+                        "yt_outline_box_pencil"
                 ),
                 useThisSoundButton
         );

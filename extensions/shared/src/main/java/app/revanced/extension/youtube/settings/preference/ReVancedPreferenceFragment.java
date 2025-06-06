@@ -1645,15 +1645,15 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     /**
      * Handles the back press action in the preference screen navigation.
      * <p>
-     * If the current screen is the root preference screen and there is a non-empty search query,
-     * the search query is cleared, focus is removed from the search view, and preferences are reset.
-     * If there is no search query, the method signals to the {@code LicenseActivity} to call
-     * {@code super.onBackPressed()} to exit the activity or return to the previous activity in the stack.
-     * <p>
+     * If the current screen is the root preference screen:
+     * <ul>
+     *   <li>If the search query is non-empty, clears the query, removes focus from the search view, and resets to the original preferences.</li>
+     *   <li>If the query is empty and the search view is focused, removes focus and resets to the original preferences.</li>
+     *   <li>If the query is empty and the search view is not focused, signals to exit the activity.</li>
+     * </ul>
      * If the current screen is a sub-screen and the preference screen stack is not empty,
-     * the method navigates back to the previous screen in the stack and restores any search results
-     * if a query exists. If the stack is empty but not on the root screen, the method signals to exit
-     * the activity.
+     * navigates back to the previous screen and restores any search results if a query exists.
+     * If the stack is empty but not on the root screen, signals to exit the activity.
      *
      * @param currentQuery The current search query string.
      * @return {@code true} if the back press should exit the activity (by calling
@@ -1663,8 +1663,8 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
      */
     public boolean handleOnBackPressed(String currentQuery) {
         if (getPreferenceScreen() == rootPreferenceScreen) {
-            if (!currentQuery.isEmpty()) {
-                SearchView searchView = searchViewRef.get();
+            SearchView searchView = searchViewRef.get();
+            if (!currentQuery.isEmpty() || (searchView != null && searchView.hasFocus())) {
                 if (searchView != null) {
                     searchView.setQuery("", false);
                     searchView.clearFocus();
@@ -1672,8 +1672,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 resetPreferences();
                 return false;
             } else {
-                // If on root screen and no search query, signal to LicenseActivity to call super.onBackPressed()
-                // This will effectively exit the activity or return to the previous activity in the stack
+                // If on root screen, no search query, and search view not focused, signal to exit
                 return true;
             }
         } else {
@@ -1686,8 +1685,7 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 }
                 return false;
             } else {
-                // If preferenceScreenStack is empty but not on root screen, it means we
-                // are at the top of a substack and should exit this activity.
+                // If stack is empty but not on root screen, exit the activity
                 return true;
             }
         }

@@ -1,0 +1,73 @@
+package app.revanced.extension.spotify.shared;
+
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.shared.utils.Utils;
+
+public final class ComponentFilters {
+
+    public interface ComponentFilter {
+        String getFilterValue();
+
+        String getFilterRepresentation();
+
+        default boolean filterUnavailable() {
+            return false;
+        }
+    }
+
+    public static final class ResourceIdComponentFilter implements ComponentFilter {
+        public final String resourceName;
+        public final String resourceType;
+        // Android resources are always positive, so -1 is a valid sentinel value to indicate it has not been loaded.
+        // 0 is returned when a resource has not been found.
+        private int resourceId = -1;
+        private String stringfiedResourceId = null;
+
+        public ResourceIdComponentFilter(String resourceName, String resourceType) {
+            this.resourceName = resourceName;
+            this.resourceType = resourceType;
+        }
+
+        public int getResourceId() {
+            if (resourceId == -1) {
+                resourceId = Utils.getResourceIdentifier(resourceName, resourceType);
+            }
+            return resourceId;
+        }
+
+        @Override
+        public String getFilterValue() {
+            if (stringfiedResourceId == null) {
+                stringfiedResourceId = Integer.toString(getResourceId());
+            }
+            return stringfiedResourceId;
+        }
+
+        @Override
+        public String getFilterRepresentation() {
+            boolean resourceFound = getResourceId() != 0;
+            return (resourceFound ? getFilterValue() + " (" : "") + resourceName + (resourceFound ? ")" : "");
+        }
+
+        @Override
+        public boolean filterUnavailable() {
+            boolean resourceNotFound = getResourceId() == 0;
+            if (resourceNotFound) {
+                Logger.printInfo(() -> "Resource id for " + resourceName + " was not found");
+            }
+            return resourceNotFound;
+        }
+    }
+
+    public record StringComponentFilter(String string) implements ComponentFilter {
+        @Override
+        public String getFilterValue() {
+            return string;
+        }
+
+        @Override
+        public String getFilterRepresentation() {
+            return string;
+        }
+    }
+}
