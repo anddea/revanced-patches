@@ -182,7 +182,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_SHORTS_BUTTON = new BooleanSetting("revanced_hide_navigation_shorts_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_SUBSCRIPTIONS_BUTTON = new BooleanSetting("revanced_hide_navigation_subscriptions_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_LABEL = new BooleanSetting("revanced_hide_navigation_label", FALSE, true);
-    public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", FALSE, true);
+    public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true, "revanced_switch_create_with_notifications_button_user_dialog_message");
     public static final BooleanSetting ENABLE_TRANSLUCENT_NAVIGATION_BAR = new BooleanSetting("revanced_enable_translucent_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_hide_navigation_bar", FALSE, true);
 
@@ -481,15 +481,16 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_VIDEO_TITLE = new BooleanSetting("revanced_hide_shorts_video_title", FALSE);
 
     // PreferenceScreen: Shorts - Shorts player components - Suggested actions
-    public static final BooleanSetting HIDE_SHORTS_GREEN_SCREEN_BUTTON = new BooleanSetting("revanced_hide_shorts_green_screen_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_LOCATION_BUTTON = new BooleanSetting("revanced_hide_shorts_location_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_SAVE_MUSIC_BUTTON = new BooleanSetting("revanced_hide_shorts_save_music_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_SEARCH_SUGGESTIONS_BUTTON = new BooleanSetting("revanced_hide_shorts_search_suggestions_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_SHOP_BUTTON = new BooleanSetting("revanced_hide_shorts_shop_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_SUPER_THANKS_BUTTON = new BooleanSetting("revanced_hide_shorts_super_thanks_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_TAGGED_PRODUCTS = new BooleanSetting("revanced_hide_shorts_tagged_products", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_USE_TEMPLATE_BUTTON = new BooleanSetting("revanced_hide_shorts_use_template_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_USE_THIS_SOUND_BUTTON = new BooleanSetting("revanced_hide_shorts_use_this_sound_button", TRUE);
+    public static final BooleanSetting HIDE_SHORTS_GREEN_SCREEN_BUTTON = new BooleanSetting("revanced_hide_shorts_green_screen_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_LOCATION_BUTTON = new BooleanSetting("revanced_hide_shorts_location_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SAVE_MUSIC_BUTTON = new BooleanSetting("revanced_hide_shorts_save_music_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SEARCH_SUGGESTIONS_BUTTON = new BooleanSetting("revanced_hide_shorts_search_suggestions_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SHOP_BUTTON = new BooleanSetting("revanced_hide_shorts_shop_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SUPER_THANKS_BUTTON = new BooleanSetting("revanced_hide_shorts_super_thanks_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_TAGGED_PRODUCTS = new BooleanSetting("revanced_hide_shorts_tagged_products", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_USE_TEMPLATE_BUTTON = new BooleanSetting("revanced_hide_shorts_use_template_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_USE_THIS_SOUND_BUTTON = new BooleanSetting("revanced_hide_shorts_use_this_sound_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_NEW_POSTS_BUTTON = new BooleanSetting("revanced_hide_shorts_new_posts_button", FALSE);
 
     // PreferenceScreen: Shorts - Shorts player components - Action buttons
     public static final BooleanSetting HIDE_SHORTS_LIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_like_button", FALSE);
@@ -515,9 +516,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_GEMINI = new BooleanSetting("revanced_shorts_custom_actions_gemini", FALSE, true);
     public static final BooleanSetting SHORTS_CUSTOM_ACTIONS_REPEAT_STATE = new BooleanSetting("revanced_shorts_custom_actions_repeat_state", FALSE, true);
 
-    public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU = new BooleanSetting("revanced_enable_shorts_custom_actions_flyout_menu", FALSE, true,
+    public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_FLYOUT_MENU = new BooleanSetting("revanced_enable_shorts_custom_actions_flyout_menu", TRUE, true,
             parentsAny(SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
-    public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR = new BooleanSetting("revanced_enable_shorts_custom_actions_toolbar", FALSE, true,
+    public static final BooleanSetting ENABLE_SHORTS_CUSTOM_ACTIONS_TOOLBAR = new BooleanSetting("revanced_enable_shorts_custom_actions_toolbar", TRUE, true,
             parentsAny(SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL, SHORTS_CUSTOM_ACTIONS_COPY_VIDEO_URL_TIMESTAMP, SHORTS_CUSTOM_ACTIONS_EXTERNAL_DOWNLOADER, SHORTS_CUSTOM_ACTIONS_OPEN_VIDEO, SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG, SHORTS_CUSTOM_ACTIONS_REPEAT_STATE));
 
     // Experimental Flags
@@ -632,7 +633,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting RYD_SHORTS = new BooleanSetting("ryd_shorts", TRUE, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_DISLIKE_PERCENTAGE = new BooleanSetting("ryd_dislike_percentage", FALSE, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_COMPACT_LAYOUT = new BooleanSetting("ryd_compact_layout", FALSE, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("ryd_estimated_like", FALSE, true, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("ryd_estimated_like", TRUE, true, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
 
 
