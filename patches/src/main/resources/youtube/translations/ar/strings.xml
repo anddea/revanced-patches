@@ -484,6 +484,9 @@
     <string name="revanced_hide_album_card_summary_off">يتم عرض بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_summary_on">تم إخفاء بطاقات الألبوم.</string>
     <string name="revanced_hide_album_card_title">إخفاء بطاقات الألبوم</string>
+    <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم \"Ask\"</string>
+    <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم \"Ask\"</string>
+    <string name="revanced_hide_ask_section_title">إخفاء \"Ask\"</string>
     <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون.</string>
     <string name="revanced_hide_attributes_section_title">إخفاء قسم الصفات</string>
@@ -1062,6 +1065,9 @@
     <string name="revanced_hide_shorts_play_pause_button_background_summary_off">يتم عرض خلفية زر تشغيل &amp; إيقاف.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_summary_on">تم إخفاء خلفية زر تشغيل &amp; إيقاف.</string>
     <string name="revanced_hide_shorts_play_pause_button_background_title">إخفاء خلفية زر التشغيل &amp; الإيقاف</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
+    <string name="revanced_hide_shorts_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
+    <string name="revanced_hide_shorts_preview_comment_title">إخفاء تعليق المعاينة</string>
     <string name="revanced_hide_shorts_remix_button_summary_off">يتم عرض زر ريمكس.</string>
     <string name="revanced_hide_shorts_remix_button_summary_on">تم إخفاء زر ريمكس.</string>
     <string name="revanced_hide_shorts_remix_button_title">إخفاء زر ريمكس</string>
@@ -2079,16 +2085,32 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
     <string name="revanced_swipe_gestures_lock_mode_summary_off">تم تعطيل إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_summary_on">تم تمكين إيماءات التمرير في وضع شاشة القفل.</string>
     <string name="revanced_swipe_gestures_lock_mode_title">إيماءات التمرير في وضع قفل الشاشة</string>
+    <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">تلقائي</string>
     <string name="revanced_swipe_magnitude_threshold_summary">الحد الأقصى للتمرير قبل اكتشاف الإيماءة.</string>
     <string name="revanced_swipe_magnitude_threshold_title">مقدار حد التمرير</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن تكون شفافية التمرير بين 0-100.</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">قيمة الشفافية بين 0-100.</string>
     <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير السريع</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_summary">لون شريط التقدم لعناصر التحكم في السطوع</string>
+    <string name="revanced_swipe_overlay_progress_brightness_color_title">لون سطوع واجهة التمرير</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_summary">لون شريط التقدم لعناصر التحكم في مستوى الصوت</string>
+    <string name="revanced_swipe_overlay_progress_volume_color_title">لون مستوى صوت واجهة التمرير</string>
     <string name="revanced_swipe_overlay_rect_size_invalid_toast">لا يمكن أن يزيد حجم المنطقة القابلة للتمرير السريع عن 50.</string>
     <string name="revanced_swipe_overlay_rect_size_summary">النسبة المئوية لمساحة الشاشة القابلة للتمرير السريع.\n\nملاحظة: سيؤدي هذا أيضًا إلى تغيير حجم مساحة الشاشة لإيماءة النقر المزدوج للتقديم أو التأخير.</string>
     <string name="revanced_swipe_overlay_rect_size_title">حجم واجهة إيماءة التمرير</string>
+    <string name="revanced_swipe_overlay_style_entry_1">واجهة أفقية</string>
+    <string name="revanced_swipe_overlay_style_entry_2">واجهة أفقية (الأدنى - الأعلى)</string>
+    <string name="revanced_swipe_overlay_style_entry_3">واجهة أفقية (الأدنى - المنتصف)</string>
+    <string name="revanced_swipe_overlay_style_entry_4">واجهة دائرية</string>
+    <string name="revanced_swipe_overlay_style_entry_5">واجهة دائرية (الأدنى)</string>
+    <string name="revanced_swipe_overlay_style_entry_6">واجهة عمودية</string>
+    <string name="revanced_swipe_overlay_style_entry_7">واجهة عمودية (الأدنى)</string>
+    <string name="revanced_swipe_overlay_style_title">نمط واجهة التمرير</string>
     <string name="revanced_swipe_overlay_timeout_summary">أجزاء الثانية التي تكون فيها الواجهة مرئية.</string>
     <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة إيماءة التمرير</string>
+    <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30</string>
+    <string name="revanced_swipe_text_overlay_size_summary">حجم النص لواجهة التمرير بين 1-30</string>
+    <string name="revanced_swipe_text_overlay_size_title">حجم نص واجهة التمرير</string>
     <string name="revanced_swipe_volume_sensitivity_invalid_toast">يجب أن تكون حساسية تمرير مستوى الصوت بين 1-1000 (%).</string>
     <string name="revanced_swipe_volume_sensitivity_summary" formatted="false">تكوين الحد الأدنى للمسافة لتمرير مستوى الصوت بين 1 و1000 (%).\n\nكلما كانت المسافة الدنيا أقصر، كانت تغييرات مستوى الصوت أسرع.\n\nحساسية التمرير الموصى بها لمستوى الصوت هي 100% عند 15 خطوة لمستوى الصوت و10% عند 150 خطوة لمستوى الصوت.</string>
     <string name="revanced_swipe_volume_sensitivity_title">حساسية تمرير مستوى الصوت</string>

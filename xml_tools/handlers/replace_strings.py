@@ -18,6 +18,32 @@ if TYPE_CHECKING:
 logger = logging.getLogger("xml_tools")
 
 
+def _find_source_translation_file(source_base_path: Path, lang_code: str) -> Path | None:
+    """Find a source translation file by matching the language code prefix.
+
+    Matches 'ar' to 'values-ar-rSA', 'in' to 'values-in', etc.
+
+    Args:
+        source_base_path: The base directory containing 'values-*' folders.
+        lang_code: The two-letter language code (e.g., 'ar').
+
+    Returns:
+        The path to the 'strings.xml' file if found, otherwise None.
+
+    """
+    # Use a generator expression with next() to find the first match efficiently.
+    matching_dir = next(
+        (d for d in source_base_path.iterdir() if d.is_dir() and d.name.startswith(f"values-{lang_code}")),
+        None,  # Default to None if no directory matches
+    )
+
+    if matching_dir:
+        source_file = matching_dir / "strings.xml"
+        if source_file.exists():
+            return source_file
+    return None
+
+
 def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] | None = None) -> None:
     """Update target XML file with strings from source file.
 
@@ -86,66 +112,6 @@ def update_strings(target_path: Path, source_path: Path, filter_keys: set[str] |
         logger.exception("Failed to update strings in %s: ", target_path)
 
 
-def process(app: str, base_dir: Path) -> None:
-    """Process files to update strings and copy new translation folders.
-
-    Args:
-        app: Application name (youtube/music).
-        base_dir: Base directory of RVX patches operations.
-
-    """
-    settings = Settings()
-    base_path = settings.get_resource_path(app, "settings")
-    translations_path = settings.get_resource_path(app, "translations")
-    rvx_base_path = base_dir / "src/main/resources" / app
-
-    # Update base strings file
-    update_base_strings(base_path, rvx_base_path)
-
-    # Handle translations
-    additional_keys: set[str] | None = None
-    # ruff: noqa: ERA001
-    # {
-    #     "revanced_hide_ask_section_summary_off",
-    #     "revanced_hide_ask_section_summary_on",
-    #     "revanced_hide_ask_section_title",
-    #     "revanced_swipe_lowest_value_enable_auto_brightness_overlay_text",
-    #     "revanced_swipe_overlay_minimal_style_summary_off",
-    #     "revanced_swipe_overlay_minimal_style_summary_on",
-    #     "revanced_swipe_overlay_minimal_style_title",
-    #     "revanced_swipe_overlay_progress_brightness_color_summary",
-    #     "revanced_swipe_overlay_progress_brightness_color_title",
-    #     "revanced_swipe_overlay_progress_color_invalid_toast",
-    #     "revanced_swipe_overlay_progress_color_summary",
-    #     "revanced_swipe_overlay_progress_color_title",
-    #     "revanced_swipe_overlay_progress_seek_color_summary",
-    #     "revanced_swipe_overlay_progress_seek_color_title",
-    #     "revanced_swipe_overlay_progress_speed_color_summary",
-    #     "revanced_swipe_overlay_progress_speed_color_title",
-    #     "revanced_swipe_overlay_progress_volume_color_summary",
-    #     "revanced_swipe_overlay_progress_volume_color_title",
-    #     "revanced_swipe_overlay_style_entry_1",
-    #     "revanced_swipe_overlay_style_entry_2",
-    #     "revanced_swipe_overlay_style_entry_3",
-    #     "revanced_swipe_overlay_style_entry_4",
-    #     "revanced_swipe_overlay_style_entry_5",
-    #     "revanced_swipe_overlay_style_entry_6",
-    #     "revanced_swipe_overlay_style_entry_7",
-    #     "revanced_swipe_overlay_style_title",
-    #     "revanced_swipe_show_circular_overlay_summary_off",
-    #     "revanced_swipe_show_circular_overlay_summary_on",
-    #     "revanced_swipe_show_circular_overlay_title",
-    #     "revanced_swipe_text_overlay_size_invalid_toast",
-    #     "revanced_swipe_text_overlay_size_summary",
-    #     "revanced_swipe_text_overlay_size_title",
-    # }
-
-    if additional_keys:
-        update_translations_with_keys(translations_path, base_dir, additional_keys)
-    else:
-        sync_translations(translations_path, rvx_base_path)
-
-
 def update_base_strings(base_path: Path, rvx_base_path: Path) -> None:
     """Update the base strings.xml file from RVX source."""
     source_path = base_path / "host/values/strings.xml"
@@ -181,11 +147,80 @@ def sync_translations(translations_path: Path, rvx_base_path: Path) -> None:
 
 def update_translations_with_keys(translations_path: Path, base_dir: Path, additional_keys: set[str]) -> None:
     """Update translation strings with specific keys."""
+    source_base_path = base_dir / "src/main/resources/addresources"
+
     for lang_dir in translations_path.iterdir():
         if not lang_dir.is_dir():
             continue
+
         target_path = lang_dir / "strings.xml"
-        rvx_lang_path = base_dir / "src/main/resources/addresources" / f"values-{lang_dir.name}" / "strings.xml"
-        if rvx_lang_path.exists():
-            logger.info("Path: %s", rvx_lang_path)
+
+        # Find the corresponding source file using the helper function
+        rvx_lang_path = _find_source_translation_file(source_base_path, lang_dir.name)
+
+        if rvx_lang_path:
+            logger.info("Found source %s for target %s", rvx_lang_path, target_path)
             update_strings(target_path, rvx_lang_path, filter_keys=additional_keys)
+        else:
+            logger.warning("No matching source translation found for language: %s", lang_dir.name)
+
+
+def process(app: str, base_dir: Path) -> None:
+    """Process files to update strings and copy new translation folders.
+
+    Args:
+        app: Application name (youtube/music).
+        base_dir: Base directory of RVX patches operations.
+
+    """
+    settings = Settings()
+    base_path = settings.get_resource_path(app, "settings")
+    translations_path = settings.get_resource_path(app, "translations")
+    rvx_base_path = base_dir / "src/main/resources" / app
+
+    # Update base strings file
+    update_base_strings(base_path, rvx_base_path)
+
+    # Handle translations
+    additional_keys: set[str] | None = {
+        "revanced_hide_ask_section_summary_off",
+        "revanced_hide_ask_section_summary_on",
+        "revanced_hide_ask_section_title",
+        "revanced_hide_shorts_preview_comment_summary_off",
+        "revanced_hide_shorts_preview_comment_summary_on",
+        "revanced_hide_shorts_preview_comment_title",
+        "revanced_swipe_lowest_value_enable_auto_brightness_overlay_text",
+        "revanced_swipe_overlay_minimal_style_summary_off",
+        "revanced_swipe_overlay_minimal_style_summary_on",
+        "revanced_swipe_overlay_minimal_style_title",
+        "revanced_swipe_overlay_progress_brightness_color_summary",
+        "revanced_swipe_overlay_progress_brightness_color_title",
+        "revanced_swipe_overlay_progress_color_invalid_toast",
+        "revanced_swipe_overlay_progress_color_summary",
+        "revanced_swipe_overlay_progress_color_title",
+        "revanced_swipe_overlay_progress_seek_color_summary",
+        "revanced_swipe_overlay_progress_seek_color_title",
+        "revanced_swipe_overlay_progress_speed_color_summary",
+        "revanced_swipe_overlay_progress_speed_color_title",
+        "revanced_swipe_overlay_progress_volume_color_summary",
+        "revanced_swipe_overlay_progress_volume_color_title",
+        "revanced_swipe_overlay_style_entry_1",
+        "revanced_swipe_overlay_style_entry_2",
+        "revanced_swipe_overlay_style_entry_3",
+        "revanced_swipe_overlay_style_entry_4",
+        "revanced_swipe_overlay_style_entry_5",
+        "revanced_swipe_overlay_style_entry_6",
+        "revanced_swipe_overlay_style_entry_7",
+        "revanced_swipe_overlay_style_title",
+        "revanced_swipe_show_circular_overlay_summary_off",
+        "revanced_swipe_show_circular_overlay_summary_on",
+        "revanced_swipe_show_circular_overlay_title",
+        "revanced_swipe_text_overlay_size_invalid_toast",
+        "revanced_swipe_text_overlay_size_summary",
+        "revanced_swipe_text_overlay_size_title",
+    }
+
+    if additional_keys:
+        update_translations_with_keys(translations_path, base_dir, additional_keys)
+    else:
+        sync_translations(translations_path, rvx_base_path)

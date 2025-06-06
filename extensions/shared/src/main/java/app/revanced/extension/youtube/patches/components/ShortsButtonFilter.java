@@ -207,6 +207,12 @@ public final class ShortsButtonFilter extends Filter {
         //
         suggestedActionsGroupList.addAll(
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_PREVIEW_COMMENT,
+                        // Preview comment that can popup while a Short is playing.
+                        // Uses no bundled icons, and instead the users profile photo is shown.
+                        "shorts-comments-panel"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_TAGGED_PRODUCTS,
                         // Product buttons show pictures of the products, and does not have any unique icons to identify.
                         // Instead, use a unique identifier found in the buffer.

@@ -495,8 +495,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_LIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_like_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_dislike_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_shorts_comments_button", FALSE);
-    public static final BooleanSetting HIDE_SHORTS_COMMENTS_DISABLED_BUTTON = new BooleanSetting("revanced_hide_shorts_comments_disabled_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_REMIX_BUTTON = new BooleanSetting("revanced_hide_shorts_remix_button", TRUE);
+    public static final BooleanSetting HIDE_SHORTS_COMMENTS_DISABLED_BUTTON = new BooleanSetting("revanced_hide_shorts_comments_disabled_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_PREVIEW_COMMENT = new BooleanSetting("revanced_hide_shorts_preview_comment", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_REMIX_BUTTON = new BooleanSetting("revanced_hide_shorts_remix_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_SHARE_BUTTON = new BooleanSetting("revanced_hide_shorts_share_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_SOUND_BUTTON = new BooleanSetting("revanced_hide_shorts_sound_button", FALSE);
 
