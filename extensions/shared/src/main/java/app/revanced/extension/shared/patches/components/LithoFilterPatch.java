@@ -9,6 +9,7 @@ import java.util.List;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.StringTrieSearch;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -22,11 +23,11 @@ public final class LithoFilterPatch {
         final String allValue;
         final byte[] protoBuffer;
 
-        LithoFilterParameters(String lithoPath, @Nullable String lithoIdentifier, String allValues, byte[] bufferArray) {
-            this.path = lithoPath;
+        LithoFilterParameters(@Nullable String lithoIdentifier, String lithoPath, String allValues, byte[] protoBuffer) {
             this.identifier = lithoIdentifier;
+            this.path = lithoPath;
             this.allValue = allValues;
-            this.protoBuffer = bufferArray;
+            this.protoBuffer = protoBuffer;
         }
 
         @NonNull
@@ -34,12 +35,12 @@ public final class LithoFilterPatch {
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
             StringBuilder builder = new StringBuilder(Math.max(100, protoBuffer.length / 2));
-            builder.append("\nID: ");
+            builder.append( "ID: ");
             builder.append(identifier);
-            builder.append("\nPath: ");
+            builder.append(" Path: ");
             builder.append(path);
-            if (BaseSettings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
-                builder.append("\nBufferStrings: ");
+            if (Settings.ENABLE_DEBUG_BUFFER_LOGGING.get()) {
+                builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, protoBuffer);
             }
 
@@ -75,7 +76,7 @@ public final class LithoFilterPatch {
         }
     }
 
-    private static final Filter[] filters = new Filter[]{
+    private static final Filter[] filters = new Filter[] {
             new DummyFilter() // Replaced by patch.
     };
 
@@ -86,10 +87,14 @@ public final class LithoFilterPatch {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
+     * Because litho filtering is multithreaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      */
     private static final ThreadLocal<ByteBuffer> bufferThreadLocal = new ThreadLocal<>();
+    /**
+     * Results of calling .
+     */
+    private static final ThreadLocal<Boolean> filterResult = new ThreadLocal<>();
 
     static {
         for (Filter filter : filters) {
@@ -115,12 +120,29 @@ public final class LithoFilterPatch {
             if (!group.includeInSearch()) {
                 continue;
             }
+
             for (String pattern : group.filters) {
-                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                String filterSimpleName = filter.getClass().getSimpleName();
+
+                pathSearchTree.addPattern(pattern, (textSearched, matchedStartIndex,
+                                                    matchedLength, callbackParameter) -> {
                             if (!group.isEnabled()) return false;
+
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
-                            return filter.isFiltered(parameters.path, parameters.identifier, parameters.allValue, parameters.protoBuffer,
+                            final boolean isFiltered = filter.isFiltered(parameters.path, parameters.identifier, parameters.allValue, parameters.protoBuffer,
                                     group, type, matchedStartIndex);
+
+                            if (isFiltered && BaseSettings.ENABLE_DEBUG_LOGGING.get()) {
+                                if (type == Filter.FilterContentType.IDENTIFIER) {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " identifier: " + parameters.identifier);
+                                } else {
+                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
+                                            + " path: " + parameters.path);
+                                }
+                            }
+
+                            return isFiltered;
                         }
                 );
             }
@@ -130,18 +152,37 @@ public final class LithoFilterPatch {
     /**
      * Injection point.  Called off the main thread.
      */
+    @SuppressWarnings("unused")
     public static void setProtoBuffer(@Nullable ByteBuffer protobufBuffer) {
         // Set the buffer to a thread local.  The buffer will remain in memory, even after the call to #filter completes.
         // This is intentional, as it appears the buffer can be set once and then filtered multiple times.
         // The buffer will be cleared from memory after a new buffer is set by the same thread,
         // or when the calling thread eventually dies.
-        bufferThreadLocal.set(protobufBuffer);
+        if (protobufBuffer == null) {
+            // It appears the buffer can be cleared out just before the call to #filter()
+            // Ignore this null value and retain the last buffer that was set.
+            Logger.printDebug(() -> "Ignoring null protobuffer");
+        } else {
+            bufferThreadLocal.set(protobufBuffer);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean shouldFilter() {
+        Boolean shouldFilter = filterResult.get();
+        return shouldFilter != null && shouldFilter;
     }
 
     /**
      * Injection point.  Called off the main thread, and commonly called by multiple threads at the same time.
      */
-    public static boolean filter(@NonNull StringBuilder pathBuilder, @Nullable String identifier, @NonNull Object object) {
+    public static void filter(@Nullable String lithoIdentifier, StringBuilder pathBuilder, @NonNull Object object) {
+        filterResult.set(handleFiltering(lithoIdentifier, pathBuilder, object));
+    }
+
+    private static boolean handleFiltering(@Nullable String lithoIdentifier, StringBuilder pathBuilder, @NonNull Object object) {
         try {
             if (pathBuilder.length() == 0) {
                 return false;
@@ -150,9 +191,8 @@ public final class LithoFilterPatch {
             ByteBuffer protobufBuffer = bufferThreadLocal.get();
             final byte[] bufferArray;
             // Potentially the buffer may have been null or never set up until now.
-            // Use an empty buffer so the litho id or path filters still work correctly.
+            // Use an empty buffer so the litho id/path filters still work correctly.
             if (protobufBuffer == null) {
-                Logger.printDebug(() -> "Proto buffer is null, using an empty buffer array");
                 bufferArray = EMPTY_BYTE_ARRAY;
             } else if (!protobufBuffer.hasArray()) {
                 Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
@@ -161,8 +201,8 @@ public final class LithoFilterPatch {
                 bufferArray = protobufBuffer.array();
             }
 
-            LithoFilterParameters parameter = new LithoFilterParameters(pathBuilder.toString(), identifier,
-                    object.toString(), bufferArray);
+            LithoFilterParameters parameter = new LithoFilterParameters(lithoIdentifier,
+                    pathBuilder.toString(), object.toString(), bufferArray);
             Logger.printDebug(() -> "Searching " + parameter);
 
             if (parameter.identifier != null && identifierSearchTree.matches(parameter.identifier, parameter)) {
@@ -187,5 +227,4 @@ public final class LithoFilterPatch {
 /**
  * Placeholder for actual filters.
  */
-final class DummyFilter extends Filter {
-}
+final class DummyFilter extends Filter { }

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.utils.navigation
 
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.general.navigation.navigationBarComponentsPatch
 import app.revanced.patches.youtube.utils.resourceid.bottomBarContainer
 import app.revanced.patches.youtube.utils.resourceid.imageOnlyTab
@@ -90,6 +91,19 @@ internal val pivotBarButtonsCreateResourceViewFingerprint = legacyFingerprint(
         classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
 )
+
+/**
+ * 20.21+
+ */
+internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/view/View;")
+    custom { method, _ ->
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
+                // Only one view creation method has an int first parameter.
+                method.parameterTypes.firstOrNull() == "I"
+    }
+}
 
 internal fun indexOfSetViewSelectedInstruction(method: Method) = method.indexOfFirstInstruction {
     opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setSelected"
