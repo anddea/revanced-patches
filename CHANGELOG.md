@@ -1,3 +1,15 @@
+# [3.10.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.2...v3.10.0-dev.3) (2025-06-07)
+
+
+### Bug Fixes
+
+* **YouTube Music:** 8.16+ crashed on like/dislike ([4ac726e](https://github.com/anddea/revanced-patches/commit/4ac726e367f828d92b2bb8309b65179657e77029))
+
+
+### Features
+
+* **YouTube - Shorts components:** Add `Hide new posts button` setting ([6e4a191](https://github.com/anddea/revanced-patches/commit/6e4a191ae4d3f3eca7df0715cd396a1d92d8806c))
+
 # [3.10.0-dev.2](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.1...v3.10.0-dev.2) (2025-06-06)
 
 
