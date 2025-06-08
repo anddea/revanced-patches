@@ -30,18 +30,12 @@ public final class ShortsShelfFilter extends Filter {
     private static final BooleanSetting hideShortsShelf = Settings.HIDE_SHORTS_SHELF;
     private static final BooleanSetting hideChannel = Settings.HIDE_SHORTS_SHELF_CHANNEL;
     private static final ByteArrayFilterGroup channelProfileShelfHeader =
-            new ByteArrayFilterGroup(
-                    hideChannel,
-                    "Shorts"
-            );
+            new ByteArrayFilterGroup(hideChannel, "Shorts");
 
     public ShortsShelfFilter() {
         feedGroup.addPattern(CONVERSATION_CONTEXT_FEED_IDENTIFIER);
 
-        channelProfile = new StringFilterGroup(
-                hideChannel,
-                "shorts_pivot_item"
-        );
+        channelProfile = new StringFilterGroup(hideChannel, "shorts_pivot_item");
 
         final StringFilterGroup shortsIdentifiers = new StringFilterGroup(
                 hideShortsShelf,
@@ -51,10 +45,7 @@ public final class ShortsShelfFilter extends Filter {
                 "shorts_video_cell"
         );
 
-        shelfHeaderIdentifier = new StringFilterGroup(
-                hideShortsShelf,
-                SHELF_HEADER_PATH
-        );
+        shelfHeaderIdentifier = new StringFilterGroup(hideShortsShelf, SHELF_HEADER_PATH);
 
         addIdentifierCallbacks(channelProfile, shortsIdentifiers, shelfHeaderIdentifier);
 
@@ -71,17 +62,11 @@ public final class ShortsShelfFilter extends Filter {
         // Filter out items that use the 'frame0' thumbnail.
         // This is a valid thumbnail for both regular videos and Shorts,
         // but it appears these thumbnails are used only for Shorts.
-        compactFeedVideoBuffer = new ByteArrayFilterGroup(
-                hideShortsShelf,
-                "/frame0.jpg"
-        );
+        compactFeedVideoBuffer = new ByteArrayFilterGroup(hideShortsShelf, "/frame0.jpg");
 
         // Feed Shorts shelf header.
         // Use a different filter group for this pattern, as it requires an additional check after matching.
-        shelfHeaderPath = new StringFilterGroup(
-                hideShortsShelf,
-                SHELF_HEADER_PATH
-        );
+        shelfHeaderPath = new StringFilterGroup(hideShortsShelf, SHELF_HEADER_PATH);
 
         addPathCallbacks(compactFeedVideoPath, shelfHeaderPath);
     }
@@ -147,7 +132,7 @@ public final class ShortsShelfFilter extends Filter {
             // then immediately minimized before any suggestions are loaded.
             // In this state the player type will show minimized, which makes it not possible to
             // distinguish between Shorts suggestions loading in the player and between
-            // scrolling thru search/home/subscription tabs while a player is minimized.
+            // scrolling through search/home/subscription tabs while a player is minimized.
             //
             // To avoid this situation for users that never want to show Shorts (all hide Shorts options are enabled)
             // then hide all Shorts everywhere including the Library history and Library playlists.

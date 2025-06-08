@@ -575,17 +575,6 @@ public class ReturnYouTubeDislike {
                     return original;
                 }
 
-                // prevents reproducible bugs with the following steps:
-                // (user is using YouTube with RollingNumber applied)
-                // 1. opened a video
-                // 2. switched to fullscreen
-                // 3. click video's title to open the video description
-                // 4. dislike count may be replaced in the like count area or view count area of the video description
-                if (PlayerType.getCurrent().isFullScreenOrSlidingFullScreen()) {
-                    Logger.printDebug(() -> "Ignoring fullscreen video description panel: " + videoId);
-                    return original;
-                }
-
                 if (spanIsForLikes) {
                     if (!Utils.containsNumber(original)) {
                         if (!Settings.RYD_ESTIMATED_LIKE.get()) {
