@@ -151,6 +151,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_change_youtube_header_summary_off">Domyślny</string>
     <string name="revanced_change_youtube_header_summary_on">Premium</string>
     <string name="revanced_change_youtube_header_title">Zmień nagłówek YouTube</string>
+    <string name="revanced_color_invalid_toast">Nieprawidłowy kolor.</string>
     <string name="revanced_copy">Kopiuj</string>
     <string name="revanced_copy_error">Nie udało się skopiować tekstu</string>
     <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, która musi być oddzielona nowymi liniami.</string>
@@ -159,7 +160,7 @@ Ograniczenie: Przycisk wstecz na pasku narzędzi może nie działać."</string>
     <string name="revanced_custom_filter_summary_on">Włączony</string>
     <string name="revanced_custom_filter_title">Własny filtr</string>
     <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy własny filtr: %s.</string>
-    <string name="revanced_custom_playback_speed_menu_type_summary_off">Stary</string>
+    <string name="revanced_custom_playback_speed_menu_type_summary_off">Nowoczesny</string>
     <string name="revanced_custom_playback_speed_menu_type_summary_on">Własny</string>
     <string name="revanced_custom_playback_speed_menu_type_title">Wygląd menu od prędkości odtwarzania</string>
     <string name="revanced_custom_playback_speeds_invalid">Niestandardowe prędkości muszą by mniejsze niż %sx.</string>
@@ -533,9 +534,9 @@ Informacje:
     <string name="revanced_hide_album_card_summary_off">Widoczne</string>
     <string name="revanced_hide_album_card_summary_on">Ukryte</string>
     <string name="revanced_hide_album_card_title">Karty albumów</string>
-    <string name="revanced_hide_ask_section_summary_off">Sekcja Pytania jest widoczna</string>
-    <string name="revanced_hide_ask_section_summary_on">Sekcja Pytania jest ukryta</string>
-    <string name="revanced_hide_ask_section_title">Ukryj Pytanie</string>
+    <string name="revanced_hide_ask_section_summary_off">Widoczna</string>
+    <string name="revanced_hide_ask_section_summary_on">Ukryta</string>
+    <string name="revanced_hide_ask_section_title">Sekcja zapytania</string>
     <string name="revanced_hide_attributes_section_summary_off">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są widoczne</string>
     <string name="revanced_hide_attributes_section_summary_on">Sekcje wyróżnionych miejsc, gier, muzyki i wyróżnionych ludzi są ukryte</string>
     <string name="revanced_hide_attributes_section_title">Sekcja atrybutów</string>
@@ -1102,6 +1103,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_shorts_navigation_bar_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_navigation_bar_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_navigation_bar_title">Pasek nawigacji</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_new_posts_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_new_posts_button_title">Przycisk od nowych postów</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_paid_promotion_label_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_paid_promotion_label_title">Etykiety oznaczające płatne promocje</string>
@@ -2181,6 +2185,10 @@ Przetłumaczono z DeepL.com (wersja darmowa)"</string>
     <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Wartość musi być pomiędzy 0 a 100.</string>
     <string name="revanced_swipe_overlay_background_opacity_summary">Wartość musi być pomiędzy 0 a 100</string>
     <string name="revanced_swipe_overlay_background_opacity_title">Przezroczystość tła nakładki przesuwania</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_summary">Kolor paska postępu dla elementów sterujących przewijaniem</string>
+    <string name="revanced_swipe_overlay_progress_seek_color_title">Kolor nakładki gestu przewijania</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_summary">Kolor paska postępu dla elementów sterujących prędkością</string>
+    <string name="revanced_swipe_overlay_progress_speed_color_title">Kolor nakładki gestu prędkości</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_summary">Kolor paska postępu dla elementów sterujących jasnością</string>
     <string name="revanced_swipe_overlay_progress_brightness_color_title">Kolor nakładki przesunięcia dla jasności</string>
     <string name="revanced_swipe_overlay_progress_volume_color_summary">Kolor paska postępu dla elementów sterujących głośnością</string>
@@ -2298,4 +2306,23 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
     <string name="revanced_yandex_transcribe_subtitles_summary">Używaj transkrypcji Yandex zamiast Gemini. Yandex jest szybszy i bardziej rzetelny. Klucz API nie jest wymagany.</string>
     <string name="revanced_yandex_transcribe_subtitles_title">Transkrypcja Yandex</string>
+    <string name="revanced_search_clear_confirm_message">Na pewno chcesz wyczyścić całą historię wyszukiwania?</string>
+    <string name="revanced_search_clear_confirm_title">Wyczyść historię wyszukiwania</string>
+    <string name="revanced_search_clear_history_title">Wyczyść historię</string>
+    <string name="revanced_search_delete_confirm_message">Na pewno chcesz wyczyścić \"%1$s\" z twojej historii wyszukiwania?</string>
+    <string name="revanced_search_delete_confirm_title">Usuń wpis wyszukiwania</string>
+    <string name="revanced_search_delete_entry">Usuń wpis wyszukiwania</string>
+    <string name="revanced_search_history_title">Ostatnie wyszukiwania</string>
+    <string name="revanced_search_no_history_summary">Twoja historia wyszukiwania pojawi się tutaj. Aby zapisać zapytanie w historii wyszukiwania, musisz nacisnąć klawisz enter/powrotu.</string>
+    <string name="revanced_search_no_history_title">Brak ostatnich wyszukiwań</string>
+    <string name="revanced_search_settings_category_title">Ustawienia wyszukiwania</string>
+    <string name="revanced_search_settings_no_results_summary">Spróbuj innego terminu wyszukiwania.</string>
+    <string name="revanced_search_settings_no_results_title">Nie znaleziono wyników dla: \"%1$s\"</string>
+    <string name="revanced_search_title">Wyszukaj</string>
+    <string name="revanced_settings_search_highlight_color_summary">Ustawia kolor podświetlenia dla dopasowanego tekstu w wynikach wyszukiwania.</string>
+    <string name="revanced_settings_search_highlight_color_title">Kolor podświetlenia wyszukiwania</string>
+    <string name="revanced_settings_search_highlight_summary">Podświetla dopasowany tekst w wynikach wyszukiwania wybranym kolorem.</string>
+    <string name="revanced_settings_search_highlight_title">Włącz podświetlenie wyszukiwań</string>
+    <string name="revanced_settings_search_history_summary">Zapisuje ostatnie zapytania, aby wyświetlać je, gdy pasek wyszukiwania jest pusty.</string>
+    <string name="revanced_settings_search_history_title">Włącz historię wyszukiwania</string>
 </resources>
