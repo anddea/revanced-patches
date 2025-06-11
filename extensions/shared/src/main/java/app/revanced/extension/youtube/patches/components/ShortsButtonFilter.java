@@ -253,6 +253,10 @@ public final class ShortsButtonFilter extends Filter {
                         "shorts_green_screen"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_HASHTAG_BUTTON,
+                        "yt_outline_hashtag"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_NEW_POSTS_BUTTON,
                         "yt_outline_box_pencil"
                 ),
