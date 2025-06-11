@@ -1645,38 +1645,24 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
     /**
      * Handles the back press action in the preference screen navigation.
      * <p>
-     * If the current screen is the root preference screen:
-     * <ul>
-     *   <li>If the search query is non-empty, clears the query, removes focus from the search view, and resets to the original preferences.</li>
-     *   <li>If the query is empty and the search view is focused, removes focus and resets to the original preferences.</li>
-     *   <li>If the query is empty and the search view is not focused, signals to exit the activity.</li>
-     * </ul>
-     * If the current screen is a sub-screen and the preference screen stack is not empty,
-     * navigates back to the previous screen and restores any search results if a query exists.
-     * If the stack is empty but not on the root screen, signals to exit the activity.
+     * The behavior follows a clear hierarchy:
+     * <ol>
+     *   <li><b>If on a sub-screen:</b> Navigates back to the previous screen in the stack.</li>
+     *   <li><b>If the SearchView is focused and the query is not empty:</b> The first back press clears focus and
+     *       hides the keyboard. The search results remain visible.</li>
+     *   <li><b>If the SearchView is focused but the query is empty, OR if a query exists but the view is not focused:</b>
+     *       The back press clears the search query, removes focus, and resets to the full preference list.</li>
+     *   <li><b>If on the root screen with no query and no focus:</b> The back press signals to exit the activity.</li>
+     * </ol>
      *
      * @param currentQuery The current search query string.
      * @return {@code true} if the back press should exit the activity (by calling
      *         {@code super.onBackPressed()} in {@code LicenseActivity}), <br>
-     *         {@code false} if the back press is handled internally (e.g., clearing
-     *         search or navigating to a previous screen).
+     *         {@code false} if the back press is handled internally.
      */
     public boolean handleOnBackPressed(String currentQuery) {
-        if (getPreferenceScreen() == rootPreferenceScreen) {
-            SearchView searchView = searchViewRef.get();
-            if (!currentQuery.isEmpty() || (searchView != null && searchView.hasFocus())) {
-                if (searchView != null) {
-                    searchView.setQuery("", false);
-                    searchView.clearFocus();
-                }
-                resetPreferences();
-                return false;
-            } else {
-                // If on root screen, no search query, and search view not focused, signal to exit
-                return true;
-            }
-        } else {
-            // Handle sub-screen navigation
+        // First, handle navigation out of sub-screens
+        if (getPreferenceScreen() != rootPreferenceScreen) {
             if (!preferenceScreenStack.isEmpty()) {
                 PreferenceScreen previous = preferenceScreenStack.pop();
                 setPreferenceScreen(previous); // This will update the toolbar title automatically
@@ -1689,6 +1675,32 @@ public class ReVancedPreferenceFragment extends PreferenceFragment {
                 return true;
             }
         }
+
+        // At this point, we are on the root preference screen.
+        SearchView searchView = searchViewRef.get();
+
+        // Case 1: SearchView has focus AND there's a search query.
+        // A single back press should clear focus.
+        // if (searchView != null && searchView.hasFocus() && !currentQuery.isEmpty()) {
+        //     searchView.clearFocus();
+        //     return false; // Back press is consumed. Search results remain.
+        // }
+
+        // Case 2: The search state needs to be fully cleared. This happens if:
+        // a) The search view has focus but the query is empty.
+        // b) A query exists, but the search view is no longer focused.
+        if ((searchView != null && searchView.hasFocus()) || !currentQuery.isEmpty()) {
+            if (searchView != null) {
+                searchView.setQuery("", false);
+                searchView.clearFocus();
+            }
+            resetPreferences();
+            return false; // Back press is consumed. The view is reset.
+        }
+
+        // Case 3: We are on the root screen, with no search query and no focus.
+        // The back press should exit the activity.
+        return true;
     }
 
     @Override
