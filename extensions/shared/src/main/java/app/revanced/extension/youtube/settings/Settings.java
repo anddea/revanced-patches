@@ -491,6 +491,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_USE_TEMPLATE_BUTTON = new BooleanSetting("revanced_hide_shorts_use_template_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_USE_THIS_SOUND_BUTTON = new BooleanSetting("revanced_hide_shorts_use_this_sound_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_NEW_POSTS_BUTTON = new BooleanSetting("revanced_hide_shorts_new_posts_button", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_HASHTAG_BUTTON = new BooleanSetting("revanced_hide_shorts_hashtag_button", FALSE);
 
     // PreferenceScreen: Shorts - Shorts player components - Action buttons
     public static final BooleanSetting HIDE_SHORTS_LIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_like_button", FALSE);
