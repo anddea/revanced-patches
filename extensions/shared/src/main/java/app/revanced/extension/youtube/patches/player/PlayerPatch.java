@@ -684,7 +684,8 @@ public class PlayerPatch {
         );
 
         if (Settings.REPLACE_TIME_STAMP_ACTION.get()) {
-            containerView.setOnClickListener(timeStampContainerView -> VideoUtils.showFlyoutMenu());
+            containerView.setOnClickListener(timeStampContainerView ->
+                    VideoUtils.showFlyoutMenu(containerView.getContext()));
         }
     }
 
