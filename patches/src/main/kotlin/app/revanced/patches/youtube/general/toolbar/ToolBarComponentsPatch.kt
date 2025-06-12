@@ -406,16 +406,37 @@ val toolBarComponentsPatch = bytecodePatch(
 
         // region patch for replace create button
 
-        createButtonDrawableFingerprint.methodOrThrow().apply {
-            val index = indexOfFirstLiteralInstructionOrThrow(ytOutlineVideoCamera)
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
+        val matchedMethods = mutableListOf<MutableMethod>()
+        classes.forEach { classDef ->
+            classDef.methods.forEach { method ->
+                if (method.containsLiteralInstruction(ytOutlineVideoCamera)) {
+                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    matchedMethods.add(mutableMethod)
+                }
+            }
+        }
 
-            addInstructions(
-                index + 1, """
-                    invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getCreateButtonDrawableId(I)I
-                    move-result v$register
-                    """
-            )
+        if (matchedMethods.isEmpty()) {
+            throw PatchException("No methods matched createButtonDrawableFingerprint")
+        }
+
+        // println("Found ${matchedMethods.size} methods matching createButtonDrawableFingerprint")
+        // matchedMethods.forEach { method ->
+        //     println("Patching method: ${method.methodCall()} in class ${method.definingClass}")
+        // }
+
+        matchedMethods.forEach { method ->
+            method.apply {
+                val index = indexOfFirstLiteralInstructionOrThrow(ytOutlineVideoCamera)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1, """
+                        invoke-static {v$register}, $GENERAL_CLASS_DESCRIPTOR->getCreateButtonDrawableId(I)I
+                        move-result v$register
+                        """
+                )
+            }
         }
 
         hookToolBar("$GENERAL_CLASS_DESCRIPTOR->replaceCreateButton")
