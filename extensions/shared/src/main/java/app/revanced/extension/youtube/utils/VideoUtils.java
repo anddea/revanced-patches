@@ -271,11 +271,15 @@ public class VideoUtils extends IntentUtils {
                 .show();
     }
 
-    public static void showFlyoutMenu() {
+    public static void showFlyoutMenu(@NonNull Context context) {
         if (Settings.APPEND_TIME_STAMP_INFORMATION_TYPE.get()) {
             showVideoQualityFlyoutMenu();
         } else {
-            showPlaybackSpeedFlyoutMenu();
+            if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                showPlaybackSpeedDialog(context);
+            } else {
+                CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(context);
+            }
         }
     }
 
