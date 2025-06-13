@@ -221,6 +221,9 @@ def process(app: str, base_dir: Path) -> None:
         "revanced_swipe_text_overlay_size_invalid_toast",
         "revanced_swipe_text_overlay_size_summary",
         "revanced_swipe_text_overlay_size_title",
+        "revanced_hide_player_control_buttons_background_title",
+        "revanced_hide_player_control_buttons_background_summary_on",
+        "revanced_hide_player_control_buttons_background_summary_off",
     }
 
     if additional_keys:

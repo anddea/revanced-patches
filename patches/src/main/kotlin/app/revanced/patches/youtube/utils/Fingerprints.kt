@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.utils
 
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.player.components.playerComponentsPatch
 import app.revanced.patches.youtube.utils.resourceid.*
 import app.revanced.patches.youtube.utils.sponsorblock.sponsorBlockBytecodePatch
@@ -7,6 +8,7 @@ import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.fingerprint.legacyFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.literal
 import app.revanced.util.or
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -43,6 +45,13 @@ internal val layoutConstructorFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     literals = listOf(playerControlPreviousButtonTouchArea, playerControlNextButtonTouchArea),
 )
+
+internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("V")
+    literal { youTubeControlsButtonGroupLayoutStub }
+}
 
 internal val playbackRateBottomSheetBuilderFingerprint = legacyFingerprint(
     name = "playbackRateBottomSheetBuilderFingerprint",

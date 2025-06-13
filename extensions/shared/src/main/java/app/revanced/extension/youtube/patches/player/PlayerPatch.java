@@ -416,6 +416,34 @@ public class PlayerPatch {
         return Settings.HIDE_PLAYER_YOUTUBE_MUSIC_BUTTON.get();
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hidePlayerControlButtonsBackground(View rootView) {
+        try {
+            if (!Settings.HIDE_PLAYER_CONTROL_BUTTONS_BACKGROUND.get()) {
+                return;
+            }
+
+            // Each button is an ImageView with a background set to another drawable.
+            removeImageViewsBackgroundRecursive(rootView);
+        } catch (Exception ex) {
+            Logger.printException(() -> "removePlayerControlButtonsBackground failure", ex);
+        }
+    }
+
+    private static void removeImageViewsBackgroundRecursive(View currentView) {
+        if (currentView instanceof ImageView imageView) {
+            imageView.setBackground(null);
+        }
+
+        if (currentView instanceof ViewGroup viewGroup) {
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                removeImageViewsBackgroundRecursive(viewGroup.getChildAt(i));
+            }
+        }
+    }
+
     // endregion
 
     // region [Player components] patch
