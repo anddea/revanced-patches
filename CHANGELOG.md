@@ -1,3 +1,17 @@
+# [3.10.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.3...v3.10.0-dev.4) (2025-06-13)
+
+
+### Bug Fixes
+
+* **YouTube - Toolbar components:** The `Replace Create button` setting did not update the icon in some versions ([3600699](https://github.com/anddea/revanced-patches/commit/3600699dddb73c6003cde12a419cabf1f71f7c75))
+
+
+### Features
+
+* **Spotify:** Add `Change lyrics provider` patch ([d3a7a69](https://github.com/anddea/revanced-patches/commit/d3a7a69f41a415f65a6ac9b3b996a545d6789b7e))
+* **YouTube - Hide player buttons:** Add `Hide player control buttons background` setting ([9e869e8](https://github.com/anddea/revanced-patches/commit/9e869e83787757041a32f4e15b3f34fcb25b6cc6))
+* **YouTube - Shorts Components:** Add `Hide hashtag button` setting ([b68d4f3](https://github.com/anddea/revanced-patches/commit/b68d4f350bc65ca5479a4320bfe93df649586204))
+
 # [3.10.0-dev.3](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.2...v3.10.0-dev.3) (2025-06-07)
 
 
