@@ -108,9 +108,9 @@ public final class UnlockPremiumPatch {
      */
     private static final List<List<ComponentFilter>> CONTEXT_MENU_ITEMS_COMPONENT_FILTERS = List.of(
             // "Listen to music ad-free" upsell on playlists.
-            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "id")),
+            // List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "id")),
             // "Listen to music ad-free" upsell on albums.
-            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "id")),
+            // List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "id")),
             // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
             // being used as a Premium upsell (ad).
             List.of(
