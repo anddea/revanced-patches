@@ -232,6 +232,8 @@ var videoZoomSnapIndicator = -1L
     private set
 var voiceSearch = -1L
     private set
+internal var youTubeControlsButtonGroupLayoutStub = -1L
+    private set
 var youTubeControlsOverlaySubtitleButton = -1L
     private set
 var youTubeLogo = -1L
@@ -388,6 +390,7 @@ internal val sharedResourceIdPatch = resourcePatch(
             getResourceId(STRING, "video_quality_unavailable_announcement")
         videoZoomSnapIndicator = getResourceId(ID, "video_zoom_snap_indicator")
         voiceSearch = getResourceId(ID, "voice_search")
+        youTubeControlsButtonGroupLayoutStub = getResourceId(ID, "youtube_controls_button_group_layout_stub")
         youTubeControlsOverlaySubtitleButton =
             getResourceId(LAYOUT, "youtube_controls_overlay_subtitle_button")
         youTubeLogo = getResourceId(ID, "youtube_logo")
