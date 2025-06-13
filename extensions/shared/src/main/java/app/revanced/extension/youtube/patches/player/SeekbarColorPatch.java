@@ -382,7 +382,7 @@ public class SeekbarColorPatch {
     /**
      * @noinspection SameParameterValue
      */
-    private static float clamp(float value, float lower, float upper) {
+    public static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
     }
 }

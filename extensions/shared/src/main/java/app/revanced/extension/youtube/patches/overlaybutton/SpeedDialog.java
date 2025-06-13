@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.VideoInformation;
 import app.revanced.extension.youtube.utils.VideoUtils;
@@ -21,7 +22,13 @@ public class SpeedDialog extends BottomControlButton {
                 bottomControlsViewGroup,
                 "speed_dialog_button",
                 Settings.OVERLAY_BUTTON_SPEED_DIALOG,
-                view -> VideoUtils.showPlaybackSpeedDialog(view.getContext()),
+                view -> {
+                    if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                        VideoUtils.showPlaybackSpeedDialog(view.getContext());
+                    } else {
+                        CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(view.getContext());
+                    }
+                },
                 view -> {
                     if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get() ||
                             VideoInformation.getPlaybackSpeed() == Settings.DEFAULT_PLAYBACK_SPEED.get()) {

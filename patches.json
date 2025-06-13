@@ -180,6 +180,26 @@
     "options": []
   },
   {
+    "name": "Change lyrics provider",
+    "description": "Changes the lyrics provider to a custom one.",
+    "use": true,
+    "dependencies": [],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": [
+      {
+        "key": "lyricsProviderHost",
+        "title": "Lyrics provider host",
+        "description": "The domain name or IP address of a custom lyrics provider.",
+        "required": false,
+        "type": "kotlin.String",
+        "default": "lyrics.natanchiodi.fr",
+        "values": null
+      }
+    ]
+  },
+  {
     "name": "Change package name",
     "description": "Changes the package name for Reddit to the name specified in patch options.",
     "use": false,
@@ -529,7 +549,9 @@
     "description": "Changes the Spotify app name to the name specified in patch options.",
     "use": false,
     "dependencies": [],
-    "compatiblePackages": null,
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
     "options": [
       {
         "key": "appName",
@@ -752,7 +774,7 @@
       {
         "key": "backgroundColorSecondary",
         "title": "Secondary background color",
-        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
+        "description": "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.\",",
         "required": true,
         "type": "kotlin.String",
         "default": "#FF121212",
@@ -769,11 +791,11 @@
       },
       {
         "key": "accentColorPressed",
-        "title": "Pressed dark theme accent color",
+        "title": "Pressed accent color",
         "description": "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference.",
         "required": true,
         "type": "kotlin.String",
-        "default": "#FF169C46",
+        "default": "#FF1ABC54",
         "values": null
       }
     ]
@@ -1275,12 +1297,12 @@
     "options": []
   },
   {
-    "name": "Enable on demand",
-    "description": "Enables listening to songs on-demand, allowing to play any song from playlists, albums or artists without limitations. This does not remove ads.",
+    "name": "Fix Facebook login",
+    "description": "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
     "use": true,
     "dependencies": [],
     "compatiblePackages": {
-      "com.spotify.lite": null
+      "com.spotify.music": null
     },
     "options": []
   },
@@ -1538,6 +1560,18 @@
     ]
   },
   {
+    "name": "Hide Create button",
+    "description": "Hides the \"Create\" button in the navigation bar.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": []
+  },
+  {
     "name": "Hide Recently Visited shelf",
     "description": "Adds an option to hide the Recently Visited shelf in the sidebar.",
     "use": true,
@@ -1663,22 +1697,6 @@
     "description": "Adds options to hide ads.",
     "use": true,
     "dependencies": [
-      "Settings for Reddit"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "use": true,
-    "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
@@ -1721,6 +1739,22 @@
         "7.25.53",
         "8.05.51",
         "8.12.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
       ]
     },
     "options": []
@@ -2167,23 +2201,6 @@
   },
   {
     "name": "Open links externally",
-    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Open links externally",
     "description": "Adds an option to always open links in your browser instead of the in-app browser.",
     "use": true,
     "dependencies": [
@@ -2197,6 +2214,23 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Open links externally",
+    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
       ]
     },
     "options": []
@@ -2335,18 +2369,6 @@
         "2025.05.1",
         "2025.12.1"
       ]
-    },
-    "options": []
-  },
-  {
-    "name": "Remove Create tab",
-    "description": "Removes the \u0027Create\u0027 (Plus) tab from the bottom navigation bar.",
-    "use": true,
-    "dependencies": [
-      "ResourcePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
     },
     "options": []
   },
@@ -2558,44 +2580,6 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Removes the tracking query parameters from links before they are shared.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "shareParameters",
-        "title": "Parameters to remove",
-        "description": "A list of parameters to be removed from sharing links, separated by commas.",
-        "required": true,
-        "type": "kotlin.String",
-        "default": "si, utm_source, context",
-        "values": null
-      }
-    ]
-  },
-  {
-    "name": "Sanitize sharing links",
-    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Sanitize sharing links",
     "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
@@ -2634,6 +2618,44 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Removes the tracking query parameters from links before they are shared.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": [
+      {
+        "key": "shareParameters",
+        "title": "Parameters to remove",
+        "description": "A list of parameters to be removed from sharing links, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "si, utm_source, context",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Seekbar components",
@@ -3329,7 +3351,7 @@
     ]
   },
   {
-    "name": "Unlock Spotify Premium",
+    "name": "Unlock Premium",
     "description": "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
     "use": true,
     "dependencies": [

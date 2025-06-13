@@ -27,9 +27,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import com.google.android.apps.youtube.app.application.Shell_SettingsActivity;
 import com.google.android.apps.youtube.app.settings.SettingsActivity;
-import com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity;
 
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -318,7 +318,7 @@ public class GeneralPatch {
         }
 
         // This method is called after AlertDialog#show(),
-        // So we need to hide the AlertDialog before pressing the possitive button.
+        // So we need to hide the AlertDialog before pressing the positive button.
         final Window window = dialog.getWindow();
         final Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         if (window != null && button != null) {
@@ -645,7 +645,7 @@ public class GeneralPatch {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setPackage(context.getPackageName());
         intent.setData(Uri.parse("revanced_extended_settings_intent"));
-        intent.setClass(context, VideoQualitySettingsActivity.class);
+        intent.setClassName(context, "com.google.android.libraries.social.licenses.LicenseActivity");
         context.startActivity(intent);
     }
 
