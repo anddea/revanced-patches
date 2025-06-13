@@ -180,6 +180,26 @@
     "options": []
   },
   {
+    "name": "Change lyrics provider",
+    "description": "Changes the lyrics provider to a custom one.",
+    "use": true,
+    "dependencies": [],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": [
+      {
+        "key": "lyricsProviderHost",
+        "title": "Lyrics provider host",
+        "description": "The domain name or IP address of a custom lyrics provider.",
+        "required": false,
+        "type": "kotlin.String",
+        "default": "lyrics.natanchiodi.fr",
+        "values": null
+      }
+    ]
+  },
+  {
     "name": "Change package name",
     "description": "Changes the package name for Reddit to the name specified in patch options.",
     "use": false,
@@ -1677,22 +1697,6 @@
     "description": "Adds options to hide ads.",
     "use": true,
     "dependencies": [
-      "Settings for Reddit"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Hide ads",
-    "description": "Adds options to hide ads.",
-    "use": true,
-    "dependencies": [
       "Settings for YouTube",
       "BytecodePatch",
       "BytecodePatch",
@@ -1735,6 +1739,22 @@
         "7.25.53",
         "8.05.51",
         "8.12.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
       ]
     },
     "options": []
@@ -2181,23 +2201,6 @@
   },
   {
     "name": "Open links externally",
-    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit",
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Open links externally",
     "description": "Adds an option to always open links in your browser instead of the in-app browser.",
     "use": true,
     "dependencies": [
@@ -2211,6 +2214,23 @@
         "19.43.41",
         "19.44.39",
         "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Open links externally",
+    "description": "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit",
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
       ]
     },
     "options": []
@@ -2560,44 +2580,6 @@
   },
   {
     "name": "Sanitize sharing links",
-    "description": "Removes the tracking query parameters from links before they are shared.",
-    "use": true,
-    "dependencies": [
-      "BytecodePatch"
-    ],
-    "compatiblePackages": {
-      "com.spotify.music": null
-    },
-    "options": [
-      {
-        "key": "shareParameters",
-        "title": "Parameters to remove",
-        "description": "A list of parameters to be removed from sharing links, separated by commas.",
-        "required": true,
-        "type": "kotlin.String",
-        "default": "si, utm_source, context",
-        "values": null
-      }
-    ]
-  },
-  {
-    "name": "Sanitize sharing links",
-    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
-    "use": true,
-    "dependencies": [
-      "Settings for Reddit"
-    ],
-    "compatiblePackages": {
-      "com.reddit.frontpage": [
-        "2024.17.0",
-        "2025.05.1",
-        "2025.12.1"
-      ]
-    },
-    "options": []
-  },
-  {
-    "name": "Sanitize sharing links",
     "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
     "use": true,
     "dependencies": [
@@ -2636,6 +2618,44 @@
       ]
     },
     "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Adds an option to sanitize sharing links by removing tracking query parameters.",
+    "use": true,
+    "dependencies": [
+      "Settings for Reddit"
+    ],
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Sanitize sharing links",
+    "description": "Removes the tracking query parameters from links before they are shared.",
+    "use": true,
+    "dependencies": [
+      "BytecodePatch"
+    ],
+    "compatiblePackages": {
+      "com.spotify.music": null
+    },
+    "options": [
+      {
+        "key": "shareParameters",
+        "title": "Parameters to remove",
+        "description": "A list of parameters to be removed from sharing links, separated by commas.",
+        "required": true,
+        "type": "kotlin.String",
+        "default": "si, utm_source, context",
+        "values": null
+      }
+    ]
   },
   {
     "name": "Seekbar components",
