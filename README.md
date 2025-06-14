@@ -156,6 +156,7 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
+| `Change lyrics provider` | Changes the lyrics provider to a custom one. | ALL |
 | `Custom branding name for Spotify` | Changes the Spotify app name to the name specified in patch options. | ALL |
 | `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
 | `Fix Facebook login` | Fix logging in with Facebook when the app is patched by always opening the login in a web browser window. | ALL |

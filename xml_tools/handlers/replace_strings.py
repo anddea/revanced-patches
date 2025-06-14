@@ -186,6 +186,9 @@ def process(app: str, base_dir: Path) -> None:
         "revanced_hide_ask_section_summary_off",
         "revanced_hide_ask_section_summary_on",
         "revanced_hide_ask_section_title",
+        "revanced_hide_shorts_hashtag_button_summary_off",
+        "revanced_hide_shorts_hashtag_button_summary_on",
+        "revanced_hide_shorts_hashtag_button_title",
         "revanced_hide_shorts_preview_comment_summary_off",
         "revanced_hide_shorts_preview_comment_summary_on",
         "revanced_hide_shorts_preview_comment_title",
@@ -218,6 +221,9 @@ def process(app: str, base_dir: Path) -> None:
         "revanced_swipe_text_overlay_size_invalid_toast",
         "revanced_swipe_text_overlay_size_summary",
         "revanced_swipe_text_overlay_size_title",
+        "revanced_hide_player_control_buttons_background_title",
+        "revanced_hide_player_control_buttons_background_summary_on",
+        "revanced_hide_player_control_buttons_background_summary_off",
     }
 
     if additional_keys:
