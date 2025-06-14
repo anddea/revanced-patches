@@ -830,9 +830,9 @@ Filtr może już nie działać - zamiast niego użyj filtru ilości wyświetleń
     <string name="revanced_hide_player_collapse_button_summary_off">Widoczny</string>
     <string name="revanced_hide_player_collapse_button_summary_on">Ukryty</string>
     <string name="revanced_hide_player_collapse_button_title">Przycisk od minimalizowania filmu</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_off">Tło przycisków sterowania odtwarzacza jest wyświetlane</string>
-    <string name="revanced_hide_player_control_buttons_background_summary_on">Tło przycisków sterowania odtwarzacza jest ukryte</string>
-    <string name="revanced_hide_player_control_buttons_background_title">Ukryj tło przycisków sterowania odtwarzacza</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_off">Widoczne</string>
+    <string name="revanced_hide_player_control_buttons_background_summary_on">Ukryte</string>
+    <string name="revanced_hide_player_control_buttons_background_title">Tło przycisków sterowania odtwarzacza</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_off">Widoczne</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_summary_on">Ukryte</string>
     <string name="revanced_hide_player_flyout_menu_ambient_mode_title">Menu od oświetlenia kinowego</string>
@@ -1088,9 +1088,9 @@ Jeśli układ ekranu odtwarzacza zmieni się w skutek zmian po stronie serwera, 
     <string name="revanced_hide_shorts_green_screen_button_summary_off">Widoczny</string>
     <string name="revanced_hide_shorts_green_screen_button_summary_on">Ukryty</string>
     <string name="revanced_hide_shorts_green_screen_button_title">Przycisk od greenscreena</string>
-    <string name="revanced_hide_shorts_hashtag_button_summary_off">Przycisk hashtagu jest widoczny</string>
-    <string name="revanced_hide_shorts_hashtag_button_summary_on">Przycisk hashtagu jest ukryty</string>
-    <string name="revanced_hide_shorts_hashtag_button_title">Przycisk hashtagu</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_off">Widoczny</string>
+    <string name="revanced_hide_shorts_hashtag_button_summary_on">Ukryty</string>
+    <string name="revanced_hide_shorts_hashtag_button_title">Przycisk od hashtagu</string>
     <string name="revanced_hide_shorts_info_panel_summary_off">Widoczne</string>
     <string name="revanced_hide_shorts_info_panel_summary_on">Ukryte</string>
     <string name="revanced_hide_shorts_info_panel_title">Panele z informacjami</string>
@@ -2303,6 +2303,7 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_error_no_language_selected">Nie wybrano języka</string>
     <string name="revanced_yandex_error_no_subs_for_language">Napisy nie są dostępne w %s</string>
     <string name="revanced_yandex_error_no_subs_returned">Brak dostępnych ścieżek napisów</string>
+    <string name="revanced_yandex_error_server_try_again">Pojawił się błąd podczas transkrypcji, spróbuj ponownie później.</string>
     <string name="revanced_yandex_error_subs_parsing_failed">Nie udało się przetworzyć treści napisów w formacie JSON</string>
     <string name="revanced_yandex_error_subs_processing_failed">Błąd przetwarzania treści napisów</string>
     <string name="revanced_yandex_error_subs_stuck_processing">Błąd wewnętrzny: przetwarzanie napisów nie powiodło się</string>
@@ -2315,6 +2316,7 @@ Jeśli opcja nie przynosi skutku, spróbuj przełączyć się na tryb incognito.
     <string name="revanced_yandex_status_requesting_translation">Żądanie tłumaczenia</string>
     <string name="revanced_yandex_status_session_ok">Sesja działa prawidłowo</string>
     <string name="revanced_yandex_status_subs_found">Znaleziono napisy, pobieranie...</string>
+    <string name="revanced_yandex_status_transcription_delayed">Transkrypcja jest lekko opóźniona</string>
     <string name="revanced_yandex_status_youtube_specific">Obsługiwanie żądań dźwięku YouTube...</string>
     <string name="revanced_yandex_transcribe_subtitles_language_summary">Yandex może przetranskrybować filmy z dowolnego języka, ale dane wyjściowe są dostępne tylko w języku angielskim (en), rosyjskim (ru) i kazachskim (kk). Jeśli wprowadzisz inny kod języka lub użyjesz „Język aplikacji” (co stanowi domyślny język aplikacji), Gemini zostanie poproszone o przetłumaczenie (wymagany jest klucz API).</string>
     <string name="revanced_yandex_transcribe_subtitles_language_title">Język Yandex</string>
