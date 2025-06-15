@@ -32,3 +32,19 @@ internal val scrollTopFingerprint = legacyFingerprint(
         Opcode.INVOKE_INTERFACE
     )
 )
+
+internal val scrollTopFingerprint2016 = legacyFingerprint(
+    name = "scrollTopFingerprint2016",
+    returnType = "V",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
+    opcodes = listOf(
+        Opcode.CHECK_CAST,
+        Opcode.CONST_4,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.GOTO,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_EQZ,
+        Opcode.INVOKE_INTERFACE
+    )
+)

@@ -16,6 +16,8 @@ val customBrandingNamePatch = resourcePatch(
     "Changes the Spotify app name to the name specified in patch options.",
     false,
 ) {
+    compatibleWith("com.spotify.music")
+
     val appNameOption = stringOption(
         key = "appName",
         default = ORIGINAL_APP_NAME,

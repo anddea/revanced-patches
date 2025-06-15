@@ -17,6 +17,7 @@ import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.ResourceUtils;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.components.ShortsCustomActionsFilter;
+import app.revanced.extension.youtube.patches.video.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.utils.ExtendedUtils;
 import app.revanced.extension.youtube.utils.GeminiManager;
@@ -328,7 +329,13 @@ public final class CustomActionsPatch {
         SPEED_DIALOG(
                 Settings.SHORTS_CUSTOM_ACTIONS_SPEED_DIALOG,
                 "yt_outline_play_arrow_half_circle_black_24",
-                () -> VideoUtils.showPlaybackSpeedDialog(contextRef.get())
+                () -> {
+                    if (Settings.CUSTOM_PLAYBACK_SPEED_MENU_TYPE.get()) {
+                        VideoUtils.showPlaybackSpeedDialog(contextRef.get());
+                    } else {
+                        CustomPlaybackSpeedPatch.showModernCustomPlaybackSpeedDialog(contextRef.get());
+                    }
+                }
         ),
         GEMINI(
                 Settings.SHORTS_CUSTOM_ACTIONS_GEMINI,

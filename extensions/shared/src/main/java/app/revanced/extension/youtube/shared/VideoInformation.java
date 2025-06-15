@@ -13,6 +13,7 @@ import java.util.List;
 import app.revanced.extension.shared.utils.Logger;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.patches.utils.AlwaysRepeatPatch;
+import app.revanced.extension.youtube.settings.Settings;
 
 /**
  * Hooking class for the current playing video.
@@ -195,6 +196,10 @@ public final class VideoInformation {
                                            final long newlyLoadedVideoLength, boolean newlyLoadedLiveStreamValue) {
         if (videoId.equals(newlyLoadedVideoId))
             return;
+
+        if (!Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
+            playbackSpeed = DEFAULT_YOUTUBE_PLAYBACK_SPEED;
+        }
 
         channelId = newlyLoadedChannelId;
         channelName = newlyLoadedChannelName;

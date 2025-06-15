@@ -235,7 +235,6 @@ public final class GeminiManager {
      */
     public void startTranscription(@NonNull Context context, @NonNull final String videoUrl) {
         ensureMainThread(() -> {
-            final String videoTitle = VideoInformation.getVideoTitle();
             final long videoLengthMs = VideoInformation.getVideoLength();
             final double durationSeconds = videoLengthMs > 0 ? videoLengthMs / 1000.0 : 0;
 
@@ -312,7 +311,7 @@ public final class GeminiManager {
             final boolean useYandex = Settings.YANDEX_TRANSCRIBE_SUBTITLES.get();
 
             if (useYandex) {
-                startYandexTranscriptionWorkflow(context, videoUrl, videoTitle, durationSeconds, Objects.requireNonNull(determinedTargetLanguageCode));
+                startYandexTranscriptionWorkflow(context, videoUrl, durationSeconds, Objects.requireNonNull(determinedTargetLanguageCode));
             } else {
                 // Use direct Gemini transcription (will use app language via getLanguageName())
                 startGeminiTranscriptionWorkflow(context, videoUrl);
@@ -332,19 +331,18 @@ public final class GeminiManager {
      *
      * @param context             UI Context.
      * @param videoUrl            Video URL.
-     * @param videoTitle          Video Title.
      * @param durationSeconds     Video duration.
      * @param finalTargetLangCode The final language code the user wants (e.g., "en", "es", "de").
      */
     @MainThread
-    private void startYandexTranscriptionWorkflow(@NonNull Context context, @NonNull String videoUrl, @Nullable String videoTitle, double durationSeconds, @NonNull String finalTargetLangCode) {
+    private void startYandexTranscriptionWorkflow(@NonNull Context context, @NonNull String videoUrl, double durationSeconds, @NonNull String finalTargetLangCode) {
         Logger.printInfo(() -> "Starting new Yandex workflow: " + videoUrl + " (Final Target: " + finalTargetLangCode + ")");
 
 
         showProgressDialogInternal(context, OperationType.TRANSCRIBE);
 
         YandexVotUtils.getYandexSubtitlesWorkflowAsync(
-                videoUrl, videoTitle, durationSeconds, finalTargetLangCode,
+                videoUrl, durationSeconds, finalTargetLangCode,
                 new YandexVotUtils.SubtitleWorkflowCallback() {
                     @Override
                     public void onProcessingStarted(String statusMessage) {
@@ -433,7 +431,7 @@ public final class GeminiManager {
             if (!Objects.equals(statusMessage, lastYandexStatusMessage)) {
                 lastYandexStatusMessage = statusMessage;
                 isWaitingForYandexRetry = true;
-                baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + " (" + statusMessage + ")";
+                baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + "\n(" + statusMessage + ")";
                 Logger.printDebug(() -> "Yandex status update (UI): " + statusMessage);
 
                 if (progressDialog != null && progressDialog.isShowing() && !isProgressDialogMinimized) {
@@ -446,7 +444,7 @@ public final class GeminiManager {
                 // Even if the message is the same, update baseLoadingMessage in case dialog is re-shown later
                 // Only update if not translating
                 if (intermediateLanguageCode == null) {
-                    baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + " (" + statusMessage + ")";
+                    baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe") + "\n(" + statusMessage + ")";
                 }
                 Logger.printDebug(() -> "Yandex status update (no UI change needed): " + statusMessage);
             }
@@ -468,6 +466,8 @@ public final class GeminiManager {
                 handleIrrelevantResponseInternal(OperationType.TRANSCRIBE, videoUrl, true); // Gemini part succeeded technically
                 return;
             }
+            YandexVotUtils.forceReleaseWorkflowLock(videoUrl);
+
             Logger.printInfo(() -> "Gemini translation SUCCESS. Parsing translated JSON for lang " + determinedTargetLanguageCode);
             dismissProgressDialogInternal();
 
@@ -530,6 +530,8 @@ public final class GeminiManager {
                 return;
             }
             Logger.printException(() -> "Gemini translation FAILED: " + error, null);
+            YandexVotUtils.forceReleaseWorkflowLock(videoUrl);
+
             dismissProgressDialogInternal();
             showToastLong(str("revanced_gemini_error_translation_failed", error));
             resetOperationStateInternal(OperationType.TRANSCRIBE, true);
@@ -713,7 +715,7 @@ public final class GeminiManager {
             } else if (isUsingYandex) {
                 // Yandex polling phase (intermediateLanguageCode is null)
                 baseLoadingMessage = str("revanced_gemini_loading_yandex_transcribe")
-                        + (isWaitingForYandexRetry && lastYandexStatusMessage != null ? " (" + lastYandexStatusMessage + ")" : "");
+                        + (isWaitingForYandexRetry && lastYandexStatusMessage != null ? "\n(" + lastYandexStatusMessage + ")" : "");
             } else {
                 // Direct Gemini transcription phase
                 baseLoadingMessage = str("revanced_gemini_loading_transcribe");
@@ -824,7 +826,7 @@ public final class GeminiManager {
     /**
      * Handles an API response (Gemini or Yandex) that arrives after the operation
      * it belongs to is no longer the active one (e.g., canceled or replaced).
-     * Log the event.
+     * Logs the event and cleans up any orphaned background tasks.
      *
      * @param opType     The type of the operation that finished irrelevantly.
      * @param videoUrl   The URL associated with the irrelevant operation.
@@ -841,6 +843,11 @@ public final class GeminiManager {
 
 
         Logger.printDebug(() -> "Ignoring irrelevant " + source + " response (" + status + ") for " + videoUrl + " because " + reason + ".");
+
+        if (opType == OperationType.TRANSCRIBE && Settings.YANDEX_TRANSCRIBE_SUBTITLES.get()) {
+            Logger.printDebug(() -> "Irrelevant Yandex response detected. Forcing workflow cleanup for: " + videoUrl);
+            YandexVotUtils.forceReleaseWorkflowLock(videoUrl);
+        }
         // No state changes needed here, the relevant reset happened during cancellation or preparation for the new task.
     }
 

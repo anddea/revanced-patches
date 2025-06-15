@@ -5,10 +5,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.patches.spotify.shared.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -70,7 +71,15 @@ val sanitizeSharingLinksPatch = bytecodePatch(
             shareUrlParameter = "p2"
         } else {
             shareSheetFingerprint = formatAndroidShareSheetUrlFingerprint
-            shareUrlParameter = "p1"
+            val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod.accessFlags
+            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags)) {
+                // In newer implementations the method is static, so p0 is not `this`.
+                "p1"
+            } else {
+                // In older implementations the method is not static, making it so p0 is `this`.
+                // For that reason, add one to the parameter register.
+                "p2"
+            }
         }
 
         shareSheetFingerprint.method.apply {
