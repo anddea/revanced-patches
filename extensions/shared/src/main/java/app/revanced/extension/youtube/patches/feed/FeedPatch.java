@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import app.revanced.extension.shared.utils.Utils;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 import static app.revanced.extension.shared.utils.Utils.hideViewBy0dpUnderCondition;
 import static app.revanced.extension.shared.utils.Utils.hideViewUnderCondition;
@@ -28,8 +29,14 @@ public class FeedPatch {
     }
 
     public static void hideCategoryBarInRelatedVideos(final View chipView) {
+        boolean isFullscreen = PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN;
         Utils.hideViewBy0dpUnderCondition(
-                Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get() || Settings.HIDE_RELATED_VIDEOS.get(),
+                !isFullscreen && Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get() || Settings.HIDE_RELATED_VIDEOS.get(),
+                chipView
+        );
+
+        Utils.hideViewUnderCondition(
+                isFullscreen && Settings.HIDE_CATEGORY_BAR_IN_RELATED_VIDEOS.get(),
                 chipView
         );
     }
