@@ -114,7 +114,7 @@ internal val minimizedPlayerFingerprint = legacyFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
-        Opcode.INVOKE_VIRTUAL,
+        null, // Opcode.INVOKE_VIRTUAL or Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
         Opcode.IF_EQZ

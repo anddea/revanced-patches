@@ -64,19 +64,7 @@ val albumMusicVideoPatch = bytecodePatch(
 
         // region patch for hide snack bar
 
-        if (is_8_16_or_greater) {
-            snackBarParentFingerprint.methodOrThrow().addInstructionsWithLabels(
-                0, """
-                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar()Z
-                move-result v0
-                if-eqz v0, :hide
-                const/4 v0, 0x0
-                return-object v0
-                :hide
-                nop
-                """
-            )
-        } else {
+        if (!is_8_16_or_greater) {
             snackBarParentFingerprint.methodOrThrow().addInstructionsWithLabels(
                 0, """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSnackBar()Z
