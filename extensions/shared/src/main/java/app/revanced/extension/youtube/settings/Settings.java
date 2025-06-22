@@ -284,6 +284,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
     public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", FALSE);
+    public static final BooleanSetting HIDE_ASK_BUTTON = new BooleanSetting("revanced_hide_ask_button", FALSE);
 
     public static final BooleanSetting HIDE_ACTION_BUTTON_INDEX = new BooleanSetting("revanced_hide_action_button_index", FALSE, true);
     public static final IntegerSetting REMIX_BUTTON_INDEX = new IntegerSetting("revanced_remix_button_index", 3, true, parent(HIDE_ACTION_BUTTON_INDEX));
