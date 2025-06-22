@@ -25,6 +25,7 @@ import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_METHOD_DESCRIPTOR =
@@ -77,13 +78,20 @@ val cairoSplashAnimationPatch = bytecodePatch(
                             getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/Runnable;"
                 } + 1
 
+                val moveInstructionIndex = indexOfFirstInstructionOrThrow(jumpIndex) {
+                    opcode == Opcode.MOVE_FROM16
+                }
+                val uninitializedRegister =
+                    getInstruction<TwoRegisterInstruction>(moveInstructionIndex).registerB
+
                 addInstructionsWithLabels(
                     insertIndex, """
+                        const/4 v$uninitializedRegister, 0x0        
                         const/4 v$freeRegister, 0x1
                         invoke-static {v$freeRegister}, $EXTENSION_METHOD_DESCRIPTOR
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :skip
-                        """, ExternalLabel("skip", getInstruction(jumpIndex))
+                    """, ExternalLabel("skip", getInstruction(jumpIndex))
                 )
             }
         }
