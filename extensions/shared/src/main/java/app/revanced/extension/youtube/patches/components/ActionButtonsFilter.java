@@ -42,11 +42,11 @@ public final class ActionButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml|"
+                        "|download_button.eml"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml|"
+                        "|clip_button.eml"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_PLAYLIST_BUTTON,
@@ -80,6 +80,14 @@ public final class ActionButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_THANKS_BUTTON,
                         "yt_outline_dollar_sign_heart"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ASK_BUTTON,
+                        "yt_fill_spark"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_CLIP_BUTTON,
+                        "yt_outline_scissors"
                 )
         );
     }
