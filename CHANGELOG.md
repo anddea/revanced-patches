@@ -1,3 +1,15 @@
+# [3.10.0-dev.5](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.4...v3.10.0-dev.5) (2025-06-22)
+
+
+### Bug Fixes
+
+* **YouTube - Hide feed components:** Fix the issue of related videos overlapping the seekbar in fullscreen mode ([11096d2](https://github.com/anddea/revanced-patches/commit/11096d280eee01b095b8c0683670ef8b75ebb616))
+
+
+### Features
+
+* **YouTube Music:** Add support for a wider range of versions (up to 8.24) ([ffbb73a](https://github.com/anddea/revanced-patches/commit/ffbb73ab2241bd8c0c0b48053a98391263cda8a7))
+
 # [3.10.0-dev.4](https://github.com/anddea/revanced-patches/compare/v3.10.0-dev.3...v3.10.0-dev.4) (2025-06-13)
 
 
