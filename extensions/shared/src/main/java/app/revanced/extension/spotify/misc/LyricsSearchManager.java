@@ -23,6 +23,8 @@ import app.revanced.extension.shared.utils.Utils;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+import static app.revanced.extension.shared.utils.ResourceUtils.getColor;
+
 /**
  * Manages the display and interaction of a floating lyrics search overlay
  * within the Spotify application. Allows minimizing, expanding, and dragging.
@@ -44,11 +46,11 @@ public class LyricsSearchManager {
     private static final int BUTTON_CORNER_RADIUS_DP = 20; // For main search button
     private static final int ICON_BUTTON_MARGIN_DP = 5; // Margin between icons
 
-    private static final String COLOR_PRIMARY_ACCENT = "#1ED760"; // Spotify Green
-    private static final String COLOR_DARK_BACKGROUND = "#282828"; // Dark Gray bg (ARGB: 200, 40, 40, 40)
-    private static final String COLOR_ICON_BACKGROUND = "#404040"; // Slightly lighter gray for icon bg
-    private static final String COLOR_TEXT_ON_ACCENT = "#000000"; // Black text on green button
-    private static final String COLOR_ICON_TINT = "#B3B3B3"; // White icons
+    private static final int COLOR_PRIMARY_ACCENT = getColor("spotify_green_157"); // Spotify Green
+    private static final int COLOR_DARK_BACKGROUND = Color.parseColor("#282828"); // Dark Gray bg (ARGB: 200, 40, 40, 40)
+    private static final int COLOR_ICON_BACKGROUND = Color.parseColor("#404040"); // Slightly lighter gray for icon bg
+    private static final int COLOR_TEXT_ON_ACCENT = Color.parseColor("#000000"); // Black text on green button
+    private static final int COLOR_ICON_TINT = Color.parseColor("#B3B3B3"); // White icons
 
     // --- State Variables ---
     private static String currentSearchTitle = null;
@@ -187,7 +189,7 @@ public class LyricsSearchManager {
             expandedLayout.setGravity(Gravity.CENTER_VERTICAL);
 
             GradientDrawable expandedBg = new GradientDrawable();
-            expandedBg.setColor(Color.parseColor(COLOR_DARK_BACKGROUND));
+            expandedBg.setColor(COLOR_DARK_BACKGROUND);
             expandedBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP * 2));
             expandedLayout.setBackground(expandedBg);
             int expandedPaddingPx = Utils.dpToPx(EXPANDED_LAYOUT_PADDING_DP);
@@ -202,11 +204,11 @@ public class LyricsSearchManager {
             googleSearchButton = new Button(context);
             googleSearchButton.setText("Search Lyrics");
             googleSearchButton.setAllCaps(false);
-            googleSearchButton.setTextColor(Color.parseColor(COLOR_TEXT_ON_ACCENT));
+            googleSearchButton.setTextColor(COLOR_TEXT_ON_ACCENT);
             googleSearchButton.setPadding(Utils.dpToPx(16), 0, Utils.dpToPx(16), 0);
             GradientDrawable searchBg = new GradientDrawable();
             searchBg.setShape(GradientDrawable.RECTANGLE);
-            searchBg.setColor(Color.parseColor(COLOR_PRIMARY_ACCENT));
+            searchBg.setColor(COLOR_PRIMARY_ACCENT);
             searchBg.setCornerRadius(Utils.dpToPx(BUTTON_CORNER_RADIUS_DP));
             googleSearchButton.setBackground(searchBg);
             LinearLayout.LayoutParams searchParams = new LinearLayout.LayoutParams(
@@ -359,17 +361,17 @@ public class LyricsSearchManager {
     /**
      * Helper to create a circular ImageButton with consistent styling.
      */
-    private static ImageButton createCircularImageButton(Context context, int iconResId, int sizePx, int paddingPx, String bgColor, String tintColor) {
+    private static ImageButton createCircularImageButton(Context context, int iconResId, int sizePx, int paddingPx, int bgColor, int tintColor) {
         ImageButton button = new ImageButton(context);
         if (iconResId != 0) {
             button.setImageResource(iconResId);
         }
-        button.setColorFilter(Color.parseColor(tintColor), PorterDuff.Mode.SRC_IN);
+        button.setColorFilter(tintColor, PorterDuff.Mode.SRC_IN);
         button.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
 
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.OVAL);
-        background.setColor(Color.parseColor(bgColor));
+        background.setColor(bgColor);
         background.setSize(sizePx, sizePx); // Ensure the oval is a circle
         button.setBackground(background);
 
