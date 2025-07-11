@@ -1,17 +1,26 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patches.shared.extension.extensionHook
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patches.shared.misc.extension.extensionHook
+import app.revanced.patches.spotify.shared.mainActivityOnCreateFingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivity;"
+internal val mainActivityOnCreateHook = extensionHook(fingerprint = mainActivityOnCreateFingerprint)
 
-/**
- * Main activity of target 8.6.98.900.
- */
-internal const val SPOTIFY_MAIN_ACTIVITY_LEGACY = "Lcom/spotify/music/MainActivity;"
+internal val loadOrbitLibraryHook = extensionHook(
+    insertIndexResolver = {
+        loadOrbitLibraryFingerprint.stringMatches!!.last().index
+    },
+    contextRegisterResolver = { method ->
+        val contextReferenceIndex = method.indexOfFirstInstruction {
+            getReference<FieldReference>()?.type == "Landroid/content/Context;"
+        }
+        val contextRegister = method.getInstruction<TwoRegisterInstruction>(contextReferenceIndex).registerA
 
-internal val mainActivityOnCreateHook = extensionHook {
-    custom { method, classDef ->
-        method.name == "onCreate" && (classDef.type == SPOTIFY_MAIN_ACTIVITY
-                || classDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY)
-    }
-}
+        "v$contextRegister"
+    },
+    fingerprint = loadOrbitLibraryFingerprint,
+)

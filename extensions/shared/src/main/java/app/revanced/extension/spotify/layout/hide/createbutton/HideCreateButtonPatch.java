@@ -1,11 +1,9 @@
 package app.revanced.extension.spotify.layout.hide.createbutton;
 
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
-import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
-import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
-
 import java.util.List;
+
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.spotify.shared.ComponentFilters.*;
 
 @SuppressWarnings("unused")
 public final class HideCreateButtonPatch {
@@ -55,7 +53,9 @@ public final class HideCreateButtonPatch {
                     return null;
                 }
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
+            // Catch Throwable as calling toString can cause crashes with wrongfully generated code that throws
+            // NoSuchMethod errors.
             Logger.printException(() -> "returnNullIfIsCreateButton failure", ex);
         }
 
