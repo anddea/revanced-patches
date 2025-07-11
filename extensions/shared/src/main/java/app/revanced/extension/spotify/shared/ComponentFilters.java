@@ -66,15 +66,16 @@ public final class ComponentFilters {
     }
 
     public record StringComponentFilter(String string) implements ComponentFilter {
-        @NonNull
-        @Override
-        public String getFilterValue() {
-            return string;
-        }
 
-        @Override
-        public String getFilterRepresentation() {
-            return string;
+        @NonNull
+            @Override
+            public String getFilterValue() {
+                return string;
+            }
+
+            @Override
+            public String getFilterRepresentation() {
+                return string;
+            }
         }
-    }
 }

@@ -24,6 +24,6 @@ val fixFacebookLoginPatch = bytecodePatch(
         katanaProxyLoginMethodTryAuthorizeFingerprint
             .match(katanaProxyLoginMethodHandlerClass)
             .method
-            .returnEarly()
+            .returnEarly(0)
     }
 }

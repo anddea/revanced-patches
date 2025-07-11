@@ -1,38 +1,19 @@
 package app.revanced.extension.spotify.misc;
 
+import app.revanced.ContextMenuItemPlaceholder;
+import app.revanced.extension.shared.utils.Logger;
+import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
+import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
+import com.spotify.remoteconfig.internal.AccountAttribute;
+
+import java.util.*;
+
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-import app.revanced.extension.shared.utils.Logger;
-import app.revanced.extension.spotify.shared.ComponentFilters.*;
-import com.spotify.home.evopage.homeapi.proto.Section;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
-
-    private static final String SPOTIFY_MAIN_ACTIVITY_LEGACY = "com.spotify.music.MainActivity";
-
-    /**
-     * If the app target is 8.6.98.900.
-     */
-    private static final boolean IS_SPOTIFY_LEGACY_APP_TARGET;
-
-    static {
-        boolean isLegacy;
-        try {
-            Class.forName(SPOTIFY_MAIN_ACTIVITY_LEGACY);
-            isLegacy = true;
-        } catch (ClassNotFoundException ex) {
-            isLegacy = false;
-        }
-
-        IS_SPOTIFY_LEGACY_APP_TARGET = isLegacy;
-    }
 
     private static class OverrideAttribute {
         /**
@@ -67,7 +48,7 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("ads", FALSE),
             // Works along on-demand, allows playing any song without restriction.
             new OverrideAttribute("player-license", "premium"),
-            new OverrideAttribute("player-license-v2", "premium", !IS_SPOTIFY_LEGACY_APP_TARGET),
+            new OverrideAttribute("player-license-v2", "premium"),
             // Disables shuffle being initially enabled when first playing a playlist.
             new OverrideAttribute("shuffle", FALSE),
             // Allows playing any song on-demand, without a shuffled order.
@@ -76,7 +57,7 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming", TRUE),
             // Allows adding songs to queue and removes the smart shuffle mode restriction,
             // allowing to pick any of the other modes. Flag is not present in legacy app target.
-            new OverrideAttribute("pick-and-shuffle", FALSE, !IS_SPOTIFY_LEGACY_APP_TARGET),
+            new OverrideAttribute("pick-and-shuffle", FALSE),
             // Disables shuffle-mode streaming-rule, which forces songs to be played shuffled
             // and breaks the player when other patches are applied.
             new OverrideAttribute("streaming-rules", ""),
@@ -98,8 +79,16 @@ public final class UnlockPremiumPatch {
      * response which delivers home sections.
      */
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
-            Section.VIDEO_BRAND_AD_FIELD_NUMBER,
-            Section.IMAGE_BRAND_AD_FIELD_NUMBER
+            com.spotify.home.evopage.homeapi.proto.Section.VIDEO_BRAND_AD_FIELD_NUMBER,
+            com.spotify.home.evopage.homeapi.proto.Section.IMAGE_BRAND_AD_FIELD_NUMBER
+    );
+
+    /**
+     * A list of browse sections feature types ids which should be removed. These ids match the ones from the protobuf
+     * response which delivers browse sections.
+     */
+    private static final List<Integer> REMOVED_BROWSE_SECTIONS = List.of(
+            com.spotify.browsita.v1.resolved.Section.BRAND_ADS_FIELD_NUMBER
     );
 
     /**
@@ -108,13 +97,13 @@ public final class UnlockPremiumPatch {
      */
     private static final List<List<ComponentFilter>> CONTEXT_MENU_ITEMS_COMPONENT_FILTERS = List.of(
             // "Listen to music ad-free" upsell on playlists.
-            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "id")),
+            List.of(new ResourceIdComponentFilter("context_menu_remove_ads", "string")),
             // "Listen to music ad-free" upsell on albums.
-            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "id")),
+            List.of(new ResourceIdComponentFilter("playlist_entity_reinventfree_adsfree_context_menu_item", "string")),
             // "Start a Jam" context menu item, but only filtered if the user does not have premium and the item is
             // being used as a Premium upsell (ad).
             List.of(
-                    new ResourceIdComponentFilter("group_session_context_menu_start", "id"),
+                    new ResourceIdComponentFilter("group_session_context_menu_start", "string"),
                     new StringComponentFilter("isPremiumUpsell=true")
             )
     );
@@ -122,10 +111,10 @@ public final class UnlockPremiumPatch {
     /**
      * Injection point. Override account attributes.
      */
-    public static void overrideAttributes(Map<String, /*AccountAttribute*/ Object> attributes) {
+    public static void overrideAttributes(Map<String, AccountAttribute> attributes) {
         try {
             for (OverrideAttribute override : PREMIUM_OVERRIDES) {
-                Object attribute = attributes.get(override.key);
+                AccountAttribute attribute = attributes.get(override.key);
 
                 if (attribute == null) {
                     if (override.isExpected) {
@@ -136,11 +125,7 @@ public final class UnlockPremiumPatch {
 
                 Object overrideValue = override.overrideValue;
                 Object originalValue;
-                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                    originalValue = ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_;
-                } else {
-                    originalValue = ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_;
-                }
+                originalValue = attribute.value_;
 
                 if (overrideValue.equals(originalValue)) {
                     continue;
@@ -149,11 +134,7 @@ public final class UnlockPremiumPatch {
                 Logger.printInfo(() -> "Overriding account attribute " + override.key +
                         " from " + originalValue + " to " + overrideValue);
 
-                if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                    ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
-                } else {
-                    ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
-                }
+                attribute.value_ = overrideValue;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "overrideAttributes failure", ex);
@@ -173,28 +154,60 @@ public final class UnlockPremiumPatch {
         }
     }
 
-    /**
-     * Injection point. Remove ads sections from home.
-     * Depends on patching abstract protobuf list ensureIsMutable method.
-     */
-    public static void removeHomeSections(List<Section> sections) {
+    private interface FeatureTypeIdProvider<T> {
+        int getFeatureTypeId(T section);
+    }
+
+    private static <T> void removeSections(
+            List<T> sections,
+            FeatureTypeIdProvider<T> featureTypeExtractor,
+            List<Integer> idsToRemove
+    ) {
         try {
-            Iterator<Section> iterator = sections.iterator();
+            Iterator<T> iterator = sections.iterator();
 
             while (iterator.hasNext()) {
-                Section section = iterator.next();
-                if (REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_)) {
-                    Logger.printInfo(() -> "Removing home section with feature type id " + section.featureTypeCase_);
+                T section = iterator.next();
+                int featureTypeId = featureTypeExtractor.getFeatureTypeId(section);
+                if (idsToRemove.contains(featureTypeId)) {
+                    Logger.printInfo(() -> "Removing section with feature type id " + featureTypeId);
                     iterator.remove();
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "removeHomeSections failure", ex);
+            Logger.printException(() -> "removeSections failure", ex);
         }
     }
 
     /**
-     * Injection point. Returns whether the context menu item is a Premium ad.
+     * Injection point. Remove ads sections from home.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeHomeSections(List<com.spotify.home.evopage.homeapi.proto.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from home");
+        removeSections(
+                sections,
+                section -> section.featureTypeCase_,
+                REMOVED_HOME_SECTIONS
+        );
+    }
+
+    /**
+     * Injection point. Remove ads sections from browse.
+     * Depends on patching abstract protobuf list ensureIsMutable method.
+     */
+    public static void removeBrowseSections(List<com.spotify.browsita.v1.resolved.Section> sections) {
+        Logger.printInfo(() -> "Removing ads section from browse");
+        removeSections(
+                sections,
+                section -> section.sectionTypeCase_,
+                REMOVED_BROWSE_SECTIONS
+        );
+    }
+
+    /**
+     * Injection point. Returns whether the context menu item is a Premium ad. Used for versions older than
+     * "9.0.60.128".
      */
     public static boolean isFilteredContextMenuItem(Object contextMenuItem) {
         if (contextMenuItem == null) {
@@ -214,7 +227,8 @@ public final class UnlockPremiumPatch {
                     if (componentFilter.filterUnavailable()) {
                         Logger.printInfo(() -> "isFilteredContextMenuItem: Filter " +
                                 componentFilter.getFilterRepresentation() + " not available, skipping");
-                        continue;
+                        allMatch = false;
+                        break;
                     }
 
                     if (!stringifiedContextMenuItem.contains(componentFilter.getFilterValue())) {
@@ -234,10 +248,39 @@ public final class UnlockPremiumPatch {
                     return true;
                 }
             }
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
+            // Catch Throwable as calling toString can cause crashes with wrongfully generated code that throws
+            // NoSuchMethod errors.
             Logger.printException(() -> "isFilteredContextMenuItem failure", ex);
         }
 
         return false;
+    }
+
+    /**
+     * Injection point. Returns a new list with the context menu items which are a Premium ad filtered.
+     * The original list is immutable and cannot be modified without an extra patch.
+     * The method fingerprint used to patch ensures we can return a "List" here.
+     * ContextMenuItemPlaceholder interface name and getViewModel return value are replaced by a patch to match
+     * the minified names used at runtime. Used in newer versions of the app.
+     */
+    public static List<Object> filterContextMenuItems(List<Object> originalContextMenuItems) {
+        try {
+            ArrayList<Object> filteredContextMenuItems = new ArrayList<>(originalContextMenuItems.size());
+
+            for (Object contextMenuItem : originalContextMenuItems) {
+                if (isFilteredContextMenuItem(((ContextMenuItemPlaceholder) contextMenuItem).getViewModel())) {
+                    continue;
+                }
+
+                filteredContextMenuItems.add(contextMenuItem);
+            }
+
+            return filteredContextMenuItems;
+        } catch (Exception ex) {
+            Logger.printException(() -> "filterContextMenuItems failure", ex);
+        }
+
+        return originalContextMenuItems;
     }
 }
